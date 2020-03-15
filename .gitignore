@@ -1,0 +1,15 @@
+node_modules
+package-lock.json
+.vscode
+.DS_Store
+.vscode
+lib
+dist
+_site
+package
+tmpfile*
+coverage
+test-report.html
+.idea/
+yarn.lock
+*.zip

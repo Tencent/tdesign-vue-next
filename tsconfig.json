@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "target": "es2017",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "isolatedModules": false,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "jsxFactory": "h"
+  },
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "tools"
+  ],
+  "compileOnSave": false
+}

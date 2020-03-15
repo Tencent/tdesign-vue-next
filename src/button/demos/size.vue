@@ -1,0 +1,64 @@
+<template>
+  <div>
+    <div class="demo-button-col">
+      <tdesign-button
+        theme="primary"
+        size="large"
+      >
+        大按钮
+      </tdesign-button>
+      <tdesign-button
+        theme="primary"
+        size="default"
+      >
+        中按钮
+      </tdesign-button>
+      <tdesign-button
+        theme="primary"
+        size="small"
+      >
+        小按钮
+      </tdesign-button>
+    </div>
+    <div class="demo-button-col">
+      <tdesign-button
+        theme="default"
+        size="large"
+      >
+        大按钮
+      </tdesign-button>
+      <tdesign-button
+        theme="default"
+        size="default"
+      >
+        中按钮
+      </tdesign-button>
+      <tdesign-button
+        theme="default"
+        size="small"
+      >
+        小按钮
+      </tdesign-button>
+    </div>
+    <div class="demo-button-col">
+      <tdesign-button
+        theme="text"
+        size="large"
+      >
+        大按钮
+      </tdesign-button>
+      <tdesign-button
+        theme="text"
+        size="default"
+      >
+        中按钮
+      </tdesign-button>
+      <tdesign-button
+        theme="text"
+        size="small"
+      >
+        小按钮
+      </tdesign-button>
+    </div>
+  </div>
+</template>
