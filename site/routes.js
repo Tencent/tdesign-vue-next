@@ -59,10 +59,9 @@ const routes = [
   },
   ...demoRoutes,
   {
-    path: '/demos',
+    path: '/demos*',
     component: SpfxDemoList,
     props: { demoRoutes },
   },
 ];
 export default routes;
-export { demoRoutes };
