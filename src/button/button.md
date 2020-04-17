@@ -21,8 +21,8 @@
 ### 属性配置
 |参数|说明|类型|可选值|默认值|
 |--- |--- |--- |--- |--- |
-|size|button 大小|string|large | default | small|'default'|
-|theme|button 类型|string|default | primary | text|'default'|
+|size|button 大小|string|large/default/small|default|
+|theme|button 类型|string|default/primary/text|default|
 |round|圆角，如果只有图标，则渲染为圆形按钮|boolean|-|-|
 |disabled|禁用|boolean|-|-|
 |icon||string|-|-|
