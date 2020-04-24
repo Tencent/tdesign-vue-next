@@ -1,3 +1,3 @@
 export default {
-  prefix: 'tdesign-',
+  prefix: 't',
 };

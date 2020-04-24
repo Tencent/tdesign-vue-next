@@ -1,6 +1,7 @@
 {
   "extends": [
     "@tencent/eslint-config-tencent",
+    "plugin:@typescript-eslint/recommended",
     "plugin:vue/essential"
   ],
   "env": {
