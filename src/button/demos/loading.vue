@@ -1,15 +1,15 @@
 <template>
   <div class="button-base">
-    <tdesign-button
+    <t-button
       loading
       type="primary"
     >
       主按钮
-    </tdesign-button>
-    <tdesign-button
+    </t-button>
+    <t-button
       loading
     >
       次按钮
-    </tdesign-button>
+    </t-button>
   </div>
-</template>
+</template>;

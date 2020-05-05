@@ -1,7 +1,7 @@
 {
   "extends": [
-    "@tencent/eslint-config-tencent",
     "plugin:@typescript-eslint/recommended",
+    "@tencent/eslint-config-tencent",
     "plugin:vue/essential"
   ],
   "env": {
@@ -30,6 +30,7 @@
     "no-underscore-dangle": 0,
     "func-style": 0,
     "no-console": ["error", { "allow": ["warn", "error"] }],
+    "@typescript-eslint/no-explicit-any": 0
   },
   "overrides": [
     {
@@ -56,7 +57,9 @@
         "**/demos/*", "script/**/*", "script/*"
       ],
       "rules": {
-        "no-console": 0
+        "no-var-requires": 0,
+        "no-console": 0,
+        "@typescript-eslint/explicit-function-return-type": 0
       }
     }
   ]

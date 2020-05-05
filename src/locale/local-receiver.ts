@@ -1,7 +1,7 @@
-import Vue, { VueConstructor,  ComponentOptions } from 'vue';
+import Vue from 'vue';
 import config from '../config';
 import { Locale } from './local-provider';
-import defaultLocale from './en_US';
+import defaultLocale from './zh_CN';
 
 const name = `${config.prefix}-locale-receiver`;
 
@@ -9,11 +9,7 @@ interface Placement {
   [propName: string]: string | number;
 };
 
-type LocaleMixin = VueConstructor<Vue & {
-  locale: Locale;
-}>
-
-export default function getLocalRecevierMixins(componentName: string): LocaleMixin {
+export default function getLocalRecevierMixins(componentName: string) { // eslint-disable-line
   return Vue.extend({
     name,
     inject: {

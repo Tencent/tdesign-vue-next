@@ -1,13 +1,13 @@
 <template>
   <div class="button-base">
-    <tdesign-button theme="primary">
+    <t-button theme="primary">
       主按钮
-    </tdesign-button>
-    <tdesign-button theme="default">
+    </t-button>
+    <t-button theme="default">
       次按钮
-    </tdesign-button>
-    <tdesign-button theme="text">
+    </t-button>
+    <t-button theme="text">
       文字按钮
-    </tdesign-button>
+    </t-button>
   </div>
-</template>
+</template>;
