@@ -1,3 +1,3 @@
 declare const VERSION: string;
 
-type ClassName = { [className: string]: boolean } | ClassName[] | string;
+type ClassName = { [className: string]: any } | ClassName[] | string;

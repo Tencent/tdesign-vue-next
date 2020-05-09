@@ -7,7 +7,8 @@ lib
 dist
 _site
 package
-tmpfile*
+tmp*
+temp*
 coverage
 test-report.html
 .idea/
