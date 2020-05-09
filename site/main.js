@@ -2,13 +2,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import TDesign from '../src/index';
-import '../theme/index.less';
 import routes from './routes';
 import app from './app.vue';
 import Layout from './components/layout.vue';
 import Demo from './components/demo.vue';
+import '../common/style/web/index.less';
 import './styles/index.less';
-import '../theme/docs.less';
 
 Vue.use(TDesign);
 Vue.use(VueRouter);
