@@ -19,13 +19,11 @@
 :::
 
 ### 属性配置
-|参数|说明|类型|可选值|默认值|
-|--- |--- |--- |--- |--- |
-|size|button 大小|string|large/default/small|default|
-|theme|button 类型|string|default/primary/text|default|
-|round|圆角，如果只有图标，则渲染为圆形按钮|boolean|-|-|
-|disabled|禁用|boolean|-|-|
-|icon||string|-|-|
-|suffixIcon||string|-|-|
-|iconOnly|图标按钮|boolean|-|-|
-|block|块级按钮|boolean|-|false|
+| 属性 | 类型 | 默认值 | 必传 | 说明 |
+|-----|-----|-----|-----|-----|
+|theme|Enum|default|N|类型可选值为default primary danger text ghost|
+|size|Enum|default|N|可选值为 large / default / small /  |
+|icon|String/Slot/Function| |N|按钮图标 |
+|block|Boolean|false|N|是否为块级元素|
+|shape|Enum|square|N|按钮边角类型，square，round，circle|
+|loading|Boolean|false|N|是否显示为加载状态|
