@@ -1,21 +1,18 @@
 ## Button 按钮
 
-::: demo demos/base 按钮类型
+::: demo demos/base 默认
 :::
 
-::: demo demos/size 按钮尺寸
+::: demo demos/status 状态
 :::
 
-::: demo demos/disabled 不可用
+::: demo demos/theme 类型
 :::
 
-::: demo demos/icon 带图标
+::: demo demos/size 尺寸
 :::
 
-::: demo demos/round 圆形按钮
-:::
-
-::: demo demos/loading loading 状态
+::: demo demos/block 块级
 :::
 
 ### 属性配置

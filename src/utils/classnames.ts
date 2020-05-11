@@ -6,6 +6,7 @@ const ClASSNAMES = {
     large: `${prefix}-size-l`,
     default: '',
     small: `${prefix}-size-m`,
+    block: `${prefix}-size-full-width`,
   },
   STATUS: {
     loading: `${prefix}-is-loading`,
