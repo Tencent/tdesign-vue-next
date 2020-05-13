@@ -1,8 +1,5 @@
-**/*test*
-!.*.js
+snapshot*
 dist
 lib
 node_modules
-site
-script
 common

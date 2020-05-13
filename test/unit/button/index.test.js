@@ -1,18 +1,18 @@
-import { mount } from "@vue/test-utils";
-import Button from "@/button";
+import { mount } from '@vue/test-utils';
+import Button from '@/button';
 
-describe("Button", () => {
+describe('Button', () => {
   let cmp;
 
   beforeEach(() => {
-    cmp = mount(Button,{
+    cmp = mount(Button, {
       propsData: {
-        round: true
-      }
-    })
+        round: true,
+      },
+    });
   });
 
-  it("equals round to true", () => {
+  it('equals round to true', () => {
     expect(cmp.vm.round).toEqual(true);
   });
 });
