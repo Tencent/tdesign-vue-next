@@ -1,0 +1,501 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button base demo works fine 1`] = `
+<button
+  class="t-button t-button--primary"
+>
+  Button
+</button>
+`;
+
+exports[`Button block demo works fine 1`] = `
+<div>
+  <button
+    class="t-button t-button--primary t-size-full-width"
+  >
+    主按钮
+  </button>
+   
+  <button
+    class="t-button t-button--line t-size-full-width"
+  >
+    次要按钮
+  </button>
+   
+  <button
+    class="t-button t-button--dashed t-size-full-width"
+  >
+    虚框按钮
+  </button>
+   
+  <button
+    class="t-button t-button--warning t-size-full-width"
+  >
+    告警按钮
+  </button>
+   
+  <button
+    class="t-button t-button--warning-line t-size-full-width"
+  >
+    次要告警
+  </button>
+   
+  <button
+    class="t-button t-button--link t-size-full-width"
+  >
+    文字按钮
+  </button>
+   
+  <button
+    class="t-button t-button--ghost t-size-full-width"
+  >
+    幽灵按钮
+  </button>
+</div>
+`;
+
+exports[`Button icon demo works fine 1`] = `
+<div
+  class="demo-button-icon"
+>
+  <div
+    class="demo-button-row"
+  >
+    <button
+      class="t-button t-button--primary"
+    >
+      <span
+        class="t-button__inner"
+      >
+        <i
+          class="t-icon t-icon-demo t-icon-delete"
+        />
+        <span
+          class="t-button__text"
+        >
+          
+      删除
+    
+        </span>
+      </span>
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      <span
+        class="t-button__inner"
+      >
+        <i
+          class="t-icon t-icon-demo t-icon-delete"
+        />
+        <span
+          class="t-button__text"
+        >
+          
+      删除
+    
+        </span>
+      </span>
+    </button>
+     
+    <button
+      class="t-button t-button--link"
+    >
+      <span
+        class="t-button__inner"
+      >
+        <i
+          class="t-icon t-icon-demo t-icon-delete"
+        />
+        <span
+          class="t-button__text"
+        >
+          
+      删除
+    
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button loading demo works fine 1`] = `
+<div
+  class="button-base"
+>
+  <button
+    class="t-button t-button--line t-is-loading"
+    type="primary"
+  >
+    <span
+      class="t-button__inner"
+    >
+      <i
+        class="t-icon t-icon-demo t-icon-loading_gradient"
+      />
+      <span
+        class="t-button__text"
+      >
+        
+    主按钮
+  
+      </span>
+    </span>
+  </button>
+   
+  <button
+    class="t-button t-button--line t-is-loading"
+  >
+    <span
+      class="t-button__inner"
+    >
+      <i
+        class="t-icon t-icon-demo t-icon-loading_gradient"
+      />
+      <span
+        class="t-button__text"
+      >
+        
+    次按钮
+  
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button render-icon demo works fine 1`] = `
+<button
+  class="t-button t-button--primary"
+>
+  
+  主按钮
+
+</button>
+`;
+
+exports[`Button size demo works fine 1`] = `
+<div>
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-size-m t-button--primary"
+    >
+      主按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--line"
+    >
+      次要按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--dashed"
+    >
+      虚框按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--warning"
+    >
+      告警按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--warning-line"
+    >
+      次要告警
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--link"
+    >
+      文字按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--ghost"
+    >
+      幽灵按钮
+    </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-button--primary"
+    >
+      主按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      次要按钮
+    </button>
+     
+    <button
+      class="t-button t-button--dashed"
+    >
+      虚框按钮
+    </button>
+     
+    <button
+      class="t-button t-button--warning"
+    >
+      告警按钮
+    </button>
+     
+    <button
+      class="t-button t-button--warning-line"
+    >
+      次要告警
+    </button>
+     
+    <button
+      class="t-button t-button--link"
+    >
+      文字按钮
+    </button>
+     
+    <button
+      class="t-button t-button--ghost"
+    >
+      幽灵按钮
+    </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-size-l t-button--primary"
+    >
+      主按钮
+    </button>
+     
+    <button
+      class="t-button t-size-l t-button--line"
+    >
+      次要按钮
+    </button>
+     
+    <button
+      class="t-button t-size-l t-button--dashed"
+    >
+      虚框按钮
+    </button>
+     
+    <button
+      class="t-button t-size-l t-button--warning"
+    >
+      告警按钮
+    </button>
+     
+    <button
+      class="t-button t-size-l t-button--warning-line"
+    >
+      次要告警
+    </button>
+     
+    <button
+      class="t-button t-size-l t-button--link"
+    >
+      文字按钮
+    </button>
+     
+    <button
+      class="t-button t-size-l t-button--ghost"
+    >
+      幽灵按钮
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button status demo works fine 1`] = `
+<div>
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-button--primary"
+    >
+      主按钮
+    </button>
+     
+    <button
+      class="t-button t-button--primary t-is-disabled"
+    >
+      主按钮
+    </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-button--line"
+    >
+      次要按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line t-is-disabled"
+    >
+      次要按钮
+    </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-button--dashed"
+    >
+      虚框按钮
+    </button>
+     
+    <button
+      class="t-button t-button--dashed t-is-disabled"
+    >
+      虚框按钮
+    </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-button--warning"
+    >
+      告警按钮
+    </button>
+     
+    <button
+      class="t-button t-button--warning t-is-disabled"
+    >
+      告警按钮
+    </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-button--warning-line"
+    >
+      次要告警
+    </button>
+     
+    <button
+      class="t-button t-button--warning-line t-is-disabled"
+    >
+      次要告警
+    </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-button--link"
+    >
+      链接文字按钮
+    </button>
+     
+    <button
+      class="t-button t-button--link t-is-disabled"
+    >
+      链接文字按钮
+    </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-button--ghost"
+    >
+      幽灵按钮
+    </button>
+     
+    <button
+      class="t-button t-button--ghost t-is-disabled"
+    >
+      幽灵按钮
+    </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-button--ghost-line"
+    >
+      幽灵次要按钮
+    </button>
+     
+    <button
+      class="t-button t-button--ghost-line t-is-disabled"
+    >
+      幽灵次要按钮
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Button theme demo works fine 1`] = `
+<div>
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-button--primary"
+    >
+      主按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      次要按钮
+    </button>
+     
+    <button
+      class="t-button t-button--dashed"
+    >
+      虚框按钮
+    </button>
+     
+    <button
+      class="t-button t-button--warning"
+    >
+      告警按钮
+    </button>
+     
+    <button
+      class="t-button t-button--warning-line"
+    >
+      次要告警
+    </button>
+     
+    <button
+      class="t-button t-button--link"
+    >
+      文字按钮
+    </button>
+     
+    <button
+      class="t-button t-button--ghost"
+    >
+      幽灵按钮
+    </button>
+  </div>
+</div>
+`;

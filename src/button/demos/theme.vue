@@ -10,4 +10,4 @@
       <t-button theme="ghost">幽灵按钮</t-button>
     </div>
   </div>
-</template>;
+</template>
