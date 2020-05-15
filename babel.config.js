@@ -12,9 +12,10 @@ module.exports = {
             'Edge >= 12',
           ],
         },
-        modules: false,
+        modules: 'commonjs',
       },
     ],
+    '@vue/babel-preset-jsx',
   ],
   env: {
     test: {
@@ -28,8 +29,8 @@ module.exports = {
             modules: 'commonjs',
           },
         ],
+        '@vue/babel-preset-jsx',
       ],
     },
   },
-  plugins: ['transform-vue-jsx'],
 };

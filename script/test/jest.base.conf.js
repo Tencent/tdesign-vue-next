@@ -1,5 +1,4 @@
 const path = require('path');
-// const libDir = process.env.LIB_DIR;
 
 module.exports = {
   verbose: true,
@@ -7,7 +6,9 @@ module.exports = {
   testURL: 'http://localhost/',
   moduleFileExtensions: [
     'js',
+    'jsx',
     'ts',
+    'tsx',
     'vue',
     'json',
   ],
@@ -16,9 +17,9 @@ module.exports = {
     '^vue$': '<rootDir>/node_modules/vue/dist/vue.js',
   },
   transform: {
-    '.*\\.(vue)$': ['vue-jest', 'ts-jest'],
-    '\\.ts$': 'ts-jest',
-    '^.+\\.js$': 'babel-jest',
+    '.*\\.js$': 'babel-jest',
+    '.*\\.(vue)$': 'vue-jest',
+    '.*\\.tsx?$': 'ts-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
   testRegex: '(?<!snapshot)\\.test\\.js$',
@@ -26,6 +27,8 @@ module.exports = {
   globals: {
     'ts-jest': {
       tsConfig: '<rootDir>/tsconfig.json',
+      babelConfig: true,
     },
   },
+  snapshotSerializers: ['jest-serializer-vue'],
 };

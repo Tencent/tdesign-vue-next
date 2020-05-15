@@ -32,26 +32,15 @@ npm run test:snapshot
 npm run test:unit
 ```
 
-### 2.1 注册组件
-在`script/test/setup.js`中注册要测试的组件
-
-### 2.2 添加单元测试用例
-
 - test/unit目录中，创建对应的组件目录，用于存放测试文件
-- 在上述测试组件目录中增加`index.test.js`
-- 用例书写请使用vue-test-utils
+- index.test.js 用于测试组件较细粒度的属性事件方法
+- demo.test.js 用于测试组件 demo 是否正常工作
 
-## 3. 快照测试
+### 2.1 单元测试规范
+每个组件至少有一个单元测试文件 index.test.js 和一个 demo 测试文件 demo.test.js
 
-```
-npm run test:snapshot
-```
-
-### 3.1 添加快照测试入口
-
-- 在test/unit对应的组件目录增加快照测试入口文件`snapshot.test.js`
-- 加入测试代码，测试代码请参考`test/unit/button/snapshot.test.js`
-- 运行测试命令时，会自动在当前目录下生成测试快照__snapshots__
+#### 单元测试文件
+需要对组件的 props/event/slot/methods 分别覆盖测试。具体组织方式可以参考 button，简单的渲染测试可以直接使用 snapshot
 
 ## 4. 服务端渲染测试
 

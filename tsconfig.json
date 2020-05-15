@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
     "lib": [
+      "esnext",
       "dom",
-      "es6"
+      "dom.iterable",
+      "scripthost"
     ],
-    "target": "es2017",
+    "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
     "isolatedModules": false,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
     "strictNullChecks": false,
@@ -16,8 +19,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "jsx": "preserve",
-    "jsxFactory": "h"
+    "jsx": "preserve"
   },
   "include": [
     "./**/*.ts",

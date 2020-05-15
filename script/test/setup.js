@@ -1,9 +1,5 @@
 import Vue from 'vue';
+import TDesign from '@/index';
 
-import Icon from '../../src/icon';
-import Button from '../../src/button';
-
+Vue.use(TDesign);
 Vue.config.productionTip = false;
-
-Vue.component('t-icon', Icon);
-Vue.component('t-button', Button);
