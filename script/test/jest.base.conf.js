@@ -13,9 +13,10 @@ module.exports = {
     'json',
   ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@/(.*)$': '<rootDir>/$1',
     '^vue$': '<rootDir>/node_modules/vue/dist/vue.js',
   },
+  modulePathIgnorePatterns: ['<rootDir>/test/unit/coverage/'],
   transform: {
     '.*\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest',

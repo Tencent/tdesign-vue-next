@@ -16,6 +16,9 @@ npm run test:node
 
 # 运行快照测试
 npm run test:snapshot
+
+# 运行监视模式
+npm run test:watch
 ```
 
 ### 1.2 目录结构
@@ -37,7 +40,9 @@ npm run test:unit
 - demo.test.js 用于测试组件 demo 是否正常工作
 
 ### 2.1 单元测试规范
-每个组件至少有一个单元测试文件 index.test.js 和一个 demo 测试文件 demo.test.js
+- 每个组件至少有一个单元测试文件 index.test.js 和一个 demo 测试文件 demo.test.js
+- 用例书写请使用：[vue-test-utils](https://vue-test-utils.vuejs.org/zh/)
+- 断言库请使用：[https://jestjs.io/docs/en/expect](https://jestjs.io/docs/en/expect)
 
 #### 单元测试文件
 需要对组件的 props/event/slot/methods 分别覆盖测试。具体组织方式可以参考 button，简单的渲染测试可以直接使用 snapshot
