@@ -10,7 +10,7 @@ module.exports = {
       success: clc.green,
     };
 
-    console.log(colorMap[type](`ten: ${message}`));
+    console.log(colorMap[type](`TDesign: ${message}`));
   },
   resolveCwd(...args) {
     args.unshift(process.cwd());
