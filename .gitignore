@@ -14,7 +14,7 @@ test-report.html
 .idea/
 yarn.lock
 *.zip
-cypress/screenshots
-cypress/videos
-cypress/results
+script/test/cypress/screenshots
+script/test/cypress/videos
+script/test/cypress/results
 results/
