@@ -13,7 +13,7 @@ module.exports = {
     'json',
   ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@/(.*)$': '<rootDir>/$1',
     '^vue$': '<rootDir>/node_modules/vue/dist/vue.js',
   },
   transform: {

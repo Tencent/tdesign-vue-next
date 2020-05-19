@@ -3,7 +3,7 @@ import SpfxComponents from './pages/components';
 import SpfxDemoList from './pages/demo-list';
 import SpfxDemoPage from './pages/demo-page';
 
-const demoReq = require.context('../src', true, /demos[/\\][\w-]+\.vue$/im);
+const demoReq = require.context('../examples', true, /demos[/\\][\w-]+\.vue$/im);
 
 const navs = config.navs;
 

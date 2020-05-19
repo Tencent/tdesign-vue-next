@@ -45,20 +45,6 @@ export default Vue.extend({
     block: Boolean,
     disabled: Boolean,
   },
-  computed: {
-    _class(): ClassName {
-      return 
-    },
-    _iconClass(): ClassName {
-      return `${name}__icon`;
-    },
-    _icon(): Function | string | undefined {
-      return this.loading ? 'loading_gradient' : this.icon;
-    },
-    _slotIcon(): boolean {
-      return Boolean(this.$scopedSlots.icon);
-    },
-  },
   render(h: CreateElement) {
     const buttonClass = [
       `${name}`,
