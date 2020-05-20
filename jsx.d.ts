@@ -9,5 +9,8 @@ declare global {
     interface IntrinsicElements {
       [elem: string]: any;
     }
+    interface IntrinsicAttributes {
+      [attr: string]: any;
+    }
   }
 }

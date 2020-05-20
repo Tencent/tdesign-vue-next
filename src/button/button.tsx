@@ -65,7 +65,7 @@ export default Vue.extend({
     } else if (typeof this.icon === 'string') {
       icon = <Icon name={this.icon}></Icon>
     } else if (typeof icon === 'function') {
-      icon = <i class={`${name}-icon`}>{ this.icon() }</i>;
+      icon = <i class={`${Icon.name}`}>{ this.icon() }</i>;
     }
 
     if (icon) {
