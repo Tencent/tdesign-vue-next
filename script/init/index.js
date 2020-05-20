@@ -55,25 +55,11 @@ function getSnapshotFiles(component) {
   };
 }
 
-function deleteFolderRecursive(path) {
-  if (fs.existsSync(path)) {
-    fs.readdirSync(path).forEach((file) => {
-      const current = `${path}/${file}`;
-      if (fs.statSync(current).isDirectory()) {
-        deleteFolderRecursive(current);
-      } else {
-        fs.unlinkSync(current);
-      }
-    });
-    fs.rmdirSync(path);
-  }
-}
-
 function deleteComponent(toBeCreatedFiles, component) {
   const snapShotFiles = getSnapshotFiles(component);
   const files = Object.assign(toBeCreatedFiles, snapShotFiles);
   Object.keys(files).forEach((dir) => {
-    deleteFolderRecursive(dir);
+    utils.deleteFolderRecursive(dir);
   });
   utils.log('All radio files have been removed.\n', 'success');
 }
