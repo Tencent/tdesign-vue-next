@@ -23,7 +23,7 @@ module.exports = {
     '.*\\.tsx?$': 'ts-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
-  testRegex: '(?<!snapshot)\\.test\\.js$',
+  testRegex: '.*\\.test\\.js$',
   setupFiles: ['<rootDir>/script/test/setup'],
   globals: {
     'ts-jest': {
@@ -32,4 +32,8 @@ module.exports = {
     },
   },
   snapshotSerializers: ['jest-serializer-vue'],
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
 };

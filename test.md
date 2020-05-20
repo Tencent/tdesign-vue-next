@@ -14,19 +14,19 @@ npm run test:unit
 # 运行服务端渲染测试
 npm run test:node
 
-# 运行快照测试
-npm run test:snapshot
-
 # 运行监视模式
 npm run test:watch
+
+# 生活测试覆盖率报告
+npm run test:coverage
 ```
 
 ### 1.2 目录结构
 
 - test   测试目录
-|-- e2e UI测试
+|-- e2e  UI测试
 |-- unit 单元测试
-|-- shared 公共方法
+|-- ssr  服务端测试
 |-- ...
 
 ## 2. 单元测试
@@ -40,7 +40,7 @@ npm run test:unit
 - demo.test.js 用于测试组件 demo 是否正常工作
 
 ### 2.1 单元测试规范
-- 每个组件至少有一个单元测试文件 index.test.js 和一个 demo 测试文件 demo.test.js
+- 每个组件至少有两个单元测试文件，一个是测试源代码的单元测试文件 index.test.js，另一个则是测试组件示例代码的单元测试文件 demo.test.js
 - 用例书写请使用：[vue-test-utils](https://vue-test-utils.vuejs.org/zh/)
 - 断言库请使用：[https://jestjs.io/docs/en/expect](https://jestjs.io/docs/en/expect)
 
@@ -55,4 +55,4 @@ npm run test:node
 ```
 
 ## 注意事项
-由于vue-jest的限制，在组件vue文件中引入ts文件，而该ts文件又调用Vue，比如Vue.extend，则会解析失败。
+
