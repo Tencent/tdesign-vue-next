@@ -34,7 +34,16 @@ function getToBeCreatedFiles(component) {
     },
     [`test/unit/${component}`]: {
       desc: 'unit test',
-      files: ['index.test.js', 'demo.test.js'],
+      files: [
+        {
+          file: 'index.test.js',
+          template: 'index.test.tpl',
+        },
+        {
+          file: 'demo.test.js',
+          template: 'demo.test.tpl',
+        },
+      ],
     },
     [`test/e2e/${component}`]: {
       desc: 'e2e test',

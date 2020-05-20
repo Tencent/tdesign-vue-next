@@ -46,27 +46,52 @@ function getFirstLetterUpper(a) {
   return a[0].toUpperCase() + a.slice(1);
 }
 
-function deleteComponent(toBeCreatedFiles) {
-  Object.keys(toBeCreatedFiles).forEach((dir) => {
-    const _d = path.resolve(cwdPath, dir);
-    fs.readdir(_d, (err, files = []) => {
-      if (err) {
-        utils.log(err, 'error');
+function getSnapshotFiles(component) {
+  return {
+    [`test/unit/${component}/__snapshots__/`]: {
+      desc: 'snapshot test',
+      files: ['index.test.js.snap', 'demo.test.js.snap'],
+    },
+  };
+}
+
+function deleteFolderRecursive(path) {
+  if (fs.existsSync(path)) {
+    fs.readdirSync(path).forEach((file) => {
+      const current = `${path}/${file}`;
+      if (fs.statSync(current).isDirectory()) {
+        deleteFolderRecursive(current);
+      } else {
+        fs.unlinkSync(current);
       }
-      files.forEach((file) => {
-        const _f = path.resolve(_d, file);
-        if (!fs.statSync(_f).isDirectory()) {
-          fs.unlinkSync(_f);
-        }
-        utils.log(`${_f} has been removed.`, 'success');
-      });
-      // fs.rmdirSync(_d);
     });
+    fs.rmdirSync(path);
+  }
+}
+
+function deleteComponent(toBeCreatedFiles, component) {
+  const snapShotFiles = getSnapshotFiles(component);
+  const files = Object.assign(toBeCreatedFiles, snapShotFiles);
+  Object.keys(files).forEach((dir) => {
+    deleteFolderRecursive(dir);
   });
+  utils.log('All radio files have been removed.\n', 'success');
+}
+
+function outputFileWithTemplate(item, component, desc, _d) {
+  const tplPath = path.resolve(__dirname, `./tpl/${item.template}`);
+  let data = fs.readFileSync(tplPath).toString();
+  const compiled = _.template(data);
+  data = compiled({
+    component,
+    upperComponent: getFirstLetterUpper(component),
+  });
+  const _f = path.resolve(_d, item.file);
+  createFile(_f, data, desc);
 }
 
 function addComponent(toBeCreatedFiles, component) {
-  // At first, we need to create directories for component.
+  // At first, we need to create directories for components.
   Object.keys(toBeCreatedFiles).forEach((dir) => {
     const _d = path.resolve(cwdPath, dir);
     fs.mkdir(
@@ -78,22 +103,13 @@ function addComponent(toBeCreatedFiles, component) {
           return;
         }
         console.log(`${_d} directory has been created successfully！`);
-        // Then, we create files for component.
+        // Then, we create files for components.
         const contents = toBeCreatedFiles[dir];
         contents.files.forEach((item) => {
           if (typeof item === 'object') {
-            let data = '';
             if (item.template) {
-              const tplPath = path.resolve(__dirname, `./tpl/${item.template}`);
-              data = fs.readFileSync(tplPath).toString();
-              const compiled = _.template(data);
-              data = compiled({
-                component,
-                upperComponent: getFirstLetterUpper(component),
-              });
+              outputFileWithTemplate(item, component, contents.desc, _d);
             }
-            const _f = path.resolve(_d, item.file);
-            createFile(_f, data, contents.desc);
           } else {
             const _f = path.resolve(_d, item);
             createFile(_f, '', contents.desc);
@@ -104,13 +120,62 @@ function addComponent(toBeCreatedFiles, component) {
   });
 }
 
+function getImportStr(upper, component) {
+  return `import ${upper} from './${component}';`;
+}
+
+function deleteComponentFromIndex(component, indexPath) {
+  const upper = getFirstLetterUpper(component);
+  const importStr = `${getImportStr(upper, component)}\n`;
+  let data = fs.readFileSync(indexPath).toString();
+  data = data
+    .replace(new RegExp(importStr), () => '')
+    .replace(new RegExp(`  ${upper},\n`), '');
+  fs.writeFile(indexPath, data,  (err) => {
+    if (err) {
+      utils.log(err, 'error');
+    } else {
+      utils.log(`${component} has been removed from /src/index.ts`, 'success');
+    }
+  });
+}
+
+function insertComponentToIndex(component, indexPath) {
+  const upper = getFirstLetterUpper(component);
+  // last import line pattern
+  const importPattern = /import.*?;(?=\n\n)/;
+  // components pattern
+  const cmpPattern = /(?<=const components = {\n)[.|\s|\S]*?(?=};\n)/g;
+  const importPath = getImportStr(upper, component);
+  const desc = '> insert component into index.ts';
+  let data = fs.readFileSync(indexPath).toString();
+  if (data.match(new RegExp(importPath))) {
+    utils.log(`there is already ${component} in /src/index.ts`, 'notice');
+    return;
+  }
+  // insert component at last import and component lines.
+  data = data
+    .replace(importPattern, a => (`${a}\n${importPath}`))
+    .replace(cmpPattern, a => (`${a}  ${upper},\n`));
+  fs.writeFile(indexPath, data,  (err) => {
+    if (err) {
+      utils.log(err, 'error');
+    } else {
+      utils.log(`${desc}\n${component} has been inserted into /src/index.ts`, 'success');
+    }
+  });
+}
+
 function init() {
   const [component, isDeleted] = process.argv.slice(2);
+  const indexPath = path.resolve(cwdPath, 'src/index.ts');
   const toBeCreatedFiles = config.getToBeCreatedFiles(component);
   if (isDeleted === 'del') {
-    deleteComponent(toBeCreatedFiles);
+    deleteComponent(toBeCreatedFiles, component);
+    deleteComponentFromIndex(component, indexPath);
   } else {
     addComponent(toBeCreatedFiles, component);
+    insertComponentToIndex(component, indexPath);
   }
 }
 
