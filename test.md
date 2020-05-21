@@ -17,7 +17,7 @@ npm run test:node
 # 运行监视模式
 npm run test:watch
 
-# 生活测试覆盖率报告
+# 生成测试覆盖率报告
 npm run test:coverage
 ```
 
