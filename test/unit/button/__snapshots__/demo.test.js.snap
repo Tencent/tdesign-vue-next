@@ -126,8 +126,7 @@ exports[`Button loading demo works fine 1`] = `
   class="button-base"
 >
   <button
-    class="t-button t-button--line t-is-loading"
-    type="primary"
+    class="t-button t-button--primary t-is-loading"
   >
     <span
       class="t-button__inner"
