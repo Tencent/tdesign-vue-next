@@ -5,7 +5,7 @@ import SpfxDemoPage from './pages/demo-page';
 
 const demoReq = require.context('../examples', true, /demos[/\\][\w-]+\.vue$/im);
 
-const { navs } = config.navs;
+const { navs } = config;
 
 function getDocsRoutes(docs, type) {
   let docsRoutes = [];
