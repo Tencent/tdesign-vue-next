@@ -1,8 +1,11 @@
 function getToBeCreatedFiles(component) {
   // keys are directories, values are files.
+  // desc - directory description
+  // files - will be created
+  // dirDeletable - if this directory can be deleted.
   return {
     [`src/${component}`]: {
-      desc: 'source code',
+      desc: 'component source code',
       files: [
         {
           file: 'index.ts',
@@ -48,6 +51,17 @@ function getToBeCreatedFiles(component) {
     [`test/e2e/${component}`]: {
       desc: 'e2e test',
       files: [`${component}.spec.js`],
+    },
+    ['test/ssr']: {
+      // no delete the whole folder, just delete these files in 'deleteFiles'.
+      deleteFiles: [`test/ssr/${component}.test.js`],
+      desc: 'ssr test',
+      files: [
+        {
+          file: `${component}.test.js`,
+          template: 'ssr.demo.test.tpl',
+        },
+      ],
     },
   };
 }

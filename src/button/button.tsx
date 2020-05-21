@@ -1,10 +1,9 @@
 import Vue, { CreateElement, VNode } from 'vue';
-import config from '../config';
+import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import Icon from '../icon';
 
-const { prefix } = config;
 const name = `${prefix}-button`;
 
 export default Vue.extend({

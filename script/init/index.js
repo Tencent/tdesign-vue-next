@@ -59,9 +59,16 @@ function deleteComponent(toBeCreatedFiles, component) {
   const snapShotFiles = getSnapshotFiles(component);
   const files = Object.assign(toBeCreatedFiles, snapShotFiles);
   Object.keys(files).forEach((dir) => {
-    utils.deleteFolderRecursive(dir);
+    const item = files[dir];
+    if (item.deleteFiles && item.deleteFiles.length) {
+      item.deleteFiles.forEach((f) => {
+        fs.existsSync(f) && fs.unlinkSync(f);
+      });
+    } else {
+      utils.deleteFolderRecursive(dir);
+    }
   });
-  utils.log('All radio files have been removed.\n', 'success');
+  utils.log('All radio files have been removed.', 'success');
 }
 
 function outputFileWithTemplate(item, component, desc, _d) {
