@@ -17,4 +17,5 @@ yarn.lock
 script/test/cypress/screenshots
 script/test/cypress/videos
 script/test/cypress/results
+script/test/cypress/support
 results/

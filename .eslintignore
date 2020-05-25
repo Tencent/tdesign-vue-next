@@ -3,9 +3,8 @@ dist
 lib
 node_modules
 common
-src/_test_/
 cypress
 script/test/cypress
+test/e2e
 site
-script
 common
