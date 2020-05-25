@@ -10,6 +10,9 @@
     "jest": true,
     "es6": true
   },
+  "globals": {
+    "cy": "readonly"
+  },
   "plugins": [
     "vue",
     "@typescript-eslint"
