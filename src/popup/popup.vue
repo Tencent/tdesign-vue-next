@@ -124,6 +124,10 @@ export default Vue.extend({
         on(reference, 'mousedown', this.doShow);
         on(reference, 'mouseup', this.doClose);
       }
+    } else if (this.trigger === 'contextMenu') {
+      reference.oncontextmenu = (): boolean => false;
+      on(reference, 'mousedown', this.handleRightClick);
+      on(document, 'click', this.handleDocumentClick);
     }
   },
   beforeDestroy() {
@@ -204,6 +208,11 @@ export default Vue.extend({
         !popper ||
         popper.contains(e.target)) return;
       this.showPopper = false;
+    },
+    handleRightClick(e: Event): any {
+      if ((e as any).button === 2) {
+        this.showPopper = false;
+      }
     },
     handleAfterEnter(): any {
       this.$emit('after-enter');
