@@ -14,3 +14,4 @@ test-report.html
 .idea/
 yarn.lock
 *.zip
+.history
