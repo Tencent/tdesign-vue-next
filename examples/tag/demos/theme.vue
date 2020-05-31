@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tdesign-tag-theme">
     <div class="tdesign-demo-block">
       默认：
       <t-tag>默认</t-tag>

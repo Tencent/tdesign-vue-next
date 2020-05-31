@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tdesign-tag-shape">
     <div class="tdesign-demo-block">
       正常：
       <t-tag>标签一</t-tag>

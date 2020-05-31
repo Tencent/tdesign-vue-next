@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tdesign-tag-closable">
     <t-tag
       v-for="(tag, index) in tags"
       :key="index"

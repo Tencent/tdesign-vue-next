@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tdesign-tag-icon">
     <div class="tdesign-demo-block">
       自定义图标标签：
       <t-tag :icon="renderIcon">标签</t-tag>

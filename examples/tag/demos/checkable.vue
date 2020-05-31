@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tdesign-tag-checkable">
     <t-tag
       v-for="(tag, index) in tags"
       :key="index"
