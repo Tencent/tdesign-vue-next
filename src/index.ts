@@ -2,11 +2,13 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import Tag from './tag';
 
 const components = {
   Icon,
   Button,
   Pagination,
+  Tag,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
