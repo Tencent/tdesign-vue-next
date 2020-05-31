@@ -1,0 +1,5 @@
+<template>
+  <div>
+    <t-tag max-width="150">超长省略文本标签超长省略文本标签</t-tag>
+  </div>
+</template>
