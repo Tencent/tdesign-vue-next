@@ -2,7 +2,7 @@
   <div class="button-base">
     <t-button
       loading
-      type="primary"
+      theme="primary"
     >
       主按钮
     </t-button>

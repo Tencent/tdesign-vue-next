@@ -13,16 +13,17 @@ module.exports = {
     'json',
   ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@/(.*)$': '<rootDir>/$1',
     '^vue$': '<rootDir>/node_modules/vue/dist/vue.js',
   },
+  modulePathIgnorePatterns: ['<rootDir>/test/unit/coverage/'],
   transform: {
     '.*\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest',
     '.*\\.tsx?$': 'ts-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
-  testRegex: '(?<!snapshot)\\.test\\.js$',
+  testRegex: '.*\\.test\\.js$',
   setupFiles: ['<rootDir>/script/test/setup'],
   globals: {
     'ts-jest': {
@@ -31,4 +32,8 @@ module.exports = {
     },
   },
   snapshotSerializers: ['jest-serializer-vue'],
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
 };

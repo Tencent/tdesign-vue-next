@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Button from '@/button/index.ts';
+import Button from '@/src/button/index.ts';
 
 describe('Button', () => {
   describe(':props', () => {

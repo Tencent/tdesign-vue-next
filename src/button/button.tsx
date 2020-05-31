@@ -1,10 +1,9 @@
 import Vue, { CreateElement, VNode } from 'vue';
-import config from '../config';
+import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import Icon from '../icon';
 
-const { prefix } = config;
 const name = `${prefix}-button`;
 
 export default Vue.extend({
@@ -45,20 +44,6 @@ export default Vue.extend({
     block: Boolean,
     disabled: Boolean,
   },
-  computed: {
-    _class(): ClassName {
-      return 
-    },
-    _iconClass(): ClassName {
-      return `${name}__icon`;
-    },
-    _icon(): Function | string | undefined {
-      return this.loading ? 'loading_gradient' : this.icon;
-    },
-    _slotIcon(): boolean {
-      return Boolean(this.$scopedSlots.icon);
-    },
-  },
   render(h: CreateElement) {
     const buttonClass = [
       `${name}`,
@@ -79,7 +64,7 @@ export default Vue.extend({
     } else if (typeof this.icon === 'string') {
       icon = <Icon name={this.icon}></Icon>
     } else if (typeof icon === 'function') {
-      icon = <i class={`${name}-icon`}>{ this.icon() }</i>;
+      icon = <i class={`${Icon.name}`}>{ this.icon() }</i>;
     }
 
     if (icon) {
