@@ -32,7 +32,9 @@
     "no-underscore-dangle": 0,
     "func-style": 0,
     "no-console": ["error", { "allow": ["warn", "error"] }],
-    "@typescript-eslint/no-explicit-any": 0
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/prefer-for-of": 0,
+    "prefer-default-export": 0
   },
   "overrides": [
     {
