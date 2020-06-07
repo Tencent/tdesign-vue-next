@@ -1,3 +1,10 @@
 <template>
-  <t-popup content="tooltips">tooltips</t-popup>
+  <t-popup
+    placement="bottom"
+    content="tooltips"
+    trigger="contextMenu"
+    destroyOnHide
+  >
+    reference
+  </t-popup>
 </template>

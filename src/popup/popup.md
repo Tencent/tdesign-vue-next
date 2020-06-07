@@ -1,4 +1,4 @@
-## Button 按钮
+## Popup 弹出层
 
 ::: demo demos/base 默认
 :::
@@ -36,4 +36,3 @@ PS：
 | 平台| 事件名称| 参数| 说明 |
 |-----|-----|-----|-----|
 | web|**visibleChange** | visible（Boolean）|浮层状态改变的回调 | 
-

@@ -1,17 +1,18 @@
 <template>
   <span>
     <div
-      :class="popperClass"
+      :class="overlayClassName"
       ref="popper"
       v-show="!disabled && showPopper"
-      :style="{ width: width + 'px' }"
+      :style="overlayStyle"
       role="tooltip"
       :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
     >
-      <div class="el-popover__title" v-if="title" v-text="title"></div>
-      <slot>{{ content }}</slot>
+      {{ content }}
     </div>
-    <slot name="reference"></slot>
+    <div ref="reference">
+      <slot />
+    </div>
   </span>
 </template>
 
@@ -23,7 +24,7 @@ import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import { on, off, addClass, removeClass } from '../utils/dom';
 
-
+const stop = (e: Event): any => e.stopPropagation();
 const { prefix } = config;
 const name = `${prefix}-popup`;
 const placementMap = {
@@ -87,7 +88,7 @@ export default Vue.extend({
     },
   },
   data: (): any => ({
-    onshowPopper: false,
+    showPopper: false,
     currentPlacement: '',
   }),
   computed: {
@@ -112,27 +113,26 @@ export default Vue.extend({
       }
       this.$emit('visibleChange', val);
     },
+    visible(val): any {
+      if (this.trigger === 'manual') {
+        this.showPopper = val;
+      }
+    },
   },
   mounted() {
     this.currentPlacement = this.currentPlacement || this.placement;
+    this.popperElm = this.popperElm || this.$refs.popper;
+    this.referenceElm = this.referenceElm || this.$refs.reference;
+    if (!this.popperElm || !this.referenceElm) return;
 
-    let reference: any = this.reference || this.$refs.reference;
-    const popper = this.popper || this.$refs.popper;
-    if (!reference && this.$slots.reference && this.$slots.reference[0]) {
-      reference = this.$slots.reference[0].elm;
-    }
-    // 可访问性
-    if (reference) {
-      return;
-    }
+    if (this.visibleArrow) this.appendArrow(this.popperElm);
+
+    this.createPopperJS();
+    const reference = this.referenceElm;
+    const popper = this.popperElm;
+
     if (this.trigger !== 'click') {
-      on(reference, 'focusin', () => {
-        this.handleFocus();
-        const instance = reference.__vue__;
-        if (instance && typeof instance.focus === 'function') {
-          instance.focus();
-        }
-      });
+      on(reference, 'focusin', this.handleFocus);
       on(popper, 'focusin', this.handleFocus);
       on(reference, 'focusout', this.handleBlur);
       on(popper, 'focusout', this.handleBlur);
@@ -162,8 +162,15 @@ export default Vue.extend({
       on(document, 'click', this.handleDocumentClick);
     }
   },
+  beforeDestroy(): any {
+    this.doDestroy(true);
+    if (this.popperElm && this.popperElm.parentNode === document.body) {
+      this.popperElm.removeEventListener('click', stop);
+      document.body.removeChild(this.popperElm);
+    }
+  },
   destroyed(): any {
-    const reference = this.reference;
+    const reference = this.referenceElm;
     off(reference, 'click', this.doToggle);
     off(reference, 'mouseup', this.doClose);
     off(reference, 'mousedown', this.doShow);
@@ -176,38 +183,20 @@ export default Vue.extend({
     off(document, 'click', this.handleDocumentClick);
   },
   methods: {
-    createPopper(): any {
-      if (this.$isServer) return;
-      this.currentPlacement = this.currentPlacement || this.placement;
+    createPopperJS(): any {
+      const overlayContainer = this.getOverlayContainer();
+      overlayContainer.appendChild(this.popperElm);
 
-      const options = this.popperOptions;
-      this.popperElm = this.popperElm || this.popper || this.$refs.popper;
-      this.referenceElm = this.referenceElm || this.reference || this.$refs.reference;
-
-      if (!this.referenceElm &&
-        this.$slots.reference &&
-        this.$slots.reference[0]) {
-        this.referenceElm = this.$slots.reference[0].elm;
-      }
-
-      if (!this.popperElm || !this.referenceElm) return;
-      if (this.visibleArrow) this.appendArrow(this.popperElm);
-      if (this.appendToBody) document.body.appendChild(this.popperElm);
       if (this.popperJS && this.popperJS.destroy) {
         this.popperJS.destroy();
       }
-
-      options.placement = this.currentPlacement;
-      options.offset = this.offset;
-      options.arrowOffset = this.arrowOffset;
-      this.popperJS = createPopper(this.referenceElm, this.popperElm, options);
-      this.popperJS.onCreate(() => {
-        this.resetTransformOrigin();
-        this.$nextTick(this.updatePopper);
+      this.popperJS = createPopper(this.referenceElm, this.popperElm, {
+        placement: this.currentPlacement,
+        onFirstUpdate: () => {
+          this.resetTransformOrigin();
+          this.$nextTick(this.updatePopper);
+        },
       });
-      if (typeof options.onUpdate === 'function') {
-        this.popperJS.onUpdate(options.onUpdate);
-      }
       this.popperElm.addEventListener('click', stop);
     },
 
@@ -216,12 +205,11 @@ export default Vue.extend({
       if (popperJS) {
         popperJS.update();
       } else {
-        this.createPopper();
+        this.createPopperJS();
       }
     },
 
     doDestroy(forceDestroy: boolean): any {
-      /* istanbul ignore if */
       if (!this.popperJS || (this.showPopper && !forceDestroy)) return;
       this.popperJS.destroy();
       this.popperJS = null;
@@ -230,6 +218,11 @@ export default Vue.extend({
     destroyPopper(): any {
       if (this.popperJS) {
         this.resetTransformOrigin();
+        if (this.destroyOnHide) {
+          this.popperJS.destroy();
+          this.popperJS = null;
+          this.popperElm.parentNode.removeChild(this.popperElm);
+        }
       }
     },
 
@@ -282,11 +275,8 @@ export default Vue.extend({
       }
     },
     handleDocumentClick(e: Event): any {
-      let reference = this.reference || this.$refs.reference;
-      const popper = this.popper || this.$refs.popper;
-      if (!reference && this.$slots.reference && this.$slots.reference[0]) {
-        reference = this.$slots.reference[0].elm;
-      }
+      const reference = this.referenceElm;
+      const popper = this.popperElm;
       if (!this.$el ||
         !reference ||
         this.$el.contains(e.target) ||
@@ -297,7 +287,7 @@ export default Vue.extend({
     },
     handleRightClick(e: Event): any {
       if ((e as any).button === 2) {
-        this.showPopper = false;
+        this.doToggle();
       }
     },
   },
