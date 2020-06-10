@@ -69,6 +69,7 @@ exports[`Button icon demo works fine 1`] = `
       >
         <i
           class="t-icon t-icon-demo t-icon-delete"
+          style="border: 1px solid;"
         />
         <span
           class="t-button__text"
@@ -88,6 +89,7 @@ exports[`Button icon demo works fine 1`] = `
       >
         <i
           class="t-icon t-icon-demo t-icon-delete"
+          style="border: 1px solid;"
         />
         <span
           class="t-button__text"
@@ -107,6 +109,7 @@ exports[`Button icon demo works fine 1`] = `
       >
         <i
           class="t-icon t-icon-demo t-icon-delete"
+          style="border: 1px solid;"
         />
         <span
           class="t-button__text"
@@ -133,6 +136,7 @@ exports[`Button loading demo works fine 1`] = `
     >
       <i
         class="t-icon t-icon-demo t-icon-loading_gradient"
+        style="border: 1px solid;"
       />
       <span
         class="t-button__text"
@@ -152,6 +156,7 @@ exports[`Button loading demo works fine 1`] = `
     >
       <i
         class="t-icon t-icon-demo t-icon-loading_gradient"
+        style="border: 1px solid;"
       />
       <span
         class="t-button__text"

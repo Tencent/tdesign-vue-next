@@ -49,7 +49,6 @@ exports[`Button base demo works fine 1`] = `
   >
     <input
       class="t-input__inner"
-      name="user"
       placeholder="请输入内容"
       type="text"
     />
