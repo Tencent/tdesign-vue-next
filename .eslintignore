@@ -7,3 +7,4 @@ cypress
 script/test/cypress
 _site
 common
+temp*
