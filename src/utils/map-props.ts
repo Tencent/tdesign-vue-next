@@ -1,7 +1,5 @@
-import Vue, { VueConstructor, ComponentOptions, CreateElement } from 'vue';
-import { ThisTypedComponentOptionsWithArrayProps, ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options';
+import Vue, { ComponentOptions, CreateElement } from 'vue';
 
-const propValidator = (): boolean => true;
 const defaultModel = {
   prop: 'value',
   event: 'input',
@@ -177,7 +175,10 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
           const others = {};
           Object.keys(this.$listeners).forEach((event: string): void => {
             if (defineEvents.indexOf(event) === -1) {
-              others[event] = this.$listeners[event];
+              others[event] = (...args: any[]): void => {
+                // (this.$listeners[event] as Function)(...args);
+                this.$emit(event, ...args);
+              };
             }
           });
           return others;
