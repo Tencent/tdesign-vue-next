@@ -2,6 +2,24 @@
 
 ::: demo demos/base 默认
 :::
+::: demo demos/placement 支持的placement
+:::
+::: demo demos/arrow 带箭头
+:::
+::: demo demos/style 自定义样式
+:::
+::: demo demos/disabled 临时禁用
+:::
+::: demo demos/visible value控制
+:::
+::: demo demos/trigger 其他触发方式
+:::
+::: demo demos/container 指定挂载父节点
+:::
+::: demo demos/destroy 隐藏时销毁popup
+:::
+::: demo demos/event popup状态改变时触发事件
+:::
 
 ### 属性配置
 

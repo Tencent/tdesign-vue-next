@@ -1,7 +1,9 @@
 <template>
   <t-popup
     content="这是popup内容"
+    trigger="manual"
+    :visible="true"
   >
-    hover我试试
+    一直显示
   </t-popup>
 </template>

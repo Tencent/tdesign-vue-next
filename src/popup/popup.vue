@@ -1,7 +1,7 @@
 <template>
   <span>
     <div
-      :class="overlayClassName"
+      :class="_class"
       ref="popper"
       v-show="!disabled && showPopper"
       :style="overlayStyle"
@@ -9,8 +9,9 @@
       :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
     >
       {{ content }}
+      <div v-if="visibleArrow" class="popper-arrow" data-popper-arrow></div>
     </div>
-    <div ref="reference">
+    <div :class="name+'-reference'" ref="reference">
       <slot />
     </div>
   </span>
@@ -28,18 +29,18 @@ const stop = (e: Event): any => e.stopPropagation();
 const { prefix } = config;
 const name = `${prefix}-popup`;
 const placementMap = {
-  top: 'center bottom',
-  bottom: 'center top',
-  left: 'right center',
-  right: 'left center',
-  topLeft: 'right bottom',
-  topRight: 'left bottom',
-  bottomLeft: 'right top',
-  bottomRight: 'left top',
-  leftTop: 'bottom right',
-  leftBottom: 'top right',
-  rightTop: 'bottom left',
-  rightBottom: 'top left',
+  top: 'top',
+  topLeft: 'top-start',
+  topRight: 'top-end',
+  bottom: 'bottom',
+  bottomLeft: 'bottom-start',
+  bottomRight: 'bottom-end',
+  left: 'left',
+  leftTop: 'left-start',
+  leftBottom: 'left-end',
+  right: 'right',
+  rightTop: 'right-start',
+  rightBottom: 'right-end',
 };
 
 export default Vue.extend({
@@ -48,7 +49,6 @@ export default Vue.extend({
     // RenderComponent,
   },
   props: {
-    reference: {},
     disabled: {
       type: Boolean,
       default: false,
@@ -68,13 +68,23 @@ export default Vue.extend({
       type: String,
       default: 'hover',
       validator(value: string): boolean {
-        return ['hover', 'click', 'focus', 'contextMenu', 'manual'].indexOf(value) > -1;
+        const triggers: string[] = value.split(' ');
+        if (triggers.indexOf('manual') > -1 && triggers.length > 1) {
+          return false;
+        }
+        for (let i = 0; i < triggers.length; i++) {
+          const trigger = triggers[i];
+          if (['hover', 'click', 'focus', 'contextMenu'].indexOf(trigger) < -1) {
+            return false;
+          }
+        }
+        return true;
       },
     },
     content: [String, Function, RenderComponent],
     visibleArrow: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     getOverlayContainer: {
       type: Function,
@@ -88,6 +98,7 @@ export default Vue.extend({
     },
   },
   data: (): any => ({
+    name,
     showPopper: false,
     currentPlacement: '',
   }),
@@ -95,10 +106,26 @@ export default Vue.extend({
     _class(): ClassName {
       return [
         `${name}`,
+        this.overlayClassName,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
       ];
+    },
+    manualTrigger(): boolean {
+      return this.trigger.indexOf('manual') > -1;
+    },
+    hoverTrigger(): boolean {
+      return this.trigger.indexOf('hover') > -1;
+    },
+    clickTrigger(): boolean {
+      return this.trigger.indexOf('click') > -1;
+    },
+    focusTrigger(): boolean {
+      return this.trigger.indexOf('focus') > -1;
+    },
+    contextMenuTrigger(): boolean {
+      return this.trigger.indexOf('contextMenu') > -1;
     },
   },
   watch: {
@@ -125,13 +152,13 @@ export default Vue.extend({
     this.referenceElm = this.referenceElm || this.$refs.reference;
     if (!this.popperElm || !this.referenceElm) return;
 
-    if (this.visibleArrow) this.appendArrow(this.popperElm);
+    // if (this.visibleArrow) this.appendArrow(this.popperElm);
 
     this.createPopperJS();
     const reference = this.referenceElm;
     const popper = this.popperElm;
 
-    if (this.trigger !== 'click') {
+    if (!this.clickTrigger) {
       on(reference, 'focusin', this.handleFocus);
       on(popper, 'focusin', this.handleFocus);
       on(reference, 'focusout', this.handleBlur);
@@ -140,15 +167,17 @@ export default Vue.extend({
     on(reference, 'keydown', this.handleKeydown);
     on(reference, 'click', this.handleClick);
 
-    if (this.trigger === 'click') {
+    if (this.clickTrigger) {
       on(reference, 'click', this.doToggle);
       on(document, 'click', this.handleDocumentClick);
-    } else if (this.trigger === 'hover') {
+    }
+    if (this.hoverTrigger) {
       on(reference, 'mouseenter', this.doShow);
       on(popper, 'mouseenter', this.doShow);
       on(reference, 'mouseleave', this.doClose);
       on(popper, 'mouseleave', this.doClose);
-    } else if (this.trigger === 'focus') {
+    }
+    if (this.focusTrigger) {
       if (reference.querySelector('input, textarea')) {
         on(reference, 'focusin', this.doShow);
         on(reference, 'focusout', this.doClose);
@@ -156,10 +185,14 @@ export default Vue.extend({
         on(reference, 'mousedown', this.doShow);
         on(reference, 'mouseup', this.doClose);
       }
-    } else if (this.trigger === 'contextMenu') {
+    }
+    if (this.contextMenuTrigger) {
       reference.oncontextmenu = (): boolean => false;
       on(reference, 'mousedown', this.handleRightClick);
       on(document, 'click', this.handleDocumentClick);
+    }
+    if (this.manualTrigger) {
+      this.showPopper = !!this.visible;
     }
   },
   beforeDestroy(): any {
@@ -191,11 +224,18 @@ export default Vue.extend({
         this.popperJS.destroy();
       }
       this.popperJS = createPopper(this.referenceElm, this.popperElm, {
-        placement: this.currentPlacement,
+        placement: placementMap[this.currentPlacement],
         onFirstUpdate: () => {
-          this.resetTransformOrigin();
           this.$nextTick(this.updatePopper);
         },
+        modifiers: [
+          {
+            name: 'arrow',
+            options: {
+              padding: 5, // 5px from the edges of the popper
+            },
+          },
+        ],
       });
       this.popperElm.addEventListener('click', stop);
     },
@@ -217,22 +257,12 @@ export default Vue.extend({
 
     destroyPopper(): any {
       if (this.popperJS) {
-        this.resetTransformOrigin();
         if (this.destroyOnHide) {
           this.popperJS.destroy();
           this.popperJS = null;
           this.popperElm.parentNode.removeChild(this.popperElm);
         }
       }
-    },
-
-    resetTransformOrigin(): any {
-      if (!this.transformOrigin) return;
-
-      const placement = this.popperJS._popper.getAttribute('x-placement').split('-')[0];
-      const originPlacement = placementMap[placement];
-      this.popperJS._popper.style.transformOrigin = typeof this.transformOrigin === 'string'
-        ? this.transformOrigin : originPlacement;
     },
 
     appendArrow(element: Element): any {
@@ -260,17 +290,17 @@ export default Vue.extend({
     },
     handleFocus(): any {
       addClass(this.referenceElm, 'focusing');
-      if (this.trigger === 'click' || this.trigger === 'focus') this.showPopper = true;
+      if (this.clickTrigger || this.focusTrigger) this.showPopper = true;
     },
     handleClick(): any {
       removeClass(this.referenceElm, 'focusing');
     },
     handleBlur(): any {
       removeClass(this.referenceElm, 'focusing');
-      if (this.trigger === 'click' || this.trigger === 'focus') this.showPopper = false;
+      if (this.clickTrigger || this.focusTrigger) this.showPopper = false;
     },
     handleKeydown(ev: any): any {
-      if (ev.keyCode === 27 && this.trigger !== 'manual') { // esc
+      if (ev.keyCode === 27 && this.manualTrigger) { // esc
         this.doClose();
       }
     },
