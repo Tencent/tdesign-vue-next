@@ -3,6 +3,17 @@
 ::: demo demos/base 默认
 :::
 
+::: demo demos/type 类型
+:::
+
+::: demo demos/state 状态
+:::
+
+::: demo demos/size 尺寸
+:::
+
+::: demo demos/fn 函数调用
+:::
 
 ### 属性配置
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
