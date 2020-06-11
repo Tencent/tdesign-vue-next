@@ -9,28 +9,27 @@
       <div :class="_sizerClass" @change="onSelectorChange"></div>
     </template>
     <!-- 向前按钮-->
-    <div class="t-pagination__btn t-pagination__btn--prev">
-      <i class="t-icon t-icon-demo" @click="prevPage"
-         :disabled="disabled || currentIndex === 1"></i>
+    <div :class="_preBtnClass"  @click="prevPage" :disabled="disabled || currentIndex === 1">
+      <i class="t-icon t-icon-demo"></i>
     </div>
     <!-- 页数 -->
     <template v-if="!_isSimple">
-      <ul class="t-pagination__pager">
-        <li class="t-pagination__number" v-if="isFolded"
+      <ul :class="_btnWrapClass">
+        <li :class="getButtonClass(1)" v-if="isFolded"
             @click="toPage(1)">1</li>
-        <li class="t-pagination__number t-pagination__number--more"
+        <li :class="_btnMoreClass"
             v-show="isFolded && isPrevMoreShow">
           <i class="t-icon t-icon-demo"></i>
         </li>
-        <li class="t-pagination__number t-is-current"
+        <li :class="getButtonClass(i)"
             v-for="i in pages" :key="i" @click="toPage(i)">
           {{ i }}
         </li>
-        <li class="t-pagination__number t-pagination__number--more"
+        <li :class="_btnMoreClass"
             v-show="isFolded && isNextMoreShow">
           <i class="t-icon t-icon-demo"></i>
         </li>
-        <li class="t-pagination__number" v-if="isFolded"
+        <li :class="getButtonClass(_pageCount)" v-if="isFolded"
             @click="toPage(_pageCount)">{{ _pageCount }}</li>
       </ul>
     </template>
@@ -42,15 +41,15 @@
            @blur="jumpToPage"></div>
     </template>
     <!-- 向后按钮-->
-    <div class="t-pagination__btn t-pagination__btn--next">
-      <i class="t-icon t-icon-demo" @click="nextPage"
-         :disabled="disabled || currentIndex === _pageCount"></i>
+    <div :class="_nextBtnClass" @click="nextPage"
+         :disabled="disabled || currentIndex === _pageCount">
+      <i class="t-icon t-icon-demo"></i>
     </div>
     <!-- 跳转-->
     <template v-if="showJumper">
-      <div class="t-pagination__jump">
+      <div :class="_jumperClass">
         跳转
-        <div class="t-pagination__input t-pagination__input-demo"
+        <div :class="_jumperInputClass"
              @keydown.enter="jumpToPage" @blur="jumpToPage"
         ></div>
         页
@@ -64,7 +63,8 @@ import config from '../config';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
 import RenderComponent from '../utils/render-component';
-// import CLASSNAMES from '../utils/classnames';
+import Icon from '../icon';
+import CLASSNAMES from '../utils/classnames';
 
 const { prefix } = config;
 const name = `${prefix}-pagination`;
@@ -75,6 +75,7 @@ export default mixins(PaginationLocalReceiver).extend({
   name,
   components: {
     RenderComponent,
+    Icon,
   },
   model: {
     prop: 'current',
@@ -216,21 +217,14 @@ export default mixins(PaginationLocalReceiver).extend({
   computed: {
     /**
      * 样式计算
-     * todo
-     *
-     * _class
-     * _totalClass
-     * _btnWrapClass
-     * _buttonClass
-     * _selectorClass
-     * _jumperClass
-     * _simpleClass
-     * etc.
      */
     _class(): ClassName {
       return [
         `${name}`,
-        `${name}--${this.size}`,
+        CLASSNAMES.SIZE[this.size],
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+        },
       ];
     },
     _totalClass(): ClassName {
@@ -240,31 +234,58 @@ export default mixins(PaginationLocalReceiver).extend({
       return [
         `${name}__select`,
         `${name}__select-demo`,
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+        },
       ];
     },
-    _buttonClass(): ClassName {
-      return [`${name}__btn`];
+    _preBtnClass(): ClassName {
+      return [
+        `${name}__btn`,
+        `${name}__btn--prev`,
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+        },
+      ];
+    },
+    _nextBtnClass(): ClassName {
+      return [
+        `${name}__btn`,
+        `${name}__btn--next`,
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+        },
+      ];
     },
     _btnWrapClass(): ClassName {
-      return [`${name}__btn`];
+      return [`${name}__pager`];
     },
-    _btnNextMoreClass(): ClassName {
-      return [`${name}__btn`];
-    },
-    _btnPreMoreClass():  ClassName {
-      return [`${name}__btn`];
+    _btnMoreClass():  ClassName {
+      return [
+        `${name}__number`,
+        `${name}__number--more`,
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+        },
+      ];
     },
     _jumperClass(): ClassName {
-      return [`${name}__btn`];
+      return [`${name}__jump`];
     },
     _jumperInputClass(): ClassName {
-      return [`${name}__btn`];
+      return [
+        `${name}__input`,
+        `${name}__input-demo`,
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+        },
+      ];
     },
     _simpleClass(): ClassName {
       return [`${name}__btn`];
     },
     _isSimple(): boolean {
-      return false;
+      return this.theme === 'simple';
     },
     _pageCount(): number {
       const c: number = Math.ceil(this.total / this.pageSize);
@@ -330,6 +351,9 @@ export default mixins(PaginationLocalReceiver).extend({
   },
   methods: {
     toPage(pageIndex: number): void {
+      if (this.disabled) {
+        return;
+      }
       let current = pageIndex;
       if (pageIndex < 1) {
         current = 1;
@@ -367,10 +391,19 @@ export default mixins(PaginationLocalReceiver).extend({
     jumpToPage(): void {
       this.toPage(Number(this.jumpIndex));
     },
-    getButtonType(index: number): string {
-      return this.currentIndex === index ? 'primary' : 'line';
+    getButtonClass(index: number): ClassName {
+      return [
+        `${name}__number`,
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [CLASSNAMES.STATUS.current]: this.currentIndex === index,
+        },
+      ];
     },
     onSelectorChange(e: MouseEvent): void {
+      if (this.disabled) {
+        return;
+      }
       const pageSize: number = parseInt((e.target as HTMLSelectElement).value, 10);
       let pageCount = 1;
       if (pageSize > 0) {
