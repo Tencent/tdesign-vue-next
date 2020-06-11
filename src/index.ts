@@ -5,6 +5,7 @@ import Pagination from './pagination';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
+import { Steps, Step } from './steps';
 
 const components = {
   Icon,
@@ -13,6 +14,8 @@ const components = {
   Input,
   Addon,
   InputGroup,
+  Steps,
+  Step,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
