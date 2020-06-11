@@ -3,9 +3,9 @@ import SpfxComponents from './pages/components';
 import SpfxDemoList from './pages/demo-list';
 import SpfxDemoPage from './pages/demo-page';
 
-const demoReq = require.context('../src', true, /demos[/\\][\w-]+\.vue$/im);
+const demoReq = require.context('../examples', true, /demos[/\\][\w-]+\.vue$/im);
 
-const navs = config.navs;
+const { navs } = config;
 
 function getDocsRoutes(docs, type) {
   let docsRoutes = [];
@@ -34,8 +34,7 @@ function getDemoRoutes() {
   if (process.env.NODE_ENV === 'development') {
     return demoReq.keys().map((key) => {
       const match = key.match(/([\w-]+).demos.([\w-]+).vue/);
-      const componentName = match[1];
-      const demoName = match[2];
+      const [, componentName, demoName] = match;
       return {
         path: `/demos/${componentName}/${demoName}`,
         props: { componentName, demo: demoReq(key).default },

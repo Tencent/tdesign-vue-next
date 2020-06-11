@@ -10,6 +10,9 @@
     "jest": true,
     "es6": true
   },
+  "globals": {
+    "cy": "readonly"
+  },
   "plugins": [
     "vue",
     "@typescript-eslint"
@@ -26,11 +29,15 @@
     "camelcase": 0,
     "no-new": 1,
     "new-cap": 0,
-    "prefer-destructuring": 0,
     "no-underscore-dangle": 0,
     "func-style": 0,
     "no-console": ["error", { "allow": ["warn", "error"] }],
-    "@typescript-eslint/no-explicit-any": 0
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-require-imports": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/prefer-for-of": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "prefer-default-export": 0
   },
   "overrides": [
     {
@@ -54,12 +61,16 @@
     },
     {
       "files": [
-        "**/demos/*", "script/**/*", "script/*"
+        "**/demos/*",
+        "script/**/*",
+        "script/*",
+        "*.js",
+        "site/**/*",
+        "site/*"
       ],
       "rules": {
         "no-var-requires": 0,
-        "no-console": 0,
-        "@typescript-eslint/explicit-function-return-type": 0
+        "no-console": 0
       }
     }
   ]

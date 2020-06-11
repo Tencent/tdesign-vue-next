@@ -1,8 +1,10 @@
-**/*test*
-!.*.js
+snapshot*
 dist
 lib
 node_modules
-site
-script
 common
+cypress
+script/test/cypress
+_site
+common
+temp*

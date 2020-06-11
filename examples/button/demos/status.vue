@@ -32,29 +32,5 @@
       <t-button theme="ghost-line">幽灵次要按钮</t-button>
       <t-button theme="ghost-line" disabled>幽灵次要按钮</t-button>
     </div>
-    <div class="tdesign-demo-block">
-      <t-button>
-        <span>
-          <i class="t-icon t-icon-demo"></i>
-        </span>
-      </t-button>
-      <t-button>
-        <span>
-          <i class="t-icon t-icon-demo"></i>
-        </span>
-      </t-button>
-    </div>
-    <div class="tdesign-demo-block">
-      <t-button>
-        <span>
-          <i class="t-icon t-icon-demo"></i>
-        </span>
-      </t-button>
-      <t-button>
-        <span>
-          <i class="t-icon t-icon-demo"></i>
-        </span>
-      </t-button>
-    </div>
   </div>
 </template>

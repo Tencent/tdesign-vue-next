@@ -11,6 +11,7 @@ const ClASSNAMES = {
   STATUS: {
     loading: `${prefix}-is-loading`,
     disabled: `${prefix}-is-disabled`,
+    focused: `${prefix}-is-focused`,
     success: `${prefix}-is-success`,
     error: `${prefix}-is-error`,
     warning: `${prefix}-is-warning`,
