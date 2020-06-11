@@ -1,3 +1,3 @@
-import Table from './table';
+import BaseTable from './BaseTable/index';
 
-export default Table;
+export default BaseTable;
