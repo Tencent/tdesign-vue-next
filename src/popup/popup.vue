@@ -241,9 +241,8 @@ export default Vue.extend({
     },
 
     updatePopper(): any {
-      const popperJS = this.popperJS;
-      if (popperJS) {
-        popperJS.update();
+      if (this.popperJS) {
+        this.popperJS.update();
       } else {
         this.createPopperJS();
       }

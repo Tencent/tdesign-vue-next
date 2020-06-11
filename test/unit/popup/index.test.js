@@ -1,11 +1,11 @@
-import { mount } from "@vue/test-utils";
-import Popup from "@/popup";
+import { mount } from '@vue/test-utils';
+import Popup from '@/src/popup/index.ts';
 
-describe("Popup", () => {
+describe('Popup', () => {
   let cmp;
 
   beforeEach(() => {
-    cmp = mount(Popup,{
+    cmp = mount(Popup, {
       propsData: {
         disabled: true,
         placement: 'topLeft',
@@ -14,15 +14,15 @@ describe("Popup", () => {
         content: 'txt',
         visibleArrow: true,
         destroyOnHide: true,
-      }
+      },
     });
   });
 
-  it("equals disabled to true", () => {
+  it('equals disabled to true', () => {
     expect(cmp.vm.disabled).toEqual(true);
   });
 
-  it("equals disabled to true", () => {
+  it('equals disabled to true', () => {
     expect(cmp.vm.clickTrigger).toEqual(true);
   });
 });
