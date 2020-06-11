@@ -1,120 +1,59 @@
 <template>
   <div :class="_class" v-if="visibleWithOnePage || _pageCount > 1">
+    <!--数据统计区-->
     <template v-if="showTotal">
-      <div class="_totalClass">
-        {{ t(locale.total, { total: total }) }}
-      </div>
+      <div :class="_totalClass">{{ t(locale.total, { total: total }) }}</div>
     </template>
-    <div :class="_btnWrapClass">
-      <t-button
-        :class="_buttonClass"
-        size="small"
-        icon="left"
-        icon-only
-        @click="prevPage"
-        :disabled="disabled || currentIndex === 1"
-      />
-
-      <template v-if="!_isSimple">
-        <t-button
-          v-if="isFolded"
-          :class="_buttonClass"
-          size="small"
-          @click="toPage(1)"
-          :disabled="disabled"
-          :theme="getButtonType(1)"
-        >1</t-button>
-        <t-button
-          v-show="isFolded && isPrevMoreShow"
-          :class="[_buttonClass, _btnPreMoreClass]"
-          size="small"
-          icon="more"
-          icon-only
-          :disabled="disabled"
-          @click="prevMorePage"
-        />
-
-        <t-button
-          size="small"
-          v-for="i in pages"
-          :key="i"
-          :class="_buttonClass"
-          :theme="getButtonType(i)"
-          @click="toPage(i)"
-          :disabled="disabled"
-        >{{ i }}</t-button>
-
-        <t-button
-          :class="[_buttonClass, _btnNextMoreClass]"
-          v-show="isFolded && isNextMoreShow"
-          size="small"
-          icon="more"
-          icon-only
-          :disabled="disabled"
-          @click="nextMorePage"
-        />
-        <t-button
-          v-if="isFolded"
-          :class="_buttonClass"
-          size="small"
-          @click="toPage(_pageCount)"
-          :disabled="disabled"
-          :theme="getButtonType(_pageCount)"
-        >{{ _pageCount }}</t-button>
-      </template>
-      <template v-else>
-        <div class="_simpleClass">
-          <input
-            class="_simpleInputClass"
-            type="number"
-            size="small"
-            v-model="jumpIndex"
-            :disabled="disabled"
-            @keydown.enter="jumpToPage"
-            @blur="jumpToPage"
-            :min="1"
-          />
-          <span class="_simpleInputClassTotal">/ {{ _pageCount }}</span>
-        </div>
-      </template>
-
-      <t-button
-        :class="_buttonClass"
-        size="small"
-        icon="right"
-        icon-only
-        @click="nextPage"
-        :disabled="disabled || currentIndex === _pageCount"
-      />
-    </div>
-
+    <!-- select-->
     <template v-if="showSizer">
-      <select
-        size="small"
-        :disabled="disabled"
-        :class="_selectorClass"
-        :value="pageSize"
-        @change="onSelectorChange"
-      >
-        <option :key="i" :value="value" v-for="(value, i) in _pageSizeOption" >
-          {{`${value}条/页`}}
-        </option>
-      </select>
+      <div :class="_sizerClass" @change="onSelectorChange"></div>
     </template>
-
+    <!-- 向前按钮-->
+    <div class="t-pagination__btn t-pagination__btn--prev">
+      <i class="t-icon t-icon-demo" @click="prevPage"
+         :disabled="disabled || currentIndex === 1"></i>
+    </div>
+    <!-- 页数 -->
+    <template v-if="!_isSimple">
+      <ul class="t-pagination__pager">
+        <li class="t-pagination__number" v-if="isFolded"
+            @click="toPage(1)">1</li>
+        <li class="t-pagination__number t-pagination__number--more"
+            v-show="isFolded && isPrevMoreShow">
+          <i class="t-icon t-icon-demo"></i>
+        </li>
+        <li class="t-pagination__number t-is-current"
+            v-for="i in pages" :key="i" @click="toPage(i)">
+          {{ i }}
+        </li>
+        <li class="t-pagination__number t-pagination__number--more"
+            v-show="isFolded && isNextMoreShow">
+          <i class="t-icon t-icon-demo"></i>
+        </li>
+        <li class="t-pagination__number" v-if="isFolded"
+            @click="toPage(_pageCount)">{{ _pageCount }}</li>
+      </ul>
+    </template>
+    <template v-else>
+      <!-- select-->
+      <div class="t-pagination__select t-pagination__select-demo"
+           :disabled="disabled"
+           @keydown.enter="jumpToPage"
+           @blur="jumpToPage"></div>
+    </template>
+    <!-- 向后按钮-->
+    <div class="t-pagination__btn t-pagination__btn--next">
+      <i class="t-icon t-icon-demo" @click="nextPage"
+         :disabled="disabled || currentIndex === _pageCount"></i>
+    </div>
+    <!-- 跳转-->
     <template v-if="showJumper">
-      <div :class="_jumperClass">
-        跳至
-        <input
-          :class="_jumperInputClass"
-          type="number"
-          size="small"
-          :disabled="disabled"
-          v-model="jumpIndex"
-          @keydown.enter="jumpToPage"
-          @blur="jumpToPage"
-          :min="1"
-        />页
+      <div class="t-pagination__jump">
+        跳转
+        <div class="t-pagination__input t-pagination__input-demo"
+             @keydown.enter="jumpToPage" @blur="jumpToPage"
+        ></div>
+        页
       </div>
     </template>
   </div>
@@ -290,13 +229,20 @@ export default mixins(PaginationLocalReceiver).extend({
      */
     _class(): ClassName {
       return [
-        `${name}`, `${name}--${this.size}`,
+        `${name}`,
+        `${name}--${this.size}`,
+      ];
+    },
+    _totalClass(): ClassName {
+      return [`${name}__total`];
+    },
+    _sizerClass(): ClassName {
+      return [
+        `${name}__select`,
+        `${name}__select-demo`,
       ];
     },
     _buttonClass(): ClassName {
-      return [`${name}__btn`];
-    },
-    _totalClass(): ClassName {
       return [`${name}__btn`];
     },
     _btnWrapClass(): ClassName {
@@ -315,9 +261,6 @@ export default mixins(PaginationLocalReceiver).extend({
       return [`${name}__btn`];
     },
     _simpleClass(): ClassName {
-      return [`${name}__btn`];
-    },
-    _selectorClass(): ClassName {
       return [`${name}__btn`];
     },
     _isSimple(): boolean {
