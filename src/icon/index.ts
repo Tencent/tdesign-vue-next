@@ -1,3 +1,3 @@
-import Icon from './icon';
+import Icon from './svg/icon';
 
 export default Icon;
