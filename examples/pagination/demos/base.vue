@@ -6,7 +6,6 @@
       @change="onChange"
       :page-size="5"
     />
-    {{current}}
   </div>
 </template>
 
