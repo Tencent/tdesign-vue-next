@@ -1,0 +1,9 @@
+<template>
+  <t-popup
+    content="这是popup内容"
+    trigger="manual"
+    :visible="true"
+  >
+    一直显示
+  </t-popup>
+</template>
