@@ -1,7 +1,7 @@
 <template>
   <div class="t-demo-iconfont">
     <p>
-      使用 Iconfont 图标需要单独引入图标样式表：<code>import TIcon from '@/src/icon/iconfont';</code><br>
+      使用 Iconfont 图标需要单独引入 Iconfont 图标组件：<code>import TIcon from '@/src/icon/iconfont';</code><br>
     </p><br>
     <div class="t-demo-row">
       <t-icon name="loading"/>
