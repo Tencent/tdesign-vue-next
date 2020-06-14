@@ -37,7 +37,7 @@
 | 公有 | icon     | String/Function/Slot | -       | N    | 标签图标                                              |
 | 公有 | shape    | String               | square  | N    | 标签边角类型：square/round/mark                     |
 | 公有 | maxWidth | Number/String     | -  | N    | 标签内容宽度超出 maxWidth 时，会出现省略号                     |
-| 公有 | effect   | String | dark/light/plain | dark | 主题效果：深色（默认），浅色，朴素。dark | light | plain                  |
+| 公有 | effect   | String | dark | N | 主题效果：深色（默认），浅色，朴素。dark \| light \| plain                  |
 | 公有 | default  | Function/Slot        | -       | N    | 支持 slots                                            |
 
 ### Tag Events
