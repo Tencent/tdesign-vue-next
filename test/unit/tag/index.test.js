@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Tag from '@/src/tag/index.ts';
+import CheckTag from '@/src/tag/check-tag.tsx';
 
 describe('Tag', () => {
   describe(':props', () => {
@@ -50,6 +51,15 @@ describe('Tag', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
+    it(':checked', () => {
+      const wrapper = mount({
+        render() {
+          return <CheckTag checked></CheckTag>;
+        },
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+
     it(':disabled', () => {
       const fn = jest.fn();
       const wrapper = mount({
@@ -61,10 +71,21 @@ describe('Tag', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
+    it(':disabled', () => {
+      const fn = jest.fn();
+      const wrapper = mount({
+        render() {
+          return <CheckTag disabled onClick={fn}></CheckTag>;
+        },
+      });
+      expect(fn).not.toHaveBeenCalled();
+      expect(wrapper).toMatchSnapshot();
+    });
+
     it(':plain', () => {
       const wrapper = mount({
         render() {
-          return <Tag plain theme={'primary'}></Tag>;
+          return <Tag effect="plain" theme={'primary'}></Tag>;
         },
       });
       expect(wrapper).toMatchSnapshot();
