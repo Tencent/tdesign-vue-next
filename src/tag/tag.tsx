@@ -9,18 +9,18 @@ const iconName = `${prefix}-icon`;
 const initThemeList: Array<string> = [
   'default',
   'primary',
-  'primary-light',
   'info',
-  'info-light',
   'warning',
-  'warning-light',
   'danger',
-  'danger-light',
   'success',
-  'success-light',
 ];
 const initSizeList: Array<string> = ['large', 'middle', 'small'];
-const initShapeList: Array<string> = ['square', 'round', 'mark'];
+const initEffectList: Array<string> = ['dark', 'light', 'plain'];
+const shapeMap = {
+  square: `${name}--square`,
+  round: `${name}--round`,
+  mark: `${name}--mark`,
+}
 
 export default Vue.extend({
   name,
@@ -60,35 +60,38 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    effect: {
+      type: String,
+      default: 'dark',
+      validator(v: string): boolean {
+        return initEffectList.indexOf(v) > -1;
+      },
+    },
     shape: {
       type: String,
       default: 'square',
       validator(v: string): boolean {
-        return initShapeList.indexOf(v) > -1;
+        return Object.keys(shapeMap).indexOf(v) > -1;
       },
     },
     maxWidth: [String, Number],
   },
   computed: {
     tagClass(): Array<string> {
-      const plain = this.plain ? `${name}--plain` : '';
-      const size = this.size !== 'middle' ? `${name}--${this.size}` : '';
-      const shape = this.shape !== 'square' ? `${name}--${this.shape}` : '';
-      const ellipsis = this.maxWidth ? `${name}--ellipsis` : '';
-
-      const disabled = this.disabled ? `${name}--disabled` : '';
-      const checked = (!this.disabled && this.checked) ? `${name}--checked` : '';
       const theme = (this.disabled || this.checked) ? 'default' : this.theme;
 
       return [
         `${name}`,
         `${name}--${theme}`,
-        `${plain}`,
-        `${disabled}`,
-        `${size}`,
-        `${shape}`,
-        `${ellipsis}`,
-        `${checked}`,
+        `${name}--${this.size}`,
+        shapeMap[this.shape],
+        {
+          [`${name}--ellipsis`]: this.maxWidth,
+          [`${name}--checked`]: !this.disabled && this.checked,
+          [`${name}--plain`]: this.effect === 'plain',
+          [`${name}--light`]: this.effect === 'light',
+          [`${name}--disabled`]: this.disabled,
+        },
       ];
     },
     tagStyle(): object {
@@ -109,7 +112,7 @@ export default Vue.extend({
   },
   render(h: CreateElement) {
     // 关闭按钮
-    const CloseIcon: VNode | string =  this.closable ?
+    const closeIcon: VNode | string =  this.closable ?
       <Icon name="close" on-click={ this.handleClose } /> : '';
     // 标签内容
     let tagContent: VNode[] | VNode | string = this.$scopedSlots.default ?
@@ -126,7 +129,7 @@ export default Vue.extend({
       <span class={ this.tagClass } style={ this.tagStyle } on-click={ this.handleClick }>
         { icon }
         { tagContent }
-        { CloseIcon }
+        { closeIcon }
       </span>
     );
   },
