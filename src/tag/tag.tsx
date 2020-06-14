@@ -56,10 +56,6 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    plain: {
-      type: Boolean,
-      default: false,
-    },
     effect: {
       type: String,
       default: 'dark',
