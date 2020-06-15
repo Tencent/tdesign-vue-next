@@ -5,7 +5,7 @@
     </p><br>
     <div class="t-demo-row">
       <t-icon name="loading"/>
-      <t-icon name="close"/>
+      <t-icon name="close" @click.native="onIconClose"/>
       <t-icon name="success-fill"/>
     </div><br>
     <div class="t-demo-row">
@@ -30,5 +30,10 @@
 import TIcon from '@/src/icon/iconfont';
 export default {
   components: { TIcon },
+  methods: {
+    onIconClose() {
+      console.log('icon was clicked.');
+    },
+  },
 };
 </script>
