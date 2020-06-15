@@ -7,7 +7,7 @@
       visibleArrow
       destroyOnHide
     >
-      top
+      <t-button>top</t-button>
     </t-popup>
     <t-popup
       class="placement-topLeft"
@@ -16,7 +16,7 @@
       visibleArrow
       destroyOnHide
     >
-      topLeft
+      <t-button>topLeft</t-button>
     </t-popup>
     <t-popup
       class="placement-topRight"
@@ -25,7 +25,7 @@
       visibleArrow
       destroyOnHide
     >
-      topRight
+      <t-button>topRight</t-button>
     </t-popup>
     <t-popup
       class="placement-bottom"
@@ -34,7 +34,7 @@
       visibleArrow
       destroyOnHide
     >
-      bottom
+      <t-button>bottom</t-button>
     </t-popup>
     <t-popup
       class="placement-bottomLeft"
@@ -43,7 +43,7 @@
       visibleArrow
       destroyOnHide
     >
-      bottomLeft
+      <t-button>bottomLeft</t-button>
     </t-popup>
     <t-popup
       class="placement-bottomRight"
@@ -52,7 +52,7 @@
       visibleArrow
       destroyOnHide
     >
-      bottomRight
+      <t-button>bottomRight</t-button>
     </t-popup>
     <t-popup
       class="placement-left"
@@ -61,7 +61,7 @@
       visibleArrow
       destroyOnHide
     >
-      left
+      <t-button>left</t-button>
     </t-popup>
     <t-popup
       class="placement-leftTop"
@@ -70,7 +70,7 @@
       visibleArrow
       destroyOnHide
     >
-      leftTop
+      <t-button>leftTop</t-button>
     </t-popup>
     <t-popup
       class="placement-leftBottom"
@@ -79,7 +79,7 @@
       visibleArrow
       destroyOnHide
     >
-      leftBottom
+      <t-button>leftBottom</t-button>
     </t-popup>
     <t-popup
       class="placement-right"
@@ -88,7 +88,7 @@
       visibleArrow
       destroyOnHide
     >
-      right
+      <t-button>right</t-button>
     </t-popup>
     <t-popup
       class="placement-rightTop"
@@ -97,7 +97,7 @@
       visibleArrow
       destroyOnHide
     >
-      rightTop
+      <t-button>rightTop</t-button>
     </t-popup>
     <t-popup
       class="placement-rightBottom"
@@ -106,7 +106,7 @@
       visibleArrow
       destroyOnHide
     >
-      rightBottom
+      <t-button>rightBottom</t-button>
     </t-popup>
   </div>
 </template>
@@ -114,14 +114,14 @@
 <style>
 .container {
   margin: 0 auto;
-  width: 400px;
-  height: 300px;
+  width: 500px;
+  height: 260px;
   position: relative;
 }
 .placement-top {
   position: absolute;
   top: 0;
-  left: 45%;
+  left: 42%;
 }
 .placement-topLeft {
   position: absolute;
@@ -136,7 +136,7 @@
 .placement-bottom {
   position: absolute;
   bottom: 0;
-  left: 45%;
+  left: 42%;
 }
 .placement-bottomLeft {
   position: absolute;
@@ -150,39 +150,33 @@
 }
 .placement-left {
   position: absolute;
-  left: 12px;
-  top: 45%;
-  transform: rotate(-90deg);
+  left: 0;
+  top: 42%;
 }
 .placement-leftTop {
   position: absolute;
   left: 0;
   top: 50px;
-  transform: rotate(-90deg);
 }
 .placement-leftBottom {
   position: absolute;
-  left: -12px;
+  left: -0;
   bottom: 50px;
-  transform: rotate(-90deg);
 }
 .placement-right {
   position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: rotate(90deg);
+  right: 0;
+  top: 42%;
 }
 .placement-rightTop {
   position: absolute;
   right: 0;
   top: 50px;
-  transform: rotate(90deg);
 }
 .placement-rightBottom {
   position: absolute;
-  right: -12px;
+  right: 0;
   bottom: 50px;
-  transform: rotate(90deg);
 }
 </style>
 

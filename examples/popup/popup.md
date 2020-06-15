@@ -37,8 +37,8 @@
 |**destroyOnHide**|Boolean |false |N |隐藏时销毁浮层 |
 
 PS:
+
 - 支持默认的props，如className、style、ref等
-- zIndex采用自动计算的方式
 
 ## Slots
 
@@ -47,7 +47,8 @@ PS:
 | web|**（children）** | String/Component|Y|显示的激活元素 |
 
 PS：
-- children目前设计只能有一个根节点
+
+- children只能有一个根节点
 
 ## Events
 

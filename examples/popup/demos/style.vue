@@ -5,7 +5,7 @@
     :overlayStyle="{background: 'green'}"
     overlayClassName="custom-popup"
   >
-    click我试试
+    <t-button>click我试试</t-button>
   </t-popup>
 </template>
 

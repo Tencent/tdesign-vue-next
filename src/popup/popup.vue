@@ -9,7 +9,7 @@
       :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
     >
       {{ content }}
-      <div v-if="visibleArrow" class="popper-arrow" data-popper-arrow></div>
+      <div v-if="visibleArrow" :class="name+'_arrow'" data-popper-arrow></div>
     </div>
     <div :class="name+'-reference'" ref="reference">
       <slot />
@@ -25,7 +25,7 @@ import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import { on, off, addClass, removeClass } from '../utils/dom';
 
-const stop = (e: Event): any => e.stopPropagation();
+const stop = (e: Event): void => e.stopPropagation();
 const { prefix } = config;
 const name = `${prefix}-popup`;
 const placementMap = {
@@ -56,9 +56,7 @@ export default Vue.extend({
     placement: {
       type: String,
       default: 'top',
-      validator(value: string): boolean {
-        return Object.keys(placementMap).indexOf(value) > -1;
-      },
+      validator: (value: string) => Object.keys(placementMap).indexOf(value) > -1,
     },
     visible: {
       type: Boolean,
@@ -67,7 +65,7 @@ export default Vue.extend({
     trigger: {
       type: String,
       default: 'hover',
-      validator(value: string): boolean {
+      validator: (value: string) => {
         const triggers: string[] = value.split(' ');
         if (triggers.indexOf('manual') > -1 && triggers.length > 1) {
           return false;
@@ -86,10 +84,7 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
-    getOverlayContainer: {
-      type: Function,
-      default: (): Node => document.body,
-    },
+    getOverlayContainer: Function,
     overlayStyle: Object,
     overlayClassName: String,
     destroyOnHide: {
@@ -97,11 +92,16 @@ export default Vue.extend({
       default: false,
     },
   },
-  data: (): any => ({
-    name,
-    showPopper: false,
-    currentPlacement: '',
-  }),
+  data() {
+    return {
+      name,
+      showPopper: false,
+      currentPlacement: '',
+      popperElm: null,
+      referenceElm: null,
+      popperJS: null,
+    };
+  },
   computed: {
     _class(): ClassName {
       return [
@@ -129,7 +129,7 @@ export default Vue.extend({
     },
   },
   watch: {
-    showPopper(val): any {
+    showPopper(val): void {
       if (this.disabled) {
         return;
       }
@@ -140,7 +140,7 @@ export default Vue.extend({
       }
       this.$emit('visibleChange', val);
     },
-    visible(val): any {
+    visible(val): void {
       if (this.trigger === 'manual') {
         this.showPopper = val;
       }
@@ -195,14 +195,14 @@ export default Vue.extend({
       this.showPopper = !!this.visible;
     }
   },
-  beforeDestroy(): any {
+  beforeDestroy(): void {
     this.doDestroy(true);
     if (this.popperElm && this.popperElm.parentNode === document.body) {
       this.popperElm.removeEventListener('click', stop);
       document.body.removeChild(this.popperElm);
     }
   },
-  destroyed(): any {
+  destroyed(): void {
     const reference = this.referenceElm;
     off(reference, 'click', this.doToggle);
     off(reference, 'mouseup', this.doClose);
@@ -216,8 +216,9 @@ export default Vue.extend({
     off(document, 'click', this.handleDocumentClick);
   },
   methods: {
-    createPopperJS(): any {
-      const overlayContainer = this.getOverlayContainer();
+    createPopperJS(): void {
+      const overlayContainer = this.getOverlayContainer
+        ? this.getOverlayContainer() : document.body;
       overlayContainer.appendChild(this.popperElm);
 
       if (this.popperJS && this.popperJS.destroy) {
@@ -235,12 +236,18 @@ export default Vue.extend({
               padding: 5, // 5px from the edges of the popper
             },
           },
+          {
+            name: 'offset',
+            options: {
+              offset: [0, 8],
+            },
+          },
         ],
       });
       this.popperElm.addEventListener('click', stop);
     },
 
-    updatePopper(): any {
+    updatePopper(): void {
       if (this.popperJS) {
         this.popperJS.update();
       } else {
@@ -248,13 +255,13 @@ export default Vue.extend({
       }
     },
 
-    doDestroy(forceDestroy: boolean): any {
+    doDestroy(forceDestroy: boolean): void {
       if (!this.popperJS || (this.showPopper && !forceDestroy)) return;
       this.popperJS.destroy();
       this.popperJS = null;
     },
 
-    destroyPopper(): any {
+    destroyPopper(): void {
       if (this.popperJS) {
         if (this.destroyOnHide) {
           this.popperJS.destroy();
@@ -264,58 +271,44 @@ export default Vue.extend({
       }
     },
 
-    appendArrow(element: Element): any {
-      if (this.appended) {
-        return;
-      }
-
-      this.appended = true;
-
-      const arrow = document.createElement('div');
-
-      arrow.setAttribute('x-arrow', '');
-      arrow.className = 'popper__arrow';
-      element.appendChild(arrow);
-    },
-
-    doToggle(): any {
+    doToggle(): void {
       this.showPopper = !this.showPopper;
     },
-    doShow(): any {
+    doShow(): void {
       this.showPopper = true;
     },
-    doClose(): any {
+    doClose(): void {
       this.showPopper = false;
     },
-    handleFocus(): any {
+    handleFocus(): void {
       addClass(this.referenceElm, 'focusing');
       if (this.clickTrigger || this.focusTrigger) this.showPopper = true;
     },
-    handleClick(): any {
+    handleClick(): void {
       removeClass(this.referenceElm, 'focusing');
     },
-    handleBlur(): any {
+    handleBlur(): void {
       removeClass(this.referenceElm, 'focusing');
       if (this.clickTrigger || this.focusTrigger) this.showPopper = false;
     },
-    handleKeydown(ev: any): any {
+    handleKeydown(ev: KeyboardEvent): void {
       if (ev.keyCode === 27 && this.manualTrigger) { // esc
         this.doClose();
       }
     },
-    handleDocumentClick(e: Event): any {
+    handleDocumentClick(e: Event): void {
       const reference = this.referenceElm;
       const popper = this.popperElm;
       if (!this.$el ||
         !reference ||
-        this.$el.contains(e.target) ||
-        reference.contains(e.target) ||
+        this.$el.contains(e.target as Element) ||
+        reference.contains(e.target as Node) ||
         !popper ||
-        popper.contains(e.target)) return;
+        popper.contains(e.target as Node)) return;
       this.showPopper = false;
     },
-    handleRightClick(e: Event): any {
-      if ((e as any).button === 2) {
+    handleRightClick(e: MouseEvent): void {
+      if (e.button === 2) {
         this.doToggle();
       }
     },
