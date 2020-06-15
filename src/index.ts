@@ -5,6 +5,8 @@ import Pagination from './pagination';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
+import Radio, { Group as RadioGroup } from './radio';
+import Checkbox, { Group as CheckboxGroup } from './checkbox';
 
 const components = {
   Icon,
@@ -13,6 +15,10 @@ const components = {
   Input,
   Addon,
   InputGroup,
+  Radio,
+  RadioGroup,
+  Checkbox,
+  CheckboxGroup,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
