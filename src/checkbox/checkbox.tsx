@@ -33,8 +33,15 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
   },
 
   data() {
+    const getDefaultChecked2 = (checked: boolean, defaultChecked: boolean): boolean => {
+      if (checked === undefined) {
+        if (defaultChecked === undefined) return false;
+        return defaultChecked;
+      }
+      return checked;
+    };
     return {
-      checked2: this.checked,
+      checked2: getDefaultChecked2(this.checked, this.defaultChecked),
     };
   },
 
@@ -63,8 +70,6 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
     const children: VNode[] | VNode | string = $slots.default;
     const { mouseenter = noop, mousemove = noop, mouseleave = noop, ...restListeners } = $listeners;
 
-    if (this.checked === undefined) this.checked2 = this.defaultChecked;
-
     const inputProps = {
       checked: this.checked2,
       disabled: this.disabled,
@@ -73,8 +78,8 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
     };
 
     if (checkboxGroup) {
-      inputProps.checked = checkboxGroup.value.indexOf(this.value) > -1;
-      inputProps.disabled = this.disabled || checkboxGroup.disabled;
+      inputProps.checked = checkboxGroup.value2.indexOf(this.value) > -1;
+      inputProps.disabled = this.disabled === undefined ? checkboxGroup.disabled : this.disabled;
       inputProps.name = checkboxGroup.name;
     }
 
@@ -112,12 +117,12 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
 
   methods: {
     handleInput(e: Event) {
-      const { target } = e;
-      this.$emit('change', e);
+      const target: HTMLInputElement = e.target as HTMLInputElement;
       if (this.checkboxGroup && this.checkboxGroup.handleCheckboxChange) {
         this.checkboxGroup.handleCheckboxChange(e);
       } else {
-        this.$emit('input', (target as HTMLInputElement).checked);
+        this.$emit('input', target.checked);
+        this.checked2 = target.checked;
       }
     },
   },
