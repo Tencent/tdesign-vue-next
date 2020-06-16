@@ -3,12 +3,20 @@ import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
 import Notification from './notification';
+import Popup from './popup';
+import Input from './input';
+import InputGroup from './input-group';
+import Addon from './addon';
 
 const components = {
   Icon,
   Button,
   Pagination,
   Notification,
+  Popup,
+  Input,
+  Addon,
+  InputGroup,
 };
 
 function install(Vue: VueConstructor, config?: object): void {

@@ -67,9 +67,13 @@ exports[`Button icon demo works fine 1`] = `
       <span
         class="t-button__inner"
       >
-        <i
-          class="t-icon t-icon-demo t-icon-delete"
-        />
+        <svg
+          class="t-icon t-icon-delete"
+        >
+          <use
+            xlink:href="#t-icon-delete"
+          />
+        </svg>
         <span
           class="t-button__text"
         >
@@ -86,9 +90,13 @@ exports[`Button icon demo works fine 1`] = `
       <span
         class="t-button__inner"
       >
-        <i
-          class="t-icon t-icon-demo t-icon-delete"
-        />
+        <svg
+          class="t-icon t-icon-delete"
+        >
+          <use
+            xlink:href="#t-icon-delete"
+          />
+        </svg>
         <span
           class="t-button__text"
         >
@@ -105,9 +113,13 @@ exports[`Button icon demo works fine 1`] = `
       <span
         class="t-button__inner"
       >
-        <i
-          class="t-icon t-icon-demo t-icon-delete"
-        />
+        <svg
+          class="t-icon t-icon-delete"
+        >
+          <use
+            xlink:href="#t-icon-delete"
+          />
+        </svg>
         <span
           class="t-button__text"
         >
@@ -131,9 +143,13 @@ exports[`Button loading demo works fine 1`] = `
     <span
       class="t-button__inner"
     >
-      <i
-        class="t-icon t-icon-demo t-icon-loading_gradient"
-      />
+      <svg
+        class="t-icon t-icon-loading_gradient"
+      >
+        <use
+          xlink:href="#t-icon-loading_gradient"
+        />
+      </svg>
       <span
         class="t-button__text"
       >
@@ -150,9 +166,13 @@ exports[`Button loading demo works fine 1`] = `
     <span
       class="t-button__inner"
     >
-      <i
-        class="t-icon t-icon-demo t-icon-loading_gradient"
-      />
+      <svg
+        class="t-icon t-icon-loading_gradient"
+      >
+        <use
+          xlink:href="#t-icon-loading_gradient"
+        />
+      </svg>
       <span
         class="t-button__text"
       >
@@ -181,43 +201,43 @@ exports[`Button size demo works fine 1`] = `
     class="tdesign-demo-block"
   >
     <button
-      class="t-button t-size-m t-button--primary"
+      class="t-button t-size-s t-button--primary"
     >
       主按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--line"
+      class="t-button t-size-s t-button--line"
     >
       次要按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--dashed"
+      class="t-button t-size-s t-button--dashed"
     >
       虚框按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--warning"
+      class="t-button t-size-s t-button--warning"
     >
       告警按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--warning-line"
+      class="t-button t-size-s t-button--warning-line"
     >
       次要告警
     </button>
      
     <button
-      class="t-button t-size-m t-button--link"
+      class="t-button t-size-s t-button--link"
     >
       文字按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--ghost"
+      class="t-button t-size-s t-button--ghost"
     >
       幽灵按钮
     </button>

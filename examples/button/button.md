@@ -18,7 +18,7 @@
 ::: demo demos/block 块级
 :::
 
-### 属性配置
+### Props
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
 |theme|Enum|default|N|类型可选值为default primary danger text ghost|
