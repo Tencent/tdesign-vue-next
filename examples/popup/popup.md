@@ -21,7 +21,7 @@
 ::: demo demos/event popup状态改变时触发事件
 :::
 
-### 属性配置
+### Props
 
 | 属性 | 类型| 默认值| 必传| 说明|
 |-----|-----|-----|-----|-----|
@@ -36,21 +36,17 @@
 |**overlayClassName** |String |'' |N |浮层类名 |
 |**destroyOnHide**|Boolean |false |N |隐藏时销毁浮层 |
 
-PS:
+> 支持默认的props，如className、style、ref等
 
-- 支持默认的props，如className、style、ref等
-
-## Slots
+### Slots
 
 | 平台| 插槽名称| 类型| 必传 | 说明 |
 |-----|-----|-----|-----|-----|
 | web|**（children）** | String/Component|Y|显示的激活元素 |
 
-PS：
+> children只能有一个根节点
 
-- children只能有一个根节点
-
-## Events
+### Events
 
 | 平台| 事件名称| 参数| 说明 |
 |-----|-----|-----|-----|
