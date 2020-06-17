@@ -62,10 +62,14 @@ import config from '../config';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
 import RenderComponent from '../utils/render-component';
+<<<<<<< HEAD
 import TIconArrowLeft from '../icon/arrow-left';
 import TIconArrowRight from '../icon/arrow-right';
 import TIconMore from '../icon/more';
 import TInput from '../input';
+=======
+import Icon from '../icon';
+>>>>>>> 3249812c93ab6b53f587c8731bc05cb53f024161
 import CLASSNAMES from '../utils/classnames';
 
 const { prefix } = config;
@@ -77,10 +81,14 @@ export default mixins(PaginationLocalReceiver).extend({
   name,
   components: {
     RenderComponent,
+<<<<<<< HEAD
     TIconArrowLeft,
     TIconArrowRight,
     TIconMore,
     TInput,
+=======
+    Icon,
+>>>>>>> 3249812c93ab6b53f587c8731bc05cb53f024161
   },
   model: {
     prop: 'current',
@@ -245,7 +253,11 @@ export default mixins(PaginationLocalReceiver).extend({
         `${name}__btn`,
         `${name}__btn--prev`,
         {
+<<<<<<< HEAD
           [CLASSNAMES.STATUS.disabled]: this.disabled || this.currentIndex === 1,
+=======
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+>>>>>>> 3249812c93ab6b53f587c8731bc05cb53f024161
         },
       ];
     },
@@ -254,7 +266,11 @@ export default mixins(PaginationLocalReceiver).extend({
         `${name}__btn`,
         `${name}__btn--next`,
         {
+<<<<<<< HEAD
           [CLASSNAMES.STATUS.disabled]: this.disabled || this.currentIndex === this._pageCount,
+=======
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+>>>>>>> 3249812c93ab6b53f587c8731bc05cb53f024161
         },
       ];
     },
@@ -283,7 +299,11 @@ export default mixins(PaginationLocalReceiver).extend({
       ];
     },
     _simpleClass(): ClassName {
+<<<<<<< HEAD
       return [`${name}__select`, `${name}__select-demo`];
+=======
+      return [`${name}__btn`];
+>>>>>>> 3249812c93ab6b53f587c8731bc05cb53f024161
     },
     _isSimple(): boolean {
       return this.theme === 'simple';
