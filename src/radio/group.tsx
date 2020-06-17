@@ -33,7 +33,16 @@ export default Vue.extend({
   },
 
   data() {
-    return {};
+    const value2 = this.value || this.defaultValue || '';
+    return {
+      value2,
+    };
+  },
+
+  watch: {
+    value(nVal) {
+      this.value2 = nVal;
+    },
   },
 
   render(): VNode {
@@ -45,7 +54,7 @@ export default Vue.extend({
         <Radio
           key={`radio-group-options-${option.value}`}
           name={this.name}
-          checked={this.value === option.value}
+          checked={this.value2 === option.value}
           disabled={'disabled' in option ? option.disabled : this.disabled}
           value={option.value}
         >
@@ -63,9 +72,10 @@ export default Vue.extend({
 
   methods: {
     handleRadioChange(e: Event) {
-      const { target } = e;
-      this.$emit('input', (target as HTMLInputElement).value);
+      const target: HTMLInputElement = e.target as HTMLInputElement;
+      this.$emit('input', target.value);
       this.$emit('change', e);
+      this.value2 = target.value;
     },
   },
 });

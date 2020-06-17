@@ -31,8 +31,15 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
   },
 
   data() {
+    const getDefaultChecked2 = (checked: boolean, defaultChecked: boolean): boolean => {
+      if (checked === undefined) {
+        if (defaultChecked === undefined) return false;
+        return defaultChecked;
+      }
+      return checked;
+    };
     return {
-      checked2: this.checked,
+      checked2: getDefaultChecked2(this.checked, this.defaultChecked),
     };
   },
 
@@ -47,8 +54,6 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
     const children: VNode[] | VNode | string = $slots.default;
     const { mouseenter = noop, mousemove = noop, mouseleave = noop, ...restListeners } = $listeners;
 
-    if (this.checked === undefined) this.checked2 = this.defaultChecked;
-
     const inputProps = {
       checked: this.checked2,
       disabled: this.disabled,
@@ -57,8 +62,8 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
     };
 
     if (radioGroup) {
-      inputProps.checked = this.value === radioGroup.value;
-      inputProps.disabled = this.disabled || radioGroup.disabled;
+      inputProps.checked = this.value === radioGroup.value2;
+      inputProps.disabled = this.disabled === undefined ? radioGroup.disabled : this.disabled;
       inputProps.name = radioGroup.name;
     }
 
@@ -96,12 +101,12 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
 
   methods: {
     handleInput(e: Event) {
-      const { target } = e;
-      this.$emit('change', e);
+      const target: HTMLInputElement = e.target as HTMLInputElement;
       if (this.radioGroup && this.radioGroup.handleRadioChange) {
         this.radioGroup.handleRadioChange(e);
       } else {
-        this.$emit('input', (target as HTMLInputElement).checked);
+        this.$emit('input', target.checked);
+        this.checked2 = target.checked;
       }
     },
   },
