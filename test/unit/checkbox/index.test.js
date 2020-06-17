@@ -69,7 +69,7 @@ describe('Checkbox Group', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group checked={['sz']}>
+            <Group defaultValue={['sz']}>
               <Checkbox value="gz">广州</Checkbox>
               <Checkbox value="sz" disabled>深圳</Checkbox>
             </Group>
@@ -96,8 +96,9 @@ describe('Checkbox Group', () => {
         render() {
           return (
             <Group disabled={true}>
+              <Checkbox value="bj">北京</Checkbox>
               <Checkbox value="gz">广州</Checkbox>
-              <Checkbox value="sz" disabled>深圳</Checkbox>
+              <Checkbox value="sz" disabled={false}>深圳</Checkbox>
             </Group>
           );
         },
