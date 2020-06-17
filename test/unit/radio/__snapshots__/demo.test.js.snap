@@ -1,0 +1,429 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio base demo works fine 1`] = `
+<div
+  class="tdesign-radio-base"
+>
+  <label
+    class="t-radio"
+  >
+    <input
+      class="t-radio__former"
+      type="radio"
+      value=""
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      Radio
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Radio default checked demo works fine 1`] = `
+<div
+  class="tdesign-radio-default-checked"
+>
+  <label
+    class="t-radio t-radio-checked"
+  >
+    <input
+      class="t-radio__former"
+      type="radio"
+      value=""
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      default check
+    </span>
+  </label>
+   
+  <br />
+   
+  <label
+    class="t-radio"
+  >
+    <input
+      class="t-radio__former"
+      type="radio"
+      value=""
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      default uncheck
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Radio disabled demo works fine 1`] = `
+<div
+  class="tdesign-radio-disabled"
+>
+  <label
+    class="t-radio t-radio-checked t-is-disabled"
+  >
+    <input
+      class="t-radio__former"
+      disabled=""
+      type="radio"
+      value=""
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      check
+    </span>
+  </label>
+   
+  <br />
+   
+  <label
+    class="t-radio t-is-disabled"
+  >
+    <input
+      class="t-radio__former"
+      disabled=""
+      type="radio"
+      value=""
+    />
+    <span
+      class="t-radio__input"
+    />
+    <span
+      class="t-radio__label"
+    >
+      uncheck
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Radio radio group demo works fine 1`] = `
+<div
+  class="tdesign-radio-group"
+>
+  <div
+    class="t-radio-group"
+  >
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        name="city"
+        type="radio"
+        value="bj"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        北京
+      </span>
+    </label>
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        name="city"
+        type="radio"
+        value="sh"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        上海
+      </span>
+    </label>
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        name="city"
+        type="radio"
+        value="gz"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        广州
+      </span>
+    </label>
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        name="city"
+        type="radio"
+        value="sz"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        深圳
+      </span>
+    </label>
+  </div>
+   
+  <br />
+   
+  <div
+    class="t-radio-group"
+  >
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value="bj"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        北京
+      </span>
+    </label>
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value="sh"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        上海
+      </span>
+    </label>
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value="gz"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        广州
+      </span>
+    </label>
+    <label
+      class="t-radio t-radio-checked"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value="sz"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        深圳
+      </span>
+    </label>
+  </div>
+   
+  <br />
+   
+  <div
+    class="t-radio-group"
+  >
+    <label
+      class="t-radio t-is-disabled"
+    >
+      <input
+        class="t-radio__former"
+        disabled=""
+        type="radio"
+        value="bj"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        北京
+      </span>
+    </label>
+    <label
+      class="t-radio t-is-disabled"
+    >
+      <input
+        class="t-radio__former"
+        disabled=""
+        type="radio"
+        value="sh"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        上海
+      </span>
+    </label>
+    <label
+      class="t-radio t-radio-checked"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value="gz"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        广州
+      </span>
+    </label>
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value="sz"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        深圳
+      </span>
+    </label>
+  </div>
+   
+  <br />
+   
+  <div
+    class="t-radio-group"
+  >
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value="bj"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        北京
+      </span>
+    </label>
+     
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value="sh"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        上海
+      </span>
+    </label>
+     
+    <label
+      class="t-radio t-radio-checked"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value="gz"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        广州
+      </span>
+    </label>
+     
+    <label
+      class="t-radio t-is-disabled"
+    >
+      <input
+        class="t-radio__former"
+        disabled=""
+        type="radio"
+        value="sz"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        深圳
+      </span>
+    </label>
+  </div>
+</div>
+`;

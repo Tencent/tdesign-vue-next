@@ -7,4 +7,20 @@ describe('Radio', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
+  it('default checked demo works fine', () => {
+    const demo = require('@/examples/radio/demos/default-checked.vue');
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+  it('disabled demo works fine', () => {
+    const demo = require('@/examples/radio/demos/disabled.vue');
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+  it('radio group demo works fine', () => {
+    const demo = require('@/examples/radio/demos/radio-group.vue').default;
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
+
