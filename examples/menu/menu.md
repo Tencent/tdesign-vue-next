@@ -8,6 +8,15 @@
 ::: demo demos/head-menu-dark 黑色主题
 :::
 
+::: demo demos/head-menu-logo 只有LOGO插槽
+:::
+
+::: demo demos/head-menu-options 只有OPTIONS插槽
+:::
+
+::: demo demos/head-menu-empty 只有MENU
+:::
+
 ### 侧边导航
 
 ::: demo demos/base 侧边栏菜单
