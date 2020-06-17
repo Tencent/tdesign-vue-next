@@ -5,7 +5,8 @@ import Pagination from './pagination';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
-import { Steps, Step } from './steps';
+import Steps from './steps';
+import Step from './step';
 
 const components = {
   Icon,
