@@ -6,8 +6,8 @@
   <div class="t-demo-iconfont">
     <p>目前设计师给到的全部图标</p><br>
     <div class="t-demo-icon">
-      <t-icon name="browse-20" style="color: #0052d9" />
-      <div class="t-demo-icon-name">browse-20</div>
+      <t-icon name="browse" style="color: #0052d9" />
+      <div class="t-demo-icon-name">browse</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="close-fill" style="color: #50cc9c" />
@@ -30,8 +30,8 @@
       <div class="t-demo-icon-name">more</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="not-visible-20" style="color: #80c9f2" />
-      <div class="t-demo-icon-name">not-visible-20</div>
+      <t-icon name="not-visible" style="color: #80c9f2" />
+      <div class="t-demo-icon-name">not-visible</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="loading" style="color: #34a3e3" />
@@ -65,13 +65,21 @@
       <t-icon name="arrow-right" style="color: #a970cc" />
       <div class="t-demo-icon-name">arrow-right</div>
     </div>
+    <div class="t-demo-icon">
+      <t-icon name="double-arrow-right" style="color: #cc47bd" />
+      <div class="t-demo-icon-name">double-arrow-right</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="ellipsis" style="color: #80c9f2" />
+      <div class="t-demo-icon-name">ellipsis</div>
+    </div>
   </div>
 </template>
 
 <style lang="less">
   .t-demo-iconfont {
     .t-demo-icon {
-      width: 100px;
+      width: 130px;
       margin-right: 24px;
       display: inline-block;
       text-align: center;
