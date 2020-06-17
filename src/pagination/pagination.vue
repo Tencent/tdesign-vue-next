@@ -10,7 +10,7 @@
     </template>
     <!-- 向前按钮-->
     <div :class="_preBtnClass"  @click="prevPage" :disabled="disabled || currentIndex === 1">
-      <i class="t-icon t-icon-demo"></i>
+      <t-icon-arrow-left></t-icon-arrow-left>
     </div>
     <!-- 页数 -->
     <template v-if="!_isSimple">
@@ -18,16 +18,16 @@
         <li :class="getButtonClass(1)" v-if="isFolded"
             @click="toPage(1)">1</li>
         <li :class="_btnMoreClass"
-            v-show="isFolded && isPrevMoreShow">
-          <i class="t-icon t-icon-demo"></i>
+            v-show="isFolded && isPrevMoreShow" @click="prevMorePage" >
+          <t-icon-more></t-icon-more>
         </li>
         <li :class="getButtonClass(i)"
             v-for="i in pages" :key="i" @click="toPage(i)">
           {{ i }}
         </li>
         <li :class="_btnMoreClass"
-            v-show="isFolded && isNextMoreShow">
-          <i class="t-icon t-icon-demo"></i>
+            v-show="isFolded && isNextMoreShow" @click="nextMorePage">
+          <t-icon-more></t-icon-more>
         </li>
         <li :class="getButtonClass(_pageCount)" v-if="isFolded"
             @click="toPage(_pageCount)">{{ _pageCount }}</li>
@@ -35,7 +35,7 @@
     </template>
     <template v-else>
       <!-- select-->
-      <div class="t-pagination__select t-pagination__select-demo"
+      <div :class="_simpleClass"
            :disabled="disabled"
            @keydown.enter="jumpToPage"
            @blur="jumpToPage"></div>
@@ -43,16 +43,15 @@
     <!-- 向后按钮-->
     <div :class="_nextBtnClass" @click="nextPage"
          :disabled="disabled || currentIndex === _pageCount">
-      <i class="t-icon t-icon-demo"></i>
+      <t-icon-arrow-right></t-icon-arrow-right>
     </div>
     <!-- 跳转-->
     <template v-if="showJumper">
       <div :class="_jumperClass">
-        跳转
-        <div :class="_jumperInputClass"
-             @keydown.enter="jumpToPage" @blur="jumpToPage"
-        ></div>
-        页
+        {{ t(locale.beforeGoto) }}
+        <t-input :class="_jumperInputClass" v-model="jumpIndex"
+                 @keydown.enter="jumpToPage" @blur="jumpToPage"/>
+        {{ t(locale.afterGoto) }}
       </div>
     </template>
   </div>
@@ -63,7 +62,10 @@ import config from '../config';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
 import RenderComponent from '../utils/render-component';
-import Icon from '../icon';
+import TIconArrowLeft from '../icon/arrow-left';
+import TIconArrowRight from '../icon/arrow-right';
+import TIconMore from '../icon/more';
+import TInput from '../input';
 import CLASSNAMES from '../utils/classnames';
 
 const { prefix } = config;
@@ -75,7 +77,10 @@ export default mixins(PaginationLocalReceiver).extend({
   name,
   components: {
     RenderComponent,
-    Icon,
+    TIconArrowLeft,
+    TIconArrowRight,
+    TIconMore,
+    TInput,
   },
   model: {
     prop: 'current',
@@ -164,10 +169,6 @@ export default mixins(PaginationLocalReceiver).extend({
       default: false,
     },
     /*
-     * 共XXX项数据, 使用返回值作为内容，可用于渲染来自列表的已选中数量
-     */
-    totalContent: [String, Function],
-    /*
      * 只有一页时，是否显示分页。
      * 默认值 true
      */
@@ -244,7 +245,7 @@ export default mixins(PaginationLocalReceiver).extend({
         `${name}__btn`,
         `${name}__btn--prev`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [CLASSNAMES.STATUS.disabled]: this.disabled || this.currentIndex === 1,
         },
       ];
     },
@@ -253,7 +254,7 @@ export default mixins(PaginationLocalReceiver).extend({
         `${name}__btn`,
         `${name}__btn--next`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [CLASSNAMES.STATUS.disabled]: this.disabled || this.currentIndex === this._pageCount,
         },
       ];
     },
@@ -282,7 +283,7 @@ export default mixins(PaginationLocalReceiver).extend({
       ];
     },
     _simpleClass(): ClassName {
-      return [`${name}__btn`];
+      return [`${name}__select`, `${name}__select-demo`];
     },
     _isSimple(): boolean {
       return this.theme === 'simple';
