@@ -12,7 +12,7 @@ import Addon from './addon';
 import Steps from './steps';
 import Step from './step';
 import { Message, MessagePlugin } from './message';
-import Menu from './menu';
+import { Menu, HeadMenu, MenuItem } from './menu';
 
 const components = {
   Icon,
@@ -28,6 +28,8 @@ const components = {
   Step,
   Message,
   Menu,
+  HeadMenu,
+  MenuItem,
 };
 
 function install(Vue: VueConstructor, config?: object): void {

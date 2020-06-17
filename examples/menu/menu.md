@@ -1,5 +1,15 @@
 ## Menu 导航菜单
 
+### 顶部导航
+
+::: demo demos/head-menu 白色主题
+:::
+
+::: demo demos/head-menu-dark 黑色主题
+:::
+
+### 侧边导航
+
 ::: demo demos/base 侧边栏菜单
 :::
 
@@ -24,7 +34,7 @@
 | 公有 | active | String/Number        |  -     | N     | 激活菜单项的name值  |
 | 公有 | expand | Array                 | []     | N    | 展开的SubMenu的集合 |
 | 公有 | height | String                 | 60px    | N    | 菜单高度 |
-| 公有 | width | String                 | dropdown    | N    | 二级菜单类型、dropdown为下拉形式、tile为平铺 |
+| 公有 | mode | String                 | dropdown    | N    | 二级菜单类型、dropdown为下拉形式、tile为平铺 |
 
 ### Menu Events
 
