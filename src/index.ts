@@ -7,6 +7,8 @@ import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
 import List from './list';
+import ListItem from './list-item';
+import ListItemMeta from './list-item-meta';
 
 const components = {
   Icon,
@@ -17,6 +19,8 @@ const components = {
   Addon,
   InputGroup,
   List,
+  ListItem,
+  ListItemMeta,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
