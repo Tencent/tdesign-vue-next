@@ -1,30 +1,33 @@
 import { mount } from '@vue/test-utils';
 import List from '@/src/list/index.ts';
 
-// every component needs four parts: props/events/slots/functions.
 describe('List', () => {
-  // test props api
-  describe(':props', () => {
-    it('', () => {
-      const wrapper = mount({
-        render() {
-          return <List></List>;
-        },
-      });
-      expect(wrapper.isEmpty()).toBe(false);
+  let cmp;
+
+  beforeEach(() => {
+    cmp = mount(List, {
+      propsData: {
+        header: 'header',
+        footer: 'footer',
+        loading: 'loading',
+        size: 'large',
+      },
     });
   });
 
-  // test events
-  describe('@event', () => {});
-
-  // test slots
-  describe('<slot>', () => {
-    it('', () => {});
+  it('equals header to "header"', () => {
+    expect(cmp.vm.header).toEqual('header');
   });
-
-  // test exposure function
-  describe('function', () => {
-    it('', () => {});
+  it('equals footer to "footer"', () => {
+    expect(cmp.vm.footer).toEqual('footer');
+  });
+  it('equals loading to "loading"', () => {
+    expect(cmp.vm.loading).toEqual('loading');
+  });
+  it('equals size to "large"', () => {
+    expect(cmp.vm.size).toEqual('large');
+  });
+  it('equals actionLayout to "horizontal"', () => {
+    expect(cmp.vm.actionLayout).toEqual('horizontal');
   });
 });
