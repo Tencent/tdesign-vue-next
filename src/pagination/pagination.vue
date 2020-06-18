@@ -84,7 +84,7 @@ export default mixins(PaginationLocalReceiver).extend({
   },
   model: {
     prop: 'current',
-    event: 'update:current',
+    event: 'change',
   },
   props: {
     /**
@@ -365,7 +365,6 @@ export default mixins(PaginationLocalReceiver).extend({
         const prev = this.currentIndex;
         this.currentIndex = current;
         this.jumpIndex = current;
-        this.$emit('update:current', current);
         this.$emit(
           'change',
           current,
