@@ -1,30 +1,28 @@
 import { mount } from '@vue/test-utils';
 import Steps from '@/src/steps/index.ts';
 
-// every component needs four parts: props/events/slots/functions.
 describe('Steps', () => {
-  // test props api
-  describe(':props', () => {
-    it('', () => {
-      const wrapper = mount({
-        render() {
-          return <Steps></Steps>;
-        },
-      });
-      expect(wrapper.isEmpty()).toBe(false);
+  let cmp;
+
+  beforeEach(() => {
+    cmp = mount(Steps, {
+      propsData: {
+        direction: 'vertical',
+        type: 'dot',
+      },
     });
   });
 
-  // test events
-  describe('@event', () => {});
-
-  // test slots
-  describe('<slot>', () => {
-    it('', () => {});
+  it('equals direction to "vertical"', () => {
+    expect(cmp.vm.direction).toEqual('vertical');
   });
-
-  // test exposure function
-  describe('function', () => {
-    it('', () => {});
+  it('equals type to "dot"', () => {
+    expect(cmp.vm.type).toEqual('dot');
+  });
+  it('equals status to "wait"', () => {
+    expect(cmp.vm.status).toEqual('wait');
+  });
+  it('equals sequence to "positive"', () => {
+    expect(cmp.vm.sequence).toEqual('positive');
   });
 });
