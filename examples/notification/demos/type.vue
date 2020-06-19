@@ -1,27 +1,45 @@
 <template>
   <div>
-    <div class="wrap">
-      <h3>1.基础消息通知：</h3>
-      <t-notification :visible="true" title="标题名称" content="这是一条可以自动关闭的消息通知" />
-    </div>
-    <div class="wrap">
-      <h3>2.带图标消息通知：</h3>
-      <t-notification :visible="true" title="标题名称" content="这是一条可以自动关闭的消息通知" theme="success" />
-    </div>
-    <div class="wrap">
-      <h3>3.带操作消息通知：</h3>
-      <t-notification
-        :visible="true"
-        title="标题名称"
-        content="这是一条可以自动关闭的消息通知"
-        :footer="h => h('div', { class: 't-notification__detail' },[h('span', { class: 't-notification__detail--item' }, '重启')])" />
-    </div>
+    <t-button @click="info">信息</t-button>
+    <t-button @click="success">成功</t-button>
+    <t-button @click="warning">警告</t-button>
+    <t-button @click="error">错误</t-button>
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    info() {
+      this.$notify.info({
+        title: '信息',
+        content: '这是一条可以自动关闭的消息通知',
+      });
+    },
+    success() {
+      this.$notify.success({
+        title: '成功',
+        content: '这是一条可以自动关闭的消息通知',
+      });
+    },
+    warning() {
+      this.$notify.warning({
+        title: '警告',
+        content: '这是一条可以自动关闭的消息通知',
+      });
+    },
+    error() {
+      this.$notify.error({
+        title: '错误',
+        content: '这是一条可以自动关闭的消息通知',
+      });
+    },
+  },
+};
+</script>
+
 <style scoped>
-.wrap{
-  margin-bottom: 20px;
-  font-size: 18px;
+.t-button + .t-button{
+  margin-left: 10px;
 }
 </style>
