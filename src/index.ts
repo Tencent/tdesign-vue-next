@@ -2,11 +2,15 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import Tabs from './tabs';
+import TabPanel from './tabs/tab-panel.vue';
 
 const components = {
   Icon,
   Button,
   Pagination,
+  Tabs,
+  TabPanel,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
