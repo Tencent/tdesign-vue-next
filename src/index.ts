@@ -10,6 +10,7 @@ import InputGroup from './input-group';
 import Addon from './addon';
 import Steps from './steps';
 import Step from './step';
+import Message from './message';
 
 const components = {
   Icon,
@@ -23,6 +24,7 @@ const components = {
   InputGroup,
   Steps,
   Step,
+  Message,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
