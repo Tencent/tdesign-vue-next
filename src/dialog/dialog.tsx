@@ -152,6 +152,7 @@ export default Vue.extend({
 
   watch: {
     visible(value) {
+      this.$emit('visableChange', value);
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
       // 目前弹窗交互没有动画
@@ -203,15 +204,14 @@ export default Vue.extend({
       this.$emit('clickOverlay');
     },
     closeBtnAcion() {
-      this.visibleChange(false);
+      this.changeVisible(false);
       this.$emit('clickCloseBtn');
     },
-    visibleChange(visible: boolean) {
+    changeVisible(visible: boolean) {
       this.$emit('change', visible);
     },
     confirmBtnAction() {
-      // console.log('confirm');
-      this.closeBtnAcion();
+      alert('confirm');
     },
     renderTitle() {
       const defaultView = <h5 class='title'>对话框标题</h5>;
@@ -256,7 +256,7 @@ export default Vue.extend({
         <button class="t-button t-button--line" onClick={this.closeBtnAcion}>取消</button>
         <button class="t-button t-button--primary" onClick={this.confirmBtnAction}>确认</button>
       </div>;
-      const target = this.body;
+      const target = this.footer;
       let view;
       let isShow = true;
       if (typeof target === 'boolean') {
