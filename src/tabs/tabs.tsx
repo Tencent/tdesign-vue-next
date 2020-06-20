@@ -128,7 +128,7 @@ export default Vue.extend({
       const data = {
         props: {
           theme,
-          panels,
+          panels: [...panels], // immutable，为子组件watch
           currName,
           size,
           disabled,
@@ -169,7 +169,7 @@ export default Vue.extend({
   mounted() {
     this.connectPanels();
   },
- 
+
   render(h: CreateElement) {
     const header = this.genTabHeader();
     const content = this.genTabContent();
