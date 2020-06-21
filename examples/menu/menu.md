@@ -8,6 +8,9 @@
 ::: demo demos/head-menu-dark 黑色主题
 :::
 
+::: demo demos/head-menu-second 双层导航
+:::
+
 ::: demo demos/head-menu-logo 只有LOGO插槽
 :::
 
@@ -19,7 +22,10 @@
 
 ### 侧边导航
 
-::: demo demos/base 侧边栏菜单
+::: demo demos/side-menu 侧边栏菜单
+:::
+
+::: demo demos/side-menu-width 设置宽度
 :::
 
 ### Menu Props
@@ -29,7 +35,7 @@
 | 公有 | theme  | String                | light  | N    | 内置样式：light、dark |
 | 公有 | active | String/Number        |  -     | N     | 激活菜单项的name值  |
 | 公有 | expand | Array                 | []     | N    | 展开的SubMenu的集合 |
-| 公有 | multiple | Booean                 | false     | N    | 是否开启多选模式，开启后每次至多展开一个子菜单 |
+| 公有 | multiple | Boolean                 | false     | N    | 是否开启多选模式，开启后每次至多展开一个子菜单 |
 | 公有 | width | String                 | 256px    | N    | 仅侧边栏有效 |
 | 公有 | collapsed | Boolean                 | false     | N    | 是否收起侧边栏 |
 | 公有 | collapsed-width | String                 | 64px     | N    | 收起的侧边栏宽度 |
@@ -93,7 +99,7 @@
 | 公有 | name  | String/Number                | -  | Y  | 菜单项的唯一标识 |
 | 公有 | route  | String/Object              | -  | N  | 跳转的链接，支持 router 对象 |
 | 公有 | target  | String                | _self  | N  | 相当于 a 链接的 target 属性 |
-| 公有 | disabled  | Booean                | false  | N  | 是否禁用菜单项 |
+| 公有 | disabled  | Boolean                | false  | N  | 是否禁用菜单项 |
 
 ### MenuItem Slots
 

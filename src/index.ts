@@ -5,7 +5,7 @@ import Pagination from './pagination';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
-import { Menu, HeadMenu, MenuItem } from './menu';
+import { Menu, HeadMenu, Submenu, MenuItem } from './menu';
 
 const components = {
   Icon,
@@ -16,6 +16,7 @@ const components = {
   InputGroup,
   Menu,
   HeadMenu,
+  Submenu,
   MenuItem,
 };
 
