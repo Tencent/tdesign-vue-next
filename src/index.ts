@@ -12,7 +12,7 @@ import Addon from './addon';
 import Steps from './steps';
 import Step from './step';
 import { Message, MessagePlugin } from './message';
-import { Menu, HeadMenu, MenuItem } from './menu';
+import { Menu, HeadMenu, Submenu, MenuItem } from './menu';
 
 const components = {
   Icon,
@@ -29,6 +29,7 @@ const components = {
   Message,
   Menu,
   HeadMenu,
+  Submenu,
   MenuItem,
 };
 
