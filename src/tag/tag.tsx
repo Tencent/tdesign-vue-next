@@ -2,7 +2,7 @@ import Vue, { VNode } from 'vue';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
-import Icon from '../icon';
+import Icon from '../icon/iconfont';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;
@@ -18,7 +18,7 @@ const initThemeList: Array<string> = [
 
 const initEffectList = {
   dark: `${name}--dark`,
-  light: `${name}-light`,
+  light: `${name}--light`,
   plain: `${name}--plain`,
 };
 const initShapeList = {
@@ -70,14 +70,12 @@ export default Vue.extend({
       return [
         `${name}`,
         `${name}--${theme}`,
-        `${name}--${this.size}`,
         CLASSNAMES.SIZE[this.size],
+        initEffectList[this.effect],
         this.shape !== defaultShape && initShapeList[this.shape],
         {
           [`${name}--ellipsis`]: this.maxWidth,
           [`${name}--checked`]: !this.disabled && this.checked,
-          [`${name}--plain`]: this.effect === 'plain',
-          [`${name}--light`]: this.effect === 'light',
           [`${name}--disabled`]: this.disabled,
         },
       ];
