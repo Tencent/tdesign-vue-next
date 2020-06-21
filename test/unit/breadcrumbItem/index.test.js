@@ -76,11 +76,11 @@ describe('Breadcrumb', () => {
           return <Breadcrumb size={'large'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
         },
         scopedSlots: {
-          separator: '<i>-</i>'
+          separator: '<i>-</i>',
         },
         provide: {
-          tBreadcrumb: this
-        }
+          tBreadcrumb: this,
+        },
       });
       expect(wrapper).toMatchSnapshot();
     });

@@ -4,14 +4,21 @@ import Button from './button';
 import Pagination from './pagination';
 import Breadcrumb from './breadcrumb';
 import BreadcrumbItem from './breadcrumbItem';
-
+import Popup from './popup';
+import Input from './input';
+import InputGroup from './input-group';
+import Addon from './addon';
 
 const components = {
   Icon,
   Button,
   Pagination,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Popup,
+  Input,
+  Addon,
+  InputGroup,
 };
 
 function install(Vue: VueConstructor, config?: object): void {

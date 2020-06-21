@@ -1,11 +1,11 @@
-import Vue, {CreateElement, VNode} from 'vue';
-import {prefix} from '../config';
+import Vue from 'vue';
+import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import Icon from '../icon';
-import '../../common/style/web/components/breadcrumb/_index.less'
+import '../../common/style/web/components/breadcrumb/_index.less';
 
-const name = prefix + '-breadcrumb';
-const currItemClass = prefix + '-is-current'
+const name = `${prefix}-breadcrumb`;
+const currItemClass = `${prefix}-is-current`;
 const sizeList: Array<string> = ['large', 'middle', 'small'];
 const themeList: Array<string> = ['light'];
 export default Vue.extend({
@@ -23,24 +23,24 @@ export default Vue.extend({
       default: 'light',
       validator(v: string): boolean {
         return themeList.indexOf(v) > -1;
-      }
+      },
     },
     size: {
       type: String,
       default: 'middle',
       validator(v: string): boolean {
         return sizeList.indexOf(v) > -1;
-      }
+      },
     },
     separator: {
       type: [Function, String],
-      default: ''
-    }
+      default: '',
+    },
   },
 
   provide() {
     return {
-      tBreadcrumb: this
+      tBreadcrumb: this,
     };
   },
 
@@ -56,17 +56,17 @@ export default Vue.extend({
 
 
   mounted() {
-    const items = this.$el.querySelectorAll('.t-breadcrumb__item')
+    const items = this.$el.querySelectorAll('.t-breadcrumb__item');
     if (items.length) {
-      const lastItem = items[items.length - 1]
+      const lastItem = items[items.length - 1];
       lastItem.classList.add(currItemClass);
-      lastItem.querySelector('.t-separator').innerHTML = ''
+      lastItem.querySelector('.t-separator').innerHTML = '';
     }
   },
 
-  render(h: CreateElement) {
+  render() {
     const breadcrumbContent: any = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
-    return <div class="t-breadcrumb">{breadcrumbContent}</div>
-  }
+    return <div class="t-breadcrumb">{breadcrumbContent}</div>;
+  },
 
 });
