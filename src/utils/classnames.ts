@@ -3,9 +3,12 @@ import config from '../config';
 const { prefix } = config;
 const ClASSNAMES = {
   SIZE: {
-    large: `${prefix}-size-l`,
     default: '',
-    small: `${prefix}-size-m`,
+    xs: `${prefix}-size-xs`,
+    small: `${prefix}-size-s`,
+    middle: `${prefix}-size-m`,
+    large: `${prefix}-size-l`,
+    xl: `${prefix}-size-xl`,
     block: `${prefix}-size-full-width`,
   },
   STATUS: {

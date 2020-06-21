@@ -6,9 +6,9 @@ exports[`Button :props :disabled 1`] = `<button class="t-button t-button--line t
 
 exports[`Button :props :icon function 1`] = `<button class="t-button t-button--line"></button>`;
 
-exports[`Button :props :icon string 1`] = `<button class="t-button t-button--line"><span class="t-button__inner"><i class="t-icon t-icon-demo t-icon-delete" style="border: 1px solid;"></i><span class="t-button__text">text</span></span></button>`;
+exports[`Button :props :icon string 1`] = `<button class="t-button t-button--line"><span class="t-button__inner"><svg class="t-icon t-icon-delete"><use xlink:href="#t-icon-delete"></use></svg><span class="t-button__text">text</span></span></button>`;
 
-exports[`Button :props :loading 1`] = `<button class="t-button t-button--line t-is-loading"><span class="t-button__inner"><i class="t-icon t-icon-demo t-icon-loading_gradient" style="border: 1px solid;"></i><span class="t-button__text">text</span></span></button>`;
+exports[`Button :props :loading 1`] = `<button class="t-button t-button--line t-is-loading"><span class="t-button__inner"><svg class="t-icon t-icon-loading_gradient"><use xlink:href="#t-icon-loading_gradient"></use></svg><span class="t-button__text">text</span></span></button>`;
 
 exports[`Button :props :size 1`] = `<button class="t-button t-size-l t-button--line">text</button>`;
 

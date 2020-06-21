@@ -2,6 +2,7 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import Popup from './popup';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
@@ -12,6 +13,7 @@ const components = {
   Icon,
   Button,
   Pagination,
+  Popup,
   Input,
   Addon,
   InputGroup,
