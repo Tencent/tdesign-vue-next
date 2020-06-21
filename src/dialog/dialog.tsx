@@ -119,6 +119,10 @@ export default Vue.extend({
       type: Boolean,
       default: false,
     },
+    attach: {
+      type: [Function, String, Boolean],
+      default: false,
+    },
     theme: {
       type: String,
       default: 'line',
@@ -138,18 +142,23 @@ export default Vue.extend({
       },
     },
   },
-
-  data() {
-    return {};
-  },
-
   computed: {
     // 是否模态形式的对话框
     isModal(): boolean {
       return this.mode === 'modal';
     },
+    // 挂载目标，false 代表自然挂载的子元素
+    attachTarget(): Node | string | boolean {
+      const { attach } = this;
+      if (typeof attach === 'function') {
+        return attach();
+      }
+      if (['string', 'boolean'].indexOf(typeof attach) > -1) {
+        return attach;
+      }
+      return false;
+    },
   },
-
   watch: {
     visible(value) {
       this.$emit('visableChange', value);
@@ -308,7 +317,8 @@ export default Vue.extend({
       !this.showOverlay && 't-dialog-mask--hidden',
     ];
     return (
-      <div class={ctxClass} style={{ zIndex: this.zIndex }}>
+      <div class={ctxClass} style={{ zIndex: this.zIndex }} v-transfer-dom={this.attachTarget}>
+
         {
           this.isModal && <div class={maskClasses} onClick={this.overlayAction}></div>
         }
