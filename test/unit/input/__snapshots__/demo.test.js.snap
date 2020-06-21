@@ -1,0 +1,309 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button addon demo works fine 1`] = `
+<div>
+  <div
+    class="t-addon"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      http://
+    </span>
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        placeholder="请输入内容"
+        type="text"
+      />
+    </div>
+  </div>
+   
+  <div
+    class="t-addon"
+  >
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        placeholder="请输入内容"
+        type="text"
+      />
+    </div>
+    <span
+      class="t-addon__append"
+    >
+      .com
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Button base demo works fine 1`] = `
+<div>
+  <div
+    class="t-input"
+  >
+    <input
+      class="t-input__inner"
+      placeholder="请输入内容"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Button disabled demo works fine 1`] = `
+<div
+  class="t-input t-is-disabled"
+>
+  <input
+    class="t-input__inner"
+    disabled="disabled"
+    type="text"
+  />
+</div>
+`;
+
+exports[`Button group demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-group t-input-group--seperate"
+  >
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        type="text"
+      />
+    </div>
+     
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        type="text"
+      />
+    </div>
+  </div>
+   
+  <div
+    class="tdesign-demo-divide"
+  />
+   
+  <div
+    class="t-input-group"
+  >
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        type="text"
+      />
+    </div>
+     
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        type="text"
+      />
+    </div>
+  </div>
+   
+  <div
+    class="tdesign-demo-divide"
+  />
+   
+  <div
+    class="t-input-group t-input-group--seperate"
+  >
+    <div
+      class="t-input"
+      style="width: 100px;"
+    >
+      <input
+        class="t-input__inner"
+        type="text"
+      />
+    </div>
+     
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        type="text"
+      />
+    </div>
+  </div>
+   
+  <div
+    class="tdesign-demo-divide"
+  />
+   
+  <div
+    class="t-input-group t-input-group--seperate"
+  >
+    <div
+      class="t-input"
+      style="width: 100px;"
+    >
+      <input
+        class="t-input__inner"
+        type="text"
+      />
+    </div>
+     
+    <span>
+       - 
+    </span>
+     
+    <div
+      class="t-input"
+      style="width: 100px;"
+    >
+      <input
+        class="t-input__inner"
+        type="text"
+      />
+    </div>
+     
+    <div
+      class="t-input"
+      style="width: 100px;"
+    >
+      <input
+        class="t-input__inner"
+        type="text"
+      />
+    </div>
+     
+    <div
+      class="t-input"
+      style="width: 100px;"
+    >
+      <input
+        class="t-input__inner"
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Button icon demo works fine 1`] = `
+<div>
+  <div
+    class="t-input t-input--prefix t-input--suffix"
+  >
+    <span
+      class="t-input__prefix"
+    >
+      <i
+        class="t-icon t-icon-demo t-icon-demo"
+        style="border: 1px solid;"
+      />
+    </span>
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+    <span
+      class="t-input__suffix"
+    >
+      <i
+        class="t-icon t-icon-demo t-icon-demo"
+        style="border: 1px solid;"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Button size demo works fine 1`] = `
+<div>
+  <div
+    class="t-input t-size-l"
+  >
+    <input
+      class="t-input__inner"
+      placeholder="请输入内容"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="tdesign-demo-divide"
+  />
+   
+  <div
+    class="t-input"
+  >
+    <input
+      class="t-input__inner"
+      placeholder="请输入内容"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Button status demo works fine 1`] = `
+<div>
+  <div
+    class="t-input t-is-success"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="tdesign-demo-divide"
+  />
+   
+  <div
+    class="t-input t-is-success"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="tdesign-demo-divide"
+  />
+   
+  <div
+    class="t-input t-is-warning"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="tdesign-demo-divide"
+  />
+   
+  <div
+    class="t-input t-is-error"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+</div>
+`;

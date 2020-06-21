@@ -33,8 +33,8 @@ export default Vue.extend({
   },
   render() {
     // 标签内容
-    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ?
-      this.$scopedSlots.default(null) : '';
+    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default
+      ? this.$scopedSlots.default(null) : '';
 
     return (
       <span class={ this.tagClass } on-click={ this.handleClick }>

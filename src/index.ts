@@ -4,6 +4,10 @@ import Button from './button';
 import Pagination from './pagination';
 import Tag from './tag';
 import CheckTag from './tag/check-tag';
+import Popup from './popup';
+import Input from './input';
+import InputGroup from './input-group';
+import Addon from './addon';
 
 const components = {
   Icon,
@@ -11,6 +15,10 @@ const components = {
   Pagination,
   Tag,
   CheckTag,
+  Popup,
+  Input,
+  Addon,
+  InputGroup,
 };
 
 function install(Vue: VueConstructor, config?: object): void {

@@ -100,17 +100,17 @@ export default Vue.extend({
   },
   render() {
     // 关闭按钮
-    const closeIcon: VNode | string =  this.closable ?
-      <Icon name="close" on-click={ this.handleClose } /> : '';
+    const closeIcon: VNode | string =  this.closable
+      ? <Icon name="close" on-click={ this.handleClose } /> : '';
     // 标签内容
-    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ?
-      this.$scopedSlots.default(null) : '';
+    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default
+      ? this.$scopedSlots.default(null) : '';
     // 图标
     let icon: VNode;
     if (typeof this.icon === 'string') {
-      icon = <Icon name={ this.icon } />
+      icon = <Icon name={ this.icon } />;
     } else if (typeof this.icon === 'function') {
-      icon = <i class={ iconName }>{ this.icon() }</i>
+      icon = <i class={ iconName }>{ this.icon() }</i>;
     }
 
     return (

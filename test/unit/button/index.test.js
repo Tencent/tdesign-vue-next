@@ -96,10 +96,4 @@ describe('Button', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
-
-  // describe('methods', () => {
-  //   it('somePublicMethod', () => {
-  //     // method work fine
-  //   });
-  // });
 });
