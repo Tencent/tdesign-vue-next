@@ -7,4 +7,9 @@ describe('Breadcrumb-item', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
+  it('base demo works fine', () => {
+    const demo = require('@/examples/breadcrumb-item/demos/overlay.vue');
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

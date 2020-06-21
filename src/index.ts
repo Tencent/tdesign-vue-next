@@ -2,12 +2,16 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import Breadcrumb from './breadcrumb';
+import BreadcrumbItem from './breadcrumbItem';
 
 
 const components = {
   Icon,
   Button,
-  Pagination
+  Pagination,
+  Breadcrumb,
+  BreadcrumbItem
 };
 
 function install(Vue: VueConstructor, config?: object): void {
