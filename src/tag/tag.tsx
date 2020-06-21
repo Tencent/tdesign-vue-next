@@ -15,7 +15,7 @@ const initThemeList: Array<string> = [
   'danger',
   'success',
 ];
-const initSizeList: Array<string> = ['large', 'middle', 'small'];
+
 const initEffectList = {
   dark: `${name}--dark`,
   light: `${name}-light`,
@@ -44,18 +44,9 @@ export default Vue.extend({
     },
     size: String,
     icon: [String, Function],
-    closable: {
-      type: Boolean,
-      default: false,
-    },
-    checked: {
-      type: Boolean,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+    closable: Boolean,
+    checked: Boolean,
+    disabled: Boolean,
     effect: {
       type: String,
       default: 'dark',
