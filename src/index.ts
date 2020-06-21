@@ -6,6 +6,7 @@ import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
 import Dialog from './dialog';
+import TransferDom from './utils/transfer-dom';
 
 const components = {
   Icon,
@@ -18,6 +19,8 @@ const components = {
 };
 
 function install(Vue: VueConstructor, config?: object): void {
+  // 增加指令v-transfer-dom，用于元素指定挂载点的
+  Vue.directive('transfer-dom', TransferDom);
   const defaults = {
     prefix: 't',
   };
