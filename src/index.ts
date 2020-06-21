@@ -3,10 +3,11 @@ import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
 
+
 const components = {
   Icon,
   Button,
-  Pagination,
+  Pagination
 };
 
 function install(Vue: VueConstructor, config?: object): void {
