@@ -6,6 +6,7 @@ import TIconWarningFill from '../icon/warning-fill';
 import TIconHelpFill from '../icon/help-fill';
 import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
+import { THEME_LIST, PLACEMENT_LIST, PLACEMENT_OFFSET } from './const';
 
 const name = `${prefix}-message`;
 
@@ -23,24 +24,23 @@ export default Vue.extend({
 
   props: {
     visible: Boolean,
-    content: [String, Function],
     theme: {
       type: String,
-      default: 'info',
+      default: THEME_LIST[0],
       validator(val: string): boolean {
-        return ['info', 'success', 'warning', 'error', 'question', 'loading'].includes(val);
+        return THEME_LIST.includes(val);
       },
     },
     placement: {
       type: String,
+      default: PLACEMENT_LIST[0],
       validator(val: string): boolean {
-        return ['left', 'left-top', 'top', 'right-top', 'right', 'right-bottom', 'bottom', 'left-bottom'].includes(val);
+        return PLACEMENT_LIST.includes(val);
       },
     },
     offest: Object,
     duration: {
       type: Number,
-      default: 3000,
     },
     close: [Boolean, String, Function],
     icon: {
@@ -49,40 +49,67 @@ export default Vue.extend({
     },
     default: [String, Function],
     attach: Function,
+    // fixed 为 true 时，有效
     zIndex: {
       type: Number,
       default: 6000,
     },
+    fixed: Boolean,
   },
 
   data() {
-    return {};
+    return {
+      removed: false,
+    };
   },
 
   computed: {
     classes(): ClassName {
+      const status = {};
+      THEME_LIST.forEach((t) => {
+        status[`t-is-${t}`] = this.theme === t;
+      });
       return [
         't-message',
+        status,
         {
           't-is-closable': this.close,
-          't-is-success': this.theme === 'success',
-          't-is-warning': this.theme === 'warning',
-          't-is-error': this.theme === 'error',
-          't-message--info': this.theme === 'info',
-          't-message--question': this.theme === 'question',
-          't-is-loading': this.theme === 'loading',
         },
       ];
     },
+    styles(): object {
+      let _s = {};
+      if (this.fixed) {
+        _s = Object.assign(
+          {
+            position: 'fixed',
+            zIndex: this.zIndex,
+          },
+          PLACEMENT_OFFSET[this.placement],
+        );
+      }
+      return _s;
+    },
   },
 
-  watch: {},
+  created() {
+    if (this.duration)  {
+      const timer = setTimeout(() => {
+        this.remove();
+        clearTimeout(timer);
+      }, this.duration);
+    }
+  },
 
   methods: {
+    remove() {
+      this.removed = true;
+      this.$emit('remove', this);
+    },
     renderClose() {
       if (this.close === false) return;
-      if (typeof this.close === 'function') return this.close();
-      return <t-icon-close />;
+      if (typeof this.close === 'function') return this.close(this.remove);
+      return <t-icon-close nativeOnClick={this.remove}/>;
     },
     renderIcon() {
       if (this.icon === false) return;
@@ -100,15 +127,16 @@ export default Vue.extend({
     renderContent() {
       if (typeof this.default === 'string') return this.default;
       if (typeof this.default === 'function') return this.default();
-      return this.$scopedSlots.default({
+      return this.$scopedSlots.default && this.$scopedSlots.default({
         props: this.$props,
       });
     },
   },
 
   render() {
+    if (this.removed) return null;
     return (
-      <div class={this.classes}>
+      <div class={this.classes} style={this.styles}>
         { this.renderIcon() }
         { this.renderContent() }
         { this.renderClose() }

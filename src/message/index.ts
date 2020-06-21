@@ -1,3 +1,9 @@
 import Message from './message';
+import MessagePlugin from './plugin';
 
-export default Message;
+// Todo: 如果单独使用，应该怎么开发？？？
+
+export {
+  Message,
+  MessagePlugin,
+};
