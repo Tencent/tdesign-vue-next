@@ -1,5 +1,6 @@
-import Vue, { CreateElement, VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 import RenderComponent from '../utils/render-component';
+import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import Icon from '../icon';
 
@@ -15,12 +16,17 @@ const initThemeList: Array<string> = [
   'success',
 ];
 const initSizeList: Array<string> = ['large', 'middle', 'small'];
-const initEffectList: Array<string> = ['dark', 'light', 'plain'];
-const shapeMap = {
+const initEffectList = {
+  dark: `${name}--dark`,
+  light: `${name}-light`,
+  plain: `${name}--plain`,
+};
+const initShapeList = {
   square: `${name}--square`,
   round: `${name}--round`,
   mark: `${name}--mark`,
-}
+};
+const defaultShape = 'square';
 
 export default Vue.extend({
   name,
@@ -36,13 +42,7 @@ export default Vue.extend({
         return initThemeList.indexOf(v) > -1;
       },
     },
-    size: {
-      type: String,
-      default: 'middle',
-      validator(v: string): boolean {
-        return initSizeList.indexOf(v) > -1;
-      },
-    },
+    size: String,
     icon: [String, Function],
     closable: {
       type: Boolean,
@@ -60,14 +60,14 @@ export default Vue.extend({
       type: String,
       default: 'dark',
       validator(v: string): boolean {
-        return initEffectList.indexOf(v) > -1;
+        return Object.keys(initEffectList).indexOf(v) > -1;
       },
     },
     shape: {
       type: String,
-      default: 'square',
+      default: defaultShape,
       validator(v: string): boolean {
-        return Object.keys(shapeMap).indexOf(v) > -1;
+        return Object.keys(initShapeList).indexOf(v) > -1;
       },
     },
     maxWidth: [String, Number],
@@ -80,7 +80,8 @@ export default Vue.extend({
         `${name}`,
         `${name}--${theme}`,
         `${name}--${this.size}`,
-        shapeMap[this.shape],
+        CLASSNAMES.SIZE[this.size],
+        this.shape !== defaultShape && initShapeList[this.shape],
         {
           [`${name}--ellipsis`]: this.maxWidth,
           [`${name}--checked`]: !this.disabled && this.checked,
@@ -106,12 +107,12 @@ export default Vue.extend({
       if (!this.disabled) this.$emit('click', event);
     },
   },
-  render(h: CreateElement) {
+  render() {
     // 关闭按钮
     const closeIcon: VNode | string =  this.closable ?
       <Icon name="close" on-click={ this.handleClose } /> : '';
     // 标签内容
-    let tagContent: VNode[] | VNode | string = this.$scopedSlots.default ?
+    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ?
       this.$scopedSlots.default(null) : '';
     // 图标
     let icon: VNode;

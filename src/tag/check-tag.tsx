@@ -1,4 +1,4 @@
-import Vue, { CreateElement, VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 import RenderComponent from '../utils/render-component';
 import config from '../config';
 
@@ -11,14 +11,8 @@ export default Vue.extend({
     RenderComponent,
   },
   props: {
-    checked: {
-      type: Boolean,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+    checked: Boolean,
+    disabled: Boolean,
   },
   computed: {
     tagClass(): Array<any> {
@@ -37,9 +31,9 @@ export default Vue.extend({
       if (!this.disabled) this.$emit('click', event);
     },
   },
-  render(h: CreateElement) {
+  render() {
     // 标签内容
-    let tagContent: VNode[] | VNode | string = this.$scopedSlots.default ?
+    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ?
       this.$scopedSlots.default(null) : '';
 
     return (
