@@ -1,4 +1,4 @@
-## table
+## Table 表格
 
 ::: demo demos/base 默认
 :::
