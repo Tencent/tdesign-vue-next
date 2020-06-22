@@ -6,6 +6,8 @@ import Popup from './popup';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
+import Steps from './steps';
+import Step from './step';
 
 const components = {
   Icon,
@@ -15,6 +17,8 @@ const components = {
   Input,
   Addon,
   InputGroup,
+  Steps,
+  Step,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
