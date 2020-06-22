@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
@@ -28,7 +29,6 @@ function install(Vue: VueConstructor, config?: object): void {
   Object.keys(components).forEach((key) => {
     Vue.component(installConfig.prefix + key, components[key]);
   });
-  // eslint-disable-next-line no-param-reassign
   Vue.prototype.$notify = NotificationApi;
 };
 

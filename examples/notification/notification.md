@@ -48,15 +48,15 @@ import { NotificationApi, Notification } from 'tdesign';
 | icon | String/Function/Solt(icon) | - | N | 自定义图标。当 theme 存在，取默认图标 |
 | footer | Function/Solt(footer) | - | N | 自定义底部详情 |
 | attach | String/Function | - | N | 指定弹框挂载节点。字符串类型表示DOM选择器（querySelector）；函数需返回 DOM 节点，如：() => document.body | 
-| zIndex | Number | 5000 | N | 自定义层级 |
+| zIndex | Number | 6000 | N | 自定义层级 |
 | opened | Function | - | N | 打开动画完成后触发 |
 | closed | Function | - | N | 关闭动画完成后触发 |
 
 ### Methods 
 | 方法名称 | 参数 |  说明 |
 | ---- | ---- | ---- | ---- | ---- | 
-| close | (id: number, afterClosed: Function) | 关闭指定 id 的 Notification，并在关闭后执行回调。(id 可在返回实例的属性中拿到) |
-| closeAll | - | 关闭所有 Notification |
+| close | (instance: Notification) | 关闭指定的 Notification 实例 |
+| closeAll | (afterClosed: Function) | 关闭所有 Notification 后, 执行 afterClosed |
 ```
 调用 Notification 或 this.$notify 会返回当前 Notification 的实例。如果需要手动关闭实例，可以调用它的 close 方法。
 ```

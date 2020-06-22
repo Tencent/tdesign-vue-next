@@ -1,15 +1,17 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
-import Icon from '../icon';
+import TIconPromptFill from '../icon/prompt-fill';
+import TIconSuccessFill from '../icon/success-fill';
+import TIconClose from '../icon/close';
 
 const name = `${prefix}-notification`;
 
 export default Vue.extend({
   name,
   components: {
-    [Icon.name]: Icon,
-    RenderComponent,
+    TIconPromptFill,
+    TIconSuccessFill,
+    TIconClose,
   },
   props: {
     visible: {
@@ -49,23 +51,19 @@ export default Vue.extend({
       type: Number,
       default: 3000,
     },
-    showClose: {
+    close: {
       type: [Boolean, String, Function],
       default: true,
     },
-    attach: {
-      type: [String, Function],
-      default: 'body',
-    },
     zIndex: {
       type: Number,
-      default: 5000,
+      default: 6000,
     },
     title: String,
-    content: [String, Function],
+    default: [String, Function],
     offset: Object,
-    icon: [String, Function],
-    footer: [String, Function],
+    icon: Function,
+    footer: Function,
     opened: Function,
     closed: Function,
     _top: {
@@ -87,13 +85,13 @@ export default Vue.extend({
       handler(newVal) {
         this.visibleChange(newVal);
       },
-      immediate: true, // run handler immediately in first bind
+      immediate: true,
     },
   },
   methods: {
     visibleChange(visible: boolean) {
       this.myVisible = visible;
-      this.$forceUpdate(); // render immediately
+      this.$forceUpdate();
       if (visible) {
         if (this.duration > 0) {
           setTimeout(() => {
@@ -110,79 +108,85 @@ export default Vue.extend({
       evt.initEvent('transitionEnd', false, false);
       this.$el.dispatchEvent(evt);
     },
-  },
-  render(h: CreateElement) {
-    if (!this.myVisible) return;
-    // icon
-    let icon: VNode[] | VNode | string = '';
-    if (this.theme) {
-      const iconType = this.theme === 'success' ? 'success' : 'prompt';
-      icon = (<div class='t-notification__icon--wrap'>
-        <t-icon name={`${iconType}-fill`} class={`${name}__icon-${this.theme}`} />
-      </div>);
-    } else if (this.icon || this.$scopedSlots.icon) {
-      switch (typeof this.icon) {
+    renderIcon(h: CreateElement) {
+      let icon: VNode[] | VNode | string = '';
+
+      if (this.theme) {
+        const iconType = this.theme === 'success' ? 'success' : 'prompt';
+        icon = (<div class='t-notification__icon'>
+          <t-icon name={`${iconType}-fill`} class={`t-is-${this.theme}`} />
+        </div>);
+      } else if (this.icon || this.$scopedSlots.icon) {
+        if (this.icon) {
+          icon = (<div class={`${name}__icon`}>{this.icon(h)}</div>);
+        }
+        icon = this.$scopedSlots.icon ? this.$scopedSlots.icon(null) : icon;
+      }
+
+      return icon;
+    },
+    renderCloseIcon(h: CreateElement) {
+      let close: VNode[] | VNode | string = '';
+
+      switch (typeof this.close) {
+        case 'boolean': {
+          if (this.close === true) {
+            if (this.$scopedSlots.close) {
+              close = this.$scopedSlots.close(null);
+            } else {
+              close = (<t-icon name="close" />);
+            }
+          }
+          break;
+        }
         case 'function': {
-          icon = (<div class={`${name}__icon--wrap`}>{this.icon(h)}</div>);
+          close = this.close(h);
           break;
         }
         case 'string': {
-          icon = (<div class={`${name}__icon--wrap`}>{this.icon}</div>);
+          /* eslint prefer-destructuring: ["error", {VariableDeclarator: {object: true}}] */
+          close = this.close;
+          break;
         }
-      }
-      icon = this.$scopedSlots.icon ? this.$scopedSlots.icon(null) : icon;
-    }
+      };
 
-    // close-icon
-    let close: VNode[] | VNode | string = '';
-    switch (typeof this.showClose) {
-      case 'boolean': {
-        if (this.showClose === true) {
-          if (this.$scopedSlots.close) {
-            close = this.$scopedSlots.close(null);
-          } else {
-            close = (<t-icon name="close" />);
-          }
+      return close;
+    },
+    renderContent(h: CreateElement) {
+      let content: VNode[] | VNode | string = '';
+
+      switch (typeof this.default) {
+        case 'function': {
+          content = this.default(h);
+          break;
         }
-        break;
-      }
-      case 'function': {
-        close = this.showClose(h);
-        break;
-      }
-      case 'string': {
-        close = this.showClose;
-        break;
-      }
-    };
+        case 'string': {
+          content = this.default ? (<div class={`${name}__content`}>{this.default}</div>) : '';
+          break;
+        }
+      };
+      content = this.$scopedSlots.default ? this.$scopedSlots.default(null) : content;
 
-    // content
-    let content: VNode[] | VNode | string = '';
-    switch (typeof this.content) {
-      case 'function': {
-        content = this.content(h);
-        break;
-      }
-      case 'string': {
-        content = this.content ? (<div class={`${name}__content`}>{this.content}</div>) : '';
-        break;
-      }
-    };
-    content = this.$scopedSlots.default ? this.$scopedSlots.default(null) : content;
+      return content;
+    },
+    renderFooter(h: CreateElement) {
+      let footer: VNode[] | VNode | string = '';
 
-    // footer
-    let footer: VNode[] | VNode | string = '';
-    switch (typeof this.footer) {
-      case 'function': {
+      if (this.footer) {
         footer = this.footer(h);
-        break;
-      }
-      case 'string': {
-        footer = this.footer ? (<div class={`${name}__detail`}>{this.footer}</div>) : '';
-        break;
-      }
-    };
-    footer = this.$scopedSlots.footer ? this.$scopedSlots.footer(null) : footer;
+      };
+      footer = this.$scopedSlots.footer ? this.$scopedSlots.footer(null) : footer;
+
+      return footer;
+    },
+  },
+  render(h: CreateElement) {
+    if (!this.myVisible) return;
+
+    const icon = this.renderIcon(h);
+    const close = this.renderCloseIcon(h);
+    const content = this.renderContent(h);
+    const footer = this.renderFooter(h);
 
     // display
     let top = 0;
@@ -213,10 +217,10 @@ export default Vue.extend({
     return (
       <div class={`${name} ${name}__show--${this.placement}`} style={style}>
         {icon}
-        <div class={`${name}__main--wrap`}>
-          <div class={`${name}__title--wrap`}>
+        <div class={`${name}__main`}>
+          <div class={`${name}__title__wrap`}>
             <span class={`${name}__title`}>{this.title}</span>
-            <div class={`${name}__icon--close`} onclick={this.handleClose}>{close}</div>
+            <div onclick={this.handleClose}>{close}</div>
           </div>
           {content}
           {footer}

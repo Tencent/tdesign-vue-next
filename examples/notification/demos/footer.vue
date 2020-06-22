@@ -14,7 +14,7 @@ export default {
         content: '这是一条可以自动关闭的消息通知',
         footer: h => h(
           'div', { class: 't-notification__detail' },
-          [h('span', { class: 't-notification__detail--item t-notification__detail--active' }, '查看详情')]
+          [h('span', { class: 't-notification__detail--item t-is-active' }, '查看详情')]
         ),
       });
     },
@@ -25,7 +25,7 @@ export default {
         footer: h => h(
           'div', { class: 't-notification__detail' },
           [h('span', { class: 't-notification__detail--item' }, '重启'),
-            h('span', { class: 't-notification__detail--item t-notification__detail--active' }, '稍后提醒我')]
+            h('span', { class: 't-notification__detail--item t-is-active' }, '稍后提醒我')]
         ),
       });
     },
