@@ -84,9 +84,7 @@ export default Vue.extend({
 
     return (
       <button class={buttonClass} { ...{ on: this.$listeners } }>
-        { 
-          
-         }
+        { buttonContent }
       </button>
     );
   },
