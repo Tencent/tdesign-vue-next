@@ -1,3 +1,9 @@
 import List from './list.vue';
+import ListItem from './list-item.vue';
+import ListItemMeta from './list-item-meta.vue';
 
-export default List;
+export {
+  List,
+  ListItem,
+  ListItemMeta,
+};
