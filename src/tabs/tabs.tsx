@@ -4,17 +4,17 @@ import RenderComponent from '../utils/render-component';
 import TabNav from './tab-nav.vue';
 import TabPanel from './tab-panel.vue';
 
-const name = prefix + '-tabs';
+const name = `${prefix}-tabs`;
 
 export default Vue.extend({
   name,
- 
+
   components: {
     RenderComponent,
     TabPanel,
     TabNav,
   },
- 
+
   props: {
     theme: {
       type: String,
@@ -61,7 +61,7 @@ export default Vue.extend({
     },
     closable: {
       type: Boolean,
-      default: false, 
+      default: false,
     },
     addable: {
       type: Boolean,
@@ -82,7 +82,6 @@ export default Vue.extend({
     activeName(val) {
       this.currName = val;
     },
-    
   },
 
   methods: {
@@ -177,5 +176,5 @@ export default Vue.extend({
       </div>
     );
   }
- 
+
 });
