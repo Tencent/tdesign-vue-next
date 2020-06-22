@@ -1,8 +1,6 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
-import CLASSNAMES from '../utils/classnames';
-import Icon from '../icon';
 import TabNav from './tab-nav.vue';
 import TabPanel from './tab-panel.vue';
 
@@ -12,7 +10,6 @@ export default Vue.extend({
   name,
  
   components: {
-    [Icon.name]: Icon,
     RenderComponent,
     TabPanel,
     TabNav,
@@ -109,7 +106,7 @@ export default Vue.extend({
       this.currName = val;
     },
 
-    onTabClick(event: any, panel: any, name: string) {
+    tabChange(event: any, panel: any, name: string) {
       this.setCurrName(name);
     },
 
@@ -123,7 +120,7 @@ export default Vue.extend({
         tabPosition,
         closable,
         addable,
-        onTabClick,
+        tabChange,
       } = this;
       const data = {
         props: {
@@ -135,7 +132,7 @@ export default Vue.extend({
           tabPosition,
           closable,
           addable,
-          onTabClick,
+          tabChange,
         },
         ref: 'nav',
       };
