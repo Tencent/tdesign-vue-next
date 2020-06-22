@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-table :columns="columns" :data="data" :row-expand="rowExpand">
+    <t-table :columns="columns" :data="data" :row-selection="rowSelection">
       <template #status="text">
         <p v-if="text === 0" class="status">健康</p>
         <p v-if="text === 1" class="status unhealth">异常</p>
@@ -30,9 +30,7 @@ export default {
         { id: 3, instance: 'JQTest3', status: 0, owner: 'jenny', description: 'test' },
         { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', description: 'test' },
       ],
-      rowExpand: {
-        expandedRowKeys: [1, '2'],
-        expandedRowRender: (record, index) => <p>{index}:{record.description}</p>,
+      rowSelection: {
       },
     };
   },

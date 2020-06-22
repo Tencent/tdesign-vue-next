@@ -33,12 +33,16 @@ export default {
     return {
       columns, data,
       rowExpand: {
+        defaultExpandedRowKeys: [1, '2'],
         // expandedRowKeys: [1, '2'],
         expandedRowRender: record => <div class="more-detail">
           <p class="title"><b>集群名称:</b></p><p class="content">{record.instance}</p><br/>
           <p class="title"><b>管理员:</b></p><p class="content">{record.owner}</p><br/>
           <p class="title"><b>描述:</b></p><p class="content">{record.description}</p>
         </div>,
+        onChange(record = {}, index, expanded) {
+          console.log(record, index, expanded);
+        },
       },
     };
   },
