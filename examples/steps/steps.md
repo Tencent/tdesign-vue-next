@@ -19,7 +19,6 @@
 :::
 
 ### 属性配置
-`TNode = Function + ReactNode + Slot`
 
 #### Steps Props
 |平台|属性名称     |类型    |默认值       |必传|说明                                                      |
@@ -39,7 +38,15 @@
 |平台|属性名称   |类型            |默认值    |必传|说明                                                                |
 |--|-------|--------------|-------|--|------------------------------------------------------------------|
 |PC|status |Stirng        |process|N |当前步骤的状态，可选值为wait、process、finish、error，若不配置则使用 Steps 的 current 自动指定|
-|PC|icon   |String / TNode|       |N |图标，支持同名 slot（slot为Vue的概念）                                         |
-|PC|title  |String / TNode|       |N |标题，支持同名 slot（slot为Vue的概念）                                         |
-|PC|content|String / TNode|       |N |内容，支持同名 slot（slot为Vue的概念）                                         |
-|PC|extra  |TNode         |       |N |补充的额外内容                                                           |
+|PC|icon   |String|       |N | 图标 |
+|PC|title  |String|       |N | 标题 |
+|PC|content|String|       |N | 内容 |
+
+### Step Slots
+
+| 平台| 插槽名称| 类型| 必传 | 说明 |
+|-----|-----|-----|-----|-----|
+| web| icon | String/Component | N | 图标 |
+| web| titile | String/Component | N | 标题 |
+| web| content | String/Component | N | 内容 |
+| web| extra | String/Component | N | 额外内容 |
