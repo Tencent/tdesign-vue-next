@@ -2,6 +2,12 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import Popup from './popup';
+import Input from './input';
+import InputGroup from './input-group';
+import Addon from './addon';
+import Steps from './steps';
+import Step from './step';
 import Tabs from './tabs';
 import TabPanel from './tabs/tab-panel.vue';
 
@@ -9,6 +15,12 @@ const components = {
   Icon,
   Button,
   Pagination,
+  Popup,
+  Input,
+  Addon,
+  InputGroup,
+  Steps,
+  Step,
   Tabs,
   TabPanel,
 };

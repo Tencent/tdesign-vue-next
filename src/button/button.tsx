@@ -44,7 +44,7 @@ export default Vue.extend({
     block: Boolean,
     disabled: Boolean,
   },
-  render(h: CreateElement) {
+  render(h: CreateElement): VNode { // eslint-disable-line
     const buttonClass = [
       `${name}`,
       CLASSNAMES.SIZE[this.size],
@@ -60,9 +60,9 @@ export default Vue.extend({
     let icon: VNode;
 
     if (this.loading) {
-      icon = <Icon name="loading_gradient"></Icon>
+      icon = <Icon name="loading_gradient"></Icon>;
     } else if (typeof this.icon === 'string') {
-      icon = <Icon name={this.icon}></Icon>
+      icon = <Icon name={this.icon}></Icon>;
     } else if (typeof icon === 'function') {
       icon = <i class={`${Icon.name}`}>{ this.icon() }</i>;
     }
@@ -87,5 +87,5 @@ export default Vue.extend({
         { buttonContent }
       </button>
     );
-  }
+  },
 });
