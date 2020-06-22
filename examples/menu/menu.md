@@ -8,7 +8,7 @@
 ::: demo demos/head-menu-dark 黑色主题
 :::
 
-::: demo demos/head-menu-second 双层导航
+::: demo demos/head-menu-mode-tile 双层导航
 :::
 
 ::: demo demos/head-menu-dropdown 下拉菜单
@@ -29,6 +29,9 @@
 :::
 
 ::: demo demos/side-menu-width 设置宽度
+:::
+
+::: demo demos/side-menu-dropdown 下拉菜单
 :::
 
 ### Menu Props
