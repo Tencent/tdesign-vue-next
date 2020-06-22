@@ -6,9 +6,9 @@ import Popup from './popup';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
-import List from './list';
-import ListItem from './list-item';
-import ListItemMeta from './list-item-meta';
+import Steps from './steps';
+import Step from './step';
+import { List, ListItem, ListItemMeta } from './list';
 
 const components = {
   Icon,
@@ -18,6 +18,8 @@ const components = {
   Input,
   Addon,
   InputGroup,
+  Steps,
+  Step,
   List,
   ListItem,
   ListItemMeta,
