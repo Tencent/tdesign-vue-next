@@ -44,16 +44,16 @@
         <p style="padding: 25px;">选项卡3</p>
       </t-tab-panel>
       <t-tab-panel name="4" label="选项卡4">
-        <p style="padding: 25px;">选项卡3</p>
+        <p style="padding: 25px;">选项卡4</p>
       </t-tab-panel>
       <t-tab-panel name="5" label="选项卡5">
-        <p style="padding: 25px;">选项卡3</p>
+        <p style="padding: 25px;">选项卡5</p>
       </t-tab-panel>
       <t-tab-panel name="6" label="选项卡6">
-        <p style="padding: 25px;">选项卡3</p>
+        <p style="padding: 25px;">选项卡6</p>
       </t-tab-panel>
       <t-tab-panel name="7" label="选项卡7">
-        <p style="padding: 25px;">选项卡3</p>
+        <p style="padding: 25px;">选项卡7</p>
       </t-tab-panel>
     </t-tabs>
 
