@@ -5,17 +5,29 @@
       <t-button theme="line" @click="toggle">{{ desc }}</t-button>
     </div>
     <t-tabs
-      activeName="first"
+      activeName="1"
       :theme="theme"
     >
-      <t-tab-panel name="first" :label="`${theme}选项卡1`">
-        <p style="padding: 25px;">{{ `${theme}选项卡1内容` }}</p>
+      <t-tab-panel name="1" label="选项卡1">
+        <p style="padding: 25px;">选项卡1</p>
       </t-tab-panel>
-      <t-tab-panel name="second" :label="`${theme}选项卡2`">
-        <p style="padding: 25px;">{{ `${theme}选项卡2内容` }}</p>
+      <t-tab-panel name="2" label="选项卡2">
+        <p style="padding: 25px;">选项卡2</p>
       </t-tab-panel>
-      <t-tab-panel name="third" :label="`${theme}选项卡3`">
-        <p style="padding: 25px;">{{ `${theme}选项卡3内容` }}</p>
+      <t-tab-panel name="3" label="选项卡3">
+        <p style="padding: 25px;">选项卡3</p>
+      </t-tab-panel>
+      <t-tab-panel name="4" label="选项卡4">
+        <p style="padding: 25px;">选项卡4</p>
+      </t-tab-panel>
+      <t-tab-panel name="5" label="选项卡5">
+        <p style="padding: 25px;">选项卡5</p>
+      </t-tab-panel>
+      <t-tab-panel name="6" label="选项卡6">
+        <p style="padding: 25px;">选项卡6</p>
+      </t-tab-panel>
+      <t-tab-panel name="7" label="选项卡7">
+        <p style="padding: 25px;">选项卡7</p>
       </t-tab-panel>
     </t-tabs>
   </div>

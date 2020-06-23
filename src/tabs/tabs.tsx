@@ -84,7 +84,6 @@ export default Vue.extend({
 
   methods: {
     connectPanels() {
-      this.panels.length !== 0 && (this.panels = []);
       if (this.$slots.default) {
         const panelSlots = this.$slots.default.filter(vnode => {
           const {
@@ -95,7 +94,13 @@ export default Vue.extend({
           return tag === `${prefix}-tab-panel`;
         });
         const panels = panelSlots.map(({ componentInstance }) => componentInstance);
-        this.panels = panels;
+        const isChanged = !(panels.length === this.panels.length &&
+          panels.every((p, i) => p === this.panels[i]));
+        if (isChanged) {
+          this.panels = panels;
+        }
+      } else if (this.panels.length !== 0) {
+        this.panels = [];
       }
     },
 
@@ -174,10 +179,13 @@ export default Vue.extend({
     this.connectPanels();
   },
 
+  updated() {
+    this.connectPanels();
+  },
+
   render(h: CreateElement) {
     const header = this.genTabHeader();
     const content = this.genTabContent();
-
     return (
       <div class="t-tabs">
         { this.tabPosition !== 'bottom' ? [header, content] : [content, header] }
