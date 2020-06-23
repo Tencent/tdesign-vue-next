@@ -1,61 +1,19 @@
 import { Columns, Column, ColumnsMap } from '../types/table';
 
-export const columnClassify =  (columns: Columns, verticalAlign: string): any => {
-  let leftFixedColumns: ColumnsMap = {};
-  let rightFixedColumns: ColumnsMap = {};
-  let mainColumns: ColumnsMap = {};
+export const flatColumns = (columns: Array<Column>): any => {
+  const result: Array<Column> = [];
   columns.forEach((column: Column) => {
-    const { fixed, colKey, children } = column;
+    const { children } = column;
     if (children?.length) {
-      const {
-        leftFixedColumns: left,
-        rightFixedColumns: right,
-        mainColumns: main,
-      } = columnClassify(children, verticalAlign);
-      leftFixedColumns = {
-        ...leftFixedColumns,
-        ...left,
-      };
-      rightFixedColumns = {
-        ...rightFixedColumns,
-        ...right,
-      };
-      mainColumns = {
-        ...mainColumns,
-        ...main,
-      };
+      result.push(...flatColumns(children));
     } else {
-      switch (fixed) {
-        case 'left': {
-          leftFixedColumns[colKey] = {
-            ...column,
-            verticalAlign,
-          };
-          break;
-        }
-        case 'right': {
-          rightFixedColumns[colKey] = {
-            ...column,
-            verticalAlign,
-          };
-          break;
-        }
-        default: {
-          mainColumns[colKey] = {
-            ...column,
-            verticalAlign,
-          };
-        }
-      }
+      result.push({
+        ...column,
+      });
     }
   });
-  return {
-    leftFixedColumns,
-    rightFixedColumns,
-    mainColumns,
-  };
+  return result;
 };
-
 export const getDefaultFilters = (columns?: Columns): any => {
   return {
     filters: {},

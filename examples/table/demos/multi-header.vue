@@ -28,7 +28,7 @@ export default {
       ],
       columns: [
         {
-          title: '属性',
+          title: '汇总属性',
           children: [
             {
               align: 'left',
@@ -40,7 +40,7 @@ export default {
               title: '平台',
             },
             {
-              title: '值',
+              title: '类型及默认值',
               children: [
                 {
                   align: 'left',
@@ -74,22 +74,27 @@ export default {
           ],
         },
         {
-          align: 'left',
-          width: '100',
-          minWidth: '100',
-          className: 'test2',
-          ellipsis: true,
-          colKey: 'property',
-          title: '属性',
-        },
-        {
-          align: 'left',
-          width: '100',
-          minWidth: '100',
-          className: 'row',
-          ellipsis: true,
-          colKey: 'description',
-          title: '说明',
+          title: '属性及说明',
+          children: [
+            {
+              align: 'left',
+              width: '100',
+              minWidth: '100',
+              className: 'test2',
+              ellipsis: true,
+              colKey: 'property',
+              title: '属性',
+            },
+            {
+              align: 'left',
+              width: '100',
+              minWidth: '100',
+              className: 'row',
+              ellipsis: true,
+              colKey: 'description',
+              title: '说明',
+            },
+          ],
         },
       ],
     };
