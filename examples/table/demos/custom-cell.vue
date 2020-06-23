@@ -3,35 +3,40 @@
     :data="data"
     :columns="columns"
     :rowKey="rowKey"
-    :verticalAlign="verticalAlign"
     :border="border"
     :hover="hover"
     :stripe="stripe"
-    :height="height"
-    :size="size"
-    :pagination="pagination">
+    :size="size">
+    <!-- 自定义表头 支持 slot -->
+    <span slot='customTitle'>😁 My Name</span>
+    <!-- 自定义单元格 支持 slot -->
+    <span slot='property' slot-scope='{text, record}'>
+      😸 - {{text}} - {{record.description}}
+    </span>
   </t-table>
 </template>
 <script>
 export default {
   data() {
-    const item = {
-      property: 'data',
-      platform: '公有',
-      type: 'any[]',
-      default: '[]',
-      needed: 'Y',
-      description: '数据源',
-    };
-    const data = [];
-    for (let i = 0;i < 10; i ++) {
-      data.push({
-        ...item,
-        index: i,
-      });
-    }
     return {
-      data,
+      data: [
+        {
+          platform: '公有',
+          property: 'data',
+          type: 'any[]',
+          default: '[]',
+          needed: 'Y',
+          description: '数据源',
+        },
+        {
+          platform: '公有',
+          property: 'rowkey',
+          type: 'String',
+          default: '-1',
+          needed: 'Y',
+          description: '指定rowkey',
+        },
+      ],
       columns: [
         {
           align: 'left',
@@ -39,17 +44,8 @@ export default {
           minWidth: '100',
           className: 'row',
           ellipsis: true,
-          colKey: 'index',
-          title: 'index',
-        },
-        {
-          align: 'left',
-          width: '100',
-          minWidth: '100',
-          className: 'row',
-          ellipsis: true,
           colKey: 'type',
-          title: '类型',
+          slots: { title: 'customTitle' },
         },
         {
           align: 'left',
@@ -100,24 +96,11 @@ export default {
         },
       ],
       rowKey: 'property',
-      tableLayout: 'auto',
-      verticalAlign: 'top',
       size: 'small',
       border: true,
       hover: true,
       stripe: true,
-      empty: {
-        customRender: 'empty',
-      },
-      height: 200,
-      rowClassName: rowKey => `${rowKey}-class`,
-      // 与pagination对齐
-      pagination: {
-        show: true,
-        pageSize: 10,
-        pageIndex: 0,
-        total: 100,
-      },
+      height: 100,
     };
   },
 };
