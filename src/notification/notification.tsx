@@ -14,10 +14,6 @@ export default Vue.extend({
     TIconClose,
   },
   props: {
-    visible: {
-      type: Boolean,
-      default: false,
-    },
     theme: {
       type: String,
       default: '',
@@ -43,13 +39,14 @@ export default Vue.extend({
             'top-right',
             'bottom-left',
             'bottom-right',
+            'none',
           ].indexOf(v) > -1
         );
       },
     },
     duration: {
       type: Number,
-      default: 3000,
+      default: 0,
     },
     close: {
       type: [Boolean, String, Function],
@@ -61,52 +58,40 @@ export default Vue.extend({
     },
     title: String,
     default: [String, Function],
-    offset: Object,
     icon: Function,
     footer: Function,
     opened: Function,
     closed: Function,
-    _top: {
+    verticalOffset: {
       type: Number,
       default: 0,
     },
-    _bottom: {
+    horizontalOffset: {
       type: Number,
       default: 0,
     },
   },
   data() {
     return {
-      myVisible: false,
+      visible: true,
     };
   },
-  watch: {
-    visible: {
-      handler(newVal) {
-        this.visibleChange(newVal);
-      },
-      immediate: true,
-    },
+  mounted() {
+    if (this.duration > 0) {
+      setTimeout(() => {
+        this.handleClose();
+      }, this.duration);
+    }
+    if (this.opened) this.opened();
   },
   methods: {
     visibleChange(visible: boolean) {
-      this.myVisible = visible;
+      this.visible = visible;
       this.$forceUpdate();
-      if (visible) {
-        if (this.duration > 0) {
-          setTimeout(() => {
-            this.handleClose();
-          }, this.duration);
-        }
-        if (this.opened) this.opened();
-      }
     },
     handleClose() {
       this.visibleChange(false);
       if (this.closed) this.closed();
-      const evt = document.createEvent('HTMLEvents');
-      evt.initEvent('transitionEnd', false, false);
-      this.$el.dispatchEvent(evt);
     },
     renderIcon(h: CreateElement) {
       let icon: VNode[] | VNode | string = '';
@@ -181,7 +166,7 @@ export default Vue.extend({
     },
   },
   render(h: CreateElement) {
-    if (!this.myVisible) return;
+    if (!this.visible) return;
 
     const icon = this.renderIcon(h);
     const close = this.renderCloseIcon(h);
@@ -189,30 +174,14 @@ export default Vue.extend({
     const footer = this.renderFooter(h);
 
     // display
-    let top = 0;
-    let bottom = 0;
-    let left = 0;
-    let right = 0;
-    if (this.placement.indexOf('top') !== -1) {
-      const offsetTop = this.offset && this.offset.top ? this.offset.top : 0;
-      top += this._top + offsetTop;
+    let style = '';
+    if (this.placement !== 'none') {
+      const verticalDirection = this.placement.indexOf('top') !== -1 ? 'top' : 'bottom';
+      const horizontalDirection = this.placement.indexOf('left') !== -1 ? 'left' : 'right';
+      style += `${verticalDirection}: ${this.verticalOffset}px;`;
+      style += `${horizontalDirection}: ${this.horizontalOffset}px;`;
+      style += `${this.zIndex ? `z-index: ${this.zIndex};` : ''}`;
     }
-    if (this.placement.indexOf('bottom') !== -1) {
-      const offsetBottom = this.offset && this.offset.bottom ? this.offset.bottom : 0;
-      bottom += this._bottom + offsetBottom;
-    }
-    if (this.placement.indexOf('left') !== -1 && this.offset && this.offset.left) {
-      left = this.offset.left + 16;
-    }
-    if (this.placement.indexOf('right') !== -1 && this.offset && this.offset.right) {
-      right = this.offset.right + 16;
-    }
-
-    const style = `${top ? `top: ${top}px;` : ''}` +
-      `${bottom ? `bottom: ${bottom}px;` : ''}` +
-      `${left ? `left: ${left}px;` : ''}` +
-      `${right ? `right: ${right}px;` : ''}` +
-      `${this.zIndex ? `z-index: ${this.zIndex};` : ''}`;
 
     return (
       <div class={`${name} ${name}__show--${this.placement}`} style={style}>
