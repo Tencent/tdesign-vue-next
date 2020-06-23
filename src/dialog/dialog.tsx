@@ -123,6 +123,9 @@ export default Vue.extend({
       type: [Function, String, Boolean],
       default: false,
     },
+    close: {
+      type: Function,
+    },
     theme: {
       type: String,
       default: 'line',
@@ -157,6 +160,20 @@ export default Vue.extend({
         return attach;
       }
       return false;
+    },
+    ctxClass(): Array<string> {
+      // 关闭时候是否卸载元素
+      const closeMode = this.destroyOnClose ? 'display' : 'visable';
+      return [
+        't-dialog-ctx',
+        this.visible ? `t-is-${closeMode}` : `t-not-${closeMode}`,
+      ];
+    },
+    maskClass(): Array<string> {
+      return [
+        't-dialog-mask',
+        !this.showOverlay && 't-dialog-mask--hidden',
+      ];
     },
   },
   watch: {
@@ -213,8 +230,10 @@ export default Vue.extend({
       this.$emit('clickOverlay');
     },
     closeBtnAcion() {
-      this.changeVisible(false);
       this.$emit('clickCloseBtn');
+      if (typeof this.close === 'function') {
+        this.close();
+      }
     },
     changeVisible(visible: boolean) {
       this.$emit('change', visible);
@@ -283,7 +302,7 @@ export default Vue.extend({
       );
     },
     renderCloseBtn() {
-      const defaultView = <Icon name='close' onClick={this.closeBtnAcion}></Icon>;
+      const defaultView = <Icon name='close' nativeOnClick={this.closeBtnAcion}></Icon>;
       const target = this.closeBtn;
       let view;
       let isShow = true;
@@ -299,31 +318,21 @@ export default Vue.extend({
   // onClick={this.close}
   // onClick={(event: Event) => event.stopPropagation()}
   render() {
-    // 关闭时候是否卸载元素
-    const closeMode = this.destroyOnClose ? 'display' : 'visable';
-    const ctxClass = [
-      't-dialog-ctx',
-      this.visible ? `t-is-${closeMode}` : `t-not-${closeMode}`,
-    ];
     const dialogClass = ['t-dialog', 't-dialog--default'];
-    let style: StyleObject = { width: GetCSSValue(this.width) };
+    let dialogStyle: StyleObject = { width: GetCSSValue(this.width) };
     if (typeof this.offset === 'object') {
-      style = { ...style, ...this.offset };
+      dialogStyle = { ...dialogStyle, ...this.offset };
     } else {
       dialogClass.push(PositionClass[this.offset]);
     }
-    const maskClasses = [
-      't-dialog-mask',
-      !this.showOverlay && 't-dialog-mask--hidden',
-    ];
     return (
-      <div class={ctxClass} style={{ zIndex: this.zIndex }} v-transfer-dom={this.attachTarget}>
+      <div class={this.ctxClass} style={{ zIndex: this.zIndex }} v-transfer-dom={this.attachTarget}>
 
         {
-          this.isModal && <div class={maskClasses} onClick={this.overlayAction}></div>
+          this.isModal && <div class={this.maskClass} onClick={this.overlayAction}></div>
         }
         {/* 非模态形态下draggable为true才允许拖拽 */}
-        <div class={dialogClass} style={style} v-draggable={!this.isModal && this.draggable}>
+        <div class={dialogClass} style={dialogStyle} v-draggable={!this.isModal && this.draggable}>
           {this.renderTitle()}
           {this.renderBody()}
           {this.renderFooter()}

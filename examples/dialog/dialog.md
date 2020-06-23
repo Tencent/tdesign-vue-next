@@ -22,13 +22,14 @@
 |header|Boolean/String/Function|true|no|弹框顶部内容；支持同名插槽（slot）；类型Boolean，表示是否显示；类型String表示为显示内容；类型为Function，则表示渲染函数，函数返回内容将作为渲染结果输出。优先级： Function/String > slot|
 |body|Boolean/String/Function|true|no|弹框内容；支持同名插槽（slot）；类型Boolean，表示是否显示；类型String表示为显示内容；类型为Function，则表示渲染函数，函数返回内容将作为渲染结果输出。优先级： Function/String > slot|
 |footer|Boolean/String/Function|true|no|弹框底部内容；支持同名插槽（slot）；类型Boolean，表示是否显示；类型String表示为显示内容；类型为Function，则表示渲染函数，函数返回内容将作为渲染结果输出。优先级： Function/String > slot|
-|closeBtn|Boolean/Function|true'|no|弹框右上角关闭按钮；类型Boolean，表示是否显示关闭按钮；类型为Function ，则表示渲染函数，函数返回内容将作为渲染结果输出。|
+|closeBtn|Boolean/Function|true|no|弹框右上角关闭按钮；类型Boolean，表示是否显示关闭按钮；类型为Function ，则表示渲染函数，函数返回内容将作为渲染结果输出。|
 |showOverlay|Boolean|true|no|是否显示遮罩层|
 |preventScrollThrough|Boolean|true|no|防止滚动穿透|
 |draggable|Boolean|'modal'|no|是否允许弹框拖拽，必须要是非模态框（mode='not-modal'）|
 |attach|Boolean/String/Function|false|no|指定弹框挂载点，默认子元素挂载；类型Boolean，true挂载document.body，false为子元素挂载；类型String，表示DOM选择器（querySelect）;类型Function，需返回DOM节点，如：()=>document.body|
 |zlndex|Number|2500|no|定位层级|
 |destroyOnClose|Boolean|false|no|关闭时销毁Dialog子元素|
+|close|Function|--|no|弹窗关闭按钮点击事调用的函数|
 
 
 

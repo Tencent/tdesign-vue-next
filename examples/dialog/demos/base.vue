@@ -1,7 +1,7 @@
 <template>
   <div>
-    <t-button theme="primary" @click="showDialog">显示对话框</t-button>
-    <t-dialog v-model="visible"></t-dialog>
+    <t-button theme="primary" @click="()=>this.visible = true">显示对话框</t-button>
+    <t-dialog v-model="visible" :close="()=>this.visible = false"></t-dialog>
   </div>
 </template>
 <script lang="ts">
@@ -11,11 +11,6 @@ export default Vue.extend({
     return {
       visible: false,
     };
-  },
-  methods: {
-    showDialog() {
-      this.visible = true;
-    },
   },
 });
 </script>
