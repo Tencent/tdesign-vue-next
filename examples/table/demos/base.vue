@@ -5,17 +5,14 @@
     :empty="empty"
     :rowKey="rowKey"
     :rowClassName="rowClassName"
-    :verticalAlign="verticalAlign">
+    :verticalAlign="verticalAlign"
+  >
     <!-- 自定义表头 支持 slot -->
-    <span slot='customTitle'>😁 My Name</span>
+    <span slot="customTitle">😁 My Name</span>
     <!-- 自定义单元格 支持 slot -->
-    <span slot='property' slot-scope='text, record'>
-      {{text}} - {{record.description}}
-    </span>
+    <span slot="property" slot-scope="text, record">{{text}} - {{record.description}}</span>
     <!-- 自定义空表格 -->
-    <span slot='empty'>
-      😄 It's empty.
-    </span>
+    <span slot="empty">😄 It's empty.</span>
   </t-table>
 </template>
 <script>

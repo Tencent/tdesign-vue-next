@@ -15,6 +15,9 @@
 ::: demo demos/spin 加载
 :::
 
+::: demo demos/sort 排序
+:::
+
 ### 属性配置
 
 | 属性    | 类型                                      | 默认值 | 必传 | 说明                                                  |
