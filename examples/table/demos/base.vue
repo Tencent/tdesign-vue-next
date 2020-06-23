@@ -4,13 +4,16 @@
     :columns="columns"
     :empty="empty"
     :rowKey="rowKey"
-    :rowClassName="rowClassName"
-    :verticalAlign="verticalAlign">
+    :verticalAlign="verticalAlign"
+    :border="border"
+    :hover="hover"
+    :stripe="stripe"
+    :size="size">
     <!-- 自定义表头 支持 slot -->
     <span slot='customTitle'>😁 My Name</span>
     <!-- 自定义单元格 支持 slot -->
-    <span slot='property' slot-scope='text, record'>
-      {{text}} - {{record.description}}
+    <span slot='property' slot-scope='{text, record}'>
+      😸 - {{text}} - {{record.description}}
     </span>
     <!-- 自定义空表格 -->
     <span slot='empty'>
@@ -100,7 +103,7 @@ export default {
       ],
       rowKey: 'property',
       tableLayout: 'auto',
-      verticalAlign: 'middle',
+      verticalAlign: 'top',
       size: 'small',
       border: true,
       hover: true,
