@@ -1,8 +1,8 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
-import TabNav from './tab-nav.vue';
-import TabPanel from './tab-panel.vue';
+import TTabNav from './tab-nav.vue';
+import TTabPanel from './tab-panel.vue';
 
 const name = `${prefix}-tabs`;
 
@@ -11,8 +11,8 @@ export default Vue.extend({
 
   components: {
     RenderComponent,
-    TabPanel,
-    TabNav,
+    TTabPanel,
+    TTabNav,
   },
 
   props: {
@@ -76,8 +76,6 @@ export default Vue.extend({
     };
   },
 
-  computed: {},
-
   watch: {
     activeName(val) {
       this.currName = val;
@@ -105,8 +103,16 @@ export default Vue.extend({
       this.currName = val;
     },
 
-    tabChange(event: any, panel: any, name: string) {
+    tabChange(event: any, panel: VNode, name: string) {
       this.setCurrName(name);
+    },
+
+    tabAdd() {
+      this.$emit('add', null);
+    },
+
+    tabRemove(name: string) {
+      this.$emit('remove', name);
     },
 
     genTabNav() {
@@ -120,6 +126,7 @@ export default Vue.extend({
         closable,
         addable,
         tabChange,
+        tabRemove,
       } = this;
       const data = {
         props: {
@@ -132,11 +139,12 @@ export default Vue.extend({
           closable,
           addable,
           tabChange,
+          tabRemove,
         },
         ref: 'nav',
       };
       return (
-        <tab-nav {...data} />
+        <t-tab-nav {...data} />
       );
     },
 
