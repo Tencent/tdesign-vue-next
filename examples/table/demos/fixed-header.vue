@@ -6,37 +6,30 @@
     :border="border"
     :hover="hover"
     :stripe="stripe"
+    :height="height"
     :size="size">
-    <!-- 自定义表头 支持 slot -->
-    <span slot='customTitle'>😁 My Name</span>
-    <!-- 自定义单元格 支持 slot -->
-    <span slot='property' slot-scope='{text, record}'>
-      😸 - {{text}} - {{record.description}}
-    </span>
   </t-table>
 </template>
 <script>
 export default {
   data() {
+    const item = {
+      property: 'data',
+      platform: '公有',
+      type: 'any[]',
+      default: '[]',
+      needed: 'Y',
+      description: '数据源',
+    };
+    const data = [];
+    for (let i = 0;i < 20; i ++) {
+      data.push({
+        ...item,
+        index: i,
+      });
+    }
     return {
-      data: [
-        {
-          platform: '公有',
-          property: 'data',
-          type: 'any[]',
-          default: '[]',
-          needed: 'Y',
-          description: '数据源',
-        },
-        {
-          platform: '公有',
-          property: 'rowkey',
-          type: 'String',
-          default: '-1',
-          needed: 'Y',
-          description: '指定rowkey',
-        },
-      ],
+      data,
       columns: [
         {
           align: 'left',
@@ -44,8 +37,17 @@ export default {
           minWidth: '100',
           className: 'row',
           ellipsis: true,
+          colKey: 'index',
+          title: 'index',
+        },
+        {
+          align: 'left',
+          width: '100',
+          minWidth: '100',
+          className: 'row',
+          ellipsis: true,
           colKey: 'type',
-          slots: { title: 'customTitle' },
+          title: '类型',
         },
         {
           align: 'left',
@@ -93,12 +95,12 @@ export default {
           title: '说明',
         },
       ],
+      height: 100,
       rowKey: 'property',
       size: 'small',
       border: true,
       hover: true,
       stripe: true,
-      height: 100,
     };
   },
 };

@@ -6,13 +6,8 @@
     :border="border"
     :hover="hover"
     :stripe="stripe"
-    :size="size">
-    <!-- 自定义表头 支持 slot -->
-    <span slot='customTitle'>😁 My Name</span>
-    <!-- 自定义单元格 支持 slot -->
-    <span slot='property' slot-scope='{text, record}'>
-      😸 - {{text}} - {{record.description}}
-    </span>
+    :size="size"
+    :width="width">
   </t-table>
 </template>
 <script>
@@ -45,7 +40,7 @@ export default {
           className: 'row',
           ellipsis: true,
           colKey: 'type',
-          slots: { title: 'customTitle' },
+          title: '类型',
         },
         {
           align: 'left',
@@ -77,6 +72,7 @@ export default {
         {
           align: 'left',
           width: '100',
+          fixed: 'right',
           minWidth: '100',
           className: 'test3',
           ellipsis: true,
@@ -85,6 +81,7 @@ export default {
         },
         {
           align: 'left',
+          fixed: 'right',
           width: '100',
           minWidth: '100',
           className: 'row',
@@ -98,7 +95,7 @@ export default {
       border: true,
       hover: true,
       stripe: true,
-      height: 100,
+      width: 1000,
     };
   },
 };

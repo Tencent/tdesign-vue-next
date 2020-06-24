@@ -7,7 +7,6 @@
     :border="border"
     :hover="hover"
     :stripe="stripe"
-    :height="height"
     :size="size"
     :pagination="pagination">
   </t-table>
@@ -81,7 +80,6 @@ export default {
         {
           align: 'left',
           width: '100',
-          fixed: 'right',
           minWidth: '100',
           className: 'test3',
           ellipsis: true,
@@ -90,7 +88,6 @@ export default {
         },
         {
           align: 'left',
-          fixed: 'right',
           width: '100',
           minWidth: '100',
           className: 'row',
@@ -106,10 +103,6 @@ export default {
       border: true,
       hover: true,
       stripe: true,
-      empty: {
-        customRender: 'empty',
-      },
-      height: 200,
       rowClassName: rowKey => `${rowKey}-class`,
       // 与pagination对齐
       pagination: {

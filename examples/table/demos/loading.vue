@@ -1,42 +1,36 @@
 <template>
-  <t-table
-    :data="data"
-    :columns="columns"
-    :rowKey="rowKey"
-    :border="border"
-    :hover="hover"
-    :stripe="stripe"
-    :size="size">
-    <!-- 自定义表头 支持 slot -->
-    <span slot='customTitle'>😁 My Name</span>
-    <!-- 自定义单元格 支持 slot -->
-    <span slot='property' slot-scope='{text, record}'>
-      😸 - {{text}} - {{record.description}}
-    </span>
-  </t-table>
+  <div>
+    <t-table
+      :data="data"
+      :columns="columns"
+      :rowKey="rowKey"
+      :size="size"
+      :loading="loading">
+    </t-table>
+    <t-table
+      :data="data"
+      :columns="columns"
+      :rowKey="rowKey"
+      :size="size"
+      :loading="asyncLoading">
+    </t-table>
+    <t-table
+      :data="data"
+      :columns="columns"
+      :rowKey="rowKey"
+      :size="size"
+      :loading="customLoading">
+      <div slot='loading' :style="style">
+        loading....🌹
+      </div>
+    </t-table>
+  </div>
 </template>
 <script>
 export default {
   data() {
     return {
-      data: [
-        {
-          platform: '公有',
-          property: 'data',
-          type: 'any[]',
-          default: '[]',
-          needed: 'Y',
-          description: '数据源',
-        },
-        {
-          platform: '公有',
-          property: 'rowkey',
-          type: 'String',
-          default: '-1',
-          needed: 'Y',
-          description: '指定rowkey',
-        },
-      ],
+      data: [],
       columns: [
         {
           align: 'left',
@@ -45,7 +39,7 @@ export default {
           className: 'row',
           ellipsis: true,
           colKey: 'type',
-          slots: { title: 'customTitle' },
+          title: '类型',
         },
         {
           align: 'left',
@@ -95,10 +89,19 @@ export default {
       ],
       rowKey: 'property',
       size: 'small',
-      border: true,
-      hover: true,
-      stripe: true,
-      height: 100,
+      loading: true,
+      asyncLoading: {
+        async: true,
+      },
+      customLoading: {
+        customRender: 'loading',
+      },
+      style: {
+        height: '100px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
     };
   },
 };
