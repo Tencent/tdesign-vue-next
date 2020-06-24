@@ -110,6 +110,7 @@ export default Vue.extend({
 
     tabChange(event: any, panel: VNode, name: string) {
       this.setCurrName(name);
+      this.$emit('change', name);
     },
 
     tabAdd() {
@@ -131,6 +132,7 @@ export default Vue.extend({
         closable,
         addable,
         tabChange,
+        tabAdd,
         tabRemove,
       } = this;
       const data = {
@@ -144,6 +146,7 @@ export default Vue.extend({
           closable,
           addable,
           tabChange,
+          tabAdd,
           tabRemove,
         },
         ref: 'nav',
