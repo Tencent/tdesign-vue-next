@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
-// import CLASSNAMES from '../utils/classnames';
-import Icon from '../icon';
+import TIconClose from '../icon/close';
 
 const name = `${prefix}-dialog`;
 interface StyleObject {
@@ -41,7 +40,7 @@ function InitDragEvent(dragBox: HTMLElement) {
 export default Vue.extend({
   name,
   components: {
-    [Icon.name]: Icon,
+    TIconClose,
     RenderComponent,
   },
   model: {
@@ -49,10 +48,8 @@ export default Vue.extend({
     event: 'change',
   },
   props: {
-    // theme is an example api, which can be deleted.
     visible: {
       type: Boolean,
-      default: false,
     },
     mode: {
       type: String,
@@ -105,7 +102,6 @@ export default Vue.extend({
     },
     draggable: {
       type: Boolean,
-      default: false,
     },
     preventScrollThrough: {
       type: Boolean,
@@ -117,7 +113,6 @@ export default Vue.extend({
     },
     destroyOnClose: {
       type: Boolean,
-      default: false,
     },
     attach: {
       type: [Function, String, Boolean],
@@ -125,24 +120,6 @@ export default Vue.extend({
     },
     close: {
       type: Function,
-    },
-    theme: {
-      type: String,
-      default: 'line',
-      validator(v: string): boolean {
-        return (
-          [
-            'line',
-            'primary',
-            'dashed',
-            'warning',
-            'warning-line',
-            'link',
-            'ghost',
-            'ghost-line',
-          ].indexOf(v) > -1
-        );
-      },
     },
   },
   computed: {
@@ -193,9 +170,6 @@ export default Vue.extend({
     this.disPreventScrollThrough(false);
     this.addKeyboardEvent(false);
   },
-
-  // mounted() { },
-
   // 注册v-draggable指令,传入ture时候初始化拖拽事件
   directives: {
     draggable(el, binding) {
@@ -226,7 +200,6 @@ export default Vue.extend({
       }
     },
     overlayAction() {
-      // this.visibleChange(false)
       this.$emit('clickOverlay');
     },
     closeBtnAcion() {
@@ -302,7 +275,7 @@ export default Vue.extend({
       );
     },
     renderCloseBtn() {
-      const defaultView = <Icon name='close' nativeOnClick={this.closeBtnAcion}></Icon>;
+      const defaultView = <t-icon-close name='close' nativeOnClick={this.closeBtnAcion}></t-icon-close>;
       const target = this.closeBtn;
       let view;
       let isShow = true;
@@ -315,8 +288,6 @@ export default Vue.extend({
       return isShow && (view || defaultView);
     },
   },
-  // onClick={this.close}
-  // onClick={(event: Event) => event.stopPropagation()}
   render() {
     const dialogClass = ['t-dialog', 't-dialog--default'];
     let dialogStyle: StyleObject = { width: GetCSSValue(this.width) };
