@@ -14,8 +14,11 @@ test-report.html
 .idea/
 yarn.lock
 *.zip
+.history
 script/test/cypress/screenshots
 script/test/cypress/videos
 script/test/cypress/results
 script/test/cypress/support
 results/
+test/unit/**/__snapshots__/*
+test/ssr/**/__snapshots__/*
