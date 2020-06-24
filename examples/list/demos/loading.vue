@@ -48,7 +48,7 @@
           description="列表内容列表内容"
         ></t-list-item-meta>
       </t-list-item>
-      <template slot="loading">DIY 的正在加载……</template>
+      <template #loading>DIY 的正在加载……</template>
     </t-list>
 
     <div style="margin-bottom:16px"></div>
@@ -61,7 +61,7 @@
           description="列表内容列表内容"
         ></t-list-item-meta>
       </t-list-item>
-      <template slot="loading">DIY 的加载更多</template>
+      <template #loading>DIY 的加载更多</template>
     </t-list>
   </div>
 </template>

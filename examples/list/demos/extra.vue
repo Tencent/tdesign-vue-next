@@ -7,7 +7,7 @@
           title="列表主内容"
           description="列表内容列表内容"
         ></t-list-item-meta>
-        <template slot="action">
+        <template #action>
           <li><a href="">操作1</a></li>
           <li><a href="">操作2</a></li>
           <li><a href="">操作3</a></li>

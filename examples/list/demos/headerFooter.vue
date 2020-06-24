@@ -27,7 +27,7 @@
     <div style="margin-bottom:16px"></div>
 
     <t-list :split="true">
-      <template slot="header">通过 Slot 插入的 Header</template>
+      <template #header>通过 Slot 插入的 Header</template>
       <t-list-item>
         <t-list-item-meta
           avatar="undefined.png"
@@ -49,7 +49,7 @@
           description="列表内容列表内容"
         ></t-list-item-meta>
       </t-list-item>
-      <template slot="footer">通过 Slot 插入的 Footer</template>
+      <template #footer>通过 Slot 插入的 Footer</template>
     </t-list>
   </div>
 </template>
