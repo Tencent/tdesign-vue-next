@@ -27,8 +27,8 @@ export default Vue.extend({
     },
   },
   methods: {
-    handleClick(event: any): void {
-      if (!this.disabled) this.$emit('click', event);
+    handleChange(event: any): void {
+      if (!this.disabled) this.$emit('change', event);
     },
   },
   render() {
@@ -37,7 +37,7 @@ export default Vue.extend({
       ? this.$scopedSlots.default(null) : '';
 
     return (
-      <span class={ this.tagClass } on-click={ this.handleClick }>
+      <span class={ this.tagClass } on-click={ this.handleChange }>
         { tagContent }
       </span>
     );
