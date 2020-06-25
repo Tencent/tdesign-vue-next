@@ -77,7 +77,7 @@ export default {
       });
       console.log('create option:', value, this.options);
     },
-  }
+  },
 };
 </script>
 <style scoped>

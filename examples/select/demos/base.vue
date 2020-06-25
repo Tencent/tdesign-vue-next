@@ -41,8 +41,8 @@ export default {
     },
     visibleChange(val) {
       console.log('visible', val);
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
