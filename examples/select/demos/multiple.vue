@@ -86,7 +86,7 @@ export default {
     handleRemove(value) {
       console.log('remove:', value);
     },
-  }
+  },
 };
 </script>
 <style scoped>
