@@ -61,6 +61,7 @@ export default {
       const index = this.panelData.findIndex(data => data.name === name);
       if (index < 0) return false;
       this.panelData.splice(index, 1);
+      ;
       if (this.activeName === name) {
         this.activeName = this.panelData[index - 1].name;
       }

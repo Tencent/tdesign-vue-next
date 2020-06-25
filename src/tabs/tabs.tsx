@@ -21,7 +21,7 @@ export default Vue.extend({
       default: 'normal',
     },
     activeName: {
-      type: String,
+      type: [String, Number],
       default: '0',
     },
     defaultActiveName: {
@@ -41,10 +41,10 @@ export default Vue.extend({
         );
       },
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+    // disabled: {
+    //   type: Boolean,
+    //   default: false,
+    // },
     tabPosition: {
       type: String,
       default: 'top',
@@ -59,10 +59,10 @@ export default Vue.extend({
         );
       },
     },
-    closable: {
-      type: Boolean,
-      default: false,
-    },
+    // closable: {
+    //   type: Boolean,
+    //   default: false,
+    // },
     addable: {
       type: Boolean,
       default: false,
@@ -127,9 +127,9 @@ export default Vue.extend({
         panels,
         currName,
         size,
-        disabled,
+        // disabled,
         tabPosition,
-        closable,
+        // closable,
         addable,
         tabChange,
         tabAdd,
@@ -141,9 +141,9 @@ export default Vue.extend({
           panels: [...panels], // immutable，为子组件watch
           currName,
           size,
-          disabled,
+          // disabled,
           tabPosition,
-          closable,
+          // closable,
           addable,
           tabChange,
           tabAdd,
