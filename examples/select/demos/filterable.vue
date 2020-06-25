@@ -3,7 +3,31 @@
     <t-select
       v-model="value"
       class="demo-select-base"
+      filterable
+      creatable
       @change="handleChange"
+      @visible-change="visibleChange"
+      @create="createOptions"
+      :filterMethod="filterMethod"
+    >
+      <t-option
+        v-for="(item, index) in options"
+        :value="item.value"
+        :label="item.label"
+        :key="index"
+      >
+        {{ item.label }}
+      </t-option>
+    </t-select>
+    <t-select
+      v-model="value2"
+      class="demo-select-base"
+      filterable
+      multiple
+      creatable
+      @change="handleChange"
+      @create="createOptions"
+      :filterMethod="filterMethod"
       @visible-change="visibleChange"
     >
       <t-option
@@ -33,15 +57,26 @@ export default {
         value: 'orange',
       }],
       value: '',
+      value2: [],
     };
   },
   methods: {
     handleChange(value) {
       console.log(value);
     },
-    visibleChange(val) {
-      console.log('visible', val);
-    }
+    visibleChange(value) {
+      console.log('visible', value);
+    },
+    filterMethod(search) {
+      console.log('search', search);
+    },
+    createOptions(value) {
+      this.options.push({
+        value,
+        label: value,
+      });
+      console.log('create option:', value, this.options);
+    },
   }
 };
 </script>

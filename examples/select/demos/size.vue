@@ -2,9 +2,46 @@
   <div>
     <t-select
       v-model="value"
+      :popupProps="{
+        overlayStyle: {width:'300px'}
+      }"
+      size="small"
       class="demo-select-base"
       @change="handleChange"
       @visible-change="visibleChange"
+    >
+      <t-option
+        v-for="(item, index) in options"
+        :value="item.value"
+        :label="item.label"
+        :key="index"
+      >
+        {{ item.label }}
+      </t-option>
+    </t-select>
+    <t-select
+      v-model="value"
+      placeholder="-请选择-"
+      :clearable="true"
+      class="demo-select-base"
+      @change="handleChange"
+    >
+      <t-option
+        v-for="(item, index) in options"
+        :value="item.value"
+        :label="item.label"
+        :key="index"
+      >
+        {{ item.label }}
+      </t-option>
+    </t-select>
+    <t-select
+      v-model="value2"
+      placeholder="-请选择-"
+      :clearable="true"
+      size="large"
+      class="demo-select-base"
+      @change="handleChange2"
     >
       <t-option
         v-for="(item, index) in options"
@@ -33,10 +70,14 @@ export default {
         value: 'orange',
       }],
       value: '',
+      value2: 'apple',
     };
   },
   methods: {
     handleChange(value) {
+      console.log(value);
+    },
+    handleChange2(value) {
       console.log(value);
     },
     visibleChange(val) {

@@ -10,6 +10,7 @@ import InputGroup from './input-group';
 import Addon from './addon';
 import Steps from './steps';
 import Step from './step';
+import { Select, Option, OptionGroup } from './select';
 
 const components = {
   Icon,
@@ -23,6 +24,9 @@ const components = {
   InputGroup,
   Steps,
   Step,
+  Select,
+  Option,
+  OptionGroup,
 };
 
 function install(Vue: VueConstructor, config?: object): void {

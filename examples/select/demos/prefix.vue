@@ -3,6 +3,7 @@
     <t-select
       v-model="value"
       class="demo-select-base"
+      prefixIcon="browse"
       @change="handleChange"
       @visible-change="visibleChange"
     >
@@ -52,3 +53,4 @@ export default {
     margin: 0 20px;
   }
 </style>
+s
