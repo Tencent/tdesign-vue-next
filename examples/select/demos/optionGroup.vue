@@ -6,14 +6,26 @@
       @change="handleChange"
       @visible-change="visibleChange"
     >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
+      <t-option-group label="水果">
+        <t-option
+          v-for="(item, index) in options"
+          :value="item.value"
+          :label="item.label"
+          :key="index"
+        >
+          {{ item.label }}
+        </t-option>
+      </t-option-group>
+      <t-option-group label="蔬菜">
+        <t-option
+          v-for="(item, index) in options2"
+          :value="item.value"
+          :label="item.label"
+          :key="index"
+        >
+          {{ item.label }}
+        </t-option>
+      </t-option-group>
     </t-select>
   </div>
 </template>
@@ -31,6 +43,16 @@ export default {
       }, {
         label: '橘子orange~~~',
         value: 'orange',
+      }],
+      options2: [{
+        label: '茄子',
+        value: '1',
+      }, {
+        label: '西红柿',
+        value: '2',
+      }, {
+        label: '白菜',
+        value: '3',
       }],
       value: '',
     };
