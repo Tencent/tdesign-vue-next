@@ -11,7 +11,8 @@
 
 <style lang="less">
 .t-demo-message {
-  .t-message {
+  .t-message,
+  .t-button {
     margin-bottom: 16px;
   }
 }

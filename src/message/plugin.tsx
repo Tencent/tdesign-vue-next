@@ -1,8 +1,9 @@
 /**
+ * this.$message('info', '这是信息')
  * this.$message.info('这是信息')
  * this.$message.info('这是信息', 3000)
  * this.$message.info({ default: '这是信息', duration: 3000 })
- * this.$message.success()
+ * this.$message.success({ content: '这是信息', duration: 3000 })
  * this.$message.warning()
  * this.$message.error()
  * this.$message.question()
@@ -15,6 +16,14 @@ import TMessage from './message';
 import { THEME_LIST, PLACEMENT_OFFSET } from './const';
 
 const DEFAULT_Z_INDEX = 6000;
+
+const getUniqueId = (() => {
+  let id = 0;
+  return () => {
+    id = id + 1;
+    return id;
+  };
+})();
 
 const MessageList = Vue.extend({
   components: { TMessage },
@@ -34,79 +43,112 @@ const MessageList = Vue.extend({
         PLACEMENT_OFFSET[this.placement]
       );
     },
+    on() {
+      return {
+        'click-close-btn': (e: Event, instance: any) => this.remove(instance),
+        'duration-end': (instance: any) => this.remove(instance),
+      };
+    },
   },
   methods: {
-    add(msg: Record<string, any>): number {
+    add(msg: { key: number }): number {
+      msg.key = getUniqueId();
       this.list.push(msg);
       return this.list.length - 1;
     },
-    remove(index: number) {
-      this.list.splice(index, 1);
+    remove(instance: any) {
+      const children: object = this.$el.children;
+      this.list = this.list.filter((v, i) => children[i] !== instance.$el);
     },
     removeAll() {
       this.list = [];
     },
   },
   render() {
+    if (!this.list.length) return;
     return (
       <div class='t-message-list' style={this.styles}>
         {this.list
-          .filter(msg => msg)
-          .map(item => <t-message {...{ props: item }}/>)
+          .map(item => (
+            <t-message
+              key={item.key}
+              {...{ props: item }}
+              {...{ on: this.on }}
+            />
+          ))
         }
       </div>
     );
   },
 });
 
-const getInstance = (() => {
-  let instance: any = null;
-  return () => {
-    if (instance) return instance;
-    instance = new Vue(MessageList).$mount();
-    document.body.appendChild(instance.$el);
-    return instance;
+const getAttach = (attach: string | Function = 'body') => {
+  let r: Element;
+  if (typeof attach === 'string') {
+    r = document.querySelector(attach);
+  } else if (typeof attach === 'function') {
+    r = attach();
+  } else {
+    console.error('TDesign Error: attach type must a string or function.');
+  }
+  return r;
+};
+
+const setInstance = (() => {
+  // 存储不同 attach 和 不同 placement 消息列表实例
+  const instanceMap: Map<Element, object> = new Map();
+  return (props: { attach: string | Function; placement: string; zIndex: number }) => {
+    const { attach, placement, zIndex } = props;
+    const _a = getAttach(attach);
+    if (!instanceMap.get(_a)) {
+      instanceMap.set(_a, []);
+    }
+    const _p = instanceMap.get(_a)[placement];
+    if (!_p) {
+      const instance: any = new Vue(MessageList).$mount();
+      placement && (instance.placement = placement);
+      zIndex && (instance.zIndex = zIndex);
+      instance.add(props);
+      instanceMap.get(_a)[placement] = instance;
+      _a.appendChild(instance.$el);
+    } else {
+      _p.add(props);
+    }
+    return instanceMap.get(_a)[placement];
   };
 })();
 
-function Message(t: string, params: Record<string, any>, duration: number) {
-  const props: Record<string, any> = {
-    theme: t,
+function Message(theme: string, params: Record<string, any>, duration: number) {
+  const props: {
+    theme: string;
+    duration: number;
+    attach: string | Function;
+    placement: string;
+    default: string;
+    zIndex: number;
+  } = {
+    theme,
     duration: [undefined, null].includes(duration) ? 3000 : duration,
+    attach: 'body',
+    placement: 'top',
+    default: '',
+    zIndex: DEFAULT_Z_INDEX,
   };
-  if (typeof params === 'object') {
+  if (typeof params === 'object' && !(params instanceof Array)) {
     Object.assign(props, params);
+    props.default = params.default || params.content;
   } else if (typeof params === 'string') {
     props.default = params;
   }
-  const _vm = getInstance();
-  params.zIndex && (_vm.zIndex = params.zIndex);
-  params.placement && (_vm.placement = params.placement);
-  _vm.add(props);
-  return _vm;
+  return setInstance(props);;
 }
 
-function close(index: number) {
-  const _vm = getInstance();
-  _vm.remove(index);
-}
+const MessagePlugin = Message;
 
-function closeAll() {
-  const _vm = getInstance();
-  _vm.removeAll();
-}
-
-const MessagePlugin = ((): object => {
-  const plugins = {
-    close,
-    closeAll,
+THEME_LIST.forEach((t: string) => {
+  MessagePlugin[t] = (params: object = {}, time: number) => {
+    Message(t, params, time);
   };
-  THEME_LIST.forEach((t: string) => {
-    plugins[t] = (params: object = {}, time: number) => {
-      Message(t, params, time);
-    };
-  });
-  return plugins;
-})();
+});
 
 export default MessagePlugin;

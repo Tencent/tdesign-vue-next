@@ -9,7 +9,7 @@
 ::: demo demos/plugin 函数式调用
 :::
 
-::: demo demos/placement 出现位置
+::: demo demos/placement 不同位置
 :::
 
 

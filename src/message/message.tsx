@@ -6,7 +6,7 @@ import TIconWarningFill from '../icon/warning-fill';
 import TIconHelpFill from '../icon/help-fill';
 import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
-import { THEME_LIST, PLACEMENT_LIST, PLACEMENT_OFFSET } from './const';
+import { THEME_LIST } from './const';
 
 const name = `${prefix}-message`;
 
@@ -23,7 +23,6 @@ export default Vue.extend({
   },
 
   props: {
-    visible: Boolean,
     theme: {
       type: String,
       default: THEME_LIST[0],
@@ -31,14 +30,6 @@ export default Vue.extend({
         return THEME_LIST.includes(val);
       },
     },
-    placement: {
-      type: String,
-      default: PLACEMENT_LIST[0],
-      validator(val: string): boolean {
-        return PLACEMENT_LIST.includes(val);
-      },
-    },
-    offest: Object,
     duration: {
       type: Number,
     },
@@ -48,19 +39,6 @@ export default Vue.extend({
       default: true,
     },
     default: [String, Function],
-    attach: Function,
-    // fixed 为 true 时，有效
-    zIndex: {
-      type: Number,
-      default: 6000,
-    },
-    fixed: Boolean,
-  },
-
-  data() {
-    return {
-      removed: false,
-    };
   },
 
   computed: {
@@ -73,43 +51,38 @@ export default Vue.extend({
         't-message',
         status,
         {
-          't-is-closable': this.close,
+          't-is-closable': this.close || this.$scopedSlots.close,
         },
       ];
-    },
-    styles(): object {
-      let _s = {};
-      if (this.fixed) {
-        _s = Object.assign(
-          {
-            position: 'fixed',
-            zIndex: this.zIndex,
-          },
-          PLACEMENT_OFFSET[this.placement],
-        );
-      }
-      return _s;
     },
   },
 
   created() {
-    if (this.duration)  {
-      const timer = setTimeout(() => {
-        this.remove();
-        clearTimeout(timer);
-      }, this.duration);
-    }
+    this.duration && this.setTimer();
   },
 
   methods: {
-    remove() {
-      this.removed = true;
-      this.$emit('remove', this);
+    setTimer() {
+      const timer = setTimeout(() => {
+        clearTimeout(timer);
+        this.$emit('duration-end', this);
+      }, this.duration);
+    },
+    remove(e: Event) {
+      this.$emit('click-close-btn', e, this);
     },
     renderClose() {
-      if (this.close === false) return;
+      if (typeof this.close === 'string') {
+        return <span class='t-message-close' onClick={this.remove}>{this.close}</span>;
+      }
       if (typeof this.close === 'function') return this.close(this.remove);
-      return <t-icon-close nativeOnClick={this.remove}/>;
+      if (typeof this.$scopedSlots.close === 'function') {
+        return this.$scopedSlots.close({
+          props: this.$props,
+        });
+      }
+      if (this.close === false) return;
+      return <t-icon-close nativeOnClick={this.remove} class='t-message-close'/>;
     },
     renderIcon() {
       if (this.icon === false) return;
@@ -134,9 +107,8 @@ export default Vue.extend({
   },
 
   render() {
-    if (this.removed) return null;
     return (
-      <div class={this.classes} style={this.styles}>
+      <div class={this.classes}>
         { this.renderIcon() }
         { this.renderContent() }
         { this.renderClose() }
