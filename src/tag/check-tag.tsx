@@ -37,7 +37,7 @@ export default Vue.extend({
       ? this.$scopedSlots.default(null) : '';
 
     return (
-      <span class={ this.tagClass } on-click={ this.handleChange }>
+      <span class={ this.tagClass } onClick={ this.handleChange }>
         { tagContent }
       </span>
     );

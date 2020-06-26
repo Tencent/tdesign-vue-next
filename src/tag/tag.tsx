@@ -97,9 +97,9 @@ export default Vue.extend({
     },
   },
   render() {
-    // 关闭按钮
+    // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
     const closeIcon: VNode | string =  this.closable
-      ? <Icon name="close" on-click={ this.handleClose } /> : '';
+      ? <Icon name='close' nativeOnClick={ this.handleClose } /> : '';
     // 标签内容
     const tagContent: VNode[] | VNode | string = this.$scopedSlots.default
       ? this.$scopedSlots.default(null) : '';
@@ -112,7 +112,7 @@ export default Vue.extend({
     }
 
     return (
-      <span class={ this.tagClass } style={ this.tagStyle } on-click={ this.handleClick }>
+      <span class={ this.tagClass } style={ this.tagStyle } onClick={ this.handleClick }>
         { icon }
         { tagContent }
         { closeIcon }
