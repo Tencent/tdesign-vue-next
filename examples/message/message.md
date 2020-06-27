@@ -32,6 +32,14 @@
 | icon | Boolean/Function/Slot | true | N | 图标，可自定义，值为 false 表示不显示默认图标。 |
 | default | String/Function/Slot | - | N | 自定义内容 |
 
+### Message Events
+| 平台 | 事件名称 | 参数 |  说明 |
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| PC | click-close-btn | (e, instance) :（事件，组件实例） | 内部仅触发事件，不处理关闭 |
+| 公有 | durationEnd | (instance) :（组件实例） | 内部仅触发事件，不处理关闭 |
+| 公有 | opened | - | 打开动画完成后触发（PC 无动画，暂不实现）|
+| 公有 | closed | - | 关闭动画完成后触发（PC 无动画，暂不实现）|
+
 
 ### Message Plugin
 
