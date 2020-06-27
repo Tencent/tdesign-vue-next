@@ -34,6 +34,12 @@
 ::: demo demos/side-menu-dropdown 下拉菜单
 :::
 
+::: demo demos/side-menu-dropdown-icon 下拉菜单（带ICON）
+:::
+
+::: demo demos/side-menu-collapsed 侧边收起
+:::
+
 ### Menu Props
 
 | 平台  | 属性     | 类型                | 默认值  | 必传 | 说明      |
