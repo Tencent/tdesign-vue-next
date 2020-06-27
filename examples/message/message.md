@@ -22,7 +22,35 @@
 :::
 
 
-### 属性配置
+### Message Props
+
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
-|-|-|-|-|-|
+| theme | String | info | N | 消息类型 info/success/warning/error/question/loading |
+| duration | Number | - | N | 显示时间，毫秒，等于 0 表示一直显示，不消失。 |
+| closeBtn | Boolean/String/Function/Slot | false | N | 是否显示关闭按钮，默认不显示。如果是 string 类型，“关闭”。TNode 为自定义关闭按钮形态。|
+| icon | Boolean/Function/Slot | true | N | 图标，可自定义，值为 false 表示不显示默认图标。 |
+| default | String/Function/Slot | - | N | 自定义内容 |
+
+
+### Message Plugin
+
+ * this.$message(theme, options)
+ * this.$message(theme, textMsg)
+ * this.$message.info(textMsg)
+ * this.$message.info(textMsg, 3000)
+ * this.$message.info(options)
+ * this.$message.success(options)
+
+| 参数 | 类型 | 默认值 | 必传 | 说明 |
+|-----|-----|-----|-----|-----|
+| theme | String | info | N | 消息类型 info/success/warning/error/question/loading |
+| duration | Number | - | N | 显示时间，毫秒，等于 0 表示一直显示，不消失。 |
+| closeBtn | Boolean/String/Function/Slot | false | N | 是否显示关闭按钮，默认不显示。如果是 string 类型，“关闭”。TNode 为自定义关闭按钮形态。|
+| icon | Boolean/Function/Slot | true | N | 图标，可自定义，值为 false 表示不显示默认图标。 |
+| content | String/Function/Slot | - | N | 自定义内容（别名：default） |
+| placement | string | top | N | 消息提示的位置，9个：center/left/left-top/top/right-top/right/right-bottom/bottom/left-bottom |
+| offset | object | - | N | 偏移量（结合属性placement）, 如： {left: '30px'}，值为String类型 |
+| zIndex | number | 6000 | N | 定位层级 |
+| attach | function/string | body | N | 指定弹框挂载节点。字符串类型表示DOM选择器（querySelector）；函数需返回 DOM 节点，如：() => document.body |
+| duration | number | 3000 | N | 显示时间，毫秒，等于 0 表示一直显示，不消失。 |
