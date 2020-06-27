@@ -27,6 +27,7 @@
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
 |to|string/object|无|否|路由跳转对象，同 vue-router 的 to|
+|router|string/object|如果存在vue-router，则默认使用vue-router|否|路由对象|
 |replace|boolean|false|否|在使用 to 进行路由跳转时，启用 replace 将不会向 history 添加新记录|
 |overlay|dropdown|无|否|下拉框内容|
 

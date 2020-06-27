@@ -43,18 +43,6 @@ export default Vue.extend({
       tBreadcrumb: this,
     };
   },
-
-  data() {
-    return {
-    };
-  },
-
-  computed: {
-  },
-
-  watch: {},
-
-
   mounted() {
     const items = this.$el.querySelectorAll('.t-breadcrumb__item');
     if (items.length) {
