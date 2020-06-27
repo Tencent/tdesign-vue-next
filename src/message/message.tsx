@@ -30,10 +30,8 @@ export default Vue.extend({
         return THEME_LIST.includes(val);
       },
     },
-    duration: {
-      type: Number,
-    },
-    close: [Boolean, String, Function],
+    duration: Number,
+    closeBtn: [Boolean, String, Function],
     icon: {
       type: [Boolean, Function],
       default: true,
@@ -51,7 +49,7 @@ export default Vue.extend({
         't-message',
         status,
         {
-          't-is-closable': this.close || this.$scopedSlots.close,
+          't-is-closable': this.closeBtn || this.$scopedSlots.closeBtn,
         },
       ];
     },
@@ -68,21 +66,21 @@ export default Vue.extend({
         this.$emit('duration-end', this);
       }, this.duration);
     },
-    remove(e: Event) {
+    close(e: Event) {
       this.$emit('click-close-btn', e, this);
     },
     renderClose() {
-      if (typeof this.close === 'string') {
-        return <span class='t-message-close' onClick={this.remove}>{this.close}</span>;
+      if (typeof this.closeBtn === 'string') {
+        return <span class='t-message-close' onClick={this.close}>{this.closeBtn}</span>;
       }
-      if (typeof this.close === 'function') return this.close(this.remove);
-      if (typeof this.$scopedSlots.close === 'function') {
-        return this.$scopedSlots.close({
+      if (typeof this.closeBtn === 'function') return this.closeBtn(this.close);
+      if (typeof this.$scopedSlots.closeBtn === 'function') {
+        return this.$scopedSlots.closeBtn({
           props: this.$props,
         });
       }
-      if (this.close === false) return;
-      return <t-icon-close nativeOnClick={this.remove} class='t-message-close'/>;
+      if (this.closeBtn === false) return;
+      return <t-icon-close nativeOnClick={this.close} class='t-message-close'/>;
     },
     renderIcon() {
       if (this.icon === false) return;

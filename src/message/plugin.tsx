@@ -52,16 +52,27 @@ const MessageList = Vue.extend({
   },
   methods: {
     add(msg: { key: number }): number {
-      msg.key = getUniqueId();
-      this.list.push(msg);
+      const _msg = Object.assign({}, msg, {
+        key: getUniqueId(),
+      });
+      this.list.push(_msg);
       return this.list.length - 1;
     },
     remove(instance: any) {
-      const children: object = this.$el.children;
+      // eslint-disable-next-line
+      const children: HTMLCollection = this.$el.children;
       this.list = this.list.filter((v, i) => children[i] !== instance.$el);
     },
     removeAll() {
       this.list = [];
+    },
+    msgStyles(item: { offset: object }) {
+      const styles = {};
+      item.offset && Object.assign(styles, item.offset, {
+        position: 'absolute',
+        width: 'auto',
+      });
+      return styles;
     },
   },
   render() {
@@ -72,6 +83,7 @@ const MessageList = Vue.extend({
           .map(item => (
             <t-message
               key={item.key}
+              style={this.msgStyles(item)}
               {...{ props: item }}
               {...{ on: this.on }}
             />
@@ -94,10 +106,11 @@ const getAttach = (attach: string | Function = 'body') => {
   return r;
 };
 
-const setInstance = (() => {
+const showMessage = (() => {
   // 存储不同 attach 和 不同 placement 消息列表实例
   const instanceMap: Map<Element, object> = new Map();
-  return (props: { attach: string | Function; placement: string; zIndex: number }) => {
+  return (props?: { attach: string | Function; placement: string; zIndex: number }) => {
+    if (!props) return instanceMap;
     const { attach, placement, zIndex } = props;
     const _a = getAttach(attach);
     if (!instanceMap.get(_a)) {
@@ -114,7 +127,13 @@ const setInstance = (() => {
     } else {
       _p.add(props);
     }
-    return instanceMap.get(_a)[placement];
+    return new Promise((resolve) => {
+      const _ins = instanceMap.get(_a)[placement];
+      _ins.$nextTick(() => {
+        const msg = _ins.$children;
+        resolve(msg[msg.length - 1]);
+      });
+    });
   };
 })();
 
@@ -140,15 +159,27 @@ function Message(theme: string, params: Record<string, any>, duration: number) {
   } else if (typeof params === 'string') {
     props.default = params;
   }
-  return setInstance(props);;
+  return showMessage(props);;
 }
 
 const MessagePlugin = Message;
 
-THEME_LIST.forEach((t: string) => {
-  MessagePlugin[t] = (params: object = {}, time: number) => {
-    Message(t, params, time);
-  };
+THEME_LIST.forEach((theme: string) => {
+  MessagePlugin[theme] = (params: object = {}, time: number) => Message(theme, params, time);
+  Object.assign(MessagePlugin, {
+    closeAll: () => {
+      const map = showMessage();
+      if (map instanceof Map) {
+        // eslint-disable-next-line
+        for (const [attach, attachMap] of map.entries()) {
+          Object.keys(attachMap).forEach((key) => {
+            const instance = map.get(attach)[key];
+            instance.list = [];
+          });
+        };
+      }
+    },
+  });
 });
 
 export default MessagePlugin;

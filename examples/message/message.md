@@ -9,7 +9,16 @@
 ::: demo demos/plugin 函数式调用
 :::
 
+::: demo demos/toggle 自由控制关闭和打开
+:::
+
+::: demo demos/closeAll 一次性关闭所有消息
+:::
+
 ::: demo demos/placement 不同位置
+:::
+
+::: demo demos/offset 偏移量
 :::
 
 
