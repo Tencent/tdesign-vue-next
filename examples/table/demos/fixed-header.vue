@@ -3,12 +3,11 @@
     :data="data"
     :columns="columns"
     :rowKey="rowKey"
-    :verticalAlign="verticalAlign"
     :border="border"
     :hover="hover"
     :stripe="stripe"
-    :size="size"
-    :pagination="pagination">
+    :height="height"
+    :size="size">
   </t-table>
 </template>
 <script>
@@ -23,7 +22,7 @@ export default {
       description: '数据源',
     };
     const data = [];
-    for (let i = 0;i < 10; i ++) {
+    for (let i = 0;i < 20; i ++) {
       data.push({
         ...item,
         index: i,
@@ -96,21 +95,12 @@ export default {
           title: '说明',
         },
       ],
+      height: 100,
       rowKey: 'property',
-      tableLayout: 'auto',
-      verticalAlign: 'top',
       size: 'small',
       border: true,
       hover: true,
       stripe: true,
-      rowClassName: rowKey => `${rowKey}-class`,
-      // 与pagination对齐
-      pagination: {
-        show: true,
-        pageSize: 10,
-        pageIndex: 0,
-        total: 100,
-      },
     };
   },
 };
