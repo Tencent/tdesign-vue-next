@@ -52,14 +52,14 @@ export default {
         { content: '用户表示操作顺利达成', closeBtn: true },
         { content: '用户表示操作引起一定后果', duration: 5000 },
         { content: '用户表示操作引起严重的后果', content: this.content },
-        { content: '用于帮助用户操作的信息提示', closeBtn: this.close },
+        { content: '用于帮助用户操作的信息提示', closeBtn: this.closeBtn },
         { content: '用于表示操作正在生效的过程中', duration: 1000 },
       ],
     };
   },
   methods: {
-    close(remove) {
-      return <b class='t-message-close' onClick={remove}>x</b>;
+    closeBtn(close) {
+      return <b class='t-message-close' onClick={close}>x</b>;
     },
     content() {
       return <div>操作有误，<a href='#'>前往查看</a></div>;

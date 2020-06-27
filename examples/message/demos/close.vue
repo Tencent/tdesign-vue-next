@@ -10,18 +10,18 @@
     <t-button v-if="!isShowDurationMsg" @click="isShowDurationMsg = true">再次弹出计时信息</t-button>
 
     <t-message
-      closeBtn
       v-if="isShowMsg"
+      closeBtn
       @click-close-btn="isShowMsg = false"
     >点击关闭按钮触发事件 click-close-btn </t-message>
 
     <t-message
-      closeBtn="关闭"
       v-if="closableMsg"
+      closeBtn="关闭"
       @click-close-btn="closableMsg = false"
     >自定义关闭按钮（文字）</t-message>
 
-    <t-message :closeBtn="close" v-if="closableMsg1">自定义关闭按钮（函数）</t-message>
+    <t-message :closeBtn="closeBtn" v-if="closableMsg1">自定义关闭按钮（函数）</t-message>
 
     <t-message v-if="closableMsg2">
       自定义关闭按钮（插槽）
@@ -46,7 +46,7 @@ export default {
     };
   },
   methods: {
-    close() {
+    closeBtn() {
       return (
         <div
           class='t-message-close'
