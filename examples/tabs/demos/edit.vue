@@ -10,6 +10,7 @@
       :addable="true"
       @add="addTab"
       @remove="removeTab"
+      @change="changeTab"
     >
       <t-tab-panel
         v-for="data in panelData"
@@ -25,17 +26,19 @@
 </template>
 
 <script>
+let id = 0;
+
 export default {
   data() {
     return {
-      activeName: '0',
+      activeName: 'first',
       panelData: [{
-        name: '0',
+        name: 'first',
         label: '原有选项卡',
         closable: false,
         content: '原有选项卡内容',
       }, {
-        name: '1',
+        name: 'second',
         label: '原有选项卡',
         closable: true,
         content: '原有选项卡内容',
@@ -45,26 +48,28 @@ export default {
 
   methods: {
     addTab() {
-      const len = this.panelData.length;
       this.panelData = [
         ...this.panelData,
         {
-          name: `${len}`,
+          name: `${id}`,
           label: '新选项卡',
           closable: true,
           content: '新选项卡内容',
         },
       ];
-      this.activeName = `${len}`;
+      this.activeName = `${id}`;
+      id += 1;
     },
     removeTab(name) {
       const index = this.panelData.findIndex(data => data.name === name);
       if (index < 0) return false;
       this.panelData.splice(index, 1);
-      ;
       if (this.activeName === name) {
         this.activeName = this.panelData[index - 1].name;
       }
+    },
+    changeTab(name) {
+      this.activeName = name;
     },
   },
 };
