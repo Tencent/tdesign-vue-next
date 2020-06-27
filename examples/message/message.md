@@ -43,12 +43,12 @@
 
 ### Message Plugin
 
- * this.$message(theme, options)
- * this.$message(theme, textMsg)
- * this.$message.info(textMsg)
- * this.$message.info(textMsg, 3000)
- * this.$message.info(options)
- * this.$message.success(options)
+ * this.$message(theme, options) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message(theme, textMsg) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message.info(textMsg) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message.info(textMsg, 3000) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message.info(options) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message.success(options) // 返回值 `Promise<instance: 组件实例>`
 
 | 参数 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
