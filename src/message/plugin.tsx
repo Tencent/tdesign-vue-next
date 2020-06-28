@@ -29,6 +29,8 @@ import TMessage from './message';
 import { THEME_LIST, PLACEMENT_OFFSET } from './const';
 
 const DEFAULT_Z_INDEX = 6000;
+// 存储不同 attach 和 不同 placement 消息列表实例
+const instanceMap: Map<Element, object> = new Map();
 
 const getUniqueId = (() => {
   let id = 0;
@@ -37,6 +39,7 @@ const getUniqueId = (() => {
     return id;
   };
 })();
+
 
 const MessageList = Vue.extend({
   components: { TMessage },
@@ -119,36 +122,31 @@ const getAttach = (attach: string | Function = 'body') => {
   return r;
 };
 
-const showMessage = (() => {
-  // 存储不同 attach 和 不同 placement 消息列表实例
-  const instanceMap: Map<Element, object> = new Map();
-  return (props?: { attach: string | Function; placement: string; zIndex: number }) => {
-    if (!props) return instanceMap;
-    const { attach, placement, zIndex } = props;
-    const _a = getAttach(attach);
-    if (!instanceMap.get(_a)) {
-      instanceMap.set(_a, []);
-    }
-    const _p = instanceMap.get(_a)[placement];
-    if (!_p) {
-      const instance: any = new Vue(MessageList).$mount();
-      placement && (instance.placement = placement);
-      zIndex && (instance.zIndex = zIndex);
-      instance.add(props);
-      instanceMap.get(_a)[placement] = instance;
-      _a.appendChild(instance.$el);
-    } else {
-      _p.add(props);
-    }
-    return new Promise((resolve) => {
-      const _ins = instanceMap.get(_a)[placement];
-      _ins.$nextTick(() => {
-        const msg = _ins.$children;
-        resolve(msg[msg.length - 1]);
-      });
+const showMessage = (props: { attach: string | Function; placement: string; zIndex: number }) => {
+  const { attach, placement, zIndex } = props;
+  const _a = getAttach(attach);
+  if (!instanceMap.get(_a)) {
+    instanceMap.set(_a, []);
+  }
+  const _p = instanceMap.get(_a)[placement];
+  if (!_p) {
+    const instance: any = new Vue(MessageList).$mount();
+    placement && (instance.placement = placement);
+    zIndex && (instance.zIndex = zIndex);
+    instance.add(props);
+    instanceMap.get(_a)[placement] = instance;
+    _a.appendChild(instance.$el);
+  } else {
+    _p.add(props);
+  }
+  return new Promise((resolve) => {
+    const _ins = instanceMap.get(_a)[placement];
+    _ins.$nextTick(() => {
+      const msg = _ins.$children;
+      resolve(msg[msg.length - 1]);
     });
-  };
-})();
+  });
+};
 
 function Message(theme: string, params: Record<string, any>, duration: number) {
   const props: {
@@ -176,9 +174,8 @@ function Message(theme: string, params: Record<string, any>, duration: number) {
 }
 
 function closeAll() {
-  const map = showMessage();
-  if (map instanceof Map) {
-    map.forEach((attach) => {
+  if (instanceMap instanceof Map) {
+    instanceMap.forEach((attach) => {
       Object.keys(attach).forEach((placement) => {
         const instance = attach[placement];
         instance.list = [];

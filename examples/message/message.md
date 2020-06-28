@@ -62,7 +62,7 @@ Vue.use(Plugin);
  * this.$message.info(textMsg, 3000) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.info(options) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.success(options) // 返回值 `Promise<instance: 组件实例>`
- * const msg = this.$message.success(options); msg.then(instance => instance.close()); // 关闭信息
+ * const msg = this.$message.success(options); this.$message.close(msg); // 关闭信息
 
 所有参数 Function 优先级大于 Slot。
 
