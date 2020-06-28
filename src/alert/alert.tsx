@@ -129,7 +129,12 @@ export default Vue.extend({
     },
 
     renderMessage () : VNode {
-      let operationContent: VNode = this.$scopedSlots.operation && this.$scopedSlots.operation({ props: this.$props })[0];
+      let operationContent: VNode;
+      if (typeof this.operation === 'function') {
+        operationContent = this.operation();
+      } else {
+        operationContent = this.$scopedSlots.operation && this.$scopedSlots.operation({ props: this.$props })[0];
+      }
       return (
         <div class={`${name}__message`}>
           { this.renderDescription() }
