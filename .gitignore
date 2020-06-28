@@ -20,4 +20,8 @@ script/test/cypress/videos
 script/test/cypress/results
 script/test/cypress/support
 results/
+<<<<<<< HEAD
 
+=======
+yarn-error.log
+>>>>>>> feat(menu): add collapsed for menu
