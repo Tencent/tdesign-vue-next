@@ -1,5 +1,5 @@
 <template>
-  <t-menu theme="light" active="2-1" :collapsed="true" height="550px">
+  <t-menu theme="light" active="2-1" :collapsed="collapsed" height="550px">
     <img slot="logo" class="t-menu__logo" src="https://main.qcloudimg.com/raw/9fe1217de2bd7eb623f70648a046e341/head-logo.png" alt="logo">
     <t-menu-item name="item1">
       <t-icon slot="icon" icon="user"/>菜单内容一
@@ -14,9 +14,22 @@
     <t-menu-item name="item3"><t-icon slot="icon" icon="user" />菜单内容二</t-menu-item>
     <t-menu-item name="item4" :disabled="true"><t-icon slot="icon" icon="user" />菜单内容三</t-menu-item>
     <div slot="options">
-      <a href="javascript:;"><i class="t-icon t-icon-demo"></i></a>
-      <a href="javascript:;"><i class="t-icon t-icon-demo"></i></a>
-      <a href="javascript:;"><i class="t-icon t-icon-demo"></i></a>
+      <t-icon icon="user" @click="changeCollapsed" />
     </div>
   </t-menu>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      collapsed: true,
+    };
+  },
+  methods: {
+    changeCollapsed() {
+      this.collapsed = !this.collapsed;
+    },
+  },
+};
+</script>
