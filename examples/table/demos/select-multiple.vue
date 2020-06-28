@@ -1,13 +1,14 @@
 <template>
   <div>
-    <t-table :columns="columns" :data="data" :row-selection="rowSelection">
+    <t-table :columns="columns" :data="data" :selected-row-keys="selectedRowKeys"
+             @select-change="rehandleSelectChange">
       <template #status="text">
         <p v-if="text === 0" class="status">健康</p>
         <p v-if="text === 1" class="status unhealth">异常</p>
       </template>
       <template #op="text, record">
-        <a class="link" @click="clickButton({text, record})">管理</a>
-        <a class="link" @click="clickButton({text, record})">删除</a>
+        <a class="link" @click="rehandleClickOp({text, record})">管理</a>
+        <a class="link" @click="rehandleClickOp({text, record})">删除</a>
       </template>
     </t-table>
   </div>
@@ -17,7 +18,9 @@
 export default {
   data() {
     return {
+      selectedRowKeys: [1, '2'],
       columns: [
+        { colKey: 'row-selection', type: 'multiple', width: 50 },
         { colKey: 'instance', title: '集群名称', width: 150 },
         { colKey: 'status', title: '状态', width: 100 },
         { colKey: 'owner', title: '管理员' },
@@ -30,14 +33,15 @@ export default {
         { id: 3, instance: 'JQTest3', status: 0, owner: 'jenny', description: 'test' },
         { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', description: 'test' },
       ],
-      rowSelection: {
-        type: 'radio',
-      },
     };
   },
   methods: {
-    clickButton({ text, record }) {
+    rehandleClickOp({ text, record }) {
       console.log(text, record);
+    },
+    rehandleSelectChange({ selectedRowKeys, selectedRowData }) {
+      this.selectedRowKeys = selectedRowKeys;
+      console.log(selectedRowKeys, selectedRowData);
     },
   },
 };

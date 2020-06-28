@@ -3,13 +3,16 @@
 ::: demo demos/base 默认
 :::
 
+::: demo demos/multi-header 多级表头
+:::
+
 ::: demo demos/expand 可展开
 :::
 
-::: demo demos/radio 单选
+::: demo demos/select-single 单选
 :::
 
-::: demo demos/checkbox 多选
+::: demo demos/select-multiple 多选
 :::
 
 ::: demo demos/sort 排序

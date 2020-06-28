@@ -1,14 +1,15 @@
 <template>
   <div>
-    <t-table :columns="columns" :data="data" :row-expand="rowExpand">
+    <t-table :columns="columns" :data="data" :expanded-row-keys="expandedRowKeys"
+             :expanded-row-render="expandedRowRender" @expand-change="rehandleExpandChange">
       <template #status="text">
         <p v-if="text === 0" class="status">健康</p>
         <p v-if="text === 1" class="status unhealth">异常</p>
       </template>
       <template #op-column><p>操作</p></template>
-      <template #op="text, record">
-        <a class="link" @click="clickOp({text, record})">管理</a>
-        <a class="link" @click="clickOp({text, record})">删除</a>
+      <template #op="slotProps">
+        <a class="link" @click="rehandleClickOp(slotProps)">管理</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
       </template>
     </t-table>
   </div>
@@ -31,24 +32,23 @@ const data = [
 export default {
   data() {
     return {
-      columns, data,
-      rowExpand: {
-        defaultExpandedRowKeys: [1, '2'],
-        // expandedRowKeys: [1, '2'],
-        expandedRowRender: record => <div class="more-detail">
+      columns,
+      data,
+      expandedRowKeys: [1, '2'],
+      expandedRowRender: ({ record }) => <div class="more-detail">
           <p class="title"><b>集群名称:</b></p><p class="content">{record.instance}</p><br/>
           <p class="title"><b>管理员:</b></p><p class="content">{record.owner}</p><br/>
           <p class="title"><b>描述:</b></p><p class="content">{record.description}</p>
         </div>,
-        onChange(record = {}, index, expanded) {
-          console.log(record, index, expanded);
-        },
-      },
     };
   },
   methods: {
-    clickOp({ text, record }) {
+    rehandleClickOp({ text, record }) {
       console.log(text, record);
+    },
+    rehandleExpandChange({ expandedRowKeys, expandedRowData }) {
+      this.expandedRowKeys = expandedRowKeys;
+      console.log(expandedRowKeys, expandedRowData);
     },
   },
 };
