@@ -29,47 +29,18 @@ export default Vue.extend({
         );
       },
     },
-    placement: {
-      type: String,
-      default: 'top-right',
-      validator(v: string): boolean {
-        return (
-          [
-            'top-left',
-            'top-right',
-            'bottom-left',
-            'bottom-right',
-            'none',
-          ].indexOf(v) > -1
-        );
-      },
-    },
     duration: {
       type: Number,
       default: 0,
     },
-    close: {
+    closeBtn: {
       type: [Boolean, String, Function],
       default: true,
-    },
-    zIndex: {
-      type: Number,
-      default: 6000,
     },
     title: String,
     default: [String, Function],
     icon: Function,
     footer: Function,
-    opened: Function,
-    closed: Function,
-    verticalOffset: {
-      type: Number,
-      default: 0,
-    },
-    horizontalOffset: {
-      type: Number,
-      default: 0,
-    },
   },
   data() {
     return {
@@ -78,20 +49,21 @@ export default Vue.extend({
   },
   mounted() {
     if (this.duration > 0) {
-      setTimeout(() => {
-        this.handleClose();
+      const timer = setTimeout(() => {
+        clearTimeout(timer);
+        this.visibleChange(false);
+        this.$emit('duration-end', this);
       }, this.duration);
     }
-    if (this.opened) this.opened();
   },
   methods: {
     visibleChange(visible: boolean) {
       this.visible = visible;
       this.$forceUpdate();
     },
-    handleClose() {
+    handleClose(e: Event) {
       this.visibleChange(false);
-      if (this.closed) this.closed();
+      this.$emit('click-close-btn', e, this);
     },
     renderIcon(h: CreateElement) {
       let icon: VNode[] | VNode | string = '';
@@ -113,9 +85,9 @@ export default Vue.extend({
     renderCloseIcon(h: CreateElement) {
       let close: VNode[] | VNode | string = '';
 
-      switch (typeof this.close) {
+      switch (typeof this.closeBtn) {
         case 'boolean': {
-          if (this.close === true) {
+          if (this.closeBtn === true) {
             if (this.$scopedSlots.close) {
               close = this.$scopedSlots.close(null);
             } else {
@@ -125,12 +97,12 @@ export default Vue.extend({
           break;
         }
         case 'function': {
-          close = this.close(h);
+          close = this.closeBtn(h);
           break;
         }
         case 'string': {
           /* eslint prefer-destructuring: ["error", {VariableDeclarator: {object: true}}] */
-          close = this.close;
+          close = this.closeBtn;
           break;
         }
       };
@@ -173,18 +145,8 @@ export default Vue.extend({
     const content = this.renderContent(h);
     const footer = this.renderFooter(h);
 
-    // display
-    let style = '';
-    if (this.placement !== 'none') {
-      const verticalDirection = this.placement.indexOf('top') !== -1 ? 'top' : 'bottom';
-      const horizontalDirection = this.placement.indexOf('left') !== -1 ? 'left' : 'right';
-      style += `${verticalDirection}: ${this.verticalOffset}px;`;
-      style += `${horizontalDirection}: ${this.horizontalOffset}px;`;
-      style += `${this.zIndex ? `z-index: ${this.zIndex};` : ''}`;
-    }
-
     return (
-      <div class={`${name} ${name}__show--${this.placement}`} style={style}>
+      <div class={`${name}`}>
         {icon}
         <div class={`${name}__main`}>
           <div class={`${name}__title__wrap`}>

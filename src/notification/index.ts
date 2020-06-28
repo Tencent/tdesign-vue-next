@@ -1,4 +1,4 @@
-import NotificationApi from './notificationApi';
+import NotificationPlugin from './notificationPlugin';
 import Notification from './notification';
 
-export { Notification, NotificationApi };
+export { Notification, NotificationPlugin };

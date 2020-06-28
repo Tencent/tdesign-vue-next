@@ -3,7 +3,7 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
-import { Notification, NotificationApi } from './notification';
+import { Notification, NotificationPlugin } from './notification';
 import Popup from './popup';
 import Input from './input';
 import InputGroup from './input-group';
@@ -18,7 +18,6 @@ const components = {
   Addon,
   InputGroup,
   Notification,
-  NotificationApi,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
@@ -29,7 +28,7 @@ function install(Vue: VueConstructor, config?: object): void {
   Object.keys(components).forEach((key) => {
     Vue.component(installConfig.prefix + key, components[key]);
   });
-  Vue.prototype.$notify = NotificationApi;
+  Vue.prototype.$notify = NotificationPlugin;
 };
 
 declare const window: {
