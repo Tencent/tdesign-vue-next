@@ -26,7 +26,6 @@ const components = {
   Steps,
   Step,
   Message,
-  MessagePlugin,
 };
 
 function install(Vue: VueConstructor, config?: object): void {

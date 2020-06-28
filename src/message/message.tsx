@@ -85,6 +85,11 @@ export default Vue.extend({
     renderIcon() {
       if (this.icon === false) return;
       if (typeof this.icon === 'function') return this.icon();
+      if (this.$scopedSlots.icon) {
+        return this.$scopedSlots.icon({
+          props: this.$props,
+        });
+      }
       const component = {
         info: TIconPromptFill,
         success: TIconSuccessFill,
