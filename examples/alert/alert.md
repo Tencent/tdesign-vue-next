@@ -15,6 +15,12 @@
 ::: demo demos/title 带相关描述文字
 :::
 
+::: demo demos/collapse 带折叠的警告
+:::
+
+::: demo demos/swiper 带轮播的警告
+:::
+
 ### Props
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|

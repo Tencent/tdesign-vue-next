@@ -30,4 +30,16 @@ describe('Alert', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
+
+  it('collapse demo works fine', () => {
+    const demo = require('@/examples/alert/demos/collapse.vue').default;
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('swiper demo works fine', () => {
+    const demo = require('@/examples/alert/demos/swiper.vue');
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

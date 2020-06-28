@@ -22,6 +22,7 @@ import Popconfirm from './popconfirm';
 import { Select, Option, OptionGroup } from './select';
 import Switch from './switch';
 import Alert from './alert';
+import AlertSwiper from './alert-swiper';
 
 const components = {
   Icon,
@@ -53,6 +54,7 @@ const components = {
   OptionGroup,
   Switch,
   Alert,
+  AlertSwiper,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
