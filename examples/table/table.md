@@ -12,18 +12,21 @@
 ::: demo demos/checkbox 多选
 :::
 
-::: demo demos/spin 加载
-:::
-
 ::: demo demos/sort 排序
 :::
 
 ::: demo demos/multi-header 多级表头
 :::
 
+::: demo demos/spin 加载
+:::
+
+::: demo demos/async-spin 异步加载
+:::
+
 ### 属性配置
 
-| 属性    | 类型                                      | 默认值 | 必传 | 说明                                                  |
-| ------- | ----------------------------------------- | ------ | ---- | ----------------------------------------------------- |
-| loading | Boolean / Object / Function(props): VNode | false  | N    | 如果是一个对象的话，，内部包含一个 status 与 progress |
-| -       | -                                         | -      | -    | -                                                     |
+| 属性    | 类型                             | 默认值 | 必传 | 说明 |
+| ------- | -------------------------------- | ------ | ---- | ---- |
+| loading | Boolean / Function(props): VNode | false  | N    |      |
+| -       | -                                | -      | -    | -    |
