@@ -171,23 +171,25 @@ function Message(theme: string, params: Record<string, any>, duration: number) {
   return showMessage(props);
 }
 
+function closeAll() {
+  const map = showMessage();
+  if (map instanceof Map) {
+    map.forEach((attach) => {
+      Object.keys(attach).forEach((placement) => {
+        const instance = attach[placement];
+        instance.list = [];
+      });
+    });
+  }
+}
+
 const MessagePlugin = Message;
 
 THEME_LIST.forEach((theme: string) => {
   MessagePlugin[theme] = (params: object = {}, time: number) => Message(theme, params, time);
   Object.assign(MessagePlugin, {
-    closeAll: () => {
-      const map = showMessage();
-      if (map instanceof Map) {
-        // eslint-disable-next-line
-        for (const [attach, attachMap] of map.entries()) {
-          Object.keys(attachMap).forEach((key) => {
-            const instance = map.get(attach)[key];
-            instance.list = [];
-          });
-        };
-      }
-    },
+    close: (instance: any) => instance.close(),
+    closeAll,
   });
 });
 
