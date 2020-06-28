@@ -1,7 +1,7 @@
 <template>
   <div>
     <t-pagination
-      v-model="current"
+      theme="simple"
       :total="100"
       @change="onChange"
       :page-size="5"
@@ -11,15 +11,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      current: 12,
-    };
-  },
   methods: {
-    onChange(index, event) {
+    onChange(index) {
       console.log(`转到第${index}页`);
-      console.log(event);
     },
   },
 };

@@ -1,10 +1,12 @@
 <template>
   <div>
     <t-pagination
+      :total="645"
+      :page-size.sync="pageSize"
       v-model="current"
-      :total="100"
       @change="onChange"
-      :page-size="5"
+      @pageSizeChange="onPagesizeChange"
+      show-jumper
     />
   </div>
 </template>
@@ -13,12 +15,17 @@
 export default {
   data() {
     return {
-      current: 12,
+      pageSize: 20,
+      current: 1,
     };
   },
   methods: {
     onChange(index, event) {
       console.log(`转到第${index}页`);
+      console.log(event);
+    },
+    onPagesizeChange(pageSize, event) {
+      console.log(`${pageSize}`);
       console.log(event);
     },
   },

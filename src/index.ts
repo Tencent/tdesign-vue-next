@@ -4,20 +4,28 @@ import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
 import { Notification, NotificationPlugin } from './notification';
+import Tag from './tag';
+import CheckTag from './tag/check-tag';
 import Popup from './popup';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
+import Steps from './steps';
+import Step from './step';
 
 const components = {
   Icon,
   Button,
   Pagination,
+  Tag,
+  CheckTag,
   Popup,
   Input,
   Addon,
   InputGroup,
   Notification,
+  Steps,
+  Step,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
