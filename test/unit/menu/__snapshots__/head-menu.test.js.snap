@@ -30,16 +30,6 @@ exports[`HeadMenu props :theme 1`] = `
 </div>
 `;
 
-exports[`HeadMenu props :theme 2`] = `
-<div class="t-head-menu t-menu-mode__dropdown t-menu--{'light'}">
-  <div class="t-head-menu__inner">
-    <div class="t-menu__logo"></div>
-    <ul class="t-menu"></ul>
-    <div class="t-menu__options"></div>
-  </div>
-</div>
-`;
-
 exports[`HeadMenu slot <default> 1`] = `
 <div class="t-head-menu t-menu-mode__dropdown t-menu--light">
   <div class="t-head-menu__inner">
