@@ -8,9 +8,13 @@
  * this.$message.error()
  * this.$message.question()
  * this.$message.loading()
- * this.$message.close()
+ * // close all message
  * this.$message.closeAll()
+ * // close one message
+ * const msg = this.$message.info('这是信息')
+ * msg.then(instance => instance.close())
  */
+
 import Vue from 'vue';
 import TMessage from './message';
 import { THEME_LIST, PLACEMENT_OFFSET } from './const';
@@ -159,7 +163,7 @@ function Message(theme: string, params: Record<string, any>, duration: number) {
   } else if (typeof params === 'string') {
     props.default = params;
   }
-  return showMessage(props);;
+  return showMessage(props);
 }
 
 const MessagePlugin = Message;

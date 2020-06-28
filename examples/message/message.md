@@ -49,6 +49,7 @@
  * this.$message.info(textMsg, 3000) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.info(options) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.success(options) // 返回值 `Promise<instance: 组件实例>`
+ * const msg = this.$message.success(options); msg.then(instance => instance.close());
 
 | 参数 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
