@@ -10,11 +10,15 @@
  * this.$message.error()
  * this.$message.question()
  * this.$message.loading()
+ * 上述函数返回值：promise: Promise<{close: Function}>
  *
  * // close all message
  * this.$message.closeAll()
  *
- * // close one message
+ * // close one message. 参数 p 为 this.$message 系列函数返回值，promise: Promise<{close: Function}>
+ * this.$message.close(p)
+ *
+ * // close one message.
  * const msg = this.$message.info('这是信息')
  * msg.then(instance => instance.close())
  *
@@ -188,7 +192,9 @@ const MessagePlugin = Message;
 THEME_LIST.forEach((theme: string) => {
   MessagePlugin[theme] = (params: object = {}, time: number) => Message(theme, params, time);
   Object.assign(MessagePlugin, {
-    close: (instance: any) => instance.close(),
+    close: (promise: Promise<{close: Function}>) => {
+      promise.then(instance => instance.close());
+    },
     closeAll,
   });
 });
