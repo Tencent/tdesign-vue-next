@@ -1,4 +1,6 @@
 /**
+ * Vue.prototype.$message = MessagePlugin;
+ *
  * this.$message('info', '这是信息')
  * this.$message.info('这是信息')
  * this.$message.info('这是信息', 3000)
@@ -8,11 +10,14 @@
  * this.$message.error()
  * this.$message.question()
  * this.$message.loading()
+ *
  * // close all message
  * this.$message.closeAll()
+ *
  * // close one message
  * const msg = this.$message.info('这是信息')
  * msg.then(instance => instance.close())
+ *
  */
 
 import Vue from 'vue';

@@ -43,13 +43,28 @@
 
 ### Message Plugin
 
+该插件已默认引入组件库总包。如果项目要按需加载插件，则需要自行装载该插件，示例代码如下，
+
+```js
+import Vue from 'vue';
+import { MessagePlugin } from './message';
+const Plugin = {
+  install: (Vue) => {
+    Vue.prototype.$message = MessagePlugin;
+  }
+};
+Vue.use(Plugin);
+```
+
  * this.$message(theme, options) // 返回值 `Promise<instance: 组件实例>`
  * this.$message(theme, textMsg) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.info(textMsg) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.info(textMsg, 3000) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.info(options) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.success(options) // 返回值 `Promise<instance: 组件实例>`
- * const msg = this.$message.success(options); msg.then(instance => instance.close());
+ * const msg = this.$message.success(options); msg.then(instance => instance.close()); // 关闭信息
+
+所有参数 Function 优先级大于 Slot。
 
 | 参数 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
