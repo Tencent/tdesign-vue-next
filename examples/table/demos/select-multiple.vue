@@ -2,13 +2,14 @@
   <div>
     <t-table :columns="columns" :data="data" :selected-row-keys="selectedRowKeys"
              @select-change="rehandleSelectChange">
-      <template #status="text">
+      <template #status="{ text }">
         <p v-if="text === 0" class="status">健康</p>
         <p v-if="text === 1" class="status unhealth">异常</p>
       </template>
-      <template #op="text, record">
-        <a class="link" @click="rehandleClickOp({text, record})">管理</a>
-        <a class="link" @click="rehandleClickOp({text, record})">删除</a>
+      <template #op-column><p>操作</p></template>
+      <template #op="slotProps">
+        <a class="link" @click="rehandleClickOp(slotProps)">管理</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
       </template>
     </t-table>
   </div>
@@ -25,7 +26,7 @@ export default {
         { colKey: 'status', title: '状态', width: 100 },
         { colKey: 'owner', title: '管理员' },
         { colKey: 'description', title: '描述' },
-        { colKey: 'op', title: '操作', width: 200 },
+        { colKey: 'op', width: 200, slots: { title: 'op-column' } },
       ],
       data: [
         { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', description: 'test' },

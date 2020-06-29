@@ -2,7 +2,7 @@
   <div>
     <t-table :columns="columns" :data="data" :expanded-row-keys="expandedRowKeys"
              :expanded-row-render="expandedRowRender" @expand-change="rehandleExpandChange">
-      <template #status="text">
+      <template #status="{ text }">
         <p v-if="text === 0" class="status">健康</p>
         <p v-if="text === 1" class="status unhealth">异常</p>
       </template>
