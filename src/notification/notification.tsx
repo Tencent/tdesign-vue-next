@@ -42,40 +42,31 @@ export default Vue.extend({
     icon: Function,
     footer: Function,
   },
-  data() {
-    return {
-      visible: true,
-    };
-  },
   mounted() {
     if (this.duration > 0) {
       const timer = setTimeout(() => {
         clearTimeout(timer);
-        this.visibleChange(false);
         this.$emit('duration-end', this);
       }, this.duration);
     }
   },
   methods: {
-    visibleChange(visible: boolean) {
-      this.visible = visible;
-      this.$forceUpdate();
-    },
-    handleClose(e: Event) {
-      this.visibleChange(false);
+    close(e: Event) {
       this.$emit('click-close-btn', e, this);
     },
     renderIcon(h: CreateElement) {
       let icon: VNode[] | VNode | string = '';
 
       if (this.theme) {
-        const iconType = this.theme === 'success' ? 'success' : 'prompt';
+        const iconType = this.theme === 'success'
+          ? (<t-icon-success-fill class={`t-is-${this.theme}`} />)
+          : (<t-icon-prompt-fill class={`t-is-${this.theme}`} />);
         icon = (<div class='t-notification__icon'>
-          <t-icon name={`${iconType}-fill`} class={`t-is-${this.theme}`} />
+          {iconType}
         </div>);
       } else if (this.icon || this.$scopedSlots.icon) {
         if (this.icon) {
-          icon = (<div class={`${name}__icon`}>{this.icon(h)}</div>);
+          icon = this.icon(h);
         }
         icon = this.$scopedSlots.icon ? this.$scopedSlots.icon(null) : icon;
       }
@@ -88,10 +79,10 @@ export default Vue.extend({
       switch (typeof this.closeBtn) {
         case 'boolean': {
           if (this.closeBtn === true) {
-            if (this.$scopedSlots.close) {
-              close = this.$scopedSlots.close(null);
+            if (this.$scopedSlots.closeBtn) {
+              close = this.$scopedSlots.closeBtn(null);
             } else {
-              close = (<t-icon name="close" />);
+              close = (<t-icon-close nativeOnClick={this.close} />);
             }
           }
           break;
@@ -101,8 +92,7 @@ export default Vue.extend({
           break;
         }
         case 'string': {
-          /* eslint prefer-destructuring: ["error", {VariableDeclarator: {object: true}}] */
-          close = this.closeBtn;
+          close = <div onclick={this.close}>{this.closeBtn}</div>;
           break;
         }
       };
@@ -138,8 +128,6 @@ export default Vue.extend({
     },
   },
   render(h: CreateElement) {
-    if (!this.visible) return;
-
     const icon = this.renderIcon(h);
     const close = this.renderCloseIcon(h);
     const content = this.renderContent(h);
@@ -151,7 +139,7 @@ export default Vue.extend({
         <div class={`${name}__main`}>
           <div class={`${name}__title__wrap`}>
             <span class={`${name}__title`}>{this.title}</span>
-            <div onclick={this.handleClose}>{close}</div>
+            {close}
           </div>
           {content}
           {footer}

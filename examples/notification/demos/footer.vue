@@ -1,40 +1,29 @@
 <template>
   <div>
-    <t-button @click="show">自定义footer</t-button>
-    <t-button @click="show2">自定义footer</t-button>
+    <t-notification title="自定义底部详情(函数)" default="这是一条消息通知" :footer="footer" />
+    <t-notification title="自定义底部详情(插槽)" default="这是一条消息通知">
+      <div slot="footer" class="t-notification__detail">
+        <span class="t-notification__detail--item">重启</span>
+        <span class="t-notification__detail--item t-is-active">查看详情</span>
+      </div>
+    </t-notification>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
-    show() {
-      this.$notify({
-        title: '标题名称',
-        content: '这是一条可以自动关闭的消息通知',
-        footer: h => h(
-          'div', { class: 't-notification__detail' },
-          [h('span', { class: 't-notification__detail--item t-is-active' }, '查看详情')]
-        ),
-      });
-    },
-    show2() {
-      this.$notify({
-        title: '标题名称',
-        content: '这是一条可以自动关闭的消息通知',
-        footer: h => h(
-          'div', { class: 't-notification__detail' },
-          [h('span', { class: 't-notification__detail--item' }, '重启'),
-            h('span', { class: 't-notification__detail--item t-is-active' }, '稍后提醒我')]
-        ),
-      });
+    footer() {
+      return (<div slot="footer" class="t-notification__detail">
+        <span class="t-notification__detail--item t-is-active">查看详情</span>
+      </div>);
     },
   },
 };
 </script>
 
 <style scoped>
-.t-button + .t-button{
-  margin-left: 10px;
+.t-notification + .t-notification{
+  margin-top: 20px;
 }
 </style>

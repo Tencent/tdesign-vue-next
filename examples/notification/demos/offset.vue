@@ -16,6 +16,7 @@ export default {
           top: 30,
           right: 30,
         },
+        duration: 3000,
       });
     },
     showInOffset2() {
@@ -27,6 +28,7 @@ export default {
           top: 30,
           left: 30,
         },
+        duration: 3000,
       });
     },
   },

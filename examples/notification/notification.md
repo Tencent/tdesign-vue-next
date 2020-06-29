@@ -6,22 +6,31 @@
 ::: demo demos/type 类型
 :::
 
-::: demo demos/placement 方位
+::: demo demos/icon 自定义Icon
 :::
 
-::: demo demos/offset 偏移（结合属性placement）
+::: demo demos/close 自定义关闭按钮
 :::
 
-::: demo demos/hideClose 自定义关闭按钮
-:::
-
-::: demo demos/size 尺寸
+::: demo demos/content 自定义内容
 :::
 
 ::: demo demos/footer 自定义底部详情
 :::
 
-::: demo demos/component 组件式调用
+::: demo demos/size 尺寸
+:::
+
+::: demo demos/placement 函数式调用-方位
+:::
+
+::: demo demos/offset 函数式调用-偏移（结合属性placement）
+:::
+
+::: demo demos/type4Fn 函数式调用-类型
+:::
+
+::: demo demos/toggle 函数式调用-开关
 :::
 
 ### 引用
@@ -40,9 +49,10 @@ import { NotificationPlugin, Notification } from 'tdesign';
 | title | String | - | N | 通知标题 |
 | default | String/Function/Slot | - | N | 自定义内容 |
 | theme | String | - | N | 消息类型 info/success/warning/error |
+| icon | Function/Solt(icon) | - | N | 自定义图标。当 theme 存在，取默认图标 |
+| closeBtn | Boolean/String/Function/Slot(closeBtn) | true | N | 是否显示关闭按钮/自定义关闭图标 |
+| footer | Function/Solt(footer) | - | N | 自定义底部详情 |
 | duration | Number | 0 | N | 显示时间，毫秒，置 0 则不会自动关闭 |
-| closeBtn | Boolean/String/Function/Slot(close) | true | N | 是否显示关闭按钮/自定义关闭图标 |
-| icon | String/Function/Solt(icon) | - | N | 自定义图标。当 theme 存在，取默认图标 |
 
 ### Notification Events
 | 平台 | 事件名称 | 参数 |  说明 |
@@ -59,6 +69,7 @@ import { NotificationPlugin, Notification } from 'tdesign';
  * this.$notify.warning(options) // 返回值 `Promise<instance: 组件实例>`
  * this.$notify.error(options) // 返回值 `Promise<instance: 组件实例>`
  * const notification = this.$notify(options); notification.then(instance => instance.close()) // 关闭 Notification 实例
+ * const notification = this.$notify(options); this.$notify.close(notification) // 关闭 Notification 实例
  * this.$notify.closeAll() // 关闭所有 Notification 实例
 
 | 属性 | 类型 | 默认值 | 必传 | 说明 |

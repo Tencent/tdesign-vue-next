@@ -16,12 +16,14 @@ export default {
         title: '标题名称',
         content: '这是一条可以自动关闭的消息通知',
         placement: 'top-left',
+        duration: 3000,
       });
     },
     showInTopRight() {
       this.$notify({
         title: '标题名称',
         content: '这是一条可以自动关闭的消息通知',
+        duration: 3000,
       });
     },
     showInBottomLeft() {
@@ -29,6 +31,7 @@ export default {
         title: '标题名称',
         content: '这是一条可以自动关闭的消息通知',
         placement: 'bottom-left',
+        duration: 3000,
       });
     },
     showInBottomRight() {
@@ -36,6 +39,7 @@ export default {
         title: '标题名称',
         content: '这是一条可以自动关闭的消息通知',
         placement: 'bottom-right',
+        duration: 3000,
       });
     },
   },
