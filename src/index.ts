@@ -12,6 +12,7 @@ import InputGroup from './input-group';
 import Addon from './addon';
 import Steps from './steps';
 import Step from './step';
+import { Message, MessagePlugin } from './message';
 
 const components = {
   Icon,
@@ -26,6 +27,7 @@ const components = {
   Notification,
   Steps,
   Step,
+  Message,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
@@ -36,6 +38,8 @@ function install(Vue: VueConstructor, config?: object): void {
   Object.keys(components).forEach((key) => {
     Vue.component(installConfig.prefix + key, components[key]);
   });
+
+  Vue.prototype.$message = MessagePlugin;
   Vue.prototype.$notify = NotificationPlugin;
 };
 
