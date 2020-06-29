@@ -75,13 +75,18 @@ export default {
   methods: {
     asyncLoadingHandler() {
       console.log('asyncLoadingHandler');
-      if (this.data.length > 20) {
-        this.busy = true;
-        return;
-      }
-      setTimeout(() => {
-        this.data.push(...data);
-      }, 1000);
+      // eslint-disable-next-line
+      return new Promise(resolve => {
+        if (this.data.length > 20) {
+          this.busy = true;
+          resolve();
+          return;
+        }
+        setTimeout(() => {
+          this.data.push(...data);
+          resolve();
+        }, 1000);
+      });
     },
   },
 };
