@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import List from '@/src/list/index.ts';
+import { List } from '@/src/list/index.ts';
 
 describe('List', () => {
   let cmp;
