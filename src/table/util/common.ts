@@ -16,3 +16,11 @@ export function debounce<T = any>(fn: Function, delay = 1000): () => void {
     }, delay);
   };
 }
+
+export function filterDataByIds(
+  data: Array<object> = [],
+  ids: Array<string | number> = [],
+  byId = 'id',
+): Array<object> {
+  return data.filter((d: Record<string, any> = {}) => ids.includes(d[byId]));
+};
