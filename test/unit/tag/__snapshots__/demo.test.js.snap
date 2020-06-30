@@ -1,0 +1,464 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag checkable demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Tag closable demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Tag default demo works fine 1`] = `
+<div
+  class="tdesign-tag-default"
+>
+  <span
+    class="t-tag t-tag--default t-tag--dark"
+  >
+    默认
+  </span>
+</div>
+`;
+
+exports[`Tag disabled demo works fine 1`] = `
+<div
+  class="tdesign-tag-disabled"
+>
+  <span
+    class="t-tag t-tag--default t-tag--dark t-tag--disabled"
+  >
+    失效标签
+  </span>
+   
+  <span
+    class="t-tag t-tag--default t-tag--dark t-tag--disabled"
+  >
+    失效标签
+  </span>
+</div>
+`;
+
+exports[`Tag icon demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Tag long-text demo works fine 1`] = `
+<div
+  class="tdesign-tag-ellipsis"
+>
+  <span
+    class="t-tag t-tag--default t-tag--dark t-tag--ellipsis"
+    style="max-width: 150px;"
+  >
+    超长省略文本标签超长省略文本标签
+  </span>
+</div>
+`;
+
+exports[`Tag plain demo works fine 1`] = `
+<div
+  class="tdesign-tag-plain"
+>
+  <span
+    class="t-tag t-tag--primary t-tag--plain"
+  >
+    标签一
+  </span>
+   
+  <span
+    class="t-tag t-tag--success t-tag--plain"
+  >
+    标签二
+  </span>
+   
+  <span
+    class="t-tag t-tag--info t-tag--plain"
+  >
+    标签三
+  </span>
+   
+  <span
+    class="t-tag t-tag--warning t-tag--plain"
+  >
+    标签四
+  </span>
+   
+  <span
+    class="t-tag t-tag--danger t-tag--plain"
+  >
+    标签五
+  </span>
+</div>
+`;
+
+exports[`Tag shape demo works fine 1`] = `
+<div
+  class="tdesign-tag-shape"
+>
+  <div
+    class="tdesign-demo-block"
+  >
+    
+    正常：
+    
+    <span
+      class="t-tag t-tag--default t-tag--dark"
+    >
+      标签一
+    </span>
+     
+    <span
+      class="t-tag t-tag--primary t-tag--dark"
+    >
+      标签一
+    </span>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    
+    圆角：
+    
+    <span
+      class="t-tag t-tag--default t-tag--dark t-tag--round"
+    >
+      标签一
+    </span>
+     
+    <span
+      class="t-tag t-tag--primary t-tag--dark t-tag--round"
+    >
+      标签一
+    </span>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    
+    标记：
+    
+    <span
+      class="t-tag t-tag--default t-tag--dark t-tag--mark"
+    >
+      标签一
+    </span>
+     
+    <span
+      class="t-tag t-tag--primary t-tag--dark t-tag--mark"
+    >
+      标签一
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Tag size demo works fine 1`] = `
+<div
+  class="tdesign-tag-size"
+>
+  <div
+    class="tdesign-demo-block"
+  >
+    <span
+      class="t-tag t-tag--default t-size-s t-tag--dark"
+    >
+      标签 小
+    </span>
+     
+    <span
+      class="t-tag t-tag--default t-size-m t-tag--dark"
+    >
+      标签 中
+    </span>
+     
+    <span
+      class="t-tag t-tag--default t-tag--dark"
+    >
+      标签 中
+    </span>
+     
+    <span
+      class="t-tag t-tag--default t-size-l t-tag--dark"
+    >
+      标签 大
+    </span>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <span
+      class="t-tag t-tag--primary t-size-s t-tag--dark"
+    >
+      标签 小
+    </span>
+     
+    <span
+      class="t-tag t-tag--primary t-size-m t-tag--dark"
+    >
+      标签 中
+    </span>
+     
+    <span
+      class="t-tag t-tag--primary t-tag--dark"
+    >
+      标签 中
+    </span>
+     
+    <span
+      class="t-tag t-tag--primary t-size-l t-tag--dark"
+    >
+      标签 大
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Tag theme demo works fine 1`] = `
+<div
+  class="tdesign-tag-theme"
+>
+  <div
+    class="tdesign-demo-block"
+  >
+    
+    默认：
+    
+    <span
+      class="t-tag t-tag--default t-tag--dark"
+    >
+      默认
+    </span>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    
+    深色：
+    
+    <span
+      class="t-tag t-tag--primary t-tag--dark"
+    >
+      标签一
+    </span>
+     
+    <span
+      class="t-tag t-tag--success t-tag--dark"
+    >
+      标签二
+    </span>
+     
+    <span
+      class="t-tag t-tag--info t-tag--dark"
+    >
+      标签三
+    </span>
+     
+    <span
+      class="t-tag t-tag--warning t-tag--dark"
+    >
+      标签四
+    </span>
+     
+    <span
+      class="t-tag t-tag--danger t-tag--dark"
+    >
+      标签五
+    </span>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    
+    浅色：
+    
+    <span
+      class="t-tag t-tag--primary t-tag--light"
+    >
+      标签一
+    </span>
+     
+    <span
+      class="t-tag t-tag--success t-tag--light"
+    >
+      标签二
+    </span>
+     
+    <span
+      class="t-tag t-tag--info t-tag--light"
+    >
+      标签三
+    </span>
+     
+    <span
+      class="t-tag t-tag--warning t-tag--light"
+    >
+      标签四
+    </span>
+     
+    <span
+      class="t-tag t-tag--danger t-tag--light"
+    >
+      标签五
+    </span>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    
+    朴素：
+    
+    <span
+      class="t-tag t-tag--primary t-tag--plain"
+    >
+      标签一
+    </span>
+     
+    <span
+      class="t-tag t-tag--success t-tag--plain"
+    >
+      标签二
+    </span>
+     
+    <span
+      class="t-tag t-tag--info t-tag--plain"
+    >
+      标签三
+    </span>
+     
+    <span
+      class="t-tag t-tag--warning t-tag--plain"
+    >
+      标签四
+    </span>
+     
+    <span
+      class="t-tag t-tag--danger t-tag--plain"
+    >
+      标签五
+    </span>
+  </div>
+</div>
+`;

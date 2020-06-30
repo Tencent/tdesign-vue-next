@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
@@ -11,6 +12,7 @@ import Addon from './addon';
 import Steps from './steps';
 import Step from './step';
 import { List, ListItem, ListItemMeta } from './list';
+import { Message, MessagePlugin } from './message';
 
 const components = {
   Icon,
@@ -27,6 +29,7 @@ const components = {
   List,
   ListItem,
   ListItemMeta,
+  Message,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
@@ -37,6 +40,8 @@ function install(Vue: VueConstructor, config?: object): void {
   Object.keys(components).forEach((key) => {
     Vue.component(installConfig.prefix + key, components[key]);
   });
+
+  Vue.prototype.$message = MessagePlugin;
 };
 
 declare const window: {
