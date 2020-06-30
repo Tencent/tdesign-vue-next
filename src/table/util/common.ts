@@ -5,7 +5,7 @@ export function toString(obj: any): string {
     .toLowerCase();
 }
 
-export function debounce<T = any>(fn: Function, delay = 300): () => void {
+export function debounce<T = any>(fn: Function, delay = 200): () => void {
   let timer: ReturnType<typeof setTimeout>;
   return function newFn(this: T, ...args: Array<any>): void {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
