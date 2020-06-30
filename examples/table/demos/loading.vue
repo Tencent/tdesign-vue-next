@@ -1,36 +1,36 @@
 <template>
-  <t-table
-    :data="data"
-    :columns="columns"
-    :rowKey="rowKey"
-    :verticalAlign="verticalAlign"
-    :border="border"
-    :hover="hover"
-    :stripe="stripe"
-    :size="size"
-    :pagination="pagination">
-  </t-table>
+  <div>
+    <t-table
+      :data="data"
+      :columns="columns"
+      :rowKey="rowKey"
+      :size="size"
+      :loading="loading">
+    </t-table>
+    <t-table
+      :data="data"
+      :columns="columns"
+      :rowKey="rowKey"
+      :size="size"
+      :loading="asyncLoading">
+    </t-table>
+    <t-table
+      :data="data"
+      :columns="columns"
+      :rowKey="rowKey"
+      :size="size"
+      :loading="customLoading">
+      <div slot='loading' :style="style">
+        loading....🌹
+      </div>
+    </t-table>
+  </div>
 </template>
 <script>
 export default {
   data() {
-    const item = {
-      property: 'data',
-      platform: '公有',
-      type: 'any[]',
-      default: '[]',
-      needed: 'Y',
-      description: '数据源',
-    };
-    const data = [];
-    for (let i = 0;i < 10; i ++) {
-      data.push({
-        ...item,
-        index: i,
-      });
-    }
     return {
-      data,
+      data: [],
       columns: [
         {
           align: 'left',
@@ -38,21 +38,12 @@ export default {
           minWidth: '100',
           className: 'row',
           ellipsis: true,
-          colKey: 'index',
-          title: 'index',
-        },
-        {
-          align: 'left',
-          width: 200,
-          minWidth: '200',
-          className: 'row',
-          ellipsis: true,
           colKey: 'type',
           title: '类型',
         },
         {
           align: 'left',
-          width: 100,
+          width: '100',
           minWidth: '100',
           className: 'test',
           ellipsis: true,
@@ -61,8 +52,8 @@ export default {
         },
         {
           align: 'left',
-          width: 200,
-          minWidth: '200',
+          width: '100',
+          minWidth: '100',
           className: 'test2',
           ellipsis: true,
           colKey: 'property',
@@ -70,8 +61,8 @@ export default {
         },
         {
           align: 'left',
-          // width: 100,
-          // minWidth: '100',
+          width: '100',
+          minWidth: '100',
           className: 'test4',
           ellipsis: true,
           colKey: 'default',
@@ -97,19 +88,19 @@ export default {
         },
       ],
       rowKey: 'property',
-      tableLayout: 'auto',
-      verticalAlign: 'top',
       size: 'small',
-      border: true,
-      hover: true,
-      stripe: true,
-      rowClassName: rowKey => `${rowKey}-class`,
-      // 与pagination对齐
-      pagination: {
-        show: true,
-        pageSize: 10,
-        pageIndex: 0,
-        total: 100,
+      loading: true,
+      asyncLoading: {
+        async: true,
+      },
+      customLoading: {
+        customRender: 'loading',
+      },
+      style: {
+        height: '100px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       },
     };
   },

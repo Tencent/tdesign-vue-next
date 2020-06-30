@@ -6,6 +6,24 @@
 ::: demo demos/multi-header 多级表头
 :::
 
+::: demo demos/fixed-header 固定表头
+:::
+
+::: demo demos/fixed-column 固定列
+:::
+
+::: demo demos/custom-cell 自定义单元格
+:::
+
+::: demo demos/empty 空表格
+:::
+
+::: demo demos/multi-header 多级表头
+:::
+
+::: demo demos/spin 加载
+:::
+
 ::: demo demos/expand 可展开
 :::
 
@@ -18,13 +36,10 @@
 ::: demo demos/sort 排序
 :::
 
-::: demo demos/multi-header 多级表头
-:::
-
-::: demo demos/spin 加载
-:::
-
 ::: demo demos/async-spin 异步加载
+:::
+
+::: demo demos/loading loading
 :::
 
 ### 属性配置
