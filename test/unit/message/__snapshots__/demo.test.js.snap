@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message type demo works fine 1`] = `
+<div
+  class="t-demo-message"
+>
+  <div
+    class="t-message t-is-info"
+  >
+    <svg
+      class="t-icon t-icon-prompt-fill"
+      version="1.1"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7,6 L9,6 L9,4 L7,4 L7,6 Z M7,12 L9,12 L9,7 L7,7 L7,12 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    用户表示普通操作信息提示
+  </div>
+   
+  <div
+    class="t-message t-is-success"
+  >
+    <svg
+      class="t-icon t-icon-success-fill"
+      version="1.1"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M10.925,4.8 L7.036,8.689 L4.914,6.568 L3.5,7.982 L7.036,11.518 L12.339,6.214 L10.925,4.8 Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    用户表示操作顺利达成
+  </div>
+   
+  <div
+    class="t-message t-is-warning"
+  >
+    <svg
+      class="t-icon t-icon-warning-fill"
+      version="1.1"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7,12 L9,12 L9,10 L7,10 L7,12 Z M7,9 L9,9 L9,4 L7,4 L7,9 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    用户表示操作引起一定后果
+  </div>
+   
+  <div
+    class="t-message t-is-error"
+  >
+    <svg
+      class="t-icon t-icon-warning-fill"
+      version="1.1"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7,12 L9,12 L9,10 L7,10 L7,12 Z M7,9 L9,9 L9,4 L7,4 L7,9 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    用户表示操作引起严重的后果
+  </div>
+   
+  <div
+    class="t-message t-is-question"
+  >
+    <svg
+      class="t-icon t-icon-help-fill"
+      version="1.1"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8,0 C12.418383,0 16,3.58161702 16,8 C16,12.418383 12.418383,16 8,16 C3.58161702,16 0,12.418383 0,8 C0,3.58161702 3.58161702,0 8,0 Z M9,11 L7,11 L7,13 L9,13 L9,11 Z M8,3 C6.34314575,3 5,4.34314575 5,6 L5,6 L5,6.5 L7,6.5 L7,6 L7.00672773,5.88337887 C7.06449284,5.38604019 7.48716416,5 8,5 C8.55228475,5 9,5.44771525 9,6 C9,6.3147573 8.85180584,6.61114562 8.6,6.8 L8.6,6.8 L8.4,6.95 L8.22861736,7.08712385 C7.45182752,7.74959062 7,8.72179281 7,9.75 L7,9.75 L7,10 L9,10 L9,9.75 L9.00814128,9.59382531 C9.05131679,9.18105931 9.26425888,8.80180584 9.6,8.55 L9.6,8.55 L9.8,8.4 L9.95706876,8.27375331 C10.616661,7.70613213 11,6.87682392 11,6 C11,4.34314575 9.65685425,3 8,3 Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    用于帮助用户操作的信息提示
+  </div>
+   
+  <div
+    class="t-message t-is-loading"
+  >
+    <svg
+      class="t-icon t-icon-loading"
+      version="1.1"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0,8 C0,3.582 3.582,0 8,0 C12.418,0 16,3.582 16,8 L14,8 L14,8 C14,4.6862915 11.3137085,2 8,2 C4.6862915,2 2,4.6862915 2,8 C2,11.3137085 4.6862915,14 8,14 L8,16 C3.582,16 0,12.418 0,8 Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    用于表示操作正在生效的过程中
+  </div>
+</div>
+`;
