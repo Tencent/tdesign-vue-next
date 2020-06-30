@@ -1,11 +1,18 @@
 import Vue, { VueConstructor, VNode } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
+import { omit } from '../utils/helper';
 
 const name = `${prefix}-checkbox`;
 
-function noop(): void {
-  // noop function
+function getValidAttrs(obj: object): object {
+  const newObj = {};
+  Object.keys(obj).forEach((key) => {
+    if (typeof obj[key] !== 'undefined') {
+      newObj[key] = obj[key];
+    }
+  });
+  return newObj;
 }
 
 interface CheckboxInstance extends Vue {
@@ -14,11 +21,11 @@ interface CheckboxInstance extends Vue {
 
 export default (Vue as VueConstructor<CheckboxInstance>).extend({
   name,
+  inheritAttrs: false,
   model: {
     prop: 'checked',
+    event: 'change',
   },
-
-  components: {},
 
   inject: {
     checkboxGroup: { default: undefined },
@@ -28,27 +35,12 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
     checked: { type: Boolean, default: undefined },
     defaultChecked: { type: Boolean, default: undefined },
     disabled: { type: Boolean, default: false },
+    indeterminate: { type: Boolean, default: false },
     value: { type: String, default: undefined },
     name: String,
   },
 
-  data() {
-    const getDefaultChecked2 = (checked: boolean, defaultChecked: boolean): boolean => {
-      if (checked === undefined) {
-        if (defaultChecked === undefined) return false;
-        return defaultChecked;
-      }
-      return checked;
-    };
-    return {
-      checked2: getDefaultChecked2(this.checked, this.defaultChecked),
-    };
-  },
-
   watch: {
-    checked(nVal) {
-      this.checked2 = nVal;
-    },
     value(nVal, oVal) {
       const { addValue, delValue } = this.checkboxGroup || {};
       if (addValue && delValue) {
@@ -66,19 +58,29 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
   },
 
   render(): VNode {
-    const { $attrs, $listeners, $slots, checkboxGroup } = this;
-    const children: VNode[] | VNode | string = $slots.default;
-    const { mouseenter = noop, mousemove = noop, mouseleave = noop, ...restListeners } = $listeners;
+    const { $attrs, $listeners, $scopedSlots, checkboxGroup } = this;
+    const children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
 
     const inputProps = {
-      checked: this.checked2,
+      checked: this.checked,
       disabled: this.disabled,
+      indeterminate: this.indeterminate,
       value: this.value as any,
       name: this.name,
     };
 
+    const inputEvents = getValidAttrs({
+      focus: $listeners.focus,
+      blur: $listeners.blur,
+      keydown: $listeners.keydown,
+      keyup: $listeners.keyup,
+      keypresss: $listeners.keypresss,
+    });
+
+    const wrapperEvents = omit($listeners, [...Object.keys(inputEvents), 'input', 'change']);
+
     if (checkboxGroup) {
-      inputProps.checked = checkboxGroup.value2.indexOf(this.value) > -1;
+      inputProps.checked = checkboxGroup.value && checkboxGroup.value.indexOf(this.value) > -1;
       inputProps.disabled = this.disabled === undefined ? checkboxGroup.disabled : this.disabled;
       inputProps.name = checkboxGroup.name;
     }
@@ -86,18 +88,16 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
     const inputClass = [
       `${name}`,
       {
-        [`${name}-checked`]: inputProps.checked,
+        [CLASSNAMES.STATUS.checked]: inputProps.checked,
         [CLASSNAMES.STATUS.disabled]: inputProps.disabled,
+        [CLASSNAMES.STATUS.indeterminate]: inputProps.indeterminate,
       },
     ];
 
     const wrapperProps = {
       class: inputClass,
-      on: {
-        mouseenter,
-        mousemove,
-        mouseleave,
-      },
+      attrs: $attrs,
+      on: wrapperEvents,
     };
 
     return (
@@ -105,8 +105,8 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
         <input
           type="checkbox"
           class={`${name}__former`}
-          { ...{ domProps: inputProps, attrs: $attrs, on: restListeners } }
-          onInput={this.handleInput}
+          { ...{ domProps: inputProps, on: inputEvents } }
+          onChange={this.handleChange}
         />
         <span class={`${name}__input`}></span><span class={`${name}__label`}>
           {children || null}
@@ -116,13 +116,13 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
   },
 
   methods: {
-    handleInput(e: Event) {
+    handleChange(e: Event) {
       const target: HTMLInputElement = e.target as HTMLInputElement;
       if (this.checkboxGroup && this.checkboxGroup.handleCheckboxChange) {
         this.checkboxGroup.handleCheckboxChange(e);
       } else {
-        this.$emit('input', target.checked);
-        this.checked2 = target.checked;
+        this.$emit('change', target.checked);
+        this.$emit('input', e);
       }
     },
   },

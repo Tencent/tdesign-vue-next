@@ -17,6 +17,11 @@ describe('Checkbox', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
+  it('indeterminate demo works fine', () => {
+    const demo = require('@/examples/checkbox/demos/indeterminate.vue').default;
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
   it('checkbox group demo works fine', () => {
     const demo = require('@/examples/checkbox/demos/checkbox-group.vue').default;
     const wrapper = mount(demo);

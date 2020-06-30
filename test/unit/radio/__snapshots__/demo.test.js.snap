@@ -29,7 +29,7 @@ exports[`Radio default checked demo works fine 1`] = `
   class="tdesign-radio-default-checked"
 >
   <label
-    class="t-radio t-radio-checked"
+    class="t-radio t-is-checked"
   >
     <input
       class="t-radio__former"
@@ -73,7 +73,7 @@ exports[`Radio disabled demo works fine 1`] = `
   class="tdesign-radio-disabled"
 >
   <label
-    class="t-radio t-radio-checked t-is-disabled"
+    class="t-radio t-is-checked t-is-disabled"
   >
     <input
       class="t-radio__former"
@@ -252,7 +252,7 @@ exports[`Radio radio group demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-radio t-radio-checked"
+      class="t-radio t-is-checked"
     >
       <input
         class="t-radio__former"
@@ -312,7 +312,7 @@ exports[`Radio radio group demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-radio t-radio-checked"
+      class="t-radio t-is-checked"
     >
       <input
         class="t-radio__former"
@@ -389,7 +389,7 @@ exports[`Radio radio group demo works fine 1`] = `
     </label>
      
     <label
-      class="t-radio t-radio-checked"
+      class="t-radio t-is-checked"
     >
       <input
         class="t-radio__former"

@@ -24,6 +24,8 @@ const ClASSNAMES = {
     hidden: `${prefix}-is-hidden`,
     visible: `${prefix}-is-visible`,
     expanded: `${prefix}-is-expanded`,
+    checked: `${prefix}-is-checked`,
+    indeterminate: `${prefix}-is-indeterminate`,
   },
 };
 

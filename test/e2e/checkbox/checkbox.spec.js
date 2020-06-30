@@ -7,11 +7,11 @@ describe('测试多选框组件', () => {
       .find('.t-checkbox')
       .first()
       .should((ele) => {
-        expect(ele).not.to.have.class('t-checkbox-checked');
+        expect(ele).not.to.have.class('t-is-checked');
       })
       .click()
       .should((ele) => {
-        expect(ele).to.have.class('t-checkbox-checked');
+        expect(ele).to.have.class('t-is-checked');
       });
   });
   it('测试初始选中与否', () => {
@@ -19,12 +19,12 @@ describe('测试多选框组件', () => {
       .find('.t-checkbox')
       .first()
       .should((ele) => {
-        expect(ele).to.have.class('t-checkbox-checked');
+        expect(ele).to.have.class('t-is-checked');
       })
       .next()
       .next()
       .should((ele) => {
-        expect(ele).not.to.have.class('t-checkbox-checked');
+        expect(ele).not.to.have.class('t-is-checked');
       });
   });
   it('测试多选框不可用', () => {
@@ -33,23 +33,90 @@ describe('测试多选框组件', () => {
       .first()
       .should((ele) => {
         expect(ele).to.have.class('t-is-disabled');
-        expect(ele).to.have.class('t-checkbox-checked');
+        expect(ele).to.have.class('t-is-checked');
       })
       .click()
       .should((ele) => {
         expect(ele).to.have.class('t-is-disabled');
-        expect(ele).to.have.class('t-checkbox-checked');
+        expect(ele).to.have.class('t-is-checked');
       })
       .next()
       .next()
       .should((ele) => {
         expect(ele).to.have.class('t-is-disabled');
-        expect(ele).not.to.have.class('t-checkbox-checked');
+        expect(ele).not.to.have.class('t-is-checked');
       })
       .click()
       .should((ele) => {
         expect(ele).to.have.class('t-is-disabled');
-        expect(ele).not.to.have.class('t-checkbox-checked');
+        expect(ele).not.to.have.class('t-is-checked');
+      });
+  });
+  it('测试多选框半选状态', () => {
+    cy.get('.tdesign-checkbox-indeterminate')
+      .find('.t-checkbox')
+      .first()
+      .should((ele) => {
+        expect(ele).to.have.class('t-is-indeterminate');
+      });
+    cy.get('.tdesign-checkbox-indeterminate')
+      .find('.t-checkbox')
+      .each((ele, index) => {
+        if (index === 1 || index === 4) {
+          expect(ele).to.have.class('t-is-checked');
+        } else {
+          expect(ele).not.to.have.class('t-is-checked');
+        }
+      });
+
+    cy.get('.tdesign-checkbox-indeterminate')
+      .find('.t-checkbox')
+      .first()
+      .click()
+      .should((ele) => {
+        expect(ele).not.to.have.class('t-is-indeterminate');
+      });
+    cy.get('.tdesign-checkbox-indeterminate')
+      .find('.t-checkbox')
+      .each((ele) => {
+        expect(ele).to.have.class('t-is-checked');
+      });
+
+    cy.get('.tdesign-checkbox-indeterminate')
+      .find('.t-checkbox')
+      .first()
+      .click()
+      .should((ele) => {
+        expect(ele).not.to.have.class('t-is-indeterminate');
+        expect(ele).not.to.have.class('t-is-checked');
+      });
+    cy.get('.tdesign-checkbox-indeterminate')
+      .find('.t-checkbox')
+      .each((ele) => {
+        expect(ele).not.to.have.class('t-is-checked');
+      });
+
+    cy.get('.tdesign-checkbox-indeterminate')
+      .find('.t-checkbox')
+      .eq(1)
+      .click()
+      .should((ele) => {
+        expect(ele).to.have.class('t-is-checked');
+      });
+    cy.get('.tdesign-checkbox-indeterminate')
+      .find('.t-checkbox')
+      .first()
+      .should((ele) => {
+        expect(ele).to.have.class('t-is-indeterminate');
+      });
+    cy.get('.tdesign-checkbox-indeterminate')
+      .find('.t-checkbox')
+      .each((ele, index) => {
+        if (index === 1) {
+          expect(ele).to.have.class('t-is-checked');
+        } else {
+          expect(ele).not.to.have.class('t-is-checked');
+        }
       });
   });
   it('测试多选框组', () => {
@@ -73,9 +140,9 @@ describe('测试多选框组件', () => {
       .find('.t-checkbox')
       .each((ele, index) => {
         if (index === 0 || index === 3) {
-          expect(ele).to.have.class('t-checkbox-checked');
+          expect(ele).to.have.class('t-is-checked');
         } else {
-          expect(ele).not.to.have.class('t-checkbox-checked');
+          expect(ele).not.to.have.class('t-is-checked');
         }
       });
     cy.get('.tdesign-checkbox-group')
@@ -84,9 +151,9 @@ describe('测试多选框组件', () => {
       .find('.t-checkbox')
       .each((ele, index) => {
         if (index === 2) {
-          expect(ele).to.have.class('t-checkbox-checked');
+          expect(ele).to.have.class('t-is-checked');
         } else {
-          expect(ele).not.to.have.class('t-checkbox-checked');
+          expect(ele).not.to.have.class('t-is-checked');
         }
         if (index === 3) {
           expect(ele).not.to.have.class('t-is-disabled');
@@ -100,10 +167,10 @@ describe('测试多选框组件', () => {
       .find('.t-checkbox')
       .each((ele, index) => {
         if (index === 3) {
-          expect(ele).to.have.class('t-checkbox-checked');
+          expect(ele).to.have.class('t-is-checked');
           expect(ele).to.have.class('t-is-disabled');
         } else {
-          expect(ele).not.to.have.class('t-checkbox-checked');
+          expect(ele).not.to.have.class('t-is-checked');
           expect(ele).not.to.have.class('t-is-disabled');
         }
       });

@@ -1,5 +1,6 @@
 import Radio from './radio';
-import Group from './group';
+import _Group from './group';
+import mapProps from '../utils/map-props';
 
-export { Group };
-export default Radio;
+export const Group = mapProps(['value'])(_Group);
+export default mapProps(['checked'], { model: { prop: 'checked', event: 'change' } })(Radio);

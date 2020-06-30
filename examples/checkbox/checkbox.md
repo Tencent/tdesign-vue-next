@@ -9,6 +9,9 @@
 ::: demo demos/disabled 不可用
 :::
 
+::: demo demos/indeterminate 半选样式
+:::
+
 ::: demo demos/demo 受控的checkbox
 :::
 

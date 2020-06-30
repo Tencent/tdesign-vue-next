@@ -7,11 +7,11 @@ describe('测试单选框组件', () => {
       .find('.t-radio')
       .first()
       .should((ele) => {
-        expect(ele).not.to.have.class('t-radio-checked');
+        expect(ele).not.to.have.class('t-is-checked');
       })
       .click()
       .should((ele) => {
-        expect(ele).to.have.class('t-radio-checked');
+        expect(ele).to.have.class('t-is-checked');
       });
   });
   it('测试初始选中与否', () => {
@@ -19,12 +19,12 @@ describe('测试单选框组件', () => {
       .find('.t-radio')
       .first()
       .should((ele) => {
-        expect(ele).to.have.class('t-radio-checked');
+        expect(ele).to.have.class('t-is-checked');
       })
       .next()
       .next()
       .should((ele) => {
-        expect(ele).not.to.have.class('t-radio-checked');
+        expect(ele).not.to.have.class('t-is-checked');
       });
   });
   it('测试单选组件不可用状态', () => {
@@ -33,23 +33,23 @@ describe('测试单选框组件', () => {
       .first()
       .should((ele) => {
         expect(ele).to.have.class('t-is-disabled');
-        expect(ele).to.have.class('t-radio-checked');
+        expect(ele).to.have.class('t-is-checked');
       })
       .click()
       .should((ele) => {
         expect(ele).to.have.class('t-is-disabled');
-        expect(ele).to.have.class('t-radio-checked');
+        expect(ele).to.have.class('t-is-checked');
       })
       .next()
       .next()
       .should((ele) => {
         expect(ele).to.have.class('t-is-disabled');
-        expect(ele).not.to.have.class('t-radio-checked');
+        expect(ele).not.to.have.class('t-is-checked');
       })
       .click()
       .should((ele) => {
         expect(ele).to.have.class('t-is-disabled');
-        expect(ele).not.to.have.class('t-radio-checked');
+        expect(ele).not.to.have.class('t-is-checked');
       });
   });
   it('测试Radio组', () => {
@@ -73,9 +73,9 @@ describe('测试单选框组件', () => {
       .find('.t-radio')
       .each((ele, index) => {
         if (index === 3) {
-          expect(ele).to.have.class('t-radio-checked');
+          expect(ele).to.have.class('t-is-checked');
         } else {
-          expect(ele).not.to.have.class('t-radio-checked');
+          expect(ele).not.to.have.class('t-is-checked');
         }
       });
     cy.get('.tdesign-radio-group')
@@ -84,9 +84,9 @@ describe('测试单选框组件', () => {
       .find('.t-radio')
       .each((ele, index) => {
         if (index === 2) {
-          expect(ele).to.have.class('t-radio-checked');
+          expect(ele).to.have.class('t-is-checked');
         } else {
-          expect(ele).not.to.have.class('t-radio-checked');
+          expect(ele).not.to.have.class('t-is-checked');
         }
         if (index === 2 || index === 3) {
           expect(ele).not.to.have.class('t-is-disabled');
@@ -100,9 +100,9 @@ describe('测试单选框组件', () => {
       .find('.t-radio')
       .each((ele, index) => {
         if (index === 2) {
-          expect(ele).to.have.class('t-radio-checked');
+          expect(ele).to.have.class('t-is-checked');
         } else {
-          expect(ele).not.to.have.class('t-radio-checked');
+          expect(ele).not.to.have.class('t-is-checked');
         }
         if (index === 3) {
           expect(ele).to.have.class('t-is-disabled');

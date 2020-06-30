@@ -28,29 +28,21 @@ export default Vue.extend({
   },
 
   data() {
-    const { value, defaultValue } = this;
     return {
-      value2: value || defaultValue || [],
       valueList: [],
     };
   },
 
-  watch: {
-    value(nVal) {
-      this.value2 = nVal;
-    },
-  },
-
   render(): VNode {
-    const { $slots, value2 } = this;
-    let children: VNode[] | VNode | string = $slots.default;
+    const { $scopedSlots, value } = this;
+    let children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
 
     if (this.options && this.options.length) {
       children = this.options.map((option: OptionType) => (
         <Checkbox
           key={`checkbox-group-options-${option.value}`}
           name={this.name}
-          checked={value2.indexOf(option.value) > -1}
+          checked={value && value.indexOf(option.value) > -1}
           disabled={'disabled' in option ? option.disabled : this.disabled}
           value={option.value}
         >
@@ -68,10 +60,10 @@ export default Vue.extend({
 
   methods: {
     handleCheckboxChange(e: Event) {
-      const value = [...this.value2];
+      const value = this.value ? [...this.value] : [];
       const target: HTMLInputElement = e.target as HTMLInputElement;
       const targetValue: string = target.value;
-      const valueIndex: number = this.value2.indexOf(targetValue);
+      const valueIndex: number = value.indexOf(targetValue);
       if (valueIndex === -1) {
         value.push(targetValue);
       } else {
@@ -79,7 +71,6 @@ export default Vue.extend({
       }
       this.$emit('input', value);
       this.$emit('change', value);
-      this.value2 = value;
     },
     addValue(value: any) {
       this.valueList = [...this.valueList, value];

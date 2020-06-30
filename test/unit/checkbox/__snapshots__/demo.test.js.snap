@@ -111,7 +111,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
     class="t-checkbox-group"
   >
     <label
-      class="t-checkbox t-checkbox-checked"
+      class="t-checkbox t-is-checked"
     >
       <input
         class="t-checkbox__former"
@@ -162,7 +162,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox t-checkbox-checked"
+      class="t-checkbox t-is-checked"
     >
       <input
         class="t-checkbox__former"
@@ -222,7 +222,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox t-checkbox-checked t-is-disabled"
+      class="t-checkbox t-is-checked t-is-disabled"
     >
       <input
         class="t-checkbox__former"
@@ -318,7 +318,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
     </label>
      
     <label
-      class="t-checkbox t-checkbox-checked t-is-disabled"
+      class="t-checkbox t-is-checked t-is-disabled"
     >
       <input
         class="t-checkbox__former"
@@ -344,7 +344,7 @@ exports[`Checkbox default checked demo works fine 1`] = `
   class="tdesign-checkbox-default-checked"
 >
   <label
-    class="t-checkbox t-checkbox-checked"
+    class="t-checkbox t-is-checked"
   >
     <input
       class="t-checkbox__former"
@@ -388,7 +388,7 @@ exports[`Checkbox disabled demo works fine 1`] = `
   class="tdesign-checkbox-disabled"
 >
   <label
-    class="t-checkbox t-checkbox-checked t-is-disabled"
+    class="t-checkbox t-is-checked t-is-disabled"
   >
     <input
       class="t-checkbox__former"
@@ -426,5 +426,108 @@ exports[`Checkbox disabled demo works fine 1`] = `
       uncheck
     </span>
   </label>
+</div>
+`;
+
+exports[`Checkbox indeterminate demo works fine 1`] = `
+<div
+  class="tdesign-checkbox-indeterminate"
+>
+  <label
+    class="t-checkbox t-is-indeterminate"
+  >
+    <input
+      class="t-checkbox__former"
+      type="checkbox"
+      value=""
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      全选
+    </span>
+  </label>
+   
+  <br />
+   
+  <div
+    class="t-checkbox-group"
+  >
+    <label
+      class="t-checkbox t-is-checked"
+    >
+      <input
+        class="t-checkbox__former"
+        name="city"
+        type="checkbox"
+        value="bj"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        北京
+      </span>
+    </label>
+    <label
+      class="t-checkbox"
+    >
+      <input
+        class="t-checkbox__former"
+        name="city"
+        type="checkbox"
+        value="sh"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        上海
+      </span>
+    </label>
+    <label
+      class="t-checkbox"
+    >
+      <input
+        class="t-checkbox__former"
+        name="city"
+        type="checkbox"
+        value="gz"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        广州
+      </span>
+    </label>
+    <label
+      class="t-checkbox t-is-checked"
+    >
+      <input
+        class="t-checkbox__former"
+        name="city"
+        type="checkbox"
+        value="sz"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        深圳
+      </span>
+    </label>
+  </div>
 </div>
 `;

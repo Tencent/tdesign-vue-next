@@ -32,29 +32,16 @@ export default Vue.extend({
     name: String,
   },
 
-  data() {
-    const value2 = this.value || this.defaultValue || '';
-    return {
-      value2,
-    };
-  },
-
-  watch: {
-    value(nVal) {
-      this.value2 = nVal;
-    },
-  },
-
   render(): VNode {
-    const { $slots } = this;
-    let children: VNode[] | VNode | string = $slots.default;
+    const { $scopedSlots } = this;
+    let children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
 
     if (this.options && this.options.length) {
       children = this.options.map((option: OptionType) => (
         <Radio
           key={`radio-group-options-${option.value}`}
           name={this.name}
-          checked={this.value2 === option.value}
+          checked={this.value === option.value}
           disabled={'disabled' in option ? option.disabled : this.disabled}
           value={option.value}
         >
@@ -75,7 +62,6 @@ export default Vue.extend({
       const target: HTMLInputElement = e.target as HTMLInputElement;
       this.$emit('input', target.value);
       this.$emit('change', e);
-      this.value2 = target.value;
     },
   },
 });
