@@ -30,7 +30,12 @@
     "func-style": 0,
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "@typescript-eslint/no-explicit-any": 0,
-    "function-paren-newline": 0
+    "function-paren-newline": 0,
+    "@typescript-eslint/no-require-imports": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/prefer-for-of": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "prefer-default-export": 0
   },
   "overrides": [
     {
@@ -55,10 +60,7 @@
       ],
       "rules": {
         "no-var-requires": 0,
-        "no-console": 0,
-        "@typescript-eslint/explicit-function-return-type": 0,
-        "@typescript-eslint/no-var-requires": 0,
-        "@typescript-eslint/no-require-imports": 0
+        "no-console": 0
       }
     }
   ]
