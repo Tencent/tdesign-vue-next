@@ -12,6 +12,7 @@ import Addon from './addon';
 import Steps from './steps';
 import Step from './step';
 import { Message, MessagePlugin } from './message';
+import Switch from './switch';
 
 const components = {
   Icon,
@@ -26,6 +27,7 @@ const components = {
   Steps,
   Step,
   Message,
+  Switch,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
