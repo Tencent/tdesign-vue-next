@@ -33,7 +33,7 @@
         Function Icon
       </t-button>
       <t-button>
-        <template slot="icon">
+        <template v-slot:icon>
           <t-icon name="search"></t-icon>
         </template>
         Slot Icon
