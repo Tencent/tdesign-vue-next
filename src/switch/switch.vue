@@ -1,7 +1,7 @@
 <template>
   <button :class="classes" @click="toggle" :disabled="disabled">
     <span :class="nodeClasses">
-      <i v-if="loading" class="t-icon t-icon-loading"></i>
+      <t-icon-loading v-if="loading"/>
     </span>
     <div :class="contentClasses">
       <template v-if="currentValue === activeValue">
@@ -30,6 +30,7 @@ import Vue from 'vue';
 import config from '../config';
 import CLASSNAMES from '../utils/classnames';
 import RenderComponent from '../utils/render-component';
+import TIconLoading from '../icon/loading';
 const { prefix } = config;
 const name = `${prefix}-switch`;
 
@@ -37,6 +38,7 @@ export default Vue.extend({
   name,
   components: {
     RenderComponent,
+    TIconLoading,
   },
   model: {
     prop: 'value',
