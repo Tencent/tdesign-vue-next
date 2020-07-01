@@ -121,6 +121,7 @@ export default Vue.extend({
       const checked = this.currentValue === this.activeValue
         ? this.inactiveValue : this.activeValue;
 
+      this.$emit('click', this.currentValue);
       this.currentValue = checked;
       this.$emit('input', checked);
       this.$emit('change', checked);
