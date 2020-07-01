@@ -1,30 +1,24 @@
 <template>
   <div>
-    <t-switch size="large">
-      <template slot="open">开</template>
-      <template slot="close">关</template>
+    <t-switch v-model="checked" active-content="开" inactive-content="关">
     </t-switch>
-    <t-switch size="large">
-      <template slot="open"><i class="t-icon t-icon-tick"></i></template>
-      <template slot="close"><i class="t-icon t-icon-close"></i></template>
+    <t-switch active-content="开" inactive-content="关">
     </t-switch>
     <br />
-    <t-switch>
-      <template slot="open">开</template>
-      <template slot="close">关</template>
+    <t-switch v-model="renderChecked" :active-content="renderActiveContent"
+              :inactive-content="renderInactiveContent">
     </t-switch>
-    <t-switch>
-      <template slot="open"><t-icon name="tick"/></template>
-      <template slot="close"><t-icon name="close"/></template>
+    <t-switch :active-content="renderActiveContent"
+              :inactive-content="renderInactiveContent">
     </t-switch>
     <br />
-    <t-switch size="small">
-      <template slot="open">开</template>
-      <template slot="close">关</template>
+    <t-switch v-model="slotChecked">
+      <template slot="active-content">开</template>
+      <template slot="inactive-content">关</template>
     </t-switch>
-    <t-switch size="small">
-      <template slot="open"><t-icon name="tick"/></template>
-      <template slot="close"><t-icon name="close"/></template>
+    <t-switch>
+      <template slot="active-content"><t-icon name="tick"/></template>
+      <template slot="inactive-content"><t-icon name="close"/></template>
     </t-switch>
   </div>
 </template>
@@ -35,11 +29,19 @@ export default {
   data() {
     return {
       checked: true,
+      renderChecked: true,
+      slotChecked: true,
     };
   },
   methods: {
     onChange(val) {
       console.log(val);
+    },
+    renderActiveContent() {
+      return (<t-icon name="tick"/>);
+    },
+    renderInactiveContent() {
+      return (<t-icon name="close"/>);
     },
   },
 };
