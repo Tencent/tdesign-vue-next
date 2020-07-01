@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-switch size="large">
+    <t-switch size="large" v-model="checked">
     </t-switch>
     <br />
     <t-switch>

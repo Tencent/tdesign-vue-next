@@ -4,8 +4,23 @@
       <i v-if="loading" class="t-icon t-icon-loading"></i>
     </span>
     <div :class="contentClasses">
-      <slot name="open" v-if="currentValue === activeValue"></slot>
-      <slot name="close" v-if="currentValue === inactiveValue"></slot>
+      <template v-if="currentValue === activeValue">
+        <template v-if="typeof activeContent === 'string'">
+          {{ activeContent }}
+        </template>
+        <render-component :render="activeContent"
+                          v-else-if="typeof activeContent === 'function'" />
+        <slot name="active-content" v-else></slot>
+      </template>
+      <template v-if="currentValue === inactiveValue">
+        <template v-if="typeof inactiveContent === 'string'">
+          {{ inactiveContent }}
+        </template>
+        <render-component :render="inactiveContent"
+                          v-else-if="typeof inactiveContent === 'function'" />
+        <slot name="inactive-content" v-else></slot>
+      </template>
+
     </div>
   </button>
 </template>
@@ -14,11 +29,19 @@
 import Vue from 'vue';
 import config from '../config';
 import CLASSNAMES from '../utils/classnames';
+import RenderComponent from '../utils/render-component';
 const { prefix } = config;
 const name = `${prefix}-switch`;
 
 export default Vue.extend({
   name,
+  components: {
+    RenderComponent,
+  },
+  model: {
+    prop: 'value',
+    event: 'change',
+  },
   props: {
     /**
      * @description 当前选择的值
@@ -44,6 +67,16 @@ export default Vue.extend({
       type: [String, Number, Boolean],
       default: false,
     },
+    /**
+     * @description 打开显示的内容
+     * @attribute activeContent
+     */
+    activeContent: [String, Function],
+    /**
+     * @description 关闭显示的内容
+     * @attribute inactiveContent
+     */
+    inactiveContent: [String, Function],
     /**
      * @description 是否禁用
      * @attribute disabled
@@ -121,9 +154,7 @@ export default Vue.extend({
       const checked = this.currentValue === this.activeValue
         ? this.inactiveValue : this.activeValue;
 
-      this.$emit('click', this.currentValue);
       this.currentValue = checked;
-      this.$emit('input', checked);
       this.$emit('change', checked);
     },
 
