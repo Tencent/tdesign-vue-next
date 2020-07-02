@@ -3,6 +3,7 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import { Notification, NotificationPlugin } from './notification';
 import Tag from './tag';
 import CheckTag from './tag/check-tag';
 import Popup from './popup';
@@ -24,6 +25,7 @@ const components = {
   Input,
   Addon,
   InputGroup,
+  Notification,
   Steps,
   Step,
   List,
@@ -42,6 +44,7 @@ function install(Vue: VueConstructor, config?: object): void {
   });
 
   Vue.prototype.$message = MessagePlugin;
+  Vue.prototype.$notify = NotificationPlugin;
 };
 
 declare const window: {
