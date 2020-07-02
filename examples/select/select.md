@@ -16,6 +16,10 @@
 :::
 ::: demo demos/optionGroup 选项分组
 :::
+::: demo demos/labelInValue labelInValue属性：value和label一起返回
+:::
+::: demo demos/options select的options属性：数据化配置选项内容
+:::
 
 ### Select Props
 
@@ -42,7 +46,7 @@
 | valueKey        | string                          | value  | N    | 作为 value 唯一标识的键名，绑定值为对象类型时必填（todo）                                               |
 | labelKey        | string                          | label  | N    | 作为 label 唯一标识的键名，绑定值为对象类型时必填（todo）                                                 |
 | popupProps      | object                          | -      | N    | 透传给 popup 组件的参数                                                                                   |
-| options         | { label, value }[]              | -      | N    | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能                                                     |
+| options         | [{ label, value }]              | -      | N    | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能                                                     |
 | triggerText     | string                          | 更多   | N    | border 为 false 时，支持的自定义文本（todo）                                                         |
 | prefixIcon      | String / slot / Function        | -      | N    | Select 前置图标                                                                                           |
 | suffixIcon      | String / slot / Function        | -      | N    | Select 后置图标（待定）                                                                              |
