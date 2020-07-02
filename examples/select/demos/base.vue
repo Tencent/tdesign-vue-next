@@ -10,6 +10,7 @@
         v-for="(item, index) in options"
         :value="item.value"
         :label="item.label"
+        :disabled="item.disabled"
         :key="index"
       >
         {{ item.label }}
@@ -28,6 +29,7 @@ export default {
       }, {
         label: '香蕉banana~~~',
         value: 'banana',
+        disabled: true,
       }, {
         label: '橘子orange~~~',
         value: 'orange',
