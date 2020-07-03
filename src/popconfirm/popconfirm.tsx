@@ -40,28 +40,11 @@ export default Vue.extend({
       popupName,
     };
   },
-  methods: {
-    handleClose(event: any): void {
-      this.$emit('close', event);
-    },
-    handleCancel(event: any): void {
-      this.setVisible(false, event);
-      this.$emit('cancel', event);
-    },
-    handleConfirm(event: any): void {
-      this.setVisible(false, event);
-      this.$emit('confirm', event);
-    },
-    setVisible(visible: boolean, event: any): void{
-      this.$refs.popup.doClose();
-      this.$emit('visibleChange', visible, event);
-    },
-  },
   computed: {
-    iconName() {
+    iconName(): string {
       return this.theme === 'default' ? '' : 'help-fill';
     },
-    iconColor() {
+    iconColor(): string {
       let color = '';
       switch (this.theme) {
         case 'warning':    // 黄色
@@ -75,30 +58,47 @@ export default Vue.extend({
       }
       return `color:${color}`;
     },
-    iconVNode() {
+  },
+  methods: {
+    handleClose(event: any): void {
+      this.$emit('close', event);
+    },
+    handleCancel(event: any): void {
+      this.setVisible(false, event);
+      this.$emit('cancel', event);
+    },
+    handleConfirm(event: any): void {
+      this.setVisible(false, event);
+      this.$emit('confirm', event);
+    },
+    setVisible(visible: boolean, event: any): void{
+      (this.$refs.popup as any).doClose();
+      this.$emit('visibleChange', visible, event);
+    },
+    renderIcon(): JsxNode {
       // 优先级 slot > Funtion > string
       if (this.$slots.icon) {
         return this.$slots.icon;
       }
       const arg = this.icon;
       if (typeof arg === 'function') {
-        return <i style={ this.iconColor }>{ arg() }</i>;
+        return arg();
       }
       const iconName = arg || this.iconName;
       return iconName ? <Icon name={ iconName } style={ this.iconColor }/> : '';
     },
-    contentVNode() {
+    renderContent(): JsxNode {
       // 优先级 slot > Function > string
       if (this.$slots.content) {
         return this.$slots.content;
       }
-      let node = this.$attrs.content;
+      const node = this.$attrs.content;
       if (typeof node === 'function') {
-        node = node();
+        return (node as Function)();
       }
       return <div>{ node }</div>;
     },
-    cancelVNode() {
+    renderConcel(): JsxNode {
       if (this.$slots.cancelText) {
         return this.$slots.cancelText;
       }
@@ -106,18 +106,18 @@ export default Vue.extend({
         <Button size='small'
                 theme='link'
                 style='color: #222'
-                onclick={this.handleCancel}
+                onclick={ this.handleCancel }
         >{ this.cancelText }</Button>
       );
     },
-    confirmVNode() {
+    renderConfirm(): JsxNode {
       if (this.$slots.confirmText) {
         return this.$slots.confirmText;
       }
       return (
         <Button size='small'
                 theme="link"
-                onclick={this.handleConfirm}
+                onclick={ this.handleConfirm }
         >{ this.confirmText }</Button>
       );
     },
@@ -143,14 +143,14 @@ export default Vue.extend({
           <template slot='content' role='poppconfirm'>
             <div class={`${name}__content`}>
               <div class={`${name}__body`}>
-                { this.iconVNode }
+                { this.renderIcon() }
                 <div class={`${name}__inner`}>
-                  { this.contentVNode }
+                  { this.renderContent() }
                 </div>
               </div>
               <div class="t-popconfirm__buttons">
-                { this.cancelVNode }
-                { this.confirmVNode }
+                { this.renderConcel() }
+                { this.renderConfirm() }
               </div>
             </div>
           </template>
