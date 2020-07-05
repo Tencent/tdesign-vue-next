@@ -29,6 +29,15 @@
       <t-tab-panel name="7" label="选项卡7">
         <p style="padding: 25px;">选项卡7</p>
       </t-tab-panel>
+      <t-tab-panel name="8" label="选项卡8">
+        <p style="padding: 25px;">选项卡8</p>
+      </t-tab-panel>
+      <t-tab-panel name="9" label="选项卡9">
+        <p style="padding: 25px;">选项卡9</p>
+      </t-tab-panel>
+      <t-tab-panel name="10" label="选项卡10">
+        <p style="padding: 25px;">选项卡10</p>
+      </t-tab-panel>
     </t-tabs>
   </div>
 </template>

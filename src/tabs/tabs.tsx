@@ -19,14 +19,22 @@ export default Vue.extend({
     theme: {
       type: String,
       default: 'normal',
+      validator(v: string): boolean {
+        return (
+          [
+            'normal',
+            'card',
+          ].indexOf(v) > -1
+        );
+      },
     },
     activeName: {
       type: [String, Number],
-      default: '0',
+      default: 0,
     },
     defaultActiveName: {
-      type: String,
-      default: '0',
+      type: [String, Number],
+      default: 0,
     },
     size: {
       type: String,
@@ -36,15 +44,10 @@ export default Vue.extend({
           [
             'large',
             'middle',
-            'small',
           ].indexOf(v) > -1
         );
       },
     },
-    // disabled: {
-    //   type: Boolean,
-    //   default: false,
-    // },
     tabPosition: {
       type: String,
       default: 'top',
@@ -59,13 +62,8 @@ export default Vue.extend({
         );
       },
     },
-    // closable: {
-    //   type: Boolean,
-    //   default: false,
-    // },
     addable: {
       type: Boolean,
-      default: false,
     },
   },
 
@@ -108,7 +106,7 @@ export default Vue.extend({
       this.currName = val;
     },
 
-    tabChange(event: any, panel: VNode, name: string) {
+    tabChange(event: Event, panel: VNode, name: string) {
       this.setCurrName(name);
       this.$emit('change', name);
     },
@@ -117,7 +115,8 @@ export default Vue.extend({
       this.$emit('add', null);
     },
 
-    tabRemove(name: string) {
+    tabRemove(event: Event, name: string) {
+      event.stopPropagation();
       this.$emit('remove', name);
     },
 
@@ -127,9 +126,7 @@ export default Vue.extend({
         panels,
         currName,
         size,
-        // disabled,
         tabPosition,
-        // closable,
         addable,
         tabChange,
         tabAdd,
@@ -141,9 +138,7 @@ export default Vue.extend({
           panels: [...panels], // immutable，为子组件watch
           currName,
           size,
-          // disabled,
           tabPosition,
-          // closable,
           addable,
           tabChange,
           tabAdd,
