@@ -15,6 +15,7 @@ import Step from './step';
 import { List, ListItem, ListItemMeta } from './list';
 import { Message, MessagePlugin } from './message';
 import { Select, Option, OptionGroup } from './select';
+import Switch from './switch';
 
 const components = {
   Icon,
@@ -36,6 +37,7 @@ const components = {
   Select,
   Option,
   OptionGroup,
+  Switch,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
