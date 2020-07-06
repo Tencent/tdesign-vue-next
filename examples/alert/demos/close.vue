@@ -18,7 +18,7 @@
       @closed="handleClosed"
     />
     <t-alert theme="error" message="高危操作/出错信息提示">
-      <template v-slot:close>
+      <template #close>
         Slot Close
       </template>
     </t-alert>

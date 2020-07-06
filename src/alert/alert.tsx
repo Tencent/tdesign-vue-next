@@ -1,4 +1,4 @@
-import Vue, { CreateElement, VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import RenderComponent from '../utils/render-component';
@@ -8,8 +8,6 @@ import IconWarningFill from '../icon/warning-fill';
 import IconClose from '../icon/close';
 
 const name = `${prefix}-alert`;
-// const isArray = (o: any): boolean => Object.prototype.toString.call(o) === '[object Array]';
-// const isString = (o: any): boolean => Object.prototype.toString.call(o) === '[object String]';
 
 export default Vue.extend({
   name,
@@ -24,41 +22,45 @@ export default Vue.extend({
       type: String,
       default: 'info',
       validator(v: string): boolean {
-        return ['success', 'info', 'warning', 'error'].includes(v)
-      }
+        return ['success', 'info', 'warning', 'error'].includes(v);
+      },
     },
     icon: {
       type: [Boolean, Function],
-      default: false
+      default: false,
     },
     close: {
       type: [Boolean, String, Function],
-      default: false
+      default: false,
     },
     maxLine: {
       type: Number,
-      default: 0
+      default: 0,
+    },
+    collapseText: {
+      type: Array,
+      default: (): string[] => ['展开全部', '收起'],
     },
     beforeClose: {
       type: Function,
-      default: ():Function => ((): boolean | Promise<boolean> => true)
-    }
+      default: (): Function => ((): boolean | Promise<boolean> => true),
+    },
   },
-  data () {
+  data() {
     return {
       // 是否可见，关闭后置为false
       visible: true,
       // 是否已收起，使用折叠功能时有效，用于表示是否已折叠；默认折叠
-      collapsed: true
-    }
+      collapsed: true,
+    };
   },
-  render(h: CreateElement): VNode {
+  render(): VNode {
     const _class = [
       `${name}`,
       `${name}--${this.theme}`,
       {
-        [`${name}--hidden`] : !this.visible
-      }
+        [`${name}--hidden`]: !this.visible,
+      },
     ];
     return (
       <div class={ _class }>
@@ -68,14 +70,14 @@ export default Vue.extend({
       </div>
     );
   },
-  mounted () {
-    on(this.$el, 'transitionend', this.handleCloseEnd)
+  mounted() {
+    on(this.$el, 'transitionend', this.handleCloseEnd);
   },
-  beforeDestroy () {
-    off(this.$el, 'transitionend', this.handleCloseEnd)
+  beforeDestroy() {
+    off(this.$el, 'transitionend', this.handleCloseEnd);
   },
   methods: {
-    renderIcon () : VNode {
+    renderIcon(): VNode {
       let iconContent: VNode;
       if (typeof this.icon === 'function') {
         iconContent = this.icon();
@@ -84,56 +86,56 @@ export default Vue.extend({
           info: IconPromptFill,
           success: IconSuccessFill,
           warning: IconWarningFill,
-          error: IconWarningFill
-        })[this.theme]
+          error: IconWarningFill,
+        })[this.theme];
         iconContent = <component></component>;
       } else {
-        iconContent = this.$scopedSlots.icon && this.$scopedSlots.icon({ props: this.$props })[0];
+        iconContent = this.$scopedSlots.icon && this.$scopedSlots.icon(null)[0];
       }
       return iconContent ? <div class={`${name}__icon`}>{ iconContent }</div> : null;
     },
 
-    renderClose () : VNode {
+    renderClose(): VNode {
       let closeContent: VNode | string;
       if (typeof this.close === 'string') {
         closeContent = this.close;
       } else if (typeof this.close === 'function') {
         closeContent = this.close();
       } else if (this.close === true) {
-        closeContent = <IconClose></IconClose>
+        closeContent = <IconClose></IconClose>;
       } else {
-        closeContent = this.$scopedSlots.close && this.$scopedSlots.close({ props: this.$props })[0];
+        closeContent = this.$scopedSlots.close && this.$scopedSlots.close(null)[0];
       }
       return closeContent ? <div class={`${name}__close`} onClick={this.handleClose}> { closeContent }</div> : null;
     },
 
-    renderContent () : VNode {
+    renderContent(): VNode {
       return (
         <div class={`${name}__content`}>
           { this.renderTitle() }
           { this.renderMessage() }
         </div>
-      )
+      );
     },
 
-    renderTitle () : VNode {
-      let titleContent: VNode | String;
+    renderTitle(): VNode {
+      let titleContent: VNode | string;
       if (typeof this.title === 'string') {
         titleContent = this.title;
       } else if (typeof this.title === 'function') {
         titleContent = this.title();
       } else {
-        titleContent = this.$scopedSlots.title && this.$scopedSlots.title({ props: this.$props })[0];
+        titleContent = this.$scopedSlots.title && this.$scopedSlots.title(null)[0];
       }
       return titleContent ? <div class={`${name}__title`}> { titleContent }</div> : null;
     },
 
-    renderMessage () : VNode {
+    renderMessage(): VNode {
       let operationContent: VNode;
       if (typeof this.operation === 'function') {
         operationContent = this.operation();
       } else {
-        operationContent = this.$scopedSlots.operation && this.$scopedSlots.operation({ props: this.$props })[0];
+        operationContent = this.$scopedSlots.operation && this.$scopedSlots.operation(null)[0];
       }
       return (
         <div class={`${name}__message`}>
@@ -147,49 +149,55 @@ export default Vue.extend({
       );
     },
 
-    renderDescription () : VNode {
-      let messageContent: VNode | String | Array<VNode | String>;
+    renderDescription(): VNode {
+      let messageContent: VNode | string | Array<VNode | string>;
       if (typeof this.message === 'string') {
         messageContent = this.message;
       } else if (typeof this.message === 'function') {
         messageContent = this.message();
       } else {
-        messageContent = (this.$scopedSlots.message && this.$scopedSlots.message({ props: this.$props })) || (this.$scopedSlots.default && this.$scopedSlots.default({ props: this.$props }));
+        messageContent = (this.$scopedSlots.message && this.$scopedSlots.message(null)) ||
+          (this.$scopedSlots.default && this.$scopedSlots.default(null));
       }
 
-      const contentLength = Object.prototype.toString.call(messageContent) === '[object Array]' ? (messageContent as Array<VNode | String>).length : 1;
+      const contentLength = Object.prototype.toString.call(messageContent) === '[object Array]' ? (messageContent as Array<VNode | string>).length : 1;
       const hasCollapse = this.maxLine > 0 && this.maxLine < contentLength;
       if (hasCollapse && this.collapsed) {
-        messageContent = (messageContent as Array<VNode | String>).slice(0, this.maxLine);
+        messageContent = (messageContent as Array<VNode | string>).slice(0, this.maxLine);
       }
 
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
         <div class={`${name}__description`}>
-          { hasCollapse ? Array.prototype.concat.apply([], messageContent as Array<String|VNode>).map((el: String|VNode, i: Number) => (
-            i === (messageContent as Array<String|VNode>).length - 1 ? [el] : [el, <br/>]
+          { hasCollapse ? (messageContent as Array<string|VNode>).map(content => (
+            <div>
+              { content }
+            </div>
           )) : messageContent }
           { hasCollapse ? (
-            <div class="t-alert__collapse" onClick={() => { this.collapsed = !this.collapsed }} >
-              { this.collapsed ? '展开全部' : '收起' }
+            <div class="t-alert__collapse" onClick={() => {
+              this.collapsed = !this.collapsed;
+            }} >
+              { this.collapsed ? this.collapseText[0] : this.collapseText[1] }
             </div>
           ) : null}
         </div>
-      )
+      );
     },
 
-    handleClose (e: Event) {
+    handleClose(e: Event) {
       Promise.resolve(this.beforeClose(e))
-        .then(close => {
+        .then((close) => {
           if (close === false) return;
           addClass(this.$el, `${name}--closing`);
-        })
+        });
     },
-    handleCloseEnd (e: TransitionEvent) {
+
+    handleCloseEnd(e: TransitionEvent) {
       if (e.propertyName === 'opacity') {
         this.visible = false;
         this.$emit('closed', e);
       }
-    }
-  }
+    },
+  },
 });

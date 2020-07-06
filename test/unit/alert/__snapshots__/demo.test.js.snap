@@ -778,11 +778,14 @@ exports[`Alert collapse demo works fine 1`] = `
         <div
           class="t-alert__description"
         >
-          <span>
-            这是折叠的第一条消息
-          </span>
-          <br />
-           
+          <div>
+            <span>
+              这是折叠的第一条消息
+            </span>
+          </div>
+          <div>
+             
+          </div>
           <div
             class="t-alert__collapse"
           >

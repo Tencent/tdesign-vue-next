@@ -7,7 +7,7 @@
       icon
       close
     >
-      <template v-slot:operation>
+      <template #operation>
         <span @click="handleOperation">相关操作</span>
       </template>
     </t-alert>
@@ -18,7 +18,7 @@
       icon
       close
     >
-      <template v-slot:operation>
+      <template #operation>
         <span @click="handleOperation">相关操作</span>
       </template>
     </t-alert>
@@ -29,7 +29,7 @@
       icon
       close
     >
-      <template v-slot:operation>
+      <template #operation>
         <span @click="handleOperation">相关操作</span>
       </template>
     </t-alert>
@@ -40,7 +40,7 @@
       icon
       close
     >
-      <template v-slot:operation>
+      <template #operation>
         <span @click="handleOperation">相关操作</span>
       </template>
     </t-alert>
