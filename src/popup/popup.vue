@@ -8,6 +8,7 @@
       role="tooltip"
       :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
     >
+      <slot name="content"></slot>
       {{ content }}
       <div v-if="visibleArrow" :class="name+'_arrow'" data-popper-arrow></div>
     </div>
