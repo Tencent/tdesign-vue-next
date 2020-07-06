@@ -299,12 +299,12 @@ export default Vue.extend({
     handleDocumentClick(e: Event): void {
       const reference = this.referenceElm;
       const popper = this.popperElm;
-      if (!this.$el ||
-        !reference ||
-        this.$el.contains(e.target as Element) ||
-        reference.contains(e.target as Node) ||
-        !popper ||
-        popper.contains(e.target as Node)) return;
+      if (!this.$el
+        || !reference
+        || this.$el.contains(e.target as Element)
+        || reference.contains(e.target as Node)
+        || !popper
+        || popper.contains(e.target as Node)) return;
       this.showPopper = false;
     },
     handleRightClick(e: MouseEvent): void {

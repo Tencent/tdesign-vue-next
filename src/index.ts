@@ -3,6 +3,7 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import { Notification, NotificationPlugin } from './notification';
 import Tag from './tag';
 import CheckTag from './tag/check-tag';
 import Popup from './popup';
@@ -11,6 +12,7 @@ import InputGroup from './input-group';
 import Addon from './addon';
 import Steps from './steps';
 import Step from './step';
+import { List, ListItem, ListItemMeta } from './list';
 import { Message, MessagePlugin } from './message';
 import Switch from './switch';
 
@@ -24,8 +26,12 @@ const components = {
   Input,
   Addon,
   InputGroup,
+  Notification,
   Steps,
   Step,
+  List,
+  ListItem,
+  ListItemMeta,
   Message,
   Switch,
 };
@@ -40,6 +46,7 @@ function install(Vue: VueConstructor, config?: object): void {
   });
 
   Vue.prototype.$message = MessagePlugin;
+  Vue.prototype.$notify = NotificationPlugin;
 };
 
 declare const window: {
