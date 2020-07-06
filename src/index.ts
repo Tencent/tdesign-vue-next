@@ -43,6 +43,9 @@ function install(Vue: VueConstructor, config?: object): void {
   });
 
   Vue.prototype.$message = MessagePlugin;
+
+  Vue.prototype.$alert = Dialog.alert;
+  Vue.prototype.$confirm = Dialog.confirm;
 };
 
 declare const window: {

@@ -266,7 +266,7 @@ export default Vue.extend({
       } else if (typeof target === 'string') {
         view = <div>{target}</div>;
       } else if (typeof target === 'function') {
-        view = target();
+        view = target(this.$createElement);
       }
       return isShow && (
         <div class="t-dialog__footer">
