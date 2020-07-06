@@ -753,10 +753,12 @@
         font-size: 25px;
         margin-right: 0;
         color: #999999;
+        transition: all .2s;
       }
       .t-icon:hover {
         color: #0052d9;
         font-size: 30px;
+        transition: all .2s;
       }
       .t-demo-icon-name {
         text-align: center;
