@@ -1,89 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Message :props :closeBtn is a function, () => VNode. 1`] = `
-<div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt-fill">
-    <path fill-rule="evenodd" d="M7,6 L9,6 L9,4 L7,4 L7,6 Z M7,12 L9,12 L9,7 L7,7 L7,12 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"></path>
+<div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
   </svg><b class="t-message-close">x</b></div>
 `;
 
 exports[`Message :props :closeBtn is a tring, equal "关闭". 1`] = `
-<div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt-fill">
-    <path fill-rule="evenodd" d="M7,6 L9,6 L9,4 L7,4 L7,6 Z M7,12 L9,12 L9,7 L7,7 L7,12 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"></path>
+<div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
   </svg><span class="t-message-close">关闭</span></div>
 `;
 
 exports[`Message :props :closeBtn is true, render default close button. 1`] = `
-<div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt-fill">
-    <path fill-rule="evenodd" d="M7,6 L9,6 L9,4 L7,4 L7,6 Z M7,12 L9,12 L9,7 L7,7 L7,12 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"></path>
+<div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
   </svg><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-close t-message-close">
-    <path fill-rule="evenodd" d="M9 8L13 12 12 13 8 9 4 13 3 12 7 8 3 4 4 3 8 7 12 3 13 4z"></path>
+    <path fill-rule="evenodd" d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"></path>
   </svg></div>
 `;
 
 exports[`Message :props :default is a funtion, () => <b>这是重要信息</b> 1`] = `
-<div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt-fill">
-    <path fill-rule="evenodd" d="M7,6 L9,6 L9,4 L7,4 L7,6 Z M7,12 L9,12 L9,7 L7,7 L7,12 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"></path>
+<div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
   </svg><b>这是重要信息</b></div>
 `;
 
 exports[`Message :props :default is a string, 这是普通信息 1`] = `
-<div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt-fill">
-    <path fill-rule="evenodd" d="M7,6 L9,6 L9,4 L7,4 L7,6 Z M7,12 L9,12 L9,7 L7,7 L7,12 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"></path>
+<div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
   </svg>这是普通信息</div>
 `;
 
 exports[`Message :props :icon is a funtion, () => TIconMore 1`] = `
 <div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-more">
-    <path d="M8,4 C9.1,4 10,3.1 10,2 C10,0.9 9.1,0 8,0 C6.9,0 6,0.9 6,2 C6,3.1 6.9,4 8,4 Z M8,6 C6.9,6 6,6.9 6,8 C6,9.1 6.9,10 8,10 C9.1,10 10,9.1 10,8 C10,6.9 9.1,6 8,6 Z M8,12 C6.9,12 6,12.9 6,14 C6,15.1 6.9,16 8,16 C9.1,16 10,15.1 10,14 C10,12.9 9.1,12 8,12 Z"></path>
+    <path fill-rule="evenodd" d="M3,7 C3.55228475,7 4,7.44771525 4,8 C4,8.55228475 3.55228475,9 3,9 C2.44771525,9 2,8.55228475 2,8 C2,7.44771525 2.44771525,7 3,7 Z M8,7 C8.55228475,7 9,7.44771525 9,8 C9,8.55228475 8.55228475,9 8,9 C7.44771525,9 7,8.55228475 7,8 C7,7.44771525 7.44771525,7 8,7 Z M13,7 C13.5522847,7 14,7.44771525 14,8 C14,8.55228475 13.5522847,9 13,9 C12.4477153,9 12,8.55228475 12,8 C12,7.44771525 12.4477153,7 13,7 Z" transform="rotate(90 8 8)"></path>
   </svg></div>
 `;
 
 exports[`Message :props :icon is false 1`] = `<div class="t-message t-is-info"></div>`;
 
 exports[`Message :props :theme info,success,warning,error,question,loading 1`] = `
-<div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt-fill">
-    <path fill-rule="evenodd" d="M7,6 L9,6 L9,4 L7,4 L7,6 Z M7,12 L9,12 L9,7 L7,7 L7,12 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"></path>
+<div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
   </svg></div>
 `;
 
 exports[`Message :props :theme info,success,warning,error,question,loading 2`] = `
-<div class="t-message t-is-success"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-success-fill">
-    <path fill-rule="evenodd" d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M10.925,4.8 L7.036,8.689 L4.914,6.568 L3.5,7.982 L7.036,11.518 L12.339,6.214 L10.925,4.8 Z"></path>
+<div class="t-message t-is-success"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-success_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M10.7947737,5.52481537 L7.25881266,9.05981537 L5.13791944,6.93902893 L4.43081266,7.64613571 L7.25923978,10.4745628 L7.96634656,9.76745605 L11.5018805,6.23192215 L10.7947737,5.52481537 Z"></path>
   </svg></div>
 `;
 
 exports[`Message :props :theme info,success,warning,error,question,loading 3`] = `
-<div class="t-message t-is-warning"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-warning-fill">
-    <path fill-rule="evenodd" d="M7,12 L9,12 L9,10 L7,10 L7,12 Z M7,9 L9,9 L9,4 L7,4 L7,9 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"></path>
+<div class="t-message t-is-warning"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-warning_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,10.5 L7.5,10.5 L7.5,11.5 L8.5,11.5 L8.5,10.5 Z M8.5,4.5 L7.5,4.5 L7.5,9.5 L8.5,9.5 L8.5,4.5 Z"></path>
   </svg></div>
 `;
 
 exports[`Message :props :theme info,success,warning,error,question,loading 4`] = `
-<div class="t-message t-is-error"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-warning-fill">
-    <path fill-rule="evenodd" d="M7,12 L9,12 L9,10 L7,10 L7,12 Z M7,9 L9,9 L9,4 L7,4 L7,9 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"></path>
+<div class="t-message t-is-error"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-warning_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,10.5 L7.5,10.5 L7.5,11.5 L8.5,11.5 L8.5,10.5 Z M8.5,4.5 L7.5,4.5 L7.5,9.5 L8.5,9.5 L8.5,4.5 Z"></path>
   </svg></div>
 `;
 
 exports[`Message :props :theme info,success,warning,error,question,loading 5`] = `
-<div class="t-message t-is-question"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-help-fill">
-    <path fill-rule="evenodd" d="M8,0 C12.418383,0 16,3.58161702 16,8 C16,12.418383 12.418383,16 8,16 C3.58161702,16 0,12.418383 0,8 C0,3.58161702 3.58161702,0 8,0 Z M9,11 L7,11 L7,13 L9,13 L9,11 Z M8,3 C6.34314575,3 5,4.34314575 5,6 L5,6 L5,6.5 L7,6.5 L7,6 L7.00672773,5.88337887 C7.06449284,5.38604019 7.48716416,5 8,5 C8.55228475,5 9,5.44771525 9,6 C9,6.3147573 8.85180584,6.61114562 8.6,6.8 L8.6,6.8 L8.4,6.95 L8.22861736,7.08712385 C7.45182752,7.74959062 7,8.72179281 7,9.75 L7,9.75 L7,10 L9,10 L9,9.75 L9.00814128,9.59382531 C9.05131679,9.18105931 9.26425888,8.80180584 9.6,8.55 L9.6,8.55 L9.8,8.4 L9.95706876,8.27375331 C10.616661,7.70613213 11,6.87682392 11,6 C11,4.34314575 9.65685425,3 8,3 Z"></path>
+<div class="t-message t-is-question"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-help_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,11.5 L7.5,11.5 L7.5,12.5 L8.5,12.5 L8.5,11.5 Z M8.0046132,4.01009539 C6.89964484,3.992021 5.89419062,4.7050101 5.58849917,5.78947962 C5.53152831,5.99158916 5.50555412,6.27231503 5.50555412,6.49980949 L5.50555412,6.49980949 L6.50555412,6.49980949 L6.50886399,6.38407655 C6.51532705,6.26281579 6.53077967,6.13249189 6.55099163,6.06078805 C6.73090084,5.42254299 7.32795266,4.99916077 7.988258,5.00996164 C8.82388448,5.02363031 9.4930405,5.60115445 9.50534729,6.50660482 C9.51383091,7.13077242 9.32708164,7.44703811 8.68944575,8.09013171 L8.68944575,8.09013171 L8.48903385,8.29532631 C7.77943441,9.04055692 7.5,9.57548727 7.5,10.5097596 L7.5,10.5097596 L8.5,10.5097596 L8.50366247,10.3603266 C8.53343338,9.78389814 8.75031018,9.44897977 9.35782416,8.83629966 L9.35782416,8.83629966 L9.55488287,8.63458025 C10.2490648,7.90582915 10.5174484,7.39012892 10.5052549,6.49301417 C10.4851145,5.01121866 9.350661,4.03211322 8.0046132,4.01009539 Z"></path>
   </svg></div>
 `;
 
 exports[`Message :props :theme info,success,warning,error,question,loading 6`] = `
 <div class="t-message t-is-loading"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-loading">
-    <path fill-rule="evenodd" d="M0,8 C0,3.582 3.582,0 8,0 C12.418,0 16,3.582 16,8 L14,8 L14,8 C14,4.6862915 11.3137085,2 8,2 C4.6862915,2 2,4.6862915 2,8 C2,11.3137085 4.6862915,14 8,14 L8,16 C3.582,16 0,12.418 0,8 Z"></path>
+    <path fill-rule="evenodd" d="M1.5,8 C1.5,4.410375 4.410375,1.5 8,1.5 C11.589625,1.5 14.5,4.410375 14.5,8 L12.875,8 L12.875,8 C12.875,5.30761184 10.6923882,3.125 8,3.125 C5.30761184,3.125 3.125,5.30761184 3.125,8 C3.125,10.6923882 5.30761184,12.875 8,12.875 L8,14.5 C4.410375,14.5 1.5,11.589625 1.5,8 Z"></path>
   </svg></div>
 `;
 
 exports[`Message :props pure message contains two classes 1`] = `
-<div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt-fill">
-    <path fill-rule="evenodd" d="M7,6 L9,6 L9,4 L7,4 L7,6 Z M7,12 L9,12 L9,7 L7,7 L7,12 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"></path>
+<div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+    <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
   </svg></div>
 `;
 
 exports[`Message <slot> <icon> 1`] = `
 <div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-more">
-    <path d="M8,4 C9.1,4 10,3.1 10,2 C10,0.9 9.1,0 8,0 C6.9,0 6,0.9 6,2 C6,3.1 6.9,4 8,4 Z M8,6 C6.9,6 6,6.9 6,8 C6,9.1 6.9,10 8,10 C9.1,10 10,9.1 10,8 C10,6.9 9.1,6 8,6 Z M8,12 C6.9,12 6,12.9 6,14 C6,15.1 6.9,16 8,16 C9.1,16 10,15.1 10,14 C10,12.9 9.1,12 8,12 Z"></path>
+    <path fill-rule="evenodd" d="M3,7 C3.55228475,7 4,7.44771525 4,8 C4,8.55228475 3.55228475,9 3,9 C2.44771525,9 2,8.55228475 2,8 C2,7.44771525 2.44771525,7 3,7 Z M8,7 C8.55228475,7 9,7.44771525 9,8 C9,8.55228475 8.55228475,9 8,9 C7.44771525,9 7,8.55228475 7,8 C7,7.44771525 7.44771525,7 8,7 Z M13,7 C13.5522847,7 14,7.44771525 14,8 C14,8.55228475 13.5522847,9 13,9 C12.4477153,9 12,8.55228475 12,8 C12,7.44771525 12.4477153,7 13,7 Z" transform="rotate(90 8 8)"></path>
   </svg></div>
 `;

@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import TIconSuccessFill from '@/src/icon/success-fill.tsx';
+import TIconSuccessFill from '@/src/icon/success_fill.tsx';
 
 export default {
   components: { TIconSuccessFill },

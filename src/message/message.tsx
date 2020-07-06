@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import { prefix } from '../config';
-import TIconPromptFill from '../icon/prompt-fill';
-import TIconSuccessFill from '../icon/success-fill';
-import TIconWarningFill from '../icon/warning-fill';
-import TIconHelpFill from '../icon/help-fill';
+import TIconPromptFill from '../icon/prompt_fill';
+import TIconSuccessFill from '../icon/success_fill';
+import TIconWarningFill from '../icon/warning_fill';
+import TIconHelpFill from '../icon/help_fill';
 import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
 import { THEME_LIST } from './const';

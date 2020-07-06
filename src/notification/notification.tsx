@@ -1,7 +1,7 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
-import TIconPromptFill from '../icon/prompt-fill';
-import TIconSuccessFill from '../icon/success-fill';
+import TIconPromptFill from '../icon/prompt_fill';
+import TIconSuccessFill from '../icon/success_fill';
 import TIconClose from '../icon/close';
 
 const name = `${prefix}-notification`;

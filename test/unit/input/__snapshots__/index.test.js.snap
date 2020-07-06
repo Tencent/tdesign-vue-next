@@ -6,10 +6,10 @@ exports[`Button :props :autocomplete 1`] = `<div class="t-input"><input autocomp
 
 exports[`Button :props :disabled 1`] = `<div class="t-input t-is-disabled"><input disabled="disabled" type="text" class="t-input__inner"></div>`;
 
-exports[`Button :props :prefix-icon 1`] = `<div class="t-input t-input--prefix"><span class="t-input__prefix"><i class="t-icon t-icon-demo t-icon-user" style="border: 1px solid;"></i></span><input type="text" class="t-input__inner"></div>`;
+exports[`Button :props :prefix-icon 1`] = `<div class="t-input t-input--prefix"><span class="t-input__prefix"><svg class="t-icon t-icon-user"><use xlink:href="#t-icon-user"></use></svg></span><input type="text" class="t-input__inner"></div>`;
 
 exports[`Button :props :readonly 1`] = `<div class="t-input"><input readonly="readonly" type="text" class="t-input__inner"></div>`;
 
 exports[`Button :props :size 1`] = `<div class="t-input t-size-l"><input type="text" class="t-input__inner"></div>`;
 
-exports[`Button :props :suffix-icon 1`] = `<div class="t-input t-input--suffix"><input type="text" class="t-input__inner"><span class="t-input__suffix"><i class="t-icon t-icon-demo t-icon-user" style="border: 1px solid;"></i></span></div>`;
+exports[`Button :props :suffix-icon 1`] = `<div class="t-input t-input--suffix"><input type="text" class="t-input__inner"><span class="t-input__suffix"><svg class="t-icon t-icon-user"><use xlink:href="#t-icon-user"></use></svg></span></div>`;
