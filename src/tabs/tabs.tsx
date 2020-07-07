@@ -1,4 +1,4 @@
-import Vue, { CreateElement, VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import TTabNav from './tab-nav.vue';
@@ -92,8 +92,8 @@ export default Vue.extend({
           return tag === `${prefix}-tab-panel`;
         });
         const panels = panelSlots.map(({ componentInstance }) => componentInstance);
-        const isChanged = !(panels.length === this.panels.length &&
-          panels.every((p, i) => p === this.panels[i]));
+        const isChanged = !(panels.length === this.panels.length
+          && panels.every((p, i) => p === this.panels[i]));
         if (isChanged) {
           this.panels = panels;
         }
@@ -181,7 +181,7 @@ export default Vue.extend({
     this.connectPanels();
   },
 
-  render(h: CreateElement) {
+  render() {
     const header = this.genTabHeader();
     const content = this.genTabContent();
     return (
