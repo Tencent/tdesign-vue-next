@@ -1,7 +1,11 @@
+/* eslint-disable no-param-reassign */
 import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import { Notification, NotificationPlugin } from './notification';
+import Tag from './tag';
+import CheckTag from './tag/check-tag';
 import Popup from './popup';
 import Input from './input';
 import InputGroup from './input-group';
@@ -10,19 +14,34 @@ import Steps from './steps';
 import Step from './step';
 import Tabs from './tabs';
 import TabPanel from './tabs/tab-panel.vue';
+import { List, ListItem, ListItemMeta } from './list';
+import { Message, MessagePlugin } from './message';
+import { Select, Option, OptionGroup } from './select';
+import Switch from './switch';
 
 const components = {
   Icon,
   Button,
   Pagination,
+  Tag,
+  CheckTag,
   Popup,
   Input,
   Addon,
   InputGroup,
+  Notification,
   Steps,
   Step,
   Tabs,
   TabPanel,
+  List,
+  ListItem,
+  ListItemMeta,
+  Message,
+  Select,
+  Option,
+  OptionGroup,
+  Switch,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
@@ -33,6 +52,9 @@ function install(Vue: VueConstructor, config?: object): void {
   Object.keys(components).forEach((key) => {
     Vue.component(installConfig.prefix + key, components[key]);
   });
+
+  Vue.prototype.$message = MessagePlugin;
+  Vue.prototype.$notify = NotificationPlugin;
 };
 
 declare const window: {

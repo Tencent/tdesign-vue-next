@@ -6,6 +6,7 @@ import routes from './routes';
 import app from './app.vue';
 import Layout from './components/layout.vue';
 import Demo from './components/demo.vue';
+import ComponentDevelopers from './components/component-developers.vue';
 import '../common/style/web/index.less';
 import '../common/style/web/docs.less';
 import './styles/index.less';
@@ -16,6 +17,7 @@ Vue.use(VueRouter);
 // markdown 页
 Vue.component('spfx-layout', Layout);
 Vue.component('spfx-demo', Demo);
+Vue.component('spfx-component-developers', ComponentDevelopers);
 
 const router = new VueRouter({
   mode: 'hash',

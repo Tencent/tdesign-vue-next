@@ -85,8 +85,7 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
     const defineWatches = {};
     let defineEvents: string[] = [];
     const defineMethods = {};
-    const component: ComponentOptions<Vue> =
-      (componentConstructor as any).prototype.constructor.options;
+    const component: ComponentOptions<Vue> =      (componentConstructor as any).prototype.constructor.options;
 
     const propsKeys: string[] = Object.keys(component.props);
     const camelPropsKeys = propsKeys.map(key => toCamel(key));
@@ -107,8 +106,8 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
       defineWatches[defaultName] = {
         handler(v: any): void {
           if (
-            defaultName in this.$vnode.componentOptions.propsData &&
-            !(propName in this.$vnode.componentOptions.propsData)
+            defaultName in this.$vnode.componentOptions.propsData
+            && !(propName in this.$vnode.componentOptions.propsData)
           ) {
             this.$data[dataName] = v;
           }
@@ -121,8 +120,8 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
         defineWatches[aliasItem] = {
           handler(v: any): void {
             if (
-              aliasItem in this.$vnode.componentOptions.propsData &&
-              !(propName in this.$vnode.componentOptions.propsData)
+              aliasItem in this.$vnode.componentOptions.propsData
+              && !(propName in this.$vnode.componentOptions.propsData)
             ) {
               this.$data[dataName] = v;
             }
@@ -192,14 +191,13 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
         Object.keys(propOptionMap).forEach((propName: string): void => {
           const { dataName, events } = propOptionMap[propName];
           if (
-            propName in this.$vnode.componentOptions.propsData ||
-            typeof this[dataName] !== 'undefined'
+            propName in this.$vnode.componentOptions.propsData
+            || typeof this[dataName] !== 'undefined'
           ) {
             propMap[propName] = this[dataName];
           }
           // 只监听第一个定义的事件，参数取第一个事件参数
-          handlerMap[events[0]] =
-            (v: any, ...args: any[]): any => this.updateData(propName, v, ...args);
+          handlerMap[events[0]] =            (v: any, ...args: any[]): any => this.updateData(propName, v, ...args);
         });
 
         const attrs = {};
