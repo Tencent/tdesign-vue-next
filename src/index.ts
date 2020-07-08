@@ -3,6 +3,7 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import { Notification, NotificationPlugin } from './notification';
 import Tag from './tag';
 import CheckTag from './tag/check-tag';
 import Popup from './popup';
@@ -13,7 +14,10 @@ import Radio, { RadioButton, Group as RadioGroup } from './radio';
 import Checkbox, { Group as CheckboxGroup } from './checkbox';
 import Steps from './steps';
 import Step from './step';
+import { List, ListItem, ListItemMeta } from './list';
 import { Message, MessagePlugin } from './message';
+import { Select, Option, OptionGroup } from './select';
+import Switch from './switch';
 
 const components = {
   Icon,
@@ -30,9 +34,17 @@ const components = {
   RadioGroup,
   Checkbox,
   CheckboxGroup,
+  Notification,
   Steps,
   Step,
+  List,
+  ListItem,
+  ListItemMeta,
   Message,
+  Select,
+  Option,
+  OptionGroup,
+  Switch,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
@@ -45,6 +57,7 @@ function install(Vue: VueConstructor, config?: object): void {
   });
 
   Vue.prototype.$message = MessagePlugin;
+  Vue.prototype.$notify = NotificationPlugin;
 };
 
 declare const window: {

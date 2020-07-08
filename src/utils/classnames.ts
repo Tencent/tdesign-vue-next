@@ -20,11 +20,11 @@ const ClASSNAMES = {
     warning: `${prefix}-is-warning`,
     selected: `${prefix}-is-selected`,
     active: `${prefix}-is-active`,
+    checked: `${prefix}-is-checked`,
     current: `${prefix}-is-current`,
     hidden: `${prefix}-is-hidden`,
     visible: `${prefix}-is-visible`,
     expanded: `${prefix}-is-expanded`,
-    checked: `${prefix}-is-checked`,
     indeterminate: `${prefix}-is-indeterminate`,
   },
 };

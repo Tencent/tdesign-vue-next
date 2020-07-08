@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import { prefix } from '../config';
-import TIconPromptFill from '../icon/prompt-fill';
-import TIconSuccessFill from '../icon/success-fill';
-import TIconWarningFill from '../icon/warning-fill';
-import TIconHelpFill from '../icon/help-fill';
+import TIconPromptFill from '../icon/prompt_fill';
+import TIconSuccessFill from '../icon/success_fill';
+import TIconWarningFill from '../icon/warning_fill';
+import TIconHelpFill from '../icon/help_fill';
 import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
 import { THEME_LIST } from './const';
@@ -75,9 +75,7 @@ export default Vue.extend({
       }
       if (typeof this.closeBtn === 'function') return this.closeBtn(this.close);
       if (typeof this.$scopedSlots.closeBtn === 'function') {
-        return this.$scopedSlots.closeBtn({
-          props: this.$props,
-        });
+        return this.$scopedSlots.closeBtn(null);
       }
       if (this.closeBtn === false) return;
       return <t-icon-close nativeOnClick={this.close} class='t-message-close'/>;
@@ -86,9 +84,7 @@ export default Vue.extend({
       if (this.icon === false) return;
       if (typeof this.icon === 'function') return this.icon();
       if (this.$scopedSlots.icon) {
-        return this.$scopedSlots.icon({
-          props: this.$props,
-        });
+        return this.$scopedSlots.icon(null);
       }
       const component = {
         info: TIconPromptFill,
@@ -103,9 +99,7 @@ export default Vue.extend({
     renderContent() {
       if (typeof this.default === 'string') return this.default;
       if (typeof this.default === 'function') return this.default();
-      return this.$scopedSlots.default && this.$scopedSlots.default({
-        props: this.$props,
-      });
+      return this.$scopedSlots.default && this.$scopedSlots.default(null);
     },
   },
 

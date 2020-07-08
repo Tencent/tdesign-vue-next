@@ -55,82 +55,46 @@ exports[`Button block demo works fine 1`] = `
 `;
 
 exports[`Button icon demo works fine 1`] = `
-<div
-  class="demo-button-icon"
->
-  <div
-    class="demo-button-row"
-  >
-    <button
-      class="t-button t-button--primary"
-    >
-      <span
-        class="t-button__inner"
-      >
-        <svg
-          class="t-icon t-icon-delete"
-        >
-          <use
-            xlink:href="#t-icon-delete"
-          />
-        </svg>
-        <span
-          class="t-button__text"
-        >
-          
-      删除
-    
-        </span>
-      </span>
-    </button>
-     
-    <button
-      class="t-button t-button--line"
-    >
-      <span
-        class="t-button__inner"
-      >
-        <svg
-          class="t-icon t-icon-delete"
-        >
-          <use
-            xlink:href="#t-icon-delete"
-          />
-        </svg>
-        <span
-          class="t-button__text"
-        >
-          
-      删除
-    
-        </span>
-      </span>
-    </button>
-     
-    <button
-      class="t-button t-button--link"
-    >
-      <span
-        class="t-button__inner"
-      >
-        <svg
-          class="t-icon t-icon-delete"
-        >
-          <use
-            xlink:href="#t-icon-delete"
-          />
-        </svg>
-        <span
-          class="t-button__text"
-        >
-          
-      删除
-    
-        </span>
-      </span>
-    </button>
-  </div>
-</div>
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
 `;
 
 exports[`Button loading demo works fine 1`] = `
@@ -140,46 +104,38 @@ exports[`Button loading demo works fine 1`] = `
   <button
     class="t-button t-button--primary t-is-loading"
   >
-    <span
-      class="t-button__inner"
+    <svg
+      class="t-icon t-icon-loading_gradient"
     >
-      <svg
-        class="t-icon t-icon-loading_gradient"
-      >
-        <use
-          xlink:href="#t-icon-loading_gradient"
-        />
-      </svg>
-      <span
-        class="t-button__text"
-      >
-        
+      <use
+        xlink:href="#t-icon-loading_gradient"
+      />
+    </svg>
+    <span
+      class="t-button__text"
+    >
+      
     主按钮
   
-      </span>
     </span>
   </button>
    
   <button
     class="t-button t-button--line t-is-loading"
   >
-    <span
-      class="t-button__inner"
+    <svg
+      class="t-icon t-icon-loading_gradient"
     >
-      <svg
-        class="t-icon t-icon-loading_gradient"
-      >
-        <use
-          xlink:href="#t-icon-loading_gradient"
-        />
-      </svg>
-      <span
-        class="t-button__text"
-      >
-        
+      <use
+        xlink:href="#t-icon-loading_gradient"
+      />
+    </svg>
+    <span
+      class="t-button__text"
+    >
+      
     次按钮
   
-      </span>
     </span>
   </button>
 </div>
@@ -189,9 +145,16 @@ exports[`Button render-icon demo works fine 1`] = `
 <button
   class="t-button t-button--primary"
 >
-  
+  <span>
+    ×
+  </span>
+  <span
+    class="t-button__text"
+  >
+    
   主按钮
 
+  </span>
 </button>
 `;
 
