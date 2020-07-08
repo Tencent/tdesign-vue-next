@@ -8,7 +8,6 @@ const name = `${prefix}-popconfirm`;
 const popupName = `${prefix}-popup`;
 
 export default Vue.extend({
-  inheritAttrs: false,
   name,
   props: {
     theme: {
@@ -141,7 +140,7 @@ export default Vue.extend({
     return (
       <div>
         <Popup { ...popupProps }>
-          <template slot='content'>
+          <template slot='content' role='poppconfirm'>
             <div class={`${name}__content`}>
               <div class={`${name}__body`}>
                 { this.renderIcon() }
@@ -157,6 +156,7 @@ export default Vue.extend({
           </template>
           {trigger}
         </Popup>
+        <slot/>
       </div>
     );
   },
