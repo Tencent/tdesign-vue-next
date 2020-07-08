@@ -12,6 +12,12 @@
 ::: demo demos/radio-group radio组
 :::
 
+::: demo demos/radio-button radio-button 类型
+:::
+
+::: demo demos/radio-button-size radio-button 尺寸
+:::
+
 ### 属性配置
 #### Radio Props
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
@@ -34,6 +40,8 @@
 |disabled|boolean|false|否|禁选所有子单选器|
 |options|string[] &#124; Array<{ label: string value: string disabled?: boolean }>|[]|否|以配置形式设置子元素|
 |name|string|-|否|所有 input radio 的 name 属性|
+|size|large &#124; default &#124; small|default|否|按钮样式的大小|
+|buttonStyle|outline &#124; solid|outline|否|按钮样式的风格|
 
 #### Radio Group Events
 | 事件名称 | 回调参数 | 说明 |

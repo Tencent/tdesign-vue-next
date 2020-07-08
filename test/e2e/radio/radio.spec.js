@@ -111,4 +111,75 @@ describe('测试单选框组件', () => {
         }
       });
   });
+  it('测试单选按钮类型', () => {
+    const options = [
+      { value: 'bj', label: '北京' },
+      { value: 'sh', label: '上海' },
+      { value: 'gz', label: '广州' },
+      { value: 'sz', label: '深圳' },
+    ];
+    cy.get('.tdesign-radio-button')
+      .find('.t-radio-group')
+      .first()
+      .should((ele) => {
+        expect(ele).to.have.class('t-radio-group-outline');
+        expect(ele).to.have.class('t-radio-group-default');
+      })
+      .find('.t-radio-button')
+      .each((ele, index) => {
+        cy.wrap(ele)
+          .click()
+          .should((ele) => {
+            expect(ele).to.have.class('t-is-checked');
+          });
+        cy.wrap(ele)
+          .find('input')
+          .should((ele) => {
+            expect(ele).to.have.value(options[index].value);
+          });
+      });
+    cy.get('.tdesign-radio-button')
+      .find('.t-radio-group')
+      .eq(1)
+      .should((ele) => {
+        expect(ele).to.have.class('t-radio-group-solid');
+        expect(ele).to.have.class('t-radio-group-default');
+      })
+      .find('.t-radio-button')
+      .each((ele, index) => {
+        cy.wrap(ele)
+          .click()
+          .should((ele) => {
+            expect(ele).to.have.class('t-is-checked');
+          });
+        cy.wrap(ele)
+          .find('input')
+          .should((ele) => {
+            expect(ele).to.have.value(options[index].value);
+          });
+      });
+  });
+  it('测试单选按钮尺寸', () => {
+    cy.get('.tdesign-radio-button-size')
+      .find('.t-radio-group')
+      .first()
+      .should((ele) => {
+        expect(ele).to.have.class('t-radio-group-outline');
+        expect(ele).to.have.class('t-radio-group-small');
+      });
+    cy.get('.tdesign-radio-button-size')
+      .find('.t-radio-group')
+      .eq(1)
+      .should((ele) => {
+        expect(ele).to.have.class('t-radio-group-outline');
+        expect(ele).to.have.class('t-radio-group-default');
+      });
+    cy.get('.tdesign-radio-button-size')
+      .find('.t-radio-group')
+      .eq(2)
+      .should((ele) => {
+        expect(ele).to.have.class('t-radio-group-outline');
+        expect(ele).to.have.class('t-radio-group-large');
+      });
+  });
 });

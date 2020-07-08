@@ -9,7 +9,7 @@ import Popup from './popup';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
-import Radio, { Group as RadioGroup } from './radio';
+import Radio, { RadioButton, Group as RadioGroup } from './radio';
 import Checkbox, { Group as CheckboxGroup } from './checkbox';
 import Steps from './steps';
 import Step from './step';
@@ -26,6 +26,7 @@ const components = {
   Addon,
   InputGroup,
   Radio,
+  RadioButton,
   RadioGroup,
   Checkbox,
   CheckboxGroup,

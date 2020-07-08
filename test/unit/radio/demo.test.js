@@ -22,5 +22,15 @@ describe('Radio', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
+  it('radio button demo works fine', () => {
+    const demo = require('@/examples/radio/demos/radio-button.vue');
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+  it('radio button size demo works fine', () => {
+    const demo = require('@/examples/radio/demos/radio-button-size.vue');
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
 

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Radio, { Group } from '@/src/radio/index.ts';
+import Radio, { Group, RadioButton } from '@/src/radio/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Radio', () => {
@@ -115,6 +115,32 @@ describe('Radio Group', () => {
             <Group name={'radio-name'}>
               <Radio value="gz">广州</Radio>
               <Radio value="sz" disabled>深圳</Radio>
+            </Group>
+          );
+        },
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+    it(':buttonStyle', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Group buttonStyle={'solid'}>
+              <RadioButton value="gz">广州</RadioButton>
+              <RadioButton value="sz" disabled>深圳</RadioButton>
+            </Group>
+          );
+        },
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+    it(':size', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Group size={'small'}>
+              <RadioButton value="gz">广州</RadioButton>
+              <RadioButton value="sz" disabled>深圳</RadioButton>
             </Group>
           );
         },

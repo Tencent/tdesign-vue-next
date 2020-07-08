@@ -32,9 +32,10 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
   },
 
   props: {
+    className: { type: String },
     checked: { type: Boolean, default: undefined },
     defaultChecked: { type: Boolean, default: undefined },
-    disabled: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: undefined },
     value: { default: undefined },
     name: String,
   },
@@ -67,8 +68,10 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
       inputProps.name = radioGroup.name;
     }
 
+    const prefixCls = this.className || `${name}`;
+
     const inputClass = [
-      `${name}`,
+      `${prefixCls}`,
       {
         [CLASSNAMES.STATUS.checked]: inputProps.checked,
         [CLASSNAMES.STATUS.disabled]: inputProps.disabled,
@@ -85,11 +88,11 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
       <label { ...wrapperProps } >
         <input
           type="radio"
-          class={`${name}__former`}
+          class={`${prefixCls}__former`}
           { ...{ domProps: inputProps, on: inputEvents } }
           onChange={this.handleChange}
         />
-        <span class={`${name}__input`}></span><span class={`${name}__label`}>
+        <span class={`${prefixCls}__input`}></span><span class={`${prefixCls}__label`}>
           {children || null}
         </span>
       </label>

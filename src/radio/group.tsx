@@ -4,7 +4,8 @@ import Radio from './radio';
 
 const name = `${prefix}-radio-group`;
 
-const sizeList: Array<string> = ['large', 'small'];
+const sizeList: Array<string> = ['large', 'default', 'small'];
+const buttonStyleList: Array<string> = ['outline', 'solid'];
 
 interface OptionType {  value: string; label: VNode; disabled?: boolean }
 
@@ -25,8 +26,11 @@ export default Vue.extend({
     value: { default: undefined },
     defaultValue: { default: undefined },
     disabled: { type: Boolean, default: false },
-    size: { type: String, default: 'small', validator(v: string) {
+    size: { type: String, default: 'default', validator(v: string) {
       return sizeList.indexOf(v) > -1;
+    } },
+    buttonStyle: { type: String, default: 'outline', validator(v: string) {
+      return buttonStyleList.indexOf(v) > -1;
     } },
     options: { type: Array as PropType<Array<OptionType>>, default: (): Array<OptionType>  => [] },
     name: String,
@@ -50,8 +54,14 @@ export default Vue.extend({
       ) as VNode);
     }
 
+    const groupClass = [
+      `${name}`,
+      `${name}-${this.buttonStyle}`,
+      `${name}-${this.size}`,
+    ];
+
     return (
-      <div class={name}>
+      <div class={groupClass}>
         {children}
       </div>
     ) as VNode;
