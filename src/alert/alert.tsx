@@ -2,9 +2,9 @@ import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import RenderComponent from '../utils/render-component';
-import IconPromptFill from '../icon/prompt-fill';
-import IconSuccessFill from '../icon/success-fill';
-import IconWarningFill from '../icon/warning-fill';
+import IconPromptFill from '../icon/prompt_fill';
+import IconSuccessFill from '../icon/success_fill';
+import IconWarningFill from '../icon/warning_fill';
 import IconClose from '../icon/close';
 
 const name = `${prefix}-alert`;
