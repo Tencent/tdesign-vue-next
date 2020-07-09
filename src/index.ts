@@ -16,8 +16,7 @@ import Steps from './steps';
 import Step from './step';
 import { List, ListItem, ListItemMeta } from './list';
 import { Message, MessagePlugin } from './message';
-import { Select, Option, OptionGroup } from './select';
-import Switch from './switch';
+import Popconfirm from './popconfirm';
 
 const components = {
   Icon,
@@ -41,10 +40,7 @@ const components = {
   ListItem,
   ListItemMeta,
   Message,
-  Select,
-  Option,
-  OptionGroup,
-  Switch,
+  Popconfirm,
 };
 
 function install(Vue: VueConstructor, config?: object): void {

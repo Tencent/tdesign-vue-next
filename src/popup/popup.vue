@@ -8,8 +8,9 @@
       role="tooltip"
       :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
     >
-      <slot name="content"></slot>
-      {{ content }}
+      <slot name="content">
+        <render-component :render='renderContent' />
+      </slot>
       <div v-if="visibleArrow" :class="name+'_arrow'" data-popper-arrow></div>
     </div>
     <div :class="name+'-reference'" ref="reference">
@@ -19,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { CreateElement } from 'vue';
 import { createPopper } from '@popperjs/core';
 import config from '../config';
 import RenderComponent from '../utils/render-component';
@@ -47,7 +48,7 @@ const placementMap = {
 export default Vue.extend({
   name,
   components: {
-    // RenderComponent,
+    RenderComponent,
   },
   props: {
     disabled: {
@@ -112,6 +113,12 @@ export default Vue.extend({
           [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
       ];
+    },
+    renderContent(): any {
+      if (!this.content || typeof this.content === 'string') {
+        return (h: CreateElement) => h('span', {}, this.content);
+      }
+      return this.content;
     },
     manualTrigger(): boolean {
       return this.trigger.indexOf('manual') > -1;
