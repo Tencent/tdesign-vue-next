@@ -3,6 +3,8 @@
     <t-addon prepend="http://">
       <t-input placeholder="请输入内容" />
     </t-addon>
+    <br>
+    <br>
     <t-addon append=".com">
       <t-input placeholder="请输入内容" />
     </t-addon>
