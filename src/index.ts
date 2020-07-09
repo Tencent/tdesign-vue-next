@@ -14,6 +14,8 @@ import Radio, { RadioButton, Group as RadioGroup } from './radio';
 import Checkbox, { Group as CheckboxGroup } from './checkbox';
 import Steps from './steps';
 import Step from './step';
+import Tabs from './tabs';
+import TabPanel from './tabs/tab-panel.vue';
 import { List, ListItem, ListItemMeta } from './list';
 import { Message, MessagePlugin } from './message';
 import Popconfirm from './popconfirm';
@@ -36,6 +38,8 @@ const components = {
   Notification,
   Steps,
   Step,
+  Tabs,
+  TabPanel,
   List,
   ListItem,
   ListItemMeta,
