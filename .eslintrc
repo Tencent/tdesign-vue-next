@@ -13,10 +13,7 @@
   "globals": {
     "cy": "readonly"
   },
-  "plugins": [
-    "vue",
-    "@typescript-eslint"
-  ],
+  "plugins": ["vue", "@typescript-eslint"],
   "parserOptions": {
     "parser": "@typescript-eslint/parser",
     "sourceType": "module",
@@ -32,25 +29,18 @@
     "no-underscore-dangle": 0,
     "func-style": 0,
     "no-console": ["error", { "allow": ["warn", "error"] }],
-    "@typescript-eslint/no-explicit-any": 0
+    "@typescript-eslint/no-explicit-any": 0,
+    "function-paren-newline": 0
   },
   "overrides": [
     {
-      "files": [
-        "*.vue"
-      ],
+      "files": ["*.vue"],
       "rules": {
         "indent": 2,
-        "vue/html-indent": [
-          2,
-          2
-        ],
+        "vue/html-indent": [2, 2],
         "vue/return-in-computed-property": 1,
         "vue/order-in-components": 2,
-        "vue/component-name-in-template-casing": [
-          2,
-          "kebab-case"
-        ],
+        "vue/component-name-in-template-casing": [2, "kebab-case"],
         "vue/require-default-prop": 0
       }
     },

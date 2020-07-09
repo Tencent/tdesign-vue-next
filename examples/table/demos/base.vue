@@ -43,8 +43,8 @@ export default {
         },
         {
           align: 'left',
-          width: '100',
-          minWidth: '100',
+          width: 200,
+          minWidth: '200',
           className: 'row',
           ellipsis: true,
           colKey: 'type',
@@ -52,7 +52,7 @@ export default {
         },
         {
           align: 'left',
-          width: '100',
+          width: 100,
           minWidth: '100',
           className: 'test',
           ellipsis: true,
@@ -61,8 +61,8 @@ export default {
         },
         {
           align: 'left',
-          width: '100',
-          minWidth: '100',
+          width: 200,
+          minWidth: '200',
           className: 'test2',
           ellipsis: true,
           colKey: 'property',
@@ -70,8 +70,8 @@ export default {
         },
         {
           align: 'left',
-          width: '100',
-          minWidth: '100',
+          // width: 100,
+          // minWidth: '100',
           className: 'test4',
           ellipsis: true,
           colKey: 'default',
