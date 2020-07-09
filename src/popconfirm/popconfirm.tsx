@@ -25,6 +25,7 @@ export default Vue.extend({
       },
     },
     icon: [String, Function],
+    content: [String, Function],
     cancelText: {
       type: String,
       default: '取消',
@@ -92,13 +93,13 @@ export default Vue.extend({
       if (this.$slots.content) {
         return this.$slots.content;
       }
-      const node = this.$attrs.content;
+      const node = this.content;
       if (typeof node === 'function') {
         return (node as Function)();
       }
       return <div>{ node }</div>;
     },
-    renderConcel(): JsxNode {
+    renderCancel(): JsxNode {
       if (this.$slots.cancelText) {
         return this.$slots.cancelText;
       }
@@ -149,7 +150,7 @@ export default Vue.extend({
                 </div>
               </div>
               <div class="t-popconfirm__buttons">
-                { this.renderConcel() }
+                { this.renderCancel() }
                 { this.renderConfirm() }
               </div>
             </div>
