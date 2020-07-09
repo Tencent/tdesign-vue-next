@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { CreateElement } from 'vue';
+import Vue, { CreateElement, VNodeChildren } from 'vue';
 import { createPopper } from '@popperjs/core';
 import config from '../config';
 import RenderComponent from '../utils/render-component';
@@ -116,7 +116,7 @@ export default Vue.extend({
     },
     renderContent(): any {
       if (!this.content || typeof this.content === 'string') {
-        return (h: CreateElement) => h('span', {}, this.content);
+        return (h: CreateElement) => h('span', {}, this.content as VNodeChildren);
       }
       return this.content;
     },
