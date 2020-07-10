@@ -10,6 +10,8 @@ import Popup from './popup';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
+import Dialog from './dialog';
+import TransferDom from './utils/transfer-dom';
 import Radio, { RadioButton, Group as RadioGroup } from './radio';
 import Checkbox, { Group as CheckboxGroup } from './checkbox';
 import Steps from './steps';
@@ -34,6 +36,7 @@ const components = {
   Input,
   Addon,
   InputGroup,
+  Dialog,
   Radio,
   RadioButton,
   RadioGroup,
@@ -58,6 +61,8 @@ const components = {
 };
 
 function install(Vue: VueConstructor, config?: object): void {
+  // 增加指令v-transfer-dom，用于元素指定挂载点的
+  Vue.directive('transfer-dom', TransferDom);
   const defaults = {
     prefix: 't',
   };
