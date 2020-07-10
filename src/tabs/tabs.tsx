@@ -83,7 +83,7 @@ export default Vue.extend({
   methods: {
     connectPanels() {
       if (this.$slots.default) {
-        const panelSlots = this.$slots.default.filter(vnode => {
+        const panelSlots = this.$slots.default.filter((vnode) => {
           const {
             componentOptions: {
               tag = '',
@@ -189,6 +189,6 @@ export default Vue.extend({
         { this.tabPosition !== 'bottom' ? [header, content] : [content, header] }
       </div>
     );
-  }
+  },
 
 });
