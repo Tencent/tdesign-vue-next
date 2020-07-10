@@ -3,6 +3,8 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import Breadcrumb from './breadcrumb';
+import BreadcrumbItem from './breadcrumbItem';
 import { Notification, NotificationPlugin } from './notification';
 import Tag from './tag';
 import CheckTag from './tag/check-tag';
@@ -30,6 +32,8 @@ const components = {
   Icon,
   Button,
   Pagination,
+  Breadcrumb,
+  BreadcrumbItem,
   Tag,
   CheckTag,
   Popup,
