@@ -19,9 +19,10 @@ import TabPanel from './tabs/tab-panel.vue';
 import { List, ListItem, ListItemMeta } from './list';
 import { Message, MessagePlugin } from './message';
 import Popconfirm from './popconfirm';
-import { Select, OptionGroup, Option } from './select';
+import { Select, Option, OptionGroup } from './select';
 import Switch from './switch';
-
+import Alert from './alert';
+import AlertSwiper from './alert-swiper';
 
 const components = {
   Icon,
@@ -49,9 +50,11 @@ const components = {
   Message,
   Popconfirm,
   Select,
-  OptionGroup,
   Option,
+  OptionGroup,
   Switch,
+  Alert,
+  AlertSwiper,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
