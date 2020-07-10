@@ -62,7 +62,7 @@ Vue.use(Plugin);
  * this.$message.info(textMsg, 3000) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.info(options) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.success(options) // 返回值 `Promise<instance: 组件实例>`
- * const msg = this.$message.success(options); msg.then(instance => instance.close()); // 关闭信息
+ * const msg = this.$message.success(options); this.$message.close(msg); // 关闭信息
 
 所有参数 Function 优先级大于 Slot。
 
@@ -77,4 +77,3 @@ Vue.use(Plugin);
 | offset | object | - | N | 偏移量（结合属性placement）, 如： {left: '30px'}，值为String类型 |
 | zIndex | number | 6000 | N | 定位层级 |
 | attach | function/string | body | N | 指定弹框挂载节点。字符串类型表示DOM选择器（querySelector）；函数需返回 DOM 节点，如：() => document.body |
-| duration | number | 3000 | N | 显示时间，毫秒，等于 0 表示一直显示，不消失。 |

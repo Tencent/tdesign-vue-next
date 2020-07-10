@@ -25,7 +25,8 @@ export default {
         });
       } else {
         // 关键代码
-        this.msg.then(ins => ins.close());
+        // 另一种关闭方法：this.msg.then(ins => ins.close());
+        this.$message.close(this.msg);
         this.msg = null;
       }
     },
