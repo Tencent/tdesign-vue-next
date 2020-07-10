@@ -163,6 +163,72 @@ exports[`Alert icon demo works fine 1`] = `
     >
       <svg
         class="t-icon t-icon-warning_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,10.5 L7.5,10.5 L7.5,11.5 L8.5,11.5 L8.5,10.5 Z M8.5,4.5 L7.5,4.5 L7.5,9.5 L8.5,9.5 L8.5,4.5 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条警示消息提示
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--error"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-warning_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,10.5 L7.5,10.5 L7.5,11.5 L8.5,11.5 L8.5,10.5 Z M8.5,4.5 L7.5,4.5 L7.5,9.5 L8.5,9.5 L8.5,4.5 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          高危操作/出错信息提示
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--warning"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-warning_fill"
       >
         <use
           xlink:href="#t-icon-warning_fill"
@@ -178,7 +244,7 @@ exports[`Alert icon demo works fine 1`] = `
         <div
           class="t-alert__description"
         >
-          这是一条警示信息
+          这是一条警示信息(以function形式自定义icon)
         </div>
       </div>
     </div>
@@ -207,7 +273,7 @@ exports[`Alert icon demo works fine 1`] = `
         <div
           class="t-alert__description"
         >
-          高危操作/出错信息提示
+          高危操作/出错信息提示(以slot形式自定义icon)
         </div>
       </div>
     </div>

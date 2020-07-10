@@ -59,7 +59,7 @@ export default Vue.extend({
       `${name}`,
       `${name}--${this.theme}`,
       {
-        [`${name}--hidden`]: !this.visible,
+        [`${prefix}-is-hidden`]: !this.visible,
       },
     ];
     return (
