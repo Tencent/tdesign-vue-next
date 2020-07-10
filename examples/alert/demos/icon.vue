@@ -5,7 +5,7 @@
     <t-alert theme="warning" :icon="warningIcon" message="这是一条警示信息" />
     <t-alert theme="error" message="高危操作/出错信息提示">
       <template #icon>
-        <t-icon name="warning-fill" />
+        <t-icon name="warning_fill" />
       </template>
     </t-alert>
   </div>
@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       warningIcon: () => (
-        <t-icon name="warning-fill" />
+        <t-icon name="warning_fill" />
       ),
     };
   },

@@ -162,10 +162,10 @@ exports[`Alert icon demo works fine 1`] = `
       class="t-alert__icon"
     >
       <svg
-        class="t-icon t-icon-warning-fill"
+        class="t-icon t-icon-warning_fill"
       >
         <use
-          xlink:href="#t-icon-warning-fill"
+          xlink:href="#t-icon-warning_fill"
         />
       </svg>
     </div>
@@ -191,10 +191,10 @@ exports[`Alert icon demo works fine 1`] = `
       class="t-alert__icon"
     >
       <svg
-        class="t-icon t-icon-warning-fill"
+        class="t-icon t-icon-warning_fill"
       >
         <use
-          xlink:href="#t-icon-warning-fill"
+          xlink:href="#t-icon-warning_fill"
         />
       </svg>
     </div>
