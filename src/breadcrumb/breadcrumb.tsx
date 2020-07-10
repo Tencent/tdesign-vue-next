@@ -48,7 +48,7 @@ export default Vue.extend({
     if (items.length) {
       const lastItem = items[items.length - 1];
       lastItem.classList.add(currItemClass);
-      lastItem.querySelector('.t-separator').innerHTML = '';
+      lastItem.querySelector('.t-breadcrumb__separator').innerHTML = '';
     }
   },
 
