@@ -5,15 +5,26 @@ import Button from './button';
 import Pagination from './pagination';
 import Breadcrumb from './breadcrumb';
 import BreadcrumbItem from './breadcrumbItem';
+import { Notification, NotificationPlugin } from './notification';
 import Tag from './tag';
 import CheckTag from './tag/check-tag';
 import Popup from './popup';
 import Input from './input';
 import InputGroup from './input-group';
 import Addon from './addon';
+import Radio, { RadioButton, Group as RadioGroup } from './radio';
+import Checkbox, { Group as CheckboxGroup } from './checkbox';
 import Steps from './steps';
 import Step from './step';
+import Tabs from './tabs';
+import TabPanel from './tabs/tab-panel.vue';
+import { List, ListItem, ListItemMeta } from './list';
 import { Message, MessagePlugin } from './message';
+import Popconfirm from './popconfirm';
+import { Select, Option, OptionGroup } from './select';
+import Switch from './switch';
+import Alert from './alert';
+import AlertSwiper from './alert-swiper';
 
 const components = {
   Icon,
@@ -27,9 +38,27 @@ const components = {
   Input,
   Addon,
   InputGroup,
+  Radio,
+  RadioButton,
+  RadioGroup,
+  Checkbox,
+  CheckboxGroup,
+  Notification,
   Steps,
   Step,
+  Tabs,
+  TabPanel,
+  List,
+  ListItem,
+  ListItemMeta,
   Message,
+  Popconfirm,
+  Select,
+  Option,
+  OptionGroup,
+  Switch,
+  Alert,
+  AlertSwiper,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
@@ -42,6 +71,7 @@ function install(Vue: VueConstructor, config?: object): void {
   });
 
   Vue.prototype.$message = MessagePlugin;
+  Vue.prototype.$notify = NotificationPlugin;
 };
 
 declare const window: {
