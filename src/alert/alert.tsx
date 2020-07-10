@@ -156,8 +156,8 @@ export default Vue.extend({
       } else if (typeof this.message === 'function') {
         messageContent = this.message();
       } else {
-        messageContent = (this.$scopedSlots.message && this.$scopedSlots.message(null)) ||
-          (this.$scopedSlots.default && this.$scopedSlots.default(null));
+        messageContent = (this.$scopedSlots.message && this.$scopedSlots.message(null))
+          || (this.$scopedSlots.default && this.$scopedSlots.default(null));
       }
 
       const contentLength = Object.prototype.toString.call(messageContent) === '[object Array]' ? (messageContent as Array<VNode | string>).length : 1;
