@@ -92,8 +92,8 @@ export default Vue.extend({
           return tag === `${prefix}-tab-panel`;
         });
         const panels = panelSlots.map(({ componentInstance }) => componentInstance);
-        const isChanged = !(panels.length === this.panels.length &&
-          panels.every((p, i) => p === this.panels[i]));
+        const isChanged = !(panels.length === this.panels.length
+          && panels.every((p, i) => p === this.panels[i]));
         if (isChanged) {
           this.panels = panels;
         }

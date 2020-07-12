@@ -105,8 +105,8 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
       defineWatches[defaultName] = {
         handler(v: any): void {
           if (
-            defaultName in this.$vnode.componentOptions.propsData &&
-            !(propName in this.$vnode.componentOptions.propsData)
+            defaultName in this.$vnode.componentOptions.propsData
+            && !(propName in this.$vnode.componentOptions.propsData)
           ) {
             this.$data[dataName] = v;
           }
@@ -119,8 +119,8 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
         defineWatches[aliasItem] = {
           handler(v: any): void {
             if (
-              aliasItem in this.$vnode.componentOptions.propsData &&
-              !(propName in this.$vnode.componentOptions.propsData)
+              aliasItem in this.$vnode.componentOptions.propsData
+              && !(propName in this.$vnode.componentOptions.propsData)
             ) {
               this.$data[dataName] = v;
             }
@@ -190,8 +190,8 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
         Object.keys(propOptionMap).forEach((propName: string): void => {
           const { dataName, events } = propOptionMap[propName];
           if (
-            propName in this.$vnode.componentOptions.propsData ||
-            typeof this[dataName] !== 'undefined'
+            propName in this.$vnode.componentOptions.propsData
+            || typeof this[dataName] !== 'undefined'
           ) {
             propMap[propName] = this[dataName];
           }
