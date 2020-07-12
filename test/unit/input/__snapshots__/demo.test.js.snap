@@ -1,0 +1,317 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button addon demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-addon"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      http://
+    </span>
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        placeholder="请输入内容"
+        type="text"
+      />
+    </div>
+  </div>
+   
+  <div
+    class="t-addon"
+  >
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        placeholder="请输入内容"
+        type="text"
+      />
+    </div>
+    <span
+      class="t-addon__append"
+    >
+      .com
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Button base demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-input"
+  >
+    <input
+      class="t-input__inner"
+      placeholder="请输入内容"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Button disabled demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-input t-is-disabled"
+  >
+    <input
+      class="t-input__inner"
+      disabled="disabled"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Button group demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group"
+    >
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <span>
+         - 
+      </span>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Button icon demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Button size demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-input t-size-l"
+  >
+    <input
+      class="t-input__inner"
+      placeholder="请输入内容"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="t-input"
+  >
+    <input
+      class="t-input__inner"
+      placeholder="请输入内容"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Button status demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-input t-is-success"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="t-input t-is-success"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="t-input t-is-warning"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="t-input t-is-error"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+</div>
+`;

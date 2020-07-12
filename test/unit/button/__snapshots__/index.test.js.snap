@@ -4,11 +4,19 @@ exports[`Button :props :block 1`] = `<button class="t-button t-button--line t-si
 
 exports[`Button :props :disabled 1`] = `<button class="t-button t-button--line t-is-disabled">text</button>`;
 
-exports[`Button :props :icon function 1`] = `<button class="t-button t-button--line"></button>`;
+exports[`Button :props :icon function 1`] = `<button class="t-button t-button--line t-button--icon"><i>custom icon</i></button>`;
 
-exports[`Button :props :icon string 1`] = `<button class="t-button t-button--line"><span class="t-button__inner"><i class="t-icon t-icon-demo t-icon-delete"></i><span class="t-button__text">text</span></span></button>`;
+exports[`Button :props :icon string 1`] = `
+<button class="t-button t-button--line"><svg class="t-icon t-icon-delete">
+    <use xlink:href="#t-icon-delete"></use>
+  </svg><span class="t-button__text">text</span></button>
+`;
 
-exports[`Button :props :loading 1`] = `<button class="t-button t-button--line t-is-loading"><span class="t-button__inner"><i class="t-icon t-icon-demo t-icon-loading_gradient"></i><span class="t-button__text">text</span></span></button>`;
+exports[`Button :props :loading 1`] = `
+<button class="t-button t-button--line t-is-loading"><svg class="t-icon t-icon-loading_gradient">
+    <use xlink:href="#t-icon-loading_gradient"></use>
+  </svg><span class="t-button__text">text</span></button>
+`;
 
 exports[`Button :props :size 1`] = `<button class="t-button t-size-l t-button--line">text</button>`;
 
@@ -16,4 +24,8 @@ exports[`Button :props :theme 1`] = `<button class="t-button t-button--primary">
 
 exports[`Button :props :theme 2`] = `<button class="t-button t-button--line t-button--round">text</button>`;
 
-exports[`Button <slot> <icon> 1`] = `<button class="t-button t-button--line"></button>`;
+exports[`Button <slot> <icon> 1`] = `
+<button class="t-button t-button--line t-button--icon">
+  <div></div>
+</button>
+`;

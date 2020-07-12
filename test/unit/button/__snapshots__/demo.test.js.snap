@@ -55,70 +55,46 @@ exports[`Button block demo works fine 1`] = `
 `;
 
 exports[`Button icon demo works fine 1`] = `
-<div
-  class="demo-button-icon"
->
-  <div
-    class="demo-button-row"
-  >
-    <button
-      class="t-button t-button--primary"
-    >
-      <span
-        class="t-button__inner"
-      >
-        <i
-          class="t-icon t-icon-demo t-icon-delete"
-        />
-        <span
-          class="t-button__text"
-        >
-          
-      删除
-    
-        </span>
-      </span>
-    </button>
-     
-    <button
-      class="t-button t-button--line"
-    >
-      <span
-        class="t-button__inner"
-      >
-        <i
-          class="t-icon t-icon-demo t-icon-delete"
-        />
-        <span
-          class="t-button__text"
-        >
-          
-      删除
-    
-        </span>
-      </span>
-    </button>
-     
-    <button
-      class="t-button t-button--link"
-    >
-      <span
-        class="t-button__inner"
-      >
-        <i
-          class="t-icon t-icon-demo t-icon-delete"
-        />
-        <span
-          class="t-button__text"
-        >
-          
-      删除
-    
-        </span>
-      </span>
-    </button>
-  </div>
-</div>
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
 `;
 
 exports[`Button loading demo works fine 1`] = `
@@ -128,38 +104,38 @@ exports[`Button loading demo works fine 1`] = `
   <button
     class="t-button t-button--primary t-is-loading"
   >
-    <span
-      class="t-button__inner"
+    <svg
+      class="t-icon t-icon-loading_gradient"
     >
-      <i
-        class="t-icon t-icon-demo t-icon-loading_gradient"
+      <use
+        xlink:href="#t-icon-loading_gradient"
       />
-      <span
-        class="t-button__text"
-      >
-        
+    </svg>
+    <span
+      class="t-button__text"
+    >
+      
     主按钮
   
-      </span>
     </span>
   </button>
    
   <button
     class="t-button t-button--line t-is-loading"
   >
-    <span
-      class="t-button__inner"
+    <svg
+      class="t-icon t-icon-loading_gradient"
     >
-      <i
-        class="t-icon t-icon-demo t-icon-loading_gradient"
+      <use
+        xlink:href="#t-icon-loading_gradient"
       />
-      <span
-        class="t-button__text"
-      >
-        
+    </svg>
+    <span
+      class="t-button__text"
+    >
+      
     次按钮
   
-      </span>
     </span>
   </button>
 </div>
@@ -169,9 +145,16 @@ exports[`Button render-icon demo works fine 1`] = `
 <button
   class="t-button t-button--primary"
 >
-  
+  <span>
+    ×
+  </span>
+  <span
+    class="t-button__text"
+  >
+    
   主按钮
 
+  </span>
 </button>
 `;
 
@@ -181,43 +164,43 @@ exports[`Button size demo works fine 1`] = `
     class="tdesign-demo-block"
   >
     <button
-      class="t-button t-size-m t-button--primary"
+      class="t-button t-size-s t-button--primary"
     >
       主按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--line"
+      class="t-button t-size-s t-button--line"
     >
       次要按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--dashed"
+      class="t-button t-size-s t-button--dashed"
     >
       虚框按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--warning"
+      class="t-button t-size-s t-button--warning"
     >
       告警按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--warning-line"
+      class="t-button t-size-s t-button--warning-line"
     >
       次要告警
     </button>
      
     <button
-      class="t-button t-size-m t-button--link"
+      class="t-button t-size-s t-button--link"
     >
       文字按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--ghost"
+      class="t-button t-size-s t-button--ghost"
     >
       幽灵按钮
     </button>
