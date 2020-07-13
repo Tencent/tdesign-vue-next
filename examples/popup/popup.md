@@ -20,6 +20,8 @@
 :::
 ::: demo demos/event popup状态改变时触发事件
 :::
+::: demo demos/resize 监听trigger元素尺寸变化，浮层定位自适应
+:::
 
 ### Props
 
