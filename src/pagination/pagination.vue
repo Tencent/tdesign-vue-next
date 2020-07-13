@@ -31,16 +31,26 @@
         <li :class="getButtonClass(1)" v-if="isFolded"
             @click="toPage(1)">1</li>
         <li :class="_btnMoreClass"
-            v-show="isFolded && isPrevMoreShow" @click="prevMorePage" >
-          <t-icon-more></t-icon-more>
+            v-show="isFolded && isPrevMoreShow" @click="prevMorePage"
+            @mouseover="prevMore = true"
+            @mouseout="prevMore = false" >
+          <template v-if="prevMore">
+            <t-icon-double-left></t-icon-double-left>
+          </template>
+          <template v-else><t-icon-more></t-icon-more></template>
         </li>
         <li :class="getButtonClass(i)"
             v-for="i in pages" :key="i" @click="toPage(i)">
           {{ i }}
         </li>
         <li :class="_btnMoreClass"
-            v-show="isFolded && isNextMoreShow" @click="nextMorePage">
-          <t-icon-more></t-icon-more>
+            v-show="isFolded && isNextMoreShow" @click="nextMorePage"
+            @mouseover="nextMore = true"
+            @mouseout="nextMore = false" >
+          <template v-if="nextMore">
+            <t-icon-double-arrow-right></t-icon-double-arrow-right>
+          </template>
+          <template v-else><t-icon-more></t-icon-more></template>
         </li>
         <li :class="getButtonClass(_pageCount)" v-if="isFolded"
             @click="toPage(_pageCount)">{{ _pageCount }}</li>
@@ -86,6 +96,8 @@ import getLocalRecevierMixins from '../locale/local-receiver';
 import RenderComponent from '../utils/render-component';
 import TIconArrowLeft from '../icon/arrow-left';
 import TIconArrowRight from '../icon/arrow-right';
+import TIconDoubleLeft from '../icon/double-left';
+import TIconDoubleArrowRight from '../icon/double-arrow-right';
 import TIconMore from '../icon/more';
 import TInput from '../input';
 import { Select } from '../select';
@@ -103,6 +115,8 @@ export default mixins(PaginationLocalReceiver).extend({
     RenderComponent,
     TIconArrowLeft,
     TIconArrowRight,
+    TIconDoubleLeft,
+    TIconDoubleArrowRight,
     TIconMore,
     TInput,
     Select,
@@ -229,6 +243,8 @@ export default mixins(PaginationLocalReceiver).extend({
     return {
       jumpIndex: this.current,
       currentIndex: this.current,
+      prevMore: false,
+      nextMore: false,
     };
   },
   watch: {
