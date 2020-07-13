@@ -22,7 +22,8 @@
       </t-select>
     </template>
     <!-- 向前按钮-->
-    <div :class="_preBtnClass"  @click="prevPage" :disabled="disabled || currentIndex === 1">
+    <div :class="_preBtnClass"  @click="prevPage"
+         :disabled="disabled || currentIndex === 1">
       <t-icon-arrow-left></t-icon-arrow-left>
     </div>
     <!-- 页数 -->
