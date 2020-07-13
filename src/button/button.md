@@ -9,6 +9,9 @@
 ::: demo demos/theme 类型
 :::
 
+::: demo demos/icon 图标按钮
+:::
+
 ::: demo demos/size 尺寸
 :::
 

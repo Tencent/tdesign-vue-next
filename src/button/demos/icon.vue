@@ -11,7 +11,7 @@
         删除
       </t-button>
       <t-button
-        theme="text"
+        theme="link"
         icon="delete"
       >
         删除

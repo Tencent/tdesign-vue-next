@@ -1,11 +1,13 @@
-declare namespace JSX {
-  interface Element {} //eslint-disable-line
+import Vue, { VNode } from 'vue';
 
-  interface ElementAttributesProperty { $props: {} }
-
-  // allows to use "noImplicitAny": true in tsconfig.json
-  interface IntrinsicElements {
-    [elemName: string]: any;
+declare global {
+  namespace JSX {
+    // tslint:disable no-empty-interface
+    type Element = VNode
+    // tslint:disable no-empty-interface
+    type ElementClass = Vue
+    interface IntrinsicElements {
+      [elem: string]: any;
+    }
   }
-
 }

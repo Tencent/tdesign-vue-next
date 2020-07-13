@@ -54,12 +54,18 @@
     },
     {
       "files": [
-        "**/demos/*", "script/**/*", "script/*"
+        "**/demos/*",
+        "script/**/*",
+        "script/*",
+        "*.js",
+        "site/**/*",
+        "site/*"
       ],
       "rules": {
         "no-var-requires": 0,
         "no-console": 0,
-        "@typescript-eslint/explicit-function-return-type": 0
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/no-var-requires": 0
       }
     }
   ]

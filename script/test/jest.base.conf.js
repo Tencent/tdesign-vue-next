@@ -1,31 +1,34 @@
-const path = require("path")
-const libDir = process.env.LIB_DIR;
+const path = require('path');
 
 module.exports = {
   verbose: true,
-  rootDir: path.resolve(__dirname, "../../"),
-  testURL: "http://localhost/",
+  rootDir: path.resolve(__dirname, '../../'),
+  testURL: 'http://localhost/',
   moduleFileExtensions: [
-    "js",
-    "ts",
-    "vue",
-    "json",
+    'js',
+    'jsx',
+    'ts',
+    'tsx',
+    'vue',
+    'json',
   ],
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1",
-    "^vue$": "<rootDir>/node_modules/vue/dist/vue.js"
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^vue$': '<rootDir>/node_modules/vue/dist/vue.js',
   },
   transform: {
-    ".*\\.(vue)$": ["vue-jest", "ts-jest"],
-    "\\.ts$": "ts-jest",
-    "^.+\\.js$": "babel-jest",
-    ".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
+    '.*\\.js$': 'babel-jest',
+    '.*\\.(vue)$': 'vue-jest',
+    '.*\\.tsx?$': 'ts-jest',
+    '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
-  testRegex: "(?<!snapshot)\\.test\\.js$",
-  setupFiles: ["<rootDir>/script/test/setup"],
+  testRegex: '(?<!snapshot)\\.test\\.js$',
+  setupFiles: ['<rootDir>/script/test/setup'],
   globals: {
-    "ts-jest": {
-      tsConfig: "<rootDir>/tsconfig.json",
+    'ts-jest': {
+      tsConfig: '<rootDir>/tsconfig.json',
+      babelConfig: true,
     },
-  }
-}
+  },
+  snapshotSerializers: ['jest-serializer-vue'],
+};
