@@ -14,7 +14,7 @@
     <t-menu-item name="item3"><t-icon slot="icon" name="user" />菜单内容二</t-menu-item>
     <t-menu-item name="item4" :disabled="true"><t-icon slot="icon" name="user" />菜单内容三</t-menu-item>
     <div slot="options">
-      <t-icon name="user" @click="changeCollapsed" />
+      <t-icon name="user" @click.native="changeCollapsed" />
     </div>
   </t-menu>
 </template>

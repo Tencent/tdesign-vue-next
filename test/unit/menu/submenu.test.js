@@ -8,7 +8,7 @@ describe('Submenu', () => {
     it(':name', () => {
       const wrapper = mount({
         render() {
-          return <Submenu name={'1'}></Submenu>;
+          return <Submenu name='1'></Submenu>;
         },
       });
       expect(wrapper).toMatchSnapshot();

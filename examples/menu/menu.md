@@ -84,7 +84,15 @@
 
 | 平台  | 属性     | 类型                | 默认值  | 必传 | 说明      |
 | ---- | -------- | ------------------ | ------ | ---- |  ---- |
+| 公有 | mode  |     String      | -  | dropdown    | 子菜单展示形式，dropdown为下拉式、popup为侧拉式 |
 | 公有 | name  |     String/Number      | -  | Y    | 子菜单唯一标识 |
+| 公有 | disabled  |     Boolean      | -  | N    | 子菜单是否禁用 |
+
+### SubMenu Slots
+
+| 平台 | 插槽名称 | 说明 |
+| ---- | -------- | ---- |
+| 公有 | default    | 默认插槽    |
 
 ### SubMenu Events
 
