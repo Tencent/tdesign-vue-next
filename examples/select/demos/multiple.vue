@@ -14,13 +14,14 @@
         v-for="(item, index) in options"
         :value="item.value"
         :label="item.label"
+        :disabled="item.disabled"
         :key="index"
       >
         {{ item.label }}
       </t-option>
     </t-select>
     <t-select
-      v-model="value"
+      v-model="value2"
       placeholder="-请选择-"
       :clearable="true"
       multiple
@@ -32,13 +33,14 @@
         v-for="(item, index) in options"
         :value="item.value"
         :label="item.label"
+        :disabled="item.disabled"
         :key="index"
       >
         {{ item.label }}
       </t-option>
     </t-select>
     <t-select
-      v-model="value2"
+      v-model="value3"
       placeholder="-请选择-"
       :clearable="true"
       multiple
@@ -47,9 +49,10 @@
       @change="handleChange2"
     >
       <t-option
-        v-for="(item, index) in options"
+        v-for="(item, index) in options2"
         :value="item.value"
         :label="item.label"
+        :disabled="item.disabled"
         :key="index"
       >
         {{ item.label }}
@@ -65,6 +68,7 @@ export default {
       options: [{
         label: '苹果apple',
         value: 'apple',
+        disabled: true,
       }, {
         label: '香蕉banana',
         value: 'banana',
@@ -72,8 +76,19 @@ export default {
         label: '橘子orange',
         value: 'orange',
       }],
-      value: ['apple', 'orange'],
+      options2: [{
+        label: '苹果apple',
+        value: 'apple',
+      }, {
+        label: '香蕉banana',
+        value: 'banana',
+      }, {
+        label: '橘子orange',
+        value: 'orange',
+      }],
+      value: [],
       value2: ['apple'],
+      value3: ['apple', 'orange'],
     };
   },
   methods: {
