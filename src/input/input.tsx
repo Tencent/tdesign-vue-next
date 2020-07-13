@@ -66,8 +66,8 @@ export default (Vue as VueConstructor<InputInstance>).extend({
 
     const inputEvents = getValidAttrs({
       change: this.$listeners.change,
-      focus: this.$listeners.focus,
-      blur: this.$listeners.blur,
+      focus: this.onFocus,
+      blur: this.onBlur,
       keydown: this.$listeners.keydown,
       keyup: this.$listeners.keyup,
       keypresss: this.$listeners.keypresss,
@@ -162,6 +162,14 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     onClear() {
       this.$emit('clear');
       this.$emit('input', '');
+    },
+    onFocus(e: Event) {
+      this.focused = true;
+      this.$emit('focus', e);
+    },
+    onBlur(e: Event) {
+      this.focused = false;
+      this.$emit('blur', e);
     },
   },
 });
