@@ -80,7 +80,7 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     let suffixIcon = this.renderIcon(h, this.suffixIcon, 'suffix-icon');
 
     if (this.showClear) {
-      suffixIcon = <ClearIcon class={`${name}__suffix-clear`} onClick={this.onClear} />;
+      suffixIcon = <ClearIcon class={`${name}__suffix-clear`} nativeOnClick={this.onClear} />;
     }
 
     const classes = [
