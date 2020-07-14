@@ -82,7 +82,7 @@ function install(Vue: VueConstructor, config?: object): void {
 };
 
 declare const window: {
-  [propName: string]: any, // eslint-disable-line
+  [propName: string]: any; // eslint-disable-line
   Vue: VueConstructor;
 };
 

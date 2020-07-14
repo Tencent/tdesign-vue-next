@@ -15,7 +15,6 @@ export const flatColumns = (columns: Array<Column>): any => {
   return result;
 };
 
-
 export function treeMap(tree: Array<any>, mapper: Function, childrenName = 'children') {
   return tree.map((node, index) => {
     const extra = {};
