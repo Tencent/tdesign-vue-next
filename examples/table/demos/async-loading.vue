@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- height: 200px; -->
     <t-table
       style="overflow: auto;"
       :columns="columns"
