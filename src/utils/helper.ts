@@ -20,3 +20,15 @@ export function removeEmptyAttrs<T>(obj: T): Partial<T>  {
 
   return newObj;
 }
+
+export function getTabElementByName(tabs: [] = [], name: string): object {
+  const [result] = tabs.filter((item) => {
+    const { id } = item as any;
+    return id === name;
+  });
+  return result || null;
+}
+
+export function firstUpperCase(str: string): string {
+  return str.toLowerCase().replace(/( |^)[a-z]/g, (char: string) => char.toUpperCase());
+}

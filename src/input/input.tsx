@@ -3,6 +3,7 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import Icon from '../icon';
+import ClearIcon from '../icon/close_fill';
 
 const name = `${prefix}-input`;
 
@@ -33,7 +34,7 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     } },
     disabled: Boolean,
     readonly: Boolean,
-    clearable: Boolean, // TODO
+    clearable: Boolean,
     autocomplete: Boolean,
     status: { type: String, validator(v: string): boolean {
       return ['default', 'success', 'warning', 'error'].indexOf(v) > -1;
@@ -43,6 +44,11 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     return {
       focused: false,
     };
+  },
+  computed: {
+    showClear(): boolean {
+      return this.value && !this.disabled && this.clearable;
+    },
   },
   created() {
     this.composing = false;
@@ -70,8 +76,12 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     const wrapperAttrs = omit(this.$attrs, Object.keys(inputAttrs));
     const wrapperEvents = omit(this.$listeners, [...Object.keys(inputEvents), 'input']);
 
-    const prefixIcon = this.renderIcon(h, this.prefixIcon);
-    const suffixIcon = this.renderIcon(h, this.suffixIcon);
+    const prefixIcon = this.renderIcon(h, this.prefixIcon, 'prefix-icon');
+    let suffixIcon = this.renderIcon(h, this.suffixIcon, 'suffix-icon');
+
+    if (this.showClear) {
+      suffixIcon = <ClearIcon class={`${name}__suffix-clear`} nativeOnClick={this.onClear} />;
+    }
 
     const classes = [
       name,
@@ -87,7 +97,7 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     return (
       <div class={classes} {...{ attrs: wrapperAttrs, on: wrapperEvents }}>
         {
-          this.prefixIcon
+          prefixIcon
             ? <span class={`${name}__prefix`}>
             { prefixIcon }
           </span> : null
@@ -100,7 +110,7 @@ export default (Vue as VueConstructor<InputInstance>).extend({
           onInput={this.onInput}
         />
         {
-          this.suffixIcon
+          suffixIcon || ClearIcon
             ? <span class={`${name}__suffix`}>
             { suffixIcon }
           </span> : null
@@ -109,11 +119,13 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     );
   },
   methods: {
-    renderIcon(h: CreateElement, icon: string | Function | undefined): VNode {
+    renderIcon(h: CreateElement, icon: string | Function | undefined, iconType: 'prefix-icon' | 'suffix-icon'): JsxNode {
       if (typeof icon === 'string') {
         return <Icon name={icon}></Icon>;
       } if (typeof icon === 'function') {
-        return icon();
+        return icon(h);
+      } if (this.$scopedSlots[iconType]) {
+        return this.$scopedSlots[iconType](null);
       }
       return null;
     },
@@ -146,6 +158,10 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       this.$emit('input', (target as HTMLInputElement).value);
       // 受控
       this.$nextTick(() => this.setInputValue(this.value));
+    },
+    onClear() {
+      this.$emit('clear');
+      this.$emit('input', '');
     },
   },
 });

@@ -1,4 +1,4 @@
-import { Columns, Column, ColumnsMap } from '../types/table';
+import { Column } from '../types/table';
 
 export const flatColumns = (columns: Array<Column>): any => {
   const result: Array<Column> = [];
@@ -14,9 +14,7 @@ export const flatColumns = (columns: Array<Column>): any => {
   });
   return result;
 };
-export const getDefaultFilters = (columns?: Columns): any => {
-  return {
-    filters: {},
-    sorter: {},
-  };
-};
+export const getDefaultFilters = (): any => ({
+  filters: {},
+  sorter: {},
+});
