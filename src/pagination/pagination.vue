@@ -6,7 +6,20 @@
     </template>
     <!-- select-->
     <template v-if="showSizer">
-      <div :class="_sizerClass" @change="onSelectorChange"></div>
+      <t-select
+        :value="pageSize"
+        :disabled="disabled"
+        :class="_sizerClass"
+        @change="onSelectorChange"
+      >
+        <t-option
+          v-for="(item, index) in _pageSizeOption"
+          :value="item"
+          :label="t(locale.itemsPerPage, { size: item })"
+          :key="index"
+        >
+        </t-option>
+      </t-select>
     </template>
     <!-- 向前按钮-->
     <div :class="_preBtnClass"  @click="prevPage" :disabled="disabled || currentIndex === 1">
@@ -34,11 +47,20 @@
       </ul>
     </template>
     <template v-else>
-      <!-- select-->
-      <div :class="_simpleClass"
-           :disabled="disabled"
-           @keydown.enter="jumpToPage"
-           @blur="jumpToPage"></div>
+      <t-select
+        :value="currentIndex"
+        :disabled="disabled"
+        :class="_simpleClass"
+        @change="toPage"
+      >
+        <t-option
+          v-for="(item, index) in _pageCountOption"
+          :value="item"
+          :label="`${item}/${_pageCount}`"
+          :key="index"
+        >
+        </t-option>
+      </t-select>
     </template>
     <!-- 向后按钮-->
     <div :class="_nextBtnClass" @click="nextPage"
@@ -48,10 +70,10 @@
     <!-- 跳转-->
     <template v-if="showJumper">
       <div :class="_jumperClass">
-        {{ t(locale.beforeGoto) }}
+        {{ t(locale.jumpTo) }}
         <t-input :class="_jumperInputClass" v-model="jumpIndex"
                  @keydown.enter="jumpToPage" @blur="jumpToPage"/>
-        {{ t(locale.afterGoto) }}
+        {{ t(locale.page) }}
       </div>
     </template>
   </div>
@@ -66,6 +88,7 @@ import TIconArrowLeft from '../icon/arrow-left';
 import TIconArrowRight from '../icon/arrow-right';
 import TIconMore from '../icon/more';
 import TInput from '../input';
+import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
 
 const { prefix } = config;
@@ -81,6 +104,7 @@ export default mixins(PaginationLocalReceiver).extend({
     TIconArrowRight,
     TIconMore,
     TInput,
+    Select,
   },
   model: {
     prop: 'current',
@@ -292,7 +316,13 @@ export default mixins(PaginationLocalReceiver).extend({
       const c: number = Math.ceil(this.total / this.pageSize);
       return c > 0 ? c : 1;
     },
-
+    _pageCountOption(): Array<number> {
+      const ans = [];
+      for (let i = 1;i <= this._pageCount;i++) {
+        ans.push(i);
+      }
+      return ans;
+    },
     _pageSizeOption(): Array<number> {
       const data = this.pageSizeOption as Array<number>;
       return data.find(v => v === this.pageSize)
@@ -400,11 +430,11 @@ export default mixins(PaginationLocalReceiver).extend({
         },
       ];
     },
-    onSelectorChange(e: MouseEvent): void {
+    onSelectorChange(e: string): void {
       if (this.disabled) {
         return;
       }
-      const pageSize: number = parseInt((e.target as HTMLSelectElement).value, 10);
+      const pageSize: number = parseInt(e, 10);
       let pageCount = 1;
       if (pageSize > 0) {
         pageCount = Math.ceil(this.total / pageSize);
