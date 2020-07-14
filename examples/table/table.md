@@ -21,9 +21,6 @@
 ::: demo demos/multi-header 多级表头
 :::
 
-::: demo demos/spin 加载
-:::
-
 ::: demo demos/expand 可展开
 :::
 
@@ -36,7 +33,7 @@
 ::: demo demos/sort 排序
 :::
 
-::: demo demos/async-spin 异步加载
+::: demo demos/async-loading 异步加载
 :::
 
 ::: demo demos/loading loading
