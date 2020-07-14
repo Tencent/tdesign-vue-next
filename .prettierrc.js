@@ -33,7 +33,7 @@ module.exports = {
   // 根据显示样式决定 html 要不要折行
   htmlWhitespaceSensitivity: 'css',
   // vue 文件中的 script 和 style 内不用缩进
-  vueIndentScriptAndStyle: 'false',
+  vueIndentScriptAndStyle: false,
   // 换行符使用 lf
   endOfLine: 'lf',
 };

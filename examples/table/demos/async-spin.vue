@@ -74,14 +74,13 @@ export default {
   },
   methods: {
     asyncLoadingHandler() {
-      console.log('asyncLoadingHandler');
-      // eslint-disable-next-line
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         if (this.data.length > 20) {
           this.busy = true;
           resolve();
           return;
         }
+        // mock api
         setTimeout(() => {
           this.data.push(...data);
           resolve();

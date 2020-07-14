@@ -42,6 +42,12 @@
 ::: demo demos/loading loading
 :::
 
+::: demo demos/filter-uncontrolled 非受控筛选
+:::
+
+::: demo demos/filter-controlled 受控筛选
+:::
+
 ### 属性配置
 
 | 属性    | 类型                             | 默认值 | 必传 | 说明 |

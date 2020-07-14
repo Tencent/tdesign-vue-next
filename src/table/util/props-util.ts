@@ -14,7 +14,30 @@ export const flatColumns = (columns: Array<Column>): any => {
   });
   return result;
 };
-export const getDefaultFilters = (): any => ({
-  filters: {},
-  sorter: {},
-});
+
+
+export function treeMap(tree: Array<any>, mapper: Function, childrenName = 'children') {
+  return tree.map((node, index) => {
+    const extra = {};
+    if (node[childrenName]) {
+      extra[childrenName] = treeMap(node[childrenName], mapper, childrenName);
+    }
+    return {
+      ...mapper(node, index),
+      ...extra,
+    };
+  });
+}
+
+export function flatFilter(tree: Array<any>, callback: Function) {
+  return tree.reduce((acc, node) => {
+    if (callback(node)) {
+      acc.push(node);
+    }
+    if (node.children) {
+      const children = flatFilter(node.children, callback);
+      acc.push(...children);
+    }
+    return acc;
+  }, []);
+}
