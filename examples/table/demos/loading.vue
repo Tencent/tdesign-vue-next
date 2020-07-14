@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div style="margin-bottom: 10px;">设置 loading 为字符串时，可以自定义数据加载时的显示文案。</div>
     <t-table
       :data="data"
       :columns="columns"
@@ -7,13 +8,7 @@
       :size="size"
       :loading="loading">
     </t-table>
-    <t-table
-      :data="data"
-      :columns="columns"
-      :rowKey="rowKey"
-      :size="size"
-      :loading="asyncLoading">
-    </t-table>
+    <div style="margin-bottom: 10px;">设置 loading 为对象时，可以通过设置 customRender，来自定义数据加载时的 DOM 结构。</div>
     <t-table
       :data="data"
       :columns="columns"
@@ -90,9 +85,6 @@ export default {
       rowKey: 'property',
       size: 'small',
       loading: true,
-      asyncLoading: {
-        async: true,
-      },
       customLoading: {
         customRender: 'loading',
       },
