@@ -17,17 +17,17 @@ describe('Tag', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
   it('checkable demo works fine', () => {
-    const demo = require('@/examples/tag/demos/checkable.vue');
+    const demo = require('@/examples/tag/demos/checkable.vue').default;
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
   it('closable demo works fine', () => {
-    const demo = require('@/examples/tag/demos/closable.vue');
+    const demo = require('@/examples/tag/demos/closable.vue').default;
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
   it('icon demo works fine', () => {
-    const demo = require('@/examples/tag/demos/icon.vue');
+    const demo = require('@/examples/tag/demos/icon.vue').default;
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

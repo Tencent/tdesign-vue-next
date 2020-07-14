@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import Vue from 'vue';
 
-const isServer = Vue.prototype.$isServer;
+const isServer = Vue.prototype.$isServer || typeof window === 'undefined';
 
 const trim =  (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 
