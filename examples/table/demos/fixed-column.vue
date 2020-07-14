@@ -1,5 +1,6 @@
 <template>
   <t-table
+    style="width: 1000px;"
     :data="data"
     :columns="columns"
     :rowKey="rowKey"
@@ -95,7 +96,7 @@ export default {
       border: true,
       hover: true,
       stripe: true,
-      width: 1000,
+      width: 2000,
     };
   },
 };
