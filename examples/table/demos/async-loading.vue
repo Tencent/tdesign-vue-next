@@ -1,5 +1,6 @@
 <template>
   <div>
+    data.length: {{data.length}}
     <t-table
       style="overflow: auto;"
       :columns="columns"
@@ -66,7 +67,7 @@ const columns = [
 export default {
   data() {
     return {
-      data,
+      data: [...data],
       columns,
       busy: false,
     };
@@ -82,6 +83,8 @@ export default {
         // mock api
         setTimeout(() => {
           this.data.push(...data);
+          console.log('this.data', data.length, this.data.length);
+
           resolve();
         }, 1000);
       });

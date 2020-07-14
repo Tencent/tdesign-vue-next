@@ -57,7 +57,7 @@ export default {
           ],
           filteredValue: filteredInfo.name || null,
           onFilter: (value, record) => record.name.includes(value),
-          filterMultiple: false,
+          filterMultiple: true,
         },
         {
           title: 'Age',
