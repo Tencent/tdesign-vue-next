@@ -36,7 +36,7 @@
 ::: demo demos/async-loading 异步加载
 :::
 
-::: demo demos/loading loading
+::: demo demos/loading 普通加载
 :::
 
 ::: demo demos/filter-uncontrolled 非受控筛选
