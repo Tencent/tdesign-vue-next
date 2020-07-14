@@ -17,6 +17,9 @@
 ::: demo demos/head-menu-empty 只有MENU
 :::
 
+::: demo demos/head-menu-tile 双层导航
+:::
+
 ### 侧边导航
 
 ::: demo demos/side-menu 侧边栏菜单
