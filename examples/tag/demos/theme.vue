@@ -12,7 +12,7 @@
       <t-tag theme="warning">标签四</t-tag>
       <t-tag theme="danger">标签五</t-tag>
     </div>
-    <div class="tdesign-demo-block">
+    <div class="tdesign-demo-block light">
       浅色：
       <t-tag theme="primary" effect="light">标签一</t-tag>
       <t-tag theme="success" effect="light">标签二</t-tag>
@@ -20,7 +20,7 @@
       <t-tag theme="warning" effect="light">标签四</t-tag>
       <t-tag theme="danger" effect="light">标签五</t-tag>
     </div>
-    <div class="tdesign-demo-block">
+    <div class="tdesign-demo-block plain">
       朴素：
       <t-tag effect="plain" theme="primary">标签一</t-tag>
       <t-tag effect="plain" theme="success">标签二</t-tag>

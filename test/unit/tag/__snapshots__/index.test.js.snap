@@ -12,6 +12,8 @@ exports[`Tag :props :disabled 2`] = `<span class="t-tag t-tag--default t-tag--di
 
 exports[`Tag :props :icon 1`] = `<span class="t-tag t-tag--default t-tag--dark"><i class="t-icon t-icon-search"></i></span>`;
 
+exports[`Tag :props :icon:iconfont-string:home 1`] = `<span class="t-tag t-tag--default t-tag--dark"><i class="t-icon t-icon-home"></i></span>`;
+
 exports[`Tag :props :maxWidth 1`] = `<span class="t-tag t-tag--default t-tag--dark t-tag--ellipsis" style="max-width: 100px;"></span>`;
 
 exports[`Tag :props :plain 1`] = `<span class="t-tag t-tag--primary t-tag--plain"></span>`;
@@ -20,8 +22,110 @@ exports[`Tag :props :shape 1`] = `<span class="t-tag t-tag--default t-tag--dark 
 
 exports[`Tag :props :size 1`] = `<span class="t-tag t-tag--default t-size-l t-tag--dark"></span>`;
 
+exports[`Tag :props :size:large 1`] = `<span class="t-tag t-tag--default t-size-l t-tag--dark"></span>`;
+
+exports[`Tag :props :size:middle 1`] = ``;
+
+exports[`Tag :props :size:small 1`] = ``;
+
 exports[`Tag :props :theme 1`] = `<span class="t-tag t-tag--default t-tag--dark"></span>`;
 
 exports[`Tag :props :theme 2`] = `<span class="t-tag t-tag--primary t-tag--dark"></span>`;
+
+exports[`Tag :props :theme: 1`] = `<span class="t-tag t-tag--default t-tag--dark"></span>`;
+
+exports[`Tag :props :theme:danger 1`] = `<span class="t-tag t-tag--danger t-tag--dark"></span>`;
+
+exports[`Tag :props :theme:default 1`] = `<span class="t-tag t-tag--default t-tag--dark"></span>`;
+
+exports[`Tag :props :theme:info 1`] = `<span class="t-tag t-tag--info t-tag--dark"></span>`;
+
+exports[`Tag :props :theme:primary 1`] = `<span class="t-tag t-tag--primary t-tag--dark"></span>`;
+
+exports[`Tag :props :theme:success 1`] = `<span class="t-tag t-tag--success t-tag--dark"></span>`;
+
+exports[`Tag :props :theme:warning 1`] = `<span class="t-tag t-tag--warning t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :checked 1`] = `<span class="t-tag t-tag--default t-tag--dark t-tag--checked"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :closable 1`] = `<span class="t-tag t-tag--default t-tag--dark"><i class="t-icon t-icon-close"></i></span>`;
+
+exports[`Tag or CheckTag :Tag:props :disabled 1`] = `<span class="t-tag t-tag--default t-tag--dark t-tag--disabled"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:dark;theme:danger 1`] = `<span class="t-tag t-tag--danger t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:dark;theme:default 1`] = `<span class="t-tag t-tag--default t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:dark;theme:info 1`] = `<span class="t-tag t-tag--info t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:dark;theme:primary 1`] = `<span class="t-tag t-tag--primary t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:dark;theme:success 1`] = `<span class="t-tag t-tag--success t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:dark;theme:warning 1`] = `<span class="t-tag t-tag--warning t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:light;theme:danger 1`] = `<span class="t-tag t-tag--danger t-tag--light"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:light;theme:default 1`] = `<span class="t-tag t-tag--default t-tag--light"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:light;theme:info 1`] = `<span class="t-tag t-tag--info t-tag--light"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:light;theme:primary 1`] = `<span class="t-tag t-tag--primary t-tag--light"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:light;theme:success 1`] = `<span class="t-tag t-tag--success t-tag--light"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:light;theme:warning 1`] = `<span class="t-tag t-tag--warning t-tag--light"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:plain;theme:danger 1`] = `<span class="t-tag t-tag--danger t-tag--plain"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:plain;theme:default 1`] = `<span class="t-tag t-tag--default t-tag--plain"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:plain;theme:info 1`] = `<span class="t-tag t-tag--info t-tag--plain"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:plain;theme:primary 1`] = `<span class="t-tag t-tag--primary t-tag--plain"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:plain;theme:success 1`] = `<span class="t-tag t-tag--success t-tag--plain"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :effect:plain;theme:warning 1`] = `<span class="t-tag t-tag--warning t-tag--plain"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :icon 1`] = `<span class="t-tag t-tag--default t-tag--dark"><i class="t-icon t-icon-search"></i></span>`;
+
+exports[`Tag or CheckTag :Tag:props :icon:iconfont-string:home 1`] = `<span class="t-tag t-tag--default t-tag--dark"><i class="t-icon t-icon-home"></i></span>`;
+
+exports[`Tag or CheckTag :Tag:props :maxWidth 1`] = `<span class="t-tag t-tag--default t-tag--dark t-tag--ellipsis" style="max-width: 100px;"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :shape:mark 1`] = `<span class="t-tag t-tag--default t-tag--dark t-tag--mark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :shape:round 1`] = `<span class="t-tag t-tag--default t-tag--dark t-tag--round"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :shape:square 1`] = `<span class="t-tag t-tag--default t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :size:large 1`] = `<span class="t-tag t-tag--default t-size-l t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :size:middle 1`] = ``;
+
+exports[`Tag or CheckTag :Tag:props :size:small 1`] = ``;
+
+exports[`Tag or CheckTag :Tag:props :theme: 1`] = `<span class="t-tag t-tag--default t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :theme:danger 1`] = `<span class="t-tag t-tag--danger t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :theme:default 1`] = `<span class="t-tag t-tag--default t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :theme:info 1`] = `<span class="t-tag t-tag--info t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :theme:primary 1`] = `<span class="t-tag t-tag--primary t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :theme:success 1`] = `<span class="t-tag t-tag--success t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag :Tag:props :theme:warning 1`] = `<span class="t-tag t-tag--warning t-tag--dark"></span>`;
+
+exports[`Tag or CheckTag @event: Tag Event passthrough: close 1`] = `<span class="t-tag t-tag--default t-tag--dark"><i class="t-icon t-icon-close"></i></span>`;
+
+exports[`Tag or CheckTag CheckTag:props :checked 1`] = `<span class="t-tag t-tag--default t-tag--checked"></span>`;
+
+exports[`Tag or CheckTag CheckTag:props :disabled 1`] = `<span class="t-tag t-tag--default t-tag--disabled"></span>`;
+
+exports[`Tag or CheckTag Tag:slot <icon> 1`] = `<span class="t-tag t-tag--default t-tag--dark"></span>`;
 
 exports[`Tag slot <icon> 1`] = `<span class="t-tag t-tag--default t-tag--dark"></span>`;
