@@ -1,18 +1,21 @@
 <template>
   <span>
-    <div
-      :class="_class"
-      ref="popper"
-      v-show="!disabled && showPopper"
-      :style="overlayStyle"
-      role="tooltip"
-      :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
-    >
-      <slot name="content">
-        <render-component :render='renderContent' />
-      </slot>
-      <div v-if="visibleArrow" :class="name+'_arrow'" data-popper-arrow></div>
-    </div>
+    <transition :name="name+'_animation'" appear >
+      <div
+        :class="name"
+        ref="popper"
+        v-show="!disabled && showPopper"
+        role="tooltip"
+        :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
+      >
+        <div :class="_class" :style="overlayStyle">
+          <slot name="content">
+            <render-component :render='renderContent' />
+          </slot>
+          <div v-if="visibleArrow" :class="name+'_arrow'" data-popper-arrow></div>
+        </div>
+      </div>
+    </transition>
     <div :class="name+'-reference'" ref="reference">
       <slot />
     </div>
@@ -109,7 +112,7 @@ export default Vue.extend({
   computed: {
     _class(): ClassName {
       return [
-        `${name}`,
+        `${name}-content`,
         this.overlayClassName,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
@@ -117,9 +120,13 @@ export default Vue.extend({
       ];
     },
     renderContent(): any {
+      // 浮层内容处理
       if (!this.content || typeof this.content === 'string') {
-        return (h: CreateElement) => h('span', {}, this.content as VNodeChildren);
+        return (h: CreateElement) => h('div', {
+          class: `${name}-tooltips`,
+        }, this.content as VNodeChildren);
       }
+
       return this.content;
     },
     manualTrigger(): boolean {
@@ -244,12 +251,6 @@ export default Vue.extend({
             name: 'arrow',
             options: {
               padding: 5, // 5px from the edges of the popper
-            },
-          },
-          {
-            name: 'offset',
-            options: {
-              offset: [0, 8],
             },
           },
         ],
