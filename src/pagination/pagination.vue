@@ -38,7 +38,7 @@
           <template v-if="prevMore">
             <t-icon-double-left></t-icon-double-left>
           </template>
-          <template v-else><t-icon-more></t-icon-more></template>
+          <template v-else><t-icon-ellipsis></t-icon-ellipsis></template>
         </li>
         <li :class="getButtonClass(i)"
             v-for="i in pages" :key="i" @click="toPage(i)">
@@ -51,7 +51,7 @@
           <template v-if="nextMore">
             <t-icon-double-arrow-right></t-icon-double-arrow-right>
           </template>
-          <template v-else><t-icon-more></t-icon-more></template>
+          <template v-else><t-icon-ellipsis></t-icon-ellipsis></template>
         </li>
         <li :class="getButtonClass(_pageCount)" v-if="isFolded"
             @click="toPage(_pageCount)">{{ _pageCount }}</li>
@@ -82,7 +82,7 @@
     <template v-if="showJumper">
       <div :class="_jumperClass">
         {{ t(locale.jumpTo) }}
-        <t-input :class="_jumperInputClass" v-model="jumpIndex"
+        <t-input disabled :class="_jumperInputClass" v-model="jumpIndex"
                  @keydown.enter="jumpToPage" @blur="jumpToPage"/>
         {{ t(locale.page) }}
       </div>
@@ -99,7 +99,7 @@ import TIconArrowLeft from '../icon/arrow-left';
 import TIconArrowRight from '../icon/arrow-right';
 import TIconDoubleLeft from '../icon/double-left';
 import TIconDoubleArrowRight from '../icon/double-arrow-right';
-import TIconMore from '../icon/more';
+import TIconEllipsis from '../icon/ellipsis';
 import TInput from '../input';
 import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
@@ -118,7 +118,7 @@ export default mixins(PaginationLocalReceiver).extend({
     TIconArrowRight,
     TIconDoubleLeft,
     TIconDoubleArrowRight,
-    TIconMore,
+    TIconEllipsis,
     TInput,
     Select,
   },
@@ -276,10 +276,9 @@ export default mixins(PaginationLocalReceiver).extend({
     _sizerClass(): ClassName {
       return [
         `${name}__select`,
-        `${name}__select-demo`,
-        {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
-        },
+        // {
+        //   [CLASSNAMES.STATUS.disabled]: this.disabled,
+        // },
       ];
     },
     _preBtnClass(): ClassName {
@@ -318,14 +317,13 @@ export default mixins(PaginationLocalReceiver).extend({
     _jumperInputClass(): ClassName {
       return [
         `${name}__input`,
-        `${name}__input-demo`,
-        {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
-        },
+        // {
+        //   [CLASSNAMES.STATUS.disabled]: this.disabled,
+        // },
       ];
     },
     _simpleClass(): ClassName {
-      return [`${name}__select`, `${name}__select-demo`];
+      return [`${name}__select`];
     },
     _isSimple(): boolean {
       return this.theme === 'simple';
