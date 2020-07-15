@@ -22,6 +22,7 @@
 <script lang="ts">
 import Vue, { CreateElement, VNodeChildren } from 'vue';
 import { createPopper } from '@popperjs/core';
+import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
@@ -101,6 +102,7 @@ export default Vue.extend({
       currentPlacement: '',
       popperElm: null,
       referenceElm: null,
+      resizeSensor: null,
       popperJS: null,
     };
   },
@@ -253,6 +255,11 @@ export default Vue.extend({
         ],
       });
       this.popperElm.addEventListener('click', stop);
+
+      // 监听trigger元素尺寸变化
+      this.resizeSensor = new ResizeSensor(this.referenceElm, () => {
+        this.popperJS.update();
+      });
     },
 
     updatePopper(): void {
@@ -307,8 +314,7 @@ export default Vue.extend({
     handleDocumentClick(e: Event): void {
       const reference = this.referenceElm;
       const popper = this.popperElm;
-      if (!this.$el
-        || !reference
+      if (!this.$el || !reference
         || this.$el.contains(e.target as Element)
         || reference.contains(e.target as Node)
         || !popper

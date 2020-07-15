@@ -12,6 +12,9 @@
 ::: demo demos/icon 带图标的输入框
 :::
 
+::: demo demos/clearable 可清空
+:::
+
 ::: demo demos/disabled 禁用
 :::
 
@@ -31,7 +34,6 @@
 |prependIcon|String/Slot/Function| |N|前缀图标
 |appendIcon|String/Slot/Function| |N|后缀图标
 |showPassword|Boolean|false|N|是否显示切换密码图标
-|原生属性| | | |默认支持：type/name/autofocus/disabled/readonly/maxlength|
 
 >原生属性默认支持: type/name/disabled/readonly/autofocus
 
