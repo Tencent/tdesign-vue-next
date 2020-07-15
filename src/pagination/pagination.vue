@@ -82,7 +82,7 @@
     <template v-if="showJumper">
       <div :class="_jumperClass">
         {{ t(locale.jumpTo) }}
-        <t-input disabled :class="_jumperInputClass" v-model="jumpIndex"
+        <t-input :class="_jumperInputClass" v-model="jumpIndex"
                  @keydown.enter="jumpToPage" @blur="jumpToPage"/>
         {{ t(locale.page) }}
       </div>
