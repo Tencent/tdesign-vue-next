@@ -69,6 +69,7 @@
 | loading       | Boolean / Function(props): VNode                | false            | N    |                                           |
 | asyncLoading  | Function(): Promise                             | -                | N    | 异步加载的函数                            |
 | busy          | Boolean                                         | -                | N    | 异步加载的停止状态                        |
+| showColumns   | Boolean                                         | -                | N    | 是否开启自定义列                          |
 
 ### Column
 
