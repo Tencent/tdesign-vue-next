@@ -30,6 +30,9 @@
 ::: demo demos/select-multiple 多选
 :::
 
+::: demo demos/show-columns 自定义显示列
+:::
+
 ::: demo demos/sort 排序
 :::
 
@@ -47,42 +50,42 @@
 
 ### 属性配置
 
-| 属性    | 类型                             | 默认值 | 必传 | 说明 |
-| ------- | -------------------------------- | ------ | ---- | ---- |
-| data | Array<any> | -  | N    |   数据源   |
-| columns | Array<any> | -  | N    |   列配置，参见Column  |
-| rowKey | String | e.g. rowKey = id  | Y    |   rowKey = 'id'，指定 rowKey  |
-| tableLayout | String | fixed  | N    |   auto / fixed，表格布局方式   |
-| verticalAlign	 | String | middle  | N    |   top / middle / bottom，行内容上下方向对齐   |
-| size | String | default  | N    |   large / small / default   |
-| border | Boolean | true  | N    |   true / false，行边框 / 无边框   |
-| hover | Boolean | true  | N    |   true / false，hover 时是否高亮   |
-| stripe | Boolean | false  | N    |   true / false，斑马纹   |
-| empty | String / Function(props): VNode / slots: {cost} | 暂无数据  | N| 空表格 |
-| height | Number | | N | |
-| width | Number | | N | |
-| rowClassName | String/ Function(props): String | false  | N    |   自定义行样式   |
-| pagination | Object | false  | N    |  分页    |
-| loading | Boolean / Function(props): VNode | false  | N    |      |
+| 属性          | 类型                                            | 默认值           | 必传 | 说明                                      |
+| ------------- | ----------------------------------------------- | ---------------- | ---- | ----------------------------------------- |
+| data          | Array<any>                                      | -                | N    | 数据源                                    |
+| columns       | Array<any>                                      | -                | N    | 列配置，参见 Column                       |
+| rowKey        | String                                          | e.g. rowKey = id | Y    | rowKey = 'id'，指定 rowKey                |
+| tableLayout   | String                                          | fixed            | N    | auto / fixed，表格布局方式                |
+| verticalAlign | String                                          | middle           | N    | top / middle / bottom，行内容上下方向对齐 |
+| size          | String                                          | default          | N    | large / small / default                   |
+| border        | Boolean                                         | true             | N    | true / false，行边框 / 无边框             |
+| hover         | Boolean                                         | true             | N    | true / false，hover 时是否高亮            |
+| stripe        | Boolean                                         | false            | N    | true / false，斑马纹                      |
+| empty         | String / Function(props): VNode / slots: {cost} | 暂无数据         | N    | 空表格                                    |
+| height        | Number                                          |                  | N    |                                           |
+| width         | Number                                          |                  | N    |                                           |
+| rowClassName  | String/ Function(props): String                 | false            | N    | 自定义行样式                              |
+| pagination    | Object                                          | false            | N    | 分页                                      |
+| loading       | Boolean / Function(props): VNode                | false            | N    |                                           |
 
 ### Column
 
 列描述数据对象，是 columns 中的一项
 
-| 属性       | 类型    | 默认值 | 必传 | 说明                          |
-| ---------- | ------- | ------ | ---- | ----------------------------- |
-| align      | String  | -      | N    | left / right / center              |
-| fixed      | String  | -      | N    | left / right                       |
-| colKey     | String  | -      | Y    |  -                       |
-| title     | String | Function  | -      | Y    |  列标题  |
-| width     | String / Number | -  | -      | N    |  -  |
-| minWidth     | String / Number | -  | -      | N    |  -  |
-| className    | String / Number | -  | -      | N   |  列样式  |
-| children    | Array<any> | -  | -      | N   |  多级表头  |
-| attrs      | Object  | -      | N    | 列的原生属性配置              |
-| type       | String  | -      | N    | 多选/单选，multiple or single |
-| checkProps | Object  | -      | N    | 选择框的属性配置              |
-| disabled   | Boolean | -      | N    | 是否禁用选项框                |
+| 属性       | 类型            | 默认值   | 必传 | 说明                          |
+| ---------- | --------------- | -------- | ---- | ----------------------------- |
+| align      | String          | -        | N    | left / right / center         |
+| fixed      | String          | -        | N    | left / right                  |
+| colKey     | String          | -        | Y    | -                             |
+| title      | String          | Function | -    | Y                             | 列标题 |
+| width      | String / Number | -        | -    | N                             | - |
+| minWidth   | String / Number | -        | -    | N                             | - |
+| className  | String / Number | -        | -    | N                             | 列样式 |
+| children   | Array<any>      | -        | -    | N                             | 多级表头 |
+| attrs      | Object          | -        | N    | 列的原生属性配置              |
+| type       | String          | -        | N    | 多选/单选，multiple or single |
+| checkProps | Object          | -        | N    | 选择框的属性配置              |
+| disabled   | Boolean         | -        | N    | 是否禁用选项框                |
 
 ### Expand
 
