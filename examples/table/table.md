@@ -39,7 +39,7 @@
 ::: demo demos/async-loading 异步加载
 :::
 
-::: demo demos/loading loading
+::: demo demos/loading 普通加载
 :::
 
 ::: demo demos/filter-uncontrolled 非受控筛选
@@ -67,25 +67,33 @@
 | rowClassName  | String/ Function(props): String                 | false            | N    | 自定义行样式                              |
 | pagination    | Object                                          | false            | N    | 分页                                      |
 | loading       | Boolean / Function(props): VNode                | false            | N    |                                           |
+| asyncLoading  | Function(): Promise                             | -                | N    | 异步加载的函数                            |
+| busy          | Boolean                                         | -                | N    | 异步加载的停止状态                        |
 
 ### Column
 
 列描述数据对象，是 columns 中的一项
 
-| 属性       | 类型            | 默认值   | 必传 | 说明                          |
-| ---------- | --------------- | -------- | ---- | ----------------------------- |
-| align      | String          | -        | N    | left / right / center         |
-| fixed      | String          | -        | N    | left / right                  |
-| colKey     | String          | -        | Y    | -                             |
-| title      | String          | Function | -    | Y                             | 列标题 |
-| width      | String / Number | -        | -    | N                             | - |
-| minWidth   | String / Number | -        | -    | N                             | - |
-| className  | String / Number | -        | -    | N                             | 列样式 |
-| children   | Array<any>      | -        | -    | N                             | 多级表头 |
-| attrs      | Object          | -        | N    | 列的原生属性配置              |
-| type       | String          | -        | N    | 多选/单选，multiple or single |
-| checkProps | Object          | -        | N    | 选择框的属性配置              |
-| disabled   | Boolean         | -        | N    | 是否禁用选项框                |
+| 属性           | 类型                           | 默认值   | 必传 | 说明                          |
+| -------------- | ------------------------------ | -------- | ---- | ----------------------------- |
+| align          | String                         | -        | N    | left / right / center         |
+| fixed          | String                         | -        | N    | left / right                  |
+| colKey         | String                         | -        | Y    | -                             |
+| title          | String                         | Function | -    | Y                             | 列标题 |
+| width          | String / Number                | -        | -    | N                             | - |
+| minWidth       | String / Number                | -        | -    | N                             | - |
+| className      | String / Number                | -        | -    | N                             | 列样式 |
+| children       | Array<any>                     | -        | -    | N                             | 多级表头 |
+| attrs          | Object                         | -        | N    | 列的原生属性配置              |
+| type           | String                         | -        | N    | 多选/单选，multiple or single |
+| checkProps     | Object                         | -        | N    | 选择框的属性配置              |
+| disabled       | Boolean                        | -        | N    | 是否禁用选项框                |
+| sorter         | Boolean / Function             | -        | N    | 排序函数                      |
+| sortType       | String / Null                  | null     | N    | 支持的排序方式                |
+| filters        | Object[]                       | -        | N    | 表头的筛选菜单项              |
+| filteredValue  | String[]                       | -        | N    | 筛选的受控属性                |
+| filterIcon     | VNode / Function(props): VNode | null     | N    | 自定义 filter 图标            |
+| filterMultiple | Boolean                        | false    | N    | 是否多选                      |
 
 ### Expand
 

@@ -8,7 +8,8 @@
     :hover="hover"
     :stripe="stripe"
     :size="size"
-    :pagination="pagination">
+    :pagination="pagination"
+    @change="handleChange">
   </t-table>
 </template>
 <script>
@@ -23,7 +24,7 @@ export default {
       description: '数据源',
     };
     const data = [];
-    for (let i = 0;i < 10; i ++) {
+    for (let i = 0; i < 100; i ++) {
       data.push({
         ...item,
         index: i,
@@ -106,12 +107,16 @@ export default {
       rowClassName: rowKey => `${rowKey}-class`,
       // 与pagination对齐
       pagination: {
-        show: true,
         pageSize: 10,
-        pageIndex: 0,
-        total: 100,
+        total: 120,
+        visibleWithOnePage: true,
       },
     };
+  },
+  methods: {
+    handleChange(pagination) {
+      console.log(pagination);
+    },
   },
 };
 </script>
