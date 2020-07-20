@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu head-menu demo works fine 1`] = `
+<div
+  class="t-head-menu t-menu-mode__dropdown t-menu--light"
+>
+  <div
+    class="t-head-menu__inner"
+  >
+    <div
+      class="t-menu__logo"
+    >
+      <img
+        alt="logo"
+        class="t-menu__logo--center"
+        src="https://main.qcloudimg.com/raw/9fe1217de2bd7eb623f70648a046e341/head-logo.png"
+      />
+    </div>
+     
+    <ul
+      class="t-menu"
+    >
+       
+      <li
+        class="t-menu__item"
+      >
+        <span>
+          菜单内容一
+        </span>
+      </li>
+       
+      <li
+        class="t-menu__item"
+      >
+        <span>
+          已选内容
+        </span>
+      </li>
+       
+      <li
+        class="t-menu__item"
+      >
+        <span>
+          菜单内容二
+        </span>
+      </li>
+       
+      <li
+        class="t-menu__item t-is-disabled"
+      >
+        <span>
+          菜单内容三
+        </span>
+      </li>
+       
+    </ul>
+     
+    <div
+      class="t-menu__options"
+    >
+      <div>
+        <a
+          href="javascript:;"
+        >
+          <i
+            class="t-icon t-icon-demo"
+          />
+        </a>
+         
+        <a
+          href="javascript:;"
+        >
+          <i
+            class="t-icon t-icon-demo"
+          />
+        </a>
+         
+        <a
+          href="javascript:;"
+        >
+          <i
+            class="t-icon t-icon-demo"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+   
+</div>
+`;
