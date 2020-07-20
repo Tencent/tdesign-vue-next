@@ -55,7 +55,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../../common/style/web/index";
+@import '../../../common/style/web/index';
+/deep/ [class*='t-table-expandable-icon-cell'] .t-icon {
+  background-color: transparent;
+}
 .link {
   cursor: pointer;
   margin-right: 15px;
@@ -69,7 +72,7 @@ export default {
     top: 50%;
     left: 0px;
     transform: translateY(-50%);
-    content: "";
+    content: '';
     background-color: @success-color;
     width: 6px;
     height: 6px;

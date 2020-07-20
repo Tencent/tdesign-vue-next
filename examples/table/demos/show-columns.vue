@@ -40,6 +40,9 @@ export default {
 
 <style lang="less" scoped>
 @import '../../../common/style/web/index';
+/deep/ [class*='t-button'] .t-icon {
+  background-color: transparent;
+}
 .link {
   cursor: pointer;
   margin-right: 15px;
