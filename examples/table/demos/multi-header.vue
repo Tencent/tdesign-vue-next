@@ -1,7 +1,8 @@
 <template>
   <t-table
     :data="data"
-    :columns="columns">
+    :columns="columns"
+    :border="true">
   </t-table>
 </template>
 <script>
