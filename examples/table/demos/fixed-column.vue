@@ -73,7 +73,6 @@ export default {
         {
           align: 'left',
           width: '100',
-          fixed: 'right',
           minWidth: '100',
           className: 'test3',
           ellipsis: true,
