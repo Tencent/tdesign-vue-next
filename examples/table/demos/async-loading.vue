@@ -1,14 +1,6 @@
 <template>
   <div>
-    data.length: {{data.length}}
-    <t-table
-      style="overflow: auto;"
-      :columns="columns"
-      :data="data"
-      :asyncLoading="asyncLoadingHandler"
-      :busy="busy"
-      :height="200"
-    ></t-table>
+    <t-table :columns="columns" :data="data" :asyncLoading="asyncLoading"></t-table>
   </div>
 </template>
 
@@ -67,28 +59,10 @@ const columns = [
 export default {
   data() {
     return {
-      data: [...data],
+      data,
       columns,
-      busy: false,
+      asyncLoading: true,
     };
-  },
-  methods: {
-    asyncLoadingHandler() {
-      return new Promise((resolve) => {
-        if (this.data.length > 20) {
-          this.busy = true;
-          resolve();
-          return;
-        }
-        // mock api
-        setTimeout(() => {
-          this.data.push(...data);
-          console.log('this.data', data.length, this.data.length);
-
-          resolve();
-        }, 1000);
-      });
-    },
   },
 };
 </script>
