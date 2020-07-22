@@ -72,6 +72,7 @@ export default {
         },
         {
           align: 'left',
+          fixed: 'right',
           width: '100',
           minWidth: '100',
           className: 'test3',
