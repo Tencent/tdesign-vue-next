@@ -3,9 +3,6 @@
 ::: demo demos/base 默认
 :::
 
-::: demo demos/multi-header 多级表头
-:::
-
 ::: demo demos/fixed-header 固定表头
 :::
 
