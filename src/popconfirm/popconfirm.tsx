@@ -43,7 +43,7 @@ export default Vue.extend({
   },
   computed: {
     iconName(): string {
-      return this.theme === 'default' ? '' : 'help-fill';
+      return this.theme === 'default' ? '' : 'prompt_fill';
     },
     iconColor(): string {
       let color = '';
