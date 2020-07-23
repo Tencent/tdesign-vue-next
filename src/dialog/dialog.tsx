@@ -117,7 +117,7 @@ export default Vue.extend({
     attach: {
       type: [Function, String, Boolean],
       default: false,
-    }
+    },
   },
   computed: {
     // 是否模态形式的对话框
@@ -203,7 +203,7 @@ export default Vue.extend({
       this.$emit('click-close-btn', this.close);
     },
     close() {
-      this.changeVisible(false)
+      this.changeVisible(false);
     },
     changeVisible(visible: boolean) {
       this.$emit('change', visible);
