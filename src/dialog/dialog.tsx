@@ -117,10 +117,7 @@ export default Vue.extend({
     attach: {
       type: [Function, String, Boolean],
       default: false,
-    },
-    close: {
-      type: Function,
-    },
+    }
   },
   computed: {
     // 是否模态形式的对话框
@@ -155,7 +152,7 @@ export default Vue.extend({
   },
   watch: {
     visible(value) {
-      this.$emit('visableChange', value);
+      this.$emit('visable-change', value);
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
       // 目前弹窗交互没有动画
@@ -196,17 +193,17 @@ export default Vue.extend({
     keyboardEvent(e: KeyboardEvent) {
       // esc 键
       if (e.keyCode === 27) {
-        this.$emit('keydownEsc', e);
+        this.$emit('keydown-esc', e);
       }
     },
     overlayAction() {
-      this.$emit('clickOverlay');
+      this.$emit('click-overlay');
     },
     closeBtnAcion() {
-      this.$emit('clickCloseBtn');
-      if (typeof this.close === 'function') {
-        this.close();
-      }
+      this.$emit('click-close-btn', this.close);
+    },
+    close() {
+      this.changeVisible(false)
     },
     changeVisible(visible: boolean) {
       this.$emit('change', visible);
@@ -215,7 +212,6 @@ export default Vue.extend({
       alert('confirm');
     },
     renderTitle() {
-      const defaultView = <h5 class='title'>对话框标题</h5>;
       const target = this.header;
       let view;
       let isShow = true;
@@ -229,12 +225,11 @@ export default Vue.extend({
       }
       return isShow && (
         <div class="t-dialog__header">
-          {view || defaultView}
+          {view}
         </div>
       );
     },
     renderBody() {
-      const defaultView = <div>对话框内容</div>;
       const target = this.body;
       let view;
       let isShow = true;
@@ -248,7 +243,7 @@ export default Vue.extend({
       }
       return isShow && (
         <div class="t-dialog__body">
-          {view || defaultView}
+          {view}
         </div>
       );
     },
