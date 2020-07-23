@@ -4,16 +4,24 @@ import RenderComponent from '../utils/render-component';
 import TIconClose from '../icon/close';
 
 const name = `${prefix}-dialog`;
-interface StyleObject {
-  width?: string | number;
-}
-const PositionClass = {
-  center: 't-dialog--center',
-};
+
 function GetCSSValue(v: string | number) {
   return isNaN(Number(v)) ? v : `${Number(v)}px`;
 };
 
+// 计算dialog元素的偏移量，根据offset跟placement确定
+function GetTransformByOffset(offset: any, placement: string) {
+  if (!offset) return undefined;
+
+  const { left, right, top, bottom } = offset
+  let translateY: string = placement == 'center' ? '-50%' : '0px'
+  let translateX: string = '-50%'
+  left && (translateX = `${translateX} - ${GetCSSValue(left)}`)
+  right && (translateX = `${translateX} + ${GetCSSValue(right)}`)
+  top && (translateY = `${translateY} - ${GetCSSValue(top)}`)
+  bottom && (translateY = `${translateY} + ${GetCSSValue(bottom)}`)
+  return `translate(calc(${translateX}),calc(${translateY}))`
+}
 // 注册元素的拖拽事件
 function InitDragEvent(dragBox: HTMLElement) {
   const target = dragBox;
@@ -63,19 +71,20 @@ export default Vue.extend({
         );
       },
     },
-    offset: {
-      type: [String, Object],
-      default: 'center',
-      validator(v: string | object): boolean {
-        if (typeof v === 'string') {
-          return (
-            [
-              'center',
-            ].indexOf(v) > -1
-          );
-        }
-        return true;
+    placement: {
+      type: String,
+      default: 'top',
+      validator(v: string): boolean {
+        return (
+          [
+            'top',
+            'center',
+          ].indexOf(v) > -1
+        );
       },
+    },
+    offset: {
+      type: Object
     },
     width: {
       type: [String, Number],
@@ -176,7 +185,20 @@ export default Vue.extend({
       }
     },
   },
+  data: {
+    transform: undefined
+  },
+  created() {
+    this.initOffsetWatch()
+  },
   methods: {
+    initOffsetWatch() {
+      this.transform = GetTransformByOffset(this.offset, this.placement)
+      // 这里主要是因为offset是对象，直接用computed or watch 的话，同样会造成不必要的重复计算
+      this.$watch(() => JSON.stringify(this.offset) + this.placement, () => {
+        this.transform = GetTransformByOffset(this.offset, this.placement)
+      })
+    },
     disPreventScrollThrough(disabled: boolean) {
       // 防止滚动穿透,modal形态才需要
       if (this.preventScrollThrough && this.isModal) {
@@ -284,13 +306,8 @@ export default Vue.extend({
     },
   },
   render() {
-    const dialogClass = ['t-dialog', 't-dialog--default'];
-    let dialogStyle: StyleObject = { width: GetCSSValue(this.width) };
-    if (typeof this.offset === 'object') {
-      dialogStyle = { ...dialogStyle, ...this.offset };
-    } else {
-      dialogClass.push(PositionClass[this.offset]);
-    }
+    const dialogClass = ['t-dialog', 't-dialog--default', `t-dialog--${this.placement}`];
+    let dialogStyle = { width: GetCSSValue(this.width), transform: this.transform };
     return (
       <div class={this.ctxClass} style={{ zIndex: this.zIndex }} v-transfer-dom={this.attachTarget}>
 

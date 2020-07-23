@@ -6,6 +6,9 @@
 ::: demo demos/base 默认
 :::
 
+::: demo demos/position 弹框位置
+:::
+
 ::: demo demos/custom 自定义内容
 :::
 
@@ -17,7 +20,8 @@
 |-----|-----|-----|-----|-----|
 |visable|Boolean|false|N|用于控制弹框是否显示（v-model）|
 |mode|String|'modal'|N|是否模态形式，可选值：'modal', 'not一modal'|
-|offset|String/Object|'center'|N|对话框位置，默认垂直水平居中，如： {left： '100px'， top： '200px'}|
+|placement|String|'top'|N|top 定位: 20%，可选值：top/center|
+|offset|Object|-|N|offset 是相对于 placement 的偏移量，如offset={left:'100px',top:'200px'}|
 |width|String/Number|-|N|对话框宽度，如： 320， '500px'， 80%；如果是数字，单位为px|
 |header|Boolean/String/Function|true|N|弹框顶部内容；支持同名插槽（slot）；类型Boolean，表示是否显示；类型String表示为显示内容；类型为Function，则表示渲染函数，函数返回内容将作为渲染结果输出。优先级： Function/String > slot|
 |body|Boolean/String/Function|true|N|弹框内容；支持同名插槽（slot）；类型Boolean，表示是否显示；类型String表示为显示内容；类型为Function，则表示渲染函数，函数返回内容将作为渲染结果输出。优先级： Function/String > slot|
