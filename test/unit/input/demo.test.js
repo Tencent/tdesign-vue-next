@@ -17,7 +17,7 @@ describe('Button', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
   it('icon demo works fine', () => {
-    const demo = require('@/examples/input/demos/icon.vue');
+    const demo = require('@/examples/input/demos/icon.vue').default;
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

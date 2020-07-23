@@ -6,10 +6,24 @@
     </template>
     <!-- select-->
     <template v-if="showSizer">
-      <div :class="_sizerClass" @change="onSelectorChange"></div>
+      <t-select
+        :value="pageSize"
+        :disabled="disabled"
+        :class="_sizerClass"
+        @change="onSelectorChange"
+      >
+        <t-option
+          v-for="(item, index) in _pageSizeOption"
+          :value="item"
+          :label="t(locale.itemsPerPage, { size: item })"
+          :key="index"
+        >
+        </t-option>
+      </t-select>
     </template>
     <!-- 向前按钮-->
-    <div :class="_preBtnClass"  @click="prevPage" :disabled="disabled || currentIndex === 1">
+    <div :class="_preBtnClass"  @click="prevPage"
+         :disabled="disabled || currentIndex === 1">
       <t-icon-arrow-left></t-icon-arrow-left>
     </div>
     <!-- 页数 -->
@@ -18,27 +32,46 @@
         <li :class="getButtonClass(1)" v-if="isFolded"
             @click="toPage(1)">1</li>
         <li :class="_btnMoreClass"
-            v-show="isFolded && isPrevMoreShow" @click="prevMorePage" >
-          <t-icon-more></t-icon-more>
+            v-show="isFolded && isPrevMoreShow" @click="prevMorePage"
+            @mouseover="prevMore = true"
+            @mouseout="prevMore = false" >
+          <template v-if="prevMore">
+            <t-icon-double-left></t-icon-double-left>
+          </template>
+          <template v-else><t-icon-ellipsis></t-icon-ellipsis></template>
         </li>
         <li :class="getButtonClass(i)"
             v-for="i in pages" :key="i" @click="toPage(i)">
           {{ i }}
         </li>
         <li :class="_btnMoreClass"
-            v-show="isFolded && isNextMoreShow" @click="nextMorePage">
-          <t-icon-more></t-icon-more>
+            v-show="isFolded && isNextMoreShow" @click="nextMorePage"
+            @mouseover="nextMore = true"
+            @mouseout="nextMore = false" >
+          <template v-if="nextMore">
+            <t-icon-double-arrow-right></t-icon-double-arrow-right>
+          </template>
+          <template v-else><t-icon-ellipsis></t-icon-ellipsis></template>
         </li>
         <li :class="getButtonClass(_pageCount)" v-if="isFolded"
             @click="toPage(_pageCount)">{{ _pageCount }}</li>
       </ul>
     </template>
     <template v-else>
-      <!-- select-->
-      <div :class="_simpleClass"
-           :disabled="disabled"
-           @keydown.enter="jumpToPage"
-           @blur="jumpToPage"></div>
+      <t-select
+        :value="currentIndex"
+        :disabled="disabled"
+        :class="_simpleClass"
+        @change="toPage"
+      >
+        <t-option
+          v-for="(item, index) in _pageCountOption"
+          :value="item"
+          :label="`${item}/${_pageCount}`"
+          :key="index"
+        >
+        </t-option>
+      </t-select>
     </template>
     <!-- 向后按钮-->
     <div :class="_nextBtnClass" @click="nextPage"
@@ -48,10 +81,10 @@
     <!-- 跳转-->
     <template v-if="showJumper">
       <div :class="_jumperClass">
-        {{ t(locale.beforeGoto) }}
+        {{ t(locale.jumpTo) }}
         <t-input :class="_jumperInputClass" v-model="jumpIndex"
                  @keydown.enter="jumpToPage" @blur="jumpToPage"/>
-        {{ t(locale.afterGoto) }}
+        {{ t(locale.page) }}
       </div>
     </template>
   </div>
@@ -64,9 +97,13 @@ import getLocalRecevierMixins from '../locale/local-receiver';
 import RenderComponent from '../utils/render-component';
 import TIconArrowLeft from '../icon/arrow-left';
 import TIconArrowRight from '../icon/arrow-right';
-import TIconMore from '../icon/more';
+import TIconDoubleLeft from '../icon/double-left';
+import TIconDoubleArrowRight from '../icon/double-arrow-right';
+import TIconEllipsis from '../icon/ellipsis';
 import TInput from '../input';
+import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
+
 
 const { prefix } = config;
 const name = `${prefix}-pagination`;
@@ -79,8 +116,11 @@ export default mixins(PaginationLocalReceiver).extend({
     RenderComponent,
     TIconArrowLeft,
     TIconArrowRight,
-    TIconMore,
+    TIconDoubleLeft,
+    TIconDoubleArrowRight,
+    TIconEllipsis,
     TInput,
+    Select,
   },
   model: {
     prop: 'current',
@@ -204,6 +244,8 @@ export default mixins(PaginationLocalReceiver).extend({
     return {
       jumpIndex: this.current,
       currentIndex: this.current,
+      prevMore: false,
+      nextMore: false,
     };
   },
   watch: {
@@ -234,10 +276,9 @@ export default mixins(PaginationLocalReceiver).extend({
     _sizerClass(): ClassName {
       return [
         `${name}__select`,
-        `${name}__select-demo`,
-        {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
-        },
+        // {
+        //   [CLASSNAMES.STATUS.disabled]: this.disabled,
+        // },
       ];
     },
     _preBtnClass(): ClassName {
@@ -276,14 +317,13 @@ export default mixins(PaginationLocalReceiver).extend({
     _jumperInputClass(): ClassName {
       return [
         `${name}__input`,
-        `${name}__input-demo`,
-        {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
-        },
+        // {
+        //   [CLASSNAMES.STATUS.disabled]: this.disabled,
+        // },
       ];
     },
     _simpleClass(): ClassName {
-      return [`${name}__select`, `${name}__select-demo`];
+      return [`${name}__select`];
     },
     _isSimple(): boolean {
       return this.theme === 'simple';
@@ -292,7 +332,13 @@ export default mixins(PaginationLocalReceiver).extend({
       const c: number = Math.ceil(this.total / this.pageSize);
       return c > 0 ? c : 1;
     },
-
+    _pageCountOption(): Array<number> {
+      const ans = [];
+      for (let i = 1;i <= this._pageCount;i++) {
+        ans.push(i);
+      }
+      return ans;
+    },
     _pageSizeOption(): Array<number> {
       const data = this.pageSizeOption as Array<number>;
       return data.find(v => v === this.pageSize)
@@ -400,11 +446,11 @@ export default mixins(PaginationLocalReceiver).extend({
         },
       ];
     },
-    onSelectorChange(e: MouseEvent): void {
+    onSelectorChange(e: string): void {
       if (this.disabled) {
         return;
       }
-      const pageSize: number = parseInt((e.target as HTMLSelectElement).value, 10);
+      const pageSize: number = parseInt(e, 10);
       let pageCount = 1;
       if (pageSize > 0) {
         pageCount = Math.ceil(this.total / pageSize);
