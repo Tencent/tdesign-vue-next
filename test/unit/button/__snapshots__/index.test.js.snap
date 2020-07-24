@@ -13,8 +13,8 @@ exports[`Button :props :icon string 1`] = `
 `;
 
 exports[`Button :props :loading 1`] = `
-<button class="t-button t-button--line t-is-loading"><svg class="t-icon t-icon-loading_gradient">
-    <use xlink:href="#t-icon-loading_gradient"></use>
+<button class="t-button t-button--line t-is-loading"><svg class="t-icon t-icon-loading">
+    <use xlink:href="#t-icon-loading"></use>
   </svg><span class="t-button__text">text</span></button>
 `;
 

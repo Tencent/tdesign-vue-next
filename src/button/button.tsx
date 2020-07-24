@@ -38,7 +38,7 @@ export default Vue.extend({
     let icon: JsxNode;
 
     if (this.loading) {
-      icon = <Icon name="loading_gradient"></Icon>;
+      icon = <Icon name="loading"></Icon>;
     } else if (typeof this.icon === 'string') {
       icon = <Icon name={this.icon}></Icon>;
     } else if (typeof this.icon === 'function') {
