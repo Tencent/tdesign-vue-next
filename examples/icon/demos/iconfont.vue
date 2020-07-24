@@ -6,22 +6,22 @@
     <div class="t-demo-row">
       <t-icon name="loading"/>
       <t-icon name="close" @click.native="onIconClose"/>
-      <t-icon name="success_fill"/>
+      <t-icon name="success-fill"/>
     </div><br>
     <div class="t-demo-row">
-      <t-icon name="success_fill" size="xs"/>
-      <t-icon name="success_fill" size="small"/>
-      <t-icon name="success_fill" />
-      <t-icon name="success_fill" size="middle" />
-      <t-icon name="success_fill" size="large" />
-      <t-icon name="success_fill" size="xl" />
-      <t-icon name="success_fill" size="25px" />
-      <t-icon name="success_fill" size="2em" />
+      <t-icon name="success-fill" size="xs"/>
+      <t-icon name="success-fill" size="small"/>
+      <t-icon name="success-fill" />
+      <t-icon name="success-fill" size="middle" />
+      <t-icon name="success-fill" size="large" />
+      <t-icon name="success-fill" size="xl" />
+      <t-icon name="success-fill" size="25px" />
+      <t-icon name="success-fill" size="2em" />
     </div><br>
     <div class="t-demo-row">
-      <t-icon name="success_fill" style="color: red"/>
-      <t-icon name="success_fill" style="color: green"/>
-      <t-icon name="success_fill" style="color: orange"/>
+      <t-icon name="success-fill" style="color: red"/>
+      <t-icon name="success-fill" style="color: green"/>
+      <t-icon name="success-fill" style="color: orange"/>
     </div>
   </div>
 </template>

@@ -1,5 +1,9 @@
 {
-  "extends": ["plugin:@typescript-eslint/recommended", "@tencent/eslint-config-tencent", "plugin:vue/essential"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "@tencent/eslint-config-tencent",
+    "plugin:vue/essential"
+  ],
   "env": {
     "browser": true,
     "node": true,
@@ -47,7 +51,14 @@
       }
     },
     {
-      "files": ["**/demos/*", "script/**/*", "script/*", "*.js", "site/**/*", "site/*"],
+      "files": [
+        "**/demos/*",
+        "script/**/*",
+        "script/*",
+        "*.js",
+        "site/**/*",
+        "site/*"
+      ],
       "rules": {
         "no-var-requires": 0,
         "no-console": 0,

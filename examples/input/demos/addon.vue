@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-item--input__input-box">
+  <div>
     <t-addon prepend="http://">
       <t-input placeholder="请输入内容" />
     </t-addon>
