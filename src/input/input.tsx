@@ -98,9 +98,11 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       <div class={classes} {...{ attrs: wrapperAttrs, on: wrapperEvents }}>
         {
           prefixIcon
-            ? <span class={`${name}__prefix`}>
-            { prefixIcon }
-          </span> : null
+            ? (
+              <span class={`${name}__prefix`}>
+                { prefixIcon }
+              </span>
+            ) : null
         }
         <input
           {...{ attrs: inputAttrs, on: inputEvents }}
@@ -110,10 +112,12 @@ export default (Vue as VueConstructor<InputInstance>).extend({
           onInput={this.onInput}
         />
         {
-          suffixIcon || ClearIcon
-            ? <span class={`${name}__suffix`}>
-            { suffixIcon }
-          </span> : null
+          suffixIcon
+            ? (
+              <span class={`${name}__suffix`}>
+                { suffixIcon }
+              </span>
+            ) : null
         }
       </div>
     );

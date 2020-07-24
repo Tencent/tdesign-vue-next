@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 
-describe('Button', () => {
+describe('Input', () => {
   it('base demo works fine', () => {
     const demo = require('@/examples/input/demos/base.vue');
     const wrapper = mount(demo);
