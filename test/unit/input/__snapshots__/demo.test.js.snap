@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button addon demo works fine 1`] = `
-<div>
+exports[`Input addon demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
   <div
-    class="t-addon"
+    class="t-addon t-addon--prepend"
   >
     <span
       class="t-addon__prepend"
@@ -22,7 +24,7 @@ exports[`Button addon demo works fine 1`] = `
   </div>
    
   <div
-    class="t-addon"
+    class="t-addon t-addon--append"
   >
     <div
       class="t-input"
@@ -42,8 +44,10 @@ exports[`Button addon demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button base demo works fine 1`] = `
-<div>
+exports[`Input base demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
   <div
     class="t-input"
   >
@@ -56,161 +60,168 @@ exports[`Button base demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button disabled demo works fine 1`] = `
+exports[`Input disabled demo works fine 1`] = `
 <div
-  class="t-input t-is-disabled"
+  class="tdesign-demo-item--input__input-box"
 >
-  <input
-    class="t-input__inner"
-    disabled="disabled"
-    type="text"
-  />
-</div>
-`;
-
-exports[`Button group demo works fine 1`] = `
-<div>
   <div
-    class="t-input-group t-input-group--seperate"
+    class="t-input t-is-disabled"
   >
-    <div
-      class="t-input"
-    >
-      <input
-        class="t-input__inner"
-        type="text"
-      />
-    </div>
-     
-    <div
-      class="t-input"
-    >
-      <input
-        class="t-input__inner"
-        type="text"
-      />
-    </div>
-  </div>
-   
-  <div
-    class="tdesign-demo-divide"
-  />
-   
-  <div
-    class="t-input-group"
-  >
-    <div
-      class="t-input"
-    >
-      <input
-        class="t-input__inner"
-        type="text"
-      />
-    </div>
-     
-    <div
-      class="t-input"
-    >
-      <input
-        class="t-input__inner"
-        type="text"
-      />
-    </div>
-  </div>
-   
-  <div
-    class="tdesign-demo-divide"
-  />
-   
-  <div
-    class="t-input-group t-input-group--seperate"
-  >
-    <div
-      class="t-input"
-      style="width: 100px;"
-    >
-      <input
-        class="t-input__inner"
-        type="text"
-      />
-    </div>
-     
-    <div
-      class="t-input"
-    >
-      <input
-        class="t-input__inner"
-        type="text"
-      />
-    </div>
-  </div>
-   
-  <div
-    class="tdesign-demo-divide"
-  />
-   
-  <div
-    class="t-input-group t-input-group--seperate"
-  >
-    <div
-      class="t-input"
-      style="width: 100px;"
-    >
-      <input
-        class="t-input__inner"
-        type="text"
-      />
-    </div>
-     
-    <span>
-       - 
-    </span>
-     
-    <div
-      class="t-input"
-      style="width: 100px;"
-    >
-      <input
-        class="t-input__inner"
-        type="text"
-      />
-    </div>
-     
-    <div
-      class="t-input"
-      style="width: 100px;"
-    >
-      <input
-        class="t-input__inner"
-        type="text"
-      />
-    </div>
-     
-    <div
-      class="t-input"
-      style="width: 100px;"
-    >
-      <input
-        class="t-input__inner"
-        type="text"
-      />
-    </div>
+    <input
+      class="t-input__inner"
+      disabled="disabled"
+      type="text"
+    />
   </div>
 </div>
 `;
 
-exports[`Button icon demo works fine 1`] = `
-<div>
+exports[`Input group demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group"
+    >
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <span>
+         - 
+      </span>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Input icon demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
   <div
     class="t-input t-input--prefix t-input--suffix"
   >
     <span
       class="t-input__prefix"
     >
-      <i
-        class="t-icon t-icon-demo t-icon-demo"
-        style="border: 1px solid;"
-      />
+      <svg
+        class="t-icon t-icon-search"
+      >
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
     </span>
     <input
       class="t-input__inner"
@@ -219,17 +230,84 @@ exports[`Button icon demo works fine 1`] = `
     <span
       class="t-input__suffix"
     >
-      <i
-        class="t-icon t-icon-demo t-icon-demo"
-        style="border: 1px solid;"
-      />
+      <svg
+        class="t-icon t-icon-prompt_fill"
+      >
+        <use
+          xlink:href="#t-icon-prompt_fill"
+        />
+      </svg>
+    </span>
+  </div>
+   
+  <div
+    class="t-input t-input--prefix t-input--suffix"
+  >
+    <span
+      class="t-input__prefix"
+    >
+      <svg
+        class="t-icon t-icon-search"
+      >
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+    </span>
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+    <span
+      class="t-input__suffix"
+    >
+      <svg
+        class="t-icon t-icon-prompt_fill"
+      >
+        <use
+          xlink:href="#t-icon-prompt_fill"
+        />
+      </svg>
+    </span>
+  </div>
+   
+  <div
+    class="t-input t-input--prefix t-input--suffix"
+  >
+    <span
+      class="t-input__prefix"
+    >
+      <svg
+        class="t-icon t-icon-search"
+      >
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+    </span>
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+    <span
+      class="t-input__suffix"
+    >
+      <svg
+        class="t-icon t-icon-prompt_fill"
+      >
+        <use
+          xlink:href="#t-icon-prompt_fill"
+        />
+      </svg>
     </span>
   </div>
 </div>
 `;
 
-exports[`Button size demo works fine 1`] = `
-<div>
+exports[`Input size demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
   <div
     class="t-input t-size-l"
   >
@@ -241,10 +319,6 @@ exports[`Button size demo works fine 1`] = `
   </div>
    
   <div
-    class="tdesign-demo-divide"
-  />
-   
-  <div
     class="t-input"
   >
     <input
@@ -256,8 +330,10 @@ exports[`Button size demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button status demo works fine 1`] = `
-<div>
+exports[`Input status demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
   <div
     class="t-input t-is-success"
   >
@@ -266,23 +342,6 @@ exports[`Button status demo works fine 1`] = `
       type="text"
     />
   </div>
-   
-  <div
-    class="tdesign-demo-divide"
-  />
-   
-  <div
-    class="t-input t-is-success"
-  >
-    <input
-      class="t-input__inner"
-      type="text"
-    />
-  </div>
-   
-  <div
-    class="tdesign-demo-divide"
-  />
    
   <div
     class="t-input t-is-warning"
@@ -292,10 +351,6 @@ exports[`Button status demo works fine 1`] = `
       type="text"
     />
   </div>
-   
-  <div
-    class="tdesign-demo-divide"
-  />
    
   <div
     class="t-input t-is-error"

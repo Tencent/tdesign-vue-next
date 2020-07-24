@@ -1,7 +1,7 @@
 import config from './config/index';
-import SpfxComponents from './pages/components';
-import SpfxDemoList from './pages/demo-list';
-import SpfxDemoPage from './pages/demo-page';
+import TdesignComponents from './pages/components';
+import TdesignDemoList from './pages/demo-list';
+import TdesignDemoPage from './pages/demo-page';
 
 const demoReq = require.context('../examples', true, /demos[/\\][\w-]+\.vue$/im);
 
@@ -38,7 +38,7 @@ function getDemoRoutes() {
       return {
         path: `/demos/${componentName}/${demoName}`,
         props: { componentName, demo: demoReq(key).default },
-        component: SpfxDemoPage,
+        component: TdesignDemoPage,
       };
     });
   }
@@ -48,18 +48,18 @@ const demoRoutes = getDemoRoutes();
 const routes = [
   {
     path: '/components',
-    redirect: '/components/install',
-    component: SpfxComponents,
+    redirect: '/components/button',
+    component: TdesignComponents,
     children: getDocsRoutes(navs.components.docs),
   },
   {
     path: '*',
-    redirect: '/components/install',
+    redirect: '/components/button',
   },
   ...demoRoutes,
   {
     path: '/demos*',
-    component: SpfxDemoList,
+    component: TdesignDemoList,
     props: { demoRoutes },
   },
 ];

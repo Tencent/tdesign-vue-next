@@ -2,7 +2,7 @@ import Vue from 'vue';
 import { mount } from '@vue/test-utils';
 import Input from '@/src/input/index.ts';
 
-describe('Button', () => {
+describe('Input', () => {
   describe(':props', () => {
     it(':value', () => {
       const wrapper = mount({

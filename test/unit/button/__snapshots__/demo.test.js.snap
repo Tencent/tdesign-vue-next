@@ -64,69 +64,119 @@ exports[`Button icon demo works fine 1`] = `
     <button
       class="t-button t-button--primary"
     >
-      <span
-        class="t-button__inner"
+      <svg
+        class="t-icon t-icon-search"
       >
-        <svg
-          class="t-icon t-icon-delete"
-        >
-          <use
-            xlink:href="#t-icon-delete"
-          />
-        </svg>
-        <span
-          class="t-button__text"
-        >
-          
-      删除
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+      <span
+        class="t-button__text"
+      >
+        
+      搜索
     
-        </span>
       </span>
     </button>
      
     <button
       class="t-button t-button--line"
     >
-      <span
-        class="t-button__inner"
+      <svg
+        class="t-icon t-icon-search"
       >
-        <svg
-          class="t-icon t-icon-delete"
-        >
-          <use
-            xlink:href="#t-icon-delete"
-          />
-        </svg>
-        <span
-          class="t-button__text"
-        >
-          
-      删除
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+      <span
+        class="t-button__text"
+      >
+        
+      搜索
     
-        </span>
       </span>
     </button>
      
     <button
       class="t-button t-button--link"
     >
-      <span
-        class="t-button__inner"
+      <svg
+        class="t-icon t-icon-search"
       >
-        <svg
-          class="t-icon t-icon-delete"
-        >
-          <use
-            xlink:href="#t-icon-delete"
-          />
-        </svg>
-        <span
-          class="t-button__text"
-        >
-          
-      删除
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+      <span
+        class="t-button__text"
+      >
+        
+      搜索
     
-        </span>
+      </span>
+    </button>
+     
+    <button
+      class="t-button t-button--primary t-button--icon-primary"
+    >
+      <svg
+        class="t-icon t-icon-search"
+      >
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+    </button>
+     
+    <button
+      class="t-button t-button--line t-button--icon"
+    >
+      <svg
+        class="t-icon t-icon-search"
+      >
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      <svg
+        class="t-icon t-icon-search"
+      >
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+      <span
+        class="t-button__text"
+      >
+        
+      Function Icon
+    
+      </span>
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      <svg
+        class="t-icon t-icon-search"
+      >
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+      <span
+        class="t-button__text"
+      >
+        
+      Slot Icon
+    
       </span>
     </button>
   </div>
@@ -140,46 +190,38 @@ exports[`Button loading demo works fine 1`] = `
   <button
     class="t-button t-button--primary t-is-loading"
   >
-    <span
-      class="t-button__inner"
+    <svg
+      class="t-icon t-icon-loading"
     >
-      <svg
-        class="t-icon t-icon-loading_gradient"
-      >
-        <use
-          xlink:href="#t-icon-loading_gradient"
-        />
-      </svg>
-      <span
-        class="t-button__text"
-      >
-        
+      <use
+        xlink:href="#t-icon-loading"
+      />
+    </svg>
+    <span
+      class="t-button__text"
+    >
+      
     主按钮
   
-      </span>
     </span>
   </button>
    
   <button
     class="t-button t-button--line t-is-loading"
   >
-    <span
-      class="t-button__inner"
+    <svg
+      class="t-icon t-icon-loading"
     >
-      <svg
-        class="t-icon t-icon-loading_gradient"
-      >
-        <use
-          xlink:href="#t-icon-loading_gradient"
-        />
-      </svg>
-      <span
-        class="t-button__text"
-      >
-        
+      <use
+        xlink:href="#t-icon-loading"
+      />
+    </svg>
+    <span
+      class="t-button__text"
+    >
+      
     次按钮
   
-      </span>
     </span>
   </button>
 </div>
@@ -189,9 +231,16 @@ exports[`Button render-icon demo works fine 1`] = `
 <button
   class="t-button t-button--primary"
 >
-  
+  <span>
+    ×
+  </span>
+  <span
+    class="t-button__text"
+  >
+    
   主按钮
 
+  </span>
 </button>
 `;
 

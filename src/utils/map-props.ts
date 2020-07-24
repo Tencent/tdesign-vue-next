@@ -28,7 +28,8 @@ type ParsedPropOption = {
 };
 
 
-function getPropOptionMap(props: (string | PropOption)[], options: Option = {}): { [name: string]: ParsedPropOption } {
+function getPropOptionMap(props: (string | PropOption)[], options: Option = {}):
+  { [name: string]: ParsedPropOption } {
   const propOptionMap = {};
 
   const { model } = options;
@@ -84,7 +85,7 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
     const defineWatches = {};
     let defineEvents: string[] = [];
     const defineMethods = {};
-    const component: ComponentOptions<Vue> = (componentConstructor as any).prototype.constructor.options;
+    const component: ComponentOptions<Vue> =      (componentConstructor as any).prototype.constructor.options;
 
     const propsKeys: string[] = Object.keys(component.props);
     const camelPropsKeys = propsKeys.map(key => toCamel(key));
@@ -196,7 +197,7 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
             propMap[propName] = this[dataName];
           }
           // 只监听第一个定义的事件，参数取第一个事件参数
-          handlerMap[events[0]] = (v: any, ...args: any[]): any => this.updateData(propName, v, ...args);
+          handlerMap[events[0]] =            (v: any, ...args: any[]): any => this.updateData(propName, v, ...args);
         });
 
         const attrs = {};

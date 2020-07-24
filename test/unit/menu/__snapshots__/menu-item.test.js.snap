@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuItem props :disabled 1`] = `<li class="t-menu__item t-is-disabled"><span></span></li>`;
+
+exports[`MenuItem props :name 1`] = `<li class="t-menu__item"><span></span></li>`;
+
+exports[`MenuItem props :route 1`] = `<a href="" target="_self" class="t-menu__item"><span></span></a>`;
+
+exports[`MenuItem slot <default> 1`] = `<li class="t-menu__item"><span><div></div></span></li>`;
+
+exports[`MenuItem slot <icon> 1`] = `
+<li class="t-menu__item">
+  <div></div><span></span>
+</li>
+`;

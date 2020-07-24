@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Submenu props :disabled 1`] = `
+<ul class="t-submenu t-is-disabled">
+  <li class="t-menu__item"> <i icon="user" class="t-submenu-icon t-icon t-icon-demo" style="border: 1px solid;"></i></li>
+  <ul class="t-menu__dropdown"></ul>
+</ul>
+`;
+
+exports[`Submenu props :name 1`] = `
+<ul class="t-submenu">
+  <li class="t-menu__item"> <i icon="user" class="t-submenu-icon t-icon t-icon-demo" style="border: 1px solid;"></i></li>
+  <ul class="t-menu__dropdown"></ul>
+</ul>
+`;
+
+exports[`Submenu slot <default> 1`] = `
+<ul class="t-submenu">
+  <li class="t-menu__item"> <i icon="user" class="t-submenu-icon t-icon t-icon-demo" style="border: 1px solid;"></i></li>
+  <ul class="t-menu__dropdown">
+    <div></div>
+  </ul>
+</ul>
+`;
+
+exports[`Submenu slot <icon> 1`] = `
+<ul class="t-submenu">
+  <li class="t-menu__item">
+    <div></div> <i icon="user" class="t-submenu-icon t-icon t-icon-demo" style="border: 1px solid;"></i>
+  </li>
+  <ul class="t-menu__dropdown"></ul>
+</ul>
+`;
+
+exports[`Submenu slot <title> 1`] = `
+<ul class="t-submenu">
+  <li class="t-menu__item">
+    <div></div> <i icon="user" class="t-submenu-icon t-icon t-icon-demo" style="border: 1px solid;"></i>
+  </li>
+  <ul class="t-menu__dropdown"></ul>
+</ul>
+`;
