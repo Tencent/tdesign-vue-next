@@ -2,7 +2,7 @@
   <t-popup
     content="这是popup内容"
     trigger="click"
-    :overlayStyle="{background: 'green'}"
+    :overlayStyle="{background: 'green', margin: '0px'}"
     overlayClassName="custom-popup"
   >
     <t-button>click我试试</t-button>
