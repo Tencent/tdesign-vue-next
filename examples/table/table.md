@@ -49,8 +49,8 @@
 
 | 属性          | 类型                                            | 默认值           | 必传 | 说明                                      |
 | ------------- | ----------------------------------------------- | ---------------- | ---- | ----------------------------------------- |
-| data          | Array<any>                                      | -                | N    | 数据源                                    |
-| columns       | Array<any>                                      | -                | N    | 列配置，参见 Column                       |
+| data          | Array\<any\>                                    | -                | N    | 数据源                                    |
+| columns       | Array\<any\>                                    | -                | N    | 列配置，参见 Column                       |
 | rowKey        | String                                          | e.g. rowKey = id | Y    | rowKey = 'id'，指定 rowKey                |
 | tableLayout   | String                                          | fixed            | N    | auto / fixed，表格布局方式                |
 | verticalAlign | String                                          | middle           | N    | top / middle / bottom，行内容上下方向对齐 |
@@ -64,7 +64,7 @@
 | rowClassName  | String/ Function(props): String                 | false            | N    | 自定义行样式                              |
 | pagination    | Object                                          | false            | N    | 分页                                      |
 | loading       | Boolean / Function(props): VNode                | false            | N    |                                           |
-| asyncLoading  | Boolean                             | false           | N    | 异步加载状态                            |
+| asyncLoading  | Boolean                                         | false            | N    | 异步加载状态                              |
 | showColumns   | Boolean                                         | -                | N    | 是否开启自定义列                          |
 
 ### Column
@@ -80,7 +80,7 @@
 | width          | String / Number                | -        | -    | N                             | - |
 | minWidth       | String / Number                | -        | -    | N                             | - |
 | className      | String / Number                | -        | -    | N                             | 列样式 |
-| children       | Array<any>                     | -        | -    | N                             | 多级表头 |
+| children       | Array\<any\>                   | -        | -    | N                             | 多级表头 |
 | attrs          | Object                         | -        | N    | 列的原生属性配置              |
 | type           | String                         | -        | N    | 多选/单选，multiple or single |
 | checkProps     | Object                         | -        | N    | 选择框的属性配置              |
