@@ -48,13 +48,13 @@ const demoRoutes = getDemoRoutes();
 const routes = [
   {
     path: '/components',
-    redirect: '/components/install',
+    redirect: '/components/button',
     component: TdesignComponents,
     children: getDocsRoutes(navs.components.docs),
   },
   {
     path: '*',
-    redirect: '/components/install',
+    redirect: '/components/button',
   },
   ...demoRoutes,
   {
