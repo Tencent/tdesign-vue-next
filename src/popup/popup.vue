@@ -7,7 +7,6 @@
         v-show="!disabled && showPopper"
         role="tooltip"
         :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
-        data-a=1
       >
         <div :class="_class" :style="overlayStyle">
           <slot name="content">
