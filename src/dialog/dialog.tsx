@@ -4,16 +4,24 @@ import RenderComponent from '../utils/render-component';
 import TIconClose from '../icon/close';
 
 const name = `${prefix}-dialog`;
-interface StyleObject {
-  width?: string | number;
-}
-const PositionClass = {
-  center: 't-dialog--center',
-};
+
 function GetCSSValue(v: string | number) {
   return isNaN(Number(v)) ? v : `${Number(v)}px`;
 };
 
+// 计算dialog元素的偏移量，根据offset跟placement确定
+function GetTransformByOffset(offset: any, placement: string) {
+  if (!offset) return undefined;
+
+  const { left, right, top, bottom } = offset;
+  let translateY: string = placement === 'center' ? '-50%' : '0px';
+  let translateX = '-50%';
+  left && (translateX = `${translateX} - ${GetCSSValue(left)}`);
+  right && (translateX = `${translateX} + ${GetCSSValue(right)}`);
+  top && (translateY = `${translateY} - ${GetCSSValue(top)}`);
+  bottom && (translateY = `${translateY} + ${GetCSSValue(bottom)}`);
+  return `translate(calc(${translateX}),calc(${translateY}))`;
+}
 // 注册元素的拖拽事件
 function InitDragEvent(dragBox: HTMLElement) {
   const target = dragBox;
@@ -63,19 +71,20 @@ export default Vue.extend({
         );
       },
     },
-    offset: {
-      type: [String, Object],
-      default: 'center',
-      validator(v: string | object): boolean {
-        if (typeof v === 'string') {
-          return (
-            [
-              'center',
-            ].indexOf(v) > -1
-          );
-        }
-        return true;
+    placement: {
+      type: String,
+      default: 'top',
+      validator(v: string): boolean {
+        return (
+          [
+            'top',
+            'center',
+          ].indexOf(v) > -1
+        );
       },
+    },
+    offset: {
+      type: Object,
     },
     width: {
       type: [String, Number],
@@ -118,9 +127,6 @@ export default Vue.extend({
       type: [Function, String, Boolean],
       default: false,
     },
-    close: {
-      type: Function,
-    },
   },
   computed: {
     // 是否模态形式的对话框
@@ -155,7 +161,7 @@ export default Vue.extend({
   },
   watch: {
     visible(value) {
-      this.$emit('visableChange', value);
+      this.$emit('visable-change', value);
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
       // 目前弹窗交互没有动画
@@ -179,7 +185,22 @@ export default Vue.extend({
       }
     },
   },
+  data() {
+    return {
+      transform: undefined,
+    };
+  },
+  created() {
+    this.initOffsetWatch();
+  },
   methods: {
+    initOffsetWatch() {
+      this.transform = GetTransformByOffset(this.offset, this.placement);
+      // 这里主要是因为offset是对象，直接用computed or watch 的话，同样会造成不必要的重复计算
+      this.$watch(() => JSON.stringify(this.offset) + this.placement, () => {
+        this.transform = GetTransformByOffset(this.offset, this.placement);
+      });
+    },
     disPreventScrollThrough(disabled: boolean) {
       // 防止滚动穿透,modal形态才需要
       if (this.preventScrollThrough && this.isModal) {
@@ -196,17 +217,17 @@ export default Vue.extend({
     keyboardEvent(e: KeyboardEvent) {
       // esc 键
       if (e.keyCode === 27) {
-        this.$emit('keydownEsc', e);
+        this.$emit('keydown-esc', e);
       }
     },
     overlayAction() {
-      this.$emit('clickOverlay');
+      this.$emit('click-overlay');
     },
     closeBtnAcion() {
-      this.$emit('clickCloseBtn');
-      if (typeof this.close === 'function') {
-        this.close();
-      }
+      this.$emit('click-close-btn', this.close);
+    },
+    close() {
+      this.changeVisible(false);
     },
     changeVisible(visible: boolean) {
       this.$emit('change', visible);
@@ -215,7 +236,6 @@ export default Vue.extend({
       alert('confirm');
     },
     renderTitle() {
-      const defaultView = <h5 class='title'>对话框标题</h5>;
       const target = this.header;
       let view;
       let isShow = true;
@@ -229,12 +249,11 @@ export default Vue.extend({
       }
       return isShow && (
         <div class="t-dialog__header">
-          {view || defaultView}
+          {view}
         </div>
       );
     },
     renderBody() {
-      const defaultView = <div>对话框内容</div>;
       const target = this.body;
       let view;
       let isShow = true;
@@ -248,7 +267,7 @@ export default Vue.extend({
       }
       return isShow && (
         <div class="t-dialog__body">
-          {view || defaultView}
+          {view}
         </div>
       );
     },
@@ -289,13 +308,8 @@ export default Vue.extend({
     },
   },
   render() {
-    const dialogClass = ['t-dialog', 't-dialog--default'];
-    let dialogStyle: StyleObject = { width: GetCSSValue(this.width) };
-    if (typeof this.offset === 'object') {
-      dialogStyle = { ...dialogStyle, ...this.offset };
-    } else {
-      dialogClass.push(PositionClass[this.offset]);
-    }
+    const dialogClass = ['t-dialog', 't-dialog--default', `t-dialog--${this.placement}`];
+    const dialogStyle = { width: GetCSSValue(this.width), transform: this.transform };
     return (
       <div class={this.ctxClass} style={{ zIndex: this.zIndex }} v-transfer-dom={this.attachTarget}>
 
