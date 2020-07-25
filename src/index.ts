@@ -3,6 +3,7 @@ import { VueConstructor } from 'vue';
 import Icon from './icon';
 import Button from './button';
 import Pagination from './pagination';
+import Table from './table';
 import Breadcrumb from './breadcrumb';
 import BreadcrumbItem from './breadcrumbItem';
 import { Notification, NotificationPlugin } from './notification';
@@ -33,6 +34,7 @@ const components = {
   Icon,
   Button,
   Pagination,
+  Table,
   Breadcrumb,
   BreadcrumbItem,
   Tag,
@@ -85,7 +87,7 @@ function install(Vue: VueConstructor, config?: object): void {
 };
 
 declare const window: {
-  [propName: string]: any, // eslint-disable-line
+  [propName: string]: any; // eslint-disable-line
   Vue: VueConstructor;
 };
 
