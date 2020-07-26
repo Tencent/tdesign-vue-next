@@ -3,11 +3,13 @@
     <t-tag
       v-for="(tag, index) in tags"
       :key="index"
+      :theme="tag.type"
+      :effect="tag.effect"
       closable
       @click="handleClick"
       @close="handleClose(index)"
     >
-      {{ tag }}
+      {{ tag.name }}
     </t-tag>
   </div>
 </template>
@@ -16,7 +18,37 @@
 export default {
   data() {
     return {
-      tags: ['标签一', '标签二', '标签三'],
+      tags: [
+        {
+          name: '标签一',
+          type: 'default',
+        },
+        {
+          name: '标签二',
+          type: 'primary',
+          effect: 'plain',
+        },
+        {
+          name: '标签三',
+          type: 'info',
+          effect: 'plain',
+        },
+        {
+          name: '标签四',
+          type: 'warning',
+          effect: 'plain',
+        },
+        {
+          name: '标签五',
+          type: 'danger',
+          effect: 'plain',
+        },
+        {
+          name: '标签六',
+          type: 'success',
+          effect: 'plain',
+        },
+      ],
     };
   },
   methods: {

@@ -18,6 +18,7 @@ export default Vue.extend({
     tagClass(): Array<any> {
       return [
         `${name}`,
+        `${name}--check`,
         `${name}--default`,
         {
           [`${name}--checked`]: !this.disabled && this.checked,
@@ -33,12 +34,11 @@ export default Vue.extend({
   },
   render() {
     // 标签内容
-    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default
-      ? this.$scopedSlots.default(null) : '';
+    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
 
     return (
-      <span class={ this.tagClass } onClick={ this.handleChange }>
-        { tagContent }
+      <span class={this.tagClass} onClick={this.handleChange}>
+        {tagContent}
       </span>
     );
   },
