@@ -1,6 +1,6 @@
 <template>
-  <t-head-menu theme="dark" active="item2" mode="tile">
-    <img slot="logo" class="t-menu__logo--center" src="https://main.qcloudimg.com/raw/4927884bb0c43e726c5915d5bef49ef3/head-logo-dark.png" alt="logo">
+  <t-head-menu active="item2" mode="tile">
+    <img slot="logo" class="t-menu__logo--center" src="https://main.qcloudimg.com/raw/9fe1217de2bd7eb623f70648a046e341/head-logo.png" alt="logo">
     <t-menu-item name="item1">菜单内容一</t-menu-item>
     <t-menu-item name="item2">已选内容</t-menu-item>
     <t-menu-item name="item3">菜单内容二</t-menu-item>

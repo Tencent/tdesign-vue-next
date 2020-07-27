@@ -20,6 +20,9 @@
 ::: demo demos/head-menu-tile 双层导航
 :::
 
+::: demo demos/head-menu-dropdown 多层收纳导航
+:::
+
 ### 侧边导航
 
 ::: demo demos/side-menu 侧边栏菜单
@@ -35,6 +38,9 @@
 :::
 
 ::: demo demos/side-menu-dropdown-icon 下拉菜单（带ICON）
+:::
+
+::: demo demos/side-menu-popup 侧边菜单
 :::
 
 ::: demo demos/side-menu-collapsed 侧边收起

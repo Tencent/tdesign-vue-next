@@ -4,7 +4,7 @@
     <t-menu-item name="item1">
       <t-icon slot="icon" name="user"/>菜单内容一
     </t-menu-item>
-    <t-submenu name="2">
+    <t-submenu name="2" mode="popup">
       <t-icon slot="icon" name="user" />
       <span slot="title">侧边内容二</span>
       <t-menu-item name="2-1">菜单内容一</t-menu-item>
