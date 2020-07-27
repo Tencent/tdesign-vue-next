@@ -11,6 +11,7 @@ module.exports = {
             'Explorer >= 11',
             'Edge >= 12',
           ],
+          esmodules: true,
         },
         modules: 'commonjs',
       },
