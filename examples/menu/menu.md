@@ -28,6 +28,9 @@
 ::: demo demos/side-menu-width 设置宽度
 :::
 
+::: demo demos/side-menu-group 分组菜单
+:::
+
 ::: demo demos/side-menu-dropdown 下拉菜单
 :::
 

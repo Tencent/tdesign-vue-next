@@ -28,7 +28,7 @@ import { Select, Option, OptionGroup } from './select';
 import Switch from './switch';
 import Alert from './alert';
 import AlertSwiper from './alert-swiper';
-import { Menu, HeadMenu, Submenu, MenuItem } from './menu';
+import { Menu, HeadMenu, Submenu, MenuItem, MenuGroup } from './menu';
 
 const components = {
   Icon,
@@ -69,6 +69,7 @@ const components = {
   HeadMenu,
   Submenu,
   MenuItem,
+  MenuGroup,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
