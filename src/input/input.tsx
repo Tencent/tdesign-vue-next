@@ -25,20 +25,30 @@ export default (Vue as VueConstructor<InputInstance>).extend({
   name,
   inheritAttrs: false,
   props: {
-    value: { type: [String, Number], default: '' },
+    value: {
+      type: [String, Number],
+      default: '',
+    },
     defaultValue: [String, Number],
     prefixIcon: [String, Function],
     suffixIcon: [String, Function],
-    size: { type: String, default: 'default', validator(v: string): boolean {
-      return ['large', 'default', 'small'].indexOf(v) > -1;
-    } },
+    size: {
+      type: String,
+      default: 'default',
+      validator(v: string): boolean {
+        return ['large', 'default', 'small'].indexOf(v) > -1;
+      },
+    },
     disabled: Boolean,
     readonly: Boolean,
     clearable: Boolean,
     autocomplete: Boolean,
-    status: { type: String, validator(v: string): boolean {
-      return ['default', 'success', 'warning', 'error'].indexOf(v) > -1;
-    } },
+    status: {
+      type: String,
+      validator(v: string): boolean {
+        return ['default', 'success', 'warning', 'error'].indexOf(v) > -1;
+      },
+    },
   },
   data() {
     return {
@@ -68,7 +78,7 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       change: this.$listeners.change,
       focus: this.onFocus,
       blur: this.onBlur,
-      keydown: this.$listeners.keydown,
+      keydown: this.onKeyDown,
       keyup: this.$listeners.keyup,
       keypresss: this.$listeners.keypresss,
     });
@@ -96,14 +106,7 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     ];
     return (
       <div class={classes} {...{ attrs: wrapperAttrs, on: wrapperEvents }}>
-        {
-          prefixIcon
-            ? (
-              <span class={`${name}__prefix`}>
-                { prefixIcon }
-              </span>
-            ) : null
-        }
+        {prefixIcon ? <span class={`${name}__prefix`}>{prefixIcon}</span> : null}
         <input
           {...{ attrs: inputAttrs, on: inputEvents }}
           ref="refInputElem"
@@ -111,24 +114,23 @@ export default (Vue as VueConstructor<InputInstance>).extend({
           class={`${name}__inner`}
           onInput={this.onInput}
         />
-        {
-          suffixIcon
-            ? (
-              <span class={`${name}__suffix`}>
-                { suffixIcon }
-              </span>
-            ) : null
-        }
+        {suffixIcon ? <span class={`${name}__suffix`}>{suffixIcon}</span> : null}
       </div>
     );
   },
   methods: {
-    renderIcon(h: CreateElement, icon: string | Function | undefined, iconType: 'prefix-icon' | 'suffix-icon'): JsxNode {
+    renderIcon(
+      h: CreateElement,
+      icon: string | Function | undefined,
+      iconType: 'prefix-icon' | 'suffix-icon',
+    ): JsxNode {
       if (typeof icon === 'string') {
         return <Icon name={icon}></Icon>;
-      } if (typeof icon === 'function') {
+      }
+      if (typeof icon === 'function') {
         return icon(h);
-      } if (this.$scopedSlots[iconType]) {
+      }
+      if (this.$scopedSlots[iconType]) {
         return this.$scopedSlots[iconType](null);
       }
       return null;
@@ -163,11 +165,22 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       // 受控
       this.$nextTick(() => this.setInputValue(this.value));
     },
+    onKeyDown(e: KeyboardEvent) {
+      if (this.disabled) return;
+
+      const { keyCode } = e;
+      if (keyCode === 13) {
+        this.$emit('keydown-enter', e);
+      }
+      this.$emit('keydown', e);
+    },
     onClear() {
       this.$emit('clear');
       this.$emit('input', '');
     },
     onFocus(e: Event) {
+      if (this.disabled) return;
+
       this.focused = true;
       this.$emit('focus', e);
     },
