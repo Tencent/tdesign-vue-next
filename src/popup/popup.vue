@@ -6,6 +6,7 @@
         ref="popper"
         v-show="!disabled && showPopper"
         role="tooltip"
+        :style="{zIndex}"
         :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
       >
         <div :class="_class" :style="overlayStyle">
@@ -55,6 +56,10 @@ export default Vue.extend({
     RenderComponent,
   },
   props: {
+    zIndex: {
+      type: Number,
+      default: 5500, // 气泡框zIndex区间值：5500-5600
+    },
     disabled: {
       type: Boolean,
       default: false,

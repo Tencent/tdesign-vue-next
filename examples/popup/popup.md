@@ -8,6 +8,8 @@
 :::
 ::: demo demos/style 自定义样式
 :::
+::: demo demos/zIndex 指定zIndex
+:::
 ::: demo demos/disabled 临时禁用
 :::
 ::: demo demos/visible value控制
@@ -27,6 +29,7 @@
 
 | 属性 | 类型| 默认值| 必传| 说明|
 |-----|-----|-----|-----|-----|
+|**zIndex** | Number | 5500 | false | 弹出层zIndex范围：5500-5600 |
 |**disabled** |Boolean | false| N|是否禁用 |
 |**placement** |Enum | bottom| N| 浮层出现位置，可选值为top、left、right、bottom、topLeft、topRight、bottomLeft、bottomRight、leftTop、leftBottom、rightTop、rightBottom|
 |**visible** | Boolean| true| N| 用于控制弹框是否显示（结合事件 visibleChange，形成 v-model）|
