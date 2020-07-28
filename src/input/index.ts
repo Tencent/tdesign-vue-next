@@ -1,4 +1,9 @@
-import Input from './input';
+import _Input from './input';
 import mapProps from '../utils/map-props';
+import setInstallFn from '../utils/setInstallFn';
 
-export default mapProps(['value'])(Input);
+const Input = mapProps(['value'])(_Input);
+
+setInstallFn('Input', Input);
+
+export default Input;

@@ -24,7 +24,7 @@
  *
  */
 
-import Vue from 'vue';
+import Vue, { VueConstructor, PluginObject } from 'vue';
 import TMessage from './message';
 import { THEME_LIST, PLACEMENT_OFFSET } from './const';
 
@@ -184,7 +184,7 @@ function closeAll() {
   }
 }
 
-const MessagePlugin = Message;
+const MessagePlugin = Message as (typeof Message & PluginObject<void>);
 
 THEME_LIST.forEach((theme: string) => {
   MessagePlugin[theme] = (params: object = {}, time: number) => Message(theme, params, time);
@@ -195,5 +195,10 @@ THEME_LIST.forEach((theme: string) => {
     closeAll,
   });
 });
+
+MessagePlugin.install = (Vue: VueConstructor) => {
+  /* eslint-disable no-param-reassign */
+  Vue.prototype.$message = MessagePlugin;
+};
 
 export default MessagePlugin;
