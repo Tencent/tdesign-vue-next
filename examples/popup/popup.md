@@ -8,8 +8,6 @@
 :::
 ::: demo demos/style 自定义样式
 :::
-::: demo demos/zIndex 指定zIndex
-:::
 ::: demo demos/disabled 临时禁用
 :::
 ::: demo demos/visible value控制
@@ -29,7 +27,7 @@
 
 | 属性 | 类型| 默认值| 必传| 说明|
 |-----|-----|-----|-----|-----|
-|**zIndex** | Number | 5500 | false | 弹出层zIndex范围：5500-5600 |
+|**zIndex** | Number | 5500 | false |  |
 |**disabled** |Boolean | false| N|是否禁用 |
 |**placement** |Enum | bottom| N| 浮层出现位置，可选值为top、left、right、bottom、topLeft、topRight、bottomLeft、bottomRight、leftTop、leftBottom、rightTop、rightBottom|
 |**visible** | Boolean| true| N| 用于控制弹框是否显示（结合事件 visibleChange，形成 v-model）|
@@ -37,7 +35,7 @@
 |**content** |String/Component/Function | | Y| 弹层显示的内容（组件内部可以实现title等，由select组件考虑虚拟滚动）|
 |**visibleArrow** | Boolean| false| N|浮层是否显示箭头 |
 |**getOverlayContainer** |Function |() => document.body| N|浮层渲染父节点，默认渲染到 body 上 |
-|**overlayStyle** |Object | undefined|N |浮层样式 |
+|**overlayStyle** |Object | undefined|N |浮层样式，如可以指定弹出层zIndex范围（默认取5500，参考范围5500-5600） |
 |**overlayClassName** |String |'' |N |浮层类名 |
 |**destroyOnHide**|Boolean |false |N |隐藏时销毁浮层 |
 

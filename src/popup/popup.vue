@@ -1,12 +1,11 @@
 <template>
-  <span>
+  <div :class="name+'-reference'" ref="reference">
     <transition :name="name+'_animation'" appear >
       <div
         :class="name"
         ref="popper"
         v-show="!disabled && showPopper"
         role="tooltip"
-        :style="{zIndex}"
         :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
       >
         <div :class="_class" :style="overlayStyle">
@@ -17,10 +16,8 @@
         </div>
       </div>
     </transition>
-    <div :class="name+'-reference'" ref="reference">
-      <slot />
-    </div>
-  </span>
+    <slot />
+  </div>
 </template>
 
 <script lang="ts">
@@ -56,10 +53,6 @@ export default Vue.extend({
     RenderComponent,
   },
   props: {
-    zIndex: {
-      type: Number,
-      default: 5500, // 气泡框zIndex区间值：5500-5600
-    },
     disabled: {
       type: Boolean,
       default: false,
