@@ -3,11 +3,11 @@ import _Group from './group';
 import mapProps from '../utils/map-props';
 import setInstallFn from '../utils/setInstallFn';
 
-const Group = mapProps(['value'])(_Group);
 const Checkbox = mapProps(['checked'], { model: { prop: 'checked', event: 'change' } })(_Checkbox);
+const CheckboxGroup = mapProps(['value'])(_Group);
 
 setInstallFn('Checkbox', Checkbox);
-setInstallFn('CheckboxGroup', Group);
+setInstallFn('CheckboxGroup', CheckboxGroup);
 
-export { Group, Checkbox };
+export { Checkbox, CheckboxGroup };
 export default Checkbox;

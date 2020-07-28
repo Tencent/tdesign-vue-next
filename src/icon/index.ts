@@ -3,4 +3,5 @@ import setInstallFn from '../utils/setInstallFn';
 
 setInstallFn('Icon', Icon);
 
+export { Icon };
 export default Icon;

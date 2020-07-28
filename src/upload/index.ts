@@ -8,4 +8,5 @@ const Upload = mapProps([
 
 setInstallFn('Upload', Upload);
 
+export { Upload };
 export default Upload;

@@ -6,4 +6,5 @@ const Input = mapProps(['value'])(_Input);
 
 setInstallFn('Input', Input);
 
+export { Input };
 export default Input;
