@@ -27,7 +27,6 @@
 
 | 属性 | 类型| 默认值| 必传| 说明|
 |-----|-----|-----|-----|-----|
-|**zIndex** | Number | 5500 | false |  |
 |**disabled** |Boolean | false| N|是否禁用 |
 |**placement** |Enum | bottom| N| 浮层出现位置，可选值为top、left、right、bottom、topLeft、topRight、bottomLeft、bottomRight、leftTop、leftBottom、rightTop、rightBottom|
 |**visible** | Boolean| true| N| 用于控制弹框是否显示（结合事件 visibleChange，形成 v-model）|
