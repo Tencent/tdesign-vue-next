@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <div :class="name+'-reference'" ref="reference">
     <transition :name="name+'_animation'" appear >
       <div
         :class="name"
@@ -16,10 +16,8 @@
         </div>
       </div>
     </transition>
-    <div :class="name+'-reference'" ref="reference">
-      <slot />
-    </div>
-  </span>
+    <slot />
+  </div>
 </template>
 
 <script lang="ts">
