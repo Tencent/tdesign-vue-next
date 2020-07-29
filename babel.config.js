@@ -13,7 +13,7 @@ module.exports = {
           ],
           esmodules: true,
         },
-        modules: 'commonjs',
+        modules: false,
       },
     ],
     '@vue/babel-preset-jsx',
