@@ -2,7 +2,51 @@
 
 ### 顶部导航
 
+::: demo demos/head-menu 白色主题
+:::
+
+::: demo demos/head-menu-dark 黑色主题
+:::
+
+::: demo demos/head-menu-logo 只有LOGO插槽
+:::
+
+::: demo demos/head-menu-options 只有OPTIONS插槽
+:::
+
+::: demo demos/head-menu-empty 只有MENU
+:::
+
 ::: demo demos/head-menu-tile 双层导航
+:::
+
+::: demo demos/head-menu-dropdown 多层收纳导航
+:::
+
+### 侧边导航
+
+::: demo demos/side-menu 侧边栏菜单
+:::
+
+::: demo demos/side-menu-width 设置宽度
+:::
+
+::: demo demos/side-menu-group 分组菜单
+:::
+
+::: demo demos/side-menu-dropdown 下拉菜单
+:::
+
+::: demo demos/side-menu-dropdown-icon 下拉菜单（带ICON）
+:::
+
+::: demo demos/side-menu-popup 侧边菜单
+:::
+
+::: demo demos/side-menu-collapsed 侧边收起
+:::
+
+::: demo demos/side-menu-collapsed-width 侧边收起（自定义宽度）
 :::
 
 ### Menu Props
@@ -93,4 +137,5 @@
 | ---- | -------- | ---- |
 | 公有 | default    | 默认插槽    |
 | 公有 | icon    | icon插槽    |
+
 
