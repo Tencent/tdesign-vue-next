@@ -1,10 +1,9 @@
 import Vue, { CreateElement, VNode } from 'vue';
-import config from '../config';
+import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import Icon from '../icon';
 
-const { prefix } = config;
 const name = `${prefix}-button`;
 
 export default Vue.extend({
@@ -18,18 +17,7 @@ export default Vue.extend({
       type: String,
       default: 'line',
       validator(v: string): boolean {
-        return (
-          [
-            'line',
-            'primary',
-            'dashed',
-            'warning',
-            'warning-line',
-            'link',
-            'ghost',
-            'ghost-line',
-          ].indexOf(v) > -1
-        );
+        return ['line', 'primary', 'dashed', 'warning', 'warning-line', 'link', 'ghost', 'ghost-line'].indexOf(v) > -1;
       },
     },
     size: {
@@ -45,21 +33,20 @@ export default Vue.extend({
     block: Boolean,
     disabled: Boolean,
   },
-  computed: {
-    _class(): ClassName {
-      return 
-    },
-    _iconClass(): ClassName {
-      return `${name}__icon`;
-    },
-    _icon(): Function | string | undefined {
-      return this.loading ? 'loading_gradient' : this.icon;
-    },
-    _slotIcon(): boolean {
-      return Boolean(this.$scopedSlots.icon);
-    },
-  },
-  render(h: CreateElement) {
+  render(h: CreateElement): VNode {
+    let buttonContent: JsxNode = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+    let icon: JsxNode;
+
+    if (this.loading) {
+      icon = <Icon name="loading"></Icon>;
+    } else if (typeof this.icon === 'string') {
+      icon = <Icon name={this.icon}></Icon>;
+    } else if (typeof this.icon === 'function') {
+      icon = this.icon(h);
+    } else if (this.$scopedSlots.icon) {
+      icon = this.$scopedSlots.icon(null);
+    }
+
     const buttonClass = [
       `${name}`,
       CLASSNAMES.SIZE[this.size],
@@ -69,38 +56,22 @@ export default Vue.extend({
         [CLASSNAMES.STATUS.loading]: this.loading,
         [`${name}--round`]: this.round,
         [CLASSNAMES.SIZE.block]: this.block,
+        [`${name}--icon`]: icon && !buttonContent && this.theme !== 'primary',
+        [`${name}--icon-primary`]: icon && !buttonContent && this.theme === 'primary',
       },
     ];
-    let buttonContent: VNode[] | VNode | string = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
-    let icon: VNode;
-
-    if (this.loading) {
-      icon = <Icon name="loading_gradient"></Icon>
-    } else if (typeof this.icon === 'string') {
-      icon = <Icon name={this.icon}></Icon>
-    } else if (typeof icon === 'function') {
-      icon = <i class={`${name}-icon`}>{ this.icon() }</i>;
-    }
 
     if (icon) {
-      buttonContent = (
-        <span class={`${name}__inner`}>
-          { icon }
-          {
-            buttonContent ? (
-              <span class={`${name}__text`}>
-                { buttonContent }
-              </span>
-            ) : ''
-          }
-        </span>
-      );
+      buttonContent = [
+        icon,
+        buttonContent ? <span class={`${name}__text`}>{buttonContent}</span> : '',
+      ];
     }
 
     return (
-      <button class={buttonClass} { ...{ on: this.$listeners } }>
-        { buttonContent }
+      <button class={buttonClass} {...{ on: this.$listeners }}>
+        {buttonContent}
       </button>
     );
-  }
+  },
 });

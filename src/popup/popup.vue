@@ -1,53 +1,60 @@
 <template>
   <span>
-    <div
-      :class="popperClass"
-      ref="popper"
-      v-show="!disabled && showPopper"
-      :style="{ width: width + 'px' }"
-      role="tooltip"
-      :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
-    >
-      <div class="el-popover__title" v-if="title" v-text="title"></div>
-      <slot>{{ content }}</slot>
+    <transition :name="name+'_animation'" appear >
+      <div
+        :class="name"
+        ref="popper"
+        v-show="!disabled && showPopper"
+        role="tooltip"
+        :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
+      >
+        <div :class="_class" :style="overlayStyle">
+          <slot name="content">
+            <render-component :render='renderContent' />
+          </slot>
+          <div v-if="visibleArrow" :class="name+'_arrow'" data-popper-arrow></div>
+        </div>
+      </div>
+    </transition>
+    <div :class="name+'-reference'" ref="reference">
+      <slot />
     </div>
-    <slot name="reference"></slot>
   </span>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { CreateElement, VNodeChildren } from 'vue';
 import { createPopper } from '@popperjs/core';
+import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import { on, off, addClass, removeClass } from '../utils/dom';
 
-
+const stop = (e: Event): void => e.stopPropagation();
 const { prefix } = config;
 const name = `${prefix}-popup`;
 const placementMap = {
-  top: 'center bottom',
-  bottom: 'center top',
-  left: 'right center',
-  right: 'left center',
-  topLeft: 'right bottom',
-  topRight: 'left bottom',
-  bottomLeft: 'right top',
-  bottomRight: 'left top',
-  leftTop: 'bottom right',
-  leftBottom: 'top right',
-  rightTop: 'bottom left',
-  rightBottom: 'top left',
+  top: 'top',
+  topLeft: 'top-start',
+  topRight: 'top-end',
+  bottom: 'bottom',
+  bottomLeft: 'bottom-start',
+  bottomRight: 'bottom-end',
+  left: 'left',
+  leftTop: 'left-start',
+  leftBottom: 'left-end',
+  right: 'right',
+  rightTop: 'right-start',
+  rightBottom: 'right-end',
 };
 
 export default Vue.extend({
   name,
   components: {
-    // RenderComponent,
+    RenderComponent,
   },
   props: {
-    reference: {},
     disabled: {
       type: Boolean,
       default: false,
@@ -55,9 +62,7 @@ export default Vue.extend({
     placement: {
       type: String,
       default: 'top',
-      validator(value: string): boolean {
-        return Object.keys(placementMap).indexOf(value) > -1;
-      },
+      validator: (value: string) => Object.keys(placementMap).indexOf(value) > -1,
     },
     visible: {
       type: Boolean,
@@ -66,19 +71,26 @@ export default Vue.extend({
     trigger: {
       type: String,
       default: 'hover',
-      validator(value: string): boolean {
-        return ['hover', 'click', 'focus', 'contextMenu', 'manual'].indexOf(value) > -1;
+      validator: (value: string) => {
+        const triggers: string[] = value.split(' ');
+        if (triggers.indexOf('manual') > -1 && triggers.length > 1) {
+          return false;
+        }
+        for (let i = 0; i < triggers.length; i++) {
+          const trigger = triggers[i];
+          if (['hover', 'click', 'focus', 'contextMenu'].indexOf(trigger) < -1) {
+            return false;
+          }
+        }
+        return true;
       },
     },
     content: [String, Function, RenderComponent],
     visibleArrow: {
       type: Boolean,
-      default: true,
+      default: false,
     },
-    getOverlayContainer: {
-      type: Function,
-      default: (): Node => document.body,
-    },
+    getOverlayContainer: Function,
     overlayStyle: Object,
     overlayClassName: String,
     destroyOnHide: {
@@ -86,22 +98,55 @@ export default Vue.extend({
       default: false,
     },
   },
-  data: (): any => ({
-    onshowPopper: false,
-    currentPlacement: '',
-  }),
+  data() {
+    return {
+      name,
+      showPopper: false,
+      currentPlacement: '',
+      popperElm: null,
+      referenceElm: null,
+      resizeSensor: null,
+      popperJS: null,
+    };
+  },
   computed: {
     _class(): ClassName {
       return [
-        `${name}`,
+        `${name}-content`,
+        this.overlayClassName,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
       ];
     },
+    renderContent(): any {
+      // 浮层内容处理
+      if (!this.content || typeof this.content === 'string') {
+        return (h: CreateElement) => h('div', {
+          class: `${name}-tooltips`,
+        }, this.content as VNodeChildren);
+      }
+
+      return this.content;
+    },
+    manualTrigger(): boolean {
+      return this.trigger.indexOf('manual') > -1;
+    },
+    hoverTrigger(): boolean {
+      return this.trigger.indexOf('hover') > -1;
+    },
+    clickTrigger(): boolean {
+      return this.trigger.indexOf('click') > -1;
+    },
+    focusTrigger(): boolean {
+      return this.trigger.indexOf('focus') > -1;
+    },
+    contextMenuTrigger(): boolean {
+      return this.trigger.indexOf('contextMenu') > -1;
+    },
   },
   watch: {
-    showPopper(val): any {
+    showPopper(val): void {
       if (this.disabled) {
         return;
       }
@@ -112,27 +157,26 @@ export default Vue.extend({
       }
       this.$emit('visibleChange', val);
     },
+    visible(val): void {
+      if (this.trigger === 'manual') {
+        this.showPopper = val;
+      }
+    },
   },
   mounted() {
     this.currentPlacement = this.currentPlacement || this.placement;
+    this.popperElm = this.popperElm || this.$refs.popper;
+    this.referenceElm = this.referenceElm || this.$refs.reference;
+    if (!this.popperElm || !this.referenceElm) return;
 
-    let reference: any = this.reference || this.$refs.reference;
-    const popper = this.popper || this.$refs.popper;
-    if (!reference && this.$slots.reference && this.$slots.reference[0]) {
-      reference = this.$slots.reference[0].elm;
-    }
-    // 可访问性
-    if (reference) {
-      return;
-    }
-    if (this.trigger !== 'click') {
-      on(reference, 'focusin', () => {
-        this.handleFocus();
-        const instance = reference.__vue__;
-        if (instance && typeof instance.focus === 'function') {
-          instance.focus();
-        }
-      });
+    // if (this.visibleArrow) this.appendArrow(this.popperElm);
+
+    this.createPopperJS();
+    const reference = this.referenceElm;
+    const popper = this.popperElm;
+
+    if (!this.clickTrigger) {
+      on(reference, 'focusin', this.handleFocus);
       on(popper, 'focusin', this.handleFocus);
       on(reference, 'focusout', this.handleBlur);
       on(popper, 'focusout', this.handleBlur);
@@ -140,15 +184,17 @@ export default Vue.extend({
     on(reference, 'keydown', this.handleKeydown);
     on(reference, 'click', this.handleClick);
 
-    if (this.trigger === 'click') {
+    if (this.clickTrigger) {
       on(reference, 'click', this.doToggle);
       on(document, 'click', this.handleDocumentClick);
-    } else if (this.trigger === 'hover') {
+    }
+    if (this.hoverTrigger) {
       on(reference, 'mouseenter', this.doShow);
       on(popper, 'mouseenter', this.doShow);
       on(reference, 'mouseleave', this.doClose);
       on(popper, 'mouseleave', this.doClose);
-    } else if (this.trigger === 'focus') {
+    }
+    if (this.focusTrigger) {
       if (reference.querySelector('input, textarea')) {
         on(reference, 'focusin', this.doShow);
         on(reference, 'focusout', this.doClose);
@@ -156,14 +202,25 @@ export default Vue.extend({
         on(reference, 'mousedown', this.doShow);
         on(reference, 'mouseup', this.doClose);
       }
-    } else if (this.trigger === 'contextMenu') {
+    }
+    if (this.contextMenuTrigger) {
       reference.oncontextmenu = (): boolean => false;
       on(reference, 'mousedown', this.handleRightClick);
       on(document, 'click', this.handleDocumentClick);
     }
+    if (this.manualTrigger) {
+      this.showPopper = !!this.visible;
+    }
   },
-  destroyed(): any {
-    const reference = this.reference;
+  beforeDestroy(): void {
+    this.doDestroy(true);
+    if (this.popperElm && this.popperElm.parentNode === document.body) {
+      this.popperElm.removeEventListener('click', stop);
+      document.body.removeChild(this.popperElm);
+    }
+  },
+  destroyed(): void {
+    const reference = this.referenceElm;
     off(reference, 'click', this.doToggle);
     off(reference, 'mouseup', this.doClose);
     off(reference, 'mousedown', this.doShow);
@@ -176,128 +233,98 @@ export default Vue.extend({
     off(document, 'click', this.handleDocumentClick);
   },
   methods: {
-    createPopper(): any {
-      if (this.$isServer) return;
-      this.currentPlacement = this.currentPlacement || this.placement;
+    createPopperJS(): void {
+      const overlayContainer = this.getOverlayContainer
+        ? this.getOverlayContainer() : document.body;
+      overlayContainer.appendChild(this.popperElm);
 
-      const options = this.popperOptions;
-      this.popperElm = this.popperElm || this.popper || this.$refs.popper;
-      this.referenceElm = this.referenceElm || this.reference || this.$refs.reference;
-
-      if (!this.referenceElm &&
-        this.$slots.reference &&
-        this.$slots.reference[0]) {
-        this.referenceElm = this.$slots.reference[0].elm;
-      }
-
-      if (!this.popperElm || !this.referenceElm) return;
-      if (this.visibleArrow) this.appendArrow(this.popperElm);
-      if (this.appendToBody) document.body.appendChild(this.popperElm);
       if (this.popperJS && this.popperJS.destroy) {
         this.popperJS.destroy();
       }
-
-      options.placement = this.currentPlacement;
-      options.offset = this.offset;
-      options.arrowOffset = this.arrowOffset;
-      this.popperJS = createPopper(this.referenceElm, this.popperElm, options);
-      this.popperJS.onCreate(() => {
-        this.resetTransformOrigin();
-        this.$nextTick(this.updatePopper);
+      this.popperJS = createPopper(this.referenceElm, this.popperElm, {
+        placement: placementMap[this.currentPlacement],
+        onFirstUpdate: () => {
+          this.$nextTick(this.updatePopper);
+        },
+        modifiers: [
+          {
+            name: 'arrow',
+            options: {
+              padding: 5, // 5px from the edges of the popper
+            },
+          },
+        ],
       });
-      if (typeof options.onUpdate === 'function') {
-        this.popperJS.onUpdate(options.onUpdate);
-      }
       this.popperElm.addEventListener('click', stop);
+
+      // 监听trigger元素尺寸变化
+      this.resizeSensor = new ResizeSensor(this.referenceElm, () => {
+        this.popperJS.update();
+      });
     },
 
-    updatePopper(): any {
-      const popperJS = this.popperJS;
-      if (popperJS) {
-        popperJS.update();
+    updatePopper(): void {
+      if (this.popperJS) {
+        this.popperJS.update();
       } else {
-        this.createPopper();
+        this.createPopperJS();
       }
     },
 
-    doDestroy(forceDestroy: boolean): any {
-      /* istanbul ignore if */
+    doDestroy(forceDestroy: boolean): void {
       if (!this.popperJS || (this.showPopper && !forceDestroy)) return;
       this.popperJS.destroy();
       this.popperJS = null;
     },
 
-    destroyPopper(): any {
+    destroyPopper(): void {
       if (this.popperJS) {
-        this.resetTransformOrigin();
+        if (this.destroyOnHide) {
+          this.popperJS.destroy();
+          this.popperJS = null;
+          this.popperElm.parentNode.removeChild(this.popperElm);
+        }
       }
     },
 
-    resetTransformOrigin(): any {
-      if (!this.transformOrigin) return;
-
-      const placement = this.popperJS._popper.getAttribute('x-placement').split('-')[0];
-      const originPlacement = placementMap[placement];
-      this.popperJS._popper.style.transformOrigin = typeof this.transformOrigin === 'string'
-        ? this.transformOrigin : originPlacement;
-    },
-
-    appendArrow(element: Element): any {
-      if (this.appended) {
-        return;
-      }
-
-      this.appended = true;
-
-      const arrow = document.createElement('div');
-
-      arrow.setAttribute('x-arrow', '');
-      arrow.className = 'popper__arrow';
-      element.appendChild(arrow);
-    },
-
-    doToggle(): any {
+    doToggle(): void {
       this.showPopper = !this.showPopper;
     },
-    doShow(): any {
+    doShow(): void {
       this.showPopper = true;
     },
-    doClose(): any {
+    doClose(): void {
       this.showPopper = false;
     },
-    handleFocus(): any {
+    handleFocus(): void {
       addClass(this.referenceElm, 'focusing');
-      if (this.trigger === 'click' || this.trigger === 'focus') this.showPopper = true;
+      if (this.clickTrigger || this.focusTrigger) this.showPopper = true;
     },
-    handleClick(): any {
+    handleClick(): void {
       removeClass(this.referenceElm, 'focusing');
     },
-    handleBlur(): any {
+    handleBlur(): void {
       removeClass(this.referenceElm, 'focusing');
-      if (this.trigger === 'click' || this.trigger === 'focus') this.showPopper = false;
+      if (this.clickTrigger || this.focusTrigger) this.showPopper = false;
     },
-    handleKeydown(ev: any): any {
-      if (ev.keyCode === 27 && this.trigger !== 'manual') { // esc
+    handleKeydown(ev: KeyboardEvent): void {
+      if (ev.keyCode === 27 && this.manualTrigger) { // esc
         this.doClose();
       }
     },
-    handleDocumentClick(e: Event): any {
-      let reference = this.reference || this.$refs.reference;
-      const popper = this.popper || this.$refs.popper;
-      if (!reference && this.$slots.reference && this.$slots.reference[0]) {
-        reference = this.$slots.reference[0].elm;
-      }
-      if (!this.$el ||
-        !reference ||
-        this.$el.contains(e.target) ||
-        reference.contains(e.target) ||
-        !popper ||
-        popper.contains(e.target)) return;
+    handleDocumentClick(e: Event): void {
+      const reference = this.referenceElm;
+      const popper = this.popperElm;
+      if (!this.$el || !reference
+        || this.$el.contains(e.target as Element)
+        || reference.contains(e.target as Node)
+        || !popper
+        || popper.contains(e.target as Node)) return;
       this.showPopper = false;
     },
-    handleRightClick(e: Event): any {
-      if ((e as any).button === 2) {
-        this.showPopper = false;
+    handleRightClick(e: MouseEvent): void {
+      if (e.button === 2) {
+        this.doToggle();
       }
     },
   },

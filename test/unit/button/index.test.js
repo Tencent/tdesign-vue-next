@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Button from '@/button/index.ts';
+import Button from '@/src/button/index.ts';
 
 describe('Button', () => {
   describe(':props', () => {
@@ -96,10 +96,4 @@ describe('Button', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
-
-  // describe('methods', () => {
-  //   it('somePublicMethod', () => {
-  //     // method work fine
-  //   });
-  // });
 });

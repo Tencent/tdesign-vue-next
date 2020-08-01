@@ -3,11 +3,12 @@ const baseConfig = require('./jest.base.conf.js');
 module.exports = {
   ...baseConfig,
   testEnvironment: 'jsdom',
-  // 打开测试覆盖率报告
+  testRegex: 'unit/.*\\.test\\.js$',
+  // close coverage by default
   // collectCoverage: true,
   coverageDirectory: '<rootDir>/test/unit/coverage',
   collectCoverageFrom: [
-    'src/**/*.{js,vue}',
+    'src/**/*.{ts,tsx,js,vue}',
     '!**/node_modules/**',
   ],
   coverageReporters: ['html', 'text-summary'],

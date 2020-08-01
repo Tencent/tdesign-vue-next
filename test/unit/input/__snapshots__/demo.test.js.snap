@@ -1,0 +1,364 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input addon demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-addon t-addon--prepend"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      http://
+    </span>
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        placeholder="请输入内容"
+        type="text"
+      />
+    </div>
+  </div>
+   
+  <div
+    class="t-addon t-addon--append"
+  >
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        placeholder="请输入内容"
+        type="text"
+      />
+    </div>
+    <span
+      class="t-addon__append"
+    >
+      .com
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Input base demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-input"
+  >
+    <input
+      class="t-input__inner"
+      placeholder="请输入内容"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Input disabled demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-input t-is-disabled"
+  >
+    <input
+      class="t-input__inner"
+      disabled="disabled"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Input group demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group"
+    >
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <span>
+         - 
+      </span>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Input icon demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-input t-input--prefix t-input--suffix"
+  >
+    <span
+      class="t-input__prefix"
+    >
+      <svg
+        class="t-icon t-icon-search"
+      >
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+    </span>
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+    <span
+      class="t-input__suffix"
+    >
+      <svg
+        class="t-icon t-icon-prompt_fill"
+      >
+        <use
+          xlink:href="#t-icon-prompt_fill"
+        />
+      </svg>
+    </span>
+  </div>
+   
+  <div
+    class="t-input t-input--prefix t-input--suffix"
+  >
+    <span
+      class="t-input__prefix"
+    >
+      <svg
+        class="t-icon t-icon-search"
+      >
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+    </span>
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+    <span
+      class="t-input__suffix"
+    >
+      <svg
+        class="t-icon t-icon-prompt_fill"
+      >
+        <use
+          xlink:href="#t-icon-prompt_fill"
+        />
+      </svg>
+    </span>
+  </div>
+   
+  <div
+    class="t-input t-input--prefix t-input--suffix"
+  >
+    <span
+      class="t-input__prefix"
+    >
+      <svg
+        class="t-icon t-icon-search"
+      >
+        <use
+          xlink:href="#t-icon-search"
+        />
+      </svg>
+    </span>
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+    <span
+      class="t-input__suffix"
+    >
+      <svg
+        class="t-icon t-icon-prompt_fill"
+      >
+        <use
+          xlink:href="#t-icon-prompt_fill"
+        />
+      </svg>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Input size demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-input t-size-l"
+  >
+    <input
+      class="t-input__inner"
+      placeholder="请输入内容"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="t-input"
+  >
+    <input
+      class="t-input__inner"
+      placeholder="请输入内容"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Input status demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--input__input-box"
+>
+  <div
+    class="t-input t-is-success"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="t-input t-is-warning"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="t-input t-is-error"
+  >
+    <input
+      class="t-input__inner"
+      type="text"
+    />
+  </div>
+</div>
+`;

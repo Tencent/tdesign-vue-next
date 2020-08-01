@@ -1,11 +1,9 @@
 /* eslint-disable no-param-reassign */
 import Vue from 'vue';
 
-const isServer = Vue.prototype.$isServer;
+const isServer = Vue.prototype.$isServer || typeof window === 'undefined';
 
-const trim = (str: string): string => {
-  return (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
-};
+const trim =  (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 
 export const on = (((): any => {
   if (!isServer && document.addEventListener) {

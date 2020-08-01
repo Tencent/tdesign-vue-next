@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import Vue, { VNode } from 'vue'; // eslint-disable-line
 
 declare global {
   namespace JSX {
@@ -9,5 +9,6 @@ declare global {
     interface IntrinsicElements {
       [elem: string]: any;
     }
+    type IntrinsicAttributes = any;
   }
 }
