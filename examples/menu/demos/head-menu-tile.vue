@@ -3,7 +3,7 @@
     <img slot="logo" class="t-menu__logo--center" src="https://main.qcloudimg.com/raw/4927884bb0c43e726c5915d5bef49ef3/head-logo-dark.png" alt="logo">
     <t-menu-item :name="`${index+1}`" v-for="(menu,index) in menus" :key="index">
       {{menu.title}}
-      <t-submenu mode="tile">
+      <t-submenu>
         <t-menu-item v-for="(cMenu,cIndex) in menu.children" :key="`${index}-${cIndex}`" :name="`${index+1}-${cIndex+1}`">{{cMenu.title}}</t-menu-item>
       </t-submenu>
     </t-menu-item>
