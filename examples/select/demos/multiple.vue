@@ -5,51 +5,12 @@
       placeholder="-请选择-"
       :clearable="true"
       multiple
-      size="small"
       class="demo-select-base"
       @change="handleChange"
       @remove="handleRemove"
     >
       <t-option
         v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :disabled="item.disabled"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
-    <t-select
-      v-model="value2"
-      placeholder="-请选择-"
-      :clearable="true"
-      multiple
-      class="demo-select-base"
-      @change="handleChange"
-      @remove="handleRemove"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :disabled="item.disabled"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
-    <t-select
-      v-model="value3"
-      placeholder="-请选择-"
-      :clearable="true"
-      multiple
-      size="large"
-      class="demo-select-base"
-      @change="handleChange2"
-    >
-      <t-option
-        v-for="(item, index) in options2"
         :value="item.value"
         :label="item.label"
         :disabled="item.disabled"
@@ -86,20 +47,12 @@ export default {
         label: '橘子orange',
         value: 'orange',
       }],
-      value: [],
-      value2: ['apple'],
-      value3: ['apple', 'orange'],
+      value: ['apple'],
     };
   },
   methods: {
     handleChange(value) {
       console.log(value);
-    },
-    handleChange2(value) {
-      console.log(value);
-    },
-    handleRemove(value) {
-      console.log('remove:', value);
     },
   },
 };
