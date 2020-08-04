@@ -54,6 +54,9 @@ export default {
     handleChange(value) {
       console.log(value);
     },
+    handleRemove(value) {
+      console.log(value);
+    },
   },
 };
 </script>
