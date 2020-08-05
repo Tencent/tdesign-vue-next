@@ -29,6 +29,7 @@ import Switch from './switch';
 import Alert from './alert';
 import AlertSwiper from './alert-swiper';
 import { Menu, HeadMenu, Submenu, MenuItem, MenuGroup } from './menu';
+import Dropdown from './dropdown';
 
 const components = {
   Icon,
@@ -70,6 +71,7 @@ const components = {
   Submenu,
   MenuItem,
   MenuGroup,
+  Dropdown,
 };
 
 function install(Vue: VueConstructor, config?: object): void {
