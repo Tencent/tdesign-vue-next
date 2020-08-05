@@ -216,15 +216,18 @@ export default Vue.extend({
     },
     keyboardEvent(e: KeyboardEvent) {
       // esc 键
-      if (e.keyCode === 27) {
+      if (e.key === '27') {
         this.$emit('keydown-esc', e);
       }
     },
     overlayAction() {
       this.$emit('click-overlay');
     },
-    closeBtnAcion() {
-      this.$emit('click-close-btn', this.close);
+    closeBtnAcion(e: Event) {
+      this.$emit('click-close-btn', this.close, e);
+    },
+    cancelBtnAcion(e: Event) {
+      this.$emit('cancel', this.close, e);
     },
     close() {
       this.changeVisible(false);
@@ -232,8 +235,8 @@ export default Vue.extend({
     changeVisible(visible: boolean) {
       this.$emit('change', visible);
     },
-    confirmBtnAction() {
-      alert('confirm');
+    confirmBtnAction(e: Event) {
+      this.$emit('confirm', this.close, e);
     },
     renderTitle() {
       const target = this.header;
@@ -272,10 +275,12 @@ export default Vue.extend({
       );
     },
     renderFooter() {
-      const defaultView = <div>
-        <button class="t-button t-button--line" onClick={this.closeBtnAcion}>取消</button>
-        <button class="t-button t-button--primary" onClick={this.confirmBtnAction}>确认</button>
-      </div>;
+      const defaultView = (
+        <div>
+          <button class="t-button t-button--line" onClick={this.cancelBtnAcion}>取消</button>
+          <button class="t-button t-button--primary" onClick={this.confirmBtnAction}>确认</button>
+        </div>
+      );
       const target = this.footer;
       let view;
       let isShow = true;
