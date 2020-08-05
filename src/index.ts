@@ -29,6 +29,7 @@ import Switch from './switch';
 import Alert from './alert';
 import AlertSwiper from './alert-swiper';
 import { Menu, HeadMenu, Submenu, MenuItem, MenuGroup } from './menu';
+import Upload from './upload';
 import Dropdown from './dropdown';
 
 const components = {
@@ -72,6 +73,7 @@ const components = {
   MenuItem,
   MenuGroup,
   Dropdown,
+  Upload,
 };
 
 function install(Vue: VueConstructor, config?: object): void {

@@ -154,6 +154,19 @@ describe('Input', () => {
       expect(inputWrapper.emitted().blur).toBeTruthy();
       expect(fn).toBeCalled();
     });
+
+    it('@keydown-enter', () => {
+      const fn = jest.fn();
+      const wrapper = mount({
+        render() {
+          return <Input {...{ on: { 'keydown-enter': fn } }} />;
+        },
+      });
+      const inputElemWrapper = wrapper.find('input');
+      inputElemWrapper.trigger('keydown.enter');
+
+      expect(fn).toBeCalled();
+    });
   });
 
   describe('methods', () => {
