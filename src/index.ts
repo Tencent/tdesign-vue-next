@@ -4,6 +4,8 @@ import TransferDom from './utils/transfer-dom';
 import * as plugins from './plugins';
 import * as components from './components';
 
+import '../common/style/web/index.less';
+
 function install(Vue: VueConstructor, config?: object): void {
   // 增加指令v-transfer-dom，用于元素指定挂载点的
   Vue.directive('transfer-dom', TransferDom);
