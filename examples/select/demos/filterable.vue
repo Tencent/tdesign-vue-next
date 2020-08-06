@@ -22,6 +22,7 @@
     <t-select
       v-model="value2"
       class="demo-select-base"
+      style="width: 350px;"
       filterable
       multiple
       creatable
