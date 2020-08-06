@@ -1,15 +1,20 @@
 /* eslint-disable no-new */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import TDesign from '../src/index';
 import routes from './routes';
 import app from './app.vue';
 import Layout from './components/layout.vue';
 import Demo from './components/demo.vue';
 import ComponentContributors from './components/component-contributors.vue';
+import TDesign from '../src/index';
 import '../common/style/web/index.less';
 import '@/common/style/web/docs.less';
 import '@/common/style/site/index.less';
+
+// import TDesign from '../dist/tdesign.js';
+// import TDesign from '../es/index.js';
+// import '../dist/tdesign.css';
+
 
 Vue.use(TDesign);
 Vue.use(VueRouter);
