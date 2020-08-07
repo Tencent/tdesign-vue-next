@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs base demo works fine 1`] = `
+<div
+  class="t-demo-tabs"
+>
+  <p
+    class="t-demo-tabs__desc"
+  >
+    基本选项卡
+  </p>
+   
+  <div
+    class="t-tabs"
+  >
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        <!---->
+         
+        <div
+          class="t-tabs__nav-container t-is-top"
+        >
+          <!---->
+           
+          <!---->
+           
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap"
+              style="transform: translateX(0px);"
+            >
+              <div
+                class="t-tabs__bar t-is-top"
+              />
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      <div
+        class="t-tab-panel"
+        name="first"
+      >
+        <p
+          style="padding: 25px;"
+        >
+          选项卡1
+        </p>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;

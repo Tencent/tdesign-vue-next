@@ -31,6 +31,12 @@ module.exports = {
       babelConfig: true,
     },
   },
+  reporters: [
+    'default',
+    ['./node_modules/jest-html-reporter', {
+      pageTitle: 'TDesign Test Report',
+    }],
+  ],
   snapshotSerializers: ['jest-serializer-vue'],
   watchPlugins: [
     'jest-watch-typeahead/filename',

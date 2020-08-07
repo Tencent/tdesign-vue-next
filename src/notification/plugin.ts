@@ -1,3 +1,4 @@
+import { VueConstructor } from 'vue';
 import NotificationList from './notificationList';
 
 let seed = 0;
@@ -71,6 +72,11 @@ Plugin.closeAll = function () {
       attach[placement].removeAll();
     });
   });
+};
+
+Plugin.install = (Vue: VueConstructor) => {
+  /* eslint-disable no-param-reassign */
+  Vue.prototype.$notify = Plugin;
 };
 
 export default Plugin;
