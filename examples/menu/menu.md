@@ -20,6 +20,9 @@
 ::: demo demos/head-menu-tile 双层导航
 :::
 
+::: demo demos/head-menu-dropdown 多层收纳导航
+:::
+
 ### 侧边导航
 
 ::: demo demos/side-menu 侧边栏菜单
@@ -28,10 +31,16 @@
 ::: demo demos/side-menu-width 设置宽度
 :::
 
+::: demo demos/side-menu-group 分组菜单
+:::
+
 ::: demo demos/side-menu-dropdown 下拉菜单
 :::
 
 ::: demo demos/side-menu-dropdown-icon 下拉菜单（带ICON）
+:::
+
+::: demo demos/side-menu-popup 侧边菜单
 :::
 
 ::: demo demos/side-menu-collapsed 侧边收起
@@ -62,7 +71,7 @@
 | 公有 | active | String/Number        |  -     | N     | 激活菜单项的name值  |
 | 公有 | expand（开发中） | Array                 | []     | N    | 展开的SubMenu的集合 |
 | 公有 | height | String                 | 60px    | N    | 菜单高度 |
-| 公有 | mode（开发中） | String                 | dropdown    | N    | 二级菜单类型、dropdown为下拉形式、tile为平铺 |
+| 公有 | mode | String                 | dropdown    | N    | 二级菜单类型、dropdown为下拉形式、tile为平铺 |
 
 ### Menu Events
 
@@ -105,7 +114,7 @@
 
 | 平台 | 事件名称 | 参数 | 说明               | 返回值               |
 | ---- | -------- | ---- | ------------------ | ------------------ |
-| 公有 | collapsed（开发中）    | -    | 收起时触发，返回是否收起状态     | 收起时触发，返回是否收起状态     |
+| 公有 | collapsed    | -    | 收起时触发，返回是否收起状态     | 收起时触发，返回是否收起状态     |
 
 ### MenuGroup Props
 
@@ -128,4 +137,3 @@
 | ---- | -------- | ---- |
 | 公有 | default    | 默认插槽    |
 | 公有 | icon    | icon插槽    |
-

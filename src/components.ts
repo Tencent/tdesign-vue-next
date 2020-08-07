@@ -25,3 +25,4 @@ export * from './table';
 export * from './tabs';
 export * from './tag';
 export * from './upload';
+export * from './dropdown';
