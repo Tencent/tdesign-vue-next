@@ -12,7 +12,7 @@
           <slot name="content">
             <render-component :render='renderContent' />
           </slot>
-          <div v-if="visibleArrow" :class="name+'_arrow'" data-popper-arrow></div>
+          <div v-if="visibleArrow" :class="name+'__arrow'" data-popper-arrow></div>
         </div>
       </div>
     </transition>
@@ -113,6 +113,7 @@ export default Vue.extend({
         `${name}-content`,
         this.overlayClassName,
         {
+          [`${name}-content--arrow`]: this.visibleArrow,
           [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
       ];
