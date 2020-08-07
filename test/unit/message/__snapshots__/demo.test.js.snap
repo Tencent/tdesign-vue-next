@@ -1,5 +1,364 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Message close demo works fine 1`] = `
+<div class="t-demo-message">
+  <div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+      <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
+    </svg>计时结束触发事件 duration-end（10s）</div>
+  <!---->
+  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+      <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
+    </svg>点击关闭按钮触发事件 click-close-btn <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-close t-message-close">
+      <path fill-rule="evenodd" d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"></path>
+    </svg></div>
+  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+      <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
+    </svg>自定义关闭按钮（文字）<span class="t-message-close">关闭</span></div>
+  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+      <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
+    </svg>自定义关闭按钮（函数）<div class="t-message-close"><b>x</b></div>
+  </div>
+  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+      <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
+    </svg>
+    自定义关闭按钮（插槽）
+    <div class="t-message-close"><b>x</b></div>
+  </div>
+</div>
+`;
+
+exports[`Message closeAll demo works fine 1`] = `
+<div>
+  <button
+    class="t-button t-button--line"
+  >
+    点击打开多个消息
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+    id="t-demo-msg-close-all"
+  >
+    点击关闭所有消息
+  </button>
+</div>
+`;
+
+exports[`Message offset demo works fine 1`] = `
+<div>
+  <p>
+    
+    偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。
+  
+  </p>
+   
+  <br />
+   
+  <button
+    class="t-button t-button--line"
+  >
+    带 offset 信息位置
+  </button>
+   
+  <br />
+  <br />
+</div>
+`;
+
+exports[`Message placement demo works fine 1`] = `
+<div>
+  <p>
+    函数式调用-传入对象：this.$message.info({ default: '用户表示普通操作信息提示', placement: 'right-top' })
+  </p>
+   
+  <p>
+    
+    placement 默认值：top。
+    <br />
+    
+    palcement 可选值：'top/center/left/left-top/right-top/right/right-bottom/bottom/left-bottom' 。
+  
+  </p>
+   
+  <br />
+   
+  <button
+    class="t-button t-button--line"
+  >
+    top
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    center
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    left
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    left-top
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    right-top
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    right
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    right-bottom
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    bottom
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    left-bottom
+  </button>
+   
+  <br />
+  <br />
+</div>
+`;
+
+exports[`Message plugin demo works fine 1`] = `
+<div>
+  <p>
+    【方式一】函数式调用-信息设置：this.$message.info('用户表示普通操作信息提示')
+  </p>
+   
+  <br />
+   
+  <div
+    class="t-demo-message-theme"
+  >
+    <button
+      class="t-button t-button--line"
+    >
+      info
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      success
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      warning
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      error
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      question
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      loading
+    </button>
+  </div>
+   
+  <br />
+  <br />
+   
+  <p>
+    【方式一】函数式调用-时间设置：this.$message.info('用户表示普通操作信息提示', 1000)
+  </p>
+   
+  <br />
+   
+  <div
+    class="t-demo-message-duration"
+  >
+    <button
+      class="t-button t-button--line"
+    >
+      info
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      success
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      warning
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      error
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      question
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      loading
+    </button>
+  </div>
+   
+  <br />
+  <br />
+   
+  <p>
+    【方式二】函数式调用-传入对象：this.$message.info({ content: '用户表示普通操作信息提示', duration: 1000 })
+  </p>
+   
+  <br />
+   
+  <div
+    class="t-demo-message-obj"
+  >
+    <button
+      class="t-button t-button--line"
+    >
+      普通信息
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      显示关闭按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      设置显示时间
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      自定义内容
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      自定义关闭按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      loading
+    </button>
+  </div>
+   
+  <br />
+  <br />
+   
+  <p>
+    【方式三】函数式调用-主函数：this.$message('info', { content: '用户表示普通操作信息提示', duration: 1000 })
+  </p>
+   
+  <br />
+   
+  <div
+    class="t-demo-message-main"
+  >
+    <button
+      class="t-button t-button--line"
+    >
+      普通信息
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      显示关闭按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      设置显示时间
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      自定义内容
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      自定义关闭按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      loading
+    </button>
+  </div>
+   
+  <br />
+  <br />
+</div>
+`;
+
+exports[`Message toggle demo works fine 1`] = `
+<div>
+  <p>
+    【调用关闭函数】如果不希望通过计时关闭，或者用户点击按钮关闭，也可以使用关闭函数。
+  </p>
+   
+  <br />
+   
+  <button
+    class="t-button t-button--line"
+  >
+    
+    自由控制关闭时机（打开）
+  
+  </button>
+</div>
+`;
+
 exports[`Message type demo works fine 1`] = `
 <div
   class="t-demo-message"
