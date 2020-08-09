@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio :props :checked 1`] = `<label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" value=""><span class="t-radio__input"></span><span class="t-radio__label"></span></label>`;
+
+exports[`Radio :props :defaultChecked 1`] = `<label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" value=""><span class="t-radio__input"></span><span class="t-radio__label"></span></label>`;
+
+exports[`Radio :props :disabled 1`] = `<label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" disabled="" value=""><span class="t-radio__input"></span><span class="t-radio__label"></span></label>`;
+
+exports[`Radio :props :name 1`] = `<label class="t-radio"><input type="radio" class="t-radio__former" value="" name="radio-name"><span class="t-radio__input"></span><span class="t-radio__label"></span></label>`;
+
+exports[`Radio Group :props :buttonStyle 1`] = ``;
+
+exports[`Radio Group :props :defaultValue 1`] = ``;
+
+exports[`Radio Group :props :disabled 1`] = ``;
+
+exports[`Radio Group :props :name 1`] = ``;
+
+exports[`Radio Group :props :options 1`] = ``;
+
+exports[`Radio Group :props :size 1`] = ``;
+
+exports[`Radio Group :props :value 1`] = ``;

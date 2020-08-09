@@ -1,25 +1,29 @@
 <template>
-  <span>
-    <div
-      :class="_class"
-      ref="popper"
-      v-show="!disabled && showPopper"
-      :style="overlayStyle"
-      role="tooltip"
-      :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
-    >
-      {{ content }}
-      <div v-if="visibleArrow" :class="name+'_arrow'" data-popper-arrow></div>
-    </div>
-    <div :class="name+'-reference'" ref="reference">
-      <slot />
-    </div>
-  </span>
+  <div :class="name+'-reference'" ref="reference">
+    <transition :name="name+'_animation'" appear >
+      <div
+        :class="name"
+        ref="popper"
+        v-show="!disabled && showPopper"
+        role="tooltip"
+        :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
+      >
+        <div :class="_class" :style="overlayStyle">
+          <slot name="content">
+            <render-component :render='renderContent' />
+          </slot>
+          <div v-if="visibleArrow" :class="name+'__arrow'" data-popper-arrow></div>
+        </div>
+      </div>
+    </transition>
+    <slot />
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { CreateElement, VNodeChildren } from 'vue';
 import { createPopper } from '@popperjs/core';
+import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
@@ -46,7 +50,7 @@ const placementMap = {
 export default Vue.extend({
   name,
   components: {
-    // RenderComponent,
+    RenderComponent,
   },
   props: {
     disabled: {
@@ -99,18 +103,30 @@ export default Vue.extend({
       currentPlacement: '',
       popperElm: null,
       referenceElm: null,
+      resizeSensor: null,
       popperJS: null,
     };
   },
   computed: {
     _class(): ClassName {
       return [
-        `${name}`,
+        `${name}-content`,
         this.overlayClassName,
         {
+          [`${name}-content--arrow`]: this.visibleArrow,
           [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
       ];
+    },
+    renderContent(): any {
+      // 浮层内容处理
+      if (!this.content || typeof this.content === 'string') {
+        return (h: CreateElement) => h('div', {
+          class: `${name}-tooltips`,
+        }, this.content as VNodeChildren);
+      }
+
+      return this.content;
     },
     manualTrigger(): boolean {
       return this.trigger.indexOf('manual') > -1;
@@ -236,15 +252,14 @@ export default Vue.extend({
               padding: 5, // 5px from the edges of the popper
             },
           },
-          {
-            name: 'offset',
-            options: {
-              offset: [0, 8],
-            },
-          },
         ],
       });
       this.popperElm.addEventListener('click', stop);
+
+      // 监听trigger元素尺寸变化
+      this.resizeSensor = new ResizeSensor(this.referenceElm, () => {
+        this.popperJS.update();
+      });
     },
 
     updatePopper(): void {
@@ -299,12 +314,11 @@ export default Vue.extend({
     handleDocumentClick(e: Event): void {
       const reference = this.referenceElm;
       const popper = this.popperElm;
-      if (!this.$el ||
-        !reference ||
-        this.$el.contains(e.target as Element) ||
-        reference.contains(e.target as Node) ||
-        !popper ||
-        popper.contains(e.target as Node)) return;
+      if (!this.$el || !reference
+        || this.$el.contains(e.target as Element)
+        || reference.contains(e.target as Node)
+        || !popper
+        || popper.contains(e.target as Node)) return;
       this.showPopper = false;
     },
     handleRightClick(e: MouseEvent): void {

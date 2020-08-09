@@ -1,5 +1,364 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Message close demo works fine 1`] = `
+<div class="t-demo-message">
+  <div class="t-message t-is-info"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+      <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
+    </svg>计时结束触发事件 duration-end（10s）</div>
+  <!---->
+  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+      <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
+    </svg>点击关闭按钮触发事件 click-close-btn <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-close t-message-close">
+      <path fill-rule="evenodd" d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"></path>
+    </svg></div>
+  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+      <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
+    </svg>自定义关闭按钮（文字）<span class="t-message-close">关闭</span></div>
+  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+      <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
+    </svg>自定义关闭按钮（函数）<div class="t-message-close"><b>x</b></div>
+  </div>
+  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-prompt_fill">
+      <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"></path>
+    </svg>
+    自定义关闭按钮（插槽）
+    <div class="t-message-close"><b>x</b></div>
+  </div>
+</div>
+`;
+
+exports[`Message closeAll demo works fine 1`] = `
+<div>
+  <button
+    class="t-button t-button--line"
+  >
+    点击打开多个消息
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+    id="t-demo-msg-close-all"
+  >
+    点击关闭所有消息
+  </button>
+</div>
+`;
+
+exports[`Message offset demo works fine 1`] = `
+<div>
+  <p>
+    
+    偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。
+  
+  </p>
+   
+  <br />
+   
+  <button
+    class="t-button t-button--line"
+  >
+    带 offset 信息位置
+  </button>
+   
+  <br />
+  <br />
+</div>
+`;
+
+exports[`Message placement demo works fine 1`] = `
+<div>
+  <p>
+    函数式调用-传入对象：this.$message.info({ default: '用户表示普通操作信息提示', placement: 'right-top' })
+  </p>
+   
+  <p>
+    
+    placement 默认值：top。
+    <br />
+    
+    palcement 可选值：'top/center/left/left-top/right-top/right/right-bottom/bottom/left-bottom' 。
+  
+  </p>
+   
+  <br />
+   
+  <button
+    class="t-button t-button--line"
+  >
+    top
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    center
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    left
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    left-top
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    right-top
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    right
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    right-bottom
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    bottom
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    left-bottom
+  </button>
+   
+  <br />
+  <br />
+</div>
+`;
+
+exports[`Message plugin demo works fine 1`] = `
+<div>
+  <p>
+    【方式一】函数式调用-信息设置：this.$message.info('用户表示普通操作信息提示')
+  </p>
+   
+  <br />
+   
+  <div
+    class="t-demo-message-theme"
+  >
+    <button
+      class="t-button t-button--line"
+    >
+      info
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      success
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      warning
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      error
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      question
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      loading
+    </button>
+  </div>
+   
+  <br />
+  <br />
+   
+  <p>
+    【方式一】函数式调用-时间设置：this.$message.info('用户表示普通操作信息提示', 1000)
+  </p>
+   
+  <br />
+   
+  <div
+    class="t-demo-message-duration"
+  >
+    <button
+      class="t-button t-button--line"
+    >
+      info
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      success
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      warning
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      error
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      question
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      loading
+    </button>
+  </div>
+   
+  <br />
+  <br />
+   
+  <p>
+    【方式二】函数式调用-传入对象：this.$message.info({ content: '用户表示普通操作信息提示', duration: 1000 })
+  </p>
+   
+  <br />
+   
+  <div
+    class="t-demo-message-obj"
+  >
+    <button
+      class="t-button t-button--line"
+    >
+      普通信息
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      显示关闭按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      设置显示时间
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      自定义内容
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      自定义关闭按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      loading
+    </button>
+  </div>
+   
+  <br />
+  <br />
+   
+  <p>
+    【方式三】函数式调用-主函数：this.$message('info', { content: '用户表示普通操作信息提示', duration: 1000 })
+  </p>
+   
+  <br />
+   
+  <div
+    class="t-demo-message-main"
+  >
+    <button
+      class="t-button t-button--line"
+    >
+      普通信息
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      显示关闭按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      设置显示时间
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      自定义内容
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      自定义关闭按钮
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      loading
+    </button>
+  </div>
+   
+  <br />
+  <br />
+</div>
+`;
+
+exports[`Message toggle demo works fine 1`] = `
+<div>
+  <p>
+    【调用关闭函数】如果不希望通过计时关闭，或者用户点击按钮关闭，也可以使用关闭函数。
+  </p>
+   
+  <br />
+   
+  <button
+    class="t-button t-button--line"
+  >
+    
+    自由控制关闭时机（打开）
+  
+  </button>
+</div>
+`;
+
 exports[`Message type demo works fine 1`] = `
 <div
   class="t-demo-message"
@@ -8,13 +367,13 @@ exports[`Message type demo works fine 1`] = `
     class="t-message t-is-info"
   >
     <svg
-      class="t-icon t-icon-prompt-fill"
+      class="t-icon t-icon-prompt_fill"
       version="1.1"
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M7,6 L9,6 L9,4 L7,4 L7,6 Z M7,12 L9,12 L9,7 L7,7 L7,12 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"
+        d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"
         fill-rule="evenodd"
       />
     </svg>
@@ -25,13 +384,13 @@ exports[`Message type demo works fine 1`] = `
     class="t-message t-is-success"
   >
     <svg
-      class="t-icon t-icon-success-fill"
+      class="t-icon t-icon-success_fill"
       version="1.1"
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M8,0 C12.418278,0 16,3.581722 16,8 C16,12.418278 12.418278,16 8,16 C3.581722,16 0,12.418278 0,8 C0,3.581722 3.581722,0 8,0 Z M10.925,4.8 L7.036,8.689 L4.914,6.568 L3.5,7.982 L7.036,11.518 L12.339,6.214 L10.925,4.8 Z"
+        d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M10.7947737,5.52481537 L7.25881266,9.05981537 L5.13791944,6.93902893 L4.43081266,7.64613571 L7.25923978,10.4745628 L7.96634656,9.76745605 L11.5018805,6.23192215 L10.7947737,5.52481537 Z"
         fill-rule="evenodd"
       />
     </svg>
@@ -42,13 +401,13 @@ exports[`Message type demo works fine 1`] = `
     class="t-message t-is-warning"
   >
     <svg
-      class="t-icon t-icon-warning-fill"
+      class="t-icon t-icon-warning_fill"
       version="1.1"
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M7,12 L9,12 L9,10 L7,10 L7,12 Z M7,9 L9,9 L9,4 L7,4 L7,9 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"
+        d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,10.5 L7.5,10.5 L7.5,11.5 L8.5,11.5 L8.5,10.5 Z M8.5,4.5 L7.5,4.5 L7.5,9.5 L8.5,9.5 L8.5,4.5 Z"
         fill-rule="evenodd"
       />
     </svg>
@@ -59,13 +418,13 @@ exports[`Message type demo works fine 1`] = `
     class="t-message t-is-error"
   >
     <svg
-      class="t-icon t-icon-warning-fill"
+      class="t-icon t-icon-warning_fill"
       version="1.1"
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M7,12 L9,12 L9,10 L7,10 L7,12 Z M7,9 L9,9 L9,4 L7,4 L7,9 Z M8,0 C3.582,0 0,3.582 0,8 C0,12.418 3.582,16 8,16 C12.418,16 16,12.418 16,8 C16,3.582 12.418,0 8,0 L8,0 Z"
+        d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,10.5 L7.5,10.5 L7.5,11.5 L8.5,11.5 L8.5,10.5 Z M8.5,4.5 L7.5,4.5 L7.5,9.5 L8.5,9.5 L8.5,4.5 Z"
         fill-rule="evenodd"
       />
     </svg>
@@ -76,13 +435,13 @@ exports[`Message type demo works fine 1`] = `
     class="t-message t-is-question"
   >
     <svg
-      class="t-icon t-icon-help-fill"
+      class="t-icon t-icon-help_fill"
       version="1.1"
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M8,0 C12.418383,0 16,3.58161702 16,8 C16,12.418383 12.418383,16 8,16 C3.58161702,16 0,12.418383 0,8 C0,3.58161702 3.58161702,0 8,0 Z M9,11 L7,11 L7,13 L9,13 L9,11 Z M8,3 C6.34314575,3 5,4.34314575 5,6 L5,6 L5,6.5 L7,6.5 L7,6 L7.00672773,5.88337887 C7.06449284,5.38604019 7.48716416,5 8,5 C8.55228475,5 9,5.44771525 9,6 C9,6.3147573 8.85180584,6.61114562 8.6,6.8 L8.6,6.8 L8.4,6.95 L8.22861736,7.08712385 C7.45182752,7.74959062 7,8.72179281 7,9.75 L7,9.75 L7,10 L9,10 L9,9.75 L9.00814128,9.59382531 C9.05131679,9.18105931 9.26425888,8.80180584 9.6,8.55 L9.6,8.55 L9.8,8.4 L9.95706876,8.27375331 C10.616661,7.70613213 11,6.87682392 11,6 C11,4.34314575 9.65685425,3 8,3 Z"
+        d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,11.5 L7.5,11.5 L7.5,12.5 L8.5,12.5 L8.5,11.5 Z M8.0046132,4.01009539 C6.89964484,3.992021 5.89419062,4.7050101 5.58849917,5.78947962 C5.53152831,5.99158916 5.50555412,6.27231503 5.50555412,6.49980949 L5.50555412,6.49980949 L6.50555412,6.49980949 L6.50886399,6.38407655 C6.51532705,6.26281579 6.53077967,6.13249189 6.55099163,6.06078805 C6.73090084,5.42254299 7.32795266,4.99916077 7.988258,5.00996164 C8.82388448,5.02363031 9.4930405,5.60115445 9.50534729,6.50660482 C9.51383091,7.13077242 9.32708164,7.44703811 8.68944575,8.09013171 L8.68944575,8.09013171 L8.48903385,8.29532631 C7.77943441,9.04055692 7.5,9.57548727 7.5,10.5097596 L7.5,10.5097596 L8.5,10.5097596 L8.50366247,10.3603266 C8.53343338,9.78389814 8.75031018,9.44897977 9.35782416,8.83629966 L9.35782416,8.83629966 L9.55488287,8.63458025 C10.2490648,7.90582915 10.5174484,7.39012892 10.5052549,6.49301417 C10.4851145,5.01121866 9.350661,4.03211322 8.0046132,4.01009539 Z"
         fill-rule="evenodd"
       />
     </svg>
@@ -99,7 +458,7 @@ exports[`Message type demo works fine 1`] = `
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M0,8 C0,3.582 3.582,0 8,0 C12.418,0 16,3.582 16,8 L14,8 L14,8 C14,4.6862915 11.3137085,2 8,2 C4.6862915,2 2,4.6862915 2,8 C2,11.3137085 4.6862915,14 8,14 L8,16 C3.582,16 0,12.418 0,8 Z"
+        d="M1.5,8 C1.5,4.410375 4.410375,1.5 8,1.5 C11.589625,1.5 14.5,4.410375 14.5,8 L12.875,8 L12.875,8 C12.875,5.30761184 10.6923882,3.125 8,3.125 C5.30761184,3.125 3.125,5.30761184 3.125,8 C3.125,10.6923882 5.30761184,12.875 8,12.875 L8,14.5 C4.410375,14.5 1.5,11.589625 1.5,8 Z"
         fill-rule="evenodd"
       />
     </svg>

@@ -121,4 +121,3 @@ const TransferDom = {
 };
 
 export default TransferDom;
-

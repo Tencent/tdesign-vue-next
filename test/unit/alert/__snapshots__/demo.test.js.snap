@@ -1,0 +1,957 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert base demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-alert t-alert--success"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条成功的消息提示
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--info"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          <div>
+            这是一条普通的消息提示
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--warning"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          
+      这是一条警示信息
+    
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--error"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          
+    高危操作/出错信息提示
+  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+
+exports[`Alert icon demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-alert t-alert--success"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-success_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M10.7947737,5.52481537 L7.25881266,9.05981537 L5.13791944,6.93902893 L4.43081266,7.64613571 L7.25923978,10.4745628 L7.96634656,9.76745605 L11.5018805,6.23192215 L10.7947737,5.52481537 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条成功的消息提示
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--info"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-prompt_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条普通的消息提示
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--warning"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-warning_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,10.5 L7.5,10.5 L7.5,11.5 L8.5,11.5 L8.5,10.5 Z M8.5,4.5 L7.5,4.5 L7.5,9.5 L8.5,9.5 L8.5,4.5 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条警示消息提示
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--error"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-warning_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,10.5 L7.5,10.5 L7.5,11.5 L8.5,11.5 L8.5,10.5 Z M8.5,4.5 L7.5,4.5 L7.5,9.5 L8.5,9.5 L8.5,4.5 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          高危操作/出错信息提示
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--warning"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-warning_fill"
+      >
+        <use
+          xlink:href="#t-icon-warning_fill"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条警示信息(以function形式自定义icon)
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--error"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-warning_fill"
+      >
+        <use
+          xlink:href="#t-icon-warning_fill"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          高危操作/出错信息提示(以slot形式自定义icon)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert close demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-alert t-alert--success"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条成功的消息提示
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--info"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条普通的消息提示
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       知道了
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--warning"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条警示信息
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       FunctionPropClose
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--error"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          高危操作/出错信息提示
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      Slot Close
+    
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert operation demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-alert t-alert--success"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条成功的消息提示
+        </div>
+        <div
+          class="t-alert__operation"
+        >
+          <span>
+            相关操作
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--info"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条普通的消息提示
+        </div>
+        <div
+          class="t-alert__operation"
+        >
+          <span>
+            相关操作
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--warning"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条警示信息
+        </div>
+        <div
+          class="t-alert__operation"
+        >
+          <span>
+            相关操作
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--error"
+  >
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          高危操作/出错信息提示
+        </div>
+        <div
+          class="t-alert__operation"
+        >
+          <span>
+            相关操作
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert title demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-alert t-alert--success"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-success_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M10.7947737,5.52481537 L7.25881266,9.05981537 L5.13791944,6.93902893 L4.43081266,7.64613571 L7.25923978,10.4745628 L7.96634656,9.76745605 L11.5018805,6.23192215 L10.7947737,5.52481537 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__title"
+      >
+         这是一条成功的消息提示
+      </div>
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条普通的消息提示描述，这是一条普通的消息提示描述，这是一条普通的消息提示描述，这是一条普通的消息提示描述，
+        </div>
+        <div
+          class="t-alert__operation"
+        >
+          <span>
+            相关操作
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--info"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-prompt_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,6.5 L6.5,6.5 L6.5,7.5 L7.5,7.5 L7.5,11.5 L9.5,11.5 L9.5,10.5 L8.5,10.5 L8.5,6.5 Z M8.5,4.5 L7.5,4.5 L7.5,5.5 L8.5,5.5 L8.5,4.5 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__title"
+      >
+         这是一条普通的消息提示
+      </div>
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条普通的消息提示这是一条普通的消息提示这是一条普通的消息提示这是一条普通的消息提示
+        </div>
+        <div
+          class="t-alert__operation"
+        >
+          <span>
+            相关操作
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--warning"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-warning_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,10.5 L7.5,10.5 L7.5,11.5 L8.5,11.5 L8.5,10.5 Z M8.5,4.5 L7.5,4.5 L7.5,9.5 L8.5,9.5 L8.5,4.5 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__title"
+      >
+         这是一条警示信息
+      </div>
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          这是一条警示信息这是一条警示信息这是一条警示信息这是一条警示信息
+        </div>
+        <div
+          class="t-alert__operation"
+        >
+          <span>
+            相关操作
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+   
+  <div
+    class="t-alert t-alert--error"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-warning_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M8.5,10.5 L7.5,10.5 L7.5,11.5 L8.5,11.5 L8.5,10.5 Z M8.5,4.5 L7.5,4.5 L7.5,9.5 L8.5,9.5 L8.5,4.5 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__title"
+      >
+         高危操作/出错信息提示
+      </div>
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          高危操作/出错信息提示高危操作/出错信息提示高危操作/出错信息提示高危操作/出错信息提示
+        </div>
+        <div
+          class="t-alert__operation"
+        >
+          <span>
+            相关操作
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+
+exports[`Alert collapse demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-alert t-alert--success"
+  >
+    <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-success_fill"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M10.7947737,5.52481537 L7.25881266,9.05981537 L5.13791944,6.93902893 L4.43081266,7.64613571 L7.25923978,10.4745628 L7.96634656,9.76745605 L11.5018805,6.23192215 L10.7947737,5.52481537 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-alert__content"
+    >
+      <div
+        class="t-alert__message"
+      >
+        <div
+          class="t-alert__description"
+        >
+          <div>
+            <span>
+              这是折叠的第一条消息
+            </span>
+          </div>
+          <div>
+             
+          </div>
+          <div
+            class="t-alert__collapse"
+          >
+            展开全部
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-alert__close"
+    >
+       
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 16 16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Alert swiper demo works fine 1`] = `
+<div
+  class="t-alert-swiper t-alert-swiper--info"
+>
+  <div
+    class="t-alert-swiper__content"
+  >
+    <div
+      class="t-alert-swiper__swiper-wrap"
+      style="width: 200%; left: -0%;"
+    >
+      <div
+        class="t-alert t-alert--info"
+      >
+        <div
+          class="t-alert__content"
+        >
+          <div
+            class="t-alert__message"
+          >
+            <div
+              class="t-alert__description"
+            >
+              测试1
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="t-alert t-alert--info"
+      >
+        <div
+          class="t-alert__content"
+        >
+          <div
+            class="t-alert__message"
+          >
+            <div
+              class="t-alert__description"
+            >
+              测试2
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul
+    class="t-alert-swiper__trigger-wrap"
+  >
+    <li
+      class="t-alert-swiper__trigger--active"
+    />
+    <li
+      class=""
+    />
+  </ul>
+  <div
+    class="t-alert-swiper__close"
+  >
+     
+    <svg
+      class="t-icon t-icon-close"
+      version="1.1"
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.8902814,3.4 L12.5973882,4.10710678 L8.708,7.996 L12.5973882,11.8852814 L11.8902814,12.5923882 L8.001,8.703 L4.11210678,12.5923882 L3.405,11.8852814 L7.294,7.996 L3.405,4.10710678 L4.11210678,3.4 L8.001,7.289 L11.8902814,3.4 Z"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+</div>
+`;

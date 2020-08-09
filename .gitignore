@@ -3,6 +3,7 @@ package-lock.json
 .vscode
 .DS_Store
 .vscode
+es
 lib
 dist
 _site
@@ -20,4 +21,4 @@ script/test/cypress/videos
 script/test/cypress/results
 script/test/cypress/support
 results/
-
+yarn-error.log

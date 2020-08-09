@@ -1,11 +1,8 @@
-import DialogComponent from './dialog';
-import * as functions from './functions';
+import Dialog from './dialog';
+import DialogPlugin from './plugin';
+import setInstallFn from '../utils/setInstallFn';
 
-type ExportedDialog = typeof DialogComponent & typeof functions
+setInstallFn('Dialog', Dialog);
 
-const Dialog = DialogComponent as ExportedDialog;
-
-Dialog.confirm = functions.confirm;
-Dialog.alert = functions.alert;
-
+export { Dialog, DialogPlugin };
 export default Dialog;

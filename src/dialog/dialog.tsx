@@ -2,18 +2,27 @@ import Vue from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import TIconClose from '../icon/close';
+import { ButtonProps } from '../button/type';
 
 const name = `${prefix}-dialog`;
-interface StyleObject {
-  width?: string | number;
-}
-const PositionClass = {
-  center: 't-dialog--center',
-};
+
 function GetCSSValue(v: string | number) {
   return isNaN(Number(v)) ? v : `${Number(v)}px`;
 };
 
+// 计算dialog元素的偏移量，根据offset跟placement确定
+function GetTransformByOffset(offset: any, placement: string) {
+  if (!offset) return undefined;
+
+  const { left, right, top, bottom } = offset;
+  let translateY: string = placement === 'center' ? '-50%' : '0px';
+  let translateX = '-50%';
+  left && (translateX = `${translateX} - ${GetCSSValue(left)}`);
+  right && (translateX = `${translateX} + ${GetCSSValue(right)}`);
+  top && (translateY = `${translateY} - ${GetCSSValue(top)}`);
+  bottom && (translateY = `${translateY} + ${GetCSSValue(bottom)}`);
+  return `translate(calc(${translateX}),calc(${translateY}))`;
+}
 // 注册元素的拖拽事件
 function InitDragEvent(dragBox: HTMLElement) {
   const target = dragBox;
@@ -45,7 +54,7 @@ export default Vue.extend({
   },
   model: {
     prop: 'visible',
-    event: 'change',
+    event: 'visible-change',
   },
   props: {
     visible: {
@@ -63,19 +72,20 @@ export default Vue.extend({
         );
       },
     },
-    offset: {
-      type: [String, Object],
-      default: 'center',
-      validator(v: string | object): boolean {
-        if (typeof v === 'string') {
-          return (
-            [
-              'center',
-            ].indexOf(v) > -1
-          );
-        }
-        return true;
+    placement: {
+      type: String,
+      default: 'top',
+      validator(v: string): boolean {
+        return (
+          [
+            'top',
+            'center',
+          ].indexOf(v) > -1
+        );
       },
+    },
+    offset: {
+      type: Object,
     },
     width: {
       type: [String, Number],
@@ -118,8 +128,13 @@ export default Vue.extend({
       type: [Function, String, Boolean],
       default: false,
     },
-    close: {
-      type: Function,
+    confirmContent: {
+      type: [String, Function, Object, Boolean],
+      default: '确认',
+    },
+    cancelContent: {
+      type: [String, Function, Object, Boolean],
+      default: '取消',
     },
   },
   computed: {
@@ -138,15 +153,15 @@ export default Vue.extend({
       }
       return false;
     },
-    ctxClass(): Array<string> {
-      // 关闭时候是否卸载元素
+    ctxClass(): ClassName {
+      // 关闭时候是否卸载元素 this.$el.parentNode.removeChild(this.$el)
       const closeMode = this.destroyOnClose ? 'display' : 'visable';
       return [
         't-dialog-ctx',
         this.visible ? `t-is-${closeMode}` : `t-not-${closeMode}`,
       ];
     },
-    maskClass(): Array<string> {
+    maskClass(): ClassName {
       return [
         't-dialog-mask',
         !this.showOverlay && 't-dialog-mask--hidden',
@@ -155,7 +170,6 @@ export default Vue.extend({
   },
   watch: {
     visible(value) {
-      this.$emit('visableChange', value);
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
       // 目前弹窗交互没有动画
@@ -163,6 +177,10 @@ export default Vue.extend({
         this.$emit('opened');
       } else {
         this.$emit('closed');
+      }
+      // 关闭时，销毁元素
+      if (!value && this.destroyOnClose) {
+        this.$el.parentNode.removeChild(this.$el);
       }
     },
   },
@@ -179,7 +197,22 @@ export default Vue.extend({
       }
     },
   },
+  data() {
+    return {
+      transform: undefined,
+    };
+  },
+  created() {
+    this.initOffsetWatch();
+  },
   methods: {
+    initOffsetWatch() {
+      this.transform = GetTransformByOffset(this.offset, this.placement);
+      // 这里主要是因为offset是对象，直接用computed or watch 的话，同样会造成不必要的重复计算
+      this.$watch(() => JSON.stringify(this.offset) + this.placement, () => {
+        this.transform = GetTransformByOffset(this.offset, this.placement);
+      });
+    },
     disPreventScrollThrough(disabled: boolean) {
       // 防止滚动穿透,modal形态才需要
       if (this.preventScrollThrough && this.isModal) {
@@ -194,28 +227,31 @@ export default Vue.extend({
       }
     },
     keyboardEvent(e: KeyboardEvent) {
-      // esc 键
-      if (e.keyCode === 27) {
-        this.$emit('keydownEsc', e);
+      if (e.code === 'Escape') {
+        this.$emit('keydown-esc', this.close, e);
       }
     },
-    overlayAction() {
-      this.$emit('clickOverlay');
+    overlayAction(e: Event) {
+      this.$emit('click-overlay', this.close, e);
     },
-    closeBtnAcion() {
-      this.$emit('clickCloseBtn');
-      if (typeof this.close === 'function') {
-        this.close();
-      }
+    closeBtnAcion(e: Event) {
+      this.$emit('click-close-btn', this.close, e);
+      this.changeVisible(false);
+    },
+    close() {
+      this.changeVisible(false);
     },
     changeVisible(visible: boolean) {
-      this.$emit('change', visible);
+      this.$emit('visible-change', visible);
     },
-    confirmBtnAction() {
-      alert('confirm');
+    cancelBtnAction(e: Event) {
+      this.$emit('click-cancel', this.close, e);
+      this.changeVisible(false);
+    },
+    confirmBtnAction(e: Event) {
+      this.$emit('click-confirm', this.close, e);
     },
     renderTitle() {
-      const defaultView = <h5 class='title'>对话框标题</h5>;
       const target = this.header;
       let view;
       let isShow = true;
@@ -229,12 +265,11 @@ export default Vue.extend({
       }
       return isShow && (
         <div class="t-dialog__header">
-          {view || defaultView}
+          {view}
         </div>
       );
     },
     renderBody() {
-      const defaultView = <div>对话框内容</div>;
       const target = this.body;
       let view;
       let isShow = true;
@@ -248,15 +283,36 @@ export default Vue.extend({
       }
       return isShow && (
         <div class="t-dialog__body">
-          {view || defaultView}
+          {view}
         </div>
       );
     },
+    renderDefaultBtn(type: string, btnNode: string | Function | ButtonProps) {
+      if (!btnNode) return null;
+      const r = {
+        confirm: {
+          btnClass: 't-button--primary',
+          onClick: this.confirmBtnAction,
+        },
+        cancel: {
+          btnClass: 't-button--line',
+          onClick: this.cancelBtnAction,
+        },
+      }[type];
+      if (typeof btnNode === 'function') {
+        return btnNode();
+      } if (typeof btnNode === 'object') {
+        return <button class={`t-button ${r.btnClass}`} onClick={r.onClick} {...btnNode}>{btnNode.content}</button>;
+      }
+      return <button class={`t-button ${r.btnClass}`} onClick={r.onClick}>{btnNode}</button>;
+    },
     renderFooter() {
-      const defaultView = <div>
-        <button class="t-button t-button--line" onClick={this.closeBtnAcion}>取消</button>
-        <button class="t-button t-button--primary" onClick={this.confirmBtnAction}>确认</button>
-      </div>;
+      const defaultView = (
+        <div>
+          {this.renderDefaultBtn('cancel', this.cancelContent)}
+          {this.renderDefaultBtn('confirm', this.confirmContent)}
+        </div>
+      );
       const target = this.footer;
       let view;
       let isShow = true;
@@ -289,13 +345,8 @@ export default Vue.extend({
     },
   },
   render() {
-    const dialogClass = ['t-dialog', 't-dialog--default'];
-    let dialogStyle: StyleObject = { width: GetCSSValue(this.width) };
-    if (typeof this.offset === 'object') {
-      dialogStyle = { ...dialogStyle, ...this.offset };
-    } else {
-      dialogClass.push(PositionClass[this.offset]);
-    }
+    const dialogClass = ['t-dialog', 't-dialog--default', `t-dialog--${this.placement}`];
+    const dialogStyle = { width: GetCSSValue(this.width), transform: this.transform };
     return (
       <div class={this.ctxClass} style={{ zIndex: this.zIndex }} v-transfer-dom={this.attachTarget}>
 

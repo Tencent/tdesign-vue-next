@@ -1,10 +1,9 @@
 /* eslint-disable no-param-reassign */
 import Vue from 'vue';
 
-const isServer = Vue.prototype.$isServer;
+const isServer = Vue.prototype.$isServer || typeof window === 'undefined';
 
-const trim =
-  (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
+const trim =  (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 
 export const on = (((): any => {
   if (!isServer && document.addEventListener) {
@@ -84,4 +83,16 @@ export function removeClass(el: Element, cls: string): any {
   if (!el.classList) {
     el.className = trim(curClass);
   }
+};
+
+export const getAttach = (attach: string | Element | Function = 'body') => {
+  let r: Element;
+  if (typeof attach === 'string') {
+    r = document.querySelector(attach);
+  } else if (typeof attach === 'function') {
+    r = attach();
+  } else {
+    console.error('TDesign Error: attach type must a string or function.');
+  }
+  return r;
 };

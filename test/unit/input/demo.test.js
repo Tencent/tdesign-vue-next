@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 
-describe('Button', () => {
+describe('Input', () => {
   it('base demo works fine', () => {
     const demo = require('@/examples/input/demos/base.vue');
     const wrapper = mount(demo);
@@ -17,7 +17,7 @@ describe('Button', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
   it('icon demo works fine', () => {
-    const demo = require('@/examples/input/demos/icon.vue');
+    const demo = require('@/examples/input/demos/icon.vue').default;
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

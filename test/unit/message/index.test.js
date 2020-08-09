@@ -3,10 +3,10 @@ import { Message } from '@/src/message/index.ts';
 import Button from '@/src/Button/index.ts';
 import TIconClose from '@/src/icon/close';
 import TIconMore from '@/src/icon/more';
-import TIconPromptFill from '@/src/icon/prompt-fill';
-import TIconSuccessFill from '@/src/icon/success-fill';
-import TIconWarningFill from '@/src/icon/warning-fill';
-import TIconHelpFill from '@/src/icon/help-fill';
+import TIconPromptFill from '@/src/icon/prompt_fill';
+import TIconSuccessFill from '@/src/icon/success_fill';
+import TIconWarningFill from '@/src/icon/warning_fill';
+import TIconHelpFill from '@/src/icon/help_fill';
 import TIconLoadingFill from '@/src/icon/loading';
 
 // every component needs four parts: props/events/slots/functions.

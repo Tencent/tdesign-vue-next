@@ -3,6 +3,7 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import Icon from '../icon';
+import ClearIcon from '../icon/close_fill';
 
 const name = `${prefix}-input`;
 
@@ -24,25 +25,40 @@ export default (Vue as VueConstructor<InputInstance>).extend({
   name,
   inheritAttrs: false,
   props: {
-    value: { type: [String, Number], default: '' },
+    value: {
+      type: [String, Number],
+      default: '',
+    },
     defaultValue: [String, Number],
     prefixIcon: [String, Function],
     suffixIcon: [String, Function],
-    size: { type: String, default: 'default', validator(v: string): boolean {
-      return ['large', 'default', 'small'].indexOf(v) > -1;
-    } },
+    size: {
+      type: String,
+      default: 'default',
+      validator(v: string): boolean {
+        return ['large', 'default', 'small'].indexOf(v) > -1;
+      },
+    },
     disabled: Boolean,
     readonly: Boolean,
-    clearable: Boolean, // TODO
+    clearable: Boolean,
     autocomplete: Boolean,
-    status: { type: String, validator(v: string): boolean {
-      return ['default', 'success', 'warning', 'error'].indexOf(v) > -1;
-    } },
+    status: {
+      type: String,
+      validator(v: string): boolean {
+        return ['default', 'success', 'warning', 'error'].indexOf(v) > -1;
+      },
+    },
   },
   data() {
     return {
       focused: false,
     };
+  },
+  computed: {
+    showClear(): boolean {
+      return this.value && !this.disabled && this.clearable;
+    },
   },
   created() {
     this.composing = false;
@@ -60,9 +76,9 @@ export default (Vue as VueConstructor<InputInstance>).extend({
 
     const inputEvents = getValidAttrs({
       change: this.$listeners.change,
-      focus: this.$listeners.focus,
-      blur: this.$listeners.blur,
-      keydown: this.$listeners.keydown,
+      focus: this.onFocus,
+      blur: this.onBlur,
+      keydown: this.onKeyDown,
       keyup: this.$listeners.keyup,
       keypresss: this.$listeners.keypresss,
     });
@@ -70,8 +86,12 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     const wrapperAttrs = omit(this.$attrs, Object.keys(inputAttrs));
     const wrapperEvents = omit(this.$listeners, [...Object.keys(inputEvents), 'input']);
 
-    const prefixIcon = this.renderIcon(h, this.prefixIcon);
-    const suffixIcon = this.renderIcon(h, this.suffixIcon);
+    const prefixIcon = this.renderIcon(h, this.prefixIcon, 'prefix-icon');
+    let suffixIcon = this.renderIcon(h, this.suffixIcon, 'suffix-icon');
+
+    if (this.showClear) {
+      suffixIcon = <ClearIcon class={`${name}__suffix-clear`} nativeOnClick={this.onClear} />;
+    }
 
     const classes = [
       name,
@@ -86,12 +106,7 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     ];
     return (
       <div class={classes} {...{ attrs: wrapperAttrs, on: wrapperEvents }}>
-        {
-          this.prefixIcon
-            ? <span class={`${name}__prefix`}>
-            { prefixIcon }
-          </span> : null
-        }
+        {prefixIcon ? <span class={`${name}__prefix`}>{prefixIcon}</span> : null}
         <input
           {...{ attrs: inputAttrs, on: inputEvents }}
           ref="refInputElem"
@@ -99,21 +114,24 @@ export default (Vue as VueConstructor<InputInstance>).extend({
           class={`${name}__inner`}
           onInput={this.onInput}
         />
-        {
-          this.suffixIcon
-            ? <span class={`${name}__suffix`}>
-            { suffixIcon }
-          </span> : null
-        }
+        {suffixIcon ? <span class={`${name}__suffix`}>{suffixIcon}</span> : null}
       </div>
     );
   },
   methods: {
-    renderIcon(h: CreateElement, icon: string | Function | undefined): VNode {
+    renderIcon(
+      h: CreateElement,
+      icon: string | Function | undefined,
+      iconType: 'prefix-icon' | 'suffix-icon',
+    ): JsxNode {
       if (typeof icon === 'string') {
         return <Icon name={icon}></Icon>;
-      } if (typeof icon === 'function') {
-        return icon();
+      }
+      if (typeof icon === 'function') {
+        return icon(h);
+      }
+      if (this.$scopedSlots[iconType]) {
+        return this.$scopedSlots[iconType](null);
       }
       return null;
     },
@@ -146,6 +164,29 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       this.$emit('input', (target as HTMLInputElement).value);
       // 受控
       this.$nextTick(() => this.setInputValue(this.value));
+    },
+    onKeyDown(e: KeyboardEvent) {
+      if (this.disabled) return;
+
+      const { keyCode } = e;
+      if (keyCode === 13) {
+        this.$emit('keydown-enter', e);
+      }
+      this.$emit('keydown', e);
+    },
+    onClear() {
+      this.$emit('clear');
+      this.$emit('input', '');
+    },
+    onFocus(e: Event) {
+      if (this.disabled) return;
+
+      this.focused = true;
+      this.$emit('focus', e);
+    },
+    onBlur(e: Event) {
+      this.focused = false;
+      this.$emit('blur', e);
     },
   },
 });

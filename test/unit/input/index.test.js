@@ -2,7 +2,7 @@ import Vue from 'vue';
 import { mount } from '@vue/test-utils';
 import Input from '@/src/input/index.ts';
 
-describe('Button', () => {
+describe('Input', () => {
   describe(':props', () => {
     it(':value', () => {
       const wrapper = mount({
@@ -152,6 +152,19 @@ describe('Button', () => {
       const inputElemWrapper = wrapper.find('input');
       inputElemWrapper.trigger('blur');
       expect(inputWrapper.emitted().blur).toBeTruthy();
+      expect(fn).toBeCalled();
+    });
+
+    it('@keydown-enter', () => {
+      const fn = jest.fn();
+      const wrapper = mount({
+        render() {
+          return <Input {...{ on: { 'keydown-enter': fn } }} />;
+        },
+      });
+      const inputElemWrapper = wrapper.find('input');
+      inputElemWrapper.trigger('keydown.enter');
+
       expect(fn).toBeCalled();
     });
   });

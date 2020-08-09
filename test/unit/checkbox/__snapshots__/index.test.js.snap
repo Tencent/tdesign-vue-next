@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox :props :checked 1`] = `<label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" value=""><span class="t-checkbox__input"></span><span class="t-checkbox__label"></span></label>`;
+
+exports[`Checkbox :props :defaultChecked 1`] = `<label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" value=""><span class="t-checkbox__input"></span><span class="t-checkbox__label"></span></label>`;
+
+exports[`Checkbox :props :disabled 1`] = `<label class="t-checkbox t-is-disabled"><input type="checkbox" class="t-checkbox__former" disabled="" value=""><span class="t-checkbox__input"></span><span class="t-checkbox__label"></span></label>`;
+
+exports[`Checkbox :props :indeterminate 1`] = `<label class="t-checkbox t-is-indeterminate"><input type="checkbox" class="t-checkbox__former" value=""><span class="t-checkbox__input"></span><span class="t-checkbox__label"></span></label>`;
+
+exports[`Checkbox :props :name 1`] = `<label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" value="" name="checkbox-name"><span class="t-checkbox__input"></span><span class="t-checkbox__label"></span></label>`;
+
+exports[`Checkbox Group :props :defaultValue 1`] = ``;
+
+exports[`Checkbox Group :props :disabled 1`] = ``;
+
+exports[`Checkbox Group :props :name 1`] = ``;
+
+exports[`Checkbox Group :props :options 1`] = ``;
+
+exports[`Checkbox Group :props :value 1`] = ``;
