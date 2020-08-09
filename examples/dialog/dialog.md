@@ -43,8 +43,10 @@
 ### Dialog 事件
 | 事件名称 | 参数 | 说明 |
 |-----|-----|-----|
-|keydown-esc|-|按下 ESC 时触发事件|
-|click-close-btn|close|关闭按钮点击时触发，组件本身不执行关闭，仅触发事件。执行参数 close 方法，即可关闭弹框。|
+|keydown-esc|(close: Function, e: KeyboardEvent)|按下 ESC 时触发事件|
+|click-close-btn|(close: Function, e: Event)|关闭按钮点击时触发，组件本身不执行关闭，仅触发事件。执行参数 close 方法，即可关闭弹框。|
+|click-cancel | (close: Function, e: Event) | 点击取消按钮 |
+|click-confirm | (close: Function, e: Event) | 点击确认按钮 |
 |click-overlay|-|点击遮罩层时触发|
 |visable-change|visable|弹框状态切换时触发，传递参数visable|
 |opened|-|弹框弹出动画结束触发事件，弹出动画暂未实现|
