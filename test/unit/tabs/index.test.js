@@ -8,23 +8,62 @@ describe('Tabs', () => {
     it('', () => {
       const wrapper = mount({
         render() {
-          return <Tabs></Tabs>;
+          return <Tabs />;
         },
       });
       expect(wrapper.isEmpty()).toBe(false);
     });
+    it(':theme', () => {
+      const wrapper = mount({
+        render() {
+          return <Tabs theme={'card'} />;
+        },
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+    it(':activeName', () => {
+      const wrapper = mount({
+        render() {
+          return <Tabs activeName={1} />;
+        },
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+    it(':size', () => {
+      const wrapper = mount({
+        render() {
+          return <Tabs activeName={'large'} />;
+        },
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+    it(':tabPosition', () => {
+      const wrapper = mount({
+        render() {
+          return <Tabs tabPosition={'left'} />;
+        },
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
+    it(':addable', () => {
+      const wrapper = mount({
+        render() {
+          return <Tabs addable={true} />;
+        },
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
   });
+  // // test events
+  // describe('@event', () => null);
 
-  // test events
-  describe('@event', () => null);
+  // // test slots
+  // describe('<slot>', () => {
+  //   it('', () => null);
+  // });
 
-  // test slots
-  describe('<slot>', () => {
-    it('', () => null);
-  });
-
-  // test exposure function
-  describe('function', () => {
-    it('', () => null);
-  });
+  // // test exposure function
+  // describe('function', () => {
+  //   it('', () => null);
+  // });
 });
