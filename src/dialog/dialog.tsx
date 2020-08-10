@@ -1,7 +1,8 @@
-import Vue from 'vue';
+import Vue, { CreateElement } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import TIconClose from '../icon/close';
+import TButton from '../button';
 import { ButtonProps } from '../button/type';
 
 const name = `${prefix}-dialog`;
@@ -287,30 +288,35 @@ export default Vue.extend({
         </div>
       );
     },
-    renderDefaultBtn(type: string, btnNode: string | Function | ButtonProps) {
+    renderDefaultBtn(
+      h: CreateElement,
+      type: string,
+      btnNode: string | Function | ButtonProps
+    ) {
       if (!btnNode) return null;
       const r = {
         confirm: {
-          btnClass: 't-button--primary',
+          theme: 'primary',
           onClick: this.confirmBtnAction,
         },
         cancel: {
-          btnClass: 't-button--line',
+          theme: 'line',
           onClick: this.cancelBtnAction,
         },
       }[type];
       if (typeof btnNode === 'function') {
-        return btnNode();
-      } if (typeof btnNode === 'object') {
-        return <button class={`t-button ${r.btnClass}`} onClick={r.onClick} {...btnNode}>{btnNode.content}</button>;
+        return btnNode(h);
       }
-      return <button class={`t-button ${r.btnClass}`} onClick={r.onClick}>{btnNode}</button>;
+      if (typeof btnNode === 'object') {
+        return <TButton theme={r.theme} onClick={r.onClick} {...{ props: btnNode }}>{btnNode.content}</TButton>;
+      }
+      return <TButton theme={r.theme} onClick={r.onClick}>{btnNode}</TButton>;
     },
-    renderFooter() {
+    renderFooter(h: CreateElement) {
       const defaultView = (
         <div>
-          {this.renderDefaultBtn('cancel', this.cancelContent)}
-          {this.renderDefaultBtn('confirm', this.confirmContent)}
+          {this.renderDefaultBtn(h, 'cancel', this.cancelContent)}
+          {this.renderDefaultBtn(h, 'confirm', this.confirmContent)}
         </div>
       );
       const target = this.footer;
@@ -344,7 +350,7 @@ export default Vue.extend({
       return isShow && (view || defaultView);
     },
   },
-  render() {
+  render(h: CreateElement) {
     const dialogClass = ['t-dialog', 't-dialog--default', `t-dialog--${this.placement}`];
     const dialogStyle = { width: GetCSSValue(this.width), transform: this.transform };
     return (
@@ -357,7 +363,7 @@ export default Vue.extend({
         <div class={dialogClass} style={dialogStyle} v-draggable={!this.isModal && this.draggable}>
           {this.renderTitle()}
           {this.renderBody()}
-          {this.renderFooter()}
+          {this.renderFooter(h)}
           {this.renderCloseBtn()}
         </div>
       </div>

@@ -91,8 +91,10 @@ export const getAttach = (attach: string | Element | Function = 'body') => {
     r = document.querySelector(attach);
   } else if (typeof attach === 'function') {
     r = attach();
+  } else if (attach instanceof Element) {
+    r = attach;
   } else {
-    console.error('TDesign Error: attach type must a string or function.');
+    console.error('TDesign Error: attach type must a string / function / Element.');
   }
   return r;
 };

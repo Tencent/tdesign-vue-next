@@ -9,7 +9,10 @@
 ::: demo demos/position 弹框位置
 :::
 
-::: demo demos/custom 自定义内容
+::: demo demos/custom/body 自定义主体内容
+:::
+
+::: demo demos/custom/bottom 自定义底部内容
 :::
 
 ::: demo demos/others 其他示例
