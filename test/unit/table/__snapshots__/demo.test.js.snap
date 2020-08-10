@@ -1,44 +1,842 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table base demo works fine 1`] = `
-<!--function (el) {
-      var obj;
-
-      var args = [], len = arguments.length - 1;
-      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
-      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
-        return originalCreateElement.apply(void 0, [ el ].concat( args ))
-      }
-
-      if (isConstructor(el) || isComponentOptions(el)) {
-        if (stubAllComponents) {
-          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
-          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
-        }
-        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
-
-        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
-      }
-
-      if (typeof el === 'string') {
-        var original = resolveComponent(el, originalComponents);
-
-        if (!original) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        if (isDynamicComponent(original)) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
-
-        if (stub$1) {
-          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
-          modifiedComponents.add(el);
-        }
-      }
-
-      return originalCreateElement.apply(void 0, [ el ].concat( args ))
-    }-->
+<div>
+  <div
+    class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s t-table-valign__top"
+  >
+    <div
+      class="t-table-content"
+    >
+      <table>
+        <colgroup>
+          <col
+            class="row"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
+          />
+          <col
+            class="row"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 200px; min-width: 200px;;"
+          />
+          <col
+            class="test"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
+          />
+          <col
+            class="test2"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 200px; min-width: 200px;;"
+          />
+          <col
+            class="test4"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left;"
+          />
+          <col
+            class="test3"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
+          />
+          <col
+            class="row"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
+          />
+        </colgroup>
+        <thead
+          columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+        >
+          <tr>
+            <td
+              class=""
+              colspan="1"
+              key="index"
+              rowspan="1"
+              style="text-align: left;"
+            >
+              index
+            </td>
+            <td
+              class=""
+              colspan="1"
+              key="type"
+              rowspan="1"
+              style="text-align: left;"
+            >
+              类型
+            </td>
+            <td
+              class=""
+              colspan="1"
+              key="platform"
+              rowspan="1"
+              style="text-align: left;"
+            >
+              平台
+            </td>
+            <td
+              class=""
+              colspan="1"
+              key="property"
+              rowspan="1"
+              style="text-align: left;"
+            >
+              属性
+            </td>
+            <td
+              class=""
+              colspan="1"
+              key="default"
+              rowspan="1"
+              style="text-align: left;"
+            >
+              默认值
+            </td>
+            <td
+              class=""
+              colspan="1"
+              key="needed"
+              rowspan="1"
+              style="text-align: left;"
+            >
+              是否必传
+            </td>
+            <td
+              class=""
+              colspan="1"
+              key="description"
+              rowspan="1"
+              style="text-align: left;"
+            >
+              说明
+            </td>
+          </tr>
+        </thead>
+        <tbody
+          class="table-body"
+        >
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="index"
+              length="7"
+              style="text-align: left;"
+            >
+              0
+            </td>
+            <td
+              class=""
+              key="type"
+              length="7"
+              style="text-align: left;"
+            >
+              any[]
+            </td>
+            <td
+              class=""
+              key="platform"
+              length="7"
+              style="text-align: left;"
+            >
+              公有
+            </td>
+            <td
+              class=""
+              key="property"
+              length="7"
+              style="text-align: left;"
+            >
+              data
+            </td>
+            <td
+              class=""
+              key="default"
+              length="7"
+              style="text-align: left;"
+            >
+              []
+            </td>
+            <td
+              class=""
+              key="needed"
+              length="7"
+              style="text-align: left;"
+            >
+              Y
+            </td>
+            <td
+              class=""
+              key="description"
+              length="7"
+              style="text-align: left;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="index"
+              length="7"
+              style="text-align: left;"
+            >
+              1
+            </td>
+            <td
+              class=""
+              key="type"
+              length="7"
+              style="text-align: left;"
+            >
+              any[]
+            </td>
+            <td
+              class=""
+              key="platform"
+              length="7"
+              style="text-align: left;"
+            >
+              公有
+            </td>
+            <td
+              class=""
+              key="property"
+              length="7"
+              style="text-align: left;"
+            >
+              data
+            </td>
+            <td
+              class=""
+              key="default"
+              length="7"
+              style="text-align: left;"
+            >
+              []
+            </td>
+            <td
+              class=""
+              key="needed"
+              length="7"
+              style="text-align: left;"
+            >
+              Y
+            </td>
+            <td
+              class=""
+              key="description"
+              length="7"
+              style="text-align: left;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="index"
+              length="7"
+              style="text-align: left;"
+            >
+              2
+            </td>
+            <td
+              class=""
+              key="type"
+              length="7"
+              style="text-align: left;"
+            >
+              any[]
+            </td>
+            <td
+              class=""
+              key="platform"
+              length="7"
+              style="text-align: left;"
+            >
+              公有
+            </td>
+            <td
+              class=""
+              key="property"
+              length="7"
+              style="text-align: left;"
+            >
+              data
+            </td>
+            <td
+              class=""
+              key="default"
+              length="7"
+              style="text-align: left;"
+            >
+              []
+            </td>
+            <td
+              class=""
+              key="needed"
+              length="7"
+              style="text-align: left;"
+            >
+              Y
+            </td>
+            <td
+              class=""
+              key="description"
+              length="7"
+              style="text-align: left;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="index"
+              length="7"
+              style="text-align: left;"
+            >
+              3
+            </td>
+            <td
+              class=""
+              key="type"
+              length="7"
+              style="text-align: left;"
+            >
+              any[]
+            </td>
+            <td
+              class=""
+              key="platform"
+              length="7"
+              style="text-align: left;"
+            >
+              公有
+            </td>
+            <td
+              class=""
+              key="property"
+              length="7"
+              style="text-align: left;"
+            >
+              data
+            </td>
+            <td
+              class=""
+              key="default"
+              length="7"
+              style="text-align: left;"
+            >
+              []
+            </td>
+            <td
+              class=""
+              key="needed"
+              length="7"
+              style="text-align: left;"
+            >
+              Y
+            </td>
+            <td
+              class=""
+              key="description"
+              length="7"
+              style="text-align: left;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="index"
+              length="7"
+              style="text-align: left;"
+            >
+              4
+            </td>
+            <td
+              class=""
+              key="type"
+              length="7"
+              style="text-align: left;"
+            >
+              any[]
+            </td>
+            <td
+              class=""
+              key="platform"
+              length="7"
+              style="text-align: left;"
+            >
+              公有
+            </td>
+            <td
+              class=""
+              key="property"
+              length="7"
+              style="text-align: left;"
+            >
+              data
+            </td>
+            <td
+              class=""
+              key="default"
+              length="7"
+              style="text-align: left;"
+            >
+              []
+            </td>
+            <td
+              class=""
+              key="needed"
+              length="7"
+              style="text-align: left;"
+            >
+              Y
+            </td>
+            <td
+              class=""
+              key="description"
+              length="7"
+              style="text-align: left;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="index"
+              length="7"
+              style="text-align: left;"
+            >
+              5
+            </td>
+            <td
+              class=""
+              key="type"
+              length="7"
+              style="text-align: left;"
+            >
+              any[]
+            </td>
+            <td
+              class=""
+              key="platform"
+              length="7"
+              style="text-align: left;"
+            >
+              公有
+            </td>
+            <td
+              class=""
+              key="property"
+              length="7"
+              style="text-align: left;"
+            >
+              data
+            </td>
+            <td
+              class=""
+              key="default"
+              length="7"
+              style="text-align: left;"
+            >
+              []
+            </td>
+            <td
+              class=""
+              key="needed"
+              length="7"
+              style="text-align: left;"
+            >
+              Y
+            </td>
+            <td
+              class=""
+              key="description"
+              length="7"
+              style="text-align: left;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="index"
+              length="7"
+              style="text-align: left;"
+            >
+              6
+            </td>
+            <td
+              class=""
+              key="type"
+              length="7"
+              style="text-align: left;"
+            >
+              any[]
+            </td>
+            <td
+              class=""
+              key="platform"
+              length="7"
+              style="text-align: left;"
+            >
+              公有
+            </td>
+            <td
+              class=""
+              key="property"
+              length="7"
+              style="text-align: left;"
+            >
+              data
+            </td>
+            <td
+              class=""
+              key="default"
+              length="7"
+              style="text-align: left;"
+            >
+              []
+            </td>
+            <td
+              class=""
+              key="needed"
+              length="7"
+              style="text-align: left;"
+            >
+              Y
+            </td>
+            <td
+              class=""
+              key="description"
+              length="7"
+              style="text-align: left;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="index"
+              length="7"
+              style="text-align: left;"
+            >
+              7
+            </td>
+            <td
+              class=""
+              key="type"
+              length="7"
+              style="text-align: left;"
+            >
+              any[]
+            </td>
+            <td
+              class=""
+              key="platform"
+              length="7"
+              style="text-align: left;"
+            >
+              公有
+            </td>
+            <td
+              class=""
+              key="property"
+              length="7"
+              style="text-align: left;"
+            >
+              data
+            </td>
+            <td
+              class=""
+              key="default"
+              length="7"
+              style="text-align: left;"
+            >
+              []
+            </td>
+            <td
+              class=""
+              key="needed"
+              length="7"
+              style="text-align: left;"
+            >
+              Y
+            </td>
+            <td
+              class=""
+              key="description"
+              length="7"
+              style="text-align: left;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="index"
+              length="7"
+              style="text-align: left;"
+            >
+              8
+            </td>
+            <td
+              class=""
+              key="type"
+              length="7"
+              style="text-align: left;"
+            >
+              any[]
+            </td>
+            <td
+              class=""
+              key="platform"
+              length="7"
+              style="text-align: left;"
+            >
+              公有
+            </td>
+            <td
+              class=""
+              key="property"
+              length="7"
+              style="text-align: left;"
+            >
+              data
+            </td>
+            <td
+              class=""
+              key="default"
+              length="7"
+              style="text-align: left;"
+            >
+              []
+            </td>
+            <td
+              class=""
+              key="needed"
+              length="7"
+              style="text-align: left;"
+            >
+              Y
+            </td>
+            <td
+              class=""
+              key="description"
+              length="7"
+              style="text-align: left;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="index"
+              length="7"
+              style="text-align: left;"
+            >
+              9
+            </td>
+            <td
+              class=""
+              key="type"
+              length="7"
+              style="text-align: left;"
+            >
+              any[]
+            </td>
+            <td
+              class=""
+              key="platform"
+              length="7"
+              style="text-align: left;"
+            >
+              公有
+            </td>
+            <td
+              class=""
+              key="property"
+              length="7"
+              style="text-align: left;"
+            >
+              data
+            </td>
+            <td
+              class=""
+              key="default"
+              length="7"
+              style="text-align: left;"
+            >
+              []
+            </td>
+            <td
+              class=""
+              key="needed"
+              length="7"
+              style="text-align: left;"
+            >
+              Y
+            </td>
+            <td
+              class=""
+              key="description"
+              length="7"
+              style="text-align: left;"
+            >
+              数据源
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="t-table-pagination"
+    >
+      <div
+        class="t-pagination"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-pagination__btn t-pagination__btn--prev t-is-disabled"
+          disabled="disabled"
+        >
+          <svg
+            class="t-icon t-icon-arrow-left"
+            version="1.1"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.78170052 3.08475456L5.4888073 2.37764778 11.1111595 8 5.4888073 13.6223522 4.78170052 12.9152454 9.697 8z"
+              transform="matrix(-1 0 0 1 16 0)"
+            />
+          </svg>
+        </div>
+         
+        <ul
+          class="t-pagination__pager"
+        >
+          <li
+            class="t-pagination__number t-is-current"
+          >
+            1
+          </li>
+           
+          <li
+            class="t-pagination__number t-pagination__number--more"
+            style="display: none;"
+          >
+            <svg
+              class="t-icon t-icon-ellipsis"
+              version="1.1"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3,7 C3.55228475,7 4,7.44771525 4,8 C4,8.55228475 3.55228475,9 3,9 C2.44771525,9 2,8.55228475 2,8 C2,7.44771525 2.44771525,7 3,7 Z M8,7 C8.55228475,7 9,7.44771525 9,8 C9,8.55228475 8.55228475,9 8,9 C7.44771525,9 7,8.55228475 7,8 C7,7.44771525 7.44771525,7 8,7 Z M13,7 C13.5522847,7 14,7.44771525 14,8 C14,8.55228475 13.5522847,9 13,9 C12.4477153,9 12,8.55228475 12,8 C12,7.44771525 12.4477153,7 13,7 Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </li>
+           
+          <li
+            class="t-pagination__number"
+          >
+            
+        2
+      
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            
+        3
+      
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            
+        4
+      
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            
+        5
+      
+          </li>
+           
+          <li
+            class="t-pagination__number t-pagination__number--more"
+          >
+            <svg
+              class="t-icon t-icon-ellipsis"
+              version="1.1"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3,7 C3.55228475,7 4,7.44771525 4,8 C4,8.55228475 3.55228475,9 3,9 C2.44771525,9 2,8.55228475 2,8 C2,7.44771525 2.44771525,7 3,7 Z M8,7 C8.55228475,7 9,7.44771525 9,8 C9,8.55228475 8.55228475,9 8,9 C7.44771525,9 7,8.55228475 7,8 C7,7.44771525 7.44771525,7 8,7 Z M13,7 C13.5522847,7 14,7.44771525 14,8 C14,8.55228475 13.5522847,9 13,9 C12.4477153,9 12,8.55228475 12,8 C12,7.44771525 12.4477153,7 13,7 Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </li>
+           
+          <li
+            class="t-pagination__number"
+          >
+            12
+          </li>
+        </ul>
+         
+        <div
+          class="t-pagination__btn t-pagination__btn--next"
+        >
+          <svg
+            class="t-icon t-icon-arrow-right"
+            version="1.1"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4.78170052 3.08475456L5.4888073 2.37764778 11.1111595 8 5.4888073 13.6223522 4.78170052 12.9152454 9.697 8z"
+            />
+          </svg>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
 `;
