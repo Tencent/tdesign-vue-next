@@ -1,4 +1,4 @@
- ## dialog
+ ## Dialog 对话框
 
 ::: demo demos/standalone 组件展示
 :::
