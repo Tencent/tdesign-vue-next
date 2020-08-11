@@ -80,7 +80,7 @@ export default Vue.extend({
         case 'boolean': {
           if (this.closeBtn === true) {
             if (this.$scopedSlots.closeBtn) {
-              close = this.$scopedSlots.closeBtn(null);
+              close = <div class='t-icon-close'>{this.$scopedSlots.closeBtn(null)}</div>;
             } else {
               close = (<t-icon-close nativeOnClick={this.close} />);
             }
@@ -88,11 +88,11 @@ export default Vue.extend({
           break;
         }
         case 'function': {
-          close = this.closeBtn(h);
+          close = <div class='t-icon-close'>{this.closeBtn(h)}</div>;
           break;
         }
         case 'string': {
-          close = <div onclick={this.close}>{this.closeBtn}</div>;
+          close = <div class='t-icon-close' onclick={this.close}>{this.closeBtn}</div>;
           break;
         }
       };
@@ -104,7 +104,7 @@ export default Vue.extend({
 
       switch (typeof this.default) {
         case 'function': {
-          content = this.default(h);
+          content = <div class={`${name}__content`}>{this.default(h)}</div>;
           break;
         }
         case 'string': {
@@ -112,7 +112,7 @@ export default Vue.extend({
           break;
         }
       };
-      content = this.$scopedSlots.default ? this.$scopedSlots.default(null) : content;
+      content = this.$scopedSlots.default ? <div class={`${name}__content`}>{this.$scopedSlots.default(null)}</div> : content;
 
       return content;
     },
