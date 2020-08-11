@@ -2,7 +2,8 @@ import Vue, { CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
-import Icon from '../icon';
+import Icon from '../icon/iconfont';
+import { THEME_LIST, SIZE_LIST } from './const';
 
 const name = `${prefix}-button`;
 
@@ -17,14 +18,14 @@ export default Vue.extend({
       type: String,
       default: 'line',
       validator(v: string): boolean {
-        return ['line', 'primary', 'dashed', 'warning', 'warning-line', 'link', 'ghost', 'ghost-line'].indexOf(v) > -1;
+        return THEME_LIST.indexOf(v) > -1;
       },
     },
     size: {
       type: String,
       default: 'default',
       validator(v: string): boolean {
-        return ['large', 'default', 'small'].indexOf(v) > -1;
+        return SIZE_LIST.indexOf(v) > -1;
       },
     },
     icon: [String, Function],

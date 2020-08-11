@@ -1,21 +1,10 @@
 import { VueConstructor } from 'vue';
 import NotificationList from './notificationList';
+import { getAttach } from '../utils/dom';
 
 let seed = 0;
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<Element, object> = new Map();
-
-const getAttach = (attach: string | Function = 'body') => {
-  let r: Element;
-  if (typeof attach === 'string') {
-    r = document.querySelector(attach);
-  } else if (typeof attach === 'function') {
-    r = attach();
-  } else {
-    console.error('TDesign Error: attach type must a string or function.');
-  }
-  return r;
-};
 
 const Plugin = function (options: any) {
   seed += 1;

@@ -84,3 +84,17 @@ export function removeClass(el: Element, cls: string): any {
     el.className = trim(curClass);
   }
 };
+
+export const getAttach = (attach: string | Element | Function = 'body') => {
+  let r: Element;
+  if (typeof attach === 'string') {
+    r = document.querySelector(attach);
+  } else if (typeof attach === 'function') {
+    r = attach();
+  } else if (attach instanceof Element) {
+    r = attach;
+  } else {
+    console.error('TDesign Error: attach type must a string / function / Element.');
+  }
+  return r;
+};
