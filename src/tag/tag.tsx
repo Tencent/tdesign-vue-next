@@ -7,14 +7,7 @@ import Icon from '../icon/iconfont';
 const { prefix } = config;
 const name = `${prefix}-tag`;
 const iconName = `${prefix}-icon`;
-const initThemeList: Array<string> = [
-  'default',
-  'primary',
-  'info',
-  'warning',
-  'danger',
-  'success',
-];
+const initThemeList: Array<string> = ['default', 'primary', 'info', 'warning', 'danger', 'success'];
 
 const initEffectList = {
   dark: `${name}--dark`,
@@ -65,7 +58,7 @@ export default Vue.extend({
   },
   computed: {
     tagClass(): Array<string> {
-      const theme = (this.disabled || this.checked) ? 'default' : this.theme;
+      const theme = this.disabled || this.checked ? 'default' : this.theme;
 
       return [
         `${name}`,
@@ -77,6 +70,7 @@ export default Vue.extend({
           [`${name}--ellipsis`]: this.maxWidth,
           [`${name}--checked`]: !this.disabled && this.checked,
           [`${name}--disabled`]: this.disabled,
+          [`${name}--close`]: this.closable,
         },
       ];
     },
@@ -98,24 +92,22 @@ export default Vue.extend({
   },
   render() {
     // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
-    const closeIcon: VNode | string =  this.closable
-      ? <Icon name='close' nativeOnClick={ this.handleClose } /> : '';
+    const closeIcon: VNode | string = this.closable ? <Icon name="close" nativeOnClick={this.handleClose} /> : '';
     // 标签内容
-    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default
-      ? this.$scopedSlots.default(null) : '';
+    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
     // 图标
     let icon: VNode;
     if (typeof this.icon === 'string') {
-      icon = <Icon name={ this.icon } />;
+      icon = <Icon name={this.icon} />;
     } else if (typeof this.icon === 'function') {
-      icon = <i class={ iconName }>{ this.icon() }</i>;
+      icon = <i class={iconName}>{this.icon()}</i>;
     }
 
     return (
-      <span class={ this.tagClass } style={ this.tagStyle } onClick={ this.handleClick }>
-        { icon }
-        { tagContent }
-        { closeIcon }
+      <span class={this.tagClass} style={this.tagStyle} onClick={this.handleClick}>
+        {icon}
+        {tagContent}
+        {closeIcon}
       </span>
     );
   },
