@@ -33,3 +33,10 @@
 | disabled | Boolean | false | false | 选项卡是否禁用 |
 | closable | Boolean | false | false | 选项卡是否可移除 |
 | forceRender | Boolean | false | false | 选项板强制渲染 |
+
+#### Events
+| 事件名称 | 参数 | 说明 |
+|-----|-----|-----|
+| change | name: string | 点击选项卡 |
+| add | / | 点击添加选项卡button |
+| remove | name: string | 点击单个选项卡的删除button |

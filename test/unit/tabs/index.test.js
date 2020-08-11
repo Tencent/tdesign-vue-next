@@ -54,8 +54,20 @@ describe('Tabs', () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
-  // // test events
-  // describe('@event', () => null);
+
+  // test events
+  describe('@event', () => {
+    it('@add', async () => {
+      const wrapper = mount({
+        render() {
+          return <Tabs theme={'card'} addable={true} />;
+        },
+      });
+      const tabs = wrapper.find(Tabs);
+      await tabs.find('.t-tabs__add-btn').trigger('click');
+      expect(tabs.emitted().add).toBeTruthy();
+    });
+  });
 
   // // test slots
   // describe('<slot>', () => {
