@@ -1,6 +1,7 @@
 snapshot*
 dist
 lib
+es
 node_modules
 common
 cypress

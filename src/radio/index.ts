@@ -1,13 +1,20 @@
-import Radio from './radio';
+import _Radio from './radio';
 import _Group from './group';
 import RadioButton from './radio-button';
 import mapProps from '../utils/map-props';
+import setInstallFn from '../utils/setInstallFn';
 
-const Group = mapProps(['value'])(_Group);
+const Radio = mapProps(['checked'], { model: { prop: 'checked', event: 'change' } })(_Radio);
+const RadioGroup = mapProps(['value'])(_Group);
+
+setInstallFn('Radio', Radio);
+setInstallFn('RadioGroup', RadioGroup);
+setInstallFn('RadioButton', RadioButton);
 
 export {
-  Group,
+  Radio,
+  RadioGroup,
   RadioButton,
 };
 
-export default mapProps(['checked'], { model: { prop: 'checked', event: 'change' } })(Radio);
+export default Radio;

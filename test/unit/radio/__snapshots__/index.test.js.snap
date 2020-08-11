@@ -8,16 +8,16 @@ exports[`Radio :props :disabled 1`] = `<label class="t-radio t-is-disabled"><inp
 
 exports[`Radio :props :name 1`] = `<label class="t-radio"><input type="radio" class="t-radio__former" value="" name="radio-name"><span class="t-radio__input"></span><span class="t-radio__label"></span></label>`;
 
-exports[`Radio Group :props :buttonStyle 1`] = `<div class="t-radio-group t-radio-group-solid t-radio-group-default"><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="gz"><span class="t-radio-button__input"></span><span class="t-radio-button__label">广州</span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled="" value="sz"><span class="t-radio-button__input"></span><span class="t-radio-button__label">深圳</span></label></div>`;
+exports[`Radio Group :props :buttonStyle 1`] = ``;
 
-exports[`Radio Group :props :defaultValue 1`] = `<div class="t-radio-group t-radio-group-outline t-radio-group-default"><label class="t-radio"><input type="radio" class="t-radio__former" value="gz"><span class="t-radio__input"></span><span class="t-radio__label">广州</span></label><label class="t-radio t-is-checked t-is-disabled"><input type="radio" class="t-radio__former" disabled="" value="sz"><span class="t-radio__input"></span><span class="t-radio__label">深圳</span></label></div>`;
+exports[`Radio Group :props :defaultValue 1`] = ``;
 
-exports[`Radio Group :props :disabled 1`] = `<div class="t-radio-group t-radio-group-outline t-radio-group-default"><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" disabled="" value="bj"><span class="t-radio__input"></span><span class="t-radio__label">北京</span></label><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" disabled="" value="gz"><span class="t-radio__input"></span><span class="t-radio__label">广州</span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="sz"><span class="t-radio__input"></span><span class="t-radio__label">深圳</span></label></div>`;
+exports[`Radio Group :props :disabled 1`] = ``;
 
-exports[`Radio Group :props :name 1`] = `<div class="t-radio-group t-radio-group-outline t-radio-group-default"><label class="t-radio"><input type="radio" class="t-radio__former" value="gz" name="radio-name"><span class="t-radio__input"></span><span class="t-radio__label">广州</span></label><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" disabled="" value="sz" name="radio-name"><span class="t-radio__input"></span><span class="t-radio__label">深圳</span></label></div>`;
+exports[`Radio Group :props :name 1`] = ``;
 
-exports[`Radio Group :props :options 1`] = `<div class="t-radio-group t-radio-group-outline t-radio-group-default"><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" disabled="" value="gz"><span class="t-radio__input"></span><span class="t-radio__label">广州</span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="sz"><span class="t-radio__input"></span><span class="t-radio__label">深圳</span></label></div>`;
+exports[`Radio Group :props :options 1`] = ``;
 
-exports[`Radio Group :props :size 1`] = `<div class="t-radio-group t-radio-group-outline t-radio-group-small"><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="gz"><span class="t-radio-button__input"></span><span class="t-radio-button__label">广州</span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled="" value="sz"><span class="t-radio-button__input"></span><span class="t-radio-button__label">深圳</span></label></div>`;
+exports[`Radio Group :props :size 1`] = ``;
 
-exports[`Radio Group :props :value 1`] = `<div class="t-radio-group t-radio-group-outline t-radio-group-default"><label class="t-radio"><input type="radio" class="t-radio__former" value="gz"><span class="t-radio__input"></span><span class="t-radio__label">广州</span></label><label class="t-radio t-is-checked t-is-disabled"><input type="radio" class="t-radio__former" disabled="" value="sz"><span class="t-radio__input"></span><span class="t-radio__label">深圳</span></label></div>`;
+exports[`Radio Group :props :value 1`] = ``;

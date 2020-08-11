@@ -1,89 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tag checkable demo works fine 1`] = `
-<!--function (el) {
-      var obj;
-
-      var args = [], len = arguments.length - 1;
-      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
-      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
-        return originalCreateElement.apply(void 0, [ el ].concat( args ))
-      }
-
-      if (isConstructor(el) || isComponentOptions(el)) {
-        if (stubAllComponents) {
-          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
-          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
-        }
-        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
-
-        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
-      }
-
-      if (typeof el === 'string') {
-        var original = resolveComponent(el, originalComponents);
-
-        if (!original) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        if (isDynamicComponent(original)) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
-
-        if (stub$1) {
-          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
-          modifiedComponents.add(el);
-        }
-      }
-
-      return originalCreateElement.apply(void 0, [ el ].concat( args ))
-    }-->
+<div
+  class="tdesign-tag-checkable"
+>
+  <div
+    class="tdesign-demo-block"
+  >
+    <span
+      class="t-tag t-tag--default"
+    >
+      
+      标签一
+    
+    </span>
+    <span
+      class="t-tag t-tag--default t-tag--disabled"
+    >
+      
+      标签二
+    
+    </span>
+    <span
+      class="t-tag t-tag--default t-tag--checked"
+    >
+      
+      标签三
+    
+    </span>
+  </div>
+</div>
 `;
 
 exports[`Tag closable demo works fine 1`] = `
-<!--function (el) {
-      var obj;
-
-      var args = [], len = arguments.length - 1;
-      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
-      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
-        return originalCreateElement.apply(void 0, [ el ].concat( args ))
-      }
-
-      if (isConstructor(el) || isComponentOptions(el)) {
-        if (stubAllComponents) {
-          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
-          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
-        }
-        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
-
-        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
-      }
-
-      if (typeof el === 'string') {
-        var original = resolveComponent(el, originalComponents);
-
-        if (!original) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        if (isDynamicComponent(original)) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
-
-        if (stub$1) {
-          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
-          modifiedComponents.add(el);
-        }
-      }
-
-      return originalCreateElement.apply(void 0, [ el ].concat( args ))
-    }-->
+<div
+  class="tdesign-tag-closable"
+>
+  <span
+    class="t-tag t-tag--default t-tag--dark"
+  >
+    
+    标签一
+  
+    <i
+      class="t-icon t-icon-close"
+    />
+  </span>
+  <span
+    class="t-tag t-tag--default t-tag--dark"
+  >
+    
+    标签二
+  
+    <i
+      class="t-icon t-icon-close"
+    />
+  </span>
+  <span
+    class="t-tag t-tag--default t-tag--dark"
+  >
+    
+    标签三
+  
+    <i
+      class="t-icon t-icon-close"
+    />
+  </span>
+</div>
 `;
 
 exports[`Tag default demo works fine 1`] = `
@@ -113,50 +96,55 @@ exports[`Tag disabled demo works fine 1`] = `
   >
     失效标签
   </span>
+   
+  <span
+    class="check-tag t-tag t-tag--default t-tag--disabled"
+  >
+    失效标签
+  </span>
 </div>
 `;
 
 exports[`Tag icon demo works fine 1`] = `
-<!--function (el) {
-      var obj;
-
-      var args = [], len = arguments.length - 1;
-      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
-      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
-        return originalCreateElement.apply(void 0, [ el ].concat( args ))
-      }
-
-      if (isConstructor(el) || isComponentOptions(el)) {
-        if (stubAllComponents) {
-          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
-          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
-        }
-        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
-
-        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
-      }
-
-      if (typeof el === 'string') {
-        var original = resolveComponent(el, originalComponents);
-
-        if (!original) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        if (isDynamicComponent(original)) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
-
-        if (stub$1) {
-          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
-          modifiedComponents.add(el);
-        }
-      }
-
-      return originalCreateElement.apply(void 0, [ el ].concat( args ))
-    }-->
+<div
+  class="tdesign-tag-icon"
+>
+  <div
+    class="tdesign-demo-block"
+  >
+    
+    自定义图标标签：
+    
+    <span
+      class="t-tag t-tag--default t-tag--dark"
+    >
+      <i
+        class="t-icon"
+      >
+        <span>
+          ×
+        </span>
+      </i>
+      标签
+    </span>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    
+    图标标签：
+    
+    <span
+      class="t-tag t-tag--default t-tag--dark"
+    >
+      <i
+        class="t-icon t-icon-search"
+      />
+      标签
+    </span>
+  </div>
+</div>
 `;
 
 exports[`Tag long-text demo works fine 1`] = `
@@ -388,7 +376,7 @@ exports[`Tag theme demo works fine 1`] = `
   </div>
    
   <div
-    class="tdesign-demo-block"
+    class="tdesign-demo-block light"
   >
     
     浅色：
@@ -425,7 +413,7 @@ exports[`Tag theme demo works fine 1`] = `
   </div>
    
   <div
-    class="tdesign-demo-block"
+    class="tdesign-demo-block plain"
   >
     
     朴素：

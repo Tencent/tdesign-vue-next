@@ -47,6 +47,21 @@ npm run test:unit
 #### 单元测试文件
 需要对组件的 props/event/slot/methods 分别覆盖测试。具体组织方式可以参考 button，简单的渲染测试可以直接使用 snapshot
 
+#### 测试调试
+可以指定 --testPathPattern 以跑特定的测试文件，例如只想看 button 的测试结果：
+
+```
+npx jest --testPathPattern test/unit/button/* --config script/test/jest.unit.conf.js
+```
+
+如果确认是预期的修改造成的 snapshot 变化，可以加上 -u 参数更新 snapshot:
+
+```
+npx jest --testPathPattern test/unit/button/* --config script/test/jest.unit.conf.js -u
+```
+
+可以浏览器打开根目录下的 test-report.html(git ignored) 查看测试报告
+
 ## 4. 服务端渲染测试
 
 服务端渲染测试主要利用node环境下的测试快照，与已有jsdom环境快照进行对比

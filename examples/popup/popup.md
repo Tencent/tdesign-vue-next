@@ -34,7 +34,7 @@
 |**content** |String/Component/Function | | Y| 弹层显示的内容（组件内部可以实现title等，由select组件考虑虚拟滚动）|
 |**visibleArrow** | Boolean| false| N|浮层是否显示箭头 |
 |**getOverlayContainer** |Function |() => document.body| N|浮层渲染父节点，默认渲染到 body 上 |
-|**overlayStyle** |Object | undefined|N |浮层样式 |
+|**overlayStyle** |Object | undefined|N |浮层样式，如可以指定弹出层zIndex范围（默认取5500，参考范围5500-5600） |
 |**overlayClassName** |String |'' |N |浮层类名 |
 |**destroyOnHide**|Boolean |false |N |隐藏时销毁浮层 |
 

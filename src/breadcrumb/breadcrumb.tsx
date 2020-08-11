@@ -2,7 +2,6 @@ import Vue from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import Icon from '../icon';
-import '../../common/style/web/components/breadcrumb/_index.less';
 
 const name = `${prefix}-breadcrumb`;
 const currItemClass = `${prefix}-is-current`;
