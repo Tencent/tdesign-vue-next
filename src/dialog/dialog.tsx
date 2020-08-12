@@ -24,28 +24,33 @@ function GetTransformByOffset(offset: any, placement: string) {
   bottom && (translateY = `${translateY} + ${GetCSSValue(bottom)}`);
   return `translate(calc(${translateX}),calc(${translateY}))`;
 }
+
 // 注册元素的拖拽事件
 function InitDragEvent(dragBox: HTMLElement) {
   const target = dragBox;
-  target.onmousedown = (e: MouseEvent) => {
+  target.addEventListener('mousedown', (targetEvent: MouseEvent) => {
     // 算出鼠标相对元素的位置
-    const disX = e.clientX - target.offsetLeft;
-    const disY = e.clientY - target.offsetTop;
-    document.onmousemove = (e) => {
+    const disX = targetEvent.clientX - target.offsetLeft;
+    const disY = targetEvent.clientY - target.offsetTop;
+    function mouseMoverHander(documentEvent: MouseEvent) {
       // 用鼠标的位置减去鼠标相对元素的位置，得到元素的位置
-      const left = e.clientX - disX;
-      const top = e.clientY - disY;
+      const left = documentEvent.clientX - disX;
+      const top = documentEvent.clientY - disY;
       // 移动当前元素
       target.style.left = `${left}px`;
       target.style.top = `${top}px`;
-    };
-    document.onmouseup = () => {
+    }
+    function mouseUpHandler() {
       // 鼠标弹起来的时候不再移动
-      document.onmousemove = null;
+      document.removeEventListener('mousemove', mouseMoverHander);
       // 预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）
-      document.onmouseup = null;
-    };
-  };
+      document.removeEventListener('mouseup', mouseUpHandler);
+    }
+    // 元素按下时注册document鼠标监听事件
+    document.addEventListener('mousemove', mouseMoverHander);
+    // 鼠标弹起来移除document鼠标监听事件
+    document.addEventListener('mouseup', mouseUpHandler);
+  });
 }
 export default Vue.extend({
   name,
