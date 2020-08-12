@@ -158,14 +158,14 @@ export default Vue.extend({
       // 关闭时候是否卸载元素 this.$el.parentNode.removeChild(this.$el)
       const closeMode = this.destroyOnClose ? 'display' : 'visable';
       return [
-        't-dialog-ctx',
-        this.visible ? `t-is-${closeMode}` : `t-not-${closeMode}`,
+        `${name}-ctx`,
+        this.visible ? `${prefix}-is-${closeMode}` : `${prefix}-not-${closeMode}`,
       ];
     },
     maskClass(): ClassName {
       return [
-        't-dialog-mask',
-        !this.showOverlay && 't-dialog-mask--hidden',
+        `${name}-mask`,
+        !this.showOverlay && `${name}-mask--hidden`,
       ];
     },
   },
@@ -265,7 +265,7 @@ export default Vue.extend({
         view = target();
       }
       return isShow && (
-        <div class="t-dialog__header">
+        <div class={`${name}__header`}>
           {view}
         </div>
       );
@@ -283,7 +283,7 @@ export default Vue.extend({
         view = target();
       }
       return isShow && (
-        <div class="t-dialog__body">
+        <div class={`${name}__body`}>
           {view}
         </div>
       );
@@ -331,7 +331,7 @@ export default Vue.extend({
         view = target(this.$createElement);
       }
       return isShow && (
-        <div class="t-dialog__footer">
+        <div class={`${name}__footer`}>
           {view || defaultView}
         </div>
       );
@@ -351,7 +351,7 @@ export default Vue.extend({
     },
   },
   render(h: CreateElement) {
-    const dialogClass = ['t-dialog', 't-dialog--default', `t-dialog--${this.placement}`];
+    const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
     const dialogStyle = { width: GetCSSValue(this.width), transform: this.transform };
     return (
       <div class={this.ctxClass} style={{ zIndex: this.zIndex }} v-transfer-dom={this.attachTarget}>
