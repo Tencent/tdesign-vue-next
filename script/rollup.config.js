@@ -81,6 +81,7 @@ const commonConfig = {
     input: [
       'src/**/**.ts',
       'src/**/**.tsx',
+      '!src/dist.ts',
       '!src/**/*.d.ts',
       '!src/**/demos',
       '!src/**/__tests__',
@@ -90,7 +91,7 @@ const commonConfig = {
     external: externalDeps.concat(externalPeerDeps),
   },
   bundle: {
-    input: 'src/index.ts',
+    input: 'src/dist.ts',
     external: externalPeerDeps,
     output: {
       name: 'TDesign',
