@@ -48,7 +48,9 @@ const getPlugins = ({ env, isProd, analyze, vueOpt = { css: false } }) => {
     json(),
     url(),
   ];
-
+  plugins.push(replace({
+    __VERSION__: JSON.stringify(pkg.version),
+  }));
   if (env) {
     plugins.push(replace({
       'process.env.NODE_ENV': JSON.stringify(env),

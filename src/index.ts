@@ -31,5 +31,5 @@ export * from './plugins';
 export * from './components';
 export default {
   install,
-  version: typeof VERSION === 'undefined' ? '' : VERSION, // eslint-disable-line
+  version: typeof __VERSION__ === 'undefined' ? '' : __VERSION__, // eslint-disable-line
 };
