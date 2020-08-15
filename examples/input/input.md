@@ -40,7 +40,7 @@
 ### Input Events
 | 事件名称 | 参数 | 说明 |
 |-----|-----|-----|
-|keydownEnter| |按下回车|
+|keydown-enter| |按下回车|
 |原生事件| |默认支持：focus/blur|
 
 ### Input Methods

@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <div :class="name+'-reference'" ref="reference">
     <transition :name="name+'_animation'" appear >
       <div
         :class="name"
@@ -12,14 +12,12 @@
           <slot name="content">
             <render-component :render='renderContent' />
           </slot>
-          <div v-if="visibleArrow" :class="name+'_arrow'" data-popper-arrow></div>
+          <div v-if="visibleArrow" :class="name+'__arrow'" data-popper-arrow></div>
         </div>
       </div>
     </transition>
-    <div :class="name+'-reference'" ref="reference">
-      <slot />
-    </div>
-  </span>
+    <slot />
+  </div>
 </template>
 
 <script lang="ts">
@@ -115,6 +113,7 @@ export default Vue.extend({
         `${name}-content`,
         this.overlayClassName,
         {
+          [`${name}-content--arrow`]: this.visibleArrow,
           [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
       ];

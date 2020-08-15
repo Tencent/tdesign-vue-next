@@ -11,7 +11,7 @@ exports[`Menu props :active 1`] = `
 `;
 
 exports[`Menu props :collapsed 1`] = `
-<div class="t-default-menu t-default-menu t-menu--light t-is-collapsed" style="height: 100%; width: 64px;">
+<div class="t-default-menu t-default-menu t-menu--light t-is-collapsed" style="height: 100%; width: 72px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo"></div>
     <ul class="t-menu"></ul>

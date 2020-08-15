@@ -46,8 +46,8 @@ function wrapperConvert(wrapper) {
   return cwrapper;
 }
 
-function demoSnapshotTest(component) {
-  const files = glob.sync(`./examples/${component}/demos/*.vue`);
+function demoSnapshotTest() {
+  const files = glob.sync('./examples/*/demos/*.vue');
   const renderMethod = (typeof window !== 'undefined') ? mount : renderToString;
   describe('ssr snapshot test', () => {
     files.forEach((file) => {
@@ -64,4 +64,4 @@ function demoSnapshotTest(component) {
   });
 }
 
-export default demoSnapshotTest;
+demoSnapshotTest();

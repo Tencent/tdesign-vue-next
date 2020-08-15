@@ -1,11 +1,11 @@
 <template>
   <div class="tdesign-tag-theme">
     <div class="tdesign-demo-block">
-      默认：
+      默认
       <t-tag>默认</t-tag>
     </div>
     <div class="tdesign-demo-block">
-      深色：
+      深色
       <t-tag theme="primary">标签一</t-tag>
       <t-tag theme="success">标签二</t-tag>
       <t-tag theme="info">标签三</t-tag>
@@ -13,7 +13,7 @@
       <t-tag theme="danger">标签五</t-tag>
     </div>
     <div class="tdesign-demo-block light">
-      浅色：
+      浅色
       <t-tag theme="primary" effect="light">标签一</t-tag>
       <t-tag theme="success" effect="light">标签二</t-tag>
       <t-tag theme="info" effect="light">标签三</t-tag>
@@ -21,7 +21,7 @@
       <t-tag theme="danger" effect="light">标签五</t-tag>
     </div>
     <div class="tdesign-demo-block plain">
-      朴素：
+      朴素
       <t-tag effect="plain" theme="primary">标签一</t-tag>
       <t-tag effect="plain" theme="success">标签二</t-tag>
       <t-tag effect="plain" theme="info">标签三</t-tag>

@@ -104,7 +104,6 @@ import TInput from '../input';
 import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
 
-
 const { prefix } = config;
 const name = `${prefix}-pagination`;
 

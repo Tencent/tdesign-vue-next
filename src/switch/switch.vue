@@ -31,6 +31,7 @@ import config from '../config';
 import CLASSNAMES from '../utils/classnames';
 import RenderComponent from '../utils/render-component';
 import TIconLoading from '../icon/loading';
+
 const { prefix } = config;
 const name = `${prefix}-switch`;
 

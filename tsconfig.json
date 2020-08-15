@@ -27,7 +27,8 @@
   ],
   "exclude": [
     "node_modules",
-    "tools"
+    "tools",
+    "common"
   ],
   "compileOnSave": false
 }

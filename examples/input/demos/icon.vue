@@ -1,6 +1,11 @@
 <template>
   <div class="tdesign-demo-item--input__input-box">
-    <t-input prefix-icon="search" suffix-icon="prompt_fill" />
+    <t-input
+      prefix-icon="search"
+      suffix-icon="prompt_fill"
+      @click-prefix-icon="onPrefixIconClick"
+      @click-suffix-icon="onSuffixIconClick"
+    />
     <!-- 使用 function 或 slot 的形式定义 icon -->
     <t-input :prefix-icon="renderPrefixIcon" :suffix-icon="renderSuffixIcon" />
     <t-input>
@@ -29,6 +34,12 @@ export default {
           name: 'prompt_fill',
         },
       });
+    },
+    onPrefixIconClick(e) {
+      console.log('prefix icon clicked', e);
+    },
+    onSuffixIconClick(e) {
+      console.log('suffix icon clicked', e);
     },
   },
 };
