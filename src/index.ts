@@ -9,6 +9,9 @@ function install(Vue: VueConstructor, config?: object): void {
   Vue.directive('transfer-dom', TransferDom);
 
   Object.keys(components).forEach((key) => {
+    if (key.match(/plugin/)) {
+      return;
+    }
     Vue.use(components[key], config);
   });
 
@@ -23,7 +26,7 @@ declare const window: {
 };
 
 // install
-if (typeof window !== 'undefined' && window.Vue) {
+if (false && typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 

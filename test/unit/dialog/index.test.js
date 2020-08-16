@@ -28,8 +28,7 @@ describe('Dialog', () => {
       const classes = dialog.classes();
       const styles = dialog.attributes('style');
       expect(classes).not.toContain('t-dialog--center');
-      expect(styles).toMatch(/left: 100px/);
-      expect(styles).toMatch(/top: 200px/);
+      expect(styles.indexOf('translate(calc(-50% - 100px),calc(0px - 200px))') > -1).toBeTruthy();
       expect(styles).toMatch(/width: 200px/);
       // expect(wrapper).toMatchSnapshot();
     });
