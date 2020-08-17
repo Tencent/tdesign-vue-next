@@ -54,6 +54,9 @@ function demoSnapshotTest() {
       jest.useFakeTimers();
     });
     files.forEach((file) => {
+      if (file.indexOf('temp') > -1) {
+        return;
+      }
       it(`renders ${file} correctly`, async () => {
         const demo = require(`../.${file}`);
         const realDemoComp = demo.default ? demo.default : demo;
