@@ -12,4 +12,12 @@ describe('Select', () => {
     });
     expect(wrapper).toMatchSnapshot();
   });
+  it(':size', () => {
+    const wrapper = mount({
+      render() {
+        return <Select size="large"></Select>;
+      },
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
 });
