@@ -1,12 +1,13 @@
 import { VueConstructor } from 'vue';
 import NotificationList from './notificationList';
 import { getAttach } from '../utils/dom';
+import { NotificationProps } from './type/index';
 
 let seed = 0;
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<Element, object> = new Map();
 
-const Plugin = function (options: any) {
+const Plugin = function (options: NotificationProps) {
   seed += 1;
   const hackOptions = Object.assign({
     placement: 'top-right',
@@ -45,7 +46,7 @@ const Plugin = function (options: any) {
 };
 
 ['success', 'warning', 'info', 'error'].forEach((theme) => {
-  Plugin[theme] = (options: object) => {
+  Plugin[theme] = (options: NotificationProps) => {
     const hackOptions = Object.assign(options, { theme });
     return Plugin(hackOptions);
   };
