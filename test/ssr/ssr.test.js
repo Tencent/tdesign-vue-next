@@ -50,16 +50,20 @@ function demoSnapshotTest() {
   const files = glob.sync('./examples/*/demos/*.vue');
   const renderMethod = (typeof window !== 'undefined') ? mount : renderToString;
   describe('ssr snapshot test', () => {
+    beforeAll(() => {
+      jest.useFakeTimers();
+    });
     files.forEach((file) => {
+      if (file.indexOf('temp') > -1) {
+        return;
+      }
       it(`renders ${file} correctly`, async () => {
         const demo = require(`../.${file}`);
         const realDemoComp = demo.default ? demo.default : demo;
         const wrapper = await renderMethod(realDemoComp);
-
         const cwrapper = wrapperConvert(wrapper);
-
         expect(cwrapper).toMatchSnapshot();
-      });
+      }, 2000);
     });
   });
 }

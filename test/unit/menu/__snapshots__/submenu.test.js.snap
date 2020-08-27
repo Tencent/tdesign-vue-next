@@ -1,52 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Submenu props :disabled 1`] = `
-<ul class="t-submenu t-is-disabled t-is-opened">
-  <li class="t-menu__item"> <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-submenu-icon t-icon t-icon-arrow-down">
-      <path d="M4.78170052 3.08475456L5.4888073 2.37764778 11.1111595 8 5.4888073 13.6223522 4.78170052 12.9152454 9.697 8z" transform="matrix(0 1 1 0 0 0)"></path>
-    </svg></li>
-  <ul class="t-menu__dropdown t-menu__dropdown--show"></ul>
+<ul class="t-submenu t-is-disabled">
+  <!---->
+  <!---->
 </ul>
 `;
 
 exports[`Submenu props :name 1`] = `
-<ul class="t-submenu t-is-opened">
-  <li class="t-menu__item"> <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-submenu-icon t-icon t-icon-arrow-down">
-      <path d="M4.78170052 3.08475456L5.4888073 2.37764778 11.1111595 8 5.4888073 13.6223522 4.78170052 12.9152454 9.697 8z" transform="matrix(0 1 1 0 0 0)"></path>
-    </svg></li>
-  <ul class="t-menu__dropdown t-menu__dropdown--show"></ul>
+<ul class="t-submenu">
+  <!---->
+  <!---->
 </ul>
 `;
 
 exports[`Submenu slot <default> 1`] = `
-<ul class="t-submenu t-is-opened">
-  <li class="t-menu__item"> <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-submenu-icon t-icon t-icon-arrow-down">
-      <path d="M4.78170052 3.08475456L5.4888073 2.37764778 11.1111595 8 5.4888073 13.6223522 4.78170052 12.9152454 9.697 8z" transform="matrix(0 1 1 0 0 0)"></path>
-    </svg></li>
-  <ul class="t-menu__dropdown t-menu__dropdown--show">
-    <div></div>
-  </ul>
+<ul class="t-submenu">
+  <!---->
+  <!---->
 </ul>
 `;
 
 exports[`Submenu slot <icon> 1`] = `
-<ul class="t-submenu t-is-opened">
-  <li class="t-menu__item">
-    <div></div> <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-submenu-icon t-icon t-icon-arrow-down">
-      <path d="M4.78170052 3.08475456L5.4888073 2.37764778 11.1111595 8 5.4888073 13.6223522 4.78170052 12.9152454 9.697 8z" transform="matrix(0 1 1 0 0 0)"></path>
-    </svg>
-  </li>
-  <ul class="t-menu__dropdown t-menu__dropdown--show"></ul>
+<ul class="t-submenu">
+  <!---->
+  <!---->
 </ul>
 `;
 
 exports[`Submenu slot <title> 1`] = `
-<ul class="t-submenu t-is-opened">
-  <li class="t-menu__item">
-    <div></div> <svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-submenu-icon t-icon t-icon-arrow-down">
-      <path d="M4.78170052 3.08475456L5.4888073 2.37764778 11.1111595 8 5.4888073 13.6223522 4.78170052 12.9152454 9.697 8z" transform="matrix(0 1 1 0 0 0)"></path>
-    </svg>
-  </li>
-  <ul class="t-menu__dropdown t-menu__dropdown--show"></ul>
+<ul class="t-submenu">
+  <!---->
+  <!---->
 </ul>
 `;

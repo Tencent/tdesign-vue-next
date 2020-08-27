@@ -2,7 +2,7 @@
 
 exports[`Tag or CheckTag :Tag:props :checked 1`] = `<span class="t-tag t-tag--default t-tag--dark t-tag--checked"></span>`;
 
-exports[`Tag or CheckTag :Tag:props :closable 1`] = `<span class="t-tag t-tag--default t-tag--dark"><i class="t-icon t-icon-close"></i></span>`;
+exports[`Tag or CheckTag :Tag:props :closable 1`] = `<span class="t-tag t-tag--default t-tag--dark t-tag--close"><i class="t-icon t-icon-close"></i></span>`;
 
 exports[`Tag or CheckTag :Tag:props :disabled 1`] = `<span class="t-tag t-tag--default t-tag--dark t-tag--disabled"></span>`;
 
@@ -74,10 +74,10 @@ exports[`Tag or CheckTag :Tag:props :theme:success 1`] = `<span class="t-tag t-t
 
 exports[`Tag or CheckTag :Tag:props :theme:warning 1`] = `<span class="t-tag t-tag--warning t-tag--dark"></span>`;
 
-exports[`Tag or CheckTag @event: Tag Event passthrough: close 1`] = `<span class="t-tag t-tag--default t-tag--dark"><i class="t-icon t-icon-close"></i></span>`;
+exports[`Tag or CheckTag @event: Tag Event passthrough: close 1`] = `<span class="t-tag t-tag--default t-tag--dark t-tag--close"><i class="t-icon t-icon-close"></i></span>`;
 
-exports[`Tag or CheckTag CheckTag:props :checked 1`] = `<span class="t-tag t-tag--default t-tag--checked"></span>`;
+exports[`Tag or CheckTag CheckTag:props :checked 1`] = `<span class="t-tag t-tag--check t-tag--default t-tag--checked"></span>`;
 
-exports[`Tag or CheckTag CheckTag:props :disabled 1`] = `<span class="t-tag t-tag--default t-tag--disabled"></span>`;
+exports[`Tag or CheckTag CheckTag:props :disabled 1`] = `<span class="t-tag t-tag--check t-tag--default t-tag--disabled"></span>`;
 
 exports[`Tag or CheckTag Tag:slot <icon> 1`] = `<span class="t-tag t-tag--default t-tag--dark"></span>`;

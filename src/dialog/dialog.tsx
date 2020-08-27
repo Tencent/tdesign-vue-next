@@ -1,7 +1,9 @@
-import Vue from 'vue';
+import Vue, { CreateElement } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import TIconClose from '../icon/close';
+import TButton from '../button';
+import { ButtonProps } from '../button/type';
 
 const name = `${prefix}-dialog`;
 
@@ -53,7 +55,7 @@ export default Vue.extend({
   },
   model: {
     prop: 'visible',
-    event: 'change',
+    event: 'visible-change',
   },
   props: {
     visible: {
@@ -127,6 +129,14 @@ export default Vue.extend({
       type: [Function, String, Boolean],
       default: false,
     },
+    confirmContent: {
+      type: [String, Function, Object, Boolean],
+      default: '确认',
+    },
+    cancelContent: {
+      type: [String, Function, Object, Boolean],
+      default: '取消',
+    },
   },
   computed: {
     // 是否模态形式的对话框
@@ -144,15 +154,15 @@ export default Vue.extend({
       }
       return false;
     },
-    ctxClass(): Array<string> {
-      // 关闭时候是否卸载元素
+    ctxClass(): ClassName {
+      // 关闭时候是否卸载元素 this.$el.parentNode.removeChild(this.$el)
       const closeMode = this.destroyOnClose ? 'display' : 'visable';
       return [
         't-dialog-ctx',
         this.visible ? `t-is-${closeMode}` : `t-not-${closeMode}`,
       ];
     },
-    maskClass(): Array<string> {
+    maskClass(): ClassName {
       return [
         't-dialog-mask',
         !this.showOverlay && 't-dialog-mask--hidden',
@@ -161,7 +171,6 @@ export default Vue.extend({
   },
   watch: {
     visible(value) {
-      this.$emit('visable-change', value);
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
       // 目前弹窗交互没有动画
@@ -169,6 +178,10 @@ export default Vue.extend({
         this.$emit('opened');
       } else {
         this.$emit('closed');
+      }
+      // 关闭时，销毁元素
+      if (!value && this.destroyOnClose) {
+        this.$el.parentNode.removeChild(this.$el);
       }
     },
   },
@@ -215,25 +228,29 @@ export default Vue.extend({
       }
     },
     keyboardEvent(e: KeyboardEvent) {
-      // esc 键
-      if (e.keyCode === 27) {
-        this.$emit('keydown-esc', e);
+      if (e.code === 'Escape') {
+        this.$emit('keydown-esc', this.close, e);
       }
     },
-    overlayAction() {
-      this.$emit('click-overlay');
+    overlayAction(e: Event) {
+      this.$emit('click-overlay', this.close, e);
     },
-    closeBtnAcion() {
-      this.$emit('click-close-btn', this.close);
+    closeBtnAcion(e: Event) {
+      this.$emit('click-close-btn', this.close, e);
+      this.changeVisible(false);
     },
     close() {
       this.changeVisible(false);
     },
     changeVisible(visible: boolean) {
-      this.$emit('change', visible);
+      this.$emit('visible-change', visible);
     },
-    confirmBtnAction() {
-      alert('confirm');
+    cancelBtnAction(e: Event) {
+      this.$emit('click-cancel', this.close, e);
+      this.changeVisible(false);
+    },
+    confirmBtnAction(e: Event) {
+      this.$emit('click-confirm', this.close, e);
     },
     renderTitle() {
       const target = this.header;
@@ -271,11 +288,37 @@ export default Vue.extend({
         </div>
       );
     },
-    renderFooter() {
-      const defaultView = <div>
-        <button class="t-button t-button--line" onClick={this.closeBtnAcion}>取消</button>
-        <button class="t-button t-button--primary" onClick={this.confirmBtnAction}>确认</button>
-      </div>;
+    renderDefaultBtn(
+      h: CreateElement,
+      type: string,
+      btnNode: string | Function | ButtonProps
+    ) {
+      if (!btnNode) return null;
+      const r = {
+        confirm: {
+          theme: 'primary',
+          onClick: this.confirmBtnAction,
+        },
+        cancel: {
+          theme: 'line',
+          onClick: this.cancelBtnAction,
+        },
+      }[type];
+      if (typeof btnNode === 'function') {
+        return btnNode(h);
+      }
+      if (typeof btnNode === 'object') {
+        return <TButton theme={r.theme} onClick={r.onClick} {...{ props: btnNode }}>{btnNode.content}</TButton>;
+      }
+      return <TButton theme={r.theme} onClick={r.onClick}>{btnNode}</TButton>;
+    },
+    renderFooter(h: CreateElement) {
+      const defaultView = (
+        <div>
+          {this.renderDefaultBtn(h, 'cancel', this.cancelContent)}
+          {this.renderDefaultBtn(h, 'confirm', this.confirmContent)}
+        </div>
+      );
       const target = this.footer;
       let view;
       let isShow = true;
@@ -285,7 +328,7 @@ export default Vue.extend({
       } else if (typeof target === 'string') {
         view = <div>{target}</div>;
       } else if (typeof target === 'function') {
-        view = target();
+        view = target(this.$createElement);
       }
       return isShow && (
         <div class="t-dialog__footer">
@@ -307,7 +350,7 @@ export default Vue.extend({
       return isShow && (view || defaultView);
     },
   },
-  render() {
+  render(h: CreateElement) {
     const dialogClass = ['t-dialog', 't-dialog--default', `t-dialog--${this.placement}`];
     const dialogStyle = { width: GetCSSValue(this.width), transform: this.transform };
     return (
@@ -320,7 +363,7 @@ export default Vue.extend({
         <div class={dialogClass} style={dialogStyle} v-draggable={!this.isModal && this.draggable}>
           {this.renderTitle()}
           {this.renderBody()}
-          {this.renderFooter()}
+          {this.renderFooter(h)}
           {this.renderCloseBtn()}
         </div>
       </div>

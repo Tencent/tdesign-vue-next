@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Checkbox, { Group } from '@/src/checkbox/index.ts';
+import Checkbox, { CheckboxGroup } from '@/src/checkbox/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Checkbox', () => {
@@ -62,17 +62,17 @@ describe('Checkbox', () => {
   });
 });
 
-describe('Checkbox Group', () => {
+describe('Checkbox CheckboxGroup', () => {
   // test props api
   describe(':props', () => {
     it(':defaultValue', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group defaultValue={['sz']}>
+            <CheckboxGroup defaultValue={['sz']}>
               <Checkbox value="gz">广州</Checkbox>
               <Checkbox value="sz" disabled>深圳</Checkbox>
-            </Group>
+            </CheckboxGroup>
           );
         },
       });
@@ -82,10 +82,10 @@ describe('Checkbox Group', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group value={['sz']}>
+            <CheckboxGroup value={['sz']}>
               <Checkbox value="gz">广州</Checkbox>
               <Checkbox value="sz" disabled>深圳</Checkbox>
-            </Group>
+            </CheckboxGroup>
           );
         },
       });
@@ -95,11 +95,11 @@ describe('Checkbox Group', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group disabled={true}>
+            <CheckboxGroup disabled={true}>
               <Checkbox value="bj">北京</Checkbox>
               <Checkbox value="gz">广州</Checkbox>
               <Checkbox value="sz" disabled={false}>深圳</Checkbox>
-            </Group>
+            </CheckboxGroup>
           );
         },
       });
@@ -112,7 +112,7 @@ describe('Checkbox Group', () => {
       ];
       const wrapper = mount({
         render() {
-          return <Group options={options}></Group>;
+          return <CheckboxGroup options={options}></CheckboxGroup>;
         },
       });
       expect(wrapper).toMatchSnapshot();
@@ -121,10 +121,10 @@ describe('Checkbox Group', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group name={'checkbox-name'}>
+            <CheckboxGroup name={'checkbox-name'}>
               <Checkbox value="gz">广州</Checkbox>
               <Checkbox value="sz" disabled>深圳</Checkbox>
-            </Group>
+            </CheckboxGroup>
           );
         },
       });
@@ -139,10 +139,10 @@ describe('Checkbox Group', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group onChange={fn}>
+            <CheckboxGroup onChange={fn}>
               <Checkbox value="gz">广州</Checkbox>
               <Checkbox value="sz" disabled>深圳</Checkbox>
-            </Group>
+            </CheckboxGroup>
           );
         },
       });
