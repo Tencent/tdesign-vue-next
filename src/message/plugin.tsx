@@ -28,6 +28,7 @@ import Vue, { VueConstructor, PluginObject } from 'vue';
 import { THEME_LIST } from './const';
 import { MessageList, DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
+import { MessageProps } from './type/index';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<Element, object> = new Map();
@@ -58,13 +59,13 @@ const showMessage = (props: { attach: string | Function; placement: string; zInd
   });
 };
 
-function Message(theme: string, params: Record<string, any>, duration: number) {
+function Message(theme: string, params: string | MessageProps, duration: number) {
   const props: {
     theme: string;
     duration: number;
     attach: string | Function;
     placement: string;
-    default: string;
+    default: string | Function;
     zIndex: number;
   } = {
     theme,
@@ -97,7 +98,7 @@ function closeAll() {
 const MessagePlugin = Message as (typeof Message & PluginObject<void>);
 
 THEME_LIST.forEach((theme: string) => {
-  MessagePlugin[theme] = (params: object = {}, time: number) => Message(theme, params, time);
+  MessagePlugin[theme] = (params: string | MessageProps, time: number) => Message(theme, params, time);
   Object.assign(MessagePlugin, {
     close: (promise: Promise<{close: Function}>) => {
       promise.then(instance => instance.close());
