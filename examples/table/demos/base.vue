@@ -22,6 +22,9 @@ export default {
       default: '[]',
       needed: 'Y',
       description: '数据源',
+      detail: {
+        name: '嵌套信息读取',
+      },
     };
     const data = [];
     for (let i = 0; i < 100; i ++) {
@@ -86,6 +89,15 @@ export default {
           ellipsis: true,
           colKey: 'needed',
           title: '是否必传',
+        },
+        {
+          align: 'left',
+          width: '100',
+          minWidth: '100',
+          className: 'test3',
+          ellipsis: true,
+          colKey: 'detail.name',
+          title: '详情信息',
         },
         {
           align: 'left',
