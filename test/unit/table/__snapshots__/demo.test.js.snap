@@ -35,12 +35,16 @@ exports[`Table base demo works fine 1`] = `
             style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
           />
           <col
+            class="test3"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
+          />
+          <col
             class="row"
             style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
           />
         </colgroup>
         <thead
-          columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+          columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
         >
           <tr>
             <td
@@ -100,6 +104,15 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               colspan="1"
+              key="detail.name"
+              rowspan="1"
+              style="text-align: left;"
+            >
+              详情信息
+            </td>
+            <td
+              class=""
+              colspan="1"
               key="description"
               rowspan="1"
               style="text-align: left;"
@@ -117,7 +130,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="index"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               0
@@ -125,7 +138,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="type"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               any[]
@@ -133,7 +146,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="platform"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               公有
@@ -141,7 +154,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="property"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               data
@@ -149,7 +162,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="default"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               []
@@ -157,15 +170,23 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="needed"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               Y
             </td>
             <td
               class=""
+              key="detail.name"
+              length="8"
+              style="text-align: left;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class=""
               key="description"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               数据源
@@ -177,7 +198,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="index"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               1
@@ -185,7 +206,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="type"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               any[]
@@ -193,7 +214,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="platform"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               公有
@@ -201,7 +222,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="property"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               data
@@ -209,7 +230,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="default"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               []
@@ -217,15 +238,23 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="needed"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               Y
             </td>
             <td
               class=""
+              key="detail.name"
+              length="8"
+              style="text-align: left;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class=""
               key="description"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               数据源
@@ -237,7 +266,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="index"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               2
@@ -245,7 +274,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="type"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               any[]
@@ -253,7 +282,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="platform"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               公有
@@ -261,7 +290,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="property"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               data
@@ -269,7 +298,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="default"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               []
@@ -277,15 +306,23 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="needed"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               Y
             </td>
             <td
               class=""
+              key="detail.name"
+              length="8"
+              style="text-align: left;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class=""
               key="description"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               数据源
@@ -297,7 +334,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="index"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               3
@@ -305,7 +342,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="type"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               any[]
@@ -313,7 +350,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="platform"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               公有
@@ -321,7 +358,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="property"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               data
@@ -329,7 +366,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="default"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               []
@@ -337,15 +374,23 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="needed"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               Y
             </td>
             <td
               class=""
+              key="detail.name"
+              length="8"
+              style="text-align: left;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class=""
               key="description"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               数据源
@@ -357,7 +402,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="index"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               4
@@ -365,7 +410,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="type"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               any[]
@@ -373,7 +418,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="platform"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               公有
@@ -381,7 +426,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="property"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               data
@@ -389,7 +434,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="default"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               []
@@ -397,15 +442,23 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="needed"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               Y
             </td>
             <td
               class=""
+              key="detail.name"
+              length="8"
+              style="text-align: left;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class=""
               key="description"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               数据源
@@ -417,7 +470,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="index"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               5
@@ -425,7 +478,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="type"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               any[]
@@ -433,7 +486,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="platform"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               公有
@@ -441,7 +494,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="property"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               data
@@ -449,7 +502,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="default"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               []
@@ -457,15 +510,23 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="needed"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               Y
             </td>
             <td
               class=""
+              key="detail.name"
+              length="8"
+              style="text-align: left;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class=""
               key="description"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               数据源
@@ -477,7 +538,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="index"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               6
@@ -485,7 +546,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="type"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               any[]
@@ -493,7 +554,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="platform"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               公有
@@ -501,7 +562,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="property"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               data
@@ -509,7 +570,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="default"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               []
@@ -517,15 +578,23 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="needed"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               Y
             </td>
             <td
               class=""
+              key="detail.name"
+              length="8"
+              style="text-align: left;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class=""
               key="description"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               数据源
@@ -537,7 +606,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="index"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               7
@@ -545,7 +614,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="type"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               any[]
@@ -553,7 +622,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="platform"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               公有
@@ -561,7 +630,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="property"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               data
@@ -569,7 +638,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="default"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               []
@@ -577,15 +646,23 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="needed"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               Y
             </td>
             <td
               class=""
+              key="detail.name"
+              length="8"
+              style="text-align: left;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class=""
               key="description"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               数据源
@@ -597,7 +674,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="index"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               8
@@ -605,7 +682,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="type"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               any[]
@@ -613,7 +690,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="platform"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               公有
@@ -621,7 +698,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="property"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               data
@@ -629,7 +706,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="default"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               []
@@ -637,15 +714,23 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="needed"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               Y
             </td>
             <td
               class=""
+              key="detail.name"
+              length="8"
+              style="text-align: left;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class=""
               key="description"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               数据源
@@ -657,7 +742,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="index"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               9
@@ -665,7 +750,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="type"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               any[]
@@ -673,7 +758,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="platform"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               公有
@@ -681,7 +766,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="property"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               data
@@ -689,7 +774,7 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="default"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               []
@@ -697,15 +782,23 @@ exports[`Table base demo works fine 1`] = `
             <td
               class=""
               key="needed"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               Y
             </td>
             <td
               class=""
+              key="detail.name"
+              length="8"
+              style="text-align: left;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class=""
               key="description"
-              length="7"
+              length="8"
               style="text-align: left;"
             >
               数据源
