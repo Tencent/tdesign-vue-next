@@ -7,17 +7,17 @@ describe('Breadcrumb', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('base demo works fine', () => {
+  it('separatorFunction demo works fine', () => {
     const demo = require('@/examples/breadcrumb/demos/separatorFunction.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('base demo works fine', () => {
+  it('separatorSlot demo works fine', () => {
     const demo = require('@/examples/breadcrumb/demos/separatorSlot.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('base demo works fine', () => {
+  it('to demo works fine', () => {
     const demo = require('@/examples/breadcrumb/demos/to.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();

@@ -4,7 +4,7 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
 <div>
   <div class="t-table t-table__header--fixed">
     <div class="t-table-content">
-      <div class="t-table__header" style="overflow-y: scroll;">
+      <div class="t-table__header" style="width: 100%;">
         <table style="width: 100%;">
           <colgroup>
             <col>
@@ -20,7 +20,7 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
           </thead>
         </table>
       </div>
-      <div class="t-table__body" style="max-height: 100px; overflow-y: scroll;">
+      <div class="t-table__body" style="max-height: 100px;">
         <table style="width: 100%;">
           <colgroup>
             <col>
@@ -215,7 +215,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
 <div>
   <div class="t-table t-table__cell--fixed t-table--has-fixed">
     <div class="t-table-content">
-      <div class="t-table__header" style="overflow-y: scroll;">
+      <div class="t-table__header" style="width: 100%;">
         <table style="width: 100%;">
           <colgroup>
             <col>
@@ -231,7 +231,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
           </thead>
         </table>
       </div>
-      <div class="t-table__body" style="max-height: auto; overflow-y: scroll;">
+      <div class="t-table__body" style="max-height: auto;">
         <table style="width: 100%;">
           <colgroup>
             <col>

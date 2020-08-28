@@ -1,80 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Menu props :active 1`] = `
-<div class="t-default-menu t-default-menu t-menu--light" style="height: 100%; width: 256px;">
+<div class="t-default-menu t-default-menu t-menu-mode__accordion t-menu--light" style="height: 100%; width: 256px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo"></div>
-    <ul class="t-menu"></ul>
+    <ul class="t-menu t-menu--scroll"></ul>
     <div class="t-menu__options"></div>
   </div>
 </div>
 `;
 
 exports[`Menu props :collapsed 1`] = `
-<div class="t-default-menu t-default-menu t-menu--light t-is-collapsed" style="height: 100%; width: 72px;">
+<div class="t-default-menu t-default-menu t-menu-mode__accordion t-menu--light t-is-collapsed" style="height: 100%; width: 72px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo"></div>
-    <ul class="t-menu"></ul>
+    <ul class="t-menu t-menu--scroll"></ul>
     <div class="t-menu__options"></div>
   </div>
 </div>
 `;
 
 exports[`Menu props :collapsedWidth 1`] = `
-<div class="t-default-menu t-default-menu t-menu--light" style="height: 100%; width: 256px;">
+<div class="t-default-menu t-default-menu t-menu-mode__accordion t-menu--light" style="height: 100%; width: 256px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo"></div>
-    <ul class="t-menu"></ul>
+    <ul class="t-menu t-menu--scroll"></ul>
     <div class="t-menu__options"></div>
   </div>
 </div>
 `;
 
 exports[`Menu props :height 1`] = `
-<div class="t-default-menu t-default-menu t-menu--light" style="height: 750px; width: 256px;">
+<div class="t-default-menu t-default-menu t-menu-mode__accordion t-menu--light" style="height: 750px; width: 256px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo"></div>
-    <ul class="t-menu"></ul>
+    <ul class="t-menu t-menu--scroll"></ul>
     <div class="t-menu__options"></div>
   </div>
 </div>
 `;
 
 exports[`Menu props :theme 1`] = `
-<div class="t-default-menu t-default-menu t-menu--light" style="height: 100%; width: 256px;">
+<div class="t-default-menu t-default-menu t-menu-mode__accordion t-menu--light" style="height: 100%; width: 256px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo"></div>
-    <ul class="t-menu"></ul>
+    <ul class="t-menu t-menu--scroll"></ul>
     <div class="t-menu__options"></div>
   </div>
 </div>
 `;
 
 exports[`Menu props :theme 2`] = `
-<div class="t-default-menu t-default-menu t-menu--light" style="height: 100%; width: 256px;">
+<div class="t-default-menu t-default-menu t-menu-mode__accordion t-menu--light" style="height: 100%; width: 256px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo"></div>
-    <ul class="t-menu"></ul>
+    <ul class="t-menu t-menu--scroll"></ul>
     <div class="t-menu__options"></div>
   </div>
 </div>
 `;
 
 exports[`Menu props :width 1`] = `
-<div class="t-default-menu t-default-menu t-menu--light" style="height: 100%; width: 256px;">
+<div class="t-default-menu t-default-menu t-menu-mode__accordion t-menu--light" style="height: 100%; width: 256px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo"></div>
-    <ul class="t-menu"></ul>
+    <ul class="t-menu t-menu--scroll"></ul>
     <div class="t-menu__options"></div>
   </div>
 </div>
 `;
 
 exports[`Menu slot <default> 1`] = `
-<div class="t-default-menu t-default-menu t-menu--light" style="height: 100%; width: 256px;">
+<div class="t-default-menu t-default-menu t-menu-mode__accordion t-menu--light" style="height: 100%; width: 256px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo"></div>
-    <ul class="t-menu">
+    <ul class="t-menu t-menu--scroll">
       <div></div>
     </ul>
     <div class="t-menu__options"></div>
@@ -83,22 +83,22 @@ exports[`Menu slot <default> 1`] = `
 `;
 
 exports[`Menu slot <logo> 1`] = `
-<div class="t-default-menu t-default-menu t-menu--light" style="height: 100%; width: 256px;">
+<div class="t-default-menu t-default-menu t-menu-mode__accordion t-menu--light" style="height: 100%; width: 256px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo">
       <div></div>
     </div>
-    <ul class="t-menu"></ul>
+    <ul class="t-menu t-menu--scroll"></ul>
     <div class="t-menu__options"></div>
   </div>
 </div>
 `;
 
 exports[`Menu slot <options> 1`] = `
-<div class="t-default-menu t-default-menu t-menu--light" style="height: 100%; width: 256px;">
+<div class="t-default-menu t-default-menu t-menu-mode__accordion t-menu--light" style="height: 100%; width: 256px;">
   <div class="t-default-menu__inner">
     <div class="t-menu__logo"></div>
-    <ul class="t-menu"></ul>
+    <ul class="t-menu t-menu--scroll"></ul>
     <div class="t-menu__options">
       <div></div>
     </div>

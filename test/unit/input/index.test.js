@@ -178,7 +178,9 @@ describe('Input', () => {
         },
       });
       const inputWrapper = wrapper.find(Input);
+      const inputElemWrapper = wrapper.find('input');
       inputWrapper.vm.focus();
+      inputElemWrapper.trigger('focus');
       await Vue.nextTick();
       expect(inputWrapper.emitted().focus).toBeTruthy();
     });
@@ -191,8 +193,10 @@ describe('Input', () => {
         },
       });
       const inputWrapper = wrapper.find(Input);
+      const inputElemWrapper = wrapper.find('input');
       inputWrapper.vm.focus();
       inputWrapper.vm.blur();
+      inputElemWrapper.trigger('blur');
       await Vue.nextTick();
       expect(inputWrapper.emitted().blur).toBeTruthy();
     });

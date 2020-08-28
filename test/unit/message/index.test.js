@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { Message } from '@/src/message/index.ts';
-import Button from '@/src/Button/index.ts';
+import Button from '@/src/button/index.ts';
 import TIconClose from '@/src/icon/close';
 import TIconMore from '@/src/icon/more';
 import TIconPromptFill from '@/src/icon/prompt_fill';
