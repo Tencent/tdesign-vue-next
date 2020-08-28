@@ -8,7 +8,9 @@ exports[`Table base demo works fine 1`] = `
     <div
       class="t-table-content"
     >
-      <table>
+      <table
+        style="table-layout: fixed;"
+      >
         <colgroup>
           <col
             class="row"
