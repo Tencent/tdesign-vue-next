@@ -7,4 +7,24 @@ describe('Dialog', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
+  it('others demo works fine', () => {
+    const demo = require('@/examples/dialog/demos/others.vue').default;
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+  it('plugin demo works fine', () => {
+    const demo = require('@/examples/dialog/demos/plugin.vue').default;
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+  it('position demo works fine', () => {
+    const demo = require('@/examples/dialog/demos/position.vue').default;
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+  it('standalone demo works fine', () => {
+    const demo = require('@/examples/dialog/demos/standalone.vue').default;
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });
