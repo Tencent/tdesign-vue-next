@@ -15,16 +15,16 @@ describe('Tabs', () => {
     });
   });
 
-  // test events
-  describe('@event', () => null);
+  // // test events
+  // describe('@event', () => null);
 
-  // test slots
-  describe('<slot>', () => {
-    it('', () => null);
-  });
+  // // test slots
+  // describe('<slot>', () => {
+  //   it('', () => null);
+  // });
 
-  // test exposure function
-  describe('function', () => {
-    it('', () => null);
-  });
+  // // test exposure function
+  // describe('function', () => {
+  //   it('', () => null);
+  // });
 });

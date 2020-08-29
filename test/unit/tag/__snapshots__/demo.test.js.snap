@@ -8,21 +8,21 @@ exports[`Tag checkable demo works fine 1`] = `
     class="tdesign-demo-block"
   >
     <span
-      class="t-tag t-tag--default"
+      class="t-tag t-tag--check t-tag--default"
     >
       
       标签一
     
     </span>
     <span
-      class="t-tag t-tag--default t-tag--disabled"
+      class="t-tag t-tag--check t-tag--default t-tag--disabled"
     >
       
       标签二
     
     </span>
     <span
-      class="t-tag t-tag--default t-tag--checked"
+      class="t-tag t-tag--check t-tag--default t-tag--checked"
     >
       
       标签三
@@ -37,7 +37,7 @@ exports[`Tag closable demo works fine 1`] = `
   class="tdesign-tag-closable"
 >
   <span
-    class="t-tag t-tag--default t-tag--dark"
+    class="t-tag t-tag--default t-tag--dark t-tag--close"
   >
     
     标签一
@@ -47,7 +47,7 @@ exports[`Tag closable demo works fine 1`] = `
     />
   </span>
   <span
-    class="t-tag t-tag--default t-tag--dark"
+    class="t-tag t-tag--primary t-tag--plain t-tag--close"
   >
     
     标签二
@@ -57,10 +57,40 @@ exports[`Tag closable demo works fine 1`] = `
     />
   </span>
   <span
-    class="t-tag t-tag--default t-tag--dark"
+    class="t-tag t-tag--info t-tag--plain t-tag--close"
   >
     
     标签三
+  
+    <i
+      class="t-icon t-icon-close"
+    />
+  </span>
+  <span
+    class="t-tag t-tag--warning t-tag--plain t-tag--close"
+  >
+    
+    标签四
+  
+    <i
+      class="t-icon t-icon-close"
+    />
+  </span>
+  <span
+    class="t-tag t-tag--danger t-tag--plain t-tag--close"
+  >
+    
+    标签五
+  
+    <i
+      class="t-icon t-icon-close"
+    />
+  </span>
+  <span
+    class="t-tag t-tag--success t-tag--plain t-tag--close"
+  >
+    
+    标签六
   
     <i
       class="t-icon t-icon-close"
@@ -78,6 +108,16 @@ exports[`Tag default demo works fine 1`] = `
   >
     默认
   </span>
+   
+  <a
+    class="demo-link"
+  >
+    <span
+      class="t-tag t-tag--default t-tag--dark"
+    >
+      超链接
+    </span>
+  </a>
 </div>
 `;
 
@@ -98,7 +138,7 @@ exports[`Tag disabled demo works fine 1`] = `
   </span>
    
   <span
-    class="check-tag t-tag t-tag--default t-tag--disabled"
+    class="check-tag t-tag t-tag--check t-tag--default t-tag--disabled"
   >
     失效标签
   </span>
@@ -116,7 +156,7 @@ exports[`Tag icon demo works fine 1`] = `
     自定义图标标签：
     
     <span
-      class="t-tag t-tag--default t-tag--dark"
+      class="custom-icon t-tag t-tag--default t-tag--dark"
     >
       <i
         class="t-icon"
@@ -154,6 +194,7 @@ exports[`Tag long-text demo works fine 1`] = `
   <span
     class="t-tag t-tag--default t-tag--dark t-tag--ellipsis"
     style="max-width: 150px;"
+    title="超长省略文本标签超长省略文本标签"
   >
     超长省略文本标签超长省略文本标签
   </span>
@@ -273,12 +314,6 @@ exports[`Tag size demo works fine 1`] = `
     </span>
      
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark"
-    >
-      标签 中
-    </span>
-     
-    <span
       class="t-tag t-tag--default t-tag--dark"
     >
       标签 中
@@ -298,12 +333,6 @@ exports[`Tag size demo works fine 1`] = `
       class="t-tag t-tag--primary t-size-s t-tag--dark"
     >
       标签 小
-    </span>
-     
-    <span
-      class="t-tag t-tag--primary t-size-m t-tag--dark"
-    >
-      标签 中
     </span>
      
     <span
@@ -329,7 +358,7 @@ exports[`Tag theme demo works fine 1`] = `
     class="tdesign-demo-block"
   >
     
-    默认：
+    默认
     
     <span
       class="t-tag t-tag--default t-tag--dark"
@@ -342,7 +371,7 @@ exports[`Tag theme demo works fine 1`] = `
     class="tdesign-demo-block"
   >
     
-    深色：
+    深色
     
     <span
       class="t-tag t-tag--primary t-tag--dark"
@@ -379,7 +408,7 @@ exports[`Tag theme demo works fine 1`] = `
     class="tdesign-demo-block light"
   >
     
-    浅色：
+    浅色
     
     <span
       class="t-tag t-tag--primary t-tag--light"
@@ -416,7 +445,7 @@ exports[`Tag theme demo works fine 1`] = `
     class="tdesign-demo-block plain"
   >
     
-    朴素：
+    朴素
     
     <span
       class="t-tag t-tag--primary t-tag--plain"

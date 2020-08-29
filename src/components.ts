@@ -1,5 +1,6 @@
 export { Message } from './message';
 export { Notification } from './notification';
+export { Dialog } from './dialog';
 export * from './addon';
 export * from './alert-swiper';
 export * from './alert';
@@ -7,7 +8,6 @@ export * from './breadcrumb';
 export * from './breadcrumbItem';
 export * from './button';
 export * from './checkbox';
-export * from './dialog';
 export * from './icon';
 export * from './input-group';
 export * from './input';

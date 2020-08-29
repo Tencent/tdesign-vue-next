@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb-item base demo works fine 1`] = `
+<div
+  class="t-breadcrumb"
+>
+  <a
+    class="t-breadcrumb__item t-size-m light"
+    href="javascript:;"
+  >
+    <span>
+      首页
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      /
+    </span>
+  </a>
+   
+  <a
+    class="t-breadcrumb__item t-size-m light t-is-current"
+    href="javascript:;"
+  >
+    <span>
+      面包屑1
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    />
+  </a>
+</div>
+`;
+
+exports[`Breadcrumb-item base demo works fine 2`] = `
+<div
+  class="t-breadcrumb"
+>
+  <a
+    class="t-breadcrumb__item t-size-m light"
+    href="javascript:;"
+  >
+    <span>
+      首页
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      /
+    </span>
+  </a>
+   
+  <a
+    class="t-breadcrumb__item t-size-m light t-is-current"
+    href="javascript:;"
+  >
+    <span>
+      面包屑1
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    />
+  </a>
+</div>
+`;

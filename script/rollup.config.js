@@ -48,7 +48,9 @@ const getPlugins = ({ env, isProd, analyze, vueOpt = { css: false } }) => {
     json(),
     url(),
   ];
-
+  plugins.push(replace({
+    __VERSION__: JSON.stringify(pkg.version),
+  }));
   if (env) {
     plugins.push(replace({
       'process.env.NODE_ENV': JSON.stringify(env),
@@ -81,6 +83,7 @@ const commonConfig = {
     input: [
       'src/**/**.ts',
       'src/**/**.tsx',
+      '!src/dist.ts',
       '!src/**/*.d.ts',
       '!src/**/demos',
       '!src/**/__tests__',
@@ -90,7 +93,7 @@ const commonConfig = {
     external: externalDeps.concat(externalPeerDeps),
   },
   bundle: {
-    input: 'src/index.ts',
+    input: 'src/dist.ts',
     external: externalPeerDeps,
     output: {
       name: 'TDesign',

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Radio, { Group, RadioButton } from '@/src/radio/index.ts';
+import Radio, { RadioGroup, RadioButton } from '@/src/radio/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Radio', () => {
@@ -11,7 +11,7 @@ describe('Radio', () => {
           return <Radio checked={true}></Radio>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':defaultChecked', () => {
       const wrapper = mount({
@@ -19,7 +19,7 @@ describe('Radio', () => {
           return <Radio defaultChecked={true}></Radio>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':disabled', () => {
       const wrapper = mount({
@@ -27,7 +27,7 @@ describe('Radio', () => {
           return <Radio disabled={true}></Radio>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':name', () => {
       const wrapper = mount({
@@ -35,7 +35,7 @@ describe('Radio', () => {
           return <Radio name={'radio-name'}></Radio>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
   // test events
@@ -53,48 +53,48 @@ describe('Radio', () => {
   });
 });
 
-describe('Radio Group', () => {
+describe('Radio RadioGroup', () => {
   // test props api
   describe(':props', () => {
     it(':defaultValue', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group defaultValue={'sz'}>
+            <RadioGroup defaultValue={'sz'}>
               <Radio value="gz">广州</Radio>
               <Radio value="sz" disabled>深圳</Radio>
-            </Group>
+            </RadioGroup>
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':value', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group value={'sz'}>
+            <RadioGroup value={'sz'}>
               <Radio value="gz">广州</Radio>
               <Radio value="sz" disabled>深圳</Radio>
-            </Group>
+            </RadioGroup>
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':disabled', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group disabled={true}>
+            <RadioGroup disabled={true}>
               <Radio value="bj">北京</Radio>
               <Radio value="gz">广州</Radio>
               <Radio value="sz" disabled={false}>深圳</Radio>
-            </Group>
+            </RadioGroup>
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':options', () => {
       const options = [
@@ -103,49 +103,49 @@ describe('Radio Group', () => {
       ];
       const wrapper = mount({
         render() {
-          return <Group options={options}></Group>;
+          return <RadioGroup options={options}></RadioGroup>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':name', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group name={'radio-name'}>
+            <RadioGroup name={'radio-name'}>
               <Radio value="gz">广州</Radio>
               <Radio value="sz" disabled>深圳</Radio>
-            </Group>
+            </RadioGroup>
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':buttonStyle', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group buttonStyle={'solid'}>
+            <RadioGroup buttonStyle={'solid'}>
               <RadioButton value="gz">广州</RadioButton>
               <RadioButton value="sz" disabled>深圳</RadioButton>
-            </Group>
+            </RadioGroup>
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':size', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group size={'small'}>
+            <RadioGroup size={'small'}>
               <RadioButton value="gz">广州</RadioButton>
               <RadioButton value="sz" disabled>深圳</RadioButton>
-            </Group>
+            </RadioGroup>
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
@@ -156,10 +156,10 @@ describe('Radio Group', () => {
       const wrapper = mount({
         render() {
           return (
-            <Group onChange={fn}>
+            <RadioGroup onChange={fn}>
               <Radio value="gz">广州</Radio>
               <Radio value="sz" disabled>深圳</Radio>
-            </Group>
+            </RadioGroup>
           );
         },
       });
