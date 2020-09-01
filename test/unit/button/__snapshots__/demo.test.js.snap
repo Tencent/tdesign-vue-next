@@ -77,37 +77,7 @@ exports[`Button icon demo works fine 1`] = `
     </button>
      
     <button
-      class="t-button t-button--line"
-    >
-      <i
-        class="t-icon t-icon-search"
-      />
-      <span
-        class="t-button__text"
-      >
-        
-      搜索
-    
-      </span>
-    </button>
-     
-    <button
-      class="t-button t-button--link"
-    >
-      <i
-        class="t-icon t-icon-search"
-      />
-      <span
-        class="t-button__text"
-      >
-        
-      搜索
-    
-      </span>
-    </button>
-     
-    <button
-      class="t-button t-button--primary t-button--icon-primary"
+      class="t-button t-button--primary t-button--icon-only"
     >
       <i
         class="t-icon t-icon-search"
@@ -115,7 +85,15 @@ exports[`Button icon demo works fine 1`] = `
     </button>
      
     <button
-      class="t-button t-button--line t-button--icon"
+      class="t-button t-button--primary t-button--icon-only t-button--shape-round"
+    >
+      <i
+        class="t-icon t-icon-search"
+      />
+    </button>
+     
+    <button
+      class="t-button t-button--primary t-button--icon-only t-button--shape-circle"
     >
       <i
         class="t-icon t-icon-search"
