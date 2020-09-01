@@ -1,10 +1,8 @@
 /**
  * Vue.prototype.$message = MessagePlugin;
  *
- * this.$message('info', '这是信息')
- * this.$message.info('这是信息')
- * this.$message.info('这是信息', 3000)
- * this.$message.info({ default: '这是信息', duration: 3000 })
+ * this.$message({ theme: 'info', default: '这是信息', duration: 3000 })
+ * this.$message.info({ content: '这是信息', duration: 3000 })
  * this.$message.success({ content: '这是信息', duration: 3000 })
  * this.$message.warning()
  * this.$message.error()
@@ -19,7 +17,7 @@
  * this.$message.close(p)
  *
  * // close one message.
- * const msg = this.$message.info('这是信息')
+ * const msg = this.$message.info({ content: '这是信息', duration: 0 })
  * msg.then(instance => instance.close())
  *
  */
@@ -59,29 +57,18 @@ const showMessage = (props: { attach: string | Function; placement: string; zInd
   });
 };
 
-function Message(theme: string, params: string | MessageProps, duration: number) {
-  const props: {
-    theme: string;
-    duration: number;
-    attach: string | Function;
-    placement: string;
-    default: string | Function;
-    zIndex: number;
-  } = {
-    theme,
-    duration: [undefined, null].includes(duration) ? 3000 : duration,
+function Message(params: MessageProps) {
+  const options = Object.assign({
+    theme: 'info',
+    duration: 3000,
     attach: 'body',
     placement: 'top',
-    default: '',
     zIndex: DEFAULT_Z_INDEX,
-  };
-  if (typeof params === 'object' && !(params instanceof Array)) {
-    Object.assign(props, params);
-    props.default = params.default || params.content;
-  } else if (typeof params === 'string') {
-    props.default = params;
-  }
-  return showMessage(props);
+  }, params);
+
+  options.default = params.default || params.content || '';
+
+  return showMessage(options);
 }
 
 function closeAll() {
@@ -98,7 +85,7 @@ function closeAll() {
 const MessagePlugin = Message as (typeof Message & PluginObject<void>);
 
 THEME_LIST.forEach((theme: string) => {
-  MessagePlugin[theme] = (params: string | MessageProps, time: number) => Message(theme, params, time);
+  MessagePlugin[theme] = (params: MessageProps) => Message(Object.assign(params, { theme }));
   Object.assign(MessagePlugin, {
     close: (promise: Promise<{close: Function}>) => {
       promise.then(instance => instance.close());
