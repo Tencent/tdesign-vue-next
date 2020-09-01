@@ -5,7 +5,7 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
   <div class="t-table t-table__header--fixed">
     <div class="t-table-content">
       <div class="t-table__header" style="width: 100%;">
-        <table style="width: 100%;">
+        <table style="width: 100%; table-layout: fixed;">
           <colgroup>
             <col>
             <col>
@@ -21,7 +21,7 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
         </table>
       </div>
       <div class="t-table__body" style="max-height: 100px;">
-        <table style="width: 100%;">
+        <table style="width: 100%; table-layout: fixed;">
           <colgroup>
             <col>
             <col>
@@ -50,7 +50,7 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
 <div>
   <div class="t-table t-table-valign__bottom">
     <div class="t-table-content">
-      <table>
+      <table style="table-layout: fixed;">
         <colgroup></colgroup>
         <thead columnsprops="">
           <tr></tr>
@@ -65,7 +65,7 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
 <div>
   <div class="t-table t-size-l t-table-valign__top">
     <div class="t-table-content">
-      <table>
+      <table style="table-layout: fixed;">
         <colgroup></colgroup>
         <thead columnsprops="">
           <tr></tr>
@@ -80,7 +80,7 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
 <div>
   <div class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s">
     <div class="t-table-content">
-      <table>
+      <table style="table-layout: fixed;">
         <colgroup>
           <col>
           <col>
@@ -115,7 +115,7 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
 <div>
   <div class="t-table">
     <div class="t-table-content">
-      <table>
+      <table style="table-layout: fixed;">
         <colgroup></colgroup>
         <thead columnsprops="">
           <tr></tr>
@@ -130,7 +130,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
 <div>
   <div class="t-table">
     <div class="t-table-content">
-      <table>
+      <table style="table-layout: fixed;">
         <colgroup>
           <col style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 200px;;">
           <col>
@@ -165,7 +165,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
 <div>
   <div class="t-table">
     <div class="t-table-content">
-      <table>
+      <table style="table-layout: fixed;">
         <colgroup>
           <col>
           <col>
@@ -216,7 +216,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
   <div class="t-table t-table__cell--fixed t-table--has-fixed">
     <div class="t-table-content">
       <div class="t-table__header" style="width: 100%;">
-        <table style="width: 100%;">
+        <table style="width: 100%; table-layout: fixed;">
           <colgroup>
             <col>
             <col>
@@ -232,7 +232,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
         </table>
       </div>
       <div class="t-table__body" style="max-height: auto;">
-        <table style="width: 100%;">
+        <table style="width: 100%; table-layout: fixed;">
           <colgroup>
             <col>
             <col>
