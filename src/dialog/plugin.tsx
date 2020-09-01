@@ -14,7 +14,7 @@ function createDialog(options: DialogProps) {
   container.appendChild(dialog.$el);
   // 事件处理
   const eventNames = ['click-confirm', 'click-close-btn', 'click-cancel', 'keydown-esc', 'click-overlay'];
-  const closeTypes = ['confirm', 'closeBtn', 'cancel', 'esc', 'overlay'];
+  const eventTypes = ['confirm', 'closeBtn', 'cancel', 'esc', 'overlay'];
   const close = () => {
     dialog.visible = false;
     container.contains(dialog.$el) && container.removeChild(dialog.$el);
@@ -23,11 +23,11 @@ function createDialog(options: DialogProps) {
     dialog.$on(eventName, async () => {
       try {
         if (eventName === eventNames[0] && typeof options.onConfirm === 'function') {
-          await options.onConfirm(closeTypes[0], close);
+          await options.onConfirm(eventTypes[0], close);
         }
         const closeType = eventNames.indexOf(eventName, 1);
         if (closeType !== -1 && typeof options.onClose === 'function') {
-          await options.onClose(closeTypes[closeType], close);
+          await options.onClose(eventTypes[closeType], close);
         }
         close(); // onConfirm/onClose 在 reject 时，不在组件内部执行关闭
       } catch (e) {
