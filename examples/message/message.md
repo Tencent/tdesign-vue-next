@@ -56,15 +56,18 @@ const Plugin = {
 Vue.use(Plugin);
 ```
 
- * this.$message(theme, options) // 返回值 `Promise<instance: 组件实例>`
- * this.$message(theme, textMsg) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message(options) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.info(textMsg) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.info(textMsg, 3000) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.info(options) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.success(options) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message.warning(options) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message.error(options) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message.question(options) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message.loading(options) // 返回值 `Promise<instance: 组件实例>`
  * const msg = this.$message.success(options); this.$message.close(msg); // 关闭信息
 
-所有参数 Function 优先级大于 Slot。
+options 参数如下: <br/><br/>
 
 | 参数 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
@@ -77,3 +80,5 @@ Vue.use(Plugin);
 | offset | object | - | N | 偏移量（结合属性placement）, 如： {left: '30px'}，值为String类型 |
 | zIndex | number | 6000 | N | 定位层级 |
 | attach | function/string | body | N | 指定弹框挂载节点。字符串类型表示DOM选择器（querySelector）；函数需返回 DOM 节点，如：() => document.body |
+
+<br/>所有参数 Function 优先级大于 Slot。

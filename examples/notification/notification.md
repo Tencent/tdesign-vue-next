@@ -72,7 +72,9 @@ import { NotificationPlugin, Notification } from 'tdesign';
  * const notification = this.$notify(options); this.$notify.close(notification) // 关闭 Notification 实例
  * this.$notify.closeAll() // 关闭所有 Notification 实例
 
-| 属性 | 类型 | 默认值 | 必传 | 说明 |
+options 参数如下: <br/><br/>
+
+| 参数 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
 | title | String | - | N | 通知标题 |
 | content | String/Function/Solt(default) | - | N | 消息正文内容 |
@@ -85,3 +87,5 @@ import { NotificationPlugin, Notification } from 'tdesign';
 | footer | Function/Solt(footer) | - | N | 自定义底部详情 |
 | attach | String/Function | - | N | 指定弹框挂载节点。字符串类型表示DOM选择器（querySelector）；函数需返回 DOM 节点，如：() => document.body | 
 | zIndex | Number | 6000 | N | 自定义层级 |
+
+<br/>所有参数 Function 优先级大于 Slot。
