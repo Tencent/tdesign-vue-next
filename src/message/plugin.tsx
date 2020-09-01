@@ -66,7 +66,7 @@ function Message(params: MessageProps) {
     zIndex: DEFAULT_Z_INDEX,
   }, params);
 
-  options.default = params.default || params.content || '';
+  options.default = params.content || params.default || '';
 
   return showMessage(options);
 }
