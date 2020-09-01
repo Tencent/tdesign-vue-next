@@ -5,8 +5,6 @@ import { getAttach } from '../utils/dom';
 
 /* eslint-disable no-param-reassign */
 
-const dialogMap: Map<Element, any> = new Map();
-
 function createDialog(options: DialogProps) {
   options.visible = true;
   const dialog = new DialogComponent({
@@ -14,24 +12,26 @@ function createDialog(options: DialogProps) {
   }).$mount();
   const container = getAttach(options.attach);
   container.appendChild(dialog.$el);
-  dialogMap.set(dialog.$el, dialog);
   // 事件处理
   const eventNames = ['click-confirm', 'click-close-btn', 'click-cancel', 'keydown-esc', 'click-overlay'];
-  const closeType = ['', 'closeBtn', 'cancel', 'esc', 'overlay'];
+  const closeTypes = ['', 'closeBtn', 'cancel', 'esc', 'overlay'];
   const close = () => {
     dialog.visible = false;
     container.contains(dialog.$el) && container.removeChild(dialog.$el);
   };
   eventNames.forEach((eventName) => {
     dialog.$on(eventName, async () => {
-      if (eventName === eventNames[0] && options.onConfirm) {
-        await options.onConfirm('confirm', close);
-      }
-      if (eventNames.indexOf(eventName, 1) !== -1 && options.onClose) {
-        await options.onClose(closeType[eventNames.indexOf(eventName, 1)], close);
-      }
-      if (!options.asyncClose) {
-        close();
+      try {
+        if (eventName === eventNames[0] && typeof options.onConfirm === 'function') {
+          await options.onConfirm('confirm', close);
+        }
+        const closeType = eventNames.indexOf(eventName, 1);
+        if (closeType !== -1 && typeof options.onClose === 'function') {
+          await options.onClose(closeTypes[closeType], close);
+        }
+        close(); // onConfirm/onClose 在 reject 时，不在组件内部执行关闭
+      } catch (e) {
+        console.warn(e);
       }
     });
   });
@@ -42,7 +42,7 @@ function createDialog(options: DialogProps) {
     hide: () => {
       dialog.visible = false;
     },
-    update: (options: any) => {
+    update: (options: DialogProps) => {
       Object.assign(dialog, options);
     },
     destroy: () => {

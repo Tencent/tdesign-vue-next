@@ -47,14 +47,11 @@ export default Vue.extend({
         body: 'Are you sure to delete it?',
         confirmContent: 'ok',
         cancelContent: 'cancel',
-        asyncClose: true, // asyncClose 为 true 时，可以单独调用关闭弹框，以控制关闭时机
         onConfirm: (type, close) => {
           console.log('confirm button has been clicked!');
-          console.log('type: ', type);
           close();
         },
         onClose: (type, close) => {
-          console.log('cancel button has been clicked!');
           console.log('type: ', type);
           close();
         },

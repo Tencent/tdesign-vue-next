@@ -59,15 +59,15 @@
 ### this.$dialog
 
 
-`this.$dialog(options)` options 参数同 Dialog 。
+`this.$dialog(options)` options 参数同 Dialog 。<br/><br/>
 
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
-| asyncClose | boolean | false | N | 若设定为 true，用户反馈后不关闭弹窗，需要业务方自行调用 close 关闭 |
-| onConfirm | ({ trigger: string, close: Function }) => void / Promise | - | N | trigger可选项: confirm 。确认回调，在回调执行结束后(含 Promise 返回)，弹框会关闭( asyncClose==false ) |
-| onClose | ({ trigger: string, close: Function }) => void / Promise | - | N | trigger可选项: cancel/closeBtn/overlay/esc 。取消回调，在回调执行结束后(含 Promise 返回)，弹框会关闭( asyncClose==false ) |
+| onConfirm | ({ trigger: string, close: Function }) => void / Promise | - | N | trigger可选项: confirm 。确认回调，在回调执行结束后(含 Promise 返回)，弹框会关闭 |
+| onClose | ({ trigger: string, close: Function }) => void / Promise | - | N | trigger可选项: cancel/closeBtn/overlay/esc 。取消回调，在回调执行结束后(含 Promise 返回)，弹框会关闭 |
 
-**返回 Dialog 操作对象 `{ show, hide, update, destroy }`** 如下:
+<br/>
+返回 Dialog 操作对象 { show, hide, update, destroy } 如下:<br/><br/>
 
 | 属性 | 类型 | 说明 |
 |-----|-----|-----|
@@ -75,6 +75,9 @@
 | hide | Function | 隐藏弹框 |
 | update | Function | 更新弹框 |
 | destroy | Function | 销毁弹框 |
+
+<br/>
+注: onConfirm/onClose 返回 Promise {< rejected >} 时，不在组件内部执行关闭。
 
 
 ### this.$dialog.confirm
