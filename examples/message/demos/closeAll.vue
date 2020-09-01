@@ -14,9 +14,9 @@ export default {
   },
   methods: {
     openSomeMsg() {
-      this.$message.info({ content: '这是第一条消息' });
-      this.$message.warning({ content: '这是第二条消息' });
-      this.$message.error({ content: '这是第三条消息' });
+      this.$message.info('这是第一条消息');
+      this.$message.warning('这是第二条消息');
+      this.$message.error('这是第三条消息');
     },
     closeAll() {
       this.$message.closeAll();

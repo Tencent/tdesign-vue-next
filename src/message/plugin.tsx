@@ -2,6 +2,8 @@
  * Vue.prototype.$message = MessagePlugin;
  *
  * this.$message({ theme: 'info', default: '这是信息', duration: 3000 })
+ * this.$message.info('这是信息')
+ * this.$message.info('这是信息', 3000)
  * this.$message.info({ content: '这是信息', duration: 3000 })
  * this.$message.success({ content: '这是信息', duration: 3000 })
  * this.$message.warning()
@@ -84,8 +86,19 @@ function closeAll() {
 
 const MessagePlugin = Message as (typeof Message & PluginObject<void>);
 
-THEME_LIST.forEach((theme: string) => {
-  MessagePlugin[theme] = (params: MessageProps) => Message(Object.assign(params, { theme }));
+THEME_LIST.forEach((theme: MessageProps['theme']) => {
+  MessagePlugin[theme] = (params: string | MessageProps, time: number) => {
+    let options: MessageProps = {
+      duration: [undefined, null].includes(time) ? 3000 : time,
+      theme,
+    };
+    if (typeof params === 'string') {
+      options.content = params;
+    } else if (typeof params === 'object' && !(params instanceof Array)) {
+      options = Object.assign(options, params);
+    }
+    return Message(options);
+  };
   Object.assign(MessagePlugin, {
     close: (promise: Promise<{close: Function}>) => {
       promise.then(instance => instance.close());

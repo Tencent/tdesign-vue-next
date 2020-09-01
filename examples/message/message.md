@@ -57,6 +57,8 @@ Vue.use(Plugin);
 ```
 
  * this.$message(options) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message.info(textMsg) // 返回值 `Promise<instance: 组件实例>`
+ * this.$message.info(textMsg, 3000) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.info(options) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.success(options) // 返回值 `Promise<instance: 组件实例>`
  * this.$message.warning(options) // 返回值 `Promise<instance: 组件实例>`
