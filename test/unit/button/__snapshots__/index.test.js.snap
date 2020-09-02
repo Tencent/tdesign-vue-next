@@ -4,7 +4,7 @@ exports[`Button :props :block 1`] = `<button class="t-button t-button--line t-si
 
 exports[`Button :props :disabled 1`] = `<button class="t-button t-button--line t-is-disabled">text</button>`;
 
-exports[`Button :props :icon function 1`] = `<button class="t-button t-button--line t-button--icon"><i>custom icon</i></button>`;
+exports[`Button :props :icon function 1`] = `<button class="t-button t-button--line t-button--icon-only"><i>custom icon</i></button>`;
 
 exports[`Button :props :icon string 1`] = `<button class="t-button t-button--line"><i class="t-icon t-icon-delete"></i><span class="t-button__text">text</span></button>`;
 
@@ -14,10 +14,10 @@ exports[`Button :props :size 1`] = `<button class="t-button t-size-l t-button--l
 
 exports[`Button :props :theme 1`] = `<button class="t-button t-button--primary">text</button>`;
 
-exports[`Button :props :theme 2`] = `<button class="t-button t-button--line t-button--round">text</button>`;
+exports[`Button :props :theme 2`] = `<button class="t-button t-button--line" round="true">text</button>`;
 
 exports[`Button <slot> <icon> 1`] = `
-<button class="t-button t-button--line t-button--icon">
+<button class="t-button t-button--line t-button--icon-only">
   <div></div>
 </button>
 `;

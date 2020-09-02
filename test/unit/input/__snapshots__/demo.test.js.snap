@@ -216,10 +216,10 @@ exports[`Input icon demo works fine 1`] = `
       class="t-input__prefix"
     >
       <svg
-        class="t-icon t-icon-search"
+        class="t-icon t-icon-lock-on"
       >
         <use
-          xlink:href="#t-icon-search"
+          xlink:href="#t-icon-lock-on"
         />
       </svg>
     </span>
@@ -231,10 +231,10 @@ exports[`Input icon demo works fine 1`] = `
       class="t-input__suffix"
     >
       <svg
-        class="t-icon t-icon-prompt_fill"
+        class="t-icon t-icon-prompt"
       >
         <use
-          xlink:href="#t-icon-prompt_fill"
+          xlink:href="#t-icon-prompt"
         />
       </svg>
     </span>
@@ -247,10 +247,10 @@ exports[`Input icon demo works fine 1`] = `
       class="t-input__prefix"
     >
       <svg
-        class="t-icon t-icon-search"
+        class="t-icon t-icon-lock-on"
       >
         <use
-          xlink:href="#t-icon-search"
+          xlink:href="#t-icon-lock-on"
         />
       </svg>
     </span>
@@ -262,10 +262,10 @@ exports[`Input icon demo works fine 1`] = `
       class="t-input__suffix"
     >
       <svg
-        class="t-icon t-icon-prompt_fill"
+        class="t-icon t-icon-prompt"
       >
         <use
-          xlink:href="#t-icon-prompt_fill"
+          xlink:href="#t-icon-prompt"
         />
       </svg>
     </span>
@@ -278,10 +278,10 @@ exports[`Input icon demo works fine 1`] = `
       class="t-input__prefix"
     >
       <svg
-        class="t-icon t-icon-search"
+        class="t-icon t-icon-lock-on"
       >
         <use
-          xlink:href="#t-icon-search"
+          xlink:href="#t-icon-lock-on"
         />
       </svg>
     </span>
@@ -293,10 +293,10 @@ exports[`Input icon demo works fine 1`] = `
       class="t-input__suffix"
     >
       <svg
-        class="t-icon t-icon-prompt_fill"
+        class="t-icon t-icon-prompt"
       >
         <use
-          xlink:href="#t-icon-prompt_fill"
+          xlink:href="#t-icon-prompt"
         />
       </svg>
     </span>

@@ -2,7 +2,7 @@
   <t-popup
     content="这是popup内容"
     placement="bottomLeft"
-    trigger="click"
+    trigger="hover"
   >
     <t-button>hover我试试</t-button>
   </t-popup>

@@ -7,25 +7,23 @@
       >
         搜索
       </t-button>
-      <t-button icon="search">
-        搜索
-      </t-button>
-      <t-button
-        theme="link"
-        icon="search"
-      >
-        搜索
-      </t-button>
       <t-button
         theme="primary"
         icon="search"
       >
       </t-button>
       <t-button
+        theme="primary"
         icon="search"
+        shape="round"
       >
       </t-button>
-
+      <t-button
+        theme="primary"
+        icon="search"
+        shape="circle"
+      >
+      </t-button>
       <!-- 使用 function 或 slot 的形式定义 icon -->
       <t-button
         :icon="renderIcon"

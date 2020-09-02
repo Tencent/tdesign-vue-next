@@ -10,7 +10,8 @@
       >
         <div :class="_class" :style="overlayStyle">
           <slot name="content">
-            <render-component :render='renderContent' />
+            <template v-if="typeof content === 'string'">{{content}}</template>
+            <render-component :render='content' v-else-if="typeof content === 'function'" />
           </slot>
           <div v-if="visibleArrow" :class="name+'__arrow'" data-popper-arrow></div>
         </div>
@@ -21,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { CreateElement, VNodeChildren } from 'vue';
+import Vue from 'vue';
 import { createPopper } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
@@ -117,16 +118,6 @@ export default Vue.extend({
           [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
       ];
-    },
-    renderContent(): any {
-      // 浮层内容处理
-      if (!this.content || typeof this.content === 'string') {
-        return (h: CreateElement) => h('div', {
-          class: `${name}-tooltips`,
-        }, this.content as VNodeChildren);
-      }
-
-      return this.content;
     },
     manualTrigger(): boolean {
       return this.trigger.indexOf('manual') > -1;

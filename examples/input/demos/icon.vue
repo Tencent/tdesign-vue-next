@@ -1,8 +1,8 @@
 <template>
   <div class="tdesign-demo-item--input__input-box">
     <t-input
-      prefix-icon="search"
-      suffix-icon="prompt_fill"
+      prefix-icon="lock-on"
+      suffix-icon="prompt"
       @click-prefix-icon="onPrefixIconClick"
       @click-suffix-icon="onSuffixIconClick"
     />
@@ -10,10 +10,10 @@
     <t-input :prefix-icon="renderPrefixIcon" :suffix-icon="renderSuffixIcon" />
     <t-input>
       <template v-slot:prefix-icon>
-        <t-icon name="search"></t-icon>
+        <t-icon name="lock-on"></t-icon>
       </template>
       <template v-slot:suffix-icon>
-        <t-icon name="prompt_fill"></t-icon>
+        <t-icon name="prompt"></t-icon>
       </template>
     </t-input>
   </div>
@@ -24,14 +24,14 @@ export default {
     renderPrefixIcon(h) {
       return h('t-icon', {
         props: {
-          name: 'search',
+          name: 'lock-on',
         },
       });
     },
     renderSuffixIcon(h) {
       return h('t-icon', {
         props: {
-          name: 'prompt_fill',
+          name: 'prompt',
         },
       });
     },
