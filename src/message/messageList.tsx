@@ -2,6 +2,7 @@ import Vue from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { prefix } from '../config';
+import { MessageProps } from './type';
 
 export const DEFAULT_Z_INDEX = 6000;
 
@@ -16,11 +17,13 @@ const getUniqueId = (() => {
 export const MessageList = Vue.extend({
   name: `${prefix}-message-list`,
   components: { TMessage },
+  props: {
+    zIndex: Number,
+    placement: String,
+  },
   data() {
     return {
       list: [],
-      zIndex: DEFAULT_Z_INDEX,
-      placement: 'top',
     };
   },
   computed: {
@@ -40,7 +43,7 @@ export const MessageList = Vue.extend({
     },
   },
   methods: {
-    add(msg: { key: number }): number {
+    add(msg: MessageProps): number {
       const _msg = Object.assign({}, msg, {
         key: getUniqueId(),
       });
@@ -82,3 +85,5 @@ export const MessageList = Vue.extend({
     );
   },
 });
+
+export default MessageList;
