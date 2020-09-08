@@ -3,7 +3,7 @@
 exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height height = 100 1`] = `
 <div>
   <div class="t-table t-table__header--fixed">
-    <div class="t-table-content">
+    <div class="t-table-content" style="overflow: auto;">
       <div class="t-table__header" style="width: 100%;">
         <table style="width: 100%; table-layout: fixed;">
           <colgroup>
@@ -49,14 +49,15 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
 exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height size = "default", verticalAlign="bottom" 1`] = `
 <div>
   <div class="t-table t-table-valign__bottom">
-    <div class="t-table-content">
+    <div class="t-table-content" style="overflow: auto;">
       <table style="table-layout: fixed;">
         <colgroup></colgroup>
         <thead columnsprops="">
           <tr></tr>
         </thead>
       </table>
-    </div><b>暂无数据</b>
+    </div>
+    <div class="t-table--empty">暂无数据</div>
   </div>
 </div>
 `;
@@ -64,14 +65,15 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
 exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height size = "large", verticalAlign="top" 1`] = `
 <div>
   <div class="t-table t-size-l t-table-valign__top">
-    <div class="t-table-content">
+    <div class="t-table-content" style="overflow: auto;">
       <table style="table-layout: fixed;">
         <colgroup></colgroup>
         <thead columnsprops="">
           <tr></tr>
         </thead>
       </table>
-    </div><b>暂无数据</b>
+    </div>
+    <div class="t-table--empty">暂无数据</div>
   </div>
 </div>
 `;
@@ -79,7 +81,7 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
 exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height size = "small", verticalAlign="middle" 1`] = `
 <div>
   <div class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s">
-    <div class="t-table-content">
+    <div class="t-table-content" style="overflow: auto;">
       <table style="table-layout: fixed;">
         <colgroup>
           <col>
@@ -114,14 +116,15 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
 exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
 <div>
   <div class="t-table">
-    <div class="t-table-content">
+    <div class="t-table-content" style="overflow: auto;">
       <table style="table-layout: fixed;">
         <colgroup></colgroup>
         <thead columnsprops="">
           <tr></tr>
         </thead>
       </table>
-    </div><b>暂无数据</b>
+    </div>
+    <div class="t-table--empty">暂无数据</div>
   </div>
 </div>
 `;
@@ -129,7 +132,7 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
 exports[`Table :props :props.columns \`columns\` with align, width, minWidth and ellipsis 1`] = `
 <div>
   <div class="t-table">
-    <div class="t-table-content">
+    <div class="t-table-content" style="overflow: auto;">
       <table style="table-layout: fixed;">
         <colgroup>
           <col style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 200px;;">
@@ -164,7 +167,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
 exports[`Table :props :props.columns \`columns\` with children 1`] = `
 <div>
   <div class="t-table">
-    <div class="t-table-content">
+    <div class="t-table-content" style="overflow: auto;">
       <table style="table-layout: fixed;">
         <colgroup>
           <col>
@@ -214,7 +217,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
 exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
 <div>
   <div class="t-table t-table__cell--fixed t-table--has-fixed">
-    <div class="t-table-content">
+    <div class="t-table-content" style="overflow: auto;">
       <div class="t-table__header" style="width: 100%;">
         <table style="width: 100%; table-layout: fixed;">
           <colgroup>
