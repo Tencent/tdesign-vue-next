@@ -7,6 +7,7 @@ exports[`Table base demo works fine 1`] = `
   >
     <div
       class="t-table-content"
+      style="overflow: auto;"
     >
       <table
         style="table-layout: fixed;"
