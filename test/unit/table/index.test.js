@@ -234,7 +234,7 @@ describe('Table', () => {
             return <Table columns={columns}></Table>;
           },
         });
-        expect(wrapper.find('b').exists()).toBe(true);
+        expect(wrapper.find('.t-table--empty').exists()).toBe(true);
       });
       it('`empty` is a Function', () => {
         const empty = jest.fn(() => { /* */ });

@@ -7,6 +7,7 @@ exports[`Table base demo works fine 1`] = `
   >
     <div
       class="t-table-content"
+      style="overflow: auto;"
     >
       <table
         style="table-layout: fixed;"
@@ -14,7 +15,7 @@ exports[`Table base demo works fine 1`] = `
         <colgroup>
           <col
             class="row"
-            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: center; width: 100px; min-width: 100px;;"
           />
           <col
             class="row"
@@ -54,7 +55,7 @@ exports[`Table base demo works fine 1`] = `
               colspan="1"
               key="index"
               rowspan="1"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               index
             </td>
@@ -133,7 +134,7 @@ exports[`Table base demo works fine 1`] = `
               class=""
               key="index"
               length="8"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               0
             </td>
@@ -201,7 +202,7 @@ exports[`Table base demo works fine 1`] = `
               class=""
               key="index"
               length="8"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               1
             </td>
@@ -269,7 +270,7 @@ exports[`Table base demo works fine 1`] = `
               class=""
               key="index"
               length="8"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               2
             </td>
@@ -337,7 +338,7 @@ exports[`Table base demo works fine 1`] = `
               class=""
               key="index"
               length="8"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               3
             </td>
@@ -405,7 +406,7 @@ exports[`Table base demo works fine 1`] = `
               class=""
               key="index"
               length="8"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               4
             </td>
@@ -473,7 +474,7 @@ exports[`Table base demo works fine 1`] = `
               class=""
               key="index"
               length="8"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               5
             </td>
@@ -541,7 +542,7 @@ exports[`Table base demo works fine 1`] = `
               class=""
               key="index"
               length="8"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               6
             </td>
@@ -609,7 +610,7 @@ exports[`Table base demo works fine 1`] = `
               class=""
               key="index"
               length="8"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               7
             </td>
@@ -677,7 +678,7 @@ exports[`Table base demo works fine 1`] = `
               class=""
               key="index"
               length="8"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               8
             </td>
@@ -745,7 +746,7 @@ exports[`Table base demo works fine 1`] = `
               class=""
               key="index"
               length="8"
-              style="text-align: left;"
+              style="text-align: center;"
             >
               9
             </td>
