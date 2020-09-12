@@ -1,17 +1,27 @@
 <template>
-  <t-table
-    :data="data"
-    :columns="columns"
-    :empty="empty"
-    :rowKey="rowKey"
-    :size="size">
-    <!-- 自定义空表格 -->
-    <span
-      slot='empty'
-      style="display:flex;align-items:center;justify-content:center;height:100px">
-      😄 It's empty.
-    </span>
-  </t-table>
+  <div>
+    <div style="margin-bottom: 10px;">使用默认空表格样式</div>
+    <t-table
+      :data="data"
+      :columns="columns"
+      :rowKey="rowKey"
+      :size="size">
+    </t-table>
+    <div style="margin-bottom: 10px;">自定义空表格</div>
+    <t-table
+      :data="data"
+      :columns="columns"
+      :empty="empty"
+      :rowKey="rowKey"
+      :size="size">
+      <!-- 自定义空表格 -->
+      <span
+        slot='empty'
+        style="display:flex;align-items:center;justify-content:center;height:100px">
+        😄 It's empty.
+      </span>
+    </t-table>
+  </div>
 </template>
 <script>
 export default {

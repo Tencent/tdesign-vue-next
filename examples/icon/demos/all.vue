@@ -1,6 +1,6 @@
 <template>
   <!--
-    该文件有脚本 tdesign/tdesign-web-vue/src/icon/generate/index.js 自动生成。
+    该文件由脚本 tdesign/tdesign-web-vue/src/icon/generate/index.js 自动生成。
     若需要编辑，请编辑源文件：tdesign/tdesign-web-vue/src/icon/generate/demo.tpl 。
   -->
   <div class="t-demo-iconfont">
@@ -82,10 +82,6 @@
       <div class="t-demo-icon-name">call</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="calendar"/>
-      <div class="t-demo-icon-name">calendar</div>
-    </div>
-    <div class="t-demo-icon">
       <t-icon name="carret-down"/>
       <div class="t-demo-icon-name">carret-down</div>
     </div>
@@ -124,10 +120,6 @@
     <div class="t-demo-icon">
       <t-icon name="chrome"/>
       <div class="t-demo-icon-name">chrome</div>
-    </div>
-    <div class="t-demo-icon">
-      <t-icon name="circie"/>
-      <div class="t-demo-icon-name">circie</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="circle-backtop"/>
@@ -262,8 +254,8 @@
       <div class="t-demo-icon-name">file-jpg</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file-open"/>
-      <div class="t-demo-icon-name">file-open</div>
+      <t-icon name="folder-open"/>
+      <div class="t-demo-icon-name">folder-open</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="file-new"/>
@@ -290,16 +282,12 @@
       <div class="t-demo-icon-name">file-unknown</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file"/>
-      <div class="t-demo-icon-name">file</div>
+      <t-icon name="folder"/>
+      <div class="t-demo-icon-name">folder</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="filter"/>
       <div class="t-demo-icon-name">filter</div>
-    </div>
-    <div class="t-demo-icon">
-      <t-icon name="first-page"/>
-      <div class="t-demo-icon-name">first-page</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="folder-new"/>
@@ -346,8 +334,8 @@
       <div class="t-demo-icon-name">help_fill</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="help"/>
-      <div class="t-demo-icon-name">help</div>
+      <t-icon name="circle-help"/>
+      <div class="t-demo-icon-name">circle-help</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="history"/>
@@ -374,8 +362,8 @@
       <div class="t-demo-icon-name">internet</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="ircle-right"/>
-      <div class="t-demo-icon-name">ircle-right</div>
+      <t-icon name="circle-right"/>
+      <div class="t-demo-icon-name">circle-right</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="jump"/>
@@ -402,8 +390,8 @@
       <div class="t-demo-icon-name">loading</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="loading-2"/>
-      <div class="t-demo-icon-name">loading-2</div>
+      <t-icon name="hourglass"/>
+      <div class="t-demo-icon-name">hourglass</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="location"/>
@@ -418,12 +406,8 @@
       <div class="t-demo-icon-name">lock-on</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="login"/>
-      <div class="t-demo-icon-name">login</div>
-    </div>
-    <div class="t-demo-icon">
-      <t-icon name="mail"/>
-      <div class="t-demo-icon-name">mail</div>
+      <t-icon name="poweroff"/>
+      <div class="t-demo-icon-name">poweroff</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="male"/>
@@ -570,14 +554,6 @@
       <div class="t-demo-icon-name">setting</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="server"/>
-      <div class="t-demo-icon-name">server</div>
-    </div>
-    <div class="t-demo-icon">
-      <t-icon name="share-alt"/>
-      <div class="t-demo-icon-name">share-alt</div>
-    </div>
-    <div class="t-demo-icon">
       <t-icon name="share"/>
       <div class="t-demo-icon-name">share</div>
     </div>
@@ -602,16 +578,16 @@
       <div class="t-demo-icon-name">sound</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="stop"/>
-      <div class="t-demo-icon-name">stop</div>
+      <t-icon name="help"/>
+      <div class="t-demo-icon-name">help</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="success_fill"/>
       <div class="t-demo-icon-name">success_fill</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="success"/>
-      <div class="t-demo-icon-name">success</div>
+      <t-icon name="circle-success"/>
+      <div class="t-demo-icon-name">circle-success</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="thumb-down"/>
@@ -644,10 +620,6 @@
     <div class="t-demo-icon">
       <t-icon name="usb"/>
       <div class="t-demo-icon-name">usb</div>
-    </div>
-    <div class="t-demo-icon">
-      <t-icon name="user-add"/>
-      <div class="t-demo-icon-name">user-add</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="user-delete"/>
@@ -686,8 +658,8 @@
       <div class="t-demo-icon-name">wallet</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="warning"/>
-      <div class="t-demo-icon-name">warning</div>
+      <t-icon name="circle-warning"/>
+      <div class="t-demo-icon-name">circle-warning</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="warning_fill"/>
@@ -736,6 +708,58 @@
     <div class="t-demo-icon">
       <t-icon name="ellipsis"/>
       <div class="t-demo-icon-name">ellipsis</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="file"/>
+      <div class="t-demo-icon-name">file</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="first-page"/>
+      <div class="t-demo-icon-name">first-page</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="swap_left"/>
+      <div class="t-demo-icon-name">swap_left</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="swap-right"/>
+      <div class="t-demo-icon-name">swap-right</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="user-add"/>
+      <div class="t-demo-icon-name">user-add</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="usergroup-add"/>
+      <div class="t-demo-icon-name">usergroup-add</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="login"/>
+      <div class="t-demo-icon-name">login</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="swap"/>
+      <div class="t-demo-icon-name">swap</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="circle-down"/>
+      <div class="t-demo-icon-name">circle-down</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="circle-add"/>
+      <div class="t-demo-icon-name">circle-add</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="calendar"/>
+      <div class="t-demo-icon-name">calendar</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="server"/>
+      <div class="t-demo-icon-name">server</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="mail"/>
+      <div class="t-demo-icon-name">mail</div>
     </div>
   </div>
 </template>

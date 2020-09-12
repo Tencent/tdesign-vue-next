@@ -51,11 +51,13 @@ describe('Table', () => {
         };
         const wrapper = mount({
           render() {
-            return <Table columns={columns} empty={empty}>
-              <div slot="empty" id="empty-container">
-                暂无数据
-              </div>
-            </Table>;
+            return (
+              <Table columns={columns} empty={empty}>
+                <div slot="empty" id="empty-container">
+                  暂无数据
+                </div>
+              </Table>
+            );
           },
         });
         expect(wrapper.find('#empty-container').exists()).toBe(true);
@@ -234,10 +236,12 @@ describe('Table', () => {
             return <Table columns={columns}></Table>;
           },
         });
-        expect(wrapper.find('b').exists()).toBe(true);
+        expect(wrapper.find('.t-table--empty').exists()).toBe(true);
       });
       it('`empty` is a Function', () => {
-        const empty = jest.fn(() => { /* */ });
+        const empty = jest.fn(() => {
+          /* */
+        });
         mount({
           render() {
             return <Table columns={columns} empty={empty}></Table>;
@@ -262,11 +266,11 @@ describe('Table', () => {
             const loadingOpt = {
               customRender: 'loading',
             };
-            const loading = () => <div class='loading__container'>loading</div>;
+            const loading = () => <div class="loading__container">loading</div>;
             const scopedSlots = {
               loading,
             };
-            return <Table loading={loadingOpt} scopedSlots={scopedSlots} ></Table>;
+            return <Table loading={loadingOpt} scopedSlots={scopedSlots}></Table>;
           },
         });
         expect(wrapper.find('.loading__container').exists()).toBe(true);
@@ -287,14 +291,17 @@ describe('Table', () => {
       it('size = "small", verticalAlign="middle"', () => {
         const wrapper = mount({
           render() {
-            return <Table
-              data={data}
-              columns={columns}
-              border={true}
-              stripe={true}
-              size={'small'}
-              hover={true}
-              verticalAlign={'middle'}></Table>;
+            return (
+              <Table
+                data={data}
+                columns={columns}
+                border={true}
+                stripe={true}
+                size={'small'}
+                hover={true}
+                verticalAlign={'middle'}
+              ></Table>
+            );
           },
         });
         expect(wrapper).toMatchSnapshot();
@@ -302,9 +309,7 @@ describe('Table', () => {
       it('size = "large", verticalAlign="top"', () => {
         const wrapper = mount({
           render() {
-            return <Table
-                size={'large'}
-                verticalAlign={'top'}></Table>;
+            return <Table size={'large'} verticalAlign={'top'}></Table>;
           },
         });
         expect(wrapper).toMatchSnapshot();
@@ -312,9 +317,7 @@ describe('Table', () => {
       it('size = "default", verticalAlign="bottom"', () => {
         const wrapper = mount({
           render() {
-            return <Table
-                size={'default'}
-                verticalAlign={'bottom'}></Table>;
+            return <Table size={'default'} verticalAlign={'bottom'}></Table>;
           },
         });
         expect(wrapper).toMatchSnapshot();
@@ -334,9 +337,9 @@ describe('Table', () => {
     it('Use slot to customize cell', async () => {
       const wrapper = await mount({
         render() {
-          const id = ({ text }) => <div class='cell'>{text}</div>;
+          const id = ({ text }) => <div class="cell">{text}</div>;
           const scopedSlots = { id };
-          return  <Table data={data} columns={columns} scopedSlots={scopedSlots}></Table>;
+          return <Table data={data} columns={columns} scopedSlots={scopedSlots}></Table>;
         },
       });
       expect(wrapper.findAll('.cell').length).toBe(data.length);
@@ -351,9 +354,9 @@ describe('Table', () => {
               title: 'columnId',
             },
           };
-          const columnId = ({ text }) => <div class='header_cell'>{text}</div>;
+          const columnId = ({ text }) => <div class="header_cell">{text}</div>;
           const scopedSlots = { columnId };
-          return  <Table data={data} columns={slotColumns} scopedSlots={scopedSlots}></Table>;
+          return <Table data={data} columns={slotColumns} scopedSlots={scopedSlots}></Table>;
         },
       });
       expect(wrapper.findAll('.header_cell').length).toBe(1);
@@ -364,12 +367,177 @@ describe('Table', () => {
           const emptyProps = {
             customRender: 'empty',
           };
-          const empty = () => <div class='empty__container'>empty</div>;
+          const empty = () => <div class="empty__container">empty</div>;
           const scopedSlots = { empty };
           return <Table empty={emptyProps} columns={columns} scopedSlots={scopedSlots}></Table>;
         },
       });
       expect(wrapper.find('.empty__container').exists()).toBe(true);
+    });
+  });
+
+  // sort
+  describe(':sort', () => {
+    const data = [
+      {
+        key: '1',
+        name: 'John Brown',
+        age: 32,
+        address: 'New York No. 1 Lake Park',
+      },
+      {
+        key: '2',
+        name: 'Jim Green',
+        age: 42,
+        address: 'London No. 1 Lake Park',
+      },
+      {
+        key: '3',
+        name: 'Joe Black',
+        age: 20,
+        address: 'Sidney No. 1 Lake Park',
+      },
+    ];
+    const columns = [
+      {
+        title: 'Name',
+        colKey: 'name',
+      },
+      {
+        title: 'Age',
+        colKey: 'age',
+        sorter: (a, b) => a.age - b.age,
+      },
+      {
+        title: 'Address',
+        colKey: 'address',
+      },
+    ];
+    it('click sorter icon', async () => {
+      const wrapper = await mount({
+        render() {
+          return <Table data={data} columns={columns} />;
+        },
+      });
+      expect(wrapper.find('.table-body tr td').text()).toBe('John Brown');
+      const clickDom = wrapper.find('thead tr td .t-table-sort-icon');
+      await clickDom.trigger('click');
+      expect(wrapper.find('.table-body tr td').text()).toBe('Joe Black');
+      await clickDom.trigger('click');
+      expect(wrapper.find('.table-body tr td').text()).toBe('Jim Green');
+    });
+  });
+
+  // asyncLoading
+  describe(':asyncLoading', () => {
+    let wrapper;
+
+    it('init status without async loading row', async () => {
+      wrapper = await mount({
+        data() {
+          return {
+            asyncLoading: false,
+          };
+        },
+        render() {
+          const { asyncLoading } = this;
+          return <Table data={data} columns={columns} asyncLoading={asyncLoading} />;
+        },
+      });
+      expect(wrapper.find('.table-body tr td .t-table--loading-async').exists()).toBe(false);
+    });
+
+    it('with async loading row', async () => {
+      await wrapper.setData({ asyncLoading: true });
+      expect(wrapper.find('.table-body tr td .t-table--loading-async').exists()).toBe(true);
+    });
+  });
+
+  // filters
+  describe(':filters', () => {
+    let wrapper;
+    const data = [
+      {
+        key: '1',
+        name: 'John Brown',
+        age: 32,
+        address: 'New York No. 1 Lake Park',
+      },
+      {
+        key: '2',
+        name: 'Jim Green',
+        age: 42,
+        address: 'London No. 1 Lake Park',
+      },
+      {
+        key: '3',
+        name: 'Joe Black',
+        age: 32,
+        address: 'Sidney No. 1 Lake Park',
+      },
+      {
+        key: '4',
+        name: 'Jim Red',
+        age: 32,
+        address: 'London No. 2 Lake Park',
+      },
+    ];
+
+    it('controlled filters', async () => {
+      wrapper = await mount({
+        data() {
+          return {
+            data,
+            filteredInfo: null,
+          };
+        },
+        computed: {
+          columns() {
+            let { filteredInfo } = this;
+            filteredInfo = filteredInfo || {};
+            const columns = [
+              {
+                title: 'Name',
+                colKey: 'name',
+                key: 'name',
+                filters: [
+                  { label: 'Joe', value: 'Joe' },
+                  { label: 'Jim', value: 'Jim' },
+                ],
+                filteredValue: filteredInfo.name || null,
+                onFilter: (value, record) => record.name.includes(value),
+                filterMultiple: true,
+              },
+              {
+                title: 'Age',
+                colKey: 'age',
+                key: 'age',
+              },
+              {
+                title: 'Address',
+                colKey: 'address',
+                key: 'address',
+                filters: [
+                  { label: 'London', value: 'London' },
+                  { label: 'New York', value: 'New York' },
+                ],
+                filteredValue: filteredInfo.address || null,
+                onFilter: (value, record) => record.address.includes(value),
+              },
+            ];
+            return columns;
+          },
+        },
+        render() {
+          const { data, columns } = this;
+          return <Table data={data} columns={columns} />;
+        },
+      });
+      expect(wrapper.findAll('.table-body tr').length).toBe(data.length);
+      await wrapper.setData({ filteredInfo: { name: ['Jim'] } });
+      expect(wrapper.findAll('.table-body tr').length).toBe(data.filter(({ name }) => name.includes('Jim')).length);
+      await wrapper.setData({ filteredInfo: null });
+      expect(wrapper.findAll('.table-body tr').length).toBe(data.length);
     });
   });
 });

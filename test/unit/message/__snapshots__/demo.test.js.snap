@@ -59,16 +59,13 @@ exports[`Message offset demo works fine 1`] = `
   >
     带 offset 信息位置
   </button>
-   
-  <br />
-  <br />
 </div>
 `;
 
 exports[`Message placement demo works fine 1`] = `
 <div>
   <p>
-    函数式调用-传入对象：this.$message.info({ default: '用户表示普通操作信息提示', placement: 'right-top' })
+    函数式调用-传入对象：this.$message.info({ content: '用户表示普通操作信息提示', placement: 'right-top' })
   </p>
    
   <p>
@@ -135,9 +132,6 @@ exports[`Message placement demo works fine 1`] = `
   >
     left-bottom
   </button>
-   
-  <br />
-  <br />
 </div>
 `;
 
@@ -291,7 +285,7 @@ exports[`Message plugin demo works fine 1`] = `
   <br />
    
   <p>
-    【方式三】函数式调用-主函数：this.$message('info', { content: '用户表示普通操作信息提示', duration: 1000 })
+    【方式三】函数式调用-主函数：this.$message({ content: '用户表示普通操作信息提示', duration: 1000 })
   </p>
    
   <br />

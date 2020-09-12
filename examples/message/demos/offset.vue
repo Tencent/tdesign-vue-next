@@ -5,8 +5,6 @@
     </p>
     <br>
     <t-button @click="this.showOffsetMsg">带 offset 信息位置</t-button>
-    <br><br>
-
   </div>
 </template>
 
@@ -15,7 +13,7 @@ export default {
   methods: {
     showOffsetMsg() {
       this.$message.info({
-        default: '用户表示普通操作信息提示',
+        content: '用户表示普通操作信息提示',
         placement: 'top',
         offset: {
           top: '50px',

@@ -7,11 +7,14 @@ export const THEME_LIST: string[] = [
   'loading',
 ];
 
-export const PLACEMENT_LIST = ['top', 'center', 'left', 'left-top', 'right-top', 'right', 'right-bottom', 'bottom', 'left-bottom'];
-
 const DISTANCE = '32px';
 
 export const PLACEMENT_OFFSET = {
+  top: {
+    top: DISTANCE,
+    left: '50%',
+    transform: 'translateX(-50%)',
+  },
   center: {
     left: '50%',
     top: '50%',
@@ -32,11 +35,6 @@ export const PLACEMENT_OFFSET = {
     top: '50%',
     transform: 'translateY(-50%)',
   },
-  top: {
-    top: DISTANCE,
-    left: '50%',
-    transform: 'translateX(-50%)',
-  },
   'left-top': {
     left: DISTANCE,
     top: DISTANCE,
@@ -54,6 +52,8 @@ export const PLACEMENT_OFFSET = {
     bottom: DISTANCE,
   },
 };
+
+export const PLACEMENT_LIST = Object.keys(PLACEMENT_OFFSET);
 
 export default {
   THEME_LIST,
