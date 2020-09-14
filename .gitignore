@@ -1,5 +1,4 @@
 node_modules
-package-lock.json
 .vscode
 .DS_Store
 .vscode
@@ -22,3 +21,5 @@ script/test/cypress/results
 script/test/cypress/support
 results/
 yarn-error.log
+cypress
+cypress.json
