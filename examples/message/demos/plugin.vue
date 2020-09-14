@@ -34,7 +34,7 @@
       <t-button @click="$message.warning({ content: '用户表示操作引起一定后果', duration: 5000 })">设置显示时间</t-button>
       <t-button @click="$message.error({ content: '用户表示操作引起严重的后果', content })">自定义内容</t-button>
       <t-button @click="$message.question({ content: '用于帮助用户操作的信息提示', closeBtn })">自定义关闭按钮</t-button>
-      <t-button @click="$message.loading({ content: '用于表示操作正在生效的过程中', duration: 1000 })">loading</t-button>
+      <t-button @click="$message.loading({ content: '用于表示操作正在生效的过程中', duration: 5000 })">loading</t-button>
     </div>
     <br><br>
 
