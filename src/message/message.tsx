@@ -66,7 +66,7 @@ export default Vue.extend({
         this.$emit('duration-end', this);
       }, this.duration);
     },
-    close(e: Event) {
+    close(e?: Event) {
       this.$emit('click-close-btn', e, this);
     },
     renderClose() {
