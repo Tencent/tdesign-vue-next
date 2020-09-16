@@ -179,6 +179,12 @@ exports[`Dialog plugin demo works fine 1`] = `
   <button
     class="t-button t-button--primary"
   >
+    handleDialogNode
+  </button>
+   
+  <button
+    class="t-button t-button--primary"
+  >
     confirm
   </button>
    
