@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { mount, shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import Dialog from '@/src/dialog/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
@@ -45,7 +45,7 @@ describe('Dialog', () => {
       expect(styles).toMatch(/width: 200px/);
       // expect(wrapper).toMatchSnapshot();
     });
-    
+
     it('header,body,footer and closebtn', () => {
       const title = 'i am dialog title';
       const body = 'i am dialog body';
