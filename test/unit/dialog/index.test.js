@@ -6,17 +6,31 @@ import Dialog from '@/src/dialog/index.ts';
 describe('Dialog', () => {
   // test props api
   describe(':props', () => {
-    it('not-modal and draggable', () => {
+    it('not-modal', () => {
       const wrapper = mount(Dialog, {
-        propsData: { mode: 'not-modal', draggable: true },
+        propsData: { mode: 'not-modal' },
       });
-      const dialog = wrapper.find('.t-dialog');
-      expect(dialog.element.onmousedown).toBeInstanceOf(Function);
       expect(wrapper.find('.t-dialog-mask').exists()).toBe(false);
-      // expect(wrapper).toMatchSnapshot();
     });
 
-    it('set offset and width', () => {
+    it('placement', () => {
+      const dialog = mount(Dialog).find('.t-dialog');
+      const centerDialog = mount(Dialog, {
+        propsData: {
+          placement: 'center',
+          width: '500px',
+        },
+      }).find('.t-dialog');
+      expect(dialog.classes()).toContain('t-dialog--top');
+      const centerDialogClass = centerDialog.classes();
+      expect(centerDialogClass).not.toContain('t-dialog--top');
+      expect(centerDialogClass).toContain('t-dialog--center');
+      const centerDialogStyles = centerDialog.attributes('style');
+      expect(centerDialogStyles).toMatch(/width: 500px/);
+      expect(centerDialogStyles).not.toMatch(/translate/);
+    });
+
+    it('offset', () => {
       const wrapper = mount(Dialog, {
         propsData: {
           offset: { left: '100px', top: '200px' },
@@ -24,16 +38,15 @@ describe('Dialog', () => {
         },
       });
       const dialog = wrapper.find('.t-dialog');
-      expect(dialog.element.onmousedown).not.toBeInstanceOf(Function);
       const classes = dialog.classes();
       const styles = dialog.attributes('style');
       expect(classes).not.toContain('t-dialog--center');
-      expect(styles.indexOf('translate(calc(-50% - 100px),calc(0px - 200px))') > -1).toBeTruthy();
+      expect(styles).toMatch('translate(calc(-50% - 100px),calc(0px - 200px))');
       expect(styles).toMatch(/width: 200px/);
       // expect(wrapper).toMatchSnapshot();
     });
 
-    it('custom dialog element such as header,body,footer and closebtn', () => {
+    it('header,body,footer and closebtn', () => {
       const title = 'i am dialog title';
       const body = 'i am dialog body';
       const footer = 'i am dialog footer';
@@ -54,10 +67,9 @@ describe('Dialog', () => {
       expect(dialogBody.text()).toBe(body);
       expect(dialogFooter.text()).toBe(footer);
       expect(wrapper.contains('.t-icon-close')).toBe(false);
-      // expect(wrapper).toMatchSnapshot();
     });
 
-    it('showOverlay is false and zIndex is 1', () => {
+    it('showOverlay and zIndex', () => {
       const zIndex = 1;
       const wrapper = mount(Dialog, {
         propsData: {
@@ -68,13 +80,11 @@ describe('Dialog', () => {
       const mask = wrapper.find('.t-dialog-mask');
       expect(mask.classes()).toContain('t-dialog-mask--hidden');
       expect(wrapper.attributes('style')).toMatch(/z-index: 1/);
-      // expect(wrapper).toMatchSnapshot();
     });
 
-    it('dialog destory when closed', () => {
+    it('destroyOnClose', () => {
       expect(mount(Dialog, { propsData: { destroyOnClose: true } }).classes()).toContain('t-not-display');
       expect(mount(Dialog).classes()).toContain('t-not-visable');
-      // expect(wrapper).toMatchSnapshot();
     });
   });
 

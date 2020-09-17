@@ -24,28 +24,33 @@ function GetTransformByOffset(offset: any, placement: string) {
   bottom && (translateY = `${translateY} + ${GetCSSValue(bottom)}`);
   return `translate(calc(${translateX}),calc(${translateY}))`;
 }
+
 // 注册元素的拖拽事件
 function InitDragEvent(dragBox: HTMLElement) {
   const target = dragBox;
-  target.onmousedown = (e: MouseEvent) => {
+  target.addEventListener('mousedown', (targetEvent: MouseEvent) => {
     // 算出鼠标相对元素的位置
-    const disX = e.clientX - target.offsetLeft;
-    const disY = e.clientY - target.offsetTop;
-    document.onmousemove = (e) => {
+    const disX = targetEvent.clientX - target.offsetLeft;
+    const disY = targetEvent.clientY - target.offsetTop;
+    function mouseMoverHander(documentEvent: MouseEvent) {
       // 用鼠标的位置减去鼠标相对元素的位置，得到元素的位置
-      const left = e.clientX - disX;
-      const top = e.clientY - disY;
+      const left = documentEvent.clientX - disX;
+      const top = documentEvent.clientY - disY;
       // 移动当前元素
       target.style.left = `${left}px`;
       target.style.top = `${top}px`;
-    };
-    document.onmouseup = () => {
+    }
+    function mouseUpHandler() {
       // 鼠标弹起来的时候不再移动
-      document.onmousemove = null;
+      document.removeEventListener('mousemove', mouseMoverHander);
       // 预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）
-      document.onmouseup = null;
-    };
-  };
+      document.removeEventListener('mouseup', mouseUpHandler);
+    }
+    // 元素按下时注册document鼠标监听事件
+    document.addEventListener('mousemove', mouseMoverHander);
+    // 鼠标弹起来移除document鼠标监听事件
+    document.addEventListener('mouseup', mouseUpHandler);
+  });
 }
 export default Vue.extend({
   name,
@@ -158,14 +163,14 @@ export default Vue.extend({
       // 关闭时候是否卸载元素 this.$el.parentNode.removeChild(this.$el)
       const closeMode = this.destroyOnClose ? 'display' : 'visable';
       return [
-        't-dialog-ctx',
-        this.visible ? `t-is-${closeMode}` : `t-not-${closeMode}`,
+        `${name}-ctx`,
+        this.visible ? `${prefix}-is-${closeMode}` : `${prefix}-not-${closeMode}`,
       ];
     },
     maskClass(): ClassName {
       return [
-        't-dialog-mask',
-        !this.showOverlay && 't-dialog-mask--hidden',
+        `${name}-mask`,
+        !this.showOverlay && `${name}-mask--hidden`,
       ];
     },
   },
@@ -265,7 +270,7 @@ export default Vue.extend({
         view = target();
       }
       return isShow && (
-        <div class="t-dialog__header">
+        <div class={`${name}__header`}>
           {view}
         </div>
       );
@@ -283,7 +288,7 @@ export default Vue.extend({
         view = target();
       }
       return isShow && (
-        <div class="t-dialog__body">
+        <div class={`${name}__body`}>
           {view}
         </div>
       );
@@ -331,7 +336,7 @@ export default Vue.extend({
         view = target(this.$createElement);
       }
       return isShow && (
-        <div class="t-dialog__footer">
+        <div class={`${name}__footer`}>
           {view || defaultView}
         </div>
       );
@@ -351,7 +356,7 @@ export default Vue.extend({
     },
   },
   render(h: CreateElement) {
-    const dialogClass = ['t-dialog', 't-dialog--default', `t-dialog--${this.placement}`];
+    const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
     const dialogStyle = { width: GetCSSValue(this.width), transform: this.transform };
     return (
       <div class={this.ctxClass} style={{ zIndex: this.zIndex }} v-transfer-dom={this.attachTarget}>

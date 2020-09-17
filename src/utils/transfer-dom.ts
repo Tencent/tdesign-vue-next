@@ -5,14 +5,14 @@ import { DirectiveBinding } from 'vue/types/options';
 
 // Thanks to: https://github.com/calebroseland/vue-dom-portal
 interface TransferData {
-    parentNode: HTMLElement;
-    home: Comment;
-    hasMovedOut: boolean;
-    target: HTMLElement;
+  parentNode: HTMLElement;
+  home: Comment;
+  hasMovedOut: boolean;
+  target: HTMLElement;
 }
 interface TransferElement extends HTMLElement {
-    __transferDomData?: TransferData;
-    parentNode: HTMLElement;
+  __transferDomData?: TransferData;
+  parentNode: HTMLElement;
 }
 /**
  * Get target DOM Node
@@ -35,7 +35,10 @@ function getTarget(node: any): any {
     return document.body;
   }
 
-  return node instanceof window.Node ? node : document.querySelector(node);
+  if (node instanceof window.Node) {
+    return node;
+  }
+  return document.querySelector(node) || document.body;
 }
 
 function getShouldUpdate(node: any) {
