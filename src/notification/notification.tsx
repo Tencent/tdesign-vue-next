@@ -51,7 +51,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    close(e: Event) {
+    close(e?: Event) {
       this.$emit('click-close-btn', e, this);
     },
     renderIcon(h: CreateElement) {
