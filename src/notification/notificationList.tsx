@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Notification from './notification';
+import { NotificationProps, NotificationInstanceType, Offset, OffsetDirection } from './type/index';
 
 const DEFAULT_Z_INDEX = 6000;
 const _margin = 16;
@@ -31,17 +32,17 @@ export default Vue.extend({
   computed: {
     on() {
       return {
-        'click-close-btn': (e: Event, instance: any) => this.remove(instance),
-        'duration-end': (instance: any) => this.remove(instance),
+        'click-close-btn': (e: Event, instance: NotificationInstanceType) => this.remove(instance),
+        'duration-end': (instance: NotificationInstanceType) => this.remove(instance),
       };
     },
   },
   methods: {
-    add(options: object): number {
+    add(options: NotificationProps): number {
       this.list.push(options);
       return this.list.length - 1;
     },
-    remove(instance: any) {
+    remove(instance: NotificationInstanceType) {
       // eslint-disable-next-line
       const children: HTMLCollection = this.$el.children;
       this.list = this.list.filter((v, i) => children[i] !== instance.$el);
@@ -49,9 +50,9 @@ export default Vue.extend({
     removeAll() {
       this.list = [];
     },
-    msgStyles(item: { offset: object; zIndex: number }) {
+    msgStyles(item: { offset: Offset; zIndex: number }) {
       const styles = {};
-      this.placement.split('-').forEach((direction: string) => {
+      this.placement.split('-').forEach((direction: OffsetDirection) => {
         let margin = _margin;
         if (item.offset && item.offset[direction]) {
           margin += item.offset[direction];
