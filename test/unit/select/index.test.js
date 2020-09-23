@@ -177,7 +177,7 @@ describe('Select', () => {
       }];
       const wrapper = mount({
         render() {
-          return <Select clearable={true} v-model={value} options={options}></Select>;
+          return <Select clearable={true} value={value} options={options}></Select>;
         },
       });
       const selectWrapper = wrapper.find(Select);
@@ -202,7 +202,7 @@ describe('Select', () => {
       }];
       const wrapper = mount({
         render() {
-          return <Select multiple={true} v-model={value} options={options}></Select>;
+          return <Select multiple={true} value={value} options={options}></Select>;
         },
       });
       const selectWrapper = wrapper.find(Select);
