@@ -86,7 +86,7 @@ describe('Select', () => {
       });
       expect(wrapper).toMatchSnapshot();
     });
-    it(':bordered', () => {
+    it(':bordered', () => {      
       const wrapper = mount({
         render() {
           return <Select bordered={true}></Select>;
@@ -163,54 +163,56 @@ describe('Select', () => {
     });
 
     it('clear', async () => {
-      const value = 'apple';
-      const options = [{
-        label: '苹果apple~~~~',
-        value: 'apple',
-      }, {
-        label: '香蕉banana~~~',
-        value: 'banana',
-        disabled: true,
-      }, {
-        label: '橘子orange~~~',
-        value: 'orange',
-      }];
-      const wrapper = mount({
-        render() {
-          return <Select clearable={true} value={value} options={options}></Select>;
-        },
+        const fn = jest.fn();
+        let value = 'apple';
+        const options = [{
+          label: '苹果apple~~~~',
+          value: 'apple',
+        }, {
+          label: '香蕉banana~~~',
+          value: 'banana',
+          disabled: true,
+        }, {
+          label: '橘子orange~~~',
+          value: 'orange',
+        }]
+        const wrapper = mount ({
+          render() {
+            return <Select clearable={true} v-model={value} options={options}></Select>;
+          }
+        });
+        const selectWrapper = wrapper.find(Select);
+        const closeIconWrapper = wrapper.find('.t-icon-close')
+        closeIconWrapper.trigger('click')
+        await Vue.nextTick();
+        expect(selectWrapper.emitted().clear).toBeTruthy();    
       });
-      const selectWrapper = wrapper.find(Select);
-      const closeIconWrapper = wrapper.find('.t-icon-close');
-      closeIconWrapper.trigger('click');
-      await Vue.nextTick();
-      expect(selectWrapper.emitted().clear).toBeTruthy();
-    });
 
-    it('remove', async () => {
-      const value = ['apple'];
-      const options = [{
-        label: '苹果apple~~~~',
-        value: 'apple',
-      }, {
-        label: '香蕉banana~~~',
-        value: 'banana',
-        disabled: true,
-      }, {
-        label: '橘子orange~~~',
-        value: 'orange',
-      }];
-      const wrapper = mount({
-        render() {
-          return <Select multiple={true} value={value} options={options}></Select>;
-        },
+      it('remove', async () => {
+        const fn = jest.fn();
+        let value = ['apple'];
+        const options = [{
+          label: '苹果apple~~~~',
+          value: 'apple',
+        }, {
+          label: '香蕉banana~~~',
+          value: 'banana',
+          disabled: true,
+        }, {
+          label: '橘子orange~~~',
+          value: 'orange',
+        }]
+        const wrapper = mount ({
+          render() {
+            return <Select multiple={true} v-model={value} options={options}></Select>;
+          }
+        });
+        const selectWrapper = wrapper.find(Select);
+        const closeIconWrapper = wrapper.find('.t-icon-close')
+        closeIconWrapper.trigger('click')
+        await Vue.nextTick();
+        expect(selectWrapper.emitted().remove).toBeTruthy();
       });
-      const selectWrapper = wrapper.find(Select);
-      const closeIconWrapper = wrapper.find('.t-icon-close');
-      closeIconWrapper.trigger('click');
-      await Vue.nextTick();
-      expect(selectWrapper.emitted().remove).toBeTruthy();
-    });
   });
 });
 
@@ -218,44 +220,44 @@ describe('Select Option', () => {
   // test props api
   describe(':props', () => {
     it(':value', () => {
-      const value = '1';
+      let value = '1'
       const wrapper = mount({
         render() {
           return (
             <Select v-model={value}>
               <Option value={'1'} label={'1'}></Option>
-            </Select>
+            </Select>          
           );
         },
       });
       expect(wrapper).toMatchSnapshot();
-    });
+    });   
     it(':label', () => {
-      const value = '1';
+      let value = '1'
       const wrapper = mount({
         render() {
           return (
             <Select v-model={value}>
               <Option value={'1'} label={'1'}></Option>
-            </Select>
+            </Select>          
           );
         },
       });
       expect(wrapper).toMatchSnapshot();
-    });
+    });   
     it(':disabled', () => {
-      const value = '1';
+      let value = '1'
       const wrapper = mount({
         render() {
           return (
             <Select v-model={value}>
               <Option value={'1'} label={'1'} disabled={true}></Option>
-            </Select>
+            </Select>          
           );
         },
       });
       expect(wrapper).toMatchSnapshot();
-    });
+    });   
   });
 });
 
@@ -263,7 +265,7 @@ describe('Select OptionGroup', () => {
   // test props api
   describe(':props', () => {
     it(':value', () => {
-      const value = '1';
+      let value = '1'
       const wrapper = mount({
         render() {
           return (
@@ -274,12 +276,12 @@ describe('Select OptionGroup', () => {
               <OptionGroup label={'abc'}>
                 <Option value={'a'} label={'a'}></Option>
               </OptionGroup>
-            </Select>
+            </Select>          
           );
         },
       });
       expect(wrapper).toMatchSnapshot();
-    });
+    }); 
   });
 });
 
