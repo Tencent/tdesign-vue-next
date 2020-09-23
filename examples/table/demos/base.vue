@@ -37,7 +37,7 @@ export default {
       data,
       columns: [
         {
-          align: 'left',
+          align: 'center',
           width: '100',
           minWidth: '100',
           className: 'row',
