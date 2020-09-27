@@ -4,13 +4,13 @@
     <t-button theme="primary" @click="()=>this.visibleCenter = true">垂直居中</t-button>
     <t-button theme="primary" @click="()=>this.visibleOffset = true">自定义偏移量</t-button>
 
-    <t-dialog header="对话框标题" body="对话框内容" v-model="visible" @click-close-btn="(close)=>close()"></t-dialog>
+    <t-dialog header="对话框标题" body="对话框内容" v-model="visible" @close="(close)=>close()"></t-dialog>
     <t-dialog
       placement="center"
       header="对话框标题"
       body="水平居中显示的对话框"
       v-model="visibleCenter"
-      @click-close-btn="(close)=>close()"
+      @close="(close)=>close()"
     ></t-dialog>
     <t-dialog
       :placement="placement"
@@ -18,7 +18,7 @@
       body="自定义偏移量的对话框"
       :offset="offset"
       v-model="visibleOffset"
-      @click-close-btn="closeOffsetDialog"
+      @close="closeOffsetDialog"
     ></t-dialog>
   </div>
 </template>

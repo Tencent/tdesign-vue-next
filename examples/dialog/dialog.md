@@ -43,6 +43,7 @@
 | confirmContent | string/boolean/Object/Function | '确认' | N | 确认按钮 |
 | cancelContent | string/boolean/Object/Function | '取消' | N | 取消按钮 |
 
+
 ### Dialog 事件
 | 事件名称 | 参数 | 说明 |
 |-----|-----|-----|
@@ -54,6 +55,7 @@
 |visable-change|visable|弹框状态切换时触发，传递参数visable|
 |opened|-|弹框弹出动画结束触发事件，弹出动画暂未实现|
 |closed|-|弹框收起动画结束触发事件，收起动画暂未实现|
+|close | (close: Function, e: Event) | 全部弹框关闭事件，若用户没有定义keydownEsc, clickCloseBtn, clickCancel, clickConfirm, clickOverlay 等事件时，触发 close事件；如果都没有定义，弹框会自行执行关闭 |
 
 
 ### this.$dialog
