@@ -10,7 +10,6 @@
       header="对话框标题"
       body="水平居中显示的对话框"
       v-model="visibleCenter"
-      @close="(close)=>close()"
     ></t-dialog>
     <t-dialog
       :placement="placement"

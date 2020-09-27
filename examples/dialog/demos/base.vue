@@ -6,7 +6,6 @@
       body="对话框内容"
       v-model="visible"
       @click-confirm="onClickConfirm"
-      @close="(close)=>close()"
     ></t-dialog>
   </div>
 </template>
