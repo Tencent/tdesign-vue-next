@@ -179,11 +179,11 @@ export default Vue.extend({
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
       // 目前弹窗交互没有动画
-      if (value) {
-        this.$emit('opened');
-      } else {
-        this.$emit('closed');
-      }
+      // if (value) {
+      //   this.$emit('opened');
+      // } else {
+      //   this.$emit('closed');
+      // }
       // 关闭时，销毁元素
       // if (!value && this.destroyOnClose) {
       //   this.$el.parentNode.removeChild(this.$el);
@@ -254,6 +254,14 @@ export default Vue.extend({
     },
     confirmBtnAction(e: Event) {
       this.closeEventEmit('click-confirm', e);
+    },
+    // 打开弹窗动画结束时事件
+    afterEnter(el: Element) {
+      this.$emit('opened', el);
+    },
+    // 关闭弹窗动画结束时事件
+    afterLeave(el: Element) {
+      this.$emit('closed', el);
     },
     // 先判断是否有该事件，有则派发当前事件，传递close函数出去
     // 再判断是否有close事件，有则派发，传递close函数出去
@@ -394,7 +402,10 @@ export default Vue.extend({
     const ctxStyle: any = { zIndex: this.zIndex };
     const ctxClass = [`${name}-ctx`];
     return (
-      <transition type="animation" name={`${name}-vue-zoom`} duration={300}>
+      <transition duration={300}
+        name={`${name}-vue-zoom`}
+        onAfterEnter={this.afterEnter}
+        onAfterLeave={this.afterLeave}>
         {
           (!this.destroyOnClose || this.visible) && (
             <div v-show={this.visible} class={ctxClass} style={ctxStyle}
