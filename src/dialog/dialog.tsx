@@ -159,14 +159,14 @@ export default Vue.extend({
       }
       return false;
     },
-    ctxClass(): ClassName {
-      // 关闭时候是否卸载元素 this.$el.parentNode.removeChild(this.$el)
-      const closeMode = this.destroyOnClose ? 'display' : 'visable';
-      return [
-        `${name}-ctx`,
-        this.visible ? `${prefix}-is-${closeMode}` : `${prefix}-not-${closeMode}`,
-      ];
-    },
+    // ctxClass(): ClassName {
+    //   // 关闭时候是否卸载元素 this.$el.parentNode.removeChild(this.$el)
+    //   const closeMode = this.destroyOnClose ? 'display' : 'visable';
+    //   return [
+    //     `${name}-ctx`,
+    //     this.visible ? `${prefix}-is-${closeMode}` : `${prefix}-not-${closeMode}`,
+    //   ];
+    // },
     maskClass(): ClassName {
       return [
         `${name}-mask`,
@@ -185,9 +185,9 @@ export default Vue.extend({
         this.$emit('closed');
       }
       // 关闭时，销毁元素
-      if (!value && this.destroyOnClose) {
-        this.$el.parentNode.removeChild(this.$el);
-      }
+      // if (!value && this.destroyOnClose) {
+      //   this.$el.parentNode.removeChild(this.$el);
+      // }
     },
   },
   beforeDestroy() {
@@ -203,13 +203,13 @@ export default Vue.extend({
       }
     },
   },
+  created() {
+    this.initOffsetWatch();
+  },
   data() {
     return {
       transform: undefined,
     };
-  },
-  created() {
-    this.initOffsetWatch();
   },
   methods: {
     initOffsetWatch() {
@@ -373,24 +373,39 @@ export default Vue.extend({
       }
       return isShow && (view || defaultView);
     },
-  },
-  render(h: CreateElement) {
-    const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
-    const dialogStyle = { width: GetCSSValue(this.width), transform: this.transform };
-    return (
-      <div class={this.ctxClass} style={{ zIndex: this.zIndex }} v-transfer-dom={this.attachTarget}>
-
-        {
-          this.isModal && <div class={this.maskClass} onClick={this.overlayAction}></div>
-        }
-        {/* 非模态形态下draggable为true才允许拖拽 */}
-        <div class={dialogClass} style={dialogStyle} v-draggable={!this.isModal && this.draggable}>
+    renderDialog(h: CreateElement) {
+      const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
+      const dialogStyle: any = { width: GetCSSValue(this.width), transform: this.transform };
+      return (
+        // /* 非模态形态下draggable为true才允许拖拽 */
+        <div key='dialog' class={dialogClass} style={dialogStyle} v-draggable={!this.isModal && this.draggable}>
           {this.renderTitle()}
           {this.renderBody()}
           {this.renderFooter(h)}
           {this.renderCloseBtn()}
         </div>
-      </div>
+      );
+    },
+  },
+  render(h: CreateElement) {
+    const maskView = this.isModal && <div key='mask' class={this.maskClass} onClick={this.overlayAction}></div>;
+    const dialogView = this.renderDialog(h);
+    const view = [maskView, dialogView];
+    const ctxStyle: any = { zIndex: this.zIndex };
+    const ctxClass = [`${name}-ctx`];
+    return (
+      <transition type="animation" name={`${name}-vue-zoom`} duration={300}>
+        {
+          (!this.destroyOnClose || this.visible) && (
+            <div v-show={this.visible} class={ctxClass} style={ctxStyle}
+              v-transfer-dom={this.attachTarget}>
+              {view}
+            </div>
+          )
+        }
+      </transition>
     );
   },
 });
+
+
