@@ -52,9 +52,9 @@
 |click-cancel | (close: Function, e: Event) | 点击取消按钮 |
 |click-confirm | (close: Function, e: Event) | 点击确认按钮 |
 |click-overlay|-|点击遮罩层时触发|
-|visable-change|visable|弹框状态切换时触发，传递参数visable|
-|opened|-|弹框弹出动画结束触发事件，弹出动画暂未实现|
-|closed|-|弹框收起动画结束触发事件，收起动画暂未实现|
+|visable-change|(visable: Boolean)|弹框状态切换时触发，传递参数visable|
+|opened|(el: Element))|弹框弹出动画结束触发事件|
+|closed|(el: Element)|弹框收起动画结束触发事件|
 |close | (close: Function, e: Event) | 全部弹框关闭事件，若用户没有定义keydownEsc, clickCloseBtn, clickCancel, clickConfirm, clickOverlay 等事件时，触发 close事件；如果都没有定义，弹框会自行执行关闭 |
 
 
