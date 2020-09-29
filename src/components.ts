@@ -26,3 +26,4 @@ export * from './tabs';
 export * from './tag';
 export * from './upload';
 export * from './dropdown';
+export * from './tooltip';
