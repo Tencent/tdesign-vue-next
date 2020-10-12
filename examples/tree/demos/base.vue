@@ -1,6 +1,6 @@
 <template>
   <div class="tdesign-tree-base">
-    <t-tree/>
+    <t-tree :data="items"/>
   </div>
 </template>
 
@@ -8,9 +8,19 @@
 export default {
   data() {
     return {
-      items: [
-
-      ],
+      items: [{
+        label: '1',
+        children: [{
+          label: '1.1',
+          children: [{
+            label: '1.1.1',
+          }, {
+            label: '1.1.2',
+          }],
+        }, {
+          label: '1.2',
+        }],
+      }],
     };
   },
 };
