@@ -5,6 +5,13 @@ export const TreeProps = {
       return [];
     },
   },
+  // key 属性是 vue 保留字，所以用 keys 替代
+  keys: {
+    type: Object,
+    default(): object {
+      return {};
+    },
+  },
   disabled: {
     type: Boolean,
     default: false,
@@ -14,3 +21,7 @@ export const TreeProps = {
     default: false,
   },
 };
+
+export interface TreeModelOptions {
+  keys: object;
+}

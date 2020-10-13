@@ -1,4 +1,4 @@
-import Tree from './tree';
+import Tree from './Tree1';
 import setInstallFn from '../utils/setInstallFn';
 
 setInstallFn('Tree', Tree);
