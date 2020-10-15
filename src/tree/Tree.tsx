@@ -2,7 +2,7 @@ import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import { TreeProps } from './interface';
 import { TreeModel } from './model';
-import TreeItem from './TreeItem';
+import TreeNode from './TreeNode';
 
 const cname = `${prefix}-tree`;
 
@@ -43,7 +43,7 @@ export default Vue.extend({
   },
   methods: {
     renderItems(): Array<VNode> {
-      return this.items.map(item => (<TreeItem item={item} />));
+      return this.items.map(item => (<TreeNode item={item} />));
     },
   },
   created() {

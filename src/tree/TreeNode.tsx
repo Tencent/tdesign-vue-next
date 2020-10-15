@@ -2,7 +2,7 @@ import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 
 export default Vue.extend({
-  name: `${prefix}-tree-item`,
+  name: `${prefix}-tree-node`,
   props: {
     item: {
       type: Object,
