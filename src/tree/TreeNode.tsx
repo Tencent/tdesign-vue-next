@@ -11,6 +11,10 @@ export default Vue.extend({
         return {};
       },
     },
+    level: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
@@ -31,7 +35,14 @@ export default Vue.extend({
   render() {
     const {
       item,
+      level,
     } = this;
-    return <li class={`${prefix}-tree__item`} data-id={item.id}>{this.renderItem()}</li>;
+    return (
+      <div
+        class={`${prefix}-tree__item`}
+        data-id={item.id}
+        data-level={level}
+      >{this.renderItem()}</div>
+    );
   },
 });

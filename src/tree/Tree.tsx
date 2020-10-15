@@ -62,11 +62,27 @@ export default Vue.extend({
   },
   methods: {
     renderItems(): Array<VNode> {
-      return this.visibleItems.map(item => (<TreeNode item={item} />));
+      // console.time('render items');
+      const vnodes = this.visibleItems.map((item) => {
+        const parents = this.model.getParents(item.id);
+        const level = parents.length;
+        return (
+          <TreeNode
+            item={item}
+            level={level}
+          />
+        );
+      });
+      // console.timeEnd('render items');
+      return vnodes;
     },
   },
   created() {
+    // console.time('tree render');
     parseData.call(this);
+  },
+  mounted() {
+    // console.timeEnd('tree render');
   },
   render(): VNode {
     const {
@@ -78,7 +94,7 @@ export default Vue.extend({
 
     return (
       <div class={classList}>
-        <ul class={classes.tree}>{treeItems}</ul>
+        <div class={classes.treeList}>{treeItems}</div>
       </div>
     );
   },
