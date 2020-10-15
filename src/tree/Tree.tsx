@@ -1,22 +1,23 @@
 import Vue, { VNode } from 'vue';
-import { prefix } from '../config';
 import { TreeProps } from './interface';
-import { TreeModel } from './model';
+import { TreeItem, TreeModel } from './model';
 import TreeNode from './TreeNode';
-
-const cname = `${prefix}-tree`;
+import { treeName, classes } from './constants';
 
 function parseData(this: any) {
   const list = this.data;
   if (list && list.length > 0) {
-    this.model = new TreeModel(list, {
+    this.model = new TreeModel({
       keys: this.keys,
+    });
+    this.model.parse(list, null, {
+      expand: true,
     });
   }
 }
 
 export default Vue.extend({
-  name: cname,
+  name: treeName,
   components: {
 
   },
@@ -25,25 +26,43 @@ export default Vue.extend({
   },
   data() {
     return {
-      items: [],
+      model: null,
     };
   },
   computed: {
+    // 获取所有模型节点
+    items(): Array<TreeItem> {
+      let items = [];
+      if (this.model) {
+        items = this.model.getItems();
+      }
+      return items;
+    },
+    // 获取模型节点中所有需要渲染的节点
+    visibleItems(): Array<TreeItem> {
+      const items = this.items.filter((item: TreeItem) => {
+        let visible = true;
+        const parents = this.model.getParents(item.id);
+        visible = parents.every((item: TreeItem) => item.expand);
+        return visible;
+      });
+      return items;
+    },
     classList(): Array<string> {
-      const list: Array<string> = [cname];
+      const list: Array<string> = [classes.tree];
       const { disabled, hover } = this;
       if (disabled) {
-        list.push(`${prefix}-is-disabled`);
+        list.push(classes.disabled);
       }
       if (hover) {
-        list.push(`${cname}--hoverable`);
+        list.push(classes.hoverable);
       }
       return list;
     },
   },
   methods: {
     renderItems(): Array<VNode> {
-      return this.items.map(item => (<TreeNode item={item} />));
+      return this.visibleItems.map(item => (<TreeNode item={item} />));
     },
   },
   created() {
@@ -59,7 +78,7 @@ export default Vue.extend({
 
     return (
       <div class={classList}>
-        <ul class={`${cname}__list`}>{treeItems}</ul>
+        <ul class={classes.tree}>{treeItems}</ul>
       </div>
     );
   },

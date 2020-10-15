@@ -1,8 +1,9 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
+import { treeNodeName, classes } from './constants';
 
 export default Vue.extend({
-  name: `${prefix}-tree-node`,
+  name: treeNodeName,
   props: {
     item: {
       type: Object,
@@ -18,11 +19,19 @@ export default Vue.extend({
   },
   methods: {
     renderItem(): Array<VNode> {
+      const {
+        item,
+      } = this;
       const itemNodes: Array<VNode> = [];
+      const label = (<span class={classes.label}>{item.label}</span>);
+      itemNodes.push(label);
       return itemNodes;
     },
   },
   render() {
-    return <li>{this.renderItem()}</li>;
+    const {
+      item,
+    } = this;
+    return <li class={`${prefix}-tree__item`} data-id={item.id}>{this.renderItem()}</li>;
   },
 });
