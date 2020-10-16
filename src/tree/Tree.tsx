@@ -1,26 +1,26 @@
 import Vue, { VNode } from 'vue';
-import { TreeProps } from './interface';
-import { TreeItem, TreeModel } from './model';
+import { TreeModel } from './model';
 import TreeNode from './TreeNode';
+import { TreeProps, TreeItem } from './interface';
 import { treeName, classes } from './constants';
 
 function parseData(this: any) {
   const list = this.data;
+  const {
+    expandAll,
+  } = this;
   if (list && list.length > 0) {
     this.model = new TreeModel({
       keys: this.keys,
     });
     this.model.parse(list, null, {
-      expand: true,
+      expand: !!expandAll,
     });
   }
 }
 
 export default Vue.extend({
   name: treeName,
-  components: {
-
-  },
   props: {
     ...TreeProps,
   },
@@ -40,12 +40,14 @@ export default Vue.extend({
     },
     // 获取模型节点中所有需要渲染的节点
     visibleItems(): Array<TreeItem> {
+      // console.time('visibleItems');
       const items = this.items.filter((item: TreeItem) => {
         let visible = true;
         const parents = this.model.getParents(item.id);
         visible = parents.every((item: TreeItem) => item.expand);
         return visible;
       });
+      // console.timeEnd('visibleItems');
       return items;
     },
     classList(): Array<string> {
@@ -63,6 +65,9 @@ export default Vue.extend({
   methods: {
     renderItems(): Array<VNode> {
       // console.time('render items');
+      const {
+        empty,
+      } = this;
       const vnodes = this.visibleItems.map((item) => {
         const parents = this.model.getParents(item.id);
         const level = parents.length;
@@ -70,6 +75,7 @@ export default Vue.extend({
           <TreeNode
             item={item}
             level={level}
+            empty={empty}
           />
         );
       });

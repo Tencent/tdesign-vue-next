@@ -9,4 +9,8 @@ export const classes = {
   disabled: `${prefix}-is-disabled`,
   hoverable: `${prefix}-tree--hoverable`,
   label: `${prefix}-tree__label`,
+  icon: `${prefix}-icon`,
+  treeIcon: `${prefix}-tree__icon`,
+  treeIconRight: `${prefix}-icon-arrow-right`,
+  treeIconDown: `${prefix}-icon-arrow-down`,
 };
