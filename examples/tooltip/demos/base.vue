@@ -1,6 +1,6 @@
 <template>
   <t-tooltip content="带箭头的文字提示">
-    <t-button>带箭头的文字提示</t-button>
+    <t-button>默认文字提示</t-button>
   </t-tooltip>
 </template>
 <style>

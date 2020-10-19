@@ -5,7 +5,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="top"
       visibleArrow
-      destroyOnHide
     >
       <t-button>top</t-button>
     </t-tooltip>
@@ -14,7 +13,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="topLeft"
       visibleArrow
-      destroyOnHide
     >
       <t-button>topLeft</t-button>
     </t-tooltip>
@@ -23,7 +21,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="topRight"
       visibleArrow
-      destroyOnHide
     >
       <t-button>topRight</t-button>
     </t-tooltip>
@@ -32,7 +29,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="bottom"
       visibleArrow
-      destroyOnHide
     >
       <t-button>bottom</t-button>
     </t-tooltip>
@@ -41,7 +37,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="bottomLeft"
       visibleArrow
-      destroyOnHide
     >
       <t-button>bottomLeft</t-button>
     </t-tooltip>
@@ -50,7 +45,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="bottomRight"
       visibleArrow
-      destroyOnHide
     >
       <t-button>bottomRight</t-button>
     </t-tooltip>
@@ -59,7 +53,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="left"
       visibleArrow
-      destroyOnHide
     >
       <t-button>left</t-button>
     </t-tooltip>
@@ -68,7 +61,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="leftTop"
       visibleArrow
-      destroyOnHide
     >
       <t-button>leftTop</t-button>
     </t-tooltip>
@@ -77,7 +69,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="leftBottom"
       visibleArrow
-      destroyOnHide
     >
       <t-button>leftBottom</t-button>
     </t-tooltip>
@@ -86,7 +77,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="right"
       visibleArrow
-      destroyOnHide
     >
       <t-button>right</t-button>
     </t-tooltip>
@@ -95,7 +85,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="rightTop"
       visibleArrow
-      destroyOnHide
     >
       <t-button>rightTop</t-button>
     </t-tooltip>
@@ -104,7 +93,6 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="rightBottom"
       visibleArrow
-      destroyOnHide
     >
       <t-button>rightBottom</t-button>
     </t-tooltip>
@@ -117,6 +105,9 @@
   width: 500px;
   height: 260px;
   position: relative;
+}
+.t-popup {
+	width: 200px;
 }
 .placement-top {
   position: absolute;
