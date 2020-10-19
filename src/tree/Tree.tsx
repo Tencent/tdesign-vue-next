@@ -76,11 +76,27 @@ export default Vue.extend({
             item={item}
             level={level}
             empty={empty}
+            onClick={this.handleClick}
           />
         );
       });
       // console.timeEnd('render items');
       return vnodes;
+    },
+    handleClick(info: any) {
+      const evt = info.event;
+      const id = info.id || '';
+      const item = this.model.getItem(id);
+      const state = {
+        event: evt,
+        item,
+      };
+      this.$emit('click', state);
+      if (this.expandTrigger) {
+        this.model.setItem(id, {
+          expand: !item.expand,
+        });
+      }
     },
   },
   created() {
