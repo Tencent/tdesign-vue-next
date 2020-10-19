@@ -8,13 +8,28 @@ function parseData(this: any) {
   const list = this.data;
   const {
     expandAll,
+    expandLevel,
+    expandMutex,
   } = this;
   if (list && list.length > 0) {
-    this.model = new TreeModel({
+    const model = new TreeModel({
       keys: this.keys,
+      expandMutex,
     });
-    this.model.parse(list, null, {
-      expand: !!expandAll,
+    this.model = model;
+    model.parse(list);
+    model.items.forEach((item) => {
+      const parents = this.model.getParents(item.id);
+      const level = parents.length;
+      const options: any = {};
+      if (level < expandLevel) {
+        options.expand = true;
+      }
+      if (expandAll) {
+        options.expand = true;
+      }
+      options.expandMutex = expandMutex;
+      model.setItem(item.id, options);
     });
   }
 }
@@ -92,10 +107,8 @@ export default Vue.extend({
         item,
       };
       this.$emit('click', state);
-      if (this.expandTrigger) {
-        this.model.setItem(id, {
-          expand: !item.expand,
-        });
+      if (!this.disabled && this.expandTrigger) {
+        this.model.toggle(id);
       }
     },
   },

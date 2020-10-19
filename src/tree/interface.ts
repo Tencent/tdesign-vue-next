@@ -32,6 +32,14 @@ export const TreeProps = {
     type: [Boolean, String],
     default: 'click',
   },
+  expandLevel: {
+    type: Number,
+    default: 0,
+  },
+  expandMutex: {
+    type: Boolean,
+    default: false,
+  },
 };
 
 export const TreeNodeProps = {
@@ -52,7 +60,8 @@ export const TreeNodeProps = {
 };
 
 export interface TreeModelOptions {
-  keys: object;
+  keys?: object;
+  expandMutex?: boolean;
 }
 
 export interface TreeItem {
