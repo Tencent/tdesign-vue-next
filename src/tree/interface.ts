@@ -21,7 +21,7 @@ export const TreeProps = {
     default: false,
   },
   empty: {
-    type: [Object, String],
+    type: [Function, Object, String],
     default: '',
   },
   expandAll: {
@@ -44,6 +44,10 @@ export const TreeProps = {
     type: Boolean,
     default: true,
   },
+  checkable: {
+    type: Boolean,
+    default: false,
+  },
 };
 
 export const TreeNodeProps = {
@@ -54,7 +58,7 @@ export const TreeNodeProps = {
     },
   },
   empty: {
-    type: [Object, String],
+    type: [Function, Object, String],
     default: '',
   },
 };

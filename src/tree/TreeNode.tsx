@@ -1,7 +1,10 @@
 import Vue, { VNode } from 'vue';
 import TIconArrowRight from '../icon/arrow-right';
 import { TreeNodeProps } from './interface';
-import { getParentNodes } from './util';
+import {
+  getParentNodes,
+  getTNode,
+} from './util';
 import {
   treeNodeName,
   classes,
@@ -60,15 +63,16 @@ export default Vue.extend({
           >{item.label}</span>
         );
       } else {
-        if (typeof empty === 'string') {
+        const emptyNode = getTNode(empty, item);
+        if (typeof emptyNode === 'string') {
           label = (
             <span
               class={classes.label}
               role="label"
-            >{empty}</span>
+            >{emptyNode}</span>
           );
         } else if (empty) {
-          label = empty as VNode;
+          label = emptyNode;
         }
       }
       if (label) {
