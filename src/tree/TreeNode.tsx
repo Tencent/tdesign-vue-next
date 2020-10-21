@@ -1,10 +1,11 @@
 import Vue, { VNode } from 'vue';
-import { prefix } from '../config';
 import TIconArrowRight from '../icon/arrow-right';
-import TIconArrowDown from '../icon/arrow-down';
 import { TreeNodeProps } from './interface';
-import { treeNodeName, classes } from './constants';
 import { getParentNodes } from './util';
+import {
+  treeNodeName,
+  classes,
+} from './constants';
 
 export default Vue.extend({
   name: treeNodeName,
@@ -16,9 +17,23 @@ export default Vue.extend({
   },
   computed: {
     styles(): string {
-      const { level } = this;
+      const { level } = this.item;
       const styles = `--level: ${level};`;
       return styles;
+    },
+    classList(): Array<string> {
+      const {
+        item,
+      } = this;
+      const arr = [];
+      arr.push(classes.treeNode);
+      if (item.expand) {
+        arr.push(classes.treeNodeOpen);
+      }
+      if (!item.visible) {
+        arr.push(classes.treeNodeHidden);
+      }
+      return arr;
     },
   },
   methods: {
@@ -31,11 +46,7 @@ export default Vue.extend({
 
       let icon = null;
       if (item.children) {
-        if (item.expand) {
-          icon = (<TIconArrowDown role="icon"/>);
-        } else {
-          icon = (<TIconArrowRight role="icon"/>);
-        }
+        icon = (<TIconArrowRight role="icon" class="t-tree__icon"/>);
       }
       if (icon) {
         itemNodes.push(icon);
@@ -82,12 +93,15 @@ export default Vue.extend({
   render() {
     const {
       item,
-      level,
       styles,
+      classList,
     } = this;
+    const {
+      level,
+    } = item;
     return (
       <div
-        class={`${prefix}-tree__item`}
+        class={classList}
         data-id={item.id}
         data-level={level}
         style={styles}

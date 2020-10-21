@@ -49,10 +49,6 @@ export const TreeNodeProps = {
       return {};
     },
   },
-  level: {
-    type: Number,
-    default: 0,
-  },
   empty: {
     type: [Object, String],
     default: '',
@@ -72,11 +68,13 @@ export interface TreeItem {
   value?: any;
   label?: string;
   expand?: boolean;
-  expandMutex: boolean;
-  active: boolean;
-  activable: boolean;
-  checkProps: boolean;
-  checkable: boolean;
-  disabled: boolean;
-  draggable: boolean;
+  expandMutex?: boolean;
+  active?: boolean;
+  activable?: boolean;
+  checkProps?: boolean;
+  checkable?: boolean;
+  disabled?: boolean;
+  draggable?: boolean;
+  level?: number;
+  visible?: boolean;
 }
