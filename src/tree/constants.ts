@@ -9,6 +9,7 @@ export const fx = {
 
 export const classes = {
   tree: `${prefix}-tree`,
+  treeFx: `${prefix}-tree--fx`,
   treeList: `${prefix}-tree__list`,
   treeNode: `${prefix}-tree__item`,
   treeNodeOpen: `${prefix}-tree__item--open`,

@@ -30,18 +30,26 @@ export default Vue.extend({
     },
     classList(): Array<string> {
       const list: Array<string> = [classes.tree];
-      const { disabled, hover } = this;
+      const {
+        disabled,
+        hover,
+        transition,
+      } = this;
       if (disabled) {
         list.push(classes.disabled);
       }
       if (hover) {
         list.push(classes.hoverable);
       }
+      if (transition) {
+        list.push(classes.treeFx);
+      }
       return list;
     },
   },
   methods: {
     updateNodes() {
+      // console.time('tree updateNodes');
       const {
         empty,
         model,
@@ -96,6 +104,7 @@ export default Vue.extend({
           index += 1;
         }
       });
+      // console.timeEnd('tree updateNodes');
     },
     parseData() {
       const list = this.data;

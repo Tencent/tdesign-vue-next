@@ -40,6 +40,10 @@ export const TreeProps = {
     type: Boolean,
     default: false,
   },
+  transition: {
+    type: Boolean,
+    default: true,
+  },
 };
 
 export const TreeNodeProps = {
