@@ -1,7 +1,8 @@
 import Vue, { VNode } from 'vue';
-import { TreeModel } from './model';
-import TreeNode from './TreeNode';
-import { TreeProps, TreeItem } from './interface';
+import { TreeModel } from './treeModel';
+import { TreeNode } from './treeNode';
+import TreeNodeView from './TreeNodeView';
+import { TreeProps } from './interface';
 import {
   treeName,
   classes,
@@ -21,10 +22,10 @@ export default Vue.extend({
   },
   computed: {
     // 获取所有模型节点
-    items(): Array<TreeItem> {
+    items(): Array<TreeNode> {
       let items = [];
       if (this.model) {
-        items = this.model.getItems();
+        items = this.model.getNodes();
       }
       return items;
     },
@@ -63,25 +64,25 @@ export default Vue.extend({
       let index = 0;
       while (index < treeNodes.length) {
         const node = treeNodes[index];
-        const nodeItem = node.componentInstance.item;
+        const nodeItem = node.componentInstance.node;
         if (!nodeItem.visible) {
           treeNodes.splice(index, 1);
         } else {
-          map[nodeItem.id] = true;
+          map[nodeItem.value] = true;
           index += 1;
         }
       }
 
       // 插入需要呈现的节点
       index = 0;
-      model.items.forEach((item: TreeItem) => {
-        if (item.visible) {
-          const node = treeNodes[index];
+      model.nodes.forEach((node: TreeNode) => {
+        if (node.visible) {
+          const nodeView = treeNodes[index];
           let nodeItem = null;
           let shouldInsert = false;
-          if (node) {
-            nodeItem = node.componentInstance.item;
-            if (nodeItem.id !== item.id) {
+          if (nodeView) {
+            nodeItem = nodeView.componentInstance.node;
+            if (nodeItem.value !== node.value) {
               shouldInsert = true;
             }
           } else {
@@ -89,15 +90,15 @@ export default Vue.extend({
           }
           if (shouldInsert) {
             const insertNode = (
-              <TreeNode
-                key={item.id}
-                item={item}
+              <TreeNodeView
+                key={node.value}
+                node={node}
                 empty={empty}
                 onClick={this.handleClick}
               />
             );
-            if (!map[item.id]) {
-              map[item.id] = true;
+            if (!map[node.value]) {
+              map[node.value] = true;
               treeNodes.splice(index, 0, insertNode);
             }
           }
@@ -119,9 +120,9 @@ export default Vue.extend({
           expandMutex,
         });
         this.model = model;
-        model.parse(list);
-        model.items.forEach((item) => {
-          const parents = this.model.getParents(item.id);
+        model.appendData(list);
+        model.nodes.forEach((node) => {
+          const parents = this.model.getParents(node.value);
           const level = parents.length;
           const options: any = {};
           if (level < expandLevel) {
@@ -131,22 +132,22 @@ export default Vue.extend({
             options.expand = true;
           }
           options.expandMutex = expandMutex;
-          model.setItem(item.id, options);
+          model.setNode(node.value, options);
         });
       }
       this.updateNodes();
     },
     handleClick(info: any) {
       const evt = info.event;
-      const id = info.id || '';
-      const item = this.model.getItem(id);
+      const value = info.value || '';
+      const item = this.model.getNode(value);
       const state = {
         event: evt,
         item,
       };
       this.$emit('click', state);
       if (!this.disabled && this.expandTrigger) {
-        this.model.toggle(id);
+        this.model.toggle(value);
         this.updateNodes();
       }
     },

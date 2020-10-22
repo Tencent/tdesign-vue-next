@@ -51,7 +51,7 @@ export const TreeProps = {
 };
 
 export const TreeNodeProps = {
-  item: {
+  node: {
     type: Object,
     default(): object {
       return {};
@@ -62,27 +62,3 @@ export const TreeNodeProps = {
     default: '',
   },
 };
-
-export interface TreeModelOptions {
-  keys?: object;
-  expandMutex?: boolean;
-}
-
-export interface TreeItem {
-  id: string;
-  parent?: TreeItem;
-  dataset?: object;
-  children?: Array<TreeItem>;
-  value?: any;
-  label?: string;
-  expand?: boolean;
-  expandMutex?: boolean;
-  active?: boolean;
-  activable?: boolean;
-  checkProps?: boolean;
-  checkable?: boolean;
-  disabled?: boolean;
-  draggable?: boolean;
-  level?: number;
-  visible?: boolean;
-}

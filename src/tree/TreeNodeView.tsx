@@ -20,20 +20,20 @@ export default Vue.extend({
   },
   computed: {
     styles(): string {
-      const { level } = this.item;
+      const { level } = this.node;
       const styles = `--level: ${level};`;
       return styles;
     },
     classList(): Array<string> {
       const {
-        item,
+        node,
       } = this;
       const arr = [];
       arr.push(classes.treeNode);
-      if (item.expand) {
+      if (node.expand) {
         arr.push(classes.treeNodeOpen);
       }
-      if (!item.visible) {
+      if (!node.visible) {
         arr.push(classes.treeNodeHidden);
       }
       return arr;
@@ -42,13 +42,13 @@ export default Vue.extend({
   methods: {
     renderItem(): Array<VNode> {
       const {
-        item,
+        node,
         empty,
       } = this;
       const itemNodes: Array<VNode> = [];
 
       let icon = null;
-      if (item.children) {
+      if (node.children) {
         icon = (<TIconArrowRight role="icon" class="t-tree__icon"/>);
       }
       if (icon) {
@@ -56,14 +56,14 @@ export default Vue.extend({
       }
 
       let label = null;
-      if (item.label) {
+      if (node.label) {
         label = (
           <span
             class={classes.label}
-          >{item.label}</span>
+          >{node.label}</span>
         );
       } else {
-        const emptyNode = getTNode(empty, item);
+        const emptyNode = getTNode(empty, node);
         if (typeof emptyNode === 'string') {
           label = (
             <span
@@ -86,27 +86,27 @@ export default Vue.extend({
         evt.target as HTMLElement,
         evt.currentTarget as HTMLElement
       );
-      const { id } = this.item;
+      const { value } = this.node;
       this.$emit('click', {
         event: evt,
-        id,
+        value,
         parents,
       });
     },
   },
   render() {
     const {
-      item,
+      node,
       styles,
       classList,
     } = this;
     const {
       level,
-    } = item;
+    } = node;
     return (
       <div
         class={classList}
-        data-id={item.id}
+        data-value={node.value}
         data-level={level}
         style={styles}
         onClick={(evt: Event) => this.handleClick(evt)}
