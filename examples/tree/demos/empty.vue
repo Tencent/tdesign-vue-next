@@ -17,8 +17,8 @@ export default {
         }, {
         }],
       }],
-      empty(item) {
-        return `id: ${item.id}`;
+      empty(node) {
+        return `value: ${node.value}`;
       },
     };
   },
