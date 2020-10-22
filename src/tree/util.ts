@@ -1,7 +1,7 @@
 import { VNode } from 'vue';
 
 
-export function getParentNodes(element?: HTMLElement, parent?: HTMLElement): Array<HTMLElement> {
+export function getParentElements(element?: HTMLElement, parent?: HTMLElement): Array<HTMLElement> {
   const parents = [];
   let el: any = element;
   while (el && el.parentNode) {

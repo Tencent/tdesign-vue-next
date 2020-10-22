@@ -21,14 +21,6 @@ export default Vue.extend({
     };
   },
   computed: {
-    // 获取所有模型节点
-    items(): Array<TreeNode> {
-      let items = [];
-      if (this.model) {
-        items = this.model.getNodes();
-      }
-      return items;
-    },
     classList(): Array<string> {
       const list: Array<string> = [classes.tree];
       const {
@@ -58,7 +50,6 @@ export default Vue.extend({
       } = this;
 
       const map = {};
-      model.update();
 
       // 移除不能呈现的节点
       let index = 0;
@@ -75,7 +66,8 @@ export default Vue.extend({
 
       // 插入需要呈现的节点
       index = 0;
-      model.nodes.forEach((node: TreeNode) => {
+      const nodes = model.getNodes();
+      nodes.forEach((node: TreeNode) => {
         if (node.visible) {
           const nodeView = treeNodes[index];
           let nodeItem = null;
@@ -107,7 +99,7 @@ export default Vue.extend({
       });
       // console.timeEnd('tree updateNodes');
     },
-    parseData() {
+    build() {
       const list = this.data;
       const {
         expandAll,
@@ -120,19 +112,21 @@ export default Vue.extend({
           expandMutex,
         });
         this.model = model;
-        model.appendData(list);
-        model.nodes.forEach((node) => {
-          const parents = this.model.getParents(node.value);
-          const level = parents.length;
+        model.append(list);
+        model.getNodes().forEach((node) => {
+          const {
+            level,
+          } = node;
           const options: any = {};
           if (level < expandLevel) {
-            options.expand = true;
+            options.expanded = true;
           }
           if (expandAll) {
-            options.expand = true;
+            options.expanded = true;
           }
           options.expandMutex = expandMutex;
-          model.setNode(node.value, options);
+          node.set(options);
+          node.update();
         });
       }
       this.updateNodes();
@@ -140,21 +134,21 @@ export default Vue.extend({
     handleClick(info: any) {
       const evt = info.event;
       const value = info.value || '';
-      const item = this.model.getNode(value);
+      const node = this.model.getNode(value);
       const state = {
         event: evt,
-        item,
+        item: node,
       };
       this.$emit('click', state);
-      if (!this.disabled && this.expandTrigger) {
-        this.model.toggle(value);
+      if (!this.disabled) {
+        node.toggle();
         this.updateNodes();
       }
     },
   },
   created() {
     // console.time('tree render');
-    this.parseData();
+    this.build();
   },
   mounted() {
     // console.timeEnd('tree render');

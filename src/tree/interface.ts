@@ -28,10 +28,6 @@ export const TreeProps = {
     type: Boolean,
     default: false,
   },
-  expandTrigger: {
-    type: [Boolean, String],
-    default: 'click',
-  },
   expandLevel: {
     type: Number,
     default: 0,

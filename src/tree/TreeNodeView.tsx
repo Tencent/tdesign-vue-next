@@ -2,7 +2,7 @@ import Vue, { VNode } from 'vue';
 import TIconArrowRight from '../icon/arrow-right';
 import { TreeNodeProps } from './interface';
 import {
-  getParentNodes,
+  getParentElements,
   getTNode,
 } from './util';
 import {
@@ -30,7 +30,7 @@ export default Vue.extend({
       } = this;
       const arr = [];
       arr.push(classes.treeNode);
-      if (node.expand) {
+      if (node.expanded) {
         arr.push(classes.treeNodeOpen);
       }
       if (!node.visible) {
@@ -82,7 +82,7 @@ export default Vue.extend({
       return itemNodes;
     },
     handleClick(evt: Event) {
-      const parents = getParentNodes(
+      const parents = getParentElements(
         evt.target as HTMLElement,
         evt.currentTarget as HTMLElement
       );
