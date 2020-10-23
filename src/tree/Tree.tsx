@@ -177,11 +177,11 @@ export default Vue.extend({
 
     return (
       <div class={classList}>
-        <div class={CLASS_NAMES.treeList}>
-          <transition-group name={FX.treeNode} tag="div">
-            {treeNodes}
-          </transition-group>
-        </div>
+        <transition-group
+          name={FX.treeNode}
+          tag="div"
+          class={CLASS_NAMES.treeList}
+        >{treeNodes}</transition-group>
       </div>
     );
   },

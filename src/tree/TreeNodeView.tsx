@@ -47,7 +47,9 @@ export default Vue.extend({
 
       let icon = null;
       if (node.children) {
-        icon = (<TIconArrowRight role="icon" class="t-tree__icon"/>);
+        icon = (<span class="t-tree__icon"><TIconArrowRight role="icon"/></span>);
+      } else {
+        icon = (<span class="t-tree__icon"></span>);
       }
       if (icon) {
         itemNodes.push(icon);
