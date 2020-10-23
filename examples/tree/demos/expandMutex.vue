@@ -1,6 +1,10 @@
 <template>
   <div class="tdesign-tree-base">
-    <t-tree :data="items" :expand-mutex="true"/>
+    <t-tree
+      :data="items"
+      :hover="true"
+      :expand-mutex="true"
+    />
   </div>
 </template>
 

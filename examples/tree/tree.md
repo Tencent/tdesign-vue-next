@@ -1,6 +1,6 @@
 ## Tree 树
 
-<!-- ::: demo demos/base 默认
+::: demo demos/base 默认
 :::
 
 ::: demo demos/empty 自定义空白label
@@ -16,10 +16,10 @@
 :::
 
 ::: demo demos/transition 关闭动画
-::: -->
-
-::: demo demos/activable 可选中
 :::
 
-::: demo demos/activeMultiple 可多选
+::: demo demos/activable 可高亮
+:::
+
+::: demo demos/activeMultiple 可多个高亮
 :::
