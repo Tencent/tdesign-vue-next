@@ -4,13 +4,16 @@ import { TreeNode } from './treeNode';
 import TreeNodeView from './TreeNodeView';
 import { TreeProps } from './interface';
 import {
-  treeName,
-  classes,
-  fx,
+  TREE_NAME,
+  CLASS_NAMES,
+  FX,
 } from './constants';
+import {
+  getRole,
+} from './util';
 
 export default Vue.extend({
-  name: treeName,
+  name: TREE_NAME,
   props: {
     ...TreeProps,
   },
@@ -22,20 +25,20 @@ export default Vue.extend({
   },
   computed: {
     classList(): Array<string> {
-      const list: Array<string> = [classes.tree];
+      const list: Array<string> = [CLASS_NAMES.tree];
       const {
         disabled,
         hover,
         transition,
       } = this;
       if (disabled) {
-        list.push(classes.disabled);
+        list.push(CLASS_NAMES.disabled);
       }
       if (hover) {
-        list.push(classes.hoverable);
+        list.push(CLASS_NAMES.hoverable);
       }
       if (transition) {
-        list.push(classes.treeFx);
+        list.push(CLASS_NAMES.treeFx);
       }
       return list;
     },
@@ -105,18 +108,20 @@ export default Vue.extend({
         expandAll,
         expandLevel,
         expandMutex,
+        activable,
+        activeMultiple,
       } = this;
       if (list && list.length > 0) {
         const model = new TreeModel({
           keys: this.keys,
+          activable,
           expandMutex,
+          activeMultiple,
         });
         this.model = model;
         model.append(list);
         model.getNodes().forEach((node) => {
-          const {
-            level,
-          } = node;
+          const level = node.getParents().length;
           const options: any = {};
           if (level < expandLevel) {
             options.expanded = true;
@@ -141,7 +146,18 @@ export default Vue.extend({
       };
       this.$emit('click', state);
       if (!this.disabled) {
-        node.toggle();
+        const role = getRole(
+          evt.target as HTMLElement,
+          evt.currentTarget as HTMLElement
+        );
+        if (role && role.name === 'icon') {
+          node.toggleExpand();
+        } else {
+          node.toggleActive();
+          if (this.expandOnClickNode) {
+            node.toggleExpand();
+          }
+        }
         this.updateNodes();
       }
     },
@@ -161,8 +177,8 @@ export default Vue.extend({
 
     return (
       <div class={classList}>
-        <div class={classes.treeList}>
-          <transition-group name={fx.treeNode} tag="div">
+        <div class={CLASS_NAMES.treeList}>
+          <transition-group name={FX.treeNode} tag="div">
             {treeNodes}
           </transition-group>
         </div>

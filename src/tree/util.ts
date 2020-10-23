@@ -1,17 +1,40 @@
 import { VNode } from 'vue';
 
-
-export function getParentElements(element?: HTMLElement, parent?: HTMLElement): Array<HTMLElement> {
-  const parents = [];
+export function getParentsToRoot(element?: HTMLElement, root?: HTMLElement): Array<HTMLElement> {
+  const list = [];
   let el: any = element;
   while (el && el.parentNode) {
-    parents.push(el);
-    if (el === parent) {
+    list.push(el);
+    if (el === root) {
       break;
     }
     el = el.parentNode;
   }
-  return parents;
+  return list;
+}
+
+export interface Role {
+  name: string;
+  el?: HTMLElement;
+}
+
+export function getParentRoles(element?: HTMLElement, root?: HTMLElement): Array<Role> {
+  const list = getParentsToRoot(element, root);
+  return (
+    list.map((el) => {
+      const role: Role = {
+        name: el.getAttribute('role') || '',
+        el,
+      };
+      return role;
+    }).filter(role => role.name)
+  );
+};
+
+export function getRole(element?: HTMLElement, root?: HTMLElement): Role {
+  const list = getParentRoles(element, root);
+  const info = list.pop() || null;
+  return info;
 };
 
 export function getTNode(prop: any, options: any): string | VNode {

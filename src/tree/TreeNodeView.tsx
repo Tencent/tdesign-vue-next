@@ -2,16 +2,15 @@ import Vue, { VNode } from 'vue';
 import TIconArrowRight from '../icon/arrow-right';
 import { TreeNodeProps } from './interface';
 import {
-  getParentElements,
   getTNode,
 } from './util';
 import {
-  treeNodeName,
-  classes,
+  TREE_NODE_NAME,
+  CLASS_NAMES,
 } from './constants';
 
 export default Vue.extend({
-  name: treeNodeName,
+  name: TREE_NODE_NAME,
   props: TreeNodeProps,
   data() {
     return {
@@ -24,19 +23,18 @@ export default Vue.extend({
       const styles = `--level: ${level};`;
       return styles;
     },
-    classList(): Array<string> {
+    classList(): Array<any> {
       const {
         node,
       } = this;
-      const arr = [];
-      arr.push(classes.treeNode);
-      if (node.expanded) {
-        arr.push(classes.treeNodeOpen);
-      }
-      if (!node.visible) {
-        arr.push(classes.treeNodeHidden);
-      }
-      return arr;
+      const list = [];
+      list.push(CLASS_NAMES.treeNode);
+      list.push({
+        [CLASS_NAMES.treeNodeOpen]: node.expanded,
+        [CLASS_NAMES.treeNodeActive]: node.active,
+        [CLASS_NAMES.treeNodeHidden]: !node.visible,
+      });
+      return list;
     },
   },
   methods: {
@@ -59,7 +57,8 @@ export default Vue.extend({
       if (node.label) {
         label = (
           <span
-            class={classes.label}
+            class={CLASS_NAMES.label}
+            role="label"
           >{node.label}</span>
         );
       } else {
@@ -67,7 +66,7 @@ export default Vue.extend({
         if (typeof emptyNode === 'string') {
           label = (
             <span
-              class={classes.label}
+              class={CLASS_NAMES.label}
               role="label"
             >{emptyNode}</span>
           );
@@ -82,15 +81,10 @@ export default Vue.extend({
       return itemNodes;
     },
     handleClick(evt: Event) {
-      const parents = getParentElements(
-        evt.target as HTMLElement,
-        evt.currentTarget as HTMLElement
-      );
       const { value } = this.node;
       this.$emit('click', {
         event: evt,
         value,
-        parents,
       });
     },
   },

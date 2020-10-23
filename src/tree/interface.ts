@@ -36,11 +36,23 @@ export const TreeProps = {
     type: Boolean,
     default: false,
   },
+  expandOnClickNode: {
+    type: Boolean,
+    default: true,
+  },
   transition: {
     type: Boolean,
     default: true,
   },
   checkable: {
+    type: Boolean,
+    default: false,
+  },
+  activable: {
+    type: Boolean,
+    default: false,
+  },
+  activeMultiple: {
     type: Boolean,
     default: false,
   },
