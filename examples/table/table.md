@@ -76,7 +76,7 @@
 | align          | String                         | -        | N    | left / right / center         |
 | fixed          | String                         | -        | N    | left / right                  |
 | colKey         | String                         | -        | Y    | -                             |
-| title          | String                         | Function | -    | Y                             | 列标题 |
+| title          | String / Function              | -        | -    | Y                             | 列标题 |
 | width          | String / Number                | -        | -    | N                             | - |
 | minWidth       | String / Number                | -        | -    | N                             | - |
 | className      | String / Number                | -        | -    | N                             | 列样式 |
@@ -87,10 +87,12 @@
 | disabled       | Boolean                        | -        | N    | 是否禁用选项框                |
 | sorter         | Boolean / Function             | -        | N    | 排序函数                      |
 | sortType       | String / Null                  | null     | N    | 支持的排序方式                |
-| filters        | Object[]                       | -        | N    | 表头的筛选菜单项              |
-| filteredValue  | String[]                       | -        | N    | 筛选的受控属性                |
+| filters        | Array\<Object\>                | -        | N    | 表头的筛选菜单项              |
+| filteredValue  | Array\<String\>                | -        | N    | 筛选的受控属性                |
 | filterIcon     | VNode / Function(props): VNode | null     | N    | 自定义 filter 图标            |
 | filterMultiple | Boolean                        | false    | N    | 是否多选                      |
+| render         | Function                       | -    | N    | 自定义单元格                   |
+| scopedSlots    | Object | -    | N    | 自定义单元格（title - 通过插槽方式渲染表头，customRender - 通过插槽方式渲染表体单元格） |
 
 ### Expand
 
