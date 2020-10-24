@@ -1,5 +1,6 @@
 import Vue, { VNode } from 'vue';
 import TIconArrowRight from '../icon/arrow-right';
+import TCheckBox from '../checkbox';
 import { TreeNodeProps } from './interface';
 import {
   getTNode,
@@ -55,29 +56,27 @@ export default Vue.extend({
         itemNodes.push(icon);
       }
 
-      let label = null;
-      if (node.label) {
-        label = (
+      const emptyNode = getTNode(empty, node);
+
+      let labelNode = null;
+      if (node.checkable) {
+        labelNode = (
+          <TCheckBox
+            v-model={node.checked}
+            name={node.value}
+            role="label"
+        >{node.label || emptyNode}</TCheckBox>
+        );
+      } else {
+        labelNode = (
           <span
             class={CLASS_NAMES.label}
             role="label"
-          >{node.label}</span>
+          >{node.label || emptyNode}</span>
         );
-      } else {
-        const emptyNode = getTNode(empty, node);
-        if (typeof emptyNode === 'string') {
-          label = (
-            <span
-              class={CLASS_NAMES.label}
-              role="label"
-            >{emptyNode}</span>
-          );
-        } else if (empty) {
-          label = emptyNode;
-        }
       }
-      if (label) {
-        itemNodes.push(label);
+      if (labelNode) {
+        itemNodes.push(labelNode);
       }
 
       return itemNodes;
@@ -85,6 +84,7 @@ export default Vue.extend({
     handleClick(evt: Event) {
       const { value } = this.node;
       this.$emit('click', {
+        name: 'click',
         event: evt,
         value,
       });

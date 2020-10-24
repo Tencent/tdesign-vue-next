@@ -1,5 +1,5 @@
 ## Tree 树
-
+<!-- 
 ::: demo demos/base 默认
 :::
 
@@ -22,4 +22,7 @@
 :::
 
 ::: demo demos/activeMultiple 可多个高亮
+::: -->
+
+::: demo demos/checkable 可选
 :::

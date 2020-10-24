@@ -151,12 +151,24 @@ export default Vue.extend({
           evt.target as HTMLElement,
           evt.currentTarget as HTMLElement
         );
-        if (role && role.name === 'icon') {
-          node.toggleExpand();
-        } else {
-          node.toggleActive();
-          if (this.expandOnClickNode) {
+        if (this.expandOnClickNode) {
+          if (role && role.name === 'label' && node.checkable) {
+            // do nothing
+          } else {
+            node.toggleActive();
             node.toggleExpand();
+          }
+        } else {
+          if (role) {
+            if (role.name === 'icon') {
+              node.toggleExpand();
+            } else if (node.checkable && role.name === 'label') {
+              // do nothing
+            } else {
+              node.toggleActive();
+            }
+          } else {
+            node.toggleActive();
           }
         }
         this.updateNodes();

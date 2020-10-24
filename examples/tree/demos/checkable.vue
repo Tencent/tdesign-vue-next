@@ -2,8 +2,9 @@
   <div class="tdesign-tree-base">
     <t-tree
       :data="items"
-      :activable="true"
-      :expand-on-click-node="false"
+      :hover="true"
+      :checkable="true"
+      :expand-all="true"
     />
   </div>
 </template>
@@ -16,8 +17,18 @@ export default {
         label: '1',
         children: [{
           label: '1.1',
+          children: [{
+            label: '1.1.1',
+          }, {
+            label: '1.1.2',
+          }],
         }, {
           label: '1.2',
+          children: [{
+            label: '1.2.1',
+          }, {
+            label: '1.2.2',
+          }],
         }],
       }, {
         label: '2',
