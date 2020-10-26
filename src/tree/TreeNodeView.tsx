@@ -1,7 +1,10 @@
 import Vue, { VNode } from 'vue';
 import TIconArrowRight from '../icon/arrow-right';
 import TCheckBox from '../checkbox';
-import { TreeNodeProps } from './interface';
+import {
+  TreeNodeProps,
+  EventState,
+} from './interface';
 import {
   getTNode,
 } from './util';
@@ -65,6 +68,7 @@ export default Vue.extend({
             v-model={node.checked}
             name={node.value}
             role="label"
+            onChange={(evt: Event) => this.handleChange(evt)}
         >{node.label || emptyNode}</TCheckBox>
         );
       } else {
@@ -82,12 +86,22 @@ export default Vue.extend({
       return itemNodes;
     },
     handleClick(evt: Event) {
-      const { value } = this.node;
-      this.$emit('click', {
+      const { node } = this;
+      const state: EventState = {
         name: 'click',
         event: evt,
-        value,
-      });
+        node,
+      };
+      this.$emit('click', state);
+    },
+    handleChange(evt: Event) {
+      const { node } = this;
+      const state: EventState = {
+        name: 'change',
+        event: evt,
+        node,
+      };
+      this.$emit('change', state);
     },
   },
   render() {

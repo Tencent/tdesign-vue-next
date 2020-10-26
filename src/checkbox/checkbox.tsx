@@ -105,7 +105,10 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
         <input
           type="checkbox"
           class={`${name}__former`}
-          { ...{ domProps: inputProps, on: inputEvents } }
+          { ...{ domProps: inputProps, on: {
+            ...inputEvents,
+            click: (evt: Event) => evt.stopPropagation(),
+          } } }
           onChange={this.handleChange}
         />
         <span class={`${name}__input`}></span><span class={`${name}__label`}>

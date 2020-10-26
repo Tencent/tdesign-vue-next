@@ -1,3 +1,5 @@
+import { TreeNode } from './treeNode';
+
 export const TreeProps = {
   data: {
     type: Array,
@@ -69,4 +71,12 @@ export const TreeNodeProps = {
     type: [Function, Object, String],
     default: '',
   },
+};
+
+export interface EventState {
+  name: string;
+  event?: Event;
+  node?: TreeNode;
+  nodes?: Array<TreeNode>;
+  index?: number;
 };

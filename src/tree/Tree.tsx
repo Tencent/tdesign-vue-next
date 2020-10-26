@@ -2,7 +2,10 @@ import Vue, { VNode } from 'vue';
 import { TreeModel } from './treeModel';
 import { TreeNode } from './treeNode';
 import TreeNodeView from './TreeNodeView';
-import { TreeProps } from './interface';
+import {
+  TreeProps,
+  EventState,
+} from './interface';
 import {
   TREE_NAME,
   CLASS_NAMES,
@@ -90,6 +93,7 @@ export default Vue.extend({
                 node={node}
                 empty={empty}
                 onClick={this.handleClick}
+                onChange={this.handleChange}
               />
             );
             if (!map[node.value]) {
@@ -137,19 +141,16 @@ export default Vue.extend({
       }
       this.updateNodes();
     },
-    handleClick(info: any) {
-      const evt = info.event;
-      const value = info.value || '';
-      const node = this.model.getNode(value);
-      const state = {
-        event: evt,
-        item: node,
-      };
+    handleClick(state: EventState) {
+      const {
+        event,
+        node,
+      } = state;
       this.$emit('click', state);
       if (!this.disabled) {
         const role = getRole(
-          evt.target as HTMLElement,
-          evt.currentTarget as HTMLElement
+          event.target as HTMLElement,
+          event.currentTarget as HTMLElement
         );
         if (this.expandOnClickNode) {
           if (role && role.name === 'label' && node.checkable) {
@@ -173,6 +174,9 @@ export default Vue.extend({
         }
         this.updateNodes();
       }
+    },
+    handleChange(state: any) {
+      this.$emit('change', state);
     },
   },
   created() {

@@ -5,6 +5,8 @@
       :hover="true"
       :checkable="true"
       :expand-all="true"
+      @change="onChange"
+      @click="onClick"
     />
   </div>
 </template>
@@ -39,6 +41,14 @@ export default {
         }],
       }],
     };
+  },
+  methods: {
+    onClick(state) {
+      console.log('on click:', state);
+    },
+    onChange(state) {
+      console.log('on change:', state);
+    },
   },
 };
 </script>
