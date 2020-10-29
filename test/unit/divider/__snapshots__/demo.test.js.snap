@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Divider base demo works fine 1`] = `
+<div>
+  <p>
+    
+    通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。
+  
+  </p>
+   
+  <div
+    class="t-divider t-divider--horizontal"
+  />
+   
+  <p>
+    
+    通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。
+  
+  </p>
+   
+  <div
+    class="t-divider t-divider--horizontal t-divider--dashed"
+  />
+   
+  <p>
+    
+    通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。
+  
+  </p>
+</div>
+`;
+
+exports[`Divider dividerWithText demo works fine 1`] = `
+<div>
+  <p>
+    
+    通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。
+  
+  </p>
+   
+  <div
+    class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
+  >
+    <span
+      classname="t-divider-inner-text"
+    >
+      腾讯左
+    </span>
+  </div>
+   
+  <p>
+    
+    通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。
+  
+  </p>
+   
+  <div
+    class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+  >
+    <span
+      classname="t-divider-inner-text"
+    >
+      腾讯中
+    </span>
+  </div>
+   
+  <p>
+    
+    通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。
+  
+  </p>
+   
+  <div
+    class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-right"
+  >
+    <span
+      classname="t-divider-inner-text"
+    >
+      腾讯右
+    </span>
+  </div>
+   
+  <p>
+    
+    通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。
+  
+  </p>
+</div>
+`;
+
+exports[`Divider vertical demo works fine 1`] = `
+<div>
+  <span>
+    正直
+  </span>
+   
+  <div
+    class="t-divider t-divider--vertical"
+  />
+   
+  <span>
+    进取
+  </span>
+   
+  <div
+    class="t-divider t-divider--vertical"
+  />
+   
+  <span>
+    合作
+  </span>
+   
+  <div
+    class="t-divider t-divider--vertical"
+  />
+   
+  <span>
+    创新
+  </span>
+</div>
+`;
