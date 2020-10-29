@@ -29,8 +29,19 @@
       <t-button theme="ghost" disabled>幽灵按钮</t-button>
     </div>
     <div class="tdesign-demo-block">
-      <t-button theme="ghost-line">幽灵次要按钮</t-button>
+      <span class="tdesign-wrap">
+        <t-button theme="ghost-line">幽灵次要按钮</t-button>
+      </span>
       <t-button theme="ghost-line" disabled>幽灵次要按钮</t-button>
     </div>
   </div>
 </template>
+
+<style scoped>
+.tdesign-wrap {
+  display: inline-block;
+  background-color: #bbbbbb;
+  padding: 10px;
+  margin-right: 10px;
+}
+</style>

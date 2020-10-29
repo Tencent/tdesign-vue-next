@@ -17,6 +17,9 @@ const columns = [
   {
     title: 'id',
     colKey: 'id',
+    scopedSlots: {
+      customRender: 'id',
+    },
   },
   {
     title: '类型',
@@ -350,7 +353,7 @@ describe('Table', () => {
           const slotColumns = columns.slice(0);
           slotColumns[0] = {
             colKey: 'id',
-            slots: {
+            scopedSlots: {
               title: 'columnId',
             },
           };
