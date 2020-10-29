@@ -65,11 +65,12 @@ export default Vue.extend({
       if (node.checkable) {
         labelNode = (
           <TCheckBox
-            v-model={node.checked}
+            checked={node.checked}
+            indeterminate={node.indeterminate}
             name={node.value}
             role="label"
-            onChange={(evt: Event) => this.handleChange(evt)}
-        >{node.label || emptyNode}</TCheckBox>
+            onChange={() => this.handleChange()}
+          >{node.label || emptyNode}</TCheckBox>
         );
       } else {
         labelNode = (
@@ -94,11 +95,10 @@ export default Vue.extend({
       };
       this.$emit('click', state);
     },
-    handleChange(evt: Event) {
+    handleChange() {
       const { node } = this;
       const state: EventState = {
         name: 'change',
-        event: evt,
         node,
       };
       this.$emit('change', state);

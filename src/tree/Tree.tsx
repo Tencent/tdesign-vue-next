@@ -146,36 +146,47 @@ export default Vue.extend({
         event,
         node,
       } = state;
-      this.$emit('click', state);
-      if (!this.disabled) {
-        const role = getRole(
-          event.target as HTMLElement,
-          event.currentTarget as HTMLElement
-        );
-        if (this.expandOnClickNode) {
-          if (role && role.name === 'label' && node.checkable) {
-            // do nothing
-          } else {
-            node.toggleActive();
-            node.toggleExpand();
-          }
-        } else {
-          if (role) {
-            if (role.name === 'icon') {
-              node.toggleExpand();
-            } else if (node.checkable && role.name === 'label') {
-              // do nothing
-            } else {
-              node.toggleActive();
-            }
-          } else {
-            node.toggleActive();
-          }
-        }
-        this.updateNodes();
+      if (!node || this.disabled) {
+        return;
       }
+      const role = getRole(
+        event.target as HTMLElement,
+        event.currentTarget as HTMLElement
+      );
+      let clickOnRole = false;
+      let clickOnIcon = false;
+      if (role && role.name) {
+        clickOnRole = true;
+        if (role.name === 'icon') {
+          clickOnIcon = true;
+        }
+      }
+      if (this.expandOnClickNode) {
+        if (clickOnIcon) {
+          node.toggleExpand();
+        }
+        if (!clickOnRole) {
+          node.toggleActive();
+          node.toggleExpand();
+        }
+      } else {
+        if (clickOnIcon) {
+          node.toggleExpand();
+        } else if (!clickOnRole) {
+          node.toggleActive();
+        }
+      }
+      this.$emit('click', state);
+      this.updateNodes();
     },
     handleChange(state: any) {
+      const {
+        node,
+      } = state;
+      if (!node || this.disabled) {
+        return;
+      }
+      node.toggleChecked();
       this.$emit('change', state);
     },
   },
