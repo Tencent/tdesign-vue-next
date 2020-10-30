@@ -131,11 +131,13 @@ export default Vue.extend({
           expandMutex,
           disabled,
           load,
+          onReflow: () => {
+            this.updateNodes();
+          },
         });
         this.model = model;
         model.append(list);
       }
-      this.updateNodes();
     },
     handleClick(state: EventState) {
       const {
