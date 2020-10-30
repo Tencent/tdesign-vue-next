@@ -1,10 +1,12 @@
 <template>
   <div class="tdesign-tree-base">
+    <t-input placeholder="请输入内容" :value="allChecked"/>
     <t-tree
       :data="items"
       :hover="true"
       :checkable="true"
       :expand-all="true"
+      :v-model="checked"
       @change="onChange"
       @click="onClick"
     />
@@ -15,52 +17,76 @@
 export default {
   data() {
     return {
+      checked: [],
       items: [{
+        value: '1',
         label: '1',
         children: [{
+          value: '1.1',
           label: '1.1',
           children: [{
+            value: '1.1.1',
             label: '1.1.1',
             children: [{
+              value: '1.1.1.1',
               label: '1.1.1.1',
             }, {
+              value: '1.1.1.2',
               label: '1.1.1.2',
             }],
           }, {
+            value: '1.1.2',
             label: '1.1.2',
             children: [{
+              value: '1.1.2.1',
               label: '1.1.2.1',
             }, {
+              value: '1.1.2.2',
               label: '1.1.2.2',
             }],
           }],
         }, {
+          value: '1.2',
           label: '1.2',
           children: [{
+            value: '1.2.1',
             label: '1.2.1',
             children: [{
+              value: '1.2.1.1',
               label: '1.2.1.1',
             }, {
+              value: '1.2.1.2',
               label: '1.2.1.2',
             }],
           }, {
+            value: '1.2.2',
             label: '1.2.2',
             children: [{
+              value: '1.2.2.1',
               label: '1.2.2.1',
             }, {
+              value: '1.2.2.2',
               label: '1.2.2.2',
             }],
           }],
         }],
       }, {
+        value: '2',
         label: '2',
         children: [{
+          value: '2.1',
           label: '2.1',
         }, {
+          value: '2.2',
           label: '2.2',
         }],
       }],
     };
+  },
+  computed: {
+    allChecked() {
+      return this.checked.join();
+    },
   },
   methods: {
     onClick(state) {
