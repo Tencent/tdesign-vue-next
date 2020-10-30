@@ -69,6 +69,12 @@ export const TreeProps = {
     type: Boolean,
     default: false,
   },
+  value: {
+    type: Array,
+    default(): Array<string> {
+      return [];
+    },
+  },
 };
 
 export const TreeNodeProps = {

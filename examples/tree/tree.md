@@ -38,7 +38,10 @@
 
 ::: demo demos/lazy 延迟异步加载节点
 :::
--->
 
 ::: demo demos/lazy 延迟异步加载节点
+:::
+-->
+
+::: demo demos/checkable 可选
 :::

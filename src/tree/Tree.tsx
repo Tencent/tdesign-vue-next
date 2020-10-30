@@ -17,6 +17,10 @@ import {
 
 export default Vue.extend({
   name: TREE_NAME,
+  model: {
+    prop: 'value',
+    event: 'change',
+  },
   props: {
     ...TreeProps,
   },
