@@ -116,6 +116,7 @@ export default Vue.extend({
         expandAll,
         expandLevel,
         expandMutex,
+        disabled,
       } = this;
       if (list && list.length > 0) {
         const model = new TreeModel({
@@ -125,6 +126,7 @@ export default Vue.extend({
           checkable,
           checkStrictly,
           expandMutex,
+          disabled,
         });
         this.model = model;
         model.append(list);
@@ -148,7 +150,7 @@ export default Vue.extend({
         event,
         node,
       } = state;
-      if (!node || this.disabled) {
+      if (!node || this.disabled || node.disabled) {
         return;
       }
       const role = getRole(
@@ -185,7 +187,7 @@ export default Vue.extend({
       const {
         node,
       } = state;
-      if (!node || this.disabled) {
+      if (!node || this.disabled || node.disabled) {
         return;
       }
       node.toggleChecked();

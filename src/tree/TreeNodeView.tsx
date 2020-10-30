@@ -37,6 +37,7 @@ export default Vue.extend({
         [CLASS_NAMES.treeNodeOpen]: node.expanded,
         [CLASS_NAMES.treeNodeActive]: node.active,
         [CLASS_NAMES.treeNodeHidden]: !node.visible,
+        [CLASS_NAMES.disabled]: node.disabled,
       });
       return list;
     },
@@ -67,6 +68,7 @@ export default Vue.extend({
           <TCheckBox
             checked={node.checked}
             indeterminate={node.indeterminate}
+            disabled={node.disabled}
             name={node.value}
             role="label"
             onChange={() => this.handleChange()}

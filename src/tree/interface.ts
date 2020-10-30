@@ -7,24 +7,16 @@ export const TreeProps = {
       return [];
     },
   },
+  empty: {
+    type: [Function, Object, String],
+    default: '',
+  },
   // key 属性是 vue 保留字，所以用 keys 替代
   keys: {
     type: Object,
     default(): object {
       return {};
     },
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  hover: {
-    type: Boolean,
-    default: false,
-  },
-  empty: {
-    type: [Function, Object, String],
-    default: '',
   },
   expandAll: {
     type: Boolean,
@@ -42,9 +34,17 @@ export const TreeProps = {
     type: Boolean,
     default: true,
   },
-  transition: {
+  activable: {
     type: Boolean,
-    default: true,
+    default: false,
+  },
+  activeMultiple: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
   },
   checkable: {
     type: Boolean,
@@ -54,13 +54,13 @@ export const TreeProps = {
     type: Boolean,
     default: false,
   },
-  activable: {
+  hover: {
     type: Boolean,
     default: false,
   },
-  activeMultiple: {
+  transition: {
     type: Boolean,
-    default: false,
+    default: true,
   },
 };
 

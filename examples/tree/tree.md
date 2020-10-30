@@ -26,7 +26,10 @@
 
 ::: demo demos/checkable 可选
 :::
--->
 
 ::: demo demos/checkStrictly 选中态不关联
+:::
+-->
+
+::: demo demos/disabled 树禁用
 :::
