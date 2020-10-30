@@ -53,7 +53,7 @@ export default Vue.extend({
 
       let icon = null;
       if (node.children) {
-        if (node.loading) {
+        if (node.loading && node.expanded) {
           icon = (<span class="t-tree__icon"><TIconLoading role="icon"/></span>);
         } else {
           icon = (<span class="t-tree__icon"><TIconArrowRight role="icon"/></span>);
