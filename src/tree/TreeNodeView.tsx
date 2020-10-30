@@ -1,5 +1,6 @@
 import Vue, { VNode } from 'vue';
 import TIconArrowRight from '../icon/arrow-right';
+import TIconLoading from '../icon/loading';
 import TCheckBox from '../checkbox';
 import {
   TreeNodeProps,
@@ -52,7 +53,11 @@ export default Vue.extend({
 
       let icon = null;
       if (node.children) {
-        icon = (<span class="t-tree__icon"><TIconArrowRight role="icon"/></span>);
+        if (node.loading) {
+          icon = (<span class="t-tree__icon"><TIconLoading role="icon"/></span>);
+        } else {
+          icon = (<span class="t-tree__icon"><TIconArrowRight role="icon"/></span>);
+        }
       } else {
         icon = (<span class="t-tree__icon"></span>);
       }

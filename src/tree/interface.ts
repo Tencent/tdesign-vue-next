@@ -65,6 +65,10 @@ export const TreeProps = {
   load: {
     type: Function,
   },
+  lazy: {
+    type: Boolean,
+    default: false,
+  },
 };
 
 export const TreeNodeProps = {

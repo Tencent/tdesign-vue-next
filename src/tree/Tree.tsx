@@ -118,6 +118,7 @@ export default Vue.extend({
         expandMutex,
         disabled,
         load,
+        lazy,
       } = this;
       if (list && list.length > 0) {
         const model = new TreeModel({
@@ -131,6 +132,7 @@ export default Vue.extend({
           expandMutex,
           disabled,
           load,
+          lazy,
           onReflow: () => {
             this.updateNodes();
           },
