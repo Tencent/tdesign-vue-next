@@ -9,9 +9,6 @@
 ::: demo demos/expandAll 初始化展开全部
 :::
 
-::: demo demos/expandLevel 初始化展开第一级
-:::
-
 ::: demo demos/expandMutex 互斥展开
 :::
 
@@ -29,7 +26,16 @@
 
 ::: demo demos/checkStrictly 选中态不关联
 :::
--->
 
 ::: demo demos/disabled 树禁用
+:::
+
+::: demo demos/load 异步加载节点
+:::
+-->
+
+::: demo demos/expandAll 初始化展开全部
+:::
+
+::: demo demos/expandLevel 初始化展开第一级
 :::

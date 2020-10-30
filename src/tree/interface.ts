@@ -62,6 +62,9 @@ export const TreeProps = {
     type: Boolean,
     default: true,
   },
+  load: {
+    type: Function,
+  },
 };
 
 export const TreeNodeProps = {

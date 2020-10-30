@@ -117,6 +117,7 @@ export default Vue.extend({
         expandLevel,
         expandMutex,
         disabled,
+        load,
       } = this;
       if (list && list.length > 0) {
         const model = new TreeModel({
@@ -125,23 +126,14 @@ export default Vue.extend({
           activeMultiple,
           checkable,
           checkStrictly,
+          expandAll,
+          expandLevel,
           expandMutex,
           disabled,
+          load,
         });
         this.model = model;
         model.append(list);
-        model.getNodes().forEach((node: TreeNode) => {
-          const level = node.getParents().length;
-          const options: any = {};
-          if (level < expandLevel) {
-            options.expanded = true;
-          }
-          if (expandAll) {
-            options.expanded = true;
-          }
-          node.set(options);
-          node.update();
-        });
       }
       this.updateNodes();
     },
