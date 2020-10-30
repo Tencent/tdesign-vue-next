@@ -112,6 +112,7 @@ export default Vue.extend({
         activable,
         activeMultiple,
         checkable,
+        checkStrictly,
         expandAll,
         expandLevel,
         expandMutex,
@@ -122,6 +123,7 @@ export default Vue.extend({
           activable,
           activeMultiple,
           checkable,
+          checkStrictly,
           expandMutex,
         });
         this.model = model;

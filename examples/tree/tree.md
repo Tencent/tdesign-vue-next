@@ -22,7 +22,11 @@
 :::
 
 ::: demo demos/activeMultiple 可多个高亮
-::: -->
+:::
 
 ::: demo demos/checkable 可选
+:::
+-->
+
+::: demo demos/checkStrictly 选中态不关联
 :::

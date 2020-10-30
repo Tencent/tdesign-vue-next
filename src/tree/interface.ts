@@ -50,6 +50,10 @@ export const TreeProps = {
     type: Boolean,
     default: false,
   },
+  checkStrictly: {
+    type: Boolean,
+    default: false,
+  },
   activable: {
     type: Boolean,
     default: false,
