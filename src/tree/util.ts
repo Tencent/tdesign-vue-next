@@ -50,3 +50,22 @@ export function getTNode(prop: any, options: any): string | VNode {
   }
   return tnode;
 }
+
+export function mergeKeysToArray(fromMap: Map<string, boolean>, list: any[]): void {
+  let index = 0;
+  const map = new Map(fromMap);
+  while (index < list.length) {
+    const key = list[index];
+    if (map.has(key)) {
+      map.delete(key);
+      index += 1;
+    } else {
+      list.splice(index, 1);
+    }
+  }
+  const resumeItems = Array.from(map.keys());
+  resumeItems.forEach((key) => {
+    list.push(key);
+  });
+}
+

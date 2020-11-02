@@ -13,6 +13,7 @@ import {
 } from './constants';
 import {
   getRole,
+  mergeKeysToArray,
 } from './util';
 
 export default Vue.extend({
@@ -140,12 +141,24 @@ export default Vue.extend({
           onReflow: () => {
             this.updateNodes();
           },
+          onUpdate: () => {
+            this.updateValue();
+          },
         });
         this.model = model;
         model.append(list);
       }
     },
-    handleClick(state: EventState) {
+    updateValue(): void {
+      const {
+        model,
+        value,
+      } = this;
+      if (Array.isArray(value)) {
+        mergeKeysToArray(model.checkedMap, value);
+      }
+    },
+    handleClick(state: EventState): void {
       const {
         event,
         node,

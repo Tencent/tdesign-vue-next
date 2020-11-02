@@ -1,5 +1,10 @@
-import Tree from './Tree';
+import _Tree from './Tree';
+import mapProps from '../utils/map-props';
 import setInstallFn from '../utils/setInstallFn';
+
+const Tree = mapProps([
+  'value',
+])(_Tree);
 
 setInstallFn('Tree', Tree);
 

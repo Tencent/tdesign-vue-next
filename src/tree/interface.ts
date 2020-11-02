@@ -3,7 +3,7 @@ import { TreeNode } from './treeNode';
 export const TreeProps = {
   data: {
     type: Array,
-    default(): Array<any> {
+    default(): any[] {
       return [];
     },
   },
@@ -71,7 +71,13 @@ export const TreeProps = {
   },
   value: {
     type: Array,
-    default(): Array<string> {
+    default(): string[] {
+      return [];
+    },
+  },
+  defaultValue: {
+    type: Array,
+    default(): string[] {
       return [];
     },
   },

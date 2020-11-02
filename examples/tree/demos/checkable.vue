@@ -6,7 +6,7 @@
       :hover="true"
       :checkable="true"
       :expand-all="true"
-      :v-model="checked"
+      :value="checked"
       @change="onChange"
       @click="onClick"
     />
@@ -94,6 +94,7 @@ export default {
     },
     onChange(state) {
       console.log('on change:', state);
+      console.log('this.checked:', this.checked);
     },
   },
 };
