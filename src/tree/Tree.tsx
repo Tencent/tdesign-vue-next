@@ -147,6 +147,22 @@ export default Vue.extend({
         });
         this.store = store;
         store.append(list);
+
+        this.initChecked();
+      }
+    },
+    initChecked(): void {
+      const {
+        value,
+        store,
+      } = this;
+      if (Array.isArray(value)) {
+        value.forEach((val: string) => {
+          const node = store.getNode(val);
+          if (node) {
+            node.setChecked(true);
+          }
+        });
       }
     },
     updateValue(): void {

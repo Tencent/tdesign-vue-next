@@ -17,7 +17,7 @@
 export default {
   data() {
     return {
-      checked: [],
+      checked: ['1.1.1.1', '1.1.1.2'],
       items: [{
         value: '1',
         label: '1',
@@ -85,7 +85,11 @@ export default {
   },
   computed: {
     allChecked() {
-      return this.checked.join();
+      let arr = [];
+      if (Array.isArray(this.checked)) {
+        arr = this.checked;
+      }
+      return arr.join();
     },
   },
   methods: {
