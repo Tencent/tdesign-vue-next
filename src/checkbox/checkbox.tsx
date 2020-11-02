@@ -42,10 +42,11 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
 
   watch: {
     value(nVal, oVal) {
-      const { addValue, delValue } = this.checkboxGroup || {};
+      const { checkboxGroup } = this;
+      const { addValue, delValue } = checkboxGroup || {};
       if (addValue && delValue) {
-        delValue(oVal);
-        addValue(nVal);
+        checkboxGroup.delValue(oVal);
+        checkboxGroup.addValue(nVal);
       }
     },
   },
