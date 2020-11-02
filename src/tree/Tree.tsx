@@ -1,7 +1,7 @@
 import Vue, { VNode } from 'vue';
-import { TreeModel } from './treeModel';
+import { TreeStore } from './TreeStore';
 import { TreeNode } from './treeNode';
-import TreeNodeView from './TreeNodeView';
+import TreeItem from './TreeItem';
 import {
   TreeProps,
   EventState,
@@ -27,7 +27,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      model: null,
+      store: null,
       treeNodes: [],
     };
   },
@@ -56,7 +56,7 @@ export default Vue.extend({
       // console.time('tree updateNodes');
       const {
         empty,
-        model,
+        store,
         treeNodes,
       } = this;
 
@@ -77,7 +77,7 @@ export default Vue.extend({
 
       // 插入需要呈现的节点
       index = 0;
-      const nodes = model.getNodes();
+      const nodes = store.getNodes();
       nodes.forEach((node: TreeNode) => {
         if (node.visible) {
           const nodeView = treeNodes[index];
@@ -93,7 +93,7 @@ export default Vue.extend({
           }
           if (shouldInsert) {
             const insertNode = (
-              <TreeNodeView
+              <TreeItem
                 key={node.value}
                 node={node}
                 empty={empty}
@@ -126,7 +126,7 @@ export default Vue.extend({
         lazy,
       } = this;
       if (list && list.length > 0) {
-        const model = new TreeModel({
+        const store = new TreeStore({
           keys: this.keys,
           activable,
           activeMultiple,
@@ -145,17 +145,17 @@ export default Vue.extend({
             this.updateValue();
           },
         });
-        this.model = model;
-        model.append(list);
+        this.store = store;
+        store.append(list);
       }
     },
     updateValue(): void {
       const {
-        model,
+        store,
         value,
       } = this;
       if (Array.isArray(value)) {
-        mergeKeysToArray(model.checkedMap, value);
+        mergeKeysToArray(store.checkedMap, value);
       }
     },
     handleClick(state: EventState): void {
