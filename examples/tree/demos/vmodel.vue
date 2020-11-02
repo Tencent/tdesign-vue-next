@@ -1,10 +1,12 @@
 <template>
   <div class="tdesign-tree-base">
+    <t-input placeholder="请输入内容" :value="allChecked"/>
     <t-tree
       :data="items"
       :hover="true"
       :checkable="true"
       :expand-all="true"
+      :value="checked"
       @change="onChange"
       @click="onClick"
     />
@@ -15,6 +17,7 @@
 export default {
   data() {
     return {
+      checked: [],
       items: [{
         value: '1',
         label: '1',
@@ -79,6 +82,11 @@ export default {
         }],
       }],
     };
+  },
+  computed: {
+    allChecked() {
+      return this.checked.join();
+    },
   },
   methods: {
     onClick(state) {
