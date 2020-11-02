@@ -124,6 +124,7 @@ export default Vue.extend({
         disabled,
         load,
         lazy,
+        value,
       } = this;
       if (list && list.length > 0) {
         const store = new TreeStore({
@@ -147,24 +148,12 @@ export default Vue.extend({
         });
         this.store = store;
         store.append(list);
+        if (Array.isArray(value)) {
+          store.setChecked(value);
+        }
+      }
+    },
 
-        this.initChecked();
-      }
-    },
-    initChecked(): void {
-      const {
-        value,
-        store,
-      } = this;
-      if (Array.isArray(value)) {
-        value.forEach((val: string) => {
-          const node = store.getNode(val);
-          if (node) {
-            node.setChecked(true);
-          }
-        });
-      }
-    },
     updateValue(): void {
       const {
         store,
