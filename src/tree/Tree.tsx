@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 import { TreeStore } from './TreeStore';
-import { TreeNode } from './treeNode';
+import { TreeNode } from './TreeNode';
 import TreeItem from './TreeItem';
 import {
   TreeProps,
