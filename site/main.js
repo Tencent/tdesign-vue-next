@@ -25,7 +25,8 @@ Vue.component('tdesign-demo', Demo);
 Vue.component('tdesign-component-contributors', ComponentContributors);
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
+  base: 'vue',
   routes,
 });
 
