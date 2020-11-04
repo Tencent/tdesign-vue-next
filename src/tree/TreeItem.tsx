@@ -105,7 +105,7 @@ export default Vue.extend({
     handleChange() {
       const { node } = this;
       const state: EventState = {
-        name: 'change',
+        name: 'click',
         node,
       };
       this.$emit('change', state);

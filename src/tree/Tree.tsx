@@ -13,7 +13,6 @@ import {
 } from './constants';
 import {
   getRole,
-  mergeKeysToArray,
 } from './util';
 
 export default Vue.extend({
@@ -49,6 +48,12 @@ export default Vue.extend({
         list.push(CLASS_NAMES.treeFx);
       }
       return list;
+    },
+  },
+  watch: {
+    value(nVal) {
+      this.store.reset();
+      this.store.setChecked(nVal);
     },
   },
   methods: {
@@ -142,25 +147,12 @@ export default Vue.extend({
           onReflow: () => {
             this.updateNodes();
           },
-          onUpdate: () => {
-            this.updateValue();
-          },
         });
         this.store = store;
         store.append(list);
         if (Array.isArray(value)) {
           store.setChecked(value);
         }
-      }
-    },
-
-    updateValue(): void {
-      const {
-        store,
-        value,
-      } = this;
-      if (Array.isArray(value)) {
-        mergeKeysToArray(store.checkedMap, value);
       }
     },
     handleClick(state: EventState): void {
@@ -201,15 +193,18 @@ export default Vue.extend({
       this.$emit('click', state);
       this.updateNodes();
     },
-    handleChange(state: any) {
+    handleChange(state: EventState): void {
+      const {
+        disabled,
+      } = this;
       const {
         node,
       } = state;
-      if (!node || this.disabled || node.disabled) {
+      if (!node || disabled || node.disabled) {
         return;
       }
-      node.toggleChecked();
-      this.$emit('change', state);
+      const checked = node.toggleChecked();
+      this.$emit('change', checked);
     },
   },
   created() {

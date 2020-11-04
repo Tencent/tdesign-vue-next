@@ -4,7 +4,12 @@ import setInstallFn from '../utils/setInstallFn';
 
 const Tree = mapProps([
   'value',
-])(_Tree);
+], {
+  model: {
+    prop: 'value',
+    event: 'change',
+  },
+})(_Tree);
 
 setInstallFn('Tree', Tree);
 

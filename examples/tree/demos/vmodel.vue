@@ -98,6 +98,7 @@ export default {
     },
     onChange(state) {
       console.log('on change:', state);
+      this.checked = state;
     },
   },
 };
