@@ -2,25 +2,6 @@
   <div>
     <t-select
       v-model="value"
-      :popupProps="{
-        overlayStyle: {width:'300px'}
-      }"
-      size="small"
-      class="demo-select-base"
-      @change="handleChange"
-      @visible-change="visibleChange"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
-    <t-select
-      v-model="value"
       placeholder="-请选择-"
       :clearable="true"
       class="demo-select-base"
