@@ -17,12 +17,14 @@ export default Vue.extend({
       this.$dialog({
         header: 'Dialog-Plugin',
         body: 'Hi, darling! Do you want to be my lover?',
-        onConfirm: (type) => {
+        onConfirm: (event, type) => {
           console.log('Yes, I do!');
+          console.log('event: ', event);
           console.log('type: ', type);
         },
-        onClose: (type) => {
+        onClose: (event, type) => {
           console.log('No, I don\'t!');
+          console.log('event: ', event);
           console.log('type: ', type);
         },
       });
@@ -47,11 +49,13 @@ export default Vue.extend({
         body: 'Are you sure to delete it?',
         confirmContent: 'ok',
         cancelContent: 'cancel',
-        onConfirm: (type, close) => {
+        onConfirm: (event, type, close) => {
+          console.log('event: ', event);
           console.log('confirm button has been clicked!');
           close();
         },
-        onClose: (type, close) => {
+        onClose: (event, type, close) => {
+          console.log('event: ', event);
           console.log('type: ', type);
           close();
         },
@@ -65,10 +69,12 @@ export default Vue.extend({
           content: 'Got it!',
           theme: 'warning',
         },
-        onConfirm: (type) => {
+        onConfirm: (event, type) => {
+          console.log('event: ', event);
           console.log('type: ', type);
         },
-        onClose: (type) => {
+        onClose: (event, type) => {
+          console.log('event: ', event);
           console.log('type: ', type);
         },
       });
