@@ -18,10 +18,10 @@
 <script>
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
-  { colKey: 'status', title: '状态', width: 100 },
+  { colKey: 'status', title: '状态', width: 100, scopedSlots: { customRender: 'status' } },
   { colKey: 'owner', title: '管理员' },
   { colKey: 'description', title: '描述' },
-  { colKey: 'op', width: 200, slots: { title: 'op-column' } },
+  { colKey: 'op', width: 200, scopedSlots: { title: 'op-column', customRender: 'op' } },
 ];
 const data = [
   { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', description: 'test' },

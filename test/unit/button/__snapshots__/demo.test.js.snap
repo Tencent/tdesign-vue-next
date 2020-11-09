@@ -453,11 +453,15 @@ exports[`Button status demo works fine 1`] = `
   <div
     class="tdesign-demo-block"
   >
-    <button
-      class="t-button t-button--ghost-line"
+    <span
+      class="tdesign-wrap"
     >
-      幽灵次要按钮
-    </button>
+      <button
+        class="t-button t-button--ghost-line"
+      >
+        幽灵次要按钮
+      </button>
+    </span>
      
     <button
       class="t-button t-button--ghost-line t-is-disabled"

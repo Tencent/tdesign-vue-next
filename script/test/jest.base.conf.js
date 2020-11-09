@@ -24,6 +24,7 @@ module.exports = {
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
   },
   testRegex: '.*\\.test\\.js$',
+  testPathIgnorePatterns: ['/node_modules/', '.history'],
   setupFiles: ['<rootDir>/script/test/setup'],
   globals: {
     'ts-jest': {
