@@ -23,11 +23,11 @@ function createDialog(options: DialogProps) {
     dialog.$on(eventName, async (closeFn: Function, e: Event) => {
       try {
         if (eventName === eventNames[0] && typeof options.onConfirm === 'function') {
-          await options.onConfirm(e, eventTypes[0], close);
+          await options.onConfirm({ e, trigger: eventTypes[0], close });
         }
         const closeType = eventNames.indexOf(eventName, 1);
         if (closeType !== -1 && typeof options.onClose === 'function') {
-          await options.onClose(e, eventTypes[closeType], close);
+          await options.onClose({ e, trigger: eventTypes[closeType], close });
         }
         close(); // onConfirm/onClose 在 reject 时，不在组件内部执行关闭
       } catch (e) {
