@@ -17,13 +17,15 @@ export default Vue.extend({
       this.$dialog({
         header: 'Dialog-Plugin',
         body: 'Hi, darling! Do you want to be my lover?',
-        onConfirm: (type) => {
+        onConfirm: ({ e, trigger }) => {
           console.log('Yes, I do!');
-          console.log('type: ', type);
+          console.log('e: ', e);
+          console.log('trigger: ', trigger);
         },
-        onClose: (type) => {
+        onClose: ({ e, trigger }) => {
           console.log('No, I don\'t!');
-          console.log('type: ', type);
+          console.log('e: ', e);
+          console.log('trigger: ', trigger);
         },
       });
     },
@@ -47,12 +49,15 @@ export default Vue.extend({
         body: 'Are you sure to delete it?',
         confirmContent: 'ok',
         cancelContent: 'cancel',
-        onConfirm: (type, close) => {
+        onConfirm: ({ e, trigger, close }) => {
           console.log('confirm button has been clicked!');
+          console.log('e: ', e);
+          console.log('trigger: ', trigger);
           close();
         },
-        onClose: (type, close) => {
-          console.log('type: ', type);
+        onClose: ({ e, trigger, close }) => {
+          console.log('e: ', e);
+          console.log('trigger: ', trigger);
           close();
         },
       });
@@ -65,11 +70,13 @@ export default Vue.extend({
           content: 'Got it!',
           theme: 'warning',
         },
-        onConfirm: (type) => {
-          console.log('type: ', type);
+        onConfirm: ({ e, trigger }) => {
+          console.log('e: ', e);
+          console.log('trigger: ', trigger);
         },
-        onClose: (type) => {
-          console.log('type: ', type);
+        onClose: ({ e, trigger }) => {
+          console.log('e: ', e);
+          console.log('trigger: ', trigger);
         },
       });
     },
