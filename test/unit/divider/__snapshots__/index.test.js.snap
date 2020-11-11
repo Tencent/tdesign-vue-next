@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Divider :props :dashed 1`] = `<div class="t-divider t-divider--horizontal t-divider--dashed"></div>`;
+
+exports[`Divider :props :orientation 1`] = `<div class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"><span class="t-divider-inner-text">腾讯左</span></div>`;
+
+exports[`Divider :props :type 1`] = `<div class="t-divider t-divider--vertical"></div>`;
+
+exports[`Divider <slot> default 1`] = `<div class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"><span class="t-divider-inner-text">腾讯中</span></div>`;
