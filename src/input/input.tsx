@@ -36,7 +36,7 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       type: String,
       default: 'default',
       validator(v: string): boolean {
-        return ['large', 'default', 'small'].indexOf(v) > -1;
+        return ['large', 'default'].indexOf(v) > -1;
       },
     },
     disabled: Boolean,

@@ -24,8 +24,10 @@ Vue.component('tdesign-layout', Layout);
 Vue.component('tdesign-demo', Demo);
 Vue.component('tdesign-component-contributors', ComponentContributors);
 
+console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 const router = new VueRouter({
-  mode: 'hash',
+  mode: process.env.PUBLICPATH === './' ? 'hash' : 'history',
+  base: 'vue',
   routes,
 });
 
