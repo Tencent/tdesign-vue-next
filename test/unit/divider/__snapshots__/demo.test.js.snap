@@ -42,7 +42,7 @@ exports[`Divider dividerWithText demo works fine 1`] = `
     class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
   >
     <span
-      classname="t-divider-inner-text"
+      class="t-divider-inner-text"
     >
       腾讯左
     </span>
@@ -58,7 +58,7 @@ exports[`Divider dividerWithText demo works fine 1`] = `
     class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
   >
     <span
-      classname="t-divider-inner-text"
+      class="t-divider-inner-text"
     >
       腾讯中
     </span>
@@ -74,7 +74,7 @@ exports[`Divider dividerWithText demo works fine 1`] = `
     class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-right"
   >
     <span
-      classname="t-divider-inner-text"
+      class="t-divider-inner-text"
     >
       腾讯右
     </span>

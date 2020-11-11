@@ -1,4 +1,4 @@
-## divider 
+## Divider 分割线 
 
 ::: demo demos/base 水平分割线
 :::

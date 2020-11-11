@@ -63,7 +63,7 @@ export default Vue.extend({
 
     return (
       <div class={dividerClassNames}>
-          { children ? <span className={`${prefix}-divider-inner-text`}>{children}</span> : null}
+          { children ? <span class={`${prefix}-divider-inner-text`}>{children}</span> : null}
       </div>
     );
   },
