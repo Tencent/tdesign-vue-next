@@ -17,7 +17,6 @@
       body="自定义偏移量的对话框"
       :offset="offset"
       v-model="visibleOffset"
-      @close="closeOffsetDialog"
     ></t-dialog>
   </div>
 </template>
@@ -29,15 +28,9 @@ export default Vue.extend({
       visible: false,
       visibleCenter: false,
       visibleOffset: false,
-      placement: 'center',
+      placement: 'top',
       offset: { left: 20, right: '100%', top: '200px' },
     };
-  },
-  methods: {
-    closeOffsetDialog(close: Function) {
-      close();
-      this.placement = 'top';
-    },
   },
 });
 </script>

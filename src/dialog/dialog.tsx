@@ -18,11 +18,30 @@ function GetTransformByOffset(offset: any, placement: string) {
   const { left, right, top, bottom } = offset;
   let translateY: string = placement === 'center' ? '-50%' : '0px';
   let translateX = '-50%';
-  left && (translateX = `${translateX} - ${GetCSSValue(left)}`);
-  right && (translateX = `${translateX} + ${GetCSSValue(right)}`);
-  top && (translateY = `${translateY} - ${GetCSSValue(top)}`);
-  bottom && (translateY = `${translateY} + ${GetCSSValue(bottom)}`);
-  return `translate(calc(${translateX}),calc(${translateY}))`;
+  let originX = '-25%';
+  let originY = '-25%';
+
+  if (left) {
+    translateX = `${translateX} - ${GetCSSValue(left)}`;
+    originX = `${originX} - ${GetCSSValue(left)}`;
+  }
+  if (right) {
+    translateX = `${translateX} + ${GetCSSValue(right)}`;
+    originX = `${originX} + ${GetCSSValue(right)}`;
+  }
+  if (top) {
+    translateY = `${translateY} - ${GetCSSValue(top)}`;
+    originY = `${originY} - ${GetCSSValue(top)}`;
+  }
+  if (bottom) {
+    translateY = `${translateY} + ${GetCSSValue(bottom)}`;
+    originY = `${originY} + ${GetCSSValue(bottom)}`;
+  }
+
+  return {
+    transform: `translate(calc(${translateX}),calc(${translateY}))`,
+    transformOrigin: `calc(${originX}) calc(${originY})`,
+  };
 }
 
 // 注册元素的拖拽事件
@@ -208,7 +227,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      transform: undefined,
+      transform: {},
     };
   },
   methods: {
@@ -383,7 +402,7 @@ export default Vue.extend({
     },
     renderDialog(h: CreateElement) {
       const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
-      const dialogStyle: any = { width: GetCSSValue(this.width), transform: this.transform };
+      const dialogStyle: any = { width: GetCSSValue(this.width), ...this.transform };
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div key='dialog' class={dialogClass} style={dialogStyle} v-draggable={!this.isModal && this.draggable}>
