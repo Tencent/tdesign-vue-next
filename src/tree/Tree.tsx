@@ -52,8 +52,10 @@ export default Vue.extend({
   },
   watch: {
     value(nVal) {
-      this.store.reset();
-      this.store.setChecked(nVal);
+      this.store.replaceChecked(nVal);
+    },
+    expanded(nVal) {
+      this.store.replaceExpanded(nVal);
     },
   },
   methods: {
@@ -153,9 +155,25 @@ export default Vue.extend({
         this.store = store;
         store.append(list);
         if (Array.isArray(value)) {
-          store.setChecked(value);
+          store.replaceChecked(value);
         }
       }
+    },
+    toggleExpanded(node: TreeNode): string[] {
+      return this.setExpanded(node, !node.isExpanded());
+    },
+    setExpanded(node: TreeNode, isExpanded: boolean): string[] {
+      const expanded = node.setExpanded(isExpanded);
+      this.$emit('expand', expanded);
+      return expanded;
+    },
+    toggleChecked(node: TreeNode): string[] {
+      return this.setChecked(node, !node.isChecked());
+    },
+    setChecked(node: TreeNode, isChecked: boolean): string[] {
+      const checked = node.setChecked(isChecked);
+      this.$emit('change', checked);
+      return checked;
     },
     handleClick(state: EventState): void {
       const {
@@ -177,22 +195,23 @@ export default Vue.extend({
           clickOnIcon = true;
         }
       }
+      let shouldToggleActive = false;
       if (this.expandOnClickNode) {
         if (clickOnIcon) {
-          node.toggleExpand();
+          this.toggleExpanded(node);
         }
         if (!clickOnRole) {
-          node.toggleActive();
-          node.toggleExpand();
+          shouldToggleActive = true;
+          this.toggleExpanded(node);
         }
       } else {
         if (clickOnIcon) {
-          node.toggleExpand();
+          this.toggleExpanded(node);
         } else if (!clickOnRole) {
-          node.toggleActive();
+          shouldToggleActive = true;
         }
       }
-      this.$emit('click', state);
+      this.$emit('click', state, shouldToggleActive);
       this.updateNodes();
     },
     handleChange(state: EventState): void {
@@ -205,8 +224,7 @@ export default Vue.extend({
       if (!node || disabled || node.disabled) {
         return;
       }
-      const checked = node.toggleChecked();
-      this.$emit('change', checked);
+      this.toggleChecked(node);
     },
   },
   created() {

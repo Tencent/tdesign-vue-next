@@ -3,7 +3,14 @@ import mapProps from '../utils/map-props';
 import setInstallFn from '../utils/setInstallFn';
 
 const Tree = mapProps([
-  'value',
+  {
+    name: 'value',
+    event: 'change',
+  },
+  {
+    name: 'expanded',
+    event: 'expand',
+  },
 ], {
   model: {
     prop: 'value',

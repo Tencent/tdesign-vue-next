@@ -1,13 +1,23 @@
 <template>
   <div class="tdesign-tree-base">
-    <t-input placeholder="请输入内容" :value="allChecked"/>
+    <t-addon prepend="checked:">
+      <t-input :value="allChecked"/>
+    </t-addon>
+    <t-addon prepend="expanded:">
+      <t-input :value="allExpanded"/>
+    </t-addon>
+    <t-addon prepend="actived:">
+      <t-input :value="allActived"/>
+    </t-addon>
     <t-tree
       :data="items"
       :hover="true"
       :checkable="true"
-      :expand-all="true"
+      :default-expanded="expanded"
+      :default-actived="actived"
       :default-value="checked"
       :value-mode="valueMode"
+      @expand="onExpand"
       @change="onChange"
       @click="onClick"
     />
@@ -20,6 +30,8 @@ export default {
     return {
       valueMode: 'all',
       checked: ['1.1.1.1', '1.1.1.2'],
+      expanded: [],
+      actived: [],
       items: [{
         value: '1',
         label: '1',
@@ -93,6 +105,20 @@ export default {
       }
       return arr.join();
     },
+    allExpanded() {
+      let arr = [];
+      if (Array.isArray(this.expanded)) {
+        arr = this.expanded;
+      }
+      return arr.join();
+    },
+    allActived() {
+      let arr = [];
+      if (Array.isArray(this.actived)) {
+        arr = this.actived;
+      }
+      return arr.join();
+    },
   },
   methods: {
     onClick(state) {
@@ -101,6 +127,14 @@ export default {
     onChange(state) {
       console.log('on change:', state);
       this.checked = state;
+    },
+    onExpand(state) {
+      console.log('on expand:', state);
+      this.expanded = state;
+    },
+    onActive(state) {
+      console.log('on active:', state);
+      this.actived = state;
     },
   },
 };

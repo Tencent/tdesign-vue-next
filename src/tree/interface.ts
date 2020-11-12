@@ -34,6 +34,18 @@ export const TreeProps = {
     type: Boolean,
     default: true,
   },
+  expanded: {
+    type: Array,
+    default(): string[] {
+      return [];
+    },
+  },
+  defaultExpanded: {
+    type: Array,
+    default(): string[] {
+      return [];
+    },
+  },
   activable: {
     type: Boolean,
     default: false,
@@ -41,6 +53,18 @@ export const TreeProps = {
   activeMultiple: {
     type: Boolean,
     default: false,
+  },
+  actived: {
+    type: Array,
+    default(): string[] {
+      return [];
+    },
+  },
+  defaultActived: {
+    type: Array,
+    default(): string[] {
+      return [];
+    },
   },
   disabled: {
     type: Boolean,
