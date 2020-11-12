@@ -6,7 +6,8 @@
       :hover="true"
       :checkable="true"
       :expand-all="true"
-      :value="checked"
+      :default-value="checked"
+      :value-mode="valueMode"
       @change="onChange"
       @click="onClick"
     />
@@ -17,6 +18,7 @@
 export default {
   data() {
     return {
+      valueMode: 'all',
       checked: ['1.1.1.1', '1.1.1.2'],
       items: [{
         value: '1',

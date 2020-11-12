@@ -130,6 +130,7 @@ export default Vue.extend({
         load,
         lazy,
         value,
+        valueMode,
       } = this;
       if (list && list.length > 0) {
         const store = new TreeStore({
@@ -144,6 +145,7 @@ export default Vue.extend({
           disabled,
           load,
           lazy,
+          valueMode,
           onReflow: () => {
             this.updateNodes();
           },

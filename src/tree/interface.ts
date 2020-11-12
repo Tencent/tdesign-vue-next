@@ -81,6 +81,10 @@ export const TreeProps = {
       return [];
     },
   },
+  valueMode: {
+    type: String,
+    default: 'all',
+  },
 };
 
 export const TreeNodeProps = {
