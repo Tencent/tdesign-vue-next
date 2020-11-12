@@ -65,8 +65,8 @@
 
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
-| onConfirm | ({ trigger: string, close: Function }) => void / Promise | - | N | trigger可选项: confirm 。确认回调，在回调执行结束后(含 Promise 返回)，弹框会关闭 |
-| onClose | ({ trigger: string, close: Function }) => void / Promise | - | N | trigger可选项: cancel/closeBtn/overlay/esc 。取消回调，在回调执行结束后(含 Promise 返回)，弹框会关闭 |
+| onConfirm | ({ e: Event, trigger: string, close: Function }) => void / Promise | - | N | trigger可选项: confirm 。确认回调，在回调执行结束后(含 Promise 返回)，弹框会关闭 |
+| onClose | ({ e: Event, trigger: string, close: Function }) => void / Promise | - | N | trigger可选项: cancel/closeBtn/overlay/esc 。取消回调，在回调执行结束后(含 Promise 返回)，弹框会关闭 |
 
 <br/>
 返回 Dialog 操作对象 { show, hide, update, destroy } 如下:<br/><br/>
