@@ -57,6 +57,9 @@ export default Vue.extend({
     expanded(nVal) {
       this.store.replaceExpanded(nVal);
     },
+    actived(nVal) {
+      this.store.replaceActived(nVal);
+    },
   },
   methods: {
     updateNodes() {
@@ -159,12 +162,24 @@ export default Vue.extend({
         }
       }
     },
+    toggleActived(node: TreeNode): string[] {
+      return this.setActived(node, !node.isActived());
+    },
+    setActived(node: TreeNode, isActived: boolean) {
+      const actived = node.setActived(isActived);
+      this.$emit('active', actived);
+      // todo: 解决受控参数配置问题
+      // this.store.replaceActived(actived);
+      return actived;
+    },
     toggleExpanded(node: TreeNode): string[] {
       return this.setExpanded(node, !node.isExpanded());
     },
     setExpanded(node: TreeNode, isExpanded: boolean): string[] {
       const expanded = node.setExpanded(isExpanded);
       this.$emit('expand', expanded);
+      // todo: 解决受控参数配置问题
+      // this.store.replaceExpanded(expanded);
       return expanded;
     },
     toggleChecked(node: TreeNode): string[] {
@@ -189,29 +204,36 @@ export default Vue.extend({
       );
       let clickOnRole = false;
       let clickOnIcon = false;
+      let clickOnLabel = false;
       if (role && role.name) {
         clickOnRole = true;
         if (role.name === 'icon') {
           clickOnIcon = true;
         }
+        if (role.name === 'label') {
+          clickOnLabel = true;
+        }
       }
-      let shouldToggleActive = false;
       if (this.expandOnClickNode) {
         if (clickOnIcon) {
           this.toggleExpanded(node);
         }
         if (!clickOnRole) {
-          shouldToggleActive = true;
+          this.toggleActived(node);
           this.toggleExpanded(node);
+        } else if (clickOnLabel) {
+          this.toggleActived(node);
         }
       } else {
         if (clickOnIcon) {
           this.toggleExpanded(node);
+        } else if (clickOnLabel) {
+          this.toggleActived(node);
         } else if (!clickOnRole) {
-          shouldToggleActive = true;
+          this.toggleActived(node);
         }
       }
-      this.$emit('click', state, shouldToggleActive);
+      this.$emit('click', state);
       this.updateNodes();
     },
     handleChange(state: EventState): void {

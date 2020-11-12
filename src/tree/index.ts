@@ -11,6 +11,10 @@ const Tree = mapProps([
     name: 'expanded',
     event: 'expand',
   },
+  {
+    name: 'actived',
+    event: 'active',
+  },
 ], {
   model: {
     prop: 'value',

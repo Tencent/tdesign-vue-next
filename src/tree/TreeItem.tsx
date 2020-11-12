@@ -36,7 +36,7 @@ export default Vue.extend({
       list.push(CLASS_NAMES.treeNode);
       list.push({
         [CLASS_NAMES.treeNodeOpen]: node.expanded,
-        [CLASS_NAMES.treeNodeActive]: node.active,
+        [CLASS_NAMES.treeNodeActive]: node.actived,
         [CLASS_NAMES.treeNodeHidden]: !node.visible,
         [CLASS_NAMES.disabled]: node.disabled,
       });

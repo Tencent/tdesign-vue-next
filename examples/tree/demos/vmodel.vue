@@ -11,14 +11,17 @@
     </t-addon>
     <t-tree
       :data="items"
-      :hover="true"
       :checkable="true"
+      :activable="true"
+      :expand-on-click-node="false"
+      :active-multiple="false"
       :default-expanded="expanded"
       :default-actived="actived"
       :default-value="checked"
       :value-mode="valueMode"
       @expand="onExpand"
       @change="onChange"
+      @active="onActive"
       @click="onClick"
     />
   </div>
@@ -87,12 +90,15 @@ export default {
       }, {
         value: '2',
         label: '2',
+        checkable: false,
         children: [{
           value: '2.1',
           label: '2.1',
+          checkable: false,
         }, {
           value: '2.2',
           label: '2.2',
+          checkable: false,
         }],
       }],
     };
@@ -103,21 +109,21 @@ export default {
       if (Array.isArray(this.checked)) {
         arr = this.checked;
       }
-      return arr.join();
+      return arr.join(', ');
     },
     allExpanded() {
       let arr = [];
       if (Array.isArray(this.expanded)) {
         arr = this.expanded;
       }
-      return arr.join();
+      return arr.join(', ');
     },
     allActived() {
       let arr = [];
       if (Array.isArray(this.actived)) {
         arr = this.actived;
       }
-      return arr.join();
+      return arr.join(', ');
     },
   },
   methods: {
