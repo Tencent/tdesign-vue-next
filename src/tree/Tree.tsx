@@ -56,6 +56,7 @@ export default Vue.extend({
     },
     expanded(nVal) {
       this.store.replaceExpanded(nVal);
+      this.updateNodes();
     },
     actived(nVal) {
       this.store.replaceActived(nVal);
@@ -168,8 +169,6 @@ export default Vue.extend({
     setActived(node: TreeNode, isActived: boolean) {
       const actived = node.setActived(isActived);
       this.$emit('active', actived);
-      // todo: 解决受控参数配置问题
-      // this.store.replaceActived(actived);
       return actived;
     },
     toggleExpanded(node: TreeNode): string[] {
@@ -178,8 +177,6 @@ export default Vue.extend({
     setExpanded(node: TreeNode, isExpanded: boolean): string[] {
       const expanded = node.setExpanded(isExpanded);
       this.$emit('expand', expanded);
-      // todo: 解决受控参数配置问题
-      // this.store.replaceExpanded(expanded);
       return expanded;
     },
     toggleChecked(node: TreeNode): string[] {
