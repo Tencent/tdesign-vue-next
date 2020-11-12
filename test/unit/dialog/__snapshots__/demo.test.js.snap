@@ -9,8 +9,8 @@ exports[`Dialog base demo works fine 1`] = `
   </button>
    
   <div
-    class="t-dialog-ctx t-not-visable v-transfer-dom"
-    style="z-index: 2500;"
+    class="t-dialog-ctx v-transfer-dom"
+    style="z-index: 2500; display: none;"
   >
     <div
       class="t-dialog-mask"
@@ -94,8 +94,8 @@ exports[`Dialog others demo works fine 1`] = `
   </button>
    
   <div
-    class="t-dialog-ctx t-not-visable v-transfer-dom"
-    style="z-index: 2500;"
+    class="t-dialog-ctx v-transfer-dom"
+    style="z-index: 2500; display: none;"
   >
     <div
       class="t-dialog t-dialog--default t-dialog--top"
@@ -217,8 +217,8 @@ exports[`Dialog position demo works fine 1`] = `
   </button>
    
   <div
-    class="t-dialog-ctx t-not-visable v-transfer-dom"
-    style="z-index: 2500;"
+    class="t-dialog-ctx v-transfer-dom"
+    style="z-index: 2500; display: none;"
   >
     <div
       class="t-dialog-mask"
@@ -274,8 +274,8 @@ exports[`Dialog position demo works fine 1`] = `
   </div>
    
   <div
-    class="t-dialog-ctx t-not-visable v-transfer-dom"
-    style="z-index: 2500;"
+    class="t-dialog-ctx v-transfer-dom"
+    style="z-index: 2500; display: none;"
   >
     <div
       class="t-dialog-mask"
@@ -331,15 +331,15 @@ exports[`Dialog position demo works fine 1`] = `
   </div>
    
   <div
-    class="t-dialog-ctx t-not-visable v-transfer-dom"
-    style="z-index: 2500;"
+    class="t-dialog-ctx v-transfer-dom"
+    style="z-index: 2500; display: none;"
   >
     <div
       class="t-dialog-mask"
     />
     <div
-      class="t-dialog t-dialog--default t-dialog--center"
-      style="transform: translate(calc(-50% - 20px + 100%),calc(-50% - 200px));"
+      class="t-dialog t-dialog--default t-dialog--top"
+      style="transform: translate(calc(-50% - 20px + 100%),calc(0px - 200px)); transform-origin: calc(-25% - 20px + 100%) calc(-25% - 200px);"
     >
       <div
         class="t-dialog__header"
@@ -393,11 +393,11 @@ exports[`Dialog position demo works fine 1`] = `
 exports[`Dialog standalone demo works fine 1`] = `
 <div>
   <div
-    class="standalone-dialog t-dialog-ctx t-is-visable v-transfer-dom"
+    class="standalone-dialog t-dialog-ctx v-transfer-dom"
     style="z-index: 0;"
   >
     <div
-      class="t-dialog-mask"
+      class="t-dialog-mask t-dialog-mask--hidden"
     />
     <div
       class="t-dialog t-dialog--default t-dialog--top"
