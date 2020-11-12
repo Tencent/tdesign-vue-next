@@ -57,7 +57,7 @@ const DialogPlugin = createDialog as (typeof createDialog & PluginObject<void>);
 DialogPlugin.confirm = (options: ConfirmProps) => createDialog(options);
 
 DialogPlugin.alert = (options: AlertProps) => {
-  options.cancelContent = false;
+  options.cancelBtn = false;
   return createDialog(options);
 };
 

@@ -47,8 +47,8 @@ export default Vue.extend({
       this.$dialog.confirm({
         header: 'Dialog-Confirm-Plugin',
         body: 'Are you sure to delete it?',
-        confirmContent: 'ok',
-        cancelContent: 'cancel',
+        confirmBtn: 'ok',
+        cancelBtn: 'cancel',
         onConfirm: ({ e, trigger, close }) => {
           console.log('confirm button has been clicked!');
           console.log('e: ', e);
@@ -66,7 +66,7 @@ export default Vue.extend({
       this.$dialog.alert({
         header: 'Dialog-Alert-Plugin',
         body: 'Notice: Your balance is going to be empty.',
-        confirmContent: {
+        confirmBtn: {
           content: 'Got it!',
           theme: 'warning',
         },

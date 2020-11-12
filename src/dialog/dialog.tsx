@@ -153,11 +153,11 @@ export default Vue.extend({
       type: [Function, String, Boolean],
       default: false,
     },
-    confirmContent: {
+    confirmBtn: {
       type: [String, Function, Object, Boolean],
       default: '确认',
     },
-    cancelContent: {
+    cancelBtn: {
       type: [String, Function, Object, Boolean],
       default: '取消',
     },
@@ -366,8 +366,8 @@ export default Vue.extend({
     renderFooter(h: CreateElement) {
       const defaultView = (
         <div>
-          {this.renderDefaultBtn(h, 'cancel', this.cancelContent)}
-          {this.renderDefaultBtn(h, 'confirm', this.confirmContent)}
+          {this.renderDefaultBtn(h, 'cancel', this.cancelBtn)}
+          {this.renderDefaultBtn(h, 'confirm', this.confirmBtn)}
         </div>
       );
       const target = this.footer;

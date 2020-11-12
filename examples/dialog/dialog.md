@@ -40,8 +40,8 @@
 |attach|Boolean/String/Function|false|N|指定弹框挂载点，默认子元素挂载；类型Boolean，true挂载document.body，false为子元素挂载；类型String，表示DOM选择器（querySelect）;类型Function，需返回DOM节点，如：()=>document.body|
 |zlndex|Number|2500|N|定位层级|
 |destroyOnClose|Boolean|false|N|关闭时销毁Dialog子元素|
-| confirmContent | string/boolean/Object/Function | '确认' | N | 确认按钮 |
-| cancelContent | string/boolean/Object/Function | '取消' | N | 取消按钮 |
+| confirmBtn | string/boolean/Object/Function | '确认' | N | 确认按钮 |
+| cancelBtn | string/boolean/Object/Function | '取消' | N | 取消按钮 |
 
 
 ### Dialog 事件
@@ -89,5 +89,5 @@
 
 ### this.$dialog.alert
 
-`this.$dialog.alert(options)` options 参数同 this.$dialog，无 `cancelContent` 。
+`this.$dialog.alert(options)` options 参数同 this.$dialog，无 `cancelBtn` 。
 
