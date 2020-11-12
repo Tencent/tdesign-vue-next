@@ -33,8 +33,8 @@ export default {
     return {
       valueMode: 'all',
       checked: ['1.1.1.1', '1.1.1.2'],
-      expanded: [],
-      actived: [],
+      expanded: ['1', '2'],
+      actived: ['2'],
       items: [{
         value: '1',
         label: '1',

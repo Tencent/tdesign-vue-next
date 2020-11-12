@@ -129,9 +129,11 @@ export default Vue.extend({
         activeMultiple,
         checkable,
         checkStrictly,
+        expanded,
         expandAll,
         expandLevel,
         expandMutex,
+        actived,
         disabled,
         load,
         lazy,
@@ -160,6 +162,12 @@ export default Vue.extend({
         store.append(list);
         if (Array.isArray(value)) {
           store.replaceChecked(value);
+        }
+        if (Array.isArray(expanded)) {
+          store.replaceExpanded(expanded);
+        }
+        if (Array.isArray(actived)) {
+          store.replaceActived(actived);
         }
       }
     },
