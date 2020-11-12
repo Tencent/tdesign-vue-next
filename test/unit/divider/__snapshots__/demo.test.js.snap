@@ -44,7 +44,7 @@ exports[`Divider dividerWithText demo works fine 1`] = `
     <span
       class="t-divider-inner-text"
     >
-      腾讯左
+      TDesign
     </span>
   </div>
    
@@ -60,7 +60,7 @@ exports[`Divider dividerWithText demo works fine 1`] = `
     <span
       class="t-divider-inner-text"
     >
-      腾讯中
+      TDesign
     </span>
   </div>
    
@@ -76,7 +76,7 @@ exports[`Divider dividerWithText demo works fine 1`] = `
     <span
       class="t-divider-inner-text"
     >
-      腾讯右
+      TDesign
     </span>
   </div>
    

@@ -26,7 +26,7 @@ describe('Divider', () => {
     it(':orientation', () => {
       const wrapper = mount({
         render() {
-          return <Divider orientation="left">腾讯左</Divider>;
+          return <Divider orientation="left">TDesign</Divider>;
         },
       });
       expect(wrapper).toMatchSnapshot();
@@ -38,7 +38,7 @@ describe('Divider', () => {
     it('default', () => {
       const wrapper = mount({
         render() {
-          return <Divider>腾讯中</Divider>;
+          return <Divider>TDesign</Divider>;
         },
       });
       expect(wrapper).toMatchSnapshot();
