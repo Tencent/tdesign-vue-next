@@ -18,6 +18,12 @@ export const TreeProps = {
       return {};
     },
   },
+  expanded: {
+    type: Array,
+    default(): string[] {
+      return [];
+    },
+  },
   expandAll: {
     type: Boolean,
     default: false,
@@ -34,11 +40,9 @@ export const TreeProps = {
     type: Boolean,
     default: true,
   },
-  expanded: {
-    type: Array,
-    default(): string[] {
-      return [];
-    },
+  expandParent: {
+    type: [String, Boolean],
+    default: 'auto',
   },
   defaultExpanded: {
     type: Array,

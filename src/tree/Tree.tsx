@@ -139,6 +139,7 @@ export default Vue.extend({
         expandAll,
         expandLevel,
         expandMutex,
+        expandParent,
         actived,
         disabled,
         load,
@@ -172,7 +173,18 @@ export default Vue.extend({
           store.setChecked(value);
         }
         if (Array.isArray(expanded)) {
-          store.setExpanded(expanded);
+          const expandedMap = new Map();
+          expanded.forEach((val) => {
+            expandedMap.set(val, true);
+            if (expandParent === 'auto') {
+              const node = store.getNode(val);
+              node.getParents().forEach((tn) => {
+                expandedMap.set(tn.value, true);
+              });
+            }
+          });
+          const expandedArr = Array.from(expandedMap.keys());
+          store.setExpanded(expandedArr);
         }
         if (Array.isArray(actived)) {
           store.setActived(actived);

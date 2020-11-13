@@ -6,7 +6,7 @@
     <t-tree
       :data="items"
       :expand-on-click-node="true"
-      :expand-all="true"
+      :default-expanded="expanded"
       :filter="filterByText"
     />
   </div>
@@ -18,6 +18,7 @@ export default {
     return {
       filterText: '',
       filterByText: null,
+      expanded: ['1.1.1'],
       items: [{
         value: '1',
         label: '1',
