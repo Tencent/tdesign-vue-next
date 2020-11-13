@@ -424,7 +424,7 @@ export default Vue.extend({
     const ctxClass = [`${name}-ctx`];
     return (
       <transition duration={300}
-        name={`${name}-vue-zoom`}
+        name={`${name}-zoom__vue`}
         onAfterEnter={this.afterEnter}
         onAfterLeave={this.afterLeave}>
         {
