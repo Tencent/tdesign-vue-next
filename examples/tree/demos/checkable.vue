@@ -4,6 +4,7 @@
       :data="items"
       :hover="true"
       :checkable="true"
+      :check-strictly="false"
       :expand-all="true"
       @change="onChange"
       @click="onClick"

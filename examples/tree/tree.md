@@ -46,5 +46,5 @@
 :::
 -->
 
-::: demo demos/filter 过滤
+::: demo demos/checkable 可选
 :::
