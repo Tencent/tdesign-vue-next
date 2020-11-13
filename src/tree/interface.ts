@@ -109,6 +109,9 @@ export const TreeProps = {
     type: String,
     default: 'all',
   },
+  filter: {
+    type: Function,
+  },
 };
 
 export const TreeNodeProps = {

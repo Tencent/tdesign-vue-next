@@ -56,15 +56,21 @@ export default Vue.extend({
     },
     expanded(nVal) {
       this.store.replaceExpanded(nVal);
-      this.updateNodes();
     },
     actived(nVal) {
       this.store.replaceActived(nVal);
     },
+    filter(nVal) {
+      const {
+        store,
+      } = this;
+      store.filter = nVal;
+      store.updateAll();
+    },
   },
   methods: {
-    updateNodes() {
-      // console.time('tree updateNodes');
+    refresh() {
+      // console.time('tree refresh');
       const {
         empty,
         store,
@@ -120,7 +126,7 @@ export default Vue.extend({
           index += 1;
         }
       });
-      // console.timeEnd('tree updateNodes');
+      // console.timeEnd('tree refresh');
     },
     build() {
       const list = this.data;
@@ -139,6 +145,7 @@ export default Vue.extend({
         lazy,
         value,
         valueMode,
+        filter,
       } = this;
       if (list && list.length > 0) {
         const store = new TreeStore({
@@ -154,8 +161,9 @@ export default Vue.extend({
           load,
           lazy,
           valueMode,
-          onReflow: () => {
-            this.updateNodes();
+          filter,
+          onUpdate: () => {
+            this.refresh();
           },
         });
         this.store = store;
@@ -170,7 +178,7 @@ export default Vue.extend({
           store.setActived(actived);
         }
         // 树的数据初始化之后，需要立即进行一次视图刷新
-        this.updateNodes();
+        this.refresh();
       }
     },
     toggleActived(node: TreeNode): string[] {
@@ -241,7 +249,6 @@ export default Vue.extend({
         }
       }
       this.$emit('click', state);
-      this.updateNodes();
     },
     handleChange(state: EventState): void {
       const {

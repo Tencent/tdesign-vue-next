@@ -5,15 +5,15 @@ import setInstallFn from '../utils/setInstallFn';
 const Tree = mapProps([
   {
     name: 'value',
-    event: 'change',
+    event: ['change', 'update:value'],
   },
   {
     name: 'expanded',
-    event: 'expand',
+    event: ['expand', 'update:expanded'],
   },
   {
     name: 'actived',
-    event: 'active',
+    event: ['active', 'update:actived'],
   },
 ], {
   model: {

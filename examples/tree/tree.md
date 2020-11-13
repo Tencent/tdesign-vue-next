@@ -41,7 +41,10 @@
 
 ::: demo demos/vmodel 受控
 :::
+
+::: demo demos/filter 过滤
+:::
 -->
 
-::: demo demos/vmodel 受控
+::: demo demos/filter 过滤
 :::
