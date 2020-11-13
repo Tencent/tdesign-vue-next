@@ -161,14 +161,16 @@ export default Vue.extend({
         this.store = store;
         store.append(list);
         if (Array.isArray(value)) {
-          store.replaceChecked(value);
+          store.setChecked(value);
         }
         if (Array.isArray(expanded)) {
-          store.replaceExpanded(expanded);
+          store.setExpanded(expanded);
         }
         if (Array.isArray(actived)) {
-          store.replaceActived(actived);
+          store.setActived(actived);
         }
+        // 树的数据初始化之后，需要立即进行一次视图刷新
+        this.updateNodes();
       }
     },
     toggleActived(node: TreeNode): string[] {
