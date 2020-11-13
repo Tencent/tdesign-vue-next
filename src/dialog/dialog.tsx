@@ -398,7 +398,9 @@ export default Vue.extend({
       } else if (typeof target === 'function') {
         view = target();
       }
-      return isShow && (view || defaultView);
+      return isShow && (<span class={`${name}__close`}>
+        {view || defaultView}
+      </span>);
     },
     renderDialog(h: CreateElement) {
       const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
