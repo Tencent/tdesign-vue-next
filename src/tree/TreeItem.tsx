@@ -54,12 +54,12 @@ export default Vue.extend({
       let icon = null;
       if (node.children) {
         if (node.loading && node.expanded) {
-          icon = (<span class="t-tree__icon"><TIconLoading role="icon"/></span>);
+          icon = (<span class={CLASS_NAMES.treeIcon}><TIconLoading role="icon"/></span>);
         } else {
-          icon = (<span class="t-tree__icon"><TIconArrowRight role="icon"/></span>);
+          icon = (<span class={CLASS_NAMES.treeIcon}><TIconArrowRight role="icon"/></span>);
         }
       } else {
-        icon = (<span class="t-tree__icon"></span>);
+        icon = (<span class={CLASS_NAMES.treeIcon}></span>);
       }
       if (icon) {
         itemNodes.push(icon);
@@ -71,6 +71,7 @@ export default Vue.extend({
       if (node.checkable) {
         labelNode = (
           <TCheckBox
+            class={CLASS_NAMES.label}
             checked={node.checked}
             indeterminate={node.indeterminate}
             disabled={node.disabled}

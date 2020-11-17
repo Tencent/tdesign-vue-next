@@ -248,13 +248,13 @@ export default Vue.extend({
         if (!clickOnRole) {
           this.toggleActived(node);
           this.toggleExpanded(node);
-        } else if (clickOnLabel) {
+        } else if (clickOnLabel && !node.checkable) {
           this.toggleActived(node);
         }
       } else {
         if (clickOnIcon) {
           this.toggleExpanded(node);
-        } else if (clickOnLabel) {
+        } else if (clickOnLabel && !node.checkable) {
           this.toggleActived(node);
         } else if (!clickOnRole) {
           this.toggleActived(node);

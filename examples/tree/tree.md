@@ -46,5 +46,5 @@
 :::
 -->
 
-::: demo demos/checkable 可选
+::: demo demos/vmodel 受控
 :::
