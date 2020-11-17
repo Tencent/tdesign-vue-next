@@ -1,6 +1,10 @@
 <template>
   <div class="tdesign-tree-base">
-    <t-tree :data="items" :empty="empty"/>
+    <t-tree
+      :data="items"
+      :empty="empty"
+      :expand-all="true"
+    />
   </div>
 </template>
 
@@ -17,7 +21,7 @@ export default {
         }, {
         }],
       }],
-      empty(node) {
+      empty(createElement, node) {
         return `value: ${node.value}`;
       },
     };

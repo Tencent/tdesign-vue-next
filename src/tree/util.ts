@@ -40,8 +40,11 @@ export function getRole(element?: HTMLElement, root?: HTMLElement): Role {
 export function getTNode(prop: any, options: any): string | VNode {
   let tnode = null;
   let item = null;
+  const conf = {
+    ...options,
+  };
   if (typeof prop === 'function') {
-    item = prop(options);
+    item = prop(conf.createElement, conf.node);
   }
   if (typeof item === 'string') {
     tnode = item;

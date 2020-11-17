@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import Vue, { VNode, CreateElement } from 'vue';
 import TIconArrowRight from '../icon/arrow-right';
 import TIconLoading from '../icon/loading';
 import TCheckBox from '../checkbox';
@@ -44,7 +44,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    renderItem(): Array<VNode> {
+    renderItem(createElement: CreateElement): Array<VNode> {
       const {
         node,
         empty,
@@ -65,7 +65,10 @@ export default Vue.extend({
         itemNodes.push(icon);
       }
 
-      const emptyNode = getTNode(empty, node);
+      const emptyNode = getTNode(empty, {
+        createElement,
+        node,
+      });
 
       let labelNode = null;
       if (node.checkable) {
@@ -112,7 +115,7 @@ export default Vue.extend({
       this.$emit('change', state);
     },
   },
-  render() {
+  render(createElement: CreateElement) {
     const {
       node,
       styles,
@@ -128,7 +131,7 @@ export default Vue.extend({
         data-level={level}
         style={styles}
         onClick={(evt: Event) => this.handleClick(evt)}
-      >{this.renderItem()}</div>
+      >{this.renderItem(createElement)}</div>
     );
   },
 });

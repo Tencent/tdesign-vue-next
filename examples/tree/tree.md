@@ -46,5 +46,5 @@
 :::
 -->
 
-::: demo demos/vmodel 受控
+::: demo demos/empty 自定义空白label
 :::
