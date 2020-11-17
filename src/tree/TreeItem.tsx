@@ -2,6 +2,8 @@ import Vue, { VNode, CreateElement } from 'vue';
 import TIconArrowRight from '../icon/arrow-right';
 import TIconLoading from '../icon/loading';
 import TCheckBox from '../checkbox';
+import Icon from '../icon/iconfont';
+
 import {
   TreeNodeProps,
   EventState,
@@ -44,6 +46,32 @@ export default Vue.extend({
     },
   },
   methods: {
+    renderIcon(createElement: CreateElement): VNode {
+      const {
+        node,
+        icon,
+      } = this;
+      let iconNode = null;
+      if (icon === true) {
+        if (node.children) {
+          iconNode = (<span class={CLASS_NAMES.treeIcon}><TIconArrowRight role="icon"/></span>);
+        } else {
+          iconNode = (<span class={CLASS_NAMES.treeIcon}></span>);
+        }
+      } else {
+        iconNode = getTNode(icon, {
+          createElement,
+          node,
+        });
+        if (typeof iconNode === 'string') {
+          iconNode = <span class={CLASS_NAMES.treeIcon}><Icon name={iconNode}></Icon></span>;
+        }
+      }
+      if (node.children && node.loading && node.expanded && icon !== false) {
+        iconNode = (<span class={CLASS_NAMES.treeIcon}><TIconLoading role="icon"/></span>);
+      }
+      return iconNode;
+    },
     renderLabel(createElement: CreateElement): VNode {
       const {
         node,
@@ -97,23 +125,11 @@ export default Vue.extend({
       return labelNode;
     },
     renderItem(createElement: CreateElement): Array<VNode> {
-      const {
-        node,
-      } = this;
       const itemNodes: Array<VNode> = [];
 
-      let icon = null;
-      if (node.children) {
-        if (node.loading && node.expanded) {
-          icon = (<span class={CLASS_NAMES.treeIcon}><TIconLoading role="icon"/></span>);
-        } else {
-          icon = (<span class={CLASS_NAMES.treeIcon}><TIconArrowRight role="icon"/></span>);
-        }
-      } else {
-        icon = (<span class={CLASS_NAMES.treeIcon}></span>);
-      }
-      if (icon) {
-        itemNodes.push(icon);
+      const iconNode = this.renderIcon(createElement);
+      if (iconNode) {
+        itemNodes.push(iconNode);
       }
 
       const labelNode = this.renderLabel(createElement);

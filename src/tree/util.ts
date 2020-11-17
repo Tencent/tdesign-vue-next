@@ -45,6 +45,8 @@ export function getTNode(prop: any, options: any): string | VNode {
   };
   if (typeof prop === 'function') {
     item = prop(conf.createElement, conf.node);
+  } else if (typeof prop === 'string') {
+    item = prop;
   }
   if (typeof item === 'string') {
     tnode = item;
