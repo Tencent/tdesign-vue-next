@@ -7,10 +7,6 @@ export const TreeProps = {
       return [];
     },
   },
-  empty: {
-    type: [Function, Object, String],
-    default: '',
-  },
   // key 属性是 vue 保留字，所以用 keys 替代
   keys: {
     type: Object,
@@ -116,6 +112,26 @@ export const TreeProps = {
   filter: {
     type: Function,
   },
+  empty: {
+    type: [Function, String],
+    default: '',
+  },
+  icon: {
+    type: [Function, String, Boolean],
+    default: true,
+  },
+  line: {
+    type: [Function, String, Boolean],
+    default: true,
+  },
+  label: {
+    type: [Function, String, Boolean],
+    default: true,
+  },
+  operations: {
+    type: [Function, String],
+    default: '',
+  },
 };
 
 export const TreeNodeProps = {
@@ -126,7 +142,23 @@ export const TreeNodeProps = {
     },
   },
   empty: {
-    type: [Function, Object, String],
+    type: [Function, String],
+    default: '',
+  },
+  icon: {
+    type: [Function, String, Boolean],
+    default: true,
+  },
+  line: {
+    type: [Function, String, Boolean],
+    default: true,
+  },
+  label: {
+    type: [Function, String, Boolean],
+    default: '',
+  },
+  operations: {
+    type: [Function, String],
     default: '',
   },
 };

@@ -3,9 +3,6 @@
 ::: demo demos/base 默认
 :::
 
-::: demo demos/empty 自定义空白label
-:::
-
 ::: demo demos/expandAll 初始化展开全部
 :::
 
@@ -44,7 +41,14 @@
 
 ::: demo demos/filter 过滤
 :::
--->
 
 ::: demo demos/empty 自定义空白label
+:::
+
+::: demo demos/label 自定义label
+:::
+
+-->
+
+::: demo demos/label 自定义label
 :::

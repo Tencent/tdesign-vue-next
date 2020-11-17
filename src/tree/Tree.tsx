@@ -73,6 +73,10 @@ export default Vue.extend({
       // console.time('tree refresh');
       const {
         empty,
+        icon,
+        label,
+        line,
+        operations,
         store,
         treeNodes,
       } = this;
@@ -114,6 +118,10 @@ export default Vue.extend({
                 key={node.value}
                 node={node}
                 empty={empty}
+                icon={icon}
+                label={label}
+                line={line}
+                operations={operations}
                 onClick={this.handleClick}
                 onChange={this.handleChange}
               />

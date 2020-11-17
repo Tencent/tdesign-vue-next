@@ -44,10 +44,61 @@ export default Vue.extend({
     },
   },
   methods: {
-    renderItem(createElement: CreateElement): Array<VNode> {
+    renderLabel(createElement: CreateElement): VNode {
       const {
         node,
         empty,
+        label,
+      } = this;
+
+      const emptyNode = getTNode(empty, {
+        createElement,
+        node,
+      });
+
+      let labelNode = null;
+      if (label === true) {
+        if (node.checkable) {
+          labelNode = (
+            <TCheckBox
+              class={CLASS_NAMES.label}
+              checked={node.checked}
+              indeterminate={node.indeterminate}
+              disabled={node.disabled}
+              name={node.value}
+              role="label"
+              onChange={() => this.handleChange()}
+            >{node.label || emptyNode}</TCheckBox>
+          );
+        } else {
+          labelNode = (
+            <span
+              class={CLASS_NAMES.label}
+              role="label"
+            >{node.label || emptyNode}</span>
+          );
+        }
+      } else {
+        labelNode = getTNode(label, {
+          createElement,
+          node,
+        });
+
+        if (typeof labelNode === 'string') {
+          labelNode = (
+            <span
+              class={CLASS_NAMES.label}
+              role="label"
+            >{labelNode || emptyNode}</span>
+          );
+        }
+      }
+
+      return labelNode;
+    },
+    renderItem(createElement: CreateElement): Array<VNode> {
+      const {
+        node,
       } = this;
       const itemNodes: Array<VNode> = [];
 
@@ -65,32 +116,7 @@ export default Vue.extend({
         itemNodes.push(icon);
       }
 
-      const emptyNode = getTNode(empty, {
-        createElement,
-        node,
-      });
-
-      let labelNode = null;
-      if (node.checkable) {
-        labelNode = (
-          <TCheckBox
-            class={CLASS_NAMES.label}
-            checked={node.checked}
-            indeterminate={node.indeterminate}
-            disabled={node.disabled}
-            name={node.value}
-            role="label"
-            onChange={() => this.handleChange()}
-          >{node.label || emptyNode}</TCheckBox>
-        );
-      } else {
-        labelNode = (
-          <span
-            class={CLASS_NAMES.label}
-            role="label"
-          >{node.label || emptyNode}</span>
-        );
-      }
+      const labelNode = this.renderLabel(createElement);
       if (labelNode) {
         itemNodes.push(labelNode);
       }
