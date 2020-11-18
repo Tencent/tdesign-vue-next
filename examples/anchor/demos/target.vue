@@ -7,10 +7,11 @@
 </template>
 
 <script>
+import { get } from 'lodash';
 export default {
   computed: {
     path() {
-      return this.$route.path;
+      return get(this, '$route.path', '');
     },
   },
 };
