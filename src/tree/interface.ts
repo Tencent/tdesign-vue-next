@@ -121,7 +121,7 @@ export const TreeProps = {
     default: true,
   },
   line: {
-    type: [Function, String, Boolean],
+    type: [Function, Boolean],
     default: true,
   },
   label: {
@@ -150,8 +150,8 @@ export const TreeNodeProps = {
     default: true,
   },
   line: {
-    type: [Function, String, Boolean],
-    default: true,
+    type: [Function, Boolean],
+    default: false,
   },
   label: {
     type: [Function, String, Boolean],
