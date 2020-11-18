@@ -1,24 +1,58 @@
 ## Alert 警告提醒
+警告条用于承载需要用户注意的信息。
 
-::: demo demos/base 默认
+## 何时使用
+需要告知用户需要关注的信息时，提示作用较强。
+
+## 1.组件类型
+
+### 1.1 基础警告
+警告条包含四种情况的提示：成功，消息，警示，失败
+
+::: demo demos/base
 :::
 
-::: demo demos/icon 带图标的警告
+### 1.2 带图标的警告
+
+::: demo demos/icon
 :::
 
-::: demo demos/close 带关闭操作
+### 1.3 带操作的警告
+1）带关闭操作
+
+::: demo demos/close
 :::
 
-::: demo demos/operation 带相关操作
+可自定义关闭操作
+
+::: demo demos/close
 :::
 
-::: demo demos/title 带相关描述文字
+2）带相关操作
+
+如有必要，可包含一个操作，用户可以采取措施或更详细地了解消息
+
+::: demo demos/operation
 :::
 
-::: demo demos/collapse 带折叠的警告
+### 1.4 带相关描述文字的警告
+当信息内容较复杂时，可使用相关描述文字辅助说明
+
+::: demo demos/title
 :::
 
-::: demo demos/swiper 带轮播的警告
+### 1.5 折叠的警告
+当信息内容超过2行时，可使用折叠的方式将部分信息隐藏
+
+::: demo demos/collapse
+:::
+
+### 1.6 轮播的警告
+当一个页面中需要使用多条警告时，可使用轮播的方式逐条展示信息
+
+每条信息停留时长建议为10秒，条数不超过三条，若条数太多，则可以考虑使用2.5的可折叠警告条
+
+::: demo demos/swiper
 :::
 
 ### Props
