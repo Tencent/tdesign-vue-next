@@ -53,7 +53,10 @@
 
 ::: demo demos/line 显示连线
 :::
+
+::: demo demos/operations 操作节点
+:::
 -->
 
-::: demo demos/load 异步加载节点
+::: demo demos/label 自定义label
 :::

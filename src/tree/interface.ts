@@ -107,7 +107,7 @@ export const TreeProps = {
   },
   valueMode: {
     type: String,
-    default: 'all',
+    default: 'onlyLeaf',
   },
   filter: {
     type: Function,

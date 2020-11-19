@@ -198,6 +198,10 @@ export default Vue.extend({
         label,
       } = this;
 
+      const {
+        scopedSlots,
+      } = node.tree;
+
       const emptyNode = getTNode(empty, {
         createElement,
         node,
@@ -205,36 +209,37 @@ export default Vue.extend({
 
       let labelNode = null;
       if (label === true) {
-        if (node.checkable) {
-          labelNode = (
-            <TCheckBox
-              class={CLASS_NAMES.label}
-              checked={node.checked}
-              indeterminate={node.indeterminate}
-              disabled={node.disabled}
-              name={node.value}
-              role="label"
-              onChange={() => this.handleChange()}
-            >{node.label || emptyNode}</TCheckBox>
-          );
-        } else {
-          labelNode = (
-            <span
-              class={CLASS_NAMES.label}
-              role="label"
-            >{node.label || emptyNode}</span>
-          );
+        labelNode = node.label || emptyNode;
+        if (scopedSlots?.label) {
+          labelNode = scopedSlots.label({
+            node,
+          });
         }
       } else {
         labelNode = getTNode(label, {
           createElement,
           node,
         });
+      }
+
+      if (node.checkable) {
+        labelNode = (
+          <TCheckBox
+            class={CLASS_NAMES.treeLabel}
+            checked={node.checked}
+            indeterminate={node.indeterminate}
+            disabled={node.disabled}
+            name={node.value}
+            role="label"
+            onChange={() => this.handleChange()}
+          >{labelNode}</TCheckBox>
+        );
+      } else {
         labelNode = (
           <span
-            class={CLASS_NAMES.label}
+            class={CLASS_NAMES.treeLabel}
             role="label"
-          >{labelNode || emptyNode}</span>
+          >{labelNode}</span>
         );
       }
 
@@ -257,6 +262,9 @@ export default Vue.extend({
       if (labelNode) {
         itemNodes.push(labelNode);
       }
+
+      const spaceNode = (<span class={CLASS_NAMES.treeSpace}></span>);
+      itemNodes.push(spaceNode);
 
       return itemNodes;
     },

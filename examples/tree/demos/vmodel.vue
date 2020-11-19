@@ -32,7 +32,7 @@
 export default {
   data() {
     return {
-      valueMode: 'all',
+      valueMode: 'onlyLeaf',
       checked: ['1.1.1.1', '1.1.1.2'],
       expanded: ['1', '2'],
       actived: ['2'],

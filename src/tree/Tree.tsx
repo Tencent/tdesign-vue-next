@@ -42,7 +42,7 @@ export default Vue.extend({
         list.push(CLASS_NAMES.disabled);
       }
       if (hover) {
-        list.push(CLASS_NAMES.hoverable);
+        list.push(CLASS_NAMES.treeHoverable);
       }
       if (transition) {
         list.push(CLASS_NAMES.treeFx);
@@ -79,9 +79,11 @@ export default Vue.extend({
         operations,
         store,
         treeNodes,
+        $scopedSlots: scopedSlots,
       } = this;
 
       const map = {};
+      store.scopedSlots = scopedSlots;
 
       // 移除不能呈现的节点
       let index = 0;
@@ -155,6 +157,7 @@ export default Vue.extend({
         value,
         valueMode,
         filter,
+        $scopedSlots: scopedSlots,
       } = this;
       if (list && list.length > 0) {
         const store = new TreeStore({
@@ -171,6 +174,7 @@ export default Vue.extend({
           lazy,
           valueMode,
           filter,
+          scopedSlots,
           onLoad: (info: any) => {
             this.handleLoad(info);
           },
@@ -324,8 +328,8 @@ export default Vue.extend({
     },
   },
   created() {
-    // console.time('tree render');
     this.build();
+    // console.time('tree render');
   },
   mounted() {
     // console.timeEnd('tree render');
