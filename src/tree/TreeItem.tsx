@@ -97,8 +97,8 @@ export default Vue.extend({
             } else {
               if (item.parent) {
                 lineModel.left = 1;
+                lineModel.right = 1;
               }
-              lineModel.right = 1;
             }
           } else if (index === 1) {
             lineModel.top = 1;

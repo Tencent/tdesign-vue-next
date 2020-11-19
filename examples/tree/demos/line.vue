@@ -44,6 +44,8 @@ export default {
         }, {
           label: '3.2',
         }],
+      }, {
+        label: '4',
       }],
     };
   },
