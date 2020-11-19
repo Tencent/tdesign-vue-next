@@ -27,19 +27,22 @@ export default {
             label: '2.1.1',
             children: [{
               label: '2.1.1.1',
-            }, {
-              label: '2.1.1.2',
-            }, {
-              label: '2.1.1.3',
+              children: [{
+                label: '2.1.1.1.1',
+              }, {
+                label: '2.1.1.1.2',
+              }],
             }],
           }],
         }, {
-          label: '3',
-          children: [{
-            label: '3.1',
-          }, {
-            label: '3.2',
-          }],
+          label: '2.2',
+        }],
+      }, {
+        label: '3',
+        children: [{
+          label: '3.1',
+        }, {
+          label: '3.2',
         }],
       }],
     };

@@ -50,41 +50,85 @@ export default Vue.extend({
       const {
         node,
         line,
-        // icon,
+        icon,
       } = this;
 
-      // let hasIcon = false;
-      // if (icon === true) {
-      //   if (node.children) {
-      //     hasIcon = true;
-      //   }
-      // } else {
-      //   const iconNode = getTNode(icon, {
-      //     createElement,
-      //     node,
-      //   });
-      //   if (iconNode) {
-      //     hasIcon = true;
-      //   }
-      // }
+      let hasIcon = false;
+      if (icon === true) {
+        if (node.children) {
+          hasIcon = true;
+        }
+      } else {
+        const iconNode = getTNode(icon, {
+          createElement,
+          node,
+        });
+        if (iconNode) {
+          hasIcon = true;
+        }
+      }
 
       let lineNode = null;
       if (line === true) {
         const lineNodes: VNode[] = [];
-        // const parents = node.getParents();
-        // const nodes = [node].concat(parents);
-        // nodes.forEach((item, index) => {
-        //   // 标记 [上，右，下，左] 是否有连线
-        //   const lineModel = [0, 0, 0, 0];
-        //   const {
-        //     level,
-        //   } = item;
+        const parents = node.getParents();
+        const nodes = [node].concat(parents);
+        nodes.forEach((item, index) => {
+          // 标记 [上，右，下，左] 是否有连线
+          const lineModel = {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+          };
 
-        //   const siblingItems = item.getSiblings();
-        //   if (siblingItems.length > 1) {
+          const itemChildren = item.children || [];
+          const childItem = nodes[index - 1] || null;
+          const childItemIndex = childItem ? childItem.getIndex() : 0;
 
-        //   }
-        // });
+          if (index === 0) {
+            if (item.children) {
+              if (item.expanded) {
+                lineModel.bottom = 1;
+              }
+              if (item.parent) {
+                lineModel.left = 1;
+              }
+            } else {
+              if (item.parent) {
+                lineModel.left = 1;
+              }
+              lineModel.right = 1;
+            }
+          } else if (index === 1) {
+            lineModel.top = 1;
+            lineModel.right = 1;
+            if (childItemIndex < itemChildren.length - 1) {
+              lineModel.bottom = 1;
+            }
+          } else {
+            if (childItemIndex < itemChildren.length - 1) {
+              lineModel.top = 1;
+              lineModel.bottom = 1;
+            }
+          }
+
+          const lineClassList = [];
+          lineClassList.push({
+            [CLASS_NAMES.lineIcon]: hasIcon && index === 0,
+            [CLASS_NAMES.lineTop]: lineModel.top,
+            [CLASS_NAMES.lineRight]: lineModel.right,
+            [CLASS_NAMES.lineBottom]: lineModel.bottom,
+            [CLASS_NAMES.lineLeft]: lineModel.left,
+          });
+
+          const lineItemNode = (
+            <dd
+              class={lineClassList}
+            ></dd>
+          );
+          lineNodes.unshift(lineItemNode);
+        });
 
         if (lineNodes.length > 0) {
           lineNode = (
@@ -198,6 +242,11 @@ export default Vue.extend({
     },
     renderItem(createElement: CreateElement): Array<VNode> {
       const itemNodes: Array<VNode> = [];
+
+      const lineNode = this.renderLine(createElement);
+      if (lineNode) {
+        itemNodes.push(lineNode);
+      }
 
       const iconNode = this.renderIcon(createElement);
       if (iconNode) {
