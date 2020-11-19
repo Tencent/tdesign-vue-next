@@ -1,12 +1,27 @@
 ## Divider 分割线 
+定义：区隔内容的分割线
 
-::: demo demos/base 水平分割线
+## 何时使用
+- 对不同章节的文本段落进行分割
+- 对行内文字/链接进行分割，例如表格的操作列
+
+## 1.组件类型
+### 1.1. 水平分割线
+
+默认为水平的分割线，对不同章节的文本锻炼进行分割
+::: demo demos/base
 :::
 
-::: demo demos/dividerWithText 带文字分割线
+### 1.2. 带文字的分割线
+可以在分割线上加入文字
+
+::: demo demos/dividerWithText
 :::
 
-::: demo demos/vertical 垂直分割线
+### 1.3. 垂直分割线
+设置为行内的垂直分割线
+
+::: demo demos/vertical
 :::
 
 
