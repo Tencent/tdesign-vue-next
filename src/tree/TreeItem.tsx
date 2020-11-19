@@ -263,7 +263,6 @@ export default Vue.extend({
     handleClick(evt: Event) {
       const { node } = this;
       const state: EventState = {
-        name: 'click',
         event: evt,
         node,
       };
@@ -271,8 +270,9 @@ export default Vue.extend({
     },
     handleChange() {
       const { node } = this;
+      const event = new Event('change');
       const state: EventState = {
-        name: 'click',
+        event,
         node,
       };
       this.$emit('change', state);

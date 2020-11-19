@@ -22,6 +22,7 @@
       @expand="onExpand"
       @change="onChange"
       @active="onActive"
+      @update="onUpdate"
       @click="onClick"
     />
   </div>
@@ -130,17 +131,20 @@ export default {
     onClick(state) {
       console.log('on click:', state);
     },
-    onChange(state) {
-      console.log('on change:', state);
-      this.checked = state;
+    onChange(vals, state) {
+      console.log('on change:', vals, state);
+      this.checked = vals;
     },
-    onExpand(state) {
-      console.log('on expand:', state);
-      this.expanded = state;
+    onExpand(vals, state) {
+      console.log('on expand:', vals, state);
+      this.expanded = vals;
     },
-    onActive(state) {
-      console.log('on active:', state);
-      this.actived = state;
+    onActive(vals, state) {
+      console.log('on active:', vals, state);
+      this.actived = vals;
+    },
+    onUpdate(state) {
+      console.log('on update:', state);
     },
   },
 };

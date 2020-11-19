@@ -5,6 +5,7 @@
       :hover="true"
       :expand-all="true"
       :load="load"
+      @load="onLoad"
       lazy
     />
   </div>
@@ -24,6 +25,9 @@ export default {
     };
   },
   methods: {
+    onLoad(state) {
+      console.log('on load:', state);
+    },
     load(node) {
       return new Promise((resolve) => {
         setTimeout(() => {

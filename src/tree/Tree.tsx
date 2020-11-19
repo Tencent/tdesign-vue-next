@@ -171,8 +171,11 @@ export default Vue.extend({
           lazy,
           valueMode,
           filter,
-          onUpdate: () => {
-            this.refresh();
+          onLoad: (info: any) => {
+            this.handleLoad(info);
+          },
+          onUpdate: (nodes: TreeNode[]) => {
+            this.handleUpdate(nodes);
           },
         });
         this.store = store;
@@ -206,7 +209,12 @@ export default Vue.extend({
     },
     setActived(node: TreeNode, isActived: boolean) {
       const actived = node.setActived(isActived);
-      this.$emit('active', actived);
+      const event = new Event('active');
+      const state: EventState = {
+        event,
+        node,
+      };
+      this.$emit('active', actived, state);
       return actived;
     },
     toggleExpanded(node: TreeNode): string[] {
@@ -214,7 +222,12 @@ export default Vue.extend({
     },
     setExpanded(node: TreeNode, isExpanded: boolean): string[] {
       const expanded = node.setExpanded(isExpanded);
-      this.$emit('expand', expanded);
+      const event = new Event('expand');
+      const state: EventState = {
+        event,
+        node,
+      };
+      this.$emit('expand', expanded, state);
       return expanded;
     },
     toggleChecked(node: TreeNode): string[] {
@@ -222,8 +235,35 @@ export default Vue.extend({
     },
     setChecked(node: TreeNode, isChecked: boolean): string[] {
       const checked = node.setChecked(isChecked);
-      this.$emit('change', checked);
+      const event = new Event('change');
+      const state: EventState = {
+        event,
+        node,
+      };
+      this.$emit('change', checked, state);
       return checked;
+    },
+    handleLoad(info: any): void {
+      const event = new Event('load');
+      const {
+        node,
+        data,
+      } = info;
+      const state: EventState = {
+        event,
+        node,
+        data,
+      };
+      this.$emit('load', state);
+    },
+    handleUpdate(nodes: TreeNode[]): void {
+      const event = new Event('update');
+      const state: EventState = {
+        event,
+        nodes,
+      };
+      this.$emit('update', state);
+      this.refresh();
     },
     handleClick(state: EventState): void {
       const {

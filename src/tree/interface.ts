@@ -122,7 +122,8 @@ export const TreeProps = {
   },
   line: {
     type: [Function, Boolean],
-    default: true,
+    // 连线渲染较为消耗性能，推荐默认设置为 false
+    default: false,
   },
   label: {
     type: [Function, String, Boolean],
@@ -164,9 +165,8 @@ export const TreeNodeProps = {
 };
 
 export interface EventState {
-  name: string;
-  event?: Event;
+  event: Event;
   node?: TreeNode;
   nodes?: Array<TreeNode>;
-  index?: number;
+  data?: any;
 };
