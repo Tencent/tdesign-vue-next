@@ -58,5 +58,5 @@
 :::
 -->
 
-::: demo demos/label 自定义label
+::: demo demos/icon 自定义icon
 :::

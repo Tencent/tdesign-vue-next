@@ -68,74 +68,82 @@ export default Vue.extend({
         }
       }
 
+      const {
+        scopedSlots,
+      } = node.tree;
+
       let lineNode = null;
+      const lineNodes: VNode[] = [];
       if (line === true) {
-        const lineNodes: VNode[] = [];
-        const parents = node.getParents();
-        const nodes = [node].concat(parents);
-        nodes.forEach((item, index) => {
-          // 标记 [上，右，下，左] 是否有连线
-          const lineModel = {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0,
-          };
+        if (scopedSlots?.line) {
+          lineNode = scopedSlots.line({
+            node,
+          });
+        } else {
+          const parents = node.getParents();
+          const nodes = [node].concat(parents);
+          nodes.forEach((item, index) => {
+            // 标记 [上，右，下，左] 是否有连线
+            const lineModel = {
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+            };
 
-          const itemChildren = item.children || [];
-          const childItem = nodes[index - 1] || null;
-          const childItemIndex = childItem ? childItem.getIndex() : 0;
+            const itemChildren = item.children || [];
+            const childItem = nodes[index - 1] || null;
+            const childItemIndex = childItem ? childItem.getIndex() : 0;
 
-          if (index === 0) {
-            if (item.children) {
-              if (item.expanded) {
+            if (index === 0) {
+              if (item.children) {
+                if (item.expanded) {
+                  lineModel.bottom = 1;
+                }
+                if (item.parent) {
+                  lineModel.left = 1;
+                }
+              } else {
+                if (item.parent) {
+                  lineModel.left = 1;
+                  lineModel.right = 1;
+                }
+              }
+            } else if (index === 1) {
+              lineModel.top = 1;
+              lineModel.right = 1;
+              if (childItemIndex < itemChildren.length - 1) {
                 lineModel.bottom = 1;
               }
-              if (item.parent) {
-                lineModel.left = 1;
-              }
             } else {
-              if (item.parent) {
-                lineModel.left = 1;
-                lineModel.right = 1;
+              if (childItemIndex < itemChildren.length - 1) {
+                lineModel.top = 1;
+                lineModel.bottom = 1;
               }
             }
-          } else if (index === 1) {
-            lineModel.top = 1;
-            lineModel.right = 1;
-            if (childItemIndex < itemChildren.length - 1) {
-              lineModel.bottom = 1;
-            }
-          } else {
-            if (childItemIndex < itemChildren.length - 1) {
-              lineModel.top = 1;
-              lineModel.bottom = 1;
-            }
-          }
 
-          const lineClassList = [];
-          lineClassList.push({
-            [CLASS_NAMES.lineIcon]: hasIcon && index === 0,
-            [CLASS_NAMES.lineTop]: lineModel.top,
-            [CLASS_NAMES.lineRight]: lineModel.right,
-            [CLASS_NAMES.lineBottom]: lineModel.bottom,
-            [CLASS_NAMES.lineLeft]: lineModel.left,
+            const lineClassList = [];
+            lineClassList.push({
+              [CLASS_NAMES.lineIcon]: hasIcon && index === 0,
+              [CLASS_NAMES.lineTop]: lineModel.top,
+              [CLASS_NAMES.lineRight]: lineModel.right,
+              [CLASS_NAMES.lineBottom]: lineModel.bottom,
+              [CLASS_NAMES.lineLeft]: lineModel.left,
+            });
+
+            const lineItemNode = (
+              <dd
+                class={lineClassList}
+              ></dd>
+            );
+            lineNodes.unshift(lineItemNode);
           });
 
-          const lineItemNode = (
-            <dd
-              class={lineClassList}
-            ></dd>
-          );
-          lineNodes.unshift(lineItemNode);
-        });
-
-        if (lineNodes.length > 0) {
-          lineNode = (
-            <dl
-              class={CLASS_NAMES.lines}
-            >{lineNodes}</dl>
-          );
+          if (lineNodes.length > 0) {
+            lineNode = lineNodes;
+          } else {
+            lineNode = null;
+          }
         }
       } else {
         lineNode = getTNode(line, {
@@ -146,6 +154,14 @@ export default Vue.extend({
           lineNode = null;
         }
       }
+      if (lineNode) {
+        lineNode = (
+          <dl
+            class={CLASS_NAMES.lines}
+            role="line"
+          >{lineNode}</dl>
+        );
+      }
       return lineNode;
     },
     renderIcon(createElement: CreateElement): VNode {
@@ -153,15 +169,23 @@ export default Vue.extend({
         node,
         icon,
       } = this;
+
+      const {
+        scopedSlots,
+      } = node.tree;
+
       let iconNode = null;
       if (icon === true) {
-        if (node.children) {
-          iconNode = (
-            <span
-              class={CLASS_NAMES.treeIcon}
-            ><TIconArrowRight role="icon"/></span>);
+        if (scopedSlots?.icon) {
+          iconNode = scopedSlots.icon({
+            node,
+          });
         } else {
-          iconNode = (<span class={CLASS_NAMES.treeIcon}></span>);
+          if (node.children) {
+            iconNode = (<TIconArrowRight/>);
+          } else {
+            iconNode = '';
+          }
         }
       } else {
         iconNode = getTNode(icon, {
@@ -169,26 +193,18 @@ export default Vue.extend({
           node,
         });
         if (typeof iconNode === 'string') {
-          iconNode = (
-            <span
-              class={CLASS_NAMES.treeIcon}
-            ><Icon name={iconNode}></Icon></span>
-          );
-        } else {
-          iconNode = (
-            <span
-              class={CLASS_NAMES.treeIcon}
-            >{iconNode}</span>
-          );
+          iconNode = (<Icon name={iconNode}></Icon>);
         }
       }
       if (node.children && node.loading && node.expanded && icon !== false) {
-        iconNode = (
-          <span
-            class={CLASS_NAMES.treeIcon}
-          ><TIconLoading role="icon"/></span>
-        );
+        iconNode = (<TIconLoading/>);
       }
+      iconNode = (
+        <span
+          class={CLASS_NAMES.treeIcon}
+          role="icon"
+        >{iconNode}</span>
+      );
       return iconNode;
     },
     renderLabel(createElement: CreateElement): VNode {
@@ -209,11 +225,12 @@ export default Vue.extend({
 
       let labelNode = null;
       if (label === true) {
-        labelNode = node.label || emptyNode;
         if (scopedSlots?.label) {
           labelNode = scopedSlots.label({
             node,
           });
+        } else {
+          labelNode = node.label || emptyNode;
         }
       } else {
         labelNode = getTNode(label, {
