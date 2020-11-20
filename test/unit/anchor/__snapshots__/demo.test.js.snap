@@ -351,7 +351,7 @@ exports[`Anchor target demo works fine 1`] = `
   >
      创建签名 
     <div
-      class="t-popup-reference"
+      class="t-popup-reference t-copy"
       style="position: relative;"
     >
        
@@ -393,7 +393,7 @@ exports[`Anchor target demo works fine 1`] = `
   >
      创建内容的正式模板并保存 
     <div
-      class="t-popup-reference"
+      class="t-popup-reference t-copy"
       style="position: relative;"
     >
        
@@ -435,7 +435,7 @@ exports[`Anchor target demo works fine 1`] = `
   >
      为什么账户有余额, 但是发送短信返回1031错误码?
     <div
-      class="t-popup-reference"
+      class="t-popup-reference t-copy"
       style="position: relative;"
     >
        
