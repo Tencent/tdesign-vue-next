@@ -58,5 +58,5 @@
 :::
 -->
 
-::: demo demos/icon 自定义icon
+::: demo demos/line 显示连线
 :::

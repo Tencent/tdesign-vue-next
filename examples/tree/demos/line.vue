@@ -1,10 +1,27 @@
 <template>
   <div class="tdesign-tree-base">
+    <h3>显示连线</h3>
     <t-tree
       :data="items"
       :line="true"
       :expand-all="true"
     />
+    <h3>render</h3>
+    <t-tree
+      :data="items"
+      :line="renderLine"
+      :expand-all="true"
+    />
+    <h3>scope slot</h3>
+    <t-tree
+      :data="items"
+      :line="true"
+      :expand-all="true"
+    >
+      <p slot="line" slot-scope="{node}">
+        <span v-for="(item, index) in node.getParents()" :key="index">+</span>
+      </p>
+    </t-tree>
   </div>
 </template>
 
@@ -48,6 +65,11 @@ export default {
         label: '4',
       }],
     };
+  },
+  methods: {
+    renderLine(createElement, node) {
+      return new Array(node.level + 1).join('_');
+    },
   },
 };
 </script>

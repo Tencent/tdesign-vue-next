@@ -150,9 +150,6 @@ export default Vue.extend({
           createElement,
           node,
         });
-        if (typeof lineNode === 'string') {
-          lineNode = null;
-        }
       }
       if (lineNode) {
         lineNode = (
