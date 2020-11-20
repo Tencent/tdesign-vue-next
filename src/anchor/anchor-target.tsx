@@ -44,10 +44,11 @@ export default Vue.extend({
       id,
     } = this;
     const className = [name];
+    const iconClassName = `${prefix}-copy`;
     return (
       <Tag id={id} class={className}>
         {children && children(null)}
-        <t-popup content="复制链接" placement="top" visibleArrow>
+        <t-popup content="复制链接" placement="top" visibleArrow class={iconClassName}>
           <t-icon name="file-copy" nativeOnClick={this.copyText} />
         </t-popup>
       </Tag>
