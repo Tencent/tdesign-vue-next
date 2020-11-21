@@ -1,7 +1,7 @@
 // import { mount } from '@vue/test-utils';
 // import Transfer from '@/src/transfer/index.ts';
-//
-// // every component needs four parts: props/events/slots/functions.
+
+// every component needs four parts: props/events/slots/functions.
 // describe('Transfer', () => {
 //   // test props api
 //   describe(':props', () => {
