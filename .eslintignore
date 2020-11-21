@@ -10,3 +10,4 @@ _site
 common
 temp*
 static/
+common/static/icon/web/index.js
