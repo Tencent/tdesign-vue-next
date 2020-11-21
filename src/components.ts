@@ -7,6 +7,7 @@ export * from './alert';
 export * from './breadcrumb';
 export * from './breadcrumbItem';
 export * from './button';
+export * from './calendar';
 export * from './checkbox';
 export * from './icon';
 export * from './input-group';
