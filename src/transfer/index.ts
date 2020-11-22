@@ -1,6 +1,7 @@
 import Transfer from './transfer';
 import setInstallFn from '../utils/setInstallFn';
 
-setInstallFn('Button', Transfer);
+setInstallFn('Transfer', Transfer);
 
+export { Transfer };
 export default Transfer;
