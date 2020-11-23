@@ -30,7 +30,7 @@
 | duration | Number | - | N | 显示时间，毫秒，等于 0 表示一直显示，不消失。 |
 | closeBtn | Boolean/String/Function/Slot | false | N | 是否显示关闭按钮，默认不显示。如果是 string 类型，“关闭”。TNode 为自定义关闭按钮形态。|
 | icon | Boolean/Function/Slot | true | N | 图标，可自定义，值为 false 表示不显示默认图标。 |
-| default | String/Function/Slot | - | N | 自定义内容 |
+| content | String/Function/Slot(default) | - | N | 自定义内容 |
 
 ### Message Events
 | 平台 | 事件名称 | 参数 |  说明 |
@@ -76,7 +76,7 @@ options 参数如下: <br/><br/>
 | closeBtn | Boolean/String/Function/Slot | false | N | 是否显示关闭按钮，默认不显示。如果是 string 类型，“关闭”。TNode 为自定义关闭按钮形态。|
 | icon | Boolean/Function/Slot | true | N | 图标，可自定义，值为 false 表示不显示默认图标。 |
 | content | String/Function/Slot | - | N | 自定义内容（别名：default） |
-| placement | string | top | N | 消息提示的位置，9个：center/left/left-top/top/right-top/right/right-bottom/bottom/left-bottom |
+| placement | string | top | N | 消息提示的位置，9个：center/top/left/right/bottom/top-left/top-right/bottom-left/bottom-right |
 | offset | object | - | N | 偏移量（结合属性placement）, 如： {left: '30px'}，值为String类型 |
 | zIndex | number | 6000 | N | 定位层级 |
 | attach | function/string | body | N | 指定弹框挂载节点。字符串类型表示DOM选择器（querySelector）；函数需返回 DOM 节点，如：() => document.body |
