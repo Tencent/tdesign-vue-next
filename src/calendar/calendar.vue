@@ -102,25 +102,15 @@
           <tr v-for="week in monthCellsData" :key="week.num"
               class="t-calendar__table-body-row">
             <template v-for="item in week">
-              <!-- 高亮：t-is-checked; 灰度：t-is-disabled-->
-              <td v-if="checkMonthCellVisibled(item)"
-                  :key="`${item.weekNum}-${item.day}`"
-                  class="t-calendar__table-body-cell"
-                  :class="{
-                    't-is-disabled': !item.isCurMon,
-                    't-is-checked': item.isCurDate
-                  }"
-                  @click="onCellClick($event, item)"
-                  @dblclick="onCellDbClick($event, item)"
-                  @contextmenu="onCellRightClick($event, item)"
-              >
-                <slot name="cell" :data="item">
-                  <div class="t-calendar__table-body-cell-value">{{ item.dateDiaplay }}</div>
-                  <div class="t-calendar__table-body-cell-content">
-                    <slot name="cellAppend" :data="item"></slot>
-                  </div>
-                </slot>
-              </td>
+              <CalendarCell v-if="isShowWeekendDefault || !item.isWeekend"
+                            :key="`${item.weekNum}-${item.day}`"
+                            :item="item" :theme="theme"
+                            @click.native="onCellClick($event, item)"
+                            @dblclick.native="onCellDbClick($event, item)"
+                            @contextmenu.native="onCellRightClick($event, item)">
+                <slot name="cell" slot="cell" :data="item"></slot>
+                <slot name="cellAppend" slot="cellAppend" :data="item"></slot>
+              </CalendarCell>
             </template>
           </tr>
         </tbody>
@@ -130,21 +120,14 @@
         <tbody class="t-calendar__table-body">
           <tr v-for="(row, rowIndex) in yearCellsData" :key="rowIndex"
               class="t-calendar__table-body-row">
-            <!-- 高亮：t-is-checked -->
-            <td v-for="item in row" :key="item.num"
-                class="t-calendar__table-body-cell"
-                :class="{ ' t-is-checked': item.isCurMon }"
-                @click="onCellClick($event, item)"
-                @dblclick="onCellDbClick($event, item)"
-                @contextmenu="onCellRightClick($event, item)"
-            >
-              <slot name="cell" :data="item">
-                <div class="t-calendar__table-body-cell-value">{{ item.monthDiaplay }}</div>
-                <div class="t-calendar__table-body-cell-content">
-                  <slot name="cellAppend" :data="item"></slot>
-                </div>
-              </slot>
-            </td>
+            <CalendarCell v-for="item in row" :key="item.num"
+                          :item="item" :theme="theme"
+                          @click.native="onCellClick($event, item)"
+                          @dblclick.native="onCellDbClick($event, item)"
+                          @contextmenu.native="onCellRightClick($event, item)">
+              <slot name="cell" slot="cell" :data="item"></slot>
+              <slot name="cellAppend" slot="cellAppend" :data="item"></slot>
+            </CalendarCell>
           </tr>
         </tbody>
       </table>
@@ -155,7 +138,7 @@
 <script lang="ts">
 import mixins from '../utils/mixins';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
+import * as utils from './utils';
 
 import {
   MODE_LIST,
@@ -163,6 +146,7 @@ import {
   THEME_LIST,
   MODE_OPTION_LIST,
 } from './const';
+
 import {
   Select as TSelect,
   Option as TOption,
@@ -174,7 +158,7 @@ import {
 import {
   Button as TButton,
 } from '../button';
-import * as utils from './utils';
+import CalendarCell from './calendar-cell.vue';
 
 const name = `${prefix}-calendar`;
 
@@ -182,23 +166,14 @@ const name = `${prefix}-calendar`;
 export default mixins().extend({
   name,
   components: {
-    RenderComponent,
     TSelect,
     TOption,
     TRadioGroup,
     TRadioButton,
     TButton,
+    CalendarCell,
   },
   props: {
-    /**
-       * 传入想让组件显示的年月份（value\v-model）
-       */
-    value: {
-      type: Date,
-      default() {
-        return null;
-      },
-    },
     /**
        * 默认选中的年月份（和value的区别在于只有组件create的时候有效，优先级低于value）
        */
@@ -347,6 +322,7 @@ export default mixins().extend({
     };
   },
   computed: {
+    // 日历主体头部
     cellColHeaders(): any[] {
       const tis = this as any;
       const re: any[] = [];
@@ -373,10 +349,7 @@ export default mixins().extend({
       const re = 'small';
       return re;
     },
-
-    /**
-       * 年份下拉框数据源
-       */
+    // 年份下拉框数据源
     yearSelectOptionList(): any[] {
       const re = [];
       for (let i = 2015; i <= 2025; i++) {
@@ -388,9 +361,7 @@ export default mixins().extend({
       }
       return re;
     },
-    /**
-       * 月份下拉框数据源
-       */
+    // 月份下拉框数据源
     monthSelectOptionList(): any[] {
       const re = [];
       for (let i = 1; i <= 12; i++) {
@@ -402,15 +373,11 @@ export default mixins().extend({
       }
       return re;
     },
-    /**
-       * 模式选项数据源
-       */
+    // 模式选项数据源
     modeSelectOptionList(): any[] {
       return MODE_OPTION_LIST;
     },
-    /**
-     * month模式下日历单元格的数据
-     */
+    // month模式下日历单元格的数据
     monthCellsData(): any[] {
       const tis = this as any;
       const firstDayOfWeek = tis.firstDayOfWeek as number;
@@ -418,17 +385,16 @@ export default mixins().extend({
         tis.curSelectedYear,
         tis.curSelectedMonth,
         firstDayOfWeek,
-        tis.curDate
+        tis.curDate,
+        tis.theme
       );
       return daysArr;
     },
-    /**
-     * year模式下日历单元格的数据
-     */
+    // year模式下日历单元格的数据
     yearCellsData(): any[] {
       const tis = this as any;
       const re: any[] = [];
-      const monthsArr: any[] = utils.createYearCellsData(tis.curSelectedYear, tis.curDate);
+      const monthsArr: any[] = utils.createYearCellsData(tis.curSelectedYear, tis.curDate, tis.theme);
       const rowCount = Math.ceil(monthsArr.length / tis.yearCellNumInRow);
       let index = 0;
       for (let i = 1; i <= rowCount; i++) {
@@ -442,6 +408,7 @@ export default mixins().extend({
       return re;
     },
 
+    // 是否显示控件（整个右上角的所有控件）
     isControllerVisible(): boolean {
       const tis = this as any;
       let re = true;

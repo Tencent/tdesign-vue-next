@@ -1,6 +1,5 @@
 <template>
   <t-calendar>
-
     <div slot="cellAppend" slot-scope="scope">
       <t-tag class="demo-tag" shape="round" theme="primary" :effect="getCellEffect(scope.data)">
         {{ getDateStr(scope.data) }}
@@ -21,7 +20,7 @@ export default {
     getCellEffect(cellData) {
       let re = 'light';
       if (cellData.mode === 'month') {
-        if (cellData.isCurMon) {
+        if (cellData.belongTo === 0) {
           if (cellData.isCurDate) {
             re = 'dark';
           }

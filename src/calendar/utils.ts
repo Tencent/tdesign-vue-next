@@ -1,3 +1,8 @@
+import {
+  DAY_CN_MAP,
+  MONTH_CN_MAP,
+} from './const';
+
 const getYear = (dt: Date): number => dt.getFullYear();
 const getMonth = (dt: Date): number => (dt.getMonth() + 1);
 
@@ -24,18 +29,10 @@ const getDay = (dt: Date): number => {
  */
 const getDayCn = (num: number): string => {
   let re = '';
-  const map = {
-    1: '一',
-    2: '二',
-    3: '三',
-    4: '四',
-    5: '五',
-    6: '六',
-    7: '日',
-  };
+  const map = DAY_CN_MAP;
   const numStr = num.toString();
   if (numStr in map) {
-    re = map[numStr];
+    re = map[numStr].shortDisplay;
   }
   return re;
 };
@@ -94,31 +91,28 @@ const isSameDate = (dt: Date, dtCompare: Date): boolean => {
   return re;
 };
 
-const createYearCellsData = (year: number, curDate: Date) => {
+const createYearCellsData = (year: number, curDate: Date, theme: string) => {
   const monthsArr: any[] = [];
-  const map = {
-    1: '一月', 2: '二月', 3: '三月', 4: '四月',
-    5: '五月', 6: '六月', 7: '七月', 8: '八月',
-    9: '九月', 10: '十月', 11: '十一月', 12: '十二月',
-  };
+  const map = MONTH_CN_MAP;
   const isCurYear = getYear(curDate) === year;
   for (let num = 1; num <= 12; num++) {
     const date = new Date(year, num - 1);
     const isCurMon = (isCurYear && getMonth(curDate) === num);
     monthsArr.push({
       mode: 'year',
+      theme,
       isCurYear,
       isCurMon,
       year,
       month: num,
       date,
-      monthDiaplay: map[num.toString()],
+      monthDiaplay: map[num.toString()].display,
     });
   }
   return monthsArr;
 };
 
-const createMonthCellsData = (year: number, month: number, firstDayOfWeek: number, curDate: Date) => {
+const createMonthCellsData = (year: number, month: number, firstDayOfWeek: number, curDate: Date, theme: string) => {
   const daysArr: any[] = [];
   const begin: Date = getBeginOfMonth(year, month); // 当前月份的开始日期
   const end: Date = getEndOfMonth(year, month);  // 当前月份的结束日期
@@ -129,7 +123,7 @@ const createMonthCellsData = (year: number, month: number, firstDayOfWeek: numbe
   let num = 1;
 
   const createCellData = (
-    isCurMon: boolean,
+    belongTo: number,
     isCurDate: boolean,
     date: Date,
     weekNum: number
@@ -141,7 +135,8 @@ const createMonthCellsData = (year: number, month: number, firstDayOfWeek: numbe
     const dateNum = date.getDate();
     return {
       mode: 'month',
-      isCurMon,
+      theme,
+      belongTo,
       isCurDate,
       year,
       month,
@@ -156,7 +151,7 @@ const createMonthCellsData = (year: number, month: number, firstDayOfWeek: numbe
   // 添加上个月中和当前月第一天同一周的日期
   for (let i = 0; i < beginDateColIndex; i++) {
     const date = addDate(begin, (i - beginDateColIndex));
-    arr.push(createCellData(false, false, date, num));
+    arr.push(createCellData(-1, false, date, num));
     if (arr.length === 7) {
       daysArr.push(arr);
       arr = [];
@@ -165,7 +160,7 @@ const createMonthCellsData = (year: number, month: number, firstDayOfWeek: numbe
   }
   for (let i = 0; i < days; i++) {
     const date = addDate(begin, i);
-    arr.push(createCellData(true, isSameDate(date, curDate), date, num));
+    arr.push(createCellData(0, isSameDate(date, curDate), date, num));
     if (arr.length === 7) {
       daysArr.push(arr);
       arr = [];
@@ -177,7 +172,7 @@ const createMonthCellsData = (year: number, month: number, firstDayOfWeek: numbe
     const nextMonthCellNum = 7 - arr.length;
     for (let i = 0 ; i < nextMonthCellNum; i++) {
       const date = addDate(end, i + 1);
-      arr.push(createCellData(false, false, date, num));
+      arr.push(createCellData(1, false, date, num));
     }
     daysArr.push(arr);
   }

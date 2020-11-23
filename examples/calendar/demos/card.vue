@@ -6,12 +6,7 @@
         <t-option v-for="item in options" :key="item.value"
                   :value="item.value" :label="item.label" />
       </t-select>
-
-      <label>是否显示周末：</label>
-      <t-switch v-model="isShowWeekendDefault">
-      </t-switch>
-
-      <t-button theme="primary" @click="toCurrent()" style="margin-left:12px">回到今天</t-button>
+      <t-button theme="primary" @click="toCurrent()">今天（当前高亮日期）</t-button>
     </div>
     <t-calendar ref="myCalendar"
                 :theme="theme"

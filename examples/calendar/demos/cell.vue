@@ -24,7 +24,7 @@ export default {
     getCellEffect(cellData) {
       let re = 'light';
       if (cellData.mode === 'month') {
-        if (cellData.isCurMon) {
+        if (cellData.belongTo === 0) {
           if (cellData.isCurDate) {
             re = 'dark';
           }
