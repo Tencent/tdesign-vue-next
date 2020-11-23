@@ -62,9 +62,9 @@ export default {
       value2: 'shanghai',
       popupProps: {
         overlayStyle: {
-          width: '230px'
-        }
-      }
+          width: '230px',
+        },
+      },
     };
   },
   methods: {
