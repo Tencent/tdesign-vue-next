@@ -5,6 +5,7 @@
       placeholder="-请选择-"
       :clearable="true"
       class="demo-select-base"
+      :popupProps="popupProps"
       @change="handleChange"
     >
       <t-option
@@ -41,17 +42,29 @@ export default {
   data() {
     return {
       options: [{
-        label: '苹果apple~~~~',
-        value: 'apple',
+        label: '上海',
+        value: 'shanghai',
       }, {
-        label: '香蕉banana~~~',
-        value: 'banana',
+        label: '北京',
+        value: 'beijing',
+        disabled: true,
       }, {
-        label: '橘子orange~~~',
-        value: 'orange',
+        label: '深圳',
+        value: 'shenzhen',
+      }, {
+        label: '这是一个名字很长的城市名称',
+        value: 'long',
+      }, {
+        label: '这是一个名字很长很长很长的城市名称',
+        value: 'longest',
       }],
       value: '',
-      value2: 'apple',
+      value2: 'shanghai',
+      popupProps: {
+        overlayStyle: {
+          width: '230px'
+        }
+      }
     };
   },
   methods: {
