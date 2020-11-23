@@ -259,6 +259,37 @@ export default Vue.extend({
 
       return labelNode;
     },
+    renderOperations(createElement: CreateElement): VNode {
+      const {
+        node,
+        operations,
+      } = this;
+
+      const {
+        scopedSlots,
+      } = node.tree;
+
+      let opNode = null;
+      if (scopedSlots?.operations) {
+        opNode = scopedSlots.operations({
+          node,
+        });
+      } else {
+        opNode = getTNode(operations, {
+          createElement,
+          node,
+        });
+      }
+      if (opNode) {
+        opNode = (
+          <span
+            class={CLASS_NAMES.treeOperations}
+            role="oprations"
+          >{opNode}</span>
+        );
+      }
+      return opNode;
+    },
     renderItem(createElement: CreateElement): Array<VNode> {
       const itemNodes: Array<VNode> = [];
 
@@ -279,6 +310,11 @@ export default Vue.extend({
 
       const spaceNode = (<span class={CLASS_NAMES.treeSpace}></span>);
       itemNodes.push(spaceNode);
+
+      const opNode = this.renderOperations(createElement);
+      if (opNode) {
+        itemNodes.push(opNode);
+      }
 
       return itemNodes;
     },

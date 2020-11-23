@@ -58,5 +58,5 @@
 :::
 -->
 
-::: demo demos/line 显示连线
+::: demo demos/operations 操作节点
 :::

@@ -25,6 +25,7 @@ export const CLASS_NAMES = {
   treeLabel: `${tree}__label`,
   treeIcon: `${tree}__icon`,
   treeSpace: `${tree}__space`,
+  treeOperations: `${tree}__operations`,
   lines: `${tree}__lines`,
   lineIcon: `${tree}__line--icon`,
   lineLeft: `${tree}__line--left`,

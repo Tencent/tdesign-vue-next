@@ -1,5 +1,8 @@
 import Vue, { VNode } from 'vue';
-import { TreeStore } from './TreeStore';
+import {
+  TreeStore,
+  TreeFilterOptions,
+} from './TreeStore';
 import TreeNode from './TreeNode';
 import TreeItem from './TreeItem';
 import {
@@ -325,6 +328,12 @@ export default Vue.extend({
         return;
       }
       this.toggleChecked(node);
+    },
+    getItem(value: string): TreeNode {
+      return this.store.getNode(value);
+    },
+    getItems(value?: string, options?: TreeFilterOptions): TreeNode[] {
+      return this.store.getNodes(value, options);
     },
   },
   created() {
