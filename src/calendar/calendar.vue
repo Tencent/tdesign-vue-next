@@ -1,119 +1,153 @@
 <template>
-  <div :class="outerCls">
-    <!-- 头部 -->
-    <div :class="headerCls">
-      <!-- 头部左上区域 -->
-      <div :class="titleCls">
-        <slot name="head">
-          <div>
-            <span style="font-weight:700">{{ curDate }}</span>
-          </div>
-          <div>
-            <span>{{ curSelectedMode }} . {{ theme }}</span>
-            <span style="margin-left:20px">{{ curSelectedYear }} - {{ curSelectedMonth }}</span>
-          </div>
-        </slot>
-      </div>
-      <!-- 头部右上：各种功能控件 -->
-      <div :class="controllerCls">
+  <!-- full模式：t-calendar--full 、 card模式：t-calendar--card -->
+  <div class="t-calendar"
+       :class="{
+         't-calendar--full': (theme === 'full'),
+         't-calendar--card': (theme === 'card')
+       }">
+    <!-- 控件部分 -->
+    <div class="t-calendar__control" v-if="isControllerVisible">
+      <div class="t-calendar__control-section">
         <!-- 年份选择 -->
-        <TSelect v-model="curSelectedYear"
-                 @change="onControllerChange">
-          <TOption v-for="item in yearSelectOptionList"
-                   :key="item.value"
-                   :value="item.value"
-                   :label="item.label"
-                   :disabled="item.disabled"
-          >
-            {{ item.label }}
-          </TOption>
-        </TSelect>
+        <div class="t-calendar__control-section-cell"
+             v-if="isYearVisible">
+          <TSelect v-model="curSelectedYear"
+                   :size="controlSize"
+                   :disabled="isYearDisabled"
+                   v-bind="controllerConfig.year.selecteProps"
+                   @change="onControllerChange">
+            <TOption v-for="item in yearSelectOptionList"
+                     :key="item.value"
+                     :value="item.value"
+                     :label="item.label"
+                     :disabled="item.disabled"
+            >
+              {{ item.label }}
+            </TOption>
+          </TSelect>
+        </div>
         <!-- 月份选择 -->
-        <TSelect v-if="curSelectedMode === 'month'"
-                 v-model="curSelectedMonth"
-                 @change="onControllerChange">
-          <TOption v-for="item in monthSelectOptionList"
-                   :key="item.value"
-                   :value="item.value"
-                   :label="item.label"
-                   :disabled="item.disabled"
-          >
-            {{ item.label }}
-          </TOption>
-        </TSelect>
+        <div class="t-calendar__control-section-cell"
+             v-if="curSelectedMode === 'month' && isMonthVisible">
+          <TSelect v-model="curSelectedMonth"
+                   :size="controlSize"
+                   :disabled="isMonthDisabled"
+                   v-bind="controllerConfig.month.selecteProps"
+                   @change="onControllerChange">
+            <TOption v-for="item in monthSelectOptionList"
+                     :key="item.value"
+                     :value="item.value"
+                     :label="item.label"
+                     :disabled="item.disabled"
+            >
+              {{ item.label }}
+            </TOption>
+          </TSelect>
+        </div>
+      </div>
+      <div class="t-calendar__control-section">
         <!-- 模式选择 -->
-        <TRadioGroup v-model="curSelectedMode"
-                     @change="onControllerChange">
-          <TRadioButton v-for="item in modeSelectOptionList"
-                        :value="item.value"
-                        :key="item.value">{{ item.label }}</TRadioButton>
-        </TRadioGroup>
-        <!-- 今天\本月 -->
-        <t-button @click="toCurrent()">
-          {{ curSelectedMode === 'month' ? '今天' : '本月' }}
-        </t-button>
+        <div v-if="isModeVisible"
+             class="t-calendar__control-section-cell" style="height:auto;">
+          <TRadioGroup v-model="curSelectedMode"
+                       :size="controlSize"
+                       :disabled="isModeDisabled"
+                       v-bind="controllerConfig.mode.radioGroupProps"
+                       @change="onControllerChange">
+            <TRadioButton v-for="item in modeSelectOptionList"
+                          :value="item.value"
+                          :key="item.value">{{ item.label }}</TRadioButton>
+          </TRadioGroup>
+        </div>
         <!-- 显示\隐藏周末 -->
-        <t-button v-if="curSelectedMode === 'month'"
-                  :theme="weekendToggleTheme"
-                  @click="onWeekendToggleClick()">隐藏周末</t-button>
+        <div v-if="theme === 'full' && isWeekendToggleVisible"
+             class="t-calendar__control-section-cell">
+          <TButton v-if="curSelectedMode === 'month'"
+                   :size="controlSize"
+                   :disabled="isWeekendToggleDisabled"
+                   v-bind="weekendToggleBtnVBind"
+                   @click="onWeekendToggleClick()">{{ weekendToggleBtnText }}</TButton>
+        </div>
+        <!-- 今天\本月 -->
+        <div v-if="theme === 'full' && isCurrentBtnVisible"
+             class="t-calendar__control-section-cell">
+          <TButton :size="controlSize"
+                   :disabled="isCurrentBtnDisabled"
+                   v-bind="currentBtnVBind"
+                   @click="toCurrent()">
+            {{ currentBtnText }}
+          </TButton>
+        </div>
       </div>
     </div>
-    <!-- 主体 -->
-    <div :class="bodyCls">
-      <!-- “月”模式 -->
-      <template v-if="curSelectedMode === 'month'">
-        <div>firstDayOfWeek : {{ firstDayOfWeek }}</div>
-        <div v-for="week in monthCellsData" :key="week.num"
-             style="display: flex;
-              padding: 18px 0;
-              border-bottom: solid 1px #ccc;
-              justify-content: space-between;">
-          <template v-for="item in week">
-            <div :key="`${item.weekNum}-${item.day}`" v-if="checkCellVisibled(item)"
-                 @click="onCellClick($event, item)"
-                 @dblclick="onCellDbClick($event, item)"
-                 @contextmenu="onCellRightClick($event, item)"
-                 :style="{
-                   'font-size': '12px',
-                   'color': (item.isCurMon ? (item.isCurDay ? '#0041be' : '#333') : '#888'),
-                 }">
+    <!-- 主体部分 -->
+    <div class="t-calendar__panel">
+      <div class="t-calendar__panel-title">
+        <slot name="head"></slot>
+      </div>
+      <!-- “月”模式：日历 -->
+      <table class="t-calendar__table" v-if="curSelectedMode === 'month'">
+        <thead class="t-calendar__table-head">
+          <tr class="t-calendar__table-head-row">
+            <template v-for="item in cellColHeaders">
+              <th v-if="checkMonthCellColHeaderVisibled(item)"
+                  :key="item.num"
+                  class="t-calendar__table-head-cell"
+              >{{ item.display }}
+              </th>
+            </template>
+          </tr>
+        </thead>
+        <tbody class="t-calendar__table-body">
+          <tr v-for="week in monthCellsData" :key="week.num"
+              class="t-calendar__table-body-row">
+            <template v-for="item in week">
+              <!-- 高亮：t-is-checked; 灰度：t-is-disabled-->
+              <td v-if="checkMonthCellVisibled(item)"
+                  :key="`${item.weekNum}-${item.day}`"
+                  class="t-calendar__table-body-cell"
+                  :class="{
+                    't-is-disabled': !item.isCurMon,
+                    't-is-checked': item.isCurDate
+                  }"
+                  @click="onCellClick($event, item)"
+                  @dblclick="onCellDbClick($event, item)"
+                  @contextmenu="onCellRightClick($event, item)"
+              >
+                <slot name="cell" :data="item">
+                  <div class="t-calendar__table-body-cell-value">{{ item.dateDiaplay }}</div>
+                  <div class="t-calendar__table-body-cell-content">
+                    <slot name="cellAppend" :data="item"></slot>
+                  </div>
+                </slot>
+              </td>
+            </template>
+          </tr>
+        </tbody>
+      </table>
+      <!-- “年”模式：月历 -->
+      <table class="t-calendar__table" v-else-if="curSelectedMode === 'year'">
+        <tbody class="t-calendar__table-body">
+          <tr v-for="(row, rowIndex) in yearCellsData" :key="rowIndex"
+              class="t-calendar__table-body-row">
+            <!-- 高亮：t-is-checked -->
+            <td v-for="item in row" :key="item.num"
+                class="t-calendar__table-body-cell"
+                :class="{ ' t-is-checked': item.isCurMon }"
+                @click="onCellClick($event, item)"
+                @dblclick="onCellDbClick($event, item)"
+                @contextmenu="onCellRightClick($event, item)"
+            >
               <slot name="cell" :data="item">
-                <!-- 没有slot时默认的内容 -->
-                <pre>{{item}}</pre>
+                <div class="t-calendar__table-body-cell-value">{{ item.monthDiaplay }}</div>
+                <div class="t-calendar__table-body-cell-content">
+                  <slot name="cellAppend" :data="item"></slot>
+                </div>
               </slot>
-              <slot name="cellAppend" :data="item">
-                <!-- 追加内容 -->
-              </slot>
-            </div>
-          </template>
-        </div>
-      </template>
-      <!-- “年”模式 -->
-      <template v-else-if="curSelectedMode === 'year'">
-        <div style="display: flex;
-              flex-wrap: wrap;
-              justify-content: space-between;">
-          <div v-for="item in yearCellsData" :key="item.num"
-               @click="onCellClick($event, item)"
-               @dblclick="onCellDbClick($event, item)"
-               @contextmenu="onCellRightClick($event, item)"
-               style="padding: 18px;
-              font-size: 12px;
-              width: 25%;"
-               :style="{
-                 'color': (item.isCurMon ? '#0041be' : '#333'),
-               }">
-
-            <slot name="cell" :data="item">
-              <!-- 没有slot时默认的内容 -->
-              <pre>{{item}}</pre>
-            </slot>
-            <slot name="cellAppend" :data="item">
-              <!-- 追加内容 -->
-            </slot>
-          </div>
-        </div>
-      </template>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -137,6 +171,9 @@ import {
   RadioGroup as TRadioGroup,
   RadioButton as TRadioButton,
 } from '../radio';
+import {
+  Button as TButton,
+} from '../button';
 import * as utils from './utils';
 
 const name = `${prefix}-calendar`;
@@ -150,6 +187,7 @@ export default mixins().extend({
     TOption,
     TRadioGroup,
     TRadioButton,
+    TButton,
   },
   props: {
     /**
@@ -284,6 +322,15 @@ export default mixins().extend({
       type: Boolean,
       default: true,
     },
+
+    // 年历中每一行显示的月数量
+    yearCellNumInRow: {
+      type: Number,
+      default: 4,
+      validator(v: number): boolean {
+        return v >= 1 && v <= 12;
+      },
+    },
   },
   data() {
     return {
@@ -300,36 +347,32 @@ export default mixins().extend({
     };
   },
   computed: {
-    // 组件dom样式定义 begin
-    outerCls(): string[] {
+    cellColHeaders(): any[] {
       const tis = this as any;
-      return [
-        `${name}`,
-        `${name}--mode_${tis.curSelectedMode}`,
-        `${name}--theme_${tis.theme}`,
-      ];
+      const re: any[] = [];
+      const min = 1;
+      const max = 7;
+      for (let i = tis.firstDayOfWeek; i <= max; i++) {
+        re.push({
+          num: i,
+          display: utils.getDayCn(i),
+        });
+      }
+      if (tis.firstDayOfWeek > min) {
+        for (let i = min; i < tis.firstDayOfWeek; i++) {
+          re.push({
+            num: i,
+            display: utils.getDayCn(i),
+          });
+        }
+      }
+      return re;
     },
-    headerCls(): string[] {
-      return [
-        `${name}__header`,
-      ];
+    // 统一控件尺寸
+    controlSize(): string {
+      const re = 'small';
+      return re;
     },
-    titleCls(): string[] {
-      return [
-        `${name}__title`,
-      ];
-    },
-    controllerCls(): string[] {
-      return [
-        `${name}__controller`,
-      ];
-    },
-    bodyCls(): string[] {
-      return [
-        `${name}__body`,
-      ];
-    },
-    // 组件dom样式定义 end
 
     /**
        * 年份下拉框数据源
@@ -384,21 +427,116 @@ export default mixins().extend({
      */
     yearCellsData(): any[] {
       const tis = this as any;
+      const re: any[] = [];
       const monthsArr: any[] = utils.createYearCellsData(tis.curSelectedYear, tis.curDate);
-      return monthsArr;
+      const rowCount = Math.ceil(monthsArr.length / tis.yearCellNumInRow);
+      let index = 0;
+      for (let i = 1; i <= rowCount; i++) {
+        const row: any[] = [];
+        for (let j = 1; j <= tis.yearCellNumInRow; j++) {
+          row.push(monthsArr[index]);
+          index += 1;
+        }
+        re.push(row);
+      }
+      return re;
     },
 
-    weekendToggleTheme(): string {
+    isControllerVisible(): boolean {
       const tis = this as any;
-      const re = (tis.isShowWeekend ? 'line' : 'ghost');
+      let re = true;
+      if (!tis.controllerConfig || !tis.controllerConfig.visible) {
+        re = false;
+      }
       return re;
+    },
+
+    weekendToggleBtnText(): string {
+      const tis = this as any;
+      return tis.isShowWeekend ? '隐藏周末' : '显示周末';
+    },
+    weekendToggleBtnVBind(): any {
+      const tis = this as any;
+      return tis.isShowWeekend
+        ? tis.controllerConfig.weekendToggle.hideWeekendButtonProps
+        : tis.controllerConfig.weekendToggle.showWeekendButtonProps;
+    },
+
+    currentBtnText(): string {
+      const tis = this as any;
+      return tis.curSelectedMode === 'month' ? '今天' : '本月';
+    },
+    currentBtnVBind(): any {
+      const tis = this as any;
+      return tis.curSelectedMode === 'month'
+        ? tis.controllerConfig.current.currentDaybuttonProps
+        : tis.controllerConfig.current.currentMonthProps;
+    },
+
+    isModeVisible(): boolean {
+      const tis = this as any;
+      return tis.checkControllerVisible('mode');
+    },
+    isYearVisible(): boolean {
+      const tis = this as any;
+      return tis.checkControllerVisible('year');
+    },
+    isMonthVisible(): boolean {
+      const tis = this as any;
+      return tis.checkControllerVisible('month');
+    },
+    isWeekendToggleVisible(): boolean {
+      const tis = this as any;
+      return tis.checkControllerVisible('weekendToggle');
+    },
+    isCurrentBtnVisible(): boolean {
+      const tis = this as any;
+      return tis.checkControllerVisible('current');
+    },
+
+    isModeDisabled(): boolean {
+      const tis = this as any;
+      return tis.checkControllerDisabled('mode', 'radioGroupProps');
+    },
+    isYearDisabled(): boolean {
+      const tis = this as any;
+      return tis.checkControllerDisabled('year', 'selecteProps');
+    },
+    isMonthDisabled(): boolean {
+      const tis = this as any;
+      return tis.checkControllerDisabled('month', 'selecteProps');
+    },
+    isWeekendToggleDisabled(): boolean {
+      const tis = this as any;
+      return tis.isShowWeekend
+        ? tis.checkControllerDisabled('weekendToggle', 'hideWeekendButtonProps')
+        : tis.checkControllerDisabled('weekendToggle', 'showWeekendButtonProps');
+    },
+    isCurrentBtnDisabled(): boolean {
+      const tis = this as any;
+      return tis.curSelectedMode === 'month'
+        ? tis.checkControllerDisabled('current', 'currentDaybuttonProps')
+        : tis.checkControllerDisabled('current', 'currentMonthProps');
     },
   },
   watch: {
     mode: {
-      handler(v) {
+      handler(v: string) {
         const tis = this as any;
         tis.curSelectedMode = v;
+      },
+      immediate: true,
+    },
+    defaultValue: {
+      handler() {
+        const tis = this as any;
+        tis.toCurrent();
+      },
+    },
+    isShowWeekendDefault: {
+      handler(v: boolean) {
+        const tis = this as any;
+        tis.isShowWeekend = v;
       },
       immediate: true,
     },
@@ -411,7 +549,6 @@ export default mixins().extend({
     init() {
       const tis = this as any;
       tis.toCurrent();
-      tis.isShowWeekend = tis.isShowWeekendDefault;
     },
     onCellClick(e: any, cellData: any): void {
       const tis = this as any;
@@ -457,12 +594,43 @@ export default mixins().extend({
       tis.isShowWeekend = !tis.isShowWeekend;
       tis.onControllerChange();
     },
-    // 判断单元格是否显示
-    checkCellVisibled(cellData: any): boolean {
+    // 判断月历单元格是否显示
+    checkMonthCellVisibled(cellData: any): boolean {
       let re = true;
       const tis = this as any;
       if (!tis.isShowWeekend) {
         re = !cellData.isWeekend;
+      }
+      return re;
+    },
+    // 判断月历单元格头是否显示
+    checkMonthCellColHeaderVisibled(item: any): boolean {
+      let re = true;
+      const tis = this as any;
+      if (!tis.isShowWeekend) {
+        re = item.num !== 6 && item.num !== 7;
+      }
+      return re;
+    },
+
+    // 判断某个控件是否禁用
+    checkControllerDisabled(name: string, propsName: string): boolean {
+      const tis = this as any;
+      let re = false;
+      const conf = tis.controllerConfig;
+      if (conf && (conf.disabled
+          || (conf[name] && conf[name][propsName] && conf[name][propsName].disabled))) {
+        re = true;
+      }
+      return re;
+    },
+    // 判断某个控件是否禁用
+    checkControllerVisible(name: string): boolean {
+      const tis = this as any;
+      let re = true;
+      const conf = tis.controllerConfig;
+      if (!conf || !conf.visible || (conf[name] && !conf[name].visible)) {
+        re = false;
       }
       return re;
     },

@@ -19,6 +19,28 @@ const getDay = (dt: Date): number => {
   return day;
 };
 /**
+ * 获取星期的中文
+ * @param num 星期（数字）
+ */
+const getDayCn = (num: number): string => {
+  let re = '';
+  const map = {
+    1: '一',
+    2: '二',
+    3: '三',
+    4: '四',
+    5: '五',
+    6: '六',
+    7: '日',
+  };
+  const numStr = num.toString();
+  if (numStr in map) {
+    re = map[numStr];
+  }
+  return re;
+};
+
+/**
  * 获取一个日期在日历上是第几列
  */
 const getCellColIndex = (firstDayOfWeek: number, dt: Date): number => {
@@ -74,16 +96,23 @@ const isSameDate = (dt: Date, dtCompare: Date): boolean => {
 
 const createYearCellsData = (year: number, curDate: Date) => {
   const monthsArr: any[] = [];
+  const map = {
+    1: '一月', 2: '二月', 3: '三月', 4: '四月',
+    5: '五月', 6: '六月', 7: '七月', 8: '八月',
+    9: '九月', 10: '十月', 11: '十一月', 12: '十二月',
+  };
+  const isCurYear = getYear(curDate) === year;
   for (let num = 1; num <= 12; num++) {
-    const month = getMonth(curDate);
     const date = new Date(year, num - 1);
+    const isCurMon = (isCurYear && getMonth(curDate) === num);
     monthsArr.push({
       mode: 'year',
-      curYear: true,
-      isCurMon: (month === num),
+      isCurYear,
+      isCurMon,
       year,
       month: num,
       date,
+      monthDiaplay: map[num.toString()],
     });
   }
   return monthsArr;
@@ -101,7 +130,7 @@ const createMonthCellsData = (year: number, month: number, firstDayOfWeek: numbe
 
   const createCellData = (
     isCurMon: boolean,
-    isCurDay: boolean,
+    isCurDate: boolean,
     date: Date,
     weekNum: number
   ) => {
@@ -109,7 +138,19 @@ const createMonthCellsData = (year: number, month: number, firstDayOfWeek: numbe
     const month = getMonth(date);
     const day = getDay(date);
     const isWeekend = (day === 6 || day === 7);
-    return { mode: 'month', isCurMon, isCurDay, year, month, day, isWeekend, weekNum, date };
+    const dateNum = date.getDate();
+    return {
+      mode: 'month',
+      isCurMon,
+      isCurDate,
+      year,
+      month,
+      day,
+      isWeekend,
+      weekNum,
+      date,
+      dateDiaplay: (dateNum > 9 ? `${dateNum}` : `0${dateNum}`),
+    };
   };
 
   // 添加上个月中和当前月第一天同一周的日期
@@ -154,6 +195,7 @@ export {
   getBeginOfMonth,
   getEndOfMonth,
   getDay,
+  getDayCn,
   getCellColIndex,
   addDate,
   getMonthStr,
