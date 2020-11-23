@@ -8,6 +8,7 @@
       :checked-value="sourceCheckedValue"
       :disabled="disabled"
       :search="search"
+      :renderItem="renderItem"
     >
       <slot name="left-footer"></slot>
     </transfer-list>

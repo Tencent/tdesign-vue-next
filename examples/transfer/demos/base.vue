@@ -1,5 +1,15 @@
 <template>
-  <t-transfer theme="primary" :data="list" :target-value="targetValue">Transfer</t-transfer>
+  <t-transfer
+    theme="primary"
+    :data="list"
+    :target-value="targetValue"
+    :render-item="item => `${item.key}-${item.title}`"
+  >
+    <template v-slot:renderList="item">
+      <span>{{item.description}}</span>
+    </template>
+    Transfer
+  </t-transfer>
 </template>
 <script>
 const list = [];
@@ -19,6 +29,20 @@ export default {
       targetValue: [],
     };
   },
-  methods: {},
+  methods: {
+    // // "item => `${item.key}-${item.title}`"
+    renderItem(item) {
+      const customLabel = (
+              <span class="custom-item">
+              {item.title} - {item.description}
+              </span>
+      );
+
+      return {
+        title: customLabel, // for displayed item
+        value: item.title, // for title and filter matching
+      };
+    },
+  },
 };
 </script>
