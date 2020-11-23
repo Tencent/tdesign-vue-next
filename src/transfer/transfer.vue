@@ -11,7 +11,12 @@
     >
       <slot name="left-footer"></slot>
     </transfer-list>
-    <transfer-operations />
+    <transfer-operations
+      :left-active="leftActive"
+      :right-active="rightActive"
+      @moveToRight="moveToRight"
+      @moveToLeft="moveToLeft"
+    />
     <transfer-list
       v-bind="$props"
       key="right"
@@ -56,6 +61,10 @@ export default Vue.extend({
       sourceCheckedValue: this.checkedValue.filter(key => this.targetValue.indexOf(key) === -1),
       // 目标数据被选中的key
       targetCheckedValue: this.checkedValue.filter(key => this.targetValue.indexOf(key) !== -1),
+      // 控制左按钮的禁用与否
+      leftActive: false,
+      // 控制右按钮的禁用与否
+      rightActive: true,
     };
   },
 
@@ -77,6 +86,16 @@ export default Vue.extend({
         }
       });
       return arr;
+    },
+  },
+  methods: {
+    // 点击移到右边按钮触发的函数
+    moveToRight() {
+      alert('moveToRight');
+    },
+    // 点击移到左边按钮触发的函数
+    moveToLeft() {
+      alert('moveToLeft');
     },
   },
 });
