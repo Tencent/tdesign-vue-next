@@ -1,4 +1,4 @@
-import Transfer from './transfer';
+import Transfer from './transfer.vue';
 import setInstallFn from '../utils/setInstallFn';
 
 setInstallFn('Transfer', Transfer);
