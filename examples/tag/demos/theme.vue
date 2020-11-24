@@ -1,10 +1,6 @@
 <template>
   <div class="tdesign-tag-theme">
     <div class="tdesign-demo-block">
-      默认
-      <t-tag>默认</t-tag>
-    </div>
-    <div class="tdesign-demo-block">
       深色
       <t-tag theme="primary">标签一</t-tag>
       <t-tag theme="success">标签二</t-tag>
@@ -30,3 +26,11 @@
     </div>
   </div>
 </template>
+
+<style lang="less" scoped>
+.tdesign-tag-theme .tdesign-demo-block {
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+}
+</style>
