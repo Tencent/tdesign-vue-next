@@ -332,8 +332,22 @@ export default Vue.extend({
     getItem(value: string): TreeNode {
       return this.store.getNode(value);
     },
-    getItems(value?: string, options?: TreeFilterOptions): TreeNode[] {
-      return this.store.getNodes(value, options);
+    getItems(item?: string | TreeNode, options?: TreeFilterOptions): TreeNode[] {
+      let val = item;
+      if (item instanceof TreeNode) {
+        val = item.value;
+      }
+      return this.store.getNodes(val, options);
+    },
+    getActived(item?: string | TreeNode): TreeNode[] {
+      let nodes = this.getItems(item);
+      nodes = nodes.filter(node => node.isActived());
+      return nodes;
+    },
+    getChecked(item?: string | TreeNode): TreeNode[] {
+      let nodes = this.getItems(item);
+      nodes = nodes.filter(node => node.isChecked());
+      return nodes;
     },
   },
   created() {
