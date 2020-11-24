@@ -7,6 +7,9 @@
     :render-item="item => `${item.key}-${item.title}`"
     @checkChange="checkChange"
   >
+    <template v-slot:empty>
+      <div style="color: red">no data</div>
+    </template>
     <template v-slot:renderList="item">
       <span>{{item.description}}</span>
     </template>
