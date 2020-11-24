@@ -18,11 +18,7 @@
 ### 1.2.联动多选框
 联动多选框指多选框与其他组件配合使用
 
-::: demo demos/default-checked 初始选中与否
-:::
-
-
-::: demo demos/disabled 不可用
+::: demo demos/linkage
 :::
 
 ::: demo demos/indeterminate 半选样式

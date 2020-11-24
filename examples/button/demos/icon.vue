@@ -17,13 +17,13 @@
       <div class="demo-button-col">
         <t-button
           theme="primary"
-          icon="search"
+          icon="discount"
           shape="circle"
         >
         </t-button>
         <t-button
           theme="primary"
-          icon="search"
+          icon="upload"
           shape="circle"
         >
         </t-button>
@@ -65,6 +65,9 @@ export default {
   display: flex;
 }
 .demo-button-col {
-  margin-right: 80px;
+  margin-right: 32px;
+}
+.t-button + .t-button {
+  margin-left: 16px;
 }
 </style>

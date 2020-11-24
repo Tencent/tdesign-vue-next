@@ -1,5 +1,30 @@
 <template>
-  <t-button theme="primary">
-    按钮组
-  </t-button>
+  <div class="demo-button-row">
+    <div class="demo-button-col">
+      <t-button theme="primary">确定</t-button>
+      <t-button>取消</t-button>
+    </div>
+    <div class="demo-button-col">
+      <t-button theme="primary">下一步</t-button>
+      <t-button>上一步</t-button>
+    </div>
+    <div class="demo-button-col">
+      <t-button theme="primary">新建主机</t-button>
+      <t-button>重装系统</t-button>
+      <t-button>批量续费</t-button>
+      <t-button icon="more"></t-button>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+.demo-button-row {
+  display: flex;
+}
+.demo-button-col + .demo-button-col {
+  margin-left: 32px;
+}
+.t-button + .t-button {
+  margin-left: 16px;
+}
+</style>

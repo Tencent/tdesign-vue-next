@@ -17,10 +17,10 @@
 <style lang="less" scoped>
 .tdesign-demo-item__body {
   .t-button + .t-button {
-    margin-left: 56px;
+    margin-left: 32px;
   }
   .tdesign-demo-block {
-    margin-bottom: 24px;
+    margin-top: 16px;
   }
 }
 .tdesign-wrap {
