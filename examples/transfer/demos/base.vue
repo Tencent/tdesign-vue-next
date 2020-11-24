@@ -3,7 +3,9 @@
     theme="primary"
     :data="list"
     :target-value="targetValue"
+    :checked-value="checkedValue"
     :render-item="item => `${item.key}-${item.title}`"
+    @checkChange="checkChange"
   >
     <template v-slot:renderList="item">
       <span>{{item.description}}</span>
@@ -27,6 +29,7 @@ export default {
     return {
       list,
       targetValue: [],
+      checkedValue: ['1', '2'],
     };
   },
   methods: {
@@ -42,6 +45,10 @@ export default {
         title: customLabel, // for displayed item
         value: item.title, // for title and filter matching
       };
+    },
+    checkChange(sourceChecked, targetChecked) {
+      console.log('====> sourceChecked', sourceChecked);
+      console.log('====> targetChecked', targetChecked);
     },
   },
 };

@@ -8,7 +8,7 @@
       :checked-value="sourceCheckedKeys"
       :disabled="disabled"
       :search="search"
-      @checked-change="handleSourceCheckedChange"
+      @checkedChange="handleSourceCheckedChange"
     >
       <slot name="left-footer"></slot>
     </transfer-list>
@@ -26,7 +26,7 @@
       :checked-value="targetCheckedKeys"
       :disabled="disabled"
       :search="search"
-      @checked-change="handleTargetCheckedChange"
+      @checkedChange="handleTargetCheckedChange"
     >
       <slot name="right-footer"></slot>
     </transfer-list>
@@ -131,11 +131,11 @@ export default Vue.extend({
     },
     handleSourceCheckedChange(val: Array<any>) {
       this.sourceCheckedKeys = val;
-      this.$emit('check-change', val, this.targetCheckedKeys);
+      this.$emit('checkChange', val, this.targetCheckedKeys);
     },
     handleTargetCheckedChange(val: Array<any>) {
       this.targetCheckedKeys = val;
-      this.$emit('check-change', this.sourceCheckedKeys, val);
+      this.$emit('checkChange', this.sourceCheckedKeys, val);
     },
     getItemData(key: string): TransferItem {
       // 获取key对应的数据
