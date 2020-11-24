@@ -102,7 +102,7 @@
           <tr v-for="week in monthCellsData" :key="week.num"
               class="t-calendar__table-body-row">
             <template v-for="item in week">
-              <CalendarCell v-if="isShowWeekendDefault || !item.isWeekend"
+              <CalendarCell v-if="isShowWeekend || !item.isWeekend"
                             :key="`${item.weekNum}-${item.day}`"
                             :item="item" :theme="theme"
                             @click.native="onCellClick($event, item)"
