@@ -2,16 +2,16 @@
   <t-transfer
     theme="primary"
     :data="list"
-    :target-value="targetValue"
+    v-model="targetValue"
     :checked-value="checkedValue"
-    :render-item="item => `${item.key}-${item.title}`"
+    :render-item="(item) => `${item.key}-${item.title}`"
     @checkChange="checkChange"
   >
     <template v-slot:empty>
       <div style="color: red">no data</div>
     </template>
     <template v-slot:renderList="item">
-      <span>{{item.description}}</span>
+      <span>{{ item.description }}</span>
     </template>
     Transfer
   </t-transfer>
@@ -32,16 +32,16 @@ export default {
     return {
       list,
       targetValue: [],
-      checkedValue: ['1', '2'],
+      checkedValue: ['0', '1', '2'],
     };
   },
   methods: {
     // // "item => `${item.key}-${item.title}`"
     renderItem(item) {
       const customLabel = (
-              <span class="custom-item">
-              {item.title} - {item.description}
-              </span>
+        <span class="custom-item">
+          {item.title} - {item.description}
+        </span>
       );
 
       return {
