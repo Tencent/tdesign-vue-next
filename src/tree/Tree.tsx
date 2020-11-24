@@ -18,6 +18,27 @@ import {
   getRole,
 } from './util';
 
+function getPara(tree: TreeStore, para: any, item: any) {
+  let value = '';
+  let node = null;
+  let data = null;
+  if (typeof para === 'string') {
+    value = para;
+    data = item;
+    node = tree.getNode(value);
+  } else if (para instanceof TreeNode) {
+    node = para;
+    data = item;
+  } else {
+    data = para;
+  }
+  const spec = {
+    node,
+    data,
+  };
+  return spec;
+}
+
 export default Vue.extend({
   name: TREE_NAME,
   model: {
@@ -30,6 +51,7 @@ export default Vue.extend({
   data() {
     return {
       store: null,
+      updatedMap: null,
       treeNodes: [],
     };
   },
@@ -82,6 +104,7 @@ export default Vue.extend({
         operations,
         store,
         treeNodes,
+        updatedMap,
         $scopedSlots: scopedSlots,
       } = this;
 
@@ -113,6 +136,10 @@ export default Vue.extend({
             nodeItem = nodeView.componentInstance.node;
             if (nodeItem.value !== node.value) {
               shouldInsert = true;
+            }
+            if (updatedMap && updatedMap.get(node.value)) {
+              // 只强制更新必要节点
+              nodeView.componentInstance.$forceUpdate();
             }
           } else {
             shouldInsert = true;
@@ -181,8 +208,8 @@ export default Vue.extend({
           onLoad: (info: any) => {
             this.handleLoad(info);
           },
-          onUpdate: (nodes: TreeNode[]) => {
-            this.handleUpdate(nodes);
+          onUpdate: (state: EventState) => {
+            this.handleUpdate(state);
           },
         });
         this.store = store;
@@ -208,6 +235,7 @@ export default Vue.extend({
           store.setActived(actived);
         }
         // 树的数据初始化之后，需要立即进行一次视图刷新
+        store.refreshNodes();
         this.refresh();
       }
     },
@@ -263,13 +291,18 @@ export default Vue.extend({
       };
       this.$emit('load', state);
     },
-    handleUpdate(nodes: TreeNode[]): void {
+    handleUpdate(info: EventState): void {
       const event = new Event('update');
+      const {
+        nodes,
+        map,
+      } = info;
       const state: EventState = {
         event,
         nodes,
       };
       this.$emit('update', state);
+      this.updatedMap = map;
       this.refresh();
     },
     handleClick(state: EventState): void {
@@ -348,6 +381,35 @@ export default Vue.extend({
       let nodes = this.getItems(item);
       nodes = nodes.filter(node => node.isChecked());
       return nodes;
+    },
+    // 支持下列使用方式
+    // append(item)
+    // append(TreeNode)
+    // append(value, item)
+    // append(value, TreeNode)
+    // append(TreeNode, item)
+    // append(TreeNode, TreeNode)
+    append(para?: any, item?: any): void {
+      const {
+        store,
+      } = this;
+      const spec = getPara(store, para, item);
+      if (!spec.node) {
+        // 在根节点插入
+        if (spec.data instanceof TreeNode) {
+          spec.data.appendTo(store);
+        } else {
+          store.append([spec.data]);
+        }
+      } else {
+        // 插入到目标节点之下
+        if (spec.data instanceof TreeNode) {
+          spec.data.appendTo(store, spec.node);
+        } else {
+          spec.node.append([spec.data]);
+          spec.node.updatePath();
+        }
+      }
     },
   },
   created() {

@@ -21,7 +21,8 @@
     >
       <template slot="operations" slot-scope="{node}">
         <t-button size="small" theme="primary" @click="append(node)">添加子节点</t-button>
-        <t-button size="small" theme="line" @click="insert(node)">插入同级节点</t-button>
+        <t-button size="small" theme="line" @click="insertBefore(node)">插入节点到前面</t-button>
+        <t-button size="small" theme="line" @click="insertAfter(node)">插入节点到后面</t-button>
         <t-button size="small" theme="warning" @click="remove(node)">删除</t-button>
       </template>
     </t-tree>
@@ -32,6 +33,7 @@
       <t-button theme="primary" @click="getItems">获取 value 为 'custom_1' 的节点下的所有节点</t-button>
       <t-button theme="primary" @click="getActived">获取所有高亮节点</t-button>
       <t-button theme="primary" @click="getChecked">获取所有选中节点</t-button>
+      <t-button theme="primary" @click="append">插入一个根节点</t-button>
     </div>
   </div>
 </template>
@@ -84,11 +86,19 @@ export default {
       const nodes = tree.getChecked();
       console.log('getChecked:', nodes.map(node => node.value));
     },
-    append() {
+    append(node) {
       const { tree } = this.$refs;
-      tree.append();
+      if (!node) {
+        tree.append({});
+      } else {
+        tree.append(node, {});
+      }
     },
-    insert() {
+    insertBefore() {
+      const { tree } = this.$refs;
+      tree.insert();
+    },
+    insertAfter() {
       const { tree } = this.$refs;
       tree.insert();
     },

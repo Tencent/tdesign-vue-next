@@ -165,8 +165,9 @@ export const TreeNodeProps = {
 };
 
 export interface EventState {
-  event: Event;
+  event?: Event;
   node?: TreeNode;
   nodes?: Array<TreeNode>;
   data?: any;
+  map?: Map<string, boolean>;
 };

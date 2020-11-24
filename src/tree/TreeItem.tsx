@@ -24,13 +24,13 @@ export default Vue.extend({
 
     };
   },
-  computed: {
-    styles(): string {
+  methods: {
+    getStyles(): string {
       const { level } = this.node;
       const styles = `--level: ${level};`;
       return styles;
     },
-    classList(): Array<any> {
+    getClassList(): Array<any> {
       const {
         node,
       } = this;
@@ -44,8 +44,6 @@ export default Vue.extend({
       });
       return list;
     },
-  },
-  methods: {
     renderLine(createElement: CreateElement): VNode {
       const {
         node,
@@ -339,12 +337,12 @@ export default Vue.extend({
   render(createElement: CreateElement) {
     const {
       node,
-      styles,
-      classList,
     } = this;
     const {
       level,
     } = node;
+    const styles = this.getStyles();
+    const classList = this.getClassList();
     return (
       <div
         class={classList}
