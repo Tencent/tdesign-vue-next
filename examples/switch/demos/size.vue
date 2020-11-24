@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <t-switch size="large" v-model="checked">
-    </t-switch>
-    <br />
-    <t-switch>
-    </t-switch>
-    <br />
-    <t-switch size="small">
-    </t-switch>
+  <div class="switch-demo">
+    <div class="tdesign-demo-block">
+      <t-switch size="large" v-model="checked"></t-switch>
+      <t-switch size="default"></t-switch>
+      <t-switch size="small"></t-switch>
+    </div>
+
   </div>
 </template>
 
@@ -26,3 +24,12 @@ export default {
   },
 };
 </script>
+
+
+<style scoped>
+.switch-demo .tdesign-demo-block {
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+</style>

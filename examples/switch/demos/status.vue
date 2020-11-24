@@ -1,24 +1,20 @@
 <template>
   <div class="switch-demo">
     <div class="tdesign-demo-block">
-      <t-switch></t-switch>
-      <t-switch v-model="checked" @change="onChange"></t-switch>
+      <t-switch v-model="checked1"></t-switch>
+      <t-switch loading v-model="checked2"></t-switch>
+      <t-switch disabled></t-switch>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
-      checked: true,
+      checked1: true,
+      checked2: true
     };
-  },
-  methods: {
-    onChange(val) {
-      console.log(val);
-    },
   },
 };
 </script>
@@ -30,3 +26,4 @@ export default {
   justify-content: space-around;
 }
 </style>
+
