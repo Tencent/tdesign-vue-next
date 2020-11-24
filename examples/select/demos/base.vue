@@ -10,7 +10,6 @@
         v-for="(item, index) in options"
         :value="item.value"
         :label="item.label"
-        :disabled="item.disabled"
         :key="index"
       >
         {{ item.label }}
@@ -24,17 +23,16 @@ export default {
   data() {
     return {
       options: [{
-        label: '上海',
-        value: 'shanghai',
+        label: '已选择的选项',
+        value: '1',
       }, {
-        label: '北京',
-        value: 'beijing',
-        disabled: true,
+        label: '短的选项二',
+        value: '2',
       }, {
-        label: '深圳',
-        value: 'shenzhen',
+        label: '很长很长很长的选项三',
+        value: '3',
       }],
-      value: '',
+      value: '1',
     };
   },
   methods: {
