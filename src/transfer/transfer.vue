@@ -2,29 +2,31 @@
   <div class="t-transfer">
     <transfer-list
       v-bind="$props"
-      key="left"
+      direction="left"
       :title="titles[0]"
-      :data-source="sourceDataSource"
-      :checked-value="sourceCheckedValue"
+      :data-source="sourceList"
+      :checked-value="sourceCheckedKeys"
       :disabled="disabled"
       :search="search"
+      @checked-change="handleSourceCheckedChange"
     >
       <slot name="left-footer"></slot>
     </transfer-list>
     <transfer-operations
-      :left-active="leftActive"
-      :right-active="rightActive"
-      @moveToRight="moveToRight"
-      @moveToLeft="moveToLeft"
+      :left-active="targetCheckedKeys.length !== 0"
+      :right-active="sourceCheckedKeys.length !== 0"
+      @moveToRight="transferToRight"
+      @moveToLeft="transferToLeft"
     />
     <transfer-list
       v-bind="$props"
-      key="right"
+      direction="right"
       :title="titles[1]"
-      :data-source="targetDataSource"
-      :checked-value="targetCheckedValue"
+      :data-source="targetList"
+      :checked-value="targetCheckedKeys"
       :disabled="disabled"
       :search="search"
+      @checked-change="handleTargetCheckedChange"
     >
       <slot name="right-footer"></slot>
     </transfer-list>
@@ -35,10 +37,13 @@
 import Vue from 'vue';
 import { prefix } from '../config';
 // import RenderComponent from '../utils/render-component';
+// import { TransferItems } from './type/transfer';
 import TransferList from './transfer-list';
 import TransferOperations from './transfer-operations';
 import { TransferItem } from './type/transfer.d';
 import { CommonProps } from './interface';
+// import { AnyARecord } from 'dns';
+
 const name = `${prefix}-transfer`;
 export default Vue.extend({
   name,
@@ -56,27 +61,19 @@ export default Vue.extend({
   data() {
     return {
       name,
-      // targetValue:
-      // 源数据被选中的key
-      sourceCheckedValue: this.checkedValue.filter(key => this.targetValue.indexOf(key) === -1),
-      // 目标数据被选中的key
-      targetCheckedValue: this.checkedValue.filter(key => this.targetValue.indexOf(key) !== -1),
-      // 控制左按钮的禁用与否
-      leftActive: false,
-      // 控制右按钮的禁用与否
-      rightActive: true,
+      sourceCheckedKeys: [], // 源数据被选中的key
+      targetCheckedKeys: [], // 目标数据被选中的key
     };
   },
 
   computed: {
-    sourceDataSource(): Array<TransferItem> {
-      // todo 左边源数据列要保留全部数据还是保留未选数据
-      return this.data.filter(({ key }) => this.targetValue.indexOf(key) === -1);
+    sourceList(): Array<TransferItem> {
+      return this.filterMethod(this.data, this.targetValue, false);
     },
-    targetDataSource(): Array<TransferItem> {
+    targetList(): Array<TransferItem> {
       if (this.targetOrder === 'original') {
-        // ({ key }) 相当于item.key
-        return this.data.filter(({ key }) => this.targetValue.indexOf(key) !== -1);
+        // return this.data.filter(({ key }) => this.targetValue.indexOf(key) !== -1);
+        return this.filterMethod(this.data, this.targetValue, true);
       }
       const arr: Array<TransferItem> = [];
       this.targetValue.forEach((str: string | number | symbol) => {
@@ -88,14 +85,68 @@ export default Vue.extend({
       return arr;
     },
   },
+  mounted() {
+    this.initConfig();
+  },
   methods: {
+    initConfig() {
+      const { checkedValue, targetValue } = this;
+      this.sourceCheckedKeys = this.filterMethod(checkedValue, targetValue, false);
+      this.targetCheckedKeys = this.filterMethod(checkedValue, targetValue, true);
+    },
+    // transferTo(toDirection: string) {
+    //   let keysName = {
+    //     sourceCheckedKeys: 'sourceCheckedKeys',
+    //     targetCheckedKeys: 'targetCheckedKeys',
+    //   };
+    //   // const { sourceCheckedKeys, targetCheckedKeys } = this;
+    //   if (toDirection === 'left') {
+    //     keysName = {
+    //       sourceCheckedKeys: 'targetCheckedKeys',
+    //       targetCheckedKeys: 'sourceCheckedKeys',
+    //     };
+    //   }
+    //   // const fromKeys = toDirection === 'right' ? sourceCheckedKeys : targetCheckedKeys;
+    //   // const toKeys = toDirection === 'right' ? targetCheckedKeys : sourceCheckedKeys;
+    //   const moveKeys: Array<string | number | symbol> = [];
+    //   const newFromKeys = this[keysName.sourceCheckedKeys].filter((key: any) => {
+    //     const data = this.getItemData(key) || {};
+    //     const isMove = !data.disabled;
+    //     if (isMove) {
+    //       moveKeys.push(key);
+    //     }
+    //     return !isMove;
+    //   });
+    //   const newToKeys = this[keysName.targetCheckedKeys].concat(moveKeys);
+    //   console.log('newFromKeys', newFromKeys);
+    //   this[keysName.targetCheckedKeys] = newToKeys;
+    // },
     // 点击移到右边按钮触发的函数
-    moveToRight() {
-      alert('moveToRight');
+    transferToRight() {
+      // this.transferTo('right');
     },
     // 点击移到左边按钮触发的函数
-    moveToLeft() {
-      alert('moveToLeft');
+    transferToLeft() {
+      // this.transferTo('left');
+    },
+    handleSourceCheckedChange(val: Array<any>) {
+      this.sourceCheckedKeys = val;
+      this.$emit('check-change', val, this.targetCheckedKeys);
+    },
+    handleTargetCheckedChange(val: Array<any>) {
+      this.targetCheckedKeys = val;
+      this.$emit('check-change', this.sourceCheckedKeys, val);
+    },
+    getItemData(key: string): TransferItem {
+      // 获取key对应的数据
+      const data = this.data.filter((item: TransferItem) => item.key === key);
+      return data.length ? data[0] : {};
+    },
+    filterMethod(sourceArr: Array<any>, targetArr: Array<any>, needMatch: boolean): Array<any> {
+      return sourceArr.filter((key) => {
+        const isMatch = targetArr.indexOf(key) > -1;
+        return needMatch ? isMatch : !isMatch;
+      });
     },
   },
 });
