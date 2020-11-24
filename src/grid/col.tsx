@@ -1,16 +1,16 @@
-import Vue, { CreateElement, VNode } from 'vue';
+import Vue from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 
-const name = prefix + '-col';
+const name = `${prefix}-col`;
 
 export default Vue.extend({
   name,
- 
+
   components: {
     RenderComponent,
   },
- 
+
   props: {
     flex: {
       type: [String, Number],
@@ -54,7 +54,7 @@ export default Vue.extend({
     },
     tag: {
       type: String,
-      default: 'div'
+      default: 'div',
     },
   },
 
@@ -68,8 +68,6 @@ export default Vue.extend({
 
   watch: {},
 
-  mounted() {},
-
   methods: {
     parseFlex(flex: any) {
       if (typeof flex === 'number') {
@@ -82,10 +80,10 @@ export default Vue.extend({
     },
     renderContent() {
       return this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
-    }
+    },
   },
- 
-  render(h: CreateElement) {
+
+  render() {
     const {
       span,
       order,
@@ -97,7 +95,7 @@ export default Vue.extend({
     } = this;
     const component = tag;
     let sizeClassObj: any = {};
-    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
+    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach((size) => {
       let sizeProps: any = {};
       const propSize = this[size];
       if (typeof propSize === 'number') {
@@ -129,10 +127,10 @@ export default Vue.extend({
     if (flex) {
       styles.flex = this.parseFlex(flex);
     }
-    const rowContext: any = (this as any).rowContext;
+    const { rowContext }: any = this as any;
     if (rowContext) {
       const gutter = rowContext.getGutter();
-      let padding: any = {};
+      const padding: any = {};
       if (gutter) {
         if (gutter[0] > 0) {
           padding.paddingLeft = `${gutter[0] / 2}px`;
@@ -146,8 +144,12 @@ export default Vue.extend({
       styles = {
         ...styles,
         ...padding,
-      }
+      };
     }
-    return <component class={classes} style={styles}>{this.renderContent()}</component>
-  }
+    return (
+      <component class={classes} style={styles}>
+        {this.renderContent()}
+      </component>
+    );
+  },
 });

@@ -1,17 +1,17 @@
-import Vue, { CreateElement, VNode } from 'vue';
+import Vue from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import responsiveObserver from './responsive-observer';
 
-const name = prefix + '-row';
+const name = `${prefix}-row`;
 
 export default Vue.extend({
   name,
- 
+
   components: {
     RenderComponent,
   },
- 
+
   props: {
     align: {
       type: String,
@@ -47,7 +47,7 @@ export default Vue.extend({
     },
     tag: {
       type: String,
-      default: 'div'
+      default: 'div',
     },
   },
 
@@ -62,34 +62,34 @@ export default Vue.extend({
     return {
       rowContext: {
         getGutter: this.getGutter,
-      }
+      },
     };
   },
 
   computed: {
     classes(): ClassName {
-      const { justify, align } = this
+      const { justify, align } = this;
       return [
         name,
         {
           [`${name}-${justify}`]: justify,
           [`${name}-${align}`]: align,
-        }
-      ]
+        },
+      ];
     },
     styles() {
       const gutter = this.getGutter();
-      let margin: any = {};
+      const margin: any = {};
       if (gutter[0] > 0) {
         margin.marginLeft = `${gutter[0] / -2}px`;
         margin.marginRight = `${gutter[0] / -2}px`;
       }
       if (gutter[1] > 0) {
-        margin.marginTop= `${gutter[1] / -2}px`;
+        margin.marginTop = `${gutter[1] / -2}px`;
         margin.marginBottom = `${gutter[1] / -2}px`;
       }
       return margin;
-    }
+    },
   },
 
   watch: {},
@@ -112,7 +112,7 @@ export default Vue.extend({
     renderContent() {
       return this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
     },
-    
+
     getGutter() {
       const results = [0, 0];
       const { gutter, screenSize } = this;
@@ -129,14 +129,13 @@ export default Vue.extend({
       return results;
     },
   },
- 
-  render(h: CreateElement) {
+
+  render() {
     const component =  this.tag;
     return (
       <component class={this.classes} style={this.styles}>
         {this.renderContent()}
       </component>
-    )
-  }
- 
+    );
+  },
 });
