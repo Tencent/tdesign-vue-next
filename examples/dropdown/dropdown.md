@@ -11,15 +11,16 @@
 
 使用场景：空间极度受限的收纳操作场景，仅用文字进行操作收纳，一般用于表格内详情操作的收纳
 
-::: demo demos/base
+::: demo demos/text
 :::
+
 
 ### 1.2.按钮下拉菜单
 定义：普通按钮触发下拉菜单
 
 使用场景：常用操作收纳场景，可跟其他按钮保持统一样式
 
-::: demo demos/event click、visibleChange事件
+::: demo demos/base
 :::
 
 ### 1.3.带分割线下拉菜单
@@ -38,13 +39,16 @@
 ::: demo demos/submenu
 :::
 
-::: demo demos/disabled disabled=true
+::: demo demos/disabled disabled
 :::
 
 ::: demo demos/custom 自定义其他属性
 :::
 
 ::: demo demos/long 高尺寸
+:::
+
+::: demo demos/event click、visibleChange事件
 :::
 
 ### 属性配置
