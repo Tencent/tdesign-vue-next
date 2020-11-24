@@ -13,8 +13,8 @@
       <slot name="left-footer"></slot>
     </transfer-list>
     <transfer-operations
-      :left-active="targetCheckedKeys.length !== 0"
-      :right-active="sourceCheckedKeys.length !== 0"
+      :left-disabled="targetCheckedKeys.length !== 0"
+      :right-disabled="sourceCheckedKeys.length !== 0"
       @moveToRight="transferToRight"
       @moveToLeft="transferToLeft"
     />
@@ -40,7 +40,7 @@ import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
 import TransferList from './transfer-list';
 import TransferOperations from './transfer-operations';
-import { TransferItem } from './type/transfer.d';
+import { TransferItem } from './type/transfer';
 import { CommonProps } from './interface';
 // import { AnyARecord } from 'dns';
 
