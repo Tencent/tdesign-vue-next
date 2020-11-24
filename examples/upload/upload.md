@@ -1,19 +1,45 @@
 ## Upload 上传
 
-::: demo demos/listType 上传文件列表
+上传组件允许用户传输文件或提交自己的内容。
+
+### 何时使用
+
+- 需要上传文件时
+
+- 需要显示上传进度时
+
+### 1.组件类型
+
+### 1.1 基础控件
+
+::: demo demos/listType 
 :::
 
-::: demo demos/cardType 图片墙
+可带有文字辅助说明
+
+::: demo demos/listType 
 :::
 
-::: demo demos/draggerable 拖拽上传(默认样式)
+### 1.2 拖拽上传
+
+::: demo demos/draggerable
 :::
 
-::: demo demos/customDraggerable 自定义拖拽上传
+
+### 1.3 图片上传
+
+::: demo demos/cardType 
 :::
 
-::: demo demos/customType 完全自定义
+### 1.4 批量上传
+
+批量上传通常作为一个单独的功能出现，上传的内容用表格来承载。由于批量上传需要的时间较长，某些场景下会出现先选择文件，确认后再统一上传的场景
+
+批量上传文件
+
+::: demo demos/customType 
 :::
+
 
 ### 属性配置
 
