@@ -18,26 +18,6 @@ import {
   getRole,
 } from './util';
 
-function getPara(tree: TreeStore, para: any, item: any) {
-  let value = '';
-  let node = null;
-  let data = null;
-  if (typeof para === 'string') {
-    value = para;
-    data = item;
-    node = tree.getNode(value);
-  } else if (para instanceof TreeNode) {
-    node = para;
-    data = item;
-  } else {
-    data = para;
-  }
-  const spec = {
-    node,
-    data,
-  };
-  return spec;
-}
 
 export default Vue.extend({
   name: TREE_NAME,
@@ -364,30 +344,16 @@ export default Vue.extend({
       this.toggleChecked(node);
     },
     getItem(item: string | TreeNode): TreeNode {
-      let node = null;
-      if (typeof item === 'string') {
-        node = this.store.getNode(item);
-      } else if (item instanceof TreeNode) {
-        node = this.store.getNode(item.value);
-      }
-      return node;
+      return this.store.getNode(item);
     },
     getItems(item?: string | TreeNode, options?: TreeFilterOptions): TreeNode[] {
-      let val = item;
-      if (item instanceof TreeNode) {
-        val = item.value;
-      }
-      return this.store.getNodes(val, options);
+      return this.store.getNodes(item, options);
     },
     getActived(item?: string | TreeNode): TreeNode[] {
-      let nodes = this.getItems(item);
-      nodes = nodes.filter(node => node.isActived());
-      return nodes;
+      return this.store.getActivedNodes(item);
     },
     getChecked(item?: string | TreeNode): TreeNode[] {
-      let nodes = this.getItems(item);
-      nodes = nodes.filter(node => node.isChecked());
-      return nodes;
+      return this.store.getCheckedNodes(item);
     },
     getParent(value: string | TreeNode): TreeNode {
       const node = this.getItem(value);
@@ -397,34 +363,8 @@ export default Vue.extend({
       }
       return parent;
     },
-    // 支持下列使用方式
-    // append(item)
-    // append(TreeNode)
-    // append(value, item)
-    // append(value, TreeNode)
-    // append(TreeNode, item)
-    // append(TreeNode, TreeNode)
     append(para?: any, item?: any): void {
-      const {
-        store,
-      } = this;
-      const spec = getPara(store, para, item);
-      if (!spec.node) {
-        // 在根节点插入
-        if (spec.data instanceof TreeNode) {
-          spec.data.appendTo(store);
-        } else {
-          store.append([spec.data]);
-        }
-      } else {
-        // 插入到目标节点之下
-        if (spec.data instanceof TreeNode) {
-          spec.data.appendTo(store, spec.node);
-        } else {
-          spec.node.append([spec.data]);
-        }
-        spec.node.updateRelated();
-      }
+      return this.store.appendNodes(para, item);
     },
     remove(para?: string | TreeNode): void {
       let node = null;
