@@ -17,7 +17,7 @@
 
 图示1：基础气泡确认框，可自定义按钮样式
 
-::: demo demos/base 基础气泡确认框
+::: demo demos/base 
 :::
 
 ### 1.2 带图标的气泡确认框
@@ -28,7 +28,7 @@
 
 图示2：带图标的气泡确认框
 
-::: demo demos/theme 带图标气泡确认框
+::: demo demos/theme 
 :::
 
 ### 1.3 带描述的气泡确认框
@@ -38,7 +38,7 @@
 
 图示3：带描述的气泡确认框所有样式，可自定义按钮及图标
 
-::: demo demos/content 带描述气泡确认框
+::: demo demos/content 
 :::
 
 
