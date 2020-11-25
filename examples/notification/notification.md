@@ -16,14 +16,14 @@
 
 基础消息通知，可手动关闭也可自动退出。
 
-::: demo demos/base 基础消息通知
+::: demo demos/base 
 :::
 
 ### 1.2 带图标的消息通知
 
 带图标的消息通知提供两种情况：普通消息通知和重要消息通知（如：系统错误等）。
 
-::: demo demos/info 带图标消息通知
+::: demo demos/info 
 :::
 
 ### 1.3 带操作的消息通知
@@ -34,40 +34,15 @@
 <font color=#7A869A>（图例：消息通知中常常带有描述信息，若描述信息较长无法展示，则可以使用链接的形式点击跳转。）</font>
 
 
-::: demo demos/operation1 带操作消息通知
+::: demo demos/operation1 
 :::
 
 
 <font color=#7A869A>（图例：几种操作样式的处理）</font>
 
-::: demo demos/operation2 带操作消息通知
+::: demo demos/operation2 
 :::
 
-
-### 2.组件样式
-
-### 2.1.尺寸
-
-具体以视觉规范为准（大，中，小）
-
-### 2.2.颜色
-
-具体以视觉规范为准
-
-### 2.3.标注
-
-具体以视觉规范为准
-
-
-### 引用
-#### 全局方法
-Tdesign 为 Vue.prototype 添加了全局方法 $notify。因此在 vue instance 中可以采用本页面中的方式调用 NotificationPlugin。
-
-#### 单独引用
-```javascript
-import { NotificationPlugin, Notification } from 'tdesign';
-```
-此时调用方法为 NotificationPlugin(options)。我们也为每个 type 定义了各自的方法，如 NotificationPlugin.success(options)。并且可以调用 NotificationPlugin.closeAll() 手动关闭所有实例。
 
 ### Notification Props
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
