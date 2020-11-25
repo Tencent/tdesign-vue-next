@@ -47,7 +47,7 @@
 
 使用场景: 适用于步骤中需要额外操作，等待下一步操作场景。
 
-::: demo demos/extra 带额外内容步骤条
+::: demo demos/extra 
 :::
 
 
@@ -55,7 +55,7 @@
 
 完整的流程包含3种步骤：已完成、进行中、未完成。
 
-::: demo demos/status 步骤状态
+::: demo demos/status 
 :::
 
 
