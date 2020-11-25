@@ -2,7 +2,7 @@
   <div :class="['t-transfer', hasFooter?'t-transfer-footer':'', showPagination?'t-transfer-pagination':'']">
     <transfer-list
       v-bind="$props"
-      direction="left"
+      direction="source"
       :title="titles[0]"
       :data-source="sourceList"
       :checked-value="sourceCheckedKeys"
@@ -10,8 +10,6 @@
       :search="search"
       @checkedChange="handleSourceCheckedChange"
     >
-      <!--      <slot name="source"></slot>-->
-      <transfer-footer direction="source"></transfer-footer>
     </transfer-list>
     <transfer-operations
       :left-disabled="sourceCheckedKeys.length === 0"
@@ -21,7 +19,7 @@
     />
     <transfer-list
       v-bind="$props"
-      direction="right"
+      direction="target"
       :title="titles[1]"
       :data-source="targetList"
       :checked-value="targetCheckedKeys"
@@ -29,7 +27,6 @@
       :search="search"
       @checkedChange="handleTargetCheckedChange"
     >
-      <transfer-footer direction="target"></transfer-footer>
     </transfer-list>
   </div>
 </template>
@@ -40,7 +37,6 @@ import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
 import TransferList from './transfer-list';
 import TransferOperations from './transfer-operations';
-import TransferFooter from './transfer-footer';
 import { TransferItem, TransferItemKey, TransferDirection } from './type/transfer';
 import { CommonProps } from './interface';
 
@@ -50,7 +46,6 @@ export default Vue.extend({
   components: {
     TransferList,
     TransferOperations,
-    TransferFooter,
   },
   model: {
     prop: 'targetValue',
@@ -86,11 +81,11 @@ export default Vue.extend({
       return arr;
     },
     hasFooter(): any {
-      return !!this.$slots.source || !!this.$slots.target;
+      return !!this.$scopedSlots.footer || this.footer;
     },
     showPagination(): any {
       // 翻页在自定义列表无效
-      return this.pagination && !this.$scopedSlots.render;
+      return this.pagination && !this.$scopedSlots.content;
     },
   },
   mounted() {
