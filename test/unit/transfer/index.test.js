@@ -1,35 +1,3 @@
-<<<<<<< HEAD
-// import { mount } from '@vue/test-utils';
-// import Transfer from '@/src/transfer/index.ts';
-
-// every component needs four parts: props/events/slots/functions.
-// describe('Transfer', () => {
-//   // test props api
-//   describe(':props', () => {
-//     it('', () => {
-//       const wrapper = mount({
-//         render() {
-//           return <Transfer></Transfer>;
-//         },
-//       });
-//       expect(wrapper.isEmpty()).toBe(false);
-//     });
-//   });
-//
-//   // test events
-//   describe('@event', () => {});
-//
-//   // test slots
-//   describe('<slot>', () => {
-//     it('', () => {});
-//   });
-//
-//   // test exposure function
-//   describe('function', () => {
-//     it('', () => {});
-//   });
-// });
-=======
 import { mount } from '@vue/test-utils';
 import Transfer from '@/src/transfer/index.ts';
 
@@ -44,6 +12,7 @@ const dataSource = [];
     });
   }
 })();
+
 const selectedKeys = [1, 3, 5, 6];
 const targetKeys = [1, 3, 5, 6];
 describe('Transfer', () => {
@@ -123,11 +92,7 @@ describe('Transfer', () => {
           return <Transfer dataSource={dataSource} showSelectAll={true}></Transfer>;
         },
       });
-      expect(
-        wrapper.vm.$el
-          .getElementsByClassName('t-checkbox')
-          .some((item) => item.className.indexOf('t-is-checked') === -1),
-      ).toBe(false);
+      expect(wrapper.vm.$el.getElementsByClassName('t-checkbox').some(item => item.className.indexOf('t-is-checked') === -1)).toBe(false);
     });
 
     it(':targetKeys', () => {
@@ -136,16 +101,14 @@ describe('Transfer', () => {
           return <Transfer dataSource={dataSource} targetKeys={targetKeys}></Transfer>;
         },
       });
-      expect(
-        wrapper.vm.$el
-          .getElementsByClassName('t-transfer-list-right')
-          .getElementsByTagName('span')
-          .some((item, index) => {
-            if (targetKeys.indexOf(index % 2)) {
-              return item.textContent != targetKeys.indexOf(index % 2);
-            }
-          }),
-      ).toBe(false);
+
+      expect(wrapper.vm.$el.getElementsByClassName('t-transfer-list-right').getElementsByTagName('span')
+        .some((item, index) => {
+          if (targetKeys.indexOf(index % 2)) {
+            return item.textContent !== targetKeys.indexOf(index % 2);
+          }
+          return false;
+        })).toBe(false);
     });
   });
 
@@ -157,6 +120,7 @@ describe('Transfer', () => {
           return <Transfer onChange={fn} />;
         },
       });
+
       wrapper.find(Transfer).trigger('click');
       expect(fn).toHaveBeenCalled();
     });
@@ -168,18 +132,16 @@ describe('Transfer', () => {
           return <Transfer onChange={fn} selectedKeys={selectedKeys} />;
         },
       });
+
       wrapper.find(Transfer).trigger('add');
       expect(fn).toHaveBeenCalled();
-      expect(
-        wrapper.vm.$el
-          .getElementsByClassName('t-transfer-list-right')
-          .getElementsByTagName('span')
-          .some((item, index) => {
-            if (selectedKeys.indexOf(index % 2)) {
-              return item.textContent != targetKeys.indexOf(index % 2);
-            }
-          }),
-      ).toBe(false);
+      expect(wrapper.vm.$el.getElementsByClassName('t-transfer-list-right').getElementsByTagName('span')
+        .some((item, index) => {
+          if (selectedKeys.indexOf(index % 2)) {
+            return item.textContent !== targetKeys.indexOf(index % 2);
+          }
+          return false;
+        })).toBe(false);
     });
 
     it('@search', async () => {
@@ -194,4 +156,3 @@ describe('Transfer', () => {
     });
   });
 });
->>>>>>> feature/transfer-test
