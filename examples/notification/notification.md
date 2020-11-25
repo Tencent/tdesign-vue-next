@@ -44,6 +44,16 @@
 :::
 
 
+### 引用
+#### 全局方法
+Tdesign 为 Vue.prototype 添加了全局方法 $notify。因此在 vue instance 中可以采用本页面中的方式调用 NotificationPlugin。
+
+#### 单独引用
+```javascript
+import { NotificationPlugin, Notification } from 'tdesign';
+```
+此时调用方法为 NotificationPlugin(options)。我们也为每个 type 定义了各自的方法，如 NotificationPlugin.success(options)。并且可以调用 NotificationPlugin.closeAll() 手动关闭所有实例。
+
 ### Notification Props
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
