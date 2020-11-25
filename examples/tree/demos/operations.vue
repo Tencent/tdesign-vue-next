@@ -16,6 +16,7 @@
       :label="getLabel"
       :activable="true"
       :checkable="true"
+      :expand-on-click-node="false"
       ref="tree"
     >
       <template slot="operations" slot-scope="{node}">
@@ -30,9 +31,9 @@
     <div class="operations">
       <t-button theme="primary" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
       <t-button theme="primary" @click="getAllItems">获取所有节点</t-button>
-      <t-button theme="primary" @click="getItems">获取 value 为 'node1' 的节点下的所有节点</t-button>
+      <t-button theme="primary" @click="getItems">获取高亮节点下的所有节点</t-button>
       <t-button theme="primary" @click="getActived">获取所有高亮节点</t-button>
-      <t-button theme="primary" @click="getChecked">获取所有选中节点</t-button>
+      <t-button theme="primary" @click="getChecked">获取高亮节点下的选中节点</t-button>
       <t-button theme="primary" @click="append">插入一个根节点</t-button>
     </div>
   </div>
@@ -64,7 +65,7 @@ export default {
     getItem() {
       const { tree } = this.$refs;
       const node = tree.getItem('node1');
-      console.log('getItem:', node.value);
+      console.log('getItem:', node);
     },
     getAllItems() {
       const { tree } = this.$refs;
@@ -73,7 +74,12 @@ export default {
     },
     getItems() {
       const { tree } = this.$refs;
-      const nodes = tree.getItems('node1');
+      const activedNodes = tree.getActived();
+      const [node] = activedNodes;
+      let nodes = [];
+      if (node) {
+        nodes = tree.getItems(node);
+      }
       console.log('getItem:', nodes.map(node => node.value));
     },
     getActived() {
@@ -83,7 +89,9 @@ export default {
     },
     getChecked() {
       const { tree } = this.$refs;
-      const nodes = tree.getChecked();
+      const activedNodes = tree.getActived();
+      const [node] = activedNodes;
+      const nodes = tree.getChecked(node);
       console.log('getChecked:', nodes.map(node => node.value));
     },
     append(node) {

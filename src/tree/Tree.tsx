@@ -363,8 +363,14 @@ export default Vue.extend({
       }
       this.toggleChecked(node);
     },
-    getItem(value: string): TreeNode {
-      return this.store.getNode(value);
+    getItem(item: string | TreeNode): TreeNode {
+      let node = null;
+      if (typeof item === 'string') {
+        node = this.store.getNode(item);
+      } else if (item instanceof TreeNode) {
+        node = this.store.getNode(item.value);
+      }
+      return node;
     },
     getItems(item?: string | TreeNode, options?: TreeFilterOptions): TreeNode[] {
       let val = item;
@@ -382,6 +388,14 @@ export default Vue.extend({
       let nodes = this.getItems(item);
       nodes = nodes.filter(node => node.isChecked());
       return nodes;
+    },
+    getParent(value: string | TreeNode): TreeNode {
+      const node = this.getItem(value);
+      let parent = null;
+      if (node) {
+        parent = node.getParent();
+      }
+      return parent;
     },
     // 支持下列使用方式
     // append(item)
@@ -408,8 +422,8 @@ export default Vue.extend({
           spec.data.appendTo(store, spec.node);
         } else {
           spec.node.append([spec.data]);
-          spec.node.updatePath();
         }
+        spec.node.updateRelated();
       }
     },
     remove(para?: string | TreeNode): void {
