@@ -22,9 +22,10 @@
     </t-list> -->
   </div>
 </template>
-<style scoped>
-.t-list {
-  overflow: hidden;
+
+<style>
+.tdesign-demo-item__body .t-list {
+  box-shadow: 0 0 3px 6px rgba(250,250,250,.8);
 }
 </style>
 

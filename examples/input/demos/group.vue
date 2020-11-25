@@ -45,3 +45,9 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.t-input-group {
+  margin-bottom: 16px;
+}
+</style>

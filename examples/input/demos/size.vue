@@ -4,10 +4,9 @@
     <t-input size="default" placeholder="请输入内容" />
   </div>
 </template>
-<style lang="less">
-.tdesign-demo-item--input__input-box {
-  .t-input {
-    margin-bottom: 16px;
-  }
+
+<style scoped>
+.t-input + .t-input {
+  margin-top: 16px;
 }
 </style>
