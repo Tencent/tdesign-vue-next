@@ -1,16 +1,19 @@
 ## grid 
 
 
-::: demo demos/base 基础栅格
+::: demo demos/base 基本使用
+:::
+
+::: demo demos/gutter 区块间隔
 :::
 
 ::: demo demos/offset 左右偏移
 :::
 
-::: demo demos/gutter 间隔
+::: demo demos/sort 排序
 :::
 
-::: demo demos/sort 栅格排序
+::: demo demos/order 次序
 :::
 
 ::: demo demos/halign 排版
@@ -19,7 +22,7 @@
 ::: demo demos/valign 对齐
 :::
 
-::: demo demos/order 排序
+::: demo demos/flex flex
 :::
 
 ::: demo demos/responsive 响应式布局

@@ -1,9 +1,7 @@
 <template>
   <div class="t-design-demo-item--grid">
-    <t-row align="top">
-      <t-col :span="4">
-        <div>col-4</div>
-      </t-col>
+    <p>align top</p>
+    <t-row align="top" justify="center">
       <t-col :span="4">
         <div style="height: 100px;">col-4</div>
       </t-col>
@@ -12,13 +10,14 @@
       </t-col>
       <t-col :span="4">
         <div style="height: 100px;">col-4</div>
+      </t-col>
+      <t-col :span="4">
+        <div>col-4</div>
       </t-col>
     </t-row>
 
-    <t-row align="middle">
-      <t-col :span="4">
-        <div>col-4</div>
-      </t-col>
+    <p>align middle</p>
+    <t-row align="middle" justify="space-around">
       <t-col :span="4">
         <div style="height: 100px;">col-4</div>
       </t-col>
@@ -26,22 +25,26 @@
         <div>col-4</div>
       </t-col>
       <t-col :span="4">
-        <div style="height: 100px;">col-4</div>
+        <div  style="height: 100px;">col-4</div>
+      </t-col>
+      <t-col :span="4">
+        <div>col-4</div>
       </t-col>
     </t-row>
 
-    <t-row align="bottom">
+    <p>align bottom</p>
+    <t-row align="bottom" justify="space-between">
+      <t-col :span="4">
+        <div  style="height: 100px;">col-4</div>
+      </t-col>
       <t-col :span="4">
         <div>col-4</div>
       </t-col>
       <t-col :span="4">
-        <div style="height: 100px;">col-4</div>
+        <div  style="height: 100px;">col-4</div>
       </t-col>
       <t-col :span="4">
         <div>col-4</div>
-      </t-col>
-      <t-col :span="4">
-        <div style="height: 100px;">col-4</div>
       </t-col>
     </t-row>
   </div>

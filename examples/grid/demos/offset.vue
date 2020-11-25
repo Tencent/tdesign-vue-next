@@ -5,22 +5,22 @@
         <div>col-8</div>
       </t-col>
       <t-col :span="8" :offset="8">
-        <div>col-8 offset-8</div>
+        <div>col-8 col-offset-8</div>
       </t-col>
     </t-row>
 
     <t-row>
       <t-col :span="6" :offset="6">
-        <div>col-6 offset-6</div>
+        <div>col-6 col-offset-6</div>
       </t-col>
       <t-col :span="6" :offset="6">
-        <div>col-6 offset-6</div>
+        <div>col-6 col-offset-6</div>
       </t-col>
     </t-row>
 
     <t-row>
       <t-col :span="12" :offset="6">
-        <div>col-12 offset-6</div>
+        <div>col-12 col-offset-6</div>
       </t-col>
     </t-row>
   </div>
