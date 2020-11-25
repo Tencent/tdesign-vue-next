@@ -1,8 +1,8 @@
 <template>
-  <div class="t-transfer">
+  <div :class="['t-transfer', hasFooter?'t-transfer-footer':'', showPagination?'t-transfer-pagination':'']">
     <transfer-list
       v-bind="$props"
-      direction="left"
+      direction="source"
       :title="titles[0]"
       :data-source="sourceList"
       :checked-value="sourceCheckedKeys"
@@ -10,7 +10,6 @@
       :search="search"
       @checkedChange="handleSourceCheckedChange"
     >
-      <slot name="left-footer"></slot>
     </transfer-list>
     <transfer-operations
       :left-disabled="sourceCheckedKeys.length === 0"
@@ -20,7 +19,7 @@
     />
     <transfer-list
       v-bind="$props"
-      direction="right"
+      direction="target"
       :title="titles[1]"
       :data-source="targetList"
       :checked-value="targetCheckedKeys"
@@ -28,7 +27,6 @@
       :search="search"
       @checkedChange="handleTargetCheckedChange"
     >
-      <slot name="right-footer"></slot>
     </transfer-list>
   </div>
 </template>
@@ -39,7 +37,7 @@ import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
 import TransferList from './transfer-list';
 import TransferOperations from './transfer-operations';
-import { TransferItem, TransferItemKey, TransferDirection } from './type/transfer.d';
+import { TransferItem, TransferItemKey, TransferDirection } from './type/transfer';
 import { CommonProps } from './interface';
 
 const name = `${prefix}-transfer`;
@@ -62,10 +60,9 @@ export default Vue.extend({
     return {
       name,
       sourceCheckedKeys: [], // 源数据被选中的key
-      targetCheckedKeys: [], // 目标数据被选中的key
+      targetCheckedKeys: [], // 目标数据被选中的key,
     };
   },
-
   computed: {
     sourceList(): Array<TransferItem> {
       return this.filterMethod(this.data, this.targetValue, false);
@@ -82,6 +79,13 @@ export default Vue.extend({
         }
       });
       return arr;
+    },
+    hasFooter(): any {
+      return !!this.$scopedSlots.footer || this.footer;
+    },
+    showPagination(): any {
+      // 翻页在自定义列表无效
+      return this.pagination && !this.$scopedSlots.content;
     },
   },
   mounted() {

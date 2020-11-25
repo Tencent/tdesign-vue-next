@@ -4,15 +4,21 @@
     :data="list"
     v-model="targetValue"
     :checked-value="checkedValue"
-    :render-item="(item) => `${item.key}-${item.title}`"
+    :render-item="({transferItem}) => `${transferItem.key}-${transferItem.title}`"
+    :pagination="pagination"
+    :footer="footer"
     @checkChange="checkChange"
   >
     <template v-slot:empty>
-      <div style="color: red">no data</div>
+      <div>no data</div>
     </template>
-    <template v-slot:renderList="item">
+    <!--  <div slot="footer" slot-scope="props">
+      <p style="padding: 10px;border-top: 1px solid #eee" v-if="props.direction === 'source'">source</p>
+      <p style="padding: 10px;border-top: 1px solid #eee" v-else>target</p>
+    </div>-->
+    <!-- <template v-slot:renderList="item">
       <span>{{ item.description }}</span>
-    </template>
+    </template>-->
     Transfer
   </t-transfer>
 </template>
@@ -32,22 +38,43 @@ export default {
     return {
       list,
       targetValue: [],
-      checkedValue: ['0', '1', '2'],
+      checkedValue: ['1', '2'],
+      pagination: {
+        pageSize: 10,
+        total: 120,
+        curPage: 1,
+      },
     };
   },
   methods: {
+    getItem(item) {
+      console.log('====> iiitem', item);
+    },
+    // :empty="emptyNode"
     // // "item => `${item.key}-${item.title}`"
-    renderItem(item) {
+    renderItem({ transferItem }) {
       const customLabel = (
         <span class="custom-item">
-          {item.title} - {item.description}
+          {transferItem.title} - {transferItem.description}
         </span>
       );
 
       return {
         title: customLabel, // for displayed item
-        value: item.title, // for title and filter matching
+        value: transferItem.title, // for title and filter matching
       };
+    },
+    emptyNode() {
+      return <span>无数据~</span>;
+    },
+    footer({ direction }) {
+      let footerNode;
+      if (direction === 'source') {
+        footerNode = <div>source footer</div>;
+      } else {
+        footerNode = <div>target footer</div>;
+      }
+      return footerNode;
     },
     checkChange(sourceChecked, targetChecked) {
       console.log('====> sourceChecked', sourceChecked);
