@@ -67,8 +67,7 @@ export const CommonProps = {
     type: Function,
   },
   empty: {
-    // todo,不完善
-    type: [Function, String, Object],
+    type: [Function, String],
     default: '暂无数据',
   },
   targetOrder: {

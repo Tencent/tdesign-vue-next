@@ -5,14 +5,15 @@
     v-model="targetValue"
     :checked-value="checkedValue"
     :render-item="(item) => `${item.key}-${item.title}`"
+    :empty="emptyNode"
     @checkChange="checkChange"
   >
-    <template v-slot:empty>
-      <div style="color: red">no data</div>
-    </template>
-    <template v-slot:renderList="item">
+    <!--    <template v-slot:empty>-->
+    <!--      <div style="color: red">no data</div>-->
+    <!--    </template>-->
+    <!--  <template v-slot:renderList="item">
       <span>{{ item.description }}</span>
-    </template>
+    </template>-->
     Transfer
   </t-transfer>
 </template>
@@ -48,6 +49,9 @@ export default {
         title: customLabel, // for displayed item
         value: item.title, // for title and filter matching
       };
+    },
+    emptyNode() {
+      return <span>无数据~</span>;
     },
     checkChange(sourceChecked, targetChecked) {
       console.log('====> sourceChecked', sourceChecked);
