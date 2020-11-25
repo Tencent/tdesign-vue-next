@@ -8,7 +8,7 @@
       <t-anchor-item :href="`#${path}#anchor-target`" title="联动anchor-target">
         <t-anchor-item :href="`#${path}#anchor-target-1`" title="创建签名"></t-anchor-item>
         <t-anchor-item :href="`#${path}#anchor-target-2`" title="创建内容的正式模板并保存"></t-anchor-item>
-        <t-anchor-item :href="`#${path}#anchor-target-3`" title="为什么账户有余额, 但是发送短信返回1031错误码?"></t-anchor-item>
+        <t-anchor-item :href="`#${path}#anchor-target-3`" title="为什么账户有余额, 但是发送短信返回1031错误码, 超过会省略省略省略省略?"></t-anchor-item>
       </t-anchor-item>
     </t-anchor>
   </div>
