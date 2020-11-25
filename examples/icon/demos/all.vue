@@ -82,20 +82,20 @@
       <div class="t-demo-icon-name">call</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="carret-down"/>
-      <div class="t-demo-icon-name">carret-down</div>
+      <t-icon name="caret-down"/>
+      <div class="t-demo-icon-name">caret-down</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="carret-left"/>
-      <div class="t-demo-icon-name">carret-left</div>
+      <t-icon name="caret-left"/>
+      <div class="t-demo-icon-name">caret-left</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="carret-right"/>
-      <div class="t-demo-icon-name">carret-right</div>
+      <t-icon name="caret-right"/>
+      <div class="t-demo-icon-name">caret-right</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="carret-up"/>
-      <div class="t-demo-icon-name">carret-up</div>
+      <t-icon name="caret-up"/>
+      <div class="t-demo-icon-name">caret-up</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="chart-bar"/>
