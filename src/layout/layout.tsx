@@ -12,7 +12,6 @@ export default Vue.extend({
   },
 
   props: {
-    // theme is an example api, which can be deleted.
     direction: {
       type: String,
       validator(v: string): boolean {
