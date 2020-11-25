@@ -3,6 +3,7 @@
     <t-message theme="loading">用于表示操作正在生效的过程中</t-message>
     <t-message :theme="status1">用于表示操作顺利达成(10s)</t-message>
     <t-message :theme="status2">用于表示普通操作失败中断(10s)</t-message>
+    <t-button :disabled="isDisabled" @click="reset">重置</t-button>
   </div>
 </template>
 
@@ -14,6 +15,11 @@ export default {
       status2: 'loading',
     };
   },
+  computed: {
+    isDisabled() {
+      return this.status1 === 'loading' && this.status2 === 'loading';
+    },
+  },
   methods: {
     fn1() {
       setTimeout(() => {
@@ -24,6 +30,12 @@ export default {
       setTimeout(() => {
         this.status2 = 'warning';
       }, 10000);
+    },
+    reset() {
+      this.status1 = 'loading';
+      this.status2 = 'loading';
+      this.fn1();
+      this.fn2();
     },
   },
   mounted() {
