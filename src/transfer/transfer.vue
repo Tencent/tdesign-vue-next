@@ -1,5 +1,5 @@
 <template>
-  <div class="t-transfer">
+  <div :class="['t-transfer', hasFooter?'t-transfer-footer':'']">
     <transfer-list
       v-bind="$props"
       direction="left"
@@ -10,7 +10,8 @@
       :search="search"
       @checkedChange="handleSourceCheckedChange"
     >
-      <slot name="left-footer"></slot>
+      <!--      <slot name="source"></slot>-->
+      <transfer-footer></transfer-footer>
     </transfer-list>
     <transfer-operations
       :left-disabled="sourceCheckedKeys.length === 0"
@@ -28,7 +29,7 @@
       :search="search"
       @checkedChange="handleTargetCheckedChange"
     >
-      <slot name="right-footer"></slot>
+      <slot name="target"></slot>
     </transfer-list>
   </div>
 </template>
@@ -39,7 +40,8 @@ import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
 import TransferList from './transfer-list';
 import TransferOperations from './transfer-operations';
-import { TransferItem, TransferItemKey, TransferDirection } from './type/transfer.d';
+import TransferFooter from './transfer-footer';
+import { TransferItem, TransferItemKey, TransferDirection } from './type/transfer';
 import { CommonProps } from './interface';
 
 const name = `${prefix}-transfer`;
@@ -48,6 +50,7 @@ export default Vue.extend({
   components: {
     TransferList,
     TransferOperations,
+    TransferFooter,
   },
   model: {
     prop: 'targetValue',
@@ -62,10 +65,9 @@ export default Vue.extend({
     return {
       name,
       sourceCheckedKeys: [], // 源数据被选中的key
-      targetCheckedKeys: [], // 目标数据被选中的key
+      targetCheckedKeys: [], // 目标数据被选中的key,
     };
   },
-
   computed: {
     sourceList(): Array<TransferItem> {
       return this.filterMethod(this.data, this.targetValue, false);
@@ -82,6 +84,9 @@ export default Vue.extend({
         }
       });
       return arr;
+    },
+    hasFooter(): any {
+      return !!this.$slots.default;
     },
   },
   mounted() {

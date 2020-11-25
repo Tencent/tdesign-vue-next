@@ -5,13 +5,18 @@
     v-model="targetValue"
     :checked-value="checkedValue"
     :render-item="(item) => `${item.key}-${item.title}`"
-    :empty="emptyNode"
     @checkChange="checkChange"
   >
-    <!--    <template v-slot:empty>-->
-    <!--      <div style="color: red">no data</div>-->
-    <!--    </template>-->
-    <!--  <template v-slot:renderList="item">
+    <template v-slot:empty>
+      <div>no data</div>
+    </template>
+    <template v-slot:source>
+      <div>source footer</div>
+    </template>
+    <template v-slot:target>
+      <div>target footer</div>
+    </template>
+    <!-- <template v-slot:renderList="item">
       <span>{{ item.description }}</span>
     </template>-->
     Transfer
@@ -37,6 +42,7 @@ export default {
     };
   },
   methods: {
+    // :empty="emptyNode"
     // // "item => `${item.key}-${item.title}`"
     renderItem(item) {
       const customLabel = (
