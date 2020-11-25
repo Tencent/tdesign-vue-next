@@ -1,5 +1,5 @@
 <template>
-  <div :class="['t-transfer', hasFooter?'t-transfer-footer':'']">
+  <div :class="['t-transfer', hasFooter?'t-transfer-footer':'', showPagination?'t-transfer-pagination':'']">
     <transfer-list
       v-bind="$props"
       direction="left"
@@ -11,7 +11,7 @@
       @checkedChange="handleSourceCheckedChange"
     >
       <!--      <slot name="source"></slot>-->
-      <transfer-footer></transfer-footer>
+      <transfer-footer direction="source"></transfer-footer>
     </transfer-list>
     <transfer-operations
       :left-disabled="sourceCheckedKeys.length === 0"
@@ -29,7 +29,7 @@
       :search="search"
       @checkedChange="handleTargetCheckedChange"
     >
-      <slot name="target"></slot>
+      <transfer-footer direction="target"></transfer-footer>
     </transfer-list>
   </div>
 </template>
@@ -86,7 +86,11 @@ export default Vue.extend({
       return arr;
     },
     hasFooter(): any {
-      return !!this.$slots.default;
+      return !!this.$slots.source || !!this.$slots.target;
+    },
+    showPagination(): any {
+      // 翻页在自定义列表无效
+      return this.pagination && !this.$scopedSlots.render;
     },
   },
   mounted() {

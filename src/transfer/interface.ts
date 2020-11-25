@@ -53,8 +53,7 @@ export const CommonProps = {
   },
   pagination: {
     // todo 自定义列表下无效
-    type: Boolean,
-    default: false,
+    type: Object,
   },
   selectAll: {
     type: Boolean,

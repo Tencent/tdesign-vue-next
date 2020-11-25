@@ -5,16 +5,17 @@
     v-model="targetValue"
     :checked-value="checkedValue"
     :render-item="(item) => `${item.key}-${item.title}`"
+    :pagination="pagination"
     @checkChange="checkChange"
   >
     <template v-slot:empty>
       <div>no data</div>
     </template>
     <template v-slot:source>
-      <div>source footer</div>
+      <div style="padding: 10px;border-top: 1px solid #eee">source footer</div>
     </template>
     <template v-slot:target>
-      <div>target footer</div>
+      <div style="padding: 10px;border-top: 1px solid #eee">target footer</div>
     </template>
     <!-- <template v-slot:renderList="item">
       <span>{{ item.description }}</span>
@@ -38,7 +39,12 @@ export default {
     return {
       list,
       targetValue: [],
-      checkedValue: ['0', '1', '2'],
+      checkedValue: ['1', '2'],
+      pagination: {
+        pageSize: 10,
+        total: 120,
+        curPage: 1,
+      },
     };
   },
   methods: {
@@ -58,6 +64,15 @@ export default {
     },
     emptyNode() {
       return <span>无数据~</span>;
+    },
+    footer() {
+      const targetFooter = (
+              <div>footer</div>
+      );
+      return {
+        direction: 'target',
+        footerNode: targetFooter,
+      };
     },
     checkChange(sourceChecked, targetChecked) {
       console.log('====> sourceChecked', sourceChecked);
