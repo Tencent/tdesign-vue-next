@@ -2,7 +2,7 @@
 
 exports[`Button :props :block 1`] = `<button class="t-button t-button--line t-size-full-width">text</button>`;
 
-exports[`Button :props :disabled 1`] = `<button class="t-button t-button--line t-is-disabled">text</button>`;
+exports[`Button :props :disabled 1`] = `<button disabled="disabled" class="t-button t-button--line t-is-disabled">text</button>`;
 
 exports[`Button :props :icon function 1`] = `<button class="t-button t-button--line t-button--icon-only"><i>custom icon</i></button>`;
 

@@ -29,11 +29,10 @@
 |-----|-----|-----|-----|-----|
 |value|String| |N|输入框的值
 |defaultValue|String| |N|输入框的默认值
-|size|'large'/'default'/'small'|'default'|N|控件大小
+|size|'large'/'default'|N|控件大小
 |clearable|Boolean| |N|是否可清空
-|prependIcon|String/Slot/Function| |N|前缀图标
-|appendIcon|String/Slot/Function| |N|后缀图标
-|showPassword|Boolean|false|N|是否显示切换密码图标
+|prefixIcon|String/Slot/Function| |N|前缀图标
+|suffixIcon|String/Slot/Function| |N|后缀图标
 
 >原生属性默认支持: type/name/disabled/readonly/autofocus
 
