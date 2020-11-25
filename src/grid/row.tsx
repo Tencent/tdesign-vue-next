@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
-import responsiveObserver from './responsive-observer';
+import responsiveObserver from '../utils/responsive-observer';
 
 const name = `${prefix}-row`;
 
