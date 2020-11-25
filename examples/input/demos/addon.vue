@@ -8,3 +8,10 @@
     </t-addon>
   </div>
 </template>
+<style lang="less">
+.tdesign-demo-item--input__input-box {
+  .t-addon--prepend {
+    margin-bottom: 16px;
+  }
+}
+</style>
