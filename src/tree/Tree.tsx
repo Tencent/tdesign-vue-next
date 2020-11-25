@@ -139,6 +139,7 @@ export default Vue.extend({
             }
             if (updatedMap && updatedMap.get(node.value)) {
               // 只强制更新必要节点
+              // 插入和移除的节点会影响父节点的图标状态与选中状态
               nodeView.componentInstance.$forceUpdate();
             }
           } else {
@@ -409,6 +410,17 @@ export default Vue.extend({
           spec.node.append([spec.data]);
           spec.node.updatePath();
         }
+      }
+    },
+    remove(para?: string | TreeNode): void {
+      let node = null;
+      if (typeof para === 'string') {
+        node = this.getItem(para);
+      } else if (para instanceof TreeNode) {
+        node = para;
+      }
+      if (node) {
+        node.remove();
       }
     },
   },

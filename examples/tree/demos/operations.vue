@@ -15,22 +15,22 @@
       :expand-all="true"
       :label="getLabel"
       :activable="true"
-      :active-multiple="true"
       :checkable="true"
       ref="tree"
     >
       <template slot="operations" slot-scope="{node}">
         <t-button size="small" theme="primary" @click="append(node)">添加子节点</t-button>
-        <t-button size="small" theme="line" @click="insertBefore(node)">插入节点到前面</t-button>
-        <t-button size="small" theme="line" @click="insertAfter(node)">插入节点到后面</t-button>
+        <t-button size="small" theme="line" @click="insertBefore(node)">前插节点</t-button>
+        <t-button size="small" theme="line" @click="insertAfter(node)">后插节点</t-button>
+        <t-button size="small" theme="line" @click="appendTo(node)">插入高亮</t-button>
         <t-button size="small" theme="warning" @click="remove(node)">删除</t-button>
       </template>
     </t-tree>
     <h3 class="title">api:</h3>
     <div class="operations">
-      <t-button theme="primary" @click="getItem">获取 value 为 'custom_1' 的单个节点</t-button>
+      <t-button theme="primary" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
       <t-button theme="primary" @click="getAllItems">获取所有节点</t-button>
-      <t-button theme="primary" @click="getItems">获取 value 为 'custom_1' 的节点下的所有节点</t-button>
+      <t-button theme="primary" @click="getItems">获取 value 为 'node1' 的节点下的所有节点</t-button>
       <t-button theme="primary" @click="getActived">获取所有高亮节点</t-button>
       <t-button theme="primary" @click="getChecked">获取所有选中节点</t-button>
       <t-button theme="primary" @click="append">插入一个根节点</t-button>
@@ -43,9 +43,9 @@ export default {
   data() {
     return {
       items: [{
-        value: 'custom_1',
+        value: 'node1',
       }, {
-        value: 'custom_2',
+        value: 'node2',
       }],
     };
   },
@@ -63,7 +63,7 @@ export default {
     },
     getItem() {
       const { tree } = this.$refs;
-      const node = tree.getItem('custom_1');
+      const node = tree.getItem('node1');
       console.log('getItem:', node.value);
     },
     getAllItems() {
@@ -73,7 +73,7 @@ export default {
     },
     getItems() {
       const { tree } = this.$refs;
-      const nodes = tree.getItems('custom_1');
+      const nodes = tree.getItems('node1');
       console.log('getItem:', nodes.map(node => node.value));
     },
     getActived() {
@@ -94,17 +94,26 @@ export default {
         tree.append(node, {});
       }
     },
-    insertBefore() {
+    insertBefore(node) {
       const { tree } = this.$refs;
-      tree.insert();
+      tree.insertBefore(node, {});
     },
-    insertAfter() {
+    insertAfter(node) {
       const { tree } = this.$refs;
-      tree.insert();
+      tree.insertAfter(node, {});
     },
-    remove() {
+    appendTo(parent) {
       const { tree } = this.$refs;
-      tree.remove();
+      const nodes = tree.getActived();
+      const [node] = nodes;
+      if (node) {
+        tree.remove(node);
+        tree.append(parent, node);
+      }
+    },
+    remove(node) {
+      const { tree } = this.$refs;
+      tree.remove(node);
     },
   },
 };

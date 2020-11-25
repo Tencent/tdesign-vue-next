@@ -39,10 +39,20 @@ export default Vue.extend({
       list.push({
         [CLASS_NAMES.treeNodeOpen]: node.expanded,
         [CLASS_NAMES.actived]: node.actived,
-        [CLASS_NAMES.treeNodeHidden]: !node.visible,
+        [CLASS_NAMES.treeNodeHidden]: !(node.tree && node.visible),
         [CLASS_NAMES.disabled]: node.disabled,
       });
       return list;
+    },
+    getScopedSlots() {
+      const {
+        node,
+      } = this;
+      let slots = null;
+      if (node.tree) {
+        slots = node.tree.scopedSlots;
+      }
+      return slots;
     },
     renderLine(createElement: CreateElement): VNode {
       const {
@@ -50,6 +60,7 @@ export default Vue.extend({
         line,
         icon,
       } = this;
+      const scopedSlots = this.getScopedSlots();
 
       let hasIcon = false;
       if (icon === true) {
@@ -65,10 +76,6 @@ export default Vue.extend({
           hasIcon = true;
         }
       }
-
-      const {
-        scopedSlots,
-      } = node.tree;
 
       let lineNode = null;
       const lineNodes: VNode[] = [];
@@ -164,10 +171,7 @@ export default Vue.extend({
         node,
         icon,
       } = this;
-
-      const {
-        scopedSlots,
-      } = node.tree;
+      const scopedSlots = this.getScopedSlots();
 
       let iconNode = null;
       if (icon === true) {
@@ -208,10 +212,7 @@ export default Vue.extend({
         empty,
         label,
       } = this;
-
-      const {
-        scopedSlots,
-      } = node.tree;
+      const scopedSlots = this.getScopedSlots();
 
       const emptyNode = getTNode(empty, {
         createElement,
@@ -262,10 +263,7 @@ export default Vue.extend({
         node,
         operations,
       } = this;
-
-      const {
-        scopedSlots,
-      } = node.tree;
+      const scopedSlots = this.getScopedSlots();
 
       let opNode = null;
       if (scopedSlots?.operations) {
@@ -339,8 +337,17 @@ export default Vue.extend({
       node,
     } = this;
     const {
+      tree,
       level,
+      value,
     } = node;
+
+    if (!tree || !tree.nodeMap.get(value)) {
+      setTimeout(() => {
+        this.$destroy();
+      }, 300);
+    }
+
     const styles = this.getStyles();
     const classList = this.getClassList();
     return (
