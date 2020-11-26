@@ -161,6 +161,7 @@ import {
 import CalendarCell from './calendar-cell.vue';
 
 const name = `${prefix}-calendar`;
+const minYear = 1970;
 
 
 export default mixins().extend({
@@ -351,28 +352,48 @@ export default mixins().extend({
     },
     // 年份下拉框数据源
     yearSelectOptionList(): any[] {
+      const tis = this as any;
       const re = [];
-      for (let i = 2015; i <= 2025; i++) {
+
+      let begin = tis.curSelectedYear - 10;
+      let end = tis.curSelectedYear + 10;
+      if (tis.range && tis.range.from && tis.range.to) {
+        begin = utils.getYear(tis.range.from);
+        end = utils.getYear(tis.range.to);
+      }
+
+      if (begin < minYear) {
+        begin = minYear;
+      }
+      if (end < minYear) {
+        end = minYear;
+      }
+
+      for (let i = begin; i <= end; i++) {
+        const disabled = tis.checkDisabled(i, tis.curSelectedMonth);
         re.push({
           value: i,
           label: (`${i}年`),
-          disabled: false,
+          disabled,
         });
       }
       return re;
     },
     // 月份下拉框数据源
     monthSelectOptionList(): any[] {
+      const tis = this as any;
       const re = [];
       for (let i = 1; i <= 12; i++) {
+        const disabled = tis.checkDisabled(tis.curSelectedYear, i);
         re.push({
           value: i,
           label: (`${i}月`),
-          disabled: false,
+          disabled,
         });
       }
       return re;
     },
+
     // 模式选项数据源
     modeSelectOptionList(): any[] {
       return MODE_OPTION_LIST;
@@ -616,6 +637,24 @@ export default mixins().extend({
         tis.curSelectedYear = utils.getCurYear();
         tis.curSelectedMonth = utils.getCurMonth();
       }
+    },
+
+
+    checkDisabled(year: number, month: number): boolean {
+      const tis = this as any;
+      let disabled = false;
+      if (tis.range && tis.range.from && tis.range.to) {
+        const beginYear = utils.getYear(tis.range.from);
+        const endYear = utils.getYear(tis.range.to);
+        if (year === beginYear) {
+          const beginMon = utils.getMonth(tis.range.from);
+          disabled = month < beginMon;
+        } else if (year === endYear) {
+          const endMon = utils.getMonth(tis.range.to);
+          disabled = month > endMon;
+        }
+      }
+      return disabled;
     },
   },
 });

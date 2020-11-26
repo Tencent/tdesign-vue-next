@@ -22,6 +22,10 @@
 组件默认是“显示周末”的，并提供了“隐藏周末”按钮，在组件外开发者可以通过 `isShowWeekend` 属性来设置是否显示周末。
 :::
 
+::: demo demos/range 自定义日历范围
+组件默认情况下，年份可以选择1970~∞，月份没有限制。可以通过 `range` 属性来设置日历的可选范围。
+:::
+
 ::: demo demos/card 卡片风格日历
 组件默认以“全屏”风格展示，可以通过 `theme` 属性修改其风格（卡片风格下部分功能UI不显示，但仍然可以在组件外取控制组件）。
 :::
@@ -68,6 +72,7 @@
 |defaultValue|Date|new Date()|N|初始化的时候指定高亮日期|
 |theme|string|"full"|N|风格，传入值必须是"full"或"card"|
 |mode|string|"month"|N|模式，传入值必须是"month"或"year"|
+|range|{from:Date, to:Date}|-|N|自定义日历的年月份显示范围（包含from和to）|
 |preventCellContextmenu|boolean|false|N|是否禁用单元格右键默认系统菜单|
 |isShowWeekendDefault|boolean|true|N|默认是否显示周末|
 |controllerConfig|object|[见下方]|-|右上角控件组的相关配置|
