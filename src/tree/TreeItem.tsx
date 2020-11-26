@@ -347,7 +347,6 @@ export default Vue.extend({
         this.$destroy();
       }, 300);
     }
-
     const styles = this.getStyles();
     const classList = this.getClassList();
     return (
