@@ -1,4 +1,3 @@
-import { VNode } from 'vue';
 import { TransferItems } from './type/transfer';
 export const CommonProps = {
   data: {
@@ -44,13 +43,7 @@ export const CommonProps = {
       return ['left', 'right', 'both'].includes(value);
     },
   },
-  operations: {
-    type: Array,
-    default(): Array<VNode> {
-      // todo 将>,<写成VNode
-      return [];
-    },
-  },
+  operations: [String, Array,  Function],
   pagination: {
     // todo 自定义列表下无效
     type: Object,

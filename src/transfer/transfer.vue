@@ -14,6 +14,7 @@
     <transfer-operations
       :left-disabled="sourceCheckedKeys.length === 0"
       :right-disabled="targetCheckedKeys.length === 0"
+      :operations="operations"
       @moveToRight="transferToRight"
       @moveToLeft="transferToLeft"
     />

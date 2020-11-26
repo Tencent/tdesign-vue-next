@@ -7,6 +7,7 @@
     :render-item="({transferItem}) => `${transferItem.key}-${transferItem.title}`"
     :pagination="pagination"
     :footer="footer"
+    :operations="[operationRight, operationLeft]"
     @checkChange="checkChange"
   >
     <template v-slot:empty>
@@ -46,6 +47,11 @@ export default {
       },
     };
   },
+  computed: {
+    // operation() {
+    //   return ['1', () => <t-icon name="arrow-right"/>];
+    // }
+  },
   methods: {
     getItem(item) {
       console.log('====> iiitem', item);
@@ -75,6 +81,12 @@ export default {
         footerNode = <div>target footer</div>;
       }
       return footerNode;
+    },
+    operationRight() {
+      return <span>去右边</span>;
+    },
+    operationLeft() {
+      return <span>去左边</span>;
     },
     checkChange(sourceChecked, targetChecked) {
       console.log('====> sourceChecked', sourceChecked);
