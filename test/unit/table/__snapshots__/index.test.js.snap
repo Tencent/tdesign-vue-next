@@ -39,6 +39,7 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
               <td style="" class="" key="value" length="3">2</td>
             </tr>
           </tbody>
+          <tfoot></tfoot>
         </table>
       </div>
     </div>
@@ -55,9 +56,16 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
         <thead columnsprops="">
           <tr></tr>
         </thead>
+        <tbody class="table-body"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="0">
+              <div class="t-table--empty">暂无数据</div>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
-    <div class="t-table--empty">暂无数据</div>
   </div>
 </div>
 `;
@@ -71,9 +79,16 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
         <thead columnsprops="">
           <tr></tr>
         </thead>
+        <tbody class="table-body"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="0">
+              <div class="t-table--empty">暂无数据</div>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
-    <div class="t-table--empty">暂无数据</div>
   </div>
 </div>
 `;
@@ -107,6 +122,7 @@ exports[`Table :props :props.border, :props:hover, :props.stripe, :props.size, :
             <td style="" class="" key="value" length="3">2</td>
           </tr>
         </tbody>
+        <tfoot></tfoot>
       </table>
     </div>
   </div>
@@ -122,9 +138,16 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
         <thead columnsprops="">
           <tr></tr>
         </thead>
+        <tbody class="table-body"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="0">
+              <div class="t-table--empty">暂无数据</div>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
-    <div class="t-table--empty">暂无数据</div>
   </div>
 </div>
 `;
@@ -158,6 +181,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             <td style="" class="" key="value" length="3">2</td>
           </tr>
         </tbody>
+        <tfoot></tfoot>
       </table>
     </div>
   </div>
@@ -208,6 +232,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
             <td style="text-align: left;" class="" key="description" length="6">指定rowkey</td>
           </tr>
         </tbody>
+        <tfoot></tfoot>
       </table>
     </div>
   </div>
@@ -227,7 +252,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
           </colgroup>
           <thead columnsprops="[object Object],[object Object],[object Object]">
             <tr>
-              <td style="position: sticky;left: 0px;" class="t-table__cell--fixed-left t-table__cell--fixed-left-last" key="id" colspan="1" rowspan="1">id</td>
+              <td style="position: sticky;left: 0px;" class="t-table__cell--fixed-left" key="id" colspan="1" rowspan="1">id</td>
               <td style="" class="" key="type" colspan="1" rowspan="1">类型</td>
               <td style="" class="" key="value" colspan="1" rowspan="1">取值</td>
             </tr>
@@ -243,16 +268,17 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
           </colgroup>
           <tbody class="table-body">
             <tr class="">
-              <td style="position: sticky;left: 0px;" class="t-table__cell--fixed-left t-table__cell--fixed-left-last" key="id" length="3">1</td>
+              <td style="position: sticky;left: 0px;" class="t-table__cell--fixed-left" key="id" length="3">1</td>
               <td style="" class="" key="type" length="3">Number</td>
               <td style="" class="" key="value" length="3">1</td>
             </tr>
             <tr class="">
-              <td style="position: sticky;left: 0px;" class="t-table__cell--fixed-left t-table__cell--fixed-left-last" key="id" length="3">2</td>
+              <td style="position: sticky;left: 0px;" class="t-table__cell--fixed-left" key="id" length="3">2</td>
               <td style="" class="" key="type" length="3">Number</td>
               <td style="" class="" key="value" length="3">2</td>
             </tr>
           </tbody>
+          <tfoot></tfoot>
         </table>
       </div>
     </div>
