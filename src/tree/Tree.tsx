@@ -356,26 +356,13 @@ export default Vue.extend({
       return this.store.getCheckedNodes(item);
     },
     getParent(value: string | TreeNode): TreeNode {
-      const node = this.getItem(value);
-      let parent = null;
-      if (node) {
-        parent = node.getParent();
-      }
-      return parent;
+      return this.store.getParent(value);
     },
     append(para?: any, item?: any): void {
       return this.store.appendNodes(para, item);
     },
     remove(para?: string | TreeNode): void {
-      let node = null;
-      if (typeof para === 'string') {
-        node = this.getItem(para);
-      } else if (para instanceof TreeNode) {
-        node = para;
-      }
-      if (node) {
-        node.remove();
-      }
+      return this.store.remove(para);
     },
   },
   created() {
