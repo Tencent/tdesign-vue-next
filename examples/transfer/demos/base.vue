@@ -7,6 +7,7 @@
     :render-item="({transferItem}) => `${transferItem.key}-${transferItem.title}`"
     :pagination="pagination"
     :footer="footer"
+    :disabled="true"
     @checkChange="checkChange"
   >
     <template v-slot:empty>
@@ -32,7 +33,6 @@ for (let i = 0; i < 20; i++) {
     disabled: i % 3 < 1,
   });
 }
-console.log('111111111', list);
 export default {
   data() {
     return {
