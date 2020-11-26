@@ -10,8 +10,7 @@
     </div>
 
     <t-calendar ref="myCalendar"
-                :theme="theme"
-                :isShowWeekendDefault="isShowWeekendDefault">
+                :theme="theme">
       <div class="demo-cell" slot="cell" slot-scope="scope" @click="showCeelData(scope.data)">
         <t-tag shape="round" theme="success" :effect="getCellEffect(scope.data)">
           {{ getDateStr(scope.data) }}

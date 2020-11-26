@@ -263,8 +263,8 @@ export default mixins().extend({
           // “今天\本月”按钮组件相关设置
           current: {
             visible: true,	// 是否显示
-            currentDaybuttonProps: {},	// 用于透传props给“今天”钮组件（“month”模式下有效）
-            currentMonthProps: {},	// 用于透传props给“本月”按钮组件（“year”模式下有效）
+            currentDayButtonProps: {},	// 用于透传props给“今天”钮组件（“month”模式下有效）
+            currentMonthButtonProps: {},	// 用于透传props给“本月”按钮组件（“year”模式下有效）
           },
         };
       },
@@ -436,8 +436,8 @@ export default mixins().extend({
     currentBtnVBind(): any {
       const tis = this as any;
       return tis.curSelectedMode === 'month'
-        ? tis.controllerConfig.current.currentDaybuttonProps
-        : tis.controllerConfig.current.currentMonthProps;
+        ? tis.controllerConfig.current.currentDayButtonProps
+        : tis.controllerConfig.current.currentMonthButtonProps;
     },
 
     isModeVisible(): boolean {
@@ -482,8 +482,8 @@ export default mixins().extend({
     isCurrentBtnDisabled(): boolean {
       const tis = this as any;
       return tis.curSelectedMode === 'month'
-        ? tis.checkControllerDisabled('current', 'currentDaybuttonProps')
-        : tis.checkControllerDisabled('current', 'currentMonthProps');
+        ? tis.checkControllerDisabled('current', 'currentDayButtonProps')
+        : tis.checkControllerDisabled('current', 'currentMonthButtonProps');
     },
   },
   watch: {

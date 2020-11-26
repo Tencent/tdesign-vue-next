@@ -101,8 +101,8 @@ controllerConfig 属性的结构示例如下：
   // “今天\本月”按钮组件相关设置
   current: {
     visible: true,	// 是否显示
-    currentDaybuttonProps: {},	// 用于透传props给“今天”钮组件（“month”模式下有效）
-    currentMonthProps: {},	// 用于透传props给“本月”按钮组件（“year”模式下有效）
+    currentDayButtonProps: {},	// 用于透传props给“今天”钮组件（“month”模式下有效）
+    currentMonthButtonProps: {},	// 用于透传props给“本月”按钮组件（“year”模式下有效）
   },
 }
 ```

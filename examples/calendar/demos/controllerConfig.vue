@@ -45,9 +45,9 @@
           <label>是否显示“今天\本月”控件：</label>
           <t-switch v-model="controllerConfig.current.visible"></t-switch>
           <label>是否禁用“今天”按钮控件：</label>
-          <t-switch v-model="controllerConfig.current.currentDaybuttonProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.current.currentDayButtonProps.disabled"></t-switch>
           <label>是否禁用“本月”按钮控件：</label>
-          <t-switch v-model="controllerConfig.current.currentMonthProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.current.currentMonthButtonProps.disabled"></t-switch>
         </p>
       </fieldset>
     </div>
@@ -104,12 +104,12 @@ export default {
         // “今天\本月”按钮组件相关设置
         current: {
           visible: true,	// 是否显示
-          currentDaybuttonProps: { // 用于透传props给“今天”钮组件（“month”模式下有效）
+          currentDayButtonProps: { // 用于透传props给“今天”钮组件（“month”模式下有效）
             disabled: false,
             theme: 'primary',
             icon: 'rollback',
           },
-          currentMonthProps: { // 用于透传props给“本月”按钮组件（“year”模式下有效）
+          currentMonthButtonProps: { // 用于透传props给“本月”按钮组件（“year”模式下有效）
             disabled: false,
             theme: 'primary',
             icon: 'rollback',
