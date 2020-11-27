@@ -1,0 +1,2364 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calendar base demo works fine 1`] = `
+<div
+  class="t-calendar t-calendar--full"
+>
+  <div
+    class="t-calendar__control"
+  >
+    <div
+      class="t-calendar__control-section"
+    >
+      <div
+        class="t-calendar__control-section-cell"
+      >
+        <div>
+          <div
+            class="t-popup-reference"
+            style="width: 100%; position: relative;"
+          >
+             
+            <div
+              class="t-select t-size-s"
+            >
+              <svg
+                class="t-icon t-icon-undefined t-size-s t-select-left-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-undefined"
+                />
+              </svg>
+               
+              <span
+                class="t-select-placeholder"
+                style="display: none;"
+              >
+                 请选择
+              </span>
+               
+              <input
+                name="t-select"
+                style="width: 0px;"
+                type="hidden"
+                value="2020"
+              />
+                
+              <span
+                class="t-select-selectedSingle"
+                title="2020"
+              >
+                
+        2020
+      
+              </span>
+               
+              <div
+                class="t-input t-size-s t-select-input"
+                style="display: none;"
+              >
+                <input
+                  class="t-input__inner"
+                  placeholder="2020"
+                  type="text"
+                />
+              </div>
+               
+              <svg
+                class="t-icon t-icon-arrow-down t-size-s t-select-right-icon t-is-visible"
+              >
+                <use
+                  xlink:href="#t-icon-arrow-down"
+                />
+              </svg>
+               
+              <svg
+                class="t-icon t-icon-close t-size-s t-select-right-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-close"
+                />
+              </svg>
+               
+              <svg
+                class="t-icon t-icon-loading t-size-s t-select-right-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-loading"
+                />
+              </svg>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="resize-sensor"
+              dir="ltr"
+              style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+            >
+              <div
+                class="resize-sensor-expand"
+                style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              >
+                <div
+                  style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+                />
+              </div>
+              <div
+                class="resize-sensor-shrink"
+                style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              >
+                <div
+                  style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="t-calendar__control-section-cell"
+      >
+        <div>
+          <div
+            class="t-popup-reference"
+            style="width: 100%; position: relative;"
+          >
+             
+            <div
+              class="t-select t-size-s"
+            >
+              <svg
+                class="t-icon t-icon-undefined t-size-s t-select-left-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-undefined"
+                />
+              </svg>
+               
+              <span
+                class="t-select-placeholder"
+                style="display: none;"
+              >
+                 请选择
+              </span>
+               
+              <input
+                name="t-select"
+                style="width: 0px;"
+                type="hidden"
+                value="11"
+              />
+                
+              <span
+                class="t-select-selectedSingle"
+                title="11"
+              >
+                
+        11
+      
+              </span>
+               
+              <div
+                class="t-input t-size-s t-select-input"
+                style="display: none;"
+              >
+                <input
+                  class="t-input__inner"
+                  placeholder="11"
+                  type="text"
+                />
+              </div>
+               
+              <svg
+                class="t-icon t-icon-arrow-down t-size-s t-select-right-icon t-is-visible"
+              >
+                <use
+                  xlink:href="#t-icon-arrow-down"
+                />
+              </svg>
+               
+              <svg
+                class="t-icon t-icon-close t-size-s t-select-right-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-close"
+                />
+              </svg>
+               
+              <svg
+                class="t-icon t-icon-loading t-size-s t-select-right-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-loading"
+                />
+              </svg>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="resize-sensor"
+              dir="ltr"
+              style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+            >
+              <div
+                class="resize-sensor-expand"
+                style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              >
+                <div
+                  style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+                />
+              </div>
+              <div
+                class="resize-sensor-shrink"
+                style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              >
+                <div
+                  style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-calendar__control-section"
+    >
+      <div
+        class="t-calendar__control-section-cell"
+        style="height: auto;"
+      >
+        <div
+          class="t-radio-group t-radio-group-outline t-radio-group-small"
+        >
+          <label
+            class="t-radio-button t-is-checked"
+          >
+            <input
+              class="t-radio-button__former"
+              type="radio"
+              value="month"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              月
+            </span>
+          </label>
+          <label
+            class="t-radio-button"
+          >
+            <input
+              class="t-radio-button__former"
+              type="radio"
+              value="year"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              年
+            </span>
+          </label>
+        </div>
+      </div>
+       
+      <div
+        class="t-calendar__control-section-cell"
+      >
+        <button
+          class="t-button t-size-s t-button--line"
+        >
+          隐藏周末
+        </button>
+      </div>
+       
+      <div
+        class="t-calendar__control-section-cell"
+      >
+        <button
+          class="t-button t-size-s t-button--line"
+        >
+          
+          今天
+        
+        </button>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-calendar__panel"
+  >
+    <div
+      class="t-calendar__panel-title"
+    />
+     
+    <table
+      class="t-calendar__table"
+    >
+      <thead
+        class="t-calendar__table-head"
+      >
+        <tr
+          class="t-calendar__table-head-row"
+        >
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            一
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            二
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            三
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            四
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            五
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            六
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            日
+            
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        class="t-calendar__table-body"
+      >
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              26
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              27
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              28
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              29
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              30
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              31
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              01
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              02
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              03
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              04
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              05
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              06
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              07
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              08
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              09
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              10
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              11
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              12
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              13
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              14
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              15
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              16
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              17
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              18
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              19
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              20
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              21
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              22
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              23
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              24
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              25
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              26
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-checked"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              27
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              28
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              29
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              30
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              01
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              02
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              03
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              04
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              05
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              06
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Calendar card demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Calendar cardCell demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Calendar cell demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Calendar cellAppend demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Calendar controllerConfig demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Calendar defaultValue demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Calendar events demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Calendar firstDayOfWeek demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Calendar head demo works fine 1`] = `
+<div
+  class="t-calendar t-calendar--full"
+>
+  <div
+    class="t-calendar__control"
+  >
+    <div
+      class="t-calendar__control-section"
+    >
+      <div
+        class="t-calendar__control-section-cell"
+      >
+        <div>
+          <div
+            class="t-popup-reference"
+            style="width: 100%; position: relative;"
+          >
+             
+            <div
+              class="t-select t-size-s"
+            >
+              <svg
+                class="t-icon t-icon-undefined t-size-s t-select-left-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-undefined"
+                />
+              </svg>
+               
+              <span
+                class="t-select-placeholder"
+                style="display: none;"
+              >
+                 请选择
+              </span>
+               
+              <input
+                name="t-select"
+                style="width: 0px;"
+                type="hidden"
+                value="2020"
+              />
+                
+              <span
+                class="t-select-selectedSingle"
+                title="2020"
+              >
+                
+        2020
+      
+              </span>
+               
+              <div
+                class="t-input t-size-s t-select-input"
+                style="display: none;"
+              >
+                <input
+                  class="t-input__inner"
+                  placeholder="2020"
+                  type="text"
+                />
+              </div>
+               
+              <svg
+                class="t-icon t-icon-arrow-down t-size-s t-select-right-icon t-is-visible"
+              >
+                <use
+                  xlink:href="#t-icon-arrow-down"
+                />
+              </svg>
+               
+              <svg
+                class="t-icon t-icon-close t-size-s t-select-right-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-close"
+                />
+              </svg>
+               
+              <svg
+                class="t-icon t-icon-loading t-size-s t-select-right-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-loading"
+                />
+              </svg>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="resize-sensor"
+              dir="ltr"
+              style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+            >
+              <div
+                class="resize-sensor-expand"
+                style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              >
+                <div
+                  style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+                />
+              </div>
+              <div
+                class="resize-sensor-shrink"
+                style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              >
+                <div
+                  style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+      <div
+        class="t-calendar__control-section-cell"
+      >
+        <div>
+          <div
+            class="t-popup-reference"
+            style="width: 100%; position: relative;"
+          >
+             
+            <div
+              class="t-select t-size-s"
+            >
+              <svg
+                class="t-icon t-icon-undefined t-size-s t-select-left-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-undefined"
+                />
+              </svg>
+               
+              <span
+                class="t-select-placeholder"
+                style="display: none;"
+              >
+                 请选择
+              </span>
+               
+              <input
+                name="t-select"
+                style="width: 0px;"
+                type="hidden"
+                value="11"
+              />
+                
+              <span
+                class="t-select-selectedSingle"
+                title="11"
+              >
+                
+        11
+      
+              </span>
+               
+              <div
+                class="t-input t-size-s t-select-input"
+                style="display: none;"
+              >
+                <input
+                  class="t-input__inner"
+                  placeholder="11"
+                  type="text"
+                />
+              </div>
+               
+              <svg
+                class="t-icon t-icon-arrow-down t-size-s t-select-right-icon t-is-visible"
+              >
+                <use
+                  xlink:href="#t-icon-arrow-down"
+                />
+              </svg>
+               
+              <svg
+                class="t-icon t-icon-close t-size-s t-select-right-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-close"
+                />
+              </svg>
+               
+              <svg
+                class="t-icon t-icon-loading t-size-s t-select-right-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-loading"
+                />
+              </svg>
+               
+              <!---->
+            </div>
+             
+            <div
+              class="resize-sensor"
+              dir="ltr"
+              style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+            >
+              <div
+                class="resize-sensor-expand"
+                style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              >
+                <div
+                  style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+                />
+              </div>
+              <div
+                class="resize-sensor-shrink"
+                style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              >
+                <div
+                  style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-calendar__control-section"
+    >
+      <div
+        class="t-calendar__control-section-cell"
+        style="height: auto;"
+      >
+        <div
+          class="t-radio-group t-radio-group-outline t-radio-group-small"
+        >
+          <label
+            class="t-radio-button t-is-checked"
+          >
+            <input
+              class="t-radio-button__former"
+              type="radio"
+              value="month"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              月
+            </span>
+          </label>
+          <label
+            class="t-radio-button"
+          >
+            <input
+              class="t-radio-button__former"
+              type="radio"
+              value="year"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              年
+            </span>
+          </label>
+        </div>
+      </div>
+       
+      <div
+        class="t-calendar__control-section-cell"
+      >
+        <button
+          class="t-button t-size-s t-button--line"
+        >
+          隐藏周末
+        </button>
+      </div>
+       
+      <div
+        class="t-calendar__control-section-cell"
+      >
+        <button
+          class="t-button t-size-s t-button--line"
+        >
+          
+          今天
+        
+        </button>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-calendar__panel"
+  >
+    <div
+      class="t-calendar__panel-title"
+    >
+      <div>
+        
+    🗓 TDesign开发计划
+  
+      </div>
+    </div>
+     
+    <table
+      class="t-calendar__table"
+    >
+      <thead
+        class="t-calendar__table-head"
+      >
+        <tr
+          class="t-calendar__table-head-row"
+        >
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            一
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            二
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            三
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            四
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            五
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            六
+            
+          </th>
+          <th
+            class="t-calendar__table-head-cell"
+          >
+            日
+            
+          </th>
+        </tr>
+      </thead>
+       
+      <tbody
+        class="t-calendar__table-body"
+      >
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              26
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              27
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              28
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              29
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              30
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              31
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              01
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              02
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              03
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              04
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              05
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              06
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              07
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              08
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              09
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              10
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              11
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              12
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              13
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              14
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              15
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              16
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              17
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              18
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              19
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              20
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              21
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              22
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              23
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              24
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              25
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              26
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-checked"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              27
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              28
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              29
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              30
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              01
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              02
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              03
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              04
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              05
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              06
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Calendar isShowWeekend demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Calendar mode demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
+
+exports[`Calendar range demo works fine 1`] = `
+<!--function (el) {
+      var obj;
+
+      var args = [], len = arguments.length - 1;
+      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
+      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
+        return originalCreateElement.apply(void 0, [ el ].concat( args ))
+      }
+
+      if (isConstructor(el) || isComponentOptions(el)) {
+        if (stubAllComponents) {
+          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
+          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
+        }
+        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
+
+        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
+      }
+
+      if (typeof el === 'string') {
+        var original = resolveComponent(el, originalComponents);
+
+        if (!original) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        if (isDynamicComponent(original)) {
+          return originalCreateElement.apply(void 0, [ el ].concat( args ))
+        }
+
+        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
+
+        if (stub$1) {
+          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
+          modifiedComponents.add(el);
+        }
+      }
+
+      return originalCreateElement.apply(void 0, [ el ].concat( args ))
+    }-->
+`;
