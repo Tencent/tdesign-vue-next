@@ -1,4 +1,3 @@
-import { VNode } from 'vue';
 import { TransferItems, TransferItemKey } from './type/transfer';
 export const CommonProps = {
   data: {
@@ -25,8 +24,8 @@ export const CommonProps = {
     type: Boolean,
     default: false,
   },
+  // todo 没看到API定义的类型
   search: {
-    // todo 没看到API定义的类型
     type: Boolean,
     default: true,
   },
@@ -44,16 +43,10 @@ export const CommonProps = {
       return ['left', 'right', 'both'].includes(value);
     },
   },
-  operations: {
-    type: Array,
-    default(): Array<VNode> {
-      // todo 将>,<写成VNode
-      return [];
-    },
-  },
+  operations: [String, Array, Function],
   pagination: {
     // todo 自定义列表下无效
-    type: Object,
+    type: [Object, Array],
   },
   selectAll: {
     type: Boolean,

@@ -1,158 +1,171 @@
 import { mount } from '@vue/test-utils';
 import Transfer from '@/src/transfer/index.ts';
 
-const dataSource = [];
+const data = [];
 (() => {
   for (let i = 0; i < 20; i++) {
-    dataSource.push({
+    data.push({
       key: i.toString(),
-      title: `content${i + 1}`,
-      description: `description of content${i + 1}`,
+      title: `内容${i + 1}`,
+      description: `第${i + 1}段信息`,
       disabled: i % 3 < 1,
     });
   }
 })();
 
-const selectedKeys = [1, 3, 5, 6];
-const targetKeys = [1, 3, 5, 6];
+// const checkedValue = [1, 3, 5, 6];
+// const targetValue = [1, 3, 5, 6];
 describe('Transfer', () => {
   // test for props
-  describe(':Transfer:props', () => {
-    it('', () => {
-      const wrapper = mount({
-        render() {
-          return <Transfer />;
-        },
-      });
+  describe('Transfer:props', () => {
+    it('empty', () => {
+      const wrapper = mount(Transfer);
       expect(wrapper.isEmpty()).toBe(false);
     });
 
-    it(':dataSource', () => {
-      const wrapper = mount({
-        render() {
-          return <Transfer dataSource={dataSource} />;
+    it(':theme:default', () => {
+      const wrapper = mount(Transfer, {
+        propsData: {
+          theme: 'primary',
         },
       });
-      expect(wrapper.vm.$el.getElementsByTagName('li').length).toBe(dataSource.length + 1);
+      expect(wrapper).toMatchSnapshot();
     });
 
-    it(':disabled', () => {
-      const fn = jest.fn();
-      const wrapper = mount({
-        render() {
-          return <Transfer disabled onClick={fn}></Transfer>;
+    it(':data', () => {
+      const wrapper = mount(Transfer, {
+        propsData: {
+          data,
         },
       });
+      const len = wrapper.vm.$el.getElementsByTagName('li').length; // wrapper.vm.$el.getElementsByTagName('li').length
+      expect(len).toBe(data.length);
+      expect(wrapper.vm.$el.getElementsByClassName('t-checkbox t-is-disabled').length).toBe(7);
+    });
+
+    it(':disabled', async () => {
+      const fn = jest.fn();
+      const wrapper = mount(Transfer, {
+        propsData: {
+          data,
+          disabled: true,
+        },
+      });
+
+      wrapper.setMethods({ checkChange: fn });
+      await wrapper.trigger('checkChange');
+      const doms = wrapper.vm.$el.getElementsByClassName('t-checkbox t-is-disabled');
       expect(fn).not.toHaveBeenCalled();
       expect(wrapper).toMatchSnapshot();
+      expect(doms.length).toBe(data.length);
     });
 
-    it(':listStyle', () => {
-      const wrapper = mount({
-        render() {
-          return <Transfer dataSource={dataSource} listStyle={{ height: '600px' }}></Transfer>;
-        },
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
+    // it(':listStyle', () => {
+    //   const wrapper = mount({
+    //     render() {
+    //       return <Transfer data={data} listStyle={{ height: '600px' }}></Transfer>;
+    //     },
+    //   });
+    //   expect(wrapper).toMatchSnapshot();
+    // });
 
-    it(':operations', () => {
-      const wrapper = mount({
-        render() {
-          return <Transfer dataSource={dataSource} operations={['>', '<']}></Transfer>;
-        },
-      });
-      expect(wrapper).toMatchSnapshot();
-      expect(wrapper.vm.$el.getElementsByTagName('i')[0].className.indexOf('t-icon-arrow-left')).toBe(true);
-    });
+    // it(':operations', () => {
+    //   const wrapper = mount({
+    //     render() {
+    //       return <Transfer data={data} operations={['>', '<']}></Transfer>;
+    //     },
+    //   });
+    //   expect(wrapper).toMatchSnapshot();
+    //   expect(wrapper.vm.$el.getElementsByTagName('i')[0].className.indexOf('t-icon-arrow-left')).toBe(true);
+    // });
 
-    it(':selectedKeys', () => {
-      const wrapper = mount({
-        render() {
-          return <Transfer dataSource={dataSource} selectedKeys={selectedKeys}></Transfer>;
-        },
-      });
-      selectedKeys.forEach((i) => {
-        expect(wrapper.vm.$el.getElementsByTagName('label')[i].className.indexOf('t-is-checked')).toBe(true);
-      });
-    });
+    // it(':checkedValue', () => {
+    //   const wrapper = mount({
+    //     render() {
+    //       return <Transfer data={data} checkedValue={checkedValue}></Transfer>;
+    //     },
+    //   });
+    //   checkedValue.forEach((i) => {
+    //     expect(wrapper.vm.$el.getElementsByTagName('label')[i].className.indexOf('t-is-checked')).toBe(true);
+    //   });
+    // });
 
-    it(':showSearch', () => {
-      const wrapper = mount({
-        render() {
-          return <Transfer dataSource={dataSource} showSearch={true}></Transfer>;
-        },
-      });
-      expect(wrapper.vm.$el.getElementsByClassName('t-icon-search').length > 0).toBe(true);
-    });
+    // it(':showSearch', () => {
+    //   const wrapper = mount({
+    //     render() {
+    //       return <Transfer data={data} showSearch={true}></Transfer>;
+    //     },
+    //   });
+    //   expect(wrapper.vm.$el.getElementsByClassName('t-icon-search').length > 0).toBe(true);
+    // });
 
-    it(':showSelectAll', () => {
-      const wrapper = mount({
-        render() {
-          return <Transfer dataSource={dataSource} showSelectAll={true}></Transfer>;
-        },
-      });
-      expect(wrapper.vm.$el.getElementsByClassName('t-checkbox').some(item => item.className.indexOf('t-is-checked') === -1)).toBe(false);
-    });
+    // it(':showSelectAll', () => {
+    //   const wrapper = mount({
+    //     render() {
+    //       return <Transfer data={data} showSelectAll={true}></Transfer>;
+    //     },
+    //   });
+    //   expect(wrapper.vm.$el.getElementsByClassName('t-checkbox').some(item => item.className.indexOf('t-is-checked') === -1)).toBe(false);
+    // });
 
-    it(':targetKeys', () => {
-      const wrapper = mount({
-        render() {
-          return <Transfer dataSource={dataSource} targetKeys={targetKeys}></Transfer>;
-        },
-      });
+    // it(':targetValue', () => {
+    //   const wrapper = mount({
+    //     render() {
+    //       return <Transfer data={data} targetValue={targetValue}></Transfer>;
+    //     },
+    //   });
 
-      expect(wrapper.vm.$el.getElementsByClassName('t-transfer-list-right').getElementsByTagName('span')
-        .some((item, index) => {
-          if (targetKeys.indexOf(index % 2)) {
-            return item.textContent !== targetKeys.indexOf(index % 2);
-          }
-          return false;
-        })).toBe(false);
-    });
+    // expect(wrapper.vm.$el.getElementsByClassName('t-transfer-list-right').getElementsByTagName('span')
+    //   .some((item, index) => {
+    //     if (targetValue.indexOf(index % 2)) {
+    //       return item.textContent !== targetValue.indexOf(index % 2);
+    //     }
+    //     return false;
+    //   })).toBe(false);
+    // });
   });
 
-  describe('@event', () => {
-    it('@change', async () => {
-      const fn = jest.fn();
-      const wrapper = mount({
-        render() {
-          return <Transfer onChange={fn} />;
-        },
-      });
+  // describe('@event', () => {
+  //   it('@change', async () => {
+  //     const fn = jest.fn();
+  //     const wrapper = mount({
+  //       render() {
+  //         return <Transfer onChange={fn} />;
+  //       },
+  //     });
 
-      wrapper.find(Transfer).trigger('click');
-      expect(fn).toHaveBeenCalled();
-    });
+  //     wrapper.find(Transfer).trigger('click');
+  //     expect(fn).toHaveBeenCalled();
+  //   });
 
-    it('@change', async () => {
-      const fn = jest.fn();
-      const wrapper = mount({
-        render() {
-          return <Transfer onChange={fn} selectedKeys={selectedKeys} />;
-        },
-      });
+  //   it('@change', async () => {
+  //     const fn = jest.fn();
+  //     const wrapper = mount({
+  //       render() {
+  //         return <Transfer onChange={fn} checkedValue={checkedValue} />;
+  //       },
+  //     });
 
-      wrapper.find(Transfer).trigger('add');
-      expect(fn).toHaveBeenCalled();
-      expect(wrapper.vm.$el.getElementsByClassName('t-transfer-list-right').getElementsByTagName('span')
-        .some((item, index) => {
-          if (selectedKeys.indexOf(index % 2)) {
-            return item.textContent !== targetKeys.indexOf(index % 2);
-          }
-          return false;
-        })).toBe(false);
-    });
+  //     wrapper.find(Transfer).trigger('add');
+  //     expect(fn).toHaveBeenCalled();
+  //     expect(wrapper.vm.$el.getElementsByClassName('t-transfer-list-right').getElementsByTagName('span')
+  //       .some((item, index) => {
+  //         if (checkedValue.indexOf(index % 2)) {
+  //           return item.textContent !== targetValue.indexOf(index % 2);
+  //         }
+  //         return false;
+  //       })).toBe(false);
+  //   });
 
-    it('@search', async () => {
-      const fn = jest.fn();
-      const wrapper = mount({
-        render() {
-          return <Transfer onSearch={fn} />;
-        },
-      });
-      wrapper.find(Transfer).trigger('search');
-      expect(fn).toHaveBeenCalled();
-    });
-  });
+  //   it('@search', async () => {
+  //     const fn = jest.fn();
+  //     const wrapper = mount({
+  //       render() {
+  //         return <Transfer onSearch={fn} />;
+  //       },
+  //     });
+  //     wrapper.find(Transfer).trigger('search');
+  //     expect(fn).toHaveBeenCalled();
+  //   });
+  // });
 });
