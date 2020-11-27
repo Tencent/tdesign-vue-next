@@ -260,7 +260,13 @@ export default Vue.extend({
       return this.setExpanded(node, !node.isExpanded());
     },
     setExpanded(node: TreeNode, isExpanded: boolean): string[] {
-      const expanded = node.setExpanded(isExpanded);
+      const { expandParent } = this;
+      let expanded = node.setExpanded(isExpanded);
+      if (expandParent === 'auto' && isExpanded === true) {
+        node.getParents().forEach((parent) => {
+          expanded = parent.setExpanded(true);
+        });
+      }
       const event = new Event('expand');
       const state: EventState = {
         event,

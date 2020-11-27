@@ -46,6 +46,8 @@
       <t-button theme="primary" @click="getParent">获取高亮节点的父节点</t-button>
       <t-button theme="primary" @click="getParents">获取高亮节点的所有父节点</t-button>
       <t-button theme="primary" @click="getIndex">获取高亮节点在子节点中的位置</t-button>
+      <t-button theme="primary" @click="setChecked">选中高亮节点</t-button>
+      <t-button theme="primary" @click="setExpanded">展开高亮节点</t-button>
     </div>
   </div>
 </template>
@@ -162,6 +164,20 @@ export default {
       const node = this.getActivedNode();
       const parents = tree.getParents(node);
       console.log('getParents', parents.map(node => node.value));
+    },
+    setChecked() {
+      const { tree } = this.$refs;
+      const node = this.getActivedNode();
+      tree.setItem(node, {
+        checked: true,
+      });
+    },
+    setExpanded() {
+      const { tree } = this.$refs;
+      const node = this.getActivedNode();
+      tree.setItem(node, {
+        expanded: true,
+      });
     },
     getIndex() {
       const { tree } = this.$refs;

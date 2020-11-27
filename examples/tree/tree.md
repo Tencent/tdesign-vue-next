@@ -60,3 +60,20 @@
 
 ::: demo demos/operations 操作节点
 :::
+
+### 属性配置
+
+#### Tree Props
+
+| 属性 | 类型 | 默认值 | 必传 | 说明 |
+|-----|-----|-----|-----|-----|
+| data | Array | [] | 否 | 可嵌套的节点属性的数组，生成 tree 的数据 |
+| empty | TNode | '' | 否 | 内容为空的时候展示的文本 |
+| keys | Object | {} | 否 | 定义从节点取值的属性名称 |
+| keys.value | String | 'value'| 否 | 每个树节点用来作为唯一标识的属性，整棵树应该是唯一的 |
+| keys.children | String | 'children' | 否 | 定义子节点的key |
+| keys.label | String | 'label' | 否 | 定义节点文本的key |
+| expand-all | Boolean | false | 否 | 默认展开所有节点 |
+||||||
+||||||
+||||||
