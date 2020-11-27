@@ -151,7 +151,7 @@ export default Vue.extend({
       });
     },
     getPaginationObj(direction: string) {
-      let paginationObj;
+      let paginationObj = null;
       if (this.pagination && this.pagination instanceof Array) {
         const order = direction === 'source' ? 0 : 1;
         paginationObj = this.pagination[order];
