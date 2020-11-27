@@ -235,6 +235,11 @@ export default Vue.extend({
         });
       }
 
+      if (typeof labelNode === 'string') {
+        // 如果渲染结果是字符串，就同步到节点上
+        node.label = labelNode;
+      }
+
       if (node.checkable) {
         labelNode = (
           <TCheckBox

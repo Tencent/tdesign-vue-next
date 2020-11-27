@@ -11,6 +11,9 @@
     <h3 class="title">scope slot:</h3>
     <div class="operations">
       <t-button :theme="btnSetActivedTheme" @click="setUseActived">插入节点使用高亮节点</t-button>
+      <t-addon prepend="filter:">
+        <t-input v-model="filterText" @input="onInput"/>
+      </t-addon>
     </div>
     <t-tree
       :data="items"
@@ -20,6 +23,9 @@
       :activable="true"
       :checkable="true"
       :expand-on-click-node="false"
+      @expand="onExpand"
+      @change="onChange"
+      @active="onActive"
       ref="tree"
     >
       <template slot="operations" slot-scope="{node}">
@@ -49,6 +55,7 @@ export default {
   data() {
     return {
       useActived: false,
+      filterText: '',
       items: [{
         value: 'node1',
       }, {
@@ -165,6 +172,24 @@ export default {
     remove(node) {
       const { tree } = this.$refs;
       tree.remove(node);
+    },
+    onChange(vals, state) {
+      console.log('on change:', vals, state);
+    },
+    onExpand(vals, state) {
+      console.log('on expand:', vals, state);
+    },
+    onActive(vals, state) {
+      console.log('on active:', vals, state);
+    },
+    onInput(state) {
+      console.log('on input:', state);
+      const { tree } = this.$refs;
+      const filterFn = (node) => {
+        const rs = node.label.indexOf(this.filterText) >= 0;
+        return rs;
+      };
+      tree.filterItems(filterFn);
     },
   },
 };
