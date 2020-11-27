@@ -7,6 +7,7 @@
     :render-item="({transferItem}) => `${transferItem.key}-${transferItem.title}`"
     :pagination="pagination"
     :footer="footer"
+    :operations="['right', 'left']"
     :disabled="true"
     @checkChange="checkChange"
   >
@@ -39,12 +40,23 @@ export default {
       list,
       targetValue: [],
       checkedValue: ['1', '2'],
-      pagination: {
+      pagination: [{
         pageSize: 10,
         total: 120,
-        curPage: 1,
+        current: 1,
       },
+      {
+        pageSize: 10,
+        total: 110,
+        current: 2,
+      },
+      ],
     };
+  },
+  computed: {
+    // operation() {
+    //   return ['1', () => <t-icon name="arrow-right"/>];
+    // }
   },
   methods: {
     getItem(item) {
@@ -75,6 +87,13 @@ export default {
         footerNode = <div>target footer</div>;
       }
       return footerNode;
+    },
+    // :operations="['right', 'left']" :operations="['operationRight', 'operationLeft']"
+    operationRight() {
+      return <span>去右边</span>;
+    },
+    operationLeft() {
+      return <span>去左边</span>;
     },
     checkChange(sourceChecked, targetChecked) {
       console.log('====> sourceChecked', sourceChecked);
