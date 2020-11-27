@@ -52,9 +52,7 @@ export const CommonProps = {
     type: Boolean,
     default: true,
   },
-  footer: {
-    type: Function,
-  },
+  footer: [Function, String],
   renderItem: {
     type: Function,
   },
