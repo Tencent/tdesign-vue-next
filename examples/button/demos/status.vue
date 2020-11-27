@@ -2,7 +2,7 @@
   <div>
     <div class="tdesign-demo-block">
       <t-button theme="primary">主按钮</t-button>
-      <t-button theme="primary" disabled>主按钮</t-button>
+      <t-button theme="primary" disabled @click="onDisabledButtonClick">主按钮</t-button>
     </div>
     <div class="tdesign-demo-block">
       <t-button theme="line">次要按钮</t-button>
@@ -36,12 +36,12 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-.tdesign-wrap {
-  display: inline-block;
-  background-color: #bbbbbb;
-  padding: 10px;
-  margin-right: 10px;
-}
-</style>
+<script>
+export default {
+  methods: {
+    onDisabledButtonClick() {
+      console.log('this event should not be emited');
+    },
+  },
+};
+</script>

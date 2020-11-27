@@ -36,7 +36,7 @@ export default Vue.extend({
       type: [Boolean, Function],
       default: true,
     },
-    default: [String, Function],
+    content: [String, Function],
   },
 
   computed: {
@@ -97,8 +97,8 @@ export default Vue.extend({
       return <component></component>;
     },
     renderContent() {
-      if (typeof this.default === 'string') return this.default;
-      if (typeof this.default === 'function') return this.default();
+      if (typeof this.content === 'string') return this.content;
+      if (typeof this.content === 'function') return this.content();
       return this.$scopedSlots.default && this.$scopedSlots.default(null);
     },
   },

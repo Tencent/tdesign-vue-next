@@ -35,19 +35,19 @@ export const PLACEMENT_OFFSET = {
     top: '50%',
     transform: 'translateY(-50%)',
   },
-  'left-top': {
+  'top-left': {
     left: DISTANCE,
     top: DISTANCE,
   },
-  'right-top': {
+  'top-right': {
     right: DISTANCE,
     top: DISTANCE,
   },
-  'right-bottom': {
+  'bottom-right': {
     right: DISTANCE,
     bottom: DISTANCE,
   },
-  'left-bottom': {
+  'bottom-left': {
     left: DISTANCE,
     bottom: DISTANCE,
   },
