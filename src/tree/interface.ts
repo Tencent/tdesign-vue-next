@@ -91,7 +91,7 @@ export const TreeProps = {
   },
   lazy: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   value: {
     type: Array,
