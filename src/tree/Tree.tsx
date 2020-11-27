@@ -343,14 +343,14 @@ export default Vue.extend({
       }
       this.toggleChecked(node);
     },
-    getItem(item: string | TreeNode): TreeNode {
-      return this.store.getNode(item);
+    getItem(value: string | TreeNode): TreeNode {
+      return this.store.getNode(value);
     },
-    getItems(item?: string | TreeNode, options?: TreeFilterOptions): TreeNode[] {
-      return this.store.getNodes(item, options);
+    getItems(value?: string | TreeNode, options?: TreeFilterOptions): TreeNode[] {
+      return this.store.getNodes(value, options);
     },
-    getActived(item?: string | TreeNode): TreeNode[] {
-      return this.store.getActivedNodes(item);
+    getActived(value?: string | TreeNode): TreeNode[] {
+      return this.store.getActivedNodes(value);
     },
     getChecked(item?: string | TreeNode): TreeNode[] {
       return this.store.getCheckedNodes(item);
@@ -361,8 +361,14 @@ export default Vue.extend({
     append(para?: any, item?: any): void {
       return this.store.appendNodes(para, item);
     },
-    remove(para?: string | TreeNode): void {
-      return this.store.remove(para);
+    insertBefore(value: string | TreeNode, item: any): void {
+      return this.store.insertBefore(value, item);
+    },
+    insertAfter(value: string | TreeNode, item: any): void {
+      return this.store.insertAfter(value, item);
+    },
+    remove(value?: string | TreeNode): void {
+      return this.store.remove(value);
     },
   },
   created() {
