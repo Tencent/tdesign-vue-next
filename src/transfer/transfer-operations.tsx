@@ -4,7 +4,7 @@ import { prefix } from '../config';
 
 const name = `${prefix}-transfer-operations`;
 export default Vue.extend({
-  name: `${prefix}-transfer-operations`,
+  name,
   props: {
     // 控制左按钮的禁用与否
     leftDisabled: {

@@ -27,7 +27,7 @@ export const CommonProps = {
   // todo 没看到API定义的类型
   search: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   titles: {
     type: Array,
@@ -52,9 +52,7 @@ export const CommonProps = {
     type: Boolean,
     default: true,
   },
-  footer: {
-    type: Function,
-  },
+  footer: [Function, String],
   renderItem: {
     type: Function,
   },
