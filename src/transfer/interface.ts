@@ -46,7 +46,7 @@ export const CommonProps = {
   operations: [String, Array,  Function],
   pagination: {
     // todo 自定义列表下无效
-    type: Object,
+    type: [Object, Array],
   },
   selectAll: {
     type: Boolean,

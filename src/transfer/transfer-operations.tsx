@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import TButton from '../button';
-import TIcon from '../icon';
 import { prefix } from '../config';
 
 const name = `${prefix}-transfer-operations`;
@@ -26,13 +25,23 @@ export default Vue.extend({
     moveToLeft() {
       this.$emit('moveToLeft');
     },
+    getIcon(order: string) {
+      let iconName;
+      if (!this.operations || !this.operations.length) {
+        iconName = order === 'up' ? 'arrow-right' : 'arrow-left';
+      } else {
+        iconName = null;
+      }
+      return iconName;
+    },
     buttonContent(order: string) {
       let renderButtonContent;
       // 处理传进来的operations是数组，函数，字符型类型以及不传
-      if (this.operations instanceof Array) {
+      if (this.operations instanceof Array && this.operations.length) {
         const buttonOrder = order === 'up' ? 0 : 1;
         if (typeof this.operations[buttonOrder] === 'function') {
-          renderButtonContent = this.operations[buttonOrder]();
+          const operationFunc = this.operations[buttonOrder] as Function;
+          renderButtonContent = operationFunc();
         } else if (typeof this.operations[buttonOrder] === 'string') {
           renderButtonContent = this.operations[buttonOrder];
         }
@@ -41,8 +50,7 @@ export default Vue.extend({
       } else if (typeof this.operations === 'string') {
         renderButtonContent = this.operations;
       } else {
-        const directionName = order === 'up' ? 'right' : 'left';
-        renderButtonContent = <TIcon name={`arrow-${directionName}`}></TIcon>;
+        renderButtonContent = null;
       }
 
       return renderButtonContent;
@@ -56,14 +64,15 @@ export default Vue.extend({
           theme={leftDisabled ? 'line' : 'primary'}
           disabled={leftDisabled}
           onClick={this.moveToRight}
+          icon={this.getIcon('up')}
       >
         {this.buttonContent('up')}
       </TButton>
       <TButton
           theme={rightDisabled ? 'line' : 'primary'}
-          name={'arrow-left'}
           disabled={rightDisabled}
           onClick={this.moveToLeft}
+          icon={this.getIcon('down')}
       >
         {this.buttonContent('down')}
       </TButton>

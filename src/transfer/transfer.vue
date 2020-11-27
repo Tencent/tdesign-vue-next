@@ -8,6 +8,7 @@
       :checked-value="sourceCheckedKeys"
       :disabled="disabled"
       :search="search"
+      :pagination="getPaginationObj('source')"
       @checkedChange="handleSourceCheckedChange"
     >
     </transfer-list>
@@ -26,6 +27,7 @@
       :checked-value="targetCheckedKeys"
       :disabled="disabled"
       :search="search"
+      :pagination="getPaginationObj('target')"
       @checkedChange="handleTargetCheckedChange"
     >
     </transfer-list>
@@ -147,6 +149,16 @@ export default Vue.extend({
         const isMatch = targetArr.indexOf(item.key) > -1;
         return needMatch ? isMatch : !isMatch;
       });
+    },
+    getPaginationObj(direction: string) {
+      let paginationObj;
+      if (this.pagination && this.pagination instanceof Array) {
+        const order = direction === 'source' ? 0 : 1;
+        paginationObj = this.pagination[order];
+      } else {
+        paginationObj = this.pagination;
+      }
+      return paginationObj;
     },
   },
 });

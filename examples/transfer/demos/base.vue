@@ -7,7 +7,7 @@
     :render-item="({transferItem}) => `${transferItem.key}-${transferItem.title}`"
     :pagination="pagination"
     :footer="footer"
-    :operations="[operationRight, operationLeft]"
+    :operations="['right', 'left']"
     @checkChange="checkChange"
   >
     <template v-slot:empty>
@@ -40,11 +40,17 @@ export default {
       list,
       targetValue: [],
       checkedValue: ['1', '2'],
-      pagination: {
+      pagination: [{
         pageSize: 10,
         total: 120,
-        curPage: 1,
+        current: 1,
       },
+      {
+        pageSize: 10,
+        total: 110,
+        current: 2,
+      },
+      ],
     };
   },
   computed: {
@@ -82,6 +88,7 @@ export default {
       }
       return footerNode;
     },
+    // :operations="['right', 'left']" :operations="['operationRight', 'operationLeft']"
     operationRight() {
       return <span>去右边</span>;
     },
