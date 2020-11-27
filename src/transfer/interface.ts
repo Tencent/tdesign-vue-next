@@ -24,8 +24,8 @@ export const CommonProps = {
     type: Boolean,
     default: false,
   },
+  // todo 没看到API定义的类型
   search: {
-    // todo 没看到API定义的类型
     type: Boolean,
     default: true,
   },
