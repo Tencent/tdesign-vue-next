@@ -1,5 +1,5 @@
 <template>
-  <div :class="['t-transfer', hasFooter?'t-transfer-footer':'', showPagination?'t-transfer-pagination':'']">
+  <div :class="['t-transfer', hasFooter ? 't-transfer-footer' : '', showPagination ? 't-transfer-pagination' : '']">
     <transfer-list
       v-bind="$props"
       direction="source"
@@ -39,6 +39,7 @@ import TransferList from './transfer-list';
 import TransferOperations from './transfer-operations';
 import { TransferItem, TransferItemKey, TransferDirection } from './type/transfer';
 import { CommonProps } from './interface';
+import { deepCloneByJson } from './utils';
 
 const name = `${prefix}-transfer`;
 export default Vue.extend({
@@ -59,6 +60,7 @@ export default Vue.extend({
   data() {
     return {
       name,
+      curCheckedValue: [],
       sourceCheckedKeys: [], // 源数据被选中的key
       targetCheckedKeys: [], // 目标数据被选中的key,
     };
@@ -88,23 +90,31 @@ export default Vue.extend({
       return this.pagination && !this.$scopedSlots.content;
     },
   },
+  watch: {
+    checkedValue(val: Array<TransferItemKey>): void {
+      this.curCheckedValue = deepCloneByJson(val);
+    },
+  },
   mounted() {
+    this.curCheckedValue = this.checkedValue;
     this.setCheckedKeys();
   },
   methods: {
     setCheckedKeys() {
-      const { checkedValue, targetValue } = this;
-      this.sourceCheckedKeys = this.filterMethod(checkedValue, targetValue, false);
-      this.targetCheckedKeys = this.filterMethod(checkedValue, targetValue, true);
+      const { curCheckedValue, targetValue } = this;
+      // const checkedValue = checked.length ? checked : this.checkedValue;
+      // const targetValue = target.length ? target : this.targetValue;
+      this.sourceCheckedKeys = this.filterMethod(curCheckedValue, targetValue, false);
+      this.targetCheckedKeys = this.filterMethod(curCheckedValue, targetValue, true);
     },
     transferTo(toDirection: TransferDirection) {
-      let targetValue = this.targetValue.slice();
+      let targetValue: Array<TransferItemKey> = deepCloneByJson(this.targetValue);
       let sourceCheckedKeys = 'sourceCheckedKeys';
       if (toDirection === 'left') {
         sourceCheckedKeys = 'targetCheckedKeys';
       }
       const moveKeys: Array<TransferItemKey> = [];
-      this[sourceCheckedKeys].filter((key: TransferItemKey) => {
+      this[sourceCheckedKeys] = this[sourceCheckedKeys].filter((key: TransferItemKey) => {
         const data = this.getItemData(key) || {};
         const isMove = !data.disabled;
         if (isMove) {
@@ -112,12 +122,13 @@ export default Vue.extend({
         }
         return !isMove;
       });
+      this.curCheckedValue = this.curCheckedValue.filter((key: TransferItemKey) => moveKeys.indexOf(key) === -1);
       if (toDirection === 'left') {
         targetValue = targetValue.filter((key: TransferItemKey) => moveKeys.indexOf(key) === -1);
       } else {
         targetValue = targetValue.concat(moveKeys);
       }
-      // this[sourceCheckedKeys] = [];
+      this.setCheckedKeys();
       this.$emit('change', targetValue);
     },
     // 点击移到右边按钮触发的函数
@@ -128,13 +139,13 @@ export default Vue.extend({
     transferToLeft() {
       this.transferTo('left');
     },
-    handleSourceCheckedChange(val: Array<any>) {
+    handleSourceCheckedChange(val: Array<any>, isChangeByUser: boolean) {
       this.sourceCheckedKeys = val;
-      this.$emit('checkChange', val, this.targetCheckedKeys);
+      isChangeByUser && this.$emit('checkChange', this.sourceCheckedKeys, this.targetCheckedKeys);
     },
-    handleTargetCheckedChange(val: Array<any>) {
+    handleTargetCheckedChange(val: Array<any>, isChangeByUser: boolean) {
       this.targetCheckedKeys = val;
-      this.$emit('checkChange', this.sourceCheckedKeys, val);
+      isChangeByUser && this.$emit('checkChange', this.sourceCheckedKeys, this.targetCheckedKeys);
     },
     getItemData(key: TransferItemKey): TransferItem {
       // 获取key对应的数据
