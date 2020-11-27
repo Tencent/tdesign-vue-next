@@ -32,6 +32,7 @@ export default Vue.extend({
     return {
       store: null,
       updatedMap: null,
+      nodesMap: null,
       treeNodes: [],
     };
   },
@@ -74,77 +75,98 @@ export default Vue.extend({
     },
   },
   methods: {
-    refresh() {
-      // console.time('tree refresh');
+    // 创建单个 tree 节点
+    renderItem(node: TreeNode) {
       const {
         empty,
         icon,
         label,
         line,
         operations,
+      } = this;
+      const treeItem = (
+        <TreeItem
+          key={node.value}
+          node={node}
+          empty={empty}
+          icon={icon}
+          label={label}
+          line={line}
+          operations={operations}
+          onClick={this.handleClick}
+          onChange={this.handleChange}
+        />
+      );
+      return treeItem;
+    },
+    refresh() {
+      // console.time('tree refresh');
+      const {
         store,
         treeNodes,
         updatedMap,
         $scopedSlots: scopedSlots,
       } = this;
 
-      const map = {};
+      let {
+        nodesMap,
+      } = this;
+
       store.scopedSlots = scopedSlots;
 
-      // 移除不能呈现的节点
+      if (!nodesMap) {
+        nodesMap = new Map();
+        this.nodesMap = nodesMap;
+      }
+
       let index = 0;
       while (index < treeNodes.length) {
-        const node = treeNodes[index];
-        const nodeItem = node.componentInstance.node;
-        if (!nodeItem.visible) {
-          treeNodes.splice(index, 1);
+        const nodeView = treeNodes[index];
+        const { node } = nodeView.componentInstance;
+        if (!store.getNode(node)) {
+          // 视图列表中的节点，在树中不存在
+          const nodeViewIndex = treeNodes.indexOf(nodeView);
+          treeNodes.splice(nodeViewIndex, 1);
+          nodeView.componentInstance.$destroy();
+          nodesMap.delete(node.value);
         } else {
-          map[nodeItem.value] = true;
           index += 1;
         }
       }
 
-      // 插入需要呈现的节点
       index = 0;
-      const nodes = store.getNodes();
-      nodes.forEach((node: TreeNode) => {
+      const allNodes = store.getNodes();
+      allNodes.forEach((node: TreeNode) => {
         if (node.visible) {
-          const nodeView = treeNodes[index];
-          let nodeItem = null;
-          let shouldInsert = false;
-          if (nodeView) {
-            nodeItem = nodeView.componentInstance.node;
-            if (nodeItem.value !== node.value) {
-              shouldInsert = true;
+          if (nodesMap.has(node.value)) {
+            const nodeView = nodesMap.get(node.value);
+            const nodeViewIndex = treeNodes.indexOf(nodeView);
+            if (nodeViewIndex !== index) {
+              // 节点存在，但位置与可视节点位置冲突，需要更新节点位置
+              treeNodes.splice(nodeViewIndex, 1);
+              treeNodes.splice(index, 0, nodeView);
             }
             if (updatedMap && updatedMap.get(node.value)) {
-              // 只强制更新必要节点
+              // 只有可视节点需要更新，只强制更新必要节点
               // 插入和移除的节点会影响父节点的图标状态与选中状态
               nodeView.componentInstance.$forceUpdate();
             }
           } else {
-            shouldInsert = true;
-          }
-          if (shouldInsert) {
-            const insertNode = (
-              <TreeItem
-                key={node.value}
-                node={node}
-                empty={empty}
-                icon={icon}
-                label={label}
-                line={line}
-                operations={operations}
-                onClick={this.handleClick}
-                onChange={this.handleChange}
-              />
-            );
-            if (!map[node.value]) {
-              map[node.value] = true;
-              treeNodes.splice(index, 0, insertNode);
-            }
+            // 节点可视，且不存在视图，创建该节点视图并插入到当前位置
+            const nodeView = this.renderItem(node);
+            treeNodes.splice(index, 0, nodeView);
+            nodesMap.set(node.value, nodeView);
           }
           index += 1;
+        } else {
+          if (nodesMap.has(node.value)) {
+            // 节点不可视，存在该视图，需要删除该节点视图
+            const nodeView = nodesMap.get(node.value);
+            const nodeViewIndex = treeNodes.indexOf(nodeView);
+            treeNodes.splice(nodeViewIndex, 1);
+            nodesMap.delete(node.value);
+            nodeView.componentInstance.$destroy();
+          }
         }
       });
       // console.timeEnd('tree refresh');
@@ -357,6 +379,12 @@ export default Vue.extend({
     },
     getParent(value: string | TreeNode): TreeNode {
       return this.store.getParent(value);
+    },
+    getParents(value: string | TreeNode): TreeNode {
+      return this.store.getParents(value);
+    },
+    getIndex(value: string | TreeNode): number {
+      return this.store.getNodeIndex(value);
     },
     append(para?: any, item?: any): void {
       return this.store.appendNodes(para, item);

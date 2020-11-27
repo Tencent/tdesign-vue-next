@@ -9,6 +9,9 @@
       :operations="renderOperations"
     />
     <h3 class="title">scope slot:</h3>
+    <div class="operations">
+      <t-button :theme="btnSetActivedTheme" @click="setUseActived">插入节点使用高亮节点</t-button>
+    </div>
     <t-tree
       :data="items"
       :hover="true"
@@ -23,7 +26,6 @@
         <t-button size="small" theme="primary" @click="append(node)">添加子节点</t-button>
         <t-button size="small" theme="line" @click="insertBefore(node)">前插节点</t-button>
         <t-button size="small" theme="line" @click="insertAfter(node)">后插节点</t-button>
-        <t-button size="small" theme="line" @click="appendTo(node)">插入高亮</t-button>
         <t-button size="small" theme="warning" @click="remove(node)">删除</t-button>
       </template>
     </t-tree>
@@ -35,6 +37,9 @@
       <t-button theme="primary" @click="getActived">获取所有高亮节点</t-button>
       <t-button theme="primary" @click="getChecked">获取高亮节点下的选中节点</t-button>
       <t-button theme="primary" @click="append">插入一个根节点</t-button>
+      <t-button theme="primary" @click="getParent">获取高亮节点的父节点</t-button>
+      <t-button theme="primary" @click="getParents">获取高亮节点的所有父节点</t-button>
+      <t-button theme="primary" @click="getIndex">获取高亮节点在子节点中的位置</t-button>
     </div>
   </div>
 </template>
@@ -43,12 +48,22 @@
 export default {
   data() {
     return {
+      useActived: false,
       items: [{
         value: 'node1',
       }, {
         value: 'node2',
       }],
     };
+  },
+  computed: {
+    btnSetActivedTheme() {
+      let theme = 'ghost';
+      if (this.useActived) {
+        theme = 'primary';
+      }
+      return theme;
+    },
   },
   methods: {
     renderOperations(createElement, node) {
@@ -74,8 +89,7 @@ export default {
     },
     getItems() {
       const { tree } = this.$refs;
-      const activedNodes = tree.getActived();
-      const [node] = activedNodes;
+      const node = this.getActivedNode();
       let nodes = [];
       if (node) {
         nodes = tree.getItems(node);
@@ -85,39 +99,68 @@ export default {
     getActived() {
       const { tree } = this.$refs;
       const nodes = tree.getActived();
-      console.log('getActived:', nodes.map(node => node.value));
+      console.log('getActived value:', nodes.map(node => node.value));
+      console.log('getActived:', nodes);
     },
     getChecked() {
       const { tree } = this.$refs;
-      const activedNodes = tree.getActived();
-      const [node] = activedNodes;
+      const node = this.getActivedNode();
       const nodes = tree.getChecked(node);
       console.log('getChecked:', nodes.map(node => node.value));
     },
+    getActivedNode() {
+      const { tree } = this.$refs;
+      const activedNodes = tree.getActived();
+      const [activeNode] = activedNodes;
+      return activeNode;
+    },
+    getInsertItem() {
+      let item = {};
+      if (this.useActived) {
+        item = this.getActivedNode();
+      }
+      return item;
+    },
     append(node) {
       const { tree } = this.$refs;
+      const item = this.getInsertItem();
       if (!node) {
-        tree.append({});
+        tree.append(item);
       } else {
-        tree.append(node, {});
+        tree.append(node, item);
       }
     },
     insertBefore(node) {
       const { tree } = this.$refs;
-      tree.insertBefore(node, {});
+      const item = this.getInsertItem();
+      console.log('insertBefore:', item);
+      tree.insertBefore(node, item);
     },
     insertAfter(node) {
       const { tree } = this.$refs;
-      tree.insertAfter(node, {});
+      const item = this.getInsertItem();
+      tree.insertAfter(node, item);
     },
-    appendTo(parent) {
+    setUseActived() {
+      this.useActived = !this.useActived;
+    },
+    getParent() {
       const { tree } = this.$refs;
-      const nodes = tree.getActived();
-      const [node] = nodes;
-      if (node) {
-        tree.remove(node);
-        tree.append(parent, node);
-      }
+      const node = this.getActivedNode();
+      const parent = tree.getParent(node);
+      console.log('getParent', parent?.value);
+    },
+    getParents() {
+      const { tree } = this.$refs;
+      const node = this.getActivedNode();
+      const parents = tree.getParents(node);
+      console.log('getParents', parents.map(node => node.value));
+    },
+    getIndex() {
+      const { tree } = this.$refs;
+      const node = this.getActivedNode();
+      const index = tree.getIndex(node);
+      console.log('getIndex', index);
     },
     remove(node) {
       const { tree } = this.$refs;
