@@ -1,4 +1,4 @@
-import { TransferItems } from './type/transfer';
+import { TransferItems, TransferItemKey } from './type/transfer';
 export const CommonProps = {
   data: {
     type: Array,
@@ -9,14 +9,14 @@ export const CommonProps = {
   // 目标列索引集合，数组，每项为数据的key值，transfer会把这些可以的数据筛选到右边
   targetValue: {
     type: Array,
-    default(): Array<string | number | symbol> {
+    default(): Array<TransferItemKey> {
       return [];
     },
   },
   // 设置哪些被选中
   checkedValue: {
     type: Array,
-    default(): Array<string | number | symbol> {
+    default(): Array<TransferItemKey> {
       return [];
     },
   },
@@ -43,7 +43,7 @@ export const CommonProps = {
       return ['left', 'right', 'both'].includes(value);
     },
   },
-  operations: [String, Array,  Function],
+  operations: [String, Array, Function],
   pagination: {
     // todo 自定义列表下无效
     type: [Object, Array],
