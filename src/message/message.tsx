@@ -39,6 +39,12 @@ export default Vue.extend({
     content: [String, Function],
   },
 
+  data() {
+    return {
+      timer: -1,
+    };
+  },
+
   computed: {
     classes(): ClassName {
       const status = {};
@@ -61,10 +67,13 @@ export default Vue.extend({
 
   methods: {
     setTimer() {
-      const timer = setTimeout(() => {
-        clearTimeout(timer);
+      this.timer = Number(setTimeout(() => {
+        this.clearTimer();
         this.$emit('duration-end', this);
-      }, this.duration);
+      }, this.duration));
+    },
+    clearTimer() {
+      clearTimeout(this.timer);
     },
     close(e?: Event) {
       this.$emit('click-close-btn', e, this);
@@ -105,7 +114,7 @@ export default Vue.extend({
 
   render() {
     return (
-      <div class={this.classes}>
+      <div class={ this.classes } onMouseenter={ this.clearTimer } onMouseleave={ this.setTimer }>
         { this.renderIcon() }
         { this.renderContent() }
         { this.renderClose() }
