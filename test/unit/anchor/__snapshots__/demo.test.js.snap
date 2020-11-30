@@ -55,19 +55,6 @@ exports[`Anchor bounds demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#affix"
-        target="_self"
-        title="固定模式"
-      >
-        固定模式
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
         href="#http://example.com#anchor-target"
         target="_self"
         title="联动anchor-target"
@@ -270,19 +257,6 @@ exports[`Anchor default demo works fine 1`] = `
         title="自定义滚动区"
       >
         自定义滚动区
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#affix"
-        target="_self"
-        title="固定模式"
-      >
-        固定模式
       </a>
     </div>
      

@@ -4,7 +4,6 @@
       <t-anchor-item :href="`#${path}#default`" title="默认"></t-anchor-item>
       <t-anchor-item :href="`#${path}#bounds`" title="滚动区域判断"></t-anchor-item>
       <t-anchor-item :href="`#${path}#container`" title="自定义滚动区"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#affix`" title="固定模式"></t-anchor-item>
       <t-anchor-item :href="`#${path}#anchor-target`" title="联动anchor-target">
         <t-anchor-item :href="`#${path}#anchor-target-1`" title="创建签名"></t-anchor-item>
         <t-anchor-item :href="`#${path}#anchor-target-2`" title="创建内容的正式模板并保存"></t-anchor-item>
