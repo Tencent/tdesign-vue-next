@@ -21,9 +21,6 @@
 ::: demo demos/checkable 可选
 :::
 
-::: demo demos/checkStrictly 选中态不关联
-:::
-
 ::: demo demos/disabled 树禁用
 :::
 
@@ -56,7 +53,7 @@
 
 -->
 
-::: demo demos/activable 可高亮
+::: demo demos/checkable 可选
 :::
 
 <!-- 

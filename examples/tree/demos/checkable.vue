@@ -1,10 +1,14 @@
 <template>
   <div class="tdesign-tree-base">
+    <div class="operations">
+      <t-button :theme="checkable ? 'primary' : 'ghost'" @click="toggleCheckAble">可选</t-button>
+      <t-button :theme="checkStrictly ? 'primary' : 'ghost' " @click="toggleCheckStrictly">严格模式</t-button>
+    </div>
     <t-tree
       :data="items"
       :hover="true"
-      :checkable="true"
-      :check-strictly="false"
+      :checkable="checkable"
+      :check-strictly="checkStrictly"
       :expand-all="true"
       @change="onChange"
       @click="onClick"
@@ -16,6 +20,8 @@
 export default {
   data() {
     return {
+      checkable: true,
+      checkStrictly: false,
       items: [{
         value: '1',
         label: '1',
@@ -88,11 +94,17 @@ export default {
     onChange(state) {
       console.log('on change:', state);
     },
+    toggleCheckAble() {
+      this.checkable = !this.checkable;
+    },
+    toggleCheckStrictly() {
+      this.checkStrictly = !this.checkStrictly;
+    },
   },
 };
 </script>
 <style scoped>
-  .demo-tree-base {
-    display: block;
+  .tdesign-tree-base .t-button{
+    margin: 0 10px 10px 0;
   }
 </style>

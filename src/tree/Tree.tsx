@@ -117,6 +117,16 @@ export default Vue.extend({
       this.store.updateAll();
       this.refresh();
     },
+    checkable(isCheckAble) {
+      this.store.setConfig({
+        checkable: isCheckAble,
+      });
+    },
+    checkStrictly(isCheckStrictly) {
+      this.store.setConfig({
+        checkStrictly: isCheckStrictly,
+      });
+    },
   },
   methods: {
     // 创建单个 tree 节点

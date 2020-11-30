@@ -240,7 +240,7 @@ export default Vue.extend({
         node.label = labelNode;
       }
 
-      if (node.checkable) {
+      if (node.isCheckable()) {
         labelNode = (
           <TCheckBox
             class={CLASS_NAMES.treeLabel}
