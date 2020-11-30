@@ -28,7 +28,7 @@
 |targetValue|Array\<String\|Number\|Symbol\>|[]|Y|目标列索引集合，数组每项为数据的key，Transfer会把含有这些key值的数据筛选到右边|
 |checkedValue|Array\<String\|Number\|Symbol\>|[]|-|设置哪些被选中|
 |disabled|-|-|-|-|
-|search|-|-|-|-|
+|search|A\|[A,A]|false|-|A=Boolean\|InputProps|
 |titles|-|-|-|-|
 |directions|-|-|-|-|
 |operations|A\|[A,A]|-|-|A=String|()=>Element，操作文案集合|
