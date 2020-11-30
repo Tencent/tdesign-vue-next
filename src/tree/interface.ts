@@ -135,12 +135,9 @@ export const TreeProps = {
   },
 };
 
-export const TreeNodeProps = {
+export const TreeItemProps = {
   node: {
     type: Object,
-    default(): object {
-      return {};
-    },
   },
   empty: {
     type: [Function, String],

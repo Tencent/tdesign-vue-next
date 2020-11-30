@@ -5,7 +5,7 @@ import TCheckBox from '../checkbox';
 import Icon from '../icon/iconfont';
 
 import {
-  TreeNodeProps,
+  TreeItemProps,
   EventState,
 } from './interface';
 import {
@@ -18,11 +18,9 @@ import {
 
 export default Vue.extend({
   name: TREE_NODE_NAME,
-  props: TreeNodeProps,
+  props: TreeItemProps,
   data() {
-    return {
-
-    };
+    return {};
   },
   methods: {
     getStyles(): string {
@@ -39,7 +37,7 @@ export default Vue.extend({
       list.push({
         [CLASS_NAMES.treeNodeOpen]: node.expanded,
         [CLASS_NAMES.actived]: node.isActivable() ? node.actived : false,
-        [CLASS_NAMES.treeNodeHidden]: !(node.tree && node.visible),
+        [CLASS_NAMES.treeNodeHidden]: !node.tree || !node.visible,
         [CLASS_NAMES.disabled]: node.isDisabled(),
       });
       return list;

@@ -106,9 +106,6 @@ export default Vue.extend({
     actived(nVal) {
       this.store.replaceActived(nVal);
     },
-    filter(fn) {
-      this.filterItems(fn);
-    },
     disabled(isDisabled) {
       this.store.setConfig({
         disabled: isDisabled,
@@ -138,6 +135,9 @@ export default Vue.extend({
       this.store.setConfig({
         valueMode: nMode,
       });
+    },
+    filter(fn) {
+      this.filterItems(fn);
     },
   },
   methods: {
