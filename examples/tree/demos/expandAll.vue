@@ -66,7 +66,7 @@ export default {
 };
 </script>
 <style scoped>
-  .demo-tree-base {
-    display: block;
+  .tdesign-tree-base .t-button{
+    margin: 0 10px 10px 0;
   }
 </style>

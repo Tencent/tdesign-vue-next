@@ -2,11 +2,13 @@
   <div class="tdesign-tree-base">
     <div class="operations">
       <t-button :theme="mutex ? 'primary' : 'ghost'" @click="toggleMutex">互斥展开</t-button>
+      <t-button :theme="expandOnClickNode ? 'primary' : 'ghost'" @click="toggleExpandOnClickNode">点击节点触发展开</t-button>
     </div>
     <t-tree
       :data="items"
       :hover="true"
       :expand-mutex="mutex"
+      :expand-on-click-node="expandOnClickNode"
     />
   </div>
 </template>
@@ -16,6 +18,7 @@ export default {
   data() {
     return {
       mutex: true,
+      expandOnClickNode: true,
       items: [{
         label: '1',
         children: [{
@@ -57,11 +60,14 @@ export default {
     toggleMutex() {
       this.mutex = !this.mutex;
     },
+    toggleExpandOnClickNode() {
+      this.expandOnClickNode = !this.expandOnClickNode;
+    },
   },
 };
 </script>
 <style scoped>
-  .demo-tree-base {
-    display: block;
+  .tdesign-tree-base .t-button{
+    margin: 0 10px 10px 0;
   }
 </style>
