@@ -23,6 +23,7 @@
       :activable="true"
       :checkable="true"
       :expand-on-click-node="false"
+      :expand-parent="expandParent"
       @expand="onExpand"
       @change="onChange"
       @active="onActive"
@@ -48,6 +49,7 @@
       <t-button theme="primary" @click="getIndex">获取高亮节点在子节点中的位置</t-button>
       <t-button theme="primary" @click="setChecked">选中高亮节点</t-button>
       <t-button theme="primary" @click="setExpanded">展开高亮节点</t-button>
+      <t-button :theme="expandParent ? 'primary' : 'ghost'" @click="toggleExpandParent">子节点展开触发父节点展开</t-button>
     </div>
   </div>
 </template>
@@ -57,6 +59,7 @@ export default {
   data() {
     return {
       useActived: false,
+      expandParent: true,
       filterText: '',
       items: [{
         value: 'node1',
@@ -188,6 +191,9 @@ export default {
     remove(node) {
       const { tree } = this.$refs;
       tree.remove(node);
+    },
+    toggleExpandParent() {
+      this.expandParent = !this.expandParent;
     },
     onChange(vals, state) {
       console.log('on change:', vals, state);

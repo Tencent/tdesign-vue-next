@@ -38,7 +38,7 @@ export const TreeProps = {
   },
   expandParent: {
     type: [String, Boolean],
-    default: 'auto',
+    default: true,
   },
   defaultExpanded: {
     type: Array,

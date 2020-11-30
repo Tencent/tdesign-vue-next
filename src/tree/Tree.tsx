@@ -89,6 +89,21 @@ export default Vue.extend({
         expandMutex: nExpandMutex,
       });
     },
+    expandParent(isExpandParent) {
+      this.store.setConfig({
+        expandParent: isExpandParent,
+      });
+    },
+    activable(isActivable) {
+      this.store.setConfig({
+        activable: isActivable,
+      });
+    },
+    activeMultiple(isActiveMultiple) {
+      this.store.setConfig({
+        activeMultiple: isActiveMultiple,
+      });
+    },
     actived(nVal) {
       this.store.replaceActived(nVal);
     },

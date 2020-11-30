@@ -1,8 +1,14 @@
 <template>
   <div class="tdesign-tree-base">
+    <div class="operations">
+      <t-button :theme="activable ? 'primary' : 'ghost'" @click="toggleActivable">节点可高亮</t-button>
+      <t-button :theme="activeMultiple ? 'primary' : 'ghost'" @click="toggleActiveMultiple">节点可多选高亮</t-button>
+    </div>
     <t-tree
       :data="items"
-      :activable="true"
+      :activable="activable"
+      :active-multiple="activeMultiple"
+      :expand-all="true"
       :expand-on-click-node="false"
     />
   </div>
@@ -12,6 +18,8 @@
 export default {
   data() {
     return {
+      activable: true,
+      activeMultiple: false,
       items: [{
         label: '1',
         children: [{
@@ -29,10 +37,18 @@ export default {
       }],
     };
   },
+  methods: {
+    toggleActivable() {
+      this.activable = !this.activable;
+    },
+    toggleActiveMultiple() {
+      this.activeMultiple = !this.activeMultiple;
+    },
+  },
 };
 </script>
 <style scoped>
-  .demo-tree-base {
-    display: block;
+  .tdesign-tree-base .t-button{
+    margin: 0 10px 10px 0;
   }
 </style>

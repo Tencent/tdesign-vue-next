@@ -18,9 +18,6 @@
 ::: demo demos/activable 可高亮
 :::
 
-::: demo demos/activeMultiple 可多个高亮
-:::
-
 ::: demo demos/checkable 可选
 :::
 
@@ -59,7 +56,7 @@
 
 -->
 
-::: demo demos/expandMutex 互斥展开
+::: demo demos/activable 可高亮
 :::
 
 <!-- 
