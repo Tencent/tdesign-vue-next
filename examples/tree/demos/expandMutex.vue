@@ -1,9 +1,12 @@
 <template>
   <div class="tdesign-tree-base">
+    <div class="operations">
+      <t-button :theme="mutex ? 'primary' : 'ghost'" @click="toggleMutex">互斥展开</t-button>
+    </div>
     <t-tree
       :data="items"
       :hover="true"
-      :expand-mutex="true"
+      :expand-mutex="mutex"
     />
   </div>
 </template>
@@ -12,6 +15,7 @@
 export default {
   data() {
     return {
+      mutex: true,
       items: [{
         label: '1',
         children: [{
@@ -48,6 +52,11 @@ export default {
         }],
       }],
     };
+  },
+  methods: {
+    toggleMutex() {
+      this.mutex = !this.mutex;
+    },
   },
 };
 </script>

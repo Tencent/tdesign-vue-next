@@ -348,9 +348,7 @@ export default Vue.extend({
     } = node;
 
     if (!tree || !tree.nodeMap.get(value)) {
-      setTimeout(() => {
-        this.$destroy();
-      }, 300);
+      this.$destroy();
     }
     const styles = this.getStyles();
     const classList = this.getClassList();

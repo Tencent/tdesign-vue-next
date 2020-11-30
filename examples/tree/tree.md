@@ -55,9 +55,11 @@
 :::
 
 ::: demo demos/operations 操作节点
-::: -->
+::: 
 
-::: demo demos/disabled 树禁用
+-->
+
+::: demo demos/expandMutex 互斥展开
 :::
 
 <!-- 

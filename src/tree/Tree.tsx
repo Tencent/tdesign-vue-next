@@ -58,21 +58,46 @@ export default Vue.extend({
     },
   },
   watch: {
+    data(list) {
+      this.store.removeAll();
+      this.store.append(list);
+      this.refresh();
+    },
+    keys(nKeys) {
+      this.store.setConfig({
+        keys: nKeys,
+      });
+    },
     value(nVal) {
       this.store.replaceChecked(nVal);
     },
     expanded(nVal) {
       this.store.replaceExpanded(nVal);
     },
+    expandAll(isExpandAll) {
+      this.store.setConfig({
+        expandAll: isExpandAll,
+      });
+    },
+    expandLevel(nExpandLevel) {
+      this.store.setConfig({
+        expandLevel: nExpandLevel,
+      });
+    },
+    expandMutex(nExpandMutex) {
+      this.store.setConfig({
+        expandMutex: nExpandMutex,
+      });
+    },
     actived(nVal) {
       this.store.replaceActived(nVal);
     },
-    filter(nVal) {
-      this.filterItems(nVal);
+    filter(fn) {
+      this.filterItems(fn);
     },
-    disabled(nVal) {
+    disabled(isDisabled) {
       this.store.setConfig({
-        disabled: nVal,
+        disabled: isDisabled,
       });
       this.store.updateAll();
       this.refresh();
