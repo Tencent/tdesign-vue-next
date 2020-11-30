@@ -113,7 +113,7 @@ export default Vue.extend({
     transferTo(toDirection: TransferDirection) {
       let targetValue: Array<TransferItemKey> = deepCloneByJson(this.targetValue);
       let sourceCheckedKeys = 'sourceCheckedKeys';
-      if (toDirection === 'left') {
+      if (toDirection === 'source') {
         sourceCheckedKeys = 'targetCheckedKeys';
       }
       const moveKeys: Array<TransferItemKey> = [];
@@ -126,7 +126,7 @@ export default Vue.extend({
         return !isMove;
       });
       this.curCheckedValue = this.curCheckedValue.filter((key: TransferItemKey) => moveKeys.indexOf(key) === -1);
-      if (toDirection === 'left') {
+      if (toDirection === 'source') {
         targetValue = targetValue.filter((key: TransferItemKey) => moveKeys.indexOf(key) === -1);
       } else {
         targetValue = targetValue.concat(moveKeys);
@@ -136,11 +136,11 @@ export default Vue.extend({
     },
     // 点击移到右边按钮触发的函数
     transferToRight() {
-      this.transferTo('right');
+      this.transferTo('target');
     },
     // 点击移到左边按钮触发的函数
     transferToLeft() {
-      this.transferTo('left');
+      this.transferTo('source');
     },
     handleSourceCheckedChange(val: Array<any>, isChangeByUser: boolean) {
       this.sourceCheckedKeys = val;
