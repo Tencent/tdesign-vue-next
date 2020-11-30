@@ -3,6 +3,11 @@
     <div class="operations">
       <t-button :theme="checkable ? 'primary' : 'ghost'" @click="toggleCheckAble">可选</t-button>
       <t-button :theme="checkStrictly ? 'primary' : 'ghost' " @click="toggleCheckStrictly">严格模式</t-button>
+      <t-radio-group
+        name="value-mode"
+        v-model="valueMode"
+        :options="valueOptions"
+      ></t-radio-group>
     </div>
     <t-tree
       :data="items"
@@ -10,6 +15,7 @@
       :checkable="checkable"
       :check-strictly="checkStrictly"
       :expand-all="true"
+      :value-mode="valueMode"
       @change="onChange"
       @click="onClick"
     />
@@ -20,8 +26,23 @@
 export default {
   data() {
     return {
+      valueMode: 'onlyLeaf',
       checkable: true,
       checkStrictly: false,
+      valueOptions: [
+        {
+          value: 'onlyLeaf',
+          label: 'onlyLeaf',
+        },
+        {
+          value: 'parentFirst',
+          label: 'parentFirst',
+        },
+        {
+          value: 'all',
+          label: 'all',
+        },
+      ],
       items: [{
         value: '1',
         label: '1',

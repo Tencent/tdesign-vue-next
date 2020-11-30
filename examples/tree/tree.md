@@ -12,9 +12,6 @@
 ::: demo demos/expandMutex 互斥展开
 :::
 
-::: demo demos/transition 关闭动画
-:::
-
 ::: demo demos/activable 可高亮
 :::
 

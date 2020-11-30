@@ -61,7 +61,6 @@ export default Vue.extend({
     data(list) {
       this.store.removeAll();
       this.store.append(list);
-      this.refresh();
     },
     keys(nKeys) {
       this.store.setConfig({
@@ -114,8 +113,6 @@ export default Vue.extend({
       this.store.setConfig({
         disabled: isDisabled,
       });
-      this.store.updateAll();
-      this.refresh();
     },
     checkable(isCheckAble) {
       this.store.setConfig({
@@ -125,6 +122,21 @@ export default Vue.extend({
     checkStrictly(isCheckStrictly) {
       this.store.setConfig({
         checkStrictly: isCheckStrictly,
+      });
+    },
+    load(fn) {
+      this.store.setConfig({
+        load: fn,
+      });
+    },
+    lazy(isLazy) {
+      this.store.setConfig({
+        lazy: isLazy,
+      });
+    },
+    valueMode(nMode) {
+      this.store.setConfig({
+        valueMode: nMode,
       });
     },
   },
