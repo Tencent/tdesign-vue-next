@@ -3,8 +3,8 @@ import {
   TreeStore,
   TreeFilterOptions,
   TreeNodeProps,
-} from './TreeStore';
-import TreeNode from './TreeNode';
+} from '../../common/js/tree/TreeStore';
+import TreeNode from '../../common/js/tree/TreeNode';
 import TreeItem from './TreeItem';
 import {
   TreeProps,

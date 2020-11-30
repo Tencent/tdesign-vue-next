@@ -1,4 +1,4 @@
-import TreeNode from './TreeNode';
+import TreeNode from '../../common/js/tree/TreeNode';
 
 export const TreeProps = {
   data: {
