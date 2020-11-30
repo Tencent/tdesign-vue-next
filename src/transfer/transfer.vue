@@ -108,7 +108,7 @@ export default Vue.extend({
       let searchProp;
       if (this.search && typeof this.search === 'boolean') {
         searchProp = searchObj;
-      } if (this.search instanceof Array && this.search.length) {
+      } else if (this.search instanceof Array && this.search.length) {
         const index = direction === 'source' ? 0 : 1;
         searchProp = this.search[index];
       } else {
