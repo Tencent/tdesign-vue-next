@@ -1,5 +1,5 @@
 ## Tree 树
-
+<!-- 
 ::: demo demos/base 默认
 :::
 
@@ -55,8 +55,12 @@
 :::
 
 ::: demo demos/operations 操作节点
+::: -->
+
+::: demo demos/disabled 树禁用
 :::
 
+<!-- 
 ### 属性配置
 
 #### Tree Props
@@ -120,4 +124,4 @@
 |  | state.node | TreeNode | 事件触发的节点 |
 |  |  |  |  |
 |  |  |  |  |
-
+ -->

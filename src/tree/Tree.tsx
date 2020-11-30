@@ -68,11 +68,14 @@ export default Vue.extend({
       this.store.replaceActived(nVal);
     },
     filter(nVal) {
-      const {
-        store,
-      } = this;
-      store.filter = nVal;
-      store.updateAll();
+      this.filterItems(nVal);
+    },
+    disabled(nVal) {
+      this.store.setConfig({
+        disabled: nVal,
+      });
+      this.store.updateAll();
+      this.refresh();
     },
   },
   methods: {
@@ -371,7 +374,9 @@ export default Vue.extend({
       const {
         store,
       } = this;
-      store.filter = fn;
+      store.setConfig({
+        filter: fn,
+      });
       store.updateAll();
     },
     scrollTo(): void {

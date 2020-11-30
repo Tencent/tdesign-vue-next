@@ -1,9 +1,12 @@
 <template>
   <div class="tdesign-tree-base">
+    <div class="operations">
+      <t-button :theme="disabled ? 'primary' : 'ghost'" @click="toggleDisabled">禁用树</t-button>
+    </div>
     <t-tree
       :data="items"
       :hover="true"
-      :disabled="true"
+      :disabled="disabled"
       :checkable="true"
       :expand-all="true"
     />
@@ -14,6 +17,7 @@
 export default {
   data() {
     return {
+      disabled: true,
       items: [{
         label: '1',
         children: [{
@@ -40,6 +44,11 @@ export default {
         }],
       }],
     };
+  },
+  methods: {
+    toggleDisabled() {
+      this.disabled = !this.disabled;
+    },
   },
 };
 </script>

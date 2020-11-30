@@ -40,7 +40,7 @@ export default Vue.extend({
         [CLASS_NAMES.treeNodeOpen]: node.expanded,
         [CLASS_NAMES.actived]: node.actived,
         [CLASS_NAMES.treeNodeHidden]: !(node.tree && node.visible),
-        [CLASS_NAMES.disabled]: node.disabled,
+        [CLASS_NAMES.disabled]: node.isDisabled(),
       });
       return list;
     },
@@ -246,7 +246,7 @@ export default Vue.extend({
             class={CLASS_NAMES.treeLabel}
             checked={node.checked}
             indeterminate={node.indeterminate}
-            disabled={node.disabled}
+            disabled={node.isDisabled()}
             name={node.value}
             role="label"
             onChange={() => this.handleChange()}
