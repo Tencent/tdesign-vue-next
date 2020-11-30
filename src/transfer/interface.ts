@@ -26,7 +26,7 @@ export const CommonProps = {
   },
   // todo 没看到API定义的类型
   search: {
-    type: [Boolean, Object],
+    type: [Boolean, Object, Array],
     default: false,
   },
   titles: {

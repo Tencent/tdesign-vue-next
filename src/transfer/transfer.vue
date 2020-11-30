@@ -7,7 +7,7 @@
       :data-source="sourceList"
       :checked-value="sourceCheckedKeys"
       :disabled="disabled"
-      :search="search"
+      :search="getSearchProp('source')"
       :pagination="getPaginationObj('source')"
       @checkedChange="handleSourceCheckedChange"
     >
@@ -26,7 +26,7 @@
       :data-source="targetList"
       :checked-value="targetCheckedKeys"
       :disabled="disabled"
-      :search="search"
+      :search="getSearchProp('target')"
       :pagination="getPaginationObj('target')"
       @checkedChange="handleTargetCheckedChange"
     >
@@ -45,6 +45,7 @@ import { CommonProps } from './interface';
 import { deepCloneByJson } from './utils';
 
 const name = `${prefix}-transfer`;
+const searchObj = { placeholder: '请输入搜索内容', suffixIcon: 'search', clearable: true };
 export default Vue.extend({
   name,
   components: {
@@ -103,6 +104,19 @@ export default Vue.extend({
     this.setCheckedKeys();
   },
   methods: {
+    getSearchProp(direction: TransferDirection): any {
+      let searchProp;
+      if (this.search && typeof this.search === 'boolean') {
+        searchProp = searchObj;
+      } if (this.search instanceof Array && this.search.length) {
+        const index = direction === 'source' ? 0 : 1;
+        searchProp = this.search[index];
+      } else {
+        // 处理this.search为false和为inputProps的object形式
+        searchProp = this.search;
+      }
+      return searchProp;
+    },
     setCheckedKeys() {
       const { curCheckedValue, targetValue } = this;
       // const checkedValue = checked.length ? checked : this.checkedValue;
