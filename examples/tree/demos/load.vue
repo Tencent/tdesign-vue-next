@@ -5,6 +5,7 @@
       :hover="true"
       :expand-all="true"
       :load="load"
+      :lazy="false"
     />
   </div>
 </template>

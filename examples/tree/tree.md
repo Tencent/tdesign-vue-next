@@ -165,7 +165,7 @@
 |-----|-----|-----|-----|
 | value | string | 自增id | 节点值，节点唯一ID |
 | label | string | '' | 节点标签文案 |
-| children | object[] | - | 子节点数据 |
+| children | boolean/object[] | - | 子节点数据, 为 true 时，展开时会触发延迟加载节点的方法 |
 | expanded | boolean | false | 节点是否已展开 |
 | expandMutex | boolean | false | 子节点是否互斥展开 |
 | actived | boolean | false | 节点是否被激活 |

@@ -6,7 +6,6 @@
       :expand-all="true"
       :load="load"
       @load="onLoad"
-      lazy
     />
   </div>
 </template>
