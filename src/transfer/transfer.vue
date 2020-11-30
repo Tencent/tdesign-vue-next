@@ -40,12 +40,12 @@ import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
 import TransferList from './transfer-list';
 import TransferOperations from './transfer-operations';
-import { TransferItem, TransferItemKey, TransferDirection } from './type/transfer';
+import { TransferItem, TransferItemKey, TransferDirection, SearchProps } from './type/transfer';
 import { CommonProps } from './interface';
 import { deepCloneByJson } from './utils';
 
 const name = `${prefix}-transfer`;
-const searchObj = { placeholder: '请输入搜索内容', suffixIcon: 'search', clearable: true };
+const searchObj: SearchProps = { placeholder: '请输入搜索内容', suffixIcon: 'search', clearable: true };
 export default Vue.extend({
   name,
   components: {
