@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 // docs: https://docs.cypress.io/api/commands/and.html#Syntax
+
 describe('Test Message', () => {
   const THEME_LIST = [
     'info',
