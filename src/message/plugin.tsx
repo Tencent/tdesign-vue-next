@@ -84,7 +84,7 @@ const showThemeMessage = (theme: ThemeString, params: string | MessageProps, dur
   } else if (typeof params === 'object' && !(params instanceof Array)) {
     options = Object.assign(options, params);
   }
-  duration && (options.duration = duration);
+  duration !== undefined && (options.duration = duration);
   return MessageFunction(options);
 };
 
