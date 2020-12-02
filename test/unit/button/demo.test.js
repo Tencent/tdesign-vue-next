@@ -32,7 +32,7 @@ describe('Button', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
   it('status demo works fine', () => {
-    const demo = require('@/examples/button/demos/status.vue');
+    const demo = require('@/examples/button/demos/status.vue').default;
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

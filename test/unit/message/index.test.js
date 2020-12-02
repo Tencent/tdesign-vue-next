@@ -118,7 +118,7 @@ describe('Message', () => {
         render() {
           return (
             <Message
-              default={() => <b>这是重要信息</b>}
+              content={() => <b>这是重要信息</b>}
             ></Message>
           );
         },
@@ -130,7 +130,7 @@ describe('Message', () => {
       const wrapper = mount({
         render() {
           return (
-            <Message default='这是普通信息'></Message>
+            <Message content='这是普通信息'></Message>
           );
         },
       });

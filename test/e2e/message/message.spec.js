@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 // docs: https://docs.cypress.io/api/commands/and.html#Syntax
+
 describe('Test Message', () => {
   const THEME_LIST = [
     'info',
@@ -12,13 +12,6 @@ describe('Test Message', () => {
 
   const msgText = '提示信息';
 
-  const clearAllMsg = () => {
-    cy.document().then((doc) => {
-      doc.getElementById('t-demo-msg-close-all').click();
-      cy.log('clear all message.');
-    });
-  };
-
   beforeEach(() => {
     cy.visit('/#/components/message');
   });
@@ -27,32 +20,29 @@ describe('Test Message', () => {
   it(`this.$message.info('${msgText}') works fine.`, () => {
     cy.get('.t-demo-message-theme button')
       .click({ multiple: true })
-      .document()
-      .then((doc) => {
+      .then(() => {
         THEME_LIST.forEach((theme) => {
-          const selector = `body>.t-message-list>.t-is-${theme}`;
-          const dom = doc.querySelector(selector);
-          expect(Boolean(dom)).to.be.true;
+          cy.get(`body>.t-message-list>.t-is-${theme}`)
+            .should('exist');
         });
       });
-    clearAllMsg();
+    cy.get('#t-demo-msg-close-all')
+      .click();
   });
 
   // 方式一：时间控制
   it(`this.$message.info('${msgText}', 1000); duration(1000ms) works fine.`, () => {
-    const buttons = cy.get('.t-demo-message-duration button');
-    buttons.first()
+    cy.get('.t-demo-message-duration button')
+      .first()
       .click()
-      .document()
-      .then((doc) => {
-        const selector = 'body>.t-message-list>.t-is-info';
-        const dom = doc.querySelector(selector);
-        expect(Boolean(dom)).to.be.true;
-        // disapear in one second.
-        cy.wait(1000).then(() => {
-          const dom = doc.querySelector(selector);
-          expect(Boolean(dom)).to.be.false;
-        });
+      .then(() => {
+        cy.get('body>.t-message-list>.t-is-info')
+          .should('exist')
+          .wait(1000)
+          .then(($el) => {
+            cy.wrap($el)
+              .should('not.exist');
+          });
       });
   });
 
@@ -60,17 +50,15 @@ describe('Test Message', () => {
   it(`this.$message.info({ content: '${msgText}' }); Params type is object`, () => {
     cy.get('.t-demo-message-obj button')
       .first()
-      .click({ multiple: true })
-      .document()
-      .then((doc) => {
-        const selector = 'body>.t-message-list>.t-is-info';
-        const dom = doc.querySelector(selector);
-        expect(Boolean(dom)).to.be.true;
-        // disapear in three seconds.
-        cy.wait(3000).then(() => {
-          const dom = doc.querySelector(selector);
-          expect(Boolean(dom)).to.be.false;
-        });
+      .click()
+      .then(() => {
+        cy.get('body>.t-message-list>.t-is-info')
+          .should('exist')
+          .wait(3000)
+          .then(($el) => {
+            cy.wrap($el)
+              .should('not.exist');
+          });
       });
   });
 
@@ -78,17 +66,15 @@ describe('Test Message', () => {
   it(`this.$message('loading', { content: '${msgText}' }); Params type is object`, () => {
     cy.get('.t-demo-message-main button')
       .last()
-      .click({ multiple: true })
-      .document()
-      .then((doc) => {
-        const selector = 'body>.t-message-list>.t-is-loading';
-        const dom = doc.querySelector(selector);
-        expect(Boolean(dom)).to.be.true;
-        // disapear in one second.
-        cy.wait(1000).then(() => {
-          const dom = doc.querySelector(selector);
-          expect(Boolean(dom)).to.be.false;
-        });
+      .click()
+      .then(() => {
+        cy.get('body>.t-message-list>.t-is-loading')
+          .should('exist')
+          .wait(1000)
+          .then(($el) => {
+            cy.wrap($el)
+              .should('not.exist');
+          });
       });
   });
 });

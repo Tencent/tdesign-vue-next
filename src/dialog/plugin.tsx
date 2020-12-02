@@ -20,14 +20,14 @@ function createDialog(options: DialogProps) {
     container.contains(dialog.$el) && container.removeChild(dialog.$el);
   };
   eventNames.forEach((eventName) => {
-    dialog.$on(eventName, async () => {
+    dialog.$on(eventName, async (closeFn: Function, e: Event) => {
       try {
         if (eventName === eventNames[0] && typeof options.onConfirm === 'function') {
-          await options.onConfirm(eventTypes[0], close);
+          await options.onConfirm({ e, trigger: eventTypes[0], close });
         }
         const closeType = eventNames.indexOf(eventName, 1);
         if (closeType !== -1 && typeof options.onClose === 'function') {
-          await options.onClose(eventTypes[closeType], close);
+          await options.onClose({ e, trigger: eventTypes[closeType], close });
         }
         close(); // onConfirm/onClose 在 reject 时，不在组件内部执行关闭
       } catch (e) {
@@ -57,7 +57,7 @@ const DialogPlugin = createDialog as (typeof createDialog & PluginObject<void>);
 DialogPlugin.confirm = (options: ConfirmProps) => createDialog(options);
 
 DialogPlugin.alert = (options: AlertProps) => {
-  options.cancelContent = false;
+  options.cancelBtn = false;
   return createDialog(options);
 };
 
