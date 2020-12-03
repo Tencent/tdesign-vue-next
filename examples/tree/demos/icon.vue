@@ -15,7 +15,7 @@
       lazy
       :load="load"
     >
-      <template slot="icon" slot-scope="{node}">
+      <template #icon="{node}">
         <t-icon v-if="node.children && !node.expanded" name="rectangle-add" />
         <t-icon v-else-if="node.children && node.expanded" name="rectangle-remove" />
         <t-icon v-else name="double-arrow-right" />

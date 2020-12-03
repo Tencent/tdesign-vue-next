@@ -33,7 +33,7 @@
       line
       ref="tree"
     >
-      <template slot="operations" slot-scope="{node}">
+      <template #operations="{node}">
         <t-button size="small" theme="primary" @click="append(node)">添加子节点</t-button>
         <t-button size="small" theme="line" @click="insertBefore(node)">前插节点</t-button>
         <t-button size="small" theme="line" @click="insertAfter(node)">后插节点</t-button>

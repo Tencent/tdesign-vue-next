@@ -12,9 +12,9 @@
       expand-all
       checkable
     >
-      <span slot="label" slot-scope="{node}">
+      <template #label="{node}">
         <font color="blue">label: {{node.label}}, value: {{node.value}}</font>
-      </span>
+      </template>
     </t-tree>
   </div>
 </template>

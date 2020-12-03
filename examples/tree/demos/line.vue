@@ -18,9 +18,9 @@
       line
       expand-all
     >
-      <p slot="line" slot-scope="{node}">
+      <template #line="{node}">
         <span v-for="(item, index) in node.getParents()" :key="index">+</span>
-      </p>
+      </template>
     </t-tree>
   </div>
 </template>
