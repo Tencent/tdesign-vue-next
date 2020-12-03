@@ -5,7 +5,7 @@
     </t-addon>
     <t-tree
       :data="items"
-      :expand-on-click-node="true"
+      expand-on-click-node
       :default-expanded="expanded"
       :filter="filterByText"
     />

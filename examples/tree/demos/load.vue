@@ -2,8 +2,8 @@
   <div class="tdesign-tree-base">
     <t-tree
       :data="items"
-      :hover="true"
-      :expand-all="true"
+      hover
+      expand-all
       :load="load"
       :lazy="false"
     />

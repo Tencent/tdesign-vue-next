@@ -3,17 +3,17 @@
     <h3>render:</h3>
     <t-tree
       :data="items"
-      :hover="true"
-      :expand-all="true"
+      hover
+      expand-all
       :load="load"
       :icon="icon"
     />
     <h3>scope slot:</h3>
     <t-tree
       :data="items"
-      :hover="true"
+      hover
+      lazy
       :load="load"
-      :lazy="true"
     >
       <template slot="icon" slot-scope="{node}">
         <t-icon v-if="node.children && !node.expanded" name="rectangle-add" />

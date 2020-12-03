@@ -2,7 +2,7 @@
   <div class="tdesign-tree-base">
     <t-tree
       :data="items"
-      :hover="true"
+      hover
       :expand-level="1"
     />
   </div>

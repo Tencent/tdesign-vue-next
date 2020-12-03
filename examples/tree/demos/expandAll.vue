@@ -7,8 +7,8 @@
     </div>
     <t-tree
       :data="items"
+      expand-all
       :hover="hover"
-      :expand-all="true"
       :transition="transition"
     />
   </div>

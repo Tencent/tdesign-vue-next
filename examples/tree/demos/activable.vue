@@ -6,9 +6,9 @@
     </div>
     <t-tree
       :data="items"
+      expand-all
       :activable="activable"
       :active-multiple="activeMultiple"
-      :expand-all="true"
       :expand-on-click-node="false"
     />
   </div>

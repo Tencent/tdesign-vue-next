@@ -3,20 +3,20 @@
     <h3>显示连线</h3>
     <t-tree
       :data="items"
-      :line="true"
-      :expand-all="true"
+      line
+      expand-all
     />
     <h3>render</h3>
     <t-tree
       :data="items"
+      expand-all
       :line="renderLine"
-      :expand-all="true"
     />
     <h3>scope slot</h3>
     <t-tree
       :data="items"
-      :line="true"
-      :expand-all="true"
+      line
+      expand-all
     >
       <p slot="line" slot-scope="{node}">
         <span v-for="(item, index) in node.getParents()" :key="index">+</span>

@@ -2,8 +2,8 @@
   <div class="tdesign-tree-base">
     <t-tree
       :data="items"
+      expand-all
       :empty="empty"
-      :expand-all="true"
     />
   </div>
 </template>

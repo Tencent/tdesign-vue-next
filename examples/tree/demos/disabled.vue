@@ -5,10 +5,10 @@
     </div>
     <t-tree
       :data="items"
-      :hover="true"
+      hover
+      checkable
+      expand-all
       :disabled="disabled"
-      :checkable="true"
-      :expand-all="true"
     />
   </div>
 </template>

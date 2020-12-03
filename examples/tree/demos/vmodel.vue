@@ -11,8 +11,8 @@
     </t-addon>
     <t-tree
       :data="items"
-      :checkable="true"
-      :activable="true"
+      checkable
+      activable
       :expand-on-click-node="false"
       :active-multiple="false"
       :default-expanded="expanded"

@@ -11,10 +11,10 @@
     </div>
     <t-tree
       :data="items"
-      :hover="true"
+      hover
+      expand-all
       :checkable="checkable"
       :check-strictly="checkStrictly"
-      :expand-all="true"
       :value-mode="valueMode"
       @change="onChange"
       @click="onClick"

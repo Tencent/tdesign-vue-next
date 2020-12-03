@@ -6,7 +6,7 @@
     </div>
     <t-tree
       :data="items"
-      :hover="true"
+      hover
       :expand-mutex="mutex"
       :expand-on-click-node="expandOnClickNode"
     />
