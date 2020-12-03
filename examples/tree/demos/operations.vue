@@ -3,30 +3,34 @@
     <h3 class="title">render:</h3>
     <t-tree
       :data="items"
-      :hover="true"
-      :expand-all="true"
+      hover
+      expand-all
       :label="getLabel"
       :operations="renderOperations"
     />
     <h3 class="title">scope slot:</h3>
     <div class="operations">
       <t-button :theme="btnSetActivedTheme" @click="setUseActived">插入节点使用高亮节点</t-button>
+      <t-button :theme="expandParent ? 'primary' : 'ghost'" @click="toggleExpandParent">子节点展开触发父节点展开</t-button>
+    </div>
+    <div class="operations">
       <t-addon prepend="filter:">
         <t-input v-model="filterText" @input="onInput"/>
       </t-addon>
     </div>
     <t-tree
       :data="items"
-      :hover="true"
-      :expand-all="true"
-      :label="getLabel"
-      :activable="true"
-      :checkable="true"
+      hover
+      expand-all
+      activable
+      checkable
       :expand-on-click-node="false"
+      :label="getLabel"
       :expand-parent="expandParent"
       @expand="onExpand"
       @change="onChange"
       @active="onActive"
+      line
       ref="tree"
     >
       <template slot="operations" slot-scope="{node}">
@@ -49,7 +53,6 @@
       <t-button theme="primary" @click="getIndex">获取高亮节点在子节点中的位置</t-button>
       <t-button theme="primary" @click="setChecked">选中高亮节点</t-button>
       <t-button theme="primary" @click="setExpanded">展开高亮节点</t-button>
-      <t-button :theme="expandParent ? 'primary' : 'ghost'" @click="toggleExpandParent">子节点展开触发父节点展开</t-button>
     </div>
   </div>
 </template>

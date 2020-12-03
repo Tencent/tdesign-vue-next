@@ -76,20 +76,20 @@ export function mergeKeysToArray(fromMap: Map<string, boolean>, list: any[]): vo
 }
 
 export interface LineModel {
-  top: number;
-  right: number;
-  bottom: number;
-  left: number;
+  top: boolean;
+  right: boolean;
+  bottom: boolean;
+  left: boolean;
 }
 
 // 获取一个节点层级位置的连线模型
 export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): LineModel {
   // 标记 [上，右，下，左] 是否有连线
   const lineModel: LineModel = {
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
+    top: false,
+    right: false,
+    bottom: false,
+    left: false,
   };
 
   let nodeChildren = [];
@@ -100,23 +100,16 @@ export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): 
   const nodeItemIndex = childNode ? childNode.getIndex() : 0;
 
   if (index === 0) {
-    if (node.parent) {
-      lineModel.left = 1;
-    }
-    if (!node.children) {
-      lineModel.right = 1;
-    } else if (node.expanded) {
-      lineModel.bottom = 1;
-    }
+    lineModel.left = !!node.parent;
+    lineModel.bottom = node.children && node.expanded;
+    lineModel.right = node.parent && !node.children;
   } else if (index === 1) {
-    lineModel.top = 1;
-    lineModel.right = 1;
-    if (nodeItemIndex < nodeChildren.length - 1) {
-      lineModel.bottom = 1;
-    }
+    lineModel.top = true;
+    lineModel.right = true;
+    lineModel.bottom = nodeItemIndex < nodeChildren.length - 1;
   } else if (nodeItemIndex < nodeChildren.length - 1) {
-    lineModel.top = 1;
-    lineModel.bottom = 1;
+    lineModel.top = true;
+    lineModel.bottom = true;
   }
 
   return lineModel;
