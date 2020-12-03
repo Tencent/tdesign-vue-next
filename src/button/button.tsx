@@ -75,7 +75,7 @@ export default Vue.extend({
     }
 
     return (
-      <button class={buttonClass} {...{ on: this.$listeners }}>
+      <button class={buttonClass} disabled={this.disabled} {...{ on: this.$listeners }}>
         {buttonContent}
       </button>
     );

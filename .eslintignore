@@ -9,3 +9,4 @@ cypress
 script/test/cypress
 _site
 temp*
+static/
