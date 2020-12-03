@@ -442,9 +442,6 @@ export default Vue.extend({
       });
       store.updateAll();
     },
-    scrollTo(): void {
-      // todo
-    },
     setItem(value: TreeNodeValue, options: TreeNodeProps): void {
       const node = this.getItem(value);
       const spec = options;
