@@ -3,6 +3,7 @@ import {
   TreeStore,
   TreeFilterOptions,
   TreeNodeProps,
+  TreeNodeValue,
 } from '../../common/js/tree/TreeStore';
 import TreeNode from '../../common/js/tree/TreeNode';
 import TreeItem from './TreeItem';
@@ -446,7 +447,7 @@ export default Vue.extend({
     scrollTo(): void {
       // todo
     },
-    setItem(value: string | TreeNode, options: TreeNodeProps): void {
+    setItem(value: TreeNodeValue, options: TreeNodeProps): void {
       const node = this.getItem(value);
       const spec = options;
       if (node) {
@@ -467,37 +468,37 @@ export default Vue.extend({
         node.set(spec);
       }
     },
-    getItem(value: string | TreeNode): TreeNode {
+    getItem(value: TreeNodeValue): TreeNode {
       return this.store.getNode(value);
     },
-    getItems(value?: string | TreeNode, options?: TreeFilterOptions): TreeNode[] {
+    getItems(value?: TreeNodeValue, options?: TreeFilterOptions): TreeNode[] {
       return this.store.getNodes(value, options);
     },
-    getActived(value?: string | TreeNode): TreeNode[] {
+    getActived(value?: TreeNodeValue): TreeNode[] {
       return this.store.getActivedNodes(value);
     },
-    getChecked(item?: string | TreeNode): TreeNode[] {
+    getChecked(item?: TreeNodeValue): TreeNode[] {
       return this.store.getCheckedNodes(item);
     },
     append(para?: any, item?: any): void {
       return this.store.appendNodes(para, item);
     },
-    insertBefore(value: string | TreeNode, item: any): void {
+    insertBefore(value: TreeNodeValue, item: any): void {
       return this.store.insertBefore(value, item);
     },
-    insertAfter(value: string | TreeNode, item: any): void {
+    insertAfter(value: TreeNodeValue, item: any): void {
       return this.store.insertAfter(value, item);
     },
-    getParent(value: string | TreeNode): TreeNode {
+    getParent(value: TreeNodeValue): TreeNode {
       return this.store.getParent(value);
     },
-    getParents(value: string | TreeNode): TreeNode {
+    getParents(value: TreeNodeValue): TreeNode {
       return this.store.getParents(value);
     },
-    remove(value?: string | TreeNode): void {
+    remove(value?: TreeNodeValue): void {
       return this.store.remove(value);
     },
-    getIndex(value: string | TreeNode): number {
+    getIndex(value: TreeNodeValue): number {
       return this.store.getNodeIndex(value);
     },
   },
