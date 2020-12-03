@@ -28,7 +28,7 @@ export default Vue.extend({
       const styles = `--level: ${level};`;
       return styles;
     },
-    getClassList(): Array<any> {
+    getClassList(): ClassName {
       const {
         node,
       } = this;

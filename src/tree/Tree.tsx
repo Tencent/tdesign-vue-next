@@ -38,7 +38,7 @@ export default Vue.extend({
     };
   },
   computed: {
-    classList(): Array<string> {
+    classList(): ClassName {
       const list: Array<string> = [CLASS_NAMES.tree];
       const {
         disabled,
