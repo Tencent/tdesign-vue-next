@@ -169,7 +169,6 @@ export default Vue.extend({
       return treeItem;
     },
     refresh() {
-      // console.time('tree refresh');
       const {
         store,
         treeNodes,
@@ -238,7 +237,6 @@ export default Vue.extend({
           }
         }
       });
-      // console.timeEnd('tree refresh');
     },
     build() {
       const list = this.data;
@@ -504,10 +502,6 @@ export default Vue.extend({
   },
   created() {
     this.build();
-    // console.time('tree render');
-  },
-  mounted() {
-    // console.timeEnd('tree render');
   },
   render(): VNode {
     const {
