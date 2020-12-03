@@ -15,9 +15,9 @@
       activable
       :expand-on-click-node="false"
       :active-multiple="false"
-      :default-expanded="expanded"
-      :default-actived="actived"
-      :default-value="checked"
+      :expanded="expanded"
+      :actived="actived"
+      :value="checked"
       :value-mode="valueMode"
       @expand="onExpand"
       @change="onChange"
@@ -34,7 +34,7 @@ export default {
     return {
       valueMode: 'onlyLeaf',
       checked: ['1.1.1.1', '1.1.1.2'],
-      expanded: ['1', '2'],
+      expanded: ['1', '1.1', '1.1.1', '2'],
       actived: ['2'],
       items: [{
         value: '1',
@@ -133,15 +133,21 @@ export default {
     },
     onChange(vals, state) {
       console.log('on change:', vals, state);
-      this.checked = vals;
+      const checked = vals.filter(val => (val !== '2.1'));
+      console.log('节点 2.1 不允许选中');
+      this.checked = checked;
     },
     onExpand(vals, state) {
       console.log('on expand:', vals, state);
-      this.expanded = vals;
+      const expanded = vals.filter(val => (val !== '2'));
+      console.log('节点 2 不允许展开');
+      this.expanded = expanded;
     },
     onActive(vals, state) {
       console.log('on active:', vals, state);
-      this.actived = vals;
+      const actived = vals.filter(val => (val !== '2'));
+      console.log('节点 2 不允许激活');
+      this.actived = actived;
     },
     onUpdate(state) {
       console.log('on update:', state);
