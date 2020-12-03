@@ -1,4 +1,5 @@
 import { VNode } from 'vue';
+import TreeNode from '../../common/js/tree/TreeNode';
 
 export function getParentsToRoot(element?: HTMLElement, root?: HTMLElement): Array<HTMLElement> {
   const list = [];
@@ -72,5 +73,52 @@ export function mergeKeysToArray(fromMap: Map<string, boolean>, list: any[]): vo
   resumeItems.forEach((key) => {
     list.push(key);
   });
+}
+
+export interface LineModel {
+  top: number;
+  right: number;
+  bottom: number;
+  left: number;
+}
+
+// 获取一个节点层级位置的连线模型
+export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): LineModel {
+  // 标记 [上，右，下，左] 是否有连线
+  const lineModel: LineModel = {
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+  };
+
+  let nodeChildren = [];
+  if (Array.isArray(node.children)) {
+    nodeChildren = node.children;
+  }
+  const childNode = nodes[index - 1] || null;
+  const nodeItemIndex = childNode ? childNode.getIndex() : 0;
+
+  if (index === 0) {
+    if (node.parent) {
+      lineModel.left = 1;
+    }
+    if (!node.children) {
+      lineModel.right = 1;
+    } else if (node.expanded) {
+      lineModel.bottom = 1;
+    }
+  } else if (index === 1) {
+    lineModel.top = 1;
+    lineModel.right = 1;
+    if (nodeItemIndex < nodeChildren.length - 1) {
+      lineModel.bottom = 1;
+    }
+  } else if (nodeItemIndex < nodeChildren.length - 1) {
+    lineModel.top = 1;
+    lineModel.bottom = 1;
+  }
+
+  return lineModel;
 }
 

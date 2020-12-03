@@ -10,6 +10,7 @@ import {
 } from './interface';
 import {
   getTNode,
+  getLineModel,
 } from './util';
 import {
   TREE_NODE_NAME,
@@ -86,45 +87,7 @@ export default Vue.extend({
           const parents = node.getParents();
           const nodes = [node].concat(parents);
           nodes.forEach((item, index) => {
-            // 标记 [上，右，下，左] 是否有连线
-            const lineModel = {
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-            };
-
-            const itemChildren = item.children || [];
-            const childItem = nodes[index - 1] || null;
-            const childItemIndex = childItem ? childItem.getIndex() : 0;
-
-            if (index === 0) {
-              if (item.children) {
-                if (item.expanded) {
-                  lineModel.bottom = 1;
-                }
-                if (item.parent) {
-                  lineModel.left = 1;
-                }
-              } else {
-                if (item.parent) {
-                  lineModel.left = 1;
-                  lineModel.right = 1;
-                }
-              }
-            } else if (index === 1) {
-              lineModel.top = 1;
-              lineModel.right = 1;
-              if (childItemIndex < itemChildren.length - 1) {
-                lineModel.bottom = 1;
-              }
-            } else {
-              if (childItemIndex < itemChildren.length - 1) {
-                lineModel.top = 1;
-                lineModel.bottom = 1;
-              }
-            }
-
+            const lineModel = getLineModel(nodes, item, index);
             const lineClassList = [];
             lineClassList.push({
               [CLASS_NAMES.lineIcon]: hasIcon && index === 0,
