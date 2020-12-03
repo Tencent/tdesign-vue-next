@@ -158,7 +158,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
     <div class="t-table-content" style="overflow: auto;">
       <table style="table-layout: fixed;">
         <colgroup>
-          <col style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 200px;;">
+          <col style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 200px;">
           <col>
           <col>
         </colgroup>
