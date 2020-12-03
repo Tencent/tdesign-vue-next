@@ -216,18 +216,15 @@ export default {
   },
 };
 </script>
-<style scoped>
-  .demo-tree-operations {
-    display: block;
-  }
-  .demo-tree-operations .title{
+<style>
+  .demo-tree .title{
     margin-top: 10px;
     font-weight: bold;
   }
-  .demo-tree-operations .operations .t-button{
+  .demo-tree .operations .t-button{
     margin: 0 10px 10px 0;
   }
-  .demo-tree-operations .t-tree__operations .t-button{
+  .demo-tree .t-tree__operations .t-button{
     margin-left: 10px;
   }
 </style>
