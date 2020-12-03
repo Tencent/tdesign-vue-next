@@ -42,7 +42,7 @@ function handleParams(params: MessageProps): MessageProps {
     },
     params
   );
-  options.default = params.content || params.default;
+  options.content = params.content;
   return options;
 }
 

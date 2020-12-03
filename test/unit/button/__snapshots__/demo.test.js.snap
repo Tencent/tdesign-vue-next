@@ -349,6 +349,7 @@ exports[`Button status demo works fine 1`] = `
      
     <button
       class="t-button t-button--primary t-is-disabled"
+      disabled="disabled"
     >
       主按钮
     </button>
@@ -365,6 +366,7 @@ exports[`Button status demo works fine 1`] = `
      
     <button
       class="t-button t-button--line t-is-disabled"
+      disabled="disabled"
     >
       次要按钮
     </button>
@@ -381,6 +383,7 @@ exports[`Button status demo works fine 1`] = `
      
     <button
       class="t-button t-button--dashed t-is-disabled"
+      disabled="disabled"
     >
       虚框按钮
     </button>
@@ -397,6 +400,7 @@ exports[`Button status demo works fine 1`] = `
      
     <button
       class="t-button t-button--warning t-is-disabled"
+      disabled="disabled"
     >
       告警按钮
     </button>
@@ -413,6 +417,7 @@ exports[`Button status demo works fine 1`] = `
      
     <button
       class="t-button t-button--warning-line t-is-disabled"
+      disabled="disabled"
     >
       次要告警
     </button>
@@ -429,6 +434,7 @@ exports[`Button status demo works fine 1`] = `
      
     <button
       class="t-button t-button--link t-is-disabled"
+      disabled="disabled"
     >
       链接文字按钮
     </button>
@@ -445,6 +451,7 @@ exports[`Button status demo works fine 1`] = `
      
     <button
       class="t-button t-button--ghost t-is-disabled"
+      disabled="disabled"
     >
       幽灵按钮
     </button>
@@ -453,14 +460,19 @@ exports[`Button status demo works fine 1`] = `
   <div
     class="tdesign-demo-block"
   >
-    <button
-      class="t-button t-button--ghost-line"
+    <span
+      class="tdesign-wrap"
     >
-      幽灵次要按钮
-    </button>
+      <button
+        class="t-button t-button--ghost-line"
+      >
+        幽灵次要按钮
+      </button>
+    </span>
      
     <button
       class="t-button t-button--ghost-line t-is-disabled"
+      disabled="disabled"
     >
       幽灵次要按钮
     </button>
