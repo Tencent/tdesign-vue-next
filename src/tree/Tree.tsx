@@ -145,6 +145,7 @@ export default Vue.extend({
     renderItem(node: TreeNode) {
       const {
         empty,
+        checkProps,
         icon,
         label,
         line,
@@ -155,6 +156,7 @@ export default Vue.extend({
           key={node.value}
           node={node}
           empty={empty}
+          checkProps={checkProps}
           icon={icon}
           label={label}
           line={line}

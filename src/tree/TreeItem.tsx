@@ -211,6 +211,7 @@ export default Vue.extend({
             name={node.value}
             role="label"
             onChange={() => this.handleChange()}
+            {...{ props: this.checkProps }}
           >{labelNode}</TCheckBox>
         );
       } else {

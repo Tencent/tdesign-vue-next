@@ -78,6 +78,12 @@ export const TreeProps = {
     type: Boolean,
     default: false,
   },
+  checkProps: {
+    type: Object,
+    default() {
+      return {};
+    },
+  },
   hover: {
     type: Boolean,
     default: false,
@@ -138,6 +144,12 @@ export const TreeProps = {
 export const TreeItemProps = {
   node: {
     type: Object,
+  },
+  checkProps: {
+    type: Object,
+    default() {
+      return {};
+    },
   },
   empty: {
     type: [Function, String],
