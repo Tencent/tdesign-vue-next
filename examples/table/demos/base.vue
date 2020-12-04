@@ -8,8 +8,7 @@
     :hover="hover"
     :stripe="stripe"
     :size="size"
-    :pagination="pagination"
-    @change="handleChange">
+    :pagination="pagination">
   </t-table>
 </template>
 <script>
@@ -122,13 +121,12 @@ export default {
         pageSize: 10,
         total: 120,
         visibleWithOnePage: true,
+        onChange() {
+          console.log('pagination change');
+        },
       },
     };
   },
-  methods: {
-    handleChange(pagination) {
-      console.log(pagination);
-    },
-  },
+  methods: {},
 };
 </script>
