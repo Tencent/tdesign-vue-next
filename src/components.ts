@@ -11,6 +11,7 @@ export * from './checkbox';
 export * from './icon';
 export * from './input-group';
 export * from './input';
+export * from './layout';
 export * from './list';
 export * from './menu';
 export * from './pagination';

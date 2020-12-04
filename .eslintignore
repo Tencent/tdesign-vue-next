@@ -7,7 +7,5 @@ common
 cypress
 script/test/cypress
 _site
-common
 temp*
 static/
-common/static/icon/web/index.js

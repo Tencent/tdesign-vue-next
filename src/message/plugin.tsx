@@ -42,7 +42,7 @@ function handleParams(params: MessageProps): MessageProps {
     },
     params
   );
-  options.default = params.content || params.default;
+  options.content = params.content;
   return options;
 }
 
@@ -84,7 +84,7 @@ const showThemeMessage = (theme: ThemeString, params: string | MessageProps, dur
   } else if (typeof params === 'object' && !(params instanceof Array)) {
     options = Object.assign(options, params);
   }
-  duration && (options.duration = duration);
+  (duration || duration === 0) && (options.duration = duration);
   return MessageFunction(options);
 };
 

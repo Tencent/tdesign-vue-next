@@ -36,7 +36,13 @@ export default Vue.extend({
       type: [Boolean, Function],
       default: true,
     },
-    default: [String, Function],
+    content: [String, Function],
+  },
+
+  data() {
+    return {
+      timer: null,
+    };
   },
 
   computed: {
@@ -61,10 +67,13 @@ export default Vue.extend({
 
   methods: {
     setTimer() {
-      const timer = setTimeout(() => {
-        clearTimeout(timer);
+      this.timer = Number(setTimeout(() => {
+        this.clearTimer();
         this.$emit('duration-end', this);
-      }, this.duration);
+      }, this.duration));
+    },
+    clearTimer() {
+      clearTimeout(this.timer);
     },
     close(e?: Event) {
       this.$emit('click-close-btn', e, this);
@@ -97,15 +106,15 @@ export default Vue.extend({
       return <component></component>;
     },
     renderContent() {
-      if (typeof this.default === 'string') return this.default;
-      if (typeof this.default === 'function') return this.default();
+      if (typeof this.content === 'string') return this.content;
+      if (typeof this.content === 'function') return this.content();
       return this.$scopedSlots.default && this.$scopedSlots.default(null);
     },
   },
 
   render() {
     return (
-      <div class={this.classes}>
+      <div class={ this.classes } onMouseenter={ this.clearTimer } onMouseleave={ this.setTimer }>
         { this.renderIcon() }
         { this.renderContent() }
         { this.renderClose() }
