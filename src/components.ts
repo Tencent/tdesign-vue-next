@@ -8,6 +8,7 @@ export * from './breadcrumb';
 export * from './breadcrumbItem';
 export * from './button';
 export * from './checkbox';
+export * from './form';
 export * from './icon';
 export * from './input-group';
 export * from './input';
