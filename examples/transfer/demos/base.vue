@@ -7,8 +7,10 @@
     :render-item="({ transferItem }) => `${transferItem.key}-${transferItem.title}`"
     :pagination="pagination"
     :footer="footer"
+    directions="both"
     :operations="['right', 'left']"
-    :disabled="true"
+    :disabled="[false, true]"
+    targetOrder="unshift"
     @checkChange="checkChange"
   >
     <template v-slot:empty>

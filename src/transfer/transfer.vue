@@ -2,32 +2,32 @@
   <div :class="['t-transfer', hasFooter ? 't-transfer-footer' : '', showPagination ? 't-transfer-pagination' : '']">
     <transfer-list
       v-bind="$props"
-      direction="source"
+      :direction="SOURCE"
       :title="titles[0]"
       :data-source="sourceList"
       :checked-value="sourceCheckedKeys"
-      :disabled="disabled"
-      :search="getSearchProp('source')"
-      :pagination="getPaginationObj('source')"
+      :disabled="leftListDisabled"
+      :search="getSearchProp(SOURCE)"
+      :pagination="getPaginationObj(SOURCE)"
       @checkedChange="handleSourceCheckedChange"
     >
     </transfer-list>
     <transfer-operations
-      :left-disabled="sourceCheckedKeys.length === 0"
-      :right-disabled="targetCheckedKeys.length === 0"
+      :left-disabled="leftListDisabled || leftButtonDisabled || sourceCheckedKeys.length === 0"
+      :right-disabled="rightListDisabled || rightButtonDisabled || targetCheckedKeys.length === 0"
       :operations="operations"
       @moveToRight="transferToRight"
       @moveToLeft="transferToLeft"
     />
     <transfer-list
       v-bind="$props"
-      direction="target"
+      :direction="TARGET"
       :title="titles[1]"
       :data-source="targetList"
       :checked-value="targetCheckedKeys"
-      :disabled="disabled"
-      :search="getSearchProp('target')"
-      :pagination="getPaginationObj('target')"
+      :disabled="rightListDisabled"
+      :search="getSearchProp(TARGET)"
+      :pagination="getPaginationObj(TARGET)"
       @checkedChange="handleTargetCheckedChange"
     >
     </transfer-list>
@@ -46,6 +46,8 @@ import { deepCloneByJson } from './utils';
 
 const name = `${prefix}-transfer`;
 const searchObj: SearchProps = { placeholder: '请输入搜索内容', suffixIcon: 'search', clearable: true };
+const SOURCE = 'source';
+const TARGET = 'target';
 export default Vue.extend({
   name,
   components: {
@@ -64,12 +66,26 @@ export default Vue.extend({
   data() {
     return {
       name,
+      SOURCE,
+      TARGET,
       curCheckedValue: [],
       sourceCheckedKeys: [], // 源数据被选中的key
       targetCheckedKeys: [], // 目标数据被选中的key,
     };
   },
   computed: {
+    leftButtonDisabled(): boolean {
+      return this.directions === 'right';
+    },
+    rightButtonDisabled(): boolean {
+      return this.directions === 'left';
+    },
+    leftListDisabled(): boolean {
+      return this.getDisabledValue(0);
+    },
+    rightListDisabled(): boolean {
+      return this.getDisabledValue(1);
+    },
     sourceList(): Array<TransferItem> {
       return this.filterMethod(this.data, this.targetValue, false);
     },
@@ -104,12 +120,20 @@ export default Vue.extend({
     this.setCheckedKeys();
   },
   methods: {
+    getDisabledValue(index: number) {
+      if (typeof this.disabled === 'boolean') {
+        return this.disabled;
+      } if (this.disabled instanceof Array && this.disabled.length > index) {
+        return this.disabled[index];
+      }
+      return false;
+    },
     getSearchProp(direction: TransferDirection): any {
       let searchProp;
       if (this.search && typeof this.search === 'boolean') {
         searchProp = searchObj;
       } else if (this.search instanceof Array && this.search.length) {
-        const index = direction === 'source' ? 0 : 1;
+        const index = direction === SOURCE ? 0 : 1;
         searchProp = this.search[index];
       } else {
         // 处理this.search为false和为inputProps的object形式
@@ -119,15 +143,13 @@ export default Vue.extend({
     },
     setCheckedKeys() {
       const { curCheckedValue, targetValue } = this;
-      // const checkedValue = checked.length ? checked : this.checkedValue;
-      // const targetValue = target.length ? target : this.targetValue;
       this.sourceCheckedKeys = this.filterMethod(curCheckedValue, targetValue, false);
       this.targetCheckedKeys = this.filterMethod(curCheckedValue, targetValue, true);
     },
     transferTo(toDirection: TransferDirection) {
       let targetValue: Array<TransferItemKey> = deepCloneByJson(this.targetValue);
       let sourceCheckedKeys = 'sourceCheckedKeys';
-      if (toDirection === 'source') {
+      if (toDirection === SOURCE) {
         sourceCheckedKeys = 'targetCheckedKeys';
       }
       const moveKeys: Array<TransferItemKey> = [];
@@ -140,8 +162,10 @@ export default Vue.extend({
         return !isMove;
       });
       this.curCheckedValue = this.curCheckedValue.filter((key: TransferItemKey) => moveKeys.indexOf(key) === -1);
-      if (toDirection === 'source') {
+      if (toDirection === SOURCE) {
         targetValue = targetValue.filter((key: TransferItemKey) => moveKeys.indexOf(key) === -1);
+      } else if (this.targetOrder === 'unshift') {
+        targetValue = moveKeys.concat(targetValue);
       } else {
         targetValue = targetValue.concat(moveKeys);
       }
@@ -150,11 +174,11 @@ export default Vue.extend({
     },
     // 点击移到右边按钮触发的函数
     transferToRight() {
-      this.transferTo('target');
+      this.transferTo(TARGET);
     },
     // 点击移到左边按钮触发的函数
     transferToLeft() {
-      this.transferTo('source');
+      this.transferTo(SOURCE);
     },
     handleSourceCheckedChange(val: Array<any>, isChangeByUser: boolean) {
       this.sourceCheckedKeys = val;
@@ -178,7 +202,7 @@ export default Vue.extend({
     getPaginationObj(direction: string) {
       let paginationObj = null;
       if (this.pagination && this.pagination instanceof Array) {
-        const order = direction === 'source' ? 0 : 1;
+        const order = direction === SOURCE ? 0 : 1;
         paginationObj = this.pagination[order];
       } else {
         paginationObj = this.pagination;
