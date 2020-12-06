@@ -68,6 +68,7 @@ describe('Button', () => {
           return <Button disabled={true} onClick={fn}>text</Button>;
         },
       });
+      wrapper.trigger('click');
       expect(fn).not.toHaveBeenCalled();
       expect(wrapper).toMatchSnapshot();
     });

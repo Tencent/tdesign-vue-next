@@ -4,7 +4,7 @@
     :data="list"
     v-model="targetValue"
     :checked-value="checkedValue"
-    :render-item="({transferItem}) => `${transferItem.key}-${transferItem.title}`"
+    :render-item="({ transferItem }) => `${transferItem.key}-${transferItem.title}`"
     :pagination="pagination"
     :footer="footer"
     :operations="['right', 'left']"
@@ -40,16 +40,17 @@ export default {
       list,
       targetValue: [],
       checkedValue: ['1', '2'],
-      pagination: [{
-        pageSize: 10,
-        total: 120,
-        current: 1,
-      },
-      {
-        pageSize: 10,
-        total: 110,
-        current: 2,
-      },
+      pagination: [
+        {
+          pageSize: 10,
+          total: 120,
+          current: 1,
+        },
+        {
+          pageSize: 10,
+          total: 110,
+          current: 1,
+        },
       ],
     };
   },
