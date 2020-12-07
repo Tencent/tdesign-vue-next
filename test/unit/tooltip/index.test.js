@@ -20,11 +20,7 @@ describe('Tooltip', () => {
     });
   });
 
-  it('equals disabled to true', () => {
-    expect(cmp.vm.disabled).toEqual(true);
-  });
-
-  it('equals disabled to true', () => {
-    expect(cmp.vm.clickTrigger).toEqual(true);
+  it('equals theme to primary', () => {
+    expect(cmp.vm.theme).toEqual('primary');
   });
 });
