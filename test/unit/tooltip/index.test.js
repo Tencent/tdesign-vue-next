@@ -3,28 +3,28 @@ import Tooltip from '@/src/tooltip/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Tooltip', () => {
-  // test props api
-  describe(':props', () => {
-    it('', () => {
-      const wrapper = mount({
-        render() {
-          return <Tooltip></Tooltip>;
-        },
-      });
-      expect(wrapper.isEmpty()).toBe(false);
+  let cmp;
+
+  beforeEach(() => {
+    cmp = mount(Tooltip, {
+      propsData: {
+        disabled: true,
+        placement: 'topLeft',
+        visible: false,
+        trigger: 'click',
+        content: 'txt',
+        visibleArrow: true,
+        destroyOnHide: true,
+        theme: 'primary',
+      },
     });
   });
 
-  // test events
-  // describe('@event', () => { });
+  it('equals disabled to true', () => {
+    expect(cmp.vm.disabled).toEqual(true);
+  });
 
-  // test slots
-  // describe('<slot>', () => {
-  //   it('', () => { });
-  // });
-
-  // // test exposure function
-  // describe('function', () => {
-  //   it('', () => { });
-  // });
+  it('equals disabled to true', () => {
+    expect(cmp.vm.clickTrigger).toEqual(true);
+  });
 });
