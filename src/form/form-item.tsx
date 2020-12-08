@@ -1,5 +1,6 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
+// import { ValidateRule } from './formModel';
 
 const name = `${prefix}-form-item`;
 
@@ -11,6 +12,7 @@ export default Vue.extend({
     tooltip: [String, Function],
     label: [String, Function],
     for: String,
+    // rules: Array as PropType<Array<ValidateRule>>,
   },
 
   computed: {
@@ -18,11 +20,18 @@ export default Vue.extend({
       // @ts-ignore
       return this.$parent && this.$parent.colon;
     },
-    // 允许显示，且校验规则包含必填
-    needRequired(): boolean {
+    needRequiredMark(): boolean {
       // @ts-ignore
       return this.$parent && this.$parent.requiredMark;
     },
+    // innerRules(): Array<ValidateRule> {
+    //   // @ts-ignore
+    //   if (this.$parent && this.$parent.rules) {
+    //     // @ts-ignore
+    //     return this.$parent.rules[this.name] || this.rules;
+    //   }
+    //   return this.rules;
+    // },
   },
 
   methods: {
@@ -40,7 +49,7 @@ export default Vue.extend({
     return (
       <div class='t-form-item'>
         <label for={this.for}>
-          { this.needRequired && <span>*</span> }
+          { this.needRequiredMark && <span>*</span> }
           {this.getLabel()} {this.hasColon && '：'}
         </label>
         <div>{this.$slots.default}</div>

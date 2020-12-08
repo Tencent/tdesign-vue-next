@@ -1,8 +1,13 @@
 <template>
   <div>
-    <t-form :data="formData" :colon="colon" :requiredMark="requiredMark">
-      <t-form-item label="姓名">
-        <t-input></t-input>
+    <t-form
+      :data="formData"
+      :colon="colon"
+      :requiredMark="requiredMark"
+      :rules="rules"
+    >
+      <t-form-item label="姓名" name='name'>
+        <t-input v-model="formData.name"></t-input>
       </t-form-item>
     </t-form>
 
@@ -17,7 +22,15 @@
 export default {
   data() {
     return {
-      formData: {},
+      formData: {
+        name: '',
+      },
+      rules: {
+        name: [
+          { required: true, message: '姓名必填' },
+          { email: true, message: '格式必须为邮箱' },
+        ],
+      },
       colon: false,
       requiredMark: true,
     };

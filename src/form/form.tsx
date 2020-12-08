@@ -1,7 +1,7 @@
 import Vue, { PropType, VNode } from 'vue';
 import { prefix } from '../config';
 import { CLASSNAME_SIZE } from '../utils/classnames';
-import { FormData, ErrorList } from './type/index';
+import { FormData, ErrorList, ValidateRules, ValidateOptions, validate } from './formModel';
 
 const name = `${prefix}-form`;
 
@@ -48,13 +48,16 @@ export default Vue.extend({
       type: Boolean,
       default: true,
     },
+    rules: Object as PropType<ValidateRules>,
     onValidate: Function as PropType<(validateResult: boolean | ErrorList) => void>,
     onReset: Function as PropType<() => void>,
     onSubmit: Function as PropType<() => void>,
   },
 
   data() {
-    return {};
+    return {
+      validateResult: {},
+    };
   },
 
   computed: {
@@ -66,9 +69,32 @@ export default Vue.extend({
         `t-form--${this.labelAlign}`,
       ];
     },
+    values(): Array<any> {
+      return Object.values(this.data);
+    },
   },
 
-  watch: {},
+  watch: {
+    values() {
+      this.validate();
+    },
+  },
+
+  methods: {
+    validate() {
+      const list: Array<ValidateOptions> = [];
+      Object.keys(this.rules).forEach((field) => {
+        list.push({
+          field,
+          value: this.data[field],
+          rules: this.rules[field],
+        });
+      });
+      const r = validate(list);
+      this.validateResult = r;
+      // console.log('校验结果：', r);
+    },
+  },
 
   render(): VNode {
     return (
