@@ -5,7 +5,6 @@
     v-model="targetValue"
     :checked-value="checkedValue"
     :renderItem="renderItem"
-    :disabled="true"
   >
   </t-transfer>
 </template>
