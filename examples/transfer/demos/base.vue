@@ -5,7 +5,6 @@
     directions="both"
     :operations="['right', 'left']"
     :disabled="[false, true]"
-    :titles="['aaa+++', 'bbb']"
     targetOrder="unshift"
     @checkChange="checkChange"
   />
