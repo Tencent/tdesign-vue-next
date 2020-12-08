@@ -1,11 +1,11 @@
 <template>
   <div class="t-design-demo-item--grid">
     <t-row>
-      <t-col :span="18" :push="6">
-        <div>col-18 col-pull-6</div>
+      <t-col :span="9" :push="3">
+        <div>col-9 col-pull-3</div>
       </t-col>
-      <t-col :span="6" :pull="18">
-        <div>col-6 col-pull-18</div>
+      <t-col :span="3" :pull="9">
+        <div>col-3 col-pull-9</div>
       </t-col>
     </t-row>
   </div>

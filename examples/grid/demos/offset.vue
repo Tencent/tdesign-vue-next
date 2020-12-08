@@ -1,26 +1,26 @@
 <template>
   <div class="t-design-demo-item--grid">
     <t-row>
-      <t-col :span="8">
-        <div>col-8</div>
+      <t-col :span="4">
+        <div>col-4</div>
       </t-col>
-      <t-col :span="8" :offset="8">
-        <div>col-8 col-offset-8</div>
-      </t-col>
-    </t-row>
-
-    <t-row>
-      <t-col :span="6" :offset="6">
-        <div>col-6 col-offset-6</div>
-      </t-col>
-      <t-col :span="6" :offset="6">
-        <div>col-6 col-offset-6</div>
+      <t-col :span="4" :offset="4">
+        <div>col-4 col-offset-4</div>
       </t-col>
     </t-row>
 
     <t-row>
-      <t-col :span="12" :offset="6">
-        <div>col-12 col-offset-6</div>
+      <t-col :span="3" :offset="3">
+        <div>col-3 col-offset-3</div>
+      </t-col>
+      <t-col :span="3" :offset="3">
+        <div>col-3 col-offset-3</div>
+      </t-col>
+    </t-row>
+
+    <t-row>
+      <t-col :span="6" :offset="3">
+        <div>col-6 col-offset-3</div>
       </t-col>
     </t-row>
   </div>
