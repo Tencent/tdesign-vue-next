@@ -47,7 +47,7 @@ exports[`Message :props :theme info,success,warning,error,question,loading 1`] =
 `;
 
 exports[`Message :props :theme info,success,warning,error,question,loading 2`] = `
-<div class="t-message t-is-success"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-success_fill">
+<div class="t-message t-is-success"><svg viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-check-circle-filled">
     <path fill-rule="evenodd" d="M8,1.5 C11.5898509,1.5 14.5,4.41014913 14.5,8 C14.5,11.5898509 11.5898509,14.5 8,14.5 C4.41014913,14.5 1.5,11.5898509 1.5,8 C1.5,4.41014913 4.41014913,1.5 8,1.5 Z M10.7947737,5.52481537 L7.25881266,9.05981537 L5.13791944,6.93902893 L4.43081266,7.64613571 L7.25923978,10.4745628 L7.96634656,9.76745605 L11.5018805,6.23192215 L10.7947737,5.52481537 Z"></path>
   </svg></div>
 `;

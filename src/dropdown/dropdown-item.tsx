@@ -55,10 +55,10 @@ export default Vue.extend({
   },
   methods: {
     renderIcon(): JsxNode {
-      return this.iconName ? <Icon name={ this.iconName } /> : '';
+      return this.iconName ? <Icon name={this.iconName} /> : '';
     },
     renderSuffix(): JsxNode {
-      return this.hasChildren ? <Icon class="children-suffix" name="arrow-right" /> : '';
+      return this.hasChildren ? <Icon class="children-suffix" name="chevron-right" /> : '';
     },
     handleItemClick(): void {
       if (!this.hasChildren && !this.disabled) {
@@ -94,7 +94,7 @@ export default Vue.extend({
         onMouseleave={this.handleMouseleave}
       >
         <div class={`${name}__content`} title={this.text}>
-          { this.renderIcon() }
+          {this.renderIcon()}
           <span class={`${name}__content__text`} style={{
             maxWidth: `${this.maxItemWidth}px`,
             minWidth: `${this.minItemWidth}px`,
@@ -102,7 +102,7 @@ export default Vue.extend({
             {this.text}
           </span>
         </div>
-        { this.renderSuffix() }
+        { this.renderSuffix()}
       </div>
     );
   },

@@ -378,7 +378,7 @@ exports[`Message type demo works fine 1`] = `
     class="t-message t-is-success"
   >
     <svg
-      class="t-icon t-icon-success_fill"
+      class="t-icon t-icon-check-circle-filled"
       version="1.1"
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
