@@ -1,14 +1,15 @@
 <template>
-  <div :class="['t-transfer', hasFooter ? 't-transfer-footer' : '', showPagination ? 't-transfer-pagination' : '']">
+  <div :class="['t-transfer', showSearch ? 't-transfer-search' : '', hasFooter ? 't-transfer-footer' : '', showPagination ? 't-transfer-pagination' : '']">
     <transfer-list
       v-bind="$props"
       :direction="SOURCE"
-      :title="titles[0]"
+      :title="getTitle(SOURCE)"
       :data-source="sourceList"
       :checked-value="sourceCheckedKeys"
       :disabled="leftListDisabled"
       :search="getSearchProp(SOURCE)"
       :pagination="getPaginationObj(SOURCE)"
+      :check-all="getCheckAll(SOURCE)"
       @checkedChange="handleSourceCheckedChange"
     >
     </transfer-list>
@@ -22,12 +23,13 @@
     <transfer-list
       v-bind="$props"
       :direction="TARGET"
-      :title="titles[1]"
       :data-source="targetList"
       :checked-value="targetCheckedKeys"
       :disabled="rightListDisabled"
+      :title="getTitle(TARGET)"
       :search="getSearchProp(TARGET)"
       :pagination="getPaginationObj(TARGET)"
+      :check-all="getCheckAll(TARGET)"
       @checkedChange="handleTargetCheckedChange"
     >
     </transfer-list>
@@ -39,7 +41,7 @@ import Vue from 'vue';
 import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
 import TransferList from './transfer-list';
-import TransferOperations from './transfer-operations';
+import TransferOperations from './components/transfer-operations';
 import { TransferItem, TransferItemKey, TransferDirection, SearchProps } from './type/transfer';
 import { CommonProps } from './interface';
 import { deepCloneByJson } from './utils';
@@ -102,12 +104,16 @@ export default Vue.extend({
       });
       return arr;
     },
-    hasFooter(): any {
-      return !!this.$scopedSlots.footer || this.footer;
+    hasFooter(): boolean {
+      return !!this.$scopedSlots.footer || !!this.footer;
     },
-    showPagination(): any {
+    showPagination(): boolean {
       // 翻页在自定义列表无效
-      return this.pagination && !this.$scopedSlots.content;
+      return !!this.pagination && !this.$scopedSlots.content;
+    },
+    showSearch(): boolean {
+      // 翻页在自定义列表无效
+      return !!this.search;
     },
   },
   watch: {
@@ -208,6 +214,24 @@ export default Vue.extend({
         paginationObj = this.pagination;
       }
       return paginationObj;
+    },
+    getTitle(direction: string) {
+      let targetTitle;
+      if (direction === 'source') {
+        targetTitle = this.titles[0] || '源列表';
+      } else {
+        targetTitle = this.titles[1] || '目标列表';
+      }
+      return targetTitle;
+    },
+    getCheckAll(direction: string) {
+      let targetCheckAll;
+      if (direction === 'source') {
+        targetCheckAll = this.checkAll instanceof Array ? this.checkAll[0] : this.checkAll;
+      } else {
+        targetCheckAll = this.checkAll instanceof Array ? this.checkAll[1] : this.checkAll;
+      }
+      return targetCheckAll;
     },
   },
 });
