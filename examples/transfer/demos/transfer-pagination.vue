@@ -5,9 +5,7 @@
     v-model="targetValue"
     :checked-value="checkedValue"
     :pagination="pagination"
-    :disabled="true"
-  >
-  </t-transfer>
+  />
 </template>
 <script>
 const list = [];

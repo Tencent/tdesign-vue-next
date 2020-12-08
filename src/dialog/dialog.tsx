@@ -18,11 +18,30 @@ function GetTransformByOffset(offset: any, placement: string) {
   const { left, right, top, bottom } = offset;
   let translateY: string = placement === 'center' ? '-50%' : '0px';
   let translateX = '-50%';
-  left && (translateX = `${translateX} - ${GetCSSValue(left)}`);
-  right && (translateX = `${translateX} + ${GetCSSValue(right)}`);
-  top && (translateY = `${translateY} - ${GetCSSValue(top)}`);
-  bottom && (translateY = `${translateY} + ${GetCSSValue(bottom)}`);
-  return `translate(calc(${translateX}),calc(${translateY}))`;
+  let originX = '-25%';
+  let originY = '-25%';
+
+  if (left) {
+    translateX = `${translateX} - ${GetCSSValue(left)}`;
+    originX = `${originX} - ${GetCSSValue(left)}`;
+  }
+  if (right) {
+    translateX = `${translateX} + ${GetCSSValue(right)}`;
+    originX = `${originX} + ${GetCSSValue(right)}`;
+  }
+  if (top) {
+    translateY = `${translateY} - ${GetCSSValue(top)}`;
+    originY = `${originY} - ${GetCSSValue(top)}`;
+  }
+  if (bottom) {
+    translateY = `${translateY} + ${GetCSSValue(bottom)}`;
+    originY = `${originY} + ${GetCSSValue(bottom)}`;
+  }
+
+  return {
+    transform: `translate(calc(${translateX}),calc(${translateY}))`,
+    transformOrigin: `calc(${originX}) calc(${originY})`,
+  };
 }
 
 // 注册元素的拖拽事件
@@ -134,11 +153,11 @@ export default Vue.extend({
       type: [Function, String, Boolean],
       default: false,
     },
-    confirmContent: {
+    confirmBtn: {
       type: [String, Function, Object, Boolean],
       default: '确认',
     },
-    cancelContent: {
+    cancelBtn: {
       type: [String, Function, Object, Boolean],
       default: '取消',
     },
@@ -159,14 +178,14 @@ export default Vue.extend({
       }
       return false;
     },
-    ctxClass(): ClassName {
-      // 关闭时候是否卸载元素 this.$el.parentNode.removeChild(this.$el)
-      const closeMode = this.destroyOnClose ? 'display' : 'visable';
-      return [
-        `${name}-ctx`,
-        this.visible ? `${prefix}-is-${closeMode}` : `${prefix}-not-${closeMode}`,
-      ];
-    },
+    // ctxClass(): ClassName {
+    //   // 关闭时候是否卸载元素 this.$el.parentNode.removeChild(this.$el)
+    //   const closeMode = this.destroyOnClose ? 'display' : 'visable';
+    //   return [
+    //     `${name}-ctx`,
+    //     this.visible ? `${prefix}-is-${closeMode}` : `${prefix}-not-${closeMode}`,
+    //   ];
+    // },
     maskClass(): ClassName {
       return [
         `${name}-mask`,
@@ -179,15 +198,15 @@ export default Vue.extend({
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
       // 目前弹窗交互没有动画
-      if (value) {
-        this.$emit('opened');
-      } else {
-        this.$emit('closed');
-      }
+      // if (value) {
+      //   this.$emit('opened');
+      // } else {
+      //   this.$emit('closed');
+      // }
       // 关闭时，销毁元素
-      if (!value && this.destroyOnClose) {
-        this.$el.parentNode.removeChild(this.$el);
-      }
+      // if (!value && this.destroyOnClose) {
+      //   this.$el.parentNode.removeChild(this.$el);
+      // }
     },
   },
   beforeDestroy() {
@@ -203,13 +222,13 @@ export default Vue.extend({
       }
     },
   },
-  data() {
-    return {
-      transform: undefined,
-    };
-  },
   created() {
     this.initOffsetWatch();
+  },
+  data() {
+    return {
+      transform: {},
+    };
   },
   methods: {
     initOffsetWatch() {
@@ -234,15 +253,14 @@ export default Vue.extend({
     },
     keyboardEvent(e: KeyboardEvent) {
       if (e.code === 'Escape') {
-        this.$emit('keydown-esc', this.close, e);
+        this.closeEventEmit('keydown-esc', e);
       }
     },
     overlayAction(e: Event) {
-      this.$emit('click-overlay', this.close, e);
+      this.closeEventEmit('click-overlay', e);
     },
     closeBtnAcion(e: Event) {
-      this.$emit('click-close-btn', this.close, e);
-      this.changeVisible(false);
+      this.closeEventEmit('click-close-btn', e);
     },
     close() {
       this.changeVisible(false);
@@ -251,11 +269,39 @@ export default Vue.extend({
       this.$emit('visible-change', visible);
     },
     cancelBtnAction(e: Event) {
-      this.$emit('click-cancel', this.close, e);
-      this.changeVisible(false);
+      this.closeEventEmit('click-cancel', e);
     },
     confirmBtnAction(e: Event) {
-      this.$emit('click-confirm', this.close, e);
+      this.closeEventEmit('click-confirm', e);
+    },
+    // 打开弹窗动画结束时事件
+    afterEnter(el: Element) {
+      this.$emit('opened', el);
+    },
+    // 关闭弹窗动画结束时事件
+    afterLeave(el: Element) {
+      this.$emit('closed', el);
+    },
+    // 先判断是否有该事件，有则派发当前事件，传递close函数出去
+    // 再判断是否有close事件，有则派发，传递close函数出去
+    // 前面都没有则执行关闭组件的方法
+    closeEventEmit(name: string, event: Event) {
+      if (this.hasEventOn(name)) {
+        this.$emit(name, this.close, event);
+      } else if (this.hasEventOn('close')) {
+        this.$emit('close', this.close, event);
+      } else {
+        this.close();
+      }
+    },
+    // Vue在引入阶段对事件的处理还做了哪些初始化操作。Vue在实例上用一个_events属性存贮管理事件的派发和更新，
+    // 暴露出$on, $once, $off, $emit方法给外部管理事件和派发执行事件
+    // 所以通过判断_events某个事件下监听函数数组是否超过一个，可以判断出组件是否监听了当前事件
+    hasEventOn(name: string) {
+      // _events 因没有被暴露在vue实例接口中，只能把这个规则注释掉
+      /* eslint-disable dot-notation */
+      const eventFuncs = this['_events']?.[name];
+      return !!eventFuncs?.length;
     },
     renderTitle() {
       const target = this.header;
@@ -320,8 +366,8 @@ export default Vue.extend({
     renderFooter(h: CreateElement) {
       const defaultView = (
         <div>
-          {this.renderDefaultBtn(h, 'cancel', this.cancelContent)}
-          {this.renderDefaultBtn(h, 'confirm', this.confirmContent)}
+          {this.renderDefaultBtn(h, 'cancel', this.cancelBtn)}
+          {this.renderDefaultBtn(h, 'confirm', this.confirmBtn)}
         </div>
       );
       const target = this.footer;
@@ -352,26 +398,46 @@ export default Vue.extend({
       } else if (typeof target === 'function') {
         view = target();
       }
-      return isShow && (view || defaultView);
+      return isShow && (<span class={`${name}__close`}>
+        {view || defaultView}
+      </span>);
     },
-  },
-  render(h: CreateElement) {
-    const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
-    const dialogStyle = { width: GetCSSValue(this.width), transform: this.transform };
-    return (
-      <div class={this.ctxClass} style={{ zIndex: this.zIndex }} v-transfer-dom={this.attachTarget}>
-
-        {
-          this.isModal && <div class={this.maskClass} onClick={this.overlayAction}></div>
-        }
-        {/* 非模态形态下draggable为true才允许拖拽 */}
-        <div class={dialogClass} style={dialogStyle} v-draggable={!this.isModal && this.draggable}>
+    renderDialog(h: CreateElement) {
+      const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
+      const dialogStyle: any = { width: GetCSSValue(this.width), ...this.transform };
+      return (
+        // /* 非模态形态下draggable为true才允许拖拽 */
+        <div key='dialog' class={dialogClass} style={dialogStyle} v-draggable={!this.isModal && this.draggable}>
           {this.renderTitle()}
           {this.renderBody()}
           {this.renderFooter(h)}
           {this.renderCloseBtn()}
         </div>
-      </div>
+      );
+    },
+  },
+  render(h: CreateElement) {
+    const maskView = this.isModal && <div key='mask' class={this.maskClass} onClick={this.overlayAction}></div>;
+    const dialogView = this.renderDialog(h);
+    const view = [maskView, dialogView];
+    const ctxStyle: any = { zIndex: this.zIndex };
+    const ctxClass = [`${name}-ctx`];
+    return (
+      <transition duration={300}
+        name={`${name}-zoom__vue`}
+        onAfterEnter={this.afterEnter}
+        onAfterLeave={this.afterLeave}>
+        {
+          (!this.destroyOnClose || this.visible) && (
+            <div v-show={this.visible} class={ctxClass} style={ctxStyle}
+              v-transfer-dom={this.attachTarget}>
+              {view}
+            </div>
+          )
+        }
+      </transition>
     );
   },
 });
+
+

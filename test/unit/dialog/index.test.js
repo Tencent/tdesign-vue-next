@@ -82,9 +82,17 @@ describe('Dialog', () => {
       expect(wrapper.attributes('style')).toMatch(/z-index: 1/);
     });
 
-    it('destroyOnClose', () => {
-      expect(mount(Dialog, { propsData: { destroyOnClose: true } }).classes()).toContain('t-not-display');
-      expect(mount(Dialog).classes()).toContain('t-not-visable');
+    it('destroyOnClose', async () => {
+      const wrapper = mount(Dialog, { propsData: { visible: true } });
+      // 正常挂载下，弹窗关闭时不销毁Dialog子元素
+      await wrapper.setProps({ visible: false });
+      expect(wrapper.isEmpty()).toBe(false);
+
+      // 弹窗关闭时销毁Dialog子元素
+      await wrapper.setProps({ destroyOnClose: true, visible: true });
+      expect(wrapper.isEmpty()).toBe(false);
+      await wrapper.setProps({ visible: false });
+      expect(wrapper.isEmpty()).toBe(true);
     });
   });
 

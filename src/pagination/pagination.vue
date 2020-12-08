@@ -238,6 +238,8 @@ export default mixins(PaginationLocalReceiver).extend({
       type: Number,
       default: 5,
     },
+    onChange: Function,
+    onPageSizeChange: Function,
   },
   data() {
     return {
@@ -419,6 +421,16 @@ export default mixins(PaginationLocalReceiver).extend({
             pageSize: this.pageSize,
           }
         );
+        if (typeof this.onChange === 'function') {
+          this.onChange(
+            current,
+            {
+              curr: current,
+              prev,
+              pageSize: this.pageSize,
+            }
+          );
+        }
       }
     },
     prevPage(): void {
@@ -476,6 +488,16 @@ export default mixins(PaginationLocalReceiver).extend({
           pageSize,
         }
       );
+      if (typeof this.onPageSizeChange === 'function') {
+        this.onPageSizeChange(
+          pageSize,
+          {
+            curr: isIndexChange ? pageCount : this.currentIndex,
+            prev: this.currentIndex,
+            pageSize,
+          }
+        );
+      }
       if (isIndexChange) {
         this.toPage(pageCount);
       }

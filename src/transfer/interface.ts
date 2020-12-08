@@ -21,7 +21,7 @@ export const CommonProps = {
     },
   },
   disabled: {
-    type: Boolean,
+    type: [Boolean, Array],
     default: false,
   },
   // todo 没看到API定义的类型
@@ -48,8 +48,8 @@ export const CommonProps = {
     // todo 自定义列表下无效
     type: [Object, Array],
   },
-  selectAll: {
-    type: Boolean,
+  checkAll: {
+    type: [Boolean, Array],
     default: true,
   },
   footer: [Function, String],
