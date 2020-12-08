@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import TButton from '../button';
-import { prefix } from '../config';
+import TButton from '../../button';
+import { prefix } from '../../config';
 
 const name = `${prefix}-transfer-operations`;
 export default Vue.extend({

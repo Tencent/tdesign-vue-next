@@ -39,7 +39,7 @@ import Vue from 'vue';
 import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
 import TransferList from './transfer-list';
-import TransferOperations from './transfer-operations';
+import TransferOperations from './components/transfer-operations';
 import { TransferItem, TransferItemKey, TransferDirection, SearchProps } from './type/transfer';
 import { CommonProps } from './interface';
 import { deepCloneByJson } from './utils';
