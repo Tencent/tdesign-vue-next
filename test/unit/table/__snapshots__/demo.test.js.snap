@@ -15,19 +15,19 @@ exports[`Table base demo works fine 1`] = `
         <colgroup>
           <col
             class="row"
-            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: center; width: 100px; min-width: 100px;;"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: center; width: 100px; min-width: 100px;"
           />
           <col
             class="row"
-            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 200px; min-width: 200px;;"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 200px; min-width: 200px;"
           />
           <col
             class="test"
-            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;"
           />
           <col
             class="test2"
-            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 200px; min-width: 200px;;"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 200px; min-width: 200px;"
           />
           <col
             class="test4"
@@ -35,15 +35,15 @@ exports[`Table base demo works fine 1`] = `
           />
           <col
             class="test3"
-            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;"
           />
           <col
             class="test3"
-            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;"
           />
           <col
             class="row"
-            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;;"
+            style="text-overflow: ellipsis; display: -webkit-box; overflow: hidden; text-align: left; width: 100px; min-width: 100px;"
           />
         </colgroup>
         <thead
@@ -808,6 +808,7 @@ exports[`Table base demo works fine 1`] = `
             </td>
           </tr>
         </tbody>
+        <tfoot />
       </table>
     </div>
     <div
