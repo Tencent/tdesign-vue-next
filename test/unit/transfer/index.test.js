@@ -104,16 +104,16 @@ describe('Transfer', () => {
       expect(wrapper.vm.$el.getElementsByClassName('t-input__inner').length).toBe(2);
     });
 
-    // it(':titles', () => {
-    //   const wrapper = mount(Transfer, {
-    //     propsData: {
-    //       titles: ['源列表', '目标列表'],
-    //     },
-    //   });
-    //   console.log('====/title:' , wrapper.vm.$el.getElementsByClassName('t-transfer-list__header-title')[0])
-    //   // expect(wrapper.vm.$el.getElementsByClassName('t-transfer-list__header-title')[0].innerText === '源列表').toBe(true);
-    //   // expect(wrapper.vm.$el.getElementsByClassName('t-transfer-list__header-title')[1].innerText === '目标列表').toBe(true);
-    // });
+    it(':titles', () => {
+      const wrapper = mount(Transfer, {
+        propsData: {
+          titles: ['源列表', '目标列表'],
+        },
+      });
+      const doms = wrapper.vm.$el.querySelectorAll('.t-transfer-list__header');
+      expect(doms[0].lastChild.innerHTML === '源列表').toBe(true);
+      expect(doms[1].lastChild.innerHTML === '目标列表').toBe(true);
+    });
 
     it(':pagination', async () => {
       const pagConfig = {
@@ -141,6 +141,23 @@ describe('Transfer', () => {
         },
       });
       expect(wrapper.vm.$el.getElementsByClassName('t-transfer-empty')[0].innerHTML === empty).toBe(true);
+    });
+  });
+
+  describe(':slots', () => {
+    it('footer', async () => {
+      const wrapper = await mount({
+        render() {
+          return (
+            <Transfer data={data}>
+              <div slot="footer" slot-scope="props">
+                <p style="padding: 10px;border-top: 1px solid #eee">source源</p>
+              </div>
+            </Transfer>
+          );
+        },
+      });
+      expect(wrapper.vm.$el.querySelector('.t-transfer-list-source').lastChild.querySelector('p').innerHTML).toBe('source源');
     });
   });
 
