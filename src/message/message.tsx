@@ -114,10 +114,10 @@ export default Vue.extend({
 
   render() {
     return (
-      <div class={this.classes} onMouseenter={this.clearTimer} onMouseleave={this.setTimer}>
-        { this.renderIcon()}
-        { this.renderContent()}
-        { this.renderClose()}
+      <div class={ this.classes } onMouseenter={ this.clearTimer } onMouseleave={ this.setTimer }>
+        { this.renderIcon() }
+        { this.renderContent() }
+        { this.renderClose() }
       </div>
     );
   },

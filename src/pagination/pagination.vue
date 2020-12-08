@@ -401,7 +401,17 @@ export default mixins(PaginationLocalReceiver).extend({
             curr: current,
             prev,
             pageSize: this.pageSize,
-          });
+          }
+        );
+        if (typeof this.onChange === 'function') {
+          this.onChange(
+            current,
+            {
+              curr: current,
+              prev,
+              pageSize: this.pageSize,
+            }
+          );
         }
       }
     },
@@ -461,7 +471,17 @@ export default mixins(PaginationLocalReceiver).extend({
           curr: isIndexChange ? pageCount : this.currentIndex,
           prev: this.currentIndex,
           pageSize,
-        });
+        }
+      );
+      if (typeof this.onPageSizeChange === 'function') {
+        this.onPageSizeChange(
+          pageSize,
+          {
+            curr: isIndexChange ? pageCount : this.currentIndex,
+            prev: this.currentIndex,
+            pageSize,
+          }
+        );
       }
       if (isIndexChange) {
         this.toPage(pageCount);
