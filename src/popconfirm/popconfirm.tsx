@@ -43,7 +43,7 @@ export default Vue.extend({
   },
   computed: {
     iconName(): string {
-      return this.theme === 'default' ? '' : 'prompt_fill';
+      return this.theme === 'default' ? '' : 'info-circle-filled';
     },
     iconColor(): string {
       let color = '';
@@ -72,7 +72,7 @@ export default Vue.extend({
       this.setVisible(false, event);
       this.$emit('confirm', event);
     },
-    setVisible(visible: boolean, event: any): void{
+    setVisible(visible: boolean, event: any): void {
       (this.$refs.popup as any).doClose();
       this.$emit('visibleChange', visible, event);
     },
@@ -86,7 +86,7 @@ export default Vue.extend({
         return arg();
       }
       const iconName = arg || this.iconName;
-      return iconName ? <Icon name={ iconName } style={ this.iconColor }/> : '';
+      return iconName ? <Icon name={iconName} style={this.iconColor} /> : '';
     },
     renderContent(): JsxNode {
       // 优先级 slot > Function > string
@@ -97,7 +97,7 @@ export default Vue.extend({
       if (typeof node === 'function') {
         return (node as Function)();
       }
-      return <div>{ node }</div>;
+      return <div>{node}</div>;
     },
     renderCancel(): JsxNode {
       if (this.$slots.cancelText) {
@@ -105,10 +105,10 @@ export default Vue.extend({
       }
       return (
         <Button size='small'
-                theme='link'
-                style='color: #222'
-                onclick={ this.handleCancel }
-        >{ this.cancelText }</Button>
+          theme='link'
+          style='color: #222'
+          onclick={this.handleCancel}
+        >{this.cancelText}</Button>
       );
     },
     renderConfirm(): JsxNode {
@@ -117,9 +117,9 @@ export default Vue.extend({
       }
       return (
         <Button size='small'
-                theme="link"
-                onclick={ this.handleConfirm }
-        >{ this.confirmText }</Button>
+          theme="link"
+          onclick={this.handleConfirm}
+        >{this.confirmText}</Button>
       );
     },
   },
@@ -140,24 +140,24 @@ export default Vue.extend({
 
     return (
       <div>
-        <Popup { ...popupProps }>
+        <Popup {...popupProps}>
           <template slot='content' role='poppconfirm'>
             <div class={`${name}__content`}>
               <div class={`${name}__body`}>
-                { this.renderIcon() }
+                {this.renderIcon()}
                 <div class={`${name}__inner`}>
-                  { this.renderContent() }
+                  {this.renderContent()}
                 </div>
               </div>
               <div class="t-popconfirm__buttons">
-                { this.renderCancel() }
-                { this.renderConfirm() }
+                {this.renderCancel()}
+                {this.renderConfirm()}
               </div>
             </div>
           </template>
           {trigger}
         </Popup>
-        <slot/>
+        <slot />
       </div>
     );
   },

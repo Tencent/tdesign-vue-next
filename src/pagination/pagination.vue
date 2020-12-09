@@ -6,12 +6,7 @@
     </template>
     <!-- select-->
     <template v-if="showSizer">
-      <t-select
-        :value="pageSize"
-        :disabled="disabled"
-        :class="_sizerClass"
-        @change="onSelectorChange"
-      >
+      <t-select :value="pageSize" :disabled="disabled" :class="_sizerClass" @change="onSelectorChange">
         <t-option
           v-for="(item, index) in _pageSizeOption"
           :value="item"
@@ -22,68 +17,58 @@
       </t-select>
     </template>
     <!-- 向前按钮-->
-    <div :class="_preBtnClass"  @click="prevPage"
-         :disabled="disabled || currentIndex === 1">
-      <t-icon-arrow-left></t-icon-arrow-left>
+    <div :class="_preBtnClass" @click="prevPage" :disabled="disabled || currentIndex === 1">
+      <t-icon-chevron-left></t-icon-chevron-left>
     </div>
     <!-- 页数 -->
     <template v-if="!_isSimple">
       <ul :class="_btnWrapClass">
-        <li :class="getButtonClass(1)" v-if="isFolded"
-            @click="toPage(1)">1</li>
-        <li :class="_btnMoreClass"
-            v-show="isFolded && isPrevMoreShow" @click="prevMorePage"
-            @mouseover="prevMore = true"
-            @mouseout="prevMore = false" >
+        <li :class="getButtonClass(1)" v-if="isFolded" @click="toPage(1)">1</li>
+        <li
+          :class="_btnMoreClass"
+          v-show="isFolded && isPrevMoreShow"
+          @click="prevMorePage"
+          @mouseover="prevMore = true"
+          @mouseout="prevMore = false"
+        >
           <template v-if="prevMore">
-            <t-icon-double-left></t-icon-double-left>
+            <t-icon-chevron-left-double></t-icon-chevron-left-double>
           </template>
           <template v-else><t-icon-ellipsis></t-icon-ellipsis></template>
         </li>
-        <li :class="getButtonClass(i)"
-            v-for="i in pages" :key="i" @click="toPage(i)">
+        <li :class="getButtonClass(i)" v-for="i in pages" :key="i" @click="toPage(i)">
           {{ i }}
         </li>
-        <li :class="_btnMoreClass"
-            v-show="isFolded && isNextMoreShow" @click="nextMorePage"
-            @mouseover="nextMore = true"
-            @mouseout="nextMore = false" >
+        <li
+          :class="_btnMoreClass"
+          v-show="isFolded && isNextMoreShow"
+          @click="nextMorePage"
+          @mouseover="nextMore = true"
+          @mouseout="nextMore = false"
+        >
           <template v-if="nextMore">
-            <t-icon-double-arrow-right></t-icon-double-arrow-right>
+            <t-icon-chevron-right-double></t-icon-chevron-right-double>
           </template>
           <template v-else><t-icon-ellipsis></t-icon-ellipsis></template>
         </li>
-        <li :class="getButtonClass(_pageCount)" v-if="isFolded"
-            @click="toPage(_pageCount)">{{ _pageCount }}</li>
+        <li :class="getButtonClass(_pageCount)" v-if="isFolded" @click="toPage(_pageCount)">{{ _pageCount }}</li>
       </ul>
     </template>
     <template v-else>
-      <t-select
-        :value="currentIndex"
-        :disabled="disabled"
-        :class="_simpleClass"
-        @change="toPage"
-      >
-        <t-option
-          v-for="(item, index) in _pageCountOption"
-          :value="item"
-          :label="`${item}/${_pageCount}`"
-          :key="index"
-        >
+      <t-select :value="currentIndex" :disabled="disabled" :class="_simpleClass" @change="toPage">
+        <t-option v-for="(item, index) in _pageCountOption" :value="item" :label="`${item}/${_pageCount}`" :key="index">
         </t-option>
       </t-select>
     </template>
     <!-- 向后按钮-->
-    <div :class="_nextBtnClass" @click="nextPage"
-         :disabled="disabled || currentIndex === _pageCount">
-      <t-icon-arrow-right></t-icon-arrow-right>
+    <div :class="_nextBtnClass" @click="nextPage" :disabled="disabled || currentIndex === _pageCount">
+      <t-icon-chevron-right></t-icon-chevron-right>
     </div>
     <!-- 跳转-->
     <template v-if="showJumper">
       <div :class="_jumperClass">
         {{ t(locale.jumpTo) }}
-        <t-input :class="_jumperInputClass" v-model="jumpIndex"
-                 @keydown.enter="jumpToPage" @blur="jumpToPage"/>
+        <t-input :class="_jumperInputClass" v-model="jumpIndex" @keydown.enter="jumpToPage" @blur="jumpToPage" />
         {{ t(locale.page) }}
       </div>
     </template>
@@ -95,10 +80,10 @@ import config from '../config';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
 import RenderComponent from '../utils/render-component';
-import TIconArrowLeft from '../icon/arrow-left';
-import TIconArrowRight from '../icon/arrow-right';
-import TIconDoubleLeft from '../icon/double-left';
-import TIconDoubleArrowRight from '../icon/double-arrow-right';
+import TIconChevronLeft from '../icon/chevron-left';
+import TIconChevronRight from '../icon/chevron-right';
+import TIconChevronLeftDouble from '../icon/chevron-left-double';
+import TIconChevronRightDouble from '../icon/chevron-right-double';
 import TIconEllipsis from '../icon/ellipsis';
 import TInput from '../input';
 import { Select } from '../select';
@@ -113,10 +98,10 @@ export default mixins(PaginationLocalReceiver).extend({
   name,
   components: {
     RenderComponent,
-    TIconArrowLeft,
-    TIconArrowRight,
-    TIconDoubleLeft,
-    TIconDoubleArrowRight,
+    TIconChevronLeft,
+    TIconChevronRight,
+    TIconChevronLeftDouble,
+    TIconChevronRightDouble,
     TIconEllipsis,
     TInput,
     Select,
@@ -238,6 +223,8 @@ export default mixins(PaginationLocalReceiver).extend({
       type: Number,
       default: 5,
     },
+    onChange: Function,
+    onPageSizeChange: Function,
   },
   data() {
     return {
@@ -301,7 +288,7 @@ export default mixins(PaginationLocalReceiver).extend({
     _btnWrapClass(): ClassName {
       return [`${name}__pager`];
     },
-    _btnMoreClass():  ClassName {
+    _btnMoreClass(): ClassName {
       return [
         `${name}__number`,
         `${name}__number--more`,
@@ -333,7 +320,7 @@ export default mixins(PaginationLocalReceiver).extend({
     },
     _pageCountOption(): Array<number> {
       const ans = [];
-      for (let i = 1;i <= this._pageCount;i++) {
+      for (let i = 1; i <= this._pageCount; i++) {
         ans.push(i);
       }
       return ans;
@@ -342,9 +329,7 @@ export default mixins(PaginationLocalReceiver).extend({
       const data = this.pageSizeOption as Array<number>;
       return data.find(v => v === this.pageSize)
         ? data
-        : data
-          .concat(this.pageSize)
-          .sort((a: number, b: number) => a - b);
+        : data.concat(this.pageSize).sort((a: number, b: number) => a - b);
     },
 
     curPageLeftCount(): number {
@@ -373,12 +358,8 @@ export default mixins(PaginationLocalReceiver).extend({
           start = this.currentIndex - this.curPageLeftCount;
           end = this.currentIndex + this.curPageRightCount;
         } else {
-          start = this.isPrevMoreShow
-            ? this._pageCount - this.foldedMaxPageBtn + 1
-            : 2;
-          end = this.isPrevMoreShow
-            ? this._pageCount - 1
-            : this.foldedMaxPageBtn;
+          start = this.isPrevMoreShow ? this._pageCount - this.foldedMaxPageBtn + 1 : 2;
+          end = this.isPrevMoreShow ? this._pageCount - 1 : this.foldedMaxPageBtn;
         }
       } else {
         start = 1;
@@ -410,15 +391,18 @@ export default mixins(PaginationLocalReceiver).extend({
         const prev = this.currentIndex;
         this.currentIndex = current;
         this.jumpIndex = current;
-        this.$emit(
-          'change',
-          current,
-          {
+        this.$emit('change', current, {
+          curr: current,
+          prev,
+          pageSize: this.pageSize,
+        });
+        if (typeof this.onChange === 'function') {
+          this.onChange(current, {
             curr: current,
             prev,
             pageSize: this.pageSize,
-          }
-        );
+          });
+        }
       }
     },
     prevPage(): void {
@@ -467,15 +451,18 @@ export default mixins(PaginationLocalReceiver).extend({
        * @param {Number} index 当前页
        */
       this.$emit('update:pageSize', pageSize);
-      this.$emit(
-        'pageSizeChange',
+      this.$emit('pageSizeChange', pageSize, {
+        curr: isIndexChange ? pageCount : this.currentIndex,
+        prev: this.currentIndex,
         pageSize,
-        {
+      });
+      if (typeof this.onPageSizeChange === 'function') {
+        this.onPageSizeChange(pageSize, {
           curr: isIndexChange ? pageCount : this.currentIndex,
           prev: this.currentIndex,
           pageSize,
-        }
-      );
+        });
+      }
       if (isIndexChange) {
         this.toPage(pageCount);
       }
