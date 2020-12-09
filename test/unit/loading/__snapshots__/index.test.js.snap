@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading <slot> <indicator> 1`] = `<span class="t-loading t-size-m"><svg class="t-icon t-icon-loading"><use xlink:href="#t-icon-loading"></use></svg></span>`;
