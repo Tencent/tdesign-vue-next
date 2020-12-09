@@ -1,7 +1,17 @@
 import { mount } from '@vue/test-utils';
 import Vue from 'vue';
 import { Select, OptionGroup, Option } from '@/src/select/index.ts';
-
+const options = [{
+  label: '苹果apple~~~~',
+  value: 'apple',
+}, {
+  label: '香蕉banana~~~',
+  value: 'banana',
+  disabled: true,
+}, {
+  label: '橘子orange~~~',
+  value: 'orange',
+}];
 // every component needs four parts: props/events/slots/functions.
 describe('Select', () => {
   // test props api
@@ -98,31 +108,6 @@ describe('Select', () => {
 
   // test events
   describe('@event', () => {
-    // it('visible-change', async () => {
-    //   const fn = jest.fn();
-    //   const value = 'apple';
-    //   const options = [{
-    //     label: '苹果apple~~~~',
-    //     value: 'apple',
-    //   }, {
-    //     label: '香蕉banana~~~',
-    //     value: 'banana',
-    //     disabled: true,
-    //   }, {
-    //     label: '橘子orange~~~',
-    //     value: 'orange',
-    //   }]
-    //   const wrapper = mount ({
-    //     render() {
-    //       return <Select onVisibleChange={fn} value={value} options={options}></Select>;
-    //     }
-    //   });
-    //   const selectWrapper = wrapper.find(Select);
-    //   selectWrapper.trigger('click');
-    //   await Vue.nextTick();
-    //   expect(fn).toHaveBeenCalled();
-    // });
-
     it('blur', async () => {
       const fn = jest.fn();
       const wrapper = mount({
@@ -164,17 +149,6 @@ describe('Select', () => {
 
     it('clear', async () => {
       const value = 'apple';
-      const options = [{
-        label: '苹果apple~~~~',
-        value: 'apple',
-      }, {
-        label: '香蕉banana~~~',
-        value: 'banana',
-        disabled: true,
-      }, {
-        label: '橘子orange~~~',
-        value: 'orange',
-      }];
       const wrapper = mount({
         render() {
           return <Select clearable={true} value={value} options={options}></Select>;
@@ -189,17 +163,6 @@ describe('Select', () => {
 
     it('remove', async () => {
       const value = ['apple'];
-      const options = [{
-        label: '苹果apple~~~~',
-        value: 'apple',
-      }, {
-        label: '香蕉banana~~~',
-        value: 'banana',
-        disabled: true,
-      }, {
-        label: '橘子orange~~~',
-        value: 'orange',
-      }];
       const wrapper = mount({
         render() {
           return <Select multiple={true} value={value} options={options}></Select>;
