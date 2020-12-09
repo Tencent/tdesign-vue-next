@@ -52,17 +52,17 @@
       <t-list-item>
         <t-list-item-meta avatar="undefined.png" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
         <template #action>
-          <li><t-icon-success-fill /></li>
-          <li><t-icon-success-fill /></li>
-          <li><t-icon-success-fill /></li>
+          <li><t-icon-check-circle-filled /></li>
+          <li><t-icon-check-circle-filled /></li>
+          <li><t-icon-check-circle-filled /></li>
         </template>
       </t-list-item>
       <t-list-item>
         <t-list-item-meta avatar="undefined.png" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
         <template #action>
-          <li><t-icon-success-fill /></li>
-          <li><t-icon-success-fill /></li>
-          <li><t-icon-success-fill /></li>
+          <li><t-icon-check-circle-filled /></li>
+          <li><t-icon-check-circle-filled /></li>
+          <li><t-icon-check-circle-filled /></li>
         </template>
       </t-list-item>
     </t-list>

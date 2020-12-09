@@ -9,7 +9,7 @@
           新建
         </t-button>
         <t-button
-          icon="upload"
+          icon="cloud-upload"
         >
           上传文件
         </t-button>
@@ -23,7 +23,7 @@
         </t-button>
         <t-button
           theme="primary"
-          icon="upload"
+          icon="cloud-download"
           shape="circle"
         >
         </t-button>

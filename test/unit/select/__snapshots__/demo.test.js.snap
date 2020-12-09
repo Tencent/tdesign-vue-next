@@ -48,7 +48,7 @@ exports[`Select base demo works fine 1`] = `
         </div>
          
         <svg
-          class="t-icon t-icon-chevron-down t-select-right-icon"
+          class="t-icon t-icon-chevron-down t-select-right-icon t-is-visible"
         >
           <use
             xlink:href="#t-icon-chevron-down"
