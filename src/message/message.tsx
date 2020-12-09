@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import { prefix } from '../config';
-import TIconPromptFill from '../icon/prompt_fill';
-import TIconSuccessFill from '../icon/success_fill';
-import TIconWarningFill from '../icon/warning_fill';
-import TIconHelpFill from '../icon/help_fill';
+import TIconInfoCircleFilled from '../icon/info-circle-filled';
+import TIconCheckCircleFilled from '../icon/check-circle-filled';
+import TIconErrorCircleFilled from '../icon/error-circle-filled';
+import TIconHelpFill from '../icon/help-circle-filled';
 import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
 import { THEME_LIST } from './const';
@@ -14,9 +14,9 @@ export default Vue.extend({
   name,
 
   components: {
-    TIconPromptFill,
-    TIconSuccessFill,
-    TIconWarningFill,
+    TIconInfoCircleFilled,
+    TIconCheckCircleFilled,
+    TIconErrorCircleFilled,
     TIconHelpFill,
     TIconLoadingFill,
     TIconClose,
@@ -87,7 +87,7 @@ export default Vue.extend({
         return this.$scopedSlots.closeBtn(null);
       }
       if (this.closeBtn === false) return;
-      return <t-icon-close nativeOnClick={this.close} class='t-message-close'/>;
+      return <t-icon-close nativeOnClick={this.close} class='t-message-close' />;
     },
     renderIcon() {
       if (this.icon === false) return;
@@ -96,10 +96,10 @@ export default Vue.extend({
         return this.$scopedSlots.icon(null);
       }
       const component = {
-        info: TIconPromptFill,
-        success: TIconSuccessFill,
-        warning: TIconWarningFill,
-        error: TIconWarningFill,
+        info: TIconInfoCircleFilled,
+        success: TIconCheckCircleFilled,
+        warning: TIconErrorCircleFilled,
+        error: TIconErrorCircleFilled,
         question: TIconHelpFill,
         loading: TIconLoadingFill,
       }[this.theme];
@@ -114,10 +114,10 @@ export default Vue.extend({
 
   render() {
     return (
-      <div class={ this.classes } onMouseenter={ this.clearTimer } onMouseleave={ this.setTimer }>
-        { this.renderIcon() }
-        { this.renderContent() }
-        { this.renderClose() }
+      <div class={this.classes} onMouseenter={this.clearTimer} onMouseleave={this.setTimer}>
+        { this.renderIcon()}
+        { this.renderContent()}
+        { this.renderClose()}
       </div>
     );
   },
