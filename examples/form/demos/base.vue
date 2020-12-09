@@ -1,8 +1,12 @@
 <template>
   <div>
-    <t-form :data="formData" :rules="rules">
+    <p>校验规则可以定义在 label</p>
+    <t-form :data="formData" :rules="rules" ref="form" @reset="onReset" @submit="onSubmit" scrollToFirstError="smooth">
       <t-form-item label="姓名" name='name'>
         <t-input v-model="formData.name"></t-input>
+      </t-form-item>
+      <t-form-item label="邮箱" name='email' :rules="[{ email: true, message: '格式必须为邮箱', type: 'error' }]">
+        <t-input v-model="formData.email"></t-input>
       </t-form-item>
       <t-form-item label="性别" name='gender'>
         <t-radio-group v-model="formData.gender" buttonStyle="solid">
@@ -25,19 +29,20 @@
         <t-button type="reset">重置</t-button>
       </t-form-item>
     </t-form>
-
   </div>
 </template>
 <script>
+const INITIAL_DATA = {
+  name: '',
+  email: '',
+  gender: '',
+  course: [],
+  isPostMessage: false,
+};
 export default {
   data() {
     return {
-      formData: {
-        name: '',
-        gender: '',
-        course: [],
-        isPostMessage: false,
-      },
+      formData: { ...INITIAL_DATA },
       courseOptions: [
         { label: '语文', value: '1' },
         { label: '数学', value: '2' },
@@ -46,9 +51,11 @@ export default {
       ],
       rules: {
         name: [
-          { required: true, message: '姓名必填' },
-          { email: true, message: '格式必须为邮箱' },
+          { required: true, message: '姓名必填', type: 'warning' },
         ],
+        // email: [
+        //   { email: true, message: '格式必须为邮箱', type: 'error' },
+        // ],
         gender: [
           { required: true, message: '性别必填' },
         ],
@@ -57,6 +64,21 @@ export default {
         ],
       },
     };
+  },
+
+  methods: {
+    onReset() {
+      this.formData = { ...INITIAL_DATA };
+    },
+    onSubmit({ result, firstError, e }) {
+      e.preventDefault();
+      if (result === true) {
+        this.$message.success('提交成功');
+      } else {
+        console.log('Errors: ', result);
+        this.$message.warning(firstError.message);
+      }
+    },
   },
 };
 </script>

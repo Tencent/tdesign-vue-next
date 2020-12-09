@@ -14,6 +14,8 @@ export interface ErrorObject {
   [key: string]: ValidateParams;
 }
 
+export type ValidateResult = boolean | ErrorObject;
+
 export interface FormProps {
   data: Array<FormData>;
   labelAlign: 'left' | 'right' | 'top';
@@ -23,7 +25,7 @@ export interface FormProps {
   requiredMark: boolean;
   scrollToFirstError: boolean;
   showErrorMessage: boolean;
-  onValidate: (validateResult: boolean | ErrorList) => void;
+  onValidate: (validateResult: ValidateResult) => void;
   onReset: () => void;
   onSubmit: () => void;
 }
@@ -51,8 +53,6 @@ export type ValidateRule = {
 export interface ValidateRules {
   [key: string]: Array<ValidateRule>;
 }
-
-export type ValidateResult = boolean | ErrorList;
 
 export type ValueType = any;
 
