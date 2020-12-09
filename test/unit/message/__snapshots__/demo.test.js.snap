@@ -65,7 +65,7 @@ exports[`Message offset demo works fine 1`] = `
 exports[`Message placement demo works fine 1`] = `
 <div>
   <p>
-    函数式调用-传入对象：this.$message.info({ content: '用户表示普通操作信息提示', placement: 'right-top' })
+    函数式调用-传入对象：this.$message.info({ content: '用户表示普通操作信息提示', placement: 'center' })
   </p>
    
   <p>
@@ -73,7 +73,7 @@ exports[`Message placement demo works fine 1`] = `
     placement 默认值：top。
     <br />
     
-    palcement 可选值：'top/center/left/left-top/right-top/right/right-bottom/bottom/left-bottom' 。
+    palcement 可选值：'center/top/left/right/bottom/top-left/top-right/bottom-left/bottom-right' 。
   
   </p>
    
@@ -82,13 +82,13 @@ exports[`Message placement demo works fine 1`] = `
   <button
     class="t-button t-button--line"
   >
-    top
+    center
   </button>
    
   <button
     class="t-button t-button--line"
   >
-    center
+    top
   </button>
    
   <button
@@ -100,25 +100,7 @@ exports[`Message placement demo works fine 1`] = `
   <button
     class="t-button t-button--line"
   >
-    left-top
-  </button>
-   
-  <button
-    class="t-button t-button--line"
-  >
-    right-top
-  </button>
-   
-  <button
-    class="t-button t-button--line"
-  >
     right
-  </button>
-   
-  <button
-    class="t-button t-button--line"
-  >
-    right-bottom
   </button>
    
   <button
@@ -130,7 +112,25 @@ exports[`Message placement demo works fine 1`] = `
   <button
     class="t-button t-button--line"
   >
-    left-bottom
+    top-left
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    top-right
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    bottom-left
+  </button>
+   
+  <button
+    class="t-button t-button--line"
+  >
+    bottom-right
   </button>
 </div>
 `;
