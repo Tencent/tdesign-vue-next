@@ -45,3 +45,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.t-input + .t-input{
+  margin-top: 16px;
+}
+</style>

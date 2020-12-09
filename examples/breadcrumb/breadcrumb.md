@@ -34,9 +34,6 @@
 ::: demo demos/with-arrow.vue
 :::
 
-::: demo demos/separatorFunction Function分隔符
-:::
-
 ### 属性配置
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
