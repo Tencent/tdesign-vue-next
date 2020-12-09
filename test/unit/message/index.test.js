@@ -3,10 +3,10 @@ import { Message } from '@/src/message/index.ts';
 import Button from '@/src/button/index.ts';
 import TIconClose from '@/src/icon/close';
 import TIconMore from '@/src/icon/more';
-import TIconPromptFill from '@/src/icon/prompt_fill';
-import TIconSuccessFill from '@/src/icon/success_fill';
-import TIconWarningFill from '@/src/icon/warning_fill';
-import TIconHelpFill from '@/src/icon/help_fill';
+import TIconInfoCircleFilled from '@/src/icon/info-circle-filled';
+import TIconCheckCircleFilled from '@/src/icon/check-circle-filled';
+import TIconErrorCircleFilled from '@/src/icon/error-circle-filled';
+import TIconHelpFill from '@/src/icon/help-circle-filled';
 import TIconLoadingFill from '@/src/icon/loading';
 
 // every component needs four parts: props/events/slots/functions.
@@ -14,10 +14,10 @@ describe('Message', () => {
   // test props api
   describe(':props', () => {
     const THEME_MAP = {
-      info: TIconPromptFill,
-      success: TIconSuccessFill,
-      warning: TIconWarningFill,
-      error: TIconWarningFill,
+      info: TIconInfoCircleFilled,
+      success: TIconCheckCircleFilled,
+      warning: TIconErrorCircleFilled,
+      error: TIconErrorCircleFilled,
       question: TIconHelpFill,
       loading: TIconLoadingFill,
     };
