@@ -1,14 +1,13 @@
 <template>
   <div :id="`${path}#default`" class='anchor-demo'>
     <t-anchor>
-      <t-anchor-item :href="`#${path}#default`" title="默认"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#bounds`" title="滚动区域判断"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#container`" title="自定义滚动区"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#anchor-target`" title="联动anchor-target">
-        <t-anchor-item :href="`#${path}#anchor-target-1`" title="创建签名"></t-anchor-item>
-        <t-anchor-item :href="`#${path}#anchor-target-2`" title="创建内容的正式模板并保存"></t-anchor-item>
-        <t-anchor-item :href="`#${path}#anchor-target-3`" title="为什么账户有余额, 但是发送短信返回1031错误码, 超过会省略省略省略省略?"></t-anchor-item>
-      </t-anchor-item>
+      <t-anchor-item :href="`#${path}#anchor-target-1`" title="定义"></t-anchor-item>
+      <t-anchor-item :href="`#${path}#anchor-target-2`" title="服务功能"></t-anchor-item>
+      <t-anchor-item :href="`#${path}#anchor-target-3`" title="使用指南"></t-anchor-item>
+      <t-anchor-item :href="`#${path}#anchor-target-4`" title="创建签名"></t-anchor-item>
+      <t-anchor-item :href="`#${path}#anchor-target-5`" title="创建内容"></t-anchor-item>
+      <t-anchor-item :href="`#${path}#anchor-target-6`" title="保密协议"></t-anchor-item>
+      <t-anchor-item :href="`#${path}#anchor-target-7`" title="其他"></t-anchor-item>
     </t-anchor>
   </div>
 </template>

@@ -17,12 +17,7 @@ describe('Anchor', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
   it('bounds demo works fine', () => {
-    const demo = require('@/examples/anchor/demos/bounds.vue').default;
-    const wrapper = mount(demo, props);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('container demo works fine', () => {
-    const demo = require('@/examples/anchor/demos/container.vue').default;
+    const demo = require('@/examples/anchor/demos/nested.vue').default;
     const wrapper = mount(demo, props);
     expect(wrapper.element).toMatchSnapshot();
   });

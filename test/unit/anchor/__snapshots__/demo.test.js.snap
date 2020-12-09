@@ -16,11 +16,11 @@ exports[`Anchor bounds demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#default"
+        href="#http://example.com#anchor-target-1"
         target="_self"
-        title="默认"
+        title="定义"
       >
-        默认
+        定义
       </a>
     </div>
      
@@ -29,11 +29,11 @@ exports[`Anchor bounds demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#bounds"
+        href="#http://example.com#anchor-target-2"
         target="_self"
-        title="滚动区域判断"
+        title="服务功能"
       >
-        滚动区域判断
+        服务功能
       </a>
     </div>
      
@@ -42,31 +42,18 @@ exports[`Anchor bounds demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#container"
+        href="#http://example.com#anchor-target-3"
         target="_self"
-        title="自定义滚动区"
+        title="使用指南"
       >
-        自定义滚动区
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#anchor-target"
-        target="_self"
-        title="联动anchor-target"
-      >
-        联动anchor-target
+        使用指南
       </a>
       <div
         class="t-anchor-item"
       >
         <a
           class="t-anchor-item_link"
-          href="#http://example.com#anchor-target-1"
+          href="#http://example.com#anchor-target-4"
           target="_self"
           title="创建签名"
         >
@@ -79,53 +66,25 @@ exports[`Anchor bounds demo works fine 1`] = `
       >
         <a
           class="t-anchor-item_link"
-          href="#http://example.com#anchor-target-2"
+          href="#http://example.com#anchor-target-5"
           target="_self"
-          title="创建内容的正式模板并保存"
+          title="创建内容"
         >
-          创建内容的正式模板并保存
-        </a>
-      </div>
-       
-      <div
-        class="t-anchor-item"
-      >
-        <a
-          class="t-anchor-item_link"
-          href="#http://example.com#anchor-target-3"
-          target="_self"
-          title="为什么账户有余额, 但是发送短信返回1031错误码, 超过会省略省略省略省略?"
-        >
-          为什么账户有余额, 但是发送短信返回1031错误码, 超过会省略省略省略省略?
+          创建内容
         </a>
       </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Anchor container demo works fine 1`] = `
-<div
-  class="anchor-demo anchor-container-demo"
-  id="http://example.com#container"
->
-  <div
-    class="t-anchor t-size-m"
-    id="http://example.com#default"
-  >
-    <div
-      class="t-anchor_line"
-    />
+     
     <div
       class="t-anchor-item"
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#content-1"
+        href="#http://example.com#anchor-target-6"
         target="_self"
-        title="content-1"
+        title="保密协议"
       >
-        content-1
+        保密协议
       </a>
     </div>
      
@@ -134,77 +93,12 @@ exports[`Anchor container demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#content-2"
+        href="#http://example.com#anchor-target-7"
         target="_self"
-        title="content-2"
+        title="其他"
       >
-        content-2
+        其他
       </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#content-3"
-        target="_self"
-        title="content-3"
-      >
-        content-3
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#content-4"
-        target="_self"
-        title="content-4"
-      >
-        content-4
-      </a>
-    </div>
-  </div>
-   
-  <div
-    id="anchor-container"
-  >
-    <div
-      class="anchor-content-1"
-      id="http://example.com#content-1"
-    >
-      anchor-content-1
-    </div>
-     
-    <div
-      class="anchor-content-2"
-      id="http://example.com#content-2"
-    >
-      anchor-content-2
-    </div>
-     
-    <div
-      class="anchor-content-3"
-      id="http://example.com#content-3"
-    >
-      anchor-content-3
-    </div>
-     
-    <div
-      class="anchor-content-4"
-      id="http://example.com#content-4"
-    >
-      anchor-content-4
-    </div>
-     
-    <div
-      class="anchor-content-5"
-      id="http://example.com#content-5"
-    >
-      anchor-content-5
     </div>
   </div>
 </div>
@@ -226,11 +120,11 @@ exports[`Anchor default demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#default"
+        href="#http://example.com#anchor-target-1"
         target="_self"
-        title="默认"
+        title="定义"
       >
-        默认
+        定义
       </a>
     </div>
      
@@ -239,11 +133,11 @@ exports[`Anchor default demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#bounds"
+        href="#http://example.com#anchor-target-2"
         target="_self"
-        title="滚动区域判断"
+        title="服务功能"
       >
-        滚动区域判断
+        服务功能
       </a>
     </div>
      
@@ -252,11 +146,11 @@ exports[`Anchor default demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#container"
+        href="#http://example.com#anchor-target-3"
         target="_self"
-        title="自定义滚动区"
+        title="使用指南"
       >
-        自定义滚动区
+        使用指南
       </a>
     </div>
      
@@ -265,194 +159,353 @@ exports[`Anchor default demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target"
+        href="#http://example.com#anchor-target-4"
         target="_self"
-        title="联动anchor-target"
+        title="创建签名"
       >
-        联动anchor-target
+        创建签名
       </a>
-      <div
-        class="t-anchor-item"
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-5"
+        target="_self"
+        title="创建内容"
       >
-        <a
-          class="t-anchor-item_link"
-          href="#http://example.com#anchor-target-1"
-          target="_self"
-          title="创建签名"
-        >
-          创建签名
-        </a>
-      </div>
-       
-      <div
-        class="t-anchor-item"
+        创建内容
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-6"
+        target="_self"
+        title="保密协议"
       >
-        <a
-          class="t-anchor-item_link"
-          href="#http://example.com#anchor-target-2"
-          target="_self"
-          title="创建内容的正式模板并保存"
-        >
-          创建内容的正式模板并保存
-        </a>
-      </div>
-       
-      <div
-        class="t-anchor-item"
+        保密协议
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-7"
+        target="_self"
+        title="其他"
       >
-        <a
-          class="t-anchor-item_link"
-          href="#http://example.com#anchor-target-3"
-          target="_self"
-          title="为什么账户有余额, 但是发送短信返回1031错误码, 超过会省略省略省略省略?"
-        >
-          为什么账户有余额, 但是发送短信返回1031错误码, 超过会省略省略省略省略?
-        </a>
-      </div>
+        其他
+      </a>
     </div>
   </div>
 </div>
 `;
 
 exports[`Anchor target demo works fine 1`] = `
-<div>
-  <p
-    style="margin-bottom: 40px;"
+<div
+  class="anchor-demo"
+  id="http://example.com#anchor-target"
+>
+  <h1
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-1"
   >
-    
-    请点击最上角最后三个锚点查看效果
-  
-  </p>
+    定义
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+      >
+        <use
+          xlink:href="#t-icon-file-copy"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h1>
    
-  <div
-    class="anchor-demo"
-    id="http://example.com#anchor-target"
+  <h2
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-2"
   >
-    <h1
-      class="t-anchor-target"
-      id="http://example.com#anchor-target-1"
+    服务功能
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
     >
-       创建签名 
-      <div
-        class="t-popup-reference t-copy"
-        style="position: relative;"
+       
+      <svg
+        class="t-icon t-icon-file-copy"
       >
-         
-        <svg
-          class="t-icon t-icon-file-copy"
-        >
-          <use
-            xlink:href="#t-icon-file-copy"
-          />
-        </svg>
+        <use
+          xlink:href="#t-icon-file-copy"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
         <div
-          class="resize-sensor"
-          dir="ltr"
+          class="resize-sensor-expand"
           style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
         >
           <div
-            class="resize-sensor-expand"
-            style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-          >
-            <div
-              style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-            />
-          </div>
-          <div
-            class="resize-sensor-shrink"
-            style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-          >
-            <div
-              style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-            />
-          </div>
-        </div>
-      </div>
-    </h1>
-     
-    <h2
-      class="t-anchor-target"
-      id="http://example.com#anchor-target-2"
-    >
-       创建内容的正式模板并保存 
-      <div
-        class="t-popup-reference t-copy"
-        style="position: relative;"
-      >
-         
-        <svg
-          class="t-icon t-icon-file-copy"
-        >
-          <use
-            xlink:href="#t-icon-file-copy"
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
           />
-        </svg>
+        </div>
         <div
-          class="resize-sensor"
-          dir="ltr"
+          class="resize-sensor-shrink"
           style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
         >
           <div
-            class="resize-sensor-expand"
-            style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-          >
-            <div
-              style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-            />
-          </div>
-          <div
-            class="resize-sensor-shrink"
-            style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-          >
-            <div
-              style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-            />
-          </div>
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
         </div>
       </div>
-    </h2>
-     
-    <h3
-      class="t-anchor-target"
-      id="http://example.com#anchor-target-3"
+    </div>
+  </h2>
+   
+  <h3
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-3"
+  >
+    使用指南
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
     >
-       为什么账户有余额, 但是发送短信返回1031错误码, 超过会省略省略省略省略?
-      <div
-        class="t-popup-reference t-copy"
-        style="position: relative;"
+       
+      <svg
+        class="t-icon t-icon-file-copy"
       >
-         
-        <svg
-          class="t-icon t-icon-file-copy"
-        >
-          <use
-            xlink:href="#t-icon-file-copy"
-          />
-        </svg>
+        <use
+          xlink:href="#t-icon-file-copy"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
         <div
-          class="resize-sensor"
-          dir="ltr"
+          class="resize-sensor-expand"
           style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
         >
           <div
-            class="resize-sensor-expand"
-            style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-          >
-            <div
-              style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-            />
-          </div>
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
           <div
-            class="resize-sensor-shrink"
-            style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-          >
-            <div
-              style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-            />
-          </div>
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
         </div>
       </div>
-    </h3>
-  </div>
+    </div>
+  </h3>
+   
+  <h3
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-4"
+  >
+    创建签名
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+      >
+        <use
+          xlink:href="#t-icon-file-copy"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h3>
+   
+  <h3
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-5"
+  >
+    创建内容
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+      >
+        <use
+          xlink:href="#t-icon-file-copy"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h3>
+   
+  <h3
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-6"
+  >
+    保密协议
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+      >
+        <use
+          xlink:href="#t-icon-file-copy"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h3>
+   
+  <h3
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-7"
+  >
+    其他
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+      >
+        <use
+          xlink:href="#t-icon-file-copy"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h3>
 </div>
 `;
