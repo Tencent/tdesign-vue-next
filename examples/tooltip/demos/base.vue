@@ -1,5 +1,5 @@
 <template>
-  <t-tooltip content="带箭头的文字提示">
+  <t-tooltip content="文字提示仅展示文本内容" placement="top">
     <t-button>默认文字提示</t-button>
   </t-tooltip>
 </template>
