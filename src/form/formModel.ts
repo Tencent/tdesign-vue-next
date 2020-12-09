@@ -1,75 +1,6 @@
 import isEmail from 'validator/es/lib/isEmail';
 import isEmpty from 'lodash/isEmpty';
-
-export interface FormData {
-  [key: string]: any;
-}
-
-export interface ErrorItem {
-  field: string;
-  name: string;
-  message: string;
-}
-
-export type ErrorList = Array<ErrorItem>;
-
-export interface ErrorObject {
-  [key: string]: ValidateParams;
-}
-
-export interface FormProps {
-  data: Array<FormData>;
-  labelAlign: 'left' | 'right' | 'top';
-  layout: 'vertical' | 'inline';
-  size: 'medium' | 'large';
-  colon: boolean;
-  requiredMark: boolean;
-  scrollToFirstError: boolean;
-  showErrorMessage: boolean;
-  onValidate: (validateResult: boolean | ErrorList) => void;
-  onReset: () => void;
-  onSubmit: () => void;
-}
-
-export interface FormItemProps {
-  name: string;
-  tooltip: string;
-  label: string;
-  for: string;
-}
-
-export type InnerValidator = 'required' | 'email' | 'date' | 'boolean' | 'number' | 'max' | 'min' | 'length' | 'idcard' | 'telnumber' | 'url' | 'enum' | 'pattern' | 'validator';
-
-export type CustomValidator = (val: ValueType) => boolean | Promise<boolean>
-
-export type Validator = InnerValidator | CustomValidator;
-
-export interface ValidateRule {
-  validator: Validator;
-  message: string;
-  trigger: 'change' | 'blur';
-  type: 'error' | 'warning';
-}
-
-export interface ValidateRules {
-  [key: string]: Array<ValidateRule>;
-}
-
-export type ValidateResult = boolean | ErrorList;
-
-export type ValueType = any;
-
-export interface ValidateParams {
-  [key: string]: any;
-}
-
-export interface ValidateOptions {
-  field: string;
-  value: ValueType;
-  rules: Array<ValidateRule>;
-}
-
-export type CustomValidate = (val: ValueType) => boolean | Promise<boolean>;
+import { ValueType, ValidateRule, ValidateOptions, ErrorObject } from './type';
 
 /**
  * 为避免引入文件较多，组件仅内置部分校验方法，更多校验业务方自行实现
@@ -81,7 +12,7 @@ const VALIDATE_MAP = {
   required: (val: ValueType, op: boolean): boolean => {
     if (!op) return true;
     return typeof val === 'object'
-      ? isEmpty(val)
+      ? !isEmpty(val)
       : !['', undefined, null].includes(val);
   },
   email: (val: ValueType) => isEmail(val, {}),

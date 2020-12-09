@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
-// import { ValidateRule } from './formModel';
+import { ValidateRule, ValidateRules } from './type';
 
 const name = `${prefix}-form-item`;
 
@@ -9,7 +9,6 @@ export default Vue.extend({
 
   props: {
     name: String,
-    tooltip: [String, Function],
     label: [String, Function],
     for: String,
     // rules: Array as PropType<Array<ValidateRule>>,
@@ -22,16 +21,21 @@ export default Vue.extend({
     },
     needRequiredMark(): boolean {
       // @ts-ignore
-      return this.$parent && this.$parent.requiredMark;
+      const allowMark = this.$parent && this.$parent.requiredMark;
+      // console.log('innerRules:', this.innerRules);
+      const isRequired = this.innerRules.filter(rule => rule.required).length > 1;
+      // const isRequired = true;
+      return Boolean(allowMark && isRequired);
     },
-    // innerRules(): Array<ValidateRule> {
-    //   // @ts-ignore
-    //   if (this.$parent && this.$parent.rules) {
-    //     // @ts-ignore
-    //     return this.$parent.rules[this.name] || this.rules;
-    //   }
-    //   return this.rules;
-    // },
+    innerRules(): Array<ValidateRule> {
+      const defaultRule: Array<ValidateRule> = [];
+      // @ts-ignore
+      const rules: ValidateRules = this.$parent && this.$parent.rules;
+      if (rules) {
+        return rules[this.name] || defaultRule;
+      }
+      return defaultRule;
+    },
   },
 
   methods: {

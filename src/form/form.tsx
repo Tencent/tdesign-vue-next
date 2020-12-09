@@ -1,7 +1,8 @@
 import Vue, { PropType, VNode } from 'vue';
 import { prefix } from '../config';
 import { CLASSNAME_SIZE } from '../utils/classnames';
-import { FormData, ErrorList, ValidateRules, ValidateOptions, validate } from './formModel';
+import { validate } from './formModel';
+import { FormData, ErrorList, ValidateRules, ValidateOptions } from './type';
 
 const name = `${prefix}-form`;
 
