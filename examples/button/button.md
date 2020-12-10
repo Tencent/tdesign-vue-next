@@ -1,11 +1,11 @@
-## Button 按钮
+# Button 按钮
 
 按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。
 
 ### 何时使用
 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
 
-### 1.组件类型
+## 1.组件类型
 在TDesign中，拥有 5 种不同形式的按钮：基础按钮、图标按钮、幽灵按钮、Block按钮和按钮组。
 
 ### 1.1.基础按钮
@@ -73,7 +73,7 @@
 ::: demo demos/button-group
 :::
 
-### Button Props
+## Button Props
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
 |theme|Enum|default|N|类型可选值为default primary danger text ghost|
@@ -83,7 +83,7 @@
 |shape|Enum|square|N|按钮边角类型，square，round，circle|
 |loading|Boolean|false|N|是否显示为加载状态|
 
-### Button Slots
+## Button Slots
 | 插槽名称| 说明 |
 |-----|-----|
 | icon | 图标 |
