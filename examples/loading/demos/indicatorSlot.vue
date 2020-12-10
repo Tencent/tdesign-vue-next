@@ -2,7 +2,7 @@
   <div>
     <t-loading :loading="true">
       <template v-slot:indicator>
-        <i class="t-icon t-icon-loading"></i>
+        <t-icon name="loading"></t-icon>
       </template>
     </t-loading>
   </div>
