@@ -1,5 +1,5 @@
 <template>
-  <div class="t-design-demo-item--grid">
+  <div class="tdesign-demo-item--grid">
     <span>align left</span>
     <t-row justify="start">
       <t-col :span="2">

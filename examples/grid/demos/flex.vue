@@ -1,5 +1,5 @@
 <template>
-  <div class="t-design-demo-item--grid">
+  <div class="tdesign-demo-item--grid">
     <t-row>
       <t-col :flex="2">
         <div>2 / 5</div>
