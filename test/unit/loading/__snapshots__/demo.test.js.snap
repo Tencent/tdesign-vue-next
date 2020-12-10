@@ -148,9 +148,13 @@ exports[`Loading indicatorSlot demo works fine 1`] = `
   <span
     class="t-loading t-size-m"
   >
-    <i
+    <svg
       class="t-icon t-icon-loading"
-    />
+    >
+      <use
+        xlink:href="#t-icon-loading"
+      />
+    </svg>
   </span>
 </div>
 `;
