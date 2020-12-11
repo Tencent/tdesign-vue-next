@@ -28,9 +28,9 @@ export default Vue.extend({
     },
     size: {
       type: String,
-      default: 'middle',
+      default: 'medium',
       validator(v: string): boolean {
-        return ['large', 'middle', 'small'].indexOf(v) > -1;
+        return ['large', 'medium', 'small'].indexOf(v) > -1;
       },
     },
     disabled: {
@@ -148,7 +148,7 @@ export default Vue.extend({
     return (
       <div {...compWrap}>
         <span {...reduceProps}>
-          { decreaseIcon() }
+          {decreaseIcon()}
         </span>
 
         <div {...inputWrapProps}>
@@ -156,7 +156,7 @@ export default Vue.extend({
         </div>
 
         <div {...addProps}>
-          { increaseIcon() }
+          {increaseIcon()}
         </div>
       </div>
     );
