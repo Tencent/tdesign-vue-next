@@ -28,3 +28,4 @@ export * from './tag';
 export * from './upload';
 export * from './dropdown';
 export * from './divider';
+export * from './badge';
