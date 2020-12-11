@@ -1,7 +1,7 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
-import TIconPromptFill from '../icon/prompt_fill';
-import TIconSuccessFill from '../icon/success_fill';
+import TIconInfoCircleFilled from '../icon/info-circle-filled';
+import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import TIconClose from '../icon/close';
 
 const name = `${prefix}-notification`;
@@ -9,8 +9,8 @@ const name = `${prefix}-notification`;
 export default Vue.extend({
   name,
   components: {
-    TIconPromptFill,
-    TIconSuccessFill,
+    TIconInfoCircleFilled,
+    TIconCheckCircleFilled,
     TIconClose,
   },
   props: {
@@ -59,8 +59,8 @@ export default Vue.extend({
 
       if (this.theme) {
         const iconType = this.theme === 'success'
-          ? (<t-icon-success-fill class={`t-is-${this.theme}`} />)
-          : (<t-icon-prompt-fill class={`t-is-${this.theme}`} />);
+          ? (<t-icon-check-circle-filled class={`t-is-${this.theme}`} />)
+          : (<t-icon-info-circle-filled class={`t-is-${this.theme}`} />);
         icon = (<div class='t-notification__icon'>
           {iconType}
         </div>);
