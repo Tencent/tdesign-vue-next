@@ -51,7 +51,7 @@ exports[`Select base demo works fine 1`] = `
           class="t-icon t-icon-arrow-down t-select-right-icon"
         >
           <use
-            xlink:href="#t-icon-arrow-down"
+            xlink:href="#t-icon-chevron-down"
           />
         </svg>
          
