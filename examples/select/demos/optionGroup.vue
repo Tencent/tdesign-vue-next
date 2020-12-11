@@ -35,24 +35,24 @@ export default {
   data() {
     return {
       options: [{
-        label: '苹果apple~~~~',
+        label: '苹果',
         value: 'apple',
       }, {
-        label: '香蕉banana~~~',
+        label: '香蕉',
         value: 'banana',
       }, {
-        label: '橘子orange~~~',
+        label: '橘子',
         value: 'orange',
       }],
       options2: [{
         label: '茄子',
-        value: '1',
+        value: 'eggplant',
       }, {
         label: '西红柿',
-        value: '2',
+        value: 'tomato',
       }, {
-        label: '白菜',
-        value: '3',
+        label: '卷心菜',
+        value: 'cabbage',
       }],
       value: '',
     };
