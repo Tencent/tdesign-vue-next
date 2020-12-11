@@ -115,8 +115,8 @@ export default Vue.extend({
         },
       ],
     };
-    const decreaseIcon = () => this.mode === 'column' ? <arrow-up size={this.size} /> : <remove size={this.size} />;
-    const increaseIcon = () => this.mode === 'column' ? <arrow-down size={this.size} /> : <add size={this.size} />;
+    const decreaseIcon = () => this.mode === 'column' ? <arrow-down size={this.size} /> : <remove size={this.size} />;
+    const increaseIcon = () => this.mode === 'column' ? <arrow-up size={this.size} /> : <add size={this.size} />;
 
     const inputWrapProps = {
       class: [
