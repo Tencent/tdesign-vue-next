@@ -33,7 +33,6 @@ export default Vue.extend({
   data() {
     return {
       store: null,
-      updatedMap: null,
       nodesMap: null,
       treeNodes: [],
     };
@@ -172,7 +171,6 @@ export default Vue.extend({
       const {
         store,
         treeNodes,
-        updatedMap,
         $scopedSlots: scopedSlots,
       } = this;
 
@@ -190,13 +188,17 @@ export default Vue.extend({
       let index = 0;
       while (index < treeNodes.length) {
         const nodeView = treeNodes[index];
-        const { node } = nodeView.componentInstance;
-        if (!store.getNode(node)) {
-          // 视图列表中的节点，在树中不存在
-          const nodeViewIndex = treeNodes.indexOf(nodeView);
-          treeNodes.splice(nodeViewIndex, 1);
-          nodeView.componentInstance.$destroy();
-          nodesMap.delete(node.value);
+        if (nodeView && nodeView.componentInstance) {
+          const { node } = nodeView.componentInstance;
+          if (node && !store.getNode(node)) {
+            // 视图列表中的节点，在树中不存在
+            const nodeViewIndex = treeNodes.indexOf(nodeView);
+            treeNodes.splice(nodeViewIndex, 1);
+            nodeView.componentInstance.$destroy();
+            nodesMap.delete(node.value);
+          } else {
+            index += 1;
+          }
         } else {
           index += 1;
         }
@@ -213,11 +215,6 @@ export default Vue.extend({
               // 节点存在，但位置与可视节点位置冲突，需要更新节点位置
               treeNodes.splice(nodeViewIndex, 1);
               treeNodes.splice(index, 0, nodeView);
-            }
-            if (updatedMap && updatedMap.get(node.value)) {
-              // 只有可视节点需要更新，只强制更新必要节点
-              // 插入和移除的节点会影响父节点的图标状态与选中状态
-              nodeView.componentInstance.$forceUpdate();
             }
           } else {
             // 节点可视，且不存在视图，创建该节点视图并插入到当前位置
@@ -366,14 +363,12 @@ export default Vue.extend({
       const event = new Event('update');
       const {
         nodes,
-        map,
       } = info;
       const state: EventState = {
         event,
         nodes,
       };
       this.$emit('update', state);
-      this.updatedMap = map;
       this.refresh();
     },
     handleClick(state: EventState): void {
