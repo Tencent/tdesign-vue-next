@@ -16,16 +16,19 @@
       :load="load"
     >
       <template #icon="{node}">
-        <t-icon v-if="node.children && !node.expanded" name="rectangle-add" />
-        <t-icon v-else-if="node.children && node.expanded" name="rectangle-remove" />
-        <t-icon v-else name="double-arrow-right" />
+        <t-icon v-if="node.children && !node.expanded" name="caret-right" />
+        <t-icon v-else-if="node.children && node.expanded" name="caret-down" />
+        <t-icon v-else name="attach" />
       </template>
     </t-tree>
   </div>
 </template>
 
 <script>
+import TIcon from '@/src/icon/svg';
+
 export default {
+  components: { TIcon },
   data() {
     return {
       items: [{

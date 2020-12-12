@@ -1,8 +1,8 @@
 import Vue, { VNode, CreateElement } from 'vue';
 import TIconChevronRight from '../icon/chevron-right';
 import TIconLoading from '../icon/loading';
+import SvgIcon from '../icon/svg';
 import TCheckBox from '../checkbox';
-import Icon from '../icon/iconfont';
 
 import {
   TreeItemProps,
@@ -152,7 +152,7 @@ export default Vue.extend({
           node,
         });
         if (typeof iconNode === 'string') {
-          iconNode = (<Icon name={iconNode}></Icon>);
+          iconNode = (<SvgIcon name={iconNode}></SvgIcon>);
         }
       }
       if (node.children && node.loading && node.expanded && icon !== false) {
