@@ -1,20 +1,14 @@
+export type ValueType = any;
+
 export interface FormData {
   [key: string]: any;
 }
 
-export interface ErrorItem {
-  field: string;
-  name: string;
-  message: string;
-}
+export type ErrorList = Array<ValidateRule>;
 
-export type ErrorList = Array<ErrorItem>;
-
-export interface ErrorObject {
-  [key: string]: ValidateParams;
-}
-
-export type ValidateResult = boolean | ErrorObject;
+export interface ValidateResult {
+  [key: string]: boolean | ErrorList;
+};
 
 export interface FormProps {
   data: Array<FormData>;
@@ -54,16 +48,11 @@ export interface ValidateRules {
   [key: string]: Array<ValidateRule>;
 }
 
-export type ValueType = any;
-
-export interface ValidateParams {
-  [key: string]: any;
-}
-
 export interface ValidateOptions {
-  field: string;
   value: ValueType;
   rules: Array<ValidateRule>;
 }
 
 export type CustomValidate = (val: ValueType) => boolean | Promise<boolean>;
+
+export type FormValidateResult = boolean | ValidateResult;

@@ -1,7 +1,7 @@
 import Vue, { PropType, VNode } from 'vue';
 import { prefix } from '../config';
 import { validate } from './formModel';
-import { ValidateRule, ValidateRules, ValidateResult } from './type';
+import { ValidateRule, ValidateRules, ValidateResult, ErrorList } from './type';
 import { FORM_ITEM_CLASS_PREFIX } from './const';
 
 const name = `${prefix}-form-item`;
@@ -18,7 +18,7 @@ export default Vue.extend({
 
   data() {
     return {
-      errorList: [],
+      errorList: [] as ErrorList,
     };
   },
 
@@ -55,21 +55,14 @@ export default Vue.extend({
 
   methods: {
     validate(): Promise<ValidateResult> {
-      const result = validate([{
-        field: this.name,
-        value: this.value,
-        rules: this.innerRules,
-      }]);
       return new Promise((resolve) => {
-        if (result instanceof Promise) {
-          result.then((r) => {
-            this.errorList = r[this.name];
-            resolve(r);
+        validate(this.value, this.innerRules)
+          .then((r) => {
+            this.errorList = r;
+            resolve({
+              [this.name]: r.length === 0 ? true : r,
+            });
           });
-        } else {
-          this.errorList = result[this.name];
-          resolve(result);
-        }
       });
     },
     getLabel(): string | VNode | VNode[] {
