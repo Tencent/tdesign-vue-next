@@ -1,4 +1,6 @@
 import Vue, { VNode } from 'vue';
+import upperFirst from 'lodash/upperFirst';
+
 import {
   TreeStore,
   TreeFilterOptions,
@@ -19,7 +21,6 @@ import {
 import {
   getRole,
 } from './util';
-
 
 export default Vue.extend({
   name: TREE_NAME,
@@ -440,21 +441,11 @@ export default Vue.extend({
     setItem(value: TreeNodeValue, options: TreeNodeProps): void {
       const node = this.getItem(value);
       const spec = options;
-      if (node) {
-        if (spec) {
-          if ('expanded' in options) {
-            this.setExpanded(node, spec.expanded);
-            delete spec.expanded;
-          }
-          if ('actived' in options) {
-            this.setActived(node, spec.actived);
-            delete spec.actived;
-          }
-          if ('checked' in options) {
-            this.setChecked(node, spec.checked);
-            delete spec.checked;
-          }
-        }
+      if (node && spec) {
+        ['expanded', 'actived', 'checked'].forEach((name) => {
+          this[`set${upperFirst(name)}`](node, spec[name]);
+          delete spec[name];
+        });
         node.set(spec);
       }
     },
