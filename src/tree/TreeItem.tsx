@@ -1,5 +1,5 @@
 import Vue, { VNode, CreateElement } from 'vue';
-import TIconArrowRight from '../icon/arrow-right';
+import TIconChevronRight from '../icon/chevron-right';
 import TIconLoading from '../icon/loading';
 import TCheckBox from '../checkbox';
 import Icon from '../icon/iconfont';
@@ -141,7 +141,7 @@ export default Vue.extend({
           });
         } else {
           if (node.children) {
-            iconNode = (<TIconArrowRight/>);
+            iconNode = (<TIconChevronRight/>);
           } else {
             iconNode = '';
           }
