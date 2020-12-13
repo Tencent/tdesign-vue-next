@@ -317,6 +317,7 @@ export default Vue.extend({
       const state: EventState = {
         event,
         node,
+        path: node.getPath(),
       };
       this.$emit('active', actived, state);
       return actived;
@@ -330,6 +331,7 @@ export default Vue.extend({
       const state: EventState = {
         event,
         node,
+        path: node.getPath(),
       };
       this.$emit('expand', expanded, state);
       return expanded;
@@ -343,6 +345,7 @@ export default Vue.extend({
       const state: EventState = {
         event,
         node,
+        path: node.getPath(),
       };
       this.$emit('change', checked, state);
       return checked;
@@ -357,6 +360,7 @@ export default Vue.extend({
         event,
         node,
         data,
+        path: node.getPath(),
       };
       this.$emit('load', state);
     },

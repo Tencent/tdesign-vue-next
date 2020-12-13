@@ -177,6 +177,7 @@ export interface EventState {
   event?: Event;
   node?: TreeNode;
   nodes?: Array<TreeNode>;
+  path?: Array<TreeNode>;
   data?: any;
   map?: Map<string, boolean>;
 };
