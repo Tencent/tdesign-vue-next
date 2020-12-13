@@ -10,7 +10,6 @@ import {
 } from './interface';
 import {
   getTNode,
-  getLineModel,
 } from './util';
 import {
   TREE_NODE_NAME,
@@ -21,7 +20,10 @@ export default Vue.extend({
   name: TREE_NODE_NAME,
   props: TreeItemProps,
   data() {
-    return {};
+    return {
+      depth: 1,
+      delay: '0ms',
+    };
   },
   methods: {
     getStyles(): string {
@@ -56,58 +58,53 @@ export default Vue.extend({
       const {
         node,
         line,
-        icon,
       } = this;
       const scopedSlots = this.getScopedSlots();
 
-      let hasIcon = false;
-      if (icon === true) {
-        if (!node.vmIsLeaf) {
-          hasIcon = true;
-        }
-      } else {
-        const iconNode = getTNode(icon, {
-          createElement,
-          node,
-        });
-        if (iconNode) {
-          hasIcon = true;
-        }
-      }
-
       let lineNode = null;
-      const lineNodes: VNode[] = [];
       if (line === true) {
         if (scopedSlots?.line) {
           lineNode = scopedSlots.line({
             node,
           });
         } else {
-          const parents = node.getParents();
-          const nodes = [node].concat(parents);
-          nodes.forEach((item, index) => {
-            const lineModel = getLineModel(nodes, item, index);
-            const lineClassList = [];
-            lineClassList.push({
-              [CLASS_NAMES.lineIcon]: hasIcon && index === 0,
-              [CLASS_NAMES.lineTop]: lineModel.top,
-              [CLASS_NAMES.lineRight]: lineModel.right,
-              [CLASS_NAMES.lineBottom]: lineModel.bottom,
-              [CLASS_NAMES.lineLeft]: lineModel.left,
-            });
+          if (node.parent && node.tree) {
+            const { tree } = node;
+            const lineClasses = [];
+            lineClasses.push(CLASS_NAMES.line);
+            if (node.vmIsLeaf) {
+              lineClasses.push(CLASS_NAMES.lineIsLeaf);
+            }
+            const unitDuration = this.duration || 300;
+            const opacityDuration = unitDuration / 2;
+            const curIndex = tree.getVisibleIndex(node);
+            const parentIndex = tree.getVisibleIndex(node.parent);
+            const depth = curIndex - parentIndex;
+            const deltaDepth = depth - this.depth;
+            this.depth = depth;
+            if (deltaDepth < 0) {
+              // 如果是收缩动画，要先等待渐隐动画完毕
+              this.delay = `${opacityDuration}ms`;
+            } else if (deltaDepth > 0) {
+              // 如果是扩张动画，先等待半个个单位高度的动画时间
+              const spaceTime = (0.5 / Math.abs(deltaDepth)) * opacityDuration;
+              this.delay = `${spaceTime}ms`;
+            }
 
-            const lineItemNode = (
-              <dd
-                class={lineClassList}
-              ></dd>
+            // 动画的瑕疵来自于 dom 插入回流导致的时间差
+            // todo: 延迟这个样式的生效时间，到回流结束之后
+            const styles = {
+              '--depth': depth,
+              'transition-delay': this.delay,
+              'transition-duration': `${opacityDuration}ms`,
+            };
+
+            lineNode = (
+              <span
+                class={lineClasses}
+                style={styles}
+              ></span>
             );
-            lineNodes.unshift(lineItemNode);
-          });
-
-          if (lineNodes.length > 0) {
-            lineNode = lineNodes;
-          } else {
-            lineNode = null;
           }
         }
       } else {
@@ -115,14 +112,6 @@ export default Vue.extend({
           createElement,
           node,
         });
-      }
-      if (lineNode) {
-        lineNode = (
-          <dl
-            class={CLASS_NAMES.lines}
-            role="line"
-          >{lineNode}</dl>
-        );
       }
       return lineNode;
     },

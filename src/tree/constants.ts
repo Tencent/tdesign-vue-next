@@ -25,10 +25,6 @@ export const CLASS_NAMES = {
   treeIcon: `${tree}__icon`,
   treeSpace: `${tree}__space`,
   treeOperations: `${tree}__operations`,
-  lines: `${tree}__lines`,
-  lineIcon: `${tree}__line--icon`,
-  lineLeft: `${tree}__line--left`,
-  lineTop: `${tree}__line--top`,
-  lineBottom: `${tree}__line--bottom`,
-  lineRight: `${tree}__line--right`,
+  line: `${tree}__line`,
+  lineIsLeaf: `${tree}__line--leaf`,
 };

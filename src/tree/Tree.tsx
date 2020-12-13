@@ -36,6 +36,7 @@ export default Vue.extend({
       store: null,
       nodesMap: null,
       treeNodes: [],
+      transitionCD: null,
     };
   },
   computed: {
@@ -151,6 +152,8 @@ export default Vue.extend({
         label,
         line,
         operations,
+        transition,
+        duration,
       } = this;
       const treeItem = (
         <TreeItem
@@ -161,6 +164,8 @@ export default Vue.extend({
           icon={icon}
           label={label}
           line={line}
+          transition={transition}
+          duration={duration}
           operations={operations}
           onClick={this.handleClick}
           onChange={this.handleChange}
@@ -323,6 +328,12 @@ export default Vue.extend({
       return actived;
     },
     toggleExpanded(node: TreeNode): string[] {
+      if (this.transitionCD) return;
+      if (this.transition) {
+        this.transitionCD = setTimeout(() => {
+          this.transitionCD = null;
+        }, this.duration);
+      }
       return this.setExpanded(node, !node.isExpanded());
     },
     setExpanded(node: TreeNode, isExpanded: boolean): string[] {
