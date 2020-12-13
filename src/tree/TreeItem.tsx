@@ -62,7 +62,7 @@ export default Vue.extend({
 
       let hasIcon = false;
       if (icon === true) {
-        if (node.children) {
+        if (!node.vmIsLeaf) {
           hasIcon = true;
         }
       } else {
@@ -140,7 +140,7 @@ export default Vue.extend({
             node,
           });
         } else {
-          if (node.children) {
+          if (!node.vmIsLeaf) {
             iconNode = (<TIconChevronRight/>);
           } else {
             iconNode = '';
@@ -155,7 +155,7 @@ export default Vue.extend({
           iconNode = (<SvgIcon name={iconNode}></SvgIcon>);
         }
       }
-      if (node.children && node.loading && node.expanded && icon !== false) {
+      if (!node.vmIsLeaf && node.loading && node.expanded && icon !== false) {
         iconNode = (<TIconLoading/>);
       }
       iconNode = (
