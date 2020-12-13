@@ -38,6 +38,7 @@ export default Vue.extend({
       },
     },
     colon: Boolean,
+    labelWidth: [Number, String],
     requiredMark: {
       type: Boolean,
       default: true,
@@ -111,14 +112,14 @@ export default Vue.extend({
           });
       });
     },
-    submitHanlder(e: Event) {
+    submitHandler(e: Event) {
       this.validate().then((r) => {
         this.emitEvent('submit', {
           result: r,
           firstError: this.getFirstError(r),
           e,
         });
-      });;
+      });
     },
     resetHandler(e: Event) {
       this.emitEvent('reset', { e });
@@ -127,7 +128,7 @@ export default Vue.extend({
 
   render(): VNode {
     const on = {
-      submit: this.submitHanlder,
+      submit: this.submitHandler,
       reset: this.resetHandler,
     };
     return (

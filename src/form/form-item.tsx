@@ -24,7 +24,26 @@ export default Vue.extend({
 
   computed: {
     classes(): ClassName {
-      return ['t-form-item', FORM_ITEM_CLASS_PREFIX + this.name];
+      return ['t-form__item', 't-row', FORM_ITEM_CLASS_PREFIX + this.name];
+    },
+    labelClasses(): ClassName {
+      return ['t-form__label', 't-col', 't-col-1'];
+    },
+    contentClasses(): ClassName {
+      return ['t-form__controls', 't-col'];
+    },
+    labelProps(): any {
+      const labelProps: any = {};
+      // @ts-ignore
+      const labelWidth = this.$parent && this.$parent.labelWidth;
+      if (labelWidth) {
+        labelProps.style = `min-width: ${labelWidth}px;`;
+      }
+      const label = this.getLabel();
+      if (!labelWidth && !label) {
+        labelProps.style = `${labelProps.style ? labelProps.style : ''}display: none;`;
+      }
+      return labelProps;
     },
     value(): any {
       // @ts-ignore
@@ -32,7 +51,7 @@ export default Vue.extend({
     },
     hasColon(): boolean {
       // @ts-ignore
-      return this.$parent && this.$parent.colon;
+      return this.$parent && this.$parent.colon && this.getLabel();
     },
     needRequiredMark(): boolean {
       // @ts-ignore
@@ -94,11 +113,13 @@ export default Vue.extend({
   render(): VNode {
     return (
       <div class={this.classes}>
-        <label for={this.for}>
-          { this.needRequiredMark && <span>*</span> }
-          {this.getLabel()} {this.hasColon && '：'}
-        </label>
-        <div>{this.$slots.default}</div>
+        <div class={this.labelClasses} { ...this.labelProps }>
+          <label for={this.for}>
+            { this.needRequiredMark && <span>*</span> }
+            {this.getLabel()} {this.hasColon && ':'}
+          </label>
+        </div>
+        <div class={this.contentClasses}>{this.$slots.default}</div>
         {this.renderErrorInfo()}
       </div>
     );
