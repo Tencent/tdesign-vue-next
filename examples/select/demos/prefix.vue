@@ -24,14 +24,18 @@ export default {
   data() {
     return {
       options: [{
-        label: '苹果apple~~~~',
-        value: 'apple',
+        label: '上海',
+        value: 'shanghai',
       }, {
-        label: '香蕉banana~~~',
-        value: 'banana',
+        label: '北京',
+        value: 'beijing',
+        disabled: true,
       }, {
-        label: '橘子orange~~~',
-        value: 'orange',
+        label: '深圳',
+        value: 'shenzhen',
+      }, {
+        label: '这是一个名字很长的城市名称',
+        value: 'long',
       }],
       value: '',
     };
