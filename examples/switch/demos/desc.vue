@@ -4,11 +4,11 @@
       <t-switch v-model="checked" active-content="开" inactive-content="关">
       </t-switch>
       <t-switch active-content="开" inactive-content="关">
-    </t-switch>
+      </t-switch>
     </div>
     <div class="tdesign-demo-block">
       <t-switch v-model="renderChecked" :active-content="renderActiveContent"
-              :inactive-content="renderInactiveContent">
+                :inactive-content="renderInactiveContent">
       </t-switch>
       <t-switch :active-content="renderActiveContent"
                 :inactive-content="renderInactiveContent">

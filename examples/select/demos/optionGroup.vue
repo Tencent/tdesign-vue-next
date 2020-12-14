@@ -6,7 +6,7 @@
       @change="handleChange"
       @visible-change="visibleChange"
     >
-       <t-option-group label="热门城市">
+      <t-option-group label="热门城市">
         <t-option
           v-for="(item, index) in options"
           :value="item.value"
@@ -44,7 +44,7 @@
 export default {
   data() {
     return {
-       options: [{
+      options: [{
         label: '北京',
         value: 'beijing',
       }, {

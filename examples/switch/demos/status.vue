@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       checked1: true,
-      checked2: true
+      checked2: true,
     };
   },
 };

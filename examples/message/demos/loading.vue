@@ -20,6 +20,10 @@ export default {
       return this.status1 === 'loading' && this.status2 === 'loading';
     },
   },
+  mounted() {
+    this.fn1();
+    this.fn2();
+  },
   methods: {
     fn1() {
       setTimeout(() => {
@@ -37,10 +41,6 @@ export default {
       this.fn1();
       this.fn2();
     },
-  },
-  mounted() {
-    this.fn1();
-    this.fn2();
   },
 };
 </script>
