@@ -14,3 +14,9 @@
     </t-badge>
   </div>
 </template>
+
+<style>
+.t-badge + .t-badge {
+  margin-left: 16px;
+}
+</style>

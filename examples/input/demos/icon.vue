@@ -3,12 +3,13 @@
     <t-input
       prefix-icon="lock-on"
       suffix-icon="prompt"
+      type="password"
       @click-prefix-icon="onPrefixIconClick"
       @click-suffix-icon="onSuffixIconClick"
     />
     <!-- 使用 function 或 slot 的形式定义 icon -->
-    <t-input :prefix-icon="renderPrefixIcon" :suffix-icon="renderSuffixIcon" />
-    <t-input>
+    <t-input type="password" :prefix-icon="renderPrefixIcon" :suffix-icon="renderSuffixIcon" />
+    <t-input type="password">
       <template v-slot:prefix-icon>
         <t-icon name="lock-on"></t-icon>
       </template>
@@ -44,3 +45,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.t-input + .t-input{
+  margin-top: 16px;
+}
+</style>

@@ -27,11 +27,11 @@ export default Vue.extend({
     icon: [String, Function],
     content: [String, Function],
     cancelText: {
-      type: String,
+      type: [String, Function],
       default: '取消',
     },
     confirmText: {
-      type: String,
+      type: [String, Function],
       default: '确定',
     },
   },
@@ -43,7 +43,12 @@ export default Vue.extend({
   },
   computed: {
     iconName(): string {
-      return this.theme === 'default' ? '' : 'info-circle-filled';
+      const iconMap = {
+        info: 'info-circle-filled',
+        warning: 'error-circle-filled',
+        error: 'error-circle-filled',
+      };
+      return iconMap[this.theme] || '';
     },
     iconColor(): string {
       let color = '';
@@ -103,23 +108,27 @@ export default Vue.extend({
       if (this.$slots.cancelText) {
         return this.$slots.cancelText;
       }
+      if (typeof this.cancelText === 'function') {
+        return this.cancelText();
+      }
       return (
         <Button size='small'
-          theme='link'
-          style='color: #222'
-          onclick={this.handleCancel}
-        >{this.cancelText}</Button>
+          onclick={ this.handleCancel }
+        >{ this.cancelText }</Button>
       );
     },
     renderConfirm(): JsxNode {
       if (this.$slots.confirmText) {
         return this.$slots.confirmText;
       }
+      if (typeof this.confirmText === 'function') {
+        return this.confirmText();
+      }
       return (
         <Button size='small'
-          theme="link"
-          onclick={this.handleConfirm}
-        >{this.confirmText}</Button>
+          theme="primary"
+          onclick={ this.handleConfirm }
+        >{ this.confirmText }</Button>
       );
     },
   },

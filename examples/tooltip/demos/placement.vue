@@ -1,10 +1,9 @@
 <template>
-  <div class="tdesign-tooltip-placement">
+  <div class="container">
     <t-tooltip
       class="placement-top"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="top"
-      :overlayStyle="{ width: '200px' }"
       visibleArrow
     >
       <t-button>top</t-button>
@@ -13,7 +12,6 @@
       class="placement-topLeft"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="topLeft"
-      :overlayStyle="{ width: '200px' }"
       visibleArrow
     >
       <t-button>topLeft</t-button>
@@ -21,7 +19,6 @@
     <t-tooltip
       class="placement-topRight"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      :overlayStyle="{ width: '200px' }"
       placement="topRight"
       visibleArrow
     >
@@ -30,7 +27,6 @@
     <t-tooltip
       class="placement-bottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      :overlayStyle="{ width: '200px' }"
       placement="bottom"
       visibleArrow
     >
@@ -40,7 +36,6 @@
       class="placement-bottomLeft"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="bottomLeft"
-      :overlayStyle="{ width: '200px' }"
       visibleArrow
     >
       <t-button>bottomLeft</t-button>
@@ -48,7 +43,6 @@
     <t-tooltip
       class="placement-bottomRight"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      :overlayStyle="{ width: '200px' }"
       placement="bottomRight"
       visibleArrow
     >
@@ -57,7 +51,6 @@
     <t-tooltip
       class="placement-left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      :overlayStyle="{ width: '200px' }"
       placement="left"
       visibleArrow
     >
@@ -66,7 +59,6 @@
     <t-tooltip
       class="placement-leftTop"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      :overlayStyle="{ width: '200px' }"
       placement="leftTop"
       visibleArrow
     >
@@ -75,7 +67,6 @@
     <t-tooltip
       class="placement-leftBottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      :overlayStyle="{ width: '200px' }"
       placement="leftBottom"
       visibleArrow
     >
@@ -84,7 +75,6 @@
     <t-tooltip
       class="placement-right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      :overlayStyle="{ width: '200px' }"
       placement="right"
       visibleArrow
     >
@@ -93,7 +83,6 @@
     <t-tooltip
       class="placement-rightTop"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      :overlayStyle="{ width: '200px' }"
       placement="rightTop"
       visibleArrow
     >
@@ -102,7 +91,6 @@
     <t-tooltip
       class="placement-rightBottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      :overlayStyle="{ width: '200px' }"
       placement="rightBottom"
       visibleArrow
     >
@@ -110,3 +98,76 @@
     </t-tooltip>
   </div>
 </template>
+
+<style>
+.container {
+  margin: 0 auto;
+  width: 500px;
+  height: 260px;
+  position: relative;
+}
+.t-popup {
+	max-width: 200px;
+}
+.placement-top {
+  position: absolute;
+  top: 0;
+  left: 42%;
+}
+.placement-topLeft {
+  position: absolute;
+  top: 0;
+  left: 70px;
+}
+.placement-topRight {
+  position: absolute;
+  top: 0;
+  right: 70px;
+}
+.placement-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 42%;
+}
+.placement-bottomLeft {
+  position: absolute;
+  bottom: 0;
+  left: 70px;
+}
+.placement-bottomRight {
+  position: absolute;
+  bottom: 0;
+  right: 70px;
+}
+.placement-left {
+  position: absolute;
+  left: 0;
+  top: 42%;
+}
+.placement-leftTop {
+  position: absolute;
+  left: 0;
+  top: 50px;
+}
+.placement-leftBottom {
+  position: absolute;
+  left: -0;
+  bottom: 50px;
+}
+.placement-right {
+  position: absolute;
+  right: 0;
+  top: 42%;
+}
+.placement-rightTop {
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+.placement-rightBottom {
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+}
+</style>
+
