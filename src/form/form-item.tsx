@@ -27,10 +27,18 @@ export default Vue.extend({
       return ['t-form__item', 't-row', FORM_ITEM_CLASS_PREFIX + this.name];
     },
     labelClasses(): ClassName {
-      return ['t-form__label', 't-col', 't-col-1'];
+      const labelClasses: Array<string> = ['t-form__label', 't-col', 't-col-1'];
+      if (this.needRequiredMark) {
+        labelClasses.push('t-form__label--required');
+      }
+      if (this.hasColon) {
+        labelClasses.push('t-form__label--colon');
+      }
+      return labelClasses;
     },
     contentClasses(): ClassName {
-      return ['t-form__controls', 't-col'];
+      const getErrorClass: Array<any> = this.getErrorClasses;
+      return ['t-form__controls', 't-col', ...getErrorClass];
     },
     labelProps(): any {
       const labelProps: any = {};
@@ -64,6 +72,24 @@ export default Vue.extend({
       const rules: ValidateRules = this.$parent && this.$parent.rules;
       return (rules && rules[this.name]) || (this.rules || []);
     },
+    // 错误信息取第一个错误进行展示
+    getErrorClasses(): Array<any> {
+      // @ts-ignore
+      if (!this.$parent.showErrorMessage) return [];
+      const list = this.errorList;
+      if (list && list[0]) {
+        const type = list[0].type || 'error';
+        const classes = [
+          {
+            't-is-error': type === 'error',
+            't-is-warning': type === 'warning',
+            't-input__extra': true,
+          },
+        ];
+        return classes;
+      }
+      return [];
+    },
   },
 
   watch: {
@@ -92,20 +118,11 @@ export default Vue.extend({
       }
       return this.label;
     },
-    // 错误信息取第一个错误进行展示
     renderErrorInfo(): VNode {
-      // @ts-ignore
-      if (!this.$parent.showErrorMessage) return;
-      const list = this.errorList;
-      if (list && list[0]) {
-        const type = list[0].type || 'error';
-        const classes = [
-          {
-            't-is-error': type === 'error',
-            't-is-warning': type === 'warning',
-          },
-        ];
-        return <p class={classes}>{list[0].message}</p>;
+      const getErrorClass: Array<any> = this.getErrorClasses;
+      if (getErrorClass.length) {
+        const list = this.errorList;
+        return <span class={getErrorClass}>{list[0].message}</span>;
       }
     },
   },
@@ -115,12 +132,15 @@ export default Vue.extend({
       <div class={this.classes}>
         <div class={this.labelClasses} { ...this.labelProps }>
           <label for={this.for}>
-            { this.needRequiredMark && <span>*</span> }
-            {this.getLabel()} {this.hasColon && ':'}
+            {this.getLabel()}
           </label>
         </div>
-        <div class={this.contentClasses}>{this.$slots.default}</div>
-        {this.renderErrorInfo()}
+        <div class={this.contentClasses}>
+          <div class='t-form__controls--content'>
+            {this.$slots.default}
+          </div>
+          {this.renderErrorInfo()}
+        </div>
       </div>
     );
   },
