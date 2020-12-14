@@ -1,16 +1,24 @@
 # Layout 布局
 用于组织网页的框架结构。
 
-::: demo demos/aside1 侧边栏导航布局
+### 侧边栏导航布局
+
+::: demo demos/aside1
 ::: 
 
-::: demo demos/aside2 侧边栏导航布局（带header）
+### 侧边栏导航布局（带header）
+
+::: demo demos/aside2 
 ::: 
 
-::: demo demos/aside3 侧边栏导航布局（侧栏在右侧）
+### 侧边栏导航布局（侧栏在右侧）
+
+::: demo demos/aside3 
 ::: 
 
-::: demo demos/top 顶部导航布局
+### 顶部导航布局
+
+::: demo demos/top 
 :::
 
 ### 属性配置

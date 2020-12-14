@@ -1,31 +1,58 @@
 ## Loading 加载 
+定义：显示和提示页面和区块的加载中状态，出现时有动效。
 
-::: demo demos/base 默认
+### 何时使用
+- 页面全局处于等待数据加载中，合适的加载动效有助于提升用户体验。
+
+- 页面局部处于等待异步数据或正在渲染过程时，合适的加载动效会有助于缓解用户的焦虑。
+
+## 1.组件类型
+### 1.1.仅图标加载
+定义 - 加载过程中只有图标显示
+
+使用场景 - 该组件为基础组件，适用于打开页面、操作完成后等待页面的全局/局部加载的场景。
+::: demo demos/base
 :::
 
-::: demo demos/size 大小
-:::
+### 1.2.仅文字加载
+定义 - 加载过程中只有文字显示
 
-::: demo demos/indicatorSlot slot 加载符
-:::
+使用场景 - 该组件使用于用户对加载没有清晰认知的打开页面、操作完成后等待页面的全局/局部加载的场景。
 
 ::: demo demos/indicatorFunc function 加载符
 :::
 
-::: demo demos/text 文字加载
+### 1.3. 文字和图标共同显示加载
+定义 - 加载过程中有文字和图标共同显示
+
+使用场景 - 该组件使用于特殊场景的情况，文字可根据开发者自行更改的打开页面、操作完成后等待页面的全局/局部加载的场景。
+
+::: demo demos/text
 :::
 
-::: demo demos/wrap 有包裹
+### 大小
+
+::: demo demos/size 
 :::
 
-::: demo demos/delay 有延时
+### slot 加载符
+::: demo demos/indicatorSlot 
 :::
 
-::: demo demos/fullscreen 全屏加载
+### 有包裹
+::: demo demos/wrap 
 :::
 
+### 有延时
+::: demo demos/delay 
+:::
 
-::: demo demos/service 函数方式调用
+### 全屏加载
+::: demo demos/fullscreen 
+:::
+
+### 函数方式调用
+::: demo demos/service 
 :::
 
 ### 属性配置
