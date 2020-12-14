@@ -3,6 +3,7 @@ import TIconChevronRight from '../icon/chevron-right';
 import TIconLoading from '../icon/loading';
 import SvgIcon from '../icon/svg';
 import TCheckBox from '../checkbox';
+import TreeNode from '../../common/js/tree/TreeNode';
 
 import {
   TreeItemProps,
@@ -19,12 +20,6 @@ import {
 export default Vue.extend({
   name: TREE_NODE_NAME,
   props: TreeItemProps,
-  data() {
-    return {
-      depth: 1,
-      delay: '0ms',
-    };
-  },
   methods: {
     getStyles(): string {
       const { level } = this.node;
@@ -69,34 +64,32 @@ export default Vue.extend({
           });
         } else {
           if (node.parent && node.tree) {
-            const { tree } = node;
+            const {
+              vmIsLeaf,
+              vmIsFirst,
+              level,
+            } = node;
             const lineClasses = [];
             lineClasses.push(CLASS_NAMES.line);
-            if (node.vmIsLeaf) {
+            if (vmIsLeaf) {
               lineClasses.push(CLASS_NAMES.lineIsLeaf);
             }
-            const unitDuration = this.duration || 300;
-            const opacityDuration = unitDuration / 2;
-            const curIndex = tree.getVisibleIndex(node);
-            const parentIndex = tree.getVisibleIndex(node.parent);
-            const depth = curIndex - parentIndex;
-            const deltaDepth = depth - this.depth;
-            this.depth = depth;
-            if (deltaDepth < 0) {
-              // 如果是收缩动画，要先等待渐隐动画完毕
-              this.delay = `${opacityDuration}ms`;
-            } else if (deltaDepth > 0) {
-              // 如果是扩张动画，先等待半个个单位高度的动画时间
-              const spaceTime = (0.5 / Math.abs(deltaDepth)) * opacityDuration;
-              this.delay = `${spaceTime}ms`;
+            if (vmIsFirst) {
+              lineClasses.push(CLASS_NAMES.lineIsFirst);
             }
 
-            // 动画的瑕疵来自于 dom 插入回流导致的时间差
-            // todo: 延迟这个样式的生效时间，到回流结束之后
+            const shadowStyles: string[] = [];
+            const parents = node.getParents();
+            parents.pop();
+            parents.forEach((pnode: TreeNode, index: number) => {
+              if (!pnode.vmIsLast) {
+                shadowStyles.push(`calc(-${index + 1} * var(--space)) 0 var(--color)`);
+              }
+            });
+
             const styles = {
-              '--depth': depth,
-              'transition-delay': this.delay,
-              'transition-duration': `${opacityDuration}ms`,
+              '--level': level,
+              'box-shadow': shadowStyles.join(','),
             };
 
             lineNode = (

@@ -27,4 +27,5 @@ export const CLASS_NAMES = {
   treeOperations: `${tree}__operations`,
   line: `${tree}__line`,
   lineIsLeaf: `${tree}__line--leaf`,
+  lineIsFirst: `${tree}__line--first`,
 };

@@ -139,10 +139,6 @@ export const TreeProps = {
     type: [Function, String],
     default: '',
   },
-  duration: {
-    type: Number,
-    default: 300,
-  },
 };
 
 export const TreeItemProps = {
@@ -174,14 +170,6 @@ export const TreeItemProps = {
   operations: {
     type: [Function, String],
     default: '',
-  },
-  transition: {
-    type: Boolean,
-    default: true,
-  },
-  duration: {
-    type: Number,
-    default: 300,
   },
 };
 

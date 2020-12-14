@@ -50,6 +50,8 @@ export default {
                 label: '2.1.1.1.2',
               }],
             }],
+          }, {
+            label: '2.1.2',
           }],
         }, {
           label: '2.2',
