@@ -4,9 +4,8 @@ exports[`Breadcrumb-item base demo works fine 1`] = `
 <div
   class="t-breadcrumb"
 >
-  <a
+  <div
     class="t-breadcrumb__item t-size-m light"
-    href="javascript:;"
   >
     <span>
       首页
@@ -14,13 +13,19 @@ exports[`Breadcrumb-item base demo works fine 1`] = `
     <span
       class="t-breadcrumb__separator"
     >
-      /
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+      >
+        <use
+          xlink:href="#t-icon-chevron-right"
+        />
+      </svg>
     </span>
-  </a>
+  </div>
    
-  <a
+  <div
     class="t-breadcrumb__item t-size-m light t-is-current"
-    href="javascript:;"
   >
     <span>
       面包屑1
@@ -28,7 +33,7 @@ exports[`Breadcrumb-item base demo works fine 1`] = `
     <span
       class="t-breadcrumb__separator"
     />
-  </a>
+  </div>
 </div>
 `;
 
@@ -36,9 +41,8 @@ exports[`Breadcrumb-item base demo works fine 2`] = `
 <div
   class="t-breadcrumb"
 >
-  <a
+  <div
     class="t-breadcrumb__item t-size-m light"
-    href="javascript:;"
   >
     <span>
       首页
@@ -46,13 +50,19 @@ exports[`Breadcrumb-item base demo works fine 2`] = `
     <span
       class="t-breadcrumb__separator"
     >
-      /
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+      >
+        <use
+          xlink:href="#t-icon-chevron-right"
+        />
+      </svg>
     </span>
-  </a>
+  </div>
    
-  <a
+  <div
     class="t-breadcrumb__item t-size-m light t-is-current"
-    href="javascript:;"
   >
     <span>
       面包屑1
@@ -60,6 +70,6 @@ exports[`Breadcrumb-item base demo works fine 2`] = `
     <span
       class="t-breadcrumb__separator"
     />
-  </a>
+  </div>
 </div>
 `;

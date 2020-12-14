@@ -1,3 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Breadcrumb <slot> <separator> 1`] = `<div class="t-breadcrumb"><a href="javascript:;" class="t-breadcrumb__item t-size-l light"><span>面包屑1</span><span class="t-breadcrumb__separator">/</span></a><a href="javascript:;" class="t-breadcrumb__item t-size-l light t-is-current"><span>面包屑2</span><span class="t-breadcrumb__separator"></span></a></div>`;
+exports[`Breadcrumb <slot> <separator> 1`] = `
+<div class="t-breadcrumb">
+  <div class="t-breadcrumb__item t-size-l light"><span>面包屑1</span><span class="t-breadcrumb__separator"><svg class="t-icon t-icon-chevron-right" color="rgba(0,0,0,.3)"><use xlink:href="#t-icon-chevron-right"></use></svg></span></div>
+  <div class="t-breadcrumb__item t-size-l light t-is-current"><span>面包屑2</span><span class="t-breadcrumb__separator"></span></div>
+</div>
+`;

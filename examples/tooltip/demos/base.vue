@@ -1,5 +1,13 @@
 <template>
-  <t-tooltip content="文字提示仅展示文本内容">
-    <t-button>默认文字提示</t-button>
+  <t-tooltip content="不带箭头的文字提示">
+    <t-button>不带箭头的文字提示</t-button>
   </t-tooltip>
 </template>
+<style>
+.tooltip .t-tooltip {
+  margin-right: 20px;
+}
+.t-tooltip-content {
+  max-width: 200px;
+}
+</style>

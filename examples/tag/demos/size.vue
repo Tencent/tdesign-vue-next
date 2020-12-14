@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tag-size">
+  <div class="tag-demo">
     <div class="tdesign-demo-block">
       <t-tag size="small">标签 小</t-tag>
       <t-tag>标签 中</t-tag>
@@ -12,3 +12,11 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.tag-demo .tdesign-demo-block {
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+}
+</style>

@@ -5,7 +5,7 @@ exports[`Dialog base demo works fine 1`] = `
   <button
     class="t-button t-button--primary"
   >
-    显示对话框
+    基础确认对话框
   </button>
    
   <div
@@ -375,72 +375,6 @@ exports[`Dialog position demo works fine 1`] = `
       >
         <div>
           自定义偏移量的对话框
-        </div>
-      </div>
-      <div
-        class="t-dialog__footer"
-      >
-        <div>
-          <button
-            class="t-button t-button--line"
-          >
-            取消
-          </button>
-          <button
-            class="t-button t-button--primary"
-          >
-            确认
-          </button>
-        </div>
-      </div>
-      <span
-        class="t-dialog__close"
-      >
-        <svg
-          class="t-icon t-icon-close"
-          name="close"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Dialog standalone demo works fine 1`] = `
-<div>
-  <div
-    class="standalone-dialog t-dialog-ctx v-transfer-dom"
-    style="z-index: 0;"
-  >
-    <div
-      class="t-dialog-mask t-dialog-mask--hidden"
-    />
-    <div
-      class="t-dialog t-dialog--default t-dialog--top"
-    >
-      <div
-        class="t-dialog__header"
-      >
-        <h5
-          class="title"
-        >
-          对话框标题
-        </h5>
-      </div>
-      <div
-        class="t-dialog__body"
-      >
-        <div>
-          对话框内容
         </div>
       </div>
       <div

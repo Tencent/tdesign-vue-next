@@ -1,31 +1,49 @@
-## grid 
+# Grid 栅格
+栅格是以规则的网格阵列来指导和规范网页中的版面布局以及信息分布，提高界面内布局的一致性，节约成本。
 
+### 基本使用
 
-::: demo demos/base 基本使用
+::: demo demos/base 
 :::
 
-::: demo demos/gutter 区块间隔
+### 区块间隔
+
+::: demo demos/gutter 
 :::
 
-::: demo demos/offset 左右偏移
+### 左右偏移
+
+::: demo demos/offset 
 :::
 
-::: demo demos/sort 排序
+### 排序
+
+::: demo demos/sort 
 :::
 
-::: demo demos/order 次序
+### 次序
+
+::: demo demos/order 
 :::
 
-::: demo demos/halign 排版
+### 排版
+
+::: demo demos/halign 
 :::
 
-::: demo demos/valign 对齐
+### 对齐
+
+::: demo demos/valign 
 :::
 
-::: demo demos/flex flex
+### flex
+
+::: demo demos/flex
 :::
 
-::: demo demos/responsive 响应式布局
+### 响应式布局
+
+::: demo demos/responsive 
 :::
 
 ### 属性配置

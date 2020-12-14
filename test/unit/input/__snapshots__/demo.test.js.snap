@@ -41,6 +41,30 @@ exports[`Input addon demo works fine 1`] = `
       .com
     </span>
   </div>
+   
+  <div
+    class="t-addon t-addon--prepend t-addon--append"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      http://
+    </span>
+    <div
+      class="t-input"
+    >
+      <input
+        class="t-input__inner"
+        placeholder="请输入内容"
+        type="text"
+      />
+    </div>
+    <span
+      class="t-addon__append"
+    >
+      .com
+    </span>
+  </div>
 </div>
 `;
 
@@ -80,6 +104,109 @@ exports[`Input group demo works fine 1`] = `
 <div
   class="tdesign-demo-item--input__input-box"
 >
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+        style="margin-left: -1px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div
+      class="t-input-group t-input-group--seperate"
+    >
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <span
+        style="margin-left: 5px; line-height: 32px;"
+      >
+        -
+      </span>
+       
+      <div
+        class="t-input"
+        style="width: 100px; margin-left: 5px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+       
+      <div
+        class="t-input"
+        style="width: 100px;"
+      >
+        <input
+          class="t-input__inner"
+          type="text"
+        />
+      </div>
+    </div>
+  </div>
+   
   <div>
     <div
       class="t-input-group t-input-group--seperate"
@@ -142,32 +269,9 @@ exports[`Input group demo works fine 1`] = `
         />
       </div>
        
-      <div
-        class="t-input"
+      <span
+        style="line-height: 32px;"
       >
-        <input
-          class="t-input__inner"
-          type="text"
-        />
-      </div>
-    </div>
-  </div>
-   
-  <div>
-    <div
-      class="t-input-group t-input-group--seperate"
-    >
-      <div
-        class="t-input"
-        style="width: 100px;"
-      >
-        <input
-          class="t-input__inner"
-          type="text"
-        />
-      </div>
-       
-      <span>
          - 
       </span>
        
@@ -225,7 +329,7 @@ exports[`Input icon demo works fine 1`] = `
     </span>
     <input
       class="t-input__inner"
-      type="text"
+      type="password"
     />
     <span
       class="t-input__suffix"
@@ -256,7 +360,7 @@ exports[`Input icon demo works fine 1`] = `
     </span>
     <input
       class="t-input__inner"
-      type="text"
+      type="password"
     />
     <span
       class="t-input__suffix"
@@ -287,7 +391,7 @@ exports[`Input icon demo works fine 1`] = `
     </span>
     <input
       class="t-input__inner"
-      type="text"
+      type="password"
     />
     <span
       class="t-input__suffix"

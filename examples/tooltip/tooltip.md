@@ -1,10 +1,21 @@
-## Tooltip 文字提示
+# Tooltip 文字提示
 
-::: demo demos/base 默认
+用于文字提示的气泡框
+
+### 何时使用
+鼠标移入需要展示文字解释说明时
+
+## 1. 组件类型
+### 1.1 带箭头的文字提示
+
+::: demo demos/arrow
 :::
-::: demo demos/arrow 带箭头
+
+### 1.2 不带箭头的文字提示
+::: demo demos/base
 :::
-::: demo demos/customize 自定义主题色
+
+::: demo demos/customize 可自定义主题色
 :::
 ::: demo demos/placement 基础用法
 :::

@@ -39,19 +39,38 @@
 ::: demo demos/base
 :::
 
-::: demo demos/status 状态
+### 1.2.图标按钮
+定义：图标按钮分 图标+文字、纯图标+底色和纯图标 3种按钮。
+
+使用场景：通过图标可增强识别性，直观理解。
+
+备注：图标需高度识别；使用纯图标+底色或纯图标按钮时，建议配合tooltip显示操作含义。
+
+::: demo demos/icon 
 :::
 
-::: demo demos/theme 类型
+### 1.3.幽灵按钮
+定义：幽灵按钮将按钮的内容反色，背景变为透明，一般是底色透明。
+
+使用场景：常用于有色背景上，例如 banner 图等。
+
+::: demo demos/ghost
 :::
 
-::: demo demos/icon 图标按钮
+### 1.4.Block按钮
+定义：block 按钮在宽度上充满其所在的父容器（无padding和margin值）。
+
+使用场景：该按钮常见于移动端和一些表单场景中。
+
+::: demo demos/block
 :::
 
-::: demo demos/size 尺寸
-:::
+### 1.5.按钮组
+定义：按钮组就是指两个或两个以上的按钮排布在一起，显示多个相关操作。
 
-::: demo demos/block 块级
+使用场景：常见的按钮组合如“确定/取消”、“上一步/下一步”和表格头部操作等。
+
+::: demo demos/button-group
 :::
 
 ## Button Props

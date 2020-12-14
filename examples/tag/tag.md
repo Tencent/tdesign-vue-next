@@ -1,31 +1,70 @@
 ## Tag 标签
 
-::: demo demos/default 默认
+定义：标签常用于标记、分类和选择。
+
+### 何时使用
+
+- 用户标记事物的属性和维度
+- 进行分类
+
+## 1.组件类型
+
+在TDesign中，拥有4种不同形式的按钮：基础标签、带图标标签、可删除标签、可选择标签。
+
+### 1.1 基础标签
+
+定义：默认的标签样式
+
+使用场景：默认标签适用于常规表单。可自定义描边、填充、颜色、圆角等样式
+
+::: demo demos/default 
 :::
 
-::: demo demos/theme 主题&效果
+### 1.2 带图标的标签
+
+定义：在标签内嵌入图标
+
+使用场景：用图标来辅助标签分类，或表达标签的属性
+
+::: demo demos/icon 
 :::
 
-::: demo demos/closable 可删除标签
+### 1.3 可删除和添加标签
+
+定义：标签可删除或添加
+
+使用场景：可删除标签分两种：隐藏叉和显示叉，添加标签可组合输入框组件使用
+
+::: demo demos/closable 
 :::
 
-::: demo demos/icon 图标标签
+### 1.4 可选择标签
+
+定义：标签有已选和未选两种状态，可以通过点击标签来切换
+
+使用场景：可选择标签常用于多个标签的选择场景，类似checkbox的效果，点击切换选中效果，常用于人群标签选择、行业、类目筛选等
+
+::: demo demos/checkable 
 :::
 
-::: demo demos/disabled 失效标签（只针对于默认主题，其它主题不生效）
+
+### 1.5 尺寸
+
+::: demo demos/size 
 :::
 
-::: demo demos/checkable 可选标签（只针对于默认主题，其它主题不生效）
+
+### 1.6 形状
+
+::: demo demos/shape 
 :::
 
-::: demo demos/long-text 超长文本省略标签
+### 1.7 主题
+
+::: demo demos/theme
 :::
 
-::: demo demos/size 尺寸
-:::
 
-::: demo demos/shape 形状
-:::
 
 ### Tag Props
 
