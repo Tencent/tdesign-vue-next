@@ -8,7 +8,7 @@
 </template>
 
 <style scoped>
-.t-notification + .t-notification{
+.t-notification + .t-notification {
   margin-top: 20px;
 }
 </style>

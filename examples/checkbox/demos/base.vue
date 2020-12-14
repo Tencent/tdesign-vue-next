@@ -1,5 +1,15 @@
 <template>
-  <div class="tdesign-checkbox-base">
-    <t-checkbox>Checkbox</t-checkbox>
+  <div>
+    <t-checkbox>未选中项</t-checkbox>
+    <t-checkbox>未选悬停项</t-checkbox>
+    <t-checkbox :defaultChecked="true">选中项</t-checkbox>
+    <t-checkbox disabled>未选禁用项</t-checkbox>
+    <t-checkbox disabled :defaultChecked="true">选中禁用项</t-checkbox>
   </div>
 </template>
+
+<style scoped>
+.t-checkbox + .t-checkbox {
+  margin-left: 16px;
+}
+</style>

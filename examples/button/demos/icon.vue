@@ -1,41 +1,47 @@
 <template>
   <div class="demo-button-icon">
     <div class="demo-button-row">
-      <t-button
-        theme="primary"
-        icon="search"
-      >
-        搜索
-      </t-button>
-      <t-button
-        theme="primary"
-        icon="search"
-      >
-      </t-button>
-      <t-button
-        theme="primary"
-        icon="search"
-        shape="round"
-      >
-      </t-button>
-      <t-button
-        theme="primary"
-        icon="search"
-        shape="circle"
-      >
-      </t-button>
+      <div class="demo-button-col">
+        <t-button
+          theme="primary"
+          icon="add"
+        >
+          新建
+        </t-button>
+        <t-button
+          icon="cloud-upload"
+        >
+          上传文件
+        </t-button>
+      </div>
+      <div class="demo-button-col">
+        <t-button
+          theme="primary"
+          icon="discount"
+          shape="circle"
+        >
+        </t-button>
+        <t-button
+          theme="primary"
+          icon="cloud-download"
+          shape="circle"
+        >
+        </t-button>
+      </div>
       <!-- 使用 function 或 slot 的形式定义 icon -->
-      <t-button
-        :icon="renderIcon"
-      >
-        Function Icon
-      </t-button>
-      <t-button>
-        <template v-slot:icon>
-          <t-icon name="search"></t-icon>
-        </template>
-        Slot Icon
-      </t-button>
+      <div class="demo-button-col">
+        <t-button
+          :icon="renderIcon"
+        >
+          Function Icon
+        </t-button>
+        <t-button>
+          <template v-slot:icon>
+            <t-icon name="search"></t-icon>
+          </template>
+          Slot Icon
+        </t-button>
+      </div>
 
     </div>
   </div>
@@ -53,3 +59,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.demo-button-row {
+  display: flex;
+}
+.demo-button-col {
+  margin-right: 32px;
+}
+.t-button + .t-button {
+  margin-left: 16px;
+}
+</style>

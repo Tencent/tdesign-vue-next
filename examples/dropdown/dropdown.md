@@ -1,18 +1,54 @@
- ## dropdown 
+ ## Dropdown 
+ 
+用于承载过多的操作集合，通过下拉拓展的形式，收纳更多的操作。
 
-::: demo demos/base 默认（鼠标悬停、点击）
+### 何时使用
+在有限的空间内，需要承载多种操作，并且不影响页面结构
+
+## 1.组件类型
+### 1.1.文字下拉菜单
+定义：文字按钮触发下拉菜单
+
+使用场景：空间极度受限的收纳操作场景，仅用文字进行操作收纳，一般用于表格内详情操作的收纳
+
+::: demo demos/text
 :::
-::: demo demos/status 禁用状态、分隔符
+
+
+### 1.2.按钮下拉菜单
+定义：普通按钮触发下拉菜单
+
+使用场景：常用操作收纳场景，可跟其他按钮保持统一样式
+
+::: demo demos/base
 :::
-::: demo demos/submenu 级联菜单
+
+### 1.3.带分割线下拉菜单
+定义：通过分割线区分不同的下拉菜单操作
+
+使用场景：常用于需要区分不同操作结果的场景
+
+::: demo demos/status
 :::
-::: demo demos/event click、visibleChange事件
+
+### 1.4.多层下拉菜单
+定义：带逻辑层级关系的操作下拉菜单
+
+使用场景：需要收纳多层逻辑的操作场景
+
+::: demo demos/submenu
 :::
-::: demo demos/disabled disabled=true
+
+::: demo demos/disabled disabled
 :::
+
 ::: demo demos/custom 自定义其他属性
 :::
+
 ::: demo demos/long 高尺寸
+:::
+
+::: demo demos/event click、visibleChange事件
 :::
 
 ### 属性配置

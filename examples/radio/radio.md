@@ -1,22 +1,37 @@
-## radio 
+## Radio 单选框
 
-::: demo demos/base 基础示例
+单选框代表从一组互斥的选项中仅选择一个选项。
+
+### 何时使用
+
+用于在多个互斥的备选项中选中一个选项时
+
+单选框的所有选项是显性的，因此常用于选项较少的场景；若选项较多，考虑使用下拉列表。
+
+## 1.组件类型
+
+### 1.1 基础单选框
+
+::: demo demos/base
 :::
 
-::: demo demos/default-checked 初始选中与否
+### 1.2 单选按钮
+
+::: demo demos/radio-button 
 :::
 
-::: demo demos/disabled 不可用
+### 1.3 尺寸
+
+::: demo demos/radio-button-size 
 :::
 
-::: demo demos/radio-group radio组
+### 1.4 radio组
+
+::: demo demos/radio-group 
 :::
 
-::: demo demos/radio-button radio-button 类型
-:::
 
-::: demo demos/radio-button-size radio-button 尺寸
-:::
+
 
 ### 属性配置
 #### Radio Props

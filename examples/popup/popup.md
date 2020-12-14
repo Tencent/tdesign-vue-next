@@ -1,26 +1,47 @@
 ## Popup 弹出层
 
-::: demo demos/base 默认
+### 默认
+::: demo demos/base
 :::
-::: demo demos/placement 支持的placement
+
+### 支持的placement
+::: demo demos/placement
 :::
-::: demo demos/arrow 带箭头
+
+### 带箭头
+::: demo demos/arrow
 :::
-::: demo demos/style 自定义样式
+
+### 自定义样式
+::: demo demos/style
 :::
-::: demo demos/disabled 临时禁用
+
+### 临时禁用
+::: demo demos/disabled
 :::
-::: demo demos/visible value控制
+
+### value控制
+::: demo demos/visible
 :::
-::: demo demos/trigger 其他触发方式
+
+### 其他触发方式
+::: demo demos/trigger
 :::
-::: demo demos/container 指定挂载父节点
+
+### 指定挂载父节点
+::: demo demos/container
 :::
-::: demo demos/destroy 隐藏时销毁popup
+
+### 隐藏时销毁popup
+::: demo demos/destroy 
 :::
-::: demo demos/event popup状态改变时触发事件
+
+### popup状态改变时触发事件
+::: demo demos/event 
 :::
-::: demo demos/resize 监听trigger元素尺寸变化，浮层定位自适应
+
+### 监听trigger元素尺寸变化，浮层定位自适应
+::: demo demos/resize 
 :::
 
 ### Props
