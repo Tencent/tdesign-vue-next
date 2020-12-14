@@ -1,7 +1,6 @@
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
-import Icon from '../icon';
 
 const name = `${prefix}-badge`;
 
@@ -9,33 +8,22 @@ export default Vue.extend({
   name,
 
   components: {
-    [Icon.name]: Icon,
     RenderComponent,
   },
 
   props: {
     count: {
       type: Number,
-      validator(v: any): boolean {
-        return typeof v === 'number';
-      },
     },
     maxCount: {
       type: Number,
       default: 99,
-      validator(v: any): boolean {
-        return  typeof v === 'number';
-      },
     },
     content: {
       type: [String, Function],
     },
     dot: {
       type: Boolean,
-      default: false,
-      validator(v: any): boolean {
-        return typeof v === 'boolean';
-      },
     },
     color: {
       type: String,
@@ -57,12 +45,11 @@ export default Vue.extend({
     },
     showZero: {
       type: Boolean,
-      default: false,
     },
     offset: {
-      type: Array,
+      type: Array as PropType<Array<number>>,
       validator(v: number[]): boolean {
-        return Array.isArray(v) && v.every(item => typeof item === 'number') && v.length === 2;
+        return v.length === 2;
       },
     },
   },
@@ -70,9 +57,9 @@ export default Vue.extend({
     getContent() {
       if (this.dot) return '';
       if (typeof this.content === 'string') {
-        return  this.content;
+        return this.content;
       } if (typeof  this.content === 'function') {
-        return  this.content();
+        return this.content();
       }
       if (typeof this.count === 'number') {
         return this.count > this.maxCount ? `${this.maxCount}+` : this.count;
@@ -107,7 +94,6 @@ export default Vue.extend({
     const children = this.$slots.default;
     const { xOffset, yOffset } = this.getOffset();
     const badgeClassNames = [
-      // `${name}`,
       {
         [`${name}--dot`]: !!dot,
         [`${name}--circle`]: !dot && shape === 'circle',
@@ -124,7 +110,7 @@ export default Vue.extend({
 
     return (
       <div class={name}>
-        {children ?  children  : null}
+        {children ? children : null}
         {isHidden ? null : <sup class={badgeClassNames} style={inlineStyle }>{content}</sup>}
       </div>
     );
