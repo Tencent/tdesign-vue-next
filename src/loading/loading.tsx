@@ -120,7 +120,7 @@ export default Vue.extend({
 
     const defaultSlot: any = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
 
-    if (this.delay) {
+    if (this.delay && this.loading) {
       setTimeout(() => {
         this.showLoading = this.loading;
       }, this.delay);

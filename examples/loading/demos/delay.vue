@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-loading v-if="loading" :loading="true" :delay="delay"></t-loading>
+    <t-loading :loading="loading" :delay="delay"></t-loading>
     <div class="switch-demo">
       Loading state:
       <t-switch v-model="loading"></t-switch>
