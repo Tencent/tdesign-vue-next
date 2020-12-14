@@ -1,29 +1,27 @@
-import Vue, { VueConstructor } from 'vue';
+import Vue, { PropType, VueConstructor } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
-import Icon from '../icon';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
-import { on, off, getScroll, scrollTo } from '../utils/dom';
+import { on, off, getScroll, scrollTo, getAttach } from '../utils/dom';
 
 const name = `${prefix}-anchor`;
-const SIZE_LIST = ['large', 'middle', 'small'];
+const SIZE_LIST = ['large', 'medium', 'small'];
 
 interface Anchor extends Vue {
   scrollContainer: ANCHOR_CONTAINER;
-  handleScrollLock: boolean; // 执行scrollTo设置的flag, 用来禁止执行handleScroll
+  // 执行scrollTo设置的flag, 用来禁止执行handleScroll
+  handleScrollLock: boolean;
 }
 export default (Vue as VueConstructor<Anchor>).extend({
   name,
   components: {
-    [Icon.name]: Icon,
     RenderComponent,
   },
 
   props: {
     affix: {
       type: Boolean,
-      default: false,
     },
     bounds: {
       type: Number,
@@ -33,13 +31,13 @@ export default (Vue as VueConstructor<Anchor>).extend({
       type: Number,
       default: 0,
     },
-    container: {
-      type: [String, Function],
+    attach: {
+      type: [String, Function] as PropType<string | (() => Window | HTMLElement)>,
       default: () => () => window,
     },
     size: {
       type: String,
-      default: 'middle',
+      default: 'medium',
       validator(v) {
         return SIZE_LIST.indexOf(v) !== -1;
       },
@@ -58,7 +56,11 @@ export default (Vue as VueConstructor<Anchor>).extend({
     };
   },
   watch: {
-    container() {
+    attach() {
+      // 清空上一个container的事件监听
+      if (this.scrollContainer) {
+        off(this.scrollContainer, 'scroll', this.handleScroll);
+      }
       this.getScrollContainer();
     },
   },
@@ -68,16 +70,9 @@ export default (Vue as VueConstructor<Anchor>).extend({
      * 1. 如果是string则通过id获取
      * 2. 如果是method则获取方法返回值
      */
-    getScrollContainer() {
-      if (this.scrollContainer) {
-        off(this.scrollContainer, 'scroll', this.handleScroll);
-      }
-      const { container } = this;
-      if (typeof container === 'string') {
-        this.scrollContainer = document.getElementById(container);
-      } else {
-        this.scrollContainer = container();
-      }
+    getScrollContainer(): void {
+      const { attach } = this;
+      this.scrollContainer = getAttach(attach) as HTMLElement;
       on(this.scrollContainer, 'scroll', this.handleScroll);
       this.handleScroll();
     },
@@ -85,9 +80,8 @@ export default (Vue as VueConstructor<Anchor>).extend({
      * 获取锚点对应的target元素
      *
      * @param {string} link
-     * @returns
      */
-    getAnchorTarget(link: string) {
+    getAnchorTarget(link: string): HTMLElement {
       const matcher = link.match(ANCHOR_SHARP_REGEXP);
       if (!matcher) {
         return;
@@ -102,14 +96,10 @@ export default (Vue as VueConstructor<Anchor>).extend({
      * 注册锚点
      *
      * @param {string} link
-     * @returns
      */
-    registerLink(link: string) {
+    registerLink(link: string): void {
       const { links } = this;
-      if (!ANCHOR_SHARP_REGEXP.test(link)) {
-        return;
-      }
-      if (links.indexOf(link) !== -1) {
+      if (!ANCHOR_SHARP_REGEXP.test(link) || links.indexOf(link) !== -1) {
         return;
       }
       links.push(link);
@@ -119,16 +109,15 @@ export default (Vue as VueConstructor<Anchor>).extend({
      *
      * @param {string} link
      */
-    unregisterLink(link: string) {
+    unregisterLink(link: string): void {
       this.links = this.links.filter(each => each !== link);
     },
     /**
      * 设置当前激活状态锚点
      *
      * @param {string} link
-     * @returns
      */
-    async setCurrentActiveLink(link: string) {
+    async setCurrentActiveLink(link: string): Promise<void> {
       const { active } = this;
       if (active === link) {
         return;
@@ -141,11 +130,9 @@ export default (Vue as VueConstructor<Anchor>).extend({
     /**
      * 计算active-line所在的位置
      * 当前active-item的top + height, 以及ANCHOR_ITEM_PADDING修正
-     *
-     * @returns
      */
-    updateActiveLine() {
-      const ele = this.$el.querySelector(`.${CLASSNAMES.STATUS.active} a`) as HTMLAnchorElement;
+    updateActiveLine(): void {
+      const ele = this.$el.querySelector(`.${CLASSNAMES.STATUS.active}>a`) as HTMLAnchorElement;
       if (!ele) {
         this.activeLineStyle = false;
         return;
@@ -158,18 +145,18 @@ export default (Vue as VueConstructor<Anchor>).extend({
     },
     /**
      * 监听AnchorLink点击事件
-     *
-     * @param {*} args
+     * @param {{ href: string; title: string }} link
+     * @param {MouseEvent} e
      */
-    handleLinkClick(e: MouseEvent, link: { href: string; title: string }) {
-      this.$emit('click', e, link);
+    handleLinkClick(link: { href: string; title: string }, e: MouseEvent): void {
+      this.$emit('click', link, e);
     },
     /**
      * 滚动到指定锚点
      *
      * @param {string} link
      */
-    async handleScrollTo(link: string) {
+    async handleScrollTo(link: string): Promise<void> {
       const anchor = this.getAnchorTarget(link);
       this.setCurrentActiveLink(link);
       if (!anchor) return;
@@ -186,7 +173,7 @@ export default (Vue as VueConstructor<Anchor>).extend({
     /**
      * 监听滚动事件
      */
-    handleScroll() {
+    handleScroll(): void {
       if (this.handleScrollLock) return;
       const { links, bounds, targetOffset } = this;
       const filters: { top: number; link: string }[] = [];

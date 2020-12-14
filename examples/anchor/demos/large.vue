@@ -1,9 +1,9 @@
 <template>
-  <div :id="`${path}#default`" class='anchor-demo'>
-    <t-anchor>
-      <t-anchor-item :href="`#${path}#anchor-target-1`" title="定义"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#anchor-target-2`" title="服务功能"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#anchor-target-3`" title="使用指南"></t-anchor-item>
+  <div :id="`${path}#large`" class='anchor-demo'>
+    <t-anchor size="large">
+      <t-anchor-item :href="`#${path}#default`" title="定义"></t-anchor-item>
+      <t-anchor-item :href="`#${path}#nested`" title="服务功能"></t-anchor-item>
+      <t-anchor-item :href="`#${path}#offset`" title="使用指南"></t-anchor-item>
       <t-anchor-item :href="`#${path}#anchor-target-4`" title="创建签名"></t-anchor-item>
       <t-anchor-item :href="`#${path}#anchor-target-5`" title="创建内容"></t-anchor-item>
       <t-anchor-item :href="`#${path}#anchor-target-6`" title="保密协议"></t-anchor-item>

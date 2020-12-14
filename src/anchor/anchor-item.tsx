@@ -9,7 +9,7 @@ interface Anchor extends Vue {
     handleScrollTo(target: string): void;
     registerLink(href: string): void;
     unregisterLink(href: string): void;
-    handleLinkClick(e: MouseEvent, link: { href: string; title: string }): void;
+    handleLinkClick(link: { href: string; title: string }, e: MouseEvent): void;
   };
 }
 
@@ -51,21 +51,21 @@ export default (Vue as VueConstructor<Anchor>).extend({
     this.unregister();
   },
   methods: {
-    register() {
+    register(): void {
       this.tAnchor.registerLink(this.href);
     },
-    unregister() {
+    unregister(): void {
       const { href } = this;
       if (!href) return;
       this.tAnchor.unregisterLink(href);
     },
-    handleClick(e: MouseEvent) {
+    handleClick(e: MouseEvent): void {
       const { href, title, tAnchor } = this;
       tAnchor.handleScrollTo(href);
-      tAnchor.handleLinkClick(e, {
+      tAnchor.handleLinkClick({
         href,
         title,
-      });
+      }, e);
     },
   },
   render() {
