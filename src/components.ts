@@ -28,4 +28,6 @@ export * from './tabs';
 export * from './tag';
 export * from './upload';
 export * from './dropdown';
+export * from './input-number';
+export * from './grid';
 export * from './divider';
