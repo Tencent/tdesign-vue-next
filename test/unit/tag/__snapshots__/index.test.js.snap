@@ -56,7 +56,7 @@ exports[`Tag or CheckTag :Tag:props :shape:square 1`] = `<span class="t-tag t-ta
 
 exports[`Tag or CheckTag :Tag:props :size:large 1`] = `<span class="t-tag t-tag--default t-size-l t-tag--dark"></span>`;
 
-exports[`Tag or CheckTag :Tag:props :size:middle 1`] = ``;
+exports[`Tag or CheckTag :Tag:props :size:medium 1`] = ``;
 
 exports[`Tag or CheckTag :Tag:props :size:small 1`] = ``;
 

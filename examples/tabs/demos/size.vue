@@ -1,7 +1,7 @@
 <template>
   <div class="t-demo-tabs">
     <div class="t-demo-tabs__desc">
-      <p>目前支持middle，large两种类型选项卡</p>
+      <p>目前支持medium，large两种类型选项卡</p>
       <t-button class="t-demo-tabs__btn" theme="line" @click="() => sizeBtnClick(0)">
         {{ sizeArr[0] }}
       </t-button>
@@ -65,8 +65,8 @@
 export default {
   data() {
     return {
-      sizeArr: ['middle', 'large'],
-      size: 'middle',
+      sizeArr: ['medium', 'large'],
+      size: 'medium',
     };
   },
 
