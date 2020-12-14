@@ -32,4 +32,5 @@ export * from './tooltip';
 export * from './input-number';
 export * from './grid';
 export * from './divider';
+export * from './badge';
 export * from './loading';
