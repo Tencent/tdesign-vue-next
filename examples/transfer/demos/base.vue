@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     checkChange(sourceChecked, targetChecked) {
-      console.log('====> sourceChecked', sourceChecked);
-      console.log('====> targetChecked', targetChecked);
+      console.log('sourceChecked', sourceChecked);
+      console.log('targetChecked', targetChecked);
     },
   },
 };

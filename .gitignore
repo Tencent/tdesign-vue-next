@@ -25,4 +25,3 @@ cypress
 cypress.json
 common/
 Dockerfile
-common/
