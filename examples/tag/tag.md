@@ -32,7 +32,7 @@
 | 平台 | 属性     | 类型                 | 默认值  | 必传 | 说明                                                  |
 | ---- | -------- | -------------------- | ------- | ---- | ----------------------------------------------------- |
 | 公有 | theme    | String               | default | N    | 标签风格：default/primary/info/warning/danger/success |
-| 公有 | size     | String               | middle | N    | 尺寸：large/middle/small（大/中(默认)/小）           |
+| 公有 | size     | String               | medium | N    | 尺寸：large/medium/small（大/中(默认)/小）           |
 | 公有 | closable | Boolean               | false   | N    | 标签是否可关闭                                        |
 | 公有 | icon     | String/Function/Slot | -       | N    | 标签图标                                              |
 | 公有 | shape    | String               | square  | N    | 标签边角类型：square/round/mark                     |

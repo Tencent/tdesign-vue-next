@@ -5,7 +5,7 @@ import Icon from '../icon';
 
 const name = `${prefix}-breadcrumb`;
 const currItemClass = `${prefix}-is-current`;
-const sizeList: Array<string> = ['large', 'middle', 'small'];
+const sizeList: Array<string> = ['large', 'medium', 'small'];
 const themeList: Array<string> = ['light'];
 export default Vue.extend({
   name,
@@ -26,7 +26,7 @@ export default Vue.extend({
     },
     size: {
       type: String,
-      default: 'middle',
+      default: 'medium',
       validator(v: string): boolean {
         return sizeList.indexOf(v) > -1;
       },

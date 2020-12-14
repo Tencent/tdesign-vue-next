@@ -16,8 +16,8 @@
       </t-col>
     </t-row>
 
-    <p>align middle</p>
-    <t-row align="middle" justify="space-around">
+    <p>align medium</p>
+    <t-row align="medium" justify="space-around">
       <t-col :span="3">
         <div style="height: 100px">col-3</div>
       </t-col>
