@@ -34,7 +34,7 @@
 |indicator|TNode|圆圈图标|N|加载指示符（支持function、slot。不支持string）|
 |text|TNode|无|N|自定义的加载提示文案|
 |loading|boolean|false|Y|是否为加载中状态|
-|size|string|middle|N|加载组件大小，包括图标和文字。可选值为 large/middle/small|
+|size|string|medium|N|加载组件大小，包括图标和文字。可选值为 large/medium/small|
 |delay|number(毫秒)|0|N|延迟显示加载效果的时间（防止闪烁）|
 |fullscreen|boolean|false|N|是否全屏遮罩，遮罩会插入至 body 上。开启全屏加载时，loading必须作为包裹元素|
 |preventScrollThrough|boolean|false|N|是否需要锁定屏幕的滚动|
@@ -66,7 +66,7 @@ options可配置参数如下：
 |indicator|TNode|圆圈图标|N|加载指示符（支持function、slot。不支持string）|
 |text|TNode|无|N|自定义的加载提示文案|
 |loading|boolean|false|Y|是否为加载中状态|
-|size|string|middle|N|加载组件大小，包括图标和文字。可选值为 large/middle/small|
+|size|string|medium|N|加载组件大小，包括图标和文字。可选值为 large/medium/small|
 |delay|number(毫秒)|0|N|延迟显示加载效果的时间（防止闪烁）|
 |preventScrollThrough|boolean|false|N|是否需要锁定屏幕的滚动|
 |className|string|无|N|包裹器的自定义类名|
