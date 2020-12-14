@@ -1,0 +1,553 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Anchor bounds demo works fine 1`] = `
+<div
+  class="anchor-demo"
+  id="http://example.com#nested"
+>
+  <div
+    class="t-anchor t-size-m"
+  >
+    <div
+      class="t-anchor_line"
+    />
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-1"
+        target="_self"
+        title="定义"
+      >
+        定义
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-2"
+        target="_self"
+        title="服务功能"
+      >
+        服务功能
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-3"
+        target="_self"
+        title="使用指南"
+      >
+        使用指南
+      </a>
+      <div
+        class="t-anchor-item"
+      >
+        <a
+          class="t-anchor-item_link"
+          href="#http://example.com#anchor-target-4"
+          target="_self"
+          title="创建签名"
+        >
+          创建签名
+        </a>
+      </div>
+       
+      <div
+        class="t-anchor-item"
+      >
+        <a
+          class="t-anchor-item_link"
+          href="#http://example.com#anchor-target-5"
+          target="_self"
+          title="创建内容"
+        >
+          创建内容
+        </a>
+      </div>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-6"
+        target="_self"
+        title="保密协议"
+      >
+        保密协议
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-7"
+        target="_self"
+        title="其他"
+      >
+        其他
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Anchor default demo works fine 1`] = `
+<div
+  class="anchor-demo"
+  id="http://example.com#default"
+>
+  <div
+    class="t-anchor t-size-m"
+  >
+    <div
+      class="t-anchor_line"
+    />
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-1"
+        target="_self"
+        title="定义"
+      >
+        定义
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-2"
+        target="_self"
+        title="服务功能"
+      >
+        服务功能
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-3"
+        target="_self"
+        title="使用指南"
+      >
+        使用指南
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-4"
+        target="_self"
+        title="创建签名"
+      >
+        创建签名
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-5"
+        target="_self"
+        title="创建内容"
+      >
+        创建内容
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-6"
+        target="_self"
+        title="保密协议"
+      >
+        保密协议
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-7"
+        target="_self"
+        title="其他"
+      >
+        其他
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Anchor target demo works fine 1`] = `
+<div
+  class="anchor-demo"
+  id="http://example.com#anchor-target"
+>
+  <h1
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-1"
+  >
+    定义
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+        name="file-copy"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M768 896L768 960 192 960C156.653776 960 128 931.3462208 128 896L128 256 192 256 192 896 768 896ZM639.64761472 63.955432256C656.6034176 63.953462528 672.8670592 70.68011648 684.8677696 82.65852288L877.2127168 274.64597952C889.2408064 286.651712 896 302.94840384 896 319.94288832L896 768C896 803.3462208 867.3462208 832 832 832L320 832C284.653776 832 256 803.3462208 256 768L256 128C256.00743552 92.65667968 284.65668032 64.00410624 319.99999936 63.992565248L639.64761472 63.955432256ZM576 128L320 128 320 768 832 768 832 383.95543168 576 384 576 128ZM640 128L640 320 832 320 640 128Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h1>
+   
+  <h2
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-2"
+  >
+    服务功能
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+        name="file-copy"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M768 896L768 960 192 960C156.653776 960 128 931.3462208 128 896L128 256 192 256 192 896 768 896ZM639.64761472 63.955432256C656.6034176 63.953462528 672.8670592 70.68011648 684.8677696 82.65852288L877.2127168 274.64597952C889.2408064 286.651712 896 302.94840384 896 319.94288832L896 768C896 803.3462208 867.3462208 832 832 832L320 832C284.653776 832 256 803.3462208 256 768L256 128C256.00743552 92.65667968 284.65668032 64.00410624 319.99999936 63.992565248L639.64761472 63.955432256ZM576 128L320 128 320 768 832 768 832 383.95543168 576 384 576 128ZM640 128L640 320 832 320 640 128Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h2>
+   
+  <h3
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-3"
+  >
+    使用指南
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+        name="file-copy"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M768 896L768 960 192 960C156.653776 960 128 931.3462208 128 896L128 256 192 256 192 896 768 896ZM639.64761472 63.955432256C656.6034176 63.953462528 672.8670592 70.68011648 684.8677696 82.65852288L877.2127168 274.64597952C889.2408064 286.651712 896 302.94840384 896 319.94288832L896 768C896 803.3462208 867.3462208 832 832 832L320 832C284.653776 832 256 803.3462208 256 768L256 128C256.00743552 92.65667968 284.65668032 64.00410624 319.99999936 63.992565248L639.64761472 63.955432256ZM576 128L320 128 320 768 832 768 832 383.95543168 576 384 576 128ZM640 128L640 320 832 320 640 128Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h3>
+   
+  <h3
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-4"
+  >
+    创建签名
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+        name="file-copy"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M768 896L768 960 192 960C156.653776 960 128 931.3462208 128 896L128 256 192 256 192 896 768 896ZM639.64761472 63.955432256C656.6034176 63.953462528 672.8670592 70.68011648 684.8677696 82.65852288L877.2127168 274.64597952C889.2408064 286.651712 896 302.94840384 896 319.94288832L896 768C896 803.3462208 867.3462208 832 832 832L320 832C284.653776 832 256 803.3462208 256 768L256 128C256.00743552 92.65667968 284.65668032 64.00410624 319.99999936 63.992565248L639.64761472 63.955432256ZM576 128L320 128 320 768 832 768 832 383.95543168 576 384 576 128ZM640 128L640 320 832 320 640 128Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h3>
+   
+  <h3
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-5"
+  >
+    创建内容
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+        name="file-copy"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M768 896L768 960 192 960C156.653776 960 128 931.3462208 128 896L128 256 192 256 192 896 768 896ZM639.64761472 63.955432256C656.6034176 63.953462528 672.8670592 70.68011648 684.8677696 82.65852288L877.2127168 274.64597952C889.2408064 286.651712 896 302.94840384 896 319.94288832L896 768C896 803.3462208 867.3462208 832 832 832L320 832C284.653776 832 256 803.3462208 256 768L256 128C256.00743552 92.65667968 284.65668032 64.00410624 319.99999936 63.992565248L639.64761472 63.955432256ZM576 128L320 128 320 768 832 768 832 383.95543168 576 384 576 128ZM640 128L640 320 832 320 640 128Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h3>
+   
+  <h3
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-6"
+  >
+    保密协议
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+        name="file-copy"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M768 896L768 960 192 960C156.653776 960 128 931.3462208 128 896L128 256 192 256 192 896 768 896ZM639.64761472 63.955432256C656.6034176 63.953462528 672.8670592 70.68011648 684.8677696 82.65852288L877.2127168 274.64597952C889.2408064 286.651712 896 302.94840384 896 319.94288832L896 768C896 803.3462208 867.3462208 832 832 832L320 832C284.653776 832 256 803.3462208 256 768L256 128C256.00743552 92.65667968 284.65668032 64.00410624 319.99999936 63.992565248L639.64761472 63.955432256ZM576 128L320 128 320 768 832 768 832 383.95543168 576 384 576 128ZM640 128L640 320 832 320 640 128Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h3>
+   
+  <h3
+    class="t-anchor-target"
+    id="http://example.com#anchor-target-7"
+  >
+    其他
+    <div
+      class="t-popup-reference t-copy"
+      style="position: relative;"
+    >
+       
+      <svg
+        class="t-icon t-icon-file-copy"
+        name="file-copy"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M768 896L768 960 192 960C156.653776 960 128 931.3462208 128 896L128 256 192 256 192 896 768 896ZM639.64761472 63.955432256C656.6034176 63.953462528 672.8670592 70.68011648 684.8677696 82.65852288L877.2127168 274.64597952C889.2408064 286.651712 896 302.94840384 896 319.94288832L896 768C896 803.3462208 867.3462208 832 832 832L320 832C284.653776 832 256 803.3462208 256 768L256 128C256.00743552 92.65667968 284.65668032 64.00410624 319.99999936 63.992565248L639.64761472 63.955432256ZM576 128L320 128 320 768 832 768 832 383.95543168 576 384 576 128ZM640 128L640 320 832 320 640 128Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="resize-sensor"
+        dir="ltr"
+        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+      >
+        <div
+          class="resize-sensor-expand"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+          />
+        </div>
+        <div
+          class="resize-sensor-shrink"
+          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+        >
+          <div
+            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+          />
+        </div>
+      </div>
+    </div>
+  </h3>
+</div>
+`;
