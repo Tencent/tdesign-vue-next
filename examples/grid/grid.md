@@ -32,7 +32,7 @@
 #### Row Props
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
-|algin|String|top|N|flex 布局下的垂直对齐方式 top/middle/bottom|
+|algin|String|top|N|flex 布局下的垂直对齐方式 top/medium/bottom|
 |gutter|Number / Object / Array|0|N|栅格间隔 { xs: 8, sm: 16, md: 24} [水平间距, 垂直间距]|
 |justify|String|start|N|flex 布局下的水平排列方式：start / end / center / space-around / space-between|
 |tag|String|div|N|自定义元素标签|
