@@ -33,7 +33,8 @@ export default Vue.extend({
       return [
         {
           't-col': true,
-          't-col-1': true,
+          't-col-1': labelAlign !== 'top',
+          't-col-12': labelAlign === 'top',
           't-form__label': true,
           't-form__label--required': this.needRequiredMark,
           't-form__label--colon': this.hasColon,
@@ -52,10 +53,6 @@ export default Vue.extend({
       const labelWidth = this.$parent && this.$parent.labelWidth;
       if (labelWidth) {
         labelProps.style = `min-width: ${labelWidth}px;`;
-      }
-      const label = this.getLabel();
-      if (!labelWidth && !label) {
-        labelProps.style = `${labelProps.style ? labelProps.style : ''}display: none;`;
       }
       return labelProps;
     },

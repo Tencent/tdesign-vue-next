@@ -6,6 +6,7 @@
       @reset="onReset"
       @submit="onSubmit"
       :colon="true"
+      labelWidth="0"
     >
       <t-form-item name='account'>
         <t-input prefix-icon="desktop" v-model="formData.account" placeholder="请输入账户名"></t-input>

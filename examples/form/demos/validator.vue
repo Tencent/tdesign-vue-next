@@ -35,9 +35,6 @@
       <t-form-item label="个人网站" name='url'>
         <t-input v-model="formData.url"></t-input>
       </t-form-item>
-      <t-form-item label="指导老师" name='teacher'>
-        <t-input v-model="formData.teacher"></t-input>
-      </t-form-item>
       <t-form-item>
         <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
         <t-button type="reset">重置</t-button>
@@ -54,7 +51,6 @@ const INITIAL_DATA = {
   gender: '',
   date: '',
   url: '',
-  teacher: '',
   course: [],
 };
 export default {
@@ -94,10 +90,6 @@ export default {
             message: '请输入正确的个人主页',
           },
         ],
-        teacher: [
-          // 自定义校验规则
-          { validator: this.teacherValidator, message: '老师可选项：张老师，王老师，李老师' },
-        ],
       },
     };
   },
@@ -114,15 +106,6 @@ export default {
         console.log('Errors: ', result);
         this.$message.warning(firstError);
       }
-    },
-    // 自定义异步校验器
-    teacherValidator(val) {
-      return new Promise((resolve) => {
-        const timer = setTimeout(() => {
-          resolve(['张老师', '李老师', '王老师'].includes(val));
-          clearTimeout(timer);
-        });
-      });
     },
   },
 };
