@@ -81,7 +81,7 @@ describe('Loading', () => {
           return <Loading loading={true}></Loading>;
         },
         scopedSlots: {
-          indicator: '<i class="t-icon t-icon-loading"></i>',
+          indicator: '<i>加载中</i>',
         },
       });
       expect(wrapper).toMatchSnapshot();
