@@ -6,11 +6,12 @@
       ref="form"
       @reset="onReset"
       @submit="onSubmit"
+      scrollToFirstError="smooth"
     >
-      <t-form-item label="用户名" name='account'>
+      <t-form-item label="用户名" tooltip="这里请填写用户名" name='account'>
         <t-input v-model="formData.account"></t-input>
       </t-form-item>
-      <t-form-item label="密码" name='password'>
+      <t-form-item label="密码" tooltip="这里请填写密码" name='password'>
         <t-input v-model="formData.password"></t-input>
       </t-form-item>
       <t-form-item label="邮箱" name='email'>
@@ -24,7 +25,6 @@
       </t-form-item>
       <t-form-item label="课程" name='course'>
         <t-checkbox-group
-          name="city"
           v-model="formData.course"
           :options="courseOptions"
         ></t-checkbox-group>
@@ -69,8 +69,8 @@ export default {
       ],
       rules: {
         account: [
-          { required: true, message: '姓名必填', type: 'warning' },
-          { min: 2, message: '至少需要两个字', type: 'warning' },
+          { required: true, message: '姓名必填', type: 'error' },
+          { min: 2, message: '至少需要两个字', type: 'error' },
         ],
         password: [
           { required: true, message: '密码必填', type: 'error' },
@@ -79,10 +79,10 @@ export default {
           { required: true, message: '格式必须为邮箱', type: 'error' },
         ],
         gender: [
-          { required: true, message: '性别必填' },
+          { required: true, message: '性别必填', type: 'error' },
         ],
         course: [
-          { required: true, message: '课程必填' },
+          { required: true, message: '课程必填', type: 'error' },
         ],
         url: [
           {

@@ -1,7 +1,7 @@
 import Vue, { PropType, VNode } from 'vue';
 import { prefix } from '../config';
 import { validate } from './formModel';
-import { ValidateRule, ValidateRules, ValidateResult, ErrorList } from './type';
+import { ErrorList, ValidateResult, ValidateRule, ValidateRules } from './type';
 import { FORM_ITEM_CLASS_PREFIX } from './const';
 
 const name = `${prefix}-form-item`;
@@ -14,6 +14,7 @@ export default Vue.extend({
     label: [String, Function],
     for: String,
     rules: Array as PropType<Array<ValidateRule>>,
+    tooltip: String,
   },
 
   data() {
@@ -27,18 +28,23 @@ export default Vue.extend({
       return ['t-form__item', 't-row', FORM_ITEM_CLASS_PREFIX + this.name];
     },
     labelClasses(): ClassName {
-      const labelClasses: Array<string> = ['t-form__label', 't-col', 't-col-1'];
-      if (this.needRequiredMark) {
-        labelClasses.push('t-form__label--required');
-      }
-      if (this.hasColon) {
-        labelClasses.push('t-form__label--colon');
-      }
-      return labelClasses;
+      // @ts-ignore
+      const labelAlign = this.$parent && this.$parent.labelAlign;
+      return [
+        {
+          't-col': true,
+          't-col-1': true,
+          't-form__label': true,
+          't-form__label--required': this.needRequiredMark,
+          't-form__label--colon': this.hasColon,
+          't-form__label--left': labelAlign === 'left',
+          't-form__label--right': labelAlign === 'right',
+        },
+      ];
     },
     contentClasses(): ClassName {
       const getErrorClass: Array<any> = this.getErrorClasses;
-      return ['t-form__controls', 't-col', ...getErrorClass];
+      return ['t-form__controls', 't-col', 't-input__extra', ...getErrorClass];
     },
     labelProps(): any {
       const labelProps: any = {};
@@ -79,14 +85,12 @@ export default Vue.extend({
       const list = this.errorList;
       if (list && list[0]) {
         const type = list[0].type || 'error';
-        const classes = [
+        return [
           {
             't-is-error': type === 'error',
             't-is-warning': type === 'warning',
-            't-input__extra': true,
           },
         ];
-        return classes;
       }
       return [];
     },
@@ -118,12 +122,17 @@ export default Vue.extend({
       }
       return this.label;
     },
-    renderErrorInfo(): VNode {
-      const getErrorClass: Array<any> = this.getErrorClasses;
-      if (getErrorClass.length) {
-        const list = this.errorList;
-        return <span class={getErrorClass}>{list[0].message}</span>;
+    renderTipsInfo(): VNode {
+      if (this.tooltip) {
+        return <span>{this.tooltip}</span>;
       }
+      const list = this.errorList;
+      if (list && list[0]) {
+        return <span>{list[0].message}</span>;
+      }
+    },
+    resetField(): void {
+      this.errorList = [];
     },
   },
 
@@ -139,7 +148,7 @@ export default Vue.extend({
           <div class='t-form__controls--content'>
             {this.$slots.default}
           </div>
-          {this.renderErrorInfo()}
+          {this.renderTipsInfo()}
         </div>
       </div>
     );

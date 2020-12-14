@@ -13,11 +13,8 @@
       <t-form-item name='password'>
         <t-input prefix-icon="lock-on" type="password" v-model="formData.password" placeholder="请输入密码"></t-input>
       </t-form-item>
-      <t-form-item name='checked'>
-        <t-checkbox v-model="formData.checked">记住</t-checkbox>
-      </t-form-item>
       <t-form-item>
-        <t-button theme="primary" type="submit" block >登陆</t-button>
+        <t-button theme="primary" type="submit" block >登录</t-button>
       </t-form-item>
     </t-form>
   </div>
@@ -25,22 +22,14 @@
 <script>
 
 const INITIAL_DATA = {
-  name: '',
-  tel: '',
-  gender: '',
-  course: [],
-  status: false,
+  account: '',
+  password: '',
 };
 
 export default {
   data() {
     return {
       formData: { ...INITIAL_DATA },
-      courseOptions: [
-        { label: '语文', value: '1' },
-        { label: '数学', value: '2' },
-        { label: '英语', value: '3' },
-      ],
     };
   },
 

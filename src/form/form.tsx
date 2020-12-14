@@ -63,8 +63,8 @@ export default Vue.extend({
       return [
         't-form',
         CLASSNAME_SIZE[this.size],
-        `t-form--${this.layout}`,
-        `t-form--${this.labelAlign}`,
+        // `t-form--${this.layout}`,
+        // `t-form--${this.labelAlign}`,
       ];
     },
   },
@@ -123,6 +123,9 @@ export default Vue.extend({
     },
     resetHandler(e: Event) {
       this.emitEvent('reset', { e });
+      this.$children
+        .filter((child: any) => this.isFunction(child.resetField))
+        .map((child: any) => child.resetField());
     },
   },
 
