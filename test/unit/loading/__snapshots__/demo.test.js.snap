@@ -2,7 +2,7 @@
 
 exports[`Loading base demo works fine 1`] = `
 <span
-  class="t-loading t-size-m"
+  class="t-loading"
 >
   <svg
     class="t-icon t-icon-loading"
@@ -146,7 +146,7 @@ exports[`Loading indicatorFunc demo works fine 1`] = `
 exports[`Loading indicatorSlot demo works fine 1`] = `
 <div>
   <span
-    class="t-loading t-size-m"
+    class="t-loading"
   >
     <svg
       class="t-icon t-icon-loading"
@@ -161,7 +161,7 @@ exports[`Loading indicatorSlot demo works fine 1`] = `
 
 exports[`Loading preventScrollThrough demo works fine 1`] = `
 <span
-  class="t-loading t-size-m"
+  class="t-loading"
 >
   <svg
     class="t-icon t-icon-loading"
@@ -241,7 +241,7 @@ exports[`Loading size demo works fine 1`] = `
   </span>
    
   <span
-    class="t-loading t-size-m"
+    class="t-loading"
   >
     <svg
       class="t-icon t-icon-loading"
@@ -272,7 +272,7 @@ exports[`Loading size demo works fine 1`] = `
 
 exports[`Loading text demo works fine 1`] = `
 <span
-  class="t-loading t-size-m t-loading-text"
+  class="t-loading t-loading-text"
 >
   <svg
     class="t-icon t-icon-loading"
@@ -301,7 +301,7 @@ exports[`Loading wrap demo works fine 1`] = `
       class="t-loading__wrapper t-loading-mask"
     >
       <span
-        class="t-loading t-size-m"
+        class="t-loading"
       >
         <svg
           class="t-icon t-icon-loading"
