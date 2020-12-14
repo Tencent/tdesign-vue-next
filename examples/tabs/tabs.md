@@ -21,7 +21,7 @@
 |-----|-----|-----|-----|-----|
 | theme | String | "normal" | false | 选项卡类型：nomral、card |
 | activeName | String/Number | 0 | false | 初始化激活的选项卡name |
-| size | String | "middle" | false | 选项卡尺寸：middle、large |
+| size | String | "medium" | false | 选项卡尺寸：medium、large |
 | tabPosition | String | "top" | false | 选项卡位置：top、right、bottom、left |
 | addable | Boolean | false | false | 是否显示添加按钮 |
 
