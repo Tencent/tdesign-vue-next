@@ -38,12 +38,12 @@ export default Vue.extend({
     },
     size: {
       type: String,
-      default: 'middle',
+      default: 'medium',
       validator(v: string): boolean {
         return (
           [
             'large',
-            'middle',
+            'medium',
           ].indexOf(v) > -1
         );
       },

@@ -6,6 +6,7 @@ import app from './app.vue';
 import Layout from './components/layout.vue';
 import Demo from './components/demo.vue';
 import ComponentContributors from './components/component-contributors.vue';
+import Badge from './components/badge.js';
 import TDesign from '../src/index';
 import '../common/style/web/index.less';
 import '@/common/style/web/docs.less';
@@ -23,6 +24,7 @@ Vue.use(VueRouter);
 Vue.component('tdesign-layout', Layout);
 Vue.component('tdesign-demo', Demo);
 Vue.component('tdesign-component-contributors', ComponentContributors);
+Vue.component('tdesign-badge', Badge);
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 const router = new VueRouter({
