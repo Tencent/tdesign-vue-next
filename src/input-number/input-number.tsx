@@ -3,8 +3,8 @@ import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import Add from '../icon/add';
 import Remove from '../icon/remove';
-import ArrowDown from '../icon/arrow-down';
-import ArrowUp from '../icon/arrow-up';
+import ChevronDown from '../icon/chevron-down';
+import ChevronUp from '../icon/chevron-up';
 
 const name = `${prefix}-input-number`;
 
@@ -14,8 +14,8 @@ export default Vue.extend({
     RenderComponent,
     Add,
     Remove,
-    ArrowDown,
-    ArrowUp,
+    ChevronDown,
+    ChevronUp,
   },
   props: {
     max: [Number],
@@ -115,8 +115,8 @@ export default Vue.extend({
         },
       ],
     };
-    const decreaseIcon = () => this.mode === 'column' ? <arrow-down size={this.size} /> : <remove size={this.size} />;
-    const increaseIcon = () => this.mode === 'column' ? <arrow-up size={this.size} /> : <add size={this.size} />;
+    const decreaseIcon = () => this.mode === 'column' ? <chevron-down size={this.size} /> : <remove size={this.size} />;
+    const increaseIcon = () => this.mode === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
 
     const inputWrapProps = {
       class: [
