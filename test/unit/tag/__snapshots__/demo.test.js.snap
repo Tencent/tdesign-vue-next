@@ -2,30 +2,37 @@
 
 exports[`Tag checkable demo works fine 1`] = `
 <div
-  class="tdesign-tag-checkable"
+  class="tag-demo"
 >
   <div
     class="tdesign-demo-block"
   >
     <span
-      class="t-tag t-tag--check t-tag--default"
+      class="t-tag t-tag--check t-tag--default t-tag--checked"
     >
       
-      标签一
-    
-    </span>
-    <span
-      class="t-tag t-tag--check t-tag--default t-tag--disabled"
-    >
-      
-      标签二
+      选中1
     
     </span>
     <span
       class="t-tag t-tag--check t-tag--default t-tag--checked"
     >
       
-      标签三
+      选中2
+    
+    </span>
+    <span
+      class="t-tag t-tag--check t-tag--default"
+    >
+      
+      未选3
+    
+    </span>
+    <span
+      class="t-tag t-tag--check t-tag--default"
+    >
+      
+      未选4
     
     </span>
   </div>
@@ -34,90 +41,92 @@ exports[`Tag checkable demo works fine 1`] = `
 
 exports[`Tag closable demo works fine 1`] = `
 <div
-  class="tdesign-tag-closable"
+  class="tag-demo"
 >
-  <span
-    class="t-tag t-tag--default t-tag--dark t-tag--close"
+  <div
+    class="tdesign-demo-block"
   >
+    <span
+      class="t-tag t-tag--default t-tag--dark"
+    >
+      
+      隐藏叉
     
-    标签一
-  
-    <i
-      class="t-icon t-icon-close"
-    />
-  </span>
-  <span
-    class="t-tag t-tag--primary t-tag--plain t-tag--close"
-  >
+    </span>
+    <span
+      class="t-tag t-tag--default t-tag--dark t-tag--close"
+    >
+      
+      显示叉
     
-    标签二
-  
-    <i
-      class="t-icon t-icon-close"
-    />
-  </span>
-  <span
-    class="t-tag t-tag--info t-tag--plain t-tag--close"
-  >
+      <i
+        class="t-icon t-icon-close"
+      />
+    </span>
+    <span
+      class="t-tag t-tag--info t-tag--dark t-tag--close"
+    >
+      <i
+        class="t-icon t-icon-discount"
+      />
+      
+      可删除
     
-    标签三
-  
-    <i
-      class="t-icon t-icon-close"
-    />
-  </span>
-  <span
-    class="t-tag t-tag--warning t-tag--plain t-tag--close"
-  >
+      <i
+        class="t-icon t-icon-close"
+      />
+    </span>
+    <span
+      class="t-tag t-tag--default t-tag--dark t-tag--ellipsis"
+      style="max-width: 150px;"
+    >
+      
+      默认超过八个字超出部分隐藏
     
-    标签四
-  
-    <i
-      class="t-icon t-icon-close"
-    />
-  </span>
-  <span
-    class="t-tag t-tag--danger t-tag--plain t-tag--close"
-  >
+    </span>
+    <span
+      class="t-tag t-tag--info t-tag--dark"
+    >
+      <i
+        class="t-icon t-icon-add"
+      />
+      
+      添加标签
     
-    标签五
-  
-    <i
-      class="t-icon t-icon-close"
-    />
-  </span>
-  <span
-    class="t-tag t-tag--success t-tag--plain t-tag--close"
-  >
-    
-    标签六
-  
-    <i
-      class="t-icon t-icon-close"
-    />
-  </span>
+    </span>
+  </div>
 </div>
 `;
 
 exports[`Tag default demo works fine 1`] = `
 <div
-  class="tdesign-tag-default"
+  class="tag-demo"
 >
-  <span
-    class="t-tag t-tag--default t-tag--dark"
-  >
-    默认
-  </span>
-   
-  <a
-    class="demo-link"
+  <div
+    class="tdesign-demo-block"
   >
     <span
       class="t-tag t-tag--default t-tag--dark"
     >
-      超链接
+      默认
     </span>
-  </a>
+     
+    <a
+      class="demo-link"
+    >
+      <span
+        class="t-tag t-tag--default t-tag--dark"
+      >
+        超链接
+      </span>
+    </a>
+     
+    <span
+      class="t-tag t-tag--default t-tag--dark t-tag--disabled"
+    >
+      失效标签
+    </span>
+  </div>
 </div>
 `;
 
@@ -239,7 +248,7 @@ exports[`Tag plain demo works fine 1`] = `
 
 exports[`Tag shape demo works fine 1`] = `
 <div
-  class="tdesign-tag-shape"
+  class="tag-demo"
 >
   <div
     class="tdesign-demo-block"
@@ -302,7 +311,7 @@ exports[`Tag shape demo works fine 1`] = `
 
 exports[`Tag size demo works fine 1`] = `
 <div
-  class="tdesign-tag-size"
+  class="tag-demo"
 >
   <div
     class="tdesign-demo-block"
@@ -354,19 +363,6 @@ exports[`Tag theme demo works fine 1`] = `
 <div
   class="tdesign-tag-theme"
 >
-  <div
-    class="tdesign-demo-block"
-  >
-    
-    默认
-    
-    <span
-      class="t-tag t-tag--default t-tag--dark"
-    >
-      默认
-    </span>
-  </div>
-   
   <div
     class="tdesign-demo-block"
   >

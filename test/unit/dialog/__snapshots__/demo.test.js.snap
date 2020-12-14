@@ -5,7 +5,7 @@ exports[`Dialog base demo works fine 1`] = `
   <button
     class="t-button t-button--primary"
   >
-    显示对话框
+    基础确认对话框
   </button>
    
   <div
