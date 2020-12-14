@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="tdesign-tooltip-placement">
     <t-tooltip
       class="placement-top"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
@@ -110,72 +110,3 @@
     </t-tooltip>
   </div>
 </template>
-<style lang="less" scoped>
-.container {
-  margin: 0 auto;
-  width: 500px;
-  height: 260px;
-  position: relative;
-
-  .placement-top {
-    position: absolute;
-    top: 0;
-    left: 42%;
-  }
-  .placement-topLeft {
-    position: absolute;
-    top: 0;
-    left: 70px;
-  }
-  .placement-topRight {
-    position: absolute;
-    top: 0;
-    right: 70px;
-  }
-  .placement-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 42%;
-  }
-  .placement-bottomLeft {
-    position: absolute;
-    bottom: 0;
-    left: 70px;
-  }
-  .placement-bottomRight {
-    position: absolute;
-    bottom: 0;
-    right: 70px;
-  }
-  .placement-left {
-    position: absolute;
-    left: 0;
-    top: 42%;
-  }
-  .placement-leftTop {
-    position: absolute;
-    left: 0;
-    top: 50px;
-  }
-  .placement-leftBottom {
-    position: absolute;
-    left: -0;
-    bottom: 50px;
-  }
-  .placement-right {
-    position: absolute;
-    right: 0;
-    top: 42%;
-  }
-  .placement-rightTop {
-    position: absolute;
-    right: 0;
-    top: 50px;
-  }
-  .placement-rightBottom {
-    position: absolute;
-    right: 0;
-    bottom: 50px;
-  }
-}
-</style>

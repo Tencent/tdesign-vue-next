@@ -3,11 +3,3 @@
     <t-button>默认文字提示</t-button>
   </t-tooltip>
 </template>
-<style>
-.tooltip .t-tooltip {
-  margin-right: 20px;
-}
-.t-tooltip-content {
-  max-width: 200px;
-}
-</style>
