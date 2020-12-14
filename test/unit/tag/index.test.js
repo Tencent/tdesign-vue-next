@@ -69,10 +69,10 @@ describe('Tag or CheckTag', () => {
       });
       expect(wrapper).toMatchSnapshot();
     });
-    it(':size:middle', () => {
+    it(':size:medium', () => {
       const wrapper = mount({
         render() {
-          <Tag size="middle"></Tag>;
+          <Tag size="medium"></Tag>;
         },
       });
       expect(wrapper).toMatchSnapshot();
