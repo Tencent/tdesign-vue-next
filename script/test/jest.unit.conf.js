@@ -5,7 +5,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   testRegex: 'unit/.*\\.test\\.js$',
   // close coverage by default
-  // collectCoverage: true,
+  collectCoverage: true,
   coverageDirectory: '<rootDir>/test/unit/coverage',
   collectCoverageFrom: [
     'src/**/*.{ts,tsx,js,vue}',

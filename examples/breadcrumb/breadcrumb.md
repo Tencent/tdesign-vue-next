@@ -17,7 +17,7 @@
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
 |theme|string|light|否|风格|
-|size|string|middle|否|尺寸，大，中（默认），小，可选值为 large/middle/small|
+|size|string|medium|否|尺寸，大，中（默认），小，可选值为 large/medium/small|
 |separator|string/TNode|/|否|分隔符自定义,TNode优先级高于string|
 
 ## breadcrumb item
