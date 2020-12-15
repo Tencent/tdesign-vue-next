@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <t-switch></t-switch>
-    <t-switch v-model="checked" @change="onChange"></t-switch>
+  <div class="switch-demo">
+    <div class="tdesign-demo-block">
+      <t-switch></t-switch>
+      <t-switch v-model="checked" @change="onChange"></t-switch>
+    </div>
   </div>
 </template>
 
@@ -20,3 +22,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.switch-demo .tdesign-demo-block {
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+</style>

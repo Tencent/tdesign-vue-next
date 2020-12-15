@@ -23,4 +23,5 @@ results/
 yarn-error.log
 cypress
 cypress.json
+common/
 Dockerfile

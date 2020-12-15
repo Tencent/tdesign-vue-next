@@ -1,31 +1,39 @@
 <template>
   <div class="tdesign-radio-group">
-    <t-radio-group
-      name="city"
-      v-model="value"
-      :options="options"
-      @change="onChange"
-    ></t-radio-group>
-    <br />
-    <t-radio-group
-      default-value="sz"
-      :options="options"
-      @change="onChange"
-    ></t-radio-group>
-    <br />
-    <t-radio-group
-      disabled
-      default-value="gz"
-      :options="optionsWithDisabled"
-      @change="onChange"
-    ></t-radio-group>
-    <br />
-    <t-radio-group default-value="gz" @change="onChange">
-      <t-radio value="bj">北京</t-radio>
-      <t-radio value="sh">上海</t-radio>
-      <t-radio value="gz">广州</t-radio>
-      <t-radio value="sz" disabled>深圳</t-radio>
-    </t-radio-group>
+    <div>
+      <t-radio-group
+        name="city"
+        v-model="value"
+        :options="options"
+        @change="onChange"
+      ></t-radio-group>
+    </div>
+
+    <div>
+      <t-radio-group
+        default-value="sz"
+        :options="options"
+        @change="onChange"
+      ></t-radio-group>
+    </div>
+
+    <div>
+      <t-radio-group
+        disabled
+        default-value="gz"
+        :options="optionsWithDisabled"
+        @change="onChange"
+      ></t-radio-group>
+    </div>
+
+    <div>
+      <t-radio-group default-value="gz" @change="onChange">
+        <t-radio value="bj">北京</t-radio>
+        <t-radio value="sh">上海</t-radio>
+        <t-radio value="gz">广州</t-radio>
+        <t-radio value="sz" disabled>深圳</t-radio>
+      </t-radio-group>
+    </div>
   </div>
 </template>
 
@@ -82,3 +90,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.t-radio-group {
+  margin-bottom: 16px;
+}
+</style>

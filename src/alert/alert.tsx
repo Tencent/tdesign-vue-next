@@ -2,9 +2,9 @@ import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import RenderComponent from '../utils/render-component';
-import IconPromptFill from '../icon/prompt_fill';
-import IconSuccessFill from '../icon/success_fill';
-import IconWarningFill from '../icon/warning_fill';
+import IconPromptFill from '../icon/info-circle-filled';
+import IconSuccessFill from '../icon/check-circle-filled';
+import IconWarningFill from '../icon/error-circle-filled';
 import IconClose from '../icon/close';
 
 const name = `${prefix}-alert`;
@@ -63,10 +63,10 @@ export default Vue.extend({
       },
     ];
     return (
-      <div class={ _class }>
-        { this.renderIcon() }
-        { this.renderContent() }
-        { this.renderClose() }
+      <div class={_class}>
+        { this.renderIcon()}
+        { this.renderContent()}
+        { this.renderClose()}
       </div>
     );
   },
@@ -92,7 +92,7 @@ export default Vue.extend({
       } else {
         iconContent = this.$scopedSlots.icon && this.$scopedSlots.icon(null)[0];
       }
-      return iconContent ? <div class={`${name}__icon`}>{ iconContent }</div> : null;
+      return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
     },
 
     renderClose(): VNode {
@@ -106,14 +106,14 @@ export default Vue.extend({
       } else {
         closeContent = this.$scopedSlots.close && this.$scopedSlots.close(null)[0];
       }
-      return closeContent ? <div class={`${name}__close`} onClick={this.handleClose}> { closeContent }</div> : null;
+      return closeContent ? <div class={`${name}__close`} onClick={this.handleClose}> {closeContent}</div> : null;
     },
 
     renderContent(): VNode {
       return (
         <div class={`${name}__content`}>
-          { this.renderTitle() }
-          { this.renderMessage() }
+          { this.renderTitle()}
+          { this.renderMessage()}
         </div>
       );
     },
@@ -127,7 +127,7 @@ export default Vue.extend({
       } else {
         titleContent = this.$scopedSlots.title && this.$scopedSlots.title(null)[0];
       }
-      return titleContent ? <div class={`${name}__title`}> { titleContent }</div> : null;
+      return titleContent ? <div class={`${name}__title`}> {titleContent}</div> : null;
     },
 
     renderMessage(): VNode {
@@ -139,12 +139,12 @@ export default Vue.extend({
       }
       return (
         <div class={`${name}__message`}>
-          { this.renderDescription() }
+          { this.renderDescription()}
           { operationContent ? (
             <div class={`${name}__operation`}>
-              { operationContent }
+              { operationContent}
             </div>
-          ) : null }
+          ) : null}
         </div>
       );
     },
@@ -169,16 +169,16 @@ export default Vue.extend({
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
         <div class={`${name}__description`}>
-          { hasCollapse ? (messageContent as Array<string|VNode>).map(content => (
+          { hasCollapse ? (messageContent as Array<string | VNode>).map(content => (
             <div>
-              { content }
+              { content}
             </div>
-          )) : messageContent }
+          )) : messageContent}
           { hasCollapse ? (
             <div class="t-alert__collapse" onClick={() => {
               this.collapsed = !this.collapsed;
             }} >
-              { this.collapsed ? this.collapseText[0] : this.collapseText[1] }
+              { this.collapsed ? this.collapseText[0] : this.collapseText[1]}
             </div>
           ) : null}
         </div>

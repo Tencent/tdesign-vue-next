@@ -1,11 +1,10 @@
 <template>
-  <div class="tdesign-tag-checkable">
+  <div class="tag-demo">
     <div class="tdesign-demo-block">
       <t-check-tag
         v-for="(tag, index) in tags"
         :key="index"
         :checked="tag.checked"
-        :disabled="tag.disabled"
         @change="handleChange(tag, index)"
       >
         {{ tag.name }}
@@ -20,19 +19,20 @@ export default {
     return {
       tags: [
         {
-          name: '标签一',
-          checked: false,
-          disabled: false,
-        },
-        {
-          name: '标签二',
-          checked: false,
-          disabled: true,
-        },
-        {
-          name: '标签三',
+          name: '选中1',
           checked: true,
-          disabled: false,
+        },
+        {
+          name: '选中2',
+          checked: true,
+        },
+        {
+          name: '未选3',
+          checked: false,
+        },
+        {
+          name: '未选4',
+          checked: false,
         },
       ],
     };
@@ -45,3 +45,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.tag-demo .tdesign-demo-block {
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+}
+</style>
+

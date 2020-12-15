@@ -24,16 +24,6 @@
       <t-button theme="link">链接文字按钮</t-button>
       <t-button theme="link" disabled>链接文字按钮</t-button>
     </div>
-    <div class="tdesign-demo-block">
-      <t-button theme="ghost">幽灵按钮</t-button>
-      <t-button theme="ghost" disabled>幽灵按钮</t-button>
-    </div>
-    <div class="tdesign-demo-block">
-      <span class="tdesign-wrap">
-        <t-button theme="ghost-line">幽灵次要按钮</t-button>
-      </span>
-      <t-button theme="ghost-line" disabled>幽灵次要按钮</t-button>
-    </div>
   </div>
 </template>
 <script>
