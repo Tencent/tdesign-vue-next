@@ -4,6 +4,7 @@ export { Dialog } from './dialog';
 export * from './addon';
 export * from './alert-swiper';
 export * from './alert';
+export * from './drawer';
 export * from './breadcrumb';
 export * from './breadcrumbItem';
 export * from './button';
