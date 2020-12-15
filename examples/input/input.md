@@ -79,7 +79,7 @@
 |-----|-----|-----|-----|-----|
 |value|String| |N|输入框的值
 |defaultValue|String| |N|输入框的默认值
-|size|'large'/'default/size'|N|控件大小
+|size|String| medium | N | 输入框尺寸，可选值large、medium、small
 |clearable|Boolean| |N|是否可清空
 |prefixIcon|String/Slot/Function| |N|前缀图标
 |suffixIcon|String/Slot/Function| |N|后缀图标
