@@ -1,17 +1,20 @@
 <template>
   <div>
     <t-dropdown :options="options" @click="clickHandler">
-      <t-button>hover我试试</t-button>
+      <t-button><t-icon-more slot="icon"/></t-button>
     </t-dropdown>
   </div>
 </template>
 <script>
-import Vue from 'vue';
-export default Vue.extend({
+import TIconMore from '@tencent/tdesign-vue/lib/icon/more';
+export default {
+  components: {
+    TIconMore,
+  },
   data() {
     return {
       options: [{
-        text: '选项一选项一选项一选项一',
+        text: '选项一',
         id: 1,
         iconName: 'android',
       }, {
@@ -34,7 +37,7 @@ export default Vue.extend({
       this.$message.success(`选中【${data.text}】`);
     },
   },
-});
+};
 </script>
 <style scoped>
 .t-button {

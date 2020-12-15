@@ -1,18 +1,13 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
-import Icon from '../icon/iconfont';
+import TIconLoading from '../icon/loading';
 import { THEME_LIST, SIZE_LIST, SHAPE_LIST } from './const';
 
 const name = `${prefix}-button`;
 
 export default Vue.extend({
   name,
-  components: {
-    [Icon.name]: Icon,
-    RenderComponent,
-  },
   props: {
     theme: {
       type: String,
@@ -35,7 +30,7 @@ export default Vue.extend({
         return SHAPE_LIST.indexOf(v) > -1;
       },
     },
-    icon: [String, Function],
+    icon: Function,
     loading: Boolean,
     block: Boolean,
     disabled: Boolean,
@@ -45,9 +40,7 @@ export default Vue.extend({
     let icon: JsxNode;
 
     if (this.loading) {
-      icon = <Icon name="loading"></Icon>;
-    } else if (typeof this.icon === 'string') {
-      icon = <Icon name={this.icon}></Icon>;
+      icon = <TIconLoading/>;
     } else if (typeof this.icon === 'function') {
       icon = this.icon(h);
     } else if (this.$scopedSlots.icon) {
@@ -75,7 +68,7 @@ export default Vue.extend({
     }
 
     return (
-      <button class={buttonClass} {...{ on: this.$listeners }}>
+      <button class={buttonClass} disabled={this.disabled} {...{ on: this.$listeners }}>
         {buttonContent}
       </button>
     );

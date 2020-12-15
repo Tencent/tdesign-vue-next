@@ -1,46 +1,35 @@
 <template>
   <div class="tdesign-demo-item--input__input-box">
-    <t-input
-      prefix-icon="lock-on"
-      suffix-icon="prompt"
-      @click-prefix-icon="onPrefixIconClick"
-      @click-suffix-icon="onSuffixIconClick"
-    />
-    <!-- 使用 function 或 slot 的形式定义 icon -->
-    <t-input :prefix-icon="renderPrefixIcon" :suffix-icon="renderSuffixIcon" />
-    <t-input>
-      <template v-slot:prefix-icon>
-        <t-icon name="lock-on"></t-icon>
-      </template>
-      <template v-slot:suffix-icon>
-        <t-icon name="prompt"></t-icon>
-      </template>
+    <t-input type="password">
+      <t-icon-lock-on slot="prefix-icon"></t-icon-lock-on>
+      <t-icon-info-circle slot="suffix-icon"></t-icon-info-circle>
     </t-input>
+    <!-- 使用 function 的形式定义 icon -->
+    <t-input type="password" :prefix-icon="renderPrefixIcon" :suffix-icon="renderSuffixIcon" />
   </div>
 </template>
 <script>
+import TIconLockOn from '@tencent/tdesign-vue/lib/icon/lock-on';
+import TIconInfoCircle from '@tencent/tdesign-vue/lib/icon/info-circle';
+
 export default {
+  components: {
+    TIconLockOn,
+    TIconInfoCircle,
+  },
   methods: {
-    renderPrefixIcon(h) {
-      return h('t-icon', {
-        props: {
-          name: 'lock-on',
-        },
-      });
+    renderPrefixIcon() {
+      return <TIconLockOn></TIconLockOn>;
     },
-    renderSuffixIcon(h) {
-      return h('t-icon', {
-        props: {
-          name: 'prompt',
-        },
-      });
-    },
-    onPrefixIconClick(e) {
-      console.log('prefix icon clicked', e);
-    },
-    onSuffixIconClick(e) {
-      console.log('suffix icon clicked', e);
+    renderSuffixIcon() {
+      return <TIconInfoCircle></TIconInfoCircle>;
     },
   },
 };
 </script>
+
+<style scoped>
+.t-input + .t-input{
+  margin-top: 16px;
+}
+</style>

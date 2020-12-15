@@ -35,6 +35,7 @@ export default {
       ],
       columns: [
         {
+          fixed: 'left',
           align: 'left',
           width: '100',
           minWidth: '100',
@@ -44,6 +45,7 @@ export default {
           title: '类型',
         },
         {
+          fixed: 'left',
           align: 'left',
           width: '100',
           minWidth: '100',
@@ -72,7 +74,6 @@ export default {
         },
         {
           align: 'left',
-          fixed: 'right',
           width: '100',
           minWidth: '100',
           className: 'test3',
@@ -96,7 +97,7 @@ export default {
       border: true,
       hover: true,
       stripe: true,
-      width: 2000,
+      width: 1200,
     };
   },
 };

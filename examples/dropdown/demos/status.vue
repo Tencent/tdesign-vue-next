@@ -1,33 +1,36 @@
 <template>
   <div>
     <t-dropdown :options="options" >
-      <t-button>hover我试试</t-button>
+      <t-button><t-icon-more slot="icon"/></t-button>
     </t-dropdown>
   </div>
 </template>
-<script lang="ts">
-import Vue from 'vue';
-export default Vue.extend({
+<script>
+import TIconMore from '@tencent/tdesign-vue/lib/icon/more';
+export default {
+  components: {
+    TIconMore,
+  },
   data() {
     return {
       options: [{
-        text: '选项一',
+        text: '操作一',
         id: 1,
       }, {
-        text: '选项二',
+        text: '操作二',
         id: 2,
       }, {
-        text: '选项三',
+        text: '操作三',
         disabled: true,
         id: 3,
       }, {
-        text: '选项四',
+        text: '额外操作四',
         id: 4,
         topSplit: true,
       }],
     };
   },
-});
+};
 </script>
 <style scoped>
 .t-button {

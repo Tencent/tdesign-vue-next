@@ -1,9 +1,51 @@
- ## Dialog 对话框
+## Dialog 对话框
 
-::: demo demos/standalone 组件展示
+对话框是一种临时窗口，通常在不想中断整体任务流程，但又需要为用户展示信息或获得用户响应时，在页面中打开一个对话框承载相应的信息及操作
+
+### 何时使用
+需要展示操作反馈或提示信息
+
+需要填写或展示某些信息，但不方便中断当前流程时
+
+对于脱离当前页面内容的独立线程，内容较少时也可以使用对话框
+
+## 1.组件类型
+### 1.1 确认类对话框
+定义：是基础的带取消及主要操作的对话框，是对某操作进行二次确认的对话框
+
+使用场景：确认类对话框适用于用户进行了一个操作，操作后果比较严重，需要用户二次确认的情况
+
+#### 1.1.1 基础确认对话框
+
+::: demo demos/base
 :::
 
-::: demo demos/base 默认
+
+#### 1.1.2 带警示图标的确认类对话框，一般用于操作后果较严重，需特别注意的场景
+
+::: demo demos/icon
+:::
+
+#### 1.1.3 自定义按钮颜色的确认类对话框，一般用于不可逆的操作，需谨慎对待的场景
+
+::: demo demos/custom/bottom
+:::
+
+### 1.2 反馈和警示类对话框
+定义：反馈和警示类对话框为显示某操作结果的对话框，内容区域有icon，仅有一个确认按钮
+
+使用场景：反馈和警示类对话框用于操作后结果的展示，或危险、警告等信息的展示
+
+::: demo demos/warning
+:::
+
+
+### 1.3 异步加载类对话框
+定义：按钮带加载标识，操作需要异步完成的对话框
+
+使用场景：当前操作需要异步完成，不能和对话框同步关闭时
+
+::: demo demos/async
 :::
 
 ::: demo demos/position 弹框位置
@@ -22,7 +64,7 @@
 :::
 
 
-### Dialog 属性配置
+### 属性配置
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
 |visable|Boolean|false|N|用于控制弹框是否显示（v-model）|
@@ -40,8 +82,9 @@
 |attach|Boolean/String/Function|false|N|指定弹框挂载点，默认子元素挂载；类型Boolean，true挂载document.body，false为子元素挂载；类型String，表示DOM选择器（querySelect）;类型Function，需返回DOM节点，如：()=>document.body|
 |zlndex|Number|2500|N|定位层级|
 |destroyOnClose|Boolean|false|N|关闭时销毁Dialog子元素|
-| confirmContent | string/boolean/Object/Function | '确认' | N | 确认按钮 |
-| cancelContent | string/boolean/Object/Function | '取消' | N | 取消按钮 |
+| confirmBtn | string/boolean/Object/Function | '确认' | N | 确认按钮 |
+| cancelBtn | string/boolean/Object/Function | '取消' | N | 取消按钮 |
+
 
 ### Dialog 事件
 | 事件名称 | 参数 | 说明 |
@@ -51,9 +94,10 @@
 |click-cancel | (close: Function, e: Event) | 点击取消按钮 |
 |click-confirm | (close: Function, e: Event) | 点击确认按钮 |
 |click-overlay|-|点击遮罩层时触发|
-|visable-change|visable|弹框状态切换时触发，传递参数visable|
-|opened|-|弹框弹出动画结束触发事件，弹出动画暂未实现|
-|closed|-|弹框收起动画结束触发事件，收起动画暂未实现|
+|visable-change|(visable: Boolean)|弹框状态切换时触发，传递参数visable|
+|opened|(el: Element))|弹框弹出动画结束触发事件|
+|closed|(el: Element)|弹框收起动画结束触发事件|
+|close | (close: Function, e: Event) | 全部弹框关闭事件，若用户没有定义keydownEsc, clickCloseBtn, clickCancel, clickConfirm, clickOverlay 等事件时，触发 close事件；如果都没有定义，弹框会自行执行关闭 |
 
 
 ### this.$dialog
@@ -87,5 +131,5 @@
 
 ### this.$dialog.alert
 
-`this.$dialog.alert(options)` options 参数同 this.$dialog，无 `cancelContent` 。
+`this.$dialog.alert(options)` options 参数同 this.$dialog，无 `cancelBtn` 。
 

@@ -13,3 +13,10 @@
     </t-list>
   </div>
 </template>
+
+<style scoped>
+.t-list {
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+</style>

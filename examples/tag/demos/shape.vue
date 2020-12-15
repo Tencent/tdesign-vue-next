@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tag-shape">
+  <div class="tag-demo">
     <div class="tdesign-demo-block">
       正常：
       <t-tag>标签一</t-tag>
@@ -17,3 +17,12 @@
     </div>
   </div>
 </template>
+
+<style lang="less" scoped>
+.tag-demo .tdesign-demo-block {
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+</style>
+

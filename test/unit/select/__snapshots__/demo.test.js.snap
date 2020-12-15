@@ -24,6 +24,7 @@ exports[`Select base demo works fine 1`] = `
          
         <span
           class="t-select-placeholder"
+          style="display: none;"
         >
            请选择
         </span>
@@ -32,26 +33,34 @@ exports[`Select base demo works fine 1`] = `
           name="t-select"
           style="width: 0px;"
           type="hidden"
+          value="1"
         />
           
-        <!---->
+        <span
+          class="t-select-selectedSingle"
+          title="1"
+        >
+          
+        1
+      
+        </span>
          
         <div
-          class="t-input t-select-input"
+          class="t-input t-size-m t-select-input"
           style="display: none;"
         >
           <input
             class="t-input__inner"
-            placeholder="请选择"
+            placeholder="1"
             type="text"
           />
         </div>
          
         <svg
-          class="t-icon t-icon-arrow-down t-select-right-icon t-is-visible"
+          class="t-icon t-icon-chevron-down t-select-right-icon"
         >
           <use
-            xlink:href="#t-icon-arrow-down"
+            xlink:href="#t-icon-chevron-down"
           />
         </svg>
          

@@ -1,16 +1,20 @@
 <template>
-  <div class="tdesign-tag-closable">
-    <t-tag
-      v-for="(tag, index) in tags"
-      :key="index"
-      :theme="tag.type"
-      :effect="tag.effect"
-      closable
-      @click="handleClick"
-      @close="handleClose(index)"
-    >
-      {{ tag.name }}
-    </t-tag>
+  <div class="tag-demo">
+    <div class="tdesign-demo-block">
+      <t-tag
+        v-for="(tag, index) in tags"
+        :key="index"
+        :theme="tag.type"
+        :icon="tag.icon"
+        :effect="tag.effect"
+        :maxWidth="tag.maxWidth"
+        :closable="tag.showClose"
+        @click="handleClick"
+        @close="handleClose(index)"
+      >
+        {{ tag.name }}
+      </t-tag>
+    </div>
   </div>
 </template>
 
@@ -20,33 +24,32 @@ export default {
     return {
       tags: [
         {
-          name: '标签一',
+          name: '隐藏叉',
           type: 'default',
+          showClose: false,
         },
         {
-          name: '标签二',
-          type: 'primary',
-          effect: 'plain',
+          name: '显示叉',
+          type: 'default',
+          showClose: true,
         },
         {
-          name: '标签三',
+          name: '可删除',
           type: 'info',
-          effect: 'plain',
+          icon: 'discount',
+          showClose: true,
         },
         {
-          name: '标签四',
-          type: 'warning',
-          effect: 'plain',
+          name: '默认超过八个字超出部分隐藏',
+          type: 'default',
+          maxWidth: 150,
+          showClose: false,
         },
         {
-          name: '标签五',
-          type: 'danger',
-          effect: 'plain',
-        },
-        {
-          name: '标签六',
-          type: 'success',
-          effect: 'plain',
+          name: '添加标签',
+          type: 'info',
+          icon: 'add',
+          showClose: false,
         },
       ],
     };
@@ -61,3 +64,11 @@ export default {
   },
 };
 </script>
+
+<style lang="less" scoped>
+.tag-demo .tdesign-demo-block {
+  width: 800px;
+  display: flex;
+  justify-content: space-around;
+}
+</style>

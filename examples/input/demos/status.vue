@@ -5,3 +5,9 @@
     <t-input status="error" default-value="错误状态" />
   </div>
 </template>
+
+<style scoped>
+.t-input + .t-input{
+  margin-top: 16px;
+}
+</style>
