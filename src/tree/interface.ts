@@ -1,3 +1,4 @@
+import { PropType } from 'vue';
 import TreeNode from '../../common/js/tree/TreeNode';
 
 export const TreeProps = {
@@ -114,9 +115,12 @@ export const TreeProps = {
   valueMode: {
     type: String,
     default: 'onlyLeaf',
+    validator(val: string): boolean {
+      return ['all', 'parentFirst', 'onlyLeaf'].includes(val);
+    },
   },
   filter: {
-    type: Function,
+    type: Function as PropType<(node: TreeNode) => boolean>,
   },
   empty: {
     type: [Function, String],

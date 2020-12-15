@@ -6,6 +6,7 @@ import {
   TreeFilterOptions,
   TreeNodeProps,
   TreeNodeValue,
+  TypeValueMode,
 } from '../../common/js/tree/TreeStore';
 import TreeNode from '../../common/js/tree/TreeNode';
 import TreeItem from './TreeItem';
@@ -272,7 +273,7 @@ export default Vue.extend({
           disabled,
           load,
           lazy,
-          valueMode,
+          valueMode: valueMode as TypeValueMode,
           filter,
           scopedSlots,
           onLoad: (info: any) => {
@@ -434,7 +435,7 @@ export default Vue.extend({
       }
       this.toggleChecked(node);
     },
-    filterItems(fn: Function): void {
+    filterItems(fn: (node: TreeNode) => boolean): void {
       const {
         store,
       } = this;
