@@ -34,9 +34,9 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     suffixIcon: [String, Function],
     size: {
       type: String,
-      default: 'default',
+      default: 'medium',
       validator(v: string): boolean {
-        return ['large', 'default'].indexOf(v) > -1;
+        return ['large', 'medium', 'small'].indexOf(v) > -1;
       },
     },
     disabled: Boolean,
