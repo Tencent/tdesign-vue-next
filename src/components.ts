@@ -34,3 +34,4 @@ export * from './grid';
 export * from './divider';
 export * from './badge';
 export * from './loading';
+export * from './timepicker';
