@@ -13,7 +13,7 @@ exports[`Input addon demo works fine 1`] = `
       http://
     </span>
     <div
-      class="t-input"
+      class="t-input t-size-m"
     >
       <input
         class="t-input__inner"
@@ -27,7 +27,7 @@ exports[`Input addon demo works fine 1`] = `
     class="t-addon t-addon--append"
   >
     <div
-      class="t-input"
+      class="t-input t-size-m"
     >
       <input
         class="t-input__inner"
@@ -51,7 +51,7 @@ exports[`Input addon demo works fine 1`] = `
       http://
     </span>
     <div
-      class="t-input"
+      class="t-input t-size-m"
     >
       <input
         class="t-input__inner"
@@ -73,7 +73,7 @@ exports[`Input base demo works fine 1`] = `
   class="tdesign-demo-item--input__input-box"
 >
   <div
-    class="t-input"
+    class="t-input t-size-m"
   >
     <input
       class="t-input__inner"
@@ -89,7 +89,7 @@ exports[`Input disabled demo works fine 1`] = `
   class="tdesign-demo-item--input__input-box"
 >
   <div
-    class="t-input t-is-disabled"
+    class="t-input t-size-m t-is-disabled"
   >
     <input
       class="t-input__inner"
@@ -109,7 +109,7 @@ exports[`Input group demo works fine 1`] = `
       class="t-input-group t-input-group--seperate"
     >
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <input
@@ -119,7 +119,7 @@ exports[`Input group demo works fine 1`] = `
       </div>
        
       <div
-        class="t-input"
+        class="t-input t-size-m"
       >
         <input
           class="t-input__inner"
@@ -134,7 +134,7 @@ exports[`Input group demo works fine 1`] = `
       class="t-input-group t-input-group--seperate"
     >
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <input
@@ -144,7 +144,7 @@ exports[`Input group demo works fine 1`] = `
       </div>
        
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="margin-left: -1px;"
       >
         <input
@@ -160,7 +160,7 @@ exports[`Input group demo works fine 1`] = `
       class="t-input-group t-input-group--seperate"
     >
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <input
@@ -176,7 +176,7 @@ exports[`Input group demo works fine 1`] = `
       </span>
        
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="width: 100px; margin-left: 5px;"
       >
         <input
@@ -186,7 +186,7 @@ exports[`Input group demo works fine 1`] = `
       </div>
        
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <input
@@ -196,7 +196,7 @@ exports[`Input group demo works fine 1`] = `
       </div>
        
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <input
@@ -212,7 +212,7 @@ exports[`Input group demo works fine 1`] = `
       class="t-input-group t-input-group--seperate"
     >
       <div
-        class="t-input"
+        class="t-input t-size-m"
       >
         <input
           class="t-input__inner"
@@ -221,7 +221,7 @@ exports[`Input group demo works fine 1`] = `
       </div>
        
       <div
-        class="t-input"
+        class="t-input t-size-m"
       >
         <input
           class="t-input__inner"
@@ -236,7 +236,7 @@ exports[`Input group demo works fine 1`] = `
       class="t-input-group"
     >
       <div
-        class="t-input"
+        class="t-input t-size-m"
       >
         <input
           class="t-input__inner"
@@ -245,7 +245,7 @@ exports[`Input group demo works fine 1`] = `
       </div>
        
       <div
-        class="t-input"
+        class="t-input t-size-m"
       >
         <input
           class="t-input__inner"
@@ -260,7 +260,7 @@ exports[`Input group demo works fine 1`] = `
       class="t-input-group t-input-group--seperate"
     >
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <input
@@ -276,7 +276,7 @@ exports[`Input group demo works fine 1`] = `
       </span>
        
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <input
@@ -286,7 +286,7 @@ exports[`Input group demo works fine 1`] = `
       </div>
        
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <input
@@ -296,7 +296,7 @@ exports[`Input group demo works fine 1`] = `
       </div>
        
       <div
-        class="t-input"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <input
@@ -314,7 +314,7 @@ exports[`Input icon demo works fine 1`] = `
   class="tdesign-demo-item--input__input-box"
 >
   <div
-    class="t-input t-input--prefix t-input--suffix"
+    class="t-input t-size-m t-input--prefix t-input--suffix"
   >
     <span
       class="t-input__prefix"
@@ -355,7 +355,7 @@ exports[`Input icon demo works fine 1`] = `
   </div>
    
   <div
-    class="t-input t-input--prefix t-input--suffix"
+    class="t-input t-size-m t-input--prefix t-input--suffix"
   >
     <span
       class="t-input__prefix"
@@ -412,7 +412,17 @@ exports[`Input size demo works fine 1`] = `
   </div>
    
   <div
-    class="t-input"
+    class="t-input t-size-m"
+  >
+    <input
+      class="t-input__inner"
+      placeholder="请输入内容"
+      type="text"
+    />
+  </div>
+   
+  <div
+    class="t-input t-size-s"
   >
     <input
       class="t-input__inner"
@@ -428,7 +438,7 @@ exports[`Input status demo works fine 1`] = `
   class="tdesign-demo-item--input__input-box"
 >
   <div
-    class="t-input t-is-success"
+    class="t-input t-size-m t-is-success"
   >
     <input
       class="t-input__inner"
@@ -437,7 +447,7 @@ exports[`Input status demo works fine 1`] = `
   </div>
    
   <div
-    class="t-input t-is-warning"
+    class="t-input t-size-m t-is-warning"
   >
     <input
       class="t-input__inner"
@@ -446,7 +456,7 @@ exports[`Input status demo works fine 1`] = `
   </div>
    
   <div
-    class="t-input t-is-error"
+    class="t-input t-size-m t-is-error"
   >
     <input
       class="t-input__inner"
