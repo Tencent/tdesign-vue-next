@@ -46,7 +46,7 @@ exports[`Select base demo works fine 1`] = `
         </span>
          
         <div
-          class="t-input t-select-input"
+          class="t-input t-size-m t-select-input"
           style="display: none;"
         >
           <input
