@@ -471,7 +471,7 @@ export default Vue.extend({
     getChecked(item?: TreeNodeValue): TreeNode[] {
       return this.store.getCheckedNodes(item);
     },
-    append(para?: string | TreeNodeData | TreeNode, item?: TreeNodeData): void {
+    append(para?: TreeNodeValue | TreeNode, item?: TreeNodeData): void {
       return this.store.appendNodes(para, item);
     },
     insertBefore(value: TreeNodeValue, item: TreeNodeData): void {
