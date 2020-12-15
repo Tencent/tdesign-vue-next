@@ -79,8 +79,8 @@
 |defaultValue|String| |N|输入框的默认值
 |size|'large'/'default'|N|控件大小
 |clearable|Boolean| |N|是否可清空
-|prefixIcon|String/Slot/Function| |N|前缀图标
-|suffixIcon|String/Slot/Function| |N|后缀图标
+|prefixIcon|Slot/Function| |N|前缀图标
+|suffixIcon|Slot/Function| |N|后缀图标
 
 >原生属性默认支持: type/name/disabled/readonly/autofocus
 
