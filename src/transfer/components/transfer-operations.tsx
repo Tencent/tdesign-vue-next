@@ -28,7 +28,7 @@ export default Vue.extend({
     getIcon(order: string) {
       let iconName;
       if (!this.operations || !this.operations.length) {
-        iconName = order === 'up' ? 'arrow-right' : 'arrow-left';
+        iconName = order === 'up' ? 'chevron-right' : 'chevron-left';
       } else {
         iconName = null;
       }

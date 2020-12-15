@@ -2,10 +2,6 @@
   <t-transfer
     :data="list"
     v-model="targetValue"
-    directions="both"
-    :operations="['right', 'left']"
-    :disabled="[false, true]"
-    targetOrder="unshift"
     @checkChange="checkChange"
   />
 </template>
