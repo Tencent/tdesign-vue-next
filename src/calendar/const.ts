@@ -1,3 +1,16 @@
+// 每年首月份
+export const FIRST_MONTH_OF_YEAR = 1;
+// 每年最后一个月份
+export const LAST_MONTH_OF_YEAR = 12;
+
+// 一些固定的文本
+export const TEXT_MAP = {
+  showWeekend: '显示周末',
+  hideWeekend: '隐藏周末',
+  today: '今天',
+  thisMonth: '本月',
+};
+
 /**
  * 日历组件模式的可选值
  */
@@ -91,6 +104,9 @@ export const MONTH_CN_MAP = {
 };
 
 export default {
+  FIRST_MONTH_OF_YEAR,
+  LAST_MONTH_OF_YEAR,
+  TEXT_MAP,
   MODE_LIST,
   MODE_OPTION_LIST,
   FIRST_DAY_OF_WEEK_LIST,

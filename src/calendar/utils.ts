@@ -1,4 +1,6 @@
 import {
+  FIRST_MONTH_OF_YEAR,
+  LAST_MONTH_OF_YEAR,
   DAY_CN_MAP,
   MONTH_CN_MAP,
 } from './const';
@@ -95,7 +97,7 @@ const createYearCellsData = (year: number, curDate: Date, theme: string) => {
   const monthsArr: any[] = [];
   const map = MONTH_CN_MAP;
   const isCurYear = getYear(curDate) === year;
-  for (let num = 1; num <= 12; num++) {
+  for (let num = FIRST_MONTH_OF_YEAR; num <= LAST_MONTH_OF_YEAR; num++) {
     const date = new Date(year, num - 1);
     const isCurMon = (isCurYear && getMonth(curDate) === num);
     monthsArr.push({

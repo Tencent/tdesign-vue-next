@@ -1,10 +1,7 @@
 <template>
   <!-- full模式：t-calendar--full 、 card模式：t-calendar--card -->
   <div class="t-calendar"
-       :class="{
-         't-calendar--full': (theme === 'full'),
-         't-calendar--card': (theme === 'card')
-       }">
+       :class="calendarCls">
     <!-- 控件部分 -->
     <div class="t-calendar__control" v-if="isControllerVisible">
       <div class="t-calendar__control-section">
@@ -141,6 +138,9 @@ import { prefix } from '../config';
 import * as utils from './utils';
 
 import {
+  FIRST_MONTH_OF_YEAR,
+  LAST_MONTH_OF_YEAR,
+  TEXT_MAP,
   MODE_LIST,
   FIRST_DAY_OF_WEEK_LIST,
   THEME_LIST,
@@ -160,12 +160,10 @@ import {
 } from '../button';
 import CalendarCell from './calendar-cell.vue';
 
-const name = `${prefix}-calendar`;
-const minYear = 1970;
-
+const MIN_YEAR = 1970;
 
 export default mixins().extend({
-  name,
+  name: `${prefix}-calendar`,
   components: {
     TSelect,
     TOption,
@@ -180,9 +178,7 @@ export default mixins().extend({
        */
     defaultValue: {
       type: Date,
-      default(): Date {
-        return new Date();
-      },
+      default: (): Date => null,
     },
     /**
        * 模式（"month" | "year"）
@@ -209,9 +205,7 @@ export default mixins().extend({
        */
     range: {
       type: Object,
-      default() {
-        return null;
-      },
+      default: (): Record<string, any> => null,
       validator(v: any): boolean {
         if (v) {
           const from = v.from as Date;
@@ -269,27 +263,18 @@ export default mixins().extend({
           },
         };
       },
-      validator(v: object): boolean {
-        if (v) {
-          // TODO
-          return true;
-        }
-        return true;
-      },
     },
     /**
        * 是否支持滚动翻阅
        */
     scrollMore: {
       type: Boolean,
-      default: false,
     },
     /**
        * 是否禁用单元格右键默认系统菜单
        */
     preventCellContextmenu: {
       type: Boolean,
-      default: false,
     },
     /**
        * 默认是否显示周末
@@ -304,7 +289,7 @@ export default mixins().extend({
       type: Number,
       default: 4,
       validator(v: number): boolean {
-        return v >= 1 && v <= 12;
+        return v >= FIRST_MONTH_OF_YEAR && v <= LAST_MONTH_OF_YEAR;
       },
     },
   },
@@ -320,23 +305,28 @@ export default mixins().extend({
       curSelectedMode: null,
       // 是否显示周末
       isShowWeekend: true,
+      // 统一控件尺寸
+      controlSize: 'small',
     };
   },
   computed: {
+    // 组件最外层的class名（除去前缀，class名和theme参数一致）
+    calendarCls(): Record<string, any> {
+      return [`t-calendar--${this.theme}`];
+    },
     // 日历主体头部
     cellColHeaders(): any[] {
-      const tis = this as any;
       const re: any[] = [];
       const min = 1;
       const max = 7;
-      for (let i = tis.firstDayOfWeek; i <= max; i++) {
+      for (let i = this.firstDayOfWeek; i <= max; i++) {
         re.push({
           num: i,
           display: utils.getDayCn(i),
         });
       }
-      if (tis.firstDayOfWeek > min) {
-        for (let i = min; i < tis.firstDayOfWeek; i++) {
+      if (this.firstDayOfWeek > min) {
+        for (let i = min; i < this.firstDayOfWeek; i++) {
           re.push({
             num: i,
             display: utils.getDayCn(i),
@@ -345,32 +335,26 @@ export default mixins().extend({
       }
       return re;
     },
-    // 统一控件尺寸
-    controlSize(): string {
-      const re = 'small';
-      return re;
-    },
     // 年份下拉框数据源
     yearSelectOptionList(): any[] {
-      const tis = this as any;
       const re = [];
 
-      let begin = tis.curSelectedYear - 10;
-      let end = tis.curSelectedYear + 10;
-      if (tis.range && tis.range.from && tis.range.to) {
-        begin = utils.getYear(tis.range.from);
-        end = utils.getYear(tis.range.to);
+      let begin = this.curSelectedYear - 10;
+      let end = this.curSelectedYear + 10;
+      if (this.range && this.range.from && this.range.to) {
+        begin = utils.getYear(this.range.from);
+        end = utils.getYear(this.range.to);
       }
 
-      if (begin < minYear) {
-        begin = minYear;
+      if (begin < MIN_YEAR) {
+        begin = MIN_YEAR;
       }
-      if (end < minYear) {
-        end = minYear;
+      if (end < MIN_YEAR) {
+        end = MIN_YEAR;
       }
 
       for (let i = begin; i <= end; i++) {
-        const disabled = tis.checkDisabled(i, tis.curSelectedMonth);
+        const disabled = this.checkDisabled(i, this.curSelectedMonth);
         re.push({
           value: i,
           label: (`${i}年`),
@@ -381,10 +365,9 @@ export default mixins().extend({
     },
     // 月份下拉框数据源
     monthSelectOptionList(): any[] {
-      const tis = this as any;
       const re = [];
-      for (let i = 1; i <= 12; i++) {
-        const disabled = tis.checkDisabled(tis.curSelectedYear, i);
+      for (let i = FIRST_MONTH_OF_YEAR; i <= LAST_MONTH_OF_YEAR; i++) {
+        const disabled = this.checkDisabled(this.curSelectedYear, i);
         re.push({
           value: i,
           label: (`${i}月`),
@@ -400,27 +383,25 @@ export default mixins().extend({
     },
     // month模式下日历单元格的数据
     monthCellsData(): any[] {
-      const tis = this as any;
-      const firstDayOfWeek = tis.firstDayOfWeek as number;
+      const firstDayOfWeek = this.firstDayOfWeek as number;
       const daysArr: any[] = utils.createMonthCellsData(
-        tis.curSelectedYear,
-        tis.curSelectedMonth,
+        this.curSelectedYear,
+        this.curSelectedMonth,
         firstDayOfWeek,
-        tis.curDate,
-        tis.theme
+        this.curDate,
+        this.theme
       );
       return daysArr;
     },
     // year模式下日历单元格的数据
     yearCellsData(): any[] {
-      const tis = this as any;
       const re: any[] = [];
-      const monthsArr: any[] = utils.createYearCellsData(tis.curSelectedYear, tis.curDate, tis.theme);
-      const rowCount = Math.ceil(monthsArr.length / tis.yearCellNumInRow);
+      const monthsArr: any[] = utils.createYearCellsData(this.curSelectedYear, this.curDate, this.theme);
+      const rowCount = Math.ceil(monthsArr.length / this.yearCellNumInRow);
       let index = 0;
       for (let i = 1; i <= rowCount; i++) {
         const row: any[] = [];
-        for (let j = 1; j <= tis.yearCellNumInRow; j++) {
+        for (let j = 1; j <= this.yearCellNumInRow; j++) {
           row.push(monthsArr[index]);
           index += 1;
         }
@@ -431,162 +412,131 @@ export default mixins().extend({
 
     // 是否显示控件（整个右上角的所有控件）
     isControllerVisible(): boolean {
-      const tis = this as any;
-      let re = true;
-      if (!tis.controllerConfig || !tis.controllerConfig.visible) {
-        re = false;
-      }
-      return re;
+      return this.controllerConfig && this.controllerConfig.visible;
     },
 
     weekendToggleBtnText(): string {
-      const tis = this as any;
-      return tis.isShowWeekend ? '隐藏周末' : '显示周末';
+      return this.isShowWeekend ? TEXT_MAP.hideWeekend : TEXT_MAP.showWeekend;
     },
-    weekendToggleBtnVBind(): any {
-      const tis = this as any;
-      return tis.isShowWeekend
-        ? tis.controllerConfig.weekendToggle.hideWeekendButtonProps
-        : tis.controllerConfig.weekendToggle.showWeekendButtonProps;
+    weekendToggleBtnVBind(): object {
+      return this.isShowWeekend
+        ? this.controllerConfig.weekendToggle.hideWeekendButtonProps
+        : this.controllerConfig.weekendToggle.showWeekendButtonProps;
     },
 
     currentBtnText(): string {
-      const tis = this as any;
-      return tis.curSelectedMode === 'month' ? '今天' : '本月';
+      return this.curSelectedMode === 'month' ? TEXT_MAP.today : TEXT_MAP.thisMonth;
     },
-    currentBtnVBind(): any {
-      const tis = this as any;
-      return tis.curSelectedMode === 'month'
-        ? tis.controllerConfig.current.currentDayButtonProps
-        : tis.controllerConfig.current.currentMonthButtonProps;
+    currentBtnVBind(): object {
+      return this.curSelectedMode === 'month'
+        ? this.controllerConfig.current.currentDayButtonProps
+        : this.controllerConfig.current.currentMonthButtonProps;
     },
 
     isModeVisible(): boolean {
-      const tis = this as any;
-      return tis.checkControllerVisible('mode');
+      return this.checkControllerVisible('mode');
     },
     isYearVisible(): boolean {
-      const tis = this as any;
-      return tis.checkControllerVisible('year');
+      return this.checkControllerVisible('year');
     },
     isMonthVisible(): boolean {
-      const tis = this as any;
-      return tis.checkControllerVisible('month');
+      return this.checkControllerVisible('month');
     },
     isWeekendToggleVisible(): boolean {
-      const tis = this as any;
-      return tis.checkControllerVisible('weekendToggle');
+      return this.checkControllerVisible('weekendToggle');
     },
     isCurrentBtnVisible(): boolean {
-      const tis = this as any;
-      return tis.checkControllerVisible('current');
+      return this.checkControllerVisible('current');
     },
 
     isModeDisabled(): boolean {
-      const tis = this as any;
-      return tis.checkControllerDisabled('mode', 'radioGroupProps');
+      return this.checkControllerDisabled('mode', 'radioGroupProps');
     },
     isYearDisabled(): boolean {
-      const tis = this as any;
-      return tis.checkControllerDisabled('year', 'selecteProps');
+      return this.checkControllerDisabled('year', 'selecteProps');
     },
     isMonthDisabled(): boolean {
-      const tis = this as any;
-      return tis.checkControllerDisabled('month', 'selecteProps');
+      return this.checkControllerDisabled('month', 'selecteProps');
     },
     isWeekendToggleDisabled(): boolean {
-      const tis = this as any;
-      return tis.isShowWeekend
-        ? tis.checkControllerDisabled('weekendToggle', 'hideWeekendButtonProps')
-        : tis.checkControllerDisabled('weekendToggle', 'showWeekendButtonProps');
+      return this.isShowWeekend
+        ? this.checkControllerDisabled('weekendToggle', 'hideWeekendButtonProps')
+        : this.checkControllerDisabled('weekendToggle', 'showWeekendButtonProps');
     },
     isCurrentBtnDisabled(): boolean {
-      const tis = this as any;
-      return tis.curSelectedMode === 'month'
-        ? tis.checkControllerDisabled('current', 'currentDayButtonProps')
-        : tis.checkControllerDisabled('current', 'currentMonthButtonProps');
+      return this.curSelectedMode === 'month'
+        ? this.checkControllerDisabled('current', 'currentDayButtonProps')
+        : this.checkControllerDisabled('current', 'currentMonthButtonProps');
     },
   },
   watch: {
     mode: {
       handler(v: string) {
-        const tis = this as any;
-        tis.curSelectedMode = v;
+        this.curSelectedMode = v;
       },
       immediate: true,
     },
     defaultValue: {
       handler() {
-        const tis = this as any;
-        tis.toCurrent();
+        this.toCurrent();
       },
     },
     isShowWeekendDefault: {
       handler(v: boolean) {
-        const tis = this as any;
-        tis.isShowWeekend = v;
+        this.isShowWeekend = v;
       },
       immediate: true,
     },
   },
   created() {
-    const tis = this as any;
-    tis.init();
+    this.init();
   },
   methods: {
     init() {
-      const tis = this as any;
-      tis.toCurrent();
+      this.toCurrent();
     },
     onCellClick(e: any, cellData: any): void {
-      const tis = this as any;
-      const emitData = tis.getCeelClickEmitData(cellData);
-      tis.$emit('cellClick', emitData);
+      const emitData = this.getCeelClickEmitData(cellData);
+      this.$emit('cellClick', emitData);
     },
     onCellDbClick(e: any, cellData: any): void {
-      const tis = this as any;
-      const emitData = tis.getCeelClickEmitData(cellData);
-      tis.$emit('cellDoubleClick', emitData);
+      const emitData = this.getCeelClickEmitData(cellData);
+      this.$emit('cellDoubleClick', emitData);
     },
     onCellRightClick(e: any, cellData: any): void {
-      const tis = this as any;
-      if (tis.preventCellContextmenu) {
+      if (this.preventCellContextmenu) {
         e.preventDefault();
       }
-      const emitData = tis.getCeelClickEmitData(cellData);
-      tis.$emit('cellRightClick', emitData);
+      const emitData = this.getCeelClickEmitData(cellData);
+      this.$emit('cellRightClick', emitData);
     },
     getCeelClickEmitData(cellData: any): any {
-      const tis = this as any;
       const re = {
         // 当前单元格的时间（年 or 年-月）
         data: cellData.date,
         // 右上角控件选中的日期（包含年、月）
-        filterDate: new Date(tis.curSelectedYear, tis.curSelectedMonth - 1),
+        filterDate: new Date(this.curSelectedYear, this.curSelectedMonth - 1),
         // 当前模式
-        mode: tis.curSelectedMode,
+        mode: this.curSelectedMode,
       };
       return re;
     },
     onControllerChange(): void {
-      const tis = this as any;
       const emitData = {
-        isShowWeekend: tis.isShowWeekend,
-        filterDate: new Date(tis.curSelectedYear, tis.curSelectedMonth - 1),
-        mode: tis.curSelectedMode,
+        isShowWeekend: this.isShowWeekend,
+        filterDate: new Date(this.curSelectedYear, this.curSelectedMonth - 1),
+        mode: this.curSelectedMode,
       };
-      tis.$emit('controllerChange', emitData);
+      this.$emit('controllerChange', emitData);
     },
     onWeekendToggleClick(): void {
-      const tis = this as any;
-      tis.isShowWeekend = !tis.isShowWeekend;
-      tis.onControllerChange();
+      this.isShowWeekend = !this.isShowWeekend;
+      this.onControllerChange();
     },
     // 判断月历单元格是否显示
     checkMonthCellVisibled(cellData: any): boolean {
       let re = true;
-      const tis = this as any;
-      if (!tis.isShowWeekend) {
+      if (!this.isShowWeekend) {
         re = !cellData.isWeekend;
       }
       return re;
@@ -594,8 +544,7 @@ export default mixins().extend({
     // 判断月历单元格头是否显示
     checkMonthCellColHeaderVisibled(item: any): boolean {
       let re = true;
-      const tis = this as any;
-      if (!tis.isShowWeekend) {
+      if (!this.isShowWeekend) {
         re = item.num !== 6 && item.num !== 7;
       }
       return re;
@@ -603,9 +552,8 @@ export default mixins().extend({
 
     // 判断某个控件是否禁用
     checkControllerDisabled(name: string, propsName: string): boolean {
-      const tis = this as any;
       let re = false;
-      const conf = tis.controllerConfig;
+      const conf = this.controllerConfig;
       if (conf && (conf.disabled
           || (conf[name] && conf[name][propsName] && conf[name][propsName].disabled))) {
         re = true;
@@ -614,9 +562,8 @@ export default mixins().extend({
     },
     // 判断某个控件是否禁用
     checkControllerVisible(name: string): boolean {
-      const tis = this as any;
       let re = true;
-      const conf = tis.controllerConfig;
+      const conf = this.controllerConfig;
       if (!conf || !conf.visible || (conf[name] && !conf[name].visible)) {
         re = false;
       }
@@ -627,30 +574,28 @@ export default mixins().extend({
      * 显示当前月份\年份
      */
     toCurrent(): void {
-      const tis = this as any;
-      if (tis.defaultValue) {
-        tis.curDate = tis.defaultValue;
-        tis.curSelectedYear = utils.getYear(tis.defaultValue);
-        tis.curSelectedMonth = utils.getMonth(tis.defaultValue);
+      if (this.defaultValue) {
+        this.curDate = this.defaultValue;
+        this.curSelectedYear = utils.getYear(this.defaultValue as Date);
+        this.curSelectedMonth = utils.getMonth(this.defaultValue as Date);
       } else {
-        tis.curDate = utils.getCurDate();
-        tis.curSelectedYear = utils.getCurYear();
-        tis.curSelectedMonth = utils.getCurMonth();
+        this.curDate = utils.getCurDate();
+        this.curSelectedYear = utils.getCurYear();
+        this.curSelectedMonth = utils.getCurMonth();
       }
     },
 
 
     checkDisabled(year: number, month: number): boolean {
-      const tis = this as any;
       let disabled = false;
-      if (tis.range && tis.range.from && tis.range.to) {
-        const beginYear = utils.getYear(tis.range.from);
-        const endYear = utils.getYear(tis.range.to);
+      if (this.range && this.range.from && this.range.to) {
+        const beginYear = utils.getYear(this.range.from);
+        const endYear = utils.getYear(this.range.to);
         if (year === beginYear) {
-          const beginMon = utils.getMonth(tis.range.from);
+          const beginMon = utils.getMonth(this.range.from);
           disabled = month < beginMon;
         } else if (year === endYear) {
-          const endMon = utils.getMonth(tis.range.to);
+          const endMon = utils.getMonth(this.range.to);
           disabled = month > endMon;
         }
       }

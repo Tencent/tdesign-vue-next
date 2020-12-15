@@ -1,25 +1,6 @@
 <template>
   <!-- 高亮：t-is-checked; 灰度：t-is-disabled-->
-  <td v-if="item" :class="{
-    't-calendar__table-body-cell': true,
-    't-is-disabled': disabled,
-    't-is-checked': isCurrent
-  }"
-  >
-    <!-- 如果full模式下才支持插槽，就用这段
-    <slot v-if="allowSlot" name="cell" :data="item">
-      <div class="t-calendar__table-body-cell-value">{{ valueDisplay }}</div>
-      <div class="t-calendar__table-body-cell-content">
-        <slot v-if="allowSlot" name="cellAppend" :data="item"></slot>
-      </div>
-    </slot>
-    <template v-else>
-      <div class="t-calendar__table-body-cell-value">{{ valueDisplay }}</div>
-      <div class="t-calendar__table-body-cell-content">
-        <slot v-if="allowSlot" name="cellAppend" :data="item"></slot>
-      </div>
-    </template>
-    -->
+  <td v-if="item" :class="cellCls">
     <slot name="cell" :data="item">
       <div class="t-calendar__table-body-cell-value">{{ valueDisplay }}</div>
       <div class="t-calendar__table-body-cell-content">
@@ -32,43 +13,39 @@
 <script lang="ts">
 import Vue from 'vue';
 import { prefix } from '../config';
-const name = `${prefix}-calendar-cell`;
 
 export default Vue.extend({
-  name,
+  name: `${prefix}-calendar-cell`,
   props: {
     item: {
       type: Object,
-      default() {
-        return null;
-      },
+      default: (): Record<string, any> => null,
     },
     theme: {
       type: String,
-      default() {
-        return null;
-      },
+      default: (): Record<string, any> => null,
     },
-  },
-  data() {
-    return { };
   },
   computed: {
     allowSlot(): boolean {
-      const tis = this as any;
-      return tis.theme === 'full';
+      return this.theme === 'full';
     },
     isCurrent(): boolean {
-      const tis = this as any;
-      return tis.item.mode === 'month' ? tis.item.isCurDate : tis.item.isCurMon;
+      return this.item.mode === 'month' ? this.item.isCurDate : this.item.isCurMon;
     },
     disabled(): boolean {
-      const tis = this as any;
-      return tis.item.mode === 'month' && tis.item.belongTo !== 0;
+      return this.item.mode === 'month' && this.item.belongTo !== 0;
     },
     valueDisplay(): boolean {
-      const tis = this as any;
-      return tis.item.mode === 'month' ? tis.item.dateDiaplay : tis.item.monthDiaplay;
+      return this.item.mode === 'month' ? this.item.dateDiaplay : this.item.monthDiaplay;
+    },
+    cellCls(): Record<string, any> {
+      return [
+        't-calendar__table-body-cell',
+        {
+          't-is-disabled': this.disabled,
+          't-is-checked': this.isCurrent,
+        }];
     },
   },
 });
