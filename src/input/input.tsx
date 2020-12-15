@@ -3,7 +3,7 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import Icon from '../icon';
-import ClearIcon from '../icon/close_fill';
+import ClearIcon from '../icon/clear-circle-filled';
 
 const name = `${prefix}-input`;
 

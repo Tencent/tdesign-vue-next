@@ -85,7 +85,7 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
     };
 
     return (
-      <label { ...wrapperProps } >
+      <label { ...wrapperProps }>
         <input
           type="radio"
           class={`${prefixCls}__former`}

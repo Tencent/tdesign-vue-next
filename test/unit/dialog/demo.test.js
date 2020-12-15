@@ -22,9 +22,4 @@ describe('Dialog', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('standalone demo works fine', () => {
-    const demo = require('@/examples/dialog/demos/standalone.vue').default;
-    const wrapper = mount(demo);
-    expect(wrapper.element).toMatchSnapshot();
-  });
 });
