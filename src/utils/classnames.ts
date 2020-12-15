@@ -2,19 +2,17 @@ import config from '../config';
 
 const { prefix } = config;
 
-export const CLASSNAME_SIZE = {
-  default: '',
-  xs: `${prefix}-size-xs`,
+export const SIZE_CLASSNAMES = {
   small: `${prefix}-size-s`,
   medium: `${prefix}-size-m`,
-  // middle is going to be deprecated. please use medium
-  middle: `${prefix}-size-m`,
   large: `${prefix}-size-l`,
+  default: '',
+  xs: `${prefix}-size-xs`,
   xl: `${prefix}-size-xl`,
   block: `${prefix}-size-full-width`,
 };
 
-export const CLASSNAME_STATUS = {
+export const STATUS_CLASSNAMES = {
   loading: `${prefix}-is-loading`,
   disabled: `${prefix}-is-disabled`,
   focused: `${prefix}-is-focused`,
@@ -31,7 +29,9 @@ export const CLASSNAME_STATUS = {
   indeterminate: `${prefix}-is-indeterminate`,
 };
 
-export default {
-  SIZE: CLASSNAME_SIZE,
-  STATUS: CLASSNAME_STATUS,
+const ClASSNAMES = {
+  SIZE: SIZE_CLASSNAMES,
+  STATUS: STATUS_CLASSNAMES,
 };
+
+export default ClASSNAMES;

@@ -13,7 +13,6 @@
         v-for="(item, index) in options"
         :value="item.value"
         :label="item.label"
-        :disabled="item.disabled"
         :key="index"
       >
         {{ item.label }}
@@ -27,27 +26,16 @@ export default {
   data() {
     return {
       options: [{
-        label: '苹果apple',
-        value: 'apple',
-        disabled: true,
+        label: '选项一',
+        value: '1',
       }, {
-        label: '香蕉banana',
-        value: 'banana',
+        label: '选项二',
+        value: '2',
       }, {
-        label: '橘子orange',
-        value: 'orange',
+        label: '选项三',
+        value: '3',
       }],
-      options2: [{
-        label: '苹果apple',
-        value: 'apple',
-      }, {
-        label: '香蕉banana',
-        value: 'banana',
-      }, {
-        label: '橘子orange',
-        value: 'orange',
-      }],
-      value: ['apple'],
+      value: ['1', '3'],
     };
   },
   methods: {

@@ -45,12 +45,10 @@ export default (Vue as VueConstructor<RadioButtonInstance>).extend({
 
     if (radioGroup) {
       radioProps.props.checked = $props.value === radioGroup.value;
-      radioProps.props.disabled        = $props.disabled === undefined ? radioGroup.disabled : $props.disabled;
+      radioProps.props.disabled = $props.disabled === undefined ? radioGroup.disabled : $props.disabled;
       radioProps.props.name = radioGroup.name;
     }
 
-    return <Radio {...radioProps}>
-        { children || null }
-    </Radio>;
+    return <Radio {...radioProps}>{ children }</Radio>;
   },
 });

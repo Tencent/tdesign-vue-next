@@ -1,25 +1,54 @@
 ## Select 选择器
 
-::: demo demos/base 默认
+用于收纳大量选项的信息录入类组件
+
+
+### 何时使用
+
+
+需要在有限的空间展示大量选项，并从中选取单个或多个选项
+
+常用于表单内的信息录入
+
+## 1.组件类型
+
+### 1.1 单选选择器
+
+定义：提供单选的选择器，选取后只展示单个内容
+
+使用场景：通用场景
+
+::: demo demos/base 
 :::
-::: demo demos/size 不同尺寸
+
+### 1.2 多选选择器
+
+定义：提供多选的选择器，通过标签展示多选内容
+
+使用场景：通用场景
+
+::: demo demos/multiple 
 :::
-::: demo demos/disabled 禁用状态
+
+### 1.3 分组选择器
+
+定义：对信息进行分组的选择器，能够直观呈现方便用户辨识
+
+使用场景：有层级关系，但选项内容较少的场景（选项内容量大且需要分层，建议使用极联选择器或树状选择器）
+
+::: demo demos/optionGroup 
 :::
-::: demo demos/multiple 多选
+
+
+### 1.4 可定制选择器
+定义：可根据需求定制选择器内容
+
+使用场景：复杂逻辑或有特定诉求的业务场景
+
+::: demo demos/remote  
 :::
-::: demo demos/filterable 可过滤 && 创建条目
-:::
-::: demo demos/remote 远程搜索 
-:::
-::: demo demos/prefix 自定义前缀图标
-:::
-::: demo demos/optionGroup 选项分组
-:::
-::: demo demos/labelInValue labelInValue属性：value和label一起返回
-:::
-::: demo demos/options select的options属性：数据化配置选项内容
-:::
+
+
 
 ### Select Props
 
