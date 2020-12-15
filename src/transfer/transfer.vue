@@ -1,5 +1,12 @@
 <template>
-  <div :class="['t-transfer', showSearch ? 't-transfer-search' : '', hasFooter ? 't-transfer-footer' : '', showPagination ? 't-transfer-pagination' : '']">
+  <div
+    :class="[
+      't-transfer',
+      showSearch ? 't-transfer-search' : '',
+      hasFooter ? 't-transfer-footer' : '',
+      showPagination ? 't-transfer-pagination' : '',
+    ]"
+  >
     <transfer-list
       v-bind="$props"
       :direction="SOURCE"
@@ -44,7 +51,7 @@ import TransferList from './transfer-list';
 import TransferOperations from './components/transfer-operations';
 import { TransferItem, TransferItemKey, TransferDirection, SearchProps } from './type/transfer';
 import { CommonProps } from './interface';
-import { deepCloneByJson } from './utils';
+import cloneDeep from 'lodash/cloneDeep';
 
 const name = `${prefix}-transfer`;
 const searchObj: SearchProps = { placeholder: '请输入搜索内容', suffixIcon: 'search', clearable: true };
@@ -118,7 +125,7 @@ export default Vue.extend({
   },
   watch: {
     checkedValue(val: Array<TransferItemKey>): void {
-      this.curCheckedValue = deepCloneByJson(val);
+      this.curCheckedValue = cloneDeep(val);
     },
   },
   mounted() {
@@ -129,7 +136,8 @@ export default Vue.extend({
     getDisabledValue(index: number) {
       if (typeof this.disabled === 'boolean') {
         return this.disabled;
-      } if (this.disabled instanceof Array && this.disabled.length > index) {
+      }
+      if (this.disabled instanceof Array && this.disabled.length > index) {
         return this.disabled[index];
       }
       return false;
@@ -153,7 +161,7 @@ export default Vue.extend({
       this.targetCheckedKeys = this.filterMethod(curCheckedValue, targetValue, true);
     },
     transferTo(toDirection: TransferDirection) {
-      let targetValue: Array<TransferItemKey> = deepCloneByJson(this.targetValue);
+      let targetValue: Array<TransferItemKey> = JSON.parse(JSON.stringify(this.targetValue));
       let sourceCheckedKeys = 'sourceCheckedKeys';
       if (toDirection === SOURCE) {
         sourceCheckedKeys = 'targetCheckedKeys';

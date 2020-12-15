@@ -43,7 +43,7 @@ describe('Transfer', () => {
         },
       });
 
-      const len = wrapper.vm.$el.getElementsByTagName('li').length; // wrapper.vm.$el.getElementsByTagName('li').length
+      const len = wrapper.vm.$el.querySelectorAll('.t-transfer-list__item').length; // wrapper.vm.$el.getElementsByTagName('li').length
       expect(len).toBe(data.length);
       expect(wrapper.vm.$el.getElementsByClassName('t-checkbox t-is-disabled').length).toBe(7);
     });
@@ -129,7 +129,7 @@ describe('Transfer', () => {
       });
       const el = wrapper.vm.$el;
 
-      const len = el.querySelectorAll('li').length; // wrapper.vm.$el.getElementsByTagName('li').length
+      const len = el.querySelectorAll('.t-transfer-list__item').length; // wrapper.vm.$el.getElementsByTagName('li').length
       expect(len).toBe(pageSize);
     });
 

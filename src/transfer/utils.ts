@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Author: smileswlin
+ * @LastEditor: smileswlin
+ * @Date: 2020-12-14 21:43:02
+ * @LastEditTime: 2020-12-15 22:41:25
+ */
 import Vue from 'vue';
 
 function findTopNode(vm: Vue): Vue {
@@ -11,16 +18,4 @@ function findTopNode(vm: Vue): Vue {
   return vm;
 }
 
-/**
- * @description: 深复制对象, 利用JSON序列化实现一个深拷贝,继承的属性会丢失
- * @param {Object} obj 必选
- * @return: {Object} 返回复制的新对象
- */
-function deepCloneByJson(obj: object) {
-  if (typeof obj === 'object') {
-    return JSON.parse(JSON.stringify(obj));
-  }
-  return obj;
-}
-
-export { findTopNode, deepCloneByJson };
+export { findTopNode };
