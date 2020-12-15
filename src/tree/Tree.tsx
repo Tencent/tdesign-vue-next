@@ -4,11 +4,15 @@ import upperFirst from 'lodash/upperFirst';
 import {
   TreeStore,
   TreeFilterOptions,
-  TreeNodeProps,
   TreeNodeValue,
   TypeValueMode,
+  TreeEventState,
 } from '../../common/js/tree/TreeStore';
-import TreeNode from '../../common/js/tree/TreeNode';
+import {
+  TreeNode,
+  TreeNodeProps,
+  TreeNodeData,
+} from '../../common/js/tree/TreeNode';
 import TreeItem from './TreeItem';
 import {
   TreeProps,
@@ -276,7 +280,7 @@ export default Vue.extend({
           valueMode: valueMode as TypeValueMode,
           filter,
           scopedSlots,
-          onLoad: (info: any) => {
+          onLoad: (info: TreeEventState) => {
             this.handleLoad(info);
           },
           onUpdate: (state: EventState) => {
@@ -352,7 +356,7 @@ export default Vue.extend({
       this.$emit('change', checked, state);
       return checked;
     },
-    handleLoad(info: any): void {
+    handleLoad(info: TreeEventState): void {
       const event = new Event('load');
       const {
         node,
@@ -467,13 +471,13 @@ export default Vue.extend({
     getChecked(item?: TreeNodeValue): TreeNode[] {
       return this.store.getCheckedNodes(item);
     },
-    append(para?: any, item?: any): void {
+    append(para?: string | TreeNodeData | TreeNode, item?: TreeNodeData): void {
       return this.store.appendNodes(para, item);
     },
-    insertBefore(value: TreeNodeValue, item: any): void {
+    insertBefore(value: TreeNodeValue, item: TreeNodeData): void {
       return this.store.insertBefore(value, item);
     },
-    insertAfter(value: TreeNodeValue, item: any): void {
+    insertAfter(value: TreeNodeValue, item: TreeNodeData): void {
       return this.store.insertAfter(value, item);
     },
     getParent(value: TreeNodeValue): TreeNode {
