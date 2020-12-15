@@ -35,3 +35,4 @@ export * from './divider';
 export * from './transfer';
 export * from './badge';
 export * from './loading';
+export * from './timepicker';

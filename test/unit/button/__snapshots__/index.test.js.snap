@@ -6,9 +6,13 @@ exports[`Button :props :disabled 1`] = `<button disabled="disabled" class="t-but
 
 exports[`Button :props :icon function 1`] = `<button class="t-button t-button--line t-button--icon-only"><i>custom icon</i></button>`;
 
-exports[`Button :props :icon string 1`] = `<button class="t-button t-button--line"><i class="t-icon t-icon-delete"></i><span class="t-button__text">text</span></button>`;
+exports[`Button :props :icon string 1`] = `<button class="t-button t-button--line">text</button>`;
 
-exports[`Button :props :loading 1`] = `<button class="t-button t-button--line t-is-loading"><i class="t-icon t-icon-loading"></i><span class="t-button__text">text</span></button>`;
+exports[`Button :props :loading 1`] = `
+<button class="t-button t-button--line t-is-loading"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-loading">
+    <path fill-opacity=".9" fill-rule="evenodd" d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"></path>
+  </svg><span class="t-button__text">text</span></button>
+`;
 
 exports[`Button :props :size 1`] = `<button class="t-button t-size-l t-button--line">text</button>`;
 
