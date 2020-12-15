@@ -62,14 +62,16 @@
 ::: demo demos/icon
 :::
 
-
-::: demo demos/disabled 禁用
+### 禁用
+::: demo demos/disabled
 :::
 
-::: demo demos/status 状态
+### 状态
+::: demo demos/status
 :::
 
-::: demo demos/size 不同尺寸
+### 不同尺寸
+::: demo demos/size
 :::
 
 ### Input Props
@@ -77,7 +79,7 @@
 |-----|-----|-----|-----|-----|
 |value|String| |N|输入框的值
 |defaultValue|String| |N|输入框的默认值
-|size|'large'/'default'|N|控件大小
+|size|'large'/'default/size'|N|控件大小
 |clearable|Boolean| |N|是否可清空
 |prefixIcon|String/Slot/Function| |N|前缀图标
 |suffixIcon|String/Slot/Function| |N|后缀图标
