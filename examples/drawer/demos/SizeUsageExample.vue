@@ -14,7 +14,7 @@
     <div class="tdesign-radio-button">
       <t-radio-group :defaultValue="size" v-model="size" class="btn-top-margin">
         <t-radio-button value="small">small(300px)</t-radio-button>
-        <t-radio-button value="middle">middle(500px)</t-radio-button>
+        <t-radio-button value="medium">medium(500px)</t-radio-button>
         <t-radio-button value="large">large(760px)</t-radio-button>
         <t-radio-button value="200">200</t-radio-button>
         <t-radio-button value="400px">400px</t-radio-button>

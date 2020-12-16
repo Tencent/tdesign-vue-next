@@ -40,22 +40,22 @@
 
 | 属性                | 类型                               | 默认值    | 必传 | 说明                                                                 |
 | ------------------- | ---------------------------------- | --------- | ---- | -------------------------------------------------------------------- |
-| visible             | boolean                            | -         | -    | Drawer 是否可见                                                      |
-| closeBtn            | boolean                            | -         | -    | 是否显示右上角的关闭按钮                                             |
-| footer              | boolean                            | -         | -    | Drawer 是否显示页脚                                                  |
-| duration            | 动画时长，单位为毫秒               | 300       | -    | 动画时长，单位为毫秒                                                 |
-| closeOnClickOverlay | boolean                            | true      | -    | 点击蒙层是否允许关闭                                                 |
-| className           | string                             | -         | -    | Drawer 外层容器的 className，作用节点包括 mask                       |
-| zIndex              | number                             | 1500      | -    | 设置 Drawer 的 z-index                                               |
+| visible             | Boolean                            | -         | -    | Drawer 是否可见                                                      |
+| closeBtn            | Boolean                            | -         | -    | 是否显示右上角的关闭按钮                                             |
+| footer              | Boolean                            | -         | -    | Drawer 是否显示页脚                                                  |
+| duration            | Number               | 300       | -    | 动画时长，单位为毫秒                                                 |
+| closeOnClickOverlay | Boolean                            | true      | -    | 点击蒙层是否允许关闭                                                 |
+| className           | String                             | -         | -    | Drawer 外层容器的 className，作用节点包括 mask                       |
+| zIndex              | Number                             | 1500      | -    | 设置 Drawer 的 z-index                                               |
 | placement           | "top"/ "left" / "right" / "bottom" | "right"   | -    | 抽屉方向                                                             |
-| size                | string / number                    | "small"   | -    | 抽屉大小，可以是 large/middle/small/300px/500px/80%/50%/300/500 等等 |
-| mode                | "push" / "overlay"                 | "overlay" | -    | 展示方式，push（推开内容区域）或者 overlay（在内容上展示）           |
-| destroyOnClose      | boolean                            | false     | -    | 关闭时销毁 Drawer 内的子元素                                         |
-| forceRender         | boolean                            | false     | -    | 预渲染 Drawer 内的元素                                               |
-| attach              | string / false / VNde              | -         | -    | 指定 Drawer 挂载的 HTML 节点, false 为挂载在当前 dom                 |
-| showOverlay         | boolean                            | -         | -    | 是否显示遮罩层                                                       |
-| keydownEsc          | boolean                            | true      | -    | 是否支持键盘 ESC 关闭                                                |
-| header              | boolean                            | true      | -    | 控制 header 是否显示，默认为 true，当此项为 false 时，title 无效。   |
+| size                | String / Number                    | "small"   | -    | 抽屉大小，可以是 large/medium/small/300px/500px/80%/50%/300/500 等等 |
+| mode                | String                 | "overlay" | -    | 展示方式，push（推开内容区域）或者 overlay（在内容上展示）           |
+| destroyOnClose      | Boolean                            | false     | -    | 关闭时销毁 Drawer 内的子元素                                         |
+| forceRender         | Boolean                            | false     | -    | 预渲染 Drawer 内的元素                                               |
+| attach              | String / Boolean / VNde              | -         | -    | 指定 Drawer 挂载的 HTML 节点, false 为挂载在当前 dom                 |
+| showOverlay         | Boolean                            | -         | -    | 是否显示遮罩层                                                       |
+| keydownEsc          | Boolean                            | true      | -    | 是否支持键盘 ESC 关闭                                                |
+| header              | Boolean                            | true      | -    | 控制 header 是否显示，默认为 true，当此项为 false 时，title 无效。   |
 
 ### Drawer Slot
 
