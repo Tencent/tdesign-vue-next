@@ -8,89 +8,89 @@
 
 ## 1.组件类型
 
-<!-- 
-
 ### 1.1 基础树结构
 
-::: demo demos/base 基础树结构
+::: demo demos/base
 :::
 
 ### 1.2 初始化展开全部
 
-::: demo demos/expandAll 初始化展开全部
+::: demo demos/expandAll
 :::
 
 ### 1.3 初始化展开第一级
 
-::: demo demos/expandLevel 初始化展开第一级
+::: demo demos/expandLevel
 :::
 
 ### 1.4 互斥展开
 
-::: demo demos/expandMutex 互斥展开
+::: demo demos/expandMutex
 :::
 
 ### 1.5 可高亮
 
-::: demo demos/activable 可高亮
+::: demo demos/activable
 :::
 
 ### 1.6 可选
 
-::: demo demos/checkable 可选
+::: demo demos/checkable
 :::
 
 ### 1.7 禁用状态
 
-::: demo demos/disabled 禁用状态
+::: demo demos/disabled
 :::
 
 ### 1.8 异步加载节点
 
-::: demo demos/load 异步加载节点
+::: demo demos/load
 :::
 
 ### 1.9 展开时加载节点
 
-::: demo demos/lazy 展开时加载节点
+::: demo demos/lazy
 :::
 
-### 1.10 延迟加载节点
+### 1.10 受控操作
 
-::: demo demos/vmodel 受控
+::: demo demos/vmodel
 :::
 
-### 1.11 过滤节点
+### 1.11 数据同步
 
-::: demo demos/filter 过滤
+::: demo demos/sync
 :::
 
-### 1.12 label 空白内容自定义
+### 1.12 过滤节点
 
-::: demo demos/empty label 空白内容自定义
+::: demo demos/filter
 :::
 
-### 1.13 自定义 label
+### 1.13 label 空白内容自定义
 
-::: demo demos/label 自定义 label
+::: demo demos/empty
 :::
 
-### 1.14 自定义 icon
+### 1.14 自定义 label
 
-::: demo demos/icon 自定义 icon
+::: demo demos/label
 :::
 
-### 1.15 显示连线
-
-::: demo demos/line 显示连线
-:::
-
-### 1.16 操作节点
-
-::: demo demos/operations 操作节点
-::: -->
+### 1.15 自定义 icon
 
 ::: demo demos/icon
+:::
+
+### 1.16 显示连线
+
+::: demo demos/line
+:::
+
+### 1.17 操作节点
+
+::: demo demos/operations
 :::
 
 ### Tree Props
