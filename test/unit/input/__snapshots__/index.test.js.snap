@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input $attrs input attrs should pass to input element 1`] = `<div maxlength="20" class="t-input"><input placeholder="please text" name="password" type="password" class="t-input__inner"></div>`;
+exports[`Input $attrs input attrs should pass to input element 1`] = `<div maxlength="20" class="t-input t-size-m"><input placeholder="please text" name="password" type="password" class="t-input__inner"></div>`;
 
-exports[`Input :props :autocomplete 1`] = `<div class="t-input"><input autocomplete="true" type="text" class="t-input__inner"></div>`;
+exports[`Input :props :autocomplete 1`] = `<div class="t-input t-size-m"><input autocomplete="true" type="text" class="t-input__inner"></div>`;
 
-exports[`Input :props :disabled 1`] = `<div class="t-input t-is-disabled"><input disabled="disabled" type="text" class="t-input__inner"></div>`;
+exports[`Input :props :disabled 1`] = `<div class="t-input t-size-m t-is-disabled"><input disabled="disabled" type="text" class="t-input__inner"></div>`;
 
-exports[`Input :props :prefix-icon 1`] = `<div class="t-input t-input--prefix"><span class="t-input__prefix"><svg class="t-icon t-icon-user"><use xlink:href="#t-icon-user"></use></svg></span><input type="text" class="t-input__inner"></div>`;
+exports[`Input :props :prefix-icon 1`] = `<div class="t-input t-size-m"><input type="text" class="t-input__inner"></div>`;
 
-exports[`Input :props :readonly 1`] = `<div class="t-input"><input readonly="readonly" type="text" class="t-input__inner"></div>`;
+exports[`Input :props :readonly 1`] = `<div class="t-input t-size-m"><input readonly="readonly" type="text" class="t-input__inner"></div>`;
 
 exports[`Input :props :size 1`] = `<div class="t-input t-size-l"><input type="text" class="t-input__inner"></div>`;
 
-exports[`Input :props :suffix-icon 1`] = `<div class="t-input t-input--suffix"><input type="text" class="t-input__inner"><span class="t-input__suffix"><svg class="t-icon t-icon-user"><use xlink:href="#t-icon-user"></use></svg></span></div>`;
+exports[`Input :props :suffix-icon 1`] = `<div class="t-input t-size-m"><input type="text" class="t-input__inner"></div>`;

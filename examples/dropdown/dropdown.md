@@ -39,16 +39,20 @@
 ::: demo demos/submenu
 :::
 
-::: demo demos/disabled disabled
+### 禁用
+::: demo demos/disabled 
 :::
 
-::: demo demos/custom 自定义其他属性
+### 自定义其他属性
+::: demo demos/custom 
 :::
 
-::: demo demos/long 高尺寸
+### 高尺寸
+::: demo demos/long 
 :::
 
-::: demo demos/event click、visibleChange事件
+### click、visibleChange事件
+::: demo demos/event 
 :::
 
 ### 属性配置

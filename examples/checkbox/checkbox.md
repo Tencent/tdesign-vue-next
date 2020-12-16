@@ -21,13 +21,16 @@
 ::: demo demos/linkage
 :::
 
-::: demo demos/indeterminate 半选样式
+### 半选样式
+::: demo demos/indeterminate 
 :::
 
-::: demo demos/demo 受控的checkbox
+### 受控的checkbox
+::: demo demos/demo 
 :::
 
-::: demo demos/checkbox-group checkbox组
+### checkbox组
+::: demo demos/checkbox-group 
 :::
 
 ### 属性配置

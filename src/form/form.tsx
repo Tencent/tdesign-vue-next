@@ -1,6 +1,6 @@
 import Vue, { PropType, VNode } from 'vue';
 import { prefix } from '../config';
-import { CLASSNAME_SIZE } from '../utils/classnames';
+import { SIZE_CLASSNAMES } from '../utils/classnames';
 import { FormData, ValidateRules, ValidateRule, FormValidateResult } from './type';
 import { FORM_ITEM_CLASS_PREFIX } from './const';
 import isEmpty from 'lodash/isEmpty';
@@ -62,7 +62,7 @@ export default Vue.extend({
     formClass(): ClassName {
       return [
         't-form',
-        CLASSNAME_SIZE[this.size],
+        SIZE_CLASSNAMES[this.size],
         // `t-form--${this.layout}`,
         // `t-form--${this.labelAlign}`,
       ];

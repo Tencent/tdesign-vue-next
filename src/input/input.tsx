@@ -2,7 +2,6 @@ import Vue, { VueConstructor, CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
-import Icon from '../icon';
 import ClearIcon from '../icon/clear-circle-filled';
 
 const name = `${prefix}-input`;
@@ -30,13 +29,13 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       default: '',
     },
     defaultValue: [String, Number],
-    prefixIcon: [String, Function],
-    suffixIcon: [String, Function],
+    prefixIcon: Function,
+    suffixIcon: Function,
     size: {
       type: String,
-      default: 'default',
+      default: 'medium',
       validator(v: string): boolean {
-        return ['large', 'default'].indexOf(v) > -1;
+        return ['large', 'medium', 'small'].indexOf(v) > -1;
       },
     },
     disabled: Boolean,
@@ -124,9 +123,6 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       icon: string | Function | undefined,
       iconType: 'prefix-icon' | 'suffix-icon',
     ): JsxNode {
-      if (typeof icon === 'string') {
-        return <Icon name={icon}></Icon>;
-      }
       if (typeof icon === 'function') {
         return icon(h);
       }
