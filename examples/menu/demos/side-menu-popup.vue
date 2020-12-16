@@ -1,6 +1,6 @@
 <template>
   <t-menu theme="light" active="2-1" height="550px" :collapsed="collapsed">
-    <img slot="logo" class="t-menu__logo" src="https://main.qcloudimg.com/raw/9fe1217de2bd7eb623f70648a046e341/head-logo.png" alt="logo">
+    <img slot="logo" width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
     <t-menu-item name="item1">
       <t-icon slot="icon" name="user"/>菜单内容一
     </t-menu-item>

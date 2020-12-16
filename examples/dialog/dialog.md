@@ -48,19 +48,25 @@
 ::: demo demos/async
 :::
 
-::: demo demos/position 弹框位置
+### 弹框位置
+
+::: demo demos/position 
 :::
 
-::: demo demos/custom/body 自定义主体内容
+### 自定义主体内容
+::: demo demos/custom/body 
 :::
 
-::: demo demos/custom/bottom 自定义底部内容
+### 自定义底部内容
+::: demo demos/custom/bottom 
 :::
 
-::: demo demos/others 其他示例
+### 其他示例
+::: demo demos/others 
 :::
 
-::: demo demos/plugin Plugin 插件函数式调用
+### 插件函数式调用
+::: demo demos/plugin Plugin 
 :::
 
 
