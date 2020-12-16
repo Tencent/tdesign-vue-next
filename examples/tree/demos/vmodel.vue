@@ -90,11 +90,11 @@ export default {
         }],
       }, {
         value: '2',
-        label: '2',
+        label: '2 这个节点不允许展开, 不允许激活',
         checkable: false,
         children: [{
           value: '2.1',
-          label: '2.1',
+          label: '2.1 这个节点不允许选中',
           checkable: false,
         }, {
           value: '2.2',

@@ -15,13 +15,10 @@
       activable
       :expand-on-click-node="false"
       :active-multiple="false"
-      :expanded="expanded"
-      :actived="actived"
-      :value="checked"
+      :expanded.sync="expanded"
+      :actived.sync="actived"
+      :value.sync="checked"
       :value-mode="valueMode"
-      @expand="onExpand"
-      @change="onChange"
-      @active="onActive"
     />
   </div>
 </template>
@@ -150,18 +147,6 @@ export default {
     onAllActivedInput(val) {
       console.log('actived input on change', val);
       const vals = this.getValueFromString(val);
-      this.actived = vals;
-    },
-    onChange(vals, state) {
-      console.log('on change:', vals, state);
-      this.checked = vals;
-    },
-    onExpand(vals, state) {
-      console.log('on expand:', vals, state);
-      this.expanded = vals;
-    },
-    onActive(vals, state) {
-      console.log('on active:', vals, state);
       this.actived = vals;
     },
   },
