@@ -127,7 +127,7 @@ export const TreeProps = {
     default: '',
   },
   icon: {
-    type: [Function, String, Boolean],
+    type: [Function, Boolean],
     default: true,
   },
   line: {
@@ -160,7 +160,7 @@ export const TreeItemProps = {
     default: '',
   },
   icon: {
-    type: [Function, String, Boolean],
+    type: [Function, Boolean],
     default: true,
   },
   line: {

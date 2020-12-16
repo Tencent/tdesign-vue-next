@@ -42,15 +42,19 @@ export default {
   },
   methods: {
     icon(createElement, node) {
-      let icon = 'file';
+      let name = 'file';
       if (node.children) {
         if (node.expanded) {
-          icon = 'folder-open';
+          name = 'folder-open';
         } else {
-          icon = 'folder';
+          name = 'folder';
         }
       }
-      return icon;
+      return createElement('t-icon', {
+        props: {
+          name,
+        },
+      });
     },
     load(node) {
       const maxLevel = 2;
@@ -67,7 +71,7 @@ export default {
             }];
           }
           resolve(nodes);
-        }, 1000);
+        }, 100);
       });
     },
   },

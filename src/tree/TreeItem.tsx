@@ -1,7 +1,6 @@
 import Vue, { VNode, CreateElement } from 'vue';
 import TIconChevronRight from '../icon/chevron-right';
 import TIconLoading from '../icon/loading';
-import SvgIcon from '../icon/svg';
 import TCheckBox from '../checkbox';
 import TreeNode from '../../common/js/tree/TreeNode';
 
@@ -133,9 +132,6 @@ export default Vue.extend({
           createElement,
           node,
         });
-        if (typeof iconNode === 'string') {
-          iconNode = (<SvgIcon name={iconNode}></SvgIcon>);
-        }
       }
       if (!node.vmIsLeaf && node.loading && node.expanded && icon !== false) {
         iconNode = (<TIconLoading/>);

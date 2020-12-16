@@ -1,51 +1,96 @@
 ## Tree 树
 
-::: demo demos/base 默认
+以树结构展现列表数据信息，并可以操作节点，获取选中信息
+
+### 何时使用
+
+想要呈现一个树结构展现时
+
+## 1.组件类型
+
+<!-- 
+
+### 1.1 基础树结构
+
+::: demo demos/base 基础树结构
 :::
+
+### 1.2 初始化展开全部
 
 ::: demo demos/expandAll 初始化展开全部
 :::
 
+### 1.3 初始化展开第一级
+
 ::: demo demos/expandLevel 初始化展开第一级
 :::
+
+### 1.4 互斥展开
 
 ::: demo demos/expandMutex 互斥展开
 :::
 
+### 1.5 可高亮
+
 ::: demo demos/activable 可高亮
 :::
+
+### 1.6 可选
 
 ::: demo demos/checkable 可选
 :::
 
-::: demo demos/disabled 树禁用
+### 1.7 禁用状态
+
+::: demo demos/disabled 禁用状态
 :::
+
+### 1.8 异步加载节点
 
 ::: demo demos/load 异步加载节点
 :::
 
-::: demo demos/lazy 延迟异步加载节点
+### 1.9 展开时加载节点
+
+::: demo demos/lazy 展开时加载节点
 :::
+
+### 1.10 延迟加载节点
 
 ::: demo demos/vmodel 受控
 :::
 
+### 1.11 过滤节点
+
 ::: demo demos/filter 过滤
 :::
 
-::: demo demos/empty 自定义空白label
+### 1.12 label 空白内容自定义
+
+::: demo demos/empty label 空白内容自定义
 :::
 
-::: demo demos/label 自定义label
+### 1.13 自定义 label
+
+::: demo demos/label 自定义 label
 :::
 
-::: demo demos/icon 自定义icon
+### 1.14 自定义 icon
+
+::: demo demos/icon 自定义 icon
 :::
+
+### 1.15 显示连线
 
 ::: demo demos/line 显示连线
 :::
 
+### 1.16 操作节点
+
 ::: demo demos/operations 操作节点
+::: -->
+
+::: demo demos/icon
 :::
 
 ### Tree Props
