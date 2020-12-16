@@ -2,20 +2,20 @@
 
 exports[`Badge :props :color 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: green;"></sup></div>`;
 
-exports[`Badge :props :content 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: red;">new</sup></div>`;
+exports[`Badge :props :content 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: rgb(227, 77, 89);">new</sup></div>`;
 
-exports[`Badge :props :count 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: red;">2</sup></div>`;
+exports[`Badge :props :count 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: rgb(227, 77, 89);">2</sup></div>`;
 
-exports[`Badge :props :dot 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--dot" style="background: red;"></sup></div>`;
+exports[`Badge :props :dot 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--dot" style="background: rgb(227, 77, 89);"></sup></div>`;
 
-exports[`Badge :props :maxCount 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: red;">2</sup></div>`;
+exports[`Badge :props :maxCount 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: rgb(227, 77, 89);">2</sup></div>`;
 
-exports[`Badge :props :offset 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: red; right: -10px; top: -10px;">2</sup></div>`;
+exports[`Badge :props :offset 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: rgb(227, 77, 89); right: -10px; top: -10px;">2</sup></div>`;
 
-exports[`Badge :props :shape 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--round" style="background: red;">2</sup></div>`;
+exports[`Badge :props :shape 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--round" style="background: rgb(227, 77, 89);">2</sup></div>`;
 
-exports[`Badge :props :showZero 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: red;">2</sup></div>`;
+exports[`Badge :props :showZero 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: rgb(227, 77, 89);">2</sup></div>`;
 
-exports[`Badge :props :size 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle t-size-s" style="background: red;">2</sup></div>`;
+exports[`Badge :props :size 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle t-size-s" style="background: rgb(227, 77, 89);">2</sup></div>`;
 
-exports[`Badge <slot> default 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: red;">2</sup></div>`;
+exports[`Badge <slot> default 1`] = `<div class="t-badge">Tdesign<sup class="t-badge--circle" style="background: rgb(227, 77, 89);">2</sup></div>`;
