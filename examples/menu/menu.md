@@ -72,13 +72,16 @@
 ::: demo demos/side-menu-dropdown-icon
 :::
 
-::: demo demos/side-menu-popup 侧边菜单
+### 侧边菜单
+::: demo demos/side-menu-popup 
 :::
 
-::: demo demos/side-menu-collapsed 侧边收起
+### 侧边收起
+::: demo demos/side-menu-collapsed 
 :::
 
-::: demo demos/side-menu-collapsed-width 侧边收起（自定义宽度）
+### 侧边收起（自定义宽度）
+::: demo demos/side-menu-collapsed-width 
 :::
 
 ### Menu Props

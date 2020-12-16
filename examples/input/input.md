@@ -62,14 +62,16 @@
 ::: demo demos/icon
 :::
 
-
-::: demo demos/disabled 禁用
+### 禁用
+::: demo demos/disabled 
 :::
 
-::: demo demos/status 状态
+### 状态
+::: demo demos/status 
 :::
 
-::: demo demos/size 不同尺寸
+### 不同尺寸
+::: demo demos/size 
 :::
 
 ### Input Props
