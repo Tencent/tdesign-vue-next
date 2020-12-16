@@ -1,13 +1,16 @@
 <template>
   <div>
     <t-dropdown :options="options" @click="clickHandler">
-      <t-button icon="more"></t-button>
+      <t-button><t-icon-more slot="icon"/></t-button>
     </t-dropdown>
   </div>
 </template>
 <script>
-import Vue from 'vue';
-export default Vue.extend({
+import TIconMore from '@tencent/tdesign-vue/lib/icon/more';
+export default {
+  components: {
+    TIconMore,
+  },
   data() {
     return {
       options: [{
@@ -34,7 +37,7 @@ export default Vue.extend({
       this.$message.success(`选中【${data.text}】`);
     },
   },
-});
+};
 </script>
 <style scoped>
 .t-button {
