@@ -263,6 +263,7 @@ export default Vue.extend({
       const state: EventState = {
         event: evt,
         node,
+        path: node.getPath(),
       };
       this.$emit('click', state);
     },

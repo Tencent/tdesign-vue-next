@@ -148,21 +148,25 @@
 |  | state | object | 节点信息 |
 |  | state.event | Event | 点击事件 |
 |  | state.node | TreeNode | 事件触发的节点 |
+|  | state.path | TreeNode[] | 节点路径 |
 | expand |  |  | 节点展开关闭时触发 |
 |  | values | string[] | 节点的 value |
 |  | state | object | 节点信息 |
 |  | state.event | Event | 展开事件 |
 |  | state.node | TreeNode | 事件触发的节点 |
+|  | state.path | TreeNode[] | 节点路径 |
 | active |  |  | 节点激活时触发 |
 |  | values | string[] | 节点的 value |
 |  | state | object | 节点信息 |
 |  | state.event | Event | 展开事件 |
 |  | state.node | TreeNode | 事件触发的节点 |
+|  | state.path | TreeNode[] | 节点路径 |
 | change |  |  | 节点选中时触发 |
 |  | values | string[] | 节点的 value |
 |  | state | object | 节点信息 |
 |  | state.event | Event | 展开事件 |
 |  | state.node | TreeNode | 事件触发的节点 |
+|  | state.path | TreeNode[] | 节点路径 |
 | update |  |  | 节点数据更新时触发 |
 |  | state | object | 节点信息 |
 |  | state.event | Event | 展开事件 |
