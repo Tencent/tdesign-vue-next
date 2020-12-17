@@ -28,6 +28,7 @@ export * from './switch';
 export * from './table';
 export * from './tabs';
 export * from './tag';
+export * from './tree';
 export * from './upload';
 export * from './dropdown';
 export * from './tooltip';
