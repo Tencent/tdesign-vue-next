@@ -8,8 +8,8 @@ describe('Divider', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('dividerWithText demo works fine', () => {
-    const demo = require('@/examples/divider/demos/dividerWithText.vue');
+  it('text demo works fine', () => {
+    const demo = require('@/examples/divider/demos/text.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
