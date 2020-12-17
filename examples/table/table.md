@@ -47,7 +47,7 @@
 | filterIcon     | VNode / Function(props): VNode | null     | N    | 自定义 filter 图标            |
 | filterMultiple | Boolean                        | false    | N    | 是否多选                      |
 | render         | Function                       | -    | N    | 自定义单元格                   |
-| scopedSlots    | Object | -    | N    | 自定义单元格（title - 通过插槽方式渲染表头，customRender - 通过插槽方式渲染表体单元格） |
+| scopedSlots    | Object | -    | N    | 自定义单元格（title - 通过插槽方式渲染表头，col - 通过插槽方式渲染表体单元格） |
 
 ### Expand
 
