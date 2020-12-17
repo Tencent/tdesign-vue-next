@@ -6,7 +6,6 @@
     </div>
     <t-calendar
       :preventCellContextmenu="preventCellContextmenu"
-      :value="value"
       @cellClick="onCellClick"
       @cellDoubleClick="onCellDoubleClick"
       @cellRightClick="onCellRightClick"
@@ -32,7 +31,6 @@ export default {
   data() {
     return {
       preventCellContextmenu: false,
-      value: new Date(),
       histories: [],
       options: [
         { value: true, label: '禁用' },

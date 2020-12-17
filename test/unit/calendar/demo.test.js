@@ -38,8 +38,8 @@ describe('Calendar', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('defaultValue demo works fine', () => {
-    const demo = require('@/examples/calendar/demos/defaultValue.vue');
+  it('value demo works fine', () => {
+    const demo = require('@/examples/calendar/demos/value.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

@@ -85,7 +85,6 @@ export default {
           selecteProps: {
             // 用于透传props给该select组件
             disabled: false,
-            prefixIcon: 'discount',
           },
         },
         // 隐藏\显示周末按钮组件相关设置
