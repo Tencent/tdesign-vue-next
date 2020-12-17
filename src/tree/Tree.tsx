@@ -23,7 +23,7 @@ import {
   CLASS_NAMES,
   FX,
 } from './constants';
-import { getRole } from './util';
+import { getMark } from './util';
 
 export default Vue.extend({
   name: TREE_NAME,
@@ -196,21 +196,19 @@ export default Vue.extend({
       );
       return treeItem;
     },
-    refresh() {
-      const {
-        store,
-        treeNodes,
-        treeScope,
-        $scopedSlots: scopedSlots,
-      } = this;
-
-      treeScope.scopedSlots = scopedSlots;
-
+    // 获取视图节点映射关系
+    getNodesMap() {
       let { nodesMap } = this;
       if (!nodesMap) {
         nodesMap = new Map();
         this.nodesMap = nodesMap;
       }
+      return nodesMap;
+    },
+    // 更新视图节点映射关系
+    updateNodesMap() {
+      const { store, treeNodes } = this;
+      const nodesMap = this.getNodesMap();
 
       let index = 0;
       while (index < treeNodes.length) {
@@ -230,8 +228,22 @@ export default Vue.extend({
           index += 1;
         }
       }
+    },
+    // 刷新树的视图状态
+    refresh() {
+      const {
+        store,
+        treeNodes,
+        treeScope,
+        $scopedSlots: scopedSlots,
+      } = this;
 
-      index = 0;
+      treeScope.scopedSlots = scopedSlots;
+
+      const nodesMap = this.getNodesMap();
+      this.updateNodesMap();
+
+      let index = 0;
       const allNodes = store.getNodes();
       allNodes.forEach((node: TreeNode) => {
         if (node.visible) {
@@ -262,6 +274,7 @@ export default Vue.extend({
         }
       });
     },
+    // 初始化树结构
     build() {
       const list = this.data;
       const {
@@ -406,6 +419,7 @@ export default Vue.extend({
       this.refresh();
     },
     handleClick(state: EventState): void {
+      const { expandOnClickNode } = this;
       const {
         event,
         node,
@@ -413,41 +427,37 @@ export default Vue.extend({
       if (!node || this.disabled || node.disabled) {
         return;
       }
-      const role = getRole(
-        event.target as HTMLElement,
-        event.currentTarget as HTMLElement
-      );
-      let clickOnRole = false;
-      let clickOnIcon = false;
-      let clickOnLabel = false;
-      if (role && role.name) {
-        clickOnRole = true;
-        if (role.name === 'icon') {
-          clickOnIcon = true;
+
+      let shouldExpand = expandOnClickNode;
+      let shouldActive = true;
+      ['trigger', 'ignore'].forEach((markName) => {
+        const mark = getMark(
+          markName,
+          event.target as HTMLElement,
+          event.currentTarget as HTMLElement
+        );
+        const markValue = mark?.value || '';
+        if (markValue.indexOf('expand') >= 0) {
+          if (markName === 'trigger') {
+            shouldExpand = true;
+          } else if (markName === 'ignore') {
+            shouldExpand = false;
+          }
         }
-        if (role.name === 'label') {
-          clickOnLabel = true;
+        if (markValue.indexOf('active') >= 0) {
+          if (markName === 'ignore') {
+            shouldActive = false;
+          }
         }
+      });
+
+      if (shouldExpand) {
+        this.toggleExpanded(node);
       }
-      if (this.expandOnClickNode) {
-        if (clickOnIcon) {
-          this.toggleExpanded(node);
-        }
-        if (!clickOnRole) {
-          this.toggleActived(node);
-          this.toggleExpanded(node);
-        } else if (clickOnLabel && !node.checkable) {
-          this.toggleActived(node);
-        }
-      } else {
-        if (clickOnIcon) {
-          this.toggleExpanded(node);
-        } else if (clickOnLabel && !node.checkable) {
-          this.toggleActived(node);
-        } else if (!clickOnRole) {
-          this.toggleActived(node);
-        }
+      if (shouldActive) {
+        this.toggleActived(node);
       }
+
       this.$emit('click', state);
     },
     handleChange(state: EventState): void {

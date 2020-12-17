@@ -14,26 +14,28 @@ export function getParentsToRoot(element?: HTMLElement, root?: HTMLElement): Arr
   return list;
 }
 
-export interface Role {
+export interface Mark {
   name: string;
+  value: string;
   el?: HTMLElement;
 }
 
-export function getParentRoles(element?: HTMLElement, root?: HTMLElement): Array<Role> {
+export function getParentMarks(name: string, element?: HTMLElement, root?: HTMLElement): Array<Mark> {
   const list = getParentsToRoot(element, root);
   return (
     list.map((el) => {
-      const role: Role = {
-        name: el.getAttribute('role') || '',
+      const mark: Mark = {
+        name,
+        value: el.getAttribute(name) || '',
         el,
       };
-      return role;
-    }).filter(role => role.name)
+      return mark;
+    }).filter(mark => mark.value)
   );
 };
 
-export function getRole(element?: HTMLElement, root?: HTMLElement): Role {
-  const list = getParentRoles(element, root);
+export function getMark(name: string, element?: HTMLElement, root?: HTMLElement): Mark {
+  const list = getParentMarks(name, element, root);
   const info = list.pop() || null;
   return info;
 };

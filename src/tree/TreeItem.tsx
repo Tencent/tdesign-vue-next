@@ -114,7 +114,8 @@ export default Vue.extend({
       iconNode = (
         <span
           class={CLASS_NAMES.treeIcon}
-          role="icon"
+          trigger="expand"
+          ignore="active"
         >{iconNode}</span>
       );
       return iconNode;
@@ -163,7 +164,7 @@ export default Vue.extend({
             indeterminate={node.indeterminate}
             disabled={node.isDisabled()}
             name={node.value}
-            role="label"
+            trigger="active"
             onChange={() => this.handleChange()}
             {...{ props: checkProps }}
           >{labelNode}</TCheckBox>
@@ -171,8 +172,8 @@ export default Vue.extend({
       } else {
         labelNode = (
           <span
-            class={CLASS_NAMES.treeLabel}
-            role="label"
+            class={labelClasses}
+            trigger="active"
           >{labelNode}</span>
         );
       }
@@ -198,7 +199,7 @@ export default Vue.extend({
         opNode = (
           <span
             class={CLASS_NAMES.treeOperations}
-            role="oprations"
+            ignore="active,expand"
           >{opNode}</span>
         );
       }

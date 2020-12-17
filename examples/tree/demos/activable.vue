@@ -3,13 +3,14 @@
     <div class="operations">
       <t-button :theme="activable ? 'primary' : 'ghost'" @click="toggleActivable">节点可高亮</t-button>
       <t-button :theme="activeMultiple ? 'primary' : 'ghost'" @click="toggleActiveMultiple">节点可多选高亮</t-button>
+      <t-button :theme="expandOnClickNode ? 'primary' : 'ghost'" @click="toggleExpandOnClickNode">点击整个节点可触发展开</t-button>
     </div>
     <t-tree
       :data="items"
       expand-all
       :activable="activable"
       :active-multiple="activeMultiple"
-      :expand-on-click-node="false"
+      :expand-on-click-node="expandOnClickNode"
     />
   </div>
 </template>
@@ -20,6 +21,7 @@ export default {
     return {
       activable: true,
       activeMultiple: false,
+      expandOnClickNode: false,
       items: [{
         label: '1',
         children: [{
@@ -43,6 +45,9 @@ export default {
     },
     toggleActiveMultiple() {
       this.activeMultiple = !this.activeMultiple;
+    },
+    toggleExpandOnClickNode() {
+      this.expandOnClickNode = !this.expandOnClickNode;
     },
   },
 };
