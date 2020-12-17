@@ -321,43 +321,50 @@ exports[`Calendar base demo works fine 1`] = `
           <th
             class="t-calendar__table-head-cell"
           >
-            一
+            
+              一
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            二
+            
+              二
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            三
+            
+              三
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            四
+            
+              四
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            五
+            
+              五
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            六
+            
+              六
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            日
+            
+              日
             
           </th>
         </tr>
@@ -586,7 +593,7 @@ exports[`Calendar base demo works fine 1`] = `
             />
           </td>
           <td
-            class="t-calendar__table-body-cell t-is-checked"
+            class="t-calendar__table-body-cell"
           >
             <div
               class="t-calendar__table-body-cell-value"
@@ -599,7 +606,7 @@ exports[`Calendar base demo works fine 1`] = `
             />
           </td>
           <td
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked"
           >
             <div
               class="t-calendar__table-body-cell-value"
@@ -1518,43 +1525,50 @@ exports[`Calendar head demo works fine 1`] = `
           <th
             class="t-calendar__table-head-cell"
           >
-            一
+            
+              一
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            二
+            
+              二
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            三
+            
+              三
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            四
+            
+              四
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            五
+            
+              五
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            六
+            
+              六
             
           </th>
           <th
             class="t-calendar__table-head-cell"
           >
-            日
+            
+              日
             
           </th>
         </tr>
@@ -1783,7 +1797,7 @@ exports[`Calendar head demo works fine 1`] = `
             />
           </td>
           <td
-            class="t-calendar__table-body-cell t-is-checked"
+            class="t-calendar__table-body-cell"
           >
             <div
               class="t-calendar__table-body-cell-value"
@@ -1796,7 +1810,7 @@ exports[`Calendar head demo works fine 1`] = `
             />
           </td>
           <td
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked"
           >
             <div
               class="t-calendar__table-body-cell-value"

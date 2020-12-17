@@ -97,8 +97,8 @@
 ### Calendar Props
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
+|value|Date|new Date()|N|指定高亮日期|
 |firstDayOfWeek|number|1|N|周起始日（可以设置第一列显示周几，其他列就顺延下去），mode为“month”的时候有效；传入的值得必须是整数1到7其中之一|
-|defaultValue|Date|new Date()|N|初始化的时候指定高亮日期|
 |theme|string|"full"|N|风格，传入值必须是"full"或"card"|
 |mode|string|"month"|N|模式，传入值必须是"month"或"year"|
 |range|{from:Date, to:Date}|-|N|自定义日历的年月份显示范围（包含from和to）|

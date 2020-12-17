@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Calendar :props :defaultValue 1`] = `
-<div class="t-calendar t-calendar--full">
+<div class="t-calendar t-calendar--full" defaultvalue="Wed Nov 11 1998 00:00:00 GMT+0800 (China Standard Time)">
   <div class="t-calendar__control">
     <div class="t-calendar__control-section">
       <div class="t-calendar__control-section-cell">
@@ -9,10 +9,10 @@ exports[`Calendar :props :defaultValue 1`] = `
           <div class="t-popup-reference" style="width: 100%; position: relative;">
             <div class="t-select t-size-s"><svg class="t-icon t-icon-undefined t-size-s t-select-left-icon" style="display: none;">
                 <use xlink:href="#t-icon-undefined"></use>
-              </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="1998" style="width: 0px;"> <span title="1998" class="t-select-selectedSingle">
-        1998
+              </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="2020" style="width: 0px;"> <span title="2020" class="t-select-selectedSingle">
+        2020
       </span>
-              <div class="t-input t-size-s t-select-input" style="display: none;"><input placeholder="1998" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-s t-select-right-icon">
+              <div class="t-input t-size-s t-select-input" style="display: none;"><input placeholder="2020" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-s t-select-right-icon">
                 <use xlink:href="#t-icon-chevron-down"></use>
               </svg> <svg class="t-icon t-icon-close t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-close"></use>
@@ -37,10 +37,10 @@ exports[`Calendar :props :defaultValue 1`] = `
           <div class="t-popup-reference" style="width: 100%; position: relative;">
             <div class="t-select t-size-s"><svg class="t-icon t-icon-undefined t-size-s t-select-left-icon" style="display: none;">
                 <use xlink:href="#t-icon-undefined"></use>
-              </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="11" style="width: 0px;"> <span title="11" class="t-select-selectedSingle">
-        11
+              </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="12" style="width: 0px;"> <span title="12" class="t-select-selectedSingle">
+        12
       </span>
-              <div class="t-input t-size-s t-select-input" style="display: none;"><input placeholder="11" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-s t-select-right-icon">
+              <div class="t-input t-size-s t-select-input" style="display: none;"><input placeholder="12" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-s t-select-right-icon">
                 <use xlink:href="#t-icon-chevron-down"></use>
               </svg> <svg class="t-icon t-icon-close t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-close"></use>
@@ -76,54 +76,39 @@ exports[`Calendar :props :defaultValue 1`] = `
     <table class="t-calendar__table">
       <thead class="t-calendar__table-head">
         <tr class="t-calendar__table-head-row">
-          <th class="t-calendar__table-head-cell">一
+          <th class="t-calendar__table-head-cell">
+            一
           </th>
-          <th class="t-calendar__table-head-cell">二
+          <th class="t-calendar__table-head-cell">
+            二
           </th>
-          <th class="t-calendar__table-head-cell">三
+          <th class="t-calendar__table-head-cell">
+            三
           </th>
-          <th class="t-calendar__table-head-cell">四
+          <th class="t-calendar__table-head-cell">
+            四
           </th>
-          <th class="t-calendar__table-head-cell">五
+          <th class="t-calendar__table-head-cell">
+            五
           </th>
-          <th class="t-calendar__table-head-cell">六
+          <th class="t-calendar__table-head-cell">
+            六
           </th>
-          <th class="t-calendar__table-head-cell">日
+          <th class="t-calendar__table-head-cell">
+            日
           </th>
         </tr>
       </thead>
       <tbody class="t-calendar__table-body">
         <tr class="t-calendar__table-body-row">
           <td class="t-calendar__table-body-cell t-is-disabled">
-            <div class="t-calendar__table-body-cell-value">26</div>
-            <div class="t-calendar__table-body-cell-content"></div>
-          </td>
-          <td class="t-calendar__table-body-cell t-is-disabled">
-            <div class="t-calendar__table-body-cell-value">27</div>
-            <div class="t-calendar__table-body-cell-content"></div>
-          </td>
-          <td class="t-calendar__table-body-cell t-is-disabled">
-            <div class="t-calendar__table-body-cell-value">28</div>
-            <div class="t-calendar__table-body-cell-content"></div>
-          </td>
-          <td class="t-calendar__table-body-cell t-is-disabled">
-            <div class="t-calendar__table-body-cell-value">29</div>
-            <div class="t-calendar__table-body-cell-content"></div>
-          </td>
-          <td class="t-calendar__table-body-cell t-is-disabled">
             <div class="t-calendar__table-body-cell-value">30</div>
-            <div class="t-calendar__table-body-cell-content"></div>
-          </td>
-          <td class="t-calendar__table-body-cell t-is-disabled">
-            <div class="t-calendar__table-body-cell-value">31</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
           <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">01</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-        </tr>
-        <tr class="t-calendar__table-body-row">
           <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">02</div>
             <div class="t-calendar__table-body-cell-content"></div>
@@ -144,6 +129,8 @@ exports[`Calendar :props :defaultValue 1`] = `
             <div class="t-calendar__table-body-cell-value">06</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
+        </tr>
+        <tr class="t-calendar__table-body-row">
           <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">07</div>
             <div class="t-calendar__table-body-cell-content"></div>
@@ -152,8 +139,6 @@ exports[`Calendar :props :defaultValue 1`] = `
             <div class="t-calendar__table-body-cell-value">08</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-        </tr>
-        <tr class="t-calendar__table-body-row">
           <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">09</div>
             <div class="t-calendar__table-body-cell-content"></div>
@@ -162,7 +147,7 @@ exports[`Calendar :props :defaultValue 1`] = `
             <div class="t-calendar__table-body-cell-value">10</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">11</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -174,6 +159,8 @@ exports[`Calendar :props :defaultValue 1`] = `
             <div class="t-calendar__table-body-cell-value">13</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
+        </tr>
+        <tr class="t-calendar__table-body-row">
           <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">14</div>
             <div class="t-calendar__table-body-cell-content"></div>
@@ -182,13 +169,11 @@ exports[`Calendar :props :defaultValue 1`] = `
             <div class="t-calendar__table-body-cell-value">15</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-        </tr>
-        <tr class="t-calendar__table-body-row">
           <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">16</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell">
+          <td class="t-calendar__table-body-cell t-is-checked">
             <div class="t-calendar__table-body-cell-value">17</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -204,6 +189,8 @@ exports[`Calendar :props :defaultValue 1`] = `
             <div class="t-calendar__table-body-cell-value">20</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
+        </tr>
+        <tr class="t-calendar__table-body-row">
           <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">21</div>
             <div class="t-calendar__table-body-cell-content"></div>
@@ -212,8 +199,6 @@ exports[`Calendar :props :defaultValue 1`] = `
             <div class="t-calendar__table-body-cell-value">22</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-        </tr>
-        <tr class="t-calendar__table-body-row">
           <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">23</div>
             <div class="t-calendar__table-body-cell-content"></div>
@@ -234,6 +219,8 @@ exports[`Calendar :props :defaultValue 1`] = `
             <div class="t-calendar__table-body-cell-value">27</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
+        </tr>
+        <tr class="t-calendar__table-body-row">
           <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">28</div>
             <div class="t-calendar__table-body-cell-content"></div>
@@ -242,10 +229,12 @@ exports[`Calendar :props :defaultValue 1`] = `
             <div class="t-calendar__table-body-cell-value">29</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-        </tr>
-        <tr class="t-calendar__table-body-row">
           <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">30</div>
+            <div class="t-calendar__table-body-cell-content"></div>
+          </td>
+          <td class="t-calendar__table-body-cell">
+            <div class="t-calendar__table-body-cell-value">31</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
           <td class="t-calendar__table-body-cell t-is-disabled">
@@ -258,18 +247,6 @@ exports[`Calendar :props :defaultValue 1`] = `
           </td>
           <td class="t-calendar__table-body-cell t-is-disabled">
             <div class="t-calendar__table-body-cell-value">03</div>
-            <div class="t-calendar__table-body-cell-content"></div>
-          </td>
-          <td class="t-calendar__table-body-cell t-is-disabled">
-            <div class="t-calendar__table-body-cell-value">04</div>
-            <div class="t-calendar__table-body-cell-content"></div>
-          </td>
-          <td class="t-calendar__table-body-cell t-is-disabled">
-            <div class="t-calendar__table-body-cell-value">05</div>
-            <div class="t-calendar__table-body-cell-content"></div>
-          </td>
-          <td class="t-calendar__table-body-cell t-is-disabled">
-            <div class="t-calendar__table-body-cell-value">06</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
         </tr>
@@ -355,19 +332,26 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
     <table class="t-calendar__table">
       <thead class="t-calendar__table-head">
         <tr class="t-calendar__table-head-row">
-          <th class="t-calendar__table-head-cell">三
+          <th class="t-calendar__table-head-cell">
+            三
           </th>
-          <th class="t-calendar__table-head-cell">四
+          <th class="t-calendar__table-head-cell">
+            四
           </th>
-          <th class="t-calendar__table-head-cell">五
+          <th class="t-calendar__table-head-cell">
+            五
           </th>
-          <th class="t-calendar__table-head-cell">六
+          <th class="t-calendar__table-head-cell">
+            六
           </th>
-          <th class="t-calendar__table-head-cell">日
+          <th class="t-calendar__table-head-cell">
+            日
           </th>
-          <th class="t-calendar__table-head-cell">一
+          <th class="t-calendar__table-head-cell">
+            一
           </th>
-          <th class="t-calendar__table-head-cell">二
+          <th class="t-calendar__table-head-cell">
+            二
           </th>
         </tr>
       </thead>
@@ -463,11 +447,11 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
           </td>
         </tr>
         <tr class="t-calendar__table-body-row">
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">16</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell">
+          <td class="t-calendar__table-body-cell t-is-checked">
             <div class="t-calendar__table-body-cell-value">17</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -634,15 +618,20 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
     <table class="t-calendar__table">
       <thead class="t-calendar__table-head">
         <tr class="t-calendar__table-head-row">
-          <th class="t-calendar__table-head-cell">一
+          <th class="t-calendar__table-head-cell">
+            一
           </th>
-          <th class="t-calendar__table-head-cell">二
+          <th class="t-calendar__table-head-cell">
+            二
           </th>
-          <th class="t-calendar__table-head-cell">三
+          <th class="t-calendar__table-head-cell">
+            三
           </th>
-          <th class="t-calendar__table-head-cell">四
+          <th class="t-calendar__table-head-cell">
+            四
           </th>
-          <th class="t-calendar__table-head-cell">五
+          <th class="t-calendar__table-head-cell">
+            五
           </th>
           <!---->
           <!---->
@@ -706,11 +695,11 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
             <div class="t-calendar__table-body-cell-value">15</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">16</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell">
+          <td class="t-calendar__table-body-cell t-is-checked">
             <div class="t-calendar__table-body-cell-value">17</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -851,19 +840,26 @@ exports[`Calendar :props :isShowWeekendDefault 2`] = `
     <table class="t-calendar__table">
       <thead class="t-calendar__table-head">
         <tr class="t-calendar__table-head-row">
-          <th class="t-calendar__table-head-cell">一
+          <th class="t-calendar__table-head-cell">
+            一
           </th>
-          <th class="t-calendar__table-head-cell">二
+          <th class="t-calendar__table-head-cell">
+            二
           </th>
-          <th class="t-calendar__table-head-cell">三
+          <th class="t-calendar__table-head-cell">
+            三
           </th>
-          <th class="t-calendar__table-head-cell">四
+          <th class="t-calendar__table-head-cell">
+            四
           </th>
-          <th class="t-calendar__table-head-cell">五
+          <th class="t-calendar__table-head-cell">
+            五
           </th>
-          <th class="t-calendar__table-head-cell">六
+          <th class="t-calendar__table-head-cell">
+            六
           </th>
-          <th class="t-calendar__table-head-cell">日
+          <th class="t-calendar__table-head-cell">
+            日
           </th>
         </tr>
       </thead>
@@ -937,11 +933,11 @@ exports[`Calendar :props :isShowWeekendDefault 2`] = `
             <div class="t-calendar__table-body-cell-value">15</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">16</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell">
+          <td class="t-calendar__table-body-cell t-is-checked">
             <div class="t-calendar__table-body-cell-value">17</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -1208,19 +1204,26 @@ exports[`Calendar :props :theme 1`] = `
     <table class="t-calendar__table">
       <thead class="t-calendar__table-head">
         <tr class="t-calendar__table-head-row">
-          <th class="t-calendar__table-head-cell">一
+          <th class="t-calendar__table-head-cell">
+            一
           </th>
-          <th class="t-calendar__table-head-cell">二
+          <th class="t-calendar__table-head-cell">
+            二
           </th>
-          <th class="t-calendar__table-head-cell">三
+          <th class="t-calendar__table-head-cell">
+            三
           </th>
-          <th class="t-calendar__table-head-cell">四
+          <th class="t-calendar__table-head-cell">
+            四
           </th>
-          <th class="t-calendar__table-head-cell">五
+          <th class="t-calendar__table-head-cell">
+            五
           </th>
-          <th class="t-calendar__table-head-cell">六
+          <th class="t-calendar__table-head-cell">
+            六
           </th>
-          <th class="t-calendar__table-head-cell">日
+          <th class="t-calendar__table-head-cell">
+            日
           </th>
         </tr>
       </thead>
@@ -1326,13 +1329,13 @@ exports[`Calendar :props :theme 1`] = `
               <!---->
             </div>
           </td>
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">16</div>
             <div class="t-calendar__table-body-cell-content">
               <!---->
             </div>
           </td>
-          <td class="t-calendar__table-body-cell">
+          <td class="t-calendar__table-body-cell t-is-checked">
             <div class="t-calendar__table-body-cell-value">17</div>
             <div class="t-calendar__table-body-cell-content">
               <!---->
