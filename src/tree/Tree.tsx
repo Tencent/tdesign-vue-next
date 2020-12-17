@@ -23,9 +23,7 @@ import {
   CLASS_NAMES,
   FX,
 } from './constants';
-import {
-  getRole,
-} from './util';
+import { getRole } from './util';
 
 export default Vue.extend({
   name: TREE_NAME,
@@ -37,10 +35,27 @@ export default Vue.extend({
     ...TreeProps,
   },
   data() {
+    const {
+      checkProps,
+      empty,
+      icon,
+      label,
+      line,
+      operations,
+    } = this;
+
     return {
       store: null,
       nodesMap: null,
       treeNodes: [],
+      treeScope: {
+        checkProps,
+        empty,
+        icon,
+        label,
+        line,
+        operations,
+      },
       transitionCD: null,
     };
   },
@@ -146,6 +161,24 @@ export default Vue.extend({
     filter(fn) {
       this.filterItems(fn);
     },
+    checkProps(props) {
+      this.treeScope.checkProps = props;
+    },
+    empty(tnode) {
+      this.treeScope.empty = tnode;
+    },
+    icon(tnode) {
+      this.treeScope.icon = tnode;
+    },
+    label(tnode) {
+      this.treeScope.label = tnode;
+    },
+    line(tnode) {
+      this.treeScope.line = tnode;
+    },
+    operations(tnode) {
+      this.treeScope.operations = tnode;
+    },
   },
   methods: {
     // 创建单个 tree 节点
@@ -157,17 +190,24 @@ export default Vue.extend({
         label,
         line,
         operations,
+        $scopedSlots: scopedSlots,
       } = this;
+
+      Object.assign(this.treeScope, {
+        checkProps,
+        scopedSlots,
+        empty,
+        icon,
+        label,
+        line,
+        operations,
+      });
+
       const treeItem = (
         <TreeItem
           key={node.value}
           node={node}
-          empty={empty}
-          checkProps={checkProps}
-          icon={icon}
-          label={label}
-          line={line}
-          operations={operations}
+          treeScope={this.treeScope}
           onClick={this.handleClick}
           onChange={this.handleChange}
         />
@@ -178,14 +218,9 @@ export default Vue.extend({
       const {
         store,
         treeNodes,
-        $scopedSlots: scopedSlots,
       } = this;
 
-      let {
-        nodesMap,
-      } = this;
-
-      store.scopedSlots = scopedSlots;
+      let { nodesMap } = this;
 
       if (!nodesMap) {
         nodesMap = new Map();
@@ -261,8 +296,8 @@ export default Vue.extend({
         value,
         valueMode,
         filter,
-        $scopedSlots: scopedSlots,
       } = this;
+
       if (list && list.length > 0) {
         const store = new TreeStore({
           keys: this.keys,
@@ -279,7 +314,6 @@ export default Vue.extend({
           lazy,
           valueMode: valueMode as TypeValueMode,
           filter,
-          scopedSlots,
           onLoad: (info: TreeEventState) => {
             this.handleLoad(info);
           },
@@ -287,11 +321,17 @@ export default Vue.extend({
             this.handleUpdate(state);
           },
         });
+
+        // 初始化数据
         this.store = store;
         store.append(list);
+
+        // 初始化选中状态
         if (Array.isArray(value)) {
           store.setChecked(value);
         }
+
+        // 初始化展开状态
         if (Array.isArray(expanded)) {
           const expandedMap = new Map();
           expanded.forEach((val) => {
@@ -306,9 +346,12 @@ export default Vue.extend({
           const expandedArr = Array.from(expandedMap.keys());
           store.setExpanded(expandedArr);
         }
+
+        // 初始化激活状态
         if (Array.isArray(actived)) {
           store.setActived(actived);
         }
+
         // 树的数据初始化之后，需要立即进行一次视图刷新
         store.refreshNodes();
         this.refresh();
@@ -358,10 +401,7 @@ export default Vue.extend({
     },
     handleLoad(info: TreeEventState): void {
       const event = new Event('load');
-      const {
-        node,
-        data,
-      } = info;
+      const { node, data } = info;
       const state: EventState = {
         event,
         node,
@@ -372,9 +412,7 @@ export default Vue.extend({
     },
     handleUpdate(info: EventState): void {
       const event = new Event('update');
-      const {
-        nodes,
-      } = info;
+      const { nodes } = info;
       const state: EventState = {
         event,
         nodes,
@@ -428,21 +466,15 @@ export default Vue.extend({
       this.$emit('click', state);
     },
     handleChange(state: EventState): void {
-      const {
-        disabled,
-      } = this;
-      const {
-        node,
-      } = state;
+      const { disabled } = this;
+      const { node } = state;
       if (!node || disabled || node.disabled) {
         return;
       }
       this.toggleChecked(node);
     },
     filterItems(fn: (node: TreeNode) => boolean): void {
-      const {
-        store,
-      } = this;
+      const { store } = this;
       store.setConfig({
         filter: fn,
       });

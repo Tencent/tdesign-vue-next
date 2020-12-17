@@ -220,14 +220,14 @@ export default {
 };
 </script>
 <style>
-  .demo-tree .title{
+  .tdesign-tree-operations .title{
     margin-top: 10px;
     font-weight: bold;
   }
-  .demo-tree .operations .t-button{
+  .tdesign-tree-operations .operations .t-button{
     margin: 0 10px 10px 0;
   }
-  .demo-tree .t-tree__operations .t-button{
+  .tdesign-tree-operations .t-tree__operations .t-button{
     margin-left: 10px;
   }
 </style>

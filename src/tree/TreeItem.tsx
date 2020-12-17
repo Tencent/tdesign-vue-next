@@ -4,17 +4,9 @@ import TIconLoading from '../icon/loading';
 import TCheckBox from '../checkbox';
 import TreeNode from '../../common/js/tree/TreeNode';
 
-import {
-  TreeItemProps,
-  EventState,
-} from './interface';
-import {
-  getTNode,
-} from './util';
-import {
-  TREE_NODE_NAME,
-  CLASS_NAMES,
-} from './constants';
+import { getTNode } from './util';
+import { TreeItemProps, EventState } from './interface';
+import { TREE_NODE_NAME, CLASS_NAMES } from './constants';
 
 export default Vue.extend({
   name: TREE_NODE_NAME,
@@ -38,22 +30,9 @@ export default Vue.extend({
       });
       return list;
     },
-    getScopedSlots() {
-      const {
-        node,
-      } = this;
-      let slots = null;
-      if (node.tree) {
-        slots = node.tree.scopedSlots;
-      }
-      return slots;
-    },
     renderLine(createElement: CreateElement): VNode {
-      const {
-        node,
-        line,
-      } = this;
-      const scopedSlots = this.getScopedSlots();
+      const { node, treeScope } = this;
+      const { line, scopedSlots } = treeScope;
 
       let lineNode = null;
       if (line === true) {
@@ -61,43 +40,41 @@ export default Vue.extend({
           lineNode = scopedSlots.line({
             node,
           });
-        } else {
-          if (node.parent && node.tree) {
-            const {
-              vmIsLeaf,
-              vmIsFirst,
-              level,
-            } = node;
-            const lineClasses = [];
-            lineClasses.push(CLASS_NAMES.line);
-            if (vmIsLeaf) {
-              lineClasses.push(CLASS_NAMES.lineIsLeaf);
-            }
-            if (vmIsFirst) {
-              lineClasses.push(CLASS_NAMES.lineIsFirst);
-            }
-
-            const shadowStyles: string[] = [];
-            const parents = node.getParents();
-            parents.pop();
-            parents.forEach((pnode: TreeNode, index: number) => {
-              if (!pnode.vmIsLast) {
-                shadowStyles.push(`calc(-${index + 1} * var(--space)) 0 var(--color)`);
-              }
-            });
-
-            const styles = {
-              '--level': level,
-              'box-shadow': shadowStyles.join(','),
-            };
-
-            lineNode = (
-              <span
-                class={lineClasses}
-                style={styles}
-              ></span>
-            );
+        } else if (node.parent && node.tree) {
+          const {
+            vmIsLeaf,
+            vmIsFirst,
+            level,
+          } = node;
+          const lineClasses = [];
+          lineClasses.push(CLASS_NAMES.line);
+          if (vmIsLeaf) {
+            lineClasses.push(CLASS_NAMES.lineIsLeaf);
           }
+          if (vmIsFirst) {
+            lineClasses.push(CLASS_NAMES.lineIsFirst);
+          }
+
+          const shadowStyles: string[] = [];
+          const parents = node.getParents();
+          parents.pop();
+          parents.forEach((pnode: TreeNode, index: number) => {
+            if (!pnode.vmIsLast) {
+              shadowStyles.push(`calc(-${index + 1} * var(--space)) 0 var(--color)`);
+            }
+          });
+
+          const styles = {
+            '--level': level,
+            'box-shadow': shadowStyles.join(','),
+          };
+
+          lineNode = (
+            <span
+              class={lineClasses}
+              style={styles}
+            ></span>
+          );
         }
       } else {
         lineNode = getTNode(line, {
@@ -108,11 +85,8 @@ export default Vue.extend({
       return lineNode;
     },
     renderIcon(createElement: CreateElement): VNode {
-      const {
-        node,
-        icon,
-      } = this;
-      const scopedSlots = this.getScopedSlots();
+      const { node, treeScope } = this;
+      const { icon, scopedSlots } = treeScope;
 
       let iconNode = null;
       if (icon === true) {
@@ -145,12 +119,9 @@ export default Vue.extend({
       return iconNode;
     },
     renderLabel(createElement: CreateElement): VNode {
-      const {
-        node,
-        empty,
-        label,
-      } = this;
-      const scopedSlots = this.getScopedSlots();
+      const { node, treeScope } = this;
+      const  { empty, label, scopedSlots } = treeScope;
+      const checkProps = treeScope.checkProps || {};
 
       const emptyNode = getTNode(empty, {
         createElement,
@@ -188,7 +159,7 @@ export default Vue.extend({
             name={node.value}
             role="label"
             onChange={() => this.handleChange()}
-            {...{ props: this.checkProps }}
+            {...{ props: checkProps }}
           >{labelNode}</TCheckBox>
         );
       } else {
@@ -203,11 +174,8 @@ export default Vue.extend({
       return labelNode;
     },
     renderOperations(createElement: CreateElement): VNode {
-      const {
-        node,
-        operations,
-      } = this;
-      const scopedSlots = this.getScopedSlots();
+      const { node, treeScope } = this;
+      const { operations, scopedSlots } = treeScope;
 
       let opNode = null;
       if (scopedSlots?.operations) {

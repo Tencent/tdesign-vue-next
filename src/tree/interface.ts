@@ -149,31 +149,8 @@ export const TreeItemProps = {
   node: {
     type: Object,
   },
-  checkProps: {
+  treeScope: {
     type: Object,
-    default() {
-      return {};
-    },
-  },
-  empty: {
-    type: [Function, String],
-    default: '',
-  },
-  icon: {
-    type: [Function, Boolean],
-    default: true,
-  },
-  line: {
-    type: [Function, Boolean],
-    default: false,
-  },
-  label: {
-    type: [Function, String, Boolean],
-    default: '',
-  },
-  operations: {
-    type: [Function, String],
-    default: '',
   },
 };
 

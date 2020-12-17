@@ -1,9 +1,13 @@
 <template>
   <div class="tdesign-tree-base">
-    <h3>显示连线</h3>
+    <div class="operations">
+      <t-button :theme="showLine ? 'primary' : 'ghost'" @click="toggleLine">显示连线</t-button>
+      <t-button :theme="showIcon ? 'primary' : 'ghost'" @click="toggleIcon">显示图标</t-button>
+    </div>
     <t-tree
       :data="items"
-      line
+      :line="showLine"
+      :icon="showIcon"
       expand-all
     />
     <h3>render</h3>
@@ -29,6 +33,8 @@
 export default {
   data() {
     return {
+      showLine: true,
+      showIcon: true,
       items: [{
         label: '1',
         children: [{
@@ -69,6 +75,12 @@ export default {
     };
   },
   methods: {
+    toggleLine() {
+      this.showLine = !this.showLine;
+    },
+    toggleIcon() {
+      this.showIcon = !this.showIcon;
+    },
     renderLine(createElement, node) {
       return new Array(node.level + 1).join('_');
     },
@@ -76,7 +88,7 @@ export default {
 };
 </script>
 <style scoped>
-  .demo-tree-base {
-    display: block;
+  .tdesign-tree-base .operations .t-button{
+    margin: 0 10px 10px 0;
   }
 </style>
