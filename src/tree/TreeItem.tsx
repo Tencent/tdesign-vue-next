@@ -164,8 +164,8 @@ export default Vue.extend({
             indeterminate={node.indeterminate}
             disabled={node.isDisabled()}
             name={node.value}
-            trigger="active"
             onChange={() => this.handleChange()}
+            ignore="expand,active"
             {...{ props: checkProps }}
           >{labelNode}</TCheckBox>
         );
@@ -173,7 +173,6 @@ export default Vue.extend({
         labelNode = (
           <span
             class={labelClasses}
-            trigger="active"
           >{labelNode}</span>
         );
       }
