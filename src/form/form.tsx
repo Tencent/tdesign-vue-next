@@ -1,6 +1,6 @@
 import Vue, { PropType, VNode } from 'vue';
 import { prefix } from '../config';
-import { FormData, ValidateRules, ValidateRule, FormValidateResult } from './type';
+import { FormData, FormValidateResult, FormRuleTs } from './type';
 import { FORM_ITEM_CLASS_PREFIX } from './const';
 import isEmpty from 'lodash/isEmpty';
 
@@ -50,7 +50,7 @@ export default Vue.extend({
       type: Boolean,
       default: true,
     },
-    rules: Object as PropType<ValidateRules>,
+    rules: Object as PropType<Array<FormRuleTs>>,
     onReset: Function as PropType<() => void>,
     onSubmit: Function as PropType<(validateResult: FormValidateResult) => void>,
   },
@@ -81,7 +81,7 @@ export default Vue.extend({
       const behavior = this.scrollToFirstError as ScrollBehavior;
       dom && dom.scrollIntoView({ behavior });
     },
-    emitEvent(eventName: string, data: { result?: FormValidateResult; e: Event; firstError?: ValidateRule }) {
+    emitEvent(eventName: string, data: { result?: FormValidateResult; e: Event; firstError?: FormRuleTs }) {
       this.$emit(eventName, data);
       const propsApi = `on${eventName[0].toUpperCase()}${eventName.substr(1)}`;
       if (typeof this[propsApi] === 'function') {
