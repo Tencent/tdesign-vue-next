@@ -5,6 +5,8 @@
       <t-radio :checked="true">选中项</t-radio>
       <t-radio :checked="false" disabled>未选禁用项</t-radio>
       <t-radio :checked="true" disabled>选中禁用项</t-radio>
+      <t-radio :defaultChecked="false">default uncheck</t-radio>
+      <t-radio :defaultChecked="true">default check</t-radio>
     </div>
   </div>
 </template>
