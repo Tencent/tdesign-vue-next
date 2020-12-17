@@ -18,7 +18,7 @@ function install(Vue: VueConstructor, config?: object): void {
   Object.keys(plugins).forEach((key) => {
     Vue.use(plugins[key]);
   });
-};
+}
 
 declare const window: {
   [propName: string]: any; // eslint-disable-line

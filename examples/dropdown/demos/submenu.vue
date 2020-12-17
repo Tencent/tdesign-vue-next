@@ -1,7 +1,7 @@
 <template>
   <div>
     <t-dropdown :options="options" >
-      <t-button theme="link" class="tdesign-demo-dropdown">更多 <t-icon name="arrow-down" class="tdesign-demo-arrow" /></t-button>
+      <t-button theme="link" class="tdesign-demo-dropdown">更多 <t-icon name="chevron-down" class="tdesign-demo-arrow" /></t-button>
     </t-dropdown>
   </div>
 </template>

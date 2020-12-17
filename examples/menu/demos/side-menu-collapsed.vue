@@ -1,6 +1,6 @@
 <template>
   <t-menu theme="light" active="2-1" :collapsed="collapsed" height="550px">
-    <img slot="logo" class="t-menu__logo" src="https://main.qcloudimg.com/raw/9fe1217de2bd7eb623f70648a046e341/head-logo.png" alt="logo">
+    <span slot="logo">LOGO</span>
     <t-menu-item name="item1">
       <t-icon slot="icon" name="user"/>菜单内容一
     </t-menu-item>
@@ -14,7 +14,7 @@
     <t-menu-item name="item3"><t-icon slot="icon" name="user" />菜单内容二</t-menu-item>
     <t-menu-item name="item4" :disabled="true"><t-icon slot="icon" name="user" />菜单内容三</t-menu-item>
     <div slot="options">
-      <t-icon name="user" @click.native="changeCollapsed" />
+      <t-icon :name="iconName" @click.native="changeCollapsed" />
     </div>
   </t-menu>
 </template>
@@ -25,6 +25,11 @@ export default {
     return {
       collapsed: true,
     };
+  },
+  computed: {
+    iconName() {
+      return this.collapsed ? 'chevron-right' : 'chevron-left';
+    },
   },
   methods: {
     changeCollapsed() {

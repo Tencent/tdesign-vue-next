@@ -2,44 +2,35 @@
   <div class="demo-button-icon">
     <div class="demo-button-row">
       <div class="demo-button-col">
-        <t-button
-          theme="primary"
-          icon="add"
-        >
+        <t-button theme="primary">
+          <t-icon-add slot="icon"/>
           新建
         </t-button>
-        <t-button
-          icon="cloud-upload"
-        >
+        <t-button>
+          <t-icon-cloud-upload slot="icon"/>
           上传文件
         </t-button>
       </div>
       <div class="demo-button-col">
         <t-button
           theme="primary"
-          icon="discount"
           shape="circle"
         >
+          <t-icon-discount slot="icon"/>
         </t-button>
         <t-button
           theme="primary"
-          icon="cloud-download"
           shape="circle"
         >
+          <t-icon-cloud-download slot="icon"/>
         </t-button>
       </div>
-      <!-- 使用 function 或 slot 的形式定义 icon -->
+      <!-- 使用 function 的形式定义 icon -->
       <div class="demo-button-col">
         <t-button
           :icon="renderIcon"
         >
           Function Icon
-        </t-button>
-        <t-button>
-          <template v-slot:icon>
-            <t-icon name="search"></t-icon>
-          </template>
-          Slot Icon
         </t-button>
       </div>
 
@@ -47,14 +38,22 @@
   </div>
 </template>
 <script>
+import TIconAdd from '@tencent/tdesign-vue/lib/icon/add';
+import TIconCloudUpload from '@tencent/tdesign-vue/lib/icon/cloud-upload';
+import TIconCloudDownload from '@tencent/tdesign-vue/lib/icon/cloud-download';
+import TIconDiscount from '@tencent/tdesign-vue/lib/icon/discount';
+import TIconSearch from '@tencent/tdesign-vue/lib/icon/search';
+
 export default {
+  components: {
+    TIconAdd,
+    TIconCloudUpload,
+    TIconCloudDownload,
+    TIconDiscount,
+  },
   methods: {
-    renderIcon(h) {
-      return h('t-icon', {
-        props: {
-          name: 'search',
-        },
-      });
+    renderIcon() {
+      return <TIconSearch />;
     },
   },
 };

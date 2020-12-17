@@ -27,7 +27,7 @@ export default Vue.extend({
     },
     color: {
       type: String,
-      default: 'red',
+      default: '#E34D59',
     },
     shape: {
       type: String,

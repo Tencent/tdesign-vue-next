@@ -8,8 +8,8 @@
       @click-close-btn="(close)=>close()"
     >
       <div slot="header">
-        <t-icon name="prompt_fill" color="#3881E8" />
-        <span style="margin-left: 12px; vertical-align: middle;">我是主要信息，我是主要信息</span>
+        <t-icon name="info-circle-filled" color="#3881E8" />
+        <span style="vertical-align: middle;">我是主要信息，我是主要信息</span>
       </div>
     </t-dialog>
   </div>
