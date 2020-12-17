@@ -11,11 +11,6 @@ import { TREE_NODE_NAME, CLASS_NAMES } from './constants';
 export default Vue.extend({
   name: TREE_NODE_NAME,
   props: TreeItemProps,
-  data() {
-    return {
-      iconVisible: true,
-    };
-  },
   methods: {
     getStyles(): string {
       const { level } = this.node;
@@ -36,8 +31,9 @@ export default Vue.extend({
       return list;
     },
     renderLine(createElement: CreateElement): VNode {
-      const { node, treeScope, iconVisible } = this;
+      const { node, treeScope } = this;
       const { line, scopedSlots } = treeScope;
+      const iconVisible = !!treeScope.icon;
 
       let lineNode = null;
       if (line === true) {
@@ -115,7 +111,6 @@ export default Vue.extend({
       if (!node.vmIsLeaf && node.loading && node.expanded && icon !== false) {
         iconNode = (<TIconLoading/>);
       }
-      this.iconVisible = !!iconNode;
       iconNode = (
         <span
           class={CLASS_NAMES.treeIcon}
