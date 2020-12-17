@@ -11,6 +11,11 @@ import { TREE_NODE_NAME, CLASS_NAMES } from './constants';
 export default Vue.extend({
   name: TREE_NODE_NAME,
   props: TreeItemProps,
+  data() {
+    return {
+      iconVisible: true,
+    };
+  },
   methods: {
     getStyles(): string {
       const { level } = this.node;
@@ -31,7 +36,7 @@ export default Vue.extend({
       return list;
     },
     renderLine(createElement: CreateElement): VNode {
-      const { node, treeScope } = this;
+      const { node, treeScope, iconVisible } = this;
       const { line, scopedSlots } = treeScope;
 
       let lineNode = null;
@@ -48,10 +53,10 @@ export default Vue.extend({
           } = node;
           const lineClasses = [];
           lineClasses.push(CLASS_NAMES.line);
-          if (vmIsLeaf) {
+          if (vmIsLeaf || !iconVisible) {
             lineClasses.push(CLASS_NAMES.lineIsLeaf);
           }
-          if (vmIsFirst) {
+          if (vmIsFirst && iconVisible) {
             lineClasses.push(CLASS_NAMES.lineIsFirst);
           }
 
@@ -110,6 +115,7 @@ export default Vue.extend({
       if (!node.vmIsLeaf && node.loading && node.expanded && icon !== false) {
         iconNode = (<TIconLoading/>);
       }
+      this.iconVisible = !!iconNode;
       iconNode = (
         <span
           class={CLASS_NAMES.treeIcon}
@@ -149,10 +155,15 @@ export default Vue.extend({
         node.label = labelNode;
       }
 
+      const labelClasses = [
+        CLASS_NAMES.treeLabel,
+        CLASS_NAMES.treeLabelStrictly,
+      ];
+
       if (node.vmCheckable) {
         labelNode = (
           <TCheckBox
-            class={CLASS_NAMES.treeLabel}
+            class={labelClasses}
             checked={node.checked}
             indeterminate={node.indeterminate}
             disabled={node.isDisabled()}
@@ -201,12 +212,15 @@ export default Vue.extend({
     renderItem(createElement: CreateElement): Array<VNode> {
       const itemNodes: Array<VNode> = [];
 
+      const iconNode = this.renderIcon(createElement);
+
+      // 渲染连线排在渲染图标之后，是为了确认图标是否存在
       const lineNode = this.renderLine(createElement);
+
       if (lineNode) {
         itemNodes.push(lineNode);
       }
 
-      const iconNode = this.renderIcon(createElement);
       if (iconNode) {
         itemNodes.push(iconNode);
       }

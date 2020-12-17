@@ -55,6 +55,7 @@ export default Vue.extend({
         label,
         line,
         operations,
+        scopedSlots: null,
       },
       transitionCD: null,
     };
@@ -183,31 +184,12 @@ export default Vue.extend({
   methods: {
     // 创建单个 tree 节点
     renderItem(node: TreeNode) {
-      const {
-        empty,
-        checkProps,
-        icon,
-        label,
-        line,
-        operations,
-        $scopedSlots: scopedSlots,
-      } = this;
-
-      Object.assign(this.treeScope, {
-        checkProps,
-        scopedSlots,
-        empty,
-        icon,
-        label,
-        line,
-        operations,
-      });
-
+      const { treeScope } = this;
       const treeItem = (
         <TreeItem
           key={node.value}
           node={node}
-          treeScope={this.treeScope}
+          treeScope={treeScope}
           onClick={this.handleClick}
           onChange={this.handleChange}
         />
@@ -218,10 +200,13 @@ export default Vue.extend({
       const {
         store,
         treeNodes,
+        treeScope,
+        $scopedSlots: scopedSlots,
       } = this;
 
-      let { nodesMap } = this;
+      treeScope.scopedSlots = scopedSlots;
 
+      let { nodesMap } = this;
       if (!nodesMap) {
         nodesMap = new Map();
         this.nodesMap = nodesMap;
