@@ -14,14 +14,6 @@ export function isValueEmpty(val: ValueType): boolean {
 }
 
 /**
- * todo list:
- * - UI 开发结果引入
- * - onReset 和 onSubmit 测试
- * - 单元测试
- * - e2e 测试
- */
-
-/**
  * 为避免引入文件较多，组件仅内置部分校验方法，更多校验业务方自行实现
  */
 

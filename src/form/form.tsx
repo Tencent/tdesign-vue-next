@@ -1,6 +1,5 @@
 import Vue, { PropType, VNode } from 'vue';
 import { prefix } from '../config';
-import { SIZE_CLASSNAMES } from '../utils/classnames';
 import { FormData, ValidateRules, ValidateRule, FormValidateResult } from './type';
 import { FORM_ITEM_CLASS_PREFIX } from './const';
 import isEmpty from 'lodash/isEmpty';
@@ -9,8 +8,6 @@ const name = `${prefix}-form`;
 
 export default Vue.extend({
   name,
-
-  components: {},
 
   props: {
     data: {
@@ -61,10 +58,10 @@ export default Vue.extend({
   computed: {
     formClass(): ClassName {
       return [
-        't-form',
-        SIZE_CLASSNAMES[this.size],
-        // `t-form--${this.layout}`,
-        // `t-form--${this.labelAlign}`,
+        {
+          't-form': true,
+          't-form-inline': this.layout === 'inline',
+        },
       ];
     },
   },

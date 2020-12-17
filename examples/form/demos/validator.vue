@@ -8,10 +8,10 @@
       @submit="onSubmit"
       scrollToFirstError="smooth"
     >
-      <t-form-item label="用户名" tooltip="这里请填写用户名" name='account'>
+      <t-form-item label="用户名" help="这里请填写用户名" name='account'>
         <t-input v-model="formData.account"></t-input>
       </t-form-item>
-      <t-form-item label="密码" tooltip="这里请填写密码" name='password'>
+      <t-form-item label="密码" help="这里请填写密码" name='password'>
         <t-input v-model="formData.password"></t-input>
       </t-form-item>
       <t-form-item label="邮箱" name='email'>

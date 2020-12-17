@@ -1,4 +1,4 @@
-import Vue, { PropType, VNode } from 'vue';
+import Vue, { PropType, VNode, CreateElement } from 'vue';
 import { prefix } from '../config';
 import { validate } from './formModel';
 import { ErrorList, ValidateResult, ValidateRule, ValidateRules } from './type';
@@ -11,10 +11,10 @@ export default Vue.extend({
 
   props: {
     name: String,
-    label: [String, Function],
+    label: [String, Function] as PropType<string | ((createElement: CreateElement) => VNode)>,
     for: String,
     rules: Array as PropType<Array<ValidateRule>>,
-    tooltip: String,
+    help: String,
   },
 
   data() {
@@ -30,25 +30,38 @@ export default Vue.extend({
     labelClasses(): ClassName {
       // @ts-ignore
       const labelAlign = this.$parent && this.$parent.labelAlign;
+      // @ts-ignore
+      const layout = this.$parent && this.$parent.layout;
+      let otherClasses = [];
+      if (layout === 'inline') {
+        otherClasses = ['t-form__label--top'];
+      } else {
+        otherClasses = [`t-form__label--${labelAlign}`, labelAlign === 'top' ? 't-col-12' : 't-col-1'];
+      }
       return [
+        't-col',
+        't-form__label',
+        ...otherClasses,
         {
-          't-col': true,
-          't-col-1': labelAlign !== 'top',
-          't-col-12': labelAlign === 'top',
-          't-form__label': true,
           't-form__label--required': this.needRequiredMark,
           't-form__label--colon': this.hasColon,
-          't-form__label--left': labelAlign === 'left',
-          't-form__label--right': labelAlign === 'right',
         },
       ];
     },
-    contentClasses(): ClassName {
-      const getErrorClass: Array<any> = this.getErrorClasses;
-      return ['t-form__controls', 't-col', 't-input__extra', ...getErrorClass];
+    errorClasses(): string {
+      // @ts-ignore
+      if (!this.$parent.showErrorMessage) return [];
+      if (!this.errorList.length) return;
+      // eslint-disable-next-line prefer-destructuring
+      const { type = 'error' } = this.errorList[0];
+      return `t-is-${type}`;
     },
-    labelProps(): any {
-      const labelProps: any = {};
+    contentClasses(): ClassName {
+      const getErrorClass: string = this.errorClasses;
+      return ['t-form__controls', 't-col', 't-input__extra', getErrorClass];
+    },
+    labelProps(): Record<string, any> {
+      const labelProps: Record<string, any> = {};
       // @ts-ignore
       const labelWidth = this.$parent && this.$parent.labelWidth;
       if (labelWidth) {
@@ -62,7 +75,7 @@ export default Vue.extend({
     },
     hasColon(): boolean {
       // @ts-ignore
-      return this.$parent && this.$parent.colon && this.getLabel();
+      return !!(this.$parent && this.$parent.colon && this.getLabel());
     },
     needRequiredMark(): boolean {
       // @ts-ignore
@@ -74,22 +87,6 @@ export default Vue.extend({
       // @ts-ignore
       const rules: ValidateRules = this.$parent && this.$parent.rules;
       return (rules && rules[this.name]) || (this.rules || []);
-    },
-    // 错误信息取第一个错误进行展示
-    getErrorClasses(): Array<any> {
-      // @ts-ignore
-      if (!this.$parent.showErrorMessage) return [];
-      const list = this.errorList;
-      if (list && list[0]) {
-        const type = list[0].type || 'error';
-        return [
-          {
-            't-is-error': type === 'error',
-            't-is-warning': type === 'warning',
-          },
-        ];
-      }
-      return [];
     },
   },
 
@@ -114,14 +111,15 @@ export default Vue.extend({
     getLabel(): string | VNode | VNode[] {
       if (typeof this.label === 'function') {
         return this.label(this.$createElement);
-      } if (typeof this.$scopedSlots.label === 'function') {
+      }
+      if (typeof this.$scopedSlots.label === 'function') {
         return this.$scopedSlots.label(null);
       }
       return this.label;
     },
     renderTipsInfo(): VNode {
-      if (this.tooltip) {
-        return <span>{this.tooltip}</span>;
+      if (this.help) {
+        return <span>{this.help}</span>;
       }
       const list = this.errorList;
       if (list && list[0]) {
