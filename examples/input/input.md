@@ -63,15 +63,15 @@
 :::
 
 ### 禁用
-::: demo demos/disabled
+::: demo demos/disabled 
 :::
 
 ### 状态
-::: demo demos/status
+::: demo demos/status 
 :::
 
 ### 不同尺寸
-::: demo demos/size
+::: demo demos/size 
 :::
 
 ### Input Props
