@@ -65,7 +65,8 @@ exports[`Calendar :props :defaultValue 1`] = `
       <div class="t-calendar__control-section-cell" style="height: auto;">
         <div class="t-radio-group t-radio-group-outline t-radio-group-small"><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label">月</span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label">年</span></label></div>
       </div>
-      <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">隐藏周末</button></div>
+      <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">
+          隐藏周末</button></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">
           今天
         </button></div>
@@ -321,7 +322,8 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
       <div class="t-calendar__control-section-cell" style="height: auto;">
         <div class="t-radio-group t-radio-group-outline t-radio-group-small"><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label">月</span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label">年</span></label></div>
       </div>
-      <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">隐藏周末</button></div>
+      <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">
+          隐藏周末</button></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">
           今天
         </button></div>
@@ -607,7 +609,8 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
       <div class="t-calendar__control-section-cell" style="height: auto;">
         <div class="t-radio-group t-radio-group-outline t-radio-group-small"><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label">月</span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label">年</span></label></div>
       </div>
-      <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">显示周末</button></div>
+      <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">
+          显示周末</button></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">
           今天
         </button></div>
@@ -829,7 +832,8 @@ exports[`Calendar :props :isShowWeekendDefault 2`] = `
       <div class="t-calendar__control-section-cell" style="height: auto;">
         <div class="t-radio-group t-radio-group-outline t-radio-group-small"><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label">月</span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label">年</span></label></div>
       </div>
-      <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">隐藏周末</button></div>
+      <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">
+          隐藏周末</button></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--line">
           今天
         </button></div>
