@@ -1,8 +1,8 @@
 import Vue, { PropType, VNode, CreateElement } from 'vue';
 import { prefix } from '../config';
-import { validate } from './formModel';
-import { ErrorList, ValidateResult, FormRuleTs } from './type';
-import { FORM_ITEM_CLASS_PREFIX } from './const';
+import { validate } from '../../common/js/form/formModel';
+import { ErrorList, ValidateResult, FormRuleTs } from '../../common/js/form/type';
+import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 
 const name = `${prefix}-form-item`;
 
@@ -25,7 +25,7 @@ export default Vue.extend({
 
   computed: {
     classes(): ClassName {
-      return ['t-form__item', 't-row', FORM_ITEM_CLASS_PREFIX + this.name];
+      return [CLASS_NAMES.formItem, CLASS_NAMES.row, FORM_ITEM_CLASS_PREFIX + this.name];
     },
     labelClasses(): ClassName {
       // @ts-ignore
@@ -34,13 +34,13 @@ export default Vue.extend({
       const layout = this.$parent && this.$parent.layout;
       let otherClasses = [];
       if (layout === 'inline') {
-        otherClasses = ['t-form__label--top'];
+        otherClasses = [CLASS_NAMES.labelTop];
       } else {
-        otherClasses = [`t-form__label--${labelAlign}`, labelAlign === 'top' ? 't-col-12' : 't-col-1'];
+        otherClasses = [`t-form__label--${labelAlign}`, labelAlign === 'top' ? CLASS_NAMES.col12 : CLASS_NAMES.col1];
       }
       return [
-        't-col',
-        't-form__label',
+        CLASS_NAMES.col,
+        CLASS_NAMES.label,
         ...otherClasses,
         {
           't-form__label--required': this.needRequiredMark,
@@ -58,7 +58,7 @@ export default Vue.extend({
     },
     contentClasses(): ClassName {
       const getErrorClass: string = this.errorClasses;
-      return ['t-form__controls', 't-col', 't-input__extra', getErrorClass];
+      return [CLASS_NAMES.controls, CLASS_NAMES.col, CLASS_NAMES.extra, getErrorClass];
     },
     labelProps(): Record<string, any> {
       const labelProps: Record<string, any> = {};
@@ -140,7 +140,7 @@ export default Vue.extend({
           </label>
         </div>
         <div class={this.contentClasses}>
-          <div class='t-form__controls--content'>
+          <div class={CLASS_NAMES.controlsContent}>
             {this.$slots.default}
           </div>
           {this.renderTipsInfo()}

@@ -1,7 +1,7 @@
 import Vue, { PropType, VNode } from 'vue';
 import { prefix } from '../config';
-import { FormData, FormValidateResult, FormRuleTs } from './type';
-import { FORM_ITEM_CLASS_PREFIX } from './const';
+import { FormData, FormValidateResult, FormRuleTs } from '../../common/js/form/type';
+import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import isEmpty from 'lodash/isEmpty';
 
 const name = `${prefix}-form`;
@@ -58,8 +58,8 @@ export default Vue.extend({
   computed: {
     formClass(): ClassName {
       return [
+        CLASS_NAMES.form,
         {
-          't-form': true,
           't-form-inline': this.layout === 'inline',
         },
       ];
