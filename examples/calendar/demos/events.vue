@@ -6,14 +6,18 @@
     </div>
     <t-calendar
       :preventCellContextmenu="preventCellContextmenu"
-      :defaultValue="defaultValue"
+      :value="value"
       @cellClick="onCellClick"
       @cellDoubleClick="onCellDoubleClick"
       @cellRightClick="onCellRightClick"
-      @controllerChange="onControllerChange"></t-calendar>
+      @controllerChange="onControllerChange"
+    ></t-calendar>
 
-    <t-alert  v-if="!histories || histories.length === 0"
-              theme="warning" message="暂无数据，您可以点击一下日历的单元格看看（双击会改变当前选中日期）😀" />
+    <t-alert
+      v-if="!histories || histories.length === 0"
+      theme="warning"
+      message="暂无数据，您可以点击一下日历的单元格看看（双击会改变当前选中日期）😀"
+    />
     <t-list v-else class="demo-list">
       <t-list-item v-for="(item, index) in histories" :key="index">
         {{ item }}
@@ -28,7 +32,7 @@ export default {
   data() {
     return {
       preventCellContextmenu: false,
-      defaultValue: new Date(),
+      value: new Date(),
       histories: [],
       options: [
         { value: true, label: '禁用' },
@@ -42,7 +46,7 @@ export default {
       this.appendHistories(`鼠标左键单击单元格 ${output}`, cellEmitData);
     },
     onCellDoubleClick(cellEmitData) {
-      this.defaultValue = cellEmitData.data; // 双击的时候改变当前选中日期
+      this.value = cellEmitData.data; // 双击的时候改变当前选中日期
       const output = this.getDateStr(cellEmitData.data);
       this.appendHistories(`鼠标双击单元格 ${output}`, cellEmitData);
     },
