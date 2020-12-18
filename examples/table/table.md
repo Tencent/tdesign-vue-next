@@ -1,27 +1,5 @@
 :: BASE_DOC ::
 
-### 自定义显示列
-::: demo demos/show-columns 
-:::
-
-
-### 异步加载
-
-::: demo demos/async-loading 
-:::
-
-### 普通加载
-::: demo demos/loading 
-:::
-
-### 非受控筛选
-::: demo demos/filter-uncontrolled 
-:::
-
-### 受控筛选
-::: demo demos/filter-controlled
-:::
-
 ### 属性配置
 
 | 属性          | 类型                                            | 默认值           | 必传 | 说明                                      |
