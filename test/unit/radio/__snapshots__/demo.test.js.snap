@@ -80,97 +80,43 @@ exports[`Radio base demo works fine 1`] = `
         选中禁用项
       </span>
     </label>
+     
+    <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value=""
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        default uncheck
+      </span>
+    </label>
+     
+    <label
+      class="t-radio t-is-checked"
+    >
+      <input
+        class="t-radio__former"
+        type="radio"
+        value=""
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        default check
+      </span>
+    </label>
   </div>
-</div>
-`;
-
-exports[`Radio default checked demo works fine 1`] = `
-<div
-  class="tdesign-radio-default-checked"
->
-  <label
-    class="t-radio t-is-checked"
-  >
-    <input
-      class="t-radio__former"
-      type="radio"
-      value=""
-    />
-    <span
-      class="t-radio__input"
-    />
-    <span
-      class="t-radio__label"
-    >
-      default check
-    </span>
-  </label>
-   
-  <br />
-   
-  <label
-    class="t-radio"
-  >
-    <input
-      class="t-radio__former"
-      type="radio"
-      value=""
-    />
-    <span
-      class="t-radio__input"
-    />
-    <span
-      class="t-radio__label"
-    >
-      default uncheck
-    </span>
-  </label>
-</div>
-`;
-
-exports[`Radio disabled demo works fine 1`] = `
-<div
-  class="tdesign-radio-disabled"
->
-  <label
-    class="t-radio t-is-checked t-is-disabled"
-  >
-    <input
-      class="t-radio__former"
-      disabled=""
-      type="radio"
-      value=""
-    />
-    <span
-      class="t-radio__input"
-    />
-    <span
-      class="t-radio__label"
-    >
-      check
-    </span>
-  </label>
-   
-  <br />
-   
-  <label
-    class="t-radio t-is-disabled"
-  >
-    <input
-      class="t-radio__former"
-      disabled=""
-      type="radio"
-      value=""
-    />
-    <span
-      class="t-radio__input"
-    />
-    <span
-      class="t-radio__label"
-    >
-      uncheck
-    </span>
-  </label>
 </div>
 `;
 

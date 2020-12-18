@@ -1,75 +1,19 @@
-## Menu 导航菜单
+:: BASE_DOC ::
 
-用于承载网站的架构，并提供跳转的菜单列表
-
-### 何时使用
-导航菜单是整个网站的必要元素，可根据业务场景使用不同的导航样式和布局
-
-关于导航的页面布局，可参考【布局Layout】
-
-## 1.组件类型
-### 1.1.顶部导航
-#### 1）单层导航
-
-定义：只存在单层结构的顶部导航，点击即跳转
-
-使用场景：可承载单一产品或单一业务线等层级结构简单的网站
-
-::: demo demos/head-menu 白色主题
+### 只有LOGO插槽
+::: demo demos/head-menu-logo 
 :::
 
-::: demo demos/head-menu-dark 黑色主题
+### 只有MENU
+::: demo demos/head-menu-empty 
 :::
 
-::: demo demos/head-menu-logo 只有LOGO插槽
+### 设置宽度
+::: demo demos/side-menu-width 
 :::
 
-::: demo demos/head-menu-empty 只有MENU
-:::
-
-#### 2）双层导航
-
-::: demo demos/head-menu-tile
-:::
-
-#### 3）多层收纳导航
-
-::: demo demos/head-menu-dropdown
-:::
-
-#### 4）可自定义顶部导航
-定义：可在原有导航上面加入自定义的功能
-
-使用场景：复杂逻辑或有特定诉求的业务场景
-
-::: demo demos/head-menu-options
-:::
-
-### 1.2.侧边导航
-#### 1）单层导航
-
-定义：只存在单层结构的侧边导航，点击即跳转
-
-使用场景：一般与单层顶部导航相结合，作为二级页面的侧边导航
-
-::: demo demos/side-menu 侧边栏菜单
-:::
-
-::: demo demos/side-menu-width 设置宽度
-:::
-
-::: demo demos/side-menu-group 分组菜单
-:::
-
-#### 2）平铺式侧边导航
-定义：侧边导航可承载1-3级页面导航，并平铺展示
-
-使用场景：层级较深，但每个层级内页面不多（5个以下）的网站，如结合单层顶部导航可承载最深四级页面
-
-::: demo demos/side-menu-dropdown
-:::
-
-::: demo demos/side-menu-dropdown-icon
+### 分组菜单
+::: demo demos/side-menu-group 
 :::
 
 ### 侧边菜单
@@ -78,10 +22,6 @@
 
 ### 侧边收起
 ::: demo demos/side-menu-collapsed 
-:::
-
-### 侧边收起（自定义宽度）
-::: demo demos/side-menu-collapsed-width 
 :::
 
 ### Menu Props
