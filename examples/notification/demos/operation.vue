@@ -1,6 +1,13 @@
 <template>
   <div>
-    <t-notification theme="info" title="可跳转的消息通知" default="这种一条消息通知" :footer="footer" />
+    <t-notification
+      theme="info"
+      title="可跳转的消息通知"
+      default="文案不限长度，但是展示最大显示三行折行的末尾显示折行末尾显示折行末尾显示折行末尾显示折行末尾显示折行折行末尾显示折行折行末尾显示折行末尾显示折行折行末尾"
+      :footer="footer"
+    />
+
+    <t-notification theme="info" title="可跳转的消息通知" default="这种一条消息通知" :footer="footer2" />
     <t-notification theme="info" title="可跳转的消息通知" default="这种一条消息通知">
       <div slot="footer" class="t-notification__detail">
         <span class="t-notification__detail--item">知道了</span>
@@ -58,6 +65,14 @@ export default {
         </div>
       );
     },
+
+    footer2() {
+      return (
+        <div slot="footer" class="t-notification__detail">
+          <span class="t-notification__detail--item t-is-active">查看详情</span>
+        </div>
+      );
+    },
     remind() {
       this.visible = false;
       setTimeout(() => {
@@ -70,6 +85,6 @@ export default {
 
 <style scoped>
 .t-notification + .t-notification {
-  margin-top: 20px;
+  margin-top: 24px;
 }
 </style>

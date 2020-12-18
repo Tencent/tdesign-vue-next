@@ -30,7 +30,7 @@ export default Vue.extend({
         return SHAPE_LIST.indexOf(v) > -1;
       },
     },
-    icon: Function,
+    icon: [String, Function],
     loading: Boolean,
     block: Boolean,
     disabled: Boolean,

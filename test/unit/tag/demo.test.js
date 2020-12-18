@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
 
 describe('Tag', () => {
-  it('default demo works fine', () => {
-    const demo = require('@/examples/tag/demos/default.vue');
+  it('base demo works fine', () => {
+    const demo = require('@/examples/tag/demos/base.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -16,13 +16,13 @@ describe('Tag', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('checkable demo works fine', () => {
-    const demo = require('@/examples/tag/demos/checkable.vue').default;
+  it('selectable demo works fine', () => {
+    const demo = require('@/examples/tag/demos/selectable.vue').default;
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('closable demo works fine', () => {
-    const demo = require('@/examples/tag/demos/closable.vue').default;
+  it('delete demo works fine', () => {
+    const demo = require('@/examples/tag/demos/delete.vue').default;
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
