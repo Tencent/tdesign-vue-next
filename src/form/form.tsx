@@ -1,6 +1,6 @@
 import Vue, { PropType, VNode } from 'vue';
 import { prefix } from '../config';
-import { FormData, FormValidateResult, FormRuleTs } from '../../common/js/form/type';
+import { FormData, FormValidateResult, FormRuleTs, ErrorList } from '../../common/js/form/type';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import isEmpty from 'lodash/isEmpty';
 
@@ -50,7 +50,7 @@ export default Vue.extend({
       type: Boolean,
       default: true,
     },
-    rules: Object as PropType<Array<FormRuleTs>>,
+    rules: Object as PropType<ErrorList>,
     onReset: Function as PropType<() => void>,
     onSubmit: Function as PropType<(validateResult: FormValidateResult) => void>,
   },

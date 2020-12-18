@@ -1,7 +1,7 @@
 import Vue, { PropType, VNode, CreateElement } from 'vue';
 import { prefix } from '../config';
 import { validate } from '../../common/js/form/formModel';
-import { ErrorList, ValidateResult, FormRuleTs } from '../../common/js/form/type';
+import { ErrorList, ValidateResult } from '../../common/js/form/type';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 
 const name = `${prefix}-form-item`;
@@ -13,7 +13,7 @@ export default Vue.extend({
     name: String,
     label: [String, Function] as PropType<string | ((createElement: CreateElement) => VNode)>,
     for: String,
-    rules: Array as PropType<Array<FormRuleTs>>,
+    rules: Array as PropType<ErrorList>,
     help: String,
   },
 
@@ -83,9 +83,9 @@ export default Vue.extend({
       const isRequired = this.innerRules.filter(rule => rule.required).length > 0;
       return Boolean(allowMark && isRequired);
     },
-    innerRules(): Array<FormRuleTs> {
+    innerRules(): ErrorList {
       // @ts-ignore
-      const rules: Array<FormRuleTs> = this.$parent && this.$parent.rules;
+      const rules: ErrorList = this.$parent && this.$parent.rules;
       return (rules && rules[this.name]) || (this.rules || []);
     },
   },
