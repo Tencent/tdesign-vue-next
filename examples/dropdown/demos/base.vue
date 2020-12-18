@@ -1,35 +1,35 @@
 <template>
   <div>
     <t-dropdown :options="options" @click="clickHandler">
-      <t-button><t-icon-more slot="icon"/></t-button>
+      <t-button theme="link" class="tdesign-demo-dropdown"
+      >更多 <t-icon name="chevron-down" class="tdesign-demo-arrow"
+      /></t-button>
     </t-dropdown>
   </div>
 </template>
 <script>
-import TIconMore from '@tencent/tdesign-vue/lib/icon/more';
-export default {
-  components: {
-    TIconMore,
-  },
+import Vue from 'vue';
+export default Vue.extend({
   data() {
     return {
-      options: [{
-        text: '选项一',
-        id: 1,
-        iconName: 'android',
-      }, {
-        text: '选项二',
-        id: 2,
-        iconName: 'apple',
-      }, {
-        text: '选项三',
-        id: 3,
-        iconName: 'books',
-      }, {
-        text: '选项四',
-        id: 4,
-        iconName: 'cloud',
-      }],
+      options: [
+        {
+          text: '操作一',
+          id: 1,
+        },
+        {
+          text: '操作二',
+          id: 2,
+        },
+        {
+          text: '操作三',
+          id: 3,
+        },
+        {
+          text: '操作四',
+          id: 4,
+        },
+      ],
     };
   },
   methods: {
@@ -37,9 +37,13 @@ export default {
       this.$message.success(`选中【${data.text}】`);
     },
   },
-};
+});
 </script>
 <style scoped>
+.tdesign-demo-dropdown:hover .tdesign-demo-arrow {
+  transition: all 0.2s;
+  transform: rotateZ(-180deg);
+}
 .t-button {
   margin-right: 20px;
 }
