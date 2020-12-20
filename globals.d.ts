@@ -1,10 +1,10 @@
 declare const __VERSION__: string;
 
+declare type TdVueNode = string | number | boolean | undefined | Vue.VNode | Vue.VNode[] | TdVueNode[] | HTMLElement;
+
+/** these types is going to be deprecated */
 declare type JsxNode = import('vue').VNode | import('vue').VNode[] | string | undefined | null | JsxNode[];
 declare type TNode = () => import('vue').VNode | Element;
-
-
-declare type TdVueNode = string | number | boolean | undefined | Vue.VNode | Vue.VNode[] | TdVueNode[];
 
 declare type OptionData = {
   label?: string;
