@@ -2,6 +2,8 @@ import Vue, { VueConstructor } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP } from './utils';
+import props from '../../types/anchor-item/props';
+
 const name = `${prefix}-anchor-item`;
 interface Anchor extends Vue {
   tAnchor: {
@@ -17,20 +19,15 @@ export default (Vue as VueConstructor<Anchor>).extend({
   name,
 
   props: {
-    href: {
-      type: String,
-      required: true,
-      validator(v) {
-        return ANCHOR_SHARP_REGEXP.test(v);
+    ...props,
+    ...{
+      href: {
+        type: String,
+        required: true,
+        validator(v: string): boolean {
+          return ANCHOR_SHARP_REGEXP.test(v);
+        },
       },
-    },
-    title: {
-      type: String,
-      default: '',
-    },
-    target: {
-      type: String,
-      default: '_self',
     },
   },
 

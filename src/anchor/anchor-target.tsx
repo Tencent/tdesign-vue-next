@@ -3,6 +3,7 @@ import { prefix } from '../config';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import TIconFileCopy from '../icon/file-copy';
+import props from '../../types/anchor-target/props';
 
 const name = `${prefix}-anchor-target`;
 export default Vue.extend({
@@ -12,16 +13,7 @@ export default Vue.extend({
     TIconFileCopy,
   },
 
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    tag: {
-      type: String,
-      default: 'div',
-    },
-  },
+  props: { ...props },
 
   methods: {
     /**
