@@ -1,7 +1,7 @@
 import Vue, { PropType, VNode, CreateElement } from 'vue';
 import { prefix } from '../config';
-import { validate } from '../../common/js/form/formModel';
-import { ErrorList, ValidateResult } from '../../common/js/form/type';
+import { validate } from './formModel';
+import { ErrorList, ValidateResult, FormItemProps } from './type';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 
 const name = `${prefix}-form-item`;
@@ -15,11 +15,14 @@ export default Vue.extend({
     for: String,
     rules: Array as PropType<ErrorList>,
     help: String,
+    statusIcon: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: FormItemProps) => TNodeReturnValue)>,
   },
 
   data() {
     return {
       errorList: [] as ErrorList,
+      // 当前校验状态 未校验、校验通过、校验不通过
+      verifiyStatus: 'no' as 'no' | 'success' | 'fail',
     };
   },
 
@@ -58,7 +61,7 @@ export default Vue.extend({
     },
     contentClasses(): ClassName {
       const getErrorClass: string = this.errorClasses;
-      return [CLASS_NAMES.controls, CLASS_NAMES.col, CLASS_NAMES.extra, getErrorClass];
+      return [CLASS_NAMES.controls, CLASS_NAMES.col, getErrorClass];
     },
     labelProps(): Record<string, any> {
       const labelProps: Record<string, any> = {};
@@ -102,6 +105,7 @@ export default Vue.extend({
         validate(this.value, this.innerRules)
           .then((r) => {
             this.errorList = r;
+            this.verifiyStatus = this.errorList.length ? 'fail' : 'success';
             resolve({
               [this.name]: r.length === 0 ? true : r,
             });
@@ -119,22 +123,48 @@ export default Vue.extend({
     },
     renderTipsInfo(): VNode {
       if (this.help) {
-        return <span>{this.help}</span>;
+        return <span class={CLASS_NAMES.extra}>{this.help}</span>;
       }
+      // @ts-ignore
+      if (!this.$parent.showErrorMessage) return;
       const list = this.errorList;
       if (list && list[0]) {
-        return <span>{list[0].message}</span>;
+        return <span class={CLASS_NAMES.extra}>{list[0].message}</span>;
+      }
+    },
+    getSuffixIcon(): VNode {
+      const list = this.errorList;
+      const resultIcon = (iconName: string, style?: string) => (
+        <span class={CLASS_NAMES.status}>
+          <t-icon name={iconName} size="25px" style={style || ''}/>
+        </span>
+      );
+      if (this.verifiyStatus === 'success') {
+        return resultIcon('check-circle-filled', 'color: #00A870');
+      }
+      if (list && list[0]) {
+        // eslint-disable-next-line prefer-destructuring
+        const { type = 'error' } = this.errorList[0];
+        let iconName = 'check-circle-filled';
+        if (type === 'error') {
+          iconName = 'clear-circle-filled';
+        }
+        if (type === 'warning') {
+          iconName = 'error-circle-filled';
+        }
+        return resultIcon(iconName);
       }
     },
     resetField(): void {
       this.errorList = [];
+      this.verifiyStatus = 'no';
     },
   },
 
   render(): VNode {
     return (
       <div class={this.classes}>
-        <div class={this.labelClasses} { ...this.labelProps }>
+        <div class={this.labelClasses} {...this.labelProps}>
           <label for={this.for}>
             {this.getLabel()}
           </label>
@@ -142,6 +172,7 @@ export default Vue.extend({
         <div class={this.contentClasses}>
           <div class={CLASS_NAMES.controlsContent}>
             {this.$slots.default}
+            {this.getSuffixIcon()}
           </div>
           {this.renderTipsInfo()}
         </div>

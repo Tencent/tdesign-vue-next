@@ -17,5 +17,6 @@ export const CLASS_NAMES = {
   formItem: `${form}__item`,
   controls: `${form}__controls`,
   controlsContent: `${form}__controls--content`,
+  status: `${form}__status`,
   extra: `${input}__extra`,
 };

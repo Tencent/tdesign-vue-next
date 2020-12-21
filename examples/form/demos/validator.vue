@@ -69,10 +69,10 @@ export default {
           { min: 2, message: '至少需要两个字', type: 'error' },
         ],
         password: [
-          { required: true, message: '密码必填', type: 'error' },
+          { required: true, message: '密码必填', type: 'warning' },
         ],
         email: [
-          { required: true, message: '格式必须为邮箱', type: 'error' },
+          { required: true, message: '格式必须为邮箱', type: 'success' },
         ],
         gender: [
           { required: true, message: '性别必填', type: 'error' },
