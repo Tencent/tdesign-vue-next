@@ -36,7 +36,7 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
     defaultChecked: { type: Boolean, default: undefined },
     disabled: { type: Boolean, default: false },
     indeterminate: { type: Boolean, default: false },
-    value: { type: String, default: undefined },
+    value: { type: [String, Number], default: undefined },
     name: String,
   },
 
@@ -123,7 +123,7 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
     handleChange(e: Event) {
       const target: HTMLInputElement = e.target as HTMLInputElement;
       if (this.checkboxGroup && this.checkboxGroup.handleCheckboxChange) {
-        this.checkboxGroup.handleCheckboxChange(e);
+        this.checkboxGroup.handleCheckboxChange(this.value);
       } else {
         this.$emit('change', target.checked);
         this.$emit('input', e);
