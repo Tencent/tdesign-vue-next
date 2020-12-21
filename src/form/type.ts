@@ -205,7 +205,5 @@ export interface IsDateOptions {
   delimiters: string[];
 }
 
-// export type TNodeReturnValue = import('vue/types/vnode').ScopedSlotReturnValue;
-
 // eslint-disable-next-line no-undef
 export default FormProps;

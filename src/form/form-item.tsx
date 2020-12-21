@@ -11,11 +11,14 @@ export default Vue.extend({
 
   props: {
     name: String,
-    label: [String, Function] as PropType<string | ((createElement: CreateElement) => VNode)>,
+    label: [String, Function] as PropType<string | ((h: CreateElement) => VNode)>,
     for: String,
     rules: Array as PropType<ErrorList>,
     help: String,
-    statusIcon: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: FormItemProps) => TNodeReturnValue)>,
+    statusIcon: {
+      type: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: FormItemProps) => TNodeReturnValue)>,
+      default: false,
+    },
   },
 
   data() {
@@ -132,15 +135,32 @@ export default Vue.extend({
         return <span class={CLASS_NAMES.extra}>{list[0].message}</span>;
       }
     },
-    getSuffixIcon(): VNode {
+    getSuffixIcon(): string | VNode | VNode[] {
       const list = this.errorList;
-      const resultIcon = (iconName: string, style?: string) => (
+      const resultIcon = (otherContent?: VNode | VNode[], iconName?: string, style?: string) => (
         <span class={CLASS_NAMES.status}>
-          <t-icon name={iconName} size="25px" style={style || ''}/>
+          {otherContent ? otherContent : <t-icon name={iconName} size="25px" style={style || ''}/>}
         </span>
       );
+      if (typeof this.statusIcon === 'boolean' && !this.statusIcon) return;
+      // @ts-ignore
+      if (typeof this.$parent.statusIcon === 'boolean' && !this.$parent.statusIcon) return;
+      if (typeof this.statusIcon === 'function') {
+        return resultIcon(this.statusIcon(this.$createElement, this.$props) as VNode);
+      }
+      // @ts-ignore
+      if (typeof this.$parent.statusIcon === 'function') {
+        // @ts-ignore
+        return resultIcon(this.$parent.statusIcon(this.$createElement, this.$props));
+      }
+      if (typeof this.$scopedSlots.statusIcon === 'function') {
+        return resultIcon(this.$scopedSlots.statusIcon(null));
+      }
+      if (typeof this.$parent.$scopedSlots.statusIcon === 'function') {
+        return resultIcon(this.$parent.$scopedSlots.statusIcon(null));
+      }
       if (this.verifiyStatus === 'success') {
-        return resultIcon('check-circle-filled', 'color: #00A870');
+        return resultIcon(null, 'check-circle-filled', 'color: #00A870');
       }
       if (list && list[0]) {
         // eslint-disable-next-line prefer-destructuring
@@ -152,7 +172,7 @@ export default Vue.extend({
         if (type === 'warning') {
           iconName = 'error-circle-filled';
         }
-        return resultIcon(iconName);
+        return resultIcon(null, iconName);
       }
     },
     resetField(): void {

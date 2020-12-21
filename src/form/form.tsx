@@ -50,7 +50,10 @@ export default Vue.extend({
       type: Boolean,
       default: true,
     },
-    statusIcon: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: FormItemProps) => TNodeReturnValue)>,
+    statusIcon: {
+      type: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: FormItemProps) => TNodeReturnValue)>,
+      default: false,
+    },
     rules: Object as PropType<ErrorList>,
     onReset: Function as PropType<() => void>,
     onSubmit: Function as PropType<(validateResult: FormValidateResult) => void>,
