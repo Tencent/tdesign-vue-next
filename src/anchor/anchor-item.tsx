@@ -59,10 +59,8 @@ export default (Vue as VueConstructor<Anchor>).extend({
     handleClick(e: MouseEvent): void {
       const { href, title, tAnchor } = this;
       tAnchor.handleScrollTo(href);
-      tAnchor.handleLinkClick({
-        href,
-        title,
-      }, e);
+      // 此处的 title 需要返回计算结束后的结果（包括 this.title 和 this.$scopedSlots.title，其中 this.title 可能是个 Function）
+      tAnchor.handleLinkClick({ href, title }, e);
     },
   },
   render() {
