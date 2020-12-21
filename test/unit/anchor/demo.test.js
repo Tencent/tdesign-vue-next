@@ -11,8 +11,8 @@ const props = {
 };
 
 describe('Anchor', () => {
-  it('default demo works fine', () => {
-    const demo = require('@/examples/anchor/demos/default.vue').default;
+  it('base demo works fine', () => {
+    const demo = require('@/examples/anchor/demos/base.vue').default;
     const wrapper = mount(demo, props);
     expect(wrapper.element).toMatchSnapshot();
   });

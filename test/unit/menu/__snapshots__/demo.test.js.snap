@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu head-menu demo works fine 1`] = `
+exports[`Menu single demo works fine 1`] = `
 <!--function (el) {
       var obj;
 

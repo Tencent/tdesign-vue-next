@@ -16,8 +16,8 @@ describe('Input', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('icon demo works fine', () => {
-    const demo = require('@/examples/input/demos/icon.vue').default;
+  it('password demo works fine', () => {
+    const demo = require('@/examples/input/demos/password.vue').default;
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

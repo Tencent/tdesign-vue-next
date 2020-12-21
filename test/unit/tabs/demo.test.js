@@ -12,8 +12,8 @@ describe('Tabs', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('edit demo works fine', () => {
-    const demo = require('@/examples/tabs/demos/edit.vue');
+  it('operation demo works fine', () => {
+    const demo = require('@/examples/tabs/demos/custom.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -22,8 +22,8 @@ describe('Tabs', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('scroll demo works fine', () => {
-    const demo = require('@/examples/tabs/demos/scroll.vue');
+  it('combination demo works fine', () => {
+    const demo = require('@/examples/tabs/demos/combination.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -32,8 +32,8 @@ describe('Tabs', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('type demo works fine', () => {
-    const demo = require('@/examples/tabs/demos/type.vue');
+  it('custom demo works fine', () => {
+    const demo = require('@/examples/tabs/demos/custom.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

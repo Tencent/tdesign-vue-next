@@ -30,7 +30,7 @@ exports[`Divider base demo works fine 1`] = `
 </div>
 `;
 
-exports[`Divider dividerWithText demo works fine 1`] = `
+exports[`Divider text demo works fine 1`] = `
 <div>
   <p>
     
