@@ -1,10 +1,9 @@
+
 declare const __VERSION__: string;
 
-declare type TdVueNode = string | number | boolean | undefined | Vue.VNode | Vue.VNode[] | TdVueNode[] | HTMLElement;
-
-/** these types is going to be deprecated */
-declare type JsxNode = import('vue').VNode | import('vue').VNode[] | string | undefined | null | JsxNode[];
-declare type TNode = () => import('vue').VNode | Element;
+declare type TNodeReturnValue = import('vue/types/vnode').ScopedSlotReturnValue;
+declare type TNode = (props?: any) => TNodeReturnValue;
+declare type JsxNode = TNodeReturnValue;
 
 declare type OptionData = {
   label?: string;
@@ -21,4 +20,4 @@ declare type ClassName = { [className: string]: any } | ClassName[] | string;
 
 declare type CSSSelector = string;
 
-declare type AttachNode = CSSSelector | (() => (Window | HTMLDocument | Element));
+declare type AttachNode = CSSSelector | (() => (Window | HTMLDocument | HTMLElement));
