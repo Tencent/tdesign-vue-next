@@ -1,12 +1,12 @@
-import Vue, { PropType, VueConstructor } from 'vue';
+import Vue, { VueConstructor } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
 import { on, off, getScroll, scrollTo, getAttach } from '../utils/dom';
+import props from '../../types/anchor/props';
 
 const name = `${prefix}-anchor`;
-const SIZE_LIST = ['large', 'medium', 'small'];
 
 interface Anchor extends Vue {
   scrollContainer: ANCHOR_CONTAINER;
@@ -19,30 +19,7 @@ export default (Vue as VueConstructor<Anchor>).extend({
     RenderComponent,
   },
 
-  props: {
-    affix: {
-      type: Boolean,
-    },
-    bounds: {
-      type: Number,
-      default: 5,
-    },
-    targetOffset: {
-      type: Number,
-      default: 0,
-    },
-    attach: {
-      type: [String, Function] as PropType<string | (() => Window | HTMLElement)>,
-      default: () => () => window,
-    },
-    size: {
-      type: String,
-      default: 'medium',
-      validator(v) {
-        return SIZE_LIST.indexOf(v) !== -1;
-      },
-    },
-  },
+  props: { ...props },
   provide(): any {
     return {
       tAnchor: this,
@@ -123,7 +100,7 @@ export default (Vue as VueConstructor<Anchor>).extend({
         return;
       }
       this.active = link;
-      this.$emit('change', link, active);
+      this.emitChange(link, active);
       await Vue.nextTick();
       this.updateActiveLine();
     },
@@ -144,12 +121,27 @@ export default (Vue as VueConstructor<Anchor>).extend({
       };
     },
     /**
+     * 触发onchange事件或者props
+     *
+     * @param {string} link
+     * @param {boolean} active
+     */
+    emitChange(link: string, active: string) {
+      this.$emit('change', link, active);
+      if (this.onChange) {
+        this.onChange(link, active);
+      }
+    },
+    /**
      * 监听AnchorLink点击事件
      * @param {{ href: string; title: string }} link
      * @param {MouseEvent} e
      */
     handleLinkClick(link: { href: string; title: string }, e: MouseEvent): void {
       this.$emit('click', link, e);
+      if (this.onClick) {
+        this.onClick(link, e);
+      }
     },
     /**
      * 滚动到指定锚点
