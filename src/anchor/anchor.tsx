@@ -100,7 +100,7 @@ export default (Vue as VueConstructor<Anchor>).extend({
         return;
       }
       this.active = link;
-      this.$emit('change', link, active);
+      this.emitChange(link, active);
       await Vue.nextTick();
       this.updateActiveLine();
     },
@@ -121,12 +121,27 @@ export default (Vue as VueConstructor<Anchor>).extend({
       };
     },
     /**
+     * 触发onchange事件或者props
+     *
+     * @param {string} link
+     * @param {boolean} active
+     */
+    emitChange(link: string, active: string) {
+      this.$emit('change', link, active);
+      if (this.onChange) {
+        this.onChange(link, active);
+      }
+    },
+    /**
      * 监听AnchorLink点击事件
      * @param {{ href: string; title: string }} link
      * @param {MouseEvent} e
      */
     handleLinkClick(link: { href: string; title: string }, e: MouseEvent): void {
       this.$emit('click', link, e);
+      if (this.onClick) {
+        this.onClick(link, e);
+      }
     },
     /**
      * 滚动到指定锚点
