@@ -17,7 +17,7 @@ export default Vue.extend({
     help: String,
     statusIcon: {
       type: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: FormItemProps) => TNodeReturnValue)>,
-      default: false,
+      default: null,
     },
   },
 
