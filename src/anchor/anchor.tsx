@@ -123,13 +123,13 @@ export default (Vue as VueConstructor<Anchor>).extend({
     /**
      * 触发onchange事件或者props
      *
-     * @param {string} link
-     * @param {boolean} active
+     * @param {string} currentLink
+     * @param {string} prevLink
      */
-    emitChange(link: string, active: string) {
-      this.$emit('change', link, active);
+    emitChange(currentLink: string, prevLink: string) {
+      this.$emit('change', currentLink, prevLink);
       if (this.onChange) {
-        this.onChange(link, active);
+        this.onChange(currentLink, prevLink);
       }
     },
     /**

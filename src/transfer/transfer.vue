@@ -18,6 +18,7 @@
       :pagination="getPaginationObj(SOURCE)"
       :check-all="getCheckAll(SOURCE)"
       @checkedChange="handleSourceCheckedChange"
+      @scroll="scroll"
     >
     </transfer-list>
     <transfer-operations
@@ -38,6 +39,7 @@
       :pagination="getPaginationObj(TARGET)"
       :check-all="getCheckAll(TARGET)"
       @checkedChange="handleTargetCheckedChange"
+      @scroll="scroll"
     >
     </transfer-list>
   </div>
@@ -54,7 +56,7 @@ import { CommonProps } from './interface';
 import cloneDeep from 'lodash/cloneDeep';
 
 const name = `${prefix}-transfer`;
-const searchObj: SearchProps = { placeholder: '请输入搜索内容', suffixIcon: 'search', clearable: true };
+const searchObj: SearchProps = { placeholder: '请输入搜索内容', clearable: true };
 const SOURCE = 'source';
 const TARGET = 'target';
 export default Vue.extend({
@@ -128,38 +130,14 @@ export default Vue.extend({
       this.curCheckedValue = cloneDeep(val);
     },
   },
-  mounted() {
+  created() {
     this.curCheckedValue = this.checkedValue;
+    this.setRowKey();
+  },
+  mounted() {
     this.setCheckedKeys();
   },
   methods: {
-    getDisabledValue(index: number) {
-      if (typeof this.disabled === 'boolean') {
-        return this.disabled;
-      }
-      if (this.disabled instanceof Array && this.disabled.length > index) {
-        return this.disabled[index];
-      }
-      return false;
-    },
-    getSearchProp(direction: TransferDirection): any {
-      let searchProp;
-      if (this.search && typeof this.search === 'boolean') {
-        searchProp = searchObj;
-      } else if (this.search instanceof Array && this.search.length) {
-        const index = direction === SOURCE ? 0 : 1;
-        searchProp = this.search[index];
-      } else {
-        // 处理this.search为false和为inputProps的object形式
-        searchProp = this.search;
-      }
-      return searchProp;
-    },
-    setCheckedKeys() {
-      const { curCheckedValue, targetValue } = this;
-      this.sourceCheckedKeys = this.filterMethod(curCheckedValue, targetValue, false);
-      this.targetCheckedKeys = this.filterMethod(curCheckedValue, targetValue, true);
-    },
     transferTo(toDirection: TransferDirection) {
       let targetValue: Array<TransferItemKey> = JSON.parse(JSON.stringify(this.targetValue));
       let sourceCheckedKeys = 'sourceCheckedKeys';
@@ -202,16 +180,39 @@ export default Vue.extend({
       this.targetCheckedKeys = val;
       isChangeByUser && this.$emit('checkChange', this.sourceCheckedKeys, this.targetCheckedKeys);
     },
-    getItemData(key: TransferItemKey): TransferItem {
-      // 获取key对应的数据
-      const data = this.data.filter((item: TransferItem) => item.key === key);
-      return data.length ? data[0] : {};
-    },
     filterMethod(sourceArr: Array<any>, targetArr: Array<any>, needMatch: boolean): Array<any> {
       return sourceArr.filter((item) => {
         const isMatch = targetArr.indexOf(item.key) > -1;
         return needMatch ? isMatch : !isMatch;
       });
+    },
+    setCheckedKeys() {
+      const { curCheckedValue, targetValue } = this;
+      this.sourceCheckedKeys = this.filterMethod(curCheckedValue, targetValue, false);
+      this.targetCheckedKeys = this.filterMethod(curCheckedValue, targetValue, true);
+    },
+    setRowKey() {
+      const { rowKey } = this;
+      if (!rowKey) {
+        return;
+      }
+      if (typeof rowKey === 'string') {
+        this.data.forEach((item: TransferItem) => {
+          item.key = this.getKey(item[rowKey], item.key); // eslint-disable-line
+        });
+      } else {
+        this.data.forEach((item: TransferItem) => {
+          item.key = this.getKey(rowKey(item), item.key); // eslint-disable-line
+        });
+      }
+    },
+    getKey(value: TransferItemKey, key: TransferItemKey): TransferItemKey {
+      return typeof value === 'undefined' ? key : value;
+    },
+    getItemData(key: TransferItemKey): TransferItem {
+      // 获取key对应的数据
+      const data = this.data.filter((item: TransferItem) => item.key === key);
+      return data.length ? data[0] : {};
     },
     getPaginationObj(direction: string) {
       let paginationObj = null;
@@ -225,21 +226,49 @@ export default Vue.extend({
     },
     getTitle(direction: string) {
       let targetTitle;
-      if (direction === 'source') {
-        targetTitle = this.titles[0] || '源列表';
-      } else {
-        targetTitle = this.titles[1] || '目标列表';
+      const index = direction === SOURCE ? 0 : 1;
+      const titles = ['源列表', '目标列表'];
+      if (typeof this.titles === 'string') {
+        targetTitle = this.titles;
+      } else if (this.titles instanceof Array && this.titles[index]) {
+        targetTitle = this.titles[index];
       }
-      return targetTitle;
+      return targetTitle || titles[index];
+    },
+    getDisabledValue(index: number) {
+      if (typeof this.disabled === 'boolean') {
+        return this.disabled;
+      }
+      if (this.disabled instanceof Array && this.disabled.length > index) {
+        return this.disabled[index];
+      }
+      return false;
+    },
+    getSearchProp(direction: TransferDirection): any {
+      let searchProp;
+      if (this.search && typeof this.search === 'boolean') {
+        searchProp = searchObj;
+      } else if (this.search instanceof Array && this.search.length) {
+        const index = direction === SOURCE ? 0 : 1;
+        searchProp = this.search[index];
+      } else {
+        // 处理this.search为false和为inputProps的object形式
+        searchProp = this.search;
+      }
+      return searchProp;
     },
     getCheckAll(direction: string) {
       let targetCheckAll;
       if (direction === 'source') {
-        targetCheckAll = this.checkAll instanceof Array ? this.checkAll[0] : this.checkAll;
+        targetCheckAll = this.checkAll instanceof Array && this.checkAll.length >= 1 ? this.checkAll[0] : this.checkAll;
       } else {
-        targetCheckAll = this.checkAll instanceof Array ? this.checkAll[1] : this.checkAll;
+        targetCheckAll = this.checkAll instanceof Array && this.checkAll.length >= 2 ? this.checkAll[1] : this.checkAll;
       }
       return targetCheckAll;
+    },
+    scroll(e: any) {
+      const bottomDistance = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight;
+      this.$emit('scroll', e, bottomDistance);
     },
   },
 });
