@@ -26,7 +26,7 @@
         <li :class="getButtonClass(1)" v-if="isFolded" @click="toPage(1)">1</li>
         <li
           :class="_btnMoreClass"
-          v-show="isFolded && isPrevMoreShow"
+          v-if="isFolded && isPrevMoreShow"
           @click="prevMorePage"
           @mouseover="prevMore = true"
           @mouseout="prevMore = false"
@@ -41,7 +41,7 @@
         </li>
         <li
           :class="_btnMoreClass"
-          v-show="isFolded && isNextMoreShow"
+          v-if="isFolded && isNextMoreShow"
           @click="nextMorePage"
           @mouseover="nextMore = true"
           @mouseout="nextMore = false"
@@ -327,7 +327,7 @@ export default mixins(PaginationLocalReceiver).extend({
     },
     _pageSizeOption(): Array<number> {
       const data = this.pageSizeOption as Array<number>;
-      return data.find(v => v === this.pageSize)
+      return data.find((v) => v === this.pageSize)
         ? data
         : data.concat(this.pageSize).sort((a: number, b: number) => a - b);
     },
@@ -403,14 +403,11 @@ export default mixins(PaginationLocalReceiver).extend({
             pageSize: this.pageSize,
           });
           if (typeof this.onChange === 'function') {
-            this.onChange(
-              current,
-              {
-                curr: current,
-                prev,
-                pageSize: this.pageSize,
-              }
-            );
+            this.onChange(current, {
+              curr: current,
+              prev,
+              pageSize: this.pageSize,
+            });
           }
         }
       }
@@ -473,14 +470,11 @@ export default mixins(PaginationLocalReceiver).extend({
           pageSize,
         });
         if (typeof this.onPageSizeChange === 'function') {
-          this.onPageSizeChange(
+          this.onPageSizeChange(pageSize, {
+            curr: isIndexChange ? pageCount : this.currentIndex,
+            prev: this.currentIndex,
             pageSize,
-            {
-              curr: isIndexChange ? pageCount : this.currentIndex,
-              prev: this.currentIndex,
-              pageSize,
-            }
-          );
+          });
         }
         if (isIndexChange) {
           this.toPage(pageCount);
