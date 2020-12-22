@@ -1,8 +1,8 @@
 // https://github.com/validatorjs/validator.js
 
-import isEmail from 'validator/es/lib/isEmail';
-import isDate from 'validator/es/lib/isDate';
-import isURL from 'validator/es/lib/isURL';
+import isEmail from 'validator/lib/isEmail';
+import isDate from 'validator/lib/isDate';
+import isURL from 'validator/lib/isURL';
 import isEmpty from 'lodash/isEmpty';
 import { ValueType, TdFormRule, CustomValidator, ErrorList } from '../../types/form/TdFormProps';
 
