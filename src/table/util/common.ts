@@ -24,3 +24,5 @@ export function filterDataByIds(
 ): Array<object> {
   return data.filter((d: Record<string, any> = {}) => ids.includes(d[byId]));
 }
+
+export const INNER_PRE_NAME = '@@inner-';
