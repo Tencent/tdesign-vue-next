@@ -27,6 +27,8 @@ export default Vue.extend({
     Icon,
     RenderComponent,
   },
+  // import props from '../../types/tag/props';
+  // props: { ...props },
   props: {
     theme: {
       type: String,
