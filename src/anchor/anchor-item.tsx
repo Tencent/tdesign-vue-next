@@ -21,13 +21,11 @@ export default (Vue as VueConstructor<Anchor>).extend({
 
   props: {
     ...props,
-    ...{
-      href: {
-        type: String,
-        required: true,
-        validator(v: string): boolean {
-          return ANCHOR_SHARP_REGEXP.test(v);
-        },
+    href: {
+      type: String,
+      required: true,
+      validator(v: string): boolean {
+        return ANCHOR_SHARP_REGEXP.test(v);
       },
     },
   },

@@ -25,7 +25,7 @@
       </t-form-item>
       <t-form-item label="加载中" name='loading'>
         <t-input v-model="formData.loading" placeholder="正在校验中，请稍等"></t-input>
-        <t-icon slot="statusIcon" name='loading' size="20px" style="color: #1890ff"/>
+        <t-icon slot="statusIcon" name='loading' size="25px" style="color: #1890ff"/>
       </t-form-item>
       <t-form-item label="新增" name='add' help="自定义新增icon">
         <t-input v-model="formData.add"></t-input>

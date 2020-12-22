@@ -4,7 +4,7 @@ import isEmail from 'validator/es/lib/isEmail';
 import isDate from 'validator/es/lib/isDate';
 import isURL from 'validator/es/lib/isURL';
 import isEmpty from 'lodash/isEmpty';
-import { ValueType, FormRuleTs, CustomValidator, ErrorList } from './type';
+import { ValueType, TdFormRule, CustomValidator, ErrorList } from '../../types/form/TdFormProps';
 
 // `{} / [] / '' / undefined / null` 等内容被认为是空； 0 和 false 被认为是正常数据，部分数据的值就是 0 或者 false
 export function isValueEmpty(val: ValueType): boolean {
@@ -52,8 +52,8 @@ const VALIDATE_MAP = {
 // 校验某一条数据的某一条规则
 export function validateOneRule(
   value: ValueType,
-  rule: FormRuleTs,
-): Promise<boolean | FormRuleTs> {
+  rule: TdFormRule,
+): Promise<boolean | TdFormRule> {
   return new Promise((resolve) => {
     let r: boolean | Promise<boolean> = true;
     Object.keys(rule).forEach((key) => {
@@ -81,7 +81,7 @@ export function validateOneRule(
 }
 
 // 全部数据校验
-export function validate(value: ValueType, rules: Array<FormRuleTs>): Promise<ErrorList> {
+export function validate(value: ValueType, rules: Array<TdFormRule>): Promise<ErrorList> {
   return new Promise((resolve) => {
     const all = rules.map(rule => validateOneRule(value, rule));
     Promise.all(all).then((arr) => {

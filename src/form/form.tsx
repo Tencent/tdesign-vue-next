@@ -1,6 +1,6 @@
 import Vue, { CreateElement, PropType, VNode } from 'vue';
 import { prefix } from '../config';
-import { FormData, FormValidateResult, FormRuleTs, ErrorList, FormItemProps } from './type';
+import { FormData, FormValidateResult, TdFormRule, ErrorList, TdFormItemProps } from '../../types/form/TdFormProps';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import isEmpty from 'lodash/isEmpty';
 
@@ -51,7 +51,7 @@ export default Vue.extend({
       default: true,
     },
     statusIcon: {
-      type: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: FormItemProps) => TNodeReturnValue)>,
+      type: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: TdFormItemProps) => TNodeReturnValue)>,
       default: false,
     },
     rules: Object as PropType<ErrorList>,
@@ -85,7 +85,7 @@ export default Vue.extend({
       const behavior = this.scrollToFirstError as ScrollBehavior;
       dom && dom.scrollIntoView({ behavior });
     },
-    emitEvent(eventName: string, data: { result?: FormValidateResult; e: Event; firstError?: FormRuleTs }) {
+    emitEvent(eventName: string, data: { result?: FormValidateResult; e: Event; firstError?: TdFormRule }) {
       this.$emit(eventName, data);
       const propsApi = `on${eventName[0].toUpperCase()}${eventName.substr(1)}`;
       if (typeof this[propsApi] === 'function') {

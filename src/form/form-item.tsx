@@ -1,7 +1,7 @@
 import Vue, { PropType, VNode, CreateElement } from 'vue';
 import { prefix } from '../config';
 import { validate } from './formModel';
-import { ErrorList, ValidateResult, FormItemProps } from './type';
+import { ErrorList, ValidateResult, TdFormItemProps } from '../../types/form/TdFormProps';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 
 const name = `${prefix}-form-item`;
@@ -16,7 +16,7 @@ export default Vue.extend({
     rules: Array as PropType<ErrorList>,
     help: String,
     statusIcon: {
-      type: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: FormItemProps) => TNodeReturnValue)>,
+      type: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: TdFormItemProps) => TNodeReturnValue)>,
       default: null,
     },
   },
