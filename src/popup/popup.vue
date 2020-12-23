@@ -30,7 +30,7 @@ import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import { on, off, addClass, removeClass } from '../utils/dom';
 
-const stop = (e: Event): void => e.stopPropagation();
+const stop = (e: MouseEvent): void => e.stopPropagation();
 const { prefix } = config;
 const name = `${prefix}-popup`;
 const placementMap = {
@@ -53,6 +53,10 @@ export default Vue.extend({
   components: {
     RenderComponent,
   },
+  // 将下面手写的 props 文件换成： 引入自动生成的 props 文件
+  // 示例如下：
+  // import props from '../../types/popup/props'
+  // props: { ...props },
   props: {
     disabled: {
       type: Boolean,
