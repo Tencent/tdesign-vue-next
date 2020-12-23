@@ -2,7 +2,7 @@
   <t-table
     :data="data"
     :columns="columns"
-    :border="true">
+    :bordered="true">
   </t-table>
 </template>
 <script>

@@ -1,10 +1,3 @@
-/*
- * @Description:
- * @Author: smileswlin
- * @LastEditor: smileswlin
- * @Date: 2020-12-14 21:43:02
- * @LastEditTime: 2020-12-15 22:41:25
- */
 import Vue from 'vue';
 
 function findTopNode(vm: Vue): Vue {

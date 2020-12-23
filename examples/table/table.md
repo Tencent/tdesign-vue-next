@@ -9,13 +9,12 @@
 | rowKey        | String                                          | e.g. rowKey = id | Y    | rowKey = 'id'，指定 rowKey                |
 | tableLayout   | String                                          | fixed            | N    | auto / fixed，表格布局方式                |
 | verticalAlign | String                                          | middle           | N    | top / middle / bottom，行内容上下方向对齐 |
-| size          | String                                          | default          | N    | large / small / default                   |
-| border        | Boolean                                         | true             | N    | true / false，行边框 / 无边框             |
+| size          | String                                          | medium          | N    | small / medium / large                   |
+| bordered        | Boolean                                         | true             | N    | true / false，行边框 / 无边框             |
 | hover         | Boolean                                         | true             | N    | true / false，hover 时是否高亮            |
 | stripe        | Boolean                                         | false            | N    | true / false，斑马纹                      |
 | empty         | String / Function(props): VNode / slots: {cost} | 暂无数据         | N    | 空表格                                    |
 | height        | Number                                          |                  | N    |                                           |
-| width         | Number                                          |                  | N    |                                           |
 | rowClassName  | String/ Function(props): String                 | false            | N    | 自定义行样式                              |
 | pagination    | Object                                          | false            | N    | 分页                                      |
 | loading       | Boolean / Function(props): VNode                | false            | N    |                                           |
@@ -47,7 +46,7 @@
 | filterIcon     | VNode / Function(props): VNode | null     | N    | 自定义 filter 图标            |
 | filterMultiple | Boolean                        | false    | N    | 是否多选                      |
 | render         | Function                       | -    | N    | 自定义单元格                   |
-| scopedSlots    | Object | -    | N    | 自定义单元格（title - 通过插槽方式渲染表头，customRender - 通过插槽方式渲染表体单元格） |
+| scopedSlots    | Object | -    | N    | 自定义单元格（title - 用指定插槽渲染表头，col - 用指定插槽渲染表体单元格） |
 
 ### Expand
 
