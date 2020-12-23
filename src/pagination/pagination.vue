@@ -1,11 +1,11 @@
 <template>
-  <div :class="_class" v-if="visibleWithOnePage || _pageCount > 1">
+  <div :class="_class" v-if="_pageCount > 1">
     <!--数据统计区-->
-    <template v-if="showTotal">
+    <template v-if="totalContent">
       <div :class="_totalClass">{{ t(locale.total, { total: total }) }}</div>
     </template>
     <!-- select-->
-    <template v-if="showSizer">
+    <template v-if="pageSizeOption.length">
       <t-select :value="pageSize" :disabled="disabled" :class="_sizerClass" @change="onSelectorChange">
         <t-option
           v-for="(item, index) in _pageSizeOption"
