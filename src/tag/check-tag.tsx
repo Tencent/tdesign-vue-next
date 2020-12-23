@@ -1,6 +1,7 @@
 import Vue, { VNode } from 'vue';
 import RenderComponent from '../utils/render-component';
 import config from '../config';
+import props from '../../types/check-tag/props';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;
@@ -10,10 +11,7 @@ export default Vue.extend({
   components: {
     RenderComponent,
   },
-  props: {
-    checked: Boolean,
-    disabled: Boolean,
-  },
+  props: { ...props },
   computed: {
     tagClass(): Array<any> {
       return [
@@ -28,8 +26,11 @@ export default Vue.extend({
     },
   },
   methods: {
-    handleChange(event: any): void {
-      if (!this.disabled) this.$emit('change', event);
+    handleClick(event: any): void {
+      if (!this.disabled) {
+        this.$emit('click', event);
+        if (typeof this.onClick === 'function') this.onClick(event);
+      }
     },
   },
   render() {
@@ -37,7 +38,7 @@ export default Vue.extend({
     const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
 
     return (
-      <span class={this.tagClass} onClick={this.handleChange}>
+      <span class={this.tagClass} onClick={this.handleClick}>
         {tagContent}
       </span>
     );
