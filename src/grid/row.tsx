@@ -12,6 +12,9 @@ export default Vue.extend({
     RenderComponent,
   },
 
+  // props 使用自动生成的文件，用法示例：
+  // import props from '../../types/row/props'
+  // props: { ...props },
   props: {
     align: {
       type: String,
