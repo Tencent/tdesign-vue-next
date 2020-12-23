@@ -16,7 +16,7 @@ exports[`Anchor base demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-1"
+        href="#http://example.com#default"
         target="_self"
         title="定义"
       >
@@ -29,7 +29,7 @@ exports[`Anchor base demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-2"
+        href="#http://example.com#multiple"
         target="_self"
         title="服务功能"
       >
@@ -42,7 +42,7 @@ exports[`Anchor base demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-3"
+        href="#http://example.com#small"
         target="_self"
         title="使用指南"
       >
@@ -55,7 +55,7 @@ exports[`Anchor base demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-4"
+        href="#http://example.com#large"
         target="_self"
         title="创建签名"
       >
@@ -68,7 +68,7 @@ exports[`Anchor base demo works fine 1`] = `
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-5"
+        href="#http://example.com#container"
         target="_self"
         title="创建内容"
       >
