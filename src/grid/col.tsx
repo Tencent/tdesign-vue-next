@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
+import props from '../../types/col/props';
 
 const name = `${prefix}-col`;
 
@@ -11,55 +12,7 @@ export default Vue.extend({
     RenderComponent,
   },
 
-  // props 使用自动生成的文件，用法示例：
-  // import props from '../../types/col/props'
-  // props: { ...props },
-  props: {
-    flex: {
-      type: [String, Number],
-    },
-    offset: {
-      type: Number,
-      default: 0,
-    },
-    order: {
-      type: Number,
-      default: 0,
-    },
-    pull: {
-      type: Number,
-      default: 0,
-    },
-    push: {
-      type: Number,
-      default: 0,
-    },
-    span: {
-      type: Number,
-    },
-    xs: {
-      type: [Number, Object],
-    },
-    sm: {
-      type: [Number, Object],
-    },
-    md: {
-      type: [Number, Object],
-    },
-    lg: {
-      type: [Number, Object],
-    },
-    xl: {
-      type: [Number, Object],
-    },
-    xxl: {
-      type: [Number, Object],
-    },
-    tag: {
-      type: String,
-      default: 'div',
-    },
-  },
+  props: { ...props },
 
   inject: ['rowContext'],
 
