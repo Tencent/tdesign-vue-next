@@ -8,7 +8,7 @@ exports[`Tag base demo works fine 1`] = `
     class="tdesign-demo-block"
   >
     <span
-      class="t-tag t-tag--default t-tag--dark"
+      class="t-tag t-tag--default t-size-m t-tag--dark"
     >
       默认
     </span>
@@ -17,14 +17,15 @@ exports[`Tag base demo works fine 1`] = `
       class="demo-link"
     >
       <span
-        class="t-tag t-tag--default t-tag--dark"
+        class="t-tag t-tag--default t-size-m t-tag--dark"
       >
         超链接
       </span>
     </a>
      
     <span
-      class="t-tag t-tag--default t-tag--dark t-tag--disabled"
+      class="t-tag t-tag--default t-size-m t-tag--dark"
+      disabled="disabled"
     >
       失效标签
     </span>
@@ -40,14 +41,14 @@ exports[`Tag delete demo works fine 1`] = `
     class="tdesign-demo-block"
   >
     <span
-      class="t-tag t-tag--default t-tag--dark"
+      class="t-tag t-tag--default t-size-m t-tag--dark"
     >
       
       隐藏叉
     
     </span>
     <span
-      class="t-tag t-tag--default t-tag--dark t-tag--close"
+      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
     >
       
       显示叉
@@ -57,7 +58,7 @@ exports[`Tag delete demo works fine 1`] = `
       />
     </span>
     <span
-      class="t-tag t-tag--info t-tag--dark t-tag--close"
+      class="t-tag t-tag--info t-size-m t-tag--dark t-tag--close"
     >
       <i
         class="t-icon t-icon-discount"
@@ -70,7 +71,7 @@ exports[`Tag delete demo works fine 1`] = `
       />
     </span>
     <span
-      class="t-tag t-tag--default t-tag--dark t-tag--ellipsis"
+      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis"
       style="max-width: 150px;"
     >
       
@@ -78,7 +79,7 @@ exports[`Tag delete demo works fine 1`] = `
     
     </span>
     <span
-      class="t-tag t-tag--info t-tag--dark"
+      class="t-tag t-tag--info t-size-m t-tag--dark"
     >
       <i
         class="t-icon t-icon-add"
@@ -96,13 +97,15 @@ exports[`Tag disabled demo works fine 1`] = `
   class="tdesign-tag-disabled"
 >
   <span
-    class="t-tag t-tag--default t-tag--dark t-tag--disabled"
+    class="t-tag t-tag--default t-size-m t-tag--dark"
+    disabled="disabled"
   >
     失效标签
   </span>
    
   <span
-    class="t-tag t-tag--default t-tag--dark t-tag--disabled"
+    class="t-tag t-tag--primary t-size-m t-tag--dark"
+    disabled="disabled"
   >
     失效标签
   </span>
@@ -126,7 +129,7 @@ exports[`Tag icon demo works fine 1`] = `
     自定义图标标签：
     
     <span
-      class="custom-icon t-tag t-tag--default t-tag--dark"
+      class="custom-icon t-tag t-tag--default t-size-m t-tag--dark"
     >
       <i
         class="t-icon"
@@ -146,7 +149,7 @@ exports[`Tag icon demo works fine 1`] = `
     图标标签：
     
     <span
-      class="t-tag t-tag--default t-tag--dark"
+      class="t-tag t-tag--default t-size-m t-tag--dark"
     >
       <i
         class="t-icon t-icon-search"
@@ -162,7 +165,7 @@ exports[`Tag long-text demo works fine 1`] = `
   class="tdesign-tag-ellipsis"
 >
   <span
-    class="t-tag t-tag--default t-tag--dark t-tag--ellipsis"
+    class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis"
     style="max-width: 150px;"
     title="超长省略文本标签超长省略文本标签"
   >
@@ -176,31 +179,31 @@ exports[`Tag plain demo works fine 1`] = `
   class="tdesign-tag-plain"
 >
   <span
-    class="t-tag t-tag--primary t-tag--plain"
+    class="t-tag t-tag--primary t-size-m t-tag--plain"
   >
     标签一
   </span>
    
   <span
-    class="t-tag t-tag--success t-tag--plain"
+    class="t-tag t-tag--success t-size-m t-tag--plain"
   >
     标签二
   </span>
    
   <span
-    class="t-tag t-tag--info t-tag--plain"
+    class="t-tag t-tag--info t-size-m t-tag--plain"
   >
     标签三
   </span>
    
   <span
-    class="t-tag t-tag--warning t-tag--plain"
+    class="t-tag t-tag--warning t-size-m t-tag--plain"
   >
     标签四
   </span>
    
   <span
-    class="t-tag t-tag--danger t-tag--plain"
+    class="t-tag t-tag--danger t-size-m t-tag--plain"
   >
     标签五
   </span>
@@ -257,13 +260,13 @@ exports[`Tag shape demo works fine 1`] = `
     正常：
     
     <span
-      class="t-tag t-tag--default t-tag--dark"
+      class="t-tag t-tag--default t-size-m t-tag--dark"
     >
       标签一
     </span>
      
     <span
-      class="t-tag t-tag--primary t-tag--dark"
+      class="t-tag t-tag--primary t-size-m t-tag--dark"
     >
       标签一
     </span>
@@ -276,13 +279,13 @@ exports[`Tag shape demo works fine 1`] = `
     圆角：
     
     <span
-      class="t-tag t-tag--default t-tag--dark t-tag--round"
+      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--round"
     >
       标签一
     </span>
      
     <span
-      class="t-tag t-tag--primary t-tag--dark t-tag--round"
+      class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--round"
     >
       标签一
     </span>
@@ -295,13 +298,13 @@ exports[`Tag shape demo works fine 1`] = `
     标记：
     
     <span
-      class="t-tag t-tag--default t-tag--dark t-tag--mark"
+      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--mark"
     >
       标签一
     </span>
      
     <span
-      class="t-tag t-tag--primary t-tag--dark t-tag--mark"
+      class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--mark"
     >
       标签一
     </span>
@@ -323,7 +326,7 @@ exports[`Tag size demo works fine 1`] = `
     </span>
      
     <span
-      class="t-tag t-tag--default t-tag--dark"
+      class="t-tag t-tag--default t-size-m t-tag--dark"
     >
       标签 中
     </span>
@@ -345,7 +348,7 @@ exports[`Tag size demo works fine 1`] = `
     </span>
      
     <span
-      class="t-tag t-tag--primary t-tag--dark"
+      class="t-tag t-tag--primary t-size-m t-tag--dark"
     >
       标签 中
     </span>
@@ -370,31 +373,31 @@ exports[`Tag theme demo works fine 1`] = `
     深色
     
     <span
-      class="t-tag t-tag--primary t-tag--dark"
+      class="t-tag t-tag--primary t-size-m t-tag--dark"
     >
       标签一
     </span>
      
     <span
-      class="t-tag t-tag--success t-tag--dark"
+      class="t-tag t-tag--success t-size-m t-tag--dark"
     >
       标签二
     </span>
      
     <span
-      class="t-tag t-tag--info t-tag--dark"
+      class="t-tag t-tag--info t-size-m t-tag--dark"
     >
       标签三
     </span>
      
     <span
-      class="t-tag t-tag--warning t-tag--dark"
+      class="t-tag t-tag--warning t-size-m t-tag--dark"
     >
       标签四
     </span>
      
     <span
-      class="t-tag t-tag--danger t-tag--dark"
+      class="t-tag t-tag--danger t-size-m t-tag--dark"
     >
       标签五
     </span>
@@ -407,31 +410,31 @@ exports[`Tag theme demo works fine 1`] = `
     浅色
     
     <span
-      class="t-tag t-tag--primary t-tag--light"
+      class="t-tag t-tag--primary t-size-m t-tag--light"
     >
       标签一
     </span>
      
     <span
-      class="t-tag t-tag--success t-tag--light"
+      class="t-tag t-tag--success t-size-m t-tag--light"
     >
       标签二
     </span>
      
     <span
-      class="t-tag t-tag--info t-tag--light"
+      class="t-tag t-tag--info t-size-m t-tag--light"
     >
       标签三
     </span>
      
     <span
-      class="t-tag t-tag--warning t-tag--light"
+      class="t-tag t-tag--warning t-size-m t-tag--light"
     >
       标签四
     </span>
      
     <span
-      class="t-tag t-tag--danger t-tag--light"
+      class="t-tag t-tag--danger t-size-m t-tag--light"
     >
       标签五
     </span>
@@ -444,31 +447,31 @@ exports[`Tag theme demo works fine 1`] = `
     朴素
     
     <span
-      class="t-tag t-tag--primary t-tag--plain"
+      class="t-tag t-tag--primary t-size-m t-tag--plain"
     >
       标签一
     </span>
      
     <span
-      class="t-tag t-tag--success t-tag--plain"
+      class="t-tag t-tag--success t-size-m t-tag--plain"
     >
       标签二
     </span>
      
     <span
-      class="t-tag t-tag--info t-tag--plain"
+      class="t-tag t-tag--info t-size-m t-tag--plain"
     >
       标签三
     </span>
      
     <span
-      class="t-tag t-tag--warning t-tag--plain"
+      class="t-tag t-tag--warning t-size-m t-tag--plain"
     >
       标签四
     </span>
      
     <span
-      class="t-tag t-tag--danger t-tag--plain"
+      class="t-tag t-tag--danger t-size-m t-tag--plain"
     >
       标签五
     </span>
