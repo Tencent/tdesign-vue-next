@@ -6,7 +6,13 @@
     </template>
     <!-- select-->
     <template v-if="pageSizeOption.length">
-      <t-select :value="pageSize" :disabled="disabled" :class="_sizerClass" @change="onSelectorChange">
+      <t-select
+        :size="size"
+        :value="pageSize"
+        :disabled="disabled"
+        :class="_sizerClass"
+        @change="onSelectorChange"
+      >
         <t-option
           v-for="(item, index) in _pageSizeOption"
           :value="item"
@@ -55,7 +61,13 @@
       </ul>
     </template>
     <template v-else>
-      <t-select :value="currentIndex" :disabled="disabled" :class="_simpleClass" @change="toPage">
+      <t-select
+        :size="size"
+        :value="currentIndex"
+        :disabled="disabled"
+        :class="_simpleClass"
+        @change="toPage"
+      >
         <t-option v-for="(item, index) in _pageCountOption" :value="item" :label="`${item}/${_pageCount}`" :key="index">
         </t-option>
       </t-select>
