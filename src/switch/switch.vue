@@ -31,6 +31,7 @@ import config from '../config';
 import CLASSNAMES from '../utils/classnames';
 import RenderComponent from '../utils/render-component';
 import TIconLoading from '../icon/loading';
+import { SwitchValue } from '../../types/switch/TdSwitchProps';
 import props from '../../types/switch/props';
 
 const { prefix } = config;
@@ -82,25 +83,25 @@ export default Vue.extend({
         },
       ];
     },
-    activeValue():  string|number|boolean {
+    activeValue(): SwitchValue {
       if (this.customValue && this.customValue[0]) {
         return this.customValue[0];
       }
       return true;
     },
-    inactiveValue(): string|number|boolean {
+    inactiveValue(): SwitchValue {
       if (this.customValue && this.customValue[1]) {
         return this.customValue[1];
       }
       return false;
     },
-    activeContent(): string|Function|null {
+    activeContent(): TNodeReturnValue {
       if (this.label && this.label[0]) {
         return this.label[0];
       }
       return null;
     },
-    inactiveContent(): string|Function|null {
+    inactiveContent(): TNodeReturnValue {
       if (this.label && this.label[1]) {
         return this.label[1];
       }
@@ -108,8 +109,8 @@ export default Vue.extend({
     },
   },
   watch: {
-    value(val: string|number|boolean): void{
-      if (this.customValue && this.customValue.length === 2 && !this.customValue.includes(val)) {
+    value(val: SwitchValue): void {
+      if (this.customValue && !this.customValue.includes(val)) {
         throw `value is not in ${JSON.stringify(this.customValue)}`;
       }
       this.currentValue = val;
