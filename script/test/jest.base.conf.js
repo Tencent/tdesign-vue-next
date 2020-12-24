@@ -1,5 +1,9 @@
 const path = require('path');
 
+// To have consistent date time parsing both in local and CI environments we set
+// the timezone of the Node process.
+process.env.TZ = 'Asia/Shanghai';
+
 module.exports = {
   verbose: true,
   rootDir: path.resolve(__dirname, '../../'),

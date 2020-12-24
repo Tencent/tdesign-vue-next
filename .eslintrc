@@ -36,7 +36,8 @@
     "@typescript-eslint/prefer-for-of": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "prefer-default-export": 0,
-    "max-len": 0
+    "max-len": 0,
+    "@typescript-eslint/ban-ts-ignore": 0
   },
   "overrides": [
     {

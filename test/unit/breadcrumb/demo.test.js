@@ -7,8 +7,8 @@ describe('Breadcrumb', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('separatorSlot demo works fine', () => {
-    const demo = require('@/examples/breadcrumb/demos/separatorSlot.vue');
+  it('custom demo works fine', () => {
+    const demo = require('@/examples/breadcrumb/demos/custom.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tag checkable demo works fine 1`] = `
+exports[`Tag base demo works fine 1`] = `
 <div
   class="tag-demo"
 >
@@ -8,38 +8,31 @@ exports[`Tag checkable demo works fine 1`] = `
     class="tdesign-demo-block"
   >
     <span
-      class="t-tag t-tag--check t-tag--default t-tag--checked"
+      class="t-tag t-tag--default t-tag--dark"
     >
-      
-      选中1
-    
+      默认
     </span>
-    <span
-      class="t-tag t-tag--check t-tag--default t-tag--checked"
+     
+    <a
+      class="demo-link"
     >
-      
-      选中2
-    
-    </span>
+      <span
+        class="t-tag t-tag--default t-tag--dark"
+      >
+        超链接
+      </span>
+    </a>
+     
     <span
-      class="t-tag t-tag--check t-tag--default"
+      class="t-tag t-tag--default t-tag--dark t-tag--disabled"
     >
-      
-      未选3
-    
-    </span>
-    <span
-      class="t-tag t-tag--check t-tag--default"
-    >
-      
-      未选4
-    
+      失效标签
     </span>
   </div>
 </div>
 `;
 
-exports[`Tag closable demo works fine 1`] = `
+exports[`Tag delete demo works fine 1`] = `
 <div
   class="tag-demo"
 >
@@ -93,38 +86,6 @@ exports[`Tag closable demo works fine 1`] = `
       
       添加标签
     
-    </span>
-  </div>
-</div>
-`;
-
-exports[`Tag default demo works fine 1`] = `
-<div
-  class="tag-demo"
->
-  <div
-    class="tdesign-demo-block"
-  >
-    <span
-      class="t-tag t-tag--default t-tag--dark"
-    >
-      默认
-    </span>
-     
-    <a
-      class="demo-link"
-    >
-      <span
-        class="t-tag t-tag--default t-tag--dark"
-      >
-        超链接
-      </span>
-    </a>
-     
-    <span
-      class="t-tag t-tag--default t-tag--dark t-tag--disabled"
-    >
-      失效标签
     </span>
   </div>
 </div>
@@ -243,6 +204,45 @@ exports[`Tag plain demo works fine 1`] = `
   >
     标签五
   </span>
+</div>
+`;
+
+exports[`Tag selectable demo works fine 1`] = `
+<div
+  class="tag-demo"
+>
+  <div
+    class="tdesign-demo-block"
+  >
+    <span
+      class="t-tag t-tag--check t-tag--default t-tag--checked"
+    >
+      
+      选中1
+    
+    </span>
+    <span
+      class="t-tag t-tag--check t-tag--default t-tag--checked"
+    >
+      
+      选中2
+    
+    </span>
+    <span
+      class="t-tag t-tag--check t-tag--default"
+    >
+      
+      未选3
+    
+    </span>
+    <span
+      class="t-tag t-tag--check t-tag--default"
+    >
+      
+      未选4
+    
+    </span>
+  </div>
 </div>
 `;
 
