@@ -10,7 +10,7 @@
         </template>
         <render-component :render="activeContent"
                           v-else-if="typeof activeContent === 'function'" />
-        <slot name="active-content" v-else></slot>
+        <slot name="label" :value="currentValue" v-else></slot>
       </template>
       <template v-if="currentValue === inactiveValue">
         <template v-if="typeof inactiveContent === 'string'">
@@ -18,7 +18,7 @@
         </template>
         <render-component :render="inactiveContent"
                           v-else-if="typeof inactiveContent === 'function'" />
-        <slot name="inactive-content" v-else></slot>
+        <slot name="label" :value="currentValue" v-else></slot>
       </template>
 
     </div>
@@ -31,6 +31,7 @@ import config from '../config';
 import CLASSNAMES from '../utils/classnames';
 import RenderComponent from '../utils/render-component';
 import TIconLoading from '../icon/loading';
+import props from '../../types/switch/props';
 
 const { prefix } = config;
 const name = `${prefix}-switch`;
@@ -45,72 +46,7 @@ export default Vue.extend({
     prop: 'value',
     event: 'change',
   },
-  // props 使用自动生成的 props 文件，示例如下：
-  // import props from '../../types/switch/props';
-  // props: { ...props }
-  props: {
-    /**
-     * @description 当前选择的值
-     * @attribute value
-     */
-    value: {
-      type: [String, Number, Boolean],
-      default: false,
-    },
-    /**
-     * @description 打开的值
-     * @attribute activeValue
-     */
-    activeValue: {
-      type: [String, Number, Boolean],
-      default: true,
-    },
-    /**
-     * @description 关闭的值
-     * @attribute inactiveValue
-     */
-    inactiveValue: {
-      type: [String, Number, Boolean],
-      default: false,
-    },
-    /**
-     * @description 打开显示的内容
-     * @attribute activeContent
-     */
-    activeContent: [String, Function],
-    /**
-     * @description 关闭显示的内容
-     * @attribute inactiveContent
-     */
-    inactiveContent: [String, Function],
-    /**
-     * @description 是否禁用
-     * @attribute disabled
-     */
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * @description 是否加载
-     * @attribute loading
-     */
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-    * @description 大小
-    * @attribute size
-    */
-    size: {
-      type: String,
-      default: 'default',
-      validator(v: string): boolean {
-        return ['large', 'default', 'small'].indexOf(v) > -1;
-      },
-    },
-  },
+  props: { ...props },
   data() {
     return {
       currentValue: this.value,
@@ -146,11 +82,35 @@ export default Vue.extend({
         },
       ];
     },
+    activeValue():  string|number|boolean {
+      if (this.customValue && this.customValue[0]) {
+        return this.customValue[0];
+      }
+      return true;
+    },
+    inactiveValue(): string|number|boolean {
+      if (this.customValue && this.customValue[1]) {
+        return this.customValue[1];
+      }
+      return false;
+    },
+    activeContent(): string|Function|null {
+      if (this.label && this.label[0]) {
+        return this.label[0];
+      }
+      return null;
+    },
+    inactiveContent(): string|Function|null {
+      if (this.label && this.label[1]) {
+        return this.label[1];
+      }
+      return null;
+    },
   },
   watch: {
     value(val: string|number|boolean): void{
-      if (val !== this.activeValue && val !== this.inactiveValue) {
-        throw 'Value should be activeValue or inactiveValue.';
+      if (this.customValue && this.customValue.length === 2 && !this.customValue.includes(val)) {
+        throw `value is not in ${JSON.stringify(this.customValue)}`;
       }
       this.currentValue = val;
     },
