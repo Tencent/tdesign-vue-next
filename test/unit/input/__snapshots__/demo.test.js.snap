@@ -309,7 +309,7 @@ exports[`Input group demo works fine 1`] = `
 </div>
 `;
 
-exports[`Input icon demo works fine 1`] = `
+exports[`Input password demo works fine 1`] = `
 <div
   class="tdesign-demo-item--input__input-box"
 >

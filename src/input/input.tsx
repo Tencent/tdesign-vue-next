@@ -29,8 +29,8 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       default: '',
     },
     defaultValue: [String, Number],
-    prefixIcon: Function,
-    suffixIcon: Function,
+    prefixIcon: [String, Function],
+    suffixIcon: [String, Function],
     size: {
       type: String,
       default: 'medium',

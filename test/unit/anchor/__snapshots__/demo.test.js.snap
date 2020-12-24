@@ -1,5 +1,110 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Anchor base demo works fine 1`] = `
+<div
+  class="anchor-demo"
+  id="http://example.com#default"
+>
+  <div
+    class="t-anchor t-size-m"
+  >
+    <div
+      class="t-anchor_line"
+    />
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#default"
+        target="_self"
+        title="定义"
+      >
+        定义
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#multiple"
+        target="_self"
+        title="服务功能"
+      >
+        服务功能
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#small"
+        target="_self"
+        title="使用指南"
+      >
+        使用指南
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#large"
+        target="_self"
+        title="创建签名"
+      >
+        创建签名
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#container"
+        target="_self"
+        title="创建内容"
+      >
+        创建内容
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-6"
+        target="_self"
+        title="保密协议"
+      >
+        保密协议
+      </a>
+    </div>
+     
+    <div
+      class="t-anchor-item"
+    >
+      <a
+        class="t-anchor-item_link"
+        href="#http://example.com#anchor-target-7"
+        target="_self"
+        title="其他"
+      >
+        其他
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Anchor bounds demo works fine 1`] = `
 <div
   class="anchor-demo"
@@ -73,111 +178,6 @@ exports[`Anchor bounds demo works fine 1`] = `
           创建内容
         </a>
       </div>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-6"
-        target="_self"
-        title="保密协议"
-      >
-        保密协议
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-7"
-        target="_self"
-        title="其他"
-      >
-        其他
-      </a>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Anchor default demo works fine 1`] = `
-<div
-  class="anchor-demo"
-  id="http://example.com#default"
->
-  <div
-    class="t-anchor t-size-m"
-  >
-    <div
-      class="t-anchor_line"
-    />
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-1"
-        target="_self"
-        title="定义"
-      >
-        定义
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-2"
-        target="_self"
-        title="服务功能"
-      >
-        服务功能
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-3"
-        target="_self"
-        title="使用指南"
-      >
-        使用指南
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-4"
-        target="_self"
-        title="创建签名"
-      >
-        创建签名
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-5"
-        target="_self"
-        title="创建内容"
-      >
-        创建内容
-      </a>
     </div>
      
     <div

@@ -62,8 +62,8 @@ describe('Calendar', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('isShowWeekend demo works fine', () => {
-    const demo = require('@/examples/calendar/demos/isShowWeekend.vue');
+  it('filter demo works fine', () => {
+    const demo = require('@/examples/calendar/demos/filter.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

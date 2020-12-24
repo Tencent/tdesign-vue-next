@@ -4,7 +4,7 @@
     :columns="columns"
     :rowKey="rowKey"
     :verticalAlign="verticalAlign"
-    :border="border"
+    :bordered="bordered"
     :hover="hover"
     :stripe="stripe"
     :size="size"
@@ -112,7 +112,7 @@ export default {
       tableLayout: 'auto',
       verticalAlign: 'top',
       size: 'small',
-      border: true,
+      bordered: true,
       hover: true,
       stripe: true,
       rowClassName: rowKey => `${rowKey}-class`,

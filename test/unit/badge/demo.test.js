@@ -8,14 +8,14 @@ describe('Badge', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('colors demo works fine', () => {
-    const demo = require('@/examples/badge/demos/colors.vue');
+  it('number demo works fine', () => {
+    const demo = require('@/examples/badge/demos/number.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('offset demo works fine', () => {
-    const demo = require('@/examples/badge/demos/offset.vue');
+  it('custom demo works fine', () => {
+    const demo = require('@/examples/badge/demos/custom.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -26,14 +26,14 @@ describe('Badge', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('size demo works fine', () => {
-    const demo = require('@/examples/badge/demos/size.vue');
+  it('offset demo works fine', () => {
+    const demo = require('@/examples/badge/demos/offset.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('type demo works fine', () => {
-    const demo = require('@/examples/badge/demos/type.vue');
+  it('size demo works fine', () => {
+    const demo = require('@/examples/badge/demos/size.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

@@ -52,17 +52,17 @@ function getToBeCreatedFiles(component) {
       desc: 'e2e test',
       files: [`${component}.spec.js`],
     },
-    ['test/ssr']: {
-      // no delete the whole folder, just delete these files in 'deleteFiles'.
-      deleteFiles: [`test/ssr/${component}.test.js`],
-      desc: 'ssr test',
-      files: [
-        {
-          file: `${component}.test.js`,
-          template: 'ssr.demo.test.tpl',
-        },
-      ],
-    },
+    // ['test/ssr']: {
+    //   // no delete the whole folder, just delete these files in 'deleteFiles'.
+    //   deleteFiles: [`test/ssr/${component}.test.js`],
+    //   desc: 'ssr test',
+    //   files: [
+    //     {
+    //       file: `${component}.test.js`,
+    //       template: 'ssr.demo.test.tpl',
+    //     },
+    //   ],
+    // },
   };
 }
 

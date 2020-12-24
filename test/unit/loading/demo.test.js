@@ -17,8 +17,8 @@ describe('Loading', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('indicatorFunc demo works fine', () => {
-    const demo = require('@/examples/loading/demos/indicatorFunc.vue');
+  it('iconText demo works fine', () => {
+    const demo = require('@/examples/loading/demos/iconText.vue');
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
