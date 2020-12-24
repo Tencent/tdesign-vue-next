@@ -22,13 +22,6 @@ exports[`Tag base demo works fine 1`] = `
         超链接
       </span>
     </a>
-     
-    <span
-      class="t-tag t-tag--default t-size-m t-tag--dark"
-      disabled="disabled"
-    >
-      失效标签
-    </span>
   </div>
 </div>
 `;
@@ -96,20 +89,6 @@ exports[`Tag disabled demo works fine 1`] = `
 <div
   class="tdesign-tag-disabled"
 >
-  <span
-    class="t-tag t-tag--default t-size-m t-tag--dark"
-    disabled="disabled"
-  >
-    失效标签
-  </span>
-   
-  <span
-    class="t-tag t-tag--primary t-size-m t-tag--dark"
-    disabled="disabled"
-  >
-    失效标签
-  </span>
-   
   <span
     class="check-tag t-tag t-tag--check t-tag--default t-tag--disabled"
   >
