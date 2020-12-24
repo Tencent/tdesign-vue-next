@@ -17,6 +17,8 @@ declare type VerticalAlignEnum = 'top' | 'middle' | 'bottom';
 
 declare type ClassName = { [className: string]: any } | ClassName[] | string;
 
+declare interface Styles { [css: string]: string | number }
+
 declare type CSSSelector = string;
 
 declare type AttachNode = CSSSelector | (() => (Window | HTMLDocument | HTMLElement));
