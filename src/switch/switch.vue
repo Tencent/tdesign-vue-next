@@ -45,6 +45,9 @@ export default Vue.extend({
     prop: 'value',
     event: 'change',
   },
+  // props 使用自动生成的 props 文件，示例如下：
+  // import props from '../../types/switch/props';
+  // props: { ...props }
   props: {
     /**
      * @description 当前选择的值
