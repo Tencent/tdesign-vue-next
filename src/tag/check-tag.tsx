@@ -26,7 +26,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    handleClick(event: any): void {
+    handleClick(event: MouseEvent): void {
       if (!this.disabled) {
         this.$emit('click', event);
         if (typeof this.onClick === 'function') this.onClick(event);
