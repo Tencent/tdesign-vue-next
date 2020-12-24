@@ -4,8 +4,8 @@
   </t-tooltip>
 </template>
 <style>
-.tooltip .t-tooltip {
-  margin-right: 20px;
+.t-popup-reference + .t-popup-reference {
+  margin-left: 16px;
 }
 .t-tooltip-content {
   max-width: 200px;
