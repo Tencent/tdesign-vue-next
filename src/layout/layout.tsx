@@ -11,19 +11,7 @@ export default Vue.extend({
     RenderComponent,
   },
 
-  props: {
-    direction: {
-      type: String,
-      validator(v: string): boolean {
-        return (
-          [
-            'horizontal',
-            'vertical',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-  },
+  props: {},
 
   data() {
     return {};
