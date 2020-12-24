@@ -1,7 +1,7 @@
 declare const __VERSION__: string;
 
 declare type TNodeReturnValue = import('vue/types/vnode').ScopedSlotReturnValue;
-declare type TNode = (h: Vue.CreateElement, props?: any) => TNodeReturnValue;
+declare type TNode<T = any> = (h: Vue.CreateElement, props?: T) => TNodeReturnValue;
 declare type JsxNode = TNodeReturnValue;
 
 declare type OptionData = {
@@ -16,6 +16,8 @@ declare type HorizontalAlignEnum = 'left' | 'center' | 'right';
 declare type VerticalAlignEnum = 'top' | 'middle' | 'bottom';
 
 declare type ClassName = { [className: string]: any } | ClassName[] | string;
+
+declare interface Styles { [css: string]: string | number }
 
 declare type CSSSelector = string;
 
