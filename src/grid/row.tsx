@@ -2,6 +2,7 @@ import Vue from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import responsiveObserver from '../utils/responsive-observer';
+import props from '../../types/row/props';
 
 const name = `${prefix}-row`;
 
@@ -12,44 +13,7 @@ export default Vue.extend({
     RenderComponent,
   },
 
-  props: {
-    align: {
-      type: String,
-      // default: 'top',
-      validator(v: string): boolean {
-        return (
-          [
-            'top',
-            'middle',
-            'bottom',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-    gutter: {
-      type: [Number, Object, Array],
-      default: 0,
-    },
-    justify: {
-      type: String,
-      // default: 'start',
-      validator(v: string): boolean {
-        return (
-          [
-            'start',
-            'end',
-            'center',
-            'space-around',
-            'space-between',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-    tag: {
-      type: String,
-      default: 'div',
-    },
-  },
+  props: { ...props },
 
   data() {
     return {

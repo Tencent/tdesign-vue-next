@@ -49,7 +49,7 @@
 import Vue from 'vue';
 import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
-import TransferList from './transfer-list';
+import TransferList from './transfer-list.vue';
 import TransferOperations from './components/transfer-operations';
 import { TransferItem, TransferItemKey, TransferDirection, SearchProps } from './type/transfer';
 import { CommonProps } from './interface';
