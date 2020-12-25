@@ -388,7 +388,7 @@ export default Vue.extend({
       );
     },
     renderCloseBtn() {
-      const defaultView = <t-icon-close name='close' nativeOnClick={this.closeBtnAcion}></t-icon-close>;
+      const defaultView = <t-icon-close name='close'></t-icon-close>;
       const target = this.closeBtn;
       let view;
       let isShow = true;
@@ -398,7 +398,7 @@ export default Vue.extend({
       } else if (typeof target === 'function') {
         view = target();
       }
-      return isShow && (<span class={`${name}__close`}>
+      return isShow && (<span class={`${name}__close`} onClick={this.closeBtnAcion}>
         {view || defaultView}
       </span>);
     },

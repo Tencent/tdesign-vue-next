@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
-import Popup from '../popup';
+import Popup from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import bus from './bus';
 
@@ -91,7 +91,7 @@ export default Vue.extend({
     };
 
     return (
-      <Popup { ...popupProps } ref="popupElem">
+      <Popup {...popupProps} ref="popupElem">
         <template slot='content' role='dropdown'>
           <DropdownMenu
             busId={this.busId}
