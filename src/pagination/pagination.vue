@@ -235,7 +235,7 @@ export default mixins(PaginationLocalReceiver).extend({
     },
     _pageSizeOption(): Array<number> {
       const data = this.pageSizeOption as Array<number>;
-      return data.find((v) => v === this.pageSize)
+      return data.find(v => v === this.pageSize)
         ? data
         : data.concat(this.pageSize).sort((a: number, b: number) => a - b);
     },
