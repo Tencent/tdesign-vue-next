@@ -30,7 +30,7 @@ export const CommonProps = {
     default: false,
   },
   titles: {
-    type: Array,
+    type: [String, Array],
     default(): Array<string> {
       return ['源列表', '目标列表'];
     },

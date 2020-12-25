@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import TButton from '../../button';
-import IconChevronLeft from '../../icon/chevron-right';
-import IconChevronRight from '../../icon/chevron-left';
 import { prefix } from '../../config';
 
 const name = `${prefix}-transfer-operations`;
@@ -28,20 +26,20 @@ export default Vue.extend({
       this.$emit('moveToLeft');
     },
     getIconRight() {
-      return <IconChevronRight />;
+      return <t-icon name="chevron-right"/>;
     },
     getIconLeft() {
-      return <IconChevronLeft />;
+      return <t-icon name="chevron-left"/>;
     },
-    // getIcon(order: string) {
-    //   let iconName;
-    //   if (!this.operations || !this.operations.length) {
-    //     iconName = order === 'up' ? 'chevron-right' : 'chevron-left';
-    //   } else {
-    //     iconName = null;
-    //   }
-    //   return iconName;
-    // },
+    getIcon(order: string) {
+      let iconFun;
+      if (!this.operations || !this.operations.length) {
+        iconFun = order === 'up' ? this.getIconRight : this.getIconLeft;
+      } else {
+        iconFun = (): void => null;
+      }
+      return iconFun;
+    },
     buttonContent(order: string) {
       let renderButtonContent;
       // 处理传进来的operations是数组，函数，字符型类型以及不传
@@ -72,7 +70,7 @@ export default Vue.extend({
           theme={leftDisabled ? 'line' : 'primary'}
           disabled={leftDisabled}
           onClick={this.moveToRight}
-          icon={this.getIconLeft}
+          icon={this.getIcon('up')}
         >
           {this.buttonContent('up')}
         </TButton>
@@ -80,7 +78,7 @@ export default Vue.extend({
           theme={rightDisabled ? 'line' : 'primary'}
           disabled={rightDisabled}
           onClick={this.moveToLeft}
-          icon={this.getIconRight}
+          icon={this.getIcon('down')}
         >
           {this.buttonContent('down')}
         </TButton>

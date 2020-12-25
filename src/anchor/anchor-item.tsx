@@ -2,6 +2,9 @@ import Vue, { VueConstructor } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP } from './utils';
+import props from '../../types/anchor-item/props';
+import { ScopedSlotReturnValue } from 'vue/types/vnode';
+
 const name = `${prefix}-anchor-item`;
 interface Anchor extends Vue {
   tAnchor: {
@@ -17,20 +20,13 @@ export default (Vue as VueConstructor<Anchor>).extend({
   name,
 
   props: {
+    ...props,
     href: {
       type: String,
       required: true,
-      validator(v) {
+      validator(v: string): boolean {
         return ANCHOR_SHARP_REGEXP.test(v);
       },
-    },
-    title: {
-      type: String,
-      default: '',
-    },
-    target: {
-      type: String,
-      default: '_self',
     },
   },
 
@@ -60,18 +56,40 @@ export default (Vue as VueConstructor<Anchor>).extend({
       this.tAnchor.unregisterLink(href);
     },
     handleClick(e: MouseEvent): void {
-      const { href, title, tAnchor } = this;
+      const { href, tAnchor, title } = this;
       tAnchor.handleScrollTo(href);
-      tAnchor.handleLinkClick({
-        href,
-        title,
-      }, e);
+      tAnchor.handleLinkClick(
+        {
+          href,
+          title: typeof title === 'string' ? title : undefined,
+        },
+        e
+      );
+    },
+    /**
+     * 更加props和slot渲染title
+     *
+     * @returns
+     */
+    renderTitle() {
+      const { title, $scopedSlots } = this;
+      const { title: titleSlot } = $scopedSlots;
+      let titleVal: ScopedSlotReturnValue;
+      if (typeof title === 'string') {
+        titleVal = title;
+      } else if (typeof title === 'function') {
+        titleVal = title(this.$createElement);
+      } else if (titleSlot) {
+        titleVal = titleSlot(null);
+      }
+      return titleVal;
     },
   },
   render() {
-    const { href, title, target, $scopedSlots, tAnchor } = this;
-    const titleAttr = typeof title === 'string' ? title : null;
+    const { href, target, $scopedSlots, tAnchor } = this;
     const { default: children, title: titleSlot } = $scopedSlots;
+    const title = this.renderTitle();
+    const titleAttr = typeof title === 'string' ? title : null;
     const active = tAnchor.active === href;
     const wrapperClass = {
       [name]: true,

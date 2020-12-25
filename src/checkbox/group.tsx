@@ -4,7 +4,7 @@ import Checkbox from './checkbox';
 
 const name = `${prefix}-checkbox-group`;
 
-interface OptionType {  value: string; label: VNode; disabled?: boolean }
+interface OptionType {  value: string | number; label: VNode; disabled?: boolean }
 
 export default Vue.extend({
   name,
@@ -20,7 +20,7 @@ export default Vue.extend({
   },
 
   props: {
-    value: { type: Array as PropType<Array<string>> },
+    value: { type: Array as PropType<Array<string | number>> },
     defaultValue: { type: Array },
     disabled: { type: Boolean, default: false },
     options: { type: Array as PropType<Array<OptionType>>, default: (): Array<OptionType>  => [] },
@@ -59,10 +59,8 @@ export default Vue.extend({
   },
 
   methods: {
-    handleCheckboxChange(e: Event) {
+    handleCheckboxChange(targetValue: string | number) {
       const value = this.value ? [...this.value] : [];
-      const target: HTMLInputElement = e.target as HTMLInputElement;
-      const targetValue: string = target.value;
       const valueIndex: number = value.indexOf(targetValue);
       if (valueIndex === -1) {
         value.push(targetValue);

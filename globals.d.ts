@@ -1,5 +1,24 @@
 declare const __VERSION__: string;
 
+declare type TNodeReturnValue = import('vue/types/vnode').ScopedSlotReturnValue;
+declare type TNode = (h?: Vue.CreateElement, props?: any) => TNodeReturnValue;
+declare type JsxNode = TNodeReturnValue;
+
+declare type OptionData = {
+  label?: string;
+  value?: string | number;
+} & { [key: string]: any };
+
+declare type SizeEnum = 'small' | 'medium' | 'large';
+
+declare type HorizontalAlignEnum = 'left' | 'center' | 'right';
+
+declare type VerticalAlignEnum = 'top' | 'middle' | 'bottom';
+
 declare type ClassName = { [className: string]: any } | ClassName[] | string;
-declare type JsxNode = import('vue').VNode | import('vue').VNode[] | string | undefined | null | JsxNode[];
-declare type TNode = () => import('vue').VNode | Element;
+
+declare interface Styles { [css: string]: string | number }
+
+declare type CSSSelector = string;
+
+declare type AttachNode = CSSSelector | (() => (Window | HTMLDocument | HTMLElement));

@@ -290,7 +290,7 @@ describe('Table', () => {
         expect(wrapper.find('.t-table--loading-async').exists()).toBe(true);
       });
     });
-    describe(':props.border, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height', () => {
+    describe(':props.bordered, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height', () => {
       it('size = "small", verticalAlign="middle"', () => {
         const wrapper = mount({
           render() {
@@ -298,7 +298,7 @@ describe('Table', () => {
               <Table
                 data={data}
                 columns={columns}
-                border={true}
+                bordered={true}
                 stripe={true}
                 size={'small'}
                 hover={true}
@@ -317,10 +317,10 @@ describe('Table', () => {
         });
         expect(wrapper).toMatchSnapshot();
       });
-      it('size = "default", verticalAlign="bottom"', () => {
+      it('size = "medium", verticalAlign="bottom"', () => {
         const wrapper = mount({
           render() {
-            return <Table size={'default'} verticalAlign={'bottom'}></Table>;
+            return <Table size={'medium'} verticalAlign={'bottom'}></Table>;
           },
         });
         expect(wrapper).toMatchSnapshot();
