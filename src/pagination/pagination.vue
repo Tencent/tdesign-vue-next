@@ -1,9 +1,11 @@
 <template>
   <div :class="_class" v-if="_pageCount > 1">
     <!--数据统计区-->
-    <template v-if="totalContent">
-      <div :class="_totalClass">{{ t(locale.total, { total: total }) }}</div>
-    </template>
+    <div v-if="totalContent" :class="_totalClass">
+      <slot name="totalContent">
+        {{ t(locale.total, { total: total }) }}
+      </slot>
+    </div>
     <!-- select-->
     <template v-if="pageSizeOption.length">
       <t-select
@@ -15,8 +17,8 @@
       >
         <t-option
           v-for="(item, index) in _pageSizeOption"
-          :value="item"
-          :label="t(locale.itemsPerPage, { size: item })"
+          :value="item.value"
+          :label="t(item.label, { size: item.value })"
           :key="index"
         >
         </t-option>
@@ -245,11 +247,22 @@ export default mixins(PaginationLocalReceiver).extend({
       }
       return ans;
     },
-    _pageSizeOption(): Array<number> {
-      const data = this.pageSizeOption as Array<number>;
-      return data.find(v => v === this.pageSize)
+    _pageSizeOption(): Array<{ label: string; value: number }> {
+      const { pageSize } = this;
+      const locale = this.locale as any;
+      const pageSizeOption = this.pageSizeOption as Array<number | { label: string; value: number }>;
+
+      const isNumber = (val: any) => /^[0-9]+$/.test(String(val));
+      const data = pageSizeOption.map((item: any) => ({
+        label: isNumber(item) ? locale.itemsPerPage : item.label.replace(/\d+/, '{size}'),
+        value: isNumber(item) ? item : item.value,
+      }));
+      return data.find(item => item.value === pageSize)
         ? data
-        : data.concat(this.pageSize).sort((a: number, b: number) => a - b);
+        : data.concat({
+          value: pageSize,
+          label: (data[0] && data[0].label) || locale.itemsPerPage,
+        }).sort((a: any, b: any) => a.value - b.value);
     },
 
     curPageLeftCount(): number {
