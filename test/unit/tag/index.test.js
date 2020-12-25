@@ -374,13 +374,27 @@ describe('Tag or CheckTag', () => {
   });
 
   describe('@event: CheckTag', () => {
-    it('Event passthrough: change', () => {
+    it('Event passthrough: click', () => {
       const fn = jest.fn();
       const wrapper = mount({
         render() {
-          return <CheckTag checked onChange={fn}>text</CheckTag>;
+          return <CheckTag checked onClick={fn}>text</CheckTag>;
         },
       });
+      wrapper.find(CheckTag).trigger('click');
+      expect(fn).toBeCalled();
+    });
+    it('Event passthrough: trigger onClick props', () => {
+      const fn = jest.fn();
+      const wrapper = mount({
+        render(h) {
+          return h(CheckTag, {
+            props: {
+              onClick: fn,
+            },
+          });
+        },
+      }).find(CheckTag);
       wrapper.find(CheckTag).trigger('click');
       expect(fn).toBeCalled();
     });
