@@ -22,6 +22,9 @@ export default Vue.extend({
     TIconClose,
   },
 
+  // 引入自动生成的 props 文件，
+  // import props from '../../types/message/props'
+  // props: { ...props }
   props: {
     theme: {
       type: String,
