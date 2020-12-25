@@ -1,53 +1,19 @@
-<template>
-  <button :class="classes" @click="toggle" :disabled="disabled">
-    <span :class="nodeClasses">
-      <t-icon-loading v-if="loading"/>
-    </span>
-    <div :class="contentClasses">
-      <template v-if="currentValue === activeValue">
-        <template v-if="typeof activeContent === 'string'">
-          {{ activeContent }}
-        </template>
-        <render-component :render="activeContent"
-                          v-else-if="typeof activeContent === 'function'" />
-        <slot name="label" :value="currentValue" v-else></slot>
-      </template>
-      <template v-if="currentValue === inactiveValue">
-        <template v-if="typeof inactiveContent === 'string'">
-          {{ inactiveContent }}
-        </template>
-        <render-component :render="inactiveContent"
-                          v-else-if="typeof inactiveContent === 'function'" />
-        <slot name="label" :value="currentValue" v-else></slot>
-      </template>
-
-    </div>
-  </button>
-</template>
-
-<script lang="ts">
-import Vue from 'vue';
-import config from '../config';
+import Vue, { VNode } from 'vue';
+import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import RenderComponent from '../utils/render-component';
 import TIconLoading from '../icon/loading';
 import { SwitchValue } from '../../types/switch/TdSwitchProps';
 import props from '../../types/switch/props';
 
-const { prefix } = config;
 const name = `${prefix}-switch`;
 
 export default Vue.extend({
   name,
-  components: {
-    RenderComponent,
-    TIconLoading,
-  },
+  props: { ...props },
   model: {
     prop: 'value',
     event: 'change',
   },
-  props: { ...props },
   data() {
     return {
       currentValue: this.value,
@@ -95,36 +61,38 @@ export default Vue.extend({
       }
       return false;
     },
-    activeContent(): TNodeReturnValue {
-      if (this.label && this.label[0]) {
-        return this.label[0];
-      }
-      return null;
-    },
-    inactiveContent(): TNodeReturnValue {
-      if (this.label && this.label[1]) {
-        return this.label[1];
+    content(): TNodeReturnValue {
+      if (typeof this.label === 'function') {
+        return this.label(this.$createElement, { value: this.currentValue });
+      } if (this.label instanceof Array) {
+        const label = this.currentValue === this.activeValue ? this.label[0] : this.label[1];
+        if (!label) return;
+        return this.formatLabel(label);
       }
       return null;
     },
   },
   watch: {
     value(val: SwitchValue): void {
-      if (this.customValue && !this.customValue.includes(val)) {
+      if (this.customValue && this.customValue.length && !this.customValue.includes(val)) {
         throw `value is not in ${JSON.stringify(this.customValue)}`;
       }
       this.currentValue = val;
     },
   },
   methods: {
+    formatLabel(label: string|Function): TNodeReturnValue {
+      return {
+        string: label,
+        function: typeof label === 'function' &&  label(this.$createElement),
+      }[typeof label];
+    },
     handleToggle(): void {
       const checked = this.currentValue === this.activeValue
         ? this.inactiveValue : this.activeValue;
-
       this.currentValue = checked;
       this.$emit('change', checked);
     },
-
     toggle(event: Event): void {
       event.preventDefault();
       if (this.disabled) {
@@ -133,6 +101,37 @@ export default Vue.extend({
       this.handleToggle();
     },
   },
-});
+  render(): VNode {
+    const {
+      loading,
+      disabled,
+      $scopedSlots,
+      content,
+      nodeClasses,
+      currentValue,
+      classes,
+      toggle,
+      contentClasses } = this;
 
-</script>
+    let switchContent: JsxNode;
+    let loadingContent: JsxNode;
+
+    if (loading) {
+      loadingContent = <TIconLoading/>;
+    } else if (content) {
+      switchContent = content;
+    } else if ($scopedSlots.label) {
+      switchContent = $scopedSlots.label({ value: currentValue });
+    }
+
+    return (
+      <button
+        class={classes}
+        disabled={disabled}
+        onClick={toggle}>
+          <span class={nodeClasses}>{loadingContent}</span>
+          <div class={contentClasses}>{switchContent}</div>
+      </button>
+    );
+  },
+});

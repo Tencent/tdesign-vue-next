@@ -13,6 +13,12 @@
       </t-switch>
     </div>
     <div class="tdesign-demo-block">
+      <t-switch v-model="renderChecked2" :label="renderContent">
+      </t-switch>
+      <t-switch :label="renderContent">
+      </t-switch>
+    </div>
+    <div class="tdesign-demo-block">
       <t-switch v-model="slotChecked">
         <template v-slot:label="slotProps">{{slotProps.value?'开':'关'}}</template>
       </t-switch>
@@ -37,6 +43,7 @@ export default {
     return {
       checked: true,
       renderChecked: true,
+      renderChecked2: true,
       slotChecked: true,
     };
   },
@@ -49,6 +56,9 @@ export default {
     },
     renderInactiveContent() {
       return (<t-icon name="close"/>);
+    },
+    renderContent(h, data) {
+      return data.value ? (<t-icon name="tick"/>) : (<t-icon name="close"/>);
     },
   },
 };
