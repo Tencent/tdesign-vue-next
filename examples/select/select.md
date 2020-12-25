@@ -5,7 +5,7 @@
 | 属性            | 类型                            | 默认值 | 必传 | 说明                                                                                                      |
 | --------------- | ------------------------------- | ------ | ---- | --------------------------------------------------------------------------------------------------------- |
 | value / v-model | string / number/ array / object | -      | Y    | 指定选中项目的 value 值，可以使用 v-model 双向绑定数据 |
-| size            | string                            | -      | N    | 尺寸，大、中（默认）、小，可选值为  large / default / small / 或者不填                                    |
+| size            | string                            | -      | N    | 尺寸，大、中（默认）、小，可选值为  large / medium / small / 或者不填                                    |
 | clearable       | boolean                         | false  | N    | 是否可以清空选项（单选时有效）                                                                               |
 | multiple        | boolean                         | false  | N    | 是否多选                                                                                                  |
 | disabled        | boolean                         | false  | N    | 是否禁用                                                                                                  |
