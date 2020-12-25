@@ -1,7 +1,7 @@
 import Vue, { VNode } from 'vue';
 import Icon from '../icon';
 import Button from '../button';
-import Popup from '../popup';
+import Popup from '../popup/index';
 import { prefix } from '../config';
 
 const name = `${prefix}-popconfirm`;
@@ -113,8 +113,8 @@ export default Vue.extend({
       }
       return (
         <Button size='small'
-          onclick={ this.handleCancel }
-        >{ this.cancelText }</Button>
+          onclick={this.handleCancel}
+        >{this.cancelText}</Button>
       );
     },
     renderConfirm(): JsxNode {
@@ -127,8 +127,8 @@ export default Vue.extend({
       return (
         <Button size='small'
           theme="primary"
-          onclick={ this.handleConfirm }
-        >{ this.confirmText }</Button>
+          onclick={this.handleConfirm}
+        >{this.confirmText}</Button>
       );
     },
   },
