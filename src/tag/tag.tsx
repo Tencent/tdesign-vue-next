@@ -68,7 +68,7 @@ export default Vue.extend({
     if (typeof this.icon === 'string') {
       icon = <Icon name={this.icon} />;
     } else if (typeof this.icon === 'function') {
-      icon = <i class={iconName}>{this.icon()}</i>;
+      icon = <i class={iconName}>{this.icon(this.$createElement)}</i>;
     }
 
     return (
