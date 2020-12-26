@@ -6,6 +6,7 @@ import props from '../../types/form-item/props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import Form from './form';
 
+type NormalizedScopedSlot = import('vue/types/vnode').NormalizedScopedSlot;
 type FormInstance = InstanceType<typeof Form>;
 
 const name = `${prefix}-form-item`;
@@ -128,14 +129,11 @@ export default Vue.extend({
         return <span class={CLASS_NAMES.extra}>{list[0].message}</span>;
       }
     },
-    // 只有true和function需要返回值，其他返回空
     getIcon(statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'], slotStatusIcon: NormalizedScopedSlot, props?: TdFormItemProps): TNodeReturnValue {
-      const resultIcon = (otherContent?: VNode | VNode[], iconName?: string) => (
-        <span class={CLASS_NAMES.status}>
-          {otherContent ? otherContent : <t-icon name={iconName} size="25px"/>}
-        </span>
+      const resultIcon = (otherContent: TNodeReturnValue) => (
+        <span class={CLASS_NAMES.status}>{otherContent}</span>
       );
-      if (statusIcon === false) return;
+      if (statusIcon === false) return null;
       if (typeof statusIcon === 'function') {
         // @ts-ignore
         return resultIcon(statusIcon(this.$createElement, props));
@@ -143,9 +141,17 @@ export default Vue.extend({
       if (typeof slotStatusIcon === 'function') {
         return resultIcon(slotStatusIcon(null));
       }
+      return null;
+    },
+    getDefaultIcon(): TNodeReturnValue {
+      const resultIcon = (iconName: string) => (
+        <span class={CLASS_NAMES.status}>
+          <t-icon name={iconName} size="25px"/>
+        </span>
+      );
       const list = this.errorList;
       if (this.verifyStatus === 'success') {
-        return resultIcon(null, 'check-circle-filled');
+        return resultIcon('check-circle-filled');
       }
       if (list && list[0]) {
         const type = this.errorList[0].type || 'error';
@@ -156,8 +162,9 @@ export default Vue.extend({
         if (type === 'warning') {
           iconName = 'error-circle-filled';
         }
-        return resultIcon(null, iconName);
+        return resultIcon(iconName);
       }
+      return null;
     },
     getSuffixIcon(): TNodeReturnValue {
       const parent = this.$parent as FormInstance;
@@ -165,13 +172,11 @@ export default Vue.extend({
       const slotStatusIcon = this.$scopedSlots.statusIcon;
       const parentStatusIcon = parent.statusIcon;
       const parentSlotStatusIcon = parent.$scopedSlots.statusIcon;
-      if (statusIcon === undefined && parentStatusIcon === undefined) {
-        return;
-      }
-      if (statusIcon === undefined && (typeof slotStatusIcon !== 'function')) {
-        return this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
-      }
-      return this.getIcon(statusIcon, slotStatusIcon);
+      let getIcon: TNodeReturnValue = this.getIcon(statusIcon, slotStatusIcon);
+      if (getIcon) return getIcon;
+      getIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
+      if (getIcon) return getIcon;
+      if (statusIcon === true || (statusIcon === undefined && parentStatusIcon === true)) return this.getDefaultIcon();
     },
     resetField(): void {
       this.errorList = [];

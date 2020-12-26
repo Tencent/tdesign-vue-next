@@ -1,7 +1,6 @@
 declare const __VERSION__: string;
 
 declare type TNodeReturnValue = import('vue/types/vnode').ScopedSlotReturnValue;
-declare type NormalizedScopedSlot = import('vue/types/vnode').NormalizedScopedSlot;
 declare type TNode<T = any> = (h: Vue.CreateElement, props?: T) => TNodeReturnValue;
 declare type JsxNode = TNodeReturnValue;
 
