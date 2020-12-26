@@ -66,9 +66,7 @@ export default {
         warning: [
           { required: true, message: '必填', type: 'warning' },
         ],
-        success: [
-          { required: true, message: '必填', type: 'success' },
-        ],
+        success: [],
         failB: [
           { required: true, message: '必填', type: 'error' },
         ],

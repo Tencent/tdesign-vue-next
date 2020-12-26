@@ -50,9 +50,10 @@ export default Vue.extend({
     errorClasses(): string {
       const parent = this.$parent as FormInstance;
       if (!parent.showErrorMessage) return '';
+      if (this.verifyStatus === 'success') return CLASS_NAMES.success;
       if (!this.errorList.length) return;
       const type = this.errorList[0].type || 'error';
-      return `t-is-${type}`;
+      return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
     },
     contentClasses(): ClassName {
       const getErrorClass: string = this.errorClasses;
@@ -86,20 +87,27 @@ export default Vue.extend({
       const rules: ErrorList = parent && parent.rules;
       return (rules && rules[this.name]) || (this.rules || []);
     },
+    statusIconType(): string {
+      return typeof this.statusIcon;
+    },
+    parentStatusIconType(): string {
+      const parent = this.$parent as FormInstance;
+      return typeof parent.statusIcon;
+    },
     getSuffixIcon(): TNodeReturnValue {
       const list = this.errorList;
       const parent = this.$parent as FormInstance;
-      const resultIcon = (otherContent?: VNode | VNode[], iconName?: string, style?: string) => (
+      const resultIcon = (otherContent?: VNode | VNode[], iconName?: string) => (
         <span class={CLASS_NAMES.status}>
-          {otherContent ? otherContent : <t-icon name={iconName} size="25px" style={style || ''}/>}
+          {otherContent ? otherContent : <t-icon name={iconName} size="25px"/>}
         </span>
       );
-      if (typeof this.statusIcon === 'boolean' && !this.statusIcon) return;
-      if (typeof parent.statusIcon === 'boolean' && !parent.statusIcon) return;
-      if (typeof this.statusIcon === 'function') {
+      if (this.statusIconType === 'boolean' && !this.statusIcon) return;
+      if (this.parentStatusIconType === 'boolean' && !parent.statusIcon) return;
+      if (this.statusIconType === 'function') {
         return resultIcon(this.statusIcon(this.$createElement, this.$props) as VNode);
       }
-      if (typeof parent.statusIcon === 'function') {
+      if (this.parentStatusIconType === 'function') {
         return resultIcon(parent.statusIcon(this.$createElement, this.$props));
       }
       if (typeof this.$scopedSlots.statusIcon === 'function') {
@@ -109,7 +117,7 @@ export default Vue.extend({
         return resultIcon(parent.$scopedSlots.statusIcon(null));
       }
       if (this.verifyStatus === 'success') {
-        return resultIcon(null, 'check-circle-filled', 'color: #00A870');
+        return resultIcon(null, 'check-circle-filled');
       }
       if (list && list[0]) {
         const type = this.errorList[0].type || 'error';

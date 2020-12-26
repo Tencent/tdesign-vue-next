@@ -24,8 +24,7 @@ function getStringLength(str: string): number {
     if (str.charCodeAt(i) > 127 || str.charCodeAt(i) === 94) {
       len += 2;
     } else {
-      // eslint-disable-next-line no-plusplus
-      len++;
+      len = len + 1;
     }
   }
   return len;
