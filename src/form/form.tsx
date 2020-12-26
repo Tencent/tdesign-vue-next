@@ -66,7 +66,7 @@ export default Vue.extend({
           });
       });
     },
-    submitHandler(e: Event) {
+    submitHandler(e: MouseEvent) {
       this.validate().then((r) => {
         this.emitEvent('submit', {
           result: r,
@@ -75,7 +75,7 @@ export default Vue.extend({
         });
       });
     },
-    resetHandler(e: Event) {
+    resetHandler(e: MouseEvent) {
       this.emitEvent('reset', { e });
       this.$children
         .filter((child: any) => this.isFunction(child.resetField))
