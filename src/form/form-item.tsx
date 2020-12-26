@@ -1,7 +1,7 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import { validate } from './formModel';
-import { ErrorList, ValidateResult, ValueType } from '../../types/form/TdFormProps';
+import { ErrorList, ValidateResult, ValueType, TdFormProps, TdFormItemProps } from '../../types/form/TdFormProps';
 import props from '../../types/form-item/props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import Form from './form';
@@ -87,51 +87,6 @@ export default Vue.extend({
       const rules: ErrorList = parent && parent.rules;
       return (rules && rules[this.name]) || (this.rules || []);
     },
-    statusIconType(): string {
-      return typeof this.statusIcon;
-    },
-    parentStatusIconType(): string {
-      const parent = this.$parent as FormInstance;
-      return typeof parent.statusIcon;
-    },
-    getSuffixIcon(): TNodeReturnValue {
-      const list = this.errorList;
-      const parent = this.$parent as FormInstance;
-      const resultIcon = (otherContent?: VNode | VNode[], iconName?: string) => (
-        <span class={CLASS_NAMES.status}>
-          {otherContent ? otherContent : <t-icon name={iconName} size="25px"/>}
-        </span>
-      );
-      if (this.statusIconType === 'boolean' && !this.statusIcon) return;
-      if (this.parentStatusIconType === 'boolean' && !parent.statusIcon) return;
-      if (this.statusIconType === 'function') {
-        return resultIcon(this.statusIcon(this.$createElement, this.$props));
-      }
-      if (this.parentStatusIconType === 'function') {
-        return resultIcon(parent.statusIcon(this.$createElement, this.$props));
-      }
-      if (typeof this.$scopedSlots.statusIcon === 'function') {
-        return resultIcon(this.$scopedSlots.statusIcon(null));
-      }
-      if (typeof parent.$scopedSlots.statusIcon === 'function') {
-        return resultIcon(parent.$scopedSlots.statusIcon(null));
-      }
-      if (this.verifyStatus === 'success') {
-        return resultIcon(null, 'check-circle-filled');
-      }
-      if (list && list[0]) {
-        const type = this.errorList[0].type || 'error';
-        let iconName = 'check-circle-filled';
-        if (type === 'error') {
-          iconName = 'clear-circle-filled';
-        }
-        if (type === 'warning') {
-          iconName = 'error-circle-filled';
-        }
-        return resultIcon(null, iconName);
-      }
-      return null;
-    },
   },
 
   watch: {
@@ -173,6 +128,51 @@ export default Vue.extend({
         return <span class={CLASS_NAMES.extra}>{list[0].message}</span>;
       }
     },
+    // 只有true和function需要返回值，其他返回空
+    getIcon(statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'], slotStatusIcon: Function, props?: TdFormItemProps): TNodeReturnValue {
+      const resultIcon = (otherContent?: VNode | VNode[], iconName?: string) => (
+        <span class={CLASS_NAMES.status}>
+          {otherContent ? otherContent : <t-icon name={iconName} size="25px"/>}
+        </span>
+      );
+      if (statusIcon === false) return;
+      if (typeof statusIcon === 'function') {
+        // @ts-ignore
+        return resultIcon(statusIcon(this.$createElement, props));
+      }
+      if (typeof slotStatusIcon === 'function') {
+        return resultIcon(slotStatusIcon(null));
+      }
+      const list = this.errorList;
+      if (this.verifyStatus === 'success') {
+        return resultIcon(null, 'check-circle-filled');
+      }
+      if (list && list[0]) {
+        const type = this.errorList[0].type || 'error';
+        let iconName = 'check-circle-filled';
+        if (type === 'error') {
+          iconName = 'clear-circle-filled';
+        }
+        if (type === 'warning') {
+          iconName = 'error-circle-filled';
+        }
+        return resultIcon(null, iconName);
+      }
+    },
+    getSuffixIcon(): TNodeReturnValue {
+      const parent = this.$parent as FormInstance;
+      const { statusIcon } = this;
+      const slotStatusIcon = this.$scopedSlots.statusIcon;
+      const parentStatusIcon = parent.statusIcon;
+      const parentSlotStatusIcon = parent.$scopedSlots.statusIcon;
+      if (statusIcon === undefined && parentStatusIcon === undefined) {
+        return;
+      }
+      if (statusIcon === undefined && (typeof slotStatusIcon !== 'function')) {
+        return this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
+      }
+      return this.getIcon(statusIcon, slotStatusIcon);
+    },
     resetField(): void {
       this.errorList = [];
       this.verifyStatus = 'no';
@@ -190,7 +190,7 @@ export default Vue.extend({
         <div class={this.contentClasses}>
           <div class={CLASS_NAMES.controlsContent}>
             {this.$slots.default}
-            {this.getSuffixIcon}
+            {this.getSuffixIcon()}
           </div>
           {this.renderTipsInfo()}
         </div>
