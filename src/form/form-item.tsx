@@ -129,7 +129,7 @@ export default Vue.extend({
       }
     },
     // 只有true和function需要返回值，其他返回空
-    getIcon(statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'], slotStatusIcon: Function, props?: TdFormItemProps): TNodeReturnValue {
+    getIcon(statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'], slotStatusIcon: NormalizedScopedSlot, props?: TdFormItemProps): TNodeReturnValue {
       const resultIcon = (otherContent?: VNode | VNode[], iconName?: string) => (
         <span class={CLASS_NAMES.status}>
           {otherContent ? otherContent : <t-icon name={iconName} size="25px"/>}
