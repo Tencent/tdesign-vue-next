@@ -135,7 +135,6 @@ export default Vue.extend({
       );
       if (statusIcon === false) return null;
       if (typeof statusIcon === 'function') {
-        // @ts-ignore
         return resultIcon(statusIcon(this.$createElement, props));
       }
       if (typeof slotStatusIcon === 'function') {
