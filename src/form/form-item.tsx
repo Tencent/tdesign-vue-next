@@ -171,10 +171,10 @@ export default Vue.extend({
       const slotStatusIcon = this.$scopedSlots.statusIcon;
       const parentStatusIcon = parent.statusIcon;
       const parentSlotStatusIcon = parent.$scopedSlots.statusIcon;
-      let getIcon: TNodeReturnValue = this.getIcon(statusIcon, slotStatusIcon);
-      if (getIcon) return getIcon;
-      getIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
-      if (getIcon) return getIcon;
+      let resultIcon: TNodeReturnValue = this.getIcon(statusIcon, slotStatusIcon);
+      if (resultIcon) return resultIcon;
+      resultIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
+      if (resultIcon) return resultIcon;
       if (statusIcon === true || (statusIcon === undefined && parentStatusIcon === true)) return this.getDefaultIcon();
     },
     resetField(): void {
