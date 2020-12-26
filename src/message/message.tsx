@@ -7,6 +7,7 @@ import TIconHelpFill from '../icon/help-circle-filled';
 import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
 import { THEME_LIST } from './const';
+import props from '../../types/message/props'; // 引入自动生成的 props 文件
 
 const name = `${prefix}-message`;
 
@@ -22,25 +23,7 @@ export default Vue.extend({
     TIconClose,
   },
 
-  // 引入自动生成的 props 文件，
-  // import props from '../../types/message/props'
-  // props: { ...props }
-  props: {
-    theme: {
-      type: String,
-      default: THEME_LIST[0],
-      validator(val: string): boolean {
-        return THEME_LIST.includes(val);
-      },
-    },
-    duration: Number,
-    closeBtn: [Boolean, String, Function],
-    icon: {
-      type: [Boolean, Function],
-      default: true,
-    },
-    content: [String, Function],
-  },
+  props: { ...props },
 
   data() {
     return {
@@ -73,28 +56,34 @@ export default Vue.extend({
       this.timer = Number(setTimeout(() => {
         this.clearTimer();
         this.$emit('duration-end', this);
+        if (this.onDurationEnd) {
+          this.onDurationEnd();
+        };
       }, this.duration));
     },
     clearTimer() {
       clearTimeout(this.timer);
     },
-    close(e?: Event) {
+    close(e?: MouseEvent) {
       this.$emit('click-close-btn', e, this);
+      if (this.onClickCloseBtn) {
+        this.onClickCloseBtn(e);
+      };
     },
-    renderClose() {
+    renderClose(h: Vue.CreateElement) {
       if (typeof this.closeBtn === 'string') {
         return <span class='t-message-close' onClick={this.close}>{this.closeBtn}</span>;
       }
-      if (typeof this.closeBtn === 'function') return this.closeBtn(this.close);
+      if (typeof this.closeBtn === 'function') return <span class='t-message-close' onClick={this.close}>{this.closeBtn(h)}</span>;
       if (typeof this.$scopedSlots.closeBtn === 'function') {
-        return this.$scopedSlots.closeBtn(null);
+        return <span class='t-message-close' onClick={this.close}>{this.$scopedSlots.closeBtn(null)}</span>;
       }
       if (this.closeBtn === false) return;
       return <t-icon-close nativeOnClick={this.close} class='t-message-close' />;
     },
-    renderIcon() {
+    renderIcon(h: Vue.CreateElement) {
       if (this.icon === false) return;
-      if (typeof this.icon === 'function') return this.icon();
+      if (typeof this.icon === 'function') return this.icon(h);
       if (this.$scopedSlots.icon) {
         return this.$scopedSlots.icon(null);
       }
@@ -108,19 +97,19 @@ export default Vue.extend({
       }[this.theme];
       return <component></component>;
     },
-    renderContent() {
+    renderContent(h: Vue.CreateElement) {
       if (typeof this.content === 'string') return this.content;
-      if (typeof this.content === 'function') return this.content();
+      if (typeof this.content === 'function') return this.content(h);
       return this.$scopedSlots.default && this.$scopedSlots.default(null);
     },
   },
 
-  render() {
+  render(h) {
     return (
       <div class={ this.classes } onMouseenter={ this.clearTimer } onMouseleave={ this.setTimer }>
-        { this.renderIcon() }
-        { this.renderContent() }
-        { this.renderClose() }
+        { this.renderIcon(h) }
+        { this.renderContent(h) }
+        { this.renderClose(h) }
       </div>
     );
   },

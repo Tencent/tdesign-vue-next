@@ -29,7 +29,7 @@ closed | - | 消息隐藏动画结束时触发
 message | String / Object | - | 消息内容。TS 类型：`string | TdMessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 
-插件返回值：Promise<MessageInstance>
+插件返回值：`Promise<MessageInstance>`
 
 
 ### this.$message
@@ -39,7 +39,7 @@ theme | String | - | 消息类型。TS 类型：`ThemeList`
 message | String / Object | - | 消息内容。TS 类型：`string | TdMessageProps`
 duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 
-插件返回值：Promise<MessageInstance>【interface MessageInstance { close: () => void }】
+插件返回值：`Promise<MessageInstance>`【interface MessageInstance { close: () => void }】
 
 
 ### this.$message.error
@@ -48,7 +48,7 @@ duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 message | String / Object | - | 消息内容。TS 类型：`string | TdMessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 
-插件返回值：Promise<MessageInstance>
+插件返回值：`Promise<MessageInstance>`
 
 
 ### this.$message.warning
@@ -57,7 +57,7 @@ duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 message | String / Object | - | 消息内容。TS 类型：`string | TdMessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 
-插件返回值：Promise<MessageInstance>
+插件返回值：`Promise<MessageInstance>`
 
 
 ### this.$message.success
@@ -66,7 +66,7 @@ duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 message | String / Object | - | 消息内容。TS 类型：`string | TdMessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 
-插件返回值：Promise<MessageInstance>
+插件返回值：`Promise<MessageInstance>`
 
 
 ### this.$message.loading
@@ -75,7 +75,7 @@ duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 message | String / Object | - | 消息内容。TS 类型：`string | TdMessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 
-插件返回值：Promise<MessageInstance>
+插件返回值：`Promise<MessageInstance>`
 
 
 ### this.$message.question
@@ -84,7 +84,7 @@ duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 message | String / Object | - | 消息内容。TS 类型：`string | TdMessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，值为 0 表示永久显示
 
-插件返回值：Promise<MessageInstance>
+插件返回值：`Promise<MessageInstance>`
 
 
 ### this.$message.close
