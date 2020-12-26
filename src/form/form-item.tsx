@@ -105,7 +105,7 @@ export default Vue.extend({
       if (this.statusIconType === 'boolean' && !this.statusIcon) return;
       if (this.parentStatusIconType === 'boolean' && !parent.statusIcon) return;
       if (this.statusIconType === 'function') {
-        return resultIcon(this.statusIcon(this.$createElement, this.$props) as VNode);
+        return resultIcon(this.statusIcon(this.$createElement, this.$props));
       }
       if (this.parentStatusIconType === 'function') {
         return resultIcon(parent.statusIcon(this.$createElement, this.$props));
