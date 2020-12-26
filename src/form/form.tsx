@@ -1,6 +1,7 @@
-import Vue, { CreateElement, PropType, VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
-import { FormData, FormValidateResult, TdFormRule, ErrorList, TdFormItemProps } from '../../types/form/TdFormProps';
+import { FormValidateResult, TdFormRule } from '../../types/form/TdFormProps';
+import props from '../../types/form/props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import isEmpty from 'lodash/isEmpty';
 
@@ -9,55 +10,7 @@ const name = `${prefix}-form`;
 export default Vue.extend({
   name,
 
-  props: {
-    data: {
-      type: Object as PropType<FormData>,
-    },
-    layout: {
-      type: String,
-      default: 'vertical',
-      validator(val): boolean {
-        return ['vertical', 'inline'].includes(val);
-      },
-    },
-    labelAlign: {
-      type: String,
-      default: 'right',
-      validator(val): boolean {
-        return ['left', 'right', 'top'].includes(val);
-      },
-    },
-    size: {
-      type: String,
-      default: 'medium',
-      validator(val): boolean {
-        return ['medium', 'large'].includes(val);
-      },
-    },
-    colon: Boolean,
-    labelWidth: [Number, String],
-    requiredMark: {
-      type: Boolean,
-      default: true,
-    },
-    scrollToFirstError: {
-      type: [String],
-      validator(val): boolean {
-        return ['', 'auto', 'smooth'].includes(val);
-      },
-    },
-    showErrorMessage: {
-      type: Boolean,
-      default: true,
-    },
-    statusIcon: {
-      type: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: TdFormItemProps) => TNodeReturnValue)>,
-      default: false,
-    },
-    rules: Object as PropType<ErrorList>,
-    onReset: Function as PropType<() => void>,
-    onSubmit: Function as PropType<(validateResult: FormValidateResult) => void>,
-  },
+  props: { ...props },
 
   computed: {
     formClass(): ClassName {
