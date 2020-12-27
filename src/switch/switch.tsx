@@ -67,7 +67,12 @@ export default Vue.extend({
       } if (this.label instanceof Array) {
         const label = this.currentValue === this.activeValue ? this.label[0] : this.label[1];
         if (!label) return;
-        return this.formatLabel(label);
+        if (typeof label === 'string') {
+          return label;
+        } if (typeof label === 'function') {
+          return label(this.$createElement);
+        }
+        return null;
       }
       return null;
     },
@@ -81,19 +86,14 @@ export default Vue.extend({
     },
   },
   methods: {
-    formatLabel(label: string|Function): TNodeReturnValue {
-      return {
-        string: label,
-        function: typeof label === 'function' &&  label(this.$createElement),
-      }[typeof label];
-    },
     handleToggle(): void {
       const checked = this.currentValue === this.activeValue
         ? this.inactiveValue : this.activeValue;
       this.currentValue = checked;
+      typeof this.onChange === 'function' && this.onChange(this.currentValue);
       this.$emit('change', checked);
     },
-    toggle(event: Event): void {
+    toggle(event: MouseEvent): void {
       event.preventDefault();
       if (this.disabled) {
         return;
@@ -113,8 +113,8 @@ export default Vue.extend({
       toggle,
       contentClasses } = this;
 
-    let switchContent: JsxNode;
-    let loadingContent: JsxNode;
+    let switchContent: TNodeReturnValue;
+    let loadingContent: TNodeReturnValue;
 
     if (loading) {
       loadingContent = <TIconLoading/>;
@@ -128,7 +128,8 @@ export default Vue.extend({
       <button
         class={classes}
         disabled={disabled}
-        onClick={toggle}>
+        onClick={toggle}
+        >
           <span class={nodeClasses}>{loadingContent}</span>
           <div class={contentClasses}>{switchContent}</div>
       </button>
