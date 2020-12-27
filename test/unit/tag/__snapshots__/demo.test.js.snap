@@ -10,9 +10,6 @@ exports[`Tag base demo works fine 1`] = `
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       默认
     </span>
      
@@ -22,9 +19,6 @@ exports[`Tag base demo works fine 1`] = `
       <span
         class="t-tag t-tag--default t-size-m t-tag--dark"
       >
-        <i
-          class="t-icon t-icon-"
-        />
         超链接
       </span>
     </a>
@@ -42,9 +36,6 @@ exports[`Tag delete demo works fine 1`] = `
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       
       隐藏叉
     
@@ -52,9 +43,6 @@ exports[`Tag delete demo works fine 1`] = `
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       
       显示叉
     
@@ -79,9 +67,6 @@ exports[`Tag delete demo works fine 1`] = `
       class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis"
       style="max-width: 150px;"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       
       默认超过八个字超出部分隐藏
     
@@ -163,9 +148,6 @@ exports[`Tag long-text demo works fine 1`] = `
     style="max-width: 150px;"
     title="超长省略文本标签超长省略文本标签"
   >
-    <i
-      class="t-icon t-icon-"
-    />
     超长省略文本标签超长省略文本标签
   </span>
 </div>
@@ -178,45 +160,30 @@ exports[`Tag plain demo works fine 1`] = `
   <span
     class="t-tag t-tag--primary t-size-m t-tag--plain"
   >
-    <i
-      class="t-icon t-icon-"
-    />
     标签一
   </span>
    
   <span
     class="t-tag t-tag--success t-size-m t-tag--plain"
   >
-    <i
-      class="t-icon t-icon-"
-    />
     标签二
   </span>
    
   <span
     class="t-tag t-tag--info t-size-m t-tag--plain"
   >
-    <i
-      class="t-icon t-icon-"
-    />
     标签三
   </span>
    
   <span
     class="t-tag t-tag--warning t-size-m t-tag--plain"
   >
-    <i
-      class="t-icon t-icon-"
-    />
     标签四
   </span>
    
   <span
     class="t-tag t-tag--danger t-size-m t-tag--plain"
   >
-    <i
-      class="t-icon t-icon-"
-    />
     标签五
   </span>
 </div>
@@ -274,18 +241,12 @@ exports[`Tag shape demo works fine 1`] = `
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签一
     </span>
      
     <span
       class="t-tag t-tag--primary t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签一
     </span>
   </div>
@@ -299,18 +260,12 @@ exports[`Tag shape demo works fine 1`] = `
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark t-tag--round"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签一
     </span>
      
     <span
       class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--round"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签一
     </span>
   </div>
@@ -324,18 +279,12 @@ exports[`Tag shape demo works fine 1`] = `
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark t-tag--mark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签一
     </span>
      
     <span
       class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--mark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签一
     </span>
   </div>
@@ -352,27 +301,18 @@ exports[`Tag size demo works fine 1`] = `
     <span
       class="t-tag t-tag--default t-size-s t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签 小
     </span>
      
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签 中
     </span>
      
     <span
       class="t-tag t-tag--default t-size-l t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签 大
     </span>
   </div>
@@ -383,27 +323,18 @@ exports[`Tag size demo works fine 1`] = `
     <span
       class="t-tag t-tag--primary t-size-s t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签 小
     </span>
      
     <span
       class="t-tag t-tag--primary t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签 中
     </span>
      
     <span
       class="t-tag t-tag--primary t-size-l t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签 大
     </span>
   </div>
@@ -423,45 +354,30 @@ exports[`Tag theme demo works fine 1`] = `
     <span
       class="t-tag t-tag--primary t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签一
     </span>
      
     <span
       class="t-tag t-tag--success t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签二
     </span>
      
     <span
       class="t-tag t-tag--info t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签三
     </span>
      
     <span
       class="t-tag t-tag--warning t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签四
     </span>
      
     <span
       class="t-tag t-tag--danger t-size-m t-tag--dark"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签五
     </span>
   </div>
@@ -475,45 +391,30 @@ exports[`Tag theme demo works fine 1`] = `
     <span
       class="t-tag t-tag--primary t-size-m t-tag--light"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签一
     </span>
      
     <span
       class="t-tag t-tag--success t-size-m t-tag--light"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签二
     </span>
      
     <span
       class="t-tag t-tag--info t-size-m t-tag--light"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签三
     </span>
      
     <span
       class="t-tag t-tag--warning t-size-m t-tag--light"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签四
     </span>
      
     <span
       class="t-tag t-tag--danger t-size-m t-tag--light"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签五
     </span>
   </div>
@@ -527,45 +428,30 @@ exports[`Tag theme demo works fine 1`] = `
     <span
       class="t-tag t-tag--primary t-size-m t-tag--plain"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签一
     </span>
      
     <span
       class="t-tag t-tag--success t-size-m t-tag--plain"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签二
     </span>
      
     <span
       class="t-tag t-tag--info t-size-m t-tag--plain"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签三
     </span>
      
     <span
       class="t-tag t-tag--warning t-size-m t-tag--plain"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签四
     </span>
      
     <span
       class="t-tag t-tag--danger t-size-m t-tag--plain"
     >
-      <i
-        class="t-icon t-icon-"
-      />
       标签五
     </span>
   </div>
