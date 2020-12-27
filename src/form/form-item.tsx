@@ -5,8 +5,8 @@ import { ErrorList, ValidateResult, ValueType, TdFormProps, TdFormItemProps } fr
 import props from '../../types/form-item/props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import Form from './form';
+import { NormalizedScopedSlot } from 'vue/types/vnode';
 
-type NormalizedScopedSlot = import('vue/types/vnode').NormalizedScopedSlot;
 type FormInstance = InstanceType<typeof Form>;
 
 const name = `${prefix}-form-item`;
@@ -129,19 +129,6 @@ export default Vue.extend({
         return <span class={CLASS_NAMES.extra}>{list[0].message}</span>;
       }
     },
-    getIcon(statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'], slotStatusIcon: NormalizedScopedSlot, props?: TdFormItemProps): TNodeReturnValue {
-      const resultIcon = (otherContent: TNodeReturnValue) => (
-        <span class={CLASS_NAMES.status}>{otherContent}</span>
-      );
-      if (statusIcon === false) return null;
-      if (typeof statusIcon === 'function') {
-        return resultIcon(statusIcon(this.$createElement, props));
-      }
-      if (typeof slotStatusIcon === 'function') {
-        return resultIcon(slotStatusIcon(null));
-      }
-      return null;
-    },
     getDefaultIcon(): TNodeReturnValue {
       const resultIcon = (iconName: string) => (
         <span class={CLASS_NAMES.status}>
@@ -165,6 +152,28 @@ export default Vue.extend({
       }
       return null;
     },
+    getIcon(
+      statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'],
+      slotStatusIcon: NormalizedScopedSlot,
+      props?: TdFormItemProps
+    ): TNodeReturnValue {
+      const resultIcon = (otherContent?: TNodeReturnValue) => (
+        <span class={CLASS_NAMES.status}>{otherContent}</span>
+      );
+      if (statusIcon === true) {
+        return this.getDefaultIcon();
+      }
+      if (statusIcon === false) {
+        return <span />;
+      }
+      if (typeof statusIcon === 'function') {
+        return resultIcon(statusIcon(this.$createElement, props));
+      }
+      if (typeof slotStatusIcon === 'function') {
+        return resultIcon(slotStatusIcon(null));
+      }
+      return null;
+    },
     getSuffixIcon(): TNodeReturnValue {
       const parent = this.$parent as FormInstance;
       const { statusIcon } = this;
@@ -175,7 +184,6 @@ export default Vue.extend({
       if (resultIcon) return resultIcon;
       resultIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
       if (resultIcon) return resultIcon;
-      if (statusIcon === true || (statusIcon === undefined && parentStatusIcon === true)) return this.getDefaultIcon();
     },
     resetField(): void {
       this.errorList = [];
