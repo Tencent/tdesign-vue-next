@@ -2,7 +2,7 @@ import Vue from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { prefix } from '../config';
-import { MessageProps } from './type';
+import { TdMessageProps, MessageInstance } from '../../types/message/TdMessageProps';
 
 export const DEFAULT_Z_INDEX = 6000;
 
@@ -37,13 +37,13 @@ export const MessageList = Vue.extend({
     },
     on() {
       return {
-        'click-close-btn': (e: Event, instance: any) => this.remove(instance),
-        'duration-end': (instance: any) => this.remove(instance),
+        'click-close-btn': (e: Event, instance: MessageInstance) => this.remove(instance),
+        'duration-end': (instance: MessageInstance) => this.remove(instance),
       };
     },
   },
   methods: {
-    add(msg: MessageProps): number {
+    add(msg: TdMessageProps): number {
       const _msg = Object.assign({}, msg, {
         key: getUniqueId(),
       });
