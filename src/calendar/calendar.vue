@@ -235,9 +235,9 @@ export default mixins().extend({
       default: (): CalendarRange => null,
       validator(v: CalendarRange): boolean {
         if (v) {
-          const from = v.from as Date;
-          const to = v.to as Date;
-          return to.getTime() - from.getTime() >= 0;
+          const from = dayjs(v.from);
+          const to = dayjs(v.to);
+          return to.isSame(from) || to.isAfter(from);
         }
         return true;
       },

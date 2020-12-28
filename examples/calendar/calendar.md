@@ -65,13 +65,13 @@
 ### Calendar Props
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 |-----|-----|-----|-----|-----|
-|value|Date|new Date()|N|指定高亮日期|
-|firstDayOfWeek|number|1|N|周起始日（可以设置第一列显示周几，其他列就顺延下去），mode为“month”的时候有效；传入的值得必须是整数1到7其中之一|
-|theme|string|"full"|N|风格，传入值必须是"full"或"card"|
-|mode|string|"month"|N|模式，传入值必须是"month"或"year"|
-|range|{from:Date, to:Date}|-|N|自定义日历的年月份显示范围（包含from和to）|
-|preventCellContextmenu|boolean|false|N|是否禁用单元格右键默认系统菜单|
-|isShowWeekendDefault|boolean|true|N|默认是否显示周末|
+|value|String/Date|当前日期|N|指定高亮日期|
+|firstDayOfWeek|Number|1|N|周起始日（可以设置第一列显示周几，其他列就顺延下去），mode为“month”的时候有效；传入的值得必须是整数1到7其中之一|
+|theme|String|"full"|N|风格，传入值必须是"full"或"card"|
+|mode|String|"month"|N|模式，传入值必须是"month"或"year"|
+|range|{from:String/Date, to:String/Date}|-|N|自定义日历的年月份显示范围（包含from<=to）|
+|preventCellContextmenu|Boolean|false|N|是否禁用单元格右键默认系统菜单|
+|isShowWeekendDefault|Boolean|true|N|默认是否显示周末|
 |controllerConfig|object|[见下方]|-|右上角控件组的相关配置|
 
 ```
@@ -127,23 +127,23 @@ controllerConfig 属性的结构示例如下：
 ```
 slot cell\cellAppend 的data包含字段说明：
 {
-  mode:string,    // 当前的模式("month"或"year")
-  theme:string,   // 风格类型（"full"或"card"）
+  mode:String,    // 当前的模式("month"或"year")
+  theme:String,   // 风格类型（"full"或"card"）
   date:Date,      // 单元格对应的日期
-  year:number,    // 单元格对应的年份
-  month:number,   // 单元格对应的月份
+  year:Number,    // 单元格对应的年份
+  month:Number,   // 单元格对应的月份
 
   // 当mode为"month"（日历）时，有以下其他字段
-  belongTo:number,      // 值为0表示是当前日历显示的月份中的日期，为-1表示是上个月的，为1表示是下个月的
-  dateDiaplay:string,   // 单元格默认显示的内容
-  day:number,           // 单元格对应的星期（1~7，表示周一到周日）
-  isCurDate:boolean,    // 是否当前日期（高亮）
-  isWeekend:boolean,    // 是否是周末
-  weekNum:number,       // 对应本月的第几周
+  belongTo:Number,      // 值为0表示是当前日历显示的月份中的日期，为-1表示是上个月的，为1表示是下个月的
+  dateDiaplay:String,   // 单元格默认显示的内容
+  day:Number,           // 单元格对应的星期（1~7，表示周一到周日）
+  isCurDate:Boolean,    // 是否当前日期（高亮）
+  isWeekend:Boolean,    // 是否是周末
+  weekNum:Number,       // 对应本月的第几周
   
   // 当mode为"year"（月历）时，有以下其他字段
-  monthDiaplay:string,  // 单元格默认显示的内容
-  isCurMon:boolean,     // 是否当前月份（对应高亮月份）
-  isCurYear:boolean,    // 是否当年份（对应高亮月份）
+  monthDiaplay:String,  // 单元格默认显示的内容
+  isCurMon:Boolean,     // 是否当前月份（对应高亮月份）
+  isCurYear:Boolean,    // 是否当年份（对应高亮月份）
 }
 ```

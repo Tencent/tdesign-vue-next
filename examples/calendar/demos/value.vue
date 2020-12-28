@@ -6,8 +6,7 @@
 export default {
   data() {
     return {
-      // 1998-11-11
-      value: '1998-11-11',
+      value: '1998-11-11',  // new Date(1998, 10, 11)
     };
   },
 };

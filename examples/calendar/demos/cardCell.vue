@@ -12,9 +12,10 @@
     <t-calendar ref="myCalendar"
                 :theme="theme">
       <div class="demo-cell" slot="cell" slot-scope="scope" @click="showCeelData(scope.data)">
-        <t-tag shape="round" theme="success" :effect="getCellEffect(scope.data)">
+        <div class="cellAppend"
+             :class="getCellAppendCls(scope.data)">
           {{ getDateStr(scope.data) }}
-        </t-tag>
+        </div>
       </div>
     </t-calendar>
   </div>
@@ -34,7 +35,7 @@ export default {
   methods: {
     getDateStr(cellData) {
       const y = cellData.date.getFullYear();
-      const m = cellData.date.getMonth();
+      const m = cellData.date.getMonth() + 1;
       const d = cellData.date.getDate();
       if (cellData.theme === 'full') {
         return `${y}-${m}-${d}`;
@@ -46,26 +47,11 @@ export default {
 
       return `${y}-${m}`;
     },
-    getCellEffect(cellData) {
-      let re = 'light';
-      if (cellData.mode === 'month') {
-        if (cellData.belongTo === 0) {
-          if (cellData.isCurDate) {
-            re = 'dark';
-          }
-        } else {
-          re = 'plain';
-        }
-      } else { // cellData.mode === 'year'
-        if (cellData.isCurYear) {
-          if (cellData.isCurMon) {
-            re = 'dark';
-          }
-        } else {
-          re = 'plain';
-        }
-      }
-      return re;
+    getCellAppendCls(cellData) {
+      return {
+        belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
+        actived: cellData.isCurDate || cellData.isCurMon,
+      };
     },
     showCeelData(cellData) {
       console.info(cellData);
@@ -86,5 +72,19 @@ export default {
   align-items: center;
   width: 100%;
   height: 100%;
+}
+.cellAppend {
+  margin: 10px;
+  background-color: #ebf2ff;
+  color: #888;
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+.cellAppend.belongCurrent {
+  color: #0052d9;
+}
+.cellAppend.actived {
+  background-color: #0052d9;
+  color: #ebf2ff;
 }
 </style>
