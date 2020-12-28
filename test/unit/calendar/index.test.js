@@ -17,7 +17,7 @@ describe('Calendar', () => {
     it(':defaultValue', () => {
       const wrapper = mount({
         render() {
-          return <Calendar defaultValue={new Date(1998, 10, 11)}></Calendar>;
+          return <Calendar defaultValue={new Date(1998, 10, 11).toUTCString()}></Calendar>;
         },
       });
       expect(wrapper).toMatchSnapshot();
