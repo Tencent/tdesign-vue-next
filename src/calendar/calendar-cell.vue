@@ -11,19 +11,29 @@
 </template>
 
 <script lang="ts">
+// 通用库
 import Vue from 'vue';
-import { prefix } from '../config';
+
+// 组件的一些常量
+import {
+  COMPONENT_NAME,
+} from './const';
+
+// 组件相关的自定义类型
+import {
+  CellData,
+} from './type';
 
 export default Vue.extend({
-  name: `${prefix}-calendar-cell`,
+  name: `${COMPONENT_NAME}-cell`,
   props: {
     item: {
       type: Object,
-      default: (): Record<string, any> => null,
+      default: (): CellData => null,
     },
     theme: {
       type: String,
-      default: (): Record<string, any> => null,
+      default: (): string => null,
     },
   },
   computed: {
