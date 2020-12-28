@@ -9,6 +9,10 @@ declare type OptionData = {
   value?: string | number;
 } & { [key: string]: any };
 
+declare type TreeOptionData = {
+  children?: Array<TreeOptionData>;
+} & OptionData;
+
 declare type SizeEnum = 'small' | 'medium' | 'large';
 
 declare type HorizontalAlignEnum = 'left' | 'center' | 'right';
