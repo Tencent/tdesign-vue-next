@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Calendar :props :defaultValue 1`] = `
-<div class="t-calendar t-calendar--full" defaultvalue="Tue, 10 Nov 1998 16:00:00 GMT">
+<div class="t-calendar t-calendar--full" defaultvalue="Wed Nov 11 1998 00:00:00 GMT+0800 (GMT+08:00)">
   <div class="t-calendar__control">
     <div class="t-calendar__control-section">
       <div class="t-calendar__control-section-cell">
