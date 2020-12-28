@@ -31,6 +31,9 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
     checkboxGroup: { default: undefined },
   },
 
+  // 引入自动生成的 props 文件，示例如下，
+  // import props from '../../types/checkbox/props'
+  // props: { ...props }
   props: {
     checked: { type: Boolean, default: undefined },
     defaultChecked: { type: Boolean, default: undefined },

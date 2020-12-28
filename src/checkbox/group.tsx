@@ -19,6 +19,9 @@ export default Vue.extend({
     };
   },
 
+  // 引入自动生成的 props 文件，示例如下，
+  // import props from '../../types/checkbox-group/props'
+  // props: { ...props }
   props: {
     value: { type: Array as PropType<Array<string | number>> },
     defaultValue: { type: Array },
