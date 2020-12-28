@@ -8,13 +8,7 @@
     </div>
     <!-- select-->
     <template v-if="pageSizeOption.length">
-      <t-select
-        :size="size"
-        :value="pageSize"
-        :disabled="disabled"
-        :class="_sizerClass"
-        @change="onSelectorChange"
-      >
+      <t-select :size="size" :value="pageSize" :disabled="disabled" :class="_sizerClass" @change="onSelectorChange">
         <t-option
           v-for="(item, index) in _pageSizeOption"
           :value="item.value"
@@ -63,13 +57,7 @@
       </ul>
     </template>
     <template v-else>
-      <t-select
-        :size="size"
-        :value="currentIndex"
-        :disabled="disabled"
-        :class="_simpleClass"
-        @change="toPage"
-      >
+      <t-select :size="size" :value="currentIndex" :disabled="disabled" :class="_simpleClass" @change="toPage">
         <t-option v-for="(item, index) in _pageCountOption" :value="item" :label="`${item}/${_pageCount}`" :key="index">
         </t-option>
       </t-select>
@@ -103,6 +91,7 @@ import TInput from '../input';
 import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
 import props from '../../types/pagination/props';
+import { TdPaginationProps } from '../../types/pagination/TdPaginationProps';
 
 const { prefix } = config;
 const name = `${prefix}-pagination`;
@@ -250,19 +239,21 @@ export default mixins(PaginationLocalReceiver).extend({
     _pageSizeOption(): Array<{ label: string; value: number }> {
       const { pageSize } = this;
       const locale = this.locale as any;
-      const pageSizeOption = this.pageSizeOption as Array<number | { label: string; value: number }>;
+      const pageSizeOption = this.pageSizeOption as TdPaginationProps['pageSizeOption'];
 
       const isNumber = (val: any) => /^[0-9]+$/.test(String(val));
-      const data = pageSizeOption.map((item: any) => ({
+      const data = pageSizeOption.map((item: { label: string; value: any }) => ({
         label: isNumber(item) ? locale.itemsPerPage : item.label.replace(/\d+/, '{size}'),
         value: isNumber(item) ? item : item.value,
       }));
-      return data.find(item => item.value === pageSize)
+      return data.find((item: { value: number }) => item.value === pageSize)
         ? data
-        : data.concat({
-          value: pageSize,
-          label: (data[0] && data[0].label) || locale.itemsPerPage,
-        }).sort((a: any, b: any) => a.value - b.value);
+        : data
+          .concat({
+            value: pageSize,
+            label: (data[0] && data[0].label) || locale.itemsPerPage,
+          })
+          .sort((a: any, b: any) => a.value - b.value);
     },
 
     curPageLeftCount(): number {
@@ -330,14 +321,11 @@ export default mixins(PaginationLocalReceiver).extend({
           pageSize: this.pageSize,
         });
         if (typeof this.onChange === 'function') {
-          this.onChange(
-            current,
-            {
-              curr: current,
-              prev,
-              pageSize: this.pageSize,
-            }
-          );
+          this.onChange(current, {
+            curr: current,
+            prev,
+            pageSize: this.pageSize,
+          });
         }
       }
     },
@@ -393,14 +381,11 @@ export default mixins(PaginationLocalReceiver).extend({
         pageSize,
       });
       if (typeof this.onPageSizeChange === 'function') {
-        this.onPageSizeChange(
+        this.onPageSizeChange(pageSize, {
+          curr: isIndexChange ? pageCount : this.currentIndex,
+          prev: this.currentIndex,
           pageSize,
-          {
-            curr: isIndexChange ? pageCount : this.currentIndex,
-            prev: this.currentIndex,
-            pageSize,
-          }
-        );
+        });
       }
       if (isIndexChange) {
         this.toPage(pageCount);
