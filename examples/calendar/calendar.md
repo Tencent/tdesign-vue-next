@@ -2,6 +2,11 @@
 
 ### 功能示例
 
+#### 指定高亮日期
+组件默认高亮“今天”\“当前月份”，使用 `value` 属性可以设置这个高亮的日期\月份。
+::: demo demos/value
+:::
+
 #### 切换模式 日历\月历
 组件默认以日历的形式展示，并提供了“月”（日历）\“年”（月历）两种模式切换按钮，在组件外开发者可以通过修改 `mode` 属性切换模式。
 ::: demo demos/mode
@@ -123,6 +128,7 @@ controllerConfig 属性的结构示例如下：
 slot cell\cellAppend 的data包含字段说明：
 {
   mode:string,    // 当前的模式("month"或"year")
+  theme:string,   // 风格类型（"full"或"card"）
   date:Date,      // 单元格对应的日期
   year:number,    // 单元格对应的年份
   month:number,   // 单元格对应的月份
