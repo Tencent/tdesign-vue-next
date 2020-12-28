@@ -164,7 +164,7 @@ export default Vue.extend({
         return this.getDefaultIcon();
       }
       if (statusIcon === false) {
-        return <span />;
+        return false;
       }
       if (typeof statusIcon === 'function') {
         return resultIcon(statusIcon(this.$createElement, props));
@@ -182,6 +182,7 @@ export default Vue.extend({
       const parentSlotStatusIcon = parent.$scopedSlots.statusIcon;
       let resultIcon: TNodeReturnValue = this.getIcon(statusIcon, slotStatusIcon);
       if (resultIcon) return resultIcon;
+      if (resultIcon === false) return;
       resultIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
       if (resultIcon) return resultIcon;
     },
