@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Calendar :props :defaultValue 1`] = `
-<div class="t-calendar t-calendar--full" defaultvalue="Wed Nov 11 1998 00:00:00 GMT+0800 (GMT+08:00)">
+<div class="t-calendar t-calendar--full" defaultvalue="Wed Nov 11 1998 00:00:00 GMT+0800 (China Standard Time)">
   <div class="t-calendar__control">
     <div class="t-calendar__control-section">
       <div class="t-calendar__control-section-cell">
@@ -212,7 +212,7 @@ exports[`Calendar :props :defaultValue 1`] = `
             <div class="t-calendar__table-body-cell-value">25</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">26</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -491,7 +491,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
             <div class="t-calendar__table-body-cell-value">25</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">26</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -979,7 +979,7 @@ exports[`Calendar :props :isShowWeekendDefault 2`] = `
             <div class="t-calendar__table-body-cell-value">25</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">26</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -1395,7 +1395,7 @@ exports[`Calendar :props :theme 1`] = `
               <!---->
             </div>
           </td>
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">26</div>
             <div class="t-calendar__table-body-cell-content">
               <!---->
