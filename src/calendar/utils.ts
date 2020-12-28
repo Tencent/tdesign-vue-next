@@ -1,3 +1,6 @@
+import dayjs from 'dayjs';
+
+// 组件的一些常量
 import {
   FIRST_MONTH_OF_YEAR,
   LAST_MONTH_OF_YEAR,
@@ -5,42 +8,40 @@ import {
   MONTH_CN_MAP,
 } from './const';
 
-const getYear = (dt: Date): number => dt.getFullYear();
-const getMonth = (dt: Date): number => (dt.getMonth() + 1);
+// 组件相关的自定义类型
+import {
+  MonthCellData,
+  YearCellData,
+} from './type';
 
-const getCurDate = (): Date => new Date();
-const getCurYear = (): number => getYear(new Date());
-const getCurMonth = (): number => getMonth(new Date());
-
-
-const getBeginOfMonth = (year: number, month: number): Date => new Date(year, (month - 1));
-const getEndOfMonth = (year: number, month: number): Date => new Date(new Date(year, month).getTime() - 1);
 /**
  * 获取一个日期是周几（1~7）
  */
 const getDay = (dt: Date): number => {
-  let day = dt.getDay();
+  let day = dayjs(dt).day();
   if (day === 0) {
     day = 7;
   }
   return day;
 };
+
 /**
  * 获取星期的中文
- * @param num 星期（数字）
+ * @param num 星期（1~7）
  */
 const getDayCn = (num: number): string => {
   let re = '';
-  const map = DAY_CN_MAP;
   const numStr = num.toString();
-  if (numStr in map) {
-    re = map[numStr].shortDisplay;
+  if (numStr in DAY_CN_MAP) {
+    re = DAY_CN_MAP[numStr];
   }
   return re;
 };
 
 /**
- * 获取一个日期在日历上是第几列
+ * 获取一个日期在日历上的列下标
+ * @param firstDayOfWeek 周起始日（1~7）
+ * @param dt
  */
 const getCellColIndex = (firstDayOfWeek: number, dt: Date): number => {
   let re = 0;
@@ -60,46 +61,24 @@ const addDate = (dt: Date, days: number) => {
   d.setDate(d.getDate() + days);
   return d;
 };
-/**
- * 转日期字符串（y-m）
- */
-const getMonthStr = (dt: Date) => {
-  const y = dt.getFullYear();
-  const m = dt.getMonth() + 1;
-  return `${y}-${m}`;
-};
-/**
- * 转日期字符串（y-m-d）
- */
-const getDateStr = (dt: Date) => {
-  const y = dt.getFullYear();
-  const m = dt.getMonth() + 1;
-  const d = dt.getDate();
-  return `${y}-${m}-${d}`;
-};
 
 /**
- * 对比两个日期，返回这两个日期是否是“同一天”
- * @param dt 日期
- * @param dtCompare 对比的日期
+ * 创建月历单元格数据
+ * @param year 月历年份
+ * @param curDate 当前日期
+ * @param theme 风格类型（"full" | "card"）
  */
-const isSameDate = (dt: Date, dtCompare: Date): boolean => {
-  let re = false;
-  if (dt && dtCompare) {
-    re = (dt.getFullYear() === dtCompare.getFullYear()
-      && dt.getMonth() === dtCompare.getMonth()
-      && dt.getDate() === dtCompare.getDate());
-  }
-  return re;
-};
-
-const createYearCellsData = (year: number, curDate: Date, theme: string) => {
-  const monthsArr: any[] = [];
-  const map = MONTH_CN_MAP;
-  const isCurYear = getYear(curDate) === year;
+const createYearCellsData = (
+  year: number,
+  curDate: dayjs.Dayjs,
+  theme: string
+): YearCellData[] => {
+  const monthsArr: YearCellData[] = [];
+  const isCurYear = curDate.year() === year;
   for (let num = FIRST_MONTH_OF_YEAR; num <= LAST_MONTH_OF_YEAR; num++) {
     const date = new Date(year, num - 1);
-    const isCurMon = (isCurYear && getMonth(curDate) === num);
+    const curDateMon = parseInt(curDate.format('M'), 10);
+    const isCurMon = (isCurYear && curDateMon === num);
     monthsArr.push({
       mode: 'year',
       theme,
@@ -108,16 +87,35 @@ const createYearCellsData = (year: number, curDate: Date, theme: string) => {
       year,
       month: num,
       date,
-      monthDiaplay: map[num.toString()].display,
+      monthDiaplay: MONTH_CN_MAP[num.toString()],
     });
   }
+
   return monthsArr;
 };
 
-const createMonthCellsData = (year: number, month: number, firstDayOfWeek: number, curDate: Date, theme: string) => {
-  const daysArr: any[] = [];
-  const begin: Date = getBeginOfMonth(year, month); // 当前月份的开始日期
-  const end: Date = getEndOfMonth(year, month);  // 当前月份的结束日期
+/**
+ * 创建日历单元格数据
+ * @param year 日历年份
+ * @param month 日历月份
+ * @param firstDayOfWeek 周起始日（1~7）
+ * @param curDate 当前日期
+ * @param theme 风格类型（"full" | "card"）
+ */
+const createMonthCellsData = (
+  year: number,
+  month: number,
+  firstDayOfWeek: number,
+  curDate: dayjs.Dayjs,
+  theme: string
+): MonthCellData[][] => {
+  const daysArr: MonthCellData[][] = [];
+  // 当前月份的开始日期
+  const begin: Date = dayjs(`${year}-${month}`).startOf('month')
+    .toDate();
+  // 当前月份的结束日期
+  const end: Date = dayjs(`${year}-${month}`).endOf('month')
+    .toDate();
   const days = end.getDate();
 
   const beginDateColIndex = getCellColIndex(firstDayOfWeek, begin);
@@ -129,9 +127,9 @@ const createMonthCellsData = (year: number, month: number, firstDayOfWeek: numbe
     isCurDate: boolean,
     date: Date,
     weekNum: number
-  ) => {
-    const year = getYear(date);
-    const month = getMonth(date);
+  ): MonthCellData => {
+    const year = dayjs(date).year();
+    const month = parseInt(dayjs(date).format('M'), 10);
     const day = getDay(date);
     const isWeekend = (day === 6 || day === 7);
     const dateNum = date.getDate();
@@ -162,7 +160,7 @@ const createMonthCellsData = (year: number, month: number, firstDayOfWeek: numbe
   }
   for (let i = 0; i < days; i++) {
     const date = addDate(begin, i);
-    arr.push(createCellData(0, isSameDate(date, curDate), date, num));
+    arr.push(createCellData(0, curDate.isSame(dayjs(date)), date, num));
     if (arr.length === 7) {
       daysArr.push(arr);
       arr = [];
@@ -184,20 +182,9 @@ const createMonthCellsData = (year: number, month: number, firstDayOfWeek: numbe
 
 
 export {
-  getYear,
-  getMonth,
-  getCurDate,
-  getCurYear,
-  getCurMonth,
-  getBeginOfMonth,
-  getEndOfMonth,
-  getDay,
   getDayCn,
   getCellColIndex,
   addDate,
-  getMonthStr,
-  getDateStr,
-  isSameDate,
   createYearCellsData,
   createMonthCellsData,
 };
