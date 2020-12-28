@@ -16,7 +16,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      currentValue: this.value,
+      currentValue: this.defaultValue,
     };
   },
   computed: {
@@ -76,13 +76,19 @@ export default Vue.extend({
       }
       return null;
     },
+    _value(): SwitchValue {
+      return this.value || this.currentValue;
+    },
   },
   watch: {
-    value(val: SwitchValue): void {
-      if (this.customValue && this.customValue.length && !this.customValue.includes(val)) {
-        throw `value is not in ${JSON.stringify(this.customValue)}`;
-      }
-      this.currentValue = val;
+    _value: {
+      handler(val: SwitchValue): void {
+        if (this.customValue && this.customValue.length && !this.customValue.includes(val)) {
+          throw `value is not in ${JSON.stringify(this.customValue)}`;
+        }
+        this.currentValue = val;
+      },
+      immediate: true,
     },
   },
   methods: {
