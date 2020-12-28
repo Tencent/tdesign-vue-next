@@ -3,11 +3,11 @@ import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import Icon from '../icon/iconfont';
+import props from '../../types/tag/props';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;
 const iconName = `${prefix}-icon`;
-const initThemeList: Array<string> = ['default', 'primary', 'info', 'warning', 'danger', 'success'];
 
 const initEffectList = {
   dark: `${name}--dark`,
@@ -27,49 +27,17 @@ export default Vue.extend({
     Icon,
     RenderComponent,
   },
-  props: {
-    theme: {
-      type: String,
-      default: 'default',
-      validator(v: string): boolean {
-        return initThemeList.indexOf(v) > -1;
-      },
-    },
-    size: String,
-    icon: [String, Function],
-    closable: Boolean,
-    checked: Boolean,
-    disabled: Boolean,
-    effect: {
-      type: String,
-      default: 'dark',
-      validator(v: string): boolean {
-        return Object.keys(initEffectList).indexOf(v) > -1;
-      },
-    },
-    shape: {
-      type: String,
-      default: defaultShape,
-      validator(v: string): boolean {
-        return Object.keys(initShapeList).indexOf(v) > -1;
-      },
-    },
-    maxWidth: [String, Number],
-  },
+  props: { ...props },
   computed: {
     tagClass(): Array<string> {
-      const theme = this.disabled || this.checked ? 'default' : this.theme;
-
       return [
         `${name}`,
-        `${name}--${theme}`,
+        `${name}--${this.theme}`,
         CLASSNAMES.SIZE[this.size],
         initEffectList[this.effect],
         this.shape !== defaultShape && initShapeList[this.shape],
         {
           [`${name}--ellipsis`]: this.maxWidth,
-          [`${name}--checked`]: !this.disabled && this.checked,
-          [`${name}--disabled`]: this.disabled,
           [`${name}--close`]: this.closable,
         },
       ];
@@ -87,7 +55,7 @@ export default Vue.extend({
       this.$emit('close', event);
     },
     handleClick(event: any): void {
-      if (!this.disabled) this.$emit('click', event);
+      this.$emit('click', event);
     },
   },
   render() {
@@ -97,10 +65,10 @@ export default Vue.extend({
     const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
     // 图标
     let icon: VNode;
-    if (typeof this.icon === 'string') {
+    if (typeof this.icon === 'string' && !!this.icon) {
       icon = <Icon name={this.icon} />;
     } else if (typeof this.icon === 'function') {
-      icon = <i class={iconName}>{this.icon()}</i>;
+      icon = <i class={iconName}>{this.icon(this.$createElement)}</i>;
     }
 
     return (
