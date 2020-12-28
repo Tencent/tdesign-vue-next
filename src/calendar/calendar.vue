@@ -139,11 +139,18 @@
 </template>
 
 <script lang="ts">
+// 通用库
+import dayjs from 'dayjs';
+import calendar from 'dayjs/plugin/calendar';
+
 import mixins from '../utils/mixins';
-import { prefix } from '../config';
 import * as utils from './utils';
 
+// 组件的一些常量
 import {
+  COMPONENT_NAME,
+  MIN_YEAR,
+  INVALID_DATE,
   FIRST_MONTH_OF_YEAR,
   LAST_MONTH_OF_YEAR,
   TEXT_MAP,
@@ -153,15 +160,32 @@ import {
   MODE_OPTION_LIST,
 } from './const';
 
+// 子组件
 import { Select as TSelect, Option as TOption } from '../select';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../radio';
 import { Button as TButton } from '../button';
 import CalendarCell from './calendar-cell.vue';
 
-const MIN_YEAR = 1970;
+// 组件相关的自定义类型
+import {
+  CalendarData,
+  CalendarRange,
+  YearMonthOption,
+  ModeOption,
+  CellColHeader,
+  MonthCellData,
+  YearCellData,
+  CellClickEmitData,
+  CellData,
+  ValueProp,
+} from './type';
+dayjs.extend(calendar);
 
+const createDefaultCurDate = (): dayjs.Dayjs => dayjs(dayjs().format('YYYY-MM-DD'));
+
+// 组件逻辑
 export default mixins().extend({
-  name: `${prefix}-calendar`,
+  name: COMPONENT_NAME,
   components: {
     TSelect,
     TOption,
@@ -171,6 +195,18 @@ export default mixins().extend({
     CalendarCell,
   },
   props: {
+    /**
+     * 当前高亮的日期\月份
+     */
+    value: {
+      type: [String, Date],
+      default() {
+        return null;
+      },
+      validator(v: ValueProp): boolean {
+        return dayjs(v).toString() !== INVALID_DATE;
+      },
+    },
     /**
      * 模式（"month" | "year"）
      */
@@ -196,12 +232,12 @@ export default mixins().extend({
      */
     range: {
       type: Object,
-      default: (): Record<string, any> => null,
-      validator(v: any): boolean {
+      default: (): CalendarRange => null,
+      validator(v: CalendarRange): boolean {
         if (v) {
-          const from = v.from as Date;
-          const to = v.to as Date;
-          return to.getTime() - from.getTime() >= 0;
+          const from = dayjs(v.from);
+          const to = dayjs(v.to);
+          return to.isSame(from) || to.isAfter(from);
         }
         return true;
       },
@@ -221,7 +257,7 @@ export default mixins().extend({
      */
     controllerConfig: {
       type: Object,
-      default() {
+      default(): Record<string, any> {
         return {
           visible: true, // 是否显示（全部控件）
           disabled: false, // 是否禁用（全部控件）
@@ -274,7 +310,6 @@ export default mixins().extend({
       type: Boolean,
       default: true,
     },
-
     // 年历中每一行显示的月数量
     yearCellNumInRow: {
       type: Number,
@@ -284,32 +319,27 @@ export default mixins().extend({
       },
     },
   },
-  data() {
+  data(): CalendarData {
     return {
-      // 当前高亮的日期\月份（目前写死为“今天”）
       curDate: null,
-      // 当前选中的年份
       curSelectedYear: null,
-      // 当前选中的月份
       curSelectedMonth: null,
-      // 当前选中的模式（年 or 月）
       curSelectedMode: null,
-      // 是否显示周末
       isShowWeekend: true,
-      // 统一控件尺寸
       controlSize: 'small',
     };
   },
   computed: {
     // 组件最外层的class名（除去前缀，class名和theme参数一致）
     calendarCls(): Record<string, any> {
-      return [`t-calendar--${this.theme}`];
+      return [`${COMPONENT_NAME}--${this.theme}`];
     },
-    // 日历主体头部
-    cellColHeaders(): any[] {
-      const re: any[] = [];
+    // 日历主体头部（日历模式下使用）
+    cellColHeaders(): CellColHeader[] {
+      const re: CellColHeader[] = [];
       const min = 1;
       const max = 7;
+
       for (let i = this.firstDayOfWeek; i <= max; i++) {
         re.push({
           num: i,
@@ -327,14 +357,13 @@ export default mixins().extend({
       return re;
     },
     // 年份下拉框数据源
-    yearSelectOptionList(): any[] {
-      const re = [];
-
-      let begin = this.curSelectedYear - 10;
-      let end = this.curSelectedYear + 10;
+    yearSelectOptionList(): YearMonthOption[] {
+      const re: YearMonthOption[] = [];
+      let begin: number = this.curSelectedYear - 10;
+      let end: number = this.curSelectedYear + 10;
       if (this.range && this.range.from && this.range.to) {
-        begin = utils.getYear(this.range.from);
-        end = utils.getYear(this.range.to);
+        begin = dayjs(this.range.from).year();
+        end = dayjs(this.range.to).year();
       }
 
       if (begin < MIN_YEAR) {
@@ -345,7 +374,7 @@ export default mixins().extend({
       }
 
       for (let i = begin; i <= end; i++) {
-        const disabled = this.checkDisabled(i, this.curSelectedMonth);
+        const disabled = this.checkMonthAndYearSelecterDisabled(i, this.curSelectedMonth);
         re.push({
           value: i,
           label: `${i}年`,
@@ -355,10 +384,10 @@ export default mixins().extend({
       return re;
     },
     // 月份下拉框数据源
-    monthSelectOptionList(): any[] {
-      const re = [];
+    monthSelectOptionList(): YearMonthOption[] {
+      const re: YearMonthOption[] = [];
       for (let i = FIRST_MONTH_OF_YEAR; i <= LAST_MONTH_OF_YEAR; i++) {
-        const disabled = this.checkDisabled(this.curSelectedYear, i);
+        const disabled = this.checkMonthAndYearSelecterDisabled(this.curSelectedYear, i);
         re.push({
           value: i,
           label: `${i}月`,
@@ -369,13 +398,13 @@ export default mixins().extend({
     },
 
     // 模式选项数据源
-    modeSelectOptionList(): any[] {
+    modeSelectOptionList(): ModeOption[] {
       return MODE_OPTION_LIST;
     },
     // month模式下日历单元格的数据
-    monthCellsData(): any[] {
+    monthCellsData(): MonthCellData[][] {
       const firstDayOfWeek = this.firstDayOfWeek as number;
-      const daysArr: any[] = utils.createMonthCellsData(
+      const daysArr: MonthCellData[][] = utils.createMonthCellsData(
         this.curSelectedYear,
         this.curSelectedMonth,
         firstDayOfWeek,
@@ -385,13 +414,17 @@ export default mixins().extend({
       return daysArr;
     },
     // year模式下日历单元格的数据
-    yearCellsData(): any[] {
-      const re: any[] = [];
-      const monthsArr: any[] = utils.createYearCellsData(this.curSelectedYear, this.curDate, this.theme);
+    yearCellsData(): YearCellData[][] {
+      const re: YearCellData[][] = [];
+      const monthsArr: YearCellData[] = utils.createYearCellsData(
+        this.curSelectedYear,
+        this.curDate,
+        this.theme
+      );
       const rowCount = Math.ceil(monthsArr.length / this.yearCellNumInRow);
       let index = 0;
       for (let i = 1; i <= rowCount; i++) {
-        const row: any[] = [];
+        const row: YearCellData[] = [];
         for (let j = 1; j <= this.yearCellNumInRow; j++) {
           row.push(monthsArr[index]);
           index += 1;
@@ -461,6 +494,12 @@ export default mixins().extend({
     },
   },
   watch: {
+    value: {
+      handler() {
+        this.toCurrent();
+      },
+      immediate: true,
+    },
     mode: {
       handler(v: string) {
         this.curSelectedMode = v;
@@ -474,34 +513,28 @@ export default mixins().extend({
       immediate: true,
     },
   },
-  created() {
-    this.init();
-  },
   methods: {
-    init() {
-      this.toCurrent();
-    },
-    onCellClick(e: any, cellData: any): void {
-      const emitData = this.getCeelClickEmitData(cellData);
+    onCellClick(e: Event, cellData: CellData): void {
+      const emitData = this.getCellClickEmitData(cellData);
       this.$emit('cellClick', emitData);
     },
-    onCellDbClick(e: any, cellData: any): void {
-      const emitData = this.getCeelClickEmitData(cellData);
+    onCellDbClick(e: Event, cellData: CellData): void {
+      const emitData = this.getCellClickEmitData(cellData);
       this.$emit('cellDoubleClick', emitData);
     },
-    onCellRightClick(e: any, cellData: any): void {
+    onCellRightClick(e: Event, cellData: CellData): void {
       if (this.preventCellContextmenu) {
         e.preventDefault();
       }
-      const emitData = this.getCeelClickEmitData(cellData);
+      const emitData = this.getCellClickEmitData(cellData);
       this.$emit('cellRightClick', emitData);
     },
-    getCeelClickEmitData(cellData: any): any {
+    getCellClickEmitData(cellData: CellData): CellClickEmitData {
       const re = {
         // 当前单元格的时间（年 or 年-月）
         data: cellData.date,
         // 右上角控件选中的日期（包含年、月）
-        filterDate: new Date(this.curSelectedYear, this.curSelectedMonth - 1),
+        filterDate: this.getCurFilterDate(),
         // 当前模式
         mode: this.curSelectedMode,
       };
@@ -510,25 +543,20 @@ export default mixins().extend({
     onControllerChange(): void {
       const emitData = {
         isShowWeekend: this.isShowWeekend,
-        filterDate: new Date(this.curSelectedYear, this.curSelectedMonth - 1),
+        filterDate: this.getCurFilterDate(),
         mode: this.curSelectedMode,
       };
       this.$emit('controllerChange', emitData);
+    },
+    getCurFilterDate(): Date {
+      return dayjs(`${this.curSelectedYear}-${this.curSelectedMonth}`).toDate();
     },
     onWeekendToggleClick(): void {
       this.isShowWeekend = !this.isShowWeekend;
       this.onControllerChange();
     },
-    // 判断月历单元格是否显示
-    checkMonthCellVisibled(cellData: any): boolean {
-      let re = true;
-      if (!this.isShowWeekend) {
-        re = !cellData.isWeekend;
-      }
-      return re;
-    },
     // 判断月历单元格头是否显示
-    checkMonthCellColHeaderVisibled(item: any): boolean {
+    checkMonthCellColHeaderVisibled(item: CellColHeader): boolean {
       let re = true;
       if (!this.isShowWeekend) {
         re = item.num !== 6 && item.num !== 7;
@@ -555,25 +583,23 @@ export default mixins().extend({
       return re;
     },
 
-    /**
-     * 显示当前月份\年份
-     */
+    // 显示当前月份\年份
     toCurrent(): void {
-      this.curDate = utils.getCurDate();
-      this.curSelectedYear = utils.getCurYear();
-      this.curSelectedMonth = utils.getCurMonth();
+      this.curDate = this.value ? dayjs(this.value) : createDefaultCurDate();
+      this.curSelectedYear = this.curDate.year();
+      this.curSelectedMonth = parseInt(this.curDate.format('M'), 10);
     },
 
-    checkDisabled(year: number, month: number): boolean {
+    checkMonthAndYearSelecterDisabled(year: number, month: number): boolean {
       let disabled = false;
       if (this.range && this.range.from && this.range.to) {
-        const beginYear = utils.getYear(this.range.from);
-        const endYear = utils.getYear(this.range.to);
+        const beginYear = dayjs(this.range.from).year();
+        const endYear = dayjs(this.range.to).year();
         if (year === beginYear) {
-          const beginMon = utils.getMonth(this.range.from);
+          const beginMon = parseInt(dayjs(this.range.from).format('M'), 10);
           disabled = month < beginMon;
         } else if (year === endYear) {
-          const endMon = utils.getMonth(this.range.to);
+          const endMon = parseInt(dayjs(this.range.to).format('M'), 10);
           disabled = month > endMon;
         }
       }
