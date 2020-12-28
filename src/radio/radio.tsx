@@ -31,6 +31,9 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
     radioGroup: { default: undefined },
   },
 
+  // 使用自动生成的 props 文件，代码示例如下：
+  // import props from '../../types/radio/props'
+  // props: { ...props }
   props: {
     className: { type: String },
     checked: { type: Boolean, default: undefined },

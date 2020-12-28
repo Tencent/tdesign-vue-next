@@ -22,6 +22,9 @@ export default Vue.extend({
     };
   },
 
+  // 使用自动生成的 props 文件，代码示例如下：
+  // import props from '../../types/radio-group/props'
+  // props: { ...props }
   props: {
     value: { default: undefined },
     defaultValue: { default: undefined },
