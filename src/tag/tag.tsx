@@ -65,10 +65,10 @@ export default Vue.extend({
     const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
     // 图标
     let icon: VNode;
-    if (typeof this.icon === 'string') {
+    if (typeof this.icon === 'string' && !!this.icon) {
       icon = <Icon name={this.icon} />;
     } else if (typeof this.icon === 'function') {
-      icon = <i class={iconName}>{this.icon()}</i>;
+      icon = <i class={iconName}>{this.icon(this.$createElement)}</i>;
     }
 
     return (
