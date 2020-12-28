@@ -103,6 +103,7 @@ import TInput from '../input';
 import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
 import props from '../../types/pagination/props';
+import { TdPaginationProps } from '../../types/pagination/TdPaginationProps';
 
 const { prefix } = config;
 const name = `${prefix}-pagination`;
@@ -250,14 +251,14 @@ export default mixins(PaginationLocalReceiver).extend({
     _pageSizeOption(): Array<{ label: string; value: number }> {
       const { pageSize } = this;
       const locale = this.locale as any;
-      const pageSizeOption = this.pageSizeOption as Array<number | { label: string; value: number }>;
+      const pageSizeOption = this.pageSizeOption as TdPaginationProps['pageSizeOption'];
 
       const isNumber = (val: any) => /^[0-9]+$/.test(String(val));
       const data = pageSizeOption.map((item: any) => ({
         label: isNumber(item) ? locale.itemsPerPage : item.label.replace(/\d+/, '{size}'),
         value: isNumber(item) ? item : item.value,
       }));
-      return data.find(item => item.value === pageSize)
+      return data.find((item: any) => item.value === pageSize)
         ? data
         : data.concat({
           value: pageSize,
