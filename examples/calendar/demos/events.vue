@@ -5,6 +5,7 @@
       <t-switch v-model="preventCellContextmenu"></t-switch>
     </div>
     <t-calendar
+      :value="value"
       :preventCellContextmenu="preventCellContextmenu"
       @cellClick="onCellClick"
       @cellDoubleClick="onCellDoubleClick"
@@ -32,6 +33,7 @@ export default {
     return {
       preventCellContextmenu: false,
       histories: [],
+      value: null,
       options: [
         { value: true, label: '禁用' },
         { value: false, label: '不禁用' },
