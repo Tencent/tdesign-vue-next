@@ -107,8 +107,7 @@ export default Vue.extend({
       typeof this.onChange === 'function' && this.onChange(this.currentValue);
       this.$emit('change', this.currentValue);
     },
-    toggle(event: MouseEvent): void {
-      event.preventDefault();
+    toggle(): void {
       if (this.disabled) {
         return;
       }

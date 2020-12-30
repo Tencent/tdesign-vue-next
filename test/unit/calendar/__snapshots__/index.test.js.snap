@@ -242,7 +242,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
             <div class="t-calendar__table-body-cell-value">27</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">28</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -252,7 +252,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
           </td>
         </tr>
         <tr class="t-calendar__table-body-row">
-          <td class="t-calendar__table-body-cell">
+          <td class="t-calendar__table-body-cell t-is-checked">
             <div class="t-calendar__table-body-cell-value">30</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -481,7 +481,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
           <!---->
         </tr>
         <tr class="t-calendar__table-body-row">
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">28</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -489,7 +489,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
             <div class="t-calendar__table-body-cell-value">29</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell">
+          <td class="t-calendar__table-body-cell t-is-checked">
             <div class="t-calendar__table-body-cell-value">30</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -732,7 +732,7 @@ exports[`Calendar :props :isShowWeekendDefault 2`] = `
           </td>
         </tr>
         <tr class="t-calendar__table-body-row">
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">28</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -740,7 +740,7 @@ exports[`Calendar :props :isShowWeekendDefault 2`] = `
             <div class="t-calendar__table-body-cell-value">29</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
-          <td class="t-calendar__table-body-cell">
+          <td class="t-calendar__table-body-cell t-is-checked">
             <div class="t-calendar__table-body-cell-value">30</div>
             <div class="t-calendar__table-body-cell-content"></div>
           </td>
@@ -1152,7 +1152,7 @@ exports[`Calendar :props :theme 1`] = `
           </td>
         </tr>
         <tr class="t-calendar__table-body-row">
-          <td class="t-calendar__table-body-cell t-is-checked">
+          <td class="t-calendar__table-body-cell">
             <div class="t-calendar__table-body-cell-value">28</div>
             <div class="t-calendar__table-body-cell-content">
               <!---->
@@ -1164,7 +1164,7 @@ exports[`Calendar :props :theme 1`] = `
               <!---->
             </div>
           </td>
-          <td class="t-calendar__table-body-cell">
+          <td class="t-calendar__table-body-cell t-is-checked">
             <div class="t-calendar__table-body-cell-value">30</div>
             <div class="t-calendar__table-body-cell-content">
               <!---->
