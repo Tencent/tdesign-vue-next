@@ -27,7 +27,7 @@ export default Vue.extend({
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
           [CLASSNAMES.STATUS.loading]: this.loading,
-          [`${prefix}-is-checked`]: this.currentValue === this.activeValue,
+          [CLASSNAMES.STATUS.checked]: this.currentValue === this.activeValue,
         },
       ];
     },
@@ -50,26 +50,34 @@ export default Vue.extend({
       ];
     },
     activeValue(): SwitchValue {
-      if (this.customValue && this.customValue[0]) {
+      if (this.customValue && this.customValue.length > 0) {
         return this.customValue[0];
       }
       return true;
     },
     inactiveValue(): SwitchValue {
-      if (this.customValue && this.customValue[1]) {
+      if (this.customValue && this.customValue.length > 1) {
         return this.customValue[1];
       }
       return false;
     },
     content(): TNodeReturnValue {
+      if (this.$scopedSlots.label) {
+        return this.$scopedSlots.label({ value: this.currentValue });
+      }
       if (typeof this.label === 'function') {
         return this.label(this.$createElement, { value: this.currentValue });
-      } if (this.label instanceof Array) {
+      }
+      if (typeof this.label === 'string') {
+        return this.label;
+      }
+      if (this.label instanceof Array) {
         const label = this.currentValue === this.activeValue ? this.label[0] : this.label[1];
         if (!label) return;
         if (typeof label === 'string') {
           return label;
-        } if (typeof label === 'function') {
+        }
+        if (typeof label === 'function') {
           return label(this.$createElement);
         }
         return null;
@@ -97,7 +105,7 @@ export default Vue.extend({
         ? this.inactiveValue : this.activeValue;
       this.currentValue = checked;
       typeof this.onChange === 'function' && this.onChange(this.currentValue);
-      this.$emit('change', checked);
+      this.$emit('change', this.currentValue);
     },
     toggle(event: MouseEvent): void {
       event.preventDefault();
@@ -111,10 +119,8 @@ export default Vue.extend({
     const {
       loading,
       disabled,
-      $scopedSlots,
       content,
       nodeClasses,
-      currentValue,
       classes,
       toggle,
       contentClasses } = this;
@@ -126,8 +132,6 @@ export default Vue.extend({
       loadingContent = <TIconLoading/>;
     } else if (content) {
       switchContent = content;
-    } else if ($scopedSlots.label) {
-      switchContent = $scopedSlots.label({ value: currentValue });
     }
 
     return (
