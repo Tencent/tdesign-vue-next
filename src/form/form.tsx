@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
-import { FormValidateResult, TdFormRule } from '../../types/form/TdFormProps';
+import { FormValidateResult, FormRule } from '../../types/form/TdFormProps';
 import props from '../../types/form/props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import isEmpty from 'lodash/isEmpty';
@@ -38,7 +38,7 @@ export default Vue.extend({
       const behavior = this.scrollToFirstError as ScrollBehavior;
       dom && dom.scrollIntoView({ behavior });
     },
-    emitEvent(eventName: string, data: { result?: FormValidateResult; e: Event; firstError?: TdFormRule }) {
+    emitEvent(eventName: string, data: { result?: FormValidateResult; e: Event; firstError?: FormRule }) {
       this.$emit(eventName, data);
       const propsApi = `on${eventName[0].toUpperCase()}${eventName.substr(1)}`;
       if (typeof this[propsApi] === 'function') {
