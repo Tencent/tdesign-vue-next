@@ -24,7 +24,7 @@
     "paths": {
       "@src/*": ["src/*"],
       "@common/*": ["common/*"],
-      "@types/*": ["types/*"],
+      "@TdTypes/*": ["types/*"],
       "@Checkbox": ["src/checkbox/checkbox.tsx"]
     }
   },
