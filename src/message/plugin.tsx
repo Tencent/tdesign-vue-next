@@ -29,7 +29,7 @@ import { MessageList, DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
 import { MessageOptions, MessageInfoOptions, MessageMethod, MessageInstance, ThemeList,
   MessageInfoMethod, MessageErrorMethod, MessageWarningMethod, MessageSuccessMethod,
-  MessageLoadingMethod, MessageQuestionMethod, MessageCloseMethod, MessageCloseAllMethod } from '../../types/message/TdMessageProps';
+  MessageLoadingMethod, MessageQuestionMethod, MessageCloseMethod, MessageCloseAllMethod } from '@TdTypes/message/TdMessageProps';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<Element, object> = new Map();

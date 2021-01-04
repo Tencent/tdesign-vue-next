@@ -2,7 +2,7 @@ import Vue from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { prefix } from '../config';
-import { TdMessageProps, MessageInstance } from '../../types/message/TdMessageProps';
+import { TdMessageProps, MessageInstance } from '@TdTypes/message/TdMessageProps';
 
 export const DEFAULT_Z_INDEX = 6000;
 

@@ -7,7 +7,7 @@ import TIconHelpFill from '../icon/help-circle-filled';
 import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
 import { THEME_LIST } from './const';
-import props from '../../types/message/props'; // 引入自动生成的 props 文件
+import props from '@TdTypes/message/props'; // 引入自动生成的 props 文件
 
 const name = `${prefix}-message`;
 
