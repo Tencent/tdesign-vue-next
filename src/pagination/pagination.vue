@@ -241,7 +241,7 @@ export default mixins(PaginationLocalReceiver).extend({
       const locale = this.locale as any;
       const pageSizeOption = this.pageSizeOption as TdPaginationProps['pageSizeOption'];
 
-      const isNumber = (val: any) => /^[0-9]+$/.test(String(val));
+      const isNumber = (val: any) => typeof val === 'number';
       const data = pageSizeOption.map((item: { label: string; value: any }) => ({
         label: isNumber(item) ? locale.itemsPerPage : item.label.replace(/\d+/, '{size}'),
         value: isNumber(item) ? item : item.value,
