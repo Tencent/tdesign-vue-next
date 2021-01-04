@@ -25,7 +25,8 @@
       "@src/*": ["src/*"],
       "@common/*": ["common/*"],
       "@TdTypes/*": ["types/*"],
-      "@Checkbox": ["src/checkbox/index.ts"]
+      "@Checkbox": ["src/checkbox/index.ts"],
+      "@Popup": ["src/popup/index.ts"]
     }
   },
   "include": [
