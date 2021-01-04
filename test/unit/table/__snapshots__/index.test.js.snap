@@ -13,9 +13,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
           </colgroup>
           <thead columnsprops="[object Object],[object Object],[object Object]">
             <tr>
-              <td style="" class="" key="id" colspan="1" rowspan="1">id</td>
-              <td style="" class="" key="type" colspan="1" rowspan="1">类型</td>
-              <td style="" class="" key="value" colspan="1" rowspan="1">取值</td>
+              <td class="" key="id" colspan="1" rowspan="1">id</td>
+              <td class="" key="type" colspan="1" rowspan="1">类型</td>
+              <td class="" key="value" colspan="1" rowspan="1">取值</td>
             </tr>
           </thead>
         </table>
@@ -29,14 +29,14 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
           </colgroup>
           <tbody class="table-body">
             <tr class="">
-              <td style="" class="" key="id" length="3">1</td>
-              <td style="" class="" key="type" length="3">Number</td>
-              <td style="" class="" key="value" length="3">1</td>
+              <td class="" key="id" length="3">1</td>
+              <td class="" key="type" length="3">Number</td>
+              <td class="" key="value" length="3">1</td>
             </tr>
             <tr class="">
-              <td style="" class="" key="id" length="3">2</td>
-              <td style="" class="" key="type" length="3">Number</td>
-              <td style="" class="" key="value" length="3">2</td>
+              <td class="" key="id" length="3">2</td>
+              <td class="" key="type" length="3">Number</td>
+              <td class="" key="value" length="3">2</td>
             </tr>
           </tbody>
           <tfoot></tfoot>
@@ -105,21 +105,21 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
         </colgroup>
         <thead columnsprops="[object Object],[object Object],[object Object]">
           <tr>
-            <td style="" class="" key="id" colspan="1" rowspan="1">id</td>
-            <td style="" class="" key="type" colspan="1" rowspan="1">类型</td>
-            <td style="" class="" key="value" colspan="1" rowspan="1">取值</td>
+            <td class="" key="id" colspan="1" rowspan="1">id</td>
+            <td class="" key="type" colspan="1" rowspan="1">类型</td>
+            <td class="" key="value" colspan="1" rowspan="1">取值</td>
           </tr>
         </thead>
         <tbody class="table-body">
           <tr class="">
-            <td style="" class="" key="id" length="3">1</td>
-            <td style="" class="" key="type" length="3">Number</td>
-            <td style="" class="" key="value" length="3">1</td>
+            <td class="" key="id" length="3">1</td>
+            <td class="" key="type" length="3">Number</td>
+            <td class="" key="value" length="3">1</td>
           </tr>
           <tr class="">
-            <td style="" class="" key="id" length="3">2</td>
-            <td style="" class="" key="type" length="3">Number</td>
-            <td style="" class="" key="value" length="3">2</td>
+            <td class="" key="id" length="3">2</td>
+            <td class="" key="type" length="3">Number</td>
+            <td class="" key="value" length="3">2</td>
           </tr>
         </tbody>
         <tfoot></tfoot>
@@ -158,27 +158,27 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
     <div class="t-table-content" style="overflow: auto;">
       <table style="table-layout: fixed;">
         <colgroup>
-          <col style="text-overflow: ellipsis; overflow: hidden; text-align: left; width: 100px; min-width: 200px;">
+          <col style="width: 100px; min-width: 200px;">
           <col>
           <col>
         </colgroup>
         <thead columnsprops="[object Object],[object Object],[object Object]">
           <tr>
-            <td style="text-align: left;" class="" key="id" colspan="1" rowspan="1">id</td>
-            <td style="" class="" key="type" colspan="1" rowspan="1">类型</td>
-            <td style="" class="" key="value" colspan="1" rowspan="1">取值</td>
+            <td class="align-left text-ellipsis" key="id" style="overflow: hidden;" colspan="1" rowspan="1">id</td>
+            <td class="" key="type" colspan="1" rowspan="1">类型</td>
+            <td class="" key="value" colspan="1" rowspan="1">取值</td>
           </tr>
         </thead>
         <tbody class="table-body">
           <tr class="">
-            <td style="text-align: left;" class="" key="id" length="3">1</td>
-            <td style="" class="" key="type" length="3">Number</td>
-            <td style="" class="" key="value" length="3">1</td>
+            <td class="align-left text-ellipsis" key="id" style="overflow: hidden;" length="3">1</td>
+            <td class="" key="type" length="3">Number</td>
+            <td class="" key="value" length="3">1</td>
           </tr>
           <tr class="">
-            <td style="text-align: left;" class="" key="id" length="3">2</td>
-            <td style="" class="" key="type" length="3">Number</td>
-            <td style="" class="" key="value" length="3">2</td>
+            <td class="align-left text-ellipsis" key="id" style="overflow: hidden;" length="3">2</td>
+            <td class="" key="type" length="3">Number</td>
+            <td class="" key="value" length="3">2</td>
           </tr>
         </tbody>
         <tfoot></tfoot>
@@ -199,37 +199,37 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
         </colgroup>
         <thead columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
           <tr>
-            <td style="" class="" colspan="4" rowspan="1">属性及说明</td>
-            <td style="" class="" colspan="2" rowspan="1">属性及说明</td>
+            <td class="" colspan="4" rowspan="1">属性及说明</td>
+            <td class="" colspan="2" rowspan="1">属性及说明</td>
           </tr>
           <tr>
-            <td style="text-align: left;" class="" key="platform" colspan="1" rowspan="2">平台</td>
-            <td style="" class="" colspan="3" rowspan="1">类型及默认值</td>
-            <td style="text-align: left;" class="" key="property" colspan="1" rowspan="2">属性</td>
-            <td style="text-align: left;" class="" key="description" colspan="1" rowspan="2">说明</td>
+            <td class="align-left text-ellipsis test" key="platform" style="overflow: hidden;" colspan="1" rowspan="2">平台</td>
+            <td class="" colspan="3" rowspan="1">类型及默认值</td>
+            <td class="align-left text-ellipsis test2" key="property" style="overflow: hidden;" colspan="1" rowspan="2">属性</td>
+            <td class="align-left text-ellipsis row" key="description" style="overflow: hidden;" colspan="1" rowspan="2">说明</td>
           </tr>
           <tr>
-            <td style="text-align: left;" class="" key="type" colspan="1" rowspan="1">类型</td>
-            <td style="text-align: left;" class="" key="default" colspan="1" rowspan="1">默认值</td>
-            <td style="text-align: left;" class="" key="needed" colspan="1" rowspan="1">是否必传</td>
+            <td class="align-left text-ellipsis row" key="type" style="overflow: hidden;" colspan="1" rowspan="1">类型</td>
+            <td class="align-left text-ellipsis test4" key="default" style="overflow: hidden;" colspan="1" rowspan="1">默认值</td>
+            <td class="align-left text-ellipsis test3" key="needed" style="overflow: hidden;" colspan="1" rowspan="1">是否必传</td>
           </tr>
         </thead>
         <tbody class="table-body">
           <tr class="">
-            <td style="text-align: left;" class="" key="platform" length="6">公有</td>
-            <td style="text-align: left;" class="" key="type" length="6">any[]</td>
-            <td style="text-align: left;" class="" key="default" length="6">[]</td>
-            <td style="text-align: left;" class="" key="needed" length="6">Y</td>
-            <td style="text-align: left;" class="" key="property" length="6">data</td>
-            <td style="text-align: left;" class="" key="description" length="6">数据源</td>
+            <td class="align-left text-ellipsis test" key="platform" style="overflow: hidden;" length="6">公有</td>
+            <td class="align-left text-ellipsis row" key="type" style="overflow: hidden;" length="6">any[]</td>
+            <td class="align-left text-ellipsis test4" key="default" style="overflow: hidden;" length="6">[]</td>
+            <td class="align-left text-ellipsis test3" key="needed" style="overflow: hidden;" length="6">Y</td>
+            <td class="align-left text-ellipsis test2" key="property" style="overflow: hidden;" length="6">data</td>
+            <td class="align-left text-ellipsis row" key="description" style="overflow: hidden;" length="6">数据源</td>
           </tr>
           <tr class="">
-            <td style="text-align: left;" class="" key="platform" length="6">公有</td>
-            <td style="text-align: left;" class="" key="type" length="6">String</td>
-            <td style="text-align: left;" class="" key="default" length="6">-1</td>
-            <td style="text-align: left;" class="" key="needed" length="6">Y</td>
-            <td style="text-align: left;" class="" key="property" length="6">rowkey</td>
-            <td style="text-align: left;" class="" key="description" length="6">指定rowkey</td>
+            <td class="align-left text-ellipsis test" key="platform" style="overflow: hidden;" length="6">公有</td>
+            <td class="align-left text-ellipsis row" key="type" style="overflow: hidden;" length="6">String</td>
+            <td class="align-left text-ellipsis test4" key="default" style="overflow: hidden;" length="6">-1</td>
+            <td class="align-left text-ellipsis test3" key="needed" style="overflow: hidden;" length="6">Y</td>
+            <td class="align-left text-ellipsis test2" key="property" style="overflow: hidden;" length="6">rowkey</td>
+            <td class="align-left text-ellipsis row" key="description" style="overflow: hidden;" length="6">指定rowkey</td>
           </tr>
         </tbody>
         <tfoot></tfoot>
@@ -252,9 +252,9 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
           </colgroup>
           <thead columnsprops="[object Object],[object Object],[object Object]">
             <tr>
-              <td style="position: sticky;left: 0px;" class="t-table__cell--fixed-left" key="id" colspan="1" rowspan="1">id</td>
-              <td style="" class="" key="type" colspan="1" rowspan="1">类型</td>
-              <td style="" class="" key="value" colspan="1" rowspan="1">取值</td>
+              <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" colspan="1" rowspan="1">id</td>
+              <td class="" key="type" colspan="1" rowspan="1">类型</td>
+              <td class="" key="value" colspan="1" rowspan="1">取值</td>
             </tr>
           </thead>
         </table>
@@ -268,14 +268,14 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
           </colgroup>
           <tbody class="table-body">
             <tr class="">
-              <td style="position: sticky;left: 0px;" class="t-table__cell--fixed-left" key="id" length="3">1</td>
-              <td style="" class="" key="type" length="3">Number</td>
-              <td style="" class="" key="value" length="3">1</td>
+              <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" length="3">1</td>
+              <td class="" key="type" length="3">Number</td>
+              <td class="" key="value" length="3">1</td>
             </tr>
             <tr class="">
-              <td style="position: sticky;left: 0px;" class="t-table__cell--fixed-left" key="id" length="3">2</td>
-              <td style="" class="" key="type" length="3">Number</td>
-              <td style="" class="" key="value" length="3">2</td>
+              <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" length="3">2</td>
+              <td class="" key="type" length="3">Number</td>
+              <td class="" key="value" length="3">2</td>
             </tr>
           </tbody>
           <tfoot></tfoot>

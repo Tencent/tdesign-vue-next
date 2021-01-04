@@ -19,7 +19,15 @@
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@common/*": ["common/*"],
+      "@TdTypes/*": ["types/*"],
+      "@Checkbox": ["src/checkbox/index.ts"],
+      "@Popup": ["src/popup/index.ts"]
+    }
   },
   "include": [
     "./**/*.ts",
