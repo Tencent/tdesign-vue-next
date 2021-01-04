@@ -28,7 +28,7 @@
         <li :class="getButtonClass(1)" v-if="isFolded" @click="toPage(1)">1</li>
         <li
           :class="_btnMoreClass"
-          v-show="isFolded && isPrevMoreShow"
+          v-if="isFolded && isPrevMoreShow"
           @click="prevMorePage"
           @mouseover="prevMore = true"
           @mouseout="prevMore = false"
@@ -43,7 +43,7 @@
         </li>
         <li
           :class="_btnMoreClass"
-          v-show="isFolded && isNextMoreShow"
+          v-if="isFolded && isNextMoreShow"
           @click="nextMorePage"
           @mouseover="nextMore = true"
           @mouseout="nextMore = false"
