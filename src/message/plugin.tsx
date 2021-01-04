@@ -27,15 +27,15 @@
 import Vue from 'vue';
 import { MessageList, DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
-import { TdMessageInfoOptions, MessageMethod, MessageInstance, ThemeList,
+import { MessageOptions, MessageInfoOptions, MessageMethod, MessageInstance, ThemeList,
   MessageInfoMethod, MessageErrorMethod, MessageWarningMethod, MessageSuccessMethod,
   MessageLoadingMethod, MessageQuestionMethod, MessageCloseMethod, MessageCloseAllMethod } from '../../types/message/TdMessageProps';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<Element, object> = new Map();
 
-function handleParams(params: TdMessageInfoOptions): TdMessageInfoOptions {
-  const options: TdMessageInfoOptions = Object.assign(
+function handleParams(params: MessageOptions): MessageOptions {
+  const options: MessageOptions = Object.assign(
     {
       duration: 3000,
       attach: 'body',
@@ -48,7 +48,7 @@ function handleParams(params: TdMessageInfoOptions): TdMessageInfoOptions {
   return options;
 }
 
-const MessageFunction = (props: TdMessageInfoOptions): Promise<MessageInstance> => {
+const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
   const options = handleParams(props);
   const { attach, placement } = options;
   const _a = getAttach(attach);
@@ -79,8 +79,8 @@ const MessageFunction = (props: TdMessageInfoOptions): Promise<MessageInstance> 
   });
 };
 
-const showThemeMessage: MessageMethod = (theme: ThemeList, params: string | TdMessageInfoOptions, duration: number) => {
-  let options: TdMessageInfoOptions = { theme };
+const showThemeMessage: MessageMethod = (theme: ThemeList, params: string | MessageInfoOptions, duration: number) => {
+  let options: MessageOptions = { theme };
   if (typeof params === 'string') {
     options.content = params;
   } else if (typeof params === 'object' && !(params instanceof Array)) {
