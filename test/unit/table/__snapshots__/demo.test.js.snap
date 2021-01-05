@@ -799,7 +799,9 @@ exports[`Table base demo works fine 1`] = `
         <div
           class="t-pagination__total"
         >
-          共 120 项数据
+          
+      共 120 项数据
+    
         </div>
          
         <div
