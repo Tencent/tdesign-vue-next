@@ -16,17 +16,17 @@ export default Vue.extend({
 
     const dividerClassNames = [
       `${name}`,
-      [`${prefix}-divider--${theme}`],
+      [`${name}--${theme}`],
       {
-        [`${prefix}-divider--dashed`]: !!dashed,
-        [`${prefix}-divider--with-text`]: !!children,
-        [`${prefix}-divider--with-text-${align}`]: !!children,
+        [`${name}--dashed`]: !!dashed,
+        [`${name}--with-text`]: !!children,
+        [`${name}--with-text-${align}`]: !!children,
       },
     ];
 
     return (
       <div class={dividerClassNames}>
-          { children ? <span class={`${prefix}-divider-inner-text`}>{children}</span> : null}
+          {children && <span class={`${name}-inner-text`}>{children}</span>}
       </div>
     );
   },
