@@ -3,13 +3,13 @@
 exports[`Message :props :closeBtn is a function, () => VNode. 1`] = `
 <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-info-circle-filled">
     <path fill-opacity=".9" fill-rule="evenodd" d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"></path>
-  </svg><b class="t-message-close">x</b></div>
+  </svg><span class="t-message-close"> <b class="t-message-close-content">x</b> </span></div>
 `;
 
 exports[`Message :props :closeBtn is a tring, equal "关闭". 1`] = `
 <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-info-circle-filled">
     <path fill-opacity=".9" fill-rule="evenodd" d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"></path>
-  </svg><span class="t-message-close">关闭</span></div>
+  </svg><span class="t-message-close"> 关闭 </span></div>
 `;
 
 exports[`Message :props :closeBtn is true, render default close button. 1`] = `

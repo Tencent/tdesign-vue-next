@@ -76,15 +76,15 @@ describe('Message', () => {
         render() {
           return (
             <Message
-              closeBtn={() => <b class='t-message-close'>x</b>}
+              closeBtn={() => <b class='t-message-close-content'>x</b>}
             ></Message>
           );
         },
       });
       const msg = wrapper.find(Message);
-      const close = msg.find('.t-message-close');
+      const close = msg.find('.t-message-close-content');
       expect(close.isEmpty()).toBe(false);
-      expect(close.html()).toBe('<b class="t-message-close">x</b>');
+      expect(close.html()).toBe('<b class="t-message-close-content">x</b>');
       expect(wrapper).toMatchSnapshot();
     });
 

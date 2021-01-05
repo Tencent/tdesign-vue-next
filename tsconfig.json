@@ -24,8 +24,12 @@
     "paths": {
       "@src/*": ["src/*"],
       "@common/*": ["common/*"],
-      "@types/*": ["types/*"],
-      "@Checkbox": ["src/checkbox/checkbox.tsx"]
+      "@TdTypes/*": ["types/*"],
+      "@Pagination": ["src/pagination/index.ts"],
+      "@Radio": ["src/radio/index.ts"],
+      "@Checkbox": ["src/checkbox/index.ts"],
+      "@Table": ["src/table/index.ts"],
+      "@Popup": ["src/popup/index.ts"]
     }
   },
   "include": [
