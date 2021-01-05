@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { CreateElement } from 'vue';
 import { prefix } from '../config';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
@@ -7,7 +7,7 @@ import TIconHelpFill from '../icon/help-circle-filled';
 import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
 import { THEME_LIST } from './const';
-import props from '@TdTypes/message/props'; // 引入自动生成的 props 文件
+import props from '@TdTypes/message/props';
 
 const name = `${prefix}-message`;
 
@@ -55,7 +55,7 @@ export default Vue.extend({
     setTimer() {
       this.timer = Number(setTimeout(() => {
         this.clearTimer();
-        this.$emit('duration-end', this);
+        this.$emit('duration-end');
         if (this.onDurationEnd) {
           this.onDurationEnd();
         };
@@ -65,23 +65,30 @@ export default Vue.extend({
       clearTimeout(this.timer);
     },
     close(e?: MouseEvent) {
-      this.$emit('click-close-btn', e, this);
+      this.$emit('click-close-btn', e);
       if (this.onClickCloseBtn) {
         this.onClickCloseBtn(e);
       };
     },
-    renderClose(h: Vue.CreateElement) {
-      if (typeof this.closeBtn === 'string') {
-        return <span class='t-message-close' onClick={this.close}>{this.closeBtn}</span>;
+    // this.closeBtn 优先级大于 this.$scopedSlots.closeBtn
+    renderClose(h: CreateElement) {
+      const { closeBtn } = this;
+      if (typeof closeBtn === 'boolean') {
+        return closeBtn && <t-icon-close nativeOnClick={this.close} class='t-message-close' />;
       }
-      if (typeof this.closeBtn === 'function') return <span class='t-message-close' onClick={this.close}>{this.closeBtn(h)}</span>;
-      if (typeof this.$scopedSlots.closeBtn === 'function') {
-        return <span class='t-message-close' onClick={this.close}>{this.$scopedSlots.closeBtn(null)}</span>;
+      let close: TNodeReturnValue = null;
+      if (typeof closeBtn === 'function') {
+        close = closeBtn(h);
+      } else if (typeof closeBtn === 'string') {
+        close = closeBtn;
+      } else if (typeof this.$scopedSlots.closeBtn === 'function') {
+        close = this.$scopedSlots.closeBtn(null);
       }
-      if (this.closeBtn === false) return;
-      return <t-icon-close nativeOnClick={this.close} class='t-message-close' />;
+      if (close) {
+        return (<span class='t-message-close' onClick={this.close}> { close } </span>);
+      }
     },
-    renderIcon(h: Vue.CreateElement) {
+    renderIcon(h: CreateElement) {
       if (this.icon === false) return;
       if (typeof this.icon === 'function') return this.icon(h);
       if (this.$scopedSlots.icon) {
