@@ -1,16 +1,18 @@
 <template>
   <div :class="_class" v-if="_pageCount > 1">
     <!--数据统计区-->
-    <template v-if="totalContent">
-      <div :class="_totalClass">{{ t(locale.total, { total: total }) }}</div>
-    </template>
+    <div v-if="totalContent" :class="_totalClass">
+      <slot name="totalContent">
+        {{ t(locale.total, { total: total }) }}
+      </slot>
+    </div>
     <!-- select-->
     <template v-if="pageSizeOption.length">
       <t-select :size="size" :value="pageSize" :disabled="disabled" :class="_sizerClass" @change="onSelectorChange">
         <t-option
           v-for="(item, index) in _pageSizeOption"
-          :value="item"
-          :label="t(locale.itemsPerPage, { size: item })"
+          :value="item.value"
+          :label="t(item.label, { size: item.value })"
           :key="index"
         >
         </t-option>
@@ -89,6 +91,7 @@ import TInput from '../input';
 import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
 import props from '../../types/pagination/props';
+import { TdPaginationProps } from '../../types/pagination/TdPaginationProps';
 
 const { prefix } = config;
 const name = `${prefix}-pagination`;
@@ -233,11 +236,24 @@ export default mixins(PaginationLocalReceiver).extend({
       }
       return ans;
     },
-    _pageSizeOption(): Array<number> {
-      const data = this.pageSizeOption as Array<number>;
-      return data.find(v => v === this.pageSize)
+    _pageSizeOption(): Array<{ label: string; value: number }> {
+      const { pageSize } = this;
+      const locale = this.locale as any;
+      const pageSizeOption = this.pageSizeOption as TdPaginationProps['pageSizeOption'];
+
+      const isNumber = (val: any) => typeof val === 'number';
+      const data = pageSizeOption.map((item: { label: string; value: any }) => ({
+        label: isNumber(item) ? locale.itemsPerPage : item.label.replace(/\d+/, '{size}'),
+        value: isNumber(item) ? item : item.value,
+      }));
+      return data.find((item: { value: number }) => item.value === pageSize)
         ? data
-        : data.concat(this.pageSize).sort((a: number, b: number) => a - b);
+        : data
+          .concat({
+            value: pageSize,
+            label: (data[0] && data[0].label) || locale.itemsPerPage,
+          })
+          .sort((a: any, b: any) => a.value - b.value);
     },
 
     curPageLeftCount(): number {
