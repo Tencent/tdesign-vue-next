@@ -45,8 +45,6 @@ export const MessageList = Vue.extend({
       return this.list.length - 1;
     },
     remove(index: number) {
-      // const children: HTMLCollection = this.$el.children;
-      // this.list = this.list.filter((v, i) => children[i] !== instance.$el);
       this.list.splice(index, 1);
     },
     removeAll() {
