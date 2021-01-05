@@ -13,7 +13,7 @@
             <template v-if="typeof content === 'string'">{{content}}</template>
             <render-component :render='content' v-else-if="typeof content === 'function'" />
           </slot>
-          <div v-if="visibleArrow" :class="name+'__arrow'" data-popper-arrow></div>
+          <div v-if="showArrow" :class="name+'__arrow'" data-popper-arrow></div>
         </div>
       </div>
     </transition>
@@ -58,18 +58,12 @@ export default Vue.extend({
   // import props from '../../types/popup/props'
   // props: { ...props },
   props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+    disabled: Boolean,
+    visible: Boolean,
     placement: {
       type: String,
       default: 'top',
       validator: (value: string) => Object.keys(placementMap).indexOf(value) > -1,
-    },
-    visible: {
-      type: Boolean,
-      default: true,
     },
     trigger: {
       type: String,
@@ -81,7 +75,7 @@ export default Vue.extend({
         }
         for (let i = 0; i < triggers.length; i++) {
           const trigger = triggers[i];
-          if (['hover', 'click', 'focus', 'contextMenu'].indexOf(trigger) < -1) {
+          if (['hover', 'click', 'focus', 'context-menu'].indexOf(trigger) < -1) {
             return false;
           }
         }
@@ -89,17 +83,11 @@ export default Vue.extend({
       },
     },
     content: [String, Function, RenderComponent],
-    visibleArrow: {
-      type: Boolean,
-      default: false,
-    },
-    getOverlayContainer: Function,
+    showArrow: Boolean,
+    attach: Function,
     overlayStyle: Object,
     overlayClassName: String,
-    destroyOnHide: {
-      type: Boolean,
-      default: false,
-    },
+    destroyOnHide: Boolean,
   },
   data() {
     return {
@@ -116,12 +104,11 @@ export default Vue.extend({
     _class(): ClassName {
       return [
         `${name}-content`,
-        this.overlayClassName,
         {
-          [`${name}-content--arrow`]: this.visibleArrow,
+          [`${name}-content--arrow`]: this.showArrow,
           [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
-      ];
+      ].concat(this.overlayClassName);
     },
     manualTrigger(): boolean {
       return this.trigger.indexOf('manual') > -1;
@@ -136,7 +123,7 @@ export default Vue.extend({
       return this.trigger.indexOf('focus') > -1;
     },
     contextMenuTrigger(): boolean {
-      return this.trigger.indexOf('contextMenu') > -1;
+      return this.trigger.indexOf('context-menu') > -1;
     },
   },
   watch: {
@@ -163,7 +150,7 @@ export default Vue.extend({
     this.referenceElm = this.referenceElm || this.$refs.reference;
     if (!this.popperElm || !this.referenceElm) return;
 
-    // if (this.visibleArrow) this.appendArrow(this.popperElm);
+    // if (this.showArrow) this.appendArrow(this.popperElm);
 
     this.createPopperJS();
     const reference = this.referenceElm;
@@ -228,8 +215,8 @@ export default Vue.extend({
   },
   methods: {
     createPopperJS(): void {
-      const overlayContainer = this.getOverlayContainer
-        ? this.getOverlayContainer() : document.body;
+      const overlayContainer = this.attach
+        ? this.attach() : document.body;
       overlayContainer.appendChild(this.popperElm);
 
       if (this.popperJS && this.popperJS.destroy) {
