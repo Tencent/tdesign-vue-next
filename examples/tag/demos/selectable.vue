@@ -5,7 +5,7 @@
         v-for="(tag, index) in tags"
         :key="index"
         :checked="tag.checked"
-        @change="handleChange(tag, index)"
+        @click="handleClick(tag, index)"
       >
         {{ tag.name }}
       </t-check-tag>
@@ -38,7 +38,7 @@ export default {
     };
   },
   methods: {
-    handleChange(tag, index) {
+    handleClick(tag, index) {
       const toggleTag = { ...tag, checked: !tag.checked };
       this.$set(this.tags, index, toggleTag);
     },

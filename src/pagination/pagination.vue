@@ -1,16 +1,18 @@
 <template>
-  <div :class="_class" v-if="visibleWithOnePage || _pageCount > 1">
+  <div :class="_class" v-if="_pageCount > 1">
     <!--数据统计区-->
-    <template v-if="showTotal">
-      <div :class="_totalClass">{{ t(locale.total, { total: total }) }}</div>
-    </template>
+    <div v-if="totalContent" :class="_totalClass">
+      <slot name="totalContent">
+        {{ t(locale.total, { total: total }) }}
+      </slot>
+    </div>
     <!-- select-->
-    <template v-if="showSizer">
-      <t-select :value="pageSize" :disabled="disabled" :class="_sizerClass" @change="onSelectorChange">
+    <template v-if="pageSizeOption.length">
+      <t-select :size="size" :value="pageSize" :disabled="disabled" :class="_sizerClass" @change="onSelectorChange">
         <t-option
           v-for="(item, index) in _pageSizeOption"
-          :value="item"
-          :label="t(locale.itemsPerPage, { size: item })"
+          :value="item.value"
+          :label="t(item.label, { size: item.value })"
           :key="index"
         >
         </t-option>
@@ -26,7 +28,7 @@
         <li :class="getButtonClass(1)" v-if="isFolded" @click="toPage(1)">1</li>
         <li
           :class="_btnMoreClass"
-          v-show="isFolded && isPrevMoreShow"
+          v-if="isFolded && isPrevMoreShow"
           @click="prevMorePage"
           @mouseover="prevMore = true"
           @mouseout="prevMore = false"
@@ -41,7 +43,7 @@
         </li>
         <li
           :class="_btnMoreClass"
-          v-show="isFolded && isNextMoreShow"
+          v-if="isFolded && isNextMoreShow"
           @click="nextMorePage"
           @mouseover="nextMore = true"
           @mouseout="nextMore = false"
@@ -55,7 +57,7 @@
       </ul>
     </template>
     <template v-else>
-      <t-select :value="currentIndex" :disabled="disabled" :class="_simpleClass" @change="toPage">
+      <t-select :size="size" :value="currentIndex" :disabled="disabled" :class="_simpleClass" @change="toPage">
         <t-option v-for="(item, index) in _pageCountOption" :value="item" :label="`${item}/${_pageCount}`" :key="index">
         </t-option>
       </t-select>
@@ -88,6 +90,8 @@ import TIconEllipsis from '../icon/ellipsis';
 import TInput from '../input';
 import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
+import props from '../../types/pagination/props';
+import { TdPaginationProps } from '../../types/pagination/TdPaginationProps';
 
 const { prefix } = config;
 const name = `${prefix}-pagination`;
@@ -111,10 +115,9 @@ export default mixins(PaginationLocalReceiver).extend({
     event: 'change',
   },
   props: {
+    ...props,
     /**
      * 当前页
-     *
-     * 支持v-model
      */
     current: {
       type: Number,
@@ -122,37 +125,6 @@ export default mixins(PaginationLocalReceiver).extend({
       validator(v: number): boolean {
         return v > 0;
       },
-    },
-    /**
-     * 类型
-     *
-     * 可选值 'default' 'simple'，默认值 'default'
-     */
-    theme: {
-      type: String,
-      default: 'default',
-      validator(v: string): boolean {
-        return ['default', 'simple'].indexOf(v) > -1;
-      },
-    },
-    /**
-     * 组件大小
-     *
-     * 可选值 'default' 'small'，默认值 'default'
-     */
-    size: {
-      type: String,
-      default: 'default',
-      validator(v: string): boolean {
-        return ['default', 'small'].indexOf(v) > -1;
-      },
-    },
-    /**
-     * 总记录数
-     */
-    total: {
-      type: Number,
-      default: 0,
     },
     /**
      * 分页大小
@@ -164,67 +136,6 @@ export default mixins(PaginationLocalReceiver).extend({
         return v > 0;
       },
     },
-    /**
-     * 显示页面大小控制
-     */
-    showSizer: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * 显示页面跳转输入框
-     */
-    showJumper: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * 显示总数，传入totalContent后，默认为true
-     */
-    showTotal: {
-      type: Boolean,
-      default: false,
-    },
-    /**
-     * 禁用分页功能
-     */
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    /*
-     * 只有一页时，是否显示分页。
-     * 默认值 true
-     */
-    visibleWithOnePage: {
-      type: Boolean,
-      default: true,
-    },
-    /**
-     * 可选分页大小
-     */
-    pageSizeOption: {
-      type: Array,
-      default(): Array<number> {
-        return [5, 10, 20, 50];
-      },
-    },
-    /**
-     * 最多显示页码按钮数
-     */
-    maxPageBtn: {
-      type: Number,
-      default: 10,
-    },
-    /**
-     * 折叠时最多显示页码按钮数
-     */
-    foldedMaxPageBtn: {
-      type: Number,
-      default: 5,
-    },
-    onChange: Function,
-    onPageSizeChange: Function,
   },
   data() {
     return {
@@ -325,11 +236,24 @@ export default mixins(PaginationLocalReceiver).extend({
       }
       return ans;
     },
-    _pageSizeOption(): Array<number> {
-      const data = this.pageSizeOption as Array<number>;
-      return data.find(v => v === this.pageSize)
+    _pageSizeOption(): Array<{ label: string; value: number }> {
+      const { pageSize } = this;
+      const locale = this.locale as any;
+      const pageSizeOption = this.pageSizeOption as TdPaginationProps['pageSizeOption'];
+
+      const isNumber = (val: any) => typeof val === 'number';
+      const data = pageSizeOption.map((item: { label: string; value: any }) => ({
+        label: isNumber(item) ? locale.itemsPerPage : item.label.replace(/\d+/, '{size}'),
+        value: isNumber(item) ? item : item.value,
+      }));
+      return data.find((item: { value: number }) => item.value === pageSize)
         ? data
-        : data.concat(this.pageSize).sort((a: number, b: number) => a - b);
+        : data
+          .concat({
+            value: pageSize,
+            label: (data[0] && data[0].label) || locale.itemsPerPage,
+          })
+          .sort((a: any, b: any) => a.value - b.value);
     },
 
     curPageLeftCount(): number {
@@ -402,16 +326,6 @@ export default mixins(PaginationLocalReceiver).extend({
             prev,
             pageSize: this.pageSize,
           });
-          if (typeof this.onChange === 'function') {
-            this.onChange(
-              current,
-              {
-                curr: current,
-                prev,
-                pageSize: this.pageSize,
-              }
-            );
-          }
         }
       }
     },
@@ -472,19 +386,9 @@ export default mixins(PaginationLocalReceiver).extend({
           prev: this.currentIndex,
           pageSize,
         });
-        if (typeof this.onPageSizeChange === 'function') {
-          this.onPageSizeChange(
-            pageSize,
-            {
-              curr: isIndexChange ? pageCount : this.currentIndex,
-              prev: this.currentIndex,
-              pageSize,
-            }
-          );
-        }
-        if (isIndexChange) {
-          this.toPage(pageCount);
-        }
+      }
+      if (isIndexChange) {
+        this.toPage(pageCount);
       }
     },
   },

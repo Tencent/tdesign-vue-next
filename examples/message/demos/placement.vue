@@ -1,11 +1,5 @@
 <template>
   <div>
-    <p>函数式调用-传入对象：this.$message.info({ content: '用户表示普通操作信息提示', placement: 'center' })</p>
-    <p>
-      placement 默认值：top。<br>
-      palcement 可选值：'center/top/left/right/bottom/top-left/top-right/bottom-left/bottom-right' 。
-    </p>
-    <br>
     <t-button @click="$message.success(msgList[0])">center</t-button>
     <t-button @click="$message.info(msgList[1])">top</t-button>
     <t-button @click="$message.warning(msgList[2])">left</t-button>
