@@ -19,7 +19,18 @@
     "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@common/*": ["common/*"],
+      "@TdTypes/*": ["types/*"],
+      "@Pagination": ["src/pagination/index.ts"],
+      "@Radio": ["src/radio/index.ts"],
+      "@Checkbox": ["src/checkbox/index.ts"],
+      "@Table": ["src/table/index.ts"],
+      "@Popup": ["src/popup/index.ts"]
+    }
   },
   "include": [
     "./**/*.ts",

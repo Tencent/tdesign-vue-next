@@ -6,13 +6,7 @@
     </template>
     <!-- select-->
     <template v-if="pageSizeOption.length">
-      <t-select
-        :size="size"
-        :value="pageSize"
-        :disabled="disabled"
-        :class="_sizerClass"
-        @change="onSelectorChange"
-      >
+      <t-select :size="size" :value="pageSize" :disabled="disabled" :class="_sizerClass" @change="onSelectorChange">
         <t-option
           v-for="(item, index) in _pageSizeOption"
           :value="item"
@@ -32,7 +26,7 @@
         <li :class="getButtonClass(1)" v-if="isFolded" @click="toPage(1)">1</li>
         <li
           :class="_btnMoreClass"
-          v-show="isFolded && isPrevMoreShow"
+          v-if="isFolded && isPrevMoreShow"
           @click="prevMorePage"
           @mouseover="prevMore = true"
           @mouseout="prevMore = false"
@@ -47,7 +41,7 @@
         </li>
         <li
           :class="_btnMoreClass"
-          v-show="isFolded && isNextMoreShow"
+          v-if="isFolded && isNextMoreShow"
           @click="nextMorePage"
           @mouseover="nextMore = true"
           @mouseout="nextMore = false"
@@ -61,13 +55,7 @@
       </ul>
     </template>
     <template v-else>
-      <t-select
-        :size="size"
-        :value="currentIndex"
-        :disabled="disabled"
-        :class="_simpleClass"
-        @change="toPage"
-      >
+      <t-select :size="size" :value="currentIndex" :disabled="disabled" :class="_simpleClass" @change="toPage">
         <t-option v-for="(item, index) in _pageCountOption" :value="item" :label="`${item}/${_pageCount}`" :key="index">
         </t-option>
       </t-select>
@@ -317,14 +305,11 @@ export default mixins(PaginationLocalReceiver).extend({
           pageSize: this.pageSize,
         });
         if (typeof this.onChange === 'function') {
-          this.onChange(
-            current,
-            {
-              curr: current,
-              prev,
-              pageSize: this.pageSize,
-            }
-          );
+          this.onChange(current, {
+            curr: current,
+            prev,
+            pageSize: this.pageSize,
+          });
         }
       }
     },
@@ -380,14 +365,11 @@ export default mixins(PaginationLocalReceiver).extend({
         pageSize,
       });
       if (typeof this.onPageSizeChange === 'function') {
-        this.onPageSizeChange(
+        this.onPageSizeChange(pageSize, {
+          curr: isIndexChange ? pageCount : this.currentIndex,
+          prev: this.currentIndex,
           pageSize,
-          {
-            curr: isIndexChange ? pageCount : this.currentIndex,
-            prev: this.currentIndex,
-            pageSize,
-          }
-        );
+        });
       }
       if (isIndexChange) {
         this.toPage(pageCount);
