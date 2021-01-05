@@ -41,12 +41,12 @@
     <p>【方式三】函数式调用-主函数：this.$message({ content: '用户表示普通操作信息提示', duration: 1000 })</p>
     <br>
     <div class='t-demo-message-main'>
-      <t-button @click="$message({ content: '用户表示普通操作信息提示' })">普通信息</t-button>
-      <t-button @click="$message({ theme: 'success', content: '用户表示操作顺利达成', closeBtn: true })">显示关闭按钮</t-button>
-      <t-button @click="$message({ theme: 'warning', content: '用户表示操作引起一定后果', duration: 5000 })">设置显示时间</t-button>
-      <t-button @click="$message({ theme: 'error', content: '用户表示操作引起严重的后果', content })">自定义内容</t-button>
-      <t-button @click="$message({ theme: 'question', content: '用于帮助用户操作的信息提示', closeBtn })">自定义关闭按钮</t-button>
-      <t-button @click="$message({ theme: 'loading', content: '用于表示操作正在生效的过程中', duration: 1000 })">loading</t-button>
+      <t-button @click="$message('info', { content: '用户表示普通操作信息提示' })">普通信息</t-button>
+      <t-button @click="$message('success',{ content: '用户表示操作顺利达成', closeBtn: true })">显示关闭按钮</t-button>
+      <t-button @click="$message('warning',{ content: '用户表示操作引起一定后果' }, 5000)">设置显示时间</t-button>
+      <t-button @click="$message('error', { content: '用户表示操作引起严重的后果' })">自定义内容</t-button>
+      <t-button @click="$message('question', { content: '用于帮助用户操作的信息提示', closeBtn })">自定义关闭按钮</t-button>
+      <t-button @click="$message('loading',{ content: '用于表示操作正在生效的过程中' }, 1000)">loading</t-button>
     </div>
     <br><br>
   </div>
