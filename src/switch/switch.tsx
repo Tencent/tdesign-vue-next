@@ -62,16 +62,13 @@ export default Vue.extend({
       return false;
     },
     content(): TNodeReturnValue {
-      if (this.$scopedSlots.label) {
-        return this.$scopedSlots.label({ value: this.currentValue });
-      }
       if (typeof this.label === 'function') {
         return this.label(this.$createElement, { value: this.currentValue });
       }
       if (typeof this.label === 'string') {
         return this.label;
       }
-      if (this.label instanceof Array) {
+      if (this.label instanceof Array && this.label.length) {
         const label = this.currentValue === this.activeValue ? this.label[0] : this.label[1];
         if (!label) return;
         if (typeof label === 'string') {
@@ -80,7 +77,9 @@ export default Vue.extend({
         if (typeof label === 'function') {
           return label(this.$createElement);
         }
-        return null;
+      }
+      if (this.$scopedSlots.label) {
+        return this.$scopedSlots.label({ value: this.currentValue });
       }
       return null;
     },
@@ -108,7 +107,7 @@ export default Vue.extend({
       this.$emit('change', this.currentValue);
     },
     toggle(): void {
-      if (this.disabled) {
+      if (this.disabled || this.loading) {
         return;
       }
       this.handleToggle();

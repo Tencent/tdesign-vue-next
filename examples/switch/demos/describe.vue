@@ -25,20 +25,23 @@
       <t-switch>
         <template v-slot:label="slotProps">
           <template v-if="slotProps.value">
-            <t-icon name="tick"/>
+            <t-icon-check />
           </template>
           <template v-else>
-            <t-icon name="close"/>
+            <t-icon-close />
           </template>
         </template>
       </t-switch>
     </div>
   </div>
 </template>
-
 <script>
 
+import TIconClose from '@/src/icon/close.tsx';
+import TIconCheck from '@/src/icon/check.tsx';
+
 export default {
+  components: { TIconClose, TIconCheck },
   data() {
     return {
       checked: true,
@@ -52,13 +55,13 @@ export default {
       console.log(val);
     },
     renderActiveContent() {
-      return (<t-icon name="tick"/>);
+      return (<t-icon-check />);
     },
     renderInactiveContent() {
-      return (<t-icon name="close"/>);
+      return (<t-icon-close />);
     },
     renderContent(h, data) {
-      return data.value ? (<t-icon name="tick"/>) : (<t-icon name="close"/>);
+      return data.value ? (<TIconCheck />) : (<TIconClose />);
     },
   },
 };

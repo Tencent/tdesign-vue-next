@@ -42,15 +42,15 @@ exports[`Calendar base demo works fine 1`] = `
                 name="t-select"
                 style="width: 0px;"
                 type="hidden"
-                value="2020"
+                value="2021"
               />
                 
               <span
                 class="t-select-selectedSingle"
-                title="2020"
+                title="2021"
               >
                 
-        2020
+        2021
       
               </span>
                
@@ -60,7 +60,7 @@ exports[`Calendar base demo works fine 1`] = `
               >
                 <input
                   class="t-input__inner"
-                  placeholder="2020"
+                  placeholder="2021"
                   type="text"
                 />
               </div>
@@ -152,15 +152,15 @@ exports[`Calendar base demo works fine 1`] = `
                 name="t-select"
                 style="width: 0px;"
                 type="hidden"
-                value="12"
+                value="1"
               />
                 
               <span
                 class="t-select-selectedSingle"
-                title="12"
+                title="1"
               >
                 
-        12
+        1
       
               </span>
                
@@ -170,7 +170,7 @@ exports[`Calendar base demo works fine 1`] = `
               >
                 <input
                   class="t-input__inner"
-                  placeholder="12"
+                  placeholder="1"
                   type="text"
                 />
               </div>
@@ -383,7 +383,46 @@ exports[`Calendar base demo works fine 1`] = `
             <div
               class="t-calendar__table-body-cell-value"
             >
+              28
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              29
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
               30
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              31
             </div>
              
             <div
@@ -429,6 +468,10 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -443,7 +486,7 @@ exports[`Calendar base demo works fine 1`] = `
             />
           </td>
           <td
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked"
           >
             <div
               class="t-calendar__table-body-cell-value"
@@ -468,10 +511,6 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -524,6 +563,10 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -563,10 +606,6 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -619,6 +658,10 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -658,10 +701,6 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -714,6 +753,10 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -753,10 +796,6 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -784,7 +823,7 @@ exports[`Calendar base demo works fine 1`] = `
             />
           </td>
           <td
-            class="t-calendar__table-body-cell t-is-checked"
+            class="t-calendar__table-body-cell"
           >
             <div
               class="t-calendar__table-body-cell-value"
@@ -803,45 +842,6 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-calendar__table-body-cell-value"
             >
               31
-            </div>
-             
-            <div
-              class="t-calendar__table-body-cell-content"
-            />
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            <div
-              class="t-calendar__table-body-cell-value"
-            >
-              01
-            </div>
-             
-            <div
-              class="t-calendar__table-body-cell-content"
-            />
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            <div
-              class="t-calendar__table-body-cell-value"
-            >
-              02
-            </div>
-             
-            <div
-              class="t-calendar__table-body-cell-content"
-            />
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            <div
-              class="t-calendar__table-body-cell-value"
-            >
-              03
             </div>
              
             <div
@@ -1241,15 +1241,15 @@ exports[`Calendar head demo works fine 1`] = `
                 name="t-select"
                 style="width: 0px;"
                 type="hidden"
-                value="2020"
+                value="2021"
               />
                 
               <span
                 class="t-select-selectedSingle"
-                title="2020"
+                title="2021"
               >
                 
-        2020
+        2021
       
               </span>
                
@@ -1259,7 +1259,7 @@ exports[`Calendar head demo works fine 1`] = `
               >
                 <input
                   class="t-input__inner"
-                  placeholder="2020"
+                  placeholder="2021"
                   type="text"
                 />
               </div>
@@ -1351,15 +1351,15 @@ exports[`Calendar head demo works fine 1`] = `
                 name="t-select"
                 style="width: 0px;"
                 type="hidden"
-                value="12"
+                value="1"
               />
                 
               <span
                 class="t-select-selectedSingle"
-                title="12"
+                title="1"
               >
                 
-        12
+        1
       
               </span>
                
@@ -1369,7 +1369,7 @@ exports[`Calendar head demo works fine 1`] = `
               >
                 <input
                   class="t-input__inner"
-                  placeholder="12"
+                  placeholder="1"
                   type="text"
                 />
               </div>
@@ -1588,7 +1588,46 @@ exports[`Calendar head demo works fine 1`] = `
             <div
               class="t-calendar__table-body-cell-value"
             >
+              28
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              29
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
               30
+            </div>
+             
+            <div
+              class="t-calendar__table-body-cell-content"
+            />
+          </td>
+          <td
+            class="t-calendar__table-body-cell t-is-disabled"
+          >
+            <div
+              class="t-calendar__table-body-cell-value"
+            >
+              31
             </div>
              
             <div
@@ -1634,6 +1673,10 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -1648,7 +1691,7 @@ exports[`Calendar head demo works fine 1`] = `
             />
           </td>
           <td
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked"
           >
             <div
               class="t-calendar__table-body-cell-value"
@@ -1673,10 +1716,6 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -1729,6 +1768,10 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -1768,10 +1811,6 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -1824,6 +1863,10 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -1863,10 +1906,6 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -1919,6 +1958,10 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -1958,10 +2001,6 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-calendar__table-body-cell-content"
             />
           </td>
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
           <td
             class="t-calendar__table-body-cell"
           >
@@ -1989,7 +2028,7 @@ exports[`Calendar head demo works fine 1`] = `
             />
           </td>
           <td
-            class="t-calendar__table-body-cell t-is-checked"
+            class="t-calendar__table-body-cell"
           >
             <div
               class="t-calendar__table-body-cell-value"
@@ -2008,45 +2047,6 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-calendar__table-body-cell-value"
             >
               31
-            </div>
-             
-            <div
-              class="t-calendar__table-body-cell-content"
-            />
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            <div
-              class="t-calendar__table-body-cell-value"
-            >
-              01
-            </div>
-             
-            <div
-              class="t-calendar__table-body-cell-content"
-            />
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            <div
-              class="t-calendar__table-body-cell-value"
-            >
-              02
-            </div>
-             
-            <div
-              class="t-calendar__table-body-cell-content"
-            />
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            <div
-              class="t-calendar__table-body-cell-value"
-            >
-              03
             </div>
              
             <div
