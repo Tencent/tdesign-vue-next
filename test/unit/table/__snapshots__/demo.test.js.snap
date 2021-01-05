@@ -14,36 +14,26 @@ exports[`Table base demo works fine 1`] = `
       >
         <colgroup>
           <col
-            class="row"
-            style="text-overflow: ellipsis; overflow: hidden; text-align: center; width: 100px; min-width: 100px;"
+            style="width: 100px; min-width: 100px;"
           />
           <col
-            class="row"
-            style="text-overflow: ellipsis; overflow: hidden; text-align: left; width: 200px; min-width: 200px;"
+            style="width: 200px; min-width: 200px;"
           />
           <col
-            class="test"
-            style="text-overflow: ellipsis; overflow: hidden; text-align: left; width: 100px; min-width: 100px;"
+            style="width: 100px; min-width: 100px;"
           />
           <col
-            class="test2"
-            style="text-overflow: ellipsis; overflow: hidden; text-align: left; width: 200px; min-width: 200px;"
+            style="width: 200px; min-width: 200px;"
+          />
+          <col />
+          <col
+            style="width: 100px; min-width: 100px;"
           />
           <col
-            class="test4"
-            style="text-overflow: ellipsis; overflow: hidden; text-align: left;"
+            style="width: 100px; min-width: 100px;"
           />
           <col
-            class="test3"
-            style="text-overflow: ellipsis; overflow: hidden; text-align: left; width: 100px; min-width: 100px;"
-          />
-          <col
-            class="test3"
-            style="text-overflow: ellipsis; overflow: hidden; text-align: left; width: 100px; min-width: 100px;"
-          />
-          <col
-            class="row"
-            style="text-overflow: ellipsis; overflow: hidden; text-align: left; width: 100px; min-width: 100px;"
+            style="width: 100px; min-width: 100px;"
           />
         </colgroup>
         <thead
@@ -51,74 +41,73 @@ exports[`Table base demo works fine 1`] = `
         >
           <tr>
             <td
-              class=""
+              class="align-center text-ellipsis row"
               colspan="1"
               key="index"
               rowspan="1"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               index
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               colspan="1"
               key="type"
               rowspan="1"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               类型
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               colspan="1"
               key="platform"
               rowspan="1"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               平台
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               colspan="1"
               key="property"
               rowspan="1"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               属性
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               colspan="1"
               key="default"
               rowspan="1"
-              style="text-align: left;"
             >
               默认值
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               colspan="1"
               key="needed"
               rowspan="1"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               是否必传
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               colspan="1"
               key="detail.name"
               rowspan="1"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               详情信息
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               colspan="1"
               key="description"
               rowspan="1"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               说明
             </td>
@@ -131,66 +120,65 @@ exports[`Table base demo works fine 1`] = `
             class=""
           >
             <td
-              class=""
+              class="align-center text-ellipsis row"
               key="index"
               length="8"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               0
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="type"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               any[]
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               key="platform"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               公有
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               key="property"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               data
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               key="default"
               length="8"
-              style="text-align: left;"
             >
               []
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="needed"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               Y
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="detail.name"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               嵌套信息读取
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="description"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               数据源
             </td>
@@ -199,66 +187,65 @@ exports[`Table base demo works fine 1`] = `
             class=""
           >
             <td
-              class=""
+              class="align-center text-ellipsis row"
               key="index"
               length="8"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               1
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="type"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               any[]
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               key="platform"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               公有
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               key="property"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               data
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               key="default"
               length="8"
-              style="text-align: left;"
             >
               []
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="needed"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               Y
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="detail.name"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               嵌套信息读取
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="description"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               数据源
             </td>
@@ -267,66 +254,65 @@ exports[`Table base demo works fine 1`] = `
             class=""
           >
             <td
-              class=""
+              class="align-center text-ellipsis row"
               key="index"
               length="8"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               2
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="type"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               any[]
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               key="platform"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               公有
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               key="property"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               data
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               key="default"
               length="8"
-              style="text-align: left;"
             >
               []
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="needed"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               Y
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="detail.name"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               嵌套信息读取
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="description"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               数据源
             </td>
@@ -335,66 +321,65 @@ exports[`Table base demo works fine 1`] = `
             class=""
           >
             <td
-              class=""
+              class="align-center text-ellipsis row"
               key="index"
               length="8"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               3
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="type"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               any[]
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               key="platform"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               公有
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               key="property"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               data
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               key="default"
               length="8"
-              style="text-align: left;"
             >
               []
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="needed"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               Y
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="detail.name"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               嵌套信息读取
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="description"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               数据源
             </td>
@@ -403,66 +388,65 @@ exports[`Table base demo works fine 1`] = `
             class=""
           >
             <td
-              class=""
+              class="align-center text-ellipsis row"
               key="index"
               length="8"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               4
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="type"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               any[]
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               key="platform"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               公有
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               key="property"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               data
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               key="default"
               length="8"
-              style="text-align: left;"
             >
               []
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="needed"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               Y
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="detail.name"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               嵌套信息读取
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="description"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               数据源
             </td>
@@ -471,66 +455,65 @@ exports[`Table base demo works fine 1`] = `
             class=""
           >
             <td
-              class=""
+              class="align-center text-ellipsis row"
               key="index"
               length="8"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               5
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="type"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               any[]
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               key="platform"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               公有
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               key="property"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               data
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               key="default"
               length="8"
-              style="text-align: left;"
             >
               []
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="needed"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               Y
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="detail.name"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               嵌套信息读取
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="description"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               数据源
             </td>
@@ -539,66 +522,65 @@ exports[`Table base demo works fine 1`] = `
             class=""
           >
             <td
-              class=""
+              class="align-center text-ellipsis row"
               key="index"
               length="8"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               6
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="type"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               any[]
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               key="platform"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               公有
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               key="property"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               data
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               key="default"
               length="8"
-              style="text-align: left;"
             >
               []
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="needed"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               Y
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="detail.name"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               嵌套信息读取
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="description"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               数据源
             </td>
@@ -607,66 +589,65 @@ exports[`Table base demo works fine 1`] = `
             class=""
           >
             <td
-              class=""
+              class="align-center text-ellipsis row"
               key="index"
               length="8"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               7
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="type"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               any[]
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               key="platform"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               公有
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               key="property"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               data
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               key="default"
               length="8"
-              style="text-align: left;"
             >
               []
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="needed"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               Y
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="detail.name"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               嵌套信息读取
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="description"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               数据源
             </td>
@@ -675,66 +656,65 @@ exports[`Table base demo works fine 1`] = `
             class=""
           >
             <td
-              class=""
+              class="align-center text-ellipsis row"
               key="index"
               length="8"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               8
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="type"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               any[]
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               key="platform"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               公有
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               key="property"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               data
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               key="default"
               length="8"
-              style="text-align: left;"
             >
               []
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="needed"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               Y
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="detail.name"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               嵌套信息读取
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="description"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               数据源
             </td>
@@ -743,66 +723,65 @@ exports[`Table base demo works fine 1`] = `
             class=""
           >
             <td
-              class=""
+              class="align-center text-ellipsis row"
               key="index"
               length="8"
-              style="text-align: center;"
+              style="overflow: hidden;"
             >
               9
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="type"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               any[]
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test"
               key="platform"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               公有
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test2"
               key="property"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               data
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test4"
               key="default"
               length="8"
-              style="text-align: left;"
             >
               []
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="needed"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               Y
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis test3"
               key="detail.name"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               嵌套信息读取
             </td>
             <td
-              class=""
+              class="align-left text-ellipsis row"
               key="description"
               length="8"
-              style="text-align: left;"
+              style="overflow: hidden;"
             >
               数据源
             </td>
