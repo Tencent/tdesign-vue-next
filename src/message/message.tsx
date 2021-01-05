@@ -107,7 +107,9 @@ export default Vue.extend({
     renderContent(h: Vue.CreateElement) {
       if (typeof this.content === 'string') return this.content;
       if (typeof this.content === 'function') return this.content(h);
-      return this.$scopedSlots.default && this.$scopedSlots.default(null);
+      if (this.$scopedSlots.default) return this.$scopedSlots.default(null);
+      if (this.$scopedSlots.content) return this.$scopedSlots.content(null);
+      return this.content;
     },
   },
 
