@@ -1,39 +1,52 @@
 <template>
   <div class="switch-demo">
     <div class="tdesign-demo-block">
-      <t-switch v-model="checked" active-content="开" inactive-content="关">
+      <t-switch v-model="checked" :label="['开', '关']">
       </t-switch>
-      <t-switch active-content="开" inactive-content="关">
+      <t-switch :label="['开', '关']">
       </t-switch>
     </div>
     <div class="tdesign-demo-block">
-      <t-switch v-model="renderChecked" :active-content="renderActiveContent"
-                :inactive-content="renderInactiveContent">
+      <t-switch v-model="renderChecked" :label="[renderActiveContent, renderInactiveContent]">
       </t-switch>
-      <t-switch :active-content="renderActiveContent"
-                :inactive-content="renderInactiveContent">
+      <t-switch :label="[renderActiveContent, renderInactiveContent]">
+      </t-switch>
+    </div>
+    <div class="tdesign-demo-block">
+      <t-switch v-model="renderChecked2" :label="renderContent">
+      </t-switch>
+      <t-switch :label="renderContent">
       </t-switch>
     </div>
     <div class="tdesign-demo-block">
       <t-switch v-model="slotChecked">
-        <template slot="active-content">开</template>
-        <template slot="inactive-content">关</template>
+        <template v-slot:label="slotProps">{{slotProps.value?'开':'关'}}</template>
       </t-switch>
       <t-switch>
-        <template slot="active-content"><t-icon name="tick"/></template>
-        <template slot="inactive-content"><t-icon name="close"/></template>
+        <template v-slot:label="slotProps">
+          <template v-if="slotProps.value">
+            <t-icon-check />
+          </template>
+          <template v-else>
+            <t-icon-close />
+          </template>
+        </template>
       </t-switch>
     </div>
   </div>
 </template>
-
 <script>
 
+import TIconClose from '@/src/icon/close.tsx';
+import TIconCheck from '@/src/icon/check.tsx';
+
 export default {
+  components: { TIconClose, TIconCheck },
   data() {
     return {
       checked: true,
       renderChecked: true,
+      renderChecked2: true,
       slotChecked: true,
     };
   },
@@ -42,10 +55,13 @@ export default {
       console.log(val);
     },
     renderActiveContent() {
-      return (<t-icon name="tick"/>);
+      return (<t-icon-check />);
     },
     renderInactiveContent() {
-      return (<t-icon name="close"/>);
+      return (<t-icon-close />);
+    },
+    renderContent(h, data) {
+      return data.value ? (<TIconCheck />) : (<TIconClose />);
     },
   },
 };

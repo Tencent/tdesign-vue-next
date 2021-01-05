@@ -1,4 +1,4 @@
-import Switch from './switch.vue';
+import Switch from './switch';
 import setInstallFn from '../utils/setInstallFn';
 
 setInstallFn('Switch', Switch);
