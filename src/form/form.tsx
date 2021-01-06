@@ -1,7 +1,7 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
-import { FormValidateResult, FormRule } from '../../types/form/TdFormProps';
-import props from '../../types/form/props';
+import { FormValidateResult, FormRule } from '@TdTypes/form/TdFormProps';
+import props from '@TdTypes/form/props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import isEmpty from 'lodash/isEmpty';
 
