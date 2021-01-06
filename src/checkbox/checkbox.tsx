@@ -2,6 +2,7 @@ import Vue, { VueConstructor, VNode } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
+import checkboxProps from '@TdTypes/checkbox/props';
 
 const name = `${prefix}-checkbox`;
 
@@ -31,17 +32,7 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
     checkboxGroup: { default: undefined },
   },
 
-  // 引入自动生成的 props 文件，示例如下，
-  // import props from '../../types/checkbox/props'
-  // props: { ...props }
-  props: {
-    checked: { type: Boolean, default: undefined },
-    defaultChecked: { type: Boolean, default: undefined },
-    disabled: { type: Boolean, default: false },
-    indeterminate: { type: Boolean, default: false },
-    value: { type: [String, Number], default: undefined },
-    name: String,
-  },
+  props: { ...checkboxProps },
 
   watch: {
     value(nVal, oVal) {
@@ -129,7 +120,8 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
         this.checkboxGroup.handleCheckboxChange(this.value);
       } else {
         this.$emit('change', target.checked);
-        this.$emit('input', e);
+        this.$emit('input', target.checked);
+        this.onChange && this.onChange(target.checked, { e });
       }
     },
   },
