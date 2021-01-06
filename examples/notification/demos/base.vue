@@ -1,6 +1,7 @@
 <template>
   <div>
     <t-notification
+      theme="info"
       title="标题名称"
       v-if="visible1"
       :duration="closeTime"
@@ -8,6 +9,7 @@
       default="这是一条可以自动关闭的消息通知(10s)"
     />
     <t-notification
+      theme="info"
       title="标题名称"
       closeBtn
       v-if="visible2"
