@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
-import { validate } from './formModel';
+import { validate } from './form-model';
 import { ErrorList, ValidateResult, ValueType, TdFormProps, TdFormItemProps } from '../../types/form/TdFormProps';
 import props from '../../types/form-item/props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
@@ -8,6 +8,12 @@ import Form from './form';
 import { NormalizedScopedSlot } from 'vue/types/vnode';
 
 type FormInstance = InstanceType<typeof Form>;
+
+const enum VALIDATE_STATUS {
+  TO_BE_VALIDATED = 'not',
+  SUCCESS = 'success',
+  FAIL = 'fail',
+}
 
 const name = `${prefix}-form-item`;
 
@@ -20,7 +26,7 @@ export default Vue.extend({
     return {
       errorList: [] as ErrorList,
       // 当前校验状态 未校验、校验通过、校验不通过
-      verifyStatus: 'no' as 'no' | 'success' | 'fail',
+      verifyStatus: VALIDATE_STATUS.TO_BE_VALIDATED as VALIDATE_STATUS,
     };
   },
 
@@ -51,7 +57,7 @@ export default Vue.extend({
     errorClasses(): string {
       const parent = this.$parent as FormInstance;
       if (!parent.showErrorMessage) return '';
-      if (this.verifyStatus === 'success') return CLASS_NAMES.success;
+      if (this.verifyStatus === VALIDATE_STATUS.SUCCESS) return CLASS_NAMES.success;
       if (!this.errorList.length) return;
       const type = this.errorList[0].type || 'error';
       return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
@@ -102,7 +108,7 @@ export default Vue.extend({
         validate(this.value, this.innerRules)
           .then((r) => {
             this.errorList = r;
-            this.verifyStatus = this.errorList.length ? 'fail' : 'success';
+            this.verifyStatus = this.errorList.length ? VALIDATE_STATUS.FAIL : VALIDATE_STATUS.SUCCESS;
             resolve({
               [this.name]: r.length === 0 ? true : r,
             });
@@ -136,7 +142,7 @@ export default Vue.extend({
         </span>
       );
       const list = this.errorList;
-      if (this.verifyStatus === 'success') {
+      if (this.verifyStatus === VALIDATE_STATUS.SUCCESS) {
         return resultIcon('check-circle-filled');
       }
       if (list && list[0]) {
@@ -188,7 +194,7 @@ export default Vue.extend({
     },
     resetField(): void {
       this.errorList = [];
-      this.verifyStatus = 'no';
+      this.verifyStatus = VALIDATE_STATUS.TO_BE_VALIDATED;
     },
   },
 
