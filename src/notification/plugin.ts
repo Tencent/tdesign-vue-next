@@ -1,10 +1,17 @@
 import Vue from 'vue';
 import NotificationList from './notificationList';
 import { getAttach } from '../utils/dom';
-import { NotificationOptions, NotificationInstance, ThemeList,
-  NotificationMethod, NotificationInfoOptions, NotificationInfoMethod,
-  NotificationWarningMethod, NotificationErrorMethod, NotificationSuccessMethod,
-  NotificationCloseMethod, NotificationCloseAllMethod } from '@TdTypes/notification/TdNotificationProps';
+import {
+  NotificationOptions,
+  NotificationInstance,
+  NotificationMethod,
+  NotificationInfoMethod,
+  NotificationWarningMethod,
+  NotificationErrorMethod,
+  NotificationSuccessMethod,
+  NotificationCloseMethod,
+  NotificationCloseAllMethod,
+} from '@TdTypes/notification/TdNotificationProps';
 
 let seed = 0;
 // 存储不同 attach 和 不同 placement 消息列表实例
@@ -12,12 +19,13 @@ const instanceMap: Map<Element, object> = new Map();
 
 const NotificationFunction = (options: NotificationOptions): Promise<NotificationInstance> => {
   seed += 1;
-  const hackOptions = Object.assign({
+  const hackOptions = {
     placement: 'top-right',
     zIndex: 6000,
     attach: 'body',
     id: seed,
-  }, options);
+    ...options,
+  };
   hackOptions.content = options.content ? options.content : '';
 
   const _a = getAttach(hackOptions.attach);
@@ -48,19 +56,21 @@ const NotificationFunction = (options: NotificationOptions): Promise<Notificatio
   });
 };
 
-const showThemeNotification: NotificationMethod = (theme: ThemeList, options: NotificationInfoOptions) => {
-  const hackOptions = Object.assign(options, { theme });
+const showThemeNotification: NotificationMethod = (theme, options) => {
+  const hackOptions = { ...options, theme };
   return NotificationFunction(hackOptions);
 };
 
-const extraAPi: {
+interface ExtraApi {
   info: NotificationInfoMethod;
   success: NotificationSuccessMethod;
   warning: NotificationWarningMethod;
   error: NotificationErrorMethod;
   close: NotificationCloseMethod;
   closeAll: NotificationCloseAllMethod;
-} = {
+};
+
+const extraApi: ExtraApi = {
   info: options => showThemeNotification('info', options),
   success: options => showThemeNotification('success', options),
   warning: options => showThemeNotification('warning', options),
@@ -77,14 +87,13 @@ const extraAPi: {
   },
 };
 
-const NotificationPlugin = showThemeNotification as (NotificationMethod & Vue.PluginObject<void>);
-
-Object.keys(extraAPi).forEach((key) => {
-  NotificationPlugin[key] = extraAPi[key];
-});
-
-NotificationPlugin.install = () => {
-  Vue.prototype.$notify = NotificationPlugin;
+const NotificationPlugin: Vue.PluginObject<undefined> = {
+  install: () => {
+    Vue.prototype.$notify = showThemeNotification;
+    Object.keys(extraApi).forEach((funcName) => {
+      Vue.prototype.$notify[funcName] = extraApi[funcName];
+    });
+  },
 };
 
 export default NotificationPlugin;
