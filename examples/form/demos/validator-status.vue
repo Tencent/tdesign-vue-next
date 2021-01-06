@@ -20,7 +20,7 @@
       <t-form-item label="失败" name='failB' :statusIcon="false">
         <t-input v-model="formData.failB" placeholder="隐藏状态icon"></t-input>
       </t-form-item>
-      <t-form-item label="警告" name='warningB' :statusIcon="true">
+      <t-form-item label="警告" name='warningB'>
         <t-input v-model="formData.warningB"></t-input>
       </t-form-item>
       <t-form-item label="加载中" name='loading'>
@@ -71,7 +71,7 @@ export default {
           { required: true, message: '必填', type: 'error' },
         ],
         warningB: [
-          { required: true, message: '必填', type: 'warning' },
+          { required: true, type: 'warning' },
         ],
       },
     };

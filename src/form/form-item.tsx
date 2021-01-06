@@ -131,7 +131,7 @@ export default Vue.extend({
       }
       if (!parent.showErrorMessage) return;
       const list = this.errorList;
-      if (list && list[0]) {
+      if (list && list[0] && list[0].message) {
         return <span class={CLASS_NAMES.extra}>{list[0].message}</span>;
       }
     },
