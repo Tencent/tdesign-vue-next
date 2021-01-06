@@ -124,7 +124,7 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
 
   methods: {
     handleChange(e: Event) {
-      const target: HTMLInputElement = e.target as HTMLInputElement;
+      const target = e.target as HTMLInputElement;
       if (this.checkboxGroup && this.checkboxGroup.handleCheckboxChange) {
         this.checkboxGroup.handleCheckboxChange(this.value);
       } else {
