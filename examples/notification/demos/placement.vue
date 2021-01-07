@@ -12,7 +12,7 @@
 export default {
   methods: {
     showInTopLeft() {
-      this.$notify({
+      this.$notify.info({
         title: '标题名称',
         content: '这是一条可以自动关闭的消息通知',
         placement: 'top-left',
@@ -20,14 +20,14 @@ export default {
       });
     },
     showInTopRight() {
-      this.$notify({
+      this.$notify.info({
         title: '标题名称',
         content: '这是一条可以自动关闭的消息通知',
         duration: 3000,
       });
     },
     showInBottomLeft() {
-      this.$notify({
+      this.$notify.info({
         title: '标题名称',
         content: '这是一条可以自动关闭的消息通知',
         placement: 'bottom-left',
@@ -35,7 +35,7 @@ export default {
       });
     },
     showInBottomRight() {
-      this.$notify({
+      this.$notify.info({
         title: '标题名称',
         content: '这是一条可以自动关闭的消息通知',
         placement: 'bottom-right',
