@@ -12,7 +12,7 @@ exports[`Button base demo works fine 1`] = `
     </button>
      
     <button
-      class="t-button t-button--primary"
+      class="t-button t-button--line"
     >
       次要按钮
     </button>
