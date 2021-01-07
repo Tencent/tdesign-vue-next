@@ -3,6 +3,7 @@ import { prefix } from '../config';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import TIconClose from '../icon/close';
+import props from '@TdTypes/notification/props';
 
 const name = `${prefix}-notification`;
 
@@ -13,46 +14,24 @@ export default Vue.extend({
     TIconCheckCircleFilled,
     TIconClose,
   },
-  props: {
-    theme: {
-      type: String,
-      default: '',
-      validator(v: string): boolean {
-        return (
-          [
-            '',
-            'info',
-            'success',
-            'warning',
-            'error',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-    duration: {
-      type: Number,
-      default: 0,
-    },
-    closeBtn: {
-      type: [Boolean, String, Function],
-      default: true,
-    },
-    title: String,
-    default: [String, Function],
-    icon: Function,
-    footer: Function,
-  },
+  props: { ...props },
   mounted() {
     if (this.duration > 0) {
       const timer = setTimeout(() => {
         clearTimeout(timer);
         this.$emit('duration-end', this);
+        if (this.onDurationEnd) {
+          this.onDurationEnd();
+        };
       }, this.duration);
     }
   },
   methods: {
-    close(e?: Event) {
+    close(e?: MouseEvent) {
       this.$emit('click-close-btn', e, this);
+      if (this.onClickCloseBtn) {
+        this.onClickCloseBtn(e);
+      };
     },
     renderIcon(h: CreateElement) {
       let icon: VNode[] | VNode | string = '';
@@ -102,13 +81,13 @@ export default Vue.extend({
     renderContent(h: CreateElement) {
       let content: VNode[] | VNode | string = '';
 
-      switch (typeof this.default) {
+      switch (typeof this.content) {
         case 'function': {
-          content = <div class={`${name}__content`}>{this.default(h)}</div>;
+          content = <div class={`${name}__content`}>{this.content(h)}</div>;
           break;
         }
         case 'string': {
-          content = this.default ? (<div class={`${name}__content`}>{this.default}</div>) : '';
+          content = this.content ? (<div class={`${name}__content`}>{this.content}</div>) : '';
           break;
         }
       };
