@@ -1,9 +1,11 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
-import { FormValidateResult, FormRule } from '@TdTypes/form/TdFormProps';
+import { FormValidateResult, FormRule, TdFormProps } from '@TdTypes/form/TdFormProps';
 import props from '@TdTypes/form/props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import isEmpty from 'lodash/isEmpty';
+
+type Result = FormValidateResult<TdFormProps['data']>;
 
 const name = `${prefix}-form`;
 
@@ -24,7 +26,7 @@ export default Vue.extend({
   },
 
   methods: {
-    getFirstError(r: FormValidateResult) {
+    getFirstError(r: Result) {
       if (r === true) return;
       const [firstKey] = Object.keys(r);
       if (this.scrollToFirstError) {
@@ -38,7 +40,7 @@ export default Vue.extend({
       const behavior = this.scrollToFirstError as ScrollBehavior;
       dom && dom.scrollIntoView({ behavior });
     },
-    emitEvent(eventName: string, data: { result?: FormValidateResult; e: Event; firstError?: FormRule }) {
+    emitEvent(eventName: string, data: { result?: Result; e: Event; firstError?: FormRule }) {
       this.$emit(eventName, data);
       const propsApi = `on${eventName[0].toUpperCase()}${eventName.substr(1)}`;
       if (typeof this[propsApi] === 'function') {
@@ -49,7 +51,7 @@ export default Vue.extend({
       return typeof val === 'function';
     },
     // 对外方法，该方法会触发全部表单组件错误信息显示
-    validate(): Promise<FormValidateResult> {
+    validate(): Promise<Result> {
       const list = this.$children
         .filter((child: any) => this.isFunction(child.validate))
         .map((child: any) => child.validate());

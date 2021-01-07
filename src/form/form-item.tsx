@@ -7,6 +7,8 @@ import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import Form from './form';
 import { NormalizedScopedSlot } from 'vue/types/vnode';
 
+type Result = ValidateResult<TdFormProps['data']>;
+
 type FormInstance = InstanceType<typeof Form>;
 
 const enum VALIDATE_STATUS {
@@ -103,7 +105,7 @@ export default Vue.extend({
   },
 
   methods: {
-    validate(): Promise<ValidateResult> {
+    validate(): Promise<Result> {
       return new Promise((resolve) => {
         validate(this.value, this.innerRules)
           .then((r) => {
