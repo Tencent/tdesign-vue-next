@@ -4,7 +4,7 @@ import isEmail from 'validator/lib/isEmail';
 import isDate from 'validator/lib/isDate';
 import isURL from 'validator/lib/isURL';
 import isEmpty from 'lodash/isEmpty';
-import { ValueType, TdFormRule, CustomValidator, ErrorList } from '../../types/form/TdFormProps';
+import { ValueType, FormRule, CustomValidator, ErrorList } from '../../types/form/TdFormProps';
 
 // `{} / [] / '' / undefined / null` 等内容被认为是空； 0 和 false 被认为是正常数据，部分数据的值就是 0 或者 false
 export function isValueEmpty(val: ValueType): boolean {
@@ -24,8 +24,7 @@ function getStringLength(str: string): number {
     if (str.charCodeAt(i) > 127 || str.charCodeAt(i) === 94) {
       len += 2;
     } else {
-      // eslint-disable-next-line no-plusplus
-      len++;
+      len = len + 1;
     }
   }
   return len;
@@ -52,8 +51,8 @@ const VALIDATE_MAP = {
 // 校验某一条数据的某一条规则
 export function validateOneRule(
   value: ValueType,
-  rule: TdFormRule,
-): Promise<boolean | TdFormRule> {
+  rule: FormRule,
+): Promise<boolean | FormRule> {
   return new Promise((resolve) => {
     let r: boolean | Promise<boolean> = true;
     Object.keys(rule).forEach((key) => {
@@ -81,7 +80,7 @@ export function validateOneRule(
 }
 
 // 全部数据校验
-export function validate(value: ValueType, rules: Array<TdFormRule>): Promise<ErrorList> {
+export function validate(value: ValueType, rules: Array<FormRule>): Promise<ErrorList> {
   return new Promise((resolve) => {
     const all = rules.map(rule => validateOneRule(value, rule));
     Promise.all(all).then((arr) => {
