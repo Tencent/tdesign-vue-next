@@ -26,7 +26,6 @@ import Vue from 'vue';
 import { createPopper } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
-import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import { on, off, addClass, removeClass } from '../utils/dom';
 import props from '@TdTypes/popup/props';
@@ -51,9 +50,6 @@ const placementMap = {
 
 export default Vue.extend({
   name,
-  components: {
-    RenderComponent,
-  },
   props: { ...props },
   data() {
     return {
