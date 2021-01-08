@@ -88,6 +88,7 @@ export default Vue.extend({
     overlayStyle: Object,
     overlayClassName: String,
     destroyOnHide: Boolean,
+    onVisibleChange: Function,
   },
   data() {
     return {
