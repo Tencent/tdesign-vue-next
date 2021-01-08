@@ -29,6 +29,7 @@ import config from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import { on, off, addClass, removeClass } from '../utils/dom';
+import props from '@TdTypes/popup/props';
 
 const stop = (e: MouseEvent): void => e.stopPropagation();
 const { prefix } = config;
@@ -53,43 +54,7 @@ export default Vue.extend({
   components: {
     RenderComponent,
   },
-  // 将下面手写的 props 文件换成： 引入自动生成的 props 文件
-  // 示例如下：
-  // import props from '../../types/popup/props'
-  // props: { ...props },
-  props: {
-    disabled: Boolean,
-    visible: Boolean,
-    placement: {
-      type: String,
-      default: 'top',
-      validator: (value: string) => Object.keys(placementMap).indexOf(value) > -1,
-    },
-    trigger: {
-      type: String,
-      default: 'hover',
-      validator: (value: string) => {
-        const triggers: string[] = value.split(' ');
-        if (triggers.indexOf('manual') > -1 && triggers.length > 1) {
-          return false;
-        }
-        for (let i = 0; i < triggers.length; i++) {
-          const trigger = triggers[i];
-          if (['hover', 'click', 'focus', 'context-menu'].indexOf(trigger) < -1) {
-            return false;
-          }
-        }
-        return true;
-      },
-    },
-    content: [String, Function, RenderComponent],
-    showArrow: Boolean,
-    attach: Function,
-    overlayStyle: Object,
-    overlayClassName: String,
-    destroyOnHide: Boolean,
-    onVisibleChange: Function,
-  },
+  props: { ...props },
   data() {
     return {
       name,
@@ -150,8 +115,6 @@ export default Vue.extend({
     this.popperElm = this.popperElm || this.$refs.popper;
     this.referenceElm = this.referenceElm || this.$refs.reference;
     if (!this.popperElm || !this.referenceElm) return;
-
-    // if (this.showArrow) this.appendArrow(this.popperElm);
 
     this.createPopperJS();
     const reference = this.referenceElm;
@@ -216,8 +179,10 @@ export default Vue.extend({
   },
   methods: {
     createPopperJS(): void {
-      const overlayContainer = this.attach
-        ? this.attach() : document.body;
+      const overlayContainer = typeof this.attach === 'function'
+        ? this.attach() as HTMLElement
+        : (document.querySelector(this.attach) || document.body);
+
       overlayContainer.appendChild(this.popperElm);
 
       if (this.popperJS && this.popperJS.destroy) {
