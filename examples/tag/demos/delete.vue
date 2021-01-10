@@ -6,7 +6,7 @@
         :key="index"
         :theme="tag.type"
         :icon="tag.icon"
-        :effect="tag.effect"
+        :variant="tag.variant"
         :maxWidth="tag.maxWidth"
         :closable="tag.showClose"
         @click="handleClick"
