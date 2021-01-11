@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tdesign-tooltip-demo">
     <t-tooltip content="文字提示仅展示文本内容">
       <t-button>默认hover触发</t-button>
     </t-tooltip>
