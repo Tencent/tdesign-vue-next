@@ -4,6 +4,7 @@ export const FORM_ITEM_CLASS_PREFIX = 't-form-item__';
 
 const form = `${prefix}-form`;
 const input = `${prefix}-input`;
+const is = `${prefix}-is`;
 
 export const CLASS_NAMES = {
   form,
@@ -19,4 +20,7 @@ export const CLASS_NAMES = {
   controlsContent: `${form}__controls--content`,
   status: `${form}__status`,
   extra: `${input}__extra`,
+  success: `${is}-success`,
+  error: `${is}-error`,
+  warning: `${is}-warning`,
 };

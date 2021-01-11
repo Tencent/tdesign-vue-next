@@ -11,7 +11,7 @@
 
     <t-message
       v-if="isShowMsg"
-      closeBtn
+      :closeBtn="true"
       @click-close-btn="isShowMsg = false"
     >点击关闭按钮触发事件 click-close-btn </t-message>
 
