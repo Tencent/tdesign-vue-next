@@ -14,11 +14,11 @@ exports[`Select base demo works fine 1`] = `
         class="t-select"
       >
         <svg
-          class="t-icon t-icon-undefined t-select-left-icon"
+          class="t-icon t-icon- t-select-left-icon"
           style="display: none;"
         >
           <use
-            xlink:href="#t-icon-undefined"
+            xlink:href="#t-icon-"
           />
         </svg>
          

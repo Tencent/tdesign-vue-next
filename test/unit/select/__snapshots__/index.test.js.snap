@@ -3,8 +3,8 @@
 exports[`Select :props :bordered 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-select-right-icon">
@@ -31,8 +31,8 @@ exports[`Select :props :bordered 1`] = `
 exports[`Select :props :clearable 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-select-right-icon">
@@ -59,8 +59,8 @@ exports[`Select :props :clearable 1`] = `
 exports[`Select :props :creatable 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-select-right-icon">
@@ -87,8 +87,8 @@ exports[`Select :props :creatable 1`] = `
 exports[`Select :props :disabled 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select t-is-disabled"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select t-is-disabled"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-select-right-icon">
@@ -115,8 +115,8 @@ exports[`Select :props :disabled 1`] = `
 exports[`Select :props :labelInValue 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-select-right-icon">
@@ -143,8 +143,8 @@ exports[`Select :props :labelInValue 1`] = `
 exports[`Select :props :loading 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-select-right-icon">
@@ -171,8 +171,8 @@ exports[`Select :props :loading 1`] = `
 exports[`Select :props :multiple 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-select-right-icon">
@@ -199,8 +199,8 @@ exports[`Select :props :multiple 1`] = `
 exports[`Select :props :placeholder 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> please select</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="please select" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-select-right-icon">
@@ -227,8 +227,8 @@ exports[`Select :props :placeholder 1`] = `
 exports[`Select :props :remote 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-select-right-icon" style="display: none;">
@@ -255,8 +255,8 @@ exports[`Select :props :remote 1`] = `
 exports[`Select :props :reserveKeyword 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-select-right-icon">
@@ -283,8 +283,8 @@ exports[`Select :props :reserveKeyword 1`] = `
 exports[`Select :props :size 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select t-size-l"><svg class="t-icon t-icon-undefined t-size-l t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select t-size-l"><svg class="t-icon t-icon- t-size-l t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
       <!---->
       <div class="t-input t-size-l t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-l t-select-right-icon">
@@ -311,8 +311,8 @@ exports[`Select :props :size 1`] = `
 exports[`Select Option :props :disabled 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="1" style="width: 0px;"> <span title="1" class="t-select-selectedSingle">
         1
       </span>
@@ -340,8 +340,8 @@ exports[`Select Option :props :disabled 1`] = `
 exports[`Select Option :props :label 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="1" style="width: 0px;"> <span title="1" class="t-select-selectedSingle">
         1
       </span>
@@ -369,8 +369,8 @@ exports[`Select Option :props :label 1`] = `
 exports[`Select Option :props :value 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="1" style="width: 0px;"> <span title="1" class="t-select-selectedSingle">
         1
       </span>
@@ -398,8 +398,8 @@ exports[`Select Option :props :value 1`] = `
 exports[`Select OptionGroup :props :value 1`] = `
 <div>
   <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <div class="t-select"><svg class="t-icon t-icon-undefined t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-undefined"></use>
+    <div class="t-select"><svg class="t-icon t-icon- t-select-left-icon" style="display: none;">
+        <use xlink:href="#t-icon-"></use>
       </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="1" style="width: 0px;"> <span title="1" class="t-select-selectedSingle">
         1
       </span>
