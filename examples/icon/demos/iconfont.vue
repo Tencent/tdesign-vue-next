@@ -9,12 +9,10 @@
     </div>
     <br />
     <div class="t-demo-row">
-      <t-icon name="check-circle-filled" size="xs" />
       <t-icon name="check-circle-filled" size="small" />
       <t-icon name="check-circle-filled" />
       <t-icon name="check-circle-filled" size="medium" />
       <t-icon name="check-circle-filled" size="large" />
-      <t-icon name="check-circle-filled" size="xl" />
       <t-icon name="check-circle-filled" size="25px" />
       <t-icon name="check-circle-filled" size="2em" />
     </div>
