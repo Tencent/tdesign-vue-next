@@ -15,7 +15,7 @@ import {
 
 let seed = 0;
 // 存储不同 attach 和 不同 placement 消息列表实例
-const instanceMap: Map<Element, object> = new Map();
+const instanceMap: Map<AttachNodeReturnValue, object> = new Map();
 
 const NotificationFunction = (options: NotificationOptions): Promise<NotificationInstance> => {
   seed += 1;
