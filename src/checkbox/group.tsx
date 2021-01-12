@@ -38,20 +38,21 @@ export default Vue.extend({
 
     if (this.options && this.options.length) {
       children = this.options.map((option: CheckboxOption) => {
-        let itemValue: CheckboxValue; let label; let disabled: boolean;
+        let itemValue: CheckboxValue; let label: string | TNode; let disabled: boolean; let name: string;
         if (isStringOrNumber(option)) {
           itemValue = option as CheckboxValue;
-          label = option;
-          ({ disabled } = this);
+          label = String(option);
+          ({ disabled, name } = this);
         } else {
-          const fixTypeOption = option as { label: string; value: CheckboxValue; disabled?: boolean };
+          const fixTypeOption = option as { label: string | TNode; value: CheckboxValue; disabled?: boolean; name?: string };
           ({ value: itemValue, label } = fixTypeOption);
           disabled = 'disabled' in fixTypeOption ? fixTypeOption.disabled : this.disabled;
+          name = 'name' in fixTypeOption ? fixTypeOption.name : this.name;
         }
         return (
           <Checkbox
             key={`checkbox-group-options-${itemValue}`}
-            name={this.name}
+            name={name}
             checked={value && value.indexOf(itemValue) > -1}
             disabled={disabled}
             value={itemValue}
