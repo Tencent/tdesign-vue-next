@@ -26,7 +26,7 @@ describe('test tag component', () => {
       });
   });
 
-  it('tag:effect:plain', () => {
+  it('tag:variant:plain', () => {
     cy.get('.tdesign-tag-theme .plain')
       .find('span')
       .first()
@@ -35,7 +35,7 @@ describe('test tag component', () => {
       });
   });
 
-  it('tag:effect:light', () => {
+  it('tag:variant:light', () => {
     cy.get('.tdesign-tag-theme .light')
       .find('span')
       .first()

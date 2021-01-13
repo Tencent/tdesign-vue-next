@@ -1,63 +1,18 @@
-import Vue, { CreateElement, PropType, VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
-import { FormData, FormValidateResult, TdFormRule, ErrorList, TdFormItemProps } from '../../types/form/TdFormProps';
+import { FormValidateResult, FormRule, TdFormProps } from '@TdTypes/form/TdFormProps';
+import props from '@TdTypes/form/props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import isEmpty from 'lodash/isEmpty';
+
+type Result = FormValidateResult<TdFormProps['data']>;
 
 const name = `${prefix}-form`;
 
 export default Vue.extend({
   name,
 
-  props: {
-    data: {
-      type: Object as PropType<FormData>,
-    },
-    layout: {
-      type: String,
-      default: 'vertical',
-      validator(val): boolean {
-        return ['vertical', 'inline'].includes(val);
-      },
-    },
-    labelAlign: {
-      type: String,
-      default: 'right',
-      validator(val): boolean {
-        return ['left', 'right', 'top'].includes(val);
-      },
-    },
-    size: {
-      type: String,
-      default: 'medium',
-      validator(val): boolean {
-        return ['medium', 'large'].includes(val);
-      },
-    },
-    colon: Boolean,
-    labelWidth: [Number, String],
-    requiredMark: {
-      type: Boolean,
-      default: true,
-    },
-    scrollToFirstError: {
-      type: [String],
-      validator(val): boolean {
-        return ['', 'auto', 'smooth'].includes(val);
-      },
-    },
-    showErrorMessage: {
-      type: Boolean,
-      default: true,
-    },
-    statusIcon: {
-      type: [Boolean, Function] as PropType<boolean | ((h: CreateElement, props: TdFormItemProps) => TNodeReturnValue)>,
-      default: false,
-    },
-    rules: Object as PropType<ErrorList>,
-    onReset: Function as PropType<() => void>,
-    onSubmit: Function as PropType<(validateResult: FormValidateResult) => void>,
-  },
+  props: { ...props },
 
   computed: {
     formClass(): ClassName {
@@ -71,7 +26,7 @@ export default Vue.extend({
   },
 
   methods: {
-    getFirstError(r: FormValidateResult) {
+    getFirstError(r: Result) {
       if (r === true) return;
       const [firstKey] = Object.keys(r);
       if (this.scrollToFirstError) {
@@ -85,7 +40,7 @@ export default Vue.extend({
       const behavior = this.scrollToFirstError as ScrollBehavior;
       dom && dom.scrollIntoView({ behavior });
     },
-    emitEvent(eventName: string, data: { result?: FormValidateResult; e: Event; firstError?: TdFormRule }) {
+    emitEvent(eventName: string, data: { result?: Result; e: Event; firstError?: FormRule }) {
       this.$emit(eventName, data);
       const propsApi = `on${eventName[0].toUpperCase()}${eventName.substr(1)}`;
       if (typeof this[propsApi] === 'function') {
@@ -96,7 +51,7 @@ export default Vue.extend({
       return typeof val === 'function';
     },
     // 对外方法，该方法会触发全部表单组件错误信息显示
-    validate(): Promise<FormValidateResult> {
+    validate(): Promise<Result> {
       const list = this.$children
         .filter((child: any) => this.isFunction(child.validate))
         .map((child: any) => child.validate());
@@ -113,7 +68,7 @@ export default Vue.extend({
           });
       });
     },
-    submitHandler(e: Event) {
+    submitHandler(e: MouseEvent) {
       this.validate().then((r) => {
         this.emitEvent('submit', {
           result: r,
@@ -122,7 +77,7 @@ export default Vue.extend({
         });
       });
     },
-    resetHandler(e: Event) {
+    resetHandler(e: MouseEvent) {
       this.emitEvent('reset', { e });
       this.$children
         .filter((child: any) => this.isFunction(child.resetField))
