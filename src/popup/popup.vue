@@ -27,7 +27,7 @@ import { createPopper } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
 import CLASSNAMES from '../utils/classnames';
-import { on, off, addClass, removeClass } from '../utils/dom';
+import { on, off, addClass, removeClass, getAttach } from '../utils/dom';
 import props from '@TdTypes/popup/props';
 
 const stop = (e: MouseEvent): void => e.stopPropagation();
@@ -175,9 +175,7 @@ export default Vue.extend({
   },
   methods: {
     createPopperJS(): void {
-      const overlayContainer = typeof this.attach === 'function'
-        ? this.attach() as HTMLElement
-        : (document.querySelector(this.attach) || document.body);
+      const overlayContainer = getAttach(this.attach);
 
       overlayContainer.appendChild(this.popperElm);
 
