@@ -2,7 +2,7 @@ import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import Checkbox from './checkbox';
 import checkboxGroupProps from '../../types/checkbox-group/props';
-import { CheckboxOption, CheckboxValue } from '@TdTypes/checkbox/TdCheckboxProps';
+import { CheckboxOption, CheckboxValue, CheckboxOptionObj } from '@TdTypes/checkbox/TdCheckboxProps';
 
 const name = `${prefix}-checkbox-group`;
 
@@ -44,7 +44,7 @@ export default Vue.extend({
           label = String(option);
           ({ disabled, name } = this);
         } else {
-          const fixTypeOption = option as { label: string | TNode; value: CheckboxValue; disabled?: boolean; name?: string };
+          const fixTypeOption = option as CheckboxOptionObj;
           ({ value: itemValue, label } = fixTypeOption);
           disabled = 'disabled' in fixTypeOption ? fixTypeOption.disabled : this.disabled;
           name = 'name' in fixTypeOption ? fixTypeOption.name : this.name;
