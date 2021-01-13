@@ -4,16 +4,21 @@ import Radio from './radio';
 
 const name = `${prefix}-radio-group`;
 
-const sizeList: Array<string> = ['large', 'default', 'small'];
+const sizeList: Array<string> = ['large', 'medium', 'small'];
 const buttonStyleList: Array<string> = ['outline', 'solid'];
 
-interface OptionType {  value: string; label: VNode; disabled?: boolean }
+type OptionType = { value: string | number; label: VNode | string | number; disabled?: boolean } | number | string;
 
 export default Vue.extend({
   name,
 
   components: {
     Radio,
+  },
+
+  model: {
+    prop: 'value',
+    event: 'change',
   },
 
   provide(): any {
@@ -29,11 +34,11 @@ export default Vue.extend({
     value: { default: undefined },
     defaultValue: { default: undefined },
     disabled: { type: Boolean, default: false },
-    size: { type: String, default: 'default', validator(v: string) {
-      return sizeList.indexOf(v) > -1;
+    size: { type: String, default: 'medium', validator(v: string) {
+      return sizeList.includes(v);
     } },
     buttonStyle: { type: String, default: 'outline', validator(v: string) {
-      return buttonStyleList.indexOf(v) > -1;
+      return buttonStyleList.includes(v);
     } },
     options: { type: Array as PropType<Array<OptionType>>, default: (): Array<OptionType>  => [] },
     name: String,
@@ -44,17 +49,23 @@ export default Vue.extend({
     let children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
 
     if (this.options && this.options.length) {
-      children = this.options.map((option: OptionType) => (
-        <Radio
-          key={`radio-group-options-${option.value}`}
-          name={this.name}
-          checked={this.value === option.value}
-          disabled={'disabled' in option ? option.disabled : this.disabled}
-          value={option.value}
-        >
-          {option.label}
-        </Radio>
-      ) as VNode);
+      children = this.options.map((option) => {
+        let opt = option as { value: string | number; label: VNode | string | number; disabled?: boolean };
+        if (typeof option === 'number' || typeof option === 'string') {
+          opt = { value: option, label: option };
+        }
+        return (
+          <Radio
+            key={`radio-group-options-${opt.value}-${Math.random()}`}
+            name={this.name}
+            checked={this.value === opt.value}
+            disabled={'disabled' in opt ? opt.disabled : this.disabled}
+            value={opt.value}
+          >
+            {opt.label}
+          </Radio>
+        ) as VNode;
+      });
     }
 
     const groupClass = [
@@ -71,10 +82,8 @@ export default Vue.extend({
   },
 
   methods: {
-    handleRadioChange(e: Event) {
-      const target: HTMLInputElement = e.target as HTMLInputElement;
-      this.$emit('input', target.value);
-      this.$emit('change', e);
+    handleRadioChange(value: string | number, context: { e: InputEvent }) {
+      this.$emit('change', value, context);
     },
   },
 });

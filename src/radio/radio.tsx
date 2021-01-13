@@ -50,7 +50,7 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
     const inputProps = {
       checked: this.checked,
       disabled: this.disabled,
-      value: this.value as any,
+      value: this.value as string | number,
       name: this.name,
     };
 
@@ -61,7 +61,6 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
       keyup: $listeners.keyup,
       keypresss: $listeners.keypresss,
     });
-
 
     const wrapperEvents = omit($listeners, [...Object.keys(inputEvents), 'input', 'change']);
 
@@ -95,21 +94,19 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
           { ...{ domProps: inputProps, on: inputEvents } }
           onChange={this.handleChange}
         />
-        <span class={`${prefixCls}__input`}></span><span class={`${prefixCls}__label`}>
-          {children || null}
-        </span>
+        <span class={`${prefixCls}__input`}></span>
+        <span class={`${prefixCls}__label`}>{children || null}</span>
       </label>
     ) as VNode;
   },
 
   methods: {
-    handleChange(e: Event) {
-      const target: HTMLInputElement = e.target as HTMLInputElement;
+    handleChange(e: InputEvent) {
       if (this.radioGroup && this.radioGroup.handleRadioChange) {
-        this.radioGroup.handleRadioChange(e);
+        this.radioGroup.handleRadioChange(this.value, { e });
       } else {
-        this.$emit('change', target.checked);
-        this.$emit('input', e);
+        const target: HTMLInputElement = e.target as HTMLInputElement;
+        this.$emit('change', target.checked, { e });
       }
     },
   },

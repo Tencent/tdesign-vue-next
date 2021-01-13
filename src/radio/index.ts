@@ -5,7 +5,7 @@ import mapProps from '../utils/map-props';
 import setInstallFn from '../utils/setInstallFn';
 
 const Radio = mapProps(['checked'], { model: { prop: 'checked', event: 'change' } })(_Radio);
-const RadioGroup = mapProps(['value'])(_Group);
+const RadioGroup = mapProps(['value'], { model: { prop: 'value', event: 'change' } })(_Group);
 
 setInstallFn('Radio', Radio);
 setInstallFn('RadioGroup', RadioGroup);
