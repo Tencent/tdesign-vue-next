@@ -18,10 +18,6 @@
       <div class="t-demo-icon-name">add</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="arrow-right"/>
-      <div class="t-demo-icon-name">arrow-right</div>
-    </div>
-    <div class="t-demo-icon">
       <t-icon name="app"/>
       <div class="t-demo-icon-name">app</div>
     </div>
@@ -36,6 +32,10 @@
     <div class="t-demo-icon">
       <t-icon name="arrow-left"/>
       <div class="t-demo-icon-name">arrow-left</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="arrow-right"/>
+      <div class="t-demo-icon-name">arrow-right</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="arrow-up"/>
@@ -258,6 +258,10 @@
       <div class="t-demo-icon-name">edit</div>
     </div>
     <div class="t-demo-icon">
+      <t-icon name="ellipsis"/>
+      <div class="t-demo-icon-name">ellipsis</div>
+    </div>
+    <div class="t-demo-icon">
       <t-icon name="enter"/>
       <div class="t-demo-icon-name">enter</div>
     </div>
@@ -448,6 +452,10 @@
     <div class="t-demo-icon">
       <t-icon name="link"/>
       <div class="t-demo-icon-name">link</div>
+    </div>
+    <div class="t-demo-icon">
+      <t-icon name="loading"/>
+      <div class="t-demo-icon-name">loading</div>
     </div>
     <div class="t-demo-icon">
       <t-icon name="location"/>
@@ -772,14 +780,6 @@
     <div class="t-demo-icon">
       <t-icon name="zoom-out"/>
       <div class="t-demo-icon-name">zoom-out</div>
-    </div>
-    <div class="t-demo-icon">
-      <t-icon name="ellipsis"/>
-      <div class="t-demo-icon-name">ellipsis</div>
-    </div>
-    <div class="t-demo-icon">
-      <t-icon name="loading"/>
-      <div class="t-demo-icon-name">loading</div>
     </div>
   </div>
 </template>

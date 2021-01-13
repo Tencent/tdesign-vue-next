@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import raf from 'raf';
 import { easeInOutCubic, EasingFunction } from './easing';
+import isString from 'lodash/isString';
 
 const isServer = Vue.prototype.$isServer || typeof window === 'undefined';
 
@@ -87,16 +88,30 @@ export function removeClass(el: Element, cls: string): any {
   }
 };
 
-export const getAttach = (attach: string | Element | Function = 'body') => {
-  let r: Element;
-  if (typeof attach === 'string') {
-    r = document.querySelector(attach);
+export const getAttach = (attach: AttachNode = 'body') => {
+  let r;
+  if (isString(typeof attach)) {
+    r = attach === 'document' ? document.querySelector(attach) : document;
   } else if (typeof attach === 'function') {
     r = attach();
-  } else if (attach instanceof Element) {
-    r = attach;
   } else {
-    console.error('TDesign Error: attach type must a string / function / Element.');
+    console.error('TDesign Error: attach type must a string or function.');
+  }
+  return r;
+};
+
+export const getSuperAttach = (attach: SuperAttachNode = 'body') => {
+  let r;
+  const map = {
+    window: Window,
+    document: Document,
+  };
+  if (typeof attach === 'string') {
+    r = ['window', 'document'].includes(attach) ? map[attach] : document.querySelector(attach);
+  } else if (typeof attach === 'function') {
+    r = attach();
+  } else {
+    console.error('TDesign Error: attach type must a string or function.');
   }
   return r;
 };

@@ -27,12 +27,22 @@
 import Vue from 'vue';
 import { MessageList, DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
-import { MessageOptions, MessageInfoOptions, MessageMethod, MessageInstance, ThemeList,
-  MessageInfoMethod, MessageErrorMethod, MessageWarningMethod, MessageSuccessMethod,
-  MessageLoadingMethod, MessageQuestionMethod, MessageCloseMethod, MessageCloseAllMethod } from '@TdTypes/message/TdMessageProps';
+import {
+  MessageOptions,
+  MessageMethod,
+  MessageInstance,
+  MessageInfoMethod,
+  MessageErrorMethod,
+  MessageWarningMethod,
+  MessageSuccessMethod,
+  MessageLoadingMethod,
+  MessageQuestionMethod,
+  MessageCloseMethod,
+  MessageCloseAllMethod,
+} from '@TdTypes/message/TdMessageProps';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
-const instanceMap: Map<Element, object> = new Map();
+const instanceMap: Map<AttachNodeReturnValue, object> = new Map();
 
 function handleParams(params: MessageOptions): MessageOptions {
   const options: MessageOptions = Object.assign(
@@ -79,18 +89,18 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
   });
 };
 
-const showThemeMessage: MessageMethod = (theme: ThemeList, params: string | MessageInfoOptions, duration: number) => {
+const showThemeMessage: MessageMethod = (theme, params, duration) => {
   let options: MessageOptions = { theme };
   if (typeof params === 'string') {
     options.content = params;
   } else if (typeof params === 'object' && !(params instanceof Array)) {
-    options = Object.assign(options, params);
+    options = { ...options, ...params };
   }
   (duration || duration === 0) && (options.duration = duration);
   return MessageFunction(options);
 };
 
-const extraAPi: {
+interface ExtraApi {
   info: MessageInfoMethod;
   success: MessageSuccessMethod;
   warning: MessageWarningMethod;
@@ -99,7 +109,9 @@ const extraAPi: {
   loading: MessageLoadingMethod;
   close: MessageCloseMethod;
   closeAll: MessageCloseAllMethod;
-} = {
+};
+
+const extraApi: ExtraApi = {
   info: (params, duration) => showThemeMessage('info', params, duration),
   success: (params, duration) => showThemeMessage('success', params, duration),
   warning: (params, duration) => showThemeMessage('warning', params, duration),
@@ -121,14 +133,13 @@ const extraAPi: {
   },
 };
 
-const MessagePlugin = showThemeMessage as (MessageMethod & Vue.PluginObject<void>);
-
-Object.keys(extraAPi).forEach((key) => {
-  MessagePlugin[key] = extraAPi[key];
-});
-
-MessagePlugin.install = () => {
-  Vue.prototype.$message = MessagePlugin;
+const MessagePlugin: Vue.PluginObject<undefined> = {
+  install: () => {
+    Vue.prototype.$message = showThemeMessage;
+    Object.keys(extraApi).forEach((funcName) => {
+      Vue.prototype.$message[funcName] = extraApi[funcName];
+    });
+  },
 };
 
 export default MessagePlugin;

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Notification from './notification';
-import { NotificationProps, NotificationInstanceType, Offset, OffsetDirection } from './type/index';
+import { TdNotificationProps, PlacementList } from '@TdTypes/notification/TdNotificationProps';
 
 const DEFAULT_Z_INDEX = 6000;
 const _margin = 16;
@@ -29,30 +29,20 @@ export default Vue.extend({
       zIndex: DEFAULT_Z_INDEX,
     };
   },
-  computed: {
-    on() {
-      return {
-        'click-close-btn': (e: Event, instance: NotificationInstanceType) => this.remove(instance),
-        'duration-end': (instance: NotificationInstanceType) => this.remove(instance),
-      };
-    },
-  },
   methods: {
-    add(options: NotificationProps): number {
+    add(options: TdNotificationProps): number {
       this.list.push(options);
       return this.list.length - 1;
     },
-    remove(instance: NotificationInstanceType) {
-      // eslint-disable-next-line
-      const children: HTMLCollection = this.$el.children;
-      this.list = this.list.filter((v, i) => children[i] !== instance.$el);
+    remove(index: number) {
+      this.list.splice(index, 1);
     },
     removeAll() {
       this.list = [];
     },
-    msgStyles(item: { offset: Offset; zIndex: number }) {
+    notificationStyles(item: { offset: PlacementList; zIndex: number }) {
       const styles = {};
-      this.placement.split('-').forEach((direction: OffsetDirection) => {
+      this.placement.split('-').forEach((direction: 'left' | 'top' | 'bottom' | 'right') => {
         let margin = _margin;
         if (item.offset && item.offset[direction]) {
           margin += item.offset[direction];
@@ -62,18 +52,24 @@ export default Vue.extend({
       styles['z-index'] = item.zIndex ? item.zIndex : this.zIndex;
       return styles;
     },
+    getListeners(index: number) {
+      return {
+        'click-close-btn': () => this.remove(index),
+        'duration-end': () => this.remove(index),
+      };
+    },
   },
   render() {
     if (!this.list.length) return;
     return (
       <div class={`t-notification__show--${this.placement}`} style={`z-index: ${this.zIndex}`}>
         {this.list
-          .map(item => (
+          .map((item, index) => (
             <t-notification
               key={item.id}
-              style={this.msgStyles(item)}
+              style={this.notificationStyles(item)}
               {...{ props: item }}
-              {...{ on: this.on }}
+              {...{ on: this.getListeners(index) }}
             />
           ))
         }

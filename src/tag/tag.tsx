@@ -9,7 +9,7 @@ const { prefix } = config;
 const name = `${prefix}-tag`;
 const iconName = `${prefix}-icon`;
 
-const initEffectList = {
+const initVariantList = {
   dark: `${name}--dark`,
   light: `${name}--light`,
   plain: `${name}--plain`,
@@ -34,7 +34,7 @@ export default Vue.extend({
         `${name}`,
         `${name}--${this.theme}`,
         CLASSNAMES.SIZE[this.size],
-        initEffectList[this.effect],
+        initVariantList[this.variant],
         this.shape !== defaultShape && initShapeList[this.shape],
         {
           [`${name}--ellipsis`]: this.maxWidth,
