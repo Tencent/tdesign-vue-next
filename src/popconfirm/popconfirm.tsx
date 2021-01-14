@@ -138,7 +138,7 @@ export default Vue.extend({
     const popupProps = {
       props: {
         ...this.$attrs,
-        visibleArrow: true,
+        showArrow: true,
         overlayClassName: name,
       },
       ref: 'popup',

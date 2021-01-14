@@ -5,7 +5,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="top"
       :overlayStyle="{ width: '200px' }"
-      visibleArrow
+      showArrow
     >
       <t-button>top</t-button>
     </t-tooltip>
@@ -14,7 +14,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="top-left"
       :overlayStyle="{ width: '200px' }"
-      visibleArrow
+      showArrow
     >
       <t-button>top-left</t-button>
     </t-tooltip>
@@ -23,7 +23,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="top-right"
-      visibleArrow
+      showArrow
     >
       <t-button>top-right</t-button>
     </t-tooltip>
@@ -32,7 +32,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="bottom"
-      visibleArrow
+      showArrow
     >
       <t-button>bottom</t-button>
     </t-tooltip>
@@ -41,7 +41,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="bottom-left"
       :overlayStyle="{ width: '200px' }"
-      visibleArrow
+      showArrow
     >
       <t-button>bottom-left</t-button>
     </t-tooltip>
@@ -50,7 +50,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="bottom-right"
-      visibleArrow
+      showArrow
     >
       <t-button>bottom-right</t-button>
     </t-tooltip>
@@ -59,7 +59,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="left"
-      visibleArrow
+      showArrow
     >
       <t-button>left</t-button>
     </t-tooltip>
@@ -68,7 +68,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="left-top"
-      visibleArrow
+      showArrow
     >
       <t-button>left-top</t-button>
     </t-tooltip>
@@ -77,7 +77,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="left-bottom"
-      visibleArrow
+      showArrow
     >
       <t-button>left-bottom</t-button>
     </t-tooltip>
@@ -86,7 +86,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="right"
-      visibleArrow
+      showArrow
     >
       <t-button>right</t-button>
     </t-tooltip>
@@ -95,7 +95,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="right-top"
-      visibleArrow
+      showArrow
     >
       <t-button>right-top</t-button>
     </t-tooltip>
@@ -104,7 +104,7 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="right-bottom"
-      visibleArrow
+      showArrow
     >
       <t-button>right-bottom</t-button>
     </t-tooltip>

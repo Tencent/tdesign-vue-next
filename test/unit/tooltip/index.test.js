@@ -13,7 +13,7 @@ describe('Tooltip', () => {
         visible: false,
         trigger: 'click',
         content: 'txt',
-        visibleArrow: true,
+        showArrow: true,
         destroyOnHide: true,
         theme: 'primary',
       },

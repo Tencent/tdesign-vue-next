@@ -4,7 +4,7 @@
       class="placement-top"
       content="这是popup内容"
       placement="top"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>top</t-button>
@@ -13,7 +13,7 @@
       class="placement-top-left"
       content="这是popup内容"
       placement="top-left"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>top-left</t-button>
@@ -22,7 +22,7 @@
       class="placement-top-right"
       content="这是popup内容"
       placement="top-right"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>top-right</t-button>
@@ -31,7 +31,7 @@
       class="placement-bottom"
       content="这是popup内容"
       placement="bottom"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>bottom</t-button>
@@ -40,7 +40,7 @@
       class="placement-bottom-left"
       content="这是popup内容"
       placement="bottom-left"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>bottom-left</t-button>
@@ -49,7 +49,7 @@
       class="placement-bottom-right"
       content="这是popup内容"
       placement="bottom-right"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>bottom-right</t-button>
@@ -58,7 +58,7 @@
       class="placement-left"
       content="这是popup内容"
       placement="left"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>left</t-button>
@@ -67,7 +67,7 @@
       class="placement-left-top"
       content="这是popup内容"
       placement="left-top"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>left-top</t-button>
@@ -76,7 +76,7 @@
       class="placement-left-bottom"
       content="这是popup内容"
       placement="left-bottom"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>left-bottom</t-button>
@@ -85,7 +85,7 @@
       class="placement-right"
       content="这是popup内容"
       placement="right"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>right</t-button>
@@ -94,7 +94,7 @@
       class="placement-right-top"
       content="这是popup内容"
       placement="right-top"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>right-top</t-button>
@@ -103,7 +103,7 @@
       class="placement-right-bottom"
       content="这是popup内容"
       placement="right-bottom"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>right-bottom</t-button>
