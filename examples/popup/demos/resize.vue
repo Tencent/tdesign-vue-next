@@ -3,7 +3,7 @@
     <t-popup
       content="这是popup内容"
       trigger="manual"
-      placement="bottomLeft"
+      placement="bottom-left"
       visibleArrow
       :visible="true"
     >

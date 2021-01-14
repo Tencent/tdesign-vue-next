@@ -1,6 +1,6 @@
 <template>
   <div :class="name+'-reference'" ref="reference">
-    <transition :name="name+'_animation'" appear >
+    <transition :name="`${name}_animation`" appear >
       <div
         :class="name"
         ref="popper"
@@ -28,6 +28,7 @@ import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { on, off, addClass, removeClass, getAttach } from '../utils/dom';
+import RenderComponent from '../utils/render-component';
 import props from '@TdTypes/popup/props';
 
 const stop = (e: MouseEvent): void => e.stopPropagation();
@@ -35,22 +36,28 @@ const { prefix } = config;
 const name = `${prefix}-popup`;
 const placementMap = {
   top: 'top',
-  topLeft: 'top-start',
-  topRight: 'top-end',
+  'top-left': 'top-start',
+  'top-right': 'top-end',
   bottom: 'bottom',
-  bottomLeft: 'bottom-start',
-  bottomRight: 'bottom-end',
+  'bottom-left': 'bottom-start',
+  'bottom-right': 'bottom-end',
   left: 'left',
-  leftTop: 'left-start',
-  leftBottom: 'left-end',
+  'left-top': 'left-start',
+  'left-bottom': 'left-end',
   right: 'right',
-  rightTop: 'right-start',
-  rightBottom: 'right-end',
+  'right-top': 'right-start',
+  'right-bottom': 'right-end',
 };
 
 export default Vue.extend({
   name,
+
+  components: {
+    RenderComponent,
+  },
+
   props: { ...props },
+
   data() {
     return {
       name,
@@ -272,3 +279,4 @@ export default Vue.extend({
 });
 
 </script>
+

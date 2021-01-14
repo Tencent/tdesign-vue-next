@@ -10,22 +10,22 @@
       <t-button>top</t-button>
     </t-popup>
     <t-popup
-      class="placement-topLeft"
+      class="placement-top-left"
       content="这是popup内容"
-      placement="topLeft"
+      placement="top-left"
       visibleArrow
       destroyOnHide
     >
-      <t-button>topLeft</t-button>
+      <t-button>top-left</t-button>
     </t-popup>
     <t-popup
-      class="placement-topRight"
+      class="placement-top-right"
       content="这是popup内容"
-      placement="topRight"
+      placement="top-right"
       visibleArrow
       destroyOnHide
     >
-      <t-button>topRight</t-button>
+      <t-button>top-right</t-button>
     </t-popup>
     <t-popup
       class="placement-bottom"
@@ -37,22 +37,22 @@
       <t-button>bottom</t-button>
     </t-popup>
     <t-popup
-      class="placement-bottomLeft"
+      class="placement-bottom-left"
       content="这是popup内容"
-      placement="bottomLeft"
+      placement="bottom-left"
       visibleArrow
       destroyOnHide
     >
-      <t-button>bottomLeft</t-button>
+      <t-button>bottom-left</t-button>
     </t-popup>
     <t-popup
-      class="placement-bottomRight"
+      class="placement-bottom-right"
       content="这是popup内容"
-      placement="bottomRight"
+      placement="bottom-right"
       visibleArrow
       destroyOnHide
     >
-      <t-button>bottomRight</t-button>
+      <t-button>bottom-right</t-button>
     </t-popup>
     <t-popup
       class="placement-left"
@@ -64,22 +64,22 @@
       <t-button>left</t-button>
     </t-popup>
     <t-popup
-      class="placement-leftTop"
+      class="placement-left-top"
       content="这是popup内容"
-      placement="leftTop"
+      placement="left-top"
       visibleArrow
       destroyOnHide
     >
-      <t-button>leftTop</t-button>
+      <t-button>left-top</t-button>
     </t-popup>
     <t-popup
-      class="placement-leftBottom"
+      class="placement-left-bottom"
       content="这是popup内容"
-      placement="leftBottom"
+      placement="left-bottom"
       visibleArrow
       destroyOnHide
     >
-      <t-button>leftBottom</t-button>
+      <t-button>left-bottom</t-button>
     </t-popup>
     <t-popup
       class="placement-right"
@@ -91,22 +91,22 @@
       <t-button>right</t-button>
     </t-popup>
     <t-popup
-      class="placement-rightTop"
+      class="placement-right-top"
       content="这是popup内容"
-      placement="rightTop"
+      placement="right-top"
       visibleArrow
       destroyOnHide
     >
-      <t-button>rightTop</t-button>
+      <t-button>right-top</t-button>
     </t-popup>
     <t-popup
-      class="placement-rightBottom"
+      class="placement-right-bottom"
       content="这是popup内容"
-      placement="rightBottom"
+      placement="right-bottom"
       visibleArrow
       destroyOnHide
     >
-      <t-button>rightBottom</t-button>
+      <t-button>right-bottom</t-button>
     </t-popup>
   </div>
 </template>
@@ -123,12 +123,12 @@
   top: 0;
   left: 42%;
 }
-.placement-topLeft {
+.placement-top-left {
   position: absolute;
   top: 0;
   left: 70px;
 }
-.placement-topRight {
+.placement-top-right {
   position: absolute;
   top: 0;
   right: 70px;
@@ -138,12 +138,12 @@
   bottom: 0;
   left: 42%;
 }
-.placement-bottomLeft {
+.placement-bottom-left {
   position: absolute;
   bottom: 0;
   left: 70px;
 }
-.placement-bottomRight {
+.placement-bottom-right {
   position: absolute;
   bottom: 0;
   right: 70px;
@@ -153,12 +153,12 @@
   left: 0;
   top: 42%;
 }
-.placement-leftTop {
+.placement-left-top {
   position: absolute;
   left: 0;
   top: 50px;
 }
-.placement-leftBottom {
+.placement-left-bottom {
   position: absolute;
   left: -0;
   bottom: 50px;
@@ -168,12 +168,12 @@
   right: 0;
   top: 42%;
 }
-.placement-rightTop {
+.placement-right-top {
   position: absolute;
   right: 0;
   top: 50px;
 }
-.placement-rightBottom {
+.placement-right-bottom {
   position: absolute;
   right: 0;
   bottom: 50px;
