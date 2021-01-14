@@ -25,7 +25,7 @@
  */
 
 import Vue from 'vue';
-import { MessageList, DEFAULT_Z_INDEX } from './messageList';
+import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
 import {
   MessageOptions,
@@ -45,15 +45,13 @@ import {
 const instanceMap: Map<AttachNodeReturnValue, object> = new Map();
 
 function handleParams(params: MessageOptions): MessageOptions {
-  const options: MessageOptions = Object.assign(
-    {
-      duration: 3000,
-      attach: 'body',
-      zIndex: DEFAULT_Z_INDEX,
-      placement: 'top',
-    },
-    params
-  );
+  const options: MessageOptions = {
+    duration: 3000,
+    attach: 'body',
+    zIndex: DEFAULT_Z_INDEX,
+    placement: 'top',
+    ...params,
+  };
   options.content = params.content;
   return options;
 }
@@ -61,11 +59,11 @@ function handleParams(params: MessageOptions): MessageOptions {
 const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
   const options = handleParams(props);
   const { attach, placement } = options;
-  const _a = getAttach(attach);
-  if (!instanceMap.get(_a)) {
-    instanceMap.set(_a, []);
+  const attachDom = getAttach(attach);
+  if (!instanceMap.get(attachDom)) {
+    instanceMap.set(attachDom, {});
   }
-  const _p = instanceMap.get(_a)[placement];
+  const _p = instanceMap.get(attachDom)[placement];
   if (!_p) {
     const instance = new MessageList({
       propsData: {
@@ -74,14 +72,14 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
       },
     }).$mount();
     instance.add(options);
-    instanceMap.get(_a)[placement] = instance;
-    _a.appendChild(instance.$el);
+    instanceMap.get(attachDom)[placement] = instance;
+    attachDom.appendChild(instance.$el);
   } else {
     _p.add(options);
   }
   // 返回最新消息的 Element
   return new Promise((resolve) => {
-    const _ins = instanceMap.get(_a)[placement];
+    const _ins = instanceMap.get(attachDom)[placement];
     _ins.$nextTick(() => {
       const msg: Array<MessageInstance> = _ins.$children;
       resolve(msg[msg.length - 1]);

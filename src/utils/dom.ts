@@ -91,7 +91,8 @@ export function removeClass(el: Element, cls: string): any {
 export const getAttach = (attach: AttachNode = 'body') => {
   let r;
   if (isString(typeof attach)) {
-    r = attach === 'document' ? document.querySelector(attach) : document;
+    const at = attach as string;
+    r = attach === 'document' ? document : document.querySelector(at);
   } else if (typeof attach === 'function') {
     r = attach();
   } else {

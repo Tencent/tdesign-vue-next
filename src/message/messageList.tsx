@@ -1,8 +1,8 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { prefix } from '../config';
-import { TdMessageProps } from '@TdTypes/message/TdMessageProps';
+import { MessageOptions } from '@TdTypes/message/TdMessageProps';
 
 export const DEFAULT_Z_INDEX = 6000;
 
@@ -37,11 +37,12 @@ export const MessageList = Vue.extend({
     },
   },
   methods: {
-    add(msg: TdMessageProps): number {
-      const _msg = Object.assign({}, msg, {
+    add(msg: MessageOptions): number {
+      const mg = {
+        ...msg,
         key: getUniqueId(),
-      });
-      this.list.push(_msg);
+      };
+      this.list.push(mg);
       return this.list.length - 1;
     },
     remove(index: number) {
@@ -65,7 +66,7 @@ export const MessageList = Vue.extend({
       };
     },
   },
-  render() {
+  render(): VNode {
     if (!this.list.length) return;
     return (
       <div class='t-message-list' style={this.styles}>
