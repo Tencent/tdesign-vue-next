@@ -90,7 +90,7 @@ export function removeClass(el: Element, cls: string): any {
 export const getAttach = (attach: AttachNode = 'body') => {
   let r;
   if (typeof attach === 'string') {
-    r = attach === 'document' ? document.querySelector(attach) : document;
+    r = attach === 'document' ? document : document.querySelector(attach);
   } else if (typeof attach === 'function') {
     r = attach();
   } else {
