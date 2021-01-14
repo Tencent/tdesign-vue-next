@@ -12,6 +12,7 @@ exports[`Radio base demo works fine 1`] = `
     >
       <input
         class="t-radio__former"
+        name=""
         type="radio"
         value=""
       />
@@ -30,6 +31,7 @@ exports[`Radio base demo works fine 1`] = `
     >
       <input
         class="t-radio__former"
+        name=""
         type="radio"
         value=""
       />
@@ -49,6 +51,7 @@ exports[`Radio base demo works fine 1`] = `
       <input
         class="t-radio__former"
         disabled=""
+        name=""
         type="radio"
         value=""
       />
@@ -68,6 +71,7 @@ exports[`Radio base demo works fine 1`] = `
       <input
         class="t-radio__former"
         disabled=""
+        name=""
         type="radio"
         value=""
       />
@@ -86,6 +90,7 @@ exports[`Radio base demo works fine 1`] = `
     >
       <input
         class="t-radio__former"
+        name=""
         type="radio"
         value=""
       />
@@ -104,6 +109,7 @@ exports[`Radio base demo works fine 1`] = `
     >
       <input
         class="t-radio__former"
+        name=""
         type="radio"
         value=""
       />
@@ -126,13 +132,14 @@ exports[`Radio radio button demo works fine 1`] = `
 >
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-default"
+      class="t-radio-group t-radio-group-outline t-radio-group-medium"
     >
       <label
         class="t-radio-button"
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="1"
         />
@@ -151,6 +158,7 @@ exports[`Radio radio button demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="3"
         />
@@ -170,6 +178,7 @@ exports[`Radio radio button demo works fine 1`] = `
         <input
           class="t-radio-button__former"
           disabled=""
+          name=""
           type="radio"
           value="3"
         />
@@ -189,6 +198,7 @@ exports[`Radio radio button demo works fine 1`] = `
         <input
           class="t-radio-button__former"
           disabled=""
+          name=""
           type="radio"
           value="4"
         />
@@ -206,13 +216,14 @@ exports[`Radio radio button demo works fine 1`] = `
    
   <div>
     <div
-      class="t-radio-group t-radio-group-solid t-radio-group-default"
+      class="t-radio-group t-radio-group-solid t-radio-group-medium"
     >
       <label
         class="t-radio-button"
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="bj"
         />
@@ -231,6 +242,7 @@ exports[`Radio radio button demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="gz"
         />
@@ -250,6 +262,7 @@ exports[`Radio radio button demo works fine 1`] = `
         <input
           class="t-radio-button__former"
           disabled=""
+          name=""
           type="radio"
           value="gz"
         />
@@ -269,6 +282,7 @@ exports[`Radio radio button demo works fine 1`] = `
         <input
           class="t-radio-button__former"
           disabled=""
+          name=""
           type="radio"
           value="sz"
         />
@@ -299,6 +313,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="bj"
         />
@@ -317,6 +332,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="sh"
         />
@@ -335,6 +351,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="gz"
         />
@@ -353,6 +370,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="sz"
         />
@@ -370,13 +388,14 @@ exports[`Radio radio button size demo works fine 1`] = `
    
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-default"
+      class="t-radio-group t-radio-group-outline t-radio-group-medium"
     >
       <label
         class="t-radio-button"
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="bj"
         />
@@ -395,6 +414,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="sh"
         />
@@ -413,6 +433,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="gz"
         />
@@ -431,6 +452,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="sz"
         />
@@ -455,6 +477,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="bj"
         />
@@ -473,6 +496,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="sh"
         />
@@ -491,6 +515,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="gz"
         />
@@ -509,6 +534,7 @@ exports[`Radio radio button size demo works fine 1`] = `
       >
         <input
           class="t-radio-button__former"
+          name=""
           type="radio"
           value="sz"
         />
@@ -532,7 +558,7 @@ exports[`Radio radio group demo works fine 1`] = `
 >
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-default"
+      class="t-radio-group t-radio-group-outline t-radio-group-medium"
     >
       <label
         class="t-radio"
@@ -611,13 +637,14 @@ exports[`Radio radio group demo works fine 1`] = `
    
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-default"
+      class="t-radio-group t-radio-group-outline t-radio-group-medium"
     >
       <label
         class="t-radio"
       >
         <input
           class="t-radio__former"
+          name=""
           type="radio"
           value="bj"
         />
@@ -635,6 +662,7 @@ exports[`Radio radio group demo works fine 1`] = `
       >
         <input
           class="t-radio__former"
+          name=""
           type="radio"
           value="sh"
         />
@@ -652,6 +680,7 @@ exports[`Radio radio group demo works fine 1`] = `
       >
         <input
           class="t-radio__former"
+          name=""
           type="radio"
           value="gz"
         />
@@ -669,6 +698,7 @@ exports[`Radio radio group demo works fine 1`] = `
       >
         <input
           class="t-radio__former"
+          name=""
           type="radio"
           value="sz"
         />
@@ -686,7 +716,7 @@ exports[`Radio radio group demo works fine 1`] = `
    
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-default"
+      class="t-radio-group t-radio-group-outline t-radio-group-medium"
     >
       <label
         class="t-radio t-is-disabled"
@@ -694,6 +724,7 @@ exports[`Radio radio group demo works fine 1`] = `
         <input
           class="t-radio__former"
           disabled=""
+          name=""
           type="radio"
           value="bj"
         />
@@ -712,6 +743,7 @@ exports[`Radio radio group demo works fine 1`] = `
         <input
           class="t-radio__former"
           disabled=""
+          name=""
           type="radio"
           value="sh"
         />
@@ -729,6 +761,7 @@ exports[`Radio radio group demo works fine 1`] = `
       >
         <input
           class="t-radio__former"
+          name=""
           type="radio"
           value="gz"
         />
@@ -746,6 +779,7 @@ exports[`Radio radio group demo works fine 1`] = `
       >
         <input
           class="t-radio__former"
+          name=""
           type="radio"
           value="sz"
         />
@@ -763,13 +797,14 @@ exports[`Radio radio group demo works fine 1`] = `
    
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-default"
+      class="t-radio-group t-radio-group-outline t-radio-group-medium"
     >
       <label
         class="t-radio"
       >
         <input
           class="t-radio__former"
+          name=""
           type="radio"
           value="bj"
         />
@@ -788,6 +823,7 @@ exports[`Radio radio group demo works fine 1`] = `
       >
         <input
           class="t-radio__former"
+          name=""
           type="radio"
           value="sh"
         />
@@ -806,6 +842,7 @@ exports[`Radio radio group demo works fine 1`] = `
       >
         <input
           class="t-radio__former"
+          name=""
           type="radio"
           value="gz"
         />
@@ -825,6 +862,7 @@ exports[`Radio radio group demo works fine 1`] = `
         <input
           class="t-radio__former"
           disabled=""
+          name=""
           type="radio"
           value="sz"
         />

@@ -2,6 +2,8 @@ import Vue, { VueConstructor, VNode } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
+import props from '../../types/radio/props';
+import { name as radioButtonName } from './radio-button';
 
 const name = `${prefix}-radio`;
 
@@ -17,40 +19,27 @@ function getValidAttrs(obj: object): object {
 
 interface RadioInstance extends Vue {
   radioGroup: any;
+  radioButton: any;
 }
 
 export default (Vue as VueConstructor<RadioInstance>).extend({
   name,
   inheritAttrs: false,
-  model: {
-    prop: 'checked',
-    event: 'change',
-  },
+  props: { ...props },
 
   inject: {
     radioGroup: { default: undefined },
-  },
-
-  // 使用自动生成的 props 文件，代码示例如下：
-  // import props from '../../types/radio/props'
-  // props: { ...props }
-  props: {
-    className: { type: String },
-    checked: { type: Boolean, default: undefined },
-    defaultChecked: { type: Boolean, default: undefined },
-    disabled: { type: Boolean, default: undefined },
-    value: { default: undefined },
-    name: String,
+    radioButton: { default: undefined },
   },
 
   render(): VNode {
-    const { $attrs, $listeners, $scopedSlots, radioGroup } = this;
+    const { $attrs, $listeners, $scopedSlots, radioGroup, radioButton } = this;
     const children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
 
     const inputProps = {
       checked: this.checked,
       disabled: this.disabled,
-      value: this.value as string | number,
+      value: this.value,
       name: this.name,
     };
 
@@ -70,7 +59,7 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
       inputProps.name = radioGroup.name;
     }
 
-    const prefixCls = this.className || `${name}`;
+    const prefixCls = radioButton ? radioButtonName : name;
 
     const inputClass = [
       `${prefixCls}`,
@@ -95,17 +84,17 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
           onChange={this.handleChange}
         />
         <span class={`${prefixCls}__input`}></span>
-        <span class={`${prefixCls}__label`}>{children || null}</span>
+        <span class={`${prefixCls}__label`}>{children}</span>
       </label>
-    ) as VNode;
+    );
   },
 
   methods: {
-    handleChange(e: InputEvent) {
+    handleChange(e: Event) {
       if (this.radioGroup && this.radioGroup.handleRadioChange) {
         this.radioGroup.handleRadioChange(this.value, { e });
       } else {
-        const target: HTMLInputElement = e.target as HTMLInputElement;
+        const target = e.target as HTMLInputElement;
         this.$emit('change', target.checked, { e });
       }
     },

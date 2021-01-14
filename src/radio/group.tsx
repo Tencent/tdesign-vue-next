@@ -1,47 +1,23 @@
-import Vue, { VNode, PropType } from 'vue';
+import Vue, { VNode } from 'vue';
+import props from '../../types/radio-group/props';
+import { TdRadioGroupProps, RadioOptionObj } from '../../types/radio/TdRadioProps';
 import { prefix } from '../config';
 import Radio from './radio';
 
 const name = `${prefix}-radio-group`;
 
-const sizeList: Array<string> = ['large', 'medium', 'small'];
-const buttonStyleList: Array<string> = ['outline', 'solid'];
-
-type OptionType = { value: string | number; label: VNode | string | number; disabled?: boolean } | number | string;
-
 export default Vue.extend({
   name,
+  props: { ...props },
 
   components: {
     Radio,
   },
 
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
-
-  provide(): any {
+  provide() {
     return {
       radioGroup: this,
     };
-  },
-
-  // 使用自动生成的 props 文件，代码示例如下：
-  // import props from '../../types/radio-group/props'
-  // props: { ...props }
-  props: {
-    value: { default: undefined },
-    defaultValue: { default: undefined },
-    disabled: { type: Boolean, default: false },
-    size: { type: String, default: 'medium', validator(v: string) {
-      return sizeList.includes(v);
-    } },
-    buttonStyle: { type: String, default: 'outline', validator(v: string) {
-      return buttonStyleList.includes(v);
-    } },
-    options: { type: Array as PropType<Array<OptionType>>, default: (): Array<OptionType>  => [] },
-    name: String,
   },
 
   render(): VNode {
@@ -49,10 +25,10 @@ export default Vue.extend({
     let children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
 
     if (this.options && this.options.length) {
-      children = this.options.map((option) => {
-        let opt = option as { value: string | number; label: VNode | string | number; disabled?: boolean };
+      children = (this.options as TdRadioGroupProps['options']).map((option) => {
+        let opt = option as RadioOptionObj;
         if (typeof option === 'number' || typeof option === 'string') {
-          opt = { value: option, label: option };
+          opt = { value: option, label: option.toString() };
         }
         return (
           <Radio
@@ -64,7 +40,7 @@ export default Vue.extend({
           >
             {opt.label}
           </Radio>
-        ) as VNode;
+        );
       });
     }
 
@@ -78,11 +54,11 @@ export default Vue.extend({
       <div class={groupClass}>
         {children}
       </div>
-    ) as VNode;
+    );
   },
 
   methods: {
-    handleRadioChange(value: string | number, context: { e: InputEvent }) {
+    handleRadioChange(value: string | number, context: { e: Event }) {
       this.$emit('change', value, context);
     },
   },
