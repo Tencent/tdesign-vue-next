@@ -10,22 +10,22 @@
       <t-button>top</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-topLeft"
+      class="placement-top-left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="topLeft"
+      placement="top-left"
       :overlayStyle="{ width: '200px' }"
       visibleArrow
     >
-      <t-button>topLeft</t-button>
+      <t-button>top-left</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-topRight"
+      class="placement-top-right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="topRight"
+      placement="top-right"
       visibleArrow
     >
-      <t-button>topRight</t-button>
+      <t-button>top-right</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-bottom"
@@ -37,22 +37,22 @@
       <t-button>bottom</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-bottomLeft"
+      class="placement-bottom-left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="bottomLeft"
+      placement="bottom-left"
       :overlayStyle="{ width: '200px' }"
       visibleArrow
     >
-      <t-button>bottomLeft</t-button>
+      <t-button>bottom-left</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-bottomRight"
+      class="placement-bottom-right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="bottomRight"
+      placement="bottom-right"
       visibleArrow
     >
-      <t-button>bottomRight</t-button>
+      <t-button>bottom-right</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-left"
@@ -64,22 +64,22 @@
       <t-button>left</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-leftTop"
+      class="placement-left-top"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="leftTop"
+      placement="left-top"
       visibleArrow
     >
-      <t-button>leftTop</t-button>
+      <t-button>left-top</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-leftBottom"
+      class="placement-left-bottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="leftBottom"
+      placement="left-bottom"
       visibleArrow
     >
-      <t-button>leftBottom</t-button>
+      <t-button>left-bottom</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-right"
@@ -91,22 +91,22 @@
       <t-button>right</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-rightTop"
+      class="placement-right-top"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="rightTop"
+      placement="right-top"
       visibleArrow
     >
-      <t-button>rightTop</t-button>
+      <t-button>right-top</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-rightBottom"
+      class="placement-right-bottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="rightBottom"
+      placement="right-bottom"
       visibleArrow
     >
-      <t-button>rightBottom</t-button>
+      <t-button>right-bottom</t-button>
     </t-tooltip>
   </div>
 </template>

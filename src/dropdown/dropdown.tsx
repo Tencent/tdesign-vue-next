@@ -17,7 +17,7 @@ export default Vue.extend({
     },
     placement: {
       type: String,
-      default: 'bottomLeft',
+      default: 'bottom-left',
     },
     trigger: {
       type: String,

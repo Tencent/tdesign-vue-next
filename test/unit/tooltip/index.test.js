@@ -9,7 +9,7 @@ describe('Tooltip', () => {
     cmp = mount(Tooltip, {
       propsData: {
         disabled: true,
-        placement: 'topLeft',
+        placement: 'top-left',
         visible: false,
         trigger: 'click',
         content: 'txt',
