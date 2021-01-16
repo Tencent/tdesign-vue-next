@@ -150,6 +150,4 @@ Object.keys(extraApi).forEach((funcName) => {
   MessagePlugin[funcName] = extraApi[funcName];
 });
 
-Vue.use(MessagePlugin);
-
 export default MessagePlugin;
