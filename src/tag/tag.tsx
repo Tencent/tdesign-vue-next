@@ -1,5 +1,4 @@
 import Vue, { VNode } from 'vue';
-import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import Icon from '../icon/iconfont';
@@ -25,7 +24,6 @@ export default Vue.extend({
   name,
   components: {
     Icon,
-    RenderComponent,
   },
   props: { ...props },
   computed: {
