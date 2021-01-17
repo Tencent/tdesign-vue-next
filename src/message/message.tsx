@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue, { CreateElement } from 'vue';
 import { prefix } from '../config';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
@@ -7,6 +7,7 @@ import TIconHelpFill from '../icon/help-circle-filled';
 import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
 import { THEME_LIST } from './const';
+import props from '@TdTypes/message/props';
 
 const name = `${prefix}-message`;
 
@@ -22,22 +23,7 @@ export default Vue.extend({
     TIconClose,
   },
 
-  props: {
-    theme: {
-      type: String,
-      default: THEME_LIST[0],
-      validator(val: string): boolean {
-        return THEME_LIST.includes(val);
-      },
-    },
-    duration: Number,
-    closeBtn: [Boolean, String, Function],
-    icon: {
-      type: [Boolean, Function],
-      default: true,
-    },
-    content: [String, Function],
-  },
+  props: { ...props },
 
   data() {
     return {
@@ -69,29 +55,42 @@ export default Vue.extend({
     setTimer() {
       this.timer = Number(setTimeout(() => {
         this.clearTimer();
-        this.$emit('duration-end', this);
+        this.$emit('duration-end');
+        if (this.onDurationEnd) {
+          this.onDurationEnd();
+        };
       }, this.duration));
     },
     clearTimer() {
       clearTimeout(this.timer);
     },
-    close(e?: Event) {
-      this.$emit('click-close-btn', e, this);
+    close(e?: MouseEvent) {
+      this.$emit('click-close-btn', e);
+      if (this.onClickCloseBtn) {
+        this.onClickCloseBtn(e);
+      };
     },
-    renderClose() {
-      if (typeof this.closeBtn === 'string') {
-        return <span class='t-message-close' onClick={this.close}>{this.closeBtn}</span>;
+    // this.closeBtn 优先级大于 this.$scopedSlots.closeBtn
+    renderClose(h: CreateElement) {
+      const { closeBtn } = this;
+      if (typeof closeBtn === 'boolean') {
+        return closeBtn && <t-icon-close nativeOnClick={this.close} class='t-message-close' />;
       }
-      if (typeof this.closeBtn === 'function') return this.closeBtn(this.close);
-      if (typeof this.$scopedSlots.closeBtn === 'function') {
-        return this.$scopedSlots.closeBtn(null);
+      let close: TNodeReturnValue = null;
+      if (typeof closeBtn === 'function') {
+        close = closeBtn(h);
+      } else if (typeof closeBtn === 'string') {
+        close = closeBtn;
+      } else if (typeof this.$scopedSlots.closeBtn === 'function') {
+        close = this.$scopedSlots.closeBtn(null);
       }
-      if (this.closeBtn === false) return;
-      return <t-icon-close nativeOnClick={this.close} class='t-message-close' />;
+      if (close) {
+        return (<span class='t-message-close' onClick={this.close}> { close } </span>);
+      }
     },
-    renderIcon() {
+    renderIcon(h: CreateElement) {
       if (this.icon === false) return;
-      if (typeof this.icon === 'function') return this.icon();
+      if (typeof this.icon === 'function') return this.icon(h);
       if (this.$scopedSlots.icon) {
         return this.$scopedSlots.icon(null);
       }
@@ -105,19 +104,21 @@ export default Vue.extend({
       }[this.theme];
       return <component></component>;
     },
-    renderContent() {
+    renderContent(h: Vue.CreateElement) {
       if (typeof this.content === 'string') return this.content;
-      if (typeof this.content === 'function') return this.content();
-      return this.$scopedSlots.default && this.$scopedSlots.default(null);
+      if (typeof this.content === 'function') return this.content(h);
+      if (this.$scopedSlots.default) return this.$scopedSlots.default(null);
+      if (this.$scopedSlots.content) return this.$scopedSlots.content(null);
+      return this.content;
     },
   },
 
-  render() {
+  render(h) {
     return (
       <div class={ this.classes } onMouseenter={ this.clearTimer } onMouseleave={ this.setTimer }>
-        { this.renderIcon() }
-        { this.renderContent() }
-        { this.renderClose() }
+        { this.renderIcon(h) }
+        { this.renderContent(h) }
+        { this.renderClose(h) }
       </div>
     );
   },

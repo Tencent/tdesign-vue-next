@@ -1,8 +1,8 @@
-import Vue from 'vue';
+import Vue, { VNode } from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { prefix } from '../config';
-import { MessageProps } from './type';
+import { MessageOptions } from '@TdTypes/message/TdMessageProps';
 
 export const DEFAULT_Z_INDEX = 6000;
 
@@ -27,7 +27,7 @@ export const MessageList = Vue.extend({
     };
   },
   computed: {
-    styles(): object {
+    styles(): Styles {
       return Object.assign(
         {
           zIndex: this.zIndex !== DEFAULT_Z_INDEX,
@@ -35,25 +35,18 @@ export const MessageList = Vue.extend({
         PLACEMENT_OFFSET[this.placement]
       );
     },
-    on() {
-      return {
-        'click-close-btn': (e: Event, instance: any) => this.remove(instance),
-        'duration-end': (instance: any) => this.remove(instance),
-      };
-    },
   },
   methods: {
-    add(msg: MessageProps): number {
-      const _msg = Object.assign({}, msg, {
+    add(msg: MessageOptions): number {
+      const mg = {
+        ...msg,
         key: getUniqueId(),
-      });
-      this.list.push(_msg);
+      };
+      this.list.push(mg);
       return this.list.length - 1;
     },
-    remove(instance: any) {
-      // eslint-disable-next-line
-      const children: HTMLCollection = this.$el.children;
-      this.list = this.list.filter((v, i) => children[i] !== instance.$el);
+    remove(index: number) {
+      this.list.splice(index, 1);
     },
     removeAll() {
       this.list = [];
@@ -66,18 +59,24 @@ export const MessageList = Vue.extend({
       });
       return styles;
     },
+    getListeners(index: number) {
+      return {
+        'click-close-btn': () => this.remove(index),
+        'duration-end': () => this.remove(index),
+      };
+    },
   },
-  render() {
+  render(): VNode {
     if (!this.list.length) return;
     return (
       <div class='t-message-list' style={this.styles}>
         {this.list
-          .map(item => (
+          .map((item, index) => (
             <t-message
               key={item.key}
               style={this.msgStyles(item)}
               {...{ props: item }}
-              {...{ on: this.on }}
+              {...{ on: this.getListeners(index) }}
             />
           ))
         }

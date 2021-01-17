@@ -23,11 +23,11 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-select t-size-s"
             >
               <svg
-                class="t-icon t-icon-undefined t-size-s t-select-left-icon"
+                class="t-icon t-icon- t-size-s t-select-left-icon"
                 style="display: none;"
               >
                 <use
-                  xlink:href="#t-icon-undefined"
+                  xlink:href="#t-icon-"
                 />
               </svg>
                
@@ -133,11 +133,11 @@ exports[`Calendar base demo works fine 1`] = `
               class="t-select t-size-s"
             >
               <svg
-                class="t-icon t-icon-undefined t-size-s t-select-left-icon"
+                class="t-icon t-icon- t-size-s t-select-left-icon"
                 style="display: none;"
               >
                 <use
-                  xlink:href="#t-icon-undefined"
+                  xlink:href="#t-icon-"
                 />
               </svg>
                
@@ -676,7 +676,7 @@ exports[`Calendar base demo works fine 1`] = `
             />
           </td>
           <td
-            class="t-calendar__table-body-cell t-is-checked"
+            class="t-calendar__table-body-cell"
           >
             <div
               class="t-calendar__table-body-cell-value"
@@ -758,7 +758,7 @@ exports[`Calendar base demo works fine 1`] = `
           class="t-calendar__table-body-row"
         >
           <td
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked"
           >
             <div
               class="t-calendar__table-body-cell-value"
@@ -1222,11 +1222,11 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-select t-size-s"
             >
               <svg
-                class="t-icon t-icon-undefined t-size-s t-select-left-icon"
+                class="t-icon t-icon- t-size-s t-select-left-icon"
                 style="display: none;"
               >
                 <use
-                  xlink:href="#t-icon-undefined"
+                  xlink:href="#t-icon-"
                 />
               </svg>
                
@@ -1332,11 +1332,11 @@ exports[`Calendar head demo works fine 1`] = `
               class="t-select t-size-s"
             >
               <svg
-                class="t-icon t-icon-undefined t-size-s t-select-left-icon"
+                class="t-icon t-icon- t-size-s t-select-left-icon"
                 style="display: none;"
               >
                 <use
-                  xlink:href="#t-icon-undefined"
+                  xlink:href="#t-icon-"
                 />
               </svg>
                
@@ -1881,7 +1881,7 @@ exports[`Calendar head demo works fine 1`] = `
             />
           </td>
           <td
-            class="t-calendar__table-body-cell t-is-checked"
+            class="t-calendar__table-body-cell"
           >
             <div
               class="t-calendar__table-body-cell-value"
@@ -1963,7 +1963,7 @@ exports[`Calendar head demo works fine 1`] = `
           class="t-calendar__table-body-row"
         >
           <td
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked"
           >
             <div
               class="t-calendar__table-body-cell-value"

@@ -2,7 +2,7 @@
   <div>
     <div class="tdesign-demo-block">
       <t-button theme="primary">主要按钮</t-button>
-      <t-button theme="primary">次要按钮</t-button>
+      <t-button theme="line">次要按钮</t-button>
       <t-button theme="dashed">虚框按钮</t-button>
     </div>
     <div class="tdesign-demo-block">

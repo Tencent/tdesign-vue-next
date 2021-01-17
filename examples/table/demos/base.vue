@@ -8,7 +8,9 @@
     :hover="hover"
     :stripe="stripe"
     :size="size"
-    :pagination="pagination">
+    :pagination="pagination"
+    @page-change="rehandlePageChange"
+    @change="rehandleChange">
   </t-table>
 </template>
 <script>
@@ -127,6 +129,13 @@ export default {
       },
     };
   },
-  methods: {},
+  methods: {
+    rehandlePageChange(curr, pageInfo) {
+      console.log('分页变化', curr, pageInfo);
+    },
+    rehandleChange(changeParams, triggerAndData) {
+      console.log('统一Change', changeParams, triggerAndData);
+    },
+  },
 };
 </script>

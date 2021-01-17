@@ -1,5 +1,9 @@
 const path = require('path');
 
+// To have consistent date time parsing both in local and CI environments we set
+// the timezone of the Node process.
+process.env.TZ = 'Asia/Shanghai';
+
 module.exports = {
   verbose: true,
   rootDir: path.resolve(__dirname, '../../'),
@@ -15,6 +19,13 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
     '^@tencent/tdesign-vue/lib/(.*)$': '<rootDir>/src/$1',
+    '^@tencent/tdesign-vue/lib/(.*)$': '<rootDir>/src/$1',
+    '^@TdTypes/(.*)$': '<rootDir>/types/$1',
+    '^@Pagination/(.*)$': '<rootDir>/src/pagination/index.ts',
+    '^@Radio/(.*)$': '<rootDir>/src/radio/index.ts',
+    '^@Checkbox/(.*)$': '<rootDir>/src/checkbox/index.ts',
+    '^@Table/(.*)$': '<rootDir>/src/table/index.ts',
+    '^@Popup/(.*)$': '<rootDir>/src/popup/index.ts',
     '^vue$': '<rootDir>/node_modules/vue/dist/vue.js',
   },
   modulePathIgnorePatterns: ['<rootDir>/test/unit/coverage/'],

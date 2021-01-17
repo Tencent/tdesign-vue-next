@@ -1,6 +1,10 @@
 import { mount } from '@vue/test-utils';
 import Calendar from '@/src/calendar/index.ts';
 
+import MockDate from 'mockdate';
+
+// 固定时间，当使用 new Date() 时，返回固定时间，防止“当前时间”的副作用影响，导致 snapshot 变更，mockdate 插件见 https://github.com/boblauer/MockDate
+MockDate.set('2020-12-28');
 // every component needs four parts: props/events/slots/functions.
 describe('Calendar', () => {
   // test props api
@@ -14,10 +18,10 @@ describe('Calendar', () => {
       expect(wrapper.isEmpty()).toBe(false);
     });
 
-    it(':defaultValue', () => {
+    it(':value', () => {
       const wrapper = mount({
         render() {
-          return <Calendar defaultValue={new Date(1998, 10, 11)}></Calendar>;
+          return <Calendar value={'1998-11-11'}></Calendar>;
         },
       });
       expect(wrapper).toMatchSnapshot();
@@ -54,8 +58,8 @@ describe('Calendar', () => {
       const wrapper = mount({
         render() {
           const testRange = {
-            from: new Date(1998, 7),  // 1998-08
-            to: new Date(2008, 3),  // 1998-04
+            from: '2018-08',  // new Date(2017, 7)
+            to: '2028-04',  // new Date(2027, 3)
           };
           return <Calendar range={testRange}></Calendar>;
         },

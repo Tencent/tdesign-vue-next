@@ -13,16 +13,15 @@ exports[`Message close demo works fine 1`] = `
     </svg></div>
   <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-info-circle-filled">
       <path fill-opacity=".9" fill-rule="evenodd" d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"></path>
-    </svg>自定义关闭按钮（文字）<span class="t-message-close">关闭</span></div>
+    </svg>自定义关闭按钮（文字）<span class="t-message-close"> 关闭 </span></div>
   <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-info-circle-filled">
       <path fill-opacity=".9" fill-rule="evenodd" d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"></path>
-    </svg>自定义关闭按钮（函数）<div class="t-message-close"><b>x</b></div>
-  </div>
+    </svg>自定义关闭按钮（函数）<span class="t-message-close"> <div class="t-message-close"><b>x</b></div> </span></div>
   <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-info-circle-filled">
       <path fill-opacity=".9" fill-rule="evenodd" d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"></path>
     </svg>
     自定义关闭按钮（插槽）
-    <div class="t-message-close"><b>x</b></div>
+    <span class="t-message-close"> <div class="t-message-close"><b>x</b></div> </span>
   </div>
 </div>
 `;
@@ -64,21 +63,6 @@ exports[`Message offset demo works fine 1`] = `
 
 exports[`Message placement demo works fine 1`] = `
 <div>
-  <p>
-    函数式调用-传入对象：this.$message.info({ content: '用户表示普通操作信息提示', placement: 'center' })
-  </p>
-   
-  <p>
-    
-    placement 默认值：top。
-    <br />
-    
-    palcement 可选值：'center/top/left/right/bottom/top-left/top-right/bottom-left/bottom-right' 。
-  
-  </p>
-   
-  <br />
-   
   <button
     class="t-button t-button--line"
   >
@@ -138,7 +122,7 @@ exports[`Message placement demo works fine 1`] = `
 exports[`Message plugin demo works fine 1`] = `
 <div>
   <p>
-    【方式一】函数式调用-信息设置：this.$message.info('用户表示普通操作信息提示')
+    组件内调用-信息设置：this.$message.info('用户表示普通操作信息提示')
   </p>
    
   <br />
@@ -187,7 +171,7 @@ exports[`Message plugin demo works fine 1`] = `
   <br />
    
   <p>
-    【方式一】函数式调用-时间设置：this.$message.info('用户表示普通操作信息提示', 1000)
+    组件内调用-时间设置：this.$message.info('用户表示普通操作信息提示', 1000)
   </p>
    
   <br />
@@ -236,7 +220,7 @@ exports[`Message plugin demo works fine 1`] = `
   <br />
    
   <p>
-    【方式二】函数式调用-传入对象：this.$message.info({ content: '用户表示普通操作信息提示', duration: 1000 })
+    组件内调用-设置更多内容：this.$message.info({ content: '用户表示普通操作信息提示', duration: 1000 })
   </p>
    
   <br />
@@ -285,7 +269,7 @@ exports[`Message plugin demo works fine 1`] = `
   <br />
    
   <p>
-    【方式三】函数式调用-主函数：this.$message({ content: '用户表示普通操作信息提示', duration: 1000 })
+    组件内调用-主函数：this.$message({ content: '用户表示普通操作信息提示', duration: 1000 })
   </p>
    
   <br />
@@ -332,17 +316,60 @@ exports[`Message plugin demo works fine 1`] = `
    
   <br />
   <br />
+   
+  <p>
+    按需引入：MessagePlugin.info({ content: '用户表示普通操作信息提示', duration: 1000 })
+  </p>
+   
+  <br />
+   
+  <div
+    class="t-demo-message-theme"
+  >
+    <button
+      class="t-button t-button--line"
+    >
+      info
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      success
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      warning
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      error
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      question
+    </button>
+     
+    <button
+      class="t-button t-button--line"
+    >
+      loading
+    </button>
+  </div>
+   
+  <br />
+  <br />
 </div>
 `;
 
 exports[`Message toggle demo works fine 1`] = `
 <div>
-  <p>
-    【调用关闭函数】如果不希望通过计时关闭，或者用户点击按钮关闭，也可以使用关闭函数。
-  </p>
-   
-  <br />
-   
   <button
     class="t-button t-button--line"
   >
