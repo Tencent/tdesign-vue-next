@@ -3,14 +3,8 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import props from '@TdTypes/radio/props';
-import { RadioValue } from '@TdTypes/radio/TdRadioProps';
-import RadioGroup from './group';
-import RadioButton, { name as radioButtonName } from './radio-button';
-
-type RadioButtonInstance = InstanceType<typeof RadioButton>;
-type RadioGroupInstance = InstanceType<typeof RadioGroup> & {
-  handleRadioChange: (value: RadioValue, context: { e: Event }) => void;
-};
+import  { name as radioButtonName } from './radio-button';
+import { RadioGroupInstance, RadioButtonInstance } from './';
 
 const name = `${prefix}-radio`;
 

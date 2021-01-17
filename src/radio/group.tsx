@@ -1,4 +1,5 @@
-import Vue, { VNode } from 'vue';
+import Vue, { VNode, CreateElement } from 'vue';
+import { isString, isNumber } from 'lodash';
 import props from '@TdTypes/radio-group/props';
 import { RadioOptionObj, RadioOption, RadioValue } from '@TdTypes/radio/TdRadioProps';
 import { prefix } from '../config';
@@ -20,14 +21,14 @@ export default Vue.extend({
     };
   },
 
-  render(): VNode {
+  render(h: CreateElement): VNode {
     const { $scopedSlots } = this;
     let children: TNodeReturnValue = $scopedSlots.default && $scopedSlots.default(null);
 
     if (this.options && this.options.length) {
       children = (this.options).map((option: RadioOption) => {
         let opt = option as RadioOptionObj;
-        if (typeof option === 'number' || typeof option === 'string') {
+        if (isNumber(option) || isString(option)) {
           opt = { value: option, label: option.toString() };
         }
         return (
@@ -38,7 +39,7 @@ export default Vue.extend({
             disabled={'disabled' in opt ? opt.disabled : this.disabled}
             value={opt.value}
           >
-            {opt.label}
+            {typeof opt.label === 'function' ? opt.label(h) : opt.label}
           </Radio>
         );
       });
