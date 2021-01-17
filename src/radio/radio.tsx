@@ -2,8 +2,15 @@ import Vue, { VueConstructor, VNode } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
-import props from '../../types/radio/props';
-import { name as radioButtonName } from './radio-button';
+import props from '@TdTypes/radio/props';
+import { RadioValue } from '@TdTypes/radio/TdRadioProps';
+import RadioGroup from './group';
+import RadioButton, { name as radioButtonName } from './radio-button';
+
+type RadioButtonInstance = InstanceType<typeof RadioButton>;
+type RadioGroupInstance = InstanceType<typeof RadioGroup> & {
+  handleRadioChange: (value: RadioValue, context: { e: Event }) => void;
+};
 
 const name = `${prefix}-radio`;
 
@@ -18,8 +25,8 @@ function getValidAttrs(obj: object): object {
 }
 
 interface RadioInstance extends Vue {
-  radioGroup: any;
-  radioButton: any;
+  radioGroup: RadioGroupInstance;
+  radioButton: RadioButtonInstance;
 }
 
 export default (Vue as VueConstructor<RadioInstance>).extend({
@@ -96,6 +103,7 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
       } else {
         const target = e.target as HTMLInputElement;
         this.$emit('change', target.checked, { e });
+        typeof this.onChange === 'function' && (this.onChange(target.checked, { e }));
       }
     },
   },

@@ -1,5 +1,5 @@
 import Vue, { VueConstructor, VNode } from 'vue';
-import props from '../../types/radio/props';
+import props from '@TdTypes/radio/props';
 import { prefix } from '../config';
 import Radio from './radio';
 

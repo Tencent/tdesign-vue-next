@@ -1,6 +1,6 @@
 import Vue, { VNode } from 'vue';
-import props from '../../types/radio-group/props';
-import { TdRadioGroupProps, RadioOptionObj } from '../../types/radio/TdRadioProps';
+import props from '@TdTypes/radio-group/props';
+import { RadioOptionObj, RadioOption, RadioValue } from '@TdTypes/radio/TdRadioProps';
 import { prefix } from '../config';
 import Radio from './radio';
 
@@ -22,10 +22,10 @@ export default Vue.extend({
 
   render(): VNode {
     const { $scopedSlots } = this;
-    let children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
+    let children: TNodeReturnValue = $scopedSlots.default && $scopedSlots.default(null);
 
     if (this.options && this.options.length) {
-      children = (this.options as TdRadioGroupProps['options']).map((option) => {
+      children = (this.options).map((option: RadioOption) => {
         let opt = option as RadioOptionObj;
         if (typeof option === 'number' || typeof option === 'string') {
           opt = { value: option, label: option.toString() };
@@ -58,8 +58,9 @@ export default Vue.extend({
   },
 
   methods: {
-    handleRadioChange(value: string | number, context: { e: Event }) {
+    handleRadioChange(value: RadioValue, context: { e: Event }) {
       this.$emit('change', value, context);
+      typeof this.onChange === 'function' && (this.onChange(value, context));
     },
   },
 });
