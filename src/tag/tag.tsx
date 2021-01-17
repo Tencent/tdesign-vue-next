@@ -27,7 +27,7 @@ export default Vue.extend({
   },
   props: { ...props },
   computed: {
-    tagClass(): Array<string> {
+    tagClass(): ClassName {
       return [
         `${name}`,
         `${name}--${this.theme}`,
@@ -40,7 +40,7 @@ export default Vue.extend({
         },
       ];
     },
-    tagStyle(): object {
+    tagStyle(): Styles {
       if (this.maxWidth) return { maxWidth: `${this.maxWidth}px` };
       return {};
     },
@@ -62,7 +62,7 @@ export default Vue.extend({
     // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
     const closeIcon: VNode | string = this.closable ? <Icon name="close" nativeOnClick={this.handleClose} /> : '';
     // 标签内容
-    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+    const tagContent: TNodeReturnValue = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
     // 图标
     let icon: VNode;
     if (typeof this.icon === 'string' && !!this.icon) {
