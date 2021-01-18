@@ -1,8 +1,8 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-button :theme="mutex ? 'primary' : 'ghost'" @click="toggleMutex">互斥展开</t-button>
-      <t-button :theme="expandOnClickNode ? 'primary' : 'ghost'" @click="toggleExpandOnClickNode">点击节点触发展开</t-button>
+      <t-button :variant="mutex ? 'base' : 'outline'"  @click="toggleMutex">互斥展开</t-button>
+      <t-button :variant="expandOnClickNode ? 'base' : 'outline'"  @click="toggleExpandOnClickNode">点击节点触发展开</t-button>
     </div>
     <t-tree
       :data="items"

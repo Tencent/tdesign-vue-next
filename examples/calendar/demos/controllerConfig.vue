@@ -93,12 +93,13 @@ export default {
           showWeekendButtonProps: {
             // 用于透传props给显示周末按钮组件
             disabled: false,
-            theme: 'primary',
+            variant: 'base',
           },
           hideWeekendButtonProps: {
             // 用于透传props给隐藏周末按钮组件
             disabled: false,
-            theme: 'warning',
+            variant: 'base',
+            theme: 'danger',
           },
         },
         // “今天\本月”按钮组件相关设置
@@ -107,12 +108,12 @@ export default {
           currentDayButtonProps: {
             // 用于透传props给“今天”钮组件（“month”模式下有效）
             disabled: false,
-            theme: 'primary',
+            variant: 'base',
           },
           currentMonthButtonProps: {
             // 用于透传props给“本月”按钮组件（“year”模式下有效）
             disabled: false,
-            theme: 'primary',
+            variant: 'base',
           },
         },
       },

@@ -67,7 +67,7 @@ export default Vue.extend({
     return (
       <div class={name}>
         <TButton
-          theme={leftDisabled ? 'line' : 'primary'}
+          variant={leftDisabled ? 'outline' : 'base'}
           disabled={leftDisabled}
           onClick={this.moveToRight}
           icon={this.getIcon('up')}
@@ -75,7 +75,7 @@ export default Vue.extend({
           {this.buttonContent('up')}
         </TButton>
         <TButton
-          theme={rightDisabled ? 'line' : 'primary'}
+          variant={rightDisabled ? 'outline' : 'base'}
           disabled={rightDisabled}
           onClick={this.moveToLeft}
           icon={this.getIcon('down')}

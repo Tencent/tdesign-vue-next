@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-button theme="primary" @click="()=>this.visible = true">基础确认对话框</t-button>
+    <t-button variant="base" theme="primary" @click="()=>this.visible = true">基础确认对话框</t-button>
     <t-dialog
       header="对话框标题"
       body="对话框内容"

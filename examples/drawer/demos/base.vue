@@ -1,7 +1,7 @@
 <template>
   <div>
     <t-drawer :visible="visible" @close="handleClose"><p>This is a drawer</p></t-drawer>
-    <t-button theme="primary" @click="handleClick">Open</t-button>
+    <t-button variant="base" theme="primary" @click="handleClick">Open</t-button>
   </div>
 </template>
 

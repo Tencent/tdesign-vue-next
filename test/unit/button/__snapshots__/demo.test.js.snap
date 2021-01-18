@@ -6,48 +6,25 @@ exports[`Button base demo works fine 1`] = `
     class="tdesign-demo-block"
   >
     <button
-      class="t-button t-button--primary"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
     >
       主要按钮
     </button>
      
     <button
-      class="t-button t-button--line"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     >
       次要按钮
     </button>
      
     <button
-      class="t-button t-button--dashed"
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
     >
       虚框按钮
     </button>
-  </div>
-   
-  <div
-    class="tdesign-demo-block"
-  >
-    <button
-      class="t-button t-button--warning"
-    >
-      告警按钮
-    </button>
      
     <button
-      class="t-button t-button--warning-line"
-    >
-      次要告警
-    </button>
-     
-    <button
-      class="t-button t-button--link"
-    >
-      文字按钮
-    </button>
-     
-    <button
-      class="t-button t-button--link t-is-disabled"
-      disabled="disabled"
+      class="t-button t-size-m t-button--variant-text t-button--theme-default"
     >
       文字按钮
     </button>
@@ -63,49 +40,27 @@ exports[`Button block demo works fine 1`] = `
     class="demo-button-col"
   >
     <button
-      class="t-button t-button--primary t-size-full-width"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default t-size-full-width"
     >
       主按钮
     </button>
      
     <button
-      class="t-button t-button--line t-size-full-width"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-size-full-width"
     >
       次要按钮
     </button>
      
     <button
-      class="t-button t-button--dashed t-size-full-width"
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-size-full-width"
     >
       虚框按钮
     </button>
-  </div>
-   
-  <div
-    class="demo-button-col"
-  >
-    <button
-      class="t-button t-button--warning t-size-full-width"
-    >
-      告警按钮
-    </button>
      
     <button
-      class="t-button t-button--warning-line t-size-full-width"
-    >
-      次要告警
-    </button>
-     
-    <button
-      class="t-button t-button--link t-size-full-width"
+      class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
     >
       文字按钮
-    </button>
-     
-    <button
-      class="t-button t-button--ghost t-size-full-width"
-    >
-      幽灵按钮
     </button>
   </div>
 </div>
@@ -122,7 +77,7 @@ exports[`Button icon demo works fine 1`] = `
       class="demo-button-col"
     >
       <button
-        class="t-button t-button--primary"
+        class="t-button t-size-m t-button--variant-base t-button--theme-default"
       >
         <svg
           class="t-icon t-icon-add"
@@ -145,7 +100,7 @@ exports[`Button icon demo works fine 1`] = `
       </button>
        
       <button
-        class="t-button t-button--line"
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
       >
         <svg
           class="t-icon t-icon-cloud-upload"
@@ -173,7 +128,7 @@ exports[`Button icon demo works fine 1`] = `
       class="demo-button-col"
     >
       <button
-        class="t-button t-button--primary t-button--icon-only t-button--shape-circle"
+        class="t-button t-size-m t-button--variant-base t-button--theme-default t-button--icon-only t-button--shape-circle"
       >
         <svg
           class="t-icon t-icon-discount"
@@ -190,7 +145,7 @@ exports[`Button icon demo works fine 1`] = `
       </button>
        
       <button
-        class="t-button t-button--primary t-button--icon-only t-button--shape-circle"
+        class="t-button t-size-m t-button--variant-base t-button--theme-default t-button--icon-only t-button--shape-circle"
       >
         <svg
           class="t-icon t-icon-cloud-download"
@@ -211,7 +166,7 @@ exports[`Button icon demo works fine 1`] = `
       class="demo-button-col"
     >
       <button
-        class="t-button t-button--line"
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
       >
         <svg
           class="t-icon t-icon-search"
@@ -243,7 +198,7 @@ exports[`Button loading demo works fine 1`] = `
   class="button-base"
 >
   <button
-    class="t-button t-button--primary t-is-loading"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-loading"
   >
     <svg
       class="t-icon t-icon-loading"
@@ -267,7 +222,7 @@ exports[`Button loading demo works fine 1`] = `
   </button>
    
   <button
-    class="t-button t-button--line t-is-loading"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-loading"
   >
     <svg
       class="t-icon t-icon-loading"
@@ -292,266 +247,89 @@ exports[`Button loading demo works fine 1`] = `
 </div>
 `;
 
-exports[`Button render-icon demo works fine 1`] = `
-<button
-  class="t-button t-button--primary"
->
-  <span>
-    ×
-  </span>
-  <span
-    class="t-button__text"
-  >
-    
-  主按钮
-
-  </span>
-</button>
-`;
-
 exports[`Button size demo works fine 1`] = `
 <div>
   <div
     class="tdesign-demo-block"
   >
     <button
-      class="t-button t-size-s t-button--primary"
+      class="t-button t-size-s t-button--variant-base t-button--theme-default"
     >
       主按钮
     </button>
      
     <button
-      class="t-button t-size-s t-button--line"
+      class="t-button t-size-s t-button--variant-outline t-button--theme-default"
     >
       次要按钮
     </button>
      
     <button
-      class="t-button t-size-s t-button--dashed"
+      class="t-button t-size-s t-button--variant-dashed t-button--theme-default"
     >
       虚框按钮
     </button>
      
     <button
-      class="t-button t-size-s t-button--warning"
-    >
-      告警按钮
-    </button>
-     
-    <button
-      class="t-button t-size-s t-button--warning-line"
-    >
-      次要告警
-    </button>
-     
-    <button
-      class="t-button t-size-s t-button--link"
+      class="t-button t-size-s t-button--variant-text t-button--theme-default"
     >
       文字按钮
     </button>
-     
-    <button
-      class="t-button t-size-s t-button--ghost"
-    >
-      幽灵按钮
-    </button>
   </div>
    
   <div
     class="tdesign-demo-block"
   >
     <button
-      class="t-button t-button--primary"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
     >
       主按钮
     </button>
      
     <button
-      class="t-button t-button--line"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     >
       次要按钮
     </button>
      
     <button
-      class="t-button t-button--dashed"
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
     >
       虚框按钮
     </button>
      
     <button
-      class="t-button t-button--warning"
-    >
-      告警按钮
-    </button>
-     
-    <button
-      class="t-button t-button--warning-line"
-    >
-      次要告警
-    </button>
-     
-    <button
-      class="t-button t-button--link"
+      class="t-button t-size-m t-button--variant-text t-button--theme-default"
     >
       文字按钮
     </button>
-     
-    <button
-      class="t-button t-button--ghost"
-    >
-      幽灵按钮
-    </button>
   </div>
    
   <div
     class="tdesign-demo-block"
   >
     <button
-      class="t-button t-size-l t-button--primary"
+      class="t-button t-size-l t-button--variant-base t-button--theme-default"
     >
       主按钮
     </button>
      
     <button
-      class="t-button t-size-l t-button--line"
+      class="t-button t-size-l t-button--variant-outline t-button--theme-default"
     >
       次要按钮
     </button>
      
     <button
-      class="t-button t-size-l t-button--dashed"
+      class="t-button t-size-l t-button--variant-dashed t-button--theme-default"
     >
       虚框按钮
     </button>
      
     <button
-      class="t-button t-size-l t-button--warning"
-    >
-      告警按钮
-    </button>
-     
-    <button
-      class="t-button t-size-l t-button--warning-line"
-    >
-      次要告警
-    </button>
-     
-    <button
-      class="t-button t-size-l t-button--link"
+      class="t-button t-size-l t-button--variant-text t-button--theme-default"
     >
       文字按钮
-    </button>
-     
-    <button
-      class="t-button t-size-l t-button--ghost"
-    >
-      幽灵按钮
-    </button>
-  </div>
-</div>
-`;
-
-exports[`Button status demo works fine 1`] = `
-<div>
-  <div
-    class="tdesign-demo-block"
-  >
-    <button
-      class="t-button t-button--primary"
-    >
-      主按钮
-    </button>
-     
-    <button
-      class="t-button t-button--primary t-is-disabled"
-      disabled="disabled"
-    >
-      主按钮
-    </button>
-  </div>
-   
-  <div
-    class="tdesign-demo-block"
-  >
-    <button
-      class="t-button t-button--line"
-    >
-      次要按钮
-    </button>
-     
-    <button
-      class="t-button t-button--line t-is-disabled"
-      disabled="disabled"
-    >
-      次要按钮
-    </button>
-  </div>
-   
-  <div
-    class="tdesign-demo-block"
-  >
-    <button
-      class="t-button t-button--dashed"
-    >
-      虚框按钮
-    </button>
-     
-    <button
-      class="t-button t-button--dashed t-is-disabled"
-      disabled="disabled"
-    >
-      虚框按钮
-    </button>
-  </div>
-   
-  <div
-    class="tdesign-demo-block"
-  >
-    <button
-      class="t-button t-button--warning"
-    >
-      告警按钮
-    </button>
-     
-    <button
-      class="t-button t-button--warning t-is-disabled"
-      disabled="disabled"
-    >
-      告警按钮
-    </button>
-  </div>
-   
-  <div
-    class="tdesign-demo-block"
-  >
-    <button
-      class="t-button t-button--warning-line"
-    >
-      次要告警
-    </button>
-     
-    <button
-      class="t-button t-button--warning-line t-is-disabled"
-      disabled="disabled"
-    >
-      次要告警
-    </button>
-  </div>
-   
-  <div
-    class="tdesign-demo-block"
-  >
-    <button
-      class="t-button t-button--link"
-    >
-      链接文字按钮
-    </button>
-     
-    <button
-      class="t-button t-button--link t-is-disabled"
-      disabled="disabled"
-    >
-      链接文字按钮
     </button>
   </div>
 </div>
@@ -563,45 +341,55 @@ exports[`Button theme demo works fine 1`] = `
     class="tdesign-demo-block"
   >
     <button
-      class="t-button t-button--primary"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     >
-      主按钮
+      主要按钮
     </button>
      
     <button
-      class="t-button t-button--line"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
     >
       次要按钮
     </button>
      
     <button
-      class="t-button t-button--dashed"
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-primary"
     >
       虚框按钮
     </button>
      
     <button
-      class="t-button t-button--warning"
-    >
-      告警按钮
-    </button>
-     
-    <button
-      class="t-button t-button--warning-line"
-    >
-      次要告警
-    </button>
-     
-    <button
-      class="t-button t-button--link"
+      class="t-button t-size-m t-button--variant-text t-button--theme-primary"
     >
       文字按钮
     </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+    >
+      主要按钮
+    </button>
      
     <button
-      class="t-button t-button--ghost"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
     >
-      幽灵按钮
+      次要按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-danger"
+    >
+      虚框按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-danger"
+    >
+      文字按钮
     </button>
   </div>
 </div>

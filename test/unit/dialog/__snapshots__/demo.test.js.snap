@@ -3,7 +3,7 @@
 exports[`Dialog base demo works fine 1`] = `
 <div>
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     基础确认对话框
   </button>
@@ -39,12 +39,12 @@ exports[`Dialog base demo works fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-button--line"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
           >
             取消
           </button>
           <button
-            class="t-button t-button--primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default"
           >
             确认
           </button>
@@ -75,25 +75,25 @@ exports[`Dialog base demo works fine 1`] = `
 exports[`Dialog others demo works fine 1`] = `
 <div>
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     非模态可拖拽
   </button>
    
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     挂载在body
   </button>
    
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     挂载特定元素
   </button>
    
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     挂载函数返回节点
   </button>
@@ -126,12 +126,12 @@ exports[`Dialog others demo works fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-button--line"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
           >
             取消
           </button>
           <button
-            class="t-button t-button--primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default"
           >
             确认
           </button>
@@ -181,25 +181,25 @@ exports[`Dialog plugin demo works fine 1`] = `
   <br />
    
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     dialog
   </button>
    
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     handleDialogNode
   </button>
    
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     confirm
   </button>
    
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     alert
   </button>
@@ -209,19 +209,19 @@ exports[`Dialog plugin demo works fine 1`] = `
 exports[`Dialog position demo works fine 1`] = `
 <div>
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     默认位置
   </button>
    
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     垂直居中
   </button>
    
   <button
-    class="t-button t-button--primary"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
   >
     自定义偏移量
   </button>
@@ -257,12 +257,12 @@ exports[`Dialog position demo works fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-button--line"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
           >
             取消
           </button>
           <button
-            class="t-button t-button--primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default"
           >
             确认
           </button>
@@ -319,12 +319,12 @@ exports[`Dialog position demo works fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-button--line"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
           >
             取消
           </button>
           <button
-            class="t-button t-button--primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default"
           >
             确认
           </button>
@@ -382,12 +382,12 @@ exports[`Dialog position demo works fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-button--line"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
           >
             取消
           </button>
           <button
-            class="t-button t-button--primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default"
           >
             确认
           </button>

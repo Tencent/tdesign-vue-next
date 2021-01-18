@@ -3,7 +3,11 @@ import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import TIconClose from '../icon/close';
 import TButton from '../button';
-import { ButtonProps } from '../button/type';
+import { TdButtonProps  } from '@TdTypes/button/TdButtonProps';
+
+interface ButtonProps extends TdButtonProps {
+  content?: string;
+}
 
 const name = `${prefix}-dialog`;
 
@@ -347,11 +351,11 @@ export default Vue.extend({
       if (!btnNode) return null;
       const r = {
         confirm: {
-          theme: 'primary',
+          variant: 'base',
           onClick: this.confirmBtnAction,
         },
         cancel: {
-          theme: 'line',
+          variant: 'outline',
           onClick: this.cancelBtnAction,
         },
       }[type];
@@ -359,9 +363,9 @@ export default Vue.extend({
         return btnNode(h);
       }
       if (typeof btnNode === 'object') {
-        return <TButton theme={r.theme} onClick={r.onClick} {...{ props: btnNode }}>{btnNode.content}</TButton>;
+        return <TButton variant={r.variant} onClick={r.onClick} {...{ props: btnNode }}>{btnNode.content}</TButton>;
       }
-      return <TButton theme={r.theme} onClick={r.onClick}>{btnNode}</TButton>;
+      return <TButton variant={r.variant} onClick={r.onClick}>{btnNode}</TButton>;
     },
     renderFooter(h: CreateElement) {
       const defaultView = (

@@ -2,7 +2,7 @@
   <div class="t-demo-tabs">
     <div class="t-demo-tabs__desc">
       <p>目前支持常规，卡片两种类型选项卡</p>
-      <t-button theme="line" @click="toggle">{{ desc }}</t-button>
+      <t-button variant="outline" @click="toggle">{{ desc }}</t-button>
     </div>
     <t-tabs
       activeName="1"

@@ -3,10 +3,10 @@
     <p>插件调用方式一：this.$dialog(options)</p>
     <p>插件调用方式二：this.$dialog.confirm(options)</p>
     <p>插件调用方式三：this.$dialog.alert(options)</p><br>
-    <t-button theme="primary" @click="showDialog">dialog</t-button>
-    <t-button theme="primary" @click="handleDN">handleDialogNode</t-button>
-    <t-button theme="primary" @click="onConfirm">confirm</t-button>
-    <t-button theme="primary" @click="onAlert">alert</t-button>
+    <t-button variant="base" theme="primary" @click="showDialog">dialog</t-button>
+    <t-button variant="base" theme="primary" @click="handleDN">handleDialogNode</t-button>
+    <t-button variant="base" theme="primary" @click="onConfirm">confirm</t-button>
+    <t-button variant="base" theme="primary" @click="onAlert">alert</t-button>
   </div>
 </template>
 <script>
@@ -68,7 +68,8 @@ export default Vue.extend({
         body: 'Notice: Your balance is going to be empty.',
         confirmBtn: {
           content: 'Got it!',
-          theme: 'warning',
+          variant: 'base',
+          theme: 'danger',
         },
         onConfirm: ({ e, trigger }) => {
           console.log('e: ', e);

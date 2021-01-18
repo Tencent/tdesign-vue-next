@@ -23,7 +23,7 @@
       <div slot="footer" class="t-notification__detail">
         <span class="t-notification__detail--item">重启</span>
         <t-dropdown :options="options">
-          <t-button theme="link" class="tdesign-demo-dropdown"
+          <t-button variant="text" class="tdesign-demo-dropdown"
           >更多 <t-icon name="chevron-down" class="tdesign-demo-arrow"
           /></t-button>
         </t-dropdown>

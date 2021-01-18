@@ -2,16 +2,16 @@
   <div class="t-demo-tabs">
     <div class="t-demo-tabs__desc">
       <p>目前支持上下左右四个方向，但仅支持常规型选项卡</p>
-      <t-button class="t-demo-tabs__btn" theme="line" @click="() => posBtnClick(0)">
+      <t-button class="t-demo-tabs__btn" variant="outline" @click="() => posBtnClick(0)">
         {{ posArr[0] }}
       </t-button>
-      <t-button class="t-demo-tabs__btn" theme="line" @click="() => posBtnClick(1)">
+      <t-button class="t-demo-tabs__btn" variant="outline" @click="() => posBtnClick(1)">
         {{ posArr[1] }}
       </t-button>
-      <t-button class="t-demo-tabs__btn" theme="line" @click="() => posBtnClick(2)">
+      <t-button class="t-demo-tabs__btn" variant="outline" @click="() => posBtnClick(2)">
         {{ posArr[2] }}
       </t-button>
-      <t-button class="t-demo-tabs__btn" theme="line" @click="() => posBtnClick(3)">
+      <t-button class="t-demo-tabs__btn" variant="outline" @click="() => posBtnClick(3)">
         {{ posArr[3] }}
       </t-button>
     </div>

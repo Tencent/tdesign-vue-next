@@ -1,9 +1,9 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-button :theme="activable ? 'primary' : 'ghost'" @click="toggleActivable">节点可高亮</t-button>
-      <t-button :theme="activeMultiple ? 'primary' : 'ghost'" @click="toggleActiveMultiple">节点可多选高亮</t-button>
-      <t-button :theme="expandOnClickNode ? 'primary' : 'ghost'" @click="toggleExpandOnClickNode">点击整个节点可触发展开</t-button>
+      <t-button :variant="activable ? 'base' : 'outline'" @click="toggleActivable">节点可高亮</t-button>
+      <t-button :variant="activeMultiple ? 'base' : 'outline'" @click="toggleActiveMultiple">节点可多选高亮</t-button>
+      <t-button :variant="expandOnClickNode ? 'base' : 'outline'" @click="toggleExpandOnClickNode">点击整个节点可触发展开</t-button>
     </div>
     <t-tree
       :data="items"

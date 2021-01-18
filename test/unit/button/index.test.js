@@ -3,10 +3,10 @@ import Button from '@/src/button/index.ts';
 
 describe('Button', () => {
   describe(':props', () => {
-    it(':theme', () => {
+    it(':variant', () => {
       const wrapper = mount({
         render() {
-          return <Button theme={'primary'}>text</Button>;
+          return <Button variant={'base'}>text</Button>;
         },
       });
       expect(wrapper).toMatchSnapshot();
@@ -15,14 +15,6 @@ describe('Button', () => {
       const wrapper = mount({
         render() {
           return <Button size={'large'}>text</Button>;
-        },
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-    it(':icon string', () => {
-      const wrapper = mount({
-        render() {
-          return <Button icon={'delete'}>text</Button>;
         },
       });
       expect(wrapper).toMatchSnapshot();
@@ -37,10 +29,10 @@ describe('Button', () => {
       });
       expect(wrapper).toMatchSnapshot();
     });
-    it(':theme', () => {
+    it(':shape', () => {
       const wrapper = mount({
         render() {
-          return <Button round={true}>text</Button>;
+          return <Button shape="round">text</Button>;
         },
       });
       expect(wrapper).toMatchSnapshot();

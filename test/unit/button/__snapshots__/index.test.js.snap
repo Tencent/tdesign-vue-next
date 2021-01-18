@@ -1,27 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button :props :block 1`] = `<button class="t-button t-button--line t-size-full-width">text</button>`;
+exports[`Button :props :block 1`] = `<button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-size-full-width">text</button>`;
 
-exports[`Button :props :disabled 1`] = `<button disabled="disabled" class="t-button t-button--line t-is-disabled">text</button>`;
+exports[`Button :props :disabled 1`] = `<button disabled="disabled" class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled">text</button>`;
 
-exports[`Button :props :icon function 1`] = `<button class="t-button t-button--line t-button--icon-only"><i>custom icon</i></button>`;
-
-exports[`Button :props :icon string 1`] = `<button class="t-button t-button--line">text</button>`;
+exports[`Button :props :icon function 1`] = `<button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only"><i>custom icon</i></button>`;
 
 exports[`Button :props :loading 1`] = `
-<button class="t-button t-button--line t-is-loading"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-loading">
+<button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-loading"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-loading">
     <path fill-opacity=".9" fill-rule="evenodd" d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"></path>
   </svg><span class="t-button__text">text</span></button>
 `;
 
-exports[`Button :props :size 1`] = `<button class="t-button t-size-l t-button--line">text</button>`;
+exports[`Button :props :shape 1`] = `<button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-round">text</button>`;
 
-exports[`Button :props :theme 1`] = `<button class="t-button t-button--primary">text</button>`;
+exports[`Button :props :size 1`] = `<button class="t-button t-size-l t-button--variant-outline t-button--theme-default">text</button>`;
 
-exports[`Button :props :theme 2`] = `<button class="t-button t-button--line" round="true">text</button>`;
+exports[`Button :props :variant 1`] = `<button class="t-button t-size-m t-button--variant-base t-button--theme-default">text</button>`;
 
 exports[`Button <slot> <icon> 1`] = `
-<button class="t-button t-button--line t-button--icon-only">
+<button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only">
   <div></div>
 </button>
 `;

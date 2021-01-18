@@ -126,6 +126,7 @@ export default Vue.extend({
       }
       return (
         <Button size='small'
+          variant="base"
           theme="primary"
           onclick={this.handleConfirm}
         >{this.confirmText}</Button>

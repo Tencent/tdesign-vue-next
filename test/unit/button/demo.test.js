@@ -21,18 +21,8 @@ describe('Button', () => {
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('render-icon demo works fine', () => {
-    const demo = require('@/examples/button/demos/render-icon.vue').default;
-    const wrapper = mount(demo);
-    expect(wrapper.element).toMatchSnapshot();
-  });
   it('size demo works fine', () => {
     const demo = require('@/examples/button/demos/size.vue');
-    const wrapper = mount(demo);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('status demo works fine', () => {
-    const demo = require('@/examples/button/demos/status.vue').default;
     const wrapper = mount(demo);
     expect(wrapper.element).toMatchSnapshot();
   });

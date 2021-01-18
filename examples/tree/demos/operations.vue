@@ -10,8 +10,8 @@
     />
     <h3 class="title">scope slot:</h3>
     <div class="operations">
-      <t-button :theme="btnSetActivedTheme" @click="setUseActived">插入节点使用高亮节点</t-button>
-      <t-button :theme="expandParent ? 'primary' : 'ghost'" @click="toggleExpandParent">子节点展开触发父节点展开</t-button>
+      <t-button :variant="btnSetActivedVariant" @click="setUseActived">插入节点使用高亮节点</t-button>
+      <t-button :variant="expandParent ? 'base' : 'outline'"  @click="toggleExpandParent">子节点展开触发父节点展开</t-button>
     </div>
     <div class="operations">
       <t-addon prepend="filter:">
@@ -34,25 +34,25 @@
       ref="tree"
     >
       <template #operations="{node}">
-        <t-button size="small" theme="primary" @click="append(node)">添加子节点</t-button>
-        <t-button size="small" theme="line" @click="insertBefore(node)">前插节点</t-button>
-        <t-button size="small" theme="line" @click="insertAfter(node)">后插节点</t-button>
-        <t-button size="small" theme="warning" @click="remove(node)">删除</t-button>
+        <t-button size="small" variant="base" @click="append(node)">添加子节点</t-button>
+        <t-button size="small" variant="outline" @click="insertBefore(node)">前插节点</t-button>
+        <t-button size="small" variant="outline" @click="insertAfter(node)">后插节点</t-button>
+        <t-button size="small" variant="base" theme="danger" @click="remove(node)">删除</t-button>
       </template>
     </t-tree>
     <h3 class="title">api:</h3>
     <div class="operations">
-      <t-button theme="primary" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
-      <t-button theme="primary" @click="getAllItems">获取所有节点</t-button>
-      <t-button theme="primary" @click="getItems">获取高亮节点下的所有节点</t-button>
-      <t-button theme="primary" @click="getActived">获取所有高亮节点</t-button>
-      <t-button theme="primary" @click="getChecked">获取高亮节点下的选中节点</t-button>
-      <t-button theme="primary" @click="append">插入一个根节点</t-button>
-      <t-button theme="primary" @click="getParent">获取高亮节点的父节点</t-button>
-      <t-button theme="primary" @click="getParents">获取高亮节点的所有父节点</t-button>
-      <t-button theme="primary" @click="getIndex">获取高亮节点在子节点中的位置</t-button>
-      <t-button theme="primary" @click="setChecked">选中高亮节点</t-button>
-      <t-button theme="primary" @click="setExpanded">展开高亮节点</t-button>
+      <t-button variant="base" theme="primary" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
+      <t-button variant="base" theme="primary" @click="getAllItems">获取所有节点</t-button>
+      <t-button variant="base" theme="primary" @click="getItems">获取高亮节点下的所有节点</t-button>
+      <t-button variant="base" theme="primary" @click="getActived">获取所有高亮节点</t-button>
+      <t-button variant="base" theme="primary" @click="getChecked">获取高亮节点下的选中节点</t-button>
+      <t-button variant="base" theme="primary" @click="append">插入一个根节点</t-button>
+      <t-button variant="base" theme="primary" @click="getParent">获取高亮节点的父节点</t-button>
+      <t-button variant="base" theme="primary" @click="getParents">获取高亮节点的所有父节点</t-button>
+      <t-button variant="base" theme="primary" @click="getIndex">获取高亮节点在子节点中的位置</t-button>
+      <t-button variant="base" theme="primary" @click="setChecked">选中高亮节点</t-button>
+      <t-button variant="base" theme="primary" @click="setExpanded">展开高亮节点</t-button>
     </div>
   </div>
 </template>
@@ -72,12 +72,12 @@ export default {
     };
   },
   computed: {
-    btnSetActivedTheme() {
-      let theme = 'ghost';
+    btnSetActivedVariant() {
+      let variant = 'outline';
       if (this.useActived) {
-        theme = 'primary';
+        variant = 'base';
       }
-      return theme;
+      return variant;
     },
   },
   methods: {
