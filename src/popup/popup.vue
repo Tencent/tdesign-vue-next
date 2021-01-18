@@ -106,6 +106,7 @@ export default Vue.extend({
         this.destroyPopper();
       }
       this.$emit('visibleChange', val);
+      this?.onVisibleChange(val);
     },
     visible(val): void {
       if (this.trigger === 'manual') {
