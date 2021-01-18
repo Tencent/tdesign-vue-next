@@ -3,6 +3,8 @@ import { prefix } from '../config';
 import Checkbox from './checkbox';
 import checkboxGroupProps from '../../types/checkbox-group/props';
 import { CheckboxOption, CheckboxValue, CheckboxOptionObj } from '@TdTypes/checkbox/TdCheckboxProps';
+import isString from 'lodash/isString';
+import isNumber from 'lodash/isNumber';
 
 const name = `${prefix}-checkbox-group`;
 
@@ -31,23 +33,22 @@ export default Vue.extend({
     const { $scopedSlots, value } = this;
     let children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
 
-    const isStringOrNumber = (target: any) => {
-      const targetType = Object.prototype.toString.call(target);
-      return ['[object String]', '[object Number]'].includes(targetType);
-    };
-
     if (this.options && this.options.length) {
       children = this.options.map((option: CheckboxOption) => {
-        let itemValue: CheckboxValue; let label: string | TNode; let disabled: boolean; let name: string;
-        if (isStringOrNumber(option)) {
+        let itemValue: CheckboxValue;
+        let label: string | TNode;
+        let disabled: boolean;
+        let name: string;
+
+        if (isString(option) || isNumber(option)) {
           itemValue = option as CheckboxValue;
           label = String(option);
           ({ disabled, name } = this);
         } else {
-          const fixTypeOption = option as CheckboxOptionObj;
-          ({ value: itemValue, label } = fixTypeOption);
-          disabled = 'disabled' in fixTypeOption ? fixTypeOption.disabled : this.disabled;
-          name = 'name' in fixTypeOption ? fixTypeOption.name : this.name;
+          const checkboxOption = option as CheckboxOptionObj;
+          ({ value: itemValue, label } = checkboxOption);
+          disabled = 'disabled' in checkboxOption ? checkboxOption.disabled : this.disabled;
+          name = 'name' in checkboxOption ? checkboxOption.name : this.name;
         }
         return (
           <Checkbox
@@ -59,7 +60,7 @@ export default Vue.extend({
           >
             {label}
           </Checkbox>
-        ) as VNode;
+        );
       });
     }
 
@@ -67,7 +68,7 @@ export default Vue.extend({
       <div class={name}>
         {children}
       </div>
-    ) as VNode;
+    );
   },
 
   methods: {
@@ -81,7 +82,9 @@ export default Vue.extend({
       }
       this.$emit('input', value);
       this.$emit('change', value);
-      this.onChange && this.onChange(value);
+      if (typeof this.onChange === 'function') {
+        this.onChange(value);
+      }
     },
     addValue(value: any) {
       this.valueList = [...this.valueList, value];

@@ -119,9 +119,11 @@ export default (Vue as VueConstructor<CheckboxInstance>).extend({
       if (this.checkboxGroup && this.checkboxGroup.handleCheckboxChange) {
         this.checkboxGroup.handleCheckboxChange(this.value);
       } else {
-        this.$emit('change', target.checked);
+        this.$emit('change', target.checked, { e });
         this.$emit('input', target.checked);
-        this.onChange && this.onChange(target.checked, { e });
+        if (typeof this.onChange === 'function') {
+          this.onChange(target.checked, { e });
+        }
       }
     },
   },
