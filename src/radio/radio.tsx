@@ -3,10 +3,10 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import props from '@TdTypes/radio/props';
-import  { name as radioButtonName } from './radio-button';
-import { RadioGroupInstance, RadioButtonInstance } from './';
+import { RadioGroupInstance, RadioButtonInstance } from './instance-types';
 
 const name = `${prefix}-radio`;
+export const radioBtnName = `${prefix}-radio-button`;
 
 function getValidAttrs(obj: object): object {
   const newObj = {};
@@ -60,7 +60,7 @@ export default (Vue as VueConstructor<RadioInstance>).extend({
       inputProps.name = radioGroup.name;
     }
 
-    const prefixCls = radioButton ? radioButtonName : name;
+    const prefixCls = radioButton ? radioBtnName : name;
 
     const inputClass = [
       `${prefixCls}`,

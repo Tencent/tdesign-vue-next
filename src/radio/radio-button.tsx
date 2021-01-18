@@ -1,10 +1,7 @@
 import Vue, { VueConstructor, VNode } from 'vue';
 import props from '@TdTypes/radio/props';
-import { prefix } from '../config';
-import Radio from './radio';
-import { RadioGroupInstance } from './';
-
-export const name = `${prefix}-radio-button`;
+import Radio, { radioBtnName as name } from './radio';
+import { RadioGroupInstance } from './instance-types';
 
 interface RadioButtonInstance extends Vue {
   radioGroup: RadioGroupInstance;
