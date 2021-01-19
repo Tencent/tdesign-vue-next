@@ -1,7 +1,7 @@
 <template>
   <t-popup
     content="这是popup内容"
-    placement="bottomLeft"
+    placement="bottom-left"
     trigger="hover"
   >
     <t-button>hover我试试</t-button>

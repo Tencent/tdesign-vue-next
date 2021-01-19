@@ -8,11 +8,11 @@ describe('Popup', () => {
     cmp = mount(Popup, {
       propsData: {
         disabled: true,
-        placement: 'topLeft',
+        placement: 'top-left',
         visible: false,
         trigger: 'click',
         content: 'txt',
-        visibleArrow: true,
+        showArrow: true,
         destroyOnHide: true,
       },
     });

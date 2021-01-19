@@ -2,13 +2,9 @@
 
 exports[`Tag or CheckTag :Tag:props :checked 1`] = `<span class="t-tag t-tag--default t-size-m t-tag--dark" checked="checked"></span>`;
 
-exports[`Tag or CheckTag :Tag:props :closable 1`] = `<span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"><i class="t-icon t-icon-close"></i></span>`;
+exports[`Tag or CheckTag :Tag:props :closable 1`] = `<span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-close"><path fill-opacity=".9" fill-rule="evenodd" d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"></path></svg></span>`;
 
 exports[`Tag or CheckTag :Tag:props :disabled 1`] = `<span class="t-tag t-tag--default t-size-m t-tag--dark" disabled="disabled"></span>`;
-
-exports[`Tag or CheckTag :Tag:props :icon 1`] = `<span class="t-tag t-tag--default t-size-m t-tag--dark"><i class="t-icon t-icon-search"></i></span>`;
-
-exports[`Tag or CheckTag :Tag:props :icon:iconfont-string:home 1`] = `<span class="t-tag t-tag--default t-size-m t-tag--dark"><i class="t-icon t-icon-home"></i></span>`;
 
 exports[`Tag or CheckTag :Tag:props :maxWidth 1`] = `<span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis" style="max-width: 100px;"></span>`;
 
@@ -74,7 +70,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:success 1`] = `<span cl
 
 exports[`Tag or CheckTag :Tag:props :variant:plain;theme:warning 1`] = `<span class="t-tag t-tag--warning t-size-m t-tag--plain"></span>`;
 
-exports[`Tag or CheckTag @event: Tag Event passthrough: close 1`] = `<span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"><i class="t-icon t-icon-close"></i></span>`;
+exports[`Tag or CheckTag @event: Tag Event passthrough: close 1`] = `<span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-close"><path fill-opacity=".9" fill-rule="evenodd" d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"></path></svg></span>`;
 
 exports[`Tag or CheckTag CheckTag:props :checked 1`] = `<span class="t-tag t-tag--check t-tag--default t-tag--checked"></span>`;
 

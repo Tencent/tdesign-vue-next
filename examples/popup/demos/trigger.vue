@@ -9,7 +9,7 @@
     <t-popup
       :style="{marginLeft: '10px'}"
       content="这是popup内容"
-      trigger="click contextMenu"
+      trigger="context-menu"
     >
       <t-button theme="ghost">click或右键时显示popup</t-button>
     </t-popup>

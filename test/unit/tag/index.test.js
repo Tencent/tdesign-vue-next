@@ -86,15 +86,6 @@ describe('Tag or CheckTag', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it(':icon:iconfont-string:home', () => {
-      const wrapper = mount({
-        render() {
-          return <Tag icon="home"></Tag>;
-        },
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
     it(':closable', () => {
       const fn = jest.fn();
       const wrapper = mount({
@@ -302,15 +293,6 @@ describe('Tag or CheckTag', () => {
       const wrapper = mount({
         render() {
           return <Tag max-width={100}></Tag>;
-        },
-      });
-      expect(wrapper).toMatchSnapshot();
-    });
-
-    it(':icon', () => {
-      const wrapper = mount({
-        render() {
-          return <Tag icon={'search'}></Tag>;
         },
       });
       expect(wrapper).toMatchSnapshot();

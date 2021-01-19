@@ -96,4 +96,8 @@ const NotificationPlugin: Vue.PluginObject<undefined> = {
   },
 };
 
+Object.keys(extraApi).forEach((funcName) => {
+  NotificationPlugin[funcName] = extraApi[funcName];
+});
+
 export default NotificationPlugin;

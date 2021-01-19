@@ -17,7 +17,7 @@ export default Vue.extend({
     },
     placement: {
       type: String,
-      default: 'bottomLeft',
+      default: 'bottom-left',
     },
     trigger: {
       type: String,
@@ -79,7 +79,7 @@ export default Vue.extend({
       props: {
         ...this.$attrs,
         disabled: this.disabled,
-        visibleArrow: false,
+        showArrow: false,
         placement: this.placement,
         trigger: this.trigger,
         overlayClassName: name,
