@@ -1,5 +1,13 @@
 <template>
   <div>
+    <t-row>
+      <t-col>
+        <t-radio-group v-model="formData.layout" buttonStyle="solid">
+          <t-radio-button value="vertical">纵向布局</t-radio-button>
+          <t-radio-button value="inline">行内布局</t-radio-button>
+        </t-radio-group>
+      </t-col>
+    </t-row><br>
     <t-form
       :data="formData"
       ref="form"
@@ -8,12 +16,6 @@
       scrollToFirstError="smooth"
       :layout="formData.layout"
     >
-      <t-form-item label="布局方式" name='layout'>
-        <t-radio-group v-model="formData.layout" buttonStyle="solid">
-          <t-radio-button value="vertical">纵向布局</t-radio-button>
-          <t-radio-button value="inline">行内布局</t-radio-button>
-        </t-radio-group>
-      </t-form-item>
       <t-form-item label="名字" name='name'>
         <t-input v-model="formData.name"></t-input>
       </t-form-item>

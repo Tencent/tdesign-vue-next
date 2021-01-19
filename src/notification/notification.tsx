@@ -3,6 +3,7 @@ import { prefix } from '../config';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import TIconClose from '../icon/close';
+import props from '@TdTypes/notification/props';
 
 const name = `${prefix}-notification`;
 
@@ -13,50 +14,27 @@ export default Vue.extend({
     TIconCheckCircleFilled,
     TIconClose,
   },
-  props: {
-    theme: {
-      type: String,
-      default: '',
-      validator(v: string): boolean {
-        return (
-          [
-            '',
-            'info',
-            'success',
-            'warning',
-            'error',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-    duration: {
-      type: Number,
-      default: 0,
-    },
-    closeBtn: {
-      type: [Boolean, String, Function],
-      default: true,
-    },
-    title: String,
-    default: [String, Function],
-    icon: Function,
-    footer: Function,
-  },
+  props: { ...props },
   mounted() {
     if (this.duration > 0) {
       const timer = setTimeout(() => {
         clearTimeout(timer);
         this.$emit('duration-end', this);
+        if (this.onDurationEnd) {
+          this.onDurationEnd();
+        };
       }, this.duration);
     }
   },
   methods: {
-    close(e?: Event) {
+    close(e?: MouseEvent) {
       this.$emit('click-close-btn', e, this);
+      if (this.onClickCloseBtn) {
+        this.onClickCloseBtn(e);
+      };
     },
     renderIcon(h: CreateElement) {
-      let icon: VNode[] | VNode | string = '';
-
+      let icon: TNodeReturnValue;
       if (this.theme) {
         const iconType = this.theme === 'success'
           ? (<t-icon-check-circle-filled class={`t-is-${this.theme}`} />)
@@ -64,51 +42,40 @@ export default Vue.extend({
         icon = (<div class='t-notification__icon'>
           {iconType}
         </div>);
-      } else if (this.icon || this.$scopedSlots.icon) {
-        if (this.icon) {
-          icon = this.icon(h);
-        }
-        icon = this.$scopedSlots.icon ? this.$scopedSlots.icon(null) : icon;
+      } else if (this.icon) {
+        icon = this.icon(h);
+      } else if (this.$scopedSlots.icon) {
+        icon = this.$scopedSlots.icon(null);
       }
-
       return icon;
     },
-    renderCloseIcon(h: CreateElement) {
-      let close: VNode[] | VNode | string = '';
-
-      switch (typeof this.closeBtn) {
-        case 'boolean': {
-          if (this.closeBtn === true) {
-            if (this.$scopedSlots.closeBtn) {
-              close = <div class='t-icon-close'>{this.$scopedSlots.closeBtn(null)}</div>;
-            } else {
-              close = (<t-icon-close nativeOnClick={this.close} />);
-            }
-          }
-          break;
-        }
-        case 'function': {
-          close = <div class='t-icon-close'>{this.closeBtn(h)}</div>;
-          break;
-        }
-        case 'string': {
-          close = <div class='t-icon-close' onclick={this.close}>{this.closeBtn}</div>;
-          break;
-        }
-      };
-
-      return close;
+    renderClose(h: CreateElement) {
+      const { closeBtn } = this;
+      if (typeof closeBtn === 'boolean') {
+        return closeBtn && <t-icon-close nativeOnClick={this.close} class='t-message-close' />;
+      }
+      let close: TNodeReturnValue = null;
+      if (typeof closeBtn === 'function') {
+        close = closeBtn(h);
+      } else if (typeof closeBtn === 'string') {
+        close = closeBtn;
+      } else if (typeof this.$scopedSlots.closeBtn === 'function') {
+        close = this.$scopedSlots.closeBtn(null);
+      }
+      if (close) {
+        return (<div class='t-icon-close' onClick={this.close}> { close } </div>);
+      }
     },
     renderContent(h: CreateElement) {
       let content: VNode[] | VNode | string = '';
 
-      switch (typeof this.default) {
+      switch (typeof this.content) {
         case 'function': {
-          content = <div class={`${name}__content`}>{this.default(h)}</div>;
+          content = <div class={`${name}__content`}>{this.content(h)}</div>;
           break;
         }
         case 'string': {
-          content = this.default ? (<div class={`${name}__content`}>{this.default}</div>) : '';
+          content = this.content ? (<div class={`${name}__content`}>{this.content}</div>) : '';
           break;
         }
       };
@@ -129,7 +96,7 @@ export default Vue.extend({
   },
   render(h: CreateElement) {
     const icon = this.renderIcon(h);
-    const close = this.renderCloseIcon(h);
+    const close = this.renderClose(h);
     const content = this.renderContent(h);
     const footer = this.renderFooter(h);
 

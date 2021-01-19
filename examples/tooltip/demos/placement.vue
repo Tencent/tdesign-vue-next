@@ -1,173 +1,112 @@
 <template>
-  <div class="container">
+  <div class="tdesign-tooltip-placement">
     <t-tooltip
       class="placement-top"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="top"
-      visibleArrow
+      :overlayStyle="{ width: '200px' }"
+      showArrow
     >
       <t-button>top</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-topLeft"
+      class="placement-top-left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="topLeft"
-      visibleArrow
+      placement="top-left"
+      :overlayStyle="{ width: '200px' }"
+      showArrow
     >
-      <t-button>topLeft</t-button>
+      <t-button>top-left</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-topRight"
+      class="placement-top-right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="topRight"
-      visibleArrow
+      :overlayStyle="{ width: '200px' }"
+      placement="top-right"
+      showArrow
     >
-      <t-button>topRight</t-button>
+      <t-button>top-right</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-bottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
+      :overlayStyle="{ width: '200px' }"
       placement="bottom"
-      visibleArrow
+      showArrow
     >
       <t-button>bottom</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-bottomLeft"
+      class="placement-bottom-left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="bottomLeft"
-      visibleArrow
+      placement="bottom-left"
+      :overlayStyle="{ width: '200px' }"
+      showArrow
     >
-      <t-button>bottomLeft</t-button>
+      <t-button>bottom-left</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-bottomRight"
+      class="placement-bottom-right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="bottomRight"
-      visibleArrow
+      :overlayStyle="{ width: '200px' }"
+      placement="bottom-right"
+      showArrow
     >
-      <t-button>bottomRight</t-button>
+      <t-button>bottom-right</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
+      :overlayStyle="{ width: '200px' }"
       placement="left"
-      visibleArrow
+      showArrow
     >
       <t-button>left</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-leftTop"
+      class="placement-left-top"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="leftTop"
-      visibleArrow
+      :overlayStyle="{ width: '200px' }"
+      placement="left-top"
+      showArrow
     >
-      <t-button>leftTop</t-button>
+      <t-button>left-top</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-leftBottom"
+      class="placement-left-bottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="leftBottom"
-      visibleArrow
+      :overlayStyle="{ width: '200px' }"
+      placement="left-bottom"
+      showArrow
     >
-      <t-button>leftBottom</t-button>
+      <t-button>left-bottom</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
+      :overlayStyle="{ width: '200px' }"
       placement="right"
-      visibleArrow
+      showArrow
     >
       <t-button>right</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-rightTop"
+      class="placement-right-top"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="rightTop"
-      visibleArrow
+      :overlayStyle="{ width: '200px' }"
+      placement="right-top"
+      showArrow
     >
-      <t-button>rightTop</t-button>
+      <t-button>right-top</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-rightBottom"
+      class="placement-right-bottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="rightBottom"
-      visibleArrow
+      :overlayStyle="{ width: '200px' }"
+      placement="right-bottom"
+      showArrow
     >
-      <t-button>rightBottom</t-button>
+      <t-button>right-bottom</t-button>
     </t-tooltip>
   </div>
 </template>
-
-<style>
-.container {
-  margin: 0 auto;
-  width: 500px;
-  height: 260px;
-  position: relative;
-}
-.t-popup {
-	max-width: 200px;
-}
-.placement-top {
-  position: absolute;
-  top: 0;
-  left: 42%;
-}
-.placement-topLeft {
-  position: absolute;
-  top: 0;
-  left: 70px;
-}
-.placement-topRight {
-  position: absolute;
-  top: 0;
-  right: 70px;
-}
-.placement-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 42%;
-}
-.placement-bottomLeft {
-  position: absolute;
-  bottom: 0;
-  left: 70px;
-}
-.placement-bottomRight {
-  position: absolute;
-  bottom: 0;
-  right: 70px;
-}
-.placement-left {
-  position: absolute;
-  left: 0;
-  top: 42%;
-}
-.placement-leftTop {
-  position: absolute;
-  left: 0;
-  top: 50px;
-}
-.placement-leftBottom {
-  position: absolute;
-  left: -0;
-  bottom: 50px;
-}
-.placement-right {
-  position: absolute;
-  right: 0;
-  top: 42%;
-}
-.placement-rightTop {
-  position: absolute;
-  right: 0;
-  top: 50px;
-}
-.placement-rightBottom {
-  position: absolute;
-  right: 0;
-  bottom: 50px;
-}
-</style>
-

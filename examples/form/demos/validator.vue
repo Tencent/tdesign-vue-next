@@ -69,16 +69,16 @@ export default {
           { min: 2, message: '至少需要两个字', type: 'error' },
         ],
         password: [
-          { required: true, message: '密码必填', type: 'warning' },
+          { required: true, message: '密码必填', type: 'error' },
         ],
         email: [
-          { required: true, message: '格式必须为邮箱', type: 'success' },
+          { required: true, message: '格式必须为邮箱', type: 'warning' },
         ],
         gender: [
-          { required: true, message: '性别必填', type: 'error' },
+          { required: true, message: '性别必填', type: 'warning' },
         ],
         course: [
-          { required: true, message: '课程必填', type: 'error' },
+          { required: true, message: '课程必填', type: 'warning' },
         ],
         url: [
           {

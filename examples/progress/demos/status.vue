@@ -16,7 +16,7 @@
       <div >进度被中断（如失去网络连接）</div>
       <t-progress class="t-progress-domo-margin" theme="line" :status="'warning'" :percentage="80" ></t-progress>
       <t-progress class="t-progress-domo-margin" theme="plump" :status="'warning'" :percentage="80" ></t-progress>
-      <t-progress theme="t-progress-domo-margin" :percentage="80" :status="'warning'"></t-progress>
+      <t-progress class="t-progress-domo-margin" :percentage="80" :status="'warning'"></t-progress>
       <t-progress class="t-progress-domo-margin" theme="circle" :status="'warning'" :percentage="80" ></t-progress>
     </div>
   </div>

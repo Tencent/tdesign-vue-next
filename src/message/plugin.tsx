@@ -25,25 +25,33 @@
  */
 
 import Vue from 'vue';
-import { MessageList, DEFAULT_Z_INDEX } from './messageList';
+import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
-import { MessageOptions, MessageInfoOptions, MessageMethod, MessageInstance, ThemeList,
-  MessageInfoMethod, MessageErrorMethod, MessageWarningMethod, MessageSuccessMethod,
-  MessageLoadingMethod, MessageQuestionMethod, MessageCloseMethod, MessageCloseAllMethod } from '@TdTypes/message/TdMessageProps';
+import {
+  MessageOptions,
+  MessageMethod,
+  MessageInstance,
+  MessageInfoMethod,
+  MessageErrorMethod,
+  MessageWarningMethod,
+  MessageSuccessMethod,
+  MessageLoadingMethod,
+  MessageQuestionMethod,
+  MessageCloseMethod,
+  MessageCloseAllMethod,
+} from '@TdTypes/message/TdMessageProps';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
-const instanceMap: Map<Element, object> = new Map();
+const instanceMap: Map<AttachNodeReturnValue, object> = new Map();
 
 function handleParams(params: MessageOptions): MessageOptions {
-  const options: MessageOptions = Object.assign(
-    {
-      duration: 3000,
-      attach: 'body',
-      zIndex: DEFAULT_Z_INDEX,
-      placement: 'top',
-    },
-    params
-  );
+  const options: MessageOptions = {
+    duration: 3000,
+    attach: 'body',
+    zIndex: DEFAULT_Z_INDEX,
+    placement: 'top',
+    ...params,
+  };
   options.content = params.content;
   return options;
 }
@@ -51,11 +59,11 @@ function handleParams(params: MessageOptions): MessageOptions {
 const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
   const options = handleParams(props);
   const { attach, placement } = options;
-  const _a = getAttach(attach);
-  if (!instanceMap.get(_a)) {
-    instanceMap.set(_a, []);
+  const attachDom = getAttach(attach);
+  if (!instanceMap.get(attachDom)) {
+    instanceMap.set(attachDom, {});
   }
-  const _p = instanceMap.get(_a)[placement];
+  const _p = instanceMap.get(attachDom)[placement];
   if (!_p) {
     const instance = new MessageList({
       propsData: {
@@ -64,14 +72,14 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
       },
     }).$mount();
     instance.add(options);
-    instanceMap.get(_a)[placement] = instance;
-    _a.appendChild(instance.$el);
+    instanceMap.get(attachDom)[placement] = instance;
+    attachDom.appendChild(instance.$el);
   } else {
     _p.add(options);
   }
   // 返回最新消息的 Element
   return new Promise((resolve) => {
-    const _ins = instanceMap.get(_a)[placement];
+    const _ins = instanceMap.get(attachDom)[placement];
     _ins.$nextTick(() => {
       const msg: Array<MessageInstance> = _ins.$children;
       resolve(msg[msg.length - 1]);
@@ -79,18 +87,18 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
   });
 };
 
-const showThemeMessage: MessageMethod = (theme: ThemeList, params: string | MessageInfoOptions, duration: number) => {
+const showThemeMessage: MessageMethod = (theme, params, duration) => {
   let options: MessageOptions = { theme };
   if (typeof params === 'string') {
     options.content = params;
   } else if (typeof params === 'object' && !(params instanceof Array)) {
-    options = Object.assign(options, params);
+    options = { ...options, ...params };
   }
   (duration || duration === 0) && (options.duration = duration);
   return MessageFunction(options);
 };
 
-const extraAPi: {
+interface ExtraApi {
   info: MessageInfoMethod;
   success: MessageSuccessMethod;
   warning: MessageWarningMethod;
@@ -99,7 +107,9 @@ const extraAPi: {
   loading: MessageLoadingMethod;
   close: MessageCloseMethod;
   closeAll: MessageCloseAllMethod;
-} = {
+};
+
+const extraApi: ExtraApi = {
   info: (params, duration) => showThemeMessage('info', params, duration),
   success: (params, duration) => showThemeMessage('success', params, duration),
   warning: (params, duration) => showThemeMessage('warning', params, duration),
@@ -121,14 +131,23 @@ const extraAPi: {
   },
 };
 
-const MessagePlugin = showThemeMessage as (MessageMethod & Vue.PluginObject<void>);
-
-Object.keys(extraAPi).forEach((key) => {
-  MessagePlugin[key] = extraAPi[key];
-});
-
-MessagePlugin.install = () => {
-  Vue.prototype.$message = MessagePlugin;
+const MessagePlugin: Vue.PluginObject<undefined> = {
+  install: () => {
+    Vue.prototype.$message = showThemeMessage;
+    // 这样定义后，可以通过 this.$message 调用插件
+    Object.keys(extraApi).forEach((funcName) => {
+      Vue.prototype.$message[funcName] = extraApi[funcName];
+    });
+  },
 };
+
+/**
+ * 这样定义后，用户可以直接引入方法然后调用，示例如下：
+ * import { showMessage } from 'message/index.ts';
+ * showMessage();
+ */
+Object.keys(extraApi).forEach((funcName) => {
+  MessagePlugin[funcName] = extraApi[funcName];
+});
 
 export default MessagePlugin;
