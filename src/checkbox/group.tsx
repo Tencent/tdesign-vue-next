@@ -36,7 +36,7 @@ export default Vue.extend({
     if (this.options && this.options.length) {
       children = this.options.map((option: CheckboxOption) => {
         let itemValue: CheckboxValue;
-        let label: string | TNode | TNodeReturnValue;
+        let label: TNode | TNodeReturnValue;
         let disabled: boolean;
         let name: string;
 
