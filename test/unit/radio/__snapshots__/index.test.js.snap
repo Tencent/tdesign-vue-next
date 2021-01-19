@@ -6,6 +6,7 @@ exports[`Radio :props :checked 1`] = `
 >
   <input
     class="t-radio__former"
+    name=""
     type="radio"
     value=""
   />
@@ -24,6 +25,7 @@ exports[`Radio :props :defaultChecked 1`] = `
 >
   <input
     class="t-radio__former"
+    name=""
     type="radio"
     value=""
   />
@@ -43,6 +45,7 @@ exports[`Radio :props :disabled 1`] = `
   <input
     class="t-radio__former"
     disabled=""
+    name=""
     type="radio"
     value=""
   />
@@ -76,13 +79,14 @@ exports[`Radio :props :name 1`] = `
 
 exports[`Radio RadioGroup :props :buttonStyle 1`] = `
 <div
-  class="t-radio-group t-radio-group-solid t-radio-group-default"
+  class="t-radio-group t-radio-group-solid t-radio-group-medium"
 >
   <label
     class="t-radio-button"
   >
     <input
       class="t-radio-button__former"
+      name=""
       type="radio"
       value="gz"
     />
@@ -101,6 +105,7 @@ exports[`Radio RadioGroup :props :buttonStyle 1`] = `
     <input
       class="t-radio-button__former"
       disabled=""
+      name=""
       type="radio"
       value="sz"
     />
@@ -118,13 +123,14 @@ exports[`Radio RadioGroup :props :buttonStyle 1`] = `
 
 exports[`Radio RadioGroup :props :defaultValue 1`] = `
 <div
-  class="t-radio-group t-radio-group-outline t-radio-group-default"
+  class="t-radio-group t-radio-group-outline t-radio-group-medium"
 >
   <label
     class="t-radio"
   >
     <input
       class="t-radio__former"
+      name=""
       type="radio"
       value="gz"
     />
@@ -143,6 +149,7 @@ exports[`Radio RadioGroup :props :defaultValue 1`] = `
     <input
       class="t-radio__former"
       disabled=""
+      name=""
       type="radio"
       value="sz"
     />
@@ -160,14 +167,14 @@ exports[`Radio RadioGroup :props :defaultValue 1`] = `
 
 exports[`Radio RadioGroup :props :disabled 1`] = `
 <div
-  class="t-radio-group t-radio-group-outline t-radio-group-default"
+  class="t-radio-group t-radio-group-outline t-radio-group-medium"
 >
   <label
-    class="t-radio t-is-disabled"
+    class="t-radio"
   >
     <input
       class="t-radio__former"
-      disabled=""
+      name=""
       type="radio"
       value="bj"
     />
@@ -181,11 +188,11 @@ exports[`Radio RadioGroup :props :disabled 1`] = `
     </span>
   </label>
   <label
-    class="t-radio t-is-disabled"
+    class="t-radio"
   >
     <input
       class="t-radio__former"
-      disabled=""
+      name=""
       type="radio"
       value="gz"
     />
@@ -203,6 +210,7 @@ exports[`Radio RadioGroup :props :disabled 1`] = `
   >
     <input
       class="t-radio__former"
+      name=""
       type="radio"
       value="sz"
     />
@@ -220,7 +228,7 @@ exports[`Radio RadioGroup :props :disabled 1`] = `
 
 exports[`Radio RadioGroup :props :name 1`] = `
 <div
-  class="t-radio-group t-radio-group-outline t-radio-group-default"
+  class="t-radio-group t-radio-group-outline t-radio-group-medium"
 >
   <label
     class="t-radio"
@@ -264,7 +272,7 @@ exports[`Radio RadioGroup :props :name 1`] = `
 
 exports[`Radio RadioGroup :props :options 1`] = `
 <div
-  class="t-radio-group t-radio-group-outline t-radio-group-default"
+  class="t-radio-group t-radio-group-outline t-radio-group-medium"
 >
   <label
     class="t-radio t-is-disabled"
@@ -272,6 +280,7 @@ exports[`Radio RadioGroup :props :options 1`] = `
     <input
       class="t-radio__former"
       disabled=""
+      name=""
       type="radio"
       value="gz"
     />
@@ -289,6 +298,7 @@ exports[`Radio RadioGroup :props :options 1`] = `
   >
     <input
       class="t-radio__former"
+      name=""
       type="radio"
       value="sz"
     />
@@ -313,6 +323,7 @@ exports[`Radio RadioGroup :props :size 1`] = `
   >
     <input
       class="t-radio-button__former"
+      name=""
       type="radio"
       value="gz"
     />
@@ -331,6 +342,7 @@ exports[`Radio RadioGroup :props :size 1`] = `
     <input
       class="t-radio-button__former"
       disabled=""
+      name=""
       type="radio"
       value="sz"
     />
@@ -348,13 +360,14 @@ exports[`Radio RadioGroup :props :size 1`] = `
 
 exports[`Radio RadioGroup :props :value 1`] = `
 <div
-  class="t-radio-group t-radio-group-outline t-radio-group-default"
+  class="t-radio-group t-radio-group-outline t-radio-group-medium"
 >
   <label
     class="t-radio"
   >
     <input
       class="t-radio__former"
+      name=""
       type="radio"
       value="gz"
     />
@@ -373,6 +386,7 @@ exports[`Radio RadioGroup :props :value 1`] = `
     <input
       class="t-radio__former"
       disabled=""
+      name=""
       type="radio"
       value="sz"
     />

@@ -1,57 +1,48 @@
-import Vue, { VNode, PropType } from 'vue';
+import Vue, { VNode, CreateElement } from 'vue';
+import { isString, isNumber } from 'lodash';
+import props from '@TdTypes/radio-group/props';
+import { RadioOptionObj, RadioOption, RadioValue } from '@TdTypes/radio/TdRadioProps';
 import { prefix } from '../config';
 import Radio from './radio';
 
 const name = `${prefix}-radio-group`;
 
-const sizeList: Array<string> = ['large', 'default', 'small'];
-const buttonStyleList: Array<string> = ['outline', 'solid'];
-
-interface OptionType {  value: string; label: VNode; disabled?: boolean }
-
 export default Vue.extend({
   name,
+  props: { ...props },
 
   components: {
     Radio,
   },
 
-  provide(): any {
+  provide() {
     return {
       radioGroup: this,
     };
   },
 
-  props: {
-    value: { default: undefined },
-    defaultValue: { default: undefined },
-    disabled: { type: Boolean, default: false },
-    size: { type: String, default: 'default', validator(v: string) {
-      return sizeList.indexOf(v) > -1;
-    } },
-    buttonStyle: { type: String, default: 'outline', validator(v: string) {
-      return buttonStyleList.indexOf(v) > -1;
-    } },
-    options: { type: Array as PropType<Array<OptionType>>, default: (): Array<OptionType>  => [] },
-    name: String,
-  },
-
-  render(): VNode {
+  render(h: CreateElement): VNode {
     const { $scopedSlots } = this;
-    let children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
+    let children: TNodeReturnValue = $scopedSlots.default && $scopedSlots.default(null);
 
     if (this.options && this.options.length) {
-      children = this.options.map((option: OptionType) => (
-        <Radio
-          key={`radio-group-options-${option.value}`}
-          name={this.name}
-          checked={this.value === option.value}
-          disabled={'disabled' in option ? option.disabled : this.disabled}
-          value={option.value}
-        >
-          {option.label}
-        </Radio>
-      ) as VNode);
+      children = (this.options).map((option: RadioOption) => {
+        let opt = option as RadioOptionObj;
+        if (isNumber(option) || isString(option)) {
+          opt = { value: option, label: option.toString() };
+        }
+        return (
+          <Radio
+            key={`radio-group-options-${opt.value}-${Math.random()}`}
+            name={this.name}
+            checked={this.value === opt.value}
+            disabled={'disabled' in opt ? opt.disabled : this.disabled}
+            value={opt.value}
+          >
+            {typeof opt.label === 'function' ? opt.label(h) : opt.label}
+          </Radio>
+        );
+      });
     }
 
     const groupClass = [
@@ -64,14 +55,13 @@ export default Vue.extend({
       <div class={groupClass}>
         {children}
       </div>
-    ) as VNode;
+    );
   },
 
   methods: {
-    handleRadioChange(e: Event) {
-      const target: HTMLInputElement = e.target as HTMLInputElement;
-      this.$emit('input', target.value);
-      this.$emit('change', e);
+    handleRadioChange(value: RadioValue, context: { e: Event }) {
+      this.$emit('change', value, context);
+      typeof this.onChange === 'function' && (this.onChange(value, context));
     },
   },
 });

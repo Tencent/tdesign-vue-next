@@ -1,29 +1,25 @@
 import Vue, { VueConstructor, VNode } from 'vue';
-import { prefix } from '../config';
-import Radio from './radio';
-
-const name = `${prefix}-radio-button`;
+import props from '@TdTypes/radio/props';
+import Radio, { radioBtnName as name } from './radio';
+import { RadioGroupInstance } from './instance-types';
 
 interface RadioButtonInstance extends Vue {
-  radioGroup: any;
+  radioGroup: RadioGroupInstance;
 }
 
 export default (Vue as VueConstructor<RadioButtonInstance>).extend({
   name,
   inheritAttrs: false,
-  props: {
-    // value: { default: undefined },
-    // disabled: { type: Boolean, default: false },
-    // name: String,
-    checked: { type: Boolean, default: undefined },
-    defaultChecked: { type: Boolean, default: undefined },
-    disabled: { type: Boolean, default: undefined },
-    value: { default: undefined },
-    name: String,
-  },
+  props: { ...props },
 
   components: {
     Radio,
+  },
+
+  provide() {
+    return {
+      radioButton: this,
+    };
   },
 
   inject: {
@@ -40,8 +36,6 @@ export default (Vue as VueConstructor<RadioButtonInstance>).extend({
       },
       on: $listeners,
     };
-
-    radioProps.props.className = name;
 
     if (radioGroup) {
       radioProps.props.checked = $props.value === radioGroup.value;
