@@ -29,14 +29,14 @@ export default Vue.extend({
     };
   },
 
-  render(): VNode {
+  render(h): VNode {
     const { $scopedSlots, value } = this;
     let children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
 
     if (this.options && this.options.length) {
       children = this.options.map((option: CheckboxOption) => {
         let itemValue: CheckboxValue;
-        let label: string | TNode;
+        let label: string | TNode | Function;
         let disabled: boolean;
         let name: string;
 
@@ -47,6 +47,7 @@ export default Vue.extend({
         } else {
           const checkboxOption = option as CheckboxOptionObj;
           ({ value: itemValue, label } = checkboxOption);
+          if (typeof label === 'function') label = label(h);
           disabled = 'disabled' in checkboxOption ? checkboxOption.disabled : this.disabled;
           name = 'name' in checkboxOption ? checkboxOption.name : this.name;
         }
