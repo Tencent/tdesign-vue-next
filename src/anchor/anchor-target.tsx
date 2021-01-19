@@ -39,7 +39,7 @@ export default Vue.extend({
     return (
       <Tag id={id} class={className}>
         {children && children(null)}
-        <t-popup content="复制链接" placement="top" visibleArrow class={iconClassName}>
+        <t-popup content="复制链接" placement="top" showArrow class={iconClassName}>
           <t-icon-file-copy name="file-copy" nativeOnClick={this.copyText} />
         </t-popup>
       </Tag>

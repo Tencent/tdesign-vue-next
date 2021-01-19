@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import raf from 'raf';
 import { easeInOutCubic, EasingFunction } from './easing';
+import isString from 'lodash/isString';
 
 const isServer = Vue.prototype.$isServer || typeof window === 'undefined';
 
@@ -89,8 +90,9 @@ export function removeClass(el: Element, cls: string): any {
 
 export const getAttach = (attach: AttachNode = 'body') => {
   let r;
-  if (typeof attach === 'string') {
-    r = attach === 'document' ? document : document.querySelector(attach);
+  if (isString(typeof attach)) {
+    const at = attach as string;
+    r = attach === 'document' ? document : document.querySelector(at);
   } else if (typeof attach === 'function') {
     r = attach();
   } else {

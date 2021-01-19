@@ -5,108 +5,108 @@
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="top"
       :overlayStyle="{ width: '200px' }"
-      visibleArrow
+      showArrow
     >
       <t-button>top</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-topLeft"
+      class="placement-top-left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="topLeft"
+      placement="top-left"
       :overlayStyle="{ width: '200px' }"
-      visibleArrow
+      showArrow
     >
-      <t-button>topLeft</t-button>
+      <t-button>top-left</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-topRight"
+      class="placement-top-right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="topRight"
-      visibleArrow
+      placement="top-right"
+      showArrow
     >
-      <t-button>topRight</t-button>
+      <t-button>top-right</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-bottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="bottom"
-      visibleArrow
+      showArrow
     >
       <t-button>bottom</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-bottomLeft"
+      class="placement-bottom-left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="bottomLeft"
+      placement="bottom-left"
       :overlayStyle="{ width: '200px' }"
-      visibleArrow
+      showArrow
     >
-      <t-button>bottomLeft</t-button>
+      <t-button>bottom-left</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-bottomRight"
+      class="placement-bottom-right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="bottomRight"
-      visibleArrow
+      placement="bottom-right"
+      showArrow
     >
-      <t-button>bottomRight</t-button>
+      <t-button>bottom-right</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="left"
-      visibleArrow
+      showArrow
     >
       <t-button>left</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-leftTop"
+      class="placement-left-top"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="leftTop"
-      visibleArrow
+      placement="left-top"
+      showArrow
     >
-      <t-button>leftTop</t-button>
+      <t-button>left-top</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-leftBottom"
+      class="placement-left-bottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="leftBottom"
-      visibleArrow
+      placement="left-bottom"
+      showArrow
     >
-      <t-button>leftBottom</t-button>
+      <t-button>left-bottom</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
       placement="right"
-      visibleArrow
+      showArrow
     >
       <t-button>right</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-rightTop"
+      class="placement-right-top"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="rightTop"
-      visibleArrow
+      placement="right-top"
+      showArrow
     >
-      <t-button>rightTop</t-button>
+      <t-button>right-top</t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-rightBottom"
+      class="placement-right-bottom"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlayStyle="{ width: '200px' }"
-      placement="rightBottom"
-      visibleArrow
+      placement="right-bottom"
+      showArrow
     >
-      <t-button>rightBottom</t-button>
+      <t-button>right-bottom</t-button>
     </t-tooltip>
   </div>
 </template>

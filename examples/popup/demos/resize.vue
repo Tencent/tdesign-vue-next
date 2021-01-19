@@ -3,8 +3,8 @@
     <t-popup
       content="这是popup内容"
       trigger="manual"
-      placement="bottomLeft"
-      visibleArrow
+      placement="bottom-left"
+      showArrow
       :visible="true"
     >
       <textarea placeholder="拖动修改输入框尺寸" />

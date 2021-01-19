@@ -1,6 +1,6 @@
 <template>
   <div :class="name+'-reference'" ref="reference">
-    <transition :name="name+'_animation'" appear >
+    <transition :name="`${name}_animation`" appear >
       <div
         :class="name"
         ref="popper"
@@ -13,7 +13,7 @@
             <template v-if="typeof content === 'string'">{{content}}</template>
             <render-component :render='content' v-else-if="typeof content === 'function'" />
           </slot>
-          <div v-if="visibleArrow" :class="name+'__arrow'" data-popper-arrow></div>
+          <div v-if="showArrow" :class="name+'__arrow'" data-popper-arrow></div>
         </div>
       </div>
     </transition>
@@ -26,77 +26,38 @@ import Vue from 'vue';
 import { createPopper } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
-import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
-import { on, off, addClass, removeClass } from '../utils/dom';
+import { on, off, addClass, removeClass, getAttach } from '../utils/dom';
+import RenderComponent from '../utils/render-component';
+import props from '@TdTypes/popup/props';
 
-const stop = (e: Event): void => e.stopPropagation();
+const stop = (e: MouseEvent): void => e.stopPropagation();
 const { prefix } = config;
 const name = `${prefix}-popup`;
 const placementMap = {
   top: 'top',
-  topLeft: 'top-start',
-  topRight: 'top-end',
+  'top-left': 'top-start',
+  'top-right': 'top-end',
   bottom: 'bottom',
-  bottomLeft: 'bottom-start',
-  bottomRight: 'bottom-end',
+  'bottom-left': 'bottom-start',
+  'bottom-right': 'bottom-end',
   left: 'left',
-  leftTop: 'left-start',
-  leftBottom: 'left-end',
+  'left-top': 'left-start',
+  'left-bottom': 'left-end',
   right: 'right',
-  rightTop: 'right-start',
-  rightBottom: 'right-end',
+  'right-top': 'right-start',
+  'right-bottom': 'right-end',
 };
 
 export default Vue.extend({
   name,
+
   components: {
     RenderComponent,
   },
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    placement: {
-      type: String,
-      default: 'top',
-      validator: (value: string) => Object.keys(placementMap).indexOf(value) > -1,
-    },
-    visible: {
-      type: Boolean,
-      default: true,
-    },
-    trigger: {
-      type: String,
-      default: 'hover',
-      validator: (value: string) => {
-        const triggers: string[] = value.split(' ');
-        if (triggers.indexOf('manual') > -1 && triggers.length > 1) {
-          return false;
-        }
-        for (let i = 0; i < triggers.length; i++) {
-          const trigger = triggers[i];
-          if (['hover', 'click', 'focus', 'contextMenu'].indexOf(trigger) < -1) {
-            return false;
-          }
-        }
-        return true;
-      },
-    },
-    content: [String, Function, RenderComponent],
-    visibleArrow: {
-      type: Boolean,
-      default: false,
-    },
-    getOverlayContainer: Function,
-    overlayStyle: Object,
-    overlayClassName: String,
-    destroyOnHide: {
-      type: Boolean,
-      default: false,
-    },
-  },
+
+  props: { ...props },
+
   data() {
     return {
       name,
@@ -112,12 +73,11 @@ export default Vue.extend({
     _class(): ClassName {
       return [
         `${name}-content`,
-        this.overlayClassName,
         {
-          [`${name}-content--arrow`]: this.visibleArrow,
+          [`${name}-content--arrow`]: this.showArrow,
           [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
-      ];
+      ].concat(this.overlayClassName);
     },
     manualTrigger(): boolean {
       return this.trigger.indexOf('manual') > -1;
@@ -132,7 +92,7 @@ export default Vue.extend({
       return this.trigger.indexOf('focus') > -1;
     },
     contextMenuTrigger(): boolean {
-      return this.trigger.indexOf('contextMenu') > -1;
+      return this.trigger.indexOf('context-menu') > -1;
     },
   },
   watch: {
@@ -146,6 +106,9 @@ export default Vue.extend({
         this.destroyPopper();
       }
       this.$emit('visibleChange', val);
+      if (typeof this.onVisibleChange === 'function') {
+        this.onVisibleChange(val);
+      }
     },
     visible(val): void {
       if (this.trigger === 'manual') {
@@ -158,8 +121,6 @@ export default Vue.extend({
     this.popperElm = this.popperElm || this.$refs.popper;
     this.referenceElm = this.referenceElm || this.$refs.reference;
     if (!this.popperElm || !this.referenceElm) return;
-
-    // if (this.visibleArrow) this.appendArrow(this.popperElm);
 
     this.createPopperJS();
     const reference = this.referenceElm;
@@ -224,8 +185,8 @@ export default Vue.extend({
   },
   methods: {
     createPopperJS(): void {
-      const overlayContainer = this.getOverlayContainer
-        ? this.getOverlayContainer() : document.body;
+      const overlayContainer = getAttach(this.attach);
+
       overlayContainer.appendChild(this.popperElm);
 
       if (this.popperJS && this.popperJS.destroy) {
@@ -321,3 +282,4 @@ export default Vue.extend({
 });
 
 </script>
+

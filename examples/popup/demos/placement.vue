@@ -4,109 +4,109 @@
       class="placement-top"
       content="这是popup内容"
       placement="top"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>top</t-button>
     </t-popup>
     <t-popup
-      class="placement-topLeft"
+      class="placement-top-left"
       content="这是popup内容"
-      placement="topLeft"
-      visibleArrow
+      placement="top-left"
+      showArrow
       destroyOnHide
     >
-      <t-button>topLeft</t-button>
+      <t-button>top-left</t-button>
     </t-popup>
     <t-popup
-      class="placement-topRight"
+      class="placement-top-right"
       content="这是popup内容"
-      placement="topRight"
-      visibleArrow
+      placement="top-right"
+      showArrow
       destroyOnHide
     >
-      <t-button>topRight</t-button>
+      <t-button>top-right</t-button>
     </t-popup>
     <t-popup
       class="placement-bottom"
       content="这是popup内容"
       placement="bottom"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>bottom</t-button>
     </t-popup>
     <t-popup
-      class="placement-bottomLeft"
+      class="placement-bottom-left"
       content="这是popup内容"
-      placement="bottomLeft"
-      visibleArrow
+      placement="bottom-left"
+      showArrow
       destroyOnHide
     >
-      <t-button>bottomLeft</t-button>
+      <t-button>bottom-left</t-button>
     </t-popup>
     <t-popup
-      class="placement-bottomRight"
+      class="placement-bottom-right"
       content="这是popup内容"
-      placement="bottomRight"
-      visibleArrow
+      placement="bottom-right"
+      showArrow
       destroyOnHide
     >
-      <t-button>bottomRight</t-button>
+      <t-button>bottom-right</t-button>
     </t-popup>
     <t-popup
       class="placement-left"
       content="这是popup内容"
       placement="left"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>left</t-button>
     </t-popup>
     <t-popup
-      class="placement-leftTop"
+      class="placement-left-top"
       content="这是popup内容"
-      placement="leftTop"
-      visibleArrow
+      placement="left-top"
+      showArrow
       destroyOnHide
     >
-      <t-button>leftTop</t-button>
+      <t-button>left-top</t-button>
     </t-popup>
     <t-popup
-      class="placement-leftBottom"
+      class="placement-left-bottom"
       content="这是popup内容"
-      placement="leftBottom"
-      visibleArrow
+      placement="left-bottom"
+      showArrow
       destroyOnHide
     >
-      <t-button>leftBottom</t-button>
+      <t-button>left-bottom</t-button>
     </t-popup>
     <t-popup
       class="placement-right"
       content="这是popup内容"
       placement="right"
-      visibleArrow
+      showArrow
       destroyOnHide
     >
       <t-button>right</t-button>
     </t-popup>
     <t-popup
-      class="placement-rightTop"
+      class="placement-right-top"
       content="这是popup内容"
-      placement="rightTop"
-      visibleArrow
+      placement="right-top"
+      showArrow
       destroyOnHide
     >
-      <t-button>rightTop</t-button>
+      <t-button>right-top</t-button>
     </t-popup>
     <t-popup
-      class="placement-rightBottom"
+      class="placement-right-bottom"
       content="这是popup内容"
-      placement="rightBottom"
-      visibleArrow
+      placement="right-bottom"
+      showArrow
       destroyOnHide
     >
-      <t-button>rightBottom</t-button>
+      <t-button>right-bottom</t-button>
     </t-popup>
   </div>
 </template>
@@ -123,12 +123,12 @@
   top: 0;
   left: 42%;
 }
-.placement-topLeft {
+.placement-top-left {
   position: absolute;
   top: 0;
   left: 70px;
 }
-.placement-topRight {
+.placement-top-right {
   position: absolute;
   top: 0;
   right: 70px;
@@ -138,12 +138,12 @@
   bottom: 0;
   left: 42%;
 }
-.placement-bottomLeft {
+.placement-bottom-left {
   position: absolute;
   bottom: 0;
   left: 70px;
 }
-.placement-bottomRight {
+.placement-bottom-right {
   position: absolute;
   bottom: 0;
   right: 70px;
@@ -153,12 +153,12 @@
   left: 0;
   top: 42%;
 }
-.placement-leftTop {
+.placement-left-top {
   position: absolute;
   left: 0;
   top: 50px;
 }
-.placement-leftBottom {
+.placement-left-bottom {
   position: absolute;
   left: -0;
   bottom: 50px;
@@ -168,12 +168,12 @@
   right: 0;
   top: 42%;
 }
-.placement-rightTop {
+.placement-right-top {
   position: absolute;
   right: 0;
   top: 50px;
 }
-.placement-rightBottom {
+.placement-right-bottom {
   position: absolute;
   right: 0;
   bottom: 50px;
