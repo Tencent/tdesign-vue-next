@@ -57,7 +57,7 @@ export default {
         },
         {
           value: 'sz',
-          label: '深圳',
+          label: () => '深圳',
         },
       ],
       optionsWithDisabled: [
@@ -76,7 +76,7 @@ export default {
         },
         {
           value: 'sz',
-          label: '深圳',
+          label: () => '深圳',
           disabled: false,
         },
       ],

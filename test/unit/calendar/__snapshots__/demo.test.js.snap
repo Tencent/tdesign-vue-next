@@ -246,6 +246,7 @@ exports[`Calendar base demo works fine 1`] = `
           >
             <input
               class="t-radio-button__former"
+              name=""
               type="radio"
               value="month"
             />
@@ -263,6 +264,7 @@ exports[`Calendar base demo works fine 1`] = `
           >
             <input
               class="t-radio-button__former"
+              name=""
               type="radio"
               value="year"
             />
@@ -1445,6 +1447,7 @@ exports[`Calendar head demo works fine 1`] = `
           >
             <input
               class="t-radio-button__former"
+              name=""
               type="radio"
               value="month"
             />
@@ -1462,6 +1465,7 @@ exports[`Calendar head demo works fine 1`] = `
           >
             <input
               class="t-radio-button__former"
+              name=""
               type="radio"
               value="year"
             />
