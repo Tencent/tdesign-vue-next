@@ -1,10 +1,12 @@
-import Vue, { VNode, PropType } from 'vue';
+import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import Checkbox from './checkbox';
+import checkboxGroupProps from '../../types/checkbox-group/props';
+import { CheckboxOption, CheckboxValue, CheckboxOptionObj } from '@TdTypes/checkbox/TdCheckboxProps';
+import isString from 'lodash/isString';
+import isNumber from 'lodash/isNumber';
 
 const name = `${prefix}-checkbox-group`;
-
-interface OptionType {  value: string | number; label: VNode; disabled?: boolean }
 
 export default Vue.extend({
   name,
@@ -19,13 +21,7 @@ export default Vue.extend({
     };
   },
 
-  props: {
-    value: { type: Array as PropType<Array<string | number>> },
-    defaultValue: { type: Array },
-    disabled: { type: Boolean, default: false },
-    options: { type: Array as PropType<Array<OptionType>>, default: (): Array<OptionType>  => [] },
-    name: String,
-  },
+  props: { ...checkboxGroupProps },
 
   data() {
     return {
@@ -33,29 +29,47 @@ export default Vue.extend({
     };
   },
 
-  render(): VNode {
+  render(h): VNode {
     const { $scopedSlots, value } = this;
     let children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
 
     if (this.options && this.options.length) {
-      children = this.options.map((option: OptionType) => (
-        <Checkbox
-          key={`checkbox-group-options-${option.value}`}
-          name={this.name}
-          checked={value && value.indexOf(option.value) > -1}
-          disabled={'disabled' in option ? option.disabled : this.disabled}
-          value={option.value}
-        >
-          {option.label}
-        </Checkbox>
-      ) as VNode);
+      children = this.options.map((option: CheckboxOption) => {
+        let itemValue: CheckboxValue;
+        let label: TNode | TNodeReturnValue;
+        let disabled: boolean;
+        let name: string;
+
+        if (isString(option) || isNumber(option)) {
+          itemValue = option as CheckboxValue;
+          label = String(option);
+          ({ disabled, name } = this);
+        } else {
+          const checkboxOption = option as CheckboxOptionObj;
+          ({ value: itemValue, label } = checkboxOption);
+          if (typeof label === 'function') label = label(h);
+          disabled = 'disabled' in checkboxOption ? checkboxOption.disabled : this.disabled;
+          name = 'name' in checkboxOption ? checkboxOption.name : this.name;
+        }
+        return (
+          <Checkbox
+            key={`checkbox-group-options-${itemValue}`}
+            name={name}
+            checked={value && value.indexOf(itemValue) > -1}
+            disabled={disabled}
+            value={itemValue}
+          >
+            {label}
+          </Checkbox>
+        );
+      });
     }
 
     return (
       <div class={name}>
         {children}
       </div>
-    ) as VNode;
+    );
   },
 
   methods: {
@@ -69,6 +83,9 @@ export default Vue.extend({
       }
       this.$emit('input', value);
       this.$emit('change', value);
+      if (typeof this.onChange === 'function') {
+        this.onChange(value);
+      }
     },
     addValue(value: any) {
       this.valueList = [...this.valueList, value];
