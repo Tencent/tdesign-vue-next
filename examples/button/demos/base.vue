@@ -6,6 +6,18 @@
       <t-button variant="dashed">虚框按钮</t-button>
       <t-button variant="text">文字按钮</t-button>
     </div>
+    <div class="tdesign-demo-block">
+      <t-button theme="primary" variant="base">主要按钮</t-button>
+      <t-button theme="primary" variant="outline">次要按钮</t-button>
+      <t-button theme="primary" variant="dashed">虚框按钮</t-button>
+      <t-button theme="primary" variant="text">文字按钮</t-button>
+    </div>
+    <div class="tdesign-demo-block">
+      <t-button theme="danger" variant="base">主要按钮</t-button>
+      <t-button theme="danger" variant="outline">次要按钮</t-button>
+      <t-button theme="danger" variant="dashed">虚框按钮</t-button>
+      <t-button theme="danger" variant="text">文字按钮</t-button>
+    </div>
   </div>
 </template>
 
