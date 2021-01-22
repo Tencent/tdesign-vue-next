@@ -29,6 +29,62 @@ exports[`Button base demo works fine 1`] = `
       文字按钮
     </button>
   </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    >
+      主要按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+    >
+      次要按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-primary"
+    >
+      虚框按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+    >
+      文字按钮
+    </button>
+  </div>
+   
+  <div
+    class="tdesign-demo-block"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+    >
+      主要按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
+    >
+      次要按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-danger"
+    >
+      虚框按钮
+    </button>
+     
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-danger"
+    >
+      文字按钮
+    </button>
+  </div>
 </div>
 `;
 
