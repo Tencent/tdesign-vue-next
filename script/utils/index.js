@@ -16,6 +16,15 @@ function deleteFolderRecursive(path) {
   }
 }
 
+/**
+ * 拷贝文件
+ * @param src 源文件路径
+ * @param dist 目的文件路径
+ **/
+const copyFile = (src, dist)  => {
+  fs.writeFileSync(dist, fs.readFileSync(src));
+};
+
 module.exports = {
   log(message, type = 'notice') {
     const colorMap = {
@@ -31,4 +40,5 @@ module.exports = {
     return path.join(...args);
   },
   deleteFolderRecursive,
+  copyFile,
 };

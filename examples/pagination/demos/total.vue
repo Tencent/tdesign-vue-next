@@ -4,7 +4,7 @@
       v-model="current"
       :total="685"
       @change="onChange"
-      :page-size="15"
+      :page-size.sync="pageSize"
       :show-total="true"
     />
   </div>
@@ -15,6 +15,7 @@ export default {
   data() {
     return {
       current: 12,
+      pageSize: 15,
     };
   },
   methods: {

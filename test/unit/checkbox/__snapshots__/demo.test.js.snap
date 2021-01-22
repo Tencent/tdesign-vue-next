@@ -7,6 +7,7 @@ exports[`Checkbox base demo works fine 1`] = `
   >
     <input
       class="t-checkbox__former"
+      name=""
       type="checkbox"
       value=""
     />
@@ -25,6 +26,7 @@ exports[`Checkbox base demo works fine 1`] = `
   >
     <input
       class="t-checkbox__former"
+      name=""
       type="checkbox"
       value=""
     />
@@ -43,6 +45,7 @@ exports[`Checkbox base demo works fine 1`] = `
   >
     <input
       class="t-checkbox__former"
+      name=""
       type="checkbox"
       value=""
     />
@@ -62,6 +65,7 @@ exports[`Checkbox base demo works fine 1`] = `
     <input
       class="t-checkbox__former"
       disabled=""
+      name=""
       type="checkbox"
       value=""
     />
@@ -81,6 +85,7 @@ exports[`Checkbox base demo works fine 1`] = `
     <input
       class="t-checkbox__former"
       disabled=""
+      name=""
       type="checkbox"
       value=""
     />
@@ -188,6 +193,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
+          name=""
           type="checkbox"
           value="bj"
         />
@@ -205,6 +211,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
+          name=""
           type="checkbox"
           value="sh"
         />
@@ -222,6 +229,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
+          name=""
           type="checkbox"
           value="gz"
         />
@@ -239,6 +247,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
+          name=""
           type="checkbox"
           value="sz"
         />
@@ -264,6 +273,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         <input
           class="t-checkbox__former"
           disabled=""
+          name=""
           type="checkbox"
           value="bj"
         />
@@ -282,6 +292,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         <input
           class="t-checkbox__former"
           disabled=""
+          name=""
           type="checkbox"
           value="sh"
         />
@@ -300,6 +311,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         <input
           class="t-checkbox__former"
           disabled=""
+          name=""
           type="checkbox"
           value="gz"
         />
@@ -317,6 +329,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
+          name=""
           type="checkbox"
           value="sz"
         />
@@ -341,6 +354,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
+          name=""
           type="checkbox"
           value="bj"
         />
@@ -359,6 +373,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
+          name=""
           type="checkbox"
           value="sh"
         />
@@ -377,6 +392,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
+          name=""
           type="checkbox"
           value="gz"
         />
@@ -396,6 +412,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         <input
           class="t-checkbox__former"
           disabled=""
+          name=""
           type="checkbox"
           value="sz"
         />
@@ -422,6 +439,7 @@ exports[`Checkbox indeterminate demo works fine 1`] = `
   >
     <input
       class="t-checkbox__former"
+      name=""
       type="checkbox"
       value=""
     />
