@@ -57,9 +57,19 @@
       </ul>
     </template>
     <template v-else>
-      <t-select :size="size" :value="currentIndex" :disabled="disabled" :class="_simpleClass" @change="toPage">
-        <t-option v-for="(item, index) in _pageCountOption" :value="item" :label="`${item}/${_pageCount}`" :key="index">
-        </t-option>
+      <t-select
+        :size="size"
+        :value="currentIndex"
+        :disabled="disabled"
+        :class="_simpleClass"
+        @change="toPage"
+      >
+        <t-option
+          v-for="item in _pageCountOption"
+          :value="item"
+          :label="`${item}/${_pageCount}`"
+          :key="`${item}/${_pageCount}`"
+        />
       </t-select>
     </template>
     <!-- 向后按钮-->
