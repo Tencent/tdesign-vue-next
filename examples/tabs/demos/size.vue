@@ -2,10 +2,10 @@
   <div class="t-demo-tabs">
     <div class="t-demo-tabs__desc">
       <p>目前支持medium，large两种类型选项卡</p>
-      <t-button class="t-demo-tabs__btn" theme="line" @click="() => sizeBtnClick(0)">
+      <t-button class="t-demo-tabs__btn" variant="outline" @click="() => sizeBtnClick(0)">
         {{ sizeArr[0] }}
       </t-button>
-      <t-button class="t-demo-tabs__btn" theme="line" @click="() => sizeBtnClick(1)">
+      <t-button class="t-demo-tabs__btn" variant="outline" @click="() => sizeBtnClick(1)">
         {{ sizeArr[1] }}
       </t-button>
     </div>

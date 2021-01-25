@@ -11,7 +11,7 @@
       content="这是popup内容"
       trigger="context-menu"
     >
-      <t-button theme="ghost">click或右键时显示popup</t-button>
+      <t-button ghost>click或右键时显示popup</t-button>
     </t-popup>
   </div>
 </template>

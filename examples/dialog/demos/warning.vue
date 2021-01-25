@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-button theme="primary" @click="()=>this.visible1 = true">提示反馈</t-button>
+    <t-button variant="base" theme="primary" @click="()=>this.visible1 = true">提示反馈</t-button>
     <t-dialog
       body="对话框内容"
       v-model="visible1"
@@ -13,7 +13,7 @@
       </div>
     </t-dialog>
 
-    <t-button theme="primary" @click="()=>this.visible2 = true">成功反馈</t-button>
+    <t-button variant="base" theme="primary" @click="()=>this.visible2 = true">成功反馈</t-button>
     <t-dialog
       body="对话框内容"
       v-model="visible2"
@@ -26,7 +26,7 @@
       </div>
     </t-dialog>
 
-    <t-button theme="primary" @click="()=>this.visible3 = true">警示反馈</t-button>
+    <t-button variant="base" theme="primary" @click="()=>this.visible3 = true">警示反馈</t-button>
     <t-dialog
       body="对话框内容"
       v-model="visible3"
@@ -39,7 +39,7 @@
       </div>
     </t-dialog>
 
-    <t-button theme="primary" @click="()=>this.visible4 = true">错误反馈</t-button>
+    <t-button variant="base" theme="primary" @click="()=>this.visible4 = true">错误反馈</t-button>
     <t-dialog
       body="对话框内容"
       v-model="visible4"

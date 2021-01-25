@@ -1,8 +1,8 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-button :theme="checkable ? 'primary' : 'ghost'" @click="toggleCheckAble">可选</t-button>
-      <t-button :theme="checkStrictly ? 'primary' : 'ghost' " @click="toggleCheckStrictly">严格模式</t-button>
+      <t-button :variant="checkable ? 'base' : 'outline'" @click="toggleCheckAble">可选</t-button>
+      <t-button :variant="checkStrictly ? 'base' : 'outline' " @click="toggleCheckStrictly">严格模式</t-button>
       <t-radio-group
         name="value-mode"
         v-model="valueMode"

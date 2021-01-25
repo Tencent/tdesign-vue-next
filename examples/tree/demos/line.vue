@@ -1,8 +1,8 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-button :theme="showLine ? 'primary' : 'ghost'" @click="toggleLine">显示连线</t-button>
-      <t-button :theme="showIcon ? 'primary' : 'ghost'" @click="toggleIcon">显示图标</t-button>
+      <t-button :variant="showLine ? 'base' : 'outline'"  @click="toggleLine">显示连线</t-button>
+      <t-button :variant="showIcon ? 'base' : 'outline'"  @click="toggleIcon">显示图标</t-button>
     </div>
     <t-tree
       :data="items"

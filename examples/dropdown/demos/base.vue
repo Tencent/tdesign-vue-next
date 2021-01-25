@@ -1,7 +1,7 @@
 <template>
   <div>
     <t-dropdown :options="options" @click="clickHandler">
-      <t-button theme="link" class="tdesign-demo-dropdown"
+      <t-button variant="text" class="tdesign-demo-dropdown"
       >更多 <t-icon name="chevron-down" class="tdesign-demo-arrow"
       /></t-button>
     </t-dropdown>

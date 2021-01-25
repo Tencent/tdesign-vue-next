@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-button theme="primary" @click="()=>this.visible = true">异步加载类按钮</t-button>
+    <t-button variant="base" @click="()=>this.visible = true">异步加载类按钮</t-button>
 
     <t-dialog
       v-model="visible"
@@ -9,12 +9,12 @@
       body="自定义底部按钮，传入 ButttonProps"
       :confirmContent="{
         content: '确定',
-        theme: 'primary',
+        variant: 'base',
         loading: true
       }"
       :cancelContent="{
         content: '取消',
-        theme: 'ghost',
+        variant: 'outline',
       }"
     >
     </t-dialog>

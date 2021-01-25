@@ -6,7 +6,7 @@
         <t-option v-for="item in options" :key="item.value"
                   :value="item.value" :label="item.label" />
       </t-select>
-      <t-button theme="primary" @click="toCurrent()">今天（当前高亮日期）</t-button>
+      <t-button variant="base" theme="primary" @click="toCurrent()">今天（当前高亮日期）</t-button>
     </div>
     <t-calendar ref="myCalendar"
                 :theme="theme"

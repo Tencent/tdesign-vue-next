@@ -1,7 +1,7 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-button :theme="disabled ? 'primary' : 'ghost'" @click="toggleDisabled">禁用树</t-button>
+      <t-button :variant="disabled ? 'base' : 'outline'"  @click="toggleDisabled">禁用树</t-button>
     </div>
     <t-tree
       :data="items"

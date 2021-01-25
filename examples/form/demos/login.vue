@@ -19,7 +19,7 @@
         </t-input>
       </t-form-item>
       <t-form-item>
-        <t-button theme="primary" type="submit" block >登录</t-button>
+        <t-button variant="base" theme="primary" type="submit" block >登录</t-button>
       </t-form-item>
     </t-form>
   </div>

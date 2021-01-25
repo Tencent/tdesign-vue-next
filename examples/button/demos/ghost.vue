@@ -1,8 +1,25 @@
 <template>
-  <div class="tdesign-demo-block">
-    <t-button theme="ghost">幽灵按钮</t-button>
-    <t-button theme="ghost" disabled>幽灵按钮</t-button>
+  <div style="background: #ddd; padding: 24px;">
+    <div class="tdesign-demo-block" style="margin-bottom: 10px;">
+      <t-button variant="base" ghost>幽灵按钮</t-button>
+      <t-button variant="outline" ghost>幽灵按钮</t-button>
+      <t-button variant="dashed" ghost>幽灵按钮</t-button>
+      <t-button variant="text" ghost>幽灵按钮</t-button>
+    </div>
+    <div class="tdesign-demo-block" style="margin-bottom: 10px;">
+      <t-button variant="base" theme="primary" ghost>幽灵按钮</t-button>
+      <t-button variant="outline" theme="primary" ghost>幽灵按钮</t-button>
+      <t-button variant="dashed" theme="primary" ghost>幽灵按钮</t-button>
+      <t-button variant="text" theme="primary" ghost>幽灵按钮</t-button>
+    </div>
+    <div class="tdesign-demo-block" style="margin-bottom: 10px;">
+      <t-button variant="base" theme="danger" ghost>幽灵按钮</t-button>
+      <t-button variant="outline" theme="danger" ghost>幽灵按钮</t-button>
+      <t-button variant="dashed" theme="danger" ghost>幽灵按钮</t-button>
+      <t-button variant="text" theme="danger" ghost>幽灵按钮</t-button>
+    </div>
   </div>
+
 </template>
 
 <style scoped>
