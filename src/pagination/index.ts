@@ -6,5 +6,6 @@ setInstallFn('Pagination', Pagination);
 
 export type PaginationProps = TdPaginationProps;
 
+export * from '@TdTypes/pagination/TdPaginationProps';
 export { Pagination };
 export default Pagination;

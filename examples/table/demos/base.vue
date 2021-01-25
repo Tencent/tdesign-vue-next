@@ -120,8 +120,9 @@ export default {
       rowClassName: rowKey => `${rowKey}-class`,
       // 与pagination对齐
       pagination: {
-        pageSize: 10,
+        pageSize: 5,
         total: 120,
+        current: 1,
         visibleWithOnePage: true,
         onChange() {
           console.log('pagination change');

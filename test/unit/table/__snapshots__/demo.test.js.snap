@@ -451,341 +451,6 @@ exports[`Table base demo works fine 1`] = `
               数据源
             </td>
           </tr>
-          <tr
-            class=""
-          >
-            <td
-              class="align-center text-ellipsis row"
-              key="index"
-              length="8"
-              style="overflow: hidden;"
-            >
-              5
-            </td>
-            <td
-              class="align-left text-ellipsis row"
-              key="type"
-              length="8"
-              style="overflow: hidden;"
-            >
-              any[]
-            </td>
-            <td
-              class="align-left text-ellipsis test"
-              key="platform"
-              length="8"
-              style="overflow: hidden;"
-            >
-              公有
-            </td>
-            <td
-              class="align-left text-ellipsis test2"
-              key="property"
-              length="8"
-              style="overflow: hidden;"
-            >
-              data
-            </td>
-            <td
-              class="align-left text-ellipsis test4"
-              key="default"
-              length="8"
-            >
-              []
-            </td>
-            <td
-              class="align-left text-ellipsis test3"
-              key="needed"
-              length="8"
-              style="overflow: hidden;"
-            >
-              Y
-            </td>
-            <td
-              class="align-left text-ellipsis test3"
-              key="detail.name"
-              length="8"
-              style="overflow: hidden;"
-            >
-              嵌套信息读取
-            </td>
-            <td
-              class="align-left text-ellipsis row"
-              key="description"
-              length="8"
-              style="overflow: hidden;"
-            >
-              数据源
-            </td>
-          </tr>
-          <tr
-            class=""
-          >
-            <td
-              class="align-center text-ellipsis row"
-              key="index"
-              length="8"
-              style="overflow: hidden;"
-            >
-              6
-            </td>
-            <td
-              class="align-left text-ellipsis row"
-              key="type"
-              length="8"
-              style="overflow: hidden;"
-            >
-              any[]
-            </td>
-            <td
-              class="align-left text-ellipsis test"
-              key="platform"
-              length="8"
-              style="overflow: hidden;"
-            >
-              公有
-            </td>
-            <td
-              class="align-left text-ellipsis test2"
-              key="property"
-              length="8"
-              style="overflow: hidden;"
-            >
-              data
-            </td>
-            <td
-              class="align-left text-ellipsis test4"
-              key="default"
-              length="8"
-            >
-              []
-            </td>
-            <td
-              class="align-left text-ellipsis test3"
-              key="needed"
-              length="8"
-              style="overflow: hidden;"
-            >
-              Y
-            </td>
-            <td
-              class="align-left text-ellipsis test3"
-              key="detail.name"
-              length="8"
-              style="overflow: hidden;"
-            >
-              嵌套信息读取
-            </td>
-            <td
-              class="align-left text-ellipsis row"
-              key="description"
-              length="8"
-              style="overflow: hidden;"
-            >
-              数据源
-            </td>
-          </tr>
-          <tr
-            class=""
-          >
-            <td
-              class="align-center text-ellipsis row"
-              key="index"
-              length="8"
-              style="overflow: hidden;"
-            >
-              7
-            </td>
-            <td
-              class="align-left text-ellipsis row"
-              key="type"
-              length="8"
-              style="overflow: hidden;"
-            >
-              any[]
-            </td>
-            <td
-              class="align-left text-ellipsis test"
-              key="platform"
-              length="8"
-              style="overflow: hidden;"
-            >
-              公有
-            </td>
-            <td
-              class="align-left text-ellipsis test2"
-              key="property"
-              length="8"
-              style="overflow: hidden;"
-            >
-              data
-            </td>
-            <td
-              class="align-left text-ellipsis test4"
-              key="default"
-              length="8"
-            >
-              []
-            </td>
-            <td
-              class="align-left text-ellipsis test3"
-              key="needed"
-              length="8"
-              style="overflow: hidden;"
-            >
-              Y
-            </td>
-            <td
-              class="align-left text-ellipsis test3"
-              key="detail.name"
-              length="8"
-              style="overflow: hidden;"
-            >
-              嵌套信息读取
-            </td>
-            <td
-              class="align-left text-ellipsis row"
-              key="description"
-              length="8"
-              style="overflow: hidden;"
-            >
-              数据源
-            </td>
-          </tr>
-          <tr
-            class=""
-          >
-            <td
-              class="align-center text-ellipsis row"
-              key="index"
-              length="8"
-              style="overflow: hidden;"
-            >
-              8
-            </td>
-            <td
-              class="align-left text-ellipsis row"
-              key="type"
-              length="8"
-              style="overflow: hidden;"
-            >
-              any[]
-            </td>
-            <td
-              class="align-left text-ellipsis test"
-              key="platform"
-              length="8"
-              style="overflow: hidden;"
-            >
-              公有
-            </td>
-            <td
-              class="align-left text-ellipsis test2"
-              key="property"
-              length="8"
-              style="overflow: hidden;"
-            >
-              data
-            </td>
-            <td
-              class="align-left text-ellipsis test4"
-              key="default"
-              length="8"
-            >
-              []
-            </td>
-            <td
-              class="align-left text-ellipsis test3"
-              key="needed"
-              length="8"
-              style="overflow: hidden;"
-            >
-              Y
-            </td>
-            <td
-              class="align-left text-ellipsis test3"
-              key="detail.name"
-              length="8"
-              style="overflow: hidden;"
-            >
-              嵌套信息读取
-            </td>
-            <td
-              class="align-left text-ellipsis row"
-              key="description"
-              length="8"
-              style="overflow: hidden;"
-            >
-              数据源
-            </td>
-          </tr>
-          <tr
-            class=""
-          >
-            <td
-              class="align-center text-ellipsis row"
-              key="index"
-              length="8"
-              style="overflow: hidden;"
-            >
-              9
-            </td>
-            <td
-              class="align-left text-ellipsis row"
-              key="type"
-              length="8"
-              style="overflow: hidden;"
-            >
-              any[]
-            </td>
-            <td
-              class="align-left text-ellipsis test"
-              key="platform"
-              length="8"
-              style="overflow: hidden;"
-            >
-              公有
-            </td>
-            <td
-              class="align-left text-ellipsis test2"
-              key="property"
-              length="8"
-              style="overflow: hidden;"
-            >
-              data
-            </td>
-            <td
-              class="align-left text-ellipsis test4"
-              key="default"
-              length="8"
-            >
-              []
-            </td>
-            <td
-              class="align-left text-ellipsis test3"
-              key="needed"
-              length="8"
-              style="overflow: hidden;"
-            >
-              Y
-            </td>
-            <td
-              class="align-left text-ellipsis test3"
-              key="detail.name"
-              length="8"
-              style="overflow: hidden;"
-            >
-              嵌套信息读取
-            </td>
-            <td
-              class="align-left text-ellipsis row"
-              key="description"
-              length="8"
-              style="overflow: hidden;"
-            >
-              数据源
-            </td>
-          </tr>
         </tbody>
         <tfoot />
       </table>
@@ -795,6 +460,7 @@ exports[`Table base demo works fine 1`] = `
     >
       <div
         class="t-pagination t-size-m"
+        current="1"
       >
         <div
           class="t-pagination__total"
@@ -835,15 +501,15 @@ exports[`Table base demo works fine 1`] = `
                 name="t-select"
                 style="width: 0px;"
                 type="hidden"
-                value="10"
+                value="5"
               />
                 
               <span
                 class="t-select-selectedSingle"
-                title="10"
+                title="5"
               >
                 
-        10
+        5
       
               </span>
                
@@ -853,7 +519,7 @@ exports[`Table base demo works fine 1`] = `
               >
                 <input
                   class="t-input__inner"
-                  placeholder="10"
+                  placeholder="5"
                   type="text"
                 />
               </div>
@@ -990,7 +656,7 @@ exports[`Table base demo works fine 1`] = `
           <li
             class="t-pagination__number"
           >
-            12
+            24
           </li>
         </ul>
          

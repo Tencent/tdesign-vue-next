@@ -243,44 +243,33 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
 <div>
   <div class="t-table t-table__cell--fixed t-table--has-fixed">
     <div class="t-table-content" style="overflow: auto;">
-      <div class="t-table__header" style="width: 100%;">
-        <table style="table-layout: fixed;">
-          <colgroup>
-            <col>
-            <col>
-            <col>
-          </colgroup>
-          <thead columnsprops="[object Object],[object Object],[object Object]">
-            <tr>
-              <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" colspan="1" rowspan="1">id</td>
-              <td class="" key="type" colspan="1" rowspan="1">类型</td>
-              <td class="" key="value" colspan="1" rowspan="1">取值</td>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <div class="t-table__body" style="max-height: auto;">
-        <table style="table-layout: fixed;">
-          <colgroup>
-            <col>
-            <col>
-            <col>
-          </colgroup>
-          <tbody class="table-body">
-            <tr class="">
-              <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" length="3">1</td>
-              <td class="" key="type" length="3">Number</td>
-              <td class="" key="value" length="3">1</td>
-            </tr>
-            <tr class="">
-              <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" length="3">2</td>
-              <td class="" key="type" length="3">Number</td>
-              <td class="" key="value" length="3">2</td>
-            </tr>
-          </tbody>
-          <tfoot></tfoot>
-        </table>
-      </div>
+      <table style="table-layout: fixed;">
+        <colgroup>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+        <thead columnsprops="[object Object],[object Object],[object Object]">
+          <tr>
+            <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" colspan="1" rowspan="1">id</td>
+            <td class="" key="type" colspan="1" rowspan="1">类型</td>
+            <td class="" key="value" colspan="1" rowspan="1">取值</td>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <tr class="">
+            <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" length="3">1</td>
+            <td class="" key="type" length="3">Number</td>
+            <td class="" key="value" length="3">1</td>
+          </tr>
+          <tr class="">
+            <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" length="3">2</td>
+            <td class="" key="type" length="3">Number</td>
+            <td class="" key="value" length="3">2</td>
+          </tr>
+        </tbody>
+        <tfoot></tfoot>
+      </table>
     </div>
   </div>
 </div>
