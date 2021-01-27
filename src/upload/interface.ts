@@ -3,7 +3,6 @@ export interface UploadFile extends File {
   percent?: number;
   originFileObj?: File | Blob;
   status?: 'success' | 'fail' | 'progress';
-  response?: any;
   thumbUrl?: string;
 };
 

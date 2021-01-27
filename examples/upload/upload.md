@@ -50,7 +50,6 @@ interface UploadFile extends File {
   percent?: number; // 文件上传进度（百分比）
   originFileObj?: File | Blob; // 原始文件对象
   status?: 'success' | 'fail' | 'progress'; // 当前文件状态
-  response?: any; // 请求的服务端响应内容
   thumbUrl?: string; // 预览地址（如果文件是图片的话）
 };
 ```
