@@ -11,6 +11,7 @@ import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
+import copy from 'rollup-plugin-copy';
 
 import pkg from '../package.json';
 
@@ -64,6 +65,12 @@ const getPlugins = ({ env, isProd, analyze, vueOpt = { css: false } }) => {
       ...analyze,
     }));
   }
+
+  plugins.push(copy({
+    targets: [
+      { src: 'script/types', dest: 'lib' },
+    ],
+  }));
 
   if (isProd) {
     plugins.push(terser({
