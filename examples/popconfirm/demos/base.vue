@@ -2,7 +2,7 @@
   <div class="popconfirm-demo">
     <div class="tdesign-demo-block">
       <t-popconfirm theme="default" content="基础气泡确认框文案示意文字按钮">
-        <t-button variant="base" theme="primary">Hover</t-button>
+        <t-button theme="primary">Hover</t-button>
       </t-popconfirm>
       <t-popconfirm
         theme="default"
@@ -10,7 +10,7 @@
         :confirmText="confirm"
         :cancelText="cancel"
       >
-        <t-button variant="base" theme="primary">Hover</t-button>
+        <t-button theme="primary">Hover</t-button>
       </t-popconfirm>
     </div>
   </div>
@@ -21,7 +21,7 @@ export default {
   methods: {
     confirm() {
       return (
-        <t-button variant="base" theme="primary" size="small">
+        <t-button theme="primary" size="small">
           确定删除
         </t-button>
       );

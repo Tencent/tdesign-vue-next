@@ -1,9 +1,9 @@
 <template>
   <div>
     <p>底部按钮有两个控制属性：confirmBtn 和 cancelBtn。属性类型有多种：string/function/object/boolean。</p><br>
-    <t-button variant="base" theme="primary" @click="()=>this.visible1 = true">自定义底部按钮（文字）</t-button>
-    <t-button variant="base" theme="primary" @click="()=>this.visible2 = true">自定义底部按钮（任何按钮属性）</t-button>
-    <t-button variant="base" theme="primary" @click="()=>this.visible3 = true">自定义底部按钮（自定义组件）</t-button>
+    <t-button theme="primary" @click="()=>this.visible1 = true">自定义底部按钮（文字）</t-button>
+    <t-button theme="primary" @click="()=>this.visible2 = true">自定义底部按钮（任何按钮属性）</t-button>
+    <t-button theme="primary" @click="()=>this.visible3 = true">自定义底部按钮（自定义组件）</t-button>
 
     <t-dialog
       v-model="visible1"

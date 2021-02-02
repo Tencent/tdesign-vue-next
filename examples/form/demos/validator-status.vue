@@ -36,7 +36,7 @@
         <t-icon slot="statusIcon" name='help-circle' size="25px"/>
       </t-form-item>
       <t-form-item :statusIcon="false">
-        <t-button variant="base" theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
+        <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
         <t-button type="reset">重置</t-button>
       </t-form-item>
     </t-form>

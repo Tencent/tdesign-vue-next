@@ -29,14 +29,16 @@ exports[`Message close demo works fine 1`] = `
 exports[`Message closeAll demo works fine 1`] = `
 <div>
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     点击打开多个消息
   </button>
    
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
     id="t-demo-msg-close-all"
+    type="button"
   >
     点击关闭所有消息
   </button>
@@ -54,7 +56,8 @@ exports[`Message offset demo works fine 1`] = `
   <br />
    
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     带 offset 信息位置
   </button>
@@ -64,55 +67,64 @@ exports[`Message offset demo works fine 1`] = `
 exports[`Message placement demo works fine 1`] = `
 <div>
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     center
   </button>
    
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     top
   </button>
    
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     left
   </button>
    
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     right
   </button>
    
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     bottom
   </button>
    
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     top-left
   </button>
    
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     top-right
   </button>
    
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     bottom-left
   </button>
    
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     bottom-right
   </button>
@@ -131,37 +143,43 @@ exports[`Message plugin demo works fine 1`] = `
     class="t-demo-message-theme"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       info
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       success
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       warning
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       error
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       question
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       loading
     </button>
@@ -180,37 +198,43 @@ exports[`Message plugin demo works fine 1`] = `
     class="t-demo-message-duration"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       info
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       success
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       warning
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       error
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       question
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       loading
     </button>
@@ -229,37 +253,43 @@ exports[`Message plugin demo works fine 1`] = `
     class="t-demo-message-obj"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       普通信息
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       显示关闭按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       设置显示时间
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       自定义内容
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       自定义关闭按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       loading
     </button>
@@ -278,37 +308,43 @@ exports[`Message plugin demo works fine 1`] = `
     class="t-demo-message-main"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       普通信息
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       显示关闭按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       设置显示时间
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       自定义内容
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       自定义关闭按钮
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       loading
     </button>
@@ -327,37 +363,43 @@ exports[`Message plugin demo works fine 1`] = `
     class="t-demo-message-theme"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       info
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       success
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       warning
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       error
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       question
     </button>
      
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       loading
     </button>
@@ -371,7 +413,8 @@ exports[`Message plugin demo works fine 1`] = `
 exports[`Message toggle demo works fine 1`] = `
 <div>
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
     
     自由控制关闭时机（打开）

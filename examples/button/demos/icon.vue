@@ -2,32 +2,27 @@
   <div class="demo-button-icon">
     <div class="demo-button-row">
       <div class="demo-button-col">
-        <t-button variant="base">
+        <t-button>
           <t-icon-add slot="icon"/>
           新建
         </t-button>
-        <t-button>
+        <t-button variant="outline">
           <t-icon-cloud-upload slot="icon"/>
           上传文件
         </t-button>
       </div>
       <div class="demo-button-col">
-        <t-button
-          variant="base"
-          shape="circle"
-        >
+        <t-button shape="circle">
           <t-icon-discount slot="icon"/>
         </t-button>
-        <t-button
-          variant="base"
-          shape="circle"
-        >
+        <t-button shape="circle">
           <t-icon-cloud-download slot="icon"/>
         </t-button>
       </div>
       <!-- 使用 function 的形式定义 icon -->
       <div class="demo-button-col">
         <t-button
+          variant="outline"
           :icon="renderIcon"
         >
           Function Icon

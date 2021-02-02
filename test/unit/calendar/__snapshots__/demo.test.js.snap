@@ -284,7 +284,8 @@ exports[`Calendar base demo works fine 1`] = `
         class="t-calendar__control-section-cell"
       >
         <button
-          class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+          class="t-button t-size-s t-button--variant-base t-button--theme-default"
+          type="button"
         >
           
           隐藏周末
@@ -295,7 +296,8 @@ exports[`Calendar base demo works fine 1`] = `
         class="t-calendar__control-section-cell"
       >
         <button
-          class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+          class="t-button t-size-s t-button--variant-base t-button--theme-default"
+          type="button"
         >
           
           今天
@@ -1485,7 +1487,8 @@ exports[`Calendar head demo works fine 1`] = `
         class="t-calendar__control-section-cell"
       >
         <button
-          class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+          class="t-button t-size-s t-button--variant-base t-button--theme-default"
+          type="button"
         >
           
           隐藏周末
@@ -1496,7 +1499,8 @@ exports[`Calendar head demo works fine 1`] = `
         class="t-calendar__control-section-cell"
       >
         <button
-          class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+          class="t-button t-size-s t-button--variant-base t-button--theme-default"
+          type="button"
         >
           
           今天

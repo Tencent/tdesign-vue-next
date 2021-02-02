@@ -14,7 +14,7 @@
         <t-input />
       </div>
     </t-drawer>
-    <t-button variant="base" theme="primary" @click="handleClick">Open</t-button>
+    <t-button theme="primary" @click="handleClick">Open</t-button>
   </div>
 </template>
 

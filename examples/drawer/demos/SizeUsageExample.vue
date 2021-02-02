@@ -21,7 +21,7 @@
         <t-radio-button value="50%">50%</t-radio-button>
       </t-radio-group>
     </div>
-    <t-button variant="base" theme="primary" @click="handleClick" class="btn-top-margin">Open</t-button>
+    <t-button theme="primary" @click="handleClick" class="btn-top-margin">Open</t-button>
   </div>
 </template>
 

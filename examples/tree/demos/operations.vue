@@ -42,17 +42,17 @@
     </t-tree>
     <h3 class="title">api:</h3>
     <div class="operations">
-      <t-button variant="base" theme="primary" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
-      <t-button variant="base" theme="primary" @click="getAllItems">获取所有节点</t-button>
-      <t-button variant="base" theme="primary" @click="getItems">获取高亮节点下的所有节点</t-button>
-      <t-button variant="base" theme="primary" @click="getActived">获取所有高亮节点</t-button>
-      <t-button variant="base" theme="primary" @click="getChecked">获取高亮节点下的选中节点</t-button>
-      <t-button variant="base" theme="primary" @click="append">插入一个根节点</t-button>
-      <t-button variant="base" theme="primary" @click="getParent">获取高亮节点的父节点</t-button>
-      <t-button variant="base" theme="primary" @click="getParents">获取高亮节点的所有父节点</t-button>
-      <t-button variant="base" theme="primary" @click="getIndex">获取高亮节点在子节点中的位置</t-button>
-      <t-button variant="base" theme="primary" @click="setChecked">选中高亮节点</t-button>
-      <t-button variant="base" theme="primary" @click="setExpanded">展开高亮节点</t-button>
+      <t-button theme="primary" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
+      <t-button theme="primary" @click="getAllItems">获取所有节点</t-button>
+      <t-button theme="primary" @click="getItems">获取高亮节点下的所有节点</t-button>
+      <t-button theme="primary" @click="getActived">获取所有高亮节点</t-button>
+      <t-button theme="primary" @click="getChecked">获取高亮节点下的选中节点</t-button>
+      <t-button theme="primary" @click="append">插入一个根节点</t-button>
+      <t-button theme="primary" @click="getParent">获取高亮节点的父节点</t-button>
+      <t-button theme="primary" @click="getParents">获取高亮节点的所有父节点</t-button>
+      <t-button theme="primary" @click="getIndex">获取高亮节点在子节点中的位置</t-button>
+      <t-button theme="primary" @click="setChecked">选中高亮节点</t-button>
+      <t-button theme="primary" @click="setExpanded">展开高亮节点</t-button>
     </div>
   </div>
 </template>

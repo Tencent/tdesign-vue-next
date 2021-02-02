@@ -12,7 +12,8 @@ exports[`Badge base demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -65,7 +66,8 @@ exports[`Badge base demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -81,7 +83,8 @@ exports[`Badge base demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -97,7 +100,8 @@ exports[`Badge base demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -119,7 +123,8 @@ exports[`Badge base demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -139,7 +144,8 @@ exports[`Badge custom demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -153,7 +159,8 @@ exports[`Badge custom demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -169,7 +176,8 @@ exports[`Badge custom demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -189,7 +197,8 @@ exports[`Badge number demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -205,7 +214,8 @@ exports[`Badge number demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -221,7 +231,8 @@ exports[`Badge number demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -237,7 +248,8 @@ exports[`Badge number demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -257,7 +269,8 @@ exports[`Badge offset demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       默认
     </button>
@@ -273,7 +286,8 @@ exports[`Badge offset demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       [10, 10]
     </button>
@@ -289,7 +303,8 @@ exports[`Badge offset demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       [-10, 10]
     </button>
@@ -305,7 +320,8 @@ exports[`Badge offset demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       [-10, -10]
     </button>
@@ -321,7 +337,8 @@ exports[`Badge offset demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       [10, -10]
     </button>
@@ -341,7 +358,8 @@ exports[`Badge shape demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       circle
     </button>
@@ -357,7 +375,8 @@ exports[`Badge shape demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       round
     </button>
@@ -383,7 +402,8 @@ exports[`Badge size demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -399,7 +419,8 @@ exports[`Badge size demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -415,7 +436,8 @@ exports[`Badge size demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -437,7 +459,8 @@ exports[`Badge size demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -453,7 +476,8 @@ exports[`Badge size demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
@@ -469,7 +493,8 @@ exports[`Badge size demo works fine 1`] = `
     class="t-badge"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       按钮
     </button>
