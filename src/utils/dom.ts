@@ -190,3 +190,30 @@ export function scrollTo(target: number, opt: ScrollTopOptions) {
     raf(fnc);
   });
 }
+
+function containerDom(parent: Vue | Element | Iterable<any> | ArrayLike<any>, child: any): boolean {
+  if (parent && child) {
+    let pNode = child;
+    while (pNode) {
+      if (parent === pNode) {
+        return true;
+      }
+      const { parentNode } = pNode;
+      pNode = parentNode;
+    }
+  }
+  return false;
+}
+export const clickOut = (els: Vue | Element | Iterable<any> | ArrayLike<any>, cb: Function): void => {
+  on(document, 'click', (event: { target: Element }) => {
+    if (Array.isArray(els)) {
+      const flag = Array.from(els).every(item => containerDom(item, event.target) === false);
+      flag && cb && cb();
+    } else {
+      if (containerDom(els, event.target)) {
+        return false;
+      }
+      cb && cb();
+    }
+  });
+};
