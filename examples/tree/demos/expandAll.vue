@@ -1,7 +1,7 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-button variant="base" @click="toggleData">切换数据</t-button>
+      <t-button @click="toggleData">切换数据</t-button>
       <t-button :variant="hover ? 'base' : 'outline'"  @click="toggleHover">提供 hover 状态</t-button>
       <t-button :variant="transition ? 'base' : 'outline'"  @click="toggleTransition">动画</t-button>
     </div>

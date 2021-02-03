@@ -9,8 +9,33 @@ const name = `${prefix}-button`;
 export default Vue.extend({
   name,
   props,
+  methods: {
+    renderPropContent(h: CreateElement, propName: 'content' | 'default') {
+      const propsContent = this[propName];
+      if (typeof propsContent === 'function') {
+        return propsContent(h);
+      }
+      if (typeof propsContent !== 'undefined') {
+        return propsContent;
+      }
+      return undefined;
+    },
+    renderContent(h: CreateElement) {
+      const propsContent = this.renderPropContent(h, 'content');
+      const propsDefault = this.renderPropContent(h, 'default');
+
+      if (typeof propsContent !== 'undefined') {
+        return propsContent;
+      }
+      if (typeof propsDefault !== 'undefined') {
+        return propsDefault;
+      }
+
+      return this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+    },
+  },
   render(h: CreateElement): VNode {
-    let buttonContent: JsxNode = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+    let buttonContent: JsxNode = this.renderContent(h);
     let icon: JsxNode;
 
     if (this.loading) {
@@ -21,6 +46,8 @@ export default Vue.extend({
       icon = this.$scopedSlots.icon(null);
     }
 
+    const iconOnly = icon && (typeof buttonContent === 'undefined' || buttonContent === '');
+
     const buttonClass = [
       `${name}`,
       CLASSNAMES.SIZE[this.size],
@@ -29,7 +56,7 @@ export default Vue.extend({
       {
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.loading]: this.loading,
-        [`${name}--icon-only`]: icon && !buttonContent,
+        [`${name}--icon-only`]: iconOnly,
         [`${name}--shape-${this.shape}`]: this.shape !== 'square',
         [`${name}--ghost`]: this.ghost,
         [CLASSNAMES.SIZE.block]: this.block,
@@ -39,12 +66,12 @@ export default Vue.extend({
     if (icon) {
       buttonContent = [
         icon,
-        buttonContent ? <span class={`${name}__text`}>{buttonContent}</span> : '',
+        !iconOnly ? <span class={`${name}__text`}>{buttonContent}</span> : '',
       ];
     }
 
     return (
-      <button class={buttonClass} disabled={this.disabled} {...{ on: this.$listeners }}>
+      <button class={buttonClass} type={this.type} disabled={this.disabled} {...{ on: this.$listeners }}>
         {buttonContent}
       </button>
     );

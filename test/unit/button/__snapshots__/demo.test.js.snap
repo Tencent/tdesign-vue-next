@@ -7,24 +7,28 @@ exports[`Button base demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       主要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
       次要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+      type="button"
     >
       虚框按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+      type="button"
     >
       文字按钮
     </button>
@@ -35,24 +39,28 @@ exports[`Button base demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
     >
       主要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      type="button"
     >
       次要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-dashed t-button--theme-primary"
+      type="button"
     >
       虚框按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+      type="button"
     >
       文字按钮
     </button>
@@ -63,24 +71,28 @@ exports[`Button base demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+      type="button"
     >
       主要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
+      type="button"
     >
       次要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-dashed t-button--theme-danger"
+      type="button"
     >
       虚框按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-danger"
+      type="button"
     >
       文字按钮
     </button>
@@ -97,24 +109,28 @@ exports[`Button block demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-default t-size-full-width"
+      type="button"
     >
       主按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-size-full-width"
+      type="button"
     >
       次要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-size-full-width"
+      type="button"
     >
       虚框按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+      type="button"
     >
       文字按钮
     </button>
@@ -134,6 +150,7 @@ exports[`Button icon demo works fine 1`] = `
     >
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-default"
+        type="button"
       >
         <svg
           class="t-icon t-icon-add"
@@ -157,6 +174,7 @@ exports[`Button icon demo works fine 1`] = `
        
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
       >
         <svg
           class="t-icon t-icon-cloud-upload"
@@ -185,6 +203,7 @@ exports[`Button icon demo works fine 1`] = `
     >
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-default t-button--icon-only t-button--shape-circle"
+        type="button"
       >
         <svg
           class="t-icon t-icon-discount"
@@ -202,6 +221,7 @@ exports[`Button icon demo works fine 1`] = `
        
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-default t-button--icon-only t-button--shape-circle"
+        type="button"
       >
         <svg
           class="t-icon t-icon-cloud-download"
@@ -223,6 +243,7 @@ exports[`Button icon demo works fine 1`] = `
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
       >
         <svg
           class="t-icon t-icon-search"
@@ -255,6 +276,7 @@ exports[`Button loading demo works fine 1`] = `
 >
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-loading"
+    type="button"
   >
     <svg
       class="t-icon t-icon-loading"
@@ -279,6 +301,7 @@ exports[`Button loading demo works fine 1`] = `
    
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-loading"
+    type="button"
   >
     <svg
       class="t-icon t-icon-loading"
@@ -310,24 +333,28 @@ exports[`Button size demo works fine 1`] = `
   >
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-default"
+      type="button"
     >
       主按钮
     </button>
      
     <button
       class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+      type="button"
     >
       次要按钮
     </button>
      
     <button
       class="t-button t-size-s t-button--variant-dashed t-button--theme-default"
+      type="button"
     >
       虚框按钮
     </button>
      
     <button
       class="t-button t-size-s t-button--variant-text t-button--theme-default"
+      type="button"
     >
       文字按钮
     </button>
@@ -338,24 +365,28 @@ exports[`Button size demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
     >
       主按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
       次要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+      type="button"
     >
       虚框按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+      type="button"
     >
       文字按钮
     </button>
@@ -366,24 +397,28 @@ exports[`Button size demo works fine 1`] = `
   >
     <button
       class="t-button t-size-l t-button--variant-base t-button--theme-default"
+      type="button"
     >
       主按钮
     </button>
      
     <button
       class="t-button t-size-l t-button--variant-outline t-button--theme-default"
+      type="button"
     >
       次要按钮
     </button>
      
     <button
       class="t-button t-size-l t-button--variant-dashed t-button--theme-default"
+      type="button"
     >
       虚框按钮
     </button>
      
     <button
       class="t-button t-size-l t-button--variant-text t-button--theme-default"
+      type="button"
     >
       文字按钮
     </button>
@@ -398,24 +433,28 @@ exports[`Button theme demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
     >
       主要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      type="button"
     >
       次要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-dashed t-button--theme-primary"
+      type="button"
     >
       虚框按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+      type="button"
     >
       文字按钮
     </button>
@@ -426,24 +465,28 @@ exports[`Button theme demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+      type="button"
     >
       主要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
+      type="button"
     >
       次要按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-dashed t-button--theme-danger"
+      type="button"
     >
       虚框按钮
     </button>
      
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-danger"
+      type="button"
     >
       文字按钮
     </button>

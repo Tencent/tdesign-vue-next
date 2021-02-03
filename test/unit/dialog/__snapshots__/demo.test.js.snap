@@ -4,6 +4,7 @@ exports[`Dialog base demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     基础确认对话框
   </button>
@@ -40,11 +41,13 @@ exports[`Dialog base demo works fine 1`] = `
         <div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
           >
             取消
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
+            type="button"
           >
             确认
           </button>
@@ -76,24 +79,28 @@ exports[`Dialog others demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     非模态可拖拽
   </button>
    
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     挂载在body
   </button>
    
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     挂载特定元素
   </button>
    
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     挂载函数返回节点
   </button>
@@ -127,11 +134,13 @@ exports[`Dialog others demo works fine 1`] = `
         <div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
           >
             取消
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
+            type="button"
           >
             确认
           </button>
@@ -182,24 +191,28 @@ exports[`Dialog plugin demo works fine 1`] = `
    
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     dialog
   </button>
    
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     handleDialogNode
   </button>
    
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     confirm
   </button>
    
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     alert
   </button>
@@ -210,18 +223,21 @@ exports[`Dialog position demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     默认位置
   </button>
    
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     垂直居中
   </button>
    
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
   >
     自定义偏移量
   </button>
@@ -258,11 +274,13 @@ exports[`Dialog position demo works fine 1`] = `
         <div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
           >
             取消
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
+            type="button"
           >
             确认
           </button>
@@ -320,11 +338,13 @@ exports[`Dialog position demo works fine 1`] = `
         <div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
           >
             取消
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
+            type="button"
           >
             确认
           </button>
@@ -383,11 +403,13 @@ exports[`Dialog position demo works fine 1`] = `
         <div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
           >
             取消
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
+            type="button"
           >
             确认
           </button>

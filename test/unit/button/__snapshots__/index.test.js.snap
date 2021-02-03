@@ -2,6 +2,8 @@
 
 exports[`Button :props :block 1`] = `<button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-size-full-width">text</button>`;
 
+exports[`Button :props :content 1`] = `<div><button type="button" class="t-button t-size-m t-button--variant-base t-button--theme-default">foo</button><button type="button" class="t-button t-size-m t-button--variant-base t-button--theme-default">foo</button><button type="button" class="t-button t-size-m t-button--variant-base t-button--theme-default">foo</button><button type="button" class="t-button t-size-m t-button--variant-base t-button--theme-default">foo</button><button type="button" class="t-button t-size-m t-button--variant-base t-button--theme-default">0</button></div>`;
+
 exports[`Button :props :disabled 1`] = `<button disabled="disabled" class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled">text</button>`;
 
 exports[`Button :props :icon function 1`] = `<button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only"><i>custom icon</i></button>`;

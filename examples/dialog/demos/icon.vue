@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-button variant="base" theme="primary" @click="()=>this.visible1 = true">提示反馈</t-button>
+    <t-button theme="primary" @click="()=>this.visible1 = true">提示反馈</t-button>
     <t-dialog
       body="对话框内容"
       v-model="visible1"

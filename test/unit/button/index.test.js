@@ -64,6 +64,26 @@ describe('Button', () => {
       expect(fn).not.toHaveBeenCalled();
       expect(wrapper).toMatchSnapshot();
     });
+    it.only(':content', () => {
+      const renderContent = function () {
+        return 'foo';
+      };
+      const wrapper = mount({
+        render() {
+          return (
+            <div>
+              <Button content="foo">bar</Button>
+              <Button content={renderContent}>bar</Button>
+              <Button default="foo">bar</Button>
+              <Button default={renderContent}>bar</Button>
+
+              <Button content={0}>bar</Button>
+            </div>
+          );
+        },
+      });
+      expect(wrapper).toMatchSnapshot();
+    });
   });
 
   describe('@event', () => {

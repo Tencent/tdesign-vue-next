@@ -40,4 +40,4 @@ export * from './progress';
 export * from './transfer';
 export * from './badge';
 export * from './loading';
-export * from './timepicker';
+export * from './time-picker';

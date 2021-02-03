@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-button variant="base" @click="()=>this.visible = true">异步加载类按钮</t-button>
+    <t-button @click="()=>this.visible = true">异步加载类按钮</t-button>
 
     <t-dialog
       v-model="visible"
