@@ -14,11 +14,6 @@ export default Vue.extend({
     prop: 'value',
     event: 'change',
   },
-  data() {
-    return {
-      currentValue: this.defaultValue,
-    };
-  },
   computed: {
     classes(): ClassName {
       return [
@@ -27,7 +22,7 @@ export default Vue.extend({
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
           [CLASSNAMES.STATUS.loading]: this.loading,
-          [CLASSNAMES.STATUS.checked]: this.currentValue === this.activeValue,
+          [CLASSNAMES.STATUS.checked]: this.value === this.activeValue,
         },
       ];
     },
@@ -63,13 +58,13 @@ export default Vue.extend({
     },
     content(): TNodeReturnValue {
       if (typeof this.label === 'function') {
-        return this.label(this.$createElement, { value: this.currentValue });
+        return this.label(this.$createElement, { value: this.value });
       }
       if (typeof this.label === 'string') {
         return this.label;
       }
       if (this.label instanceof Array && this.label.length) {
-        const label = this.currentValue === this.activeValue ? this.label[0] : this.label[1];
+        const label = this.value === this.activeValue ? this.label[0] : this.label[1];
         if (!label) return;
         if (typeof label === 'string') {
           return label;
@@ -79,32 +74,27 @@ export default Vue.extend({
         }
       }
       if (this.$scopedSlots.label) {
-        return this.$scopedSlots.label({ value: this.currentValue });
+        return this.$scopedSlots.label({ value: this.value });
       }
       return null;
     },
-    _value(): SwitchValue {
-      return this.value || this.currentValue;
-    },
   },
   watch: {
-    _value: {
+    value: {
       handler(val: SwitchValue): void {
         if (this.customValue && this.customValue.length && !this.customValue.includes(val)) {
           throw `value is not in ${JSON.stringify(this.customValue)}`;
         }
-        this.currentValue = val;
       },
       immediate: true,
     },
   },
   methods: {
     handleToggle(): void {
-      const checked = this.currentValue === this.activeValue
+      const checked = this.value === this.activeValue
         ? this.inactiveValue : this.activeValue;
-      this.currentValue = checked;
-      typeof this.onChange === 'function' && this.onChange(this.currentValue);
-      this.$emit('change', this.currentValue);
+      typeof this.onChange === 'function' && this.onChange(checked);
+      this.$emit('change', checked);
     },
     toggle(): void {
       if (this.disabled || this.loading) {
