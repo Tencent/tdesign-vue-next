@@ -55,7 +55,12 @@ export default Vue.extend({
     // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
     const closeIcon: VNode | string = this.closable ? <TIconClose nativeOnClick={this.handleClose} /> : '';
     // 标签内容
-    const tagContent: TNodeReturnValue = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+    const tagContent: TNodeReturnValue = this.default
+      || this.$slots.default
+      || (this.$scopedSlots.default ? this.$scopedSlots.default(null) : '')
+      || this.content
+      || this.$slots.content
+      || (this.$scopedSlots.content ? this.$scopedSlots.content(null) : '');
     // 图标
     let icon: VNode;
     if (typeof this.icon === 'function') {
