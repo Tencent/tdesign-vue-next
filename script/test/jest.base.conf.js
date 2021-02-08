@@ -21,6 +21,7 @@ module.exports = {
     '^@tencent/tdesign-vue/lib/(.*)$': '<rootDir>/src/$1',
     '^@tencent/tdesign-vue/lib/(.*)$': '<rootDir>/src/$1',
     '^@TdTypes/(.*)$': '<rootDir>/types/$1',
+    '^@Button/(.*)$': '<rootDir>/src/button/index.ts',
     '^@Pagination/(.*)$': '<rootDir>/src/pagination/index.ts',
     '^@Radio/(.*)$': '<rootDir>/src/radio/index.ts',
     '^@Checkbox/(.*)$': '<rootDir>/src/checkbox/index.ts',

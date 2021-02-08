@@ -90,7 +90,8 @@ export function removeClass(el: Element, cls: string): any {
 
 export const getAttach = (attach: AttachNode = 'body') => {
   let r;
-  if (isString(typeof attach)) {
+  if (!attach) return document.querySelector('body');
+  if (isString(attach)) {
     const at = attach as string;
     r = attach === 'document' ? document : document.querySelector(at);
   } else if (typeof attach === 'function') {
@@ -107,7 +108,7 @@ export const getSuperAttach = (attach: SuperAttachNode = 'body') => {
     window: Window,
     document: Document,
   };
-  if (typeof attach === 'string') {
+  if (isString(attach)) {
     r = ['window', 'document'].includes(attach) ? map[attach] : document.querySelector(attach);
   } else if (typeof attach === 'function') {
     r = attach();

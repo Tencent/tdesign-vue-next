@@ -1,68 +1,75 @@
+import Vue from 'vue';
 import DialogComponent from './dialog';
-import { VueConstructor, PluginObject } from 'vue';
-import { DialogProps, ConfirmProps, AlertProps } from './type/index';
+
 import { getAttach } from '../utils/dom';
+import {
+  DialogOptions,
+  DialogMethod,
+  DialogConfirmMethod,
+  DialogAlertMethod,
+  DialogInstance,
+} from '@TdTypes/dialog/TdDialogProps';
 
-/* eslint-disable no-param-reassign */
-
-function createDialog(options: DialogProps) {
+const createDialog: DialogMethod = (props: DialogOptions) => {
+  const options = { ...props };
   options.visible = true;
   const dialog = new DialogComponent({
     propsData: options,
   }).$mount();
+
   const container = getAttach(options.attach);
-  container.appendChild(dialog.$el);
-  // 事件处理
-  const eventNames = ['click-confirm', 'click-close-btn', 'click-cancel', 'keydown-esc', 'click-overlay'];
-  const eventTypes = ['confirm', 'closeBtn', 'cancel', 'esc', 'overlay'];
-  const close = () => {
-    dialog.visible = false;
-    container.contains(dialog.$el) && container.removeChild(dialog.$el);
-  };
-  eventNames.forEach((eventName) => {
-    dialog.$on(eventName, async (closeFn: Function, e: Event) => {
-      try {
-        if (eventName === eventNames[0] && typeof options.onConfirm === 'function') {
-          await options.onConfirm({ e, trigger: eventTypes[0], close });
-        }
-        const closeType = eventNames.indexOf(eventName, 1);
-        if (closeType !== -1 && typeof options.onClose === 'function') {
-          await options.onClose({ e, trigger: eventTypes[closeType], close });
-        }
-        close(); // onConfirm/onClose 在 reject 时，不在组件内部执行关闭
-      } catch (e) {
-        console.warn(e);
-      }
-    });
-  });
-  const dialogNode = {
+  if (container) {
+    container.appendChild(dialog.$el);
+  } else {
+    console.error('attach is not exist');
+  }
+
+  const dialogNode: DialogInstance = {
     show: () => {
       dialog.visible = true;
     },
     hide: () => {
       dialog.visible = false;
     },
-    update: (options: DialogProps) => {
+    update: (options: DialogOptions) => {
       Object.assign(dialog, options);
     },
     destroy: () => {
-      close();
+      dialog.visible = false;
+      container.contains(dialog.$el) && container.removeChild(dialog.$el);
     },
   };
   return dialogNode;
-}
+};
+interface ExtraApi {
+  confirm: DialogConfirmMethod;
+  alert: DialogAlertMethod;
+};
 
-const DialogPlugin = createDialog as (typeof createDialog & PluginObject<void>);
+const confirm: DialogConfirmMethod = (props: DialogOptions) => createDialog(props);
 
-DialogPlugin.confirm = (options: ConfirmProps) => createDialog(options);
-
-DialogPlugin.alert = (options: AlertProps) => {
-  options.cancelBtn = false;
+const alert: DialogAlertMethod = (props: Omit<DialogOptions, 'confirmBtn'>) => {
+  const options = { ...props };
+  options.cancelBtn = null;
   return createDialog(options);
 };
 
-DialogPlugin.install = (Vue: VueConstructor) => {
-  Vue.prototype.$dialog = DialogPlugin;
+const extraApi: ExtraApi = {
+  confirm,
+  alert,
 };
+
+const DialogPlugin: Vue.PluginObject<undefined> = {
+  install: () => {
+    Vue.prototype.$dialog = createDialog;
+    Object.keys(extraApi).forEach((funcName) => {
+      Vue.prototype.$dialog[funcName] = extraApi[funcName];
+    });
+  },
+};
+
+Object.keys(extraApi).forEach((funcName) => {
+  DialogPlugin[funcName] = extraApi[funcName];
+});
 
 export default DialogPlugin;

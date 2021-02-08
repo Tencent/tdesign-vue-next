@@ -1,51 +1,18 @@
 import Vue, { CreateElement } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
 import TIconClose from '../icon/close';
-import TButton from '../button';
-import { TdButtonProps  } from '@TdTypes/button/TdButtonProps';
-
-interface ButtonProps extends TdButtonProps {
-  content?: string;
-}
+import TButton, { ButtonProps } from '../button';
+import TIconInfoCircleFilled from '../icon/info-circle-filled';
+import TIconCheckCircleFilled from '../icon/check-circle-filled';
+import { getHandleNameByEventName } from '../utils/helper';
+import { getAttach } from '../utils/dom';
+import { CloseContext } from '@TdTypes/dialog/TdDialogProps';
+import props from '@TdTypes/dialog/props';
 
 const name = `${prefix}-dialog`;
 
 function GetCSSValue(v: string | number) {
   return isNaN(Number(v)) ? v : `${Number(v)}px`;
-};
-
-// 计算dialog元素的偏移量，根据offset跟placement确定
-function GetTransformByOffset(offset: any, placement: string) {
-  if (!offset) return undefined;
-
-  const { left, right, top, bottom } = offset;
-  let translateY: string = placement === 'center' ? '-50%' : '0px';
-  let translateX = '-50%';
-  let originX = '-25%';
-  let originY = '-25%';
-
-  if (left) {
-    translateX = `${translateX} - ${GetCSSValue(left)}`;
-    originX = `${originX} - ${GetCSSValue(left)}`;
-  }
-  if (right) {
-    translateX = `${translateX} + ${GetCSSValue(right)}`;
-    originX = `${originX} + ${GetCSSValue(right)}`;
-  }
-  if (top) {
-    translateY = `${translateY} - ${GetCSSValue(top)}`;
-    originY = `${originY} - ${GetCSSValue(top)}`;
-  }
-  if (bottom) {
-    translateY = `${translateY} + ${GetCSSValue(bottom)}`;
-    originY = `${originY} + ${GetCSSValue(bottom)}`;
-  }
-
-  return {
-    transform: `translate(calc(${translateX}),calc(${translateY}))`,
-    transformOrigin: `calc(${originX}) calc(${originY})`,
-  };
 }
 
 // 注册元素的拖拽事件
@@ -79,138 +46,56 @@ export default Vue.extend({
   name,
   components: {
     TIconClose,
-    RenderComponent,
+    TIconInfoCircleFilled,
   },
-  model: {
-    prop: 'visible',
-    event: 'visible-change',
-  },
-  props: {
-    visible: {
-      type: Boolean,
-    },
-    mode: {
-      type: String,
-      default: 'modal',
-      validator(v: string): boolean {
-        return (
-          [
-            'modal',
-            'not-modal',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-    placement: {
-      type: String,
-      default: 'top',
-      validator(v: string): boolean {
-        return (
-          [
-            'top',
-            'center',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-    offset: {
-      type: Object,
-    },
-    width: {
-      type: [String, Number],
-    },
-    header: {
-      type: [Boolean, String, Function],
-      default: true,
-    },
-    body: {
-      type: [Boolean, String, Function],
-      default: true,
-    },
-    footer: {
-      type: [Boolean, String, Function],
-      default: true,
-    },
-    closeBtn: {
-      type: [Boolean, Function],
-      default: true,
-    },
-    showOverlay: {
-      type: Boolean,
-      default: true,
-    },
-    draggable: {
-      type: Boolean,
-    },
-    preventScrollThrough: {
-      type: Boolean,
-      default: true,
-    },
-    zIndex: {
-      type: Number,
-      default: 2500,
-    },
-    destroyOnClose: {
-      type: Boolean,
-    },
-    attach: {
-      type: [Function, String, Boolean],
-      default: false,
-    },
-    confirmBtn: {
-      type: [String, Function, Object, Boolean],
-      default: '确认',
-    },
-    cancelBtn: {
-      type: [String, Function, Object, Boolean],
-      default: '取消',
-    },
-  },
+  props: { ...props },
   computed: {
     // 是否模态形式的对话框
     isModal(): boolean {
       return this.mode === 'modal';
     },
-    // 挂载目标，false 代表自然挂载的子元素
-    attachTarget(): Node | string | boolean {
-      const { attach } = this;
-      if (typeof attach === 'function') {
-        return attach();
-      }
-      if (['string', 'boolean'].indexOf(typeof attach) > -1) {
-        return attach;
-      }
-      return false;
+    // 是否非模态对话框
+    isModeless(): boolean {
+      return this.mode === 'modeless';
     },
-    // ctxClass(): ClassName {
-    //   // 关闭时候是否卸载元素 this.$el.parentNode.removeChild(this.$el)
-    //   const closeMode = this.destroyOnClose ? 'display' : 'visable';
-    //   return [
-    //     `${name}-ctx`,
-    //     this.visible ? `${prefix}-is-${closeMode}` : `${prefix}-not-${closeMode}`,
-    //   ];
-    // },
+
     maskClass(): ClassName {
-      return [
-        `${name}-mask`,
-        !this.showOverlay && `${name}-mask--hidden`,
-      ];
+      return [`${name}-mask`, !this.showOverlay && `${name}-mask--hidden`];
+    },
+
+    dialogClass(): object {
+      const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
+      if (['modeless', 'modal'].includes(this.mode)) {
+        dialogClass.push(`${name}--fixed`);
+      }
+      return dialogClass;
+    },
+
+    dialogStyle(): object {
+      const { top, placement } = this;
+      let topStyle = {};
+
+      // 设置了top属性
+      if (top) {
+        const topValue = GetCSSValue(top);
+        topStyle = {
+          top: topValue,
+          transform: 'translate(-50%, 0)',
+          transformOrigin: '25% 25%',
+          maxHeight: `calc(100% - ${topValue})`,
+        };
+      } else if (placement === 'top') {
+        topStyle = {
+          maxHeight: 'calc(100% - 20%)',
+        };
+      }
+      return { width: GetCSSValue(this.width), ...topStyle };
     },
   },
   watch: {
     visible(value) {
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
-      // 目前弹窗交互没有动画
-      // if (value) {
-      //   this.$emit('opened');
-      // } else {
-      //   this.$emit('closed');
-      // }
-      // 关闭时，销毁元素
-      // if (!value && this.destroyOnClose) {
-      //   this.$el.parentNode.removeChild(this.$el);
-      // }
     },
   },
   beforeDestroy() {
@@ -226,22 +111,19 @@ export default Vue.extend({
       }
     },
   },
-  created() {
-    this.initOffsetWatch();
-  },
   data() {
     return {
-      transform: {},
+      attachTarget: null,
     };
   },
+  mounted() {
+    const { attach } = this;
+    // attach默认值为空''，返回false才不会被重新挂载
+    if (!attach) return false;
+    this.attachTarget = getAttach(attach);
+  },
+
   methods: {
-    initOffsetWatch() {
-      this.transform = GetTransformByOffset(this.offset, this.placement);
-      // 这里主要是因为offset是对象，直接用computed or watch 的话，同样会造成不必要的重复计算
-      this.$watch(() => JSON.stringify(this.offset) + this.placement, () => {
-        this.transform = GetTransformByOffset(this.offset, this.placement);
-      });
-    },
     disPreventScrollThrough(disabled: boolean) {
       // 防止滚动穿透,modal形态才需要
       if (this.preventScrollThrough && this.isModal) {
@@ -257,47 +139,66 @@ export default Vue.extend({
     },
     keyboardEvent(e: KeyboardEvent) {
       if (e.code === 'Escape') {
-        this.closeEventEmit('keydown-esc', e);
+        this.emitEvent('keydown-esc', e);
+        // 根据closeOnKeydownEsc判断按下ESC时是否触发close事件
+        if (this.closeOnKeydownEsc) {
+          this.emitCloseEvent({
+            trigger: 'keydownEsc',
+            e,
+          });
+        }
       }
     },
-    overlayAction(e: Event) {
-      this.closeEventEmit('click-overlay', e);
+    overlayAction(e: MouseEvent) {
+      this.emitEvent('click-overlay', e);
+      // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
+      if (this.closeOnClickOverlay) {
+        this.emitCloseEvent({
+          trigger: 'clickOverlay',
+          e,
+        });
+      }
     },
-    closeBtnAcion(e: Event) {
-      this.closeEventEmit('click-close-btn', e);
+    closeBtnAcion(e: MouseEvent) {
+      this.emitEvent('click-close-btn', e);
+      this.emitCloseEvent({
+        trigger: 'clickCloseBtn',
+        e,
+      });
     },
-    close() {
-      this.changeVisible(false);
+
+    cancelBtnAction(e: MouseEvent) {
+      this.emitEvent('click-cancel', e);
+      this.emitCloseEvent({
+        trigger: 'clickCancel',
+        e,
+      });
     },
-    changeVisible(visible: boolean) {
-      this.$emit('visible-change', visible);
-    },
-    cancelBtnAction(e: Event) {
-      this.closeEventEmit('click-cancel', e);
-    },
-    confirmBtnAction(e: Event) {
-      this.closeEventEmit('click-confirm', e);
+    confirmBtnAction(e: MouseEvent) {
+      this.emitEvent('click-confirm', e);
     },
     // 打开弹窗动画结束时事件
-    afterEnter(el: Element) {
-      this.$emit('opened', el);
+    afterEnter() {
+      this.emitEvent('opened');
     },
     // 关闭弹窗动画结束时事件
-    afterLeave(el: Element) {
-      this.$emit('closed', el);
+    afterLeave() {
+      this.emitEvent('closed');
     },
-    // 先判断是否有该事件，有则派发当前事件，传递close函数出去
-    // 再判断是否有close事件，有则派发，传递close函数出去
-    // 前面都没有则执行关闭组件的方法
-    closeEventEmit(name: string, event: Event) {
-      if (this.hasEventOn(name)) {
-        this.$emit(name, this.close, event);
-      } else if (this.hasEventOn('close')) {
-        this.$emit('close', this.close, event);
-      } else {
-        this.close();
-      }
+
+    emitEvent(name: string, event?: Event) {
+      this.$emit(name, event);
+      const handleName = getHandleNameByEventName(name);
+      typeof this[handleName] === 'function' && this[handleName](event);
     },
+
+    emitCloseEvent(context: CloseContext) {
+      this.$emit('close', context);
+      typeof this.onClose === 'function' && this.onClose(context);
+      // 默认关闭弹窗
+      this.$emit('update:visible', false);
+    },
+
     // Vue在引入阶段对事件的处理还做了哪些初始化操作。Vue在实例上用一个_events属性存贮管理事件的派发和更新，
     // 暴露出$on, $once, $off, $emit方法给外部管理事件和派发执行事件
     // 所以通过判断_events某个事件下监听函数数组是否超过一个，可以判断出组件是否监听了当前事件
@@ -307,54 +208,60 @@ export default Vue.extend({
       const eventFuncs = this['_events']?.[name];
       return !!eventFuncs?.length;
     },
-    renderTitle() {
+    getIcon() {
+      const icon = {
+        info: <TIconInfoCircleFilled class="t-is-info" />,
+        warning: <TIconInfoCircleFilled class="t-is-warning" />,
+        error: <TIconInfoCircleFilled class="t-is-error" />,
+        success: <TIconCheckCircleFilled class="t-is-success" />,
+      };
+      return icon[this.theme];
+    },
+    renderHeader(h: CreateElement) {
       const target = this.header;
       let view;
       let isShow = true;
       if (typeof target === 'boolean') {
         isShow = target;
-        view = this.$slots.header;
-      } else if (typeof target === 'string') {
+      }
+      if (typeof target === 'string') {
         view = <h5 class="title">{target}</h5>;
       } else if (typeof target === 'function') {
-        view = target();
+        view = target(h);
+      } else if (typeof this.$scopedSlots.header === 'function') {
+        view = this.$scopedSlots.header(null);
       }
-      return isShow && (
-        <div class={`${name}__header`}>
-          {view}
-        </div>
+      return (
+        isShow && (
+          <div class={`${name}__header`}>
+            {this.getIcon()}
+            {view}
+          </div>
+        )
       );
     },
-    renderBody() {
+    renderBody(h: CreateElement) {
       const target = this.body;
       let view;
-      let isShow = true;
-      if (typeof target === 'boolean') {
-        isShow = target;
-        view = this.$slots.body;
-      } else if (typeof target === 'string') {
-        view = <div>{target}</div>;
+      if (typeof target === 'string' && target) {
+        view = target;
       } else if (typeof target === 'function') {
-        view = target();
+        view = target(h);
+      } else if (typeof this.$scopedSlots.body === 'function') {
+        view = this.$scopedSlots.body(null);
       }
-      return isShow && (
-        <div class={`${name}__body`}>
-          {view}
-        </div>
-      );
+      return view && <div class={`${name}__body`}>{view}</div>;
     },
-    renderDefaultBtn(
-      h: CreateElement,
-      type: string,
-      btnNode: string | Function | ButtonProps
-    ) {
+    renderDefaultBtn(h: CreateElement, type: string, btnNode: string | Function | ButtonProps) {
       if (!btnNode) return null;
       const r = {
         confirm: {
+          theme: 'primary',
           variant: 'base',
           onClick: this.confirmBtnAction,
         },
         cancel: {
+          theme: 'default',
           variant: 'outline',
           onClick: this.cancelBtnAction,
         },
@@ -363,10 +270,19 @@ export default Vue.extend({
         return btnNode(h);
       }
       if (typeof btnNode === 'object') {
-        return <TButton variant={r.variant} onClick={r.onClick} {...{ props: btnNode }}>{btnNode.content}</TButton>;
+        return (
+          <TButton variant={r.variant} onClick={r.onClick} {...{ props: btnNode }}>
+            {btnNode.content}
+          </TButton>
+        );
       }
-      return <TButton variant={r.variant} onClick={r.onClick}>{btnNode}</TButton>;
+      return (
+        <TButton variant={r.variant} onClick={r.onClick}>
+          {btnNode}
+        </TButton>
+      );
     },
+
     renderFooter(h: CreateElement) {
       const defaultView = (
         <div>
@@ -376,72 +292,77 @@ export default Vue.extend({
       );
       const target = this.footer;
       let view;
-      let isShow = true;
-      if (typeof target === 'boolean') {
-        isShow = target;
-        view = this.$slots.footer;
-      } else if (typeof target === 'string') {
-        view = <div>{target}</div>;
+      if (target === false) return;
+
+      if (target === true) {
+        view = typeof this.$scopedSlots.footer === 'function' ? this.$scopedSlots.footer(null) : defaultView;
       } else if (typeof target === 'function') {
-        view = target(this.$createElement);
+        view = target(h);
       }
-      return isShow && (
-        <div class={`${name}__footer`}>
-          {view || defaultView}
-        </div>
-      );
+
+      return <div class={`${name}__footer`}>{view || defaultView}</div>;
     },
-    renderCloseBtn() {
-      const defaultView = <t-icon-close name='close'></t-icon-close>;
+    renderCloseBtn(h: CreateElement) {
+      const defaultView = <t-icon-close name="close"></t-icon-close>;
       const target = this.closeBtn;
       let view;
       let isShow = true;
       if (typeof target === 'boolean') {
         isShow = target;
-        view = this.$slots.closeBtn;
-      } else if (typeof target === 'function') {
-        view = target();
       }
-      return isShow && (<span class={`${name}__close`} onClick={this.closeBtnAcion}>
-        {view || defaultView}
-      </span>);
+
+      if (typeof target === 'string') {
+        view = target;
+      } else if (typeof target === 'function') {
+        view = target(h);
+      } else if (typeof this.$scopedSlots.closeBtn === 'function') {
+        view = this.$scopedSlots.closeBtn(null);
+      }
+
+      return (
+        isShow && (
+          <span class={`${name}__close`} onClick={this.closeBtnAcion}>
+            {view || defaultView}
+          </span>
+        )
+      );
     },
     renderDialog(h: CreateElement) {
-      const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
-      const dialogStyle: any = { width: GetCSSValue(this.width), ...this.transform };
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
-        <div key='dialog' class={dialogClass} style={dialogStyle} v-draggable={!this.isModal && this.draggable}>
-          {this.renderTitle()}
-          {this.renderBody()}
+        <div
+          key="dialog"
+          class={this.dialogClass}
+          style={this.dialogStyle}
+          v-draggable={this.isModeless && this.draggable}
+        >
+          {this.renderHeader(h)}
+          {this.renderBody(h)}
           {this.renderFooter(h)}
-          {this.renderCloseBtn()}
+          {this.renderCloseBtn(h)}
         </div>
       );
     },
   },
   render(h: CreateElement) {
-    const maskView = this.isModal && <div key='mask' class={this.maskClass} onClick={this.overlayAction}></div>;
+    const maskView = this.isModal && <div key="mask" class={this.maskClass} onClick={this.overlayAction}></div>;
     const dialogView = this.renderDialog(h);
     const view = [maskView, dialogView];
     const ctxStyle: any = { zIndex: this.zIndex };
-    const ctxClass = [`${name}-ctx`];
+    const ctxClass = [`${name}-ctx`, { 't-dialog-ctx--fixed': this.mode === 'modal' }];
     return (
-      <transition duration={300}
+      <transition
+        duration={300}
         name={`${name}-zoom__vue`}
         onAfterEnter={this.afterEnter}
-        onAfterLeave={this.afterLeave}>
-        {
-          (!this.destroyOnClose || this.visible) && (
-            <div v-show={this.visible} class={ctxClass} style={ctxStyle}
-              v-transfer-dom={this.attachTarget}>
-              {view}
-            </div>
-          )
-        }
+        onAfterLeave={this.afterLeave}
+      >
+        {(!this.destroyOnClose || this.visible) && (
+          <div v-show={this.visible} class={ctxClass} style={ctxStyle} v-transfer-dom={this.attachTarget || false}>
+            {view}
+          </div>
+        )}
       </transition>
     );
   },
 });
-
-

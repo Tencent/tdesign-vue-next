@@ -6,9 +6,9 @@ import Dialog from '@/src/dialog/index.ts';
 describe('Dialog', () => {
   // test props api
   describe(':props', () => {
-    it('not-modal', () => {
+    it('modeless', () => {
       const wrapper = mount(Dialog, {
-        propsData: { mode: 'not-modal' },
+        propsData: { mode: 'modeless' },
       });
       expect(wrapper.find('.t-dialog-mask').exists()).toBe(false);
     });
@@ -30,10 +30,10 @@ describe('Dialog', () => {
       expect(centerDialogStyles).not.toMatch(/translate/);
     });
 
-    it('offset', () => {
+    it('top', () => {
       const wrapper = mount(Dialog, {
         propsData: {
-          offset: { left: '100px', top: '200px' },
+          top: '200px',
           width: '200px',
         },
       });
@@ -41,7 +41,7 @@ describe('Dialog', () => {
       const classes = dialog.classes();
       const styles = dialog.attributes('style');
       expect(classes).not.toContain('t-dialog--center');
-      expect(styles).toMatch('translate(calc(-50% - 100px),calc(0px - 200px))');
+      expect(styles).toMatch(/top: 200px/);
       expect(styles).toMatch(/width: 200px/);
       // expect(wrapper).toMatchSnapshot();
     });

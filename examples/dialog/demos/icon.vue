@@ -1,44 +1,45 @@
 <template>
   <div>
-    <t-button theme="primary" @click="()=>this.visible1 = true">提示反馈</t-button>
-    <t-dialog
-      body="对话框内容"
-      v-model="visible1"
-      @click-confirm="onClickConfirm"
-      @click-close-btn="(close)=>close()"
-    >
-      <div slot="header">
-        <t-icon name="info-circle-filled" color="#3881E8" />
-        <span style="vertical-align: middle;">我是主要信息，我是主要信息</span>
-      </div>
-    </t-dialog>
+    <t-dialog :visible.sync="visible1" header="下单确认" body="信息已全部保存，是否确认下单？" mode="normal" theme="info" :onClickConfirm="close1" ></t-dialog>
+    <br>
+    <t-dialog :visible.sync="visible2" header="温馨提示" body="系统重启后会短暂影响页面访问，确认重启吗？" mode="normal" theme="warning" :onClickConfirm="close2" ></t-dialog>
+    <br>
+    <t-dialog :visible.sync="visible3" header="推送失败" body="请检查推送数据是否符合要求" mode="normal" theme="error" :onClickConfirm="close3" ></t-dialog>
+    <br>
+    <t-dialog :visible.sync="visible4" header="操作成功" body="是否前往查看订单列表" mode="normal" theme="success" :onClickConfirm="close4" ></t-dialog>
+    <br>
+    <t-button v-if="!visible1" theme="primary" @click="() => (this.visible1 = true)">theme: info</t-button>
+    <t-button v-if="!visible2" theme="primary" @click="() => (this.visible2 = true)">theme: warning</t-button>
+    <t-button v-if="!visible3" theme="primary" @click="() => (this.visible3 = true)">theme: error</t-button>
+    <t-button v-if="!visible4" theme="primary" @click="() => (this.visible4 = true)">theme: success</t-button>
   </div>
 </template>
-<script lang="ts">
-import Vue from 'vue';
-export default Vue.extend({
+<script>
+export default {
   data() {
     return {
-      visible1: false,
-      visible2: false,
-      visible3: false,
-      visible4: false,
+      visible1: true,
+      visible2: true,
+      visible3: true,
+      visible4: true,
     };
   },
   methods: {
-    onClickConfirm(close: Function, e: Event): void {
-      // todo something else here
-      this.sendingRequest();
-      // close dialog
-      close();
-      // stop propagation
-      e.stopPropagation();
+    close1() {
+      this.visible1 = false;
     },
-    sendingRequest() {
-      console.log('sending request');
+    close2() {
+      this.visible2 = false;
     },
+    close3() {
+      this.visible3 = false;
+    },
+    close4() {
+      this.visible4 = false;
+    },
+
   },
-});
+};
 </script>
 <style scoped>
 .t-button {

@@ -34,6 +34,9 @@
       "@TdTypes/*": [
         "types/*"
       ],
+      "@Button": [
+        "src/button/index.ts"
+      ],
       "@Pagination": [
         "src/pagination/index.ts"
       ],

@@ -1,21 +1,17 @@
 <template>
   <div>
     <t-button @click="()=>this.visible = true">异步加载类按钮</t-button>
-
     <t-dialog
-      v-model="visible"
-      @click-close-btn="(close)=>close()"
-      header="提示"
-      body="自定义底部按钮，传入 ButttonProps"
-      :confirmContent="{
-        content: '确定',
-        variant: 'base',
+      :visible.sync="visible"
+      header="保存订单"
+      body="订单保存中，请稍后"
+      :confirmBtn="{
+        content: '保存中...',
+        theme: 'primary',
         loading: true
       }"
-      :cancelContent="{
-        content: '取消',
-        variant: 'outline',
-      }"
+      :onClickConfirm="onConfirm"
+      :onClose="close"
     >
     </t-dialog>
 
@@ -28,5 +24,15 @@ export default {
       visible: false,
     };
   },
+  methods: {
+    close() {
+      console.error('===close');
+      this.visible = false;
+    },
+    onConfirm() {
+      console.log('click确定');
+    },
+  },
+
 };
 </script>
