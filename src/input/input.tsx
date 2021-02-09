@@ -4,6 +4,7 @@ import CLASSNAMES from '../utils/classnames';
 import { omit, getPropsApiByEvent } from '../utils/helper';
 import ClearIcon from '../icon/clear-circle-filled';
 import props from '../../types/input/props';
+import { InputValue } from '../../types/input/TdInputProps';
 import isFunction from 'lodash/isFunction';
 
 const name = `${prefix}-input`;
@@ -108,7 +109,7 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       }
       return null;
     },
-    setInputValue(v: string | number = ''): void {
+    setInputValue(v: InputValue = ''): void {
       const input = this.$refs.refInputElem as HTMLInputElement;
       const sV = String(v);
       if (!input) {

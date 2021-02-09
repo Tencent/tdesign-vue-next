@@ -339,7 +339,7 @@ describe('Tag or CheckTag', () => {
           return <Tag onClick={fn}>text</Tag>;
         },
       });
-      wrapper.find(Tag).trigger('click');
+      wrapper.findComponent(Tag).trigger('click');
       expect(fn).toHaveBeenCalled();
     });
     it('Event passthrough: close', () => {
@@ -363,7 +363,7 @@ describe('Tag or CheckTag', () => {
           return <CheckTag checked onClick={fn}>text</CheckTag>;
         },
       });
-      wrapper.find(CheckTag).trigger('click');
+      wrapper.findComponent(CheckTag).trigger('click');
       expect(fn).toBeCalled();
     });
     it('Event passthrough: trigger onClick props', () => {
@@ -376,8 +376,8 @@ describe('Tag or CheckTag', () => {
             },
           });
         },
-      }).find(CheckTag);
-      wrapper.find(CheckTag).trigger('click');
+      }).findComponent(CheckTag);
+      wrapper.findComponent(CheckTag).trigger('click');
       expect(fn).toBeCalled();
     });
   });

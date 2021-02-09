@@ -223,6 +223,10 @@ exports[`Anchor target demo works fine 1`] = `
       class="t-popup-reference t-copy"
       style="position: relative;"
     >
+      <transition-stub
+        appear="true"
+        name="t-popup_animation"
+      />
        
       <svg
         class="t-icon t-icon-file-copy"
@@ -271,6 +275,10 @@ exports[`Anchor target demo works fine 1`] = `
       class="t-popup-reference t-copy"
       style="position: relative;"
     >
+      <transition-stub
+        appear="true"
+        name="t-popup_animation"
+      />
        
       <svg
         class="t-icon t-icon-file-copy"
@@ -319,6 +327,10 @@ exports[`Anchor target demo works fine 1`] = `
       class="t-popup-reference t-copy"
       style="position: relative;"
     >
+      <transition-stub
+        appear="true"
+        name="t-popup_animation"
+      />
        
       <svg
         class="t-icon t-icon-file-copy"
@@ -367,6 +379,10 @@ exports[`Anchor target demo works fine 1`] = `
       class="t-popup-reference t-copy"
       style="position: relative;"
     >
+      <transition-stub
+        appear="true"
+        name="t-popup_animation"
+      />
        
       <svg
         class="t-icon t-icon-file-copy"
@@ -415,6 +431,10 @@ exports[`Anchor target demo works fine 1`] = `
       class="t-popup-reference t-copy"
       style="position: relative;"
     >
+      <transition-stub
+        appear="true"
+        name="t-popup_animation"
+      />
        
       <svg
         class="t-icon t-icon-file-copy"
@@ -463,6 +483,10 @@ exports[`Anchor target demo works fine 1`] = `
       class="t-popup-reference t-copy"
       style="position: relative;"
     >
+      <transition-stub
+        appear="true"
+        name="t-popup_animation"
+      />
        
       <svg
         class="t-icon t-icon-file-copy"
@@ -511,6 +535,10 @@ exports[`Anchor target demo works fine 1`] = `
       class="t-popup-reference t-copy"
       style="position: relative;"
     >
+      <transition-stub
+        appear="true"
+        name="t-popup_animation"
+      />
        
       <svg
         class="t-icon t-icon-file-copy"

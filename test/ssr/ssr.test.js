@@ -1,58 +1,18 @@
 import glob from 'glob';
-import { mount } from '@vue/test-utils';
-import { renderToString } from '@vue/server-test-utils';
+import { mount, config } from '@vue/test-utils';
 import MockDate from 'mockdate';
+import { createRenderer } from 'vue-server-renderer';
+
+const transitionStub = () => ({
+  render: h => h('div'),
+});
+config.stubs.transition = transitionStub();
 
 // 固定时间，当使用 new Date() 时，返回固定时间，防止“当前时间”的副作用影响，导致 snapshot 变更，mockdate 插件见 https://github.com/boblauer/MockDate
 MockDate.set('2020-12-28');
 
-// convert hex to rgb
-const hexToRgb = (hex) => {
-  const rgb = [];
-  let tempHex = hex.substr(1);
-  // convert shorthand color to standard color
-  if (tempHex.length === 3) {
-    tempHex = tempHex.replace(/(.)/g, '$1$1');
-  }
-  tempHex.replace(/../g, (color) => {
-    rgb.push(parseInt(color, 0x10));
-  });
-  return `rgb(${rgb.join(', ')});`;
-};
-
-// to fix some difference between mount and renderToString results
-function wrapperConvert(wrapper) {
-  let cwrapper = wrapper;
-  if (typeof cwrapper === 'object') {
-    return wrapper;
-  }
-  // style format fix
-  cwrapper = cwrapper.replace(/style="(.*?;)"/g, (val) => {
-    let ret = val.replace(/:/g, ': ');
-    ret = ret.replace(/ 0;/g, ' 0px;');
-    ret = ret.replace(/;/g, '; ');
-    ret = ret.replace(/; "/g, ';"');
-    ret = ret.replace(/#.*;/g, val => hexToRgb(val));
-    return ret;
-  });
-  // href format fix
-  cwrapper = cwrapper.replace(/xlink: href/g, 'xlink:href');
-  // http format fix
-  cwrapper = cwrapper.replace(/http: /g, 'http:');
-  // value="" format fix
-  cwrapper = cwrapper.replace(/ value=""/g, '');
-  // checked format fix
-  cwrapper = cwrapper.replace(/ checked="checked"/g, '');
-  // &quot; format fix
-  cwrapper = cwrapper.replace(/&quot;/g, '"');
-  // disabled format fix
-  cwrapper = cwrapper.replace(/disabled="disabled"/g, 'disabled=""');
-  return cwrapper;
-}
-
-function demoSnapshotTest() {
+function ssrSnapshotTest() {
   const files = glob.sync('./examples/*/demos/*.vue');
-  const renderMethod = (typeof window !== 'undefined') ? mount : renderToString;
   describe('ssr snapshot test', () => {
     beforeAll(() => {
       jest.useFakeTimers();
@@ -64,12 +24,17 @@ function demoSnapshotTest() {
       it(`renders ${file} correctly`, async () => {
         const demo = require(`../.${file}`);
         const realDemoComp = demo.default ? demo.default : demo;
-        const wrapper = await renderMethod(realDemoComp);
-        const cwrapper = wrapperConvert(wrapper);
-        expect(cwrapper).toMatchSnapshot();
+        const wrapper = mount(realDemoComp);
+        const renderer = createRenderer();
+        renderer.renderToString(wrapper.vm, (err, str) => {
+          if (err) {
+            throw err;
+          }
+          expect(str).toMatchSnapshot();
+        });
       }, 2000);
     });
   });
 }
 
-demoSnapshotTest();
+ssrSnapshotTest();

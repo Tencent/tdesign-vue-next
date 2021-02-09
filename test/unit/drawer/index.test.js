@@ -11,7 +11,7 @@ describe('Drawer', () => {
           return <Drawer></Drawer>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
   });
 

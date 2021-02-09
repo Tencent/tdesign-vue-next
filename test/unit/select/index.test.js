@@ -119,7 +119,7 @@ describe('Select', () => {
           );
         },
       });
-      const selectWrapper = wrapper.find(Select);
+      const selectWrapper = wrapper.findComponent(Select);
       const inputElemWrapper = wrapper.find('input');
       selectWrapper.vm.focus();
       selectWrapper.vm.blur();
@@ -139,7 +139,7 @@ describe('Select', () => {
           );
         },
       });
-      const selectWrapper = wrapper.find(Select);
+      const selectWrapper = wrapper.findComponent(Select);
       const inputElemWrapper = wrapper.find('input');
       selectWrapper.vm.focus();
       inputElemWrapper.trigger('focus');
@@ -154,7 +154,7 @@ describe('Select', () => {
           return <Select clearable={true} value={value} options={options}></Select>;
         },
       });
-      const selectWrapper = wrapper.find(Select);
+      const selectWrapper = wrapper.findComponent(Select);
       const closeIconWrapper = wrapper.find('.t-icon-close');
       closeIconWrapper.trigger('click');
       await Vue.nextTick();
@@ -168,7 +168,7 @@ describe('Select', () => {
           return <Select multiple={true} value={value} options={options}></Select>;
         },
       });
-      const selectWrapper = wrapper.find(Select);
+      const selectWrapper = wrapper.findComponent(Select);
       const closeIconWrapper = wrapper.find('.t-icon-close');
       closeIconWrapper.trigger('click');
       await Vue.nextTick();

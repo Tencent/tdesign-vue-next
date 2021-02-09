@@ -11,7 +11,7 @@ describe('<%= upperComponent %>', () => {
           return <<%= upperComponent %>></<%= upperComponent %>>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
   });
 

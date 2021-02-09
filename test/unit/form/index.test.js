@@ -11,7 +11,7 @@ describe('Form', () => {
           return <Form></Form>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
   });
 

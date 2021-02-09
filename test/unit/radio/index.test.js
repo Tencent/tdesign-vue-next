@@ -47,7 +47,7 @@ describe('Radio', () => {
           return <Radio onChange={fn}>Radio</Radio>;
         },
       });
-      wrapper.find(Radio).trigger('click');
+      wrapper.findComponent(Radio).trigger('click');
       expect(fn).toHaveBeenCalled();;
     });
   });
@@ -163,7 +163,7 @@ describe('Radio RadioGroup', () => {
           );
         },
       });
-      wrapper.find(Radio).trigger('click');
+      wrapper.findComponent(Radio).trigger('click');
       expect(fn).toHaveBeenCalled();;
     });
   });

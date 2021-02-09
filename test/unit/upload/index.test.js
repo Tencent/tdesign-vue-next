@@ -11,7 +11,7 @@ describe('Upload', () => {
           return <Upload></Upload>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
   });
 

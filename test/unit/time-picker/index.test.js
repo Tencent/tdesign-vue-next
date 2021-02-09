@@ -11,7 +11,7 @@ describe('TimePicker', () => {
           return <TimePicker></TimePicker>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
   });
 

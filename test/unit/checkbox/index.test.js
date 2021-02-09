@@ -56,7 +56,7 @@ describe('Checkbox', () => {
           return <Checkbox onChange={fn}>Checkbox</Checkbox>;
         },
       });
-      wrapper.find(Checkbox).trigger('click');
+      wrapper.findComponent(Checkbox).trigger('click');
       expect(fn).toHaveBeenCalled();;
     });
   });
@@ -146,7 +146,7 @@ describe('Checkbox CheckboxGroup', () => {
           );
         },
       });
-      wrapper.find(Checkbox).trigger('click');
+      wrapper.findComponent(Checkbox).trigger('click');
       expect(fn).toHaveBeenCalled();;
     });
   });

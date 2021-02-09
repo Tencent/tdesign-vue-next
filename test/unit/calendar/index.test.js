@@ -15,7 +15,7 @@ describe('Calendar', () => {
           return <Calendar></Calendar>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
 
     it(':value', () => {

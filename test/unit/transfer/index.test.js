@@ -33,7 +33,7 @@ describe('Transfer', () => {
   describe('Transfer:props', () => {
     it('empty', () => {
       const wrapper = mount(Transfer);
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
 
     it(':data', async () => {

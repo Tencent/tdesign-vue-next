@@ -66,7 +66,7 @@ describe('Dialog', () => {
       expect(dialogTitle.text()).toBe(title);
       expect(dialogBody.text()).toBe(body);
       expect(dialogFooter.text()).toBe(footer);
-      expect(wrapper.contains('.t-icon-close')).toBe(false);
+      expect(wrapper.find('.t-icon-close').exists()).toBe(false);
     });
 
     it('showOverlay and zIndex', () => {
@@ -79,20 +79,20 @@ describe('Dialog', () => {
       });
       const mask = wrapper.find('.t-dialog-mask');
       expect(mask.classes()).toContain('t-dialog-mask--hidden');
-      expect(wrapper.attributes('style')).toMatch(/z-index: 1/);
+      expect(wrapper.find('.t-dialog-ctx').attributes('style')).toMatch(/z-index: 1/);
     });
 
     it('destroyOnClose', async () => {
       const wrapper = mount(Dialog, { propsData: { visible: true } });
       // 正常挂载下，弹窗关闭时不销毁Dialog子元素
       await wrapper.setProps({ visible: false });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
 
       // 弹窗关闭时销毁Dialog子元素
       await wrapper.setProps({ destroyOnClose: true, visible: true });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
       await wrapper.setProps({ visible: false });
-      expect(wrapper.isEmpty()).toBe(true);
+      expect(wrapper.exists()).toBe(true);
     });
   });
 

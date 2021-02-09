@@ -10,7 +10,7 @@ describe('Breadcrumb', () => {
           return <Breadcrumb size={'large'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':theme', () => {
       const wrapper = mount({
@@ -18,7 +18,7 @@ describe('Breadcrumb', () => {
           return <Breadcrumb theme={'light'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':separator:string', () => {
       const wrapper = mount({
@@ -26,7 +26,7 @@ describe('Breadcrumb', () => {
           return <Breadcrumb separator={'>'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':to', () => {
       const wrapper = mount({
@@ -34,7 +34,7 @@ describe('Breadcrumb', () => {
           return <Breadcrumb><BreadcrumbItem to={{ path: '/' }}>首页</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':replace', () => {
       const wrapper = mount({
@@ -42,7 +42,7 @@ describe('Breadcrumb', () => {
           return <Breadcrumb><BreadcrumbItem to={{ path: '/' }} replace={true}>首页</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     // 待验证
     it(':overlay', () => {
@@ -51,7 +51,7 @@ describe('Breadcrumb', () => {
           return <Breadcrumb separator={'/'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
   });
   // test events
@@ -63,7 +63,7 @@ describe('Breadcrumb', () => {
           return <Breadcrumb><BreadcrumbItem onClick={fn}>面包屑</BreadcrumbItem></Breadcrumb>;
         },
       });
-      wrapper.find(BreadcrumbItem).trigger('click');
+      wrapper.findComponent(BreadcrumbItem).trigger('click');
       // expect(fn).toHaveBeenCalled();
     });
   });

@@ -11,7 +11,7 @@ describe('Popconfirm', () => {
           return <Popconfirm></Popconfirm>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
   });
 

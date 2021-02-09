@@ -122,7 +122,7 @@ describe('Input', () => {
           return <Input onChange={fn} />;
         },
       });
-      const inputWrapper = wrapper.find(Input);
+      const inputWrapper = wrapper.findComponent(Input);
       const inputElemWrapper = wrapper.find('input');
       inputElemWrapper.trigger('change');
       expect(inputWrapper.emitted().change).toBeTruthy();
@@ -136,7 +136,7 @@ describe('Input', () => {
           return <Input onFocus={fn} />;
         },
       });
-      const inputWrapper = wrapper.find(Input);
+      const inputWrapper = wrapper.findComponent(Input);
       const inputElemWrapper = wrapper.find('input');
       inputElemWrapper.trigger('focus');
       expect(inputWrapper.emitted().focus).toBeTruthy();
@@ -150,7 +150,7 @@ describe('Input', () => {
           return <Input onBlur={fn} />;
         },
       });
-      const inputWrapper = wrapper.find(Input);
+      const inputWrapper = wrapper.findComponent(Input);
       const inputElemWrapper = wrapper.find('input');
       inputElemWrapper.trigger('blur');
       expect(inputWrapper.emitted().blur).toBeTruthy();
@@ -180,7 +180,7 @@ describe('Input', () => {
           return <Input onFocus={fn} />;
         },
       });
-      const inputWrapper = wrapper.find(Input);
+      const inputWrapper = wrapper.findComponent(Input);
       const inputElemWrapper = wrapper.find('input');
       inputWrapper.vm.focus();
       inputElemWrapper.trigger('focus');
@@ -195,7 +195,7 @@ describe('Input', () => {
           return <Input onBlur={fn} />;
         },
       });
-      const inputWrapper = wrapper.find(Input);
+      const inputWrapper = wrapper.findComponent(Input);
       const inputElemWrapper = wrapper.find('input');
       inputWrapper.vm.focus();
       inputWrapper.vm.blur();

@@ -11,7 +11,7 @@ describe('Loading', () => {
           return <Loading loading={true}></Loading>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':delay', () => {
       const delay = 1000;
@@ -21,7 +21,7 @@ describe('Loading', () => {
         },
       });
       setTimeout(() => {
-        expect(wrapper.isEmpty()).toBe(false);
+        expect(wrapper.exists()).toBe(true);
       }, delay);
     });
     it(':fullscreen', () => {
@@ -30,7 +30,7 @@ describe('Loading', () => {
           return <Loading loading={true} fullscreen={true}></Loading>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':indicatorFunc', () => {
       const wrapper = mount({
@@ -38,7 +38,7 @@ describe('Loading', () => {
           return <Loading loading={true} indicator={() => '加载中...'}></Loading>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':preventScrollThrough', () => {
       const wrapper = mount({
@@ -46,7 +46,7 @@ describe('Loading', () => {
           return <Loading loading={true} preventScrollThrough={true} fullscreen={true}></Loading>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':size', () => {
       const wrapper = mount({
@@ -54,7 +54,7 @@ describe('Loading', () => {
           return <Loading loading={true} size={'large'}></Loading>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':text', () => {
       const wrapper = mount({
@@ -62,7 +62,7 @@ describe('Loading', () => {
           return <Loading loading={true} text={'正在加载...'}></Loading>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':wrap', () => {
       const wrapper = mount({
@@ -70,7 +70,7 @@ describe('Loading', () => {
           return <Loading loading={true}><div>this is loading component</div></Loading>;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
   });
   // test slots

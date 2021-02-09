@@ -28,7 +28,7 @@ describe('Message', () => {
       const classes = wrapper.classes();
       expect(classes).toContain('t-message');
       expect(classes).toContain('t-is-info');
-      expect(wrapper.contains(TIconClose)).toBe(false);
+      expect(wrapper.findComponent(TIconClose).exists()).toBe(false);
       expect(wrapper).toMatchSnapshot();
     });
 
@@ -39,9 +39,9 @@ describe('Message', () => {
             return <Message theme={t}></Message>;
           },
         });
-        const msg = wrapper.find(Message);
+        const msg = wrapper.findComponent(Message);
         expect(msg.classes()).toContain(`t-is-${t}`);
-        expect(msg.contains(THEME_MAP[t]));
+        expect(msg.findComponent(THEME_MAP[t]).exists()).toBe(true);
         expect(wrapper).toMatchSnapshot();
       });
     });
@@ -52,9 +52,9 @@ describe('Message', () => {
           return <Message closeBtn={true}></Message>;
         },
       });
-      const msg = wrapper.find(Message);
-      expect(msg.contains('.t-message-close')).toBe(true);
-      expect(msg.contains(TIconClose)).toBe(true);
+      const msg = wrapper.findComponent(Message);
+      expect(msg.find('.t-message-close').exists()).toBe(true);
+      expect(msg.findComponent(TIconClose).exists()).toBe(true);
       expect(wrapper).toMatchSnapshot();
     });
 
@@ -64,9 +64,9 @@ describe('Message', () => {
           return <Message closeBtn='关闭'></Message>;
         },
       });
-      const msg = wrapper.find(Message);
+      const msg = wrapper.findComponent(Message);
       const close = msg.find('.t-message-close');
-      expect(close.isEmpty()).toBe(false);
+      expect(close.exists()).toBe(true);
       expect(close.text()).toBe('关闭');
       expect(wrapper).toMatchSnapshot();
     });
@@ -81,9 +81,9 @@ describe('Message', () => {
           );
         },
       });
-      const msg = wrapper.find(Message);
+      const msg = wrapper.findComponent(Message);
       const close = msg.find('.t-message-close-content');
-      expect(close.isEmpty()).toBe(false);
+      expect(close.exists()).toBe(true);
       expect(close.html()).toBe('<b class="t-message-close-content">x</b>');
       expect(wrapper).toMatchSnapshot();
     });
@@ -94,8 +94,8 @@ describe('Message', () => {
           return <Message icon={false} ></Message>;
         },
       });
-      const msg = wrapper.find(Message);
-      expect(msg.contains('.t-icon')).toBe(false);
+      const msg = wrapper.findComponent(Message);
+      expect(msg.find('.t-icon').exists()).toBe(false);
       expect(wrapper).toMatchSnapshot();
     });
 
@@ -109,7 +109,7 @@ describe('Message', () => {
           );
         },
       });
-      expect(wrapper.contains(TIconMore)).toBe(true);
+      expect(wrapper.findComponent(TIconMore).exists()).toBe(true);
       expect(wrapper).toMatchSnapshot();
     });
 
@@ -146,7 +146,7 @@ describe('Message', () => {
           return <Message closeBtn={true}></Message>;
         },
       });
-      const msg = wrapper.find(Message);
+      const msg = wrapper.findComponent(Message);
       await msg.find('.t-icon-close').trigger('click');
       expect(msg.emitted()['click-close-btn']).toBeTruthy();
     });
@@ -157,10 +157,10 @@ describe('Message', () => {
           return <Message duration={3000}></Message>;
         },
       });
-      const msg = wrapper.find(Message);
+      const msg = wrapper.findComponent(Message);
       expect(msg.emitted()['duration-end']).toBeFalsy();
       const timer = setTimeout(() => {
-        const msg = wrapper.find(Message);
+        const msg = wrapper.findComponent(Message);
         expect(msg.emitted()['duration-end']).toBeTruthy();
         done();
         clearTimeout(timer);
@@ -184,8 +184,8 @@ describe('Message', () => {
           );
         },
       });
-      expect(wrapper.contains(Button)).toBe(true);
-      expect(wrapper.contains('.custom-message')).toBe(true);
+      expect(wrapper.findComponent(Button).exists()).toBe(true);
+      expect(wrapper.find('.custom-message').exists()).toBe(true);
     });
 
     it('<icon>', () => {
@@ -202,7 +202,7 @@ describe('Message', () => {
           );
         },
       });
-      expect(wrapper.contains(TIconMore)).toBe(true);
+      expect(wrapper.findComponent(TIconMore).exists()).toBe(true);
       expect(wrapper).toMatchSnapshot();
     });
 
@@ -220,7 +220,7 @@ describe('Message', () => {
           );
         },
       });
-      expect(wrapper.contains('.custome-close-btn')).toBe(true);
+      expect(wrapper.find('.custome-close-btn').exists()).toBe(true);
     });
   });
 });

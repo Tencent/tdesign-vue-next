@@ -477,6 +477,10 @@ exports[`Table base demo works fine 1`] = `
             class="t-popup-reference"
             style="width: 100%; position: relative;"
           >
+            <transition-stub
+              appear="true"
+              name="t-popup_animation"
+            />
              
             <div
               class="t-select t-size-m"

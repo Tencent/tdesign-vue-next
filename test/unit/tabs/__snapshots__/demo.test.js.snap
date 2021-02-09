@@ -1,46 +1,78 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs ban demo works fine 1`] = `
-<!--function (el) {
-      var obj;
-
-      var args = [], len = arguments.length - 1;
-      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
-      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
-        return originalCreateElement.apply(void 0, [ el ].concat( args ))
-      }
-
-      if (isConstructor(el) || isComponentOptions(el)) {
-        if (stubAllComponents) {
-          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
-          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
-        }
-        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
-
-        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
-      }
-
-      if (typeof el === 'string') {
-        var original = resolveComponent(el, originalComponents);
-
-        if (!original) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        if (isDynamicComponent(original)) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
-
-        if (stub$1) {
-          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
-          modifiedComponents.add(el);
-        }
-      }
-
-      return originalCreateElement.apply(void 0, [ el ].concat( args ))
-    }-->
+<div
+  class="t-demo-tabs"
+>
+  <div
+    class="t-demo-tabs__desc"
+  >
+    <p>
+      目前支持常规，卡片两种类型选项卡
+    </p>
+     
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      切换到卡片型选项卡
+    </button>
+  </div>
+   
+  <div
+    class="t-tabs"
+  >
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        <!---->
+         
+        <div
+          class="t-tabs__nav-container t-is-top"
+        >
+          <!---->
+           
+          <!---->
+           
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap"
+              style="transform: translateX(0px);"
+            >
+              <div
+                class="t-tabs__bar t-is-top"
+              />
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      <div
+        class="t-tab-panel"
+        name="first"
+      >
+        <p
+          style="padding: 25px;"
+        >
+          normal选项卡1内容
+        </p>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Tabs base demo works fine 1`] = `
@@ -110,216 +142,488 @@ exports[`Tabs base demo works fine 1`] = `
 `;
 
 exports[`Tabs combination demo works fine 1`] = `
-<!--function (el) {
-      var obj;
-
-      var args = [], len = arguments.length - 1;
-      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
-      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
-        return originalCreateElement.apply(void 0, [ el ].concat( args ))
-      }
-
-      if (isConstructor(el) || isComponentOptions(el)) {
-        if (stubAllComponents) {
-          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
-          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
-        }
-        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
-
-        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
-      }
-
-      if (typeof el === 'string') {
-        var original = resolveComponent(el, originalComponents);
-
-        if (!original) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        if (isDynamicComponent(original)) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
-
-        if (stub$1) {
-          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
-          modifiedComponents.add(el);
-        }
-      }
-
-      return originalCreateElement.apply(void 0, [ el ].concat( args ))
-    }-->
+<div
+  class="t-demo-tabs"
+>
+  <div
+    class="t-demo-tabs__desc"
+  >
+    <p>
+      目前支持常规，卡片两种类型选项卡
+    </p>
+     
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      切换到卡片型选项卡
+    </button>
+  </div>
+   
+  <div
+    class="t-tabs"
+  >
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        <!---->
+         
+        <div
+          class="t-tabs__nav-container t-is-top"
+        >
+          <!---->
+           
+          <!---->
+           
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap"
+              style="transform: translateX(0px);"
+            >
+              <div
+                class="t-tabs__bar t-is-top"
+              />
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      <div
+        class="t-tab-panel"
+        name="1"
+      >
+        <p
+          style="padding: 25px;"
+        >
+          选项卡1
+        </p>
+      </div>
+       
+      <!---->
+       
+      <!---->
+       
+      <!---->
+       
+      <!---->
+       
+      <!---->
+       
+      <!---->
+       
+      <!---->
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Tabs custom demo works fine 1`] = `
-<!--function (el) {
-      var obj;
-
-      var args = [], len = arguments.length - 1;
-      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
-      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
-        return originalCreateElement.apply(void 0, [ el ].concat( args ))
-      }
-
-      if (isConstructor(el) || isComponentOptions(el)) {
-        if (stubAllComponents) {
-          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
-          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
-        }
-        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
-
-        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
-      }
-
-      if (typeof el === 'string') {
-        var original = resolveComponent(el, originalComponents);
-
-        if (!original) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        if (isDynamicComponent(original)) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
-
-        if (stub$1) {
-          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
-          modifiedComponents.add(el);
-        }
-      }
-
-      return originalCreateElement.apply(void 0, [ el ].concat( args ))
-    }-->
+<div
+  class="t-demo-tabs"
+>
+  <div
+    class="t-demo-tabs__desc"
+  >
+    <p>
+      可以动态增加选项卡，仅支持卡片型
+    </p>
+  </div>
+   
+  <div
+    class="t-tabs"
+  >
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        <span
+          class="t-tabs__add-btn t-size-m"
+        >
+          <svg
+            class="t-icon t-icon-add"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="t-tabs__nav-container t-tabs__nav--card t-is-top t-is-addable"
+        >
+          <!---->
+           
+          <!---->
+           
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap"
+              style="transform: translateX(0px);"
+            >
+              <!---->
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      <div
+        class="t-tab-panel"
+        name="first"
+      >
+        <p
+          style="padding: 25px;"
+        >
+          原有选项卡内容
+        </p>
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Tabs operation demo works fine 1`] = `
-<!--function (el) {
-      var obj;
-
-      var args = [], len = arguments.length - 1;
-      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
-      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
-        return originalCreateElement.apply(void 0, [ el ].concat( args ))
-      }
-
-      if (isConstructor(el) || isComponentOptions(el)) {
-        if (stubAllComponents) {
-          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
-          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
-        }
-        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
-
-        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
-      }
-
-      if (typeof el === 'string') {
-        var original = resolveComponent(el, originalComponents);
-
-        if (!original) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        if (isDynamicComponent(original)) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
-
-        if (stub$1) {
-          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
-          modifiedComponents.add(el);
-        }
-      }
-
-      return originalCreateElement.apply(void 0, [ el ].concat( args ))
-    }-->
+<div
+  class="t-demo-tabs"
+>
+  <div
+    class="t-demo-tabs__desc"
+  >
+    <p>
+      可以动态增加选项卡，仅支持卡片型
+    </p>
+  </div>
+   
+  <div
+    class="t-tabs"
+  >
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        <span
+          class="t-tabs__add-btn t-size-m"
+        >
+          <svg
+            class="t-icon t-icon-add"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+         
+        <div
+          class="t-tabs__nav-container t-tabs__nav--card t-is-top t-is-addable"
+        >
+          <!---->
+           
+          <!---->
+           
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap"
+              style="transform: translateX(0px);"
+            >
+              <!---->
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      <div
+        class="t-tab-panel"
+        name="first"
+      >
+        <p
+          style="padding: 25px;"
+        >
+          原有选项卡内容
+        </p>
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Tabs position demo works fine 1`] = `
-<!--function (el) {
-      var obj;
-
-      var args = [], len = arguments.length - 1;
-      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
-      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
-        return originalCreateElement.apply(void 0, [ el ].concat( args ))
-      }
-
-      if (isConstructor(el) || isComponentOptions(el)) {
-        if (stubAllComponents) {
-          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
-          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
-        }
-        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
-
-        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
-      }
-
-      if (typeof el === 'string') {
-        var original = resolveComponent(el, originalComponents);
-
-        if (!original) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        if (isDynamicComponent(original)) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
-
-        if (stub$1) {
-          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
-          modifiedComponents.add(el);
-        }
-      }
-
-      return originalCreateElement.apply(void 0, [ el ].concat( args ))
-    }-->
+<div
+  class="t-demo-tabs"
+>
+  <div
+    class="t-demo-tabs__desc"
+  >
+    <p>
+      目前支持上下左右四个方向，但仅支持常规型选项卡
+    </p>
+     
+    <button
+      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      
+      top
+    
+    </button>
+     
+    <button
+      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      
+      right
+    
+    </button>
+     
+    <button
+      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      
+      bottom
+    
+    </button>
+     
+    <button
+      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      
+      left
+    
+    </button>
+  </div>
+   
+  <div
+    class="t-tabs"
+  >
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        <!---->
+         
+        <div
+          class="t-tabs__nav-container t-is-top"
+        >
+          <!---->
+           
+          <!---->
+           
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap"
+              style="transform: translateX(0px);"
+            >
+              <div
+                class="t-tabs__bar t-is-top"
+              />
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      <div
+        class="t-tab-panel"
+        name="first"
+      >
+        <p
+          style="padding: 25px;"
+        >
+          选项卡1
+        </p>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Tabs size demo works fine 1`] = `
-<!--function (el) {
-      var obj;
-
-      var args = [], len = arguments.length - 1;
-      while ( len-- &gt; 0 ) args[ len ] = arguments[ len + 1 ];
-      if (shouldNotBeStubbed(el, stubs, modifiedComponents)) {
-        return originalCreateElement.apply(void 0, [ el ].concat( args ))
-      }
-
-      if (isConstructor(el) || isComponentOptions(el)) {
-        if (stubAllComponents) {
-          var stub = createStubFromComponent(el, el.name || 'anonymous', _Vue);
-          return originalCreateElement.apply(void 0, [ stub ].concat( args ))
-        }
-        var Constructor = shouldExtend(el, _Vue) ? extend(el, _Vue) : el;
-
-        return originalCreateElement.apply(void 0, [ Constructor ].concat( args ))
-      }
-
-      if (typeof el === 'string') {
-        var original = resolveComponent(el, originalComponents);
-
-        if (!original) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        if (isDynamicComponent(original)) {
-          return originalCreateElement.apply(void 0, [ el ].concat( args ))
-        }
-
-        var stub$1 = createStubIfNeeded(stubAllComponents, original, _Vue, el);
-
-        if (stub$1) {
-          Object.assign(vm.$options.components, ( obj = {}, obj[el] = stub$1, obj));
-          modifiedComponents.add(el);
-        }
-      }
-
-      return originalCreateElement.apply(void 0, [ el ].concat( args ))
-    }-->
+<div
+  class="t-demo-tabs"
+>
+  <div
+    class="t-demo-tabs__desc"
+  >
+    <p>
+      目前支持medium，large两种类型选项卡
+    </p>
+     
+    <button
+      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      
+      medium
+    
+    </button>
+     
+    <button
+      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      
+      large
+    
+    </button>
+  </div>
+   
+  <div
+    class="t-tabs"
+  >
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        <!---->
+         
+        <div
+          class="t-tabs__nav-container t-is-top"
+        >
+          <!---->
+           
+          <!---->
+           
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap"
+              style="transform: translateX(0px);"
+            >
+              <div
+                class="t-tabs__bar t-is-top"
+              />
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      <div
+        class="t-tab-panel"
+        name="first"
+      >
+        <p
+          style="padding: 25px;"
+        >
+          选项卡1
+        </p>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
+  <br />
+   
+  <div
+    class="t-tabs"
+  >
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        <!---->
+         
+        <div
+          class="t-tabs__nav-container t-tabs__nav--card t-is-top"
+        >
+          <!---->
+           
+          <!---->
+           
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap"
+              style="transform: translateX(0px);"
+            >
+              <!---->
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      <div
+        class="t-tab-panel"
+        name="first"
+      >
+        <p
+          style="padding: 25px;"
+        >
+          选项卡1
+        </p>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
 `;

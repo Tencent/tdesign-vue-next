@@ -11,7 +11,7 @@ describe('Tabs', () => {
           return <Tabs />;
         },
       });
-      expect(wrapper.isEmpty()).toBe(false);
+      expect(wrapper.exists()).toBe(true);
     });
     it(':theme', () => {
       const wrapper = mount({
@@ -63,7 +63,7 @@ describe('Tabs', () => {
           return <Tabs theme={'card'} addable={true} />;
         },
       });
-      const tabs = wrapper.find(Tabs);
+      const tabs = wrapper.findComponent(Tabs);
       await tabs.find('.t-tabs__add-btn').trigger('click');
       expect(tabs.emitted().add).toBeTruthy();
     });

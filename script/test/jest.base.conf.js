@@ -41,7 +41,7 @@ module.exports = {
   setupFiles: ['<rootDir>/script/test/setup'],
   globals: {
     'ts-jest': {
-      tsConfig: '<rootDir>/tsconfig.json',
+      tsconfig: '<rootDir>/tsconfig.json',
       babelConfig: true,
     },
   },

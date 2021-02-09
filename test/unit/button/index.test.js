@@ -94,7 +94,7 @@ describe('Button', () => {
           return <Button onClick={fn}>text</Button>;
         },
       });
-      wrapper.find(Button).trigger('click');
+      wrapper.findComponent(Button).trigger('click');
       expect(fn).toHaveBeenCalled();;
     });
   });

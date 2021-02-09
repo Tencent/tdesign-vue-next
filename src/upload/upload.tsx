@@ -19,7 +19,6 @@ export default Vue.extend({
     accept: String,
     action: {
       type: [String],
-      required: true,
     },
     method: {
       type: String,
