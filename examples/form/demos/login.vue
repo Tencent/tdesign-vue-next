@@ -9,7 +9,7 @@
       labelWidth="0"
     >
       <t-form-item name='account'>
-        <t-input type="account" clearable v-model="formData.account" placeholder="请输入账户名">
+        <t-input clearable v-model="formData.account" placeholder="请输入账户名">
           <t-icon-desktop slot="prefix-icon"></t-icon-desktop>
         </t-input>
       </t-form-item>

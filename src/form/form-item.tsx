@@ -7,6 +7,8 @@ import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
 import Form from './form';
 import { NormalizedScopedSlot } from 'vue/types/vnode';
 import cloneDeep from 'lodash/cloneDeep';
+import lodashGet from 'lodash/get';
+import lodashSet from 'lodash/set';
 
 type Result = ValidateResult<TdFormProps['data']>;
 
@@ -32,7 +34,7 @@ export default Vue.extend({
       verifyStatus: VALIDATE_STATUS.TO_BE_VALIDATED as VALIDATE_STATUS,
       resetValidating: false as boolean,
       needResetField: false as boolean,
-      initialValue: undefined as any,
+      initialValue: undefined as ValueType,
     };
   },
 
@@ -83,7 +85,7 @@ export default Vue.extend({
     },
     value(): ValueType {
       const parent = this.$parent as FormInstance;
-      return parent && parent.data && parent.data[this.name];
+      return parent && parent.data && lodashGet(parent.data, this.name);
     },
     hasColon(): boolean {
       const parent = this.$parent as FormInstance;
@@ -207,10 +209,10 @@ export default Vue.extend({
       resultIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
       if (resultIcon) return resultIcon;
     },
-    getEmptyValue(): any {
+    getEmptyValue(): ValueType {
       const parent = this.$parent as FormInstance;
-      const type = Object.prototype.toString.call(parent.data[this.name]);
-      let emptyValue: any = undefined;
+      const type = Object.prototype.toString.call(lodashGet(parent.data, this.name));
+      let emptyValue: ValueType = undefined;
       if (type === '[object Array]') {
         emptyValue = [];
       }
@@ -225,10 +227,10 @@ export default Vue.extend({
         return;
       }
       if (parent.resetType === 'empty') {
-        parent.data[this.name] = this.getEmptyValue();
+        lodashSet(parent.data, this.name, this.getEmptyValue());
       }
       if (parent.resetType === 'initial') {
-        parent.data[this.name] = cloneDeep(this.initialValue);
+        lodashSet(parent.data, this.name, this.initialValue);
       }
       Vue.nextTick(() => {
         if (this.resetValidating) {

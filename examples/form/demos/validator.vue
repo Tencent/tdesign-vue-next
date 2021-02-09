@@ -32,8 +32,8 @@
       <t-form-item label="入学时间" name='date' :rules="[{ date: { delimiters: ['/', '-', '.'] }, message: '日期格式有误' }]">
         <t-input v-model="formData.date"></t-input>
       </t-form-item>
-      <t-form-item label="个人网站" name='url'>
-        <t-input v-model="formData.url"></t-input>
+      <t-form-item label="个人网站" name='content.url'>
+        <t-input v-model="formData.content.url"></t-input>
       </t-form-item>
       <t-form-item>
         <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
@@ -50,7 +50,9 @@ const INITIAL_DATA = {
   email: '',
   gender: '',
   date: '',
-  url: '',
+  content: {
+    url: '',
+  },
   course: [],
 };
 export default {
@@ -80,7 +82,8 @@ export default {
         course: [
           { required: true, message: '课程必填', type: 'warning' },
         ],
-        url: [
+        'content.url': [
+          { required: true, message: '个人网站必填', type: 'warning' },
           {
             url: {
               protocols: ['http', 'https', 'ftp'],
