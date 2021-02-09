@@ -1,3 +1,6 @@
+import lowerCase from 'lodash/lowerCase';
+import upperFirst from 'lodash/upperFirst';
+
 export function omit(obj: object, fields: string[]): object {
   const shallowCopy = {
     ...obj,
@@ -56,8 +59,7 @@ export function getBackgroundColor(color: string | string[] | LinearGradient): s
   return `linear-gradient(${direction}, ${from}, ${to})`;
 }
 
-// 根据事件名获取相应的事件处理属性名（依赖命名规范），例如： click-confirm => onClickConfirm
-export function getHandleNameByEventName(name: string): string {
-  return  `on${name.split('-').map((item: string) => item.replace(/^[a-z]/g, (char: string) => char.toUpperCase()))
-    .join('')}`;
+// keyboard-event => onKeyboardEvent
+export function getPropsApiByEvent(eventName: string) {
+  return `on${upperFirst(lowerCase(eventName))}`;
 }

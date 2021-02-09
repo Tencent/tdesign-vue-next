@@ -4,7 +4,7 @@ import TIconClose from '../icon/close';
 import TButton, { ButtonProps } from '../button';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
-import { getHandleNameByEventName } from '../utils/helper';
+import { getPropsApiByEvent } from '../utils/helper';
 import { getAttach } from '../utils/dom';
 import { CloseContext } from '@TdTypes/dialog/TdDialogProps';
 import props from '@TdTypes/dialog/props';
@@ -188,7 +188,7 @@ export default Vue.extend({
 
     emitEvent(name: string, event?: Event) {
       this.$emit(name, event);
-      const handleName = getHandleNameByEventName(name);
+      const handleName = getPropsApiByEvent(name);
       typeof this[handleName] === 'function' && this[handleName](event);
     },
 

@@ -1,7 +1,6 @@
 <template>
   <div class="tdesign-demo-item--input__input-box">
-    <t-input type="textarea" placeholder="请输入内容" />
-    <t-input type="textarea" placeholder="请输入内容" />
+    <t-input type="textarea" placeholder="文本域输入框建设中" />
   </div>
 </template>
 

@@ -1,8 +1,10 @@
 import Vue, { VueConstructor, CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import { omit } from '../utils/helper';
+import { omit, getPropsApiByEvent } from '../utils/helper';
 import ClearIcon from '../icon/clear-circle-filled';
+import props from '../../types/input/props';
+import isFunction from 'lodash/isFunction';
 
 const name = `${prefix}-input`;
 
@@ -23,32 +25,7 @@ interface InputInstance extends Vue {
 export default (Vue as VueConstructor<InputInstance>).extend({
   name,
   inheritAttrs: false,
-  props: {
-    value: {
-      type: [String, Number],
-      default: '',
-    },
-    defaultValue: [String, Number],
-    prefixIcon: [String, Function],
-    suffixIcon: [String, Function],
-    size: {
-      type: String,
-      default: 'medium',
-      validator(v: string): boolean {
-        return ['large', 'medium', 'small'].indexOf(v) > -1;
-      },
-    },
-    disabled: Boolean,
-    readonly: Boolean,
-    clearable: Boolean,
-    autocomplete: Boolean,
-    status: {
-      type: String,
-      validator(v: string): boolean {
-        return ['default', 'success', 'warning', 'error'].indexOf(v) > -1;
-      },
-    },
-  },
+  props: { ...props },
   data() {
     return {
       focused: false,
@@ -58,47 +35,47 @@ export default (Vue as VueConstructor<InputInstance>).extend({
     showClear(): boolean {
       return this.value && !this.disabled && this.clearable;
     },
+    inputAttrs(): Record<string, any> {
+      return getValidAttrs({
+        disabled: this.disabled,
+        readonly: this.readonly,
+        autocomplete: this.autocomplete,
+        placeholder: this.placeholder || undefined,
+        maxlength: this.maxlength,
+        name: this.name || undefined,
+        type: this.type,
+      });
+    },
   },
   created() {
     this.composing = false;
   },
   render(h: CreateElement): VNode {
-    const inputAttrs = getValidAttrs({
-      disabled: this.disabled,
-      readonly: this.readonly,
-      autocomplete: this.autocomplete,
-      placeholder: this.$attrs.placeholder,
-      maxlength: this.$attrs.maxlength,
-      name: this.$attrs.name,
-      type: this.$attrs.type || 'text',
-    });
-
     const inputEvents = getValidAttrs({
-      change: this.$listeners.change,
-      focus: this.onFocus,
-      blur: this.onBlur,
-      keydown: this.onKeyDown,
-      keyup: this.$listeners.keyup,
-      keypresss: this.$listeners.keypresss,
+      focus: this.emitFocus,
+      blur: this.emitBlur,
+      keydown: this.handleKeydonw,
+      keyup: this.handleKeyUp,
+      keypresss: this.handleKeypress,
     });
 
-    const wrapperAttrs = omit(this.$attrs, Object.keys(inputAttrs));
+    const wrapperAttrs = omit(this.$attrs, Object.keys(this.inputAttrs));
     const wrapperEvents = omit(this.$listeners, [...Object.keys(inputEvents), 'input']);
 
     const prefixIcon = this.renderIcon(h, this.prefixIcon, 'prefix-icon');
     let suffixIcon = this.renderIcon(h, this.suffixIcon, 'suffix-icon');
 
     if (this.showClear) {
-      suffixIcon = <ClearIcon class={`${name}__suffix-clear`} nativeOnClick={this.onClear} />;
+      suffixIcon = <ClearIcon class={`${name}__suffix-clear`} nativeOnClick={this.emitClear} />;
     }
 
     const classes = [
       name,
       CLASSNAMES.SIZE[this.size] || '',
-      CLASSNAMES.STATUS[this.status] || '',
       {
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
+        [`${prefix}-is-${this.status}`]: this.status,
         [`${name}--prefix`]: prefixIcon,
         [`${name}--suffix`]: suffixIcon,
       },
@@ -107,13 +84,13 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       <div class={classes} {...{ attrs: wrapperAttrs, on: wrapperEvents }}>
         {prefixIcon ? <span class={`${name}__prefix`}>{prefixIcon}</span> : null}
         <input
-          {...{ attrs: inputAttrs, on: inputEvents }}
+          {...{ attrs: this.inputAttrs, on: inputEvents }}
           ref="refInputElem"
           value={this.value}
           class={`${name}__inner`}
           onInput={this.onInput}
         />
-        {suffixIcon ? <span class={`${name}__suffix`}>{suffixIcon}</span> : null}
+        {suffixIcon ? <span class={[`${name}__suffix`, { [`${name}__clear`]: this.showClear }]}>{suffixIcon}</span> : null}
       </div>
     );
   },
@@ -149,40 +126,53 @@ export default (Vue as VueConstructor<InputInstance>).extend({
       const input = this.$refs.refInputElem as HTMLInputElement;
       input?.blur();
     },
-    onInput(e: Event): void {
+    onInput(e: InputEvent): void {
       if (this.composing) return;
-      /**
-       * input 回调
-       *
-       * @param {String} value 输入值
-       */
       const { target } = e;
-      this.$emit('input', (target as HTMLInputElement).value);
+      const val = (target as HTMLInputElement).value;
+      this.$emit('change', val, { e: InputEvent });
+      this.$emit('input', val);
+      isFunction(this.onChange) && this.onChange(val, { e: InputEvent });
       // 受控
       this.$nextTick(() => this.setInputValue(this.value));
     },
-    onKeyDown(e: KeyboardEvent) {
+    emitEvent(name: string, e: FocusEvent | KeyboardEvent | InputEvent) {
+      this.$emit(name, this.value, { e });
+      const eventPropsName = getPropsApiByEvent(name);
+      isFunction(this[eventPropsName]) && this[eventPropsName]();
+    },
+    handleKeydonw(e: KeyboardEvent) {
       if (this.disabled) return;
-
-      const { keyCode } = e;
-      if (keyCode === 13) {
-        this.$emit('keydown-enter', e);
+      const { code } = e;
+      if (code === 'Enter') {
+        this.emitEvent('keydown-enter', e);
+      } else {
+        this.emitEvent('keydown', e);
       }
-      this.$emit('keydown', e);
     },
-    onClear() {
-      this.$emit('clear');
-      this.$emit('input', '');
-    },
-    onFocus(e: Event) {
+    handleKeyUp(e: KeyboardEvent) {
       if (this.disabled) return;
-
-      this.focused = true;
-      this.$emit('focus', e);
+      this.emitEvent('keyup', e);
     },
-    onBlur(e: Event) {
+    handleKeypress(e: KeyboardEvent) {
+      if (this.disabled) return;
+      this.emitEvent('keypress', e);
+    },
+    emitClear(e: MouseEvent) {
+      this.$emit('clear', { e });
+      isFunction(this.onClear) && this.onClear({ e });
+      this.$emit('change', '', { e: MouseEvent });
+      this.$emit('input', '');
+      isFunction(this.onChange) && this.onChange('', { e: MouseEvent });
+    },
+    emitFocus(e: FocusEvent) {
+      if (this.disabled) return;
+      this.focused = true;
+      this.emitEvent('focus', e);
+    },
+    emitBlur(e: FocusEvent) {
       this.focused = false;
-      this.$emit('blur', e);
+      this.emitEvent('blur', e);
     },
   },
 });

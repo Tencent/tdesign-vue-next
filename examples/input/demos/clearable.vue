@@ -13,7 +13,7 @@
 export default {
   data() {
     return {
-      value: 'hello',
+      value: 'Hello TDesign',
     };
   },
   methods: {
