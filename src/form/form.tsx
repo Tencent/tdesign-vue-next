@@ -78,10 +78,10 @@ export default Vue.extend({
       });
     },
     resetHandler(e: MouseEvent) {
-      this.emitEvent('reset', { e });
       this.$children
         .filter((child: any) => this.isFunction(child.resetField))
         .map((child: any) => child.resetField());
+      this.emitEvent('reset', { e });
     },
   },
 

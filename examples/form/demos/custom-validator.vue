@@ -53,7 +53,7 @@ export default {
 
   methods: {
     onReset() {
-      this.formData = { ...INITIAL_DATA };
+      this.$message.success('重置成功');
     },
     onSubmit({ result, firstError, e }) {
       e.preventDefault();

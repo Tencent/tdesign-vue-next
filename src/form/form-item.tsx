@@ -1,11 +1,12 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import { validate } from './form-model';
-import { ErrorList, ValidateResult, ValueType, TdFormProps, TdFormItemProps } from '@TdTypes/form/TdFormProps';
+import { ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType } from '@TdTypes/form/TdFormProps';
 import props from '@TdTypes/form-item/props';
-import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
+import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
 import Form from './form';
 import { NormalizedScopedSlot } from 'vue/types/vnode';
+import cloneDeep from 'lodash/cloneDeep';
 
 type Result = ValidateResult<TdFormProps['data']>;
 
@@ -29,6 +30,9 @@ export default Vue.extend({
       errorList: [] as ErrorList,
       // 当前校验状态 未校验、校验通过、校验不通过
       verifyStatus: VALIDATE_STATUS.TO_BE_VALIDATED as VALIDATE_STATUS,
+      resetValidating: false as boolean,
+      needResetField: false as boolean,
+      initialValue: undefined as any,
     };
   },
 
@@ -104,8 +108,13 @@ export default Vue.extend({
     },
   },
 
+  mounted() {
+    this.initialValue = cloneDeep(this.value);
+  },
+
   methods: {
     validate(): Promise<Result> {
+      this.resetValidating = true;
       return new Promise((resolve) => {
         validate(this.value, this.innerRules)
           .then((r) => {
@@ -114,6 +123,10 @@ export default Vue.extend({
             resolve({
               [this.name]: r.length === 0 ? true : r,
             });
+            if (this.needResetField) {
+              this.resetHandler();
+            }
+            this.resetValidating = false;
           });
       });
     },
@@ -194,7 +207,39 @@ export default Vue.extend({
       resultIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
       if (resultIcon) return resultIcon;
     },
+    getEmptyValue(): any {
+      const parent = this.$parent as FormInstance;
+      const type = Object.prototype.toString.call(parent.data[this.name]);
+      let emptyValue: any = undefined;
+      if (type === '[object Array]') {
+        emptyValue = [];
+      }
+      if (type === '[object Object]') {
+        emptyValue = {};
+      }
+      return emptyValue;
+    },
     resetField(): void {
+      const parent = this.$parent as FormInstance;
+      if (!this.name) {
+        return;
+      }
+      if (parent.resetType === 'empty') {
+        parent.data[this.name] = this.getEmptyValue();
+      }
+      if (parent.resetType === 'initial') {
+        parent.data[this.name] = cloneDeep(this.initialValue);
+      }
+      Vue.nextTick(() => {
+        if (this.resetValidating) {
+          this.needResetField = true;
+        } else {
+          this.resetHandler();
+        }
+      });
+    },
+    resetHandler(): void {
+      this.needResetField = false;
       this.errorList = [];
       this.verifyStatus = VALIDATE_STATUS.TO_BE_VALIDATED;
     },
