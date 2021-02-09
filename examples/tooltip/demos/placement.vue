@@ -7,7 +7,7 @@
       :overlayStyle="{ width: '200px' }"
       showArrow
     >
-      <t-button>top</t-button>
+      <t-button variant="outline">top</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-top-left"
@@ -16,7 +16,7 @@
       :overlayStyle="{ width: '200px' }"
       showArrow
     >
-      <t-button>top-left</t-button>
+      <t-button variant="outline">top-left</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-top-right"
@@ -25,7 +25,7 @@
       placement="top-right"
       showArrow
     >
-      <t-button>top-right</t-button>
+      <t-button variant="outline">top-right</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-bottom"
@@ -34,7 +34,7 @@
       placement="bottom"
       showArrow
     >
-      <t-button>bottom</t-button>
+      <t-button variant="outline">bottom</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-bottom-left"
@@ -43,7 +43,7 @@
       :overlayStyle="{ width: '200px' }"
       showArrow
     >
-      <t-button>bottom-left</t-button>
+      <t-button variant="outline">bottom-left</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-bottom-right"
@@ -52,7 +52,7 @@
       placement="bottom-right"
       showArrow
     >
-      <t-button>bottom-right</t-button>
+      <t-button variant="outline">bottom-right</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-left"
@@ -61,7 +61,7 @@
       placement="left"
       showArrow
     >
-      <t-button>left</t-button>
+      <t-button variant="outline">left</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-left-top"
@@ -70,7 +70,7 @@
       placement="left-top"
       showArrow
     >
-      <t-button>left-top</t-button>
+      <t-button variant="outline">left-top</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-left-bottom"
@@ -79,7 +79,7 @@
       placement="left-bottom"
       showArrow
     >
-      <t-button>left-bottom</t-button>
+      <t-button variant="outline">left-bottom</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-right"
@@ -88,7 +88,7 @@
       placement="right"
       showArrow
     >
-      <t-button>right</t-button>
+      <t-button variant="outline">right</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-right-top"
@@ -97,7 +97,7 @@
       placement="right-top"
       showArrow
     >
-      <t-button>right-top</t-button>
+      <t-button variant="outline">right-top</t-button>
     </t-tooltip>
     <t-tooltip
       class="placement-right-bottom"
@@ -106,7 +106,7 @@
       placement="right-bottom"
       showArrow
     >
-      <t-button>right-bottom</t-button>
+      <t-button variant="outline">right-bottom</t-button>
     </t-tooltip>
   </div>
 </template>

@@ -1,10 +1,9 @@
 <template>
   <div>
     <div class="tdesign-demo-block">
-      <t-button variant="base">主要按钮</t-button>
+      <t-button>默认按钮</t-button>
       <t-button variant="outline">次要按钮</t-button>
       <t-button variant="dashed">虚框按钮</t-button>
-      <t-button variant="text">文字按钮</t-button>
     </div>
     <div class="tdesign-demo-block">
       <t-button theme="primary" variant="base">主要按钮</t-button>
