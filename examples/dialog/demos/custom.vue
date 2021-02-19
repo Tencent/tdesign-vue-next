@@ -1,16 +1,17 @@
 <template>
   <div>
     <p>底部按钮有两个控制属性：confirmBtn 和 cancelBtn。属性类型有多种：string | ButtonProps | TNode。</p><br>
-    <t-button theme="primary" @click="()=>this.visible1 = true">自定义底部按钮（文字）</t-button>
-    <t-button theme="primary" @click="()=>this.visible2 = true">自定义底部按钮（任何按钮属性）</t-button>
-    <t-button theme="primary" @click="()=>this.visible3 = true">自定义底部按钮（自定义组件）</t-button>
+    <t-button theme="primary" @click="visible1 = true">自定义底部按钮（文字）</t-button>
+    <t-button theme="primary" @click="visible2 = true">自定义底部按钮（任何按钮属性）</t-button>
+    <t-button theme="primary" @click="visible3 = true">自定义底部按钮（自定义组件）</t-button>
 
     <t-dialog
-      :visible="visible1"
+      :visible.sync="visible1"
       header="提示"
       body="自定义底部按钮，直接传入文字"
       confirmBtn="前往支付"
       cancelBtn="关闭"
+      :onClickConfirm="onConfirm"
       :onClose="close1"
     >
     </t-dialog>
@@ -66,6 +67,10 @@ export default {
     },
     close3() {
       this.visible3 = false;
+    },
+    onConfirm() {
+      this.visible1 = false;
+      alert('跳转支付~');
     },
   },
 };

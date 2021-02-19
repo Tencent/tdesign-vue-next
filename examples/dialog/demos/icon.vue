@@ -8,10 +8,10 @@
     <br>
     <t-dialog :visible.sync="visible4" header="操作成功" body="是否前往查看订单列表" mode="normal" theme="success" :onClickConfirm="close4" ></t-dialog>
     <br>
-    <t-button v-if="!visible1" theme="primary" @click="() => (this.visible1 = true)">theme: info</t-button>
-    <t-button v-if="!visible2" theme="primary" @click="() => (this.visible2 = true)">theme: warning</t-button>
-    <t-button v-if="!visible3" theme="primary" @click="() => (this.visible3 = true)">theme: error</t-button>
-    <t-button v-if="!visible4" theme="primary" @click="() => (this.visible4 = true)">theme: success</t-button>
+    <t-button v-if="!visible1" theme="primary" @click="visible1 = true">theme: info</t-button>
+    <t-button v-if="!visible2" theme="primary" @click="visible2 = true">theme: warning</t-button>
+    <t-button v-if="!visible3" theme="primary" @click="visible3 = true">theme: error</t-button>
+    <t-button v-if="!visible4" theme="primary" @click="visible4 = true">theme: success</t-button>
   </div>
 </template>
 <script>

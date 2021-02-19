@@ -1,8 +1,8 @@
 <template>
   <div>
-    <t-button theme="primary" @click="()=>this.visibleModelessDrag = true">非模态对话框-可拖拽</t-button>
-    <t-button theme="primary" @click="()=>this.visibleModeless = true">非模态对话框-不可拖拽</t-button>
-    <t-button theme="primary" @click="()=>this.visibleModal = true">模态对话框-不支持拖拽</t-button>
+    <t-button theme="primary" @click="visibleModelessDrag = true">非模态对话框-可拖拽</t-button>
+    <t-button theme="primary" @click="visibleModeless = true">非模态对话框-不可拖拽</t-button>
+    <t-button theme="primary" @click="visibleModal = true">模态对话框-不支持拖拽</t-button>
     <br>
 
     <t-dialog

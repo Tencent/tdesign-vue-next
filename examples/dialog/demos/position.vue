@@ -1,8 +1,8 @@
 <template>
   <div>
-    <t-button theme="primary" @click="()=>this.visible = true" >默认位置</t-button>
-    <t-button theme="primary" @click="()=>this.visibleCenter = true" >垂直居中</t-button>
-    <t-button theme="primary" @click="()=>this.visibleTop = true" >自定义top</t-button>
+    <t-button theme="primary" @click="visible = true" >默认位置</t-button>
+    <t-button theme="primary" @click="visibleCenter = true" >垂直居中</t-button>
+    <t-button theme="primary" @click="visibleTop = true" >自定义top</t-button>
     <t-dialog header="对话框标题" body="对话框内容" :visible="visible" :onClose="close1" :onClickConfirm="close1"></t-dialog>
     <t-dialog
       placement="center"

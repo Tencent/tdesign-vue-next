@@ -1,5 +1,4 @@
-import lowerCase from 'lodash/lowerCase';
-import upperFirst from 'lodash/upperFirst';
+import camelCase from 'lodash/camelCase';
 
 export function omit(obj: object, fields: string[]): object {
   const shallowCopy = {
@@ -61,5 +60,5 @@ export function getBackgroundColor(color: string | string[] | LinearGradient): s
 
 // keyboard-event => onKeyboardEvent
 export function getPropsApiByEvent(eventName: string) {
-  return `on${upperFirst(lowerCase(eventName))}`;
+  return camelCase(`on-${eventName}`);
 }

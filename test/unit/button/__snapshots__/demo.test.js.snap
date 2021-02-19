@@ -9,7 +9,7 @@ exports[`Button base demo works fine 1`] = `
       class="t-button t-size-m t-button--variant-base t-button--theme-default"
       type="button"
     >
-      主要按钮
+      默认按钮
     </button>
      
     <button
@@ -24,13 +24,6 @@ exports[`Button base demo works fine 1`] = `
       type="button"
     >
       虚框按钮
-    </button>
-     
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      type="button"
-    >
-      文字按钮
     </button>
   </div>
    

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <t-button theme="primary" @click="()=>this.visibleModal = true">模态对话框</t-button>
-    <t-button theme="primary" @click="()=>this.visibleModelessDrag = true">非模态对话框</t-button>
+    <t-button theme="primary" @click="visibleModal = true">模态对话框</t-button>
+    <t-button theme="primary" @click="visibleModelessDrag = true">非模态对话框</t-button>
 
     <t-dialog
       header="模态对话框"

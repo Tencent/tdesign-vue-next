@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-button @click="()=>this.visible = true">异步加载类按钮</t-button>
+    <t-button @click="visible = true">异步加载类按钮</t-button>
     <t-dialog
       :visible.sync="visible"
       header="保存订单"
