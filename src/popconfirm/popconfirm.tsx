@@ -112,7 +112,9 @@ export default Vue.extend({
         return this.cancelText();
       }
       return (
-        <Button size='small'
+        <Button
+          size='small'
+          variant='outline'
           onclick={this.handleCancel}
         >{this.cancelText}</Button>
       );

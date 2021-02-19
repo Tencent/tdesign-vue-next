@@ -27,7 +27,7 @@ export default {
       );
     },
     cancel() {
-      return <t-button size="small">取消</t-button>;
+      return <t-button size="small" variant="outline">取消</t-button>;
     },
   },
 };
