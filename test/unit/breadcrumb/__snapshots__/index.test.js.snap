@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Breadcrumb <slot> <separator> 1`] = `
-<div class="t-breadcrumb">
-  <div class="t-breadcrumb__item t-size-l light"><span>面包屑1</span><span class="t-breadcrumb__separator"><svg class="t-icon t-icon-chevron-right" color="rgba(0,0,0,.3)"><use xlink:href="#t-icon-chevron-right"></use></svg></span></div>
-  <div class="t-breadcrumb__item t-size-l light t-is-current"><span>面包屑2</span><span class="t-breadcrumb__separator"></span></div>
+<div class="t-breadcrumb" size="large">
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-oveflow"><span class="t-breadcrumb__inner" style="max-width: 120px;">面包屑1</span></span><span class="t-breadcrumb__separator"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-chevron-right" color="rgba(0,0,0,.3)"><path fill-opacity=".9" fill-rule="evenodd" d="M758.8081664000001 489.6127065600001C771.27697472 502.10946816 771.2543136 522.34806144 758.757552 534.8168691200001L758.757552 534.8168691200001 383.6690304000001 909.0663616 338.4141952 863.8115328 690.7689683200001 512.20006272 338.4141952 160.8056710400001 383.6690304 115.5508371200001 758.41696832 489.22406272 758.757552 489.56206336Z"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-oveflow"><span class="t-breadcrumb__inner" style="max-width: 120px;">面包屑2</span></span><span class="t-breadcrumb__separator"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-chevron-right" color="rgba(0,0,0,.3)"><path fill-opacity=".9" fill-rule="evenodd" d="M758.8081664000001 489.6127065600001C771.27697472 502.10946816 771.2543136 522.34806144 758.757552 534.8168691200001L758.757552 534.8168691200001 383.6690304000001 909.0663616 338.4141952 863.8115328 690.7689683200001 512.20006272 338.4141952 160.8056710400001 383.6690304 115.5508371200001 758.41696832 489.22406272 758.757552 489.56206336Z"></path></svg></span></div>
 </div>
 `;

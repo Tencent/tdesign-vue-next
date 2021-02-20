@@ -5,10 +5,51 @@ exports[`Breadcrumb-item base demo works fine 1`] = `
   class="t-breadcrumb"
 >
   <div
-    class="t-breadcrumb__item t-size-m light"
+    class="t-breadcrumb__item light"
   >
-    <span>
-      首页
+    <a
+      class="t-breadcrumb--text-oveflow t-link"
+      href=""
+      target="_self"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        首页
+      </span>
+    </a>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M758.8081664000001 489.6127065600001C771.27697472 502.10946816 771.2543136 522.34806144 758.757552 534.8168691200001L758.757552 534.8168691200001 383.6690304000001 909.0663616 338.4141952 863.8115328 690.7689683200001 512.20006272 338.4141952 160.8056710400001 383.6690304 115.5508371200001 758.41696832 489.22406272 758.757552 489.56206336Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+   
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <span
+      class="t-breadcrumb--text-oveflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        面包屑1
+      </span>
     </span>
     <span
       class="t-breadcrumb__separator"
@@ -16,60 +57,17 @@ exports[`Breadcrumb-item base demo works fine 1`] = `
       <svg
         class="t-icon t-icon-chevron-right"
         color="rgba(0,0,0,.3)"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <use
-          xlink:href="#t-icon-chevron-right"
+        <path
+          d="M758.8081664000001 489.6127065600001C771.27697472 502.10946816 771.2543136 522.34806144 758.757552 534.8168691200001L758.757552 534.8168691200001 383.6690304000001 909.0663616 338.4141952 863.8115328 690.7689683200001 512.20006272 338.4141952 160.8056710400001 383.6690304 115.5508371200001 758.41696832 489.22406272 758.757552 489.56206336Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
         />
       </svg>
     </span>
-  </div>
-   
-  <div
-    class="t-breadcrumb__item t-size-m light t-is-current"
-  >
-    <span>
-      面包屑1
-    </span>
-    <span
-      class="t-breadcrumb__separator"
-    />
-  </div>
-</div>
-`;
-
-exports[`Breadcrumb-item base demo works fine 2`] = `
-<div
-  class="t-breadcrumb"
->
-  <div
-    class="t-breadcrumb__item t-size-m light"
-  >
-    <span>
-      首页
-    </span>
-    <span
-      class="t-breadcrumb__separator"
-    >
-      <svg
-        class="t-icon t-icon-chevron-right"
-        color="rgba(0,0,0,.3)"
-      >
-        <use
-          xlink:href="#t-icon-chevron-right"
-        />
-      </svg>
-    </span>
-  </div>
-   
-  <div
-    class="t-breadcrumb__item t-size-m light t-is-current"
-  >
-    <span>
-      面包屑1
-    </span>
-    <span
-      class="t-breadcrumb__separator"
-    />
   </div>
 </div>
 `;

@@ -44,15 +44,6 @@ describe('Breadcrumb', () => {
       });
       expect(wrapper.exists()).toBe(true);
     });
-    // 待验证
-    it(':overlay', () => {
-      const wrapper = mount({
-        render() {
-          return <Breadcrumb separator={'/'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
-        },
-      });
-      expect(wrapper.exists()).toBe(true);
-    });
   });
   // test events
   describe('@event', () => {

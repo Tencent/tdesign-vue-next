@@ -17,4 +17,14 @@ describe('Breadcrumb', () => {
     const wrapper = mount(to);
     expect(wrapper.element).toMatchSnapshot();
   });
+  it('href demo works fine', () => {
+    const demo = require('@/examples/breadcrumb/demos/href.vue');
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+  it('options demo works fine', () => {
+    const demo = require('@/examples/breadcrumb/demos/options.vue');
+    const wrapper = mount(demo);
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

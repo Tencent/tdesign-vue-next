@@ -1,59 +1,43 @@
 import Vue from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
-import Icon from '../icon';
-
+import props from '@TdTypes/breadcrumb/props';
+import BreadcrumbItem from '../breadcrumbItem/index';
+import { TdBreadcrumbItemProps } from '@TdTypes/breadcrumb/TdBreadcrumbProps';
 const name = `${prefix}-breadcrumb`;
-const currItemClass = `${prefix}-is-current`;
-const sizeList: Array<string> = ['large', 'medium', 'small'];
-const themeList: Array<string> = ['light'];
+
 export default Vue.extend({
   name,
-
-  components: {
-    [Icon.name]: Icon,
-    RenderComponent,
-  },
-
   props: {
-    // theme is an example api, which can be deleted.
-    theme: {
-      type: String,
-      default: 'light',
-      validator(v: string): boolean {
-        return themeList.indexOf(v) > -1;
-      },
-    },
-    size: {
-      type: String,
-      default: 'medium',
-      validator(v: string): boolean {
-        return sizeList.indexOf(v) > -1;
-      },
-    },
-    separator: {
-      type: [Function, String],
-      default: '',
-    },
+    ...props,
   },
-
+  components: {
+    BreadcrumbItem,
+  },
   provide() {
     return {
       tBreadcrumb: this,
     };
   },
-  mounted() {
-    const items = this.$el.querySelectorAll('.t-breadcrumb__item');
-    if (items.length) {
-      const lastItem = items[items.length - 1];
-      lastItem.classList.add(currItemClass);
-      lastItem.querySelector('.t-breadcrumb__separator').innerHTML = '';
-    }
-  },
 
   render() {
-    const breadcrumbContent: any = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
-    return <div class="t-breadcrumb">{breadcrumbContent}</div>;
+    let content: TNodeReturnValue = this.$slots.default;
+    if (this.options && this.options.length) {
+      content = this.options.map((option: TdBreadcrumbItemProps, index: number) => (
+          <BreadcrumbItem
+            key={index}
+            maxWidth={option.maxWidth}
+            disabled={option.disabled}
+            href={option.href}
+            target={option.target}
+            to={option.to}
+            router={option.router}
+            replace={option.replace}
+          >
+            {option.default || option.content}
+          </BreadcrumbItem>
+      ));
+    }
+    return <div class="t-breadcrumb">{content}</div>;
   },
 
 });
