@@ -1,66 +1,59 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
 import Add from '../icon/add';
 import Remove from '../icon/remove';
 import ChevronDown from '../icon/chevron-down';
 import ChevronUp from '../icon/chevron-up';
+import CLASSNAMES from '../utils/classnames';
+import INPUT_NUMBER_CLASSNAMES from './classnames';
+import props from '@TdTypes/input-number/props';
 
 const name = `${prefix}-input-number`;
 
+type InputNumberEvent = {
+  on: {
+    input?: (e: InputEvent) => void;
+    click?: (e: MouseEvent) => void;
+    blur?: (e: FocusEvent) => void;
+    focus?: (e: FocusEvent) => void;
+    keydown?: (e: KeyboardEvent) => void;
+    keyup?: (e: KeyboardEvent) => void;
+    keypress?: (e: KeyboardEvent) => void;
+  };
+};
+
+type InputNumberAttr = {
+  attrs: {
+    disabled?: boolean;
+    readonly?: any;
+  };
+};
+
 export default Vue.extend({
   name,
+  props: { ...props },
   components: {
-    RenderComponent,
     Add,
     Remove,
     ChevronDown,
     ChevronUp,
   },
-  props: {
-    max: [Number],
-    min: [Number],
-    step: {
-      type: [Number],
-      default() {
-        return 1;
-      },
-    },
-    size: {
-      type: String,
-      default: 'medium',
-      validator(v: string): boolean {
-        return ['large', 'medium', 'small'].indexOf(v) > -1;
-      },
-    },
-    disabled: {
-      type: Boolean,
-      default() {
-        return false;
-      },
-    },
-    mode: {
-      type: String,
-      default: 'row', // column
-    },
-    value: [Number],
-    formatter: {
-      type: Function,
-    },
-  },
   data() {
     return {
+      userInput: null,
+      filterValue: null,
+      curVal: this.value,
       type: typeof this.value || 'string',
-      puVisible: false,
-      puContent: '',
+      isError: false,
+      errMsg: '',
     };
   },
   computed: {
     disabledReduce(): boolean {
-      return this.disabled || this.puVisible || (Number(this.value) - this.step < this.min);
+      return this.disabled || this.isError || (Number(this.value) - this.step < this.min);
     },
     disabledAdd(): boolean {
-      return this.disabled || this.puVisible || (Number(this.value) + this.step > this.max);
+      return this.disabled || this.isError || (Number(this.value) + this.step > this.max);
     },
     valueDigitsNum(): number {
       const tempVal = String(this.value);
@@ -75,144 +68,251 @@ export default Vue.extend({
     digitsNum(): number {
       return this.valueDigitsNum > this.stepDigitsNum ? this.valueDigitsNum : this.stepDigitsNum;
     },
+    reduceClasses(): ClassName {
+      return {
+        class: [
+          `${name}__decrease`,
+          {
+            [CLASSNAMES.STATUS.disabled]: this.disabledReduce,
+          },
+        ],
+      };
+    },
+    reduceEvents(): InputNumberEvent {
+      return {
+        on: {
+          click: this.handleReduce,
+        },
+      };
+    },
+    addClasses(): ClassName {
+      return {
+        class: [
+          `${name}__increase`,
+          {
+            [CLASSNAMES.STATUS.disabled]: this.disabledAdd,
+          },
+        ],
+      };
+    },
+    addEvents(): InputNumberEvent {
+      return {
+        on: {
+          click: this.handleAdd,
+        },
+      };
+    },
+    cmptWrapClasses(): ClassName {
+      return {
+        class: [
+          't-input-number',
+          INPUT_NUMBER_CLASSNAMES.SIZE[this.size],
+          {
+            [CLASSNAMES.STATUS.disabled]: this.disabled,
+            't-is-controls-right': this.mode === 'column',
+          },
+        ],
+      };
+    },
+    inputWrapProps(): ClassName {
+      return {
+        class: [
+          't-input',
+          {
+            't-is-error': this.isError,
+          },
+        ],
+      };
+    },
+    inputClasses(): ClassName {
+      return {
+        class: [
+          't-input__inner',
+          {
+            [CLASSNAMES.STATUS.disabled]: this.disabled,
+            [`${name}-text-align`]: this.mode === 'row',
+          },
+        ],
+      };
+    },
+    inputEvents(): InputNumberEvent {
+      return {
+        on: {
+          input: this.handleInput,
+          blur: this.handleBlur,
+          focus: this.handleFocus,
+          keydown: this.handleKeydown,
+          keyup: this.handleKeyup,
+          keypress: this.handleKeypress,
+        },
+      };
+    },
+    inputAttrs(): InputNumberAttr {
+      return {
+        attrs: {
+          disabled: this.disabled,
+          readonly: this.formatter,
+        },
+      };
+    },
+    decreaseIcon(): TNodeReturnValue {
+      return this.mode === 'column' ? <chevron-down size={this.size} /> : <remove size={this.size} />;
+    },
+    increaseIcon(): TNodeReturnValue {
+      return this.mode === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
+    },
+    displayValue(): string {
+      if (this.userInput !== null) {
+        return this.filterValue;
+      }
+      return this.formatter ? this.formatter(this.curVal) : this.curVal.toFixed(this.digitsNum);
+    },
+  },
+  methods: {
+    handleAdd(e: MouseEvent) {
+      if (this.disabledAdd) return;
+      this.handleAction(Number((this.value + this.step).toFixed(this.digitsNum)), 'add', e);
+    },
+    handleReduce(e: MouseEvent) {
+      if (this.disabledReduce) return;
+      this.handleAction(Number((this.value - this.step).toFixed(this.digitsNum)), 'reduce', e);
+    },
+    handleInput(e: InputEvent) {
+      // get
+      this.userInput = (e.target as HTMLInputElement).value;
+      // filter
+      this.filterValue = this.filterInput(this.userInput);
+      this.userInput = '';
+      // check
+      if (!this.checkInput(this.filterValue)) return;
+      // set
+      this.handleAction(Number(this.filterValue), 'input', e);
+    },
+    handleAction(value: number, actionType: '' | 'add' | 'reduce' | 'input', e: MouseEvent | InputEvent) {
+      if (actionType !== 'input') {
+        this.clearInput();
+      }
+      this.curVal = value;
+      this.handleChange(value, { type: actionType, e });
+    },
+    filterInput(s: string) {
+      let filterVal = s.replace(/[^\d.eE。-]/g, '').replace('。', '.');
+      if (this.multiE(filterVal) || this.multiDot(filterVal) || this.multiNegative(filterVal)) {
+        filterVal = filterVal.substr(0, filterVal.length - 1);
+      }
+      return filterVal;
+    },
+    handleChange(value: number, ctx: { type: 'add' | 'reduce' | 'input' | ''; e: InputEvent | MouseEvent }) {
+      if (this.isError) {
+        this.isError = false;
+      }
+      if (this.onChange) {
+        this.onChange(value, ctx);
+      }
+      this.$emit('change', value, { type: ctx.type, e: ctx.e });
+    },
+    handleBlur(e: FocusEvent) {
+      if (this.onBlur) {
+        this.onBlur(this.curVal, { e });
+      }
+      this.$emit('blur', this.curVal, { e });
+    },
+    handleFocus(e: FocusEvent) {
+      if (this.onFocus) {
+        this.onFocus(this.curVal, { e });
+      }
+      this.$emit('focus', this.curVal, { e });
+    },
+    handleKeydownEnter(e: KeyboardEvent) {
+      if (e.key !== 'Enter') return;
+      if (this.onKeydownEnter) {
+        this.onKeydownEnter(this.curVal, { e });
+      }
+      this.$emit('keydown-enter', this.curVal, { e });
+    },
+    handleKeydown(e: KeyboardEvent) {
+      if (this.onKeydown) {
+        this.onKeydown(this.curVal, { e });
+      }
+      this.$emit('keydown', this.curVal, { e });
+      this.handleKeydownEnter(e);
+    },
+    handleKeyup(e: KeyboardEvent) {
+      if (this.onKeyup) {
+        this.onKeyup(this.curVal, { e });
+      }
+      this.$emit('keyup', this.curVal, { e });
+    },
+    handleKeypress(e: KeyboardEvent) {
+      if (this.onKeypress) {
+        this.onKeypress(this.curVal, { e });
+      }
+      this.$emit('keypress', this.curVal, { e });
+    },
+    handleInputError(visible: boolean, content: string) {
+      this.isError = visible;
+      this.errMsg = content;
+    },
+    checkInput(s: string) {
+      return this.isLegal(s) && !s.endsWith('.');
+    },
+    isLegal(v: string) {
+      const numV = Number(v);
+      if (this.empty(v) || isNaN(numV)) {
+        this.handleInputError(true, '请输入数字');
+        return false;
+      }
+      if (numV > this.max) {
+        this.handleInputError(true, `最大值${this.max}`);
+        return false;
+      }
+      if (numV < this.min) {
+        this.handleInputError(true, `最小值${this.min}`);
+        return false;
+      }
+      return true;
+    },
+    empty(v: string) {
+      return !v && !v.replace(' ', '');
+    },
+    clearInput() {
+      this.userInput = null;
+      this.filterValue = null;
+    },
+    multiE(s: string) {
+      const m = s.match(/[e]/gi);
+      return m === null ? false : m.length > 1;
+    },
+    multiDot(s: string) {
+      const m = s.match(/[.]/g);
+      return m === null ? false : m.length > 1;
+    },
+    multiNegative(s: string) {
+      const m = s.match(/[-]/g);
+      return m === null ? false : m.length > 1;
+    },
   },
   render(): VNode {
-    const reduceProps = {
-      class: [
-        `${name}__decrease`,
-        {
-          ['t-is-disabled']: this.disabledReduce,
-        },
-      ],
-      on: {
-        click: this.reduceHandle,
-      },
-    };
-    const addProps = {
-      class: [
-        `${name}__increase`,
-        {
-          ['t-is-disabled']: this.disabledAdd,
-        },
-      ],
-      on: {
-        click: this.addHandle,
-      },
-    };
-
-    const compWrap = {
-      style: {
-        '-webkit-user-select': 'none',
-        'user-select': 'none',
-      },
-      class: [
-        't-input-number',
-        {
-          't-is-controls-right': this.mode === 'column',
-          't-is-disabled': this.disabled,
-          't-size-small': this.size === 'small',
-          't-size-large': this.size === 'large',
-        },
-      ],
-    };
-    const decreaseIcon = () => this.mode === 'column' ? <chevron-down size={this.size} /> : <remove size={this.size} />;
-    const increaseIcon = () => this.mode === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
-
-    const inputWrapProps = {
-      class: [
-        't-input',
-        {
-          't-is-error': this.puVisible,
-        },
-      ],
-    };
-    const inputProps = {
-      class: [
-        't-input__inner',
-        {
-          't-is-disabled': this.disabled,
-          [`${name}-text-align`]: this.mode === 'row',
-        },
-      ],
-      attrs: {
-        value: this._formatterValue(this.value, true),
-        disabled: this.disabled,
-        readonly: this.formatter,
-      },
-      ref: 'refInputElem',
-      on: {
-        input: this.inputHandle,
-      },
-    };
-
     return (
-      <div {...compWrap}>
-        <span {...reduceProps}>
-          {decreaseIcon()}
+      <div {...this.cmptWrapClasses}>
+        <span {...this.reduceClasses} {...this.reduceEvents}>
+          {this.decreaseIcon}
         </span>
-
-        <div {...inputWrapProps}>
-          <input disabled={this.disabled} autocomplete="off" {...inputProps} />
+        <div {...this.inputWrapProps}>
+          <input
+            value={this.displayValue}
+            disabled={this.disabled}
+            {...this.inputClasses}
+            {...this.inputAttrs}
+            {...this.inputEvents}
+            autocomplete="off"
+            ref='refInputElem'
+          />
         </div>
-
-        <div {...addProps}>
-          {increaseIcon()}
+        <div {...this.addClasses} {...this.addEvents}>
+          {this.increaseIcon}
         </div>
       </div>
     );
-  },
-  methods: {
-    _formatterValue(value: any, isInit: any) {
-      if (isInit) this._legalCheck(value);
-      return this.formatter ? this.formatter(value) : value;
-    },
-    _emitHandle(value: any, type: string) {
-      const tempVal = Object.is('number', this.type) ? Number(value) : value;
-      if (this.puVisible) this.puVisible = false;
-      this.$emit('input', tempVal);
-      this.$emit('change', { type, value: tempVal });
-    },
-    _popupHandle(visible: boolean, content: string) {
-      this.puContent = content;
-      this.puVisible = visible;
-      // console.log('格式错误：', this.puContent);
-    },
-    _legalCheck(tempVal: any) {
-      if (isNaN(tempVal)) return this._popupHandle(true, '请输入数字');
-      if (tempVal > this.max) return this._popupHandle(true, `最大值${this.max}`);
-      if (tempVal < this.min) return this._popupHandle(true, `最小值${this.min}`);
-    },
-    _setInputValue(value: any) {
-      const input = this.$refs.refInputElem as HTMLInputElement;
-      input.value = value;
-    },
-    reduceHandle() {
-      if (this.disabledReduce) return;
-
-      const tempVal = (this.value - this.step).toFixed(this.digitsNum);
-      this._setInputValue(this._formatterValue(tempVal, false));
-      this._emitHandle(tempVal, 'reduce');
-    },
-    inputHandle(ev: any) {
-      const inputVal = ev.srcElement.value;
-      if (!inputVal) return this._popupHandle(true, '请输入数字');
-      if (inputVal.endsWith('.')) return;
-
-      const tempVal = Number(inputVal);
-      if (isNaN(tempVal)) return this._popupHandle(true, '请输入数字');
-      if (tempVal > this.max) return this._popupHandle(true, `最大值${this.max}`);
-      if (tempVal < this.min) return this._popupHandle(true, `最小值${this.min}`);
-
-      const emitValue = tempVal ? String(tempVal) : '';
-      this._setInputValue(emitValue);
-      this._emitHandle(emitValue, 'input');
-    },
-    addHandle() {
-      if (this.disabledAdd) return;
-
-      const tempVal = (this.value + this.step).toFixed(this.digitsNum);
-      this._setInputValue(this._formatterValue(tempVal, false));
-      this._emitHandle(tempVal, 'add');
-    },
   },
 });
