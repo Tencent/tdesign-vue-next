@@ -48,6 +48,8 @@ const placementMap = {
   'right-top': 'right-start',
   'right-bottom': 'right-end',
 };
+const showTimeout = 250;
+const hideTimeout = 150;
 
 export default Vue.extend({
   name,
@@ -67,6 +69,7 @@ export default Vue.extend({
       referenceElm: null,
       resizeSensor: null,
       popperJS: null,
+      timeout: null,
     };
   },
   computed: {
@@ -242,10 +245,16 @@ export default Vue.extend({
       this.showPopper = !this.showPopper;
     },
     doShow(): void {
-      this.showPopper = true;
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        this.showPopper = true;
+      }, this.clickTrigger ? 0 : showTimeout);
     },
     doClose(): void {
-      this.showPopper = false;
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        this.showPopper = false;
+      }, this.clickTrigger ? 0 : hideTimeout);
     },
     handleFocus(): void {
       addClass(this.referenceElm, 'focusing');
@@ -282,4 +291,3 @@ export default Vue.extend({
 });
 
 </script>
-
