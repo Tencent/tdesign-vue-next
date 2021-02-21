@@ -12,11 +12,12 @@ import TDesign from '../src/index';
 import '../common/style/web/index.less';
 import '@/common/style/web/docs.less';
 import '@/common/style/site/index.less';
-
+import api from 'vue-hot-reload-api';
 // import TDesign from '../dist/tdesign.js';
 // import TDesign from '../es/index.js';
 // import '../dist/tdesign.css';
 
+api.install(Vue);
 
 Vue.use(TDesign);
 Vue.use(VueRouter);
