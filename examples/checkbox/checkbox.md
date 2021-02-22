@@ -11,3 +11,5 @@
 ### checkbox组
 ::: demo demos/checkbox-group 
 :::
+
+:: BASE_PROPS ::
