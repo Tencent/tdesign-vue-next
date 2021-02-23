@@ -11,6 +11,15 @@ declare type AttachNodeReturnValue = HTMLDocument | HTMLElement | Element | Docu
 declare type AttachNode = CSSSelector | (() => AttachNodeReturnValue);
 declare type SuperAttachNode = (() => Window) | AttachNode;
 
+declare interface Styles {
+  [css: string]: string | number;
+}
+
+
+declare module '@tencent/tdesign-vue' {
+  export * from 'src';
+}
+
 /** 通用全局变量 */
 
 declare type OptionData = {
@@ -30,10 +39,4 @@ declare type VerticalAlignEnum = 'top' | 'middle' | 'bottom';
 
 declare type ClassName = { [className: string]: any } | ClassName[] | string;
 
-declare interface Styles { [css: string]: string | number }
-
 declare type CSSSelector = string;
-
-declare module '@tencent/tdesign-vue' {
-  export * from 'src';
-}

@@ -20,7 +20,7 @@
       <div class="t-progress-domo-margin">active</div>
       <t-progress theme="plump" :status="'active'" :percentage="30" ></t-progress>
       <div class="t-progress-domo-margin">不显示数字</div>
-      <t-progress theme="plump" label={false} :percentage="30" ></t-progress>
+      <t-progress theme="plump" :label="false" :percentage="30" ></t-progress>
       <div class="t-progress-domo-margin">自定义内容</div>
       <t-progress theme="line" :label="'75day'" :status="'active'" :percentage="30" ></t-progress>
       <div class="t-progress-domo-margin">自定义颜色与高度</div>
