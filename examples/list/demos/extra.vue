@@ -3,7 +3,7 @@
     <t-list :split="true">
       <t-list-item>
         <t-list-item-meta
-          avatar="undefined.png"
+          avatar="https://midas.gtimg.cn/h5/store/static/images/unlogin.f500767.png"
           title="列表主内容"
           description="列表内容列表内容"
         ></t-list-item-meta>
