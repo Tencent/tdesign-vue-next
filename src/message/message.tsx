@@ -53,6 +53,9 @@ export default Vue.extend({
 
   methods: {
     setTimer() {
+      if (!this.duration) {
+        return;
+      }
       this.timer = Number(setTimeout(() => {
         this.clearTimer();
         this.$emit('duration-end');
@@ -62,7 +65,7 @@ export default Vue.extend({
       }, this.duration));
     },
     clearTimer() {
-      clearTimeout(this.timer);
+      this.duration && clearTimeout(this.timer);
     },
     close(e?: MouseEvent) {
       this.$emit('click-close-btn', e);
