@@ -1,7 +1,7 @@
-import Vue, { CreateElement, VNode, PropType } from 'vue';
+import Vue, { VNode, PropType } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/list/props';
-import { renderPropNode } from '../mixins/utils';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import TIconLoading from '../icon/loading';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
@@ -45,14 +45,8 @@ export default Vue.extend({
     TIconLoading,
   },
   methods: {
-    renderLoading(h: CreateElement) {
-      if (typeof this.loading === 'function') {
-        return this.loading(h);
-      }
-      if (!this.loading && this.$scopedSlots.loading) {
-        return this.$scopedSlots.loading(null);
-      }
-      if (typeof this.loading === 'string') {
+    renderLoading() {
+      if (this.loading && typeof this.loading === 'string') {
         if (this.loading === LOADING) {
           return (
             <div>
@@ -65,7 +59,7 @@ export default Vue.extend({
           return <span>点击加载更多</span>;
         }
       }
-      return this.loading;
+      return renderTNodeJSX(this, 'loading');
     },
     handleScroll(e: WheelEvent | Event) {
       const listElement = this.$el as HTMLElement;
@@ -94,27 +88,19 @@ export default Vue.extend({
     },
     renderContent() {
       return [
-        typeof renderPropNode(this, 'header') !== 'undefined' ? (
-          <div class={`${name}__header`}>{renderPropNode(this, 'header')}</div>
-        ) : (
-          undefined
-        ),
-        <ul class={`${name}-items`}>{this.$scopedSlots.default ? this.$scopedSlots.default(null) : ''}</ul>,
-        typeof renderPropNode(this, 'footer') !== 'undefined' ? (
-          <div class={`${name}__footer`}>{renderPropNode(this, 'footer')}</div>
-        ) : (
-          undefined
-        ),
+        this.header && <div class={`${name}__header`}>{renderTNodeJSX(this, 'header')}</div>,
+        <ul class={`${name}-items`}>{renderTNodeJSX(this, 'default')}</ul>,
+        this.footer && <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer')}</div>,
       ];
     },
   },
-  render(h: CreateElement): VNode {
+  render(): VNode {
     let listContent: ScopedSlotReturnValue = this.renderContent();
 
     listContent = [
       listContent,
       <div class={this.loadingClass} onClick={this.handleLoadMore}>
-        {this.renderLoading(h)}
+        {this.renderLoading()}
       </div>,
     ];
 

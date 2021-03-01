@@ -2,7 +2,7 @@ import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/list-item/props';
 import { ScopedSlotReturnValue } from 'vue/types/vnode';
-import { renderPropNode } from '../mixins/utils';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-list-item`;
 
@@ -10,12 +10,12 @@ export default Vue.extend({
   name,
   props,
   render(): VNode {
-    const propsDefaultContent = renderPropNode(this, 'default');
-    const propsContent = renderPropNode(this, 'content');
-    const propsActionContent = renderPropNode(this, 'action');
+    const propsDefaultContent = renderTNodeJSX(this, 'default');
+    const propsContent = renderTNodeJSX(this, 'content');
+    const propsActionContent = renderTNodeJSX(this, 'action');
 
     const listItemContent: ScopedSlotReturnValue = [
-      typeof propsDefaultContent === 'undefined' ? propsContent : propsDefaultContent,
+      ['', null, undefined].includes(propsDefaultContent) ? propsContent : propsDefaultContent,
       typeof propsActionContent === 'undefined' ? '' : <ul class={`${name}__action`}>{propsActionContent}</ul>,
     ];
 

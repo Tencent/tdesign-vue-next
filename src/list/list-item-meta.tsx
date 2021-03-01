@@ -1,7 +1,7 @@
-import Vue, { CreateElement, VNode } from 'vue';
+import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/list-item-meta/props';
-import { renderPropNode } from '../mixins/utils';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import { ScopedSlotReturnValue } from 'vue/types/vnode';
 
 const name = `${prefix}-list-item__meta`;
@@ -10,29 +10,23 @@ export default Vue.extend({
   name,
   props,
   methods: {
-    renderAvatar(h: CreateElement) {
-      if (typeof this.avatar === 'function') {
-        return <div class={`${name}-avatar`}>{this.avatar(h)}</div>;
-      }
-      if (!this.avatar && this.$scopedSlots.avatar) {
-        return <div class={`${name}-avatar`}>{this.$scopedSlots.avatar(null)}</div>;
-      }
-      if (typeof this.avatar === 'string') {
+    renderAvatar() {
+      if (this.avatar && typeof this.avatar === 'string') {
         return (
           <div class={`${name}-avatar`}>
             <img src={this.avatar} alt=""></img>
           </div>
         );
       }
-      return this.avatar;
+      return renderTNodeJSX(this, 'avator');
     },
   },
-  render(h: CreateElement): VNode {
+  render(): VNode {
     const listItemMetaContent: ScopedSlotReturnValue = [
-      this.renderAvatar(h),
+      this.renderAvatar(),
       <div class={`${name}-content`}>
-        {typeof renderPropNode(this, 'title') !== 'undefined' ? <h3 class={`${name}-title`}>{renderPropNode(this, 'title')}</h3> : undefined}
-        {typeof renderPropNode(this, 'description') !== 'undefined' ? <p class={`${name}-description`}>{renderPropNode(this, 'description')}</p> : undefined}
+        {this.title && <h3 class={`${name}-title`}>{renderTNodeJSX(this, 'title')}</h3>}
+        {this.description && <p class={`${name}-description`}>{renderTNodeJSX(this, 'description')}</p>}
       </div>,
     ];
 
