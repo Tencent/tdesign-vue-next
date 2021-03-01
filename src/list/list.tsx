@@ -1,7 +1,7 @@
 import Vue, { CreateElement, VNode, PropType } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/list/props';
-import { renderPropNode } from '@src/mixins/utils';
+import { renderPropNode } from '../mixins/utils';
 import TIconLoading from '../icon/loading';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';

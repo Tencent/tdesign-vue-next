@@ -2,7 +2,7 @@ import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/list-item/props';
 import { ScopedSlotReturnValue } from 'vue/types/vnode';
-import { renderPropNode } from '@src/mixins/utils';
+import { renderPropNode } from '../mixins/utils';
 
 const name = `${prefix}-list-item`;
 

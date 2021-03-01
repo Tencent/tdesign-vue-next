@@ -1,7 +1,7 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/list-item-meta/props';
-import { renderPropNode } from '@src/mixins/utils';
+import { renderPropNode } from '../mixins/utils';
 import { ScopedSlotReturnValue } from 'vue/types/vnode';
 
 const name = `${prefix}-list-item__meta`;
