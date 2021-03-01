@@ -1,17 +1,17 @@
 import Vue, { CreateElement, VNode, PropType } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
 import props from '@TdTypes/list/props';
+import { renderPropNode } from '@src/mixins/utils';
 import TIconLoading from '../icon/loading';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
 import { TdListProps } from '@TdTypes/list/TdListProps';
+import { ScopedSlotReturnValue } from 'vue/types/vnode';
 
 const name = `${prefix}-list`;
 
 export default Vue.extend({
   name,
-  // 暂时手动重写validator
   props: {
     ...props,
     loading: {
@@ -25,22 +25,39 @@ export default Vue.extend({
       },
     },
   },
+  computed: {
+    listClass(): ClassName {
+      return [
+        `${name}`,
+        CLASSNAMES.SIZE[this.size],
+        {
+          [`${name}--split`]: this.split,
+          [`${name}--stripe`]: this.stripe,
+          [`${name}--vertical-action`]: this.layout === 'vertical',
+        },
+      ];
+    },
+    loadingClass(): ClassName {
+      return typeof this.loading === 'string' ? `${name}__load ${name}__load--${this.loading}` : `${name}__load`;
+    },
+  },
   components: {
-    RenderComponent,
     TIconLoading,
   },
   methods: {
     renderLoading(h: CreateElement) {
       if (typeof this.loading === 'function') {
         return this.loading(h);
-      } if (typeof this.loading === 'number') {
-        return <span>{this.loading}</span>;
-      } if (typeof this.loading === 'string') {
+      }
+      if (!this.loading && this.$scopedSlots.loading) {
+        return this.$scopedSlots.loading(null);
+      }
+      if (typeof this.loading === 'string') {
         if (this.loading === LOADING) {
           return (
             <div>
               <TIconLoading />
-              <span>&nbsp;&nbsp;正在加载中，请稍等</span>
+              <span>正在加载中，请稍等</span>
             </div>
           );
         }
@@ -48,81 +65,61 @@ export default Vue.extend({
           return <span>点击加载更多</span>;
         }
       }
-
-      if (this.$slots.loading) {
-        return this.$slots.loading;
-      }
-
-      return undefined;
+      return this.loading;
     },
-    renderPropContent(h: CreateElement, propName: 'header' | 'footer') {
-      const propsContent = this[propName];
-
-      if (typeof propsContent === 'function') {
-        return propsContent(h);
-      } if (typeof propsContent === 'number' || typeof propsContent === 'string') {
-        return <div class={`${name}__${propName}`}>{propsContent}</div>;
-      }
-
-      if (this.$slots[propName]) {
-        return <div class={`${name}__${propName}`}>{this.$slots[propName]}</div>;
-      }
-      return undefined;
-    },
-    handleScroll(e: any) {
-      const refListElem = this.$refs.refListElem as HTMLElement;
-      const { scrollTop, scrollHeight, clientHeight } = refListElem;
+    handleScroll(e: WheelEvent | Event) {
+      const listElement = this.$el as HTMLElement;
+      const { scrollTop, scrollHeight, clientHeight } = listElement;
       this.$emit('scroll', {
         $event: e,
         scrollTop,
         scrollBottom: scrollHeight - clientHeight - scrollTop,
       });
       if (this.onScroll) {
-        this.onScroll(e);
+        this.onScroll({
+          e,
+          scrollTop,
+          scrollBottom: scrollHeight - clientHeight - scrollTop,
+        });
       }
     },
-    handleLoadMore(e: any) {
+    handleLoadMore(e: MouseEvent) {
       if (typeof this.loading === 'string' && this.loading !== LOAD_MORE) return;
-      this.$emit('load-more');
+      this.$emit('load-more', e);
       if (this.onLoadMore) {
-        this.onLoadMore(e);
+        this.onLoadMore({
+          e,
+        });
       }
     },
-    renderContent(h: CreateElement) {
-      const propsHeaderContent = this.renderPropContent(h, 'header');
-      const propsFooterContent = this.renderPropContent(h, 'footer');
+    renderContent() {
       return [
-        propsHeaderContent,
-        <ul class={`${name}-items`}>{this.$slots.default ? this.$slots.default : ''}</ul>,
-        propsFooterContent,
+        typeof renderPropNode(this, 'header') !== 'undefined' ? (
+          <div class={`${name}__header`}>{renderPropNode(this, 'header')}</div>
+        ) : (
+          undefined
+        ),
+        <ul class={`${name}-items`}>{this.$scopedSlots.default ? this.$scopedSlots.default(null) : ''}</ul>,
+        typeof renderPropNode(this, 'footer') !== 'undefined' ? (
+          <div class={`${name}__footer`}>{renderPropNode(this, 'footer')}</div>
+        ) : (
+          undefined
+        ),
       ];
     },
   },
   render(h: CreateElement): VNode {
-    let listContent: JsxNode = this.renderContent(h);
-
-    const listClass = [
-      `${name}`,
-      CLASSNAMES.SIZE[this.size],
-      {
-        [`${name}--split`]: this.split,
-        [`${name}--stripe`]: this.stripe,
-        [`${name}--vertical-action`]: this.layout === 'vertical',
-      },
-    ];
+    let listContent: ScopedSlotReturnValue = this.renderContent();
 
     listContent = [
       listContent,
-      <div
-        class={typeof this.loading === 'string' ? `${name}__load ${name}__load--${this.loading}` : `${name}__load`}
-        onClick={this.handleLoadMore}
-      >
+      <div class={this.loadingClass} onClick={this.handleLoadMore}>
         {this.renderLoading(h)}
       </div>,
     ];
 
     return (
-      <div class={listClass} onScroll={this.handleScroll} ref="refListElem">
+      <div class={this.listClass} onScroll={this.handleScroll}>
         {listContent}
       </div>
     );

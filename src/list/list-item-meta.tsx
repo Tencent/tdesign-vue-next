@@ -1,59 +1,39 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
+import props from '@TdTypes/list-item-meta/props';
+import { renderPropNode } from '@src/mixins/utils';
+import { ScopedSlotReturnValue } from 'vue/types/vnode';
 
 const name = `${prefix}-list-item__meta`;
 
 export default Vue.extend({
   name,
-  props: {
-    avatar: String,
-    title: String,
-    description: String,
-  },
-  components: {
-    RenderComponent,
-  },
+  props,
   methods: {
-    renderPropContent(h: CreateElement, propName: 'title' | 'description' | 'avatar') {
-      const propsContent = this[propName];
-      if (typeof propsContent === 'string') {
-        if (propName === 'title') {
-          return <h3 class={`${name}-title`}>{propsContent}</h3>;
-        }
-        if (propName === 'description') {
-          return <p class={`${name}-description`}>{propsContent}</p>;
-        }
-        if (propName === 'avatar') {
-          return (
-            <div class={`${name}-avatar`}>
-              <img src={this.avatar} alt=""></img>
-            </div>
-          );
-        }
+    renderAvatar(h: CreateElement) {
+      if (typeof this.avatar === 'function') {
+        return <div class={`${name}-avatar`}>{this.avatar(h)}</div>;
       }
-      if (this.$slots[propName]) {
-        if (propName === 'title') {
-          return <h3 class={`${name}-title`}>{this.$slots[propName]}</h3>;
-        }
-        if (propName === 'description') {
-          return <p class={`${name}-description`}>{this.$slots[propName]}</p>;
-        }
-        if (propName === 'avatar') {
-          return <div class={`${name}-avatar`}>{this.$slots.avatar}</div>;
-        }
+      if (!this.avatar && this.$scopedSlots.avatar) {
+        return <div class={`${name}-avatar`}>{this.$scopedSlots.avatar(null)}</div>;
       }
-      return undefined;
+      if (typeof this.avatar === 'string') {
+        return (
+          <div class={`${name}-avatar`}>
+            <img src={this.avatar} alt=""></img>
+          </div>
+        );
+      }
+      return this.avatar;
     },
   },
   render(h: CreateElement): VNode {
-    const propsTitleContent = this.renderPropContent(h, 'title');
-    const propsDescContent = this.renderPropContent(h, 'description');
-    const propsAvatarContent = this.renderPropContent(h, 'avatar');
-
-    const listItemMetaContent: JsxNode = [
-      propsAvatarContent,
-      <div class={`${name}-content`}>{[propsTitleContent, propsDescContent]}</div>,
+    const listItemMetaContent: ScopedSlotReturnValue = [
+      this.renderAvatar(h),
+      <div class={`${name}-content`}>
+        {typeof renderPropNode(this, 'title') !== 'undefined' ? <h3 class={`${name}-title`}>{renderPropNode(this, 'title')}</h3> : undefined}
+        {typeof renderPropNode(this, 'description') !== 'undefined' ? <p class={`${name}-description`}>{renderPropNode(this, 'description')}</p> : undefined}
+      </div>,
     ];
 
     return <div class={name}>{listItemMetaContent}</div>;

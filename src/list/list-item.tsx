@@ -1,32 +1,27 @@
 import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
+import props from '@TdTypes/list-item/props';
+import { ScopedSlotReturnValue } from 'vue/types/vnode';
+import { renderPropNode } from '@src/mixins/utils';
 
 const name = `${prefix}-list-item`;
 
 export default Vue.extend({
   name,
-  components: {
-    RenderComponent,
-  },
-  methods: {
-    renderContent() {
-      return this.$slots.default ? this.$slots.default : '';
-    },
-  },
+  props,
   render(): VNode {
-    let listItemContent: JsxNode = this.renderContent();
+    const propsDefaultContent = renderPropNode(this, 'default');
+    const propsContent = renderPropNode(this, 'content');
+    const propsActionContent = renderPropNode(this, 'action');
 
-    listItemContent = [
-      listItemContent,
-      this.$slots.action ? <ul class={`${name}__action`}>{this.$slots.action}</ul> : '',
+    const listItemContent: ScopedSlotReturnValue = [
+      typeof propsDefaultContent === 'undefined' ? propsContent : propsDefaultContent,
+      typeof propsActionContent === 'undefined' ? '' : <ul class={`${name}__action`}>{propsActionContent}</ul>,
     ];
 
     return (
       <li class={name}>
-        <div class={`${name}-main`}>
-          {listItemContent}
-        </div>
+        <div class={`${name}-main`}>{listItemContent}</div>
       </li>
     );
   },
