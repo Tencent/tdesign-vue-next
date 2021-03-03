@@ -79,7 +79,7 @@ export default Vue.extend({
     },
     handleLoadMore(e: MouseEvent) {
       if (typeof this.loading === 'string' && this.loading !== LOAD_MORE) return;
-      this.$emit('load-more', e);
+      this.$emit('load-more', { e });
       if (this.onLoadMore) {
         this.onLoadMore({
           e,
@@ -87,10 +87,13 @@ export default Vue.extend({
       }
     },
     renderContent() {
+      const propsHeaderContent = renderTNodeJSX(this, 'header');
+      const propsFooterContent = renderTNodeJSX(this, 'footer');
+
       return [
-        this.header && <div class={`${name}__header`}>{renderTNodeJSX(this, 'header')}</div>,
+        propsHeaderContent && <div class={`${name}__header`}>{propsHeaderContent}</div>,
         <ul class={`${name}-items`}>{renderTNodeJSX(this, 'default')}</ul>,
-        this.footer && <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer')}</div>,
+        propsFooterContent && <div class={`${name}__footer`}>{propsFooterContent}</div>,
       ];
     },
   },

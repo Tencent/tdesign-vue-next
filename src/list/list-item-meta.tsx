@@ -22,11 +22,15 @@ export default Vue.extend({
     },
   },
   render(): VNode {
+    const propsTitleContent = renderTNodeJSX(this, 'title');
+    const propsDescriptionContent = renderTNodeJSX(this, 'description');
+
+
     const listItemMetaContent: ScopedSlotReturnValue = [
       this.renderAvatar(),
       <div class={`${name}-content`}>
-        {this.title && <h3 class={`${name}-title`}>{renderTNodeJSX(this, 'title')}</h3>}
-        {this.description && <p class={`${name}-description`}>{renderTNodeJSX(this, 'description')}</p>}
+        {propsTitleContent && <h3 class={`${name}-title`}>{propsTitleContent}</h3>}
+        {propsDescriptionContent && <p class={`${name}-description`}>{propsDescriptionContent}</p>}
       </div>,
     ];
 
