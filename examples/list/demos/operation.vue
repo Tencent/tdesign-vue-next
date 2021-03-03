@@ -49,7 +49,7 @@ export default {
   components: { TIconCheckCircleFilled },
   data() {
     return {
-      avatarUrl: 'https://midas.gtimg.cn/h5/store/static/images/unlogin.f500767.png',
+      avatarUrl: 'https://tdesign.gtimg.com/list-icon.png',
     };
   },
 };

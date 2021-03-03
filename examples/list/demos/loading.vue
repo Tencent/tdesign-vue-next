@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       listCount: 1,
-      avatarUrl: 'https://midas.gtimg.cn/h5/store/static/images/unlogin.f500767.png',
+      avatarUrl: 'https://tdesign.gtimg.com/list-icon.png',
     };
   },
   methods: {
