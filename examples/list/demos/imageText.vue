@@ -3,21 +3,21 @@
     <t-list :split="true">
       <t-list-item>
         <t-list-item-meta
-          avatar="undefined.png"
+          :avatar="avatarUrl"
           title="列表主内容"
           description="列表内容列表内容"
         ></t-list-item-meta>
       </t-list-item>
       <t-list-item>
         <t-list-item-meta
-          avatar="undefined.png"
+          :avatar="avatarUrl"
           title="列表主内容"
           description="列表内容列表内容"
         ></t-list-item-meta>
       </t-list-item>
       <t-list-item>
         <t-list-item-meta
-          avatar="undefined.png"
+          :avatar="avatarUrl"
           title="列表主内容"
           description="列表内容列表内容"
         ></t-list-item-meta>
@@ -29,7 +29,7 @@
     <t-list :split="true">
       <t-list-item>
         <t-list-item-meta
-          avatar="undefined.png"
+          :avatar="avatarUrl"
           title="列表主内容"
         >
           <template slot="description">
@@ -50,3 +50,12 @@
   margin-bottom: 32px;
 }
 </style>
+<script>
+export default {
+  data() {
+    return {
+      avatarUrl: 'https://tdesign.gtimg.com/list-icon.png',
+    };
+  },
+};
+</script>

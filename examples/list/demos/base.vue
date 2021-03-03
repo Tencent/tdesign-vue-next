@@ -25,7 +25,7 @@
 
 <style>
 .tdesign-demo-item__body .t-list {
-  box-shadow: 0 0 3px 6px rgba(250,250,250,.8);
+  box-shadow: 0 0 5px 4px rgba(250,250,250,.8);
 }
 </style>
 

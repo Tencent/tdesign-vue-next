@@ -27,7 +27,7 @@ describe('List', () => {
   it('equals size to "large"', () => {
     expect(cmp.vm.size).toEqual('large');
   });
-  it('equals actionLayout to "horizontal"', () => {
-    expect(cmp.vm.actionLayout).toEqual('horizontal');
+  it('equals layout to "horizontal"', () => {
+    expect(cmp.vm.layout).toEqual('horizontal');
   });
 });
