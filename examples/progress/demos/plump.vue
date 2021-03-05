@@ -29,6 +29,8 @@
       <t-progress theme="plump" :color="['#f00', '#0ff', '#f0f']" :status="'active'" :percentage="30" ></t-progress>
       <br/>
       <t-progress theme="plump" :color="{ '0%': '#f00', '100%': '#0ff' }" :status="'active'" :percentage="30" ></t-progress>
+      <br />
+      <t-progress theme="plump" :color="{ from: '#f00', to: '#0f0' }" :percentage="30" :status="'active'"></t-progress>
     </div>
   </div>
 </template>
