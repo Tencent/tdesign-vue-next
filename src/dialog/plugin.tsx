@@ -14,7 +14,12 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };
   options.visible = true;
   const dialog = new DialogComponent({
-    propsData: options,
+    propsData: {
+      ...options,
+      onClose: options.onClose || (() => {
+        dialog.visible = false;
+      }),
+    },
   }).$mount();
 
   const container = getAttach(options.attach);

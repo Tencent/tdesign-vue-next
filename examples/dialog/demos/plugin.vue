@@ -25,14 +25,6 @@ export default Vue.extend({
           console.log('confirm clicked', e);
           mydialog.hide();
         },
-        onClickCancel: (e) => {
-          console.log('cancel clicked', e);
-          mydialog.hide();
-        },
-        onClose: ({ e, trigger }) => {
-          console.log(`closed trigger: ${trigger}`, e);
-          mydialog.hide();
-        },
       });
     },
     handleDN() {
@@ -48,11 +40,7 @@ export default Vue.extend({
           console.log('e: ', e);
           dialogNode.hide();
         },
-        onClose: ({ e, trigger }) => {
-          console.log('e: ', e);
-          console.log('trigger: ', trigger);
-          dialogNode.hide();
-        },
+
       });
     },
     onConfirm() {

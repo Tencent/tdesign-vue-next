@@ -63,7 +63,7 @@ export default Vue.extend({
       return [`${name}-mask`, !this.showOverlay && `${name}-mask--hidden`];
     },
 
-    dialogClass(): object {
+    dialogClass(): ClassName {
       const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
       if (['modeless', 'modal'].includes(this.mode)) {
         dialogClass.push(`${name}--fixed`);
@@ -71,7 +71,7 @@ export default Vue.extend({
       return dialogClass;
     },
 
-    dialogStyle(): object {
+    dialogStyle(): Styles {
       const { top, placement } = this;
       let topStyle = {};
 
