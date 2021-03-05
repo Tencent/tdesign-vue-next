@@ -1,0 +1,2572 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress circle demo works fine 1`] = `
+<div>
+  <div>
+    默认
+  </div>
+   
+  <div
+    class="t-progress-demo-box"
+  >
+    <div
+      class="t-progress-demo-inner"
+    >
+      <div
+        class="t-progress-demo-margin"
+      >
+        默认样式
+      </div>
+       
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--undefined"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            30%
+          </div>
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="94.2477796076938  219.9114857512855"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-progress-demo-inner"
+    >
+      <div
+        class="t-progress-demo-margin"
+      >
+        不显示数字
+      </div>
+       
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--success"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <!---->
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="314.1592653589793  0"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-progress-demo-inner"
+    >
+      <div
+        class="t-progress-demo-margin"
+      >
+        自定义内容
+      </div>
+       
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--success"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            75day
+          </div>
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="157.07963267948966  157.07963267948966"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-progress-demo-box"
+  >
+    <div
+      class="t-progress-demo-inner"
+    >
+      <div
+        class="t-progress-demo-margin"
+      >
+        进度完成
+      </div>
+       
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--success"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            <svg
+              class="t-icon t-icon-check-line t-progress--icon"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M283.568 489.36l45.264-45.264 135.76 135.76L690.88 353.6l45.264 45.264L509.84 625.12l-45.248 45.248z"
+                p-id="4547"
+              />
+            </svg>
+          </div>
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="314.1592653589793  0"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-progress-demo-inner"
+    >
+      <div
+        class="t-progress-demo-margin"
+      >
+        进度状态发生重大错误
+      </div>
+       
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--error"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            <svg
+              class="t-icon t-icon-clear-line t-progress--icon"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M647.76 330.976l45.264 45.264-135.776 135.744 135.776 135.776-45.264 45.264L512 557.248l-135.744 135.776-45.264-45.264L466.736 512l-135.76-135.744 45.264-45.264 135.744 135.76z"
+                p-id="4422"
+              />
+            </svg>
+          </div>
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="235.61944901923448  78.53981633974483"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-progress-demo-inner"
+    >
+      <div
+        class="t-progress-demo-margin"
+      >
+        进度被中断
+      </div>
+       
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--warning"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            <svg
+              class="t-icon t-icon-error-line t-progress--icon"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M544 672v64h-64v-64h64z m0-384v320h-64V288h64z"
+                p-id="4297"
+              />
+            </svg>
+          </div>
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="157.07963267948966  157.07963267948966"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    默认不同尺寸
+  </div>
+   
+  <div
+    class="t-progress-demo-box"
+  >
+    <div
+      class="t-progress-demo-inner"
+    >
+      <div
+        class="t-progress-demo-margin"
+      >
+        小尺寸
+      </div>
+       
+      <div
+        class="t-progress"
+        style="margin-top: 20px;"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--undefined"
+          style="width: 72px; height: 72px; font-size: 12.64px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            30%
+          </div>
+           
+          <svg
+            height="72"
+            viewBox="0 0 72 72"
+            width="72"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="36"
+              cy="36"
+              fill="none"
+              r="32"
+              stroke=""
+              stroke-width="4"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="36"
+              cy="36"
+              fill="none"
+              r="32"
+              stroke-dasharray="60.31857894892403  140.74335088082273"
+              stroke-width="4"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,72)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-progress-demo-inner"
+    >
+      <div
+        class="t-progress-demo-margin"
+      >
+        默认尺寸
+      </div>
+       
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--undefined"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            30%
+          </div>
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="94.2477796076938  219.9114857512855"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-progress-demo-box"
+  >
+    <div
+      class="t-progress-demo-inner"
+    >
+      <div
+        class="t-progress-demo-margin"
+      >
+        大尺寸
+      </div>
+       
+      <div
+        class="t-progress"
+        style="margin-top: 40px;"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--undefined"
+          style="width: 160px; height: 160px; font-size: 23.98px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            75%
+          </div>
+           
+          <svg
+            height="160"
+            viewBox="0 0 160 160"
+            width="160"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="80"
+              cy="80"
+              fill="none"
+              r="74"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="80"
+              cy="80"
+              fill="none"
+              r="74"
+              stroke-dasharray="348.71678454846705  116.23892818282235"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,160)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-progress-demo-inner"
+    >
+      <div
+        class="t-progress-demo-margin"
+      >
+        自定义尺寸与颜色
+      </div>
+       
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--undefined"
+          style="width: 240px; height: 240px; font-size: 28.3px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            75%
+          </div>
+           
+          <svg
+            height="240"
+            viewBox="0 0 240 240"
+            width="240"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="120"
+              cy="120"
+              fill="none"
+              r="90"
+              stroke="#0f0"
+              stroke-width="30"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="120"
+              cy="120"
+              fill="none"
+              r="90"
+              stroke-dasharray="424.1150082346221  141.3716694115407"
+              stroke-width="30"
+              style="stroke: #00f; stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,240)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress custom demo works fine 1`] = `
+<div>
+  <div>
+    <div>
+      不显示标签
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="t-progress--circle t-progress--status--undefined"
+        style="width: 112px; height: 112px; font-size: 17.5px;"
+      >
+        <!---->
+         
+        <svg
+          height="112"
+          viewBox="0 0 112 112"
+          width="112"
+        >
+          <circle
+            class="t-circle--outer"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke=""
+            stroke-width="6"
+          />
+           
+          <circle
+            class="t-circle--inner"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke-dasharray="263.89378290154264  50.265482457436704"
+            stroke-width="6"
+            style="stroke-linecap: buff;"
+            transform="matrix(0,-1,1,0,0,112)"
+          />
+        </svg>
+      </div>
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--undefined"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 84%;"
+          />
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+   
+  <div
+    class="t-progress-domo-margin"
+  >
+    <div>
+      自定义高度
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--undefined"
+      >
+        <div
+          class="t-progress--bar"
+          style="height: 30px; border-radius: 30px;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div>
+      自定义尺寸
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="t-progress--circle t-progress--status--undefined"
+        style="width: 200px; height: 200px; font-size: 25.6px;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+         
+        <svg
+          height="200"
+          viewBox="0 0 200 200"
+          width="200"
+        >
+          <circle
+            class="t-circle--outer"
+            cx="100"
+            cy="100"
+            fill="none"
+            r="80"
+            stroke=""
+            stroke-width="20"
+          />
+           
+          <circle
+            class="t-circle--inner"
+            cx="100"
+            cy="100"
+            fill="none"
+            r="80"
+            stroke-dasharray="150.79644737231007  351.85837720205683"
+            stroke-width="20"
+            style="stroke-linecap: round;"
+            transform="matrix(0,-1,1,0,0,200)"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-progress-domo-margin"
+  >
+    <div>
+      自定义颜色
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--undefined"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            30%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="t-progress--circle t-progress--status--undefined"
+        style="width: 112px; height: 112px; font-size: 17.5px;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          44%
+        </div>
+         
+        <svg
+          height="112"
+          viewBox="0 0 112 112"
+          width="112"
+        >
+          <circle
+            class="t-circle--outer"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke="#aaa"
+            stroke-width="6"
+          />
+           
+          <circle
+            class="t-circle--inner"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke-dasharray="138.2300767579509  175.92918860102844"
+            stroke-width="6"
+            style="stroke: #52CC8D; stroke-linecap: buff;"
+            transform="matrix(0,-1,1,0,0,112)"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+   
+  <div
+    class="t-progress-domo-margin"
+  >
+    <div>
+      自定义内容
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--undefined"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          &lt;div&gt;45days&lt;/div&gt;
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="t-progress--circle t-progress--status--undefined"
+        style="width: 112px; height: 112px; font-size: 17.5px;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          &lt;div&gt;45days&lt;/div&gt;
+        </div>
+         
+        <svg
+          height="112"
+          viewBox="0 0 112 112"
+          width="112"
+        >
+          <circle
+            class="t-circle--outer"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke=""
+            stroke-width="6"
+          />
+           
+          <circle
+            class="t-circle--inner"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke-dasharray="138.2300767579509  175.92918860102844"
+            stroke-width="6"
+            style="stroke-linecap: buff;"
+            transform="matrix(0,-1,1,0,0,112)"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress line demo works fine 1`] = `
+<div>
+  <div>
+    <div
+      class="t-progress-domo-margin"
+    >
+      默认样式
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--undefined"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      100%
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--success"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 100%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          100%
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      进度完成
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--success"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          <svg
+            class="t-icon t-icon-check-circle-filled t-progress--icon"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM690.8655168 353.58818368L464.56401024 579.82818368 328.82684416 444.09785152 283.57201024 489.35268544 464.59134592 670.3720192 509.84617984 625.1171872 736.120352 398.8430176 690.8655168 353.58818368Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      进度状态发生重大错误
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--error"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          <svg
+            class="t-icon t-icon-clear-circle-filled t-progress--icon"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM647.7644992 330.98066432L511.97266432 466.72466432 376.23549824 330.98066432 330.98066432 376.23549824 466.72466432 511.97266432 330.98066432 647.7644992 376.23549824 693.0193344 511.97266432 557.22066432 647.7644992 693.0193344 693.0193344 647.7644992 557.22066432 511.97266432 693.0193344 376.23549824 647.7644992 330.98066432Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      进度被中断
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--warning"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          <svg
+            class="t-icon t-icon-error-circle-filled t-progress--icon"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 672L480 672 480 736 544 736 544 672ZM544 288L480 288 480 608 544 608 544 288Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      active
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--active"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      不显示数字
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--active"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <!---->
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      自定义内容
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--active"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          75day
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      自定义颜色与高度
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--active"
+      >
+        <div
+          class="t-progress--bar"
+          style="height: 30px; background-color: rgb(0, 255, 0); border-radius: 30px;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%; background: rgb(0, 0, 255);"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      渐变色
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--active"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <br />
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--active"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <br />
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--active"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress plump demo works fine 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        class="t-progress-domo-margin"
+      >
+        默认样式
+      </div>
+       
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <div
+          class="t-progress--bar t-progress--plump t-progress--status--undefined"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          >
+            <div
+              class="t-progress--info"
+              style="color: rgb(255, 255, 255);"
+            >
+              30%
+            </div>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div>
+      <div
+        class="t-progress-domo-margin"
+      >
+        进度0-10%时数字数字位置出现在目前进度的右边区域
+      </div>
+       
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <div
+          class="t-progress--bar t-progress--plump t-progress--status--undefined"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 5%;"
+          >
+            <div
+              class="t-progress--info"
+              style="right: -2.5rem;"
+            >
+              5%
+            </div>
+          </div>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      100%
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--success"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 100%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            100%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      进度完成
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--success"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            30%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      进度状态发生重大错误
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--error"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            30%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      进度被中断
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--warning"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            30%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      active
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--active"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            30%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      不显示数字
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--undefined"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%;"
+        >
+          <!---->
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      自定义内容
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--active"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 30%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          75day
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      自定义颜色与高度
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--active"
+        style="height: 30px; background-color: rgb(0, 255, 0); border-radius: 30px;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%; background: rgb(0, 0, 255);"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            30%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin"
+    >
+      渐变色
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--active"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            30%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <br />
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--active"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            30%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <br />
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--active"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            30%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress size demo works fine 1`] = `
+<div>
+  <div>
+    默认
+  </div>
+   
+  <div
+    class="t-progress-domo-flex t-progress-domo-margin"
+  >
+    <div
+      class="t-progress-domo-inner"
+    >
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--undefined"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            30%
+          </div>
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="94.2477796076938  219.9114857512855"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-progress-domo-inner"
+    >
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--error"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            <svg
+              class="t-icon t-icon-clear-line t-progress--icon"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M647.76 330.976l45.264 45.264-135.776 135.744 135.776 135.776-45.264 45.264L512 557.248l-135.744 135.776-45.264-45.264L466.736 512l-135.76-135.744 45.264-45.264 135.744 135.76z"
+                p-id="4422"
+              />
+            </svg>
+          </div>
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="235.61944901923448  78.53981633974483"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-progress-domo-inner"
+    >
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--warning"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            <svg
+              class="t-icon t-icon-error-line t-progress--icon"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M544 672v64h-64v-64h64z m0-384v320h-64V288h64z"
+                p-id="4297"
+              />
+            </svg>
+          </div>
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="157.07963267948966  157.07963267948966"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="t-progress-domo-inner"
+    >
+      <div
+        class="t-progress"
+      >
+        <!---->
+         
+        <!---->
+         
+        <div
+          class="t-progress--circle t-progress--status--success"
+          style="width: 112px; height: 112px; font-size: 17.5px;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            <svg
+              class="t-icon t-icon-check-line t-progress--icon"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M283.568 489.36l45.264-45.264 135.76 135.76L690.88 353.6l45.264 45.264L509.84 625.12l-45.248 45.248z"
+                p-id="4547"
+              />
+            </svg>
+          </div>
+           
+          <svg
+            height="112"
+            viewBox="0 0 112 112"
+            width="112"
+          >
+            <circle
+              class="t-circle--outer"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke=""
+              stroke-width="6"
+            />
+             
+            <circle
+              class="t-circle--inner"
+              cx="56"
+              cy="56"
+              fill="none"
+              r="50"
+              stroke-dasharray="314.1592653589793  0"
+              stroke-width="6"
+              style="stroke-linecap: buff;"
+              transform="matrix(0,-1,1,0,0,112)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    默认不同尺寸
+  </div>
+   
+  <div
+    class="t-progress-domo-margin"
+  >
+    <div>
+      小尺寸
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="t-progress--circle t-progress--status--undefined"
+        style="width: 72px; height: 72px; font-size: 12.64px;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+         
+        <svg
+          height="72"
+          viewBox="0 0 72 72"
+          width="72"
+        >
+          <circle
+            class="t-circle--outer"
+            cx="36"
+            cy="36"
+            fill="none"
+            r="32"
+            stroke=""
+            stroke-width="4"
+          />
+           
+          <circle
+            class="t-circle--inner"
+            cx="36"
+            cy="36"
+            fill="none"
+            r="32"
+            stroke-dasharray="60.31857894892403  140.74335088082273"
+            stroke-width="4"
+            style="stroke-linecap: buff;"
+            transform="matrix(0,-1,1,0,0,72)"
+          />
+        </svg>
+      </div>
+    </div>
+     
+    <div>
+      大尺寸
+    </div>
+     
+    <div
+      class="t-progress"
+    >
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="t-progress--circle t-progress--status--undefined"
+        style="width: 160px; height: 160px; font-size: 23.98px;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          75%
+        </div>
+         
+        <svg
+          height="160"
+          viewBox="0 0 160 160"
+          width="160"
+        >
+          <circle
+            class="t-circle--outer"
+            cx="80"
+            cy="80"
+            fill="none"
+            r="74"
+            stroke=""
+            stroke-width="6"
+          />
+           
+          <circle
+            class="t-circle--inner"
+            cx="80"
+            cy="80"
+            fill="none"
+            r="74"
+            stroke-dasharray="348.71678454846705  116.23892818282235"
+            stroke-width="6"
+            style="stroke-linecap: buff;"
+            transform="matrix(0,-1,1,0,0,160)"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress status demo works fine 1`] = `
+<div>
+  <div>
+    <div>
+      进度完成：
+    </div>
+     
+    <div
+      class="t-progress-domo-margin t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--success"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 80%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          <svg
+            class="t-icon t-icon-check-circle-filled t-progress--icon"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM690.8655168 353.58818368L464.56401024 579.82818368 328.82684416 444.09785152 283.57201024 489.35268544 464.59134592 670.3720192 509.84617984 625.1171872 736.120352 398.8430176 690.8655168 353.58818368Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--success"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 80%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            80%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin t-progress"
+    >
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="t-progress--circle t-progress--status--warning"
+        style="width: 112px; height: 112px; font-size: 17.5px;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          <svg
+            class="t-icon t-icon-error-line t-progress--icon"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M544 672v64h-64v-64h64z m0-384v320h-64V288h64z"
+              p-id="4297"
+            />
+          </svg>
+        </div>
+         
+        <svg
+          height="112"
+          viewBox="0 0 112 112"
+          width="112"
+        >
+          <circle
+            class="t-circle--outer"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke=""
+            stroke-width="6"
+          />
+           
+          <circle
+            class="t-circle--inner"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke-dasharray="251.32741228718348  62.83185307179585"
+            stroke-width="6"
+            style="stroke-linecap: buff;"
+            transform="matrix(0,-1,1,0,0,112)"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div>
+      进度状态出现重大错误（如下载的文件有损）：
+    </div>
+     
+    <div
+      class="t-progress-domo-margin t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--error"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 80%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          <svg
+            class="t-icon t-icon-clear-circle-filled t-progress--icon"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM647.7644992 330.98066432L511.97266432 466.72466432 376.23549824 330.98066432 330.98066432 376.23549824 466.72466432 511.97266432 330.98066432 647.7644992 376.23549824 693.0193344 511.97266432 557.22066432 647.7644992 693.0193344 693.0193344 647.7644992 557.22066432 511.97266432 693.0193344 376.23549824 647.7644992 330.98066432Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--error"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 80%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            80%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin t-progress"
+    >
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="t-progress--circle t-progress--status--error"
+        style="width: 112px; height: 112px; font-size: 17.5px;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          <svg
+            class="t-icon t-icon-clear-line t-progress--icon"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M647.76 330.976l45.264 45.264-135.776 135.744 135.776 135.776-45.264 45.264L512 557.248l-135.744 135.776-45.264-45.264L466.736 512l-135.76-135.744 45.264-45.264 135.744 135.76z"
+              p-id="4422"
+            />
+          </svg>
+        </div>
+         
+        <svg
+          height="112"
+          viewBox="0 0 112 112"
+          width="112"
+        >
+          <circle
+            class="t-circle--outer"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke=""
+            stroke-width="6"
+          />
+           
+          <circle
+            class="t-circle--inner"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke-dasharray="251.32741228718348  62.83185307179585"
+            stroke-width="6"
+            style="stroke-linecap: buff;"
+            transform="matrix(0,-1,1,0,0,112)"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+   
+  <div>
+    <div>
+      进度被中断（如失去网络连接）
+    </div>
+     
+    <div
+      class="t-progress-domo-margin t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--warning"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 80%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          <svg
+            class="t-icon t-icon-error-circle-filled t-progress--icon"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 672L480 672 480 736 544 736 544 672ZM544 288L480 288 480 608 544 608 544 288Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin t-progress"
+    >
+      <!---->
+       
+      <div
+        class="t-progress--bar t-progress--plump t-progress--status--warning"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 80%;"
+        >
+          <div
+            class="t-progress--info"
+            style="color: rgb(255, 255, 255);"
+          >
+            80%
+          </div>
+        </div>
+      </div>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin t-progress"
+    >
+      <div
+        class="t-progress--thin t-progress--status--warning"
+      >
+        <div
+          class="t-progress--bar"
+          style="border-radius: undefinedpx;"
+        >
+          <div
+            class="t-progress--inner"
+            style="width: 80%;"
+          />
+        </div>
+         
+        <div
+          class="t-progress--info"
+        >
+          <svg
+            class="t-icon t-icon-error-circle-filled t-progress--icon"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 672L480 672 480 736 544 736 544 672ZM544 288L480 288 480 608 544 608 544 288Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+       
+      <!---->
+       
+      <!---->
+    </div>
+     
+    <div
+      class="t-progress-domo-margin t-progress"
+    >
+      <!---->
+       
+      <!---->
+       
+      <div
+        class="t-progress--circle t-progress--status--warning"
+        style="width: 112px; height: 112px; font-size: 17.5px;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          <svg
+            class="t-icon t-icon-error-line t-progress--icon"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M544 672v64h-64v-64h64z m0-384v320h-64V288h64z"
+              p-id="4297"
+            />
+          </svg>
+        </div>
+         
+        <svg
+          height="112"
+          viewBox="0 0 112 112"
+          width="112"
+        >
+          <circle
+            class="t-circle--outer"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke=""
+            stroke-width="6"
+          />
+           
+          <circle
+            class="t-circle--inner"
+            cx="56"
+            cy="56"
+            fill="none"
+            r="50"
+            stroke-dasharray="251.32741228718348  62.83185307179585"
+            stroke-width="6"
+            style="stroke-linecap: buff;"
+            transform="matrix(0,-1,1,0,0,112)"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
