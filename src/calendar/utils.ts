@@ -1,18 +1,13 @@
 import dayjs from 'dayjs';
 
+import { CalendarCell } from '@TdTypes/calendar/TdCalendarProps';
+
 // 组件的一些常量
 import {
   FIRST_MONTH_OF_YEAR,
   LAST_MONTH_OF_YEAR,
   DAY_CN_MAP,
-  MONTH_CN_MAP,
 } from './const';
-
-// 组件相关的自定义类型
-import {
-  MonthCellData,
-  YearCellData,
-} from './type';
 
 /**
  * 获取一个日期是周几（1~7）
@@ -66,28 +61,26 @@ const addDate = (dt: Date, days: number) => {
  * 创建月历单元格数据
  * @param year 月历年份
  * @param curDate 当前日期
- * @param theme 风格类型（"full" | "card"）
  */
 const createYearCellsData = (
   year: number,
   curDate: dayjs.Dayjs,
-  theme: string
-): YearCellData[] => {
-  const monthsArr: YearCellData[] = [];
+  format: string,
+): CalendarCell[] => {
+  const monthsArr: CalendarCell[] = [];
   const isCurYear = curDate.year() === year;
   for (let num = FIRST_MONTH_OF_YEAR; num <= LAST_MONTH_OF_YEAR; num++) {
     const date = new Date(year, num - 1);
     const curDateMon = parseInt(curDate.format('M'), 10);
-    const isCurMon = (isCurYear && curDateMon === num);
+    const isCurrent = (isCurYear && curDateMon === num);
     monthsArr.push({
       mode: 'year',
-      theme,
-      isCurYear,
-      isCurMon,
-      year,
-      month: num,
+      isCurrent,
       date,
-      monthDiaplay: MONTH_CN_MAP[num.toString()],
+      formattedDate: dayjs(date).format(format),
+      filterDate: null,
+      formattedFilterDate: null,
+      isShowWeekend: true,
     });
   }
 
@@ -100,16 +93,16 @@ const createYearCellsData = (
  * @param month 日历月份
  * @param firstDayOfWeek 周起始日（1~7）
  * @param curDate 当前日期
- * @param theme 风格类型（"full" | "card"）
+ * @param format 日期格式
  */
 const createMonthCellsData = (
   year: number,
   month: number,
   firstDayOfWeek: number,
   curDate: dayjs.Dayjs,
-  theme: string
-): MonthCellData[][] => {
-  const daysArr: MonthCellData[][] = [];
+  format: string,
+): CalendarCell[][] => {
+  const daysArr: CalendarCell[][] = [];
   // 当前月份的开始日期
   const begin: Date = dayjs(`${year}-${month}`).startOf('month')
     .toDate();
@@ -124,27 +117,22 @@ const createMonthCellsData = (
 
   const createCellData = (
     belongTo: number,
-    isCurDate: boolean,
+    isCurrent: boolean,
     date: Date,
-    weekNum: number
-  ): MonthCellData => {
-    const year = dayjs(date).year();
-    const month = parseInt(dayjs(date).format('M'), 10);
+    weekOrder: number
+  ): CalendarCell => {
     const day = getDay(date);
-    const isWeekend = (day === 6 || day === 7);
-    const dateNum = date.getDate();
     return {
       mode: 'month',
-      theme,
       belongTo,
-      isCurDate,
-      year,
-      month,
+      isCurrent,
       day,
-      isWeekend,
-      weekNum,
+      weekOrder,
       date,
-      dateDiaplay: (dateNum > 9 ? `${dateNum}` : `0${dateNum}`),
+      formattedDate: dayjs(date).format(format),
+      filterDate: null,
+      formattedFilterDate: null,
+      isShowWeekend: true,
     };
   };
 

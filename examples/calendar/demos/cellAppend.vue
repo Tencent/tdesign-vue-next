@@ -1,7 +1,7 @@
 <template>
   <t-calendar>
     <div slot="cellAppend" slot-scope="scope">
-      <div class="cellAppend"
+      <div class="cellAppend" @click="showCellData(scope.data)"
            :class="getCellAppendCls(scope.data)">
         {{ getDateStr(scope.data) }}
       </div>
@@ -24,8 +24,11 @@ export default {
     getCellAppendCls(cellData) {
       return {
         belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
-        actived: cellData.isCurDate || cellData.isCurMon,
+        actived: cellData.isCurrent,
       };
+    },
+    showCellData(cellData) {
+      console.info(cellData);
     },
   },
 };

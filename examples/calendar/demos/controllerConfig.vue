@@ -35,11 +35,11 @@
         </p>
         <p>
           <label>是否显示“隐藏\显示周末”控件：</label>
-          <t-switch v-model="controllerConfig.weekendToggle.visible"></t-switch>
+          <t-switch v-model="controllerConfig.weekend.visible"></t-switch>
           <label>是否禁用“隐藏周末”按钮控件：</label>
-          <t-switch v-model="controllerConfig.weekendToggle.hideWeekendButtonProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.weekend.hideWeekendButtonProps.disabled"></t-switch>
           <label>是否禁用“显示周末”按钮控件：</label>
-          <t-switch v-model="controllerConfig.weekendToggle.showWeekendButtonProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.weekend.showWeekendButtonProps.disabled"></t-switch>
         </p>
         <p>
           <label>是否显示“今天\本月”控件：</label>
@@ -51,7 +51,7 @@
         </p>
       </fieldset>
     </div>
-    <t-calendar :controllerConfig="controllerConfig"></t-calendar>
+    <t-calendar :controllerConfig="controllerConfig.visible ? controllerConfig : false"></t-calendar>
   </div>
 </template>
 
@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       controllerConfig: {
-        visible: true, // 是否显示（全部控件）
+        visible: true,
         disabled: false, // 是否禁用（全部控件）
         // 模式切换单选组件设置
         mode: {
@@ -76,10 +76,9 @@ export default {
           selecteProps: {
             // 用于透传props给该select组件
             disabled: false,
-            prefixIcon: 'discount_fill',
           },
         },
-        // 年份选择框组件相关设置
+        // 月份选择框组件相关设置
         month: {
           visible: true, // 是否显示（“year”模式下本身是不显示该组件的）
           selecteProps: {
@@ -88,7 +87,7 @@ export default {
           },
         },
         // 隐藏\显示周末按钮组件相关设置
-        weekendToggle: {
+        weekend: {
           visible: true, // 是否显示
           showWeekendButtonProps: {
             // 用于透传props给显示周末按钮组件

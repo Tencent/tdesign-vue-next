@@ -37,6 +37,9 @@
       "@Button": [
         "src/button/index.ts"
       ],
+      "@Select": [
+        "src/select/index.ts"
+      ],
       "@Pagination": [
         "src/pagination/index.ts"
       ],

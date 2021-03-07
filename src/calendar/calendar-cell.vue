@@ -17,19 +17,18 @@ import Vue from 'vue';
 // 组件的一些常量
 import {
   COMPONENT_NAME,
+  MONTH_CN_MAP,
 } from './const';
 
 // 组件相关的自定义类型
-import {
-  CellData,
-} from './type';
+import { CalendarCell } from '../../types/calendar/TdCalendarProps';
 
 export default Vue.extend({
   name: `${COMPONENT_NAME}-cell`,
   props: {
     item: {
       type: Object,
-      default: (): CellData => null,
+      default: (): CalendarCell => null,
     },
     theme: {
       type: String,
@@ -40,21 +39,22 @@ export default Vue.extend({
     allowSlot(): boolean {
       return this.theme === 'full';
     },
-    isCurrent(): boolean {
-      return this.item.mode === 'month' ? this.item.isCurDate : this.item.isCurMon;
-    },
     disabled(): boolean {
       return this.item.mode === 'month' && this.item.belongTo !== 0;
     },
-    valueDisplay(): boolean {
-      return this.item.mode === 'month' ? this.item.dateDiaplay : this.item.monthDiaplay;
+    valueDisplay(): string {
+      if (this.item.mode === 'month') {
+        const dateNum = this.item.date.getDate();
+        return (dateNum > 9 ? `${dateNum}` : `0${dateNum}`);
+      }
+      return MONTH_CN_MAP[(this.item.date.getMonth() + 1).toString()];
     },
     cellCls(): Record<string, any> {
       return [
         't-calendar__table-body-cell',
         {
           't-is-disabled': this.disabled,
-          't-is-checked': this.isCurrent,
+          't-is-checked': this.item.isCurrent,
         }];
     },
   },

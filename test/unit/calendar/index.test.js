@@ -54,13 +54,13 @@ describe('Calendar', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it(':isShowWeekendDefault', () => {
+    it(':range', () => {
       const wrapper = mount({
         render() {
-          const testRange = {
-            from: '2018-08',  // new Date(2017, 7)
-            to: '2028-04',  // new Date(2027, 3)
-          };
+          const testRange = [
+            '2018-08',  // new Date(2017, 7)
+            '2028-04',  // new Date(2027, 3)
+          ];
           return <Calendar range={testRange}></Calendar>;
         },
       });
