@@ -16,4 +16,9 @@
 ::: demo demos/theme
 :::
 
+### 1.8 失效标签
+
+::: demo demos/disabled
+:::
+
 :: BASE_PROPS ::

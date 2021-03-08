@@ -1,7 +1,8 @@
-import Vue, { VNode } from 'vue';
+import Vue from 'vue';
 import RenderComponent from '../utils/render-component';
 import config from '../config';
 import props from '../../types/check-tag/props';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;
@@ -29,13 +30,15 @@ export default Vue.extend({
     handleClick(event: MouseEvent): void {
       if (!this.disabled) {
         this.$emit('click', event);
+        this.$emit('change', !this.checked);
         if (typeof this.onClick === 'function') this.onClick(event);
+        if (typeof this.onChange === 'function') this.onChange(!this.checked);
       }
     },
   },
   render() {
     // 标签内容
-    const tagContent: VNode[] | VNode | string = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+    const tagContent: TNodeReturnValue = renderTNodeJSX(this, 'default') || renderTNodeJSX(this, 'content');
 
     return (
       <span class={this.tagClass} onClick={this.handleClick}>

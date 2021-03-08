@@ -4,8 +4,9 @@
       <t-check-tag
         v-for="(tag, index) in tags"
         :key="index"
-        :checked="tag.checked"
+        :defaultChecked="tag.defaultChecked"
         @click="handleClick(tag, index)"
+        @change="handleChange"
       >
         {{ tag.name }}
       </t-check-tag>
@@ -20,27 +21,27 @@ export default {
       tags: [
         {
           name: '选中1',
-          checked: true,
+          defaultChecked: true,
         },
         {
           name: '选中2',
-          checked: true,
+          defaultChecked: true,
         },
         {
           name: '未选3',
-          checked: false,
         },
         {
           name: '未选4',
-          checked: false,
         },
       ],
     };
   },
   methods: {
     handleClick(tag, index) {
-      const toggleTag = { ...tag, checked: !tag.checked };
-      this.$set(this.tags, index, toggleTag);
+      console.log(tag, index);
+    },
+    handleChange(isChecked) {
+      console.log(isChecked);
     },
   },
 };
