@@ -2,7 +2,6 @@
   <div class="tdesign-demo-block">
     <t-alert
       theme="success"
-      icon
       close
       :max-line="2"
     >
@@ -15,7 +14,6 @@
     </t-alert>
     <t-alert
       theme="info"
-      icon
       close
       :max-line="2"
     >

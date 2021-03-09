@@ -9,12 +9,13 @@
       theme="info"
       message="这是一条普通的消息提示"
       close="知道了"
-      :before-close="beforeClose"
+      @close="beforeClose"
     />
     <t-alert
       theme="warning"
       message="这是一条警示信息"
       :close="warningClose"
+      @close="beforeClose"
       @closed="handleClosed"
     />
     <t-alert theme="error" message="高危操作/出错信息提示">
