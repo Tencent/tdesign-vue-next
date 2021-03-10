@@ -4,11 +4,10 @@
       v-model="value"
       class="demo-select-base"
       filterable
-      creatable
+      clearable
       @change="handleChange"
       @visible-change="visibleChange"
-      @create="createOptions"
-      :filterMethod="filterMethod"
+      :filter="filterMethod"
     >
       <t-option
         v-for="(item, index) in options"
@@ -22,13 +21,11 @@
     <t-select
       v-model="value2"
       class="demo-select-base"
-      style="width: 350px;"
-      filterable
       multiple
-      creatable
+      clearable
+      filterable
       @change="handleChange"
-      @create="createOptions"
-      :filterMethod="filterMethod"
+      :filter="filterMethod"
       @visible-change="visibleChange"
     >
       <t-option
@@ -70,13 +67,6 @@ export default {
     },
     filterMethod(search) {
       console.log('search', search);
-    },
-    createOptions(value) {
-      this.options.push({
-        value,
-        label: value,
-      });
-      console.log('create option:', value, this.options);
     },
   },
 };

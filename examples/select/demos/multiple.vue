@@ -5,6 +5,7 @@
       placeholder="-请选择-"
       :clearable="true"
       multiple
+      :multipleLimit="2"
       class="demo-select-base"
       @change="handleChange"
       @remove="handleRemove"

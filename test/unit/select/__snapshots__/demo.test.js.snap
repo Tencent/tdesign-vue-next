@@ -15,10 +15,10 @@ exports[`Select base demo works fine 1`] = `
       />
        
       <div
-        class="t-select"
+        class="t-select t-size-m"
       >
         <svg
-          class="t-icon t-icon- t-select-left-icon"
+          class="t-icon t-icon- t-size-m t-select-left-icon"
           style="display: none;"
         >
           <use
@@ -61,7 +61,7 @@ exports[`Select base demo works fine 1`] = `
         </div>
          
         <svg
-          class="t-icon t-icon-chevron-down t-select-right-icon"
+          class="t-icon t-icon-chevron-down t-size-m t-select-right-icon"
         >
           <use
             xlink:href="#t-icon-chevron-down"
@@ -69,7 +69,7 @@ exports[`Select base demo works fine 1`] = `
         </svg>
          
         <svg
-          class="t-icon t-icon-close t-select-right-icon"
+          class="t-icon t-icon-close t-size-m t-select-right-icon"
           style="display: none;"
         >
           <use
@@ -78,15 +78,13 @@ exports[`Select base demo works fine 1`] = `
         </svg>
          
         <svg
-          class="t-icon t-icon-loading t-select-right-icon"
+          class="t-icon t-icon-loading t-size-m t-select-right-icon"
           style="display: none;"
         >
           <use
             xlink:href="#t-icon-loading"
           />
         </svg>
-         
-        <!---->
       </div>
        
       <div

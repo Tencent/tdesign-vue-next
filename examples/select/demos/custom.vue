@@ -4,9 +4,9 @@
       v-model="value"
       class="demo-select-base"
       filterable
-      remote
+      clearable
       @change="handleChange"
-      :remoteMethod="remoteMethod"
+      :onSearch="remoteMethod"
       :loading="loading"
     >
       <t-option
@@ -21,12 +21,13 @@
     <t-select
       v-model="value2"
       class="demo-select-base"
-      filterable
       multiple
-      remote
+      filterable
+      clearable
       size="large"
       @change="handleChange"
-      :remoteMethod="remoteMethod2"
+      :onSearch="remoteMethod2"
+      @search="remoteMethod2"
       :loading="loading2"
     >
       <t-option
@@ -87,25 +88,21 @@ export default {
       }
     },
     remoteMethod2(search) {
-      console.log('search', search);
+      console.log('search2', search);
       if (search) {
         this.loading2 = true;
         setTimeout(() => {
           this.loading2 = false;
-          if (search.indexOf('a') > -1) {
-            this.options2 = [];
-          } else {
-            this.options2 = [{
-              value: `${search}_test1`,
-              label: `${search}_test1`,
-            }, {
-              value: `${search}_test2`,
-              label: `${search}_test2`,
-            }, {
-              value: `${search}_test3`,
-              label: `${search}_test3`,
-            }];
-          }
+          this.options2 = [{
+            value: `${search}_test1`,
+            label: `${search}_test1`,
+          }, {
+            value: `${search}_test2`,
+            label: `${search}_test2`,
+          }, {
+            value: `${search}_test3`,
+            label: `${search}_test3`,
+          }];
         }, 500);
       }
     },

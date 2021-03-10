@@ -2,11 +2,13 @@
   <div>
     <t-select
       v-model="value"
-      placeholder="-请选择-"
-      :clearable="true"
       class="demo-select-base"
-      :popupProps="popupProps"
+      creatable
+      filterable
       @change="handleChange"
+      @visible-change="visibleChange"
+      @create="createOptions"
+      :filter="filterMethod"
     >
       <t-option
         v-for="(item, index) in options"
@@ -19,11 +21,15 @@
     </t-select>
     <t-select
       v-model="value2"
-      placeholder="-请选择-"
-      :clearable="true"
-      size="large"
       class="demo-select-base"
-      @change="handleChange2"
+      multiple
+      clearable
+      creatable
+      filterable
+      @change="handleChange"
+      @create="createOptions"
+      :filter="filterMethod"
+      @visible-change="visibleChange"
     >
       <t-option
         v-for="(item, index) in options"
@@ -47,35 +53,30 @@ export default {
       }, {
         label: '北京',
         value: 'beijing',
-        disabled: true,
       }, {
         label: '深圳',
         value: 'shenzhen',
-      }, {
-        label: '这是一个名字很长的城市名称',
-        value: 'long',
-      }, {
-        label: '这是一个名字很长很长很长的城市名称',
-        value: 'longest',
       }],
       value: '',
-      value2: 'shanghai',
-      popupProps: {
-        overlayStyle: {
-          width: '300px',
-        },
-      },
+      value2: [],
     };
   },
   methods: {
     handleChange(value) {
       console.log(value);
     },
-    handleChange2(value) {
-      console.log(value);
+    visibleChange(value) {
+      console.log('visible', value);
     },
-    visibleChange(val) {
-      console.log('visible', val);
+    filterMethod(search) {
+      console.log('search', search);
+    },
+    createOptions(value) {
+      this.options.push({
+        value,
+        label: value,
+      });
+      console.log('create option:', value, this.options);
     },
   },
 };

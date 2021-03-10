@@ -20,7 +20,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
@@ -49,7 +48,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
@@ -309,7 +307,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
@@ -338,7 +335,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
@@ -534,7 +530,6 @@ exports[`Calendar :props :mode 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
@@ -645,7 +640,6 @@ exports[`Calendar :props :range 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
@@ -674,7 +668,6 @@ exports[`Calendar :props :range 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
@@ -904,7 +897,6 @@ exports[`Calendar :props :theme 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
@@ -933,7 +925,6 @@ exports[`Calendar :props :theme 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
@@ -1230,7 +1221,6 @@ exports[`Calendar :props :value 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
@@ -1259,7 +1249,6 @@ exports[`Calendar :props :value 1`] = `
               </svg> <svg class="t-icon t-icon-loading t-size-s t-select-right-icon" style="display: none;">
                 <use xlink:href="#t-icon-loading"></use>
               </svg>
-              <!---->
             </div>
             <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
               <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">

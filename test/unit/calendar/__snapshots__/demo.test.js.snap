@@ -94,8 +94,6 @@ exports[`Calendar base demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -208,8 +206,6 @@ exports[`Calendar base demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -889,10 +885,10 @@ exports[`Calendar card demo works fine 1`] = `
         />
          
         <div
-          class="t-select"
+          class="t-select t-size-m"
         >
           <svg
-            class="t-icon t-icon- t-select-left-icon"
+            class="t-icon t-icon- t-size-m t-select-left-icon"
             style="display: none;"
           >
             <use
@@ -935,7 +931,7 @@ exports[`Calendar card demo works fine 1`] = `
           </div>
            
           <svg
-            class="t-icon t-icon-chevron-down t-select-right-icon"
+            class="t-icon t-icon-chevron-down t-size-m t-select-right-icon"
           >
             <use
               xlink:href="#t-icon-chevron-down"
@@ -943,7 +939,7 @@ exports[`Calendar card demo works fine 1`] = `
           </svg>
            
           <svg
-            class="t-icon t-icon-close t-select-right-icon"
+            class="t-icon t-icon-close t-size-m t-select-right-icon"
             style="display: none;"
           >
             <use
@@ -952,15 +948,13 @@ exports[`Calendar card demo works fine 1`] = `
           </svg>
            
           <svg
-            class="t-icon t-icon-loading t-select-right-icon"
+            class="t-icon t-icon-loading t-size-m t-select-right-icon"
             style="display: none;"
           >
             <use
               xlink:href="#t-icon-loading"
             />
           </svg>
-           
-          <!---->
         </div>
          
         <div
@@ -1089,8 +1083,6 @@ exports[`Calendar card demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -1203,8 +1195,6 @@ exports[`Calendar card demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -1934,10 +1924,10 @@ exports[`Calendar cardCell demo works fine 1`] = `
         />
          
         <div
-          class="t-select"
+          class="t-select t-size-m"
         >
           <svg
-            class="t-icon t-icon- t-select-left-icon"
+            class="t-icon t-icon- t-size-m t-select-left-icon"
             style="display: none;"
           >
             <use
@@ -1980,7 +1970,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
           </div>
            
           <svg
-            class="t-icon t-icon-chevron-down t-select-right-icon"
+            class="t-icon t-icon-chevron-down t-size-m t-select-right-icon"
           >
             <use
               xlink:href="#t-icon-chevron-down"
@@ -1988,7 +1978,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
           </svg>
            
           <svg
-            class="t-icon t-icon-close t-select-right-icon"
+            class="t-icon t-icon-close t-size-m t-select-right-icon"
             style="display: none;"
           >
             <use
@@ -1997,15 +1987,13 @@ exports[`Calendar cardCell demo works fine 1`] = `
           </svg>
            
           <svg
-            class="t-icon t-icon-loading t-select-right-icon"
+            class="t-icon t-icon-loading t-size-m t-select-right-icon"
             style="display: none;"
           >
             <use
               xlink:href="#t-icon-loading"
             />
           </svg>
-           
-          <!---->
         </div>
          
         <div
@@ -2127,8 +2115,6 @@ exports[`Calendar cardCell demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -2241,8 +2227,6 @@ exports[`Calendar cardCell demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -3044,8 +3028,6 @@ exports[`Calendar cell demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -3158,8 +3140,6 @@ exports[`Calendar cell demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -4191,8 +4171,6 @@ exports[`Calendar cellAppend demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -4305,8 +4283,6 @@ exports[`Calendar cellAppend demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -5651,8 +5627,6 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -5765,8 +5739,6 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -6539,8 +6511,6 @@ exports[`Calendar events demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -6653,8 +6623,6 @@ exports[`Calendar events demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -7461,8 +7429,6 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -7575,8 +7541,6 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -8237,6 +8201,22 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
     class="t-alert t-alert--warning"
   >
     <div
+      class="t-alert__icon"
+    >
+      <svg
+        class="t-icon t-icon-error-circle-filled"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 672L480 672 480 736 544 736 544 672ZM544 288L480 288 480 608 544 608 544 288Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
       class="t-alert__content"
     >
       <div
@@ -8367,8 +8347,6 @@ exports[`Calendar filter demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -8481,8 +8459,6 @@ exports[`Calendar filter demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -9031,10 +9007,10 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
         />
          
         <div
-          class="t-select"
+          class="t-select t-size-m"
         >
           <svg
-            class="t-icon t-icon- t-select-left-icon"
+            class="t-icon t-icon- t-size-m t-select-left-icon"
             style="display: none;"
           >
             <use
@@ -9077,7 +9053,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
           </div>
            
           <svg
-            class="t-icon t-icon-chevron-down t-select-right-icon"
+            class="t-icon t-icon-chevron-down t-size-m t-select-right-icon"
           >
             <use
               xlink:href="#t-icon-chevron-down"
@@ -9085,7 +9061,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
           </svg>
            
           <svg
-            class="t-icon t-icon-close t-select-right-icon"
+            class="t-icon t-icon-close t-size-m t-select-right-icon"
             style="display: none;"
           >
             <use
@@ -9094,15 +9070,13 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
           </svg>
            
           <svg
-            class="t-icon t-icon-loading t-select-right-icon"
+            class="t-icon t-icon-loading t-size-m t-select-right-icon"
             style="display: none;"
           >
             <use
               xlink:href="#t-icon-loading"
             />
           </svg>
-           
-          <!---->
         </div>
          
         <div
@@ -9224,8 +9198,6 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -9338,8 +9310,6 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -10187,8 +10157,6 @@ exports[`Calendar head demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -10301,8 +10269,6 @@ exports[`Calendar head demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -10988,10 +10954,10 @@ exports[`Calendar mode demo works fine 1`] = `
         />
          
         <div
-          class="t-select"
+          class="t-select t-size-m"
         >
           <svg
-            class="t-icon t-icon- t-select-left-icon"
+            class="t-icon t-icon- t-size-m t-select-left-icon"
             style="display: none;"
           >
             <use
@@ -11034,7 +11000,7 @@ exports[`Calendar mode demo works fine 1`] = `
           </div>
            
           <svg
-            class="t-icon t-icon-chevron-down t-select-right-icon"
+            class="t-icon t-icon-chevron-down t-size-m t-select-right-icon"
           >
             <use
               xlink:href="#t-icon-chevron-down"
@@ -11042,7 +11008,7 @@ exports[`Calendar mode demo works fine 1`] = `
           </svg>
            
           <svg
-            class="t-icon t-icon-close t-select-right-icon"
+            class="t-icon t-icon-close t-size-m t-select-right-icon"
             style="display: none;"
           >
             <use
@@ -11051,15 +11017,13 @@ exports[`Calendar mode demo works fine 1`] = `
           </svg>
            
           <svg
-            class="t-icon t-icon-loading t-select-right-icon"
+            class="t-icon t-icon-loading t-size-m t-select-right-icon"
             style="display: none;"
           >
             <use
               xlink:href="#t-icon-loading"
             />
           </svg>
-           
-          <!---->
         </div>
          
         <div
@@ -11181,8 +11145,6 @@ exports[`Calendar mode demo works fine 1`] = `
                     xlink:href="#t-icon-loading"
                   />
                 </svg>
-                 
-                <!---->
               </div>
                
               <div
@@ -11566,8 +11528,6 @@ exports[`Calendar range demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -11680,8 +11640,6 @@ exports[`Calendar range demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -12433,8 +12391,6 @@ exports[`Calendar slotPropsApi demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -12547,8 +12503,6 @@ exports[`Calendar slotPropsApi demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -13166,8 +13120,6 @@ exports[`Calendar value demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div
@@ -13280,8 +13232,6 @@ exports[`Calendar value demo works fine 1`] = `
                   xlink:href="#t-icon-loading"
                 />
               </svg>
-               
-              <!---->
             </div>
              
             <div

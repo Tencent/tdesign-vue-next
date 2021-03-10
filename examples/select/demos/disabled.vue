@@ -4,6 +4,7 @@
       v-model="value"
       placeholder="-请选择-"
       disabled
+      filterable
       class="demo-select-base"
     >
       <t-option

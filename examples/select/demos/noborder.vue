@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-select v-model="value" class="demo-select-base" clearable @change="handleChange" @visible-change="visibleChange">
+    <t-select v-model="value" :bordered="false" class="demo-select-base" clearable @change="handleChange" @visible-change="visibleChange">
       <t-option v-for="(item, index) in options" :value="item.value" :label="item.label" :key="index">
         {{ item.label }}
       </t-option>
@@ -41,6 +41,7 @@ export default {
 </script>
 <style scoped>
 .demo-select-base {
+  width: 200px;
   display: inline-block;
   margin: 0 20px;
 }
