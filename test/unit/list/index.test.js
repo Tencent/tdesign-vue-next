@@ -9,7 +9,7 @@ describe('List', () => {
       propsData: {
         header: 'header',
         footer: 'footer',
-        loading: 'loading',
+        asyncLoading: 'asyncLoading',
         size: 'large',
       },
     });
@@ -21,8 +21,8 @@ describe('List', () => {
   it('equals footer to "footer"', () => {
     expect(cmp.vm.footer).toEqual('footer');
   });
-  it('equals loading to "loading"', () => {
-    expect(cmp.vm.loading).toEqual('loading');
+  it('equals asyncLoading to "asyncLoading"', () => {
+    expect(cmp.vm.asyncLoading).toEqual('asyncLoading');
   });
   it('equals size to "large"', () => {
     expect(cmp.vm.size).toEqual('large');

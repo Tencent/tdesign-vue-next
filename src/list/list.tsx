@@ -14,8 +14,8 @@ export default Vue.extend({
   name,
   props: {
     ...props,
-    loading: {
-      type: [String, Number, Function] as PropType<TdListProps['loading']>,
+    asyncLoading: {
+      type: [String, Number, Function] as PropType<TdListProps['asyncLoading']>,
       default: undefined,
       validator(val: string | Function | number): boolean {
         if (typeof val === 'string') {
@@ -38,7 +38,7 @@ export default Vue.extend({
       ];
     },
     loadingClass(): ClassName {
-      return typeof this.loading === 'string' ? `${name}__load ${name}__load--${this.loading}` : `${name}__load`;
+      return typeof this.asyncLoading === 'string' ? `${name}__load ${name}__load--${this.asyncLoading}` : `${name}__load`;
     },
   },
   components: {
@@ -46,8 +46,8 @@ export default Vue.extend({
   },
   methods: {
     renderLoading() {
-      if (this.loading && typeof this.loading === 'string') {
-        if (this.loading === LOADING) {
+      if (this.asyncLoading && typeof this.asyncLoading === 'string') {
+        if (this.asyncLoading === LOADING) {
           return (
             <div>
               <TIconLoading />
@@ -55,11 +55,11 @@ export default Vue.extend({
             </div>
           );
         }
-        if (this.loading === LOAD_MORE) {
+        if (this.asyncLoading === LOAD_MORE) {
           return <span>点击加载更多</span>;
         }
       }
-      return renderTNodeJSX(this, 'loading');
+      return renderTNodeJSX(this, 'asyncLoading');
     },
     handleScroll(e: WheelEvent | Event) {
       const listElement = this.$el as HTMLElement;
@@ -78,7 +78,7 @@ export default Vue.extend({
       }
     },
     handleLoadMore(e: MouseEvent) {
-      if (typeof this.loading === 'string' && this.loading !== LOAD_MORE) return;
+      if (typeof this.asyncLoading === 'string' && this.asyncLoading !== LOAD_MORE) return;
       this.$emit('load-more', { e });
       if (this.onLoadMore) {
         this.onLoadMore({
