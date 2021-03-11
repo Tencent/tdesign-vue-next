@@ -27,7 +27,6 @@
       size="large"
       @change="handleChange"
       :onSearch="remoteMethod2"
-      @search="remoteMethod2"
       :loading="loading2"
     >
       <t-option
