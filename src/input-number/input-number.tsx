@@ -5,7 +5,6 @@ import Remove from '../icon/remove';
 import ChevronDown from '../icon/chevron-down';
 import ChevronUp from '../icon/chevron-up';
 import CLASSNAMES from '../utils/classnames';
-import INPUT_NUMBER_CLASSNAMES from './classnames';
 import props from '@TdTypes/input-number/props';
 
 const name = `${prefix}-input-number`;
@@ -106,7 +105,7 @@ export default Vue.extend({
       return {
         class: [
           't-input-number',
-          INPUT_NUMBER_CLASSNAMES.SIZE[this.size],
+          CLASSNAMES.SIZE[this.size],
           {
             [CLASSNAMES.STATUS.disabled]: this.disabled,
             't-is-controls-right': this.mode === 'column',
