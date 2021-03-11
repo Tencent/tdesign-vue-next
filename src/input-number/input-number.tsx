@@ -41,7 +41,6 @@ export default Vue.extend({
     return {
       userInput: null,
       filterValue: null,
-      curVal: this.value,
       type: typeof this.value || 'string',
       isError: false,
       errMsg: '',
@@ -161,20 +160,23 @@ export default Vue.extend({
       return this.mode === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
     },
     displayValue(): string {
+      if (this.value === undefined) return;
       if (this.userInput !== null) {
         return this.filterValue;
       }
-      return this.formatter ? this.formatter(this.curVal) : this.curVal.toFixed(this.digitsNum);
+      return this.formatter ? this.formatter(this.value) : this.value.toFixed(this.digitsNum);
     },
   },
   methods: {
     handleAdd(e: MouseEvent) {
       if (this.disabledAdd) return;
-      this.handleAction(Number((this.value + this.step).toFixed(this.digitsNum)), 'add', e);
+      const value = this.value || 0;
+      this.handleAction(Number((value + this.step).toFixed(this.digitsNum)), 'add', e);
     },
     handleReduce(e: MouseEvent) {
       if (this.disabledReduce) return;
-      this.handleAction(Number((this.value - this.step).toFixed(this.digitsNum)), 'reduce', e);
+      const value = this.value || 0;
+      this.handleAction(Number((value - this.step).toFixed(this.digitsNum)), 'reduce', e);
     },
     handleInput(e: InputEvent) {
       // get
@@ -191,7 +193,6 @@ export default Vue.extend({
       if (actionType !== 'input') {
         this.clearInput();
       }
-      this.curVal = value;
       this.handleChange(value, { type: actionType, e });
     },
     filterInput(s: string) {
@@ -212,41 +213,41 @@ export default Vue.extend({
     },
     handleBlur(e: FocusEvent) {
       if (this.onBlur) {
-        this.onBlur(this.curVal, { e });
+        this.onBlur(this.value, { e });
       }
-      this.$emit('blur', this.curVal, { e });
+      this.$emit('blur', this.value, { e });
     },
     handleFocus(e: FocusEvent) {
       if (this.onFocus) {
-        this.onFocus(this.curVal, { e });
+        this.onFocus(this.value, { e });
       }
-      this.$emit('focus', this.curVal, { e });
+      this.$emit('focus', this.value, { e });
     },
     handleKeydownEnter(e: KeyboardEvent) {
       if (e.key !== 'Enter') return;
       if (this.onKeydownEnter) {
-        this.onKeydownEnter(this.curVal, { e });
+        this.onKeydownEnter(this.value, { e });
       }
-      this.$emit('keydown-enter', this.curVal, { e });
+      this.$emit('keydown-enter', this.value, { e });
     },
     handleKeydown(e: KeyboardEvent) {
       if (this.onKeydown) {
-        this.onKeydown(this.curVal, { e });
+        this.onKeydown(this.value, { e });
       }
-      this.$emit('keydown', this.curVal, { e });
+      this.$emit('keydown', this.value, { e });
       this.handleKeydownEnter(e);
     },
     handleKeyup(e: KeyboardEvent) {
       if (this.onKeyup) {
-        this.onKeyup(this.curVal, { e });
+        this.onKeyup(this.value, { e });
       }
-      this.$emit('keyup', this.curVal, { e });
+      this.$emit('keyup', this.value, { e });
     },
     handleKeypress(e: KeyboardEvent) {
       if (this.onKeypress) {
-        this.onKeypress(this.curVal, { e });
+        this.onKeypress(this.value, { e });
       }
-      this.$emit('keypress', this.curVal, { e });
+      this.$emit('keypress', this.value, { e });
     },
     handleInputError(visible: boolean, content: string) {
       this.isError = visible;
@@ -306,6 +307,7 @@ export default Vue.extend({
             {...this.inputEvents}
             autocomplete="off"
             ref='refInputElem'
+            placeholder={this.placeholder}
           />
         </div>
         <div {...this.addClasses} {...this.addEvents}>
