@@ -78,14 +78,14 @@ function getPropOptionMap(props: (string | PropOption)[], options: Option = {}):
 
 export default function (props: (string | PropOption)[], options: Option = {}): any {
   function mapProps(componentConstructor: Vue): any {
+    const component: ComponentOptions<Vue> = (componentConstructor as any).prototype.constructor.options;
     const model = options.model || defaultModel;
     const propOptionMap = getPropOptionMap(props, { model });
 
-    const defineProps: Record<string, any> = {};
+    const defineProps: Record<string, any> = { ...component.props };
     const defineWatches = {};
     let defineEvents: string[] = [];
     const defineMethods = {};
-    const component: ComponentOptions<Vue> =      (componentConstructor as any).prototype.constructor.options;
 
     const propsKeys: string[] = Object.keys(component.props);
     const camelPropsKeys = propsKeys.map(key => toCamel(key));
@@ -197,7 +197,7 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
             propMap[propName] = this[dataName];
           }
           // 只监听第一个定义的事件，参数取第一个事件参数
-          handlerMap[events[0]] =            (v: any, ...args: any[]): any => this.updateData(propName, v, ...args);
+          handlerMap[events[0]] = (v: any, ...args: any[]): any => this.updateData(propName, v, ...args);
         });
 
         const attrs = {};
@@ -210,7 +210,7 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
 
         return h(component, {
           props: {
-            ...this.$attrs,
+            ...this.$props,
             ...propMap,
           },
 
