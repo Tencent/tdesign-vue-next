@@ -26,3 +26,27 @@ export function filterDataByIds(
 }
 
 export const INNER_PRE_NAME = '@@inner-';
+
+export enum SCROLL_DIRECTION {
+  X = 'scroll-x',
+  Y = 'scroll-y',
+  UNKNOWN = 'unknown',
+}
+
+let preScrollLeft: any;
+let preScrollTop: any;
+
+export const getScrollDirection = (
+  scrollLeft: number,
+  scrollTop: number
+): SCROLL_DIRECTION => {
+  let direction = SCROLL_DIRECTION.UNKNOWN;
+  if (preScrollTop !== scrollTop) {
+    direction = SCROLL_DIRECTION.Y;
+  } else if (preScrollLeft !== scrollLeft) {
+    direction = SCROLL_DIRECTION.X;
+  }
+  preScrollTop = scrollTop;
+  preScrollLeft = scrollLeft;
+  return direction;
+};

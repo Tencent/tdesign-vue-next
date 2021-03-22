@@ -4,7 +4,8 @@
       v-model="current"
       :total="100"
       @change="onChange"
-      :page-size.sync="pageSize"
+      :pageSize.sync="pageSize"
+      @pageSizeChange="onPageSizeChange"
     />
   </div>
 </template>
@@ -18,6 +19,9 @@ export default {
     };
   },
   methods: {
+    onPageSizeChange(val) {
+      console.log('size:', val);
+    },
     onChange(index, event) {
       console.log(`转到第${index}页`);
       console.log(event);

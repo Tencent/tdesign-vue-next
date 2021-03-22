@@ -325,18 +325,16 @@ export default mixins(PaginationLocalReceiver).extend({
         const prev = this.currentIndex;
         this.currentIndex = current;
         this.jumpIndex = current;
-        this.$emit('change', current, {
+        const pageInfo = {
           curr: current,
           prev,
           pageSize: this.pageSize,
-        });
+        };
+        this.$emit('change', current, pageInfo);
         if (typeof this.onChange === 'function') {
-          this.onChange(current, {
-            curr: current,
-            prev,
-            pageSize: this.pageSize,
-          });
+          this.onChange(current, pageInfo);
         }
+        this.currentIndex = current;
       }
     },
     prevPage(): void {
@@ -384,18 +382,15 @@ export default mixins(PaginationLocalReceiver).extend({
        * @param {Number} pageSize 分页大小
        * @param {Number} index 当前页
        */
-      this.$emit('update:pageSize', pageSize);
-      this.$emit('pageSizeChange', pageSize, {
+      const pageInfo = {
         curr: isIndexChange ? pageCount : this.currentIndex,
         prev: this.currentIndex,
         pageSize,
-      });
+      };
+      this.$emit('update:pageSize', pageSize);
+      this.$emit('pageSizeChange', pageSize, pageInfo);
       if (typeof this.onPageSizeChange === 'function') {
-        this.onPageSizeChange(pageSize, {
-          curr: isIndexChange ? pageCount : this.currentIndex,
-          prev: this.currentIndex,
-          pageSize,
-        });
+        this.onPageSizeChange(pageSize, pageInfo);
       }
       if (isIndexChange) {
         this.toPage(pageCount);

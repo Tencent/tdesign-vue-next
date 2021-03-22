@@ -1,5 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Table ajax demo works fine 1`] = `
+<div>
+  <div
+    class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s t-table-valign__top"
+  >
+    <div
+      class="t-table-content"
+      style="overflow: auto;"
+    >
+      <table
+        style="table-layout: fixed;"
+      >
+        <colgroup>
+          <col
+            style="width: 200px;"
+          />
+          <col
+            style="width: 200px;"
+          />
+          <col
+            style="width: 200px;"
+          />
+          <col />
+        </colgroup>
+        <thead
+          columnsprops="[object Object],[object Object],[object Object],[object Object]"
+        >
+          <tr>
+            <td
+              class="align-center"
+              colspan="1"
+              key="name"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              姓名
+            </td>
+            <td
+              class="align-left"
+              colspan="1"
+              key="gender"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              性别
+            </td>
+            <td
+              class="align-left"
+              colspan="1"
+              key="phone"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              联系方式
+            </td>
+            <td
+              class="align-left"
+              colspan="1"
+              key="email"
+              rowspan="1"
+            >
+              邮箱
+            </td>
+          </tr>
+        </thead>
+        <tbody
+          class="table-body"
+        />
+        <tfoot>
+          <tr>
+            <td
+              colspan="4"
+            >
+              <div
+                class="t-table--empty"
+              >
+                暂无数据
+              </div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div
+      class="t-table-pagination"
+    >
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Table base demo works fine 1`] = `
 <div>
   <div
@@ -125,7 +217,7 @@ exports[`Table base demo works fine 1`] = `
               length="8"
               style="overflow: hidden;"
             >
-              0
+              10
             </td>
             <td
               class="align-left text-ellipsis row"
@@ -192,7 +284,7 @@ exports[`Table base demo works fine 1`] = `
               length="8"
               style="overflow: hidden;"
             >
-              1
+              11
             </td>
             <td
               class="align-left text-ellipsis row"
@@ -259,7 +351,7 @@ exports[`Table base demo works fine 1`] = `
               length="8"
               style="overflow: hidden;"
             >
-              2
+              12
             </td>
             <td
               class="align-left text-ellipsis row"
@@ -326,7 +418,7 @@ exports[`Table base demo works fine 1`] = `
               length="8"
               style="overflow: hidden;"
             >
-              3
+              13
             </td>
             <td
               class="align-left text-ellipsis row"
@@ -393,7 +485,342 @@ exports[`Table base demo works fine 1`] = `
               length="8"
               style="overflow: hidden;"
             >
-              4
+              14
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              15
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              16
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              17
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              18
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              19
             </td>
             <td
               class="align-left text-ellipsis row"
@@ -460,7 +887,6 @@ exports[`Table base demo works fine 1`] = `
     >
       <div
         class="t-pagination t-size-m"
-        current="1"
       >
         <div
           class="t-pagination__total"
@@ -505,15 +931,15 @@ exports[`Table base demo works fine 1`] = `
                 name="t-select"
                 style="width: 0px;"
                 type="hidden"
-                value="5"
+                value="10"
               />
                 
               <span
                 class="t-select-selectedSingle"
-                title="5"
+                title="10"
               >
                 
-        5
+        10
       
               </span>
                
@@ -523,7 +949,7 @@ exports[`Table base demo works fine 1`] = `
               >
                 <input
                   class="t-input__inner"
-                  placeholder="5"
+                  placeholder="10"
                   type="text"
                 />
               </div>
@@ -581,8 +1007,7 @@ exports[`Table base demo works fine 1`] = `
         </div>
          
         <div
-          class="t-pagination__btn t-pagination__btn--prev t-is-disabled"
-          disabled="disabled"
+          class="t-pagination__btn t-pagination__btn--prev"
         >
           <svg
             class="t-icon t-icon-chevron-left"
@@ -602,7 +1027,7 @@ exports[`Table base demo works fine 1`] = `
           class="t-pagination__pager"
         >
           <li
-            class="t-pagination__number t-is-current"
+            class="t-pagination__number"
           >
             1
           </li>
@@ -610,7 +1035,7 @@ exports[`Table base demo works fine 1`] = `
           <!---->
            
           <li
-            class="t-pagination__number"
+            class="t-pagination__number t-is-current"
           >
             
         2
@@ -658,7 +1083,7 @@ exports[`Table base demo works fine 1`] = `
           <li
             class="t-pagination__number"
           >
-            24
+            12
           </li>
         </ul>
          
@@ -679,6 +1104,5133 @@ exports[`Table base demo works fine 1`] = `
           </svg>
         </div>
          
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table base demo works fine 2`] = `
+<div>
+  <div
+    class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s t-table-valign__top"
+  >
+    <div
+      class="t-table-content"
+      style="overflow: auto;"
+    >
+      <table
+        style="table-layout: fixed;"
+      >
+        <colgroup>
+          <col
+            style="width: 100px; min-width: 100px;"
+          />
+          <col
+            style="width: 200px; min-width: 200px;"
+          />
+          <col
+            style="width: 100px; min-width: 100px;"
+          />
+          <col
+            style="width: 200px; min-width: 200px;"
+          />
+          <col />
+          <col
+            style="width: 100px; min-width: 100px;"
+          />
+          <col
+            style="width: 100px; min-width: 100px;"
+          />
+          <col
+            style="width: 100px; min-width: 100px;"
+          />
+        </colgroup>
+        <thead
+          columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+        >
+          <tr>
+            <td
+              class="align-center text-ellipsis row"
+              colspan="1"
+              key="index"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              index
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              colspan="1"
+              key="type"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              类型
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              colspan="1"
+              key="platform"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              平台
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              colspan="1"
+              key="property"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              属性
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              colspan="1"
+              key="default"
+              rowspan="1"
+            >
+              默认值
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              colspan="1"
+              key="needed"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              是否必传
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              colspan="1"
+              key="detail.name"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              详情信息
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              colspan="1"
+              key="description"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              说明
+            </td>
+          </tr>
+        </thead>
+        <tbody
+          class="table-body"
+        >
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              10
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              11
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              12
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              13
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              14
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              15
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              16
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              17
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              18
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-center text-ellipsis row"
+              key="index"
+              length="8"
+              style="overflow: hidden;"
+            >
+              19
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="8"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="8"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="8"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="8"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="8"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="detail.name"
+              length="8"
+              style="overflow: hidden;"
+            >
+              嵌套信息读取
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="8"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+        </tbody>
+        <tfoot />
+      </table>
+    </div>
+    <div
+      class="t-table-pagination"
+    >
+      <div
+        class="t-pagination t-size-m"
+      >
+        <div
+          class="t-pagination__total"
+        >
+          
+      共 120 项数据
+    
+        </div>
+         
+        <div
+          class="t-pagination__select"
+        >
+          <div
+            class="t-popup-reference"
+            style="width: 100%; position: relative;"
+          >
+            <transition-stub
+              appear="true"
+              name="t-popup_animation"
+            />
+             
+            <div
+              class="t-select t-size-m"
+            >
+              <svg
+                class="t-icon t-icon- t-size-m t-select-left-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-"
+                />
+              </svg>
+               
+              <span
+                class="t-select-placeholder"
+                style="display: none;"
+              >
+                 请选择
+              </span>
+               
+              <input
+                name="t-select"
+                style="width: 0px;"
+                type="hidden"
+                value="10"
+              />
+                
+              <span
+                class="t-select-selectedSingle"
+                title="10"
+              >
+                
+        10
+      
+              </span>
+               
+              <div
+                class="t-input t-size-m t-select-input"
+                style="display: none;"
+              >
+                <input
+                  class="t-input__inner"
+                  placeholder="10"
+                  type="text"
+                />
+              </div>
+               
+              <svg
+                class="t-icon t-icon-chevron-down t-size-m t-select-right-icon"
+              >
+                <use
+                  xlink:href="#t-icon-chevron-down"
+                />
+              </svg>
+               
+              <svg
+                class="t-icon t-icon-close t-size-m t-select-right-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-close"
+                />
+              </svg>
+               
+              <svg
+                class="t-icon t-icon-loading t-size-m t-select-right-icon"
+                style="display: none;"
+              >
+                <use
+                  xlink:href="#t-icon-loading"
+                />
+              </svg>
+            </div>
+             
+            <div
+              class="resize-sensor"
+              dir="ltr"
+              style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+            >
+              <div
+                class="resize-sensor-expand"
+                style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              >
+                <div
+                  style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+                />
+              </div>
+              <div
+                class="resize-sensor-shrink"
+                style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              >
+                <div
+                  style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+         
+        <div
+          class="t-pagination__btn t-pagination__btn--prev"
+        >
+          <svg
+            class="t-icon t-icon-chevron-left"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M266.45122048 489.6415328C253.98241280000002 502.1382944 254.00507328000003 522.37688704 266.50183488 534.84569536L266.50183488 534.84569536 641.5903552 909.0951936 686.8451904 863.8403584 334.4904192 512.2516633600001 686.8451904 160.83449728 641.5903552 115.57966336000001 267.2264192 488.89166336 266.50183488 489.59088959999997 266.47651392 489.6162112Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+         
+        <ul
+          class="t-pagination__pager"
+        >
+          <li
+            class="t-pagination__number"
+          >
+            1
+          </li>
+           
+          <!---->
+           
+          <li
+            class="t-pagination__number t-is-current"
+          >
+            
+        2
+      
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            
+        3
+      
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            
+        4
+      
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            
+        5
+      
+          </li>
+           
+          <li
+            class="t-pagination__number t-pagination__number--more"
+          >
+            <svg
+              class="t-icon t-icon-ellipsis"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M192 448C227.346224 448 256 476.653776 256 512 256 547.346224 227.346224 576 192 576 156.653776 576 128 547.346224 128 512 128 476.653776 156.653776 448 192 448ZM512 448C547.346224 448 576 476.653776 576 512 576 547.346224 547.346224 576 512 576 476.653776 576 448 547.346224 448 512 448 476.653776 476.653776 448 512 448ZM832 448C867.3462208 448 896 476.653776 896 512 896 547.346224 867.3462208 576 832 576 796.6537792 576 768 547.346224 768 512 768 476.653776 796.6537792 448 832 448Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </li>
+           
+          <li
+            class="t-pagination__number"
+          >
+            12
+          </li>
+        </ul>
+         
+        <div
+          class="t-pagination__btn t-pagination__btn--next"
+        >
+          <svg
+            class="t-icon t-icon-chevron-right"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M758.8081664000001 489.6127065600001C771.27697472 502.10946816 771.2543136 522.34806144 758.757552 534.8168691200001L758.757552 534.8168691200001 383.6690304000001 909.0663616 338.4141952 863.8115328 690.7689683200001 512.20006272 338.4141952 160.8056710400001 383.6690304 115.5508371200001 758.41696832 489.22406272 758.757552 489.56206336Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+         
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table customCell demo works fine 1`] = `
+<div>
+  <div
+    style="margin-bottom: 10px;"
+  >
+    
+    columns 中通过定义 scopedSlots 或者 render 方法来实现自定义单元格的渲染。
+    其中 key 值为 'title' 时，代表用指定插槽自定义表头。其中 key 值为 'col' 时，代表用指定插槽自定义内容部分的单元格。
+  </div>
+   
+  <div>
+    <div
+      class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s"
+    >
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          <colgroup>
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+          </colgroup>
+          <thead
+            columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+          >
+            <tr>
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                key="type"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                <span>
+                  <svg
+                    class="t-icon t-icon-view-module"
+                  >
+                    <use
+                      xlink:href="#t-icon-view-module"
+                    />
+                  </svg>
+                   类型
+    
+                </span>
+              </td>
+              <td
+                class="align-left test"
+                colspan="1"
+                key="platform"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                平台
+              </td>
+              <td
+                class="align-left test2"
+                colspan="1"
+                key="property"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                属性名
+              </td>
+              <td
+                class="align-left test4"
+                colspan="1"
+                key="default"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                默认值
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                colspan="1"
+                key="needed"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                是否必传
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                key="description"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                说明
+              </td>
+            </tr>
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="6"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left test"
+                key="platform"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <span>
+                  <svg
+                    class="t-icon t-icon-attach"
+                  >
+                    <use
+                      xlink:href="#t-icon-attach"
+                    />
+                  </svg>
+                  <a
+                    class="link"
+                    href="#"
+                  >
+                    公有
+                  </a>
+                </span>
+              </td>
+              <td
+                class="align-left test2"
+                key="property"
+                length="6"
+                style="overflow: hidden;"
+              >
+                render 方法渲染的单元格：0: data
+              </td>
+              <td
+                class="align-left test4"
+                key="default"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <span>
+                  
+      未指定 scopedSlots 的插槽会默认用来渲染表格内容单元格。 []
+    
+                </span>
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="6"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="6"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="6"
+                style="overflow: hidden;"
+              >
+                String
+              </td>
+              <td
+                class="align-left test"
+                key="platform"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <span>
+                  <svg
+                    class="t-icon t-icon-attach"
+                  >
+                    <use
+                      xlink:href="#t-icon-attach"
+                    />
+                  </svg>
+                  <a
+                    class="link"
+                    href="#"
+                  >
+                    公有
+                  </a>
+                </span>
+              </td>
+              <td
+                class="align-left test2"
+                key="property"
+                length="6"
+                style="overflow: hidden;"
+              >
+                render 方法渲染的单元格：1: rowkey
+              </td>
+              <td
+                class="align-left test4"
+                key="default"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <span>
+                  
+      未指定 scopedSlots 的插槽会默认用来渲染表格内容单元格。 -1
+    
+                </span>
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="6"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="6"
+                style="overflow: hidden;"
+              >
+                指定rowkey
+              </td>
+            </tr>
+          </tbody>
+          <tfoot />
+        </table>
+      </div>
+      <div
+        class="t-table-pagination"
+      >
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table draggable demo works fine 1`] = `
+<div>
+  <div
+    class="t-table"
+  >
+    <div
+      class="t-table-content"
+      style="overflow: auto;"
+    >
+      <table
+        style="table-layout: fixed;"
+      >
+        <colgroup>
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 250px;"
+          />
+        </colgroup>
+        <thead
+          columnsprops="[object Object],[object Object],[object Object]"
+        >
+          <tr>
+            <td
+              class=""
+              colspan="1"
+              key="name"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              <span>
+                <svg
+                  class="t-icon t-icon-descending-order"
+                >
+                  <use
+                    xlink:href="#t-icon-descending-order"
+                  />
+                </svg>
+                <span
+                  class="t-table-sort-icon"
+                >
+                  <svg
+                    class="t-icon t-icon-chevron-up t-size-s"
+                  >
+                    <use
+                      xlink:href="#t-icon-chevron-up"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </td>
+            <td
+              class=""
+              colspan="1"
+              key="age"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              <span>
+                Age
+                <span
+                  class="t-table-double-icons t-table-sort-icon"
+                >
+                  <svg
+                    class="t-icon t-icon-chevron-up t-size-s"
+                  >
+                    <use
+                      xlink:href="#t-icon-chevron-up"
+                    />
+                  </svg>
+                  <svg
+                    class="t-icon t-icon-chevron-down t-size-s"
+                  >
+                    <use
+                      xlink:href="#t-icon-chevron-down"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </td>
+            <td
+              class=""
+              colspan="1"
+              key="address"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              Address
+            </td>
+          </tr>
+        </thead>
+        <tbody
+          class="table-body"
+        >
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="name"
+              length="3"
+              style="overflow: hidden;"
+            >
+              John Brown
+            </td>
+            <td
+              class=""
+              key="age"
+              length="3"
+              style="overflow: hidden;"
+            >
+              32
+            </td>
+            <td
+              class=""
+              key="address"
+              length="3"
+              style="overflow: hidden;"
+            >
+              New York No. 1 Lake Park
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="name"
+              length="3"
+              style="overflow: hidden;"
+            >
+              Jim Green
+            </td>
+            <td
+              class=""
+              key="age"
+              length="3"
+              style="overflow: hidden;"
+            >
+              42
+            </td>
+            <td
+              class=""
+              key="address"
+              length="3"
+              style="overflow: hidden;"
+            >
+              London No. 1 Lake Park
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="name"
+              length="3"
+              style="overflow: hidden;"
+            >
+              Joe Black
+            </td>
+            <td
+              class=""
+              key="age"
+              length="3"
+              style="overflow: hidden;"
+            >
+              20
+            </td>
+            <td
+              class=""
+              key="address"
+              length="3"
+              style="overflow: hidden;"
+            >
+              Sidney No. 1 Lake Park
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="name"
+              length="3"
+              style="overflow: hidden;"
+            >
+              Jim Red
+            </td>
+            <td
+              class=""
+              key="age"
+              length="3"
+              style="overflow: hidden;"
+            >
+              31
+            </td>
+            <td
+              class=""
+              key="address"
+              length="3"
+              style="overflow: hidden;"
+            >
+              London No. 2 Lake Park
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class=""
+              key="name"
+              length="3"
+              style="overflow: hidden;"
+            >
+              Jim Red 23432
+            </td>
+            <td
+              class=""
+              key="age"
+              length="3"
+              style="overflow: hidden;"
+            >
+              32
+            </td>
+            <td
+              class=""
+              key="address"
+              length="3"
+              style="overflow: hidden;"
+            >
+              London No. 2 Lake Park
+            </td>
+          </tr>
+        </tbody>
+        <tfoot />
+      </table>
+    </div>
+    <div
+      class="t-table-pagination"
+    >
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table empty demo works fine 1`] = `
+<div>
+  <div
+    style="margin-bottom: 10px;"
+  >
+    使用默认空表格样式
+  </div>
+   
+  <div>
+    <div
+      class="t-table t-size-s"
+    >
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          <colgroup>
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+          </colgroup>
+          <thead
+            columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+          >
+            <tr>
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                key="type"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                类型
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                colspan="1"
+                key="platform"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                平台
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                colspan="1"
+                key="property"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                属性
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                colspan="1"
+                key="default"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                默认值
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                colspan="1"
+                key="needed"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                是否必传
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                key="description"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                说明
+              </td>
+            </tr>
+          </thead>
+          <tbody
+            class="table-body"
+          />
+          <tfoot>
+            <tr>
+              <td
+                colspan="6"
+              >
+                <div
+                  class="t-table--empty"
+                >
+                  暂无数据
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div
+        class="t-table-pagination"
+      >
+        <!---->
+      </div>
+    </div>
+  </div>
+   
+  <div
+    style="margin-bottom: 10px;"
+  >
+    自定义空表格
+  </div>
+   
+  <div>
+    <div
+      class="t-table t-size-s"
+    >
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          <colgroup>
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+          </colgroup>
+          <thead
+            columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+          >
+            <tr>
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                key="type"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                类型
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                colspan="1"
+                key="platform"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                平台
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                colspan="1"
+                key="property"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                属性
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                colspan="1"
+                key="default"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                默认值
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                colspan="1"
+                key="needed"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                是否必传
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                key="description"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                说明
+              </td>
+            </tr>
+          </thead>
+          <tbody
+            class="table-body"
+          />
+          <tfoot>
+            <tr>
+              <td
+                colspan="6"
+              >
+                <div>
+                  <span
+                    style="display: flex; align-items: center; justify-content: center; height: 100px;"
+                  >
+                    
+      😄 It's empty.
+    
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div
+        class="t-table-pagination"
+      >
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table expandable demo works fine 1`] = `
+<div>
+  <div>
+    <div
+      class="t-table"
+    >
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          <colgroup>
+            <col
+              style="width: 50px;"
+            />
+            <col
+              style="width: 150px;"
+            />
+            <col
+              style="width: 100px;"
+            />
+            <col />
+            <col />
+            <col
+              style="width: 200px;"
+            />
+          </colgroup>
+          <thead
+            columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+          >
+            <tr>
+              <td
+                class="t-table-expandable-icon-cell"
+                colspan="1"
+                key="expanded-icon-cell"
+                rowspan="1"
+                style="overflow: hidden;"
+              />
+              <td
+                class=""
+                colspan="1"
+                key="instance"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                集群名称
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="status"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                状态
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="owner"
+                rowspan="1"
+              >
+                管理员
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="description"
+                rowspan="1"
+              >
+                描述
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="op"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                <p>
+                  操作
+                </p>
+              </td>
+            </tr>
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            <tr
+              class=""
+            >
+              <td
+                class="t-table-expandable-icon-cell"
+                key="expanded-icon-cell"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a>
+                  <svg
+                    class="t-icon t-icon-chevron-down"
+                    version="1.1"
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M514.72285696 704.7972396800001L520.12398592 703.85630784C525.44129472 702.4731296 530.472656 699.70458368 534.64508928 695.5504467200001L534.64508928 695.5504467200001 910.3632832 320.41891840000005 865.108448 275.16408320000005 512.02827328 627.72684352 160.0351072 275.20768640000006 114.78027328 320.46252160000006 489.38601344 695.5130879999999C496.31708544 702.46731264 505.65104192 705.56179008 514.72285696 704.7972396800001Z"
+                      fill-opacity=".9"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest1
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <p
+                  class="status"
+                >
+                  健康
+                </p>
+                 
+                <!---->
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                jenny;peter
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+                colspan="6"
+                key="expanded-row"
+                length="1"
+              >
+                <div
+                  class="more-detail"
+                >
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      集群名称:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    JQTest1
+                  </p>
+                  <br />
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      管理员:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    jenny;peter
+                  </p>
+                  <br />
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      描述:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    test
+                  </p>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="t-table-expandable-icon-cell"
+                key="expanded-icon-cell"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a>
+                  <svg
+                    class="t-icon t-icon-chevron-down"
+                    version="1.1"
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M514.72285696 704.7972396800001L520.12398592 703.85630784C525.44129472 702.4731296 530.472656 699.70458368 534.64508928 695.5504467200001L534.64508928 695.5504467200001 910.3632832 320.41891840000005 865.108448 275.16408320000005 512.02827328 627.72684352 160.0351072 275.20768640000006 114.78027328 320.46252160000006 489.38601344 695.5130879999999C496.31708544 702.46731264 505.65104192 705.56179008 514.72285696 704.7972396800001Z"
+                      fill-opacity=".9"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest2
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <!---->
+                 
+                <p
+                  class="status unhealth"
+                >
+                  异常
+                </p>
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                jenny
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+                colspan="6"
+                key="expanded-row"
+                length="1"
+              >
+                <div
+                  class="more-detail"
+                >
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      集群名称:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    JQTest2
+                  </p>
+                  <br />
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      管理员:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    jenny
+                  </p>
+                  <br />
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      描述:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    test
+                  </p>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="t-table-expandable-icon-cell"
+                key="expanded-icon-cell"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a>
+                  <svg
+                    class="t-icon t-icon-chevron-right"
+                    version="1.1"
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M758.8081664000001 489.6127065600001C771.27697472 502.10946816 771.2543136 522.34806144 758.757552 534.8168691200001L758.757552 534.8168691200001 383.6690304000001 909.0663616 338.4141952 863.8115328 690.7689683200001 512.20006272 338.4141952 160.8056710400001 383.6690304 115.5508371200001 758.41696832 489.22406272 758.757552 489.56206336Z"
+                      fill-opacity=".9"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest3
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <p
+                  class="status"
+                >
+                  健康
+                </p>
+                 
+                <!---->
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                jenny
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+            <tr
+              class=""
+              style="display: none;"
+            >
+              <td
+                class=""
+                colspan="6"
+                key="expanded-row"
+                length="1"
+              >
+                <div
+                  class="more-detail"
+                >
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      集群名称:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    JQTest3
+                  </p>
+                  <br />
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      管理员:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    jenny
+                  </p>
+                  <br />
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      描述:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    test
+                  </p>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="t-table-expandable-icon-cell"
+                key="expanded-icon-cell"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a>
+                  <svg
+                    class="t-icon t-icon-chevron-right"
+                    version="1.1"
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M758.8081664000001 489.6127065600001C771.27697472 502.10946816 771.2543136 522.34806144 758.757552 534.8168691200001L758.757552 534.8168691200001 383.6690304000001 909.0663616 338.4141952 863.8115328 690.7689683200001 512.20006272 338.4141952 160.8056710400001 383.6690304 115.5508371200001 758.41696832 489.22406272 758.757552 489.56206336Z"
+                      fill-opacity=".9"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest4
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <!---->
+                 
+                <p
+                  class="status unhealth"
+                >
+                  异常
+                </p>
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                peter
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+            <tr
+              class=""
+              style="display: none;"
+            >
+              <td
+                class=""
+                colspan="6"
+                key="expanded-row"
+                length="1"
+              >
+                <div
+                  class="more-detail"
+                >
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      集群名称:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    JQTest4
+                  </p>
+                  <br />
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      管理员:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    peter
+                  </p>
+                  <br />
+                  <p
+                    class="title"
+                  >
+                    <b>
+                      描述:
+                    </b>
+                  </p>
+                  <p
+                    class="content"
+                  >
+                    test
+                  </p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot />
+        </table>
+      </div>
+      <div
+        class="t-table-pagination"
+      >
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table fixedColumn demo works fine 1`] = `
+<div>
+  <div
+    class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s t-table__cell--fixed t-table--has-fixed"
+  >
+    <div
+      class="t-table-content"
+      style="overflow: auto;"
+    >
+      <table
+        style="table-layout: fixed;"
+      >
+        <colgroup>
+          <col
+            style="width: 150px; min-width: 150px;"
+          />
+          <col
+            style="width: 150px; min-width: 150px;"
+          />
+          <col
+            style="width: 200px; min-width: 200px;"
+          />
+          <col
+            style="width: 200px; min-width: 200px;"
+          />
+          <col
+            style="width: 200px; min-width: 200px;"
+          />
+          <col
+            style="width: 200px; min-width: 200px;"
+          />
+        </colgroup>
+        <thead
+          columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+        >
+          <tr>
+            <td
+              class="t-table__cell--fixed-left align-left text-ellipsis row"
+              colspan="1"
+              key="type"
+              rowspan="1"
+              style="position: sticky; left: 0px; overflow: hidden;"
+            >
+              类型
+            </td>
+            <td
+              class="t-table__cell--fixed-left align-left text-ellipsis test"
+              colspan="1"
+              key="platform"
+              rowspan="1"
+              style="position: sticky; left: 0px; overflow: hidden;"
+            >
+              平台
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              colspan="1"
+              key="property"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              属性
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              colspan="1"
+              key="default"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              默认值
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              colspan="1"
+              key="needed"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              是否必传
+            </td>
+            <td
+              class="t-table__cell--fixed-right align-left text-ellipsis row"
+              colspan="1"
+              key="description"
+              rowspan="1"
+              style="position: sticky; right: 0px; overflow: hidden;"
+            >
+              说明
+            </td>
+          </tr>
+        </thead>
+        <tbody
+          class="table-body"
+        >
+          <tr
+            class=""
+          >
+            <td
+              class="t-table__cell--fixed-left align-left text-ellipsis row"
+              key="type"
+              length="6"
+              style="position: sticky; left: 0px; overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="t-table__cell--fixed-left align-left text-ellipsis test"
+              key="platform"
+              length="6"
+              style="position: sticky; left: 0px; overflow: hidden;"
+            >
+              公有，代表这个数据可以是被公开的
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="6"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="6"
+              style="overflow: hidden;"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="6"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="t-table__cell--fixed-right align-left text-ellipsis row"
+              key="description"
+              length="6"
+              style="position: sticky; right: 0px; overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="t-table__cell--fixed-left align-left text-ellipsis row"
+              key="type"
+              length="6"
+              style="position: sticky; left: 0px; overflow: hidden;"
+            >
+              String
+            </td>
+            <td
+              class="t-table__cell--fixed-left align-left text-ellipsis test"
+              key="platform"
+              length="6"
+              style="position: sticky; left: 0px; overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="6"
+              style="overflow: hidden;"
+            >
+              rowkey
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="6"
+              style="overflow: hidden;"
+            >
+              -1
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="6"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="t-table__cell--fixed-right align-left text-ellipsis row"
+              key="description"
+              length="6"
+              style="position: sticky; right: 0px; overflow: hidden;"
+            >
+              指定rowkey
+            </td>
+          </tr>
+        </tbody>
+        <tfoot />
+      </table>
+    </div>
+    <div
+      class="t-table-pagination"
+    >
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table fixedHeader demo works fine 1`] = `
+<div>
+  <div
+    class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s t-table__header--fixed"
+  >
+    <div
+      class="t-table-content"
+      style="overflow: auto;"
+    >
+      <div
+        class="t-table__header"
+        style="width: 100%;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          <colgroup>
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+          </colgroup>
+          <thead
+            columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+          >
+            <tr>
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                key="index"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                index
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                key="type"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                类型
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                colspan="1"
+                key="platform"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                平台
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                colspan="1"
+                key="property"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                属性
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                colspan="1"
+                key="default"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                默认值
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                colspan="1"
+                key="needed"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                是否必传
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                key="description"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                说明
+              </td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div
+        class="t-table__body"
+        style="max-height: 100px;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          <colgroup>
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+          </colgroup>
+          <tbody
+            class="table-body"
+          >
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                0
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                1
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                2
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                3
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                4
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                5
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                6
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                7
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                8
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                9
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                10
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                11
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                12
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                13
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                14
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                15
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                16
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                17
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                18
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class="align-left text-ellipsis row"
+                key="index"
+                length="7"
+                style="overflow: hidden;"
+              >
+                19
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="type"
+                length="7"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test"
+                key="platform"
+                length="7"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                key="property"
+                length="7"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                key="default"
+                length="7"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                key="needed"
+                length="7"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                key="description"
+                length="7"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+            </tr>
+          </tbody>
+          <tfoot />
+        </table>
+      </div>
+    </div>
+    <div
+      class="t-table-pagination"
+    >
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table multiHeader demo works fine 1`] = `
+<div>
+  <div
+    class="t-table t-table--bordered"
+  >
+    <div
+      class="t-table-content"
+      style="overflow: auto;"
+    >
+      <table
+        style="table-layout: fixed;"
+      >
+        <colgroup>
+          <col />
+          <col />
+        </colgroup>
+        <thead
+          columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+        >
+          <tr>
+            <td
+              class=""
+              colspan="4"
+              rowspan="1"
+            >
+              属性及说明
+            </td>
+            <td
+              class=""
+              colspan="2"
+              rowspan="1"
+            >
+              属性及说明
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="align-left text-ellipsis test"
+              colspan="1"
+              key="platform"
+              rowspan="2"
+              style="overflow: hidden;"
+            >
+              平台
+            </td>
+            <td
+              class=""
+              colspan="3"
+              rowspan="1"
+            >
+              类型及默认值
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              colspan="1"
+              key="property"
+              rowspan="2"
+              style="overflow: hidden;"
+            >
+              属性
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              colspan="1"
+              key="description"
+              rowspan="2"
+              style="overflow: hidden;"
+            >
+              说明
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="align-left text-ellipsis row"
+              colspan="1"
+              key="type"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              类型
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              colspan="1"
+              key="default"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              默认值
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              colspan="1"
+              key="needed"
+              rowspan="1"
+              style="overflow: hidden;"
+            >
+              是否必传
+            </td>
+          </tr>
+        </thead>
+        <tbody
+          class="table-body"
+        >
+          <tr
+            class=""
+          >
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="6"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="6"
+              style="overflow: hidden;"
+            >
+              any[]
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="6"
+              style="overflow: hidden;"
+            >
+              []
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="6"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="6"
+              style="overflow: hidden;"
+            >
+              data
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="6"
+              style="overflow: hidden;"
+            >
+              数据源
+            </td>
+          </tr>
+          <tr
+            class=""
+          >
+            <td
+              class="align-left text-ellipsis test"
+              key="platform"
+              length="6"
+              style="overflow: hidden;"
+            >
+              公有
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="type"
+              length="6"
+              style="overflow: hidden;"
+            >
+              String
+            </td>
+            <td
+              class="align-left text-ellipsis test4"
+              key="default"
+              length="6"
+              style="overflow: hidden;"
+            >
+              -1
+            </td>
+            <td
+              class="align-left text-ellipsis test3"
+              key="needed"
+              length="6"
+              style="overflow: hidden;"
+            >
+              Y
+            </td>
+            <td
+              class="align-left text-ellipsis test2"
+              key="property"
+              length="6"
+              style="overflow: hidden;"
+            >
+              rowkey
+            </td>
+            <td
+              class="align-left text-ellipsis row"
+              key="description"
+              length="6"
+              style="overflow: hidden;"
+            >
+              指定rowkey
+            </td>
+          </tr>
+        </tbody>
+        <tfoot />
+      </table>
+    </div>
+    <div
+      class="t-table-pagination"
+    >
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table selectMultiple demo works fine 1`] = `
+<div>
+  <div>
+    <div
+      class="t-table"
+    >
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          <colgroup>
+            <col
+              style="width: 50px;"
+            />
+            <col
+              style="width: 150px;"
+            />
+            <col
+              style="width: 100px;"
+            />
+            <col />
+            <col />
+            <col
+              style="width: 200px;"
+            />
+          </colgroup>
+          <thead
+            columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+          >
+            <tr>
+              <td
+                class=""
+                colspan="1"
+                key="row-selection"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                <label
+                  class="t-checkbox t-is-indeterminate"
+                  style="display: inline-block"
+                  type="function VueComponent (options) {
+        this._init(options);
+      }"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name=""
+                    type="checkbox"
+                    value=""
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  />
+                </label>
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="instance"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                集群名称
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="status"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                状态
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="owner"
+                rowspan="1"
+              >
+                管理员
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="description"
+                rowspan="1"
+              >
+                描述
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="op"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                <p>
+                  操作
+                </p>
+              </td>
+            </tr>
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            <tr
+              class=""
+            >
+              <td
+                class=""
+                key="row-selection"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <label
+                  class="t-checkbox t-is-checked"
+                  style="display: inline-block"
+                  type="function VueComponent (options) {
+        this._init(options);
+      }"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name=""
+                    type="checkbox"
+                    value=""
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  />
+                </label>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest1
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <p
+                  class="status"
+                >
+                  健康
+                </p>
+                 
+                <!---->
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                jenny;peter
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+                key="row-selection"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <label
+                  class="t-checkbox t-is-checked t-is-disabled"
+                  style="display: inline-block"
+                  type="function VueComponent (options) {
+        this._init(options);
+      }"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    disabled=""
+                    name=""
+                    type="checkbox"
+                    value=""
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  />
+                </label>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest2
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <!---->
+                 
+                <p
+                  class="status unhealth"
+                >
+                  异常
+                </p>
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                jenny
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+                key="row-selection"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <label
+                  class="t-checkbox"
+                  style="display: inline-block"
+                  type="function VueComponent (options) {
+        this._init(options);
+      }"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name=""
+                    type="checkbox"
+                    value=""
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  />
+                </label>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest3
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <p
+                  class="status"
+                >
+                  健康
+                </p>
+                 
+                <!---->
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                jenny
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+                key="row-selection"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <label
+                  class="t-checkbox t-is-disabled"
+                  style="display: inline-block"
+                  type="function VueComponent (options) {
+        this._init(options);
+      }"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    disabled=""
+                    name=""
+                    type="checkbox"
+                    value=""
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  />
+                </label>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest4
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <!---->
+                 
+                <p
+                  class="status unhealth"
+                >
+                  异常
+                </p>
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                peter
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot />
+        </table>
+      </div>
+      <div
+        class="t-table-pagination"
+      >
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table selectSingle demo works fine 1`] = `
+<div>
+  <div>
+    <div
+      class="t-table"
+    >
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          <colgroup>
+            <col
+              style="width: 50px;"
+            />
+            <col
+              style="width: 150px;"
+            />
+            <col
+              style="width: 100px;"
+            />
+            <col />
+            <col />
+            <col
+              style="width: 200px;"
+            />
+          </colgroup>
+          <thead
+            columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+          >
+            <tr>
+              <td
+                class=""
+                colspan="1"
+                key="row-select"
+                rowspan="1"
+                style="overflow: hidden;"
+              />
+              <td
+                class=""
+                colspan="1"
+                key="instance"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                集群名称
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="status"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                状态
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="owner"
+                rowspan="1"
+              >
+                管理员
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="description"
+                rowspan="1"
+              >
+                描述
+              </td>
+              <td
+                class=""
+                colspan="1"
+                key="op"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                <p>
+                  操作
+                </p>
+              </td>
+            </tr>
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            <tr
+              class=""
+            >
+              <td
+                class=""
+                key="row-select"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <label
+                  class="t-radio"
+                  style="display: inline-block"
+                  type="function VueComponent (options) {
+        this._init(options);
+      }"
+                >
+                  <input
+                    class="t-radio__former"
+                    name=""
+                    type="radio"
+                    value=""
+                  />
+                  <span
+                    class="t-radio__input"
+                  />
+                  <span
+                    class="t-radio__label"
+                  />
+                </label>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest1
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <p
+                  class="status"
+                >
+                  健康
+                </p>
+                 
+                <!---->
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                jenny;peter
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+                key="row-select"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <label
+                  class="t-radio"
+                  style="display: inline-block"
+                  type="function VueComponent (options) {
+        this._init(options);
+      }"
+                >
+                  <input
+                    class="t-radio__former"
+                    name=""
+                    type="radio"
+                    value=""
+                  />
+                  <span
+                    class="t-radio__input"
+                  />
+                  <span
+                    class="t-radio__label"
+                  />
+                </label>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest2
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <!---->
+                 
+                <p
+                  class="status unhealth"
+                >
+                  异常
+                </p>
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                jenny
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+                key="row-select"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <label
+                  class="t-radio"
+                  style="display: inline-block"
+                  type="function VueComponent (options) {
+        this._init(options);
+      }"
+                >
+                  <input
+                    class="t-radio__former"
+                    name=""
+                    type="radio"
+                    value=""
+                  />
+                  <span
+                    class="t-radio__input"
+                  />
+                  <span
+                    class="t-radio__label"
+                  />
+                </label>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest3
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <p
+                  class="status"
+                >
+                  健康
+                </p>
+                 
+                <!---->
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                jenny
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+            <tr
+              class=""
+            >
+              <td
+                class=""
+                key="row-select"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <label
+                  class="t-radio"
+                  style="display: inline-block"
+                  type="function VueComponent (options) {
+        this._init(options);
+      }"
+                >
+                  <input
+                    class="t-radio__former"
+                    name=""
+                    type="radio"
+                    value=""
+                  />
+                  <span
+                    class="t-radio__input"
+                  />
+                  <span
+                    class="t-radio__label"
+                  />
+                </label>
+              </td>
+              <td
+                class=""
+                key="instance"
+                length="6"
+                style="overflow: hidden;"
+              >
+                JQTest4
+              </td>
+              <td
+                class=""
+                key="status"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <!---->
+                 
+                <p
+                  class="status unhealth"
+                >
+                  异常
+                </p>
+              </td>
+              <td
+                class=""
+                key="owner"
+                length="6"
+              >
+                peter
+              </td>
+              <td
+                class=""
+                key="description"
+                length="6"
+              >
+                test
+              </td>
+              <td
+                class=""
+                key="op"
+                length="6"
+                style="overflow: hidden;"
+              >
+                <a
+                  class="link"
+                >
+                  管理
+                </a>
+                 
+                <a
+                  class="link"
+                >
+                  删除
+                </a>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot />
+        </table>
+      </div>
+      <div
+        class="t-table-pagination"
+      >
         <!---->
       </div>
     </div>

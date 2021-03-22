@@ -43,6 +43,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
         </table>
       </div>
     </div>
+    <div class="t-table-pagination">
+      <!---->
+    </div>
   </div>
 </div>
 `;
@@ -66,6 +69,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
         </tfoot>
       </table>
     </div>
+    <div class="t-table-pagination">
+      <!---->
+    </div>
   </div>
 </div>
 `;
@@ -88,6 +94,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
           </tr>
         </tfoot>
       </table>
+    </div>
+    <div class="t-table-pagination">
+      <!---->
     </div>
   </div>
 </div>
@@ -125,6 +134,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
         <tfoot></tfoot>
       </table>
     </div>
+    <div class="t-table-pagination">
+      <!---->
+    </div>
   </div>
 </div>
 `;
@@ -147,6 +159,9 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
           </tr>
         </tfoot>
       </table>
+    </div>
+    <div class="t-table-pagination">
+      <!---->
     </div>
   </div>
 </div>
@@ -183,6 +198,9 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
         </tbody>
         <tfoot></tfoot>
       </table>
+    </div>
+    <div class="t-table-pagination">
+      <!---->
     </div>
   </div>
 </div>
@@ -235,6 +253,9 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
         <tfoot></tfoot>
       </table>
     </div>
+    <div class="t-table-pagination">
+      <!---->
+    </div>
   </div>
 </div>
 `;
@@ -270,6 +291,9 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
         </tbody>
         <tfoot></tfoot>
       </table>
+    </div>
+    <div class="t-table-pagination">
+      <!---->
     </div>
   </div>
 </div>

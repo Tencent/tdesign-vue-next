@@ -67,3 +67,16 @@
 | 属性 | 类型 | 默认值 | 必传 | 说明 |
 | ---- | -------------------------------- | ------ | ---- | ---- |
 | selectedRowKeys | Array | - | N | 选中的行，控制属性 |
+
+### Events
+| 名称 | 参数 | 描述 |
+| -- | -- | -- |
+change | `({filter, pagination, sorter}, {trigger: string, data})` | 表格数据发生变化时触发
+page-change | `(cur: number, pageInfo: PageInfo)` | 分页发生变化时触发
+row-hover | `({row: RowData, index: number, e: MouseEvent})` | 指针设备在行内移动时触发
+row-mouse-down | `{row: RowData, index: number, e: MouseEvent})` | 指针设备按钮在行按下时触发
+row-mouse-up | `{row: RowData, index: number, e: MouseEvent})` | 指针设备按钮在行放开时触发
+row-click | `{row: RowData, index: number, e: MouseEvent})` | 行单击时触发
+row-db-click | `{row: RowData, index: number, e: MouseEvent})` | 行双击时触发
+scroll-x | `(e: MouseEvent)` | 表格横向滚动时触发
+scroll-y | `(e: MouseEvent)` | 表格纵向滚动时触发
