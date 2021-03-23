@@ -5,7 +5,7 @@
     </div>
 
     <t-tabs
-      :activeName="activeName"
+      :value="value"
       theme="card"
       :addable="true"
       @add="addTab"
@@ -14,10 +14,10 @@
     >
       <t-tab-panel
         v-for="data in panelData"
-        :key="data.name"
-        :name="data.name"
+        :key="data.value"
+        :value="data.value"
         :label="data.label"
-        :closable="data.closable"
+        :removable="data.removable"
       >
         <p style="padding: 25px;">{{ data.content }}</p>
       </t-tab-panel>
@@ -31,16 +31,16 @@ let id = 0;
 export default {
   data() {
     return {
-      activeName: 'first',
+      value: 'first',
       panelData: [{
-        name: 'first',
+        value: 'first',
         label: '原有选项卡',
-        closable: false,
+        removable: false,
         content: '原有选项卡内容',
       }, {
-        name: 'second',
+        value: 'second',
         label: '原有选项卡',
-        closable: true,
+        removable: true,
         content: '原有选项卡内容',
       }],
     };
@@ -51,25 +51,25 @@ export default {
       this.panelData = [
         ...this.panelData,
         {
-          name: `${id}`,
+          value: `${id}`,
           label: '新选项卡',
-          closable: true,
+          removable: true,
           content: '新选项卡内容',
         },
       ];
-      this.activeName = `${id}`;
+      this.value = `${id}`;
       id += 1;
     },
-    removeTab(name) {
-      const index = this.panelData.findIndex(data => data.name === name);
+    removeTab({ value }) {
+      const index = this.panelData.findIndex(data => data.value === value);
       if (index < 0) return false;
       this.panelData.splice(index, 1);
-      if (this.activeName === name) {
-        this.activeName = this.panelData[index - 1].name;
+      if (this.value === value) {
+        this.value = this.panelData[index - 1].value;
       }
     },
-    changeTab(name) {
-      this.activeName = name;
+    changeTab(value) {
+      this.value = value;
     },
   },
 };

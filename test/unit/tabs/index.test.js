@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Tabs from '@/src/tabs/index.ts';
+import Vue from 'vue';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Tabs', () => {
@@ -21,10 +22,10 @@ describe('Tabs', () => {
       });
       expect(wrapper).toMatchSnapshot();
     });
-    it(':activeName', () => {
+    it(':value', () => {
       const wrapper = mount({
         render() {
-          return <Tabs activeName={1} />;
+          return <Tabs value={1} />;
         },
       });
       expect(wrapper).toMatchSnapshot();
@@ -32,15 +33,15 @@ describe('Tabs', () => {
     it(':size', () => {
       const wrapper = mount({
         render() {
-          return <Tabs activeName={'large'} />;
+          return <Tabs value={'large'} />;
         },
       });
       expect(wrapper).toMatchSnapshot();
     });
-    it(':tabPosition', () => {
+    it(':placement', () => {
       const wrapper = mount({
         render() {
-          return <Tabs tabPosition={'left'} />;
+          return <Tabs placement={'left'} />;
         },
       });
       expect(wrapper).toMatchSnapshot();
@@ -58,13 +59,15 @@ describe('Tabs', () => {
   // test events
   describe('@event', () => {
     it('@add', async () => {
+      const fn = jest.fn();
       const wrapper = mount({
         render() {
-          return <Tabs theme={'card'} addable={true} />;
+          return <Tabs theme={'card'} addable={true} onAdd={fn} />;
         },
       });
       const tabs = wrapper.findComponent(Tabs);
-      await tabs.find('.t-tabs__add-btn').trigger('click');
+      tabs.find('.t-tabs__add-btn').trigger('click');
+      await Vue.nextTick();
       expect(tabs.emitted().add).toBeTruthy();
     });
   });

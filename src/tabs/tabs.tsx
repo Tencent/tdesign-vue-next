@@ -2,12 +2,18 @@ import Vue, { VNode } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import TTabNav from './tab-nav.vue';
-import TTabPanel from './tab-panel.vue';
+import TTabPanel from './tab-panel';
+import { TabValue } from '@TdTypes/tabs/TdTabsProps';
+import props from '@TdTypes/tabs/props';
 
 const name = `${prefix}-tabs`;
 
 export default Vue.extend({
   name,
+  model: {
+    prop: 'value',
+    event: 'change',
+  },
 
   components: {
     RenderComponent,
@@ -15,75 +21,20 @@ export default Vue.extend({
     TTabNav,
   },
 
-  props: {
-    theme: {
-      type: String,
-      default: 'normal',
-      validator(v: string): boolean {
-        return (
-          [
-            'normal',
-            'card',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-    activeName: {
-      type: [String, Number],
-      default: 0,
-    },
-    defaultActiveName: {
-      type: [String, Number],
-      default: 0,
-    },
-    size: {
-      type: String,
-      default: 'medium',
-      validator(v: string): boolean {
-        return (
-          [
-            'large',
-            'medium',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-    tabPosition: {
-      type: String,
-      default: 'top',
-      validator(v: string): boolean {
-        return (
-          [
-            'top',
-            'right',
-            'bottom',
-            'left',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-    addable: {
-      type: Boolean,
-    },
-  },
+  props: { ...props },
 
   data() {
     return {
-      currName: this.activeName, // 当前tab name
-      panels: [], // tab内的panel实例组
+      // tab内的panel实例组
+      panels: [],
     };
-  },
-
-  watch: {
-    activeName(val) {
-      this.currName = val;
-    },
   },
 
   methods: {
     connectPanels() {
-      if (this.$slots.default) {
-        const panelSlots = this.$slots.default.filter((vnode) => {
+      const scopedSlots = this.$scopedSlots.default?.({}) || [];
+      if (scopedSlots.length) {
+        const panelSlots = scopedSlots.filter((vnode) => {
           const {
             componentOptions: {
               tag = '',
@@ -102,31 +53,46 @@ export default Vue.extend({
       }
     },
 
-    setCurrName(val: string) {
-      this.currName = val;
+    tabChange(event: Event, panel: VNode, value: TabValue) {
+      this.$emit('change', value);
+      if (typeof this.onChange === 'function') {
+        this.onChange(value);
+      }
     },
 
-    tabChange(event: Event, panel: VNode, name: string) {
-      this.setCurrName(name);
-      this.$emit('change', name);
+    tabAdd(e: MouseEvent) {
+      this.$emit('add', { e });
+      if (typeof this.onAdd === 'function') {
+        this.onAdd({ e });
+      }
     },
 
-    tabAdd() {
-      this.$emit('add', null);
-    },
-
-    tabRemove(event: Event, name: string) {
+    tabRemove(event: MouseEvent, value: TabValue, index: number) {
       event.stopPropagation();
-      this.$emit('remove', name);
+      const panel = this.panels[index];
+      const eventData = {
+        value,
+        index,
+        e: event,
+      };
+      this.$emit('remove', eventData);
+      if (typeof this.onRemove === 'function') {
+        this.onRemove(eventData);
+      }
+      if ((panel instanceof TTabPanel) && (typeof panel.onRemove === 'function')) {
+        panel.onRemove();
+        panel.$emit('remove');
+      }
     },
 
     genTabNav() {
       const {
         theme,
         panels,
-        currName,
+        value: currValue,
         size,
-        tabPosition,
+        disabled,
+        placement,
         addable,
         tabChange,
         tabAdd,
@@ -136,9 +102,10 @@ export default Vue.extend({
         props: {
           theme,
           panels: [...panels], // immutable，为子组件watch
-          currName,
+          currValue,
           size,
-          tabPosition,
+          disabled,
+          placement,
           addable,
           tabChange,
           tabAdd,
@@ -156,7 +123,7 @@ export default Vue.extend({
         <div
           class={{
             [`${prefix}-tabs__header`]: true,
-            [`${prefix}-is-${this.tabPosition}`]: true,
+            [`${prefix}-is-${this.placement}`]: true,
           }}
         >
           { this.genTabNav() }
@@ -167,7 +134,7 @@ export default Vue.extend({
     genTabContent() {
       return (
         <div class={{ [`${prefix}-tabs__content`]: true }}>
-          { this.$slots.default }
+          { this.$scopedSlots.default?.({}) }
         </div>
       );
     },
@@ -186,7 +153,7 @@ export default Vue.extend({
     const content = this.genTabContent();
     return (
       <div class="t-tabs">
-        { this.tabPosition !== 'bottom' ? [header, content] : [content, header] }
+        { this.placement !== 'bottom' ? [header, content] : [content, header] }
       </div>
     );
   },

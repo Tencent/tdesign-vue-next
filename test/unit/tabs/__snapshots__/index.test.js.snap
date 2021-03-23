@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tabs :props :activeName 1`] = `
+exports[`Tabs :props :addable 1`] = `
 <div class="t-tabs">
   <div class="t-tabs__header t-is-top">
     <div class="t-tabs__nav">
@@ -9,7 +9,7 @@ exports[`Tabs :props :activeName 1`] = `
         <!---->
         <!---->
         <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap" style="transform: translateX(0px);">
+          <div class="t-tabs__nav-wrap">
             <div class="t-tabs__bar t-is-top"></div>
           </div>
         </div>
@@ -20,17 +20,17 @@ exports[`Tabs :props :activeName 1`] = `
 </div>
 `;
 
-exports[`Tabs :props :addable 1`] = `
+exports[`Tabs :props :placement 1`] = `
 <div class="t-tabs">
-  <div class="t-tabs__header t-is-top">
+  <div class="t-tabs__header t-is-left">
     <div class="t-tabs__nav">
       <!---->
-      <div class="t-tabs__nav-container t-is-top">
+      <div class="t-tabs__nav-container t-is-left">
         <!---->
         <!---->
         <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap" style="transform: translateX(0px);">
-            <div class="t-tabs__bar t-is-top"></div>
+          <div class="t-tabs__nav-wrap">
+            <div class="t-tabs__bar t-is-left"></div>
           </div>
         </div>
       </div>
@@ -49,28 +49,8 @@ exports[`Tabs :props :size 1`] = `
         <!---->
         <!---->
         <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap" style="transform: translateX(0px);">
+          <div class="t-tabs__nav-wrap">
             <div class="t-tabs__bar t-is-top"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="t-tabs__content"></div>
-</div>
-`;
-
-exports[`Tabs :props :tabPosition 1`] = `
-<div class="t-tabs">
-  <div class="t-tabs__header t-is-left">
-    <div class="t-tabs__nav">
-      <!---->
-      <div class="t-tabs__nav-container t-is-left">
-        <!---->
-        <!---->
-        <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap" style="transform: translateX(0px);">
-            <div class="t-tabs__bar t-is-left"></div>
           </div>
         </div>
       </div>
@@ -89,8 +69,28 @@ exports[`Tabs :props :theme 1`] = `
         <!---->
         <!---->
         <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap" style="transform: translateX(0px);">
+          <div class="t-tabs__nav-wrap">
             <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="t-tabs__content"></div>
+</div>
+`;
+
+exports[`Tabs :props :value 1`] = `
+<div class="t-tabs">
+  <div class="t-tabs__header t-is-top">
+    <div class="t-tabs__nav">
+      <!---->
+      <div class="t-tabs__nav-container t-is-top">
+        <!---->
+        <!---->
+        <div class="t-tabs__nav-scroll">
+          <div class="t-tabs__nav-wrap">
+            <div class="t-tabs__bar t-is-top"></div>
           </div>
         </div>
       </div>

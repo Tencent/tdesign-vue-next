@@ -42,7 +42,6 @@ exports[`Tabs ban demo works fine 1`] = `
           >
             <div
               class="t-tabs__nav-wrap"
-              style="transform: translateX(0px);"
             >
               <div
                 class="t-tabs__bar t-is-top"
@@ -58,7 +57,6 @@ exports[`Tabs ban demo works fine 1`] = `
     >
       <div
         class="t-tab-panel"
-        name="first"
       >
         <p
           style="padding: 25px;"
@@ -108,7 +106,6 @@ exports[`Tabs base demo works fine 1`] = `
           >
             <div
               class="t-tabs__nav-wrap"
-              style="transform: translateX(0px);"
             >
               <div
                 class="t-tabs__bar t-is-top"
@@ -124,7 +121,6 @@ exports[`Tabs base demo works fine 1`] = `
     >
       <div
         class="t-tab-panel"
-        name="first"
       >
         <p
           style="padding: 25px;"
@@ -183,7 +179,6 @@ exports[`Tabs combination demo works fine 1`] = `
           >
             <div
               class="t-tabs__nav-wrap"
-              style="transform: translateX(0px);"
             >
               <div
                 class="t-tabs__bar t-is-top"
@@ -199,7 +194,6 @@ exports[`Tabs combination demo works fine 1`] = `
     >
       <div
         class="t-tab-panel"
-        name="1"
       >
         <p
           style="padding: 25px;"
@@ -279,7 +273,6 @@ exports[`Tabs custom demo works fine 1`] = `
           >
             <div
               class="t-tabs__nav-wrap"
-              style="transform: translateX(0px);"
             >
               <!---->
                
@@ -293,7 +286,6 @@ exports[`Tabs custom demo works fine 1`] = `
     >
       <div
         class="t-tab-panel"
-        name="first"
       >
         <p
           style="padding: 25px;"
@@ -356,7 +348,6 @@ exports[`Tabs operation demo works fine 1`] = `
           >
             <div
               class="t-tabs__nav-wrap"
-              style="transform: translateX(0px);"
             >
               <!---->
                
@@ -370,7 +361,6 @@ exports[`Tabs operation demo works fine 1`] = `
     >
       <div
         class="t-tab-panel"
-        name="first"
       >
         <p
           style="padding: 25px;"
@@ -455,7 +445,6 @@ exports[`Tabs position demo works fine 1`] = `
           >
             <div
               class="t-tabs__nav-wrap"
-              style="transform: translateX(0px);"
             >
               <div
                 class="t-tabs__bar t-is-top"
@@ -471,7 +460,6 @@ exports[`Tabs position demo works fine 1`] = `
     >
       <div
         class="t-tab-panel"
-        name="first"
       >
         <p
           style="padding: 25px;"
@@ -541,7 +529,6 @@ exports[`Tabs size demo works fine 1`] = `
           >
             <div
               class="t-tabs__nav-wrap"
-              style="transform: translateX(0px);"
             >
               <div
                 class="t-tabs__bar t-is-top"
@@ -557,7 +544,6 @@ exports[`Tabs size demo works fine 1`] = `
     >
       <div
         class="t-tab-panel"
-        name="first"
       >
         <p
           style="padding: 25px;"
@@ -597,7 +583,6 @@ exports[`Tabs size demo works fine 1`] = `
           >
             <div
               class="t-tabs__nav-wrap"
-              style="transform: translateX(0px);"
             >
               <!---->
                
@@ -611,7 +596,6 @@ exports[`Tabs size demo works fine 1`] = `
     >
       <div
         class="t-tab-panel"
-        name="first"
       >
         <p
           style="padding: 25px;"

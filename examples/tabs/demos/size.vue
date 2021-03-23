@@ -10,32 +10,34 @@
       </t-button>
     </div>
     <t-tabs
-      activeName="first"
+      :value="value1"
       :size="size"
+      @change="(newValue) => value1 = newValue"
     >
-      <t-tab-panel name="first" label="选项卡1">
+      <t-tab-panel value="first" label="选项卡1">
         <p style="padding: 25px;">选项卡1</p>
       </t-tab-panel>
-      <t-tab-panel name="second" label="选项卡2">
+      <t-tab-panel value="second" label="选项卡2">
         <p style="padding: 25px;">选项卡2</p>
       </t-tab-panel>
-      <t-tab-panel name="third" label="选项卡3">
+      <t-tab-panel value="third" label="选项卡3">
         <p style="padding: 25px;">选项卡3</p>
       </t-tab-panel>
     </t-tabs>
     <br />
     <t-tabs
-      activeName="first"
+      :value="value2"
       theme="card"
       :size="size"
+      @change="(newValue) => value2 = newValue"
     >
-      <t-tab-panel name="first" label="选项卡1">
+      <t-tab-panel value="first" label="选项卡1">
         <p style="padding: 25px;">选项卡1</p>
       </t-tab-panel>
-      <t-tab-panel name="second" label="选项卡2">
+      <t-tab-panel value="second" label="选项卡2">
         <p style="padding: 25px;">选项卡2</p>
       </t-tab-panel>
-      <t-tab-panel name="third" label="选项卡3">
+      <t-tab-panel value="third" label="选项卡3">
         <p style="padding: 25px;">选项卡3</p>
       </t-tab-panel>
     </t-tabs>
@@ -67,6 +69,8 @@ export default {
     return {
       sizeArr: ['medium', 'large'],
       size: 'medium',
+      value1: 'first',
+      value2: 'first',
     };
   },
 

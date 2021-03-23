@@ -23,10 +23,10 @@ export function removeEmptyAttrs<T>(obj: T): Partial<T>  {
   return newObj;
 }
 
-export function getTabElementByName(tabs: [] = [], name: string): object {
+export function getTabElementByValue(tabs: [] = [], value: string): object {
   const [result] = tabs.filter((item) => {
     const { id } = item as any;
-    return id === name;
+    return id === value;
   });
   return result || null;
 }

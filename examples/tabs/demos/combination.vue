@@ -5,37 +5,38 @@
       <t-button variant="outline" @click="toggle">{{ desc }}</t-button>
     </div>
     <t-tabs
-      activeName="1"
+      :value="value"
       :theme="theme"
+      @change="(newValue) => value = newValue"
     >
-      <t-tab-panel name="1" label="选项卡1">
+      <t-tab-panel value="1" label="选项卡1">
         <p style="padding: 25px;">选项卡1</p>
       </t-tab-panel>
-      <t-tab-panel name="2" label="选项卡2">
+      <t-tab-panel value="2" label="选项卡2">
         <p style="padding: 25px;">选项卡2</p>
       </t-tab-panel>
-      <t-tab-panel name="3" label="选项卡3">
+      <t-tab-panel value="3" label="选项卡3">
         <p style="padding: 25px;">选项卡3</p>
       </t-tab-panel>
-      <t-tab-panel name="4" label="选项卡4">
+      <t-tab-panel value="4" label="选项卡4">
         <p style="padding: 25px;">选项卡4</p>
       </t-tab-panel>
-      <t-tab-panel name="5" label="选项卡5">
+      <t-tab-panel value="5" label="选项卡5">
         <p style="padding: 25px;">选项卡5</p>
       </t-tab-panel>
-      <t-tab-panel name="6" label="选项卡6">
+      <t-tab-panel value="6" label="选项卡6">
         <p style="padding: 25px;">选项卡6</p>
       </t-tab-panel>
-      <t-tab-panel name="7" label="选项卡7">
+      <t-tab-panel value="7" label="选项卡7">
         <p style="padding: 25px;">选项卡7</p>
       </t-tab-panel>
-      <t-tab-panel name="8" label="选项卡8">
+      <t-tab-panel value="8" label="选项卡8">
         <p style="padding: 25px;">选项卡8</p>
       </t-tab-panel>
-      <t-tab-panel name="9" label="选项卡9">
+      <t-tab-panel value="9" label="选项卡9">
         <p style="padding: 25px;">选项卡9</p>
       </t-tab-panel>
-      <t-tab-panel name="10" label="选项卡10">
+      <t-tab-panel value="10" label="选项卡10">
         <p style="padding: 25px;">选项卡10</p>
       </t-tab-panel>
     </t-tabs>
@@ -67,6 +68,7 @@ export default {
   data() {
     return {
       isCard: false,
+      value: '1',
     };
   },
 

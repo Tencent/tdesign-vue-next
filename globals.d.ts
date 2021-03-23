@@ -15,7 +15,6 @@ declare interface Styles {
   [css: string]: string | number;
 }
 
-
 declare module '@tencent/tdesign-vue' {
   export * from 'src';
 }

@@ -5,16 +5,17 @@
       <t-button variant="outline" @click="toggle">{{ desc }}</t-button>
     </div>
     <t-tabs
-      activeName="first"
+      :value="value"
       :theme="theme"
+      @change="(newValue) => value = newValue"
     >
-      <t-tab-panel name="first" :label="`${theme}选项卡1`">
+      <t-tab-panel value="first" :label="`${theme}选项卡1`">
         <p style="padding: 25px;">{{ `${theme}选项卡1内容` }}</p>
       </t-tab-panel>
-      <t-tab-panel name="second" :label="`${theme}选项卡2`">
+      <t-tab-panel value="second" :label="`${theme}选项卡2`">
         <p style="padding: 25px;">{{ `${theme}选项卡2内容` }}</p>
       </t-tab-panel>
-      <t-tab-panel name="third" :label="`${theme}选项卡3`">
+      <t-tab-panel value="third" :label="`${theme}选项卡3`">
         <p style="padding: 25px;">{{ `${theme}选项卡3内容` }}</p>
       </t-tab-panel>
     </t-tabs>
@@ -45,6 +46,7 @@ export default {
   data() {
     return {
       isCard: false,
+      value: 'first',
     };
   },
 
