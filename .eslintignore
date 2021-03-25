@@ -10,3 +10,8 @@ script/test/cypress
 _site
 temp*
 static/
+
+examples
+src
+site
+!src/button

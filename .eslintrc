@@ -2,7 +2,7 @@
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "@tencent/eslint-config-tencent",
-    "plugin:vue/essential"
+    "plugin:vue/vue3-recommended"
   ],
   "env": {
     "browser": true,

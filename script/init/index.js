@@ -108,7 +108,7 @@ function addComponent(toBeCreatedFiles, component) {
             createFile(_f, '', contents.desc);
           }
         });
-      }
+      },
     );
   });
 }

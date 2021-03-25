@@ -58,7 +58,7 @@ function getShouldUpdate(node: any) {
 }
 
 const TransferDom = {
-  inserted(el: TransferElement, binding: DirectiveBinding) {
+  mounted(el: TransferElement, binding: DirectiveBinding) {
     const { value } = binding;
     el.className = el.className ? `${el.className} v-transfer-dom` : 'v-transfer-dom';
     const { parentNode } = el;
@@ -79,7 +79,7 @@ const TransferDom = {
       };
     }
   },
-  componentUpdated(el: TransferElement, binding: DirectiveBinding) {
+  updated(el: TransferElement, binding: DirectiveBinding) {
     const { value } = binding;
     const shouldUpdate = getShouldUpdate(value);
     if (!shouldUpdate) {
@@ -114,7 +114,7 @@ const TransferDom = {
       getTarget(value).appendChild(el);
     }
   },
-  unbind: function unbind(el: TransferElement) {
+  unmounted: function unbind(el: TransferElement) {
     el.className = el.className.replace('v-transfer-dom', '');
     if (el.__transferDomData && el.__transferDomData.hasMovedOut === true) {
       el.__transferDomData.parentNode && el.__transferDomData.parentNode.appendChild(el);

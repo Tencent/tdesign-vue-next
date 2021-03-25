@@ -1,4 +1,4 @@
-import Vue, { CreateElement, VNode } from 'vue';
+import { defineComponent, h } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconLoading from '../icon/loading';
@@ -6,11 +6,11 @@ import props from '@TdTypes/button/props';
 
 const name = `${prefix}-button`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
   props,
   methods: {
-    renderPropContent(h: CreateElement, propName: 'content' | 'default') {
+    renderPropContent(propName: 'content' | 'default') {
       const propsContent = this[propName];
       if (typeof propsContent === 'function') {
         return propsContent(h);
@@ -20,9 +20,9 @@ export default Vue.extend({
       }
       return undefined;
     },
-    renderContent(h: CreateElement) {
-      const propsContent = this.renderPropContent(h, 'content');
-      const propsDefault = this.renderPropContent(h, 'default');
+    renderContent() {
+      const propsContent = this.renderPropContent('content');
+      const propsDefault = this.renderPropContent('default');
 
       if (typeof propsContent !== 'undefined') {
         return propsContent;
@@ -31,19 +31,19 @@ export default Vue.extend({
         return propsDefault;
       }
 
-      return this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+      return this.$slots.default ? this.$slots.default(null) : '';
     },
   },
-  render(h: CreateElement): VNode {
-    let buttonContent: JsxNode = this.renderContent(h);
+  render() {
+    let buttonContent: JsxNode = this.renderContent();
     let icon: JsxNode;
 
     if (this.loading) {
       icon = <TIconLoading/>;
     } else if (typeof this.icon === 'function') {
       icon = this.icon(h);
-    } else if (this.$scopedSlots.icon) {
-      icon = this.$scopedSlots.icon(null);
+    } else if (this.$slots.icon) {
+      icon = this.$slots.icon(null);
     }
 
     const iconOnly = icon && (typeof buttonContent === 'undefined' || buttonContent === '');
@@ -71,7 +71,7 @@ export default Vue.extend({
     }
 
     return (
-      <button class={buttonClass} type={this.type} disabled={this.disabled} {...{ on: this.$listeners }}>
+      <button class={buttonClass} type={this.type} disabled={this.disabled} {...this.$attrs}>
         {buttonContent}
       </button>
     );

@@ -16,8 +16,8 @@ module.exports = {
         modules: false,
       },
     ],
-    '@vue/babel-preset-jsx',
   ],
+  plugins: ['@vue/babel-plugin-jsx'],
   env: {
     test: {
       presets: [
@@ -30,8 +30,8 @@ module.exports = {
             modules: 'commonjs',
           },
         ],
-        '@vue/babel-preset-jsx',
       ],
+      plugins: ['@vue/babel-plugin-jsx'],
     },
   },
 };
