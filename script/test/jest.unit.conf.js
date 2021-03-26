@@ -1,11 +1,25 @@
 const baseConfig = require('./jest.base.conf.js');
+const [, , component] = process.argv.slice(2);
+let seprateConfig;
+
+if (component) {
+  seprateConfig = {
+    testMatch: [`**/unit/${component}/**/*.test.js`],
+    collectCoverage: false,
+  };
+  delete baseConfig.testRegex;
+} else {
+  seprateConfig = {
+    testRegex: 'unit/.*\\.test\\.js$',
+    collectCoverage: true,
+  };
+}
 
 module.exports = {
   ...baseConfig,
   testEnvironment: 'jsdom',
-  testRegex: 'unit/.*\\.test\\.js$',
+  ...seprateConfig,
   // close coverage by default
-  collectCoverage: true,
   coverageDirectory: '<rootDir>/test/unit/coverage',
   collectCoverageFrom: [
     'src/**/*.{ts,tsx,js,vue}',

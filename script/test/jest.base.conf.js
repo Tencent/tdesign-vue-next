@@ -29,7 +29,7 @@ module.exports = {
     '^@Select/(.*)$': '<rootDir>/src/select/index.ts',
     '^@Table/(.*)$': '<rootDir>/src/table/index.ts',
     '^@Popup/(.*)$': '<rootDir>/src/popup/index.ts',
-    '^vue$': '<rootDir>/node_modules/vue/dist/vue.js',
+    '^vue$': '<rootDir>/node_modules/vue/index.js',
   },
   modulePathIgnorePatterns: ['<rootDir>/test/unit/coverage/'],
   transform: {

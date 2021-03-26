@@ -1,5 +1,5 @@
-import Vue from 'vue';
+import { createApp } from 'vue';
 import TDesign from '@/src/index';
 
-Vue.use(TDesign);
-Vue.config.productionTip = false;
+const app = createApp({});
+app.use(TDesign);
