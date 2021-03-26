@@ -1,4 +1,4 @@
-import Vue, { VueConstructor, VNode } from 'vue';
+import Vue, { defineComponent, Component, VNode } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
@@ -18,12 +18,12 @@ function getValidAttrs(obj: object): object {
   return newObj;
 }
 
-interface RadioInstance extends Vue {
+interface RadioInstance extends Component {
   radioGroup: RadioGroupInstance;
   radioButton: RadioButtonInstance;
 }
 
-export default (Vue as VueConstructor<RadioInstance>).extend({
+export default defineComponent({
   name,
   inheritAttrs: false,
   props: { ...props },
