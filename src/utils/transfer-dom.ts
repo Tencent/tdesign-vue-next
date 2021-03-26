@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 // Thanks to: https://github.com/airyland/vux/blob/v2/src/directives/transfer-dom/index.js
 
-import { DirectiveBinding } from 'vue/types/options';
+import { DirectiveBinding } from 'vue';
 
 // Thanks to: https://github.com/calebroseland/vue-dom-portal
 interface TransferData {
