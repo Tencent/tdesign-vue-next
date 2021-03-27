@@ -1,16 +1,24 @@
 <template>
-  <router-view />
-  <p>main</p>
+  <t-divider>Button</t-divider>
   <t-button theme="primary">111</t-button>
   <t-button theme="danger">111</t-button>
+  <t-divider>Divider</t-divider>
+  <t-divider align="left">TDesign</t-divider>
+  <div>
+    <span>正直</span>
+    <t-divider theme="vertical" />
+    <span>进取</span>
+    <t-divider theme="vertical" />
+    <span>合作</span>
+    <t-divider theme="vertical" />
+    <span>创新</span>
+  </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import Button from '@src/button';
 
 export default defineComponent({
-  components: { Button },
   mounted() {
     console.log(1);
   },

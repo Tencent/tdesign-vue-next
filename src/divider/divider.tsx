@@ -1,18 +1,17 @@
-import Vue from 'vue';
+import { defineComponent, h } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/divider/props';
 
 const name = `${prefix}-divider`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   props: { ...props },
 
   render() {
     const { theme, dashed, align } = this;
-
-    const children = this.$slots.default;
+    const children = this.$slots.default ? this.$slots.default() : '';
 
     const dividerClassNames = [
       `${name}`,
