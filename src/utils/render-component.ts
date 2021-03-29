@@ -1,12 +1,9 @@
-import Vue from 'vue';
+import { h, SetupContext } from 'vue';
 
-export default Vue.extend({
-  name: 'render-componnet',
-  functional: true,
-  props: {
-    render: Function,
-  },
-  render(h, ctx) {
-    return ctx.props.render(h, ctx.data.attrs);
-  },
-});
+const RenderComponent = (props: { render: Function }, context: SetupContext) => {
+  return props.render(h, context.attrs)
+}
+
+RenderComponent.props = ['render'];
+
+export default RenderComponent;
