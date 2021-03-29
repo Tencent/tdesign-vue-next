@@ -12,7 +12,7 @@ export * from './button';
 // export * from './checkbox';
 // export * from './drawer';
 // export * from './form';
-// export * from './icon';
+export * from './icon';
 // export * from './input-group';
 // export * from './input';
 // export * from './layout';

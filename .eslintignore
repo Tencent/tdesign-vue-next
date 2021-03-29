@@ -15,3 +15,4 @@ examples
 src
 site
 !src/button
+!src/icon
