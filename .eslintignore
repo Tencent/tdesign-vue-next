@@ -16,3 +16,4 @@ src
 site
 !src/button
 !src/icon
+!src/popup

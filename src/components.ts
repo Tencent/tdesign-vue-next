@@ -20,7 +20,7 @@ export * from './icon';
 // export * from './menu';
 // export * from './pagination';
 // export * from './popconfirm';
-// export * from './popup';
+export * from './popup';
 // export * from './radio';
 // export * from './select';
 // export * from './step';

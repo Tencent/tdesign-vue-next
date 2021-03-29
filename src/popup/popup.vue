@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { createPopper } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
@@ -51,7 +51,7 @@ const placementMap = {
 const showTimeout = 250;
 const hideTimeout = 150;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   components: {

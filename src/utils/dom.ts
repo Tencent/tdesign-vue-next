@@ -4,7 +4,7 @@ import raf from 'raf';
 import { easeInOutCubic, EasingFunction } from './easing';
 import isString from 'lodash/isString';
 
-const isServer = Vue.prototype.$isServer || typeof window === 'undefined';
+const isServer = typeof window === 'undefined';
 
 const trim =  (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 
