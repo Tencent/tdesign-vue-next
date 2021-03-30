@@ -1,18 +1,18 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
-import props from '../../types/footer/props';
+import props from '@TdTypes/footer/props';
 
 const name = `${prefix}-footer`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   components: {
     RenderComponent,
   },
 
-  props: { ...props },
+  props,
 
   data() {
     return {};
@@ -20,7 +20,7 @@ export default Vue.extend({
 
   methods: {
     renderContent() {
-      return this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+      return this.$slots.default() ? this.$slots.default(null) : '';
     },
   },
 

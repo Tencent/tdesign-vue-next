@@ -1,10 +1,10 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 
 const name = `${prefix}-layout`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   components: {
@@ -19,14 +19,14 @@ export default Vue.extend({
 
   methods: {
     renderContent() {
-      return this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+      return this.$slots.default() ? this.$slots.default(null) : '';
     },
   },
 
   computed: {
     hasSider() {
-      if (this.$slots) {
-        const defaultSlot = (this.$slots as any).default;
+      if (this.$slots && this.$slots.default()) {
+        const defaultSlot = (this.$slots as any).default();
         const containSider = defaultSlot.some((vnode: any) => {
           const tag = vnode.componentOptions && vnode.componentOptions.tag;
           return tag === `${prefix}-aside`;

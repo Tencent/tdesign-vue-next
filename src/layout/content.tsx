@@ -1,10 +1,10 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 
 const name = `${prefix}-content`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   components: {
@@ -19,7 +19,7 @@ export default Vue.extend({
 
   methods: {
     renderContent() {
-      return this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+      return this.$slots.default() ? this.$slots.default(null) : '';
     },
   },
 
