@@ -60,6 +60,8 @@ export default defineComponent({
 
   props: { ...props },
 
+  emits: ['visibleChange'],
+
   data() {
     return {
       name,
@@ -166,14 +168,14 @@ export default defineComponent({
       this.showPopper = !!this.visible;
     }
   },
-  beforeDestroy(): void {
+  beforeUnmount(): void {
     this.doDestroy(true);
     if (this.popperElm && this.popperElm.parentNode === document.body) {
       this.popperElm.removeEventListener('click', stop);
       document.body.removeChild(this.popperElm);
     }
   },
-  destroyed(): void {
+  unmounted(): void {
     const reference = this.referenceElm;
     off(reference, 'click', this.doToggle);
     off(reference, 'mouseup', this.doClose);
