@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import responsiveObserver from '../utils/responsive-observer';
@@ -6,7 +6,7 @@ import props from '../../types/row/props';
 
 const name = `${prefix}-row`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   components: {
@@ -68,13 +68,13 @@ export default Vue.extend({
     });
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     responsiveObserver.unsubscribe(this.respHanlerToken);
   },
 
   methods: {
     renderContent() {
-      return this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+      return this.$slots.default() ? this.$slots.default(null) : '';
     },
 
     getGutter() {
