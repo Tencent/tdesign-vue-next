@@ -74,7 +74,7 @@ export default defineComponent({
 
   methods: {
     renderContent() {
-      return this.$slots.default() ? this.$slots.default(null) : '';
+      return this.$slots.default ? this.$slots.default(null) : '';
     },
 
     getGutter() {

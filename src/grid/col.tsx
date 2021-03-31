@@ -35,7 +35,7 @@ export default defineComponent({
       return flex;
     },
     renderContent() {
-      return this.$slots.default() ? this.$slots.default(null) : '';
+      return this.$slots.default ? this.$slots.default(null) : '';
     },
   },
 
