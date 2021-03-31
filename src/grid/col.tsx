@@ -1,11 +1,11 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import props from '../../types/col/props';
 
 const name = `${prefix}-col`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   components: {
@@ -35,7 +35,7 @@ export default Vue.extend({
       return flex;
     },
     renderContent() {
-      return this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+      return this.$slots.default ? this.$slots.default(null) : '';
     },
   },
 
