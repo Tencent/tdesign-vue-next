@@ -1,4 +1,4 @@
-import Vue, { VNode, PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/list/props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -6,11 +6,10 @@ import TIconLoading from '../icon/loading';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
 import { TdListProps } from '@TdTypes/list/TdListProps';
-import { ScopedSlotReturnValue } from 'vue/types/vnode';
 
 const name = `${prefix}-list`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
   props: {
     ...props,
@@ -25,6 +24,7 @@ export default Vue.extend({
       },
     },
   },
+  emits: ['scroll', 'load-more'],
   computed: {
     listClass(): ClassName {
       return [
@@ -69,13 +69,6 @@ export default Vue.extend({
         scrollTop,
         scrollBottom: scrollHeight - clientHeight - scrollTop,
       });
-      if (this.onScroll) {
-        this.onScroll({
-          e,
-          scrollTop,
-          scrollBottom: scrollHeight - clientHeight - scrollTop,
-        });
-      }
     },
     handleLoadMore(e: MouseEvent) {
       if (typeof this.asyncLoading === 'string' && this.asyncLoading !== LOAD_MORE) return;
@@ -97,8 +90,8 @@ export default Vue.extend({
       ];
     },
   },
-  render(): VNode {
-    let listContent: ScopedSlotReturnValue = this.renderContent();
+  render() {
+    let listContent = this.renderContent();
 
     listContent = [
       listContent,

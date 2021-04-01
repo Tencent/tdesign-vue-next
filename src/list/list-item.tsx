@@ -1,14 +1,14 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/list-item/props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-list-item`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
   props,
-  render(): VNode {
+  render() {
     const propsDefaultContent = renderTNodeJSX(this, 'default');
     const propsContent = renderTNodeJSX(this, 'content');
     const propsActionContent = renderTNodeJSX(this, 'action');
