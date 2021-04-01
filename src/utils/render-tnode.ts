@@ -1,10 +1,9 @@
-import Vue from 'vue';
-import { PropType, CreateElement, VNode, VNodeChildren, RenderContext } from 'vue/types/umd';
+import { h, SetupContext, isVNode, createTextVNode, VNode, ComponentPublicInstance  } from 'vue';
 
 // 组件render属性的ts类型
 type RenderTsTypesSimple = string | number | boolean;
 type RenderTsTypesObject = Record<string, any> | Array<any>;
-type RenderTsTypes  = VNode | VNodeChildren | TNode | RenderTsTypesSimple | RenderTsTypesObject
+type RenderTsTypes  = VNode | TNode | RenderTsTypesSimple | RenderTsTypesObject
 // 组件render属性的js类型
 const RenderJsTypes = [Function, String, Number, Boolean, Object, Array];
 
@@ -27,7 +26,7 @@ const getValueRenderWay = (value: RenderTsTypes): RenderWay => {
   // 复杂对象
   if (typeof value === 'object') {
     // 虚拟dom对象
-    if (!(value instanceof Array) && value && (value.context instanceof Vue)) {
+    if (isVNode(value)) {
       return RenderWay.VNode;
     }
     // 其他复杂对象或数组
@@ -38,34 +37,26 @@ const getValueRenderWay = (value: RenderTsTypes): RenderWay => {
 };
 
 // 通过template的方式渲染TNode
-export const RenderTNodeTemplate = Vue.extend({
-  name: 'render-tnode-template',
-  functional: true,
-  props: {
-    render: RenderJsTypes as PropType<RenderTsTypes>,
-    params: null as PropType<any>,
-  },
-  render(h: CreateElement, ctx: RenderContext): VNode {
-    const { render, params } = ctx.props;
-    const renderResult = (typeof render === 'function') ? render(h, params) : render;
-    const renderWay = getValueRenderWay(renderResult);
+export const RenderTNodeTemplate = (props: { render: Function, params: Object }, ctx: SetupContext) => {
+  const { render, params } = props;
+  const renderResult = (typeof render === 'function') ? render(h, params) : render;
+  const renderWay = getValueRenderWay(renderResult);
 
-    // @ts-ignore
-    const renderText = (c: RenderTsTypesSimple | RenderTsTypesObject) => ctx.__proto__._v(c);
-    const renderMap = {
-      [RenderWay.Text]: (c: RenderTsTypesSimple) => renderText(c),
-      [RenderWay.JsonString]: (c: RenderTsTypesObject) => renderText(JSON.stringify(c, null, 2)),
-      [RenderWay.VNode]: (c: VNode) => c,
-    };
+  // @ts-ignore
+  const renderText = (c: RenderTsTypesSimple | RenderTsTypesObject) => createTextVNode(c);
+  const renderMap = {
+    [RenderWay.Text]: (c: RenderTsTypesSimple) => renderText(c),
+    [RenderWay.JsonString]: (c: RenderTsTypesObject) => renderText(JSON.stringify(c, null, 2)),
+    [RenderWay.VNode]: (c: VNode) => c,
+  };
 
-    return renderMap[renderWay] ? renderMap[renderWay](renderResult) : h();
-  },
-});
+  return renderMap[renderWay] ? renderMap[renderWay](renderResult) : h(null);
+}
 
 // 通过JSX的方式渲染TNode
-export const renderTNodeJSX = (vm: Vue, name: string) => {
+export const renderTNodeJSX = (vm: ComponentPublicInstance, name: string) => {
   const propsNode = vm[name];
-  if (typeof propsNode === 'function') return propsNode(vm.$createElement);
-  if (!propsNode && vm.$scopedSlots[name]) return vm.$scopedSlots[name](null);
+  if (typeof propsNode === 'function') return propsNode(h);
+  if (!propsNode && vm.$slots[name]) return vm.$slots[name](null);
   return propsNode;
 };

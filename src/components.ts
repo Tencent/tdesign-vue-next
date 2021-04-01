@@ -36,7 +36,7 @@ export * from './tooltip';
 // export * from './input-number';
 export * from './grid';
 export * from './divider';
-// export * from './progress';
+export * from './progress';
 // export * from './transfer';
 // export * from './badge';
 // export * from './loading';

@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import Vue from 'vue';
+import { VNode } from 'vue';
 import raf from 'raf';
 import { easeInOutCubic, EasingFunction } from './easing';
 import isString from 'lodash/isString';
@@ -192,7 +192,7 @@ export function scrollTo(target: number, opt: ScrollTopOptions) {
   });
 }
 
-function containerDom(parent: Vue | Element | Iterable<any> | ArrayLike<any>, child: any): boolean {
+function containerDom(parent: VNode | Element | Iterable<any> | ArrayLike<any>, child: any): boolean {
   if (parent && child) {
     let pNode = child;
     while (pNode) {
@@ -205,7 +205,7 @@ function containerDom(parent: Vue | Element | Iterable<any> | ArrayLike<any>, ch
   }
   return false;
 }
-export const clickOut = (els: Vue | Element | Iterable<any> | ArrayLike<any>, cb: Function): void => {
+export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, cb: Function): void => {
   on(document, 'click', (event: { target: Element }) => {
     if (Array.isArray(els)) {
       const flag = Array.from(els).every(item => containerDom(item, event.target) === false);
