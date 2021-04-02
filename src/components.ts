@@ -2,8 +2,8 @@
 // export { Notification } from './notification';
 // export { Dialog } from './dialog';
 // export * from './addon';
-// export * from './alert-swiper';
-// export * from './alert';
+export * from './alert-swiper';
+export * from './alert';
 // export * from './anchor';
 // export * from './breadcrumb';
 // export * from './breadcrumbItem';

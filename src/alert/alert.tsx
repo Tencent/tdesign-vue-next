@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent, h, VNode } from 'vue';
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import IconPromptFill from '../icon/info-circle-filled';
@@ -6,12 +6,11 @@ import IconSuccessFill from '../icon/check-circle-filled';
 import IconWarningFill from '../icon/error-circle-filled';
 import IconClose from '../icon/close';
 import props from '@TdTypes/alert/props';
-import { ScopedSlotReturnValue } from 'vue/types/vnode';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-alert`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
   data() {
     return {
@@ -22,7 +21,8 @@ export default Vue.extend({
     };
   },
   props: { ...props },
-  render(): VNode {
+  emits: ['close', 'closed'],
+  render() {
     const _class = [
       `${name}`,
       `${name}--${this.theme}`,
@@ -41,16 +41,16 @@ export default Vue.extend({
   mounted() {
     on(this.$el, 'transitionend', this.handleCloseEnd);
   },
-  beforeDestroy() {
+  beforeUnmount() {
     off(this.$el, 'transitionend', this.handleCloseEnd);
   },
   methods: {
-    renderIcon(): VNode {
-      let iconContent: VNode;
+    renderIcon() {
+      let iconContent;
       if (typeof this.icon === 'function') {
-        iconContent = this.icon(this.$createElement);
-      } else if (this.$scopedSlots.icon) {
-        iconContent = this.$scopedSlots.icon && this.$scopedSlots.icon(null)[0];
+        iconContent = this.icon(h);
+      } else if (this.$slots.icon) {
+        iconContent = this.$slots.icon && this.$slots.icon(null)[0];
       } else {
         const component = ({
           info: IconPromptFill,
@@ -63,21 +63,21 @@ export default Vue.extend({
       return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
     },
 
-    renderClose(): VNode {
-      let closeContent: ScopedSlotReturnValue = null;
+    renderClose() {
+      let closeContent = null;
       if (typeof this.close === 'string') {
         closeContent = this.close;
       } else if (typeof this.close === 'function') {
-        closeContent = this.close(this.$createElement);
+        closeContent = this.close(h);
       } else if (this.close === true) {
         closeContent = <IconClose></IconClose>;
       } else {
-        closeContent = this.$scopedSlots.close && this.$scopedSlots.close(null)[0];
+        closeContent = this.$slots.close && this.$slots.close(null)[0];
       }
       return closeContent ? <div class={`${name}__close`} onClick={this.handleClose}>{closeContent}</div> : null;
     },
 
-    renderContent(): VNode {
+    renderContent() {
       return (
         <div class={`${name}__content`}>
           { this.renderTitle()}
@@ -86,13 +86,13 @@ export default Vue.extend({
       );
     },
 
-    renderTitle(): VNode  {
-      const titleContent: ScopedSlotReturnValue = renderTNodeJSX(this, 'title');
+    renderTitle()  {
+      const titleContent = renderTNodeJSX(this, 'title');
       return titleContent ? <div class={`${name}__title`}> {titleContent}</div> : null;
     },
 
-    renderMessage(): VNode {
-      const operationContent: ScopedSlotReturnValue = renderTNodeJSX(this, 'operation');
+    renderMessage() {
+      const operationContent = renderTNodeJSX(this, 'operation');
       return (
         <div class={`${name}__message`}>
           { this.renderDescription()}
@@ -105,18 +105,18 @@ export default Vue.extend({
       );
     },
 
-    renderDescription(): VNode {
-      let messageContent: ScopedSlotReturnValue;
+    renderDescription() {
+      let messageContent;
 
       messageContent = renderTNodeJSX(this, 'default');
       if (!messageContent) {
         messageContent = renderTNodeJSX(this, 'message');
       }
 
-      const contentLength = Object.prototype.toString.call(messageContent) === '[object Array]' ? (messageContent as Array<ScopedSlotReturnValue>).length : 1;
+      const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = this.maxLine > 0 && this.maxLine < contentLength;
       if (hasCollapse && this.collapsed) {
-        messageContent = (messageContent as Array<ScopedSlotReturnValue>).slice(0, this.maxLine);
+        messageContent = (messageContent as Array<SlotReturnValue>).slice(0, this.maxLine);
       }
 
       // 如果需要折叠，则元素之间补<br/>；否则不补
@@ -140,9 +140,6 @@ export default Vue.extend({
 
     handleClose(e: MouseEvent) {
       this.$emit('close', { e });
-      if (this.onClose) {
-        this.onClose({ e });
-      }
       addClass(this.$el, `${name}--closing`);
     },
 
@@ -150,9 +147,6 @@ export default Vue.extend({
       if (e.propertyName === 'opacity') {
         this.visible = false;
         this.$emit('closed', { e });
-        if (this.onClosed) {
-          this.onClosed({ e });
-        }
       }
     },
   },

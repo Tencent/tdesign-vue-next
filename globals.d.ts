@@ -2,10 +2,17 @@
 /** Vue2 特有全局变量 */
 
 declare const __VERSION__: string;
+type VNode = import('vue').VNode;
+declare type ScopedSlot = (props: any) => SlotReturnValue;
+declare type SlotReturnValue = VNode | string | boolean | null | undefined | SlotReturnArray;
+declare type SlotReturnArray = Array<SlotReturnValue>;
 
-declare type TNodeReturnValue = import('vue/types/vnode').ScopedSlotReturnValue;
-declare type TNode<T = any> = (h: Vue.CreateElement, props?: T) => TNodeReturnValue;
-declare type JsxNode = TNodeReturnValue;
+declare interface TVNode extends VNode {
+  name: string;
+}
+declare type TNodeReturnValue = SlotReturnValue;
+declare type TNode<T = any> = (h: Function, props?: T) => SlotReturnValue;
+declare type JsxNode = SlotReturnValue;
 
 declare type AttachNodeReturnValue = HTMLDocument | HTMLElement | Element | Document;
 declare type AttachNode = CSSSelector | (() => AttachNodeReturnValue);
