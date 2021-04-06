@@ -19,3 +19,4 @@ site
 !src/popup
 !src/grid
 !src/progress
+!src/list
