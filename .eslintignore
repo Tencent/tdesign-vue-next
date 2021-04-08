@@ -12,7 +12,7 @@ temp*
 static/
 
 examples
-src
+src/*
 site
 !src/button
 !src/icon
