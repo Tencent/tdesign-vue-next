@@ -48,7 +48,22 @@ export default Vue.extend({
     TIconClose,
     TIconInfoCircleFilled,
   },
+  // 注册v-draggable指令,传入ture时候初始化拖拽事件
+  directives: {
+    draggable(el, binding) {
+      // el 指令绑定的元素
+      if (el && binding && binding.value) {
+        InitDragEvent(el);
+      }
+    },
+  },
   props: { ...props },
+  emits: ['close', 'update:visible'],
+  data() {
+    return {
+      attachTarget: null,
+    };
+  },
   computed: {
     // 是否模态形式的对话框
     isModal(): boolean {
@@ -98,23 +113,9 @@ export default Vue.extend({
       this.addKeyboardEvent(value);
     },
   },
-  beforeDestroy() {
+  beforeUmount() {
     this.disPreventScrollThrough(false);
     this.addKeyboardEvent(false);
-  },
-  // 注册v-draggable指令,传入ture时候初始化拖拽事件
-  directives: {
-    draggable(el, binding) {
-      // el 指令绑定的元素
-      if (el && binding && binding.value) {
-        InitDragEvent(el);
-      }
-    },
-  },
-  data() {
-    return {
-      attachTarget: null,
-    };
   },
   mounted() {
     const { attach } = this;
@@ -228,8 +229,8 @@ export default Vue.extend({
         view = <h5 class="title">{target}</h5>;
       } else if (typeof target === 'function') {
         view = target(h);
-      } else if (typeof this.$scopedSlots.header === 'function') {
-        view = this.$scopedSlots.header(null);
+      } else if (typeof this.$slots.header === 'function') {
+        view = this.$slots.header(null);
       }
       return (
         isShow && (
@@ -247,8 +248,8 @@ export default Vue.extend({
         view = target;
       } else if (typeof target === 'function') {
         view = target(h);
-      } else if (typeof this.$scopedSlots.body === 'function') {
-        view = this.$scopedSlots.body(null);
+      } else if (typeof this.$slots.body === 'function') {
+        view = this.$slots.body(null);
       }
       return view && <div class={`${name}__body`}>{view}</div>;
     },
@@ -295,7 +296,7 @@ export default Vue.extend({
       if (target === false) return;
 
       if (target === true) {
-        view = typeof this.$scopedSlots.footer === 'function' ? this.$scopedSlots.footer(null) : defaultView;
+        view = typeof this.$slots.footer === 'function' ? this.$slots.footer(null) : defaultView;
       } else if (typeof target === 'function') {
         view = target(h);
       }
@@ -315,8 +316,8 @@ export default Vue.extend({
         view = target;
       } else if (typeof target === 'function') {
         view = target(h);
-      } else if (typeof this.$scopedSlots.closeBtn === 'function') {
-        view = this.$scopedSlots.closeBtn(null);
+      } else if (typeof this.$slots.closeBtn === 'function') {
+        view = this.$slots.closeBtn(null);
       }
 
       return (

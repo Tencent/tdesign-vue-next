@@ -20,3 +20,4 @@ site
 !src/grid
 !src/progress
 !src/list
+!src/dialog
