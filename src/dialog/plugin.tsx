@@ -1,6 +1,5 @@
-import Vue from 'vue';
+import { App, createApp, ref, defineComponent, h } from 'vue';
 import DialogComponent from './dialog';
-
 import { getAttach } from '../utils/dom';
 import {
   DialogOptions,
@@ -12,36 +11,46 @@ import {
 
 const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };
-  options.visible = true;
-  const dialog = new DialogComponent({
-    propsData: {
-      ...options,
-      onClose: options.onClose || (() => {
-        dialog.visible = false;
-      }),
+  const wrapper = document.createElement('div');
+  const visible = ref(true);
+  const component = defineComponent({
+    data() {
+      return {
+        dialogOptions: options,
+      };
     },
-  }).$mount();
+    render() {
+      return h(DialogComponent, {
+        ...this.dialogOptions,
+        onClose: options.onClose || function () {
+          visible.value = false;
+        },
+        visible: visible.value,
+      });
+    },
+  });
+  const dialog = createApp(component).mount(wrapper);
 
   const container = getAttach(options.attach);
   if (container) {
-    container.appendChild(dialog.$el);
+    container.appendChild(wrapper);
   } else {
     console.error('attach is not exist');
   }
 
   const dialogNode: DialogInstance = {
     show: () => {
-      dialog.visible = true;
+      visible.value = true;
     },
     hide: () => {
-      dialog.visible = false;
+      visible.value = false;
     },
     update: (options: DialogOptions) => {
-      Object.assign(dialog, options);
+      Object.assign(dialog, { dialogOptions: options });
     },
     destroy: () => {
-      dialog.visible = false;
-      container.contains(dialog.$el) && container.removeChild(dialog.$el);
+      visible.value = false;
+      container.removeChild(wrapper);
     },
   };
   return dialogNode;
@@ -49,7 +58,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
 interface ExtraApi {
   confirm: DialogConfirmMethod;
   alert: DialogAlertMethod;
-};
+}
 
 const confirm: DialogConfirmMethod = (props: DialogOptions) => createDialog(props);
 
@@ -64,11 +73,12 @@ const extraApi: ExtraApi = {
   alert,
 };
 
-const DialogPlugin: Vue.PluginObject<undefined> = {
-  install: () => {
-    Vue.prototype.$dialog = createDialog;
+const DialogPlugin = {
+  /* eslint-disable no-param-reassign */
+  install: (app: App): void => {
+    app.config.globalProperties.$dialog = createDialog;
     Object.keys(extraApi).forEach((funcName) => {
-      Vue.prototype.$dialog[funcName] = extraApi[funcName];
+      app.config.globalProperties.$dialog[funcName] = extraApi[funcName];
     });
   },
 };
