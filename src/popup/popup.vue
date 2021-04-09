@@ -1,19 +1,37 @@
 <template>
-  <div :class="name+'-reference'" ref="reference">
-    <transition :name="`${name}_animation`" appear >
+  <div
+    ref="reference"
+    :class="name+'-reference'"
+  >
+    <transition
+      :name="`${name}_animation`"
+      appear
+    >
       <div
-        :class="name"
-        ref="popper"
         v-show="!disabled && showPopper"
+        ref="popper"
+        :class="name"
         role="tooltip"
         :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
       >
-        <div :class="_class" :style="overlayStyle">
+        <div
+          :class="_class"
+          :style="overlayStyle"
+        >
           <slot name="content">
-            <template v-if="typeof content === 'string'">{{content}}</template>
-            <render-component :render='content' v-else-if="typeof content === 'function'" />
+            <template v-if="typeof content === 'string'">
+              {{ content }}
+            </template>
+            <render-component
+              v-else-if="typeof content === 'function'"
+              :render="content"
+            />
           </slot>
-          <div v-if="showArrow" :class="name+'__arrow'" data-popper-arrow></div>
+          <div
+            v-if="showArrow"
+            :class="name+'__arrow'"
+            data-popper-arrow
+          />
         </div>
       </div>
     </transition>
@@ -111,9 +129,6 @@ export default defineComponent({
         this.destroyPopper();
       }
       this.$emit('visibleChange', val);
-      if (typeof this.onVisibleChange === 'function') {
-        this.onVisibleChange(val);
-      }
     },
     visible(val): void {
       if (this.trigger === 'manual') {
