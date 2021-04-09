@@ -13,7 +13,8 @@ static/
 
 examples
 src/*
-site
+site/*
+!site/v3.js
 !src/button
 !src/icon
 !src/popup
