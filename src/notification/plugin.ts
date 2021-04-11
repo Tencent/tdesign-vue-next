@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { App, Plugin } from 'vue';
 import NotificationList from './notificationList';
 import { getAttach } from '../utils/dom';
 import {
@@ -87,11 +87,11 @@ const extraApi: ExtraApi = {
   },
 };
 
-const NotificationPlugin: Vue.PluginObject<undefined> = {
-  install: () => {
-    Vue.prototype.$notify = showThemeNotification;
+const NotificationPlugin: Plugin = {
+  install: (app: App) => {
+    app.config.globalProperties.$notify = showThemeNotification;
     Object.keys(extraApi).forEach((funcName) => {
-      Vue.prototype.$notify[funcName] = extraApi[funcName];
+      app.config.globalProperties.$notify[funcName] = extraApi[funcName];
     });
   },
 };

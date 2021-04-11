@@ -1,4 +1,4 @@
-import Vue, { CreateElement, VNode } from 'vue';
+import { defineComponent, h, VNode } from 'vue';
 import { prefix } from '../config';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
@@ -7,7 +7,7 @@ import props from '@TdTypes/notification/props';
 
 const name = `${prefix}-notification`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
   components: {
     TIconInfoCircleFilled,
@@ -20,21 +20,15 @@ export default Vue.extend({
       const timer = setTimeout(() => {
         clearTimeout(timer);
         this.$emit('duration-end', this);
-        if (this.onDurationEnd) {
-          this.onDurationEnd();
-        };
       }, this.duration);
     }
   },
   methods: {
     close(e?: MouseEvent) {
       this.$emit('click-close-btn', e, this);
-      if (this.onClickCloseBtn) {
-        this.onClickCloseBtn(e);
-      };
     },
-    renderIcon(h: CreateElement) {
-      let icon: TNodeReturnValue;
+    renderIcon() {
+      let icon;
       if (this.theme) {
         const iconType = this.theme === 'success'
           ? (<t-icon-check-circle-filled class={`t-is-${this.theme}`} />)
@@ -44,12 +38,12 @@ export default Vue.extend({
         </div>);
       } else if (this.icon) {
         icon = this.icon(h);
-      } else if (this.$scopedSlots.icon) {
-        icon = this.$scopedSlots.icon(null);
+      } else if (this.$slots.icon) {
+        icon = this.$slots.icon(null);
       }
       return icon;
     },
-    renderClose(h: CreateElement) {
+    renderClose() {
       const { closeBtn } = this;
       if (typeof closeBtn === 'boolean') {
         return closeBtn && <t-icon-close nativeOnClick={this.close} class='t-message-close' />;
@@ -59,15 +53,15 @@ export default Vue.extend({
         close = closeBtn(h);
       } else if (typeof closeBtn === 'string') {
         close = closeBtn;
-      } else if (typeof this.$scopedSlots.closeBtn === 'function') {
-        close = this.$scopedSlots.closeBtn(null);
+      } else if (typeof this.$slots.closeBtn === 'function') {
+        close = this.$slots.closeBtn(null);
       }
       if (close) {
         return (<div class='t-icon-close' onClick={this.close}> { close } </div>);
       }
     },
-    renderContent(h: CreateElement) {
-      let content: VNode[] | VNode | string = '';
+    renderContent() {
+      let content;
 
       switch (typeof this.content) {
         case 'function': {
@@ -79,26 +73,26 @@ export default Vue.extend({
           break;
         }
       };
-      content = this.$scopedSlots.default ? <div class={`${name}__content`}>{this.$scopedSlots.default(null)}</div> : content;
+      content = this.$slots.default ? <div class={`${name}__content`}>{this.$slots.default(null)}</div> : content;
 
       return content;
     },
-    renderFooter(h: CreateElement) {
+    renderFooter() {
       let footer: VNode[] | VNode | string = '';
 
       if (this.footer) {
-        footer = this.footer(h);
+        footer = (this.footer as Function)(h);
       };
-      footer = this.$scopedSlots.footer ? this.$scopedSlots.footer(null) : footer;
+      footer = this.$slots.footer ? this.$slots.footer(null) : footer;
 
       return footer;
     },
   },
-  render(h: CreateElement) {
-    const icon = this.renderIcon(h);
-    const close = this.renderClose(h);
-    const content = this.renderContent(h);
-    const footer = this.renderFooter(h);
+  render() {
+    const icon = this.renderIcon();
+    const close = this.renderClose();
+    const content = this.renderContent();
+    const footer = this.renderFooter();
 
     return (
       <div class={`${name}`}>

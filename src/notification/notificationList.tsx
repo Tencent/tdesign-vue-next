@@ -1,11 +1,11 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import Notification from './notification';
 import { TdNotificationProps, PlacementList } from '@TdTypes/notification/TdNotificationProps';
 
 const DEFAULT_Z_INDEX = 6000;
 const _margin = 16;
 
-export default Vue.extend({
+export default defineComponent({
   components: { Notification },
   props: {
     placement: {
