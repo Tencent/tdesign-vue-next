@@ -22,3 +22,4 @@ site/*
 !src/progress
 !src/list
 !src/dialog
+!src/notification
