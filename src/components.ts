@@ -5,8 +5,8 @@
 export * from './alert-swiper';
 export * from './alert';
 // export * from './anchor';
-// export * from './breadcrumb';
-// export * from './breadcrumbItem';
+export * from './breadcrumb';
+export * from './breadcrumbItem';
 export * from './button';
 // export * from './calendar';
 // export * from './checkbox';
