@@ -1,7 +1,7 @@
 import { App } from 'vue';
 
 import TransferDom from './utils/transfer-dom';
-// import * as plugins from './plugins';
+import * as plugins from './plugins';
 import * as components from './components';
 
 function install(app: App, config?: Record<string, unknown>): void {
@@ -15,12 +15,12 @@ function install(app: App, config?: Record<string, unknown>): void {
     app.use(components[key], config);
   });
 
-  // Object.keys(plugins).forEach((key) => {
-  //   app.use(plugins[key]);
-  // });
+  Object.keys(plugins).forEach((key) => {
+    app.use(plugins[key]);
+  });
 };
 
-// export * from './plugins';
+export * from './plugins';
 export * from './components';
 export default {
   install,
