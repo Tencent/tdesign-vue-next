@@ -1,4 +1,3 @@
-// import Vue, { VNode } from 'vue';
 import { defineComponent, PropType } from 'vue';
 import Icon from '../icon';
 import Button from '../button';
