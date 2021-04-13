@@ -5,8 +5,8 @@ import Button from '../button';
 import Popup from '../popup/index';
 import { prefix } from '../config';
 import props from '@TdTypes/popconfirm/props';
-import {THEME_LIST} from './const'
-import { Popconfirm } from '../../script/types';
+// import {THEME_LIST} from './const'
+// import { Popconfirm } from '../../script/types';
 const name = `${prefix}-popconfirm`;
 const popupName = `${prefix}-popup`;
 
