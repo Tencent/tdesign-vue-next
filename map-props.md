@@ -12,14 +12,8 @@
 ```js
 export default mapProp(
   [
-    'checked'
-  ],
-  {
-    model: {
-      prop: 'checked',
-      event: 'change'
-    }
-  }
+    { name: 'checked', event: 'change'}
+  ]
 )(Switch);
 ```
 mapProps 生成的高阶组件管理受控于非受控逻辑，会有一个对应的 checked 属性以及默认值 defaultChecked 属性。
@@ -52,7 +46,7 @@ mapProps 生成的高阶组件还会默认处理 defaultChecked 属性。用来�
 工具函数路径：utils/map-props.ts
 
 ```js
-mapProps(props, options)(Component);
+mapProps(props)(Component);
 ```
 
 #### props
@@ -70,7 +64,7 @@ mapProps(props, options)(Component);
    * 
    * 如果该属性是 v-model，则该值默认是 v-model 对应的事件名，不显式指定 event 的话，是 input
    * 
-   * 如果该属性不是 v-model，不显式指定 event 的话那默认监听的是 update:属性名 事件，支持 .sync 修饰符
+   * 如果该属性不是 v-model，不显式指定 event 的话那默认监听的是 update:属性名 事件
    * 
    * 如果希望 mapProps 帮忙兼容一些旧事件接口，可以提供一个数组，源组件只需要实现数组
    * 第一个事件即可，剩余事件 mapProps 会一一触发
@@ -83,18 +77,5 @@ mapProps(props, options)(Component);
    * 源组件只需实现最新属性即可
    */
   alias: ['discardedValue']
-}
-```
-
-#### options
-
-在 options 这里可以指定 v-model 对应的属性和 event
-
-```jsx
-{
-  model: {
-    prop: 'checked',
-    event: 'change'
-  }
 }
 ```
