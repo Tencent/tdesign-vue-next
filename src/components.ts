@@ -1,6 +1,6 @@
-// export { Message } from './message';
 export { Notification } from './notification';
 export { Dialog } from './dialog';
+export { Message } from './message';
 // export * from './addon';
 export * from './alert-swiper';
 export * from './alert';

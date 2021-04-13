@@ -23,8 +23,7 @@
  * msg.then(instance => instance.close())
  *
  */
-
-import Vue from 'vue';
+import { App, createApp, nextTick } from 'vue';
 import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
 import {
@@ -65,23 +64,24 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
   }
   const _p = instanceMap.get(attachDom)[placement];
   if (!_p) {
-    const instance = new MessageList({
-      propsData: {
-        zIndex: options.zIndex,
-        placement: options.placement,
-      },
-    }).$mount();
+    let wrapper = document.createElement('div');
+    
+    let instance = createApp(MessageList, {
+      zIndex: options.zIndex,
+      placement: options.placement,
+    }).mount(wrapper);
+    
     instance.add(options);
     instanceMap.get(attachDom)[placement] = instance;
-    attachDom.appendChild(instance.$el);
+    attachDom.appendChild(wrapper);
   } else {
     _p.add(options);
   }
   // 返回最新消息的 Element
   return new Promise((resolve) => {
     const _ins = instanceMap.get(attachDom)[placement];
-    _ins.$nextTick(() => {
-      const msg: Array<MessageInstance> = _ins.$children;
+    nextTick(() => {
+      const msg: Array<MessageInstance> = _ins.messageList;
       resolve(msg[msg.length - 1]);
     });
   });
@@ -131,12 +131,12 @@ const extraApi: ExtraApi = {
   },
 };
 
-const MessagePlugin: Vue.PluginObject<undefined> = {
-  install: () => {
-    Vue.prototype.$message = showThemeMessage;
+const MessagePlugin = {
+  install: (app: App) => {
+    app.config.globalProperties.$message = showThemeMessage;
     // 这样定义后，可以通过 this.$message 调用插件
     Object.keys(extraApi).forEach((funcName) => {
-      Vue.prototype.$message[funcName] = extraApi[funcName];
+      app.config.globalProperties.$message[funcName] = extraApi[funcName];
     });
   },
 };
