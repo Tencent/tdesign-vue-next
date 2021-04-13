@@ -1,11 +1,11 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/breadcrumb/props';
 import BreadcrumbItem from '../breadcrumbItem/index';
 import { TdBreadcrumbItemProps } from '@TdTypes/breadcrumb/TdBreadcrumbProps';
 const name = `${prefix}-breadcrumb`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
   props: {
     ...props,
@@ -20,7 +20,7 @@ export default Vue.extend({
   },
 
   render() {
-    let content: TNodeReturnValue = this.$slots.default;
+    let content: TNodeReturnValue = this.$slots.default ? this.$slots.default() : '';
     if (this.options && this.options.length) {
       content = this.options.map((option: TdBreadcrumbItemProps, index: number) => (
           <BreadcrumbItem

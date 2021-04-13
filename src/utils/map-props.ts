@@ -1,9 +1,4 @@
-import Vue, { ComponentOptions, CreateElement } from 'vue';
-
-const defaultModel = {
-  prop: 'value',
-  event: 'input',
-};
+import { ComponentOptions, defineComponent, ComponentPublicInstance, h } from 'vue';
 
 function toCamel(str: string): string {
   return str.replace(/-([a-z])/ig, (m, letter) => letter.toUpperCase());
@@ -15,9 +10,6 @@ type PropOption = {
   alias?: string[];
 };
 
-type Option = {
-  model?: typeof defaultModel;
-};
 
 type ParsedPropOption = {
   defaultName: string;
@@ -28,11 +20,9 @@ type ParsedPropOption = {
 };
 
 
-function getPropOptionMap(props: (string | PropOption)[], options: Option = {}):
+function getPropOptionMap(props: (string | PropOption)[]):
   { [name: string]: ParsedPropOption } {
   const propOptionMap = {};
-
-  const { model } = options;
 
   function parseProp(propOption: PropOption): ParsedPropOption {
     const {
@@ -45,11 +35,8 @@ function getPropOptionMap(props: (string | PropOption)[], options: Option = {}):
     let events: string[] = [];
     if (propOption.event) {
       events = events.concat(propOption.event);
-    } else if (model.prop === propName) {
-      events = events.concat(model.event);
-    } else {
-      events = events.concat(`update:${propName}`);
     }
+    events.push(`update:${propName}`);
 
     return {
       events,
@@ -76,19 +63,17 @@ function getPropOptionMap(props: (string | PropOption)[], options: Option = {}):
   return propOptionMap;
 }
 
-export default function (props: (string | PropOption)[], options: Option = {}): any {
-  function mapProps(componentConstructor: Vue): any {
-    const component: ComponentOptions<Vue> = (componentConstructor as any).prototype.constructor.options;
-    const model = options.model || defaultModel;
-    const propOptionMap = getPropOptionMap(props, { model });
+export default function (props: (string | PropOption)[]): any {
+  function mapProps(componentConstructor: ComponentPublicInstance): any {
+    const component: ComponentOptions<ComponentPublicInstance> = componentConstructor;
+    const propOptionMap = getPropOptionMap(props);
 
     const defineProps: Record<string, any> = { ...component.props };
     const defineWatches = {};
     let defineEvents: string[] = [];
     const defineMethods = {};
 
-    const propsKeys: string[] = Object.keys(component.props);
-    const camelPropsKeys = propsKeys.map(key => toCamel(key));
+    const camelPropsKeys = Object.keys(component.props).map(key => toCamel(key));
 
     Object.keys(propOptionMap).forEach((propName) => {
       const { events, alias, defaultName, dataName } = propOptionMap[propName];
@@ -105,9 +90,10 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
       // watch default prop
       defineWatches[defaultName] = {
         handler(v: any): void {
+          const { props } = this.$.vnode;
           if (
-            defaultName in this.$vnode.componentOptions.propsData
-            && !(propName in this.$vnode.componentOptions.propsData)
+            props && defaultName in props
+            && !(propName in props)
           ) {
             this.$data[dataName] = v;
           }
@@ -119,9 +105,10 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
       alias.forEach((aliasItem) => {
         defineWatches[aliasItem] = {
           handler(v: any): void {
+            const { props } = this.$.vnode;
             if (
-              aliasItem in this.$vnode.componentOptions.propsData
-              && !(propName in this.$vnode.componentOptions.propsData)
+              props && aliasItem in props
+              && !(propName in props)
             ) {
               this.$data[dataName] = v;
             }
@@ -133,7 +120,8 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
       // watch prop
       defineWatches[propName] = {
         handler(v: any): void {
-          if (propName in this.$vnode.componentOptions.propsData) {
+          const { props } = this.$.vnode;
+          if (props && propName in props) {
             this.$data[dataName] = v;
           }
         },
@@ -151,12 +139,11 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
     }
 
     const { name } = component;
-    return Vue.extend({
+    return defineComponent({
       name: `${name}-mapprops`,
       inheritAttrs: false,
-      model: {
-        prop: model.prop,
-        event: Array.isArray(model.event) ? model.event[0] : model.event,
+      props: {
+        ...defineProps,
       },
       data() {
         const data = {};
@@ -166,15 +153,15 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
         });
         return { ...data };
       },
-      props: {
-        ...defineProps,
-      },
       computed: {
         _listeners(): Record<string, any> {
           const others = {};
-          Object.keys(this.$listeners).forEach((event: string): void => {
-            if (defineEvents.indexOf(event) === -1) {
-              others[event] = (...args: any[]): void => {
+          Object.keys(this.$attrs).forEach((attr: string): void => {
+            const event = /^on[A-Z][A-Z]*/.test(attr)
+              ? attr[3].toLowerCase() + attr.substr(3)
+              : null;
+            if (event && defineEvents.indexOf(event) === -1) {
+              others[attr] = (...args: any[]): void => {
                 // (this.$listeners[event] as Function)(...args);
                 this.$emit(event, ...args);
               };
@@ -184,20 +171,35 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
         },
       },
       watch: defineWatches,
-      render(h: CreateElement) {
+      methods: {
+        updateData(this: any, propName: string, v: any, ...args: any[]): any {
+          propOptionMap[propName].events.forEach((event) => {
+            this.$emit(event, v, ...args);
+          });
+          const { props } = this.$.vnode;
+          if (!props || !(propName in props)) {
+            this[propOptionMap[propName].dataName] = v;
+            return true;
+          }
+        },
+        ...defineMethods,
+      },
+      render() {
         const propMap = {};
         const handlerMap = {};
 
         Object.keys(propOptionMap).forEach((propName: string): void => {
           const { dataName, events } = propOptionMap[propName];
+          const eventName = `on${events[0].charAt(0).toUpperCase()}${events[0].substr(1)}`;
+          const { props } = this.$.vnode;
           if (
-            propName in this.$vnode.componentOptions.propsData
+            (props && propName in props)
             || typeof this[dataName] !== 'undefined'
           ) {
             propMap[propName] = this[dataName];
           }
           // 只监听第一个定义的事件，参数取第一个事件参数
-          handlerMap[events[0]] = (v: any, ...args: any[]): any => this.updateData(propName, v, ...args);
+          handlerMap[eventName] = (v: any, ...args: any[]): any => this.updateData(propName, v, ...args);
         });
 
         const attrs = {};
@@ -208,39 +210,20 @@ export default function (props: (string | PropOption)[], options: Option = {}): 
           }
         });
 
-        return h(component, {
-          props: {
-            ...this.$props,
-            ...propMap,
-          },
+        return h(componentConstructor, {
+          // props
+          ...this.$props,
+          ...propMap,
 
-          attrs: {
-            ...attrs,
-          },
+          // attrs
+          ...attrs,
 
-          on: {
-            ...this._listeners as Record<string, any>,
-            ...handlerMap,
-          },
-
-          scopedSlots: {
-            ...this.$scopedSlots,
-          },
+          // events
+          ...this._listeners as Record<string, any>,
+          ...handlerMap,
 
           ref: 'component',
-        });
-      },
-      methods: {
-        updateData(this: any, propName: string, v: any, ...args: any[]): any {
-          propOptionMap[propName].events.forEach((event) => {
-            this.$emit(event, v, ...args);
-          });
-          if (!(propName in this.$vnode.componentOptions.propsData)) {
-            this[propOptionMap[propName].dataName] = v;
-            return true;
-          }
-        },
-        ...defineMethods,
+        }, this.$slots);
       },
     });
   };

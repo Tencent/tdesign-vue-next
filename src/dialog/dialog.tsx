@@ -1,11 +1,11 @@
-import Vue, { CreateElement } from 'vue';
+import { defineComponent, h, Transition } from 'vue';
 import { prefix } from '../config';
 import TIconClose from '../icon/close';
 import TButton, { ButtonProps } from '../button';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
-import { getPropsApiByEvent } from '../utils/helper';
 import { getAttach } from '../utils/dom';
+import TransferDom from '../utils/transfer-dom';
 import { CloseContext } from '@TdTypes/dialog/TdDialogProps';
 import props from '@TdTypes/dialog/props';
 
@@ -42,14 +42,17 @@ function InitDragEvent(dragBox: HTMLElement) {
     document.addEventListener('mouseup', mouseUpHandler);
   });
 }
-export default Vue.extend({
+export default defineComponent({
   name,
   components: {
+    TButton,
+    Transition,
     TIconClose,
     TIconInfoCircleFilled,
   },
   // 注册v-draggable指令,传入ture时候初始化拖拽事件
   directives: {
+    TransferDom,
     draggable(el, binding) {
       // el 指令绑定的元素
       if (el && binding && binding.value) {
@@ -58,7 +61,7 @@ export default Vue.extend({
     },
   },
   props: { ...props },
-  emits: ['close', 'update:visible'],
+  emits: ['close', 'update:visible', 'keydown-esc', 'click-overlay', 'click-close-btn', 'click-cancel', 'click-confirm', 'opened', 'closed'],
   data() {
     return {
       attachTarget: null,
@@ -140,7 +143,7 @@ export default Vue.extend({
     },
     keyboardEvent(e: KeyboardEvent) {
       if (e.code === 'Escape') {
-        this.emitEvent('keydown-esc', e);
+        this.$emit('keydown-esc', e);
         // 根据closeOnKeydownEsc判断按下ESC时是否触发close事件
         if (this.closeOnKeydownEsc) {
           this.emitCloseEvent({
@@ -151,7 +154,7 @@ export default Vue.extend({
       }
     },
     overlayAction(e: MouseEvent) {
-      this.emitEvent('click-overlay', e);
+      this.$emit('click-overlay', e);
       // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
       if (this.closeOnClickOverlay) {
         this.emitCloseEvent({
@@ -161,7 +164,7 @@ export default Vue.extend({
       }
     },
     closeBtnAcion(e: MouseEvent) {
-      this.emitEvent('click-close-btn', e);
+      this.$emit('click-close-btn', e);
       this.emitCloseEvent({
         trigger: 'clickCloseBtn',
         e,
@@ -169,33 +172,26 @@ export default Vue.extend({
     },
 
     cancelBtnAction(e: MouseEvent) {
-      this.emitEvent('click-cancel', e);
+      this.$emit('click-cancel', e);
       this.emitCloseEvent({
         trigger: 'clickCancel',
         e,
       });
     },
     confirmBtnAction(e: MouseEvent) {
-      this.emitEvent('click-confirm', e);
+      this.$emit('click-confirm', e);
     },
     // 打开弹窗动画结束时事件
     afterEnter() {
-      this.emitEvent('opened');
+      this.$emit('opened');
     },
     // 关闭弹窗动画结束时事件
     afterLeave() {
-      this.emitEvent('closed');
-    },
-
-    emitEvent(name: string, event?: Event) {
-      this.$emit(name, event);
-      const handleName = getPropsApiByEvent(name);
-      typeof this[handleName] === 'function' && this[handleName](event);
+      this.$emit('closed');
     },
 
     emitCloseEvent(context: CloseContext) {
       this.$emit('close', context);
-      typeof this.onClose === 'function' && this.onClose(context);
       // 默认关闭弹窗
       this.$emit('update:visible', false);
     },
@@ -218,7 +214,7 @@ export default Vue.extend({
       };
       return icon[this.theme];
     },
-    renderHeader(h: CreateElement) {
+    renderHeader() {
       const target = this.header;
       let view;
       let isShow = true;
@@ -241,7 +237,7 @@ export default Vue.extend({
         )
       );
     },
-    renderBody(h: CreateElement) {
+    renderBody() {
       const target = this.body;
       let view;
       if (typeof target === 'string' && target) {
@@ -253,7 +249,7 @@ export default Vue.extend({
       }
       return view && <div class={`${name}__body`}>{view}</div>;
     },
-    renderDefaultBtn(h: CreateElement, type: string, btnNode: string | Function | ButtonProps) {
+    renderDefaultBtn(type: string, btnNode: string | Function | ButtonProps) {
       if (!btnNode) return null;
       const r = {
         confirm: {
@@ -284,11 +280,11 @@ export default Vue.extend({
       );
     },
 
-    renderFooter(h: CreateElement) {
+    renderFooter() {
       const defaultView = (
         <div>
-          {this.renderDefaultBtn(h, 'cancel', this.cancelBtn)}
-          {this.renderDefaultBtn(h, 'confirm', this.confirmBtn)}
+          {this.renderDefaultBtn('cancel', this.cancelBtn)}
+          {this.renderDefaultBtn('confirm', this.confirmBtn)}
         </div>
       );
       const target = this.footer;
@@ -303,7 +299,7 @@ export default Vue.extend({
 
       return <div class={`${name}__footer`}>{view || defaultView}</div>;
     },
-    renderCloseBtn(h: CreateElement) {
+    renderCloseBtn() {
       const defaultView = <t-icon-close name="close"></t-icon-close>;
       const target = this.closeBtn;
       let view;
@@ -328,7 +324,7 @@ export default Vue.extend({
         )
       );
     },
-    renderDialog(h: CreateElement) {
+    renderDialog() {
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div
@@ -337,17 +333,17 @@ export default Vue.extend({
           style={this.dialogStyle}
           v-draggable={this.isModeless && this.draggable}
         >
-          {this.renderHeader(h)}
-          {this.renderBody(h)}
-          {this.renderFooter(h)}
-          {this.renderCloseBtn(h)}
+          {this.renderHeader()}
+          {this.renderBody()}
+          {this.renderFooter()}
+          {this.renderCloseBtn()}
         </div>
       );
     },
   },
-  render(h: CreateElement) {
+  render() {
     const maskView = this.isModal && <div key="mask" class={this.maskClass} onClick={this.overlayAction}></div>;
-    const dialogView = this.renderDialog(h);
+    const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle: any = { zIndex: this.zIndex };
     const ctxClass = [`${name}-ctx`, { 't-dialog-ctx--fixed': this.mode === 'modal' }];
