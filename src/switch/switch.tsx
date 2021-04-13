@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent, h } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconLoading from '../icon/loading';
@@ -7,13 +7,10 @@ import props from '../../types/switch/props';
 
 const name = `${prefix}-switch`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
   props: { ...props },
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
+  emits: ['change'],
   computed: {
     classes(): ClassName {
       return [
@@ -58,7 +55,7 @@ export default Vue.extend({
     },
     content(): TNodeReturnValue {
       if (typeof this.label === 'function') {
-        return this.label(this.$createElement, { value: this.value });
+        return this.label(h, { value: this.value });
       }
       if (typeof this.label === 'string') {
         return this.label;
@@ -70,11 +67,11 @@ export default Vue.extend({
           return label;
         }
         if (typeof label === 'function') {
-          return label(this.$createElement);
+          return label(h);
         }
       }
-      if (this.$scopedSlots.label) {
-        return this.$scopedSlots.label({ value: this.value });
+      if (this.$slots.label) {
+        return this.$slots.label({ value: this.value });
       }
       return null;
     },
@@ -93,7 +90,6 @@ export default Vue.extend({
     handleToggle(): void {
       const checked = this.value === this.activeValue
         ? this.inactiveValue : this.activeValue;
-      typeof this.onChange === 'function' && this.onChange(checked);
       this.$emit('change', checked);
     },
     toggle(): void {
@@ -103,10 +99,9 @@ export default Vue.extend({
       this.handleToggle();
     },
   },
-  render(): VNode {
+  render() {
     const {
       loading,
-      disabled,
       content,
       nodeClasses,
       classes,
@@ -114,7 +109,7 @@ export default Vue.extend({
       contentClasses } = this;
 
     let switchContent: TNodeReturnValue;
-    let loadingContent: TNodeReturnValue;
+    let loadingContent;
 
     if (loading) {
       loadingContent = <TIconLoading/>;
@@ -125,7 +120,6 @@ export default Vue.extend({
     return (
       <div
         class={classes}
-        disabled={disabled}
         onClick={toggle}
         >
           <span class={nodeClasses}>{loadingContent}</span>
