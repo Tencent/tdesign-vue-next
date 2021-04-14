@@ -15,6 +15,7 @@ export default defineComponent({
     TIconClose,
   },
   props: { ...props },
+  emits: ['duration-end', 'click-close-btn'],
   mounted() {
     if (this.duration > 0) {
       const timer = setTimeout(() => {
