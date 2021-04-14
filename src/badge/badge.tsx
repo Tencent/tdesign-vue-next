@@ -1,10 +1,10 @@
-import Vue, { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 
 const name = `${prefix}-badge`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   components: {
@@ -91,7 +91,7 @@ export default Vue.extend({
 
     const content = this.getContent();
     const isHidden = this.isHidden();
-    const children = this.$slots.default;
+    const children = this.$slots.default ? this.$slots.default(null) : '';
     const { xOffset, yOffset } = this.getOffset();
     const badgeClassNames = [
       {
