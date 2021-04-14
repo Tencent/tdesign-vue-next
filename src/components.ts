@@ -19,7 +19,7 @@ export * from './layout';
 export * from './list';
 // export * from './menu';
 // export * from './pagination';
-// export * from './popconfirm';
+export * from './popconfirm';
 export * from './popup';
 // export * from './radio';
 // export * from './select';
