@@ -1,4 +1,4 @@
-import { App, Plugin } from 'vue';
+import { App, Plugin, createApp, nextTick } from 'vue';
 import NotificationList from './notificationList';
 import { getAttach } from '../utils/dom';
 import {
@@ -29,29 +29,30 @@ const NotificationFunction = (options: NotificationOptions): Promise<Notificatio
   hackOptions.content = options.content ? options.content : '';
 
   const _a = getAttach(hackOptions.attach);
+
   if (!instanceMap.get(_a)) {
     instanceMap.set(_a, {});
   }
   let _p = instanceMap.get(_a)[hackOptions.placement];
   if (!_p) {
-    const List = new NotificationList({
-      propsData: {
-        placement: hackOptions.placement,
-      },
-    });
-    List.add(hackOptions);
-    List.$mount();
-    instanceMap.get(_a)[hackOptions.placement] = List;
-    _a.appendChild(List.$el);
-    _p = instanceMap.get(_a)[hackOptions.placement];
+    const wrapper = document.createElement('div');
+
+    const instance = createApp(NotificationList, {
+      placement: hackOptions.placement,
+    }).mount(wrapper);
+
+    instance.add(hackOptions);
+    instanceMap.get(_a)[hackOptions.placement] = instance;
+    _p = instance;
+    _a.appendChild(instance.$el);
   } else {
     _p.add(hackOptions);
   }
 
   return new Promise((resolve) => {
-    _p.$nextTick(() => {
-      const list = _p.$children;
-      resolve(list[list.length - 1]);
+    nextTick(() => {
+      const lastChild = _p.getLastChild();
+      resolve(lastChild);
     });
   });
 };
@@ -89,8 +90,10 @@ const extraApi: ExtraApi = {
 
 const NotificationPlugin: Plugin = {
   install: (app: App) => {
+    // eslint-disable-next-line no-param-reassign
     app.config.globalProperties.$notify = showThemeNotification;
     Object.keys(extraApi).forEach((funcName) => {
+      // eslint-disable-next-line no-param-reassign
       app.config.globalProperties.$notify[funcName] = extraApi[funcName];
     });
   },

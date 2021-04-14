@@ -54,9 +54,12 @@ export default defineComponent({
     },
     getListeners(index: number) {
       return {
-        'click-close-btn': () => this.remove(index),
-        'duration-end': () => this.remove(index),
+        onClickCloseBtn: () => this.remove(index),
+        onDurationEnd: () => this.remove(index),
       };
+    },
+    getLastChild() {
+      return this.$refs[`notification${this.list.length - 1}`];
     },
   },
   render() {
@@ -65,11 +68,12 @@ export default defineComponent({
       <div class={`t-notification__show--${this.placement}`} style={`z-index: ${this.zIndex}`}>
         {this.list
           .map((item, index) => (
-            <t-notification
+            <Notification
+              ref={`notification${index}`}
               key={item.id}
               style={this.notificationStyles(item)}
-              {...{ props: item }}
-              {...{ on: this.getListeners(index) }}
+              {...item}
+              {...this.getListeners(index)}
             />
           ))
         }

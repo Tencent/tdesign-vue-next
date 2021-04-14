@@ -47,7 +47,7 @@ export default defineComponent({
     renderClose() {
       const { closeBtn } = this;
       if (typeof closeBtn === 'boolean') {
-        return closeBtn && <t-icon-close nativeOnClick={this.close} class='t-message-close' />;
+        return closeBtn && <t-icon-close onClick={this.close} class='t-message-close' />;
       }
       let close: TNodeReturnValue = null;
       if (typeof closeBtn === 'function') {
