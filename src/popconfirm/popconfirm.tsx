@@ -75,7 +75,7 @@ export default defineComponent({
       if (this.$slots.content) {
         return this.$slots.content();
       }
-      const node = this.content;
+      const node = this.content || '确定删除吗？';
       if (typeof node === 'function') {
         return (node as Function)();
       }
@@ -113,19 +113,22 @@ export default defineComponent({
     },
   },
   render() {
-    const trigger: VNode[] | VNode | string = this.$slots.default()
-      ? this.$slots.default(null) : '';
+    const trigger: VNode[] | VNode | string = this.$slots.default?this.$slots.default() :null;
     const popupProps = {
       props: {
-        ...this.$attrs,
         showArrow: true,
         overlayClassName: name,
         content: this.content,
-      },
-      ref: 'popup',
-      on: {
+        // $attrs放下面来, vue3中合并顺序改变了
+        // https://v3.cn.vuejs.org/guide/migration/v-bind.html#%E6%A6%82%E8%A7%88
         ...this.$attrs,
       },
+      ref: 'popup',
+      // https://v3.cn.vuejs.org/guide/migration/listeners-removed.html
+      // 此处移除on的绑定,文档中提到v-on=$listeners已经合并到了v-bind=$attrs
+      // on: {
+      //   ...this.$attrs,
+      // },
     };
     const slots={
       content:()=>(
@@ -145,7 +148,7 @@ export default defineComponent({
     }
     return (
       <div>
-        <Popup ref='popup' v-slots={slots}>
+        <Popup ref={popupProps.ref} {...popupProps.props} v-slots={slots}>
           {trigger}
         </Popup>
         <slot />
