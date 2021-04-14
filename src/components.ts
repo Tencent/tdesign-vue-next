@@ -33,7 +33,7 @@ export * from './switch';
 // export * from './upload';
 // export * from './dropdown';
 export * from './tooltip';
-// export * from './input-number';
+export * from './input-number';
 export * from './grid';
 export * from './divider';
 export * from './progress';

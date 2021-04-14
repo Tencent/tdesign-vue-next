@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
 import Add from '../icon/add';
 import Remove from '../icon/remove';
@@ -10,33 +10,30 @@ import props from '@TdTypes/input-number/props';
 const name = `${prefix}-input-number`;
 
 type InputNumberEvent = {
-  on: {
-    input?: (e: InputEvent) => void;
-    click?: (e: MouseEvent) => void;
-    blur?: (e: FocusEvent) => void;
-    focus?: (e: FocusEvent) => void;
-    keydown?: (e: KeyboardEvent) => void;
-    keyup?: (e: KeyboardEvent) => void;
-    keypress?: (e: KeyboardEvent) => void;
-  };
+  onInput?: (e: InputEvent) => void;
+  onClick?: (e: MouseEvent) => void;
+  onBlur?: (e: FocusEvent) => void;
+  onFocus?: (e: FocusEvent) => void;
+  onKeydown?: (e: KeyboardEvent) => void;
+  onKeyup?: (e: KeyboardEvent) => void;
+  onKeypress?: (e: KeyboardEvent) => void;
 };
 
 type InputNumberAttr = {
-  attrs: {
-    disabled?: boolean;
-    readonly?: any;
-  };
+  disabled?: boolean;
+  readonly?: any;
 };
 
-export default Vue.extend({
+export default defineComponent({
   name,
-  props: { ...props },
   components: {
     Add,
     Remove,
     ChevronDown,
     ChevronUp,
   },
+  props: { ...props },
+  emits: ['update:value', 'change', 'blur', 'focus', 'keydown-enter', 'keydown', 'keyup', 'keypress'],
   data() {
     return {
       userInput: null,
@@ -66,91 +63,63 @@ export default Vue.extend({
     digitsNum(): number {
       return this.valueDigitsNum > this.stepDigitsNum ? this.valueDigitsNum : this.stepDigitsNum;
     },
-    reduceClasses(): ClassName {
-      return {
-        class: [
-          `${name}__decrease`,
-          {
-            [CLASSNAMES.STATUS.disabled]: this.disabledReduce,
-          },
-        ],
-      };
-    },
-    reduceEvents(): InputNumberEvent {
-      return {
-        on: {
-          click: this.handleReduce,
+    reduceClasses() {
+      return [
+        `${name}__decrease`,
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabledReduce,
         },
-      };
+      ];
     },
     addClasses(): ClassName {
-      return {
-        class: [
-          `${name}__increase`,
-          {
-            [CLASSNAMES.STATUS.disabled]: this.disabledAdd,
-          },
-        ],
-      };
-    },
-    addEvents(): InputNumberEvent {
-      return {
-        on: {
-          click: this.handleAdd,
+      return  [
+        `${name}__increase`,
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabledAdd,
         },
-      };
+      ];
     },
     cmptWrapClasses(): ClassName {
-      return {
-        class: [
-          't-input-number',
-          CLASSNAMES.SIZE[this.size],
-          {
-            [CLASSNAMES.STATUS.disabled]: this.disabled,
-            't-is-controls-right': this.mode === 'column',
-          },
-        ],
-      };
+      return  [
+        't-input-number',
+        CLASSNAMES.SIZE[this.size],
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          't-is-controls-right': this.mode === 'column',
+        },
+      ];
     },
     inputWrapProps(): ClassName {
-      return {
-        class: [
-          't-input',
-          {
-            't-is-error': this.isError,
-          },
-        ],
-      };
+      return [
+        't-input',
+        {
+          't-is-error': this.isError,
+        },
+      ];
     },
     inputClasses(): ClassName {
-      return {
-        class: [
-          't-input__inner',
-          {
-            [CLASSNAMES.STATUS.disabled]: this.disabled,
-            [`${name}-text-align`]: this.mode === 'row',
-          },
-        ],
-      };
+      return [
+        't-input__inner',
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [`${name}-text-align`]: this.mode === 'row',
+        },
+      ];
     },
     inputEvents(): InputNumberEvent {
       return {
-        on: {
-          input: this.handleInput,
-          blur: this.handleBlur,
-          focus: this.handleFocus,
-          keydown: this.handleKeydown,
-          keyup: this.handleKeyup,
-          keypress: this.handleKeypress,
-        },
+        onInput: this.handleInput,
+        onBlur: this.handleBlur,
+        onFocus: this.handleFocus,
+        onKeydown: this.handleKeydown,
+        onKeyup: this.handleKeyup,
+        onKeypress: this.handleKeypress,
       };
     },
     inputAttrs(): InputNumberAttr {
-      return {
-        attrs: {
-          disabled: this.disabled,
-          readonly: this.formatter,
-        },
+      return  {
+        disabled: this.disabled,
+        readonly: this.formatter,
       };
     },
     decreaseIcon(): TNodeReturnValue {
@@ -159,7 +128,7 @@ export default Vue.extend({
     increaseIcon(): TNodeReturnValue {
       return this.mode === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
     },
-    displayValue(): string {
+    displayValue(): number | string {
       if (this.value === undefined) return;
       if (this.userInput !== null) {
         return this.filterValue;
@@ -206,47 +175,27 @@ export default Vue.extend({
       if (this.isError) {
         this.isError = false;
       }
-      if (this.onChange) {
-        this.onChange(value, ctx);
-      }
       this.$emit('change', value, { type: ctx.type, e: ctx.e });
+      this.$emit('update:value', value);
     },
     handleBlur(e: FocusEvent) {
-      if (this.onBlur) {
-        this.onBlur(this.value, { e });
-      }
       this.$emit('blur', this.value, { e });
     },
     handleFocus(e: FocusEvent) {
-      if (this.onFocus) {
-        this.onFocus(this.value, { e });
-      }
       this.$emit('focus', this.value, { e });
     },
     handleKeydownEnter(e: KeyboardEvent) {
       if (e.key !== 'Enter') return;
-      if (this.onKeydownEnter) {
-        this.onKeydownEnter(this.value, { e });
-      }
       this.$emit('keydown-enter', this.value, { e });
     },
     handleKeydown(e: KeyboardEvent) {
-      if (this.onKeydown) {
-        this.onKeydown(this.value, { e });
-      }
       this.$emit('keydown', this.value, { e });
       this.handleKeydownEnter(e);
     },
     handleKeyup(e: KeyboardEvent) {
-      if (this.onKeyup) {
-        this.onKeyup(this.value, { e });
-      }
       this.$emit('keyup', this.value, { e });
     },
     handleKeypress(e: KeyboardEvent) {
-      if (this.onKeypress) {
-        this.onKeypress(this.value, { e });
-      }
       this.$emit('keypress', this.value, { e });
     },
     handleInputError(visible: boolean, content: string) {
@@ -294,15 +243,15 @@ export default Vue.extend({
   },
   render(): VNode {
     return (
-      <div {...this.cmptWrapClasses}>
-        <span {...this.reduceClasses} {...this.reduceEvents}>
+      <div class={this.cmptWrapClasses}>
+        <span class={this.reduceClasses} onClick={this.handleReduce}>
           {this.decreaseIcon}
         </span>
-        <div {...this.inputWrapProps}>
+        <div class={this.inputWrapProps}>
           <input
             value={this.displayValue}
             disabled={this.disabled}
-            {...this.inputClasses}
+            class={this.inputClasses}
             {...this.inputAttrs}
             {...this.inputEvents}
             autocomplete="off"
@@ -310,7 +259,7 @@ export default Vue.extend({
             placeholder={this.placeholder}
           />
         </div>
-        <div {...this.addClasses} {...this.addEvents}>
+        <div class={this.addClasses} onClick={this.handleAdd}>
           {this.increaseIcon}
         </div>
       </div>
