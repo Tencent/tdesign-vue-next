@@ -1,130 +1,96 @@
-import Vue, { VueConstructor, VNode } from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import { omit } from '../utils/helper';
 import checkboxProps from '@TdTypes/checkbox/props';
 
 const name = `${prefix}-checkbox`;
 
-function getValidAttrs(obj: object): object {
-  const newObj = {};
-  Object.keys(obj).forEach((key) => {
-    if (typeof obj[key] !== 'undefined') {
-      newObj[key] = obj[key];
-    }
-  });
-  return newObj;
-}
-
-interface CheckboxInstance extends Vue {
-  checkboxGroup: any;
-}
-
-export default (Vue as VueConstructor<CheckboxInstance>).extend({
+export default defineComponent({
   name,
   inheritAttrs: false,
   model: {
     prop: 'checked',
     event: 'change',
   },
-
-  inject: {
-    checkboxGroup: { default: undefined },
-  },
-
   props: { ...checkboxProps },
-
-  watch: {
-    value(nVal, oVal) {
-      const { checkboxGroup } = this;
-      const { addValue, delValue } = checkboxGroup || {};
-      if (addValue && delValue) {
-        checkboxGroup.delValue(oVal);
-        checkboxGroup.addValue(nVal);
+  computed: {
+    labelClasses(): ClassName {
+      return [
+        `${name}`,
+        {
+          [CLASSNAMES.STATUS.checked]: this.checked$,
+          [CLASSNAMES.STATUS.disabled]: this.disabled$,
+          [CLASSNAMES.STATUS.indeterminate]: this.indeterminate,
+        },
+      ];
+    },
+    checkboxGroup(): any {
+      return this.getGroup();
+    },
+    isCheckAllOption(): boolean {
+      return this.$attrs['data-name'] === 'TDESIGN_CHECK_ALL';
+    },
+    disabled$(): boolean {
+      if (this.disabled !== undefined) return this.disabled;
+      return !!(this.checkboxGroup && this.checkboxGroup.disabled);
+    },
+    name$(): string {
+      return this.name || (this.checkboxGroup && this.checkboxGroup.name);
+    },
+    checked$(): boolean {
+      if (this.checkboxGroup && this.checkboxGroup.checkedMap && !this.isCheckAllOption) {
+        return this.checkboxGroup.checkedMap[this.value];
       }
+      return this.checked;
     },
   },
 
-  beforeDestroy() {
-    const { value, checkboxGroup = {} } = this;
-    if (checkboxGroup.delValue) {
-      checkboxGroup.delValue(value);
-    }
-  },
-
-  render(): VNode {
-    const { $attrs, $listeners, $scopedSlots, checkboxGroup } = this;
-    const children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
-
-    const inputProps = {
-      checked: this.checked,
-      disabled: this.disabled,
-      indeterminate: this.indeterminate,
-      value: this.value as any,
-      name: this.name,
-    };
-
-    const inputEvents = getValidAttrs({
-      focus: $listeners.focus,
-      blur: $listeners.blur,
-      keydown: $listeners.keydown,
-      keyup: $listeners.keyup,
-      keypresss: $listeners.keypresss,
-    });
-
-    const wrapperEvents = omit($listeners, [...Object.keys(inputEvents), 'input', 'change']);
-
-    if (checkboxGroup) {
-      inputProps.checked = checkboxGroup.value && checkboxGroup.value.indexOf(this.value) > -1;
-      inputProps.disabled = this.disabled === undefined ? checkboxGroup.disabled : this.disabled;
-      inputProps.name = checkboxGroup.name;
-    }
-
-    const inputClass = [
-      `${name}`,
-      {
-        [CLASSNAMES.STATUS.checked]: inputProps.checked,
-        [CLASSNAMES.STATUS.disabled]: inputProps.disabled,
-        [CLASSNAMES.STATUS.indeterminate]: inputProps.indeterminate,
-      },
-    ];
-
-    const wrapperProps = {
-      class: inputClass,
-      attrs: $attrs,
-      on: wrapperEvents,
-    };
-
+  render() {
     return (
-      <label { ...wrapperProps } >
+      <label class={this.labelClasses}>
         <input
-          type="checkbox"
+          type='checkbox'
           class={`${name}__former`}
-          { ...{ domProps: inputProps, on: {
-            ...inputEvents,
-            click: (evt: Event) => evt.stopPropagation(),
-          } } }
+          disabled={this.disabled$}
+          readonly={this.readonly}
+          indeterminate={this.indeterminate}
+          name={this.name$}
+          value={this.value}
+          checked={this.checked$}
           onChange={this.handleChange}
-        />
+        ></input>
         <span class={`${name}__input`}></span><span class={`${name}__label`}>
-          {children || null}
+          {this.$slots.default() && this.$slots.default(null)}
         </span>
       </label>
-    ) as VNode;
+    );
   },
 
   methods: {
     handleChange(e: Event) {
       const target = e.target as HTMLInputElement;
-      if (this.checkboxGroup && this.checkboxGroup.handleCheckboxChange) {
-        this.checkboxGroup.handleCheckboxChange(this.value);
-      } else {
-        this.$emit('change', target.checked, { e });
-        this.$emit('input', target.checked);
-        if (typeof this.onChange === 'function') {
-          this.onChange(target.checked, { e });
-        }
+      this.$emit('change', target.checked, { e });
+      (typeof this.onChange === 'function') && this.onChange(target.checked, { e });
+      e.stopPropagation();
+      if (this.checkboxGroup && this.checkboxGroup.handleCheckboxChange && !this.isCheckAllOption) {
+        this.checkboxGroup.handleCheckboxChange({ checked: target.checked, e, option: this.$props });
       }
+    },
+    getGroup() {
+      const groupName = `${prefix}-checkbox-group`;
+      let parent = this.$parent;
+      let i = 0;
+      while (parent && parent.$options) {
+        if (parent.$options.name === groupName) {
+          break;
+        }
+        parent = parent.$parent;
+        i = i + 1;
+        if (i >= 2) {
+          break;
+        };
+      }
+      return parent;
     },
   },
 });
