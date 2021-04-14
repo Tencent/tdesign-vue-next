@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent } from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { prefix } from '../config';
@@ -14,7 +14,7 @@ const getUniqueId = (() => {
   };
 })();
 
-export const MessageList = Vue.extend({
+export const MessageList = defineComponent({
   name: `${prefix}-message-list`,
   components: { TMessage },
   props: {
@@ -24,6 +24,7 @@ export const MessageList = Vue.extend({
   data() {
     return {
       list: [],
+      messageList: [],
     };
   },
   computed: {
@@ -61,12 +62,17 @@ export const MessageList = Vue.extend({
     },
     getListeners(index: number) {
       return {
-        'click-close-btn': () => this.remove(index),
-        'duration-end': () => this.remove(index),
+        onClickCloseBtn: () => this.remove(index),
+        onDurationEnd: () => this.remove(index),
       };
     },
+    addChild(el: Element) {
+      if (el) {
+        this.messageList.push(el);
+      }
+    }
   },
-  render(): VNode {
+  render() {
     if (!this.list.length) return;
     return (
       <div class='t-message-list' style={this.styles}>
@@ -75,8 +81,9 @@ export const MessageList = Vue.extend({
             <t-message
               key={item.key}
               style={this.msgStyles(item)}
-              {...{ props: item }}
-              {...{ on: this.getListeners(index) }}
+              ref={this.addChild}
+              { ...item }
+              { ...this.getListeners(index) }
             />
           ))
         }

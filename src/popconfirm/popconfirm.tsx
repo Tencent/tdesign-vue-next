@@ -1,40 +1,17 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import Icon from '../icon';
 import Button from '../button';
 import Popup from '../popup/index';
 import { prefix } from '../config';
-
+import props from '@TdTypes/popconfirm/props';
+// import {THEME_LIST} from './const'
+// import { Popconfirm } from '../../script/types';
 const name = `${prefix}-popconfirm`;
 const popupName = `${prefix}-popup`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
-  props: {
-    theme: {
-      type: String,
-      default: 'default',
-      validator(v: string): boolean {
-        return (
-          [
-            'default',
-            'info',
-            'warning',
-            'error',
-          ].indexOf(v) > -1
-        );
-      },
-    },
-    icon: [String, Function],
-    content: [String, Function],
-    cancelText: {
-      type: [String, Function],
-      default: '取消',
-    },
-    confirmText: {
-      type: [String, Function],
-      default: '确定',
-    },
-  },
+  props,
   data() {
     return {
       name,
@@ -96,9 +73,9 @@ export default Vue.extend({
     renderContent(): JsxNode {
       // 优先级 slot > Function > string
       if (this.$slots.content) {
-        return this.$slots.content;
+        return this.$slots.content();
       }
-      const node = this.content;
+      const node = this.content || '确定删除吗？';
       if (typeof node === 'function') {
         return (node as Function)();
       }
@@ -116,7 +93,7 @@ export default Vue.extend({
           size='small'
           variant='outline'
           onclick={this.handleCancel}
-        >{this.cancelText}</Button>
+        >{this.cancelBtn}</Button>
       );
     },
     renderConfirm(): JsxNode {
@@ -124,49 +101,54 @@ export default Vue.extend({
         return this.$slots.confirmText;
       }
       if (typeof this.confirmText === 'function') {
-        return this.confirmText();
+        return this.confirmBtn();
       }
       return (
         <Button size='small'
           variant="base"
           theme="primary"
           onclick={this.handleConfirm}
-        >{this.confirmText}</Button>
+        >{this.confirmBtn}</Button>
       );
     },
   },
   render() {
-    const trigger: VNode[] | VNode | string = this.$scopedSlots.default
-      ? this.$scopedSlots.default(null) : '';
+    const trigger: VNode[] | VNode | string = this.$slots.default?this.$slots.default() :null;
     const popupProps = {
       props: {
-        ...this.$attrs,
         showArrow: true,
         overlayClassName: name,
+        content: this.content,
+        // $attrs放下面来, vue3中合并顺序改变了
+        // https://v3.cn.vuejs.org/guide/migration/v-bind.html#%E6%A6%82%E8%A7%88
+        ...this.$attrs,
       },
       ref: 'popup',
-      on: {
-        ...this.$listeners,
-      },
+      // https://v3.cn.vuejs.org/guide/migration/listeners-removed.html
+      // 此处移除on的绑定,文档中提到v-on=$listeners已经合并到了v-bind=$attrs
+      // on: {
+      //   ...this.$attrs,
+      // },
     };
-
+    const slots={
+      content:()=>(
+        <div class={`${name}__content`}>
+          <div class={`${name}__body`}>
+            {this.renderIcon()}
+            <div class={`${name}__inner`}>
+              {this.renderContent()}
+            </div>
+          </div>
+          <div class="t-popconfirm__buttons">
+            {this.renderCancel()}
+            {this.renderConfirm()}
+          </div>
+        </div>
+      )
+    }
     return (
       <div>
-        <Popup {...popupProps}>
-          <template slot='content' role='poppconfirm'>
-            <div class={`${name}__content`}>
-              <div class={`${name}__body`}>
-                {this.renderIcon()}
-                <div class={`${name}__inner`}>
-                  {this.renderContent()}
-                </div>
-              </div>
-              <div class="t-popconfirm__buttons">
-                {this.renderCancel()}
-                {this.renderConfirm()}
-              </div>
-            </div>
-          </template>
+        <Popup ref={popupProps.ref} {...popupProps.props} v-slots={slots}>
           {trigger}
         </Popup>
         <slot />
