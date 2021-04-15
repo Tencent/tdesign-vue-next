@@ -46,6 +46,7 @@ export default defineComponent({
     handleChange(e: Event) {
       const target = e.target as HTMLInputElement;
       this.$emit('change', target.checked, { e });
+      (typeof this.onChange === 'function') && this.onChange(target.checked, { e });
       e.stopPropagation();
       if (this.checkboxGroup && this.checkboxGroup.handleCheckboxChange && !this.isCheckAllOption) {
         this.checkboxGroup.handleCheckboxChange({ checked: target.checked, e, option: this.$props });
