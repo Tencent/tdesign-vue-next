@@ -9,7 +9,7 @@ export * from './breadcrumb';
 export * from './breadcrumbItem';
 export * from './button';
 // export * from './calendar';
-// export * from './checkbox';
+export * from './checkbox';
 // export * from './drawer';
 // export * from './form';
 export * from './icon';
