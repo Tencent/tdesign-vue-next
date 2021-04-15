@@ -25,3 +25,4 @@ site/*
 !src/notification
 !src/switch
 !src/utils
+!src/checkbox
