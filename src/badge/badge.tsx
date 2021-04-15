@@ -1,10 +1,10 @@
-import Vue, { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 
 const name = `${prefix}-badge`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   components: {
@@ -14,6 +14,7 @@ export default Vue.extend({
   props: {
     count: {
       type: Number,
+      default: 0,
     },
     maxCount: {
       type: Number,
@@ -21,6 +22,7 @@ export default Vue.extend({
     },
     content: {
       type: [String, Function],
+      default: '',
     },
     dot: {
       type: Boolean,
@@ -48,6 +50,7 @@ export default Vue.extend({
     },
     offset: {
       type: Array as PropType<Array<number>>,
+      default: {},
       validator(v: number[]): boolean {
         return v.length === 2;
       },
@@ -91,7 +94,7 @@ export default Vue.extend({
 
     const content = this.getContent();
     const isHidden = this.isHidden();
-    const children = this.$slots.default;
+    const children = this.$slots.default ? this.$slots.default(null) : '';
     const { xOffset, yOffset } = this.getOffset();
     const badgeClassNames = [
       {
