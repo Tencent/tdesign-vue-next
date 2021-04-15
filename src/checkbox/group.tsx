@@ -12,10 +12,7 @@ export default defineComponent({
   components: {
     Checkbox,
   },
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
+  emits: ['change'],
   props: { ...checkboxGroupProps },
 
   data() {
@@ -118,7 +115,6 @@ export default defineComponent({
     },
     emitChange(val: CheckboxGroupValue, e?: Event) {
       this.$emit('change', val, { e });
-      (typeof this.onChange === 'function') && this.onChange(val, { e });
     },
     handleCheckboxChange(data: { checked: boolean; e: Event; option: TdCheckboxProps }) {
       const oValue = data.option.value;
