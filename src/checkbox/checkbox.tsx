@@ -8,11 +8,8 @@ const name = `${prefix}-checkbox`;
 export default defineComponent({
   name,
   inheritAttrs: false,
-  model: {
-    prop: 'checked',
-    event: 'change',
-  },
   props: { ...checkboxProps },
+  emits: ['change'],
   computed: {
     labelClasses(): ClassName {
       return [
@@ -45,27 +42,6 @@ export default defineComponent({
     },
   },
 
-  render() {
-    return (
-      <label class={this.labelClasses}>
-        <input
-          type='checkbox'
-          class={`${name}__former`}
-          disabled={this.disabled$}
-          readonly={this.readonly}
-          indeterminate={this.indeterminate}
-          name={this.name$}
-          value={this.value}
-          checked={this.checked$}
-          onChange={this.handleChange}
-        ></input>
-        <span class={`${name}__input`}></span><span class={`${name}__label`}>
-          {this.$slots.default() && this.$slots.default(null)}
-        </span>
-      </label>
-    );
-  },
-
   methods: {
     handleChange(e: Event) {
       const target = e.target as HTMLInputElement;
@@ -92,5 +68,26 @@ export default defineComponent({
       }
       return parent;
     },
+  },
+
+  render() {
+    return (
+      <label class={this.labelClasses}>
+        <input
+          type='checkbox'
+          class={`${name}__former`}
+          disabled={this.disabled$}
+          readonly={this.readonly}
+          indeterminate={this.indeterminate}
+          name={this.name$}
+          value={this.value}
+          checked={this.checked$}
+          onChange={this.handleChange}
+        ></input>
+        <span class={`${name}__input`}></span><span class={`${name}__label`}>
+          {this.$slots.default() && this.$slots.default(null)}
+        </span>
+      </label>
+    );
   },
 });

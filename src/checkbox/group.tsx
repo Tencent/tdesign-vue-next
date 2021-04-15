@@ -12,28 +12,13 @@ export default defineComponent({
   components: {
     Checkbox,
   },
-  emits: ['change'],
   props: { ...checkboxGroupProps },
+  emits: ['change'],
 
   data() {
     return {
       checkedMap: {},
     };
-  },
-
-  watch: {
-    values: {
-      immediate: true,
-      handler() {
-        if (this.value instanceof Array) {
-          const map = {};
-          this.value.forEach((item: string | number) => {
-            map[item] = true;
-          });
-          this.checkedMap = map;
-        }
-      },
-    },
   },
 
   computed: {
@@ -75,24 +60,19 @@ export default defineComponent({
     },
   },
 
-  render() {
-    return (
-      <div class={name}>
-        {!!this.optionList.length && this.optionList.map((option, index) => {
-          if (option.checkAll) return this.renderCheckAll(option);
-          return (
-            <Checkbox
-              key={index}
-              props={{ ...option }}
-              checked={this.checkedMap[option.value]}
-            >
-              {this.renderLabel(option)}
-            </Checkbox>
-          );
-        })}
-        {this.$slots.default() && this.$slots.default(null)}
-      </div>
-    );
+  watch: {
+    values: {
+      immediate: true,
+      handler() {
+        if (this.value instanceof Array) {
+          const map = {};
+          this.value.forEach((item: string | number) => {
+            map[item] = true;
+          });
+          this.checkedMap = map;
+        }
+      },
+    },
   },
 
   methods: {
@@ -148,5 +128,23 @@ export default defineComponent({
         this.checkedMap = {};
       }
     },
+  },
+
+  render() {
+    return (
+      <div class={name}>
+        {!!this.optionList.length && this.optionList.map((option, index) => {
+          if (option.checkAll) return this.renderCheckAll(option);
+          return (
+            <Checkbox
+              key={index}
+              props={{ ...option }}
+              checked={this.checkedMap[option.value]}
+            >{this.renderLabel(option)}</Checkbox>
+          );
+        })}
+        {this.$slots.default() && this.$slots.default(null)}
+      </div>
+    );
   },
 });
