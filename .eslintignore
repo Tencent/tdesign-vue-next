@@ -28,3 +28,4 @@ site/*
 !src/badge
 !src/input
 !src/checkbox
+!src/input-group
