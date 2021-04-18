@@ -14,6 +14,7 @@ export default defineComponent({
   props: {
     count: {
       type: Number,
+      default: 0,
     },
     maxCount: {
       type: Number,
@@ -21,6 +22,7 @@ export default defineComponent({
     },
     content: {
       type: [String, Function],
+      default: '',
     },
     dot: {
       type: Boolean,
@@ -48,6 +50,7 @@ export default defineComponent({
     },
     offset: {
       type: Array as PropType<Array<number>>,
+      default: {},
       validator(v: number[]): boolean {
         return v.length === 2;
       },

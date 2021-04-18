@@ -27,3 +27,4 @@ site/*
 !src/utils
 !src/badge
 !src/input
+!src/checkbox
