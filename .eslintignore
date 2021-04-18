@@ -26,3 +26,4 @@ site/*
 !src/switch
 !src/utils
 !src/badge
+!src/input
