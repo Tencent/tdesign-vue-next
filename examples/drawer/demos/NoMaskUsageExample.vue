@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-drawer :visible="visible" @close="handleClose" :showOverlay="false">
+    <t-drawer v-model:visible="visible" @close="handleClose" :showOverlay="false" header="标题名称">
       <p>This is a drawer</p>
     </t-drawer>
 

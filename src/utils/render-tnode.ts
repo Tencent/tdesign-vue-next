@@ -1,11 +1,9 @@
-import { h, SetupContext, isVNode, createTextVNode, VNode, ComponentPublicInstance  } from 'vue';
+import { h, isVNode, createTextVNode, VNode, ComponentPublicInstance  } from 'vue';
 
 // 组件render属性的ts类型
 type RenderTsTypesSimple = string | number | boolean;
 type RenderTsTypesObject = Record<string, any> | Array<any>;
 type RenderTsTypes  = VNode | TNode | RenderTsTypesSimple | RenderTsTypesObject
-// 组件render属性的js类型
-const RenderJsTypes = [Function, String, Number, Boolean, Object, Array];
 
 // 定义组件内容的渲染方式
 enum RenderWay {
@@ -37,7 +35,7 @@ const getValueRenderWay = (value: RenderTsTypes): RenderWay => {
 };
 
 // 通过template的方式渲染TNode
-export const RenderTNodeTemplate = (props: { render: Function, params: Object }, ctx: SetupContext) => {
+export const RenderTNodeTemplate = (props: { render: Function; params: Record<string, any> }) => {
   const { render, params } = props;
   const renderResult = (typeof render === 'function') ? render(h, params) : render;
   const renderWay = getValueRenderWay(renderResult);
@@ -51,7 +49,7 @@ export const RenderTNodeTemplate = (props: { render: Function, params: Object },
   };
 
   return renderMap[renderWay] ? renderMap[renderWay](renderResult) : h(null);
-}
+};
 
 // 通过JSX的方式渲染TNode
 export const renderTNodeJSX = (vm: ComponentPublicInstance, name: string) => {
