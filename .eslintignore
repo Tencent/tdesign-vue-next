@@ -33,3 +33,4 @@ site/*
 !src/input-number
 !src/anchor
 !src/tag
+!src/menu
