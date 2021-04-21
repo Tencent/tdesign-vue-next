@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
@@ -6,7 +6,7 @@ import TIconFileCopy from '../icon/file-copy';
 import props from '../../types/anchor-target/props';
 
 const name = `${prefix}-anchor-target`;
-export default Vue.extend({
+export default defineComponent({
   name,
 
   components: {
@@ -31,7 +31,7 @@ export default Vue.extend({
   render() {
     const {
       tag: Tag,
-      $scopedSlots: { default: children },
+      $slots: { default: children },
       id,
     } = this;
     const className = [name];
@@ -40,7 +40,7 @@ export default Vue.extend({
       <Tag id={id} class={className}>
         {children && children(null)}
         <t-popup content="复制链接" placement="top" showArrow class={iconClassName}>
-          <t-icon-file-copy name="file-copy" nativeOnClick={this.copyText} />
+          <t-icon-file-copy name="file-copy" onClick={this.copyText} />
         </t-popup>
       </Tag>
     );

@@ -1,24 +1,23 @@
-import Vue, { VueConstructor } from 'vue';
+import { defineComponent, VNodeChild, h } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from '../../types/anchor-item/props';
-import { ScopedSlotReturnValue } from 'vue/types/vnode';
 
 const name = `${prefix}-anchor-item`;
-interface Anchor extends Vue {
-  tAnchor: {
-    active: string;
-    handleScrollTo(target: string): void;
-    registerLink(href: string): void;
-    unregisterLink(href: string): void;
-    handleLinkClick(link: { href: string; title: string }, e: MouseEvent): void;
-  };
-}
+type tAnchor = {
+  active: string;
+  handleScrollTo(target: string): void;
+  registerLink(href: string): void;
+  unregisterLink(href: string): void;
+  handleLinkClick(link: { href: string; title: string }, e: MouseEvent): void;
+};
 
-export default (Vue as VueConstructor<Anchor>).extend({
+export default defineComponent({
   name,
-
+  inject: {
+    tAnchor: { default: undefined },
+  },
   props: {
     ...props,
     href: {
@@ -29,11 +28,6 @@ export default (Vue as VueConstructor<Anchor>).extend({
       },
     },
   },
-
-  inject: {
-    tAnchor: { default: undefined },
-  },
-
   watch: {
     href: {
       immediate: true,
@@ -43,7 +37,7 @@ export default (Vue as VueConstructor<Anchor>).extend({
       },
     },
   },
-  destroyed() {
+  unmounted() {
     this.unregister();
   },
   methods: {
@@ -63,7 +57,7 @@ export default (Vue as VueConstructor<Anchor>).extend({
           href,
           title: typeof title === 'string' ? title : undefined,
         },
-        e
+        e,
       );
     },
     /**
@@ -72,13 +66,13 @@ export default (Vue as VueConstructor<Anchor>).extend({
      * @returns
      */
     renderTitle() {
-      const { title, $scopedSlots } = this;
-      const { title: titleSlot } = $scopedSlots;
-      let titleVal: ScopedSlotReturnValue;
+      const { title, $slots } = this;
+      const { title: titleSlot } = $slots;
+      let titleVal: VNodeChild;
       if (typeof title === 'string') {
         titleVal = title;
       } else if (typeof title === 'function') {
-        titleVal = title(this.$createElement);
+        titleVal = title(h);
       } else if (titleSlot) {
         titleVal = titleSlot(null);
       }
@@ -86,8 +80,8 @@ export default (Vue as VueConstructor<Anchor>).extend({
     },
   },
   render() {
-    const { href, target, $scopedSlots, tAnchor } = this;
-    const { default: children, title: titleSlot } = $scopedSlots;
+    const { href, target, $slots, tAnchor } = this;
+    const { default: children, title: titleSlot } = $slots;
     const title = this.renderTitle();
     const titleAttr = typeof title === 'string' ? title : null;
     const active = tAnchor.active === href;

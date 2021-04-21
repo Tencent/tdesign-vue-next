@@ -4,7 +4,7 @@ export { Message } from './message';
 // export * from './addon';
 export * from './alert-swiper';
 export * from './alert';
-// export * from './anchor';
+export * from './anchor';
 export * from './breadcrumb';
 export * from './breadcrumbItem';
 export * from './button';
