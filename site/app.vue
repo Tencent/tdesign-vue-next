@@ -13,6 +13,9 @@
     <t-divider theme="vertical" />
     <span>创新</span>
   </div>
+  <t-divider>CheckBox</t-divider>
+  <t-checkbox>默认状态</t-checkbox>
+  <t-checkbox :checked="true">选中状态</t-checkbox>
 </template>
 
 <script>
