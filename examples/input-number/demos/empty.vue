@@ -2,9 +2,7 @@
   <div>
     <t-input-number
       v-model="value"
-      theme="column"
-      :max="15"
-      :min="-2"
+      placeholder="输入"
     ></t-input-number>
   </div>
 </template>
@@ -13,7 +11,7 @@
 export default {
   data() {
     return {
-      value: 3,
+      value: undefined,
     };
   },
 };
