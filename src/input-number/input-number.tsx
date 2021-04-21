@@ -1,4 +1,4 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import Add from '../icon/add';
 import Remove from '../icon/remove';
@@ -6,6 +6,7 @@ import ChevronDown from '../icon/chevron-down';
 import ChevronUp from '../icon/chevron-up';
 import CLASSNAMES from '../utils/classnames';
 import props from '@TdTypes/input-number/props';
+import { ChangeSource } from '@TdTypes/input-number/TdInputNumberProps';
 
 const name = `${prefix}-input-number`;
 
@@ -19,9 +20,14 @@ type InputNumberEvent = {
   onKeypress?: (e: KeyboardEvent) => void;
 };
 
+type ChangeContextEvent = InputEvent | MouseEvent | FocusEvent;
+
 type InputNumberAttr = {
   disabled?: boolean;
   readonly?: any;
+    autocomplete?: string;
+    ref: string;
+    placeholder: string;
 };
 
 export default defineComponent({
@@ -38,9 +44,8 @@ export default defineComponent({
     return {
       userInput: null,
       filterValue: null,
-      type: typeof this.value || 'string',
       isError: false,
-      errMsg: '',
+      inputing: false,
     };
   },
   computed: {
@@ -50,18 +55,28 @@ export default defineComponent({
     disabledAdd(): boolean {
       return this.disabled || this.isError || (Number(this.value) + this.step > this.max);
     },
-    valueDigitsNum(): number {
-      const tempVal = String(this.value);
+    valueDecimalPlaces(): number {
+      const tempVal = this.filterValue !== null
+        && !isNaN(Number(this.filterValue))
+        && !isNaN(parseFloat(this.filterValue))
+        ? this.filterValue
+        : String(this.value);
       const tempIndex = tempVal.indexOf('.') + 1;
       return tempIndex > 0 ? tempVal.length - tempIndex : 0;
     },
-    stepDigitsNum(): number {
+    stepDecimalPlaces(): number {
       const tempVal = String(this.step);
       const tempIndex = tempVal.indexOf('.') + 1;
       return tempIndex > 0 ? tempVal.length - tempIndex : 0;
     },
     digitsNum(): number {
-      return this.valueDigitsNum > this.stepDigitsNum ? this.valueDigitsNum : this.stepDigitsNum;
+      if (this.decimalPlaces !== undefined) {
+        if (this.decimalPlaces < this.stepDecimalPlaces) {
+          console.warn('decimal places of step should be less than decimal-places');
+        }
+        return this.decimalPlaces;
+      }
+      return this.valueDecimalPlaces > this.stepDecimalPlaces ? this.valueDecimalPlaces : this.stepDecimalPlaces;
     },
     reduceClasses() {
       return [
@@ -71,6 +86,11 @@ export default defineComponent({
         },
       ];
     },
+    reduceEvents(): InputNumberEvent {
+      return {
+        onClick: this.handleReduce,
+      };
+    },
     addClasses(): ClassName {
       return  [
         `${name}__increase`,
@@ -79,13 +99,19 @@ export default defineComponent({
         },
       ];
     },
+    addEvents(): InputNumberEvent {
+      return {
+        onClick: this.handleAdd,
+      };
+    },
     cmptWrapClasses(): ClassName {
       return  [
         't-input-number',
         CLASSNAMES.SIZE[this.size],
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
-          't-is-controls-right': this.mode === 'column',
+          't-is-controls-right': this.theme === 'column',
+          't-input-number--normal': this.theme === 'normal',
         },
       ];
     },
@@ -102,7 +128,7 @@ export default defineComponent({
         't-input__inner',
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
-          [`${name}-text-align`]: this.mode === 'row',
+          [`${name}-text-align`]: this.theme === 'row',
         },
       ];
     },
@@ -119,69 +145,96 @@ export default defineComponent({
     inputAttrs(): InputNumberAttr {
       return  {
         disabled: this.disabled,
-        readonly: this.formatter,
+        autocomplete: 'off',
+        ref: 'refInputElem',
+        placeholder: this.placeholder,
       };
     },
-    decreaseIcon(): TNodeReturnValue {
-      return this.mode === 'column' ? <chevron-down size={this.size} /> : <remove size={this.size} />;
+    decreaseIcon() {
+      return this.theme === 'column' ? <chevron-down size={this.size} /> : <remove size={this.size} />;
     },
-    increaseIcon(): TNodeReturnValue {
-      return this.mode === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
+    increaseIcon() {
+      return this.theme === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
     },
     displayValue(): number | string {
       if (this.value === undefined) return;
-      if (this.userInput !== null) {
+      // inputing
+      if (this.inputing && this.userInput !== null) {
         return this.filterValue;
       }
-      return this.formatter ? this.formatter(this.value) : this.value.toFixed(this.digitsNum);
+      // end input
+      return this.format && !this.inputing ? this.format(this.value) : this.value.toFixed(this.digitsNum);
+    },
+  },
+  watch: {
+    value: {
+      immediate: true,
+      handler(v) {
+        if (v !== undefined) {
+          this.isValidNumber(v);
+        }
+      },
     },
   },
   methods: {
     handleAdd(e: MouseEvent) {
       if (this.disabledAdd) return;
       const value = this.value || 0;
-      this.handleAction(Number((value + this.step).toFixed(this.digitsNum)), 'add', e);
+      const factor = 10 ** this.digitsNum;
+      this.handleAction(Number(this.toDecimalPlaces(((value * factor)
+        + (this.step * factor)) / factor).toFixed(this.digitsNum)), 'add', e);
     },
     handleReduce(e: MouseEvent) {
       if (this.disabledReduce) return;
       const value = this.value || 0;
-      this.handleAction(Number((value - this.step).toFixed(this.digitsNum)), 'reduce', e);
+      const factor = 10 ** this.digitsNum;
+      this.handleAction(Number(this.toDecimalPlaces(((value * factor)
+        - (this.step * factor)) / factor).toFixed(this.digitsNum)), 'reduce', e);
     },
     handleInput(e: InputEvent) {
       // get
       this.userInput = (e.target as HTMLInputElement).value;
       // filter
-      this.filterValue = this.filterInput(this.userInput);
+      this.filterValue = this.toValidStringNumber(this.userInput);
       this.userInput = '';
       // check
-      if (!this.checkInput(this.filterValue)) return;
+      if (!this.isValid(this.filterValue) || Number(this.filterValue) === this.value) return;
       // set
+      this.updateValue(Number(this.filterValue));
       this.handleAction(Number(this.filterValue), 'input', e);
     },
-    handleAction(value: number, actionType: '' | 'add' | 'reduce' | 'input', e: MouseEvent | InputEvent) {
+    handleAction(value: number, actionType: ChangeSource, e: ChangeContextEvent) {
       if (actionType !== 'input') {
         this.clearInput();
       }
       this.handleChange(value, { type: actionType, e });
     },
-    filterInput(s: string) {
+    toValidStringNumber(s: string) {
+      // only allow one [.e] and two [-]
       let filterVal = s.replace(/[^\d.eE。-]/g, '').replace('。', '.');
       if (this.multiE(filterVal) || this.multiDot(filterVal) || this.multiNegative(filterVal)) {
         filterVal = filterVal.substr(0, filterVal.length - 1);
       }
       return filterVal;
     },
-    handleChange(value: number, ctx: { type: 'add' | 'reduce' | 'input' | ''; e: InputEvent | MouseEvent }) {
-      if (this.isError) {
-        this.isError = false;
-      }
-      this.$emit('change', value, { type: ctx.type, e: ctx.e });
-      this.$emit('update:value', value);
+    toValidNumber(s: string) {
+      const val = Number(s);
+      if (isNaN(val) || isNaN(parseFloat(s))) return this.value;
+      if (val > this.max) return this.max;
+      if (val < this.min) return this.min;
+      return parseFloat(s);
     },
-    handleBlur(e: FocusEvent) {
+    handleChange(value: number, ctx: { type: ChangeSource;
+      e: ChangeContextEvent; }) {
+      this.updateValue(value);
+      this.$emit('change', value, { type: ctx.type, e: ctx.e });
+    },
+    async handleBlur(e: FocusEvent) {
+      await this.handleEndInput(e);
       this.$emit('blur', this.value, { e });
     },
     handleFocus(e: FocusEvent) {
+      this.handleStartInput();
       this.$emit('focus', this.value, { e });
     },
     handleKeydownEnter(e: KeyboardEvent) {
@@ -198,25 +251,40 @@ export default defineComponent({
     handleKeypress(e: KeyboardEvent) {
       this.$emit('keypress', this.value, { e });
     },
-    handleInputError(visible: boolean, content: string) {
+    handleStartInput() {
+      this.inputing = true;
+      this.filterValue = this.value.toFixed(this.digitsNum);
+    },
+    handleEndInput(e: FocusEvent) {
+      this.inputing = false;
+      const value = this.toValidNumber(this.filterValue);
+      if (value !== this.value) {
+        this.updateValue(value);
+        this.handleAction(value, 'input', e);
+      }
+      this.isError = false;
+    },
+    updateValue(v: number) {
+      this.$emit('update:value', v);
+    },
+    handleInputError(visible: boolean) {
       this.isError = visible;
-      this.errMsg = content;
     },
-    checkInput(s: string) {
-      return this.isLegal(s) && !s.endsWith('.');
-    },
-    isLegal(v: string) {
+    isValid(v: string) {
       const numV = Number(v);
       if (this.empty(v) || isNaN(numV)) {
-        this.handleInputError(true, '请输入数字');
+        this.handleInputError(true);
         return false;
       }
-      if (numV > this.max) {
-        this.handleInputError(true, `最大值${this.max}`);
+      return this.isValidNumber(numV);
+    },
+    isValidNumber(v: number) {
+      if (v > this.max) {
+        this.handleInputError(true);
         return false;
       }
-      if (numV < this.min) {
-        this.handleInputError(true, `最小值${this.min}`);
+      if (v < this.min) {
+        this.handleInputError(true);
         return false;
       }
       return true;
@@ -226,7 +294,6 @@ export default defineComponent({
     },
     clearInput() {
       this.userInput = null;
-      this.filterValue = null;
     },
     multiE(s: string) {
       const m = s.match(/[e]/gi);
@@ -238,30 +305,37 @@ export default defineComponent({
     },
     multiNegative(s: string) {
       const m = s.match(/[-]/g);
-      return m === null ? false : m.length > 1;
+      return m === null ? false : m.length > 2;
+    },
+    toDecimalPlaces(value: number): number {
+      const decimalPlaces = this.decimalPlaces === undefined ? this.digitsNum : this.decimalPlaces;
+      const factor = 10 ** decimalPlaces;
+      return Math.round(value * factor) / factor;
     },
   },
-  render(): VNode {
+  render() {
     return (
       <div class={this.cmptWrapClasses}>
-        <span class={this.reduceClasses} onClick={this.handleReduce}>
-          {this.decreaseIcon}
-        </span>
+        {
+          this.theme !== 'normal'
+          && <span class={this.reduceClasses} {...this.reduceEvents}>
+            {this.decreaseIcon}
+          </span>
+        }
         <div class={this.inputWrapProps}>
           <input
             value={this.displayValue}
-            disabled={this.disabled}
             class={this.inputClasses}
             {...this.inputAttrs}
             {...this.inputEvents}
-            autocomplete="off"
-            ref='refInputElem'
-            placeholder={this.placeholder}
           />
         </div>
-        <div class={this.addClasses} onClick={this.handleAdd}>
-          {this.increaseIcon}
-        </div>
+        {
+          this.theme !== 'normal'
+          && <div class={this.addClasses} {...this.addEvents}>
+            {this.increaseIcon}
+          </div>
+        }
       </div>
     );
   },
