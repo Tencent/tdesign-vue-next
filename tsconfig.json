@@ -33,7 +33,7 @@
         "common/*"
       ],
       "@TdTypes/*": [
-        "types/*"
+        "node_modules/@types/tdesign-web-vue/*"
       ],
       "@Button": [
         "src/button/index.ts"
