@@ -51,10 +51,22 @@ export const RenderTNodeTemplate = (props: { render: Function; params: Record<st
   return renderMap[renderWay] ? renderMap[renderWay](renderResult) : h(null);
 };
 
-// 通过JSX的方式渲染TNode
-export const renderTNodeJSX = (vm: ComponentPublicInstance, name: string) => {
-  const propsNode = vm[name];
+// 通过JSX的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
+export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, defaultNode?: VNode) => {
+  const propsNode = instance.$props[name];
+  if (propsNode === false) return;
+  if (propsNode === true && defaultNode) {
+    return instance.$slots[name] ? instance.$slots[name](null) : defaultNode;
+  }
   if (typeof propsNode === 'function') return propsNode(h);
-  if (!propsNode && vm.$slots[name]) return vm.$slots[name](null);
+  const isPropsEmpty = [undefined, null, ''].includes(propsNode);
+  if (isPropsEmpty && instance.$slots[name]) return instance.$slots[name](null);
   return propsNode;
+};
+
+// content 优先级控制：name1 优先级高于 name2
+export const renderContent = (instance: ComponentPublicInstance, name1: string, name2: string) => {
+  const node1 = renderTNodeJSX(instance, name1);
+  const node2 = renderTNodeJSX(instance, name2);
+  return [undefined, null, ''].includes(node1) ? node2 : node1;
 };
