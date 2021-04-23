@@ -52,7 +52,7 @@ export const RenderTNodeTemplate = (props: { render: Function; params: Record<st
 };
 
 // 通过JSX的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
-export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, defaultNode?: VNode) => {
+export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, defaultNode?: VNode | JSX.Element) => {
   const propsNode = instance.$props[name];
   if (propsNode === false) return;
   if (propsNode === true && defaultNode) {

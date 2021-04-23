@@ -1,4 +1,4 @@
-import Drawer from './drawer.vue';
+import Drawer from './drawer';
 import setInstallFn from '../utils/setInstallFn';
 
 setInstallFn('Drawer', Drawer);
