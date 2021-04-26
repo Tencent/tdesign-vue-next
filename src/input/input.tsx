@@ -25,18 +25,17 @@ export default defineComponent({
   name,
   inheritAttrs: false,
   props: { ...props },
-  emits: ['change', 'input', 'clear', 'keydown-enter', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'update:modelValue'],
+  emits: ['change', 'input', 'clear', 'keydown-enter', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'update:value'],
   setup(props, context) {
     const focused = ref<boolean>(false);
     const cacheValue = ref<string | number>('');
-    cacheValue.value = props.defaultValue ? props.defaultValue : '';
     const innerValue = computed({
       get() {
-        return props.modelValue || cacheValue.value;
+        return props.value || cacheValue.value;
       },
       set(val: string) {
         cacheValue.value = val;
-        context.emit('update:modelValue', val);
+        context.emit('update:value', val);
       },
     });
 
@@ -166,7 +165,6 @@ export default defineComponent({
         [`${name}--suffix`]: suffixIcon,
       },
     ];
-
     return (
       <div class={classes} {...wrapperAttrs}>
         {prefixIcon ? <span class={`${name}__prefix`}>{prefixIcon}</span> : null}

@@ -5,7 +5,6 @@ import setInstallFn from '../utils/setInstallFn';
 const Input = mapProps([{
   name: 'value',
   alias: ['modelValue'],
-  event: ['update:modelValue'],
 }])(_Input);
 
 setInstallFn('Input', Input);
