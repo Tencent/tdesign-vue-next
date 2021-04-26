@@ -48,7 +48,7 @@ export default defineComponent({
       innerValue.value = val;
     }
 
-    function emitEvent(name: string, e: FocusEvent | KeyboardEvent | InputEvent) {
+    function emitEvent(name: any, e: FocusEvent | KeyboardEvent | InputEvent) {
       context.emit(name, innerValue, { e });
     }
     function handleKeydown(e: KeyboardEvent) {
