@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-drawer :visible="visible" @close="handleClose" :showOverlay="false">
+    <t-drawer v-model:visible="visible" @close="handleClose" :showOverlay="false" header="标题名称">
       <p>This is a drawer</p>
     </t-drawer>
 
@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Vue from 'vue';
-export default Vue.extend({
+import { defineComponent } from 'vue';
+export default defineComponent({
   data() {
     return {
       visible: false,

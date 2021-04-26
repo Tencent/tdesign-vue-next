@@ -2,7 +2,7 @@
   <div>
     <t-input-number
       v-model="value"
-      mode="row"
+      theme="row"
       size="medium"
       :max="15"
       :min="-2"

@@ -3,9 +3,8 @@
     <t-input-number
       v-model="value"
       :max="15"
-      :min="-5"
-      :step="1.2"
-      :decimal-places="2"
+      :min="-2"
+      :format="value => `${value}%`"
       @change="onChange"
     ></t-input-number>
   </div>
@@ -15,7 +14,7 @@
 export default {
   data() {
     return {
-      value: 3.2,
+      value: 3,
     };
   },
   methods: {

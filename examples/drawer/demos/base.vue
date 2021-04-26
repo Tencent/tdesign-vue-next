@@ -1,27 +1,32 @@
 <template>
   <div>
-    <t-drawer :visible="visible" @close="handleClose"><p>This is a drawer</p></t-drawer>
-    <t-button theme="primary" @click="handleClick">Open</t-button>
+    <t-drawer v-model:visible="visible" header="Drawer" :onClickConfirm="onClickConfirm" :closeBtn="true">
+      <p>This is a controlled drawer</p>
+    </t-drawer>
+    <t-button theme="primary" @click="handleClick">Open a Drawer</t-button>
   </div>
 </template>
 
 <script>
-import Vue from 'vue';
-export default Vue.extend({
+import { defineComponent } from 'vue';
+import { MessagePlugin as Message } from '@/src/message';
+export default defineComponent({
   data() {
     return {
       visible: false,
     };
   },
   methods: {
-    setVisible(state) {
-      this.visible = state;
-    },
     handleClick() {
-      this.setVisible(true);
+      this.visible = true;
     },
-    handleClose() {
-      this.setVisible(false);
+    onClickConfirm() {
+      Message.info('数据保存中...', 1000);
+      const timer = setTimeout(() => {
+        clearTimeout(timer);
+        this.visible = false;
+        Message.info('数据保存成功!');
+      }, 1000);
     },
   },
 });

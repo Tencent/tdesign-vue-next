@@ -1,4 +1,4 @@
-import Vue, { VueConstructor } from 'vue';
+import { defineComponent, nextTick } from  'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
@@ -8,28 +8,28 @@ import props from '../../types/anchor/props';
 
 const name = `${prefix}-anchor`;
 
-interface Anchor extends Vue {
-  scrollContainer: ANCHOR_CONTAINER;
-  // 执行scrollTo设置的flag, 用来禁止执行handleScroll
-  handleScrollLock: boolean;
-}
-export default (Vue as VueConstructor<Anchor>).extend({
+export default defineComponent({
   name,
   components: {
     RenderComponent,
   },
-
-  props: { ...props },
   provide(): any {
     return {
       tAnchor: this,
     };
   },
+  props: { ...props },
+  emits: ['change', 'click'],
+  scrollContainer: undefined,
+  handleScrollLock: undefined,
   data() {
     return {
       links: [] as string[],
       active: '',
-      activeLineStyle: false as (boolean | { top: string; height: string}),
+      activeLineStyle: null as ({ top: string; height: string}),
+      scrollContainer: undefined as ANCHOR_CONTAINER,
+      // 执行scrollTo设置的flag, 用来禁止执行handleScroll
+      handleScrollLock: undefined,
     };
   },
   watch: {
@@ -40,6 +40,18 @@ export default (Vue as VueConstructor<Anchor>).extend({
       }
       this.getScrollContainer();
     },
+  },
+  async mounted() {
+    const { active } = this;
+    this.getScrollContainer();
+    if (active) {
+      await nextTick();
+      this.handleScrollTo(active);
+    }
+  },
+  unmounted() {
+    if (!this.scrollContainer) return;
+    off(this.scrollContainer, 'scroll', this.handleScroll);
   },
   methods: {
     /**
@@ -101,7 +113,7 @@ export default (Vue as VueConstructor<Anchor>).extend({
       }
       this.active = link;
       this.emitChange(link, active);
-      await Vue.nextTick();
+      await nextTick();
       this.updateActiveLine();
     },
     /**
@@ -111,7 +123,7 @@ export default (Vue as VueConstructor<Anchor>).extend({
     updateActiveLine(): void {
       const ele = this.$el.querySelector(`.${CLASSNAMES.STATUS.active}>a`) as HTMLAnchorElement;
       if (!ele) {
-        this.activeLineStyle = false;
+        this.activeLineStyle = null;
         return;
       }
       const { offsetTop: top, offsetHeight: height } = ele;
@@ -192,23 +204,8 @@ export default (Vue as VueConstructor<Anchor>).extend({
       this.setCurrentActiveLink(active);
     },
   },
-
-  async mounted() {
-    const { active } = this;
-    this.getScrollContainer();
-    if (active) {
-      await Vue.nextTick();
-      this.handleScrollTo(active);
-    }
-  },
-
-  destroyed() {
-    if (!this.scrollContainer) return;
-    off(this.scrollContainer, 'scroll', this.handleScroll);
-  },
-
   render() {
-    const { $scopedSlots: { default: children }, size, affix, activeLineStyle } = this;
+    const { $slots: { default: children }, size, affix, activeLineStyle } = this;
     const className = [name, CLASSNAMES.SIZE[size], {
       [`${prefix}--affix`]: affix,
     }];

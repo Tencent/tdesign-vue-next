@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import Add from '../icon/add';
 import Remove from '../icon/remove';
@@ -6,44 +6,46 @@ import ChevronDown from '../icon/chevron-down';
 import ChevronUp from '../icon/chevron-up';
 import CLASSNAMES from '../utils/classnames';
 import props from '@TdTypes/input-number/props';
+import { ChangeSource } from '@TdTypes/input-number/TdInputNumberProps';
 
 const name = `${prefix}-input-number`;
 
 type InputNumberEvent = {
-  on: {
-    input?: (e: InputEvent) => void;
-    click?: (e: MouseEvent) => void;
-    blur?: (e: FocusEvent) => void;
-    focus?: (e: FocusEvent) => void;
-    keydown?: (e: KeyboardEvent) => void;
-    keyup?: (e: KeyboardEvent) => void;
-    keypress?: (e: KeyboardEvent) => void;
-  };
+  onInput?: (e: InputEvent) => void;
+  onClick?: (e: MouseEvent) => void;
+  onBlur?: (e: FocusEvent) => void;
+  onFocus?: (e: FocusEvent) => void;
+  onKeydown?: (e: KeyboardEvent) => void;
+  onKeyup?: (e: KeyboardEvent) => void;
+  onKeypress?: (e: KeyboardEvent) => void;
 };
+
+type ChangeContextEvent = InputEvent | MouseEvent | FocusEvent;
 
 type InputNumberAttr = {
-  attrs: {
-    disabled?: boolean;
-    readonly?: any;
-  };
+  disabled?: boolean;
+  readonly?: any;
+    autocomplete?: string;
+    ref: string;
+    placeholder: string;
 };
 
-export default Vue.extend({
+export default defineComponent({
   name,
-  props: { ...props },
   components: {
     Add,
     Remove,
     ChevronDown,
     ChevronUp,
   },
+  props: { ...props },
+  emits: ['update:value', 'change', 'blur', 'focus', 'keydown-enter', 'keydown', 'keyup', 'keypress'],
   data() {
     return {
       userInput: null,
       filterValue: null,
-      type: typeof this.value || 'string',
       isError: false,
-      errMsg: '',
+      inputing: false,
     };
   },
   computed: {
@@ -53,221 +55,236 @@ export default Vue.extend({
     disabledAdd(): boolean {
       return this.disabled || this.isError || (Number(this.value) + this.step > this.max);
     },
-    valueDigitsNum(): number {
-      const tempVal = String(this.value);
+    valueDecimalPlaces(): number {
+      const tempVal = this.filterValue !== null
+        && !isNaN(Number(this.filterValue))
+        && !isNaN(parseFloat(this.filterValue))
+        ? this.filterValue
+        : String(this.value);
       const tempIndex = tempVal.indexOf('.') + 1;
       return tempIndex > 0 ? tempVal.length - tempIndex : 0;
     },
-    stepDigitsNum(): number {
+    stepDecimalPlaces(): number {
       const tempVal = String(this.step);
       const tempIndex = tempVal.indexOf('.') + 1;
       return tempIndex > 0 ? tempVal.length - tempIndex : 0;
     },
     digitsNum(): number {
-      return this.valueDigitsNum > this.stepDigitsNum ? this.valueDigitsNum : this.stepDigitsNum;
+      if (this.decimalPlaces !== undefined) {
+        if (this.decimalPlaces < this.stepDecimalPlaces) {
+          console.warn('decimal places of step should be less than decimal-places');
+        }
+        return this.decimalPlaces;
+      }
+      return this.valueDecimalPlaces > this.stepDecimalPlaces ? this.valueDecimalPlaces : this.stepDecimalPlaces;
     },
-    reduceClasses(): ClassName {
-      return {
-        class: [
-          `${name}__decrease`,
-          {
-            [CLASSNAMES.STATUS.disabled]: this.disabledReduce,
-          },
-        ],
-      };
+    reduceClasses() {
+      return [
+        `${name}__decrease`,
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabledReduce,
+        },
+      ];
     },
     reduceEvents(): InputNumberEvent {
       return {
-        on: {
-          click: this.handleReduce,
-        },
+        onClick: this.handleReduce,
       };
     },
     addClasses(): ClassName {
-      return {
-        class: [
-          `${name}__increase`,
-          {
-            [CLASSNAMES.STATUS.disabled]: this.disabledAdd,
-          },
-        ],
-      };
+      return  [
+        `${name}__increase`,
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabledAdd,
+        },
+      ];
     },
     addEvents(): InputNumberEvent {
       return {
-        on: {
-          click: this.handleAdd,
-        },
+        onClick: this.handleAdd,
       };
     },
     cmptWrapClasses(): ClassName {
-      return {
-        class: [
-          't-input-number',
-          CLASSNAMES.SIZE[this.size],
-          {
-            [CLASSNAMES.STATUS.disabled]: this.disabled,
-            't-is-controls-right': this.mode === 'column',
-          },
-        ],
-      };
+      return  [
+        't-input-number',
+        CLASSNAMES.SIZE[this.size],
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          't-is-controls-right': this.theme === 'column',
+          't-input-number--normal': this.theme === 'normal',
+        },
+      ];
     },
     inputWrapProps(): ClassName {
-      return {
-        class: [
-          't-input',
-          {
-            't-is-error': this.isError,
-          },
-        ],
-      };
+      return [
+        't-input',
+        {
+          't-is-error': this.isError,
+        },
+      ];
     },
     inputClasses(): ClassName {
-      return {
-        class: [
-          't-input__inner',
-          {
-            [CLASSNAMES.STATUS.disabled]: this.disabled,
-            [`${name}-text-align`]: this.mode === 'row',
-          },
-        ],
-      };
+      return [
+        't-input__inner',
+        {
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [`${name}-text-align`]: this.theme === 'row',
+        },
+      ];
     },
     inputEvents(): InputNumberEvent {
       return {
-        on: {
-          input: this.handleInput,
-          blur: this.handleBlur,
-          focus: this.handleFocus,
-          keydown: this.handleKeydown,
-          keyup: this.handleKeyup,
-          keypress: this.handleKeypress,
-        },
+        onInput: this.handleInput,
+        onBlur: this.handleBlur,
+        onFocus: this.handleFocus,
+        onKeydown: this.handleKeydown,
+        onKeyup: this.handleKeyup,
+        onKeypress: this.handleKeypress,
       };
     },
     inputAttrs(): InputNumberAttr {
-      return {
-        attrs: {
-          disabled: this.disabled,
-          readonly: this.formatter,
-        },
+      return  {
+        disabled: this.disabled,
+        autocomplete: 'off',
+        ref: 'refInputElem',
+        placeholder: this.placeholder,
       };
     },
-    decreaseIcon(): TNodeReturnValue {
-      return this.mode === 'column' ? <chevron-down size={this.size} /> : <remove size={this.size} />;
+    decreaseIcon() {
+      return this.theme === 'column' ? <chevron-down size={this.size} /> : <remove size={this.size} />;
     },
-    increaseIcon(): TNodeReturnValue {
-      return this.mode === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
+    increaseIcon() {
+      return this.theme === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
     },
-    displayValue(): string {
+    displayValue(): number | string {
       if (this.value === undefined) return;
-      if (this.userInput !== null) {
+      // inputing
+      if (this.inputing && this.userInput !== null) {
         return this.filterValue;
       }
-      return this.formatter ? this.formatter(this.value) : this.value.toFixed(this.digitsNum);
+      // end input
+      return this.format && !this.inputing ? this.format(this.value) : this.value.toFixed(this.digitsNum);
+    },
+  },
+  watch: {
+    value: {
+      immediate: true,
+      handler(v) {
+        if (v !== undefined) {
+          this.isValidNumber(v);
+        }
+      },
     },
   },
   methods: {
     handleAdd(e: MouseEvent) {
       if (this.disabledAdd) return;
       const value = this.value || 0;
-      this.handleAction(Number((value + this.step).toFixed(this.digitsNum)), 'add', e);
+      const factor = 10 ** this.digitsNum;
+      this.handleAction(Number(this.toDecimalPlaces(((value * factor)
+        + (this.step * factor)) / factor).toFixed(this.digitsNum)), 'add', e);
     },
     handleReduce(e: MouseEvent) {
       if (this.disabledReduce) return;
       const value = this.value || 0;
-      this.handleAction(Number((value - this.step).toFixed(this.digitsNum)), 'reduce', e);
+      const factor = 10 ** this.digitsNum;
+      this.handleAction(Number(this.toDecimalPlaces(((value * factor)
+        - (this.step * factor)) / factor).toFixed(this.digitsNum)), 'reduce', e);
     },
     handleInput(e: InputEvent) {
       // get
       this.userInput = (e.target as HTMLInputElement).value;
       // filter
-      this.filterValue = this.filterInput(this.userInput);
+      this.filterValue = this.toValidStringNumber(this.userInput);
       this.userInput = '';
       // check
-      if (!this.checkInput(this.filterValue)) return;
+      if (!this.isValid(this.filterValue) || Number(this.filterValue) === this.value) return;
       // set
+      this.updateValue(Number(this.filterValue));
       this.handleAction(Number(this.filterValue), 'input', e);
     },
-    handleAction(value: number, actionType: '' | 'add' | 'reduce' | 'input', e: MouseEvent | InputEvent) {
+    handleAction(value: number, actionType: ChangeSource, e: ChangeContextEvent) {
       if (actionType !== 'input') {
         this.clearInput();
       }
       this.handleChange(value, { type: actionType, e });
     },
-    filterInput(s: string) {
+    toValidStringNumber(s: string) {
+      // only allow one [.e] and two [-]
       let filterVal = s.replace(/[^\d.eE。-]/g, '').replace('。', '.');
       if (this.multiE(filterVal) || this.multiDot(filterVal) || this.multiNegative(filterVal)) {
         filterVal = filterVal.substr(0, filterVal.length - 1);
       }
       return filterVal;
     },
-    handleChange(value: number, ctx: { type: 'add' | 'reduce' | 'input' | ''; e: InputEvent | MouseEvent }) {
-      if (this.isError) {
-        this.isError = false;
-      }
-      if (this.onChange) {
-        this.onChange(value, ctx);
-      }
+    toValidNumber(s: string) {
+      const val = Number(s);
+      if (isNaN(val) || isNaN(parseFloat(s))) return this.value;
+      if (val > this.max) return this.max;
+      if (val < this.min) return this.min;
+      return parseFloat(s);
+    },
+    handleChange(value: number, ctx: { type: ChangeSource;
+      e: ChangeContextEvent; }) {
+      this.updateValue(value);
       this.$emit('change', value, { type: ctx.type, e: ctx.e });
     },
-    handleBlur(e: FocusEvent) {
-      if (this.onBlur) {
-        this.onBlur(this.value, { e });
-      }
+    async handleBlur(e: FocusEvent) {
+      await this.handleEndInput(e);
       this.$emit('blur', this.value, { e });
     },
     handleFocus(e: FocusEvent) {
-      if (this.onFocus) {
-        this.onFocus(this.value, { e });
-      }
+      this.handleStartInput();
       this.$emit('focus', this.value, { e });
     },
     handleKeydownEnter(e: KeyboardEvent) {
       if (e.key !== 'Enter') return;
-      if (this.onKeydownEnter) {
-        this.onKeydownEnter(this.value, { e });
-      }
       this.$emit('keydown-enter', this.value, { e });
     },
     handleKeydown(e: KeyboardEvent) {
-      if (this.onKeydown) {
-        this.onKeydown(this.value, { e });
-      }
       this.$emit('keydown', this.value, { e });
       this.handleKeydownEnter(e);
     },
     handleKeyup(e: KeyboardEvent) {
-      if (this.onKeyup) {
-        this.onKeyup(this.value, { e });
-      }
       this.$emit('keyup', this.value, { e });
     },
     handleKeypress(e: KeyboardEvent) {
-      if (this.onKeypress) {
-        this.onKeypress(this.value, { e });
-      }
       this.$emit('keypress', this.value, { e });
     },
-    handleInputError(visible: boolean, content: string) {
+    handleStartInput() {
+      this.inputing = true;
+      this.filterValue = this.value.toFixed(this.digitsNum);
+    },
+    handleEndInput(e: FocusEvent) {
+      this.inputing = false;
+      const value = this.toValidNumber(this.filterValue);
+      if (value !== this.value) {
+        this.updateValue(value);
+        this.handleAction(value, 'input', e);
+      }
+      this.isError = false;
+    },
+    updateValue(v: number) {
+      this.$emit('update:value', v);
+    },
+    handleInputError(visible: boolean) {
       this.isError = visible;
-      this.errMsg = content;
     },
-    checkInput(s: string) {
-      return this.isLegal(s) && !s.endsWith('.');
-    },
-    isLegal(v: string) {
+    isValid(v: string) {
       const numV = Number(v);
       if (this.empty(v) || isNaN(numV)) {
-        this.handleInputError(true, '请输入数字');
+        this.handleInputError(true);
         return false;
       }
-      if (numV > this.max) {
-        this.handleInputError(true, `最大值${this.max}`);
+      return this.isValidNumber(numV);
+    },
+    isValidNumber(v: number) {
+      if (v > this.max) {
+        this.handleInputError(true);
         return false;
       }
-      if (numV < this.min) {
-        this.handleInputError(true, `最小值${this.min}`);
+      if (v < this.min) {
+        this.handleInputError(true);
         return false;
       }
       return true;
@@ -277,7 +294,6 @@ export default Vue.extend({
     },
     clearInput() {
       this.userInput = null;
-      this.filterValue = null;
     },
     multiE(s: string) {
       const m = s.match(/[e]/gi);
@@ -289,30 +305,37 @@ export default Vue.extend({
     },
     multiNegative(s: string) {
       const m = s.match(/[-]/g);
-      return m === null ? false : m.length > 1;
+      return m === null ? false : m.length > 2;
+    },
+    toDecimalPlaces(value: number): number {
+      const decimalPlaces = this.decimalPlaces === undefined ? this.digitsNum : this.decimalPlaces;
+      const factor = 10 ** decimalPlaces;
+      return Math.round(value * factor) / factor;
     },
   },
-  render(): VNode {
+  render() {
     return (
-      <div {...this.cmptWrapClasses}>
-        <span {...this.reduceClasses} {...this.reduceEvents}>
-          {this.decreaseIcon}
-        </span>
-        <div {...this.inputWrapProps}>
+      <div class={this.cmptWrapClasses}>
+        {
+          this.theme !== 'normal'
+          && <span class={this.reduceClasses} {...this.reduceEvents}>
+            {this.decreaseIcon}
+          </span>
+        }
+        <div class={this.inputWrapProps}>
           <input
             value={this.displayValue}
-            disabled={this.disabled}
-            {...this.inputClasses}
+            class={this.inputClasses}
             {...this.inputAttrs}
             {...this.inputEvents}
-            autocomplete="off"
-            ref='refInputElem'
-            placeholder={this.placeholder}
           />
         </div>
-        <div {...this.addClasses} {...this.addEvents}>
-          {this.increaseIcon}
-        </div>
+        {
+          this.theme !== 'normal'
+          && <div class={this.addClasses} {...this.addEvents}>
+            {this.increaseIcon}
+          </div>
+        }
       </div>
     );
   },

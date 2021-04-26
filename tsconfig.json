@@ -33,7 +33,7 @@
         "common/*"
       ],
       "@TdTypes/*": [
-        "types/*"
+        "node_modules/@tencent/tdesign-types/*"
       ],
       "@Button": [
         "src/button/index.ts"
@@ -65,7 +65,8 @@
   "exclude": [
     "node_modules",
     "tools",
-    "common"
+    "common",
+    "types"
   ],
   "compileOnSave": false
 }

@@ -7,6 +7,7 @@ import TIconHelpFill from '../icon/help-circle-filled';
 import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
 import { THEME_LIST } from './const';
+import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from '@TdTypes/message/props';
 
 const name = `${prefix}-message`;
@@ -69,23 +70,13 @@ export default defineComponent({
     close(e?: MouseEvent) {
       this.$emit('click-close-btn', e);
     },
-    // this.closeBtn 优先级大于 this.$scopedSlots.closeBtn
     renderClose() {
-      const { closeBtn } = this;
-      if (typeof closeBtn === 'boolean') {
-        return closeBtn && <t-icon-close onClick={this.close} class='t-message-close' />;
-      }
-      let close: TNodeReturnValue = null;
-      if (typeof closeBtn === 'function') {
-        close = closeBtn(h);
-      } else if (typeof closeBtn === 'string') {
-        close = closeBtn;
-      } else if (typeof this.$slots.closeBtn === 'function') {
-        close = this.$slots.closeBtn(null);
-      }
-      if (close) {
-        return (<span class='t-message-close' onClick={this.close}> { close } </span>);
-      }
+      const defaultClose = <t-icon-close />;
+      return (
+        <span class='t-message-close' onClick={this.close}>
+          {renderTNodeJSX(this, 'closeBtn', defaultClose)}
+        </span>
+      );
     },
     renderIcon() {
       if (this.icon === false) return;
@@ -103,20 +94,13 @@ export default defineComponent({
       }[this.theme];
       return <component></component>;
     },
-    renderContent() {
-      if (typeof this.content === 'string') return this.content;
-      if (typeof this.content === 'function') return this.content(h);
-      if (this.$slots.default) return this.$slots.default(null);
-      if (this.$slots.content) return this.$slots.content(null);
-      return this.content;
-    },
   },
 
   render() {
     return (
       <div class={ this.classes } onMouseenter={ this.clearTimer } onMouseleave={ this.setTimer }>
         { this.renderIcon() }
-        { this.renderContent() }
+        { renderContent(this, 'default', 'content') }
         { this.renderClose() }
       </div>
     );

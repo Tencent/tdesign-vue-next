@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-drawer :visible="visible" @close="handleClose">
+    <t-drawer v-model:visible="visible" @close="handleClose" header='标题名称'>
       <div>
         <span>Label A</span>
         <t-input />
@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import Vue from 'vue';
-export default Vue.extend({
+import { defineComponent } from 'vue';
+export default defineComponent({
   data() {
     return {
       visible: false,

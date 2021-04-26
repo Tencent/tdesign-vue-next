@@ -29,12 +29,10 @@ export const MessageList = defineComponent({
   },
   computed: {
     styles(): Styles {
-      return Object.assign(
-        {
-          zIndex: this.zIndex !== DEFAULT_Z_INDEX,
-        },
-        PLACEMENT_OFFSET[this.placement]
-      );
+      return {
+        ...PLACEMENT_OFFSET[this.placement],
+        zIndex: this.zIndex !== DEFAULT_Z_INDEX ? this.zIndex : DEFAULT_Z_INDEX,
+      };
     },
   },
   methods: {
@@ -52,13 +50,16 @@ export const MessageList = defineComponent({
     removeAll() {
       this.list = [];
     },
+    getOffset(val: string | number) {
+      if (!val) return;
+      return isNaN(Number(val)) ? val : `${val}px`;
+    },
     msgStyles(item: { offset: object }) {
-      const styles = {};
-      item.offset && Object.assign(styles, item.offset, {
-        position: 'absolute',
-        width: 'auto',
-      });
-      return styles;
+      return item.offset && {
+        position: 'relative',
+        left: this.getOffset(item.offset[0]),
+        top: this.getOffset(item.offset[1]),
+      };
     },
     getListeners(index: number) {
       return {
