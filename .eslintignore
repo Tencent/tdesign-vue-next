@@ -26,6 +26,8 @@ site/*
 !src/switch
 !src/utils
 !src/badge
+!src/input
+!src/input-group
 !src/checkbox
 !src/drawer
 !src/input-number
