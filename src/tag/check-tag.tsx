@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import RenderComponent from '../utils/render-component';
 import config from '../config';
 import props from '../../types/check-tag/props';
@@ -7,12 +7,13 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 const { prefix } = config;
 const name = `${prefix}-tag`;
 
-export default Vue.extend({
+export default defineComponent({
   name: `${prefix}-check-tag`,
   components: {
     RenderComponent,
   },
   props: { ...props },
+  emits: ['click', 'change'],
   computed: {
     tagClass(): Array<any> {
       return [
@@ -31,8 +32,6 @@ export default Vue.extend({
       if (!this.disabled) {
         this.$emit('click', event);
         this.$emit('change', !this.checked);
-        if (typeof this.onClick === 'function') this.onClick(event);
-        if (typeof this.onChange === 'function') this.onChange(!this.checked);
       }
     },
   },

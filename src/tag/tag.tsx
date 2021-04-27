@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent, h, VNode } from 'vue';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import TIconClose from '../icon/close';
@@ -20,9 +20,10 @@ const initShapeList = {
 };
 const defaultShape = 'square';
 
-export default Vue.extend({
+export default defineComponent({
   name,
   props: { ...props },
+  emits: ['close', 'click'],
   computed: {
     tagClass(): ClassName {
       return [
@@ -45,22 +46,20 @@ export default Vue.extend({
   methods: {
     handleClose(event: MouseEvent): void {
       this.$emit('close', event);
-      (typeof this.onClose === 'function') && this.onClose(event);
     },
     handleClick(event: MouseEvent): void {
       this.$emit('click', event);
-      (typeof this.onClick === 'function') && this.onClick(event);
     },
   },
   render() {
-    // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
-    const closeIcon: VNode | string = this.closable ? <TIconClose nativeOnClick={this.handleClose} /> : '';
+    // 关闭按钮
+    const closeIcon = this.closable ? <TIconClose onClick={this.handleClose} /> : '';
     // 标签内容
     const tagContent: TNodeReturnValue = renderTNodeJSX(this, 'default') || renderTNodeJSX(this, 'content');;
     // 图标
     let icon: VNode;
     if (typeof this.icon === 'function') {
-      icon = this.icon(this.$createElement);
+      icon = this.icon(h);
     }
 
     return (
