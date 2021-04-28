@@ -34,3 +34,4 @@ site/*
 !src/anchor
 !src/tag
 !src/menu
+!src/radio

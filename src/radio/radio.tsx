@@ -1,4 +1,4 @@
-import Vue, { defineComponent, Component, VNode } from 'vue';
+import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
@@ -17,25 +17,35 @@ function getValidAttrs(obj: object): object {
   });
   return newObj;
 }
-
-interface RadioInstance extends Component {
-  radioGroup: RadioGroupInstance;
-  radioButton: RadioButtonInstance;
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    radioGroup: RadioGroupInstance;
+    radioButton: RadioButtonInstance;
+  }
 }
 
 export default defineComponent({
   name,
-  inheritAttrs: false,
-  props: { ...props },
-
   inject: {
     radioGroup: { default: undefined },
     radioButton: { default: undefined },
   },
-
+  inheritAttrs: false,
+  props: { ...props },
+  emits: ['change'],
+  methods: {
+    handleChange(e: Event) {
+      if (this.radioGroup && this.radioGroup.handleRadioChange) {
+        this.radioGroup.handleRadioChange(this.value, { e });
+      } else {
+        const target = e.target as HTMLInputElement;
+        this.$emit('change', target.checked, { e });
+      }
+    },
+  },
   render(): VNode {
-    const { $attrs, $listeners, $scopedSlots, radioGroup, radioButton } = this;
-    const children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
+    const { $attrs, $slots, radioGroup, radioButton } = this;
+    const children: VNode[] | VNode | string = $slots.default && $slots.default(null);
 
     const inputProps = {
       checked: this.checked,
@@ -45,14 +55,15 @@ export default defineComponent({
     };
 
     const inputEvents = getValidAttrs({
-      focus: $listeners.focus,
-      blur: $listeners.blur,
-      keydown: $listeners.keydown,
-      keyup: $listeners.keyup,
-      keypresss: $listeners.keypresss,
+      focus: $attrs.onFocus,
+      blur: $attrs.onBlur,
+      keydown: $attrs.onKeydown,
+      keyup: $attrs.onKeyup,
+      keypresss: $attrs.onKeypresss,
     });
 
-    const wrapperEvents = omit($listeners, [...Object.keys(inputEvents), 'input', 'change']);
+    const events = [...Object.keys(inputEvents), 'input', 'change'].map(str => `on${str[0].toUpperCase()}${str.slice(1)}`);
+    const wrapperAttrs = omit($attrs, events);
 
     if (radioGroup) {
       inputProps.checked = this.value === radioGroup.value;
@@ -70,35 +81,18 @@ export default defineComponent({
       },
     ];
 
-    const wrapperProps = {
-      class: inputClass,
-      attrs: $attrs,
-      on: wrapperEvents,
-    };
-
     return (
-      <label { ...wrapperProps }>
+      <label class={inputClass} { ...wrapperAttrs }>
         <input
           type="radio"
           class={`${prefixCls}__former`}
-          { ...{ domProps: inputProps, on: inputEvents } }
+          { ...inputEvents }
+          { ...inputProps }
           onChange={this.handleChange}
         />
         <span class={`${prefixCls}__input`}></span>
         <span class={`${prefixCls}__label`}>{children}</span>
       </label>
     );
-  },
-
-  methods: {
-    handleChange(e: Event) {
-      if (this.radioGroup && this.radioGroup.handleRadioChange) {
-        this.radioGroup.handleRadioChange(this.value, { e });
-      } else {
-        const target = e.target as HTMLInputElement;
-        this.$emit('change', target.checked, { e });
-        typeof this.onChange === 'function' && (this.onChange(target.checked, { e }));
-      }
-    },
   },
 });

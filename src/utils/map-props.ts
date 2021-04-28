@@ -1,4 +1,5 @@
 import { ComponentOptions, defineComponent, ComponentPublicInstance, h } from 'vue';
+import kebabCase from 'lodash/kebabCase';
 
 function toCamel(str: string): string {
   return str.replace(/-([a-z])/ig, (m, letter) => letter.toUpperCase());
@@ -91,8 +92,9 @@ export default function (props: (string | PropOption)[]): any {
       defineWatches[defaultName] = {
         handler(v: any): void {
           const { props } = this.$.vnode;
+          const hasDefault = props && (defaultName in props || kebabCase(defaultName) in props);
           if (
-            props && defaultName in props
+            hasDefault
             && !(propName in props)
           ) {
             this.$data[dataName] = v;
@@ -157,8 +159,8 @@ export default function (props: (string | PropOption)[]): any {
         _listeners(): Record<string, any> {
           const others = {};
           Object.keys(this.$attrs).forEach((attr: string): void => {
-            const event = /^on[A-Z][A-Z]*/.test(attr)
-              ? attr[3].toLowerCase() + attr.substr(3)
+            const event = attr.startsWith('on')
+              ? attr[2].toLowerCase() + attr.substr(2)
               : null;
             if (event && defineEvents.indexOf(event) === -1) {
               others[attr] = (...args: any[]): void => {
