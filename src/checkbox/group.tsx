@@ -143,7 +143,7 @@ export default defineComponent({
             >{this.renderLabel(option)}</Checkbox>
           );
         })}
-        {this.$slots.default() && this.$slots.default(null)}
+        {this.$slots.default && this.$slots.default(null)}
       </div>
     );
   },

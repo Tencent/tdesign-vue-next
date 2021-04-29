@@ -12,26 +12,5 @@ temp*
 static/
 
 examples
-src/*
 site/*
 !site/v3.js
-!src/button
-!src/icon
-!src/popup
-!src/grid
-!src/progress
-!src/list
-!src/dialog
-!src/notification
-!src/switch
-!src/utils
-!src/badge
-!src/input
-!src/input-group
-!src/checkbox
-!src/drawer
-!src/input-number
-!src/anchor
-!src/tag
-!src/menu
-!src/radio

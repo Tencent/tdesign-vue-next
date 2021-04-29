@@ -28,6 +28,7 @@ function getPropOptionMap(props: (string | PropOption)[]):
   function parseProp(propOption: PropOption): ParsedPropOption {
     const {
       name: propName,
+      alias,
       ...others } = propOption;
     const camelName = propName.replace(/^[a-z]/, (letter: string) => letter.toUpperCase());
     const defaultName = `default${camelName}`;
@@ -38,11 +39,15 @@ function getPropOptionMap(props: (string | PropOption)[]):
       events = events.concat(propOption.event);
     }
     events.push(`update:${propName}`);
+    if (alias) {
+      events = events.concat(alias.map(item => `update:${item}`));
+    }
 
     return {
       events,
       defaultName,
       dataName,
+      alias,
       ...others,
     };
   }

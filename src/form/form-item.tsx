@@ -1,11 +1,10 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent, VNode, nextTick, h } from 'vue';
 import { prefix } from '../config';
 import { validate } from './form-model';
 import { ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType } from '@TdTypes/form/TdFormProps';
 import props from '@TdTypes/form-item/props';
 import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
 import Form from './form';
-import { NormalizedScopedSlot } from 'vue/types/vnode';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
@@ -22,8 +21,14 @@ const enum VALIDATE_STATUS {
 
 const name = `${prefix}-form-item`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
+
+  inject: {
+    tdForm: {
+      from: 'td-form',
+    },
+  },
 
   props: { ...props },
 
@@ -42,7 +47,7 @@ export default Vue.extend({
     classes(): ClassName {
       return [CLASS_NAMES.formItem, CLASS_NAMES.row, FORM_ITEM_CLASS_PREFIX + this.name];
     },
-    labelClasses(): ClassName {
+    labelClasses() {
       const parent = this.$parent as FormInstance;
       const labelAlign = parent && parent.labelAlign;
       const layout = parent && parent.layout;
@@ -70,7 +75,7 @@ export default Vue.extend({
       const type = this.errorList[0].type || 'error';
       return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
     },
-    contentClasses(): ClassName {
+    contentClasses() {
       const getErrorClass: string = this.errorClasses;
       return [CLASS_NAMES.controls, CLASS_NAMES.col, getErrorClass];
     },
@@ -99,7 +104,7 @@ export default Vue.extend({
     },
     innerRules(): ErrorList {
       const parent = this.$parent as FormInstance;
-      const rules: ErrorList = parent && parent.rules;
+      const rules = parent && parent.rules;
       return (rules && rules[this.name]) || (this.rules || []);
     },
   },
@@ -112,6 +117,13 @@ export default Vue.extend({
 
   mounted() {
     this.initialValue = cloneDeep(this.value);
+    if (this.tdForm) {
+      const { validate, resetField } = this;
+      this.tdForm.addField({
+        validate,
+        resetField,
+      });
+    }
   },
 
   methods: {
@@ -134,23 +146,29 @@ export default Vue.extend({
     },
     getLabel(): TNodeReturnValue {
       if (typeof this.label === 'function') {
-        return this.label(this.$createElement);
+        return this.label(h);
       }
-      if (typeof this.$scopedSlots.label === 'function') {
-        return this.$scopedSlots.label(null);
+      if (typeof this.$slots.label === 'function') {
+        return this.$slots.label(null);
       }
       return this.label;
     },
     renderTipsInfo(): VNode {
       const parent = this.$parent as FormInstance;
+      let helpVNode: VNode;
       if (this.help) {
-        return <span class={CLASS_NAMES.extra}>{this.help}</span>;
+        helpVNode = <div class={CLASS_NAMES.help}>{this.help}</div>;
       }
-      if (!parent.showErrorMessage) return;
       const list = this.errorList;
-      if (list && list[0] && list[0].message) {
-        return <span class={CLASS_NAMES.extra}>{list[0].message}</span>;
+      if (parent.showErrorMessage && list && list[0] && list[0].message) {
+        return (
+          <div>
+            <span class={CLASS_NAMES.extra}>{list[0].message}</span>
+            {helpVNode}
+          </div>
+        );
       }
+      return helpVNode;
     },
     getDefaultIcon(): TNodeReturnValue {
       const resultIcon = (iconName: string) => (
@@ -177,8 +195,8 @@ export default Vue.extend({
     },
     getIcon(
       statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'],
-      slotStatusIcon: NormalizedScopedSlot,
-      props?: TdFormItemProps
+      slotStatusIcon: ScopedSlot,
+      props?: TdFormItemProps,
     ): TNodeReturnValue {
       const resultIcon = (otherContent?: TNodeReturnValue) => (
         <span class={CLASS_NAMES.status}>{otherContent}</span>
@@ -190,7 +208,7 @@ export default Vue.extend({
         return false;
       }
       if (typeof statusIcon === 'function') {
-        return resultIcon(statusIcon(this.$createElement, props));
+        return resultIcon(statusIcon(h, props));
       }
       if (typeof slotStatusIcon === 'function') {
         return resultIcon(slotStatusIcon(null));
@@ -200,9 +218,9 @@ export default Vue.extend({
     getSuffixIcon(): TNodeReturnValue {
       const parent = this.$parent as FormInstance;
       const { statusIcon } = this;
-      const slotStatusIcon = this.$scopedSlots.statusIcon;
+      const slotStatusIcon = this.$slots.statusIcon;
       const parentStatusIcon = parent.statusIcon;
-      const parentSlotStatusIcon = parent.$scopedSlots.statusIcon;
+      const parentSlotStatusIcon = parent.$slots.statusIcon;
       let resultIcon: TNodeReturnValue = this.getIcon(statusIcon, slotStatusIcon);
       if (resultIcon) return resultIcon;
       if (resultIcon === false) return;
@@ -232,7 +250,7 @@ export default Vue.extend({
       if (parent.resetType === 'initial') {
         lodashSet(parent.data, this.name, this.initialValue);
       }
-      Vue.nextTick(() => {
+      nextTick(() => {
         if (this.resetValidating) {
           this.needResetField = true;
         } else {
@@ -257,7 +275,7 @@ export default Vue.extend({
         </div>
         <div class={this.contentClasses}>
           <div class={CLASS_NAMES.controlsContent}>
-            {this.$slots.default}
+            {this.$slots.default ? this.$slots.default() : null}
             {this.getSuffixIcon()}
           </div>
           {this.renderTipsInfo()}

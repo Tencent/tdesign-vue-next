@@ -8,6 +8,13 @@ import { ValueType, FormRule, CustomValidator, ErrorList } from '../../types/for
 
 // `{} / [] / '' / undefined / null` 等内容被认为是空； 0 和 false 被认为是正常数据，部分数据的值就是 0 或者 false
 export function isValueEmpty(val: ValueType): boolean {
+  const type: string = Object.prototype.toString.call(val);
+  const typeMap: Record<string, any> = {
+    Date: '[object Date]',
+  };
+  if (type === typeMap.Date) {
+    return false;
+  }
   return typeof val === 'object'
     ? isEmpty(val)
     : ['', undefined, null].includes(val);
