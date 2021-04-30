@@ -85,7 +85,7 @@ export default defineComponent({
           onChange={this.handleChange}
         ></input>
         <span class={`${name}__input`}></span><span class={`${name}__label`}>
-          {this.$slots.default() && this.$slots.default(null)}
+          {this.$slots.default ? this.$slots.default(null) : null}
         </span>
       </label>
     );
