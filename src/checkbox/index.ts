@@ -9,7 +9,7 @@ const Checkbox = mapProps([{
 }])(_Checkbox);
 
 const CheckboxGroup = mapProps([{
-  name: 'checked', event: 'change',
+  name: 'value', event: 'change',
 }])(_Group);
 
 setInstallFn('Checkbox', Checkbox);
