@@ -5,11 +5,11 @@ import setInstallFn from '../utils/setInstallFn';
 import { TdCheckboxProps } from '@TdTypes/checkbox/TdCheckboxProps';
 
 const Checkbox = mapProps([{
-  name: 'checked', event: 'change',
+  name: 'checked', event: 'change', alias: ['modelValue'],
 }])(_Checkbox);
 
 const CheckboxGroup = mapProps([{
-  name: 'value', event: 'change',
+  name: 'value', event: 'change', alias: ['modelValue'],
 }])(_Group);
 
 setInstallFn('Checkbox', Checkbox);
