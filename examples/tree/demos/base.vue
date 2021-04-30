@@ -1,6 +1,6 @@
 <template>
   <div class="tdesign-tree-base">
-    <t-tree :data="items"/>
+    <t-tree :data="items" transition/>
   </div>
 </template>
 

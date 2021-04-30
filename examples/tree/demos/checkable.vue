@@ -109,11 +109,14 @@ export default {
     };
   },
   methods: {
-    onClick(state) {
-      console.log('on click:', state);
+    onClick(context) {
+      console.info('onClick:', context);
     },
-    onChange(state) {
-      console.log('on change:', state);
+    onChange(checked, context) {
+      console.info('onChange:', checked, context);
+    },
+    propOnChange(checked, context) {
+      console.info('propOnChange:', checked, context);
     },
     toggleCheckAble() {
       this.checkable = !this.checkable;

@@ -1,16 +1,25 @@
-import Vue, { VNode, CreateElement } from 'vue';
+import { VNode, defineComponent } from 'vue';
 import TIconChevronRight from '../icon/chevron-right';
 import TIconLoading from '../icon/loading';
 import TCheckBox from '../checkbox';
-import TreeNode from '../../common/js/tree/TreeNode';
-
+import TreeNode from '../../common/js/tree/tree-node';
 import { getTNode } from './util';
-import { TreeItemProps, EventState } from './interface';
+import { TypeEventState } from './types';
 import { TREE_NODE_NAME, CLASS_NAMES } from './constants';
 
-export default Vue.extend({
+export const TreeItemProps = {
+  node: {
+    type: TreeNode,
+  },
+  treeScope: {
+    type: Object,
+  },
+};
+
+export default defineComponent({
   name: TREE_NODE_NAME,
   props: TreeItemProps,
+  emits: ['click', 'change'],
   methods: {
     getStyles(): string {
       const { level } = this.node;
@@ -30,16 +39,16 @@ export default Vue.extend({
       });
       return list;
     },
-    renderLine(createElement: CreateElement): VNode {
+    renderLine(): VNode {
       const { node, treeScope } = this;
-      const { line, scopedSlots } = treeScope;
+      const { line, slots } = treeScope;
       const iconVisible = !!treeScope.icon;
 
       let lineNode = null;
       if (line === true) {
-        if (scopedSlots?.line) {
-          lineNode = scopedSlots.line({
-            node,
+        if (slots?.line) {
+          lineNode = slots.line({
+            node: node?.getModel(),
           });
         } else if (node.parent && node.tree) {
           const {
@@ -47,15 +56,26 @@ export default Vue.extend({
             vmIsFirst,
             level,
           } = node;
+
           const lineClasses = [];
+
+          // 每个节点绘制抵达上一层级的折线
           lineClasses.push(CLASS_NAMES.line);
+
+          // 叶子节点，折线宽度延长，因为没有 icon 呈现
+          // 任意节点，icon 不呈现时也是要延长折线宽度
           if (vmIsLeaf || !iconVisible) {
             lineClasses.push(CLASS_NAMES.lineIsLeaf);
           }
+
+          // 分支首节点，到上一节点的折线高度要缩短，让位给 icon 呈现
+          // 如果 icon 隐藏了，则不必缩短折线高度
           if (vmIsFirst && iconVisible) {
             lineClasses.push(CLASS_NAMES.lineIsFirst);
           }
 
+          // 如果节点的父节点，不是最后的节点
+          // 则需要绘制节点延长线
           const shadowStyles: string[] = [];
           const parents = node.getParents();
           parents.pop();
@@ -79,21 +99,20 @@ export default Vue.extend({
         }
       } else {
         lineNode = getTNode(line, {
-          createElement,
           node,
         });
       }
       return lineNode;
     },
-    renderIcon(createElement: CreateElement): VNode {
+    renderIcon() {
       const { node, treeScope } = this;
-      const { icon, scopedSlots } = treeScope;
+      const { icon, slots } = treeScope;
 
       let iconNode = null;
       if (icon === true) {
-        if (scopedSlots?.icon) {
-          iconNode = scopedSlots.icon({
-            node,
+        if (slots?.icon) {
+          iconNode = slots.icon({
+            node: node?.getModel(),
           });
         } else {
           if (!node.vmIsLeaf) {
@@ -104,51 +123,33 @@ export default Vue.extend({
         }
       } else {
         iconNode = getTNode(icon, {
-          createElement,
           node,
         });
       }
       if (!node.vmIsLeaf && node.loading && node.expanded && icon !== false) {
         iconNode = (<TIconLoading/>);
       }
-      iconNode = (
-        <span
-          class={CLASS_NAMES.treeIcon}
-          trigger="expand"
-          ignore="active"
-        >{iconNode}</span>
-      );
-      return iconNode;
-    },
-    renderLabel(createElement: CreateElement): VNode {
-      const { node, treeScope } = this;
-      const  { empty, label, scopedSlots } = treeScope;
-      const checkProps = treeScope.checkProps || {};
 
-      const emptyNode = getTNode(empty, {
-        createElement,
-        node,
-      });
+      return (<span class={CLASS_NAMES.treeIcon} trigger="expand" ignore="active">{iconNode}</span>);
+    },
+    renderLabel() {
+      const { node, treeScope } = this;
+      const  { label, slots } = treeScope;
+      const checkProps = treeScope.checkProps || {};
 
       let labelNode = null;
       if (label === true) {
-        if (scopedSlots?.label) {
-          labelNode = scopedSlots.label({
-            node,
+        if (slots?.label) {
+          labelNode = slots.label({
+            node: node?.getModel(),
           });
         } else {
-          labelNode = node.label || emptyNode;
+          labelNode = node.label || '';
         }
       } else {
         labelNode = getTNode(label, {
-          createElement,
           node,
         });
-      }
-
-      if (typeof labelNode === 'string') {
-        // 如果渲染结果是字符串，就同步到节点上
-        node.label = labelNode;
       }
 
       const labelClasses = [
@@ -179,18 +180,17 @@ export default Vue.extend({
 
       return labelNode;
     },
-    renderOperations(createElement: CreateElement): VNode {
+    renderOperations(): VNode {
       const { node, treeScope } = this;
-      const { operations, scopedSlots } = treeScope;
+      const { operations, slots } = treeScope;
 
       let opNode = null;
-      if (scopedSlots?.operations) {
-        opNode = scopedSlots.operations({
-          node,
+      if (slots?.operations) {
+        opNode = slots.operations({
+          node: node?.getModel(),
         });
       } else {
         opNode = getTNode(operations, {
-          createElement,
           node,
         });
       }
@@ -204,13 +204,13 @@ export default Vue.extend({
       }
       return opNode;
     },
-    renderItem(createElement: CreateElement): Array<VNode> {
+    renderItem(): Array<VNode> {
       const itemNodes: Array<VNode> = [];
 
-      const iconNode = this.renderIcon(createElement);
+      const iconNode = this.renderIcon();
 
       // 渲染连线排在渲染图标之后，是为了确认图标是否存在
-      const lineNode = this.renderLine(createElement);
+      const lineNode = this.renderLine();
 
       if (lineNode) {
         itemNodes.push(lineNode);
@@ -220,7 +220,7 @@ export default Vue.extend({
         itemNodes.push(iconNode);
       }
 
-      const labelNode = this.renderLabel(createElement);
+      const labelNode = this.renderLabel();
       if (labelNode) {
         itemNodes.push(labelNode);
       }
@@ -228,16 +228,17 @@ export default Vue.extend({
       const spaceNode = (<span class={CLASS_NAMES.treeSpace}></span>);
       itemNodes.push(spaceNode);
 
-      const opNode = this.renderOperations(createElement);
+      const opNode = this.renderOperations();
       if (opNode) {
         itemNodes.push(opNode);
       }
 
       return itemNodes;
     },
-    handleClick(evt: Event) {
+    handleClick(evt: MouseEvent) {
       const { node } = this;
-      const state: EventState = {
+      const state: TypeEventState = {
+        mouseEvent: evt,
         event: evt,
         node,
         path: node.getPath(),
@@ -247,17 +248,18 @@ export default Vue.extend({
     handleChange() {
       const { node } = this;
       const event = new Event('change');
-      const state: EventState = {
+      const state: TypeEventState = {
         event,
         node,
       };
       this.$emit('change', state);
     },
   },
-  render(createElement: CreateElement) {
+  render() {
     const {
       node,
     } = this;
+
     const {
       tree,
       level,
@@ -265,7 +267,8 @@ export default Vue.extend({
     } = node;
 
     if (!tree || !tree.nodeMap.get(value)) {
-      this.$destroy();
+      // this.$destroy();
+      return null;
     }
     const styles = this.getStyles();
     const classList = this.getClassList();
@@ -275,8 +278,8 @@ export default Vue.extend({
         data-value={node.value}
         data-level={level}
         style={styles}
-        onClick={(evt: Event) => this.handleClick(evt)}
-      >{this.renderItem(createElement)}</div>
+        onClick={(evt: MouseEvent) => this.handleClick(evt)}
+      >{this.renderItem()}</div>
     );
   },
 });

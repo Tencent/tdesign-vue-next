@@ -1,30 +1,32 @@
-import { VNode } from 'vue';
-import TreeNode from '../../common/js/tree/TreeNode';
+import { VNode, h, ComponentPublicInstance } from 'vue';
+import TreeStore from '../../common/js/tree/tree-store';
+import TreeNode from '../../common/js/tree/tree-node';
+import {
+  TypeMark,
+  TypeLineModel,
+  TypeTNodeProp,
+  TypeGetTNodeOption,
+  TypeTargetNode,
+} from './types';
 
-export function getParentsToRoot(element?: HTMLElement, root?: HTMLElement): Array<HTMLElement> {
+export function getParentsToRoot(element?: HTMLElement, root?: HTMLElement): HTMLElement[] {
   const list = [];
-  let el: any = element;
+  let el: HTMLElement = element;
   while (el && el.parentNode) {
     list.push(el);
     if (el === root) {
       break;
     }
-    el = el.parentNode;
+    el = el.parentNode as HTMLElement;
   }
   return list;
 }
 
-export interface Mark {
-  name: string;
-  value: string;
-  el?: HTMLElement;
-}
-
-export function getParentMarks(name: string, element?: HTMLElement, root?: HTMLElement): Array<Mark> {
+export function getParentMarks(name: string, element?: HTMLElement, root?: HTMLElement): TypeMark[] {
   const list = getParentsToRoot(element, root);
   return (
     list.map((el) => {
-      const mark: Mark = {
+      const mark: TypeMark = {
         name,
         value: el.getAttribute(name) || '',
         el,
@@ -34,20 +36,20 @@ export function getParentMarks(name: string, element?: HTMLElement, root?: HTMLE
   );
 };
 
-export function getMark(name: string, element?: HTMLElement, root?: HTMLElement): Mark {
+export function getMark(name: string, element?: HTMLElement, root?: HTMLElement): TypeMark {
   const list = getParentMarks(name, element, root);
   const info = list.pop() || null;
   return info;
 };
 
-export function getTNode(prop: any, options: any): string | VNode {
+export function getTNode(prop: TypeTNodeProp, options: TypeGetTNodeOption = {}): string | VNode {
   let tnode = null;
   let item = null;
   const conf = {
     ...options,
   };
   if (typeof prop === 'function') {
-    item = prop(conf.createElement, conf.node);
+    item = prop(h, conf.node?.getModel());
   } else if (typeof prop === 'string') {
     item = prop;
   }
@@ -59,35 +61,10 @@ export function getTNode(prop: any, options: any): string | VNode {
   return tnode;
 }
 
-export function mergeKeysToArray(fromMap: Map<string, boolean>, list: any[]): void {
-  let index = 0;
-  const map = new Map(fromMap);
-  while (index < list.length) {
-    const key = list[index];
-    if (map.has(key)) {
-      map.delete(key);
-      index += 1;
-    } else {
-      list.splice(index, 1);
-    }
-  }
-  const resumeItems = Array.from(map.keys());
-  resumeItems.forEach((key) => {
-    list.push(key);
-  });
-}
-
-export interface LineModel {
-  top: boolean;
-  right: boolean;
-  bottom: boolean;
-  left: boolean;
-}
-
 // 获取一个节点层级位置的连线模型
-export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): LineModel {
+export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): TypeLineModel {
   // 标记 [上，右，下，左] 是否有连线
-  const lineModel: LineModel = {
+  const lineModel: TypeLineModel = {
     top: false,
     right: false,
     bottom: false,
@@ -117,3 +94,26 @@ export function getLineModel(nodes: TreeNode[], node: TreeNode, index: number): 
   return lineModel;
 }
 
+export function isTreeNodeValue(item: unknown): boolean {
+  return (typeof item === 'string' || typeof item === 'number');
+}
+
+export function getNode(store: TreeStore, item: TypeTargetNode): TreeNode {
+  let node = null;
+  let val = null;
+  if (typeof item === 'string' || typeof item === 'number') {
+    val = item;
+  } else if (item && isTreeNodeValue(item.value)) {
+    val = item.value;
+  }
+  node = store.getNode(val);
+  return node;
+};
+
+export function callEmit(instance: ComponentPublicInstance, name: string, args: unknown[]): void {
+  // const propName = `on${upperFirst(name)}`;
+  // if (typeof instance[propName] === 'function') {
+  //   instance[propName](...args);
+  // };
+  instance.$emit(name, ...args);
+}

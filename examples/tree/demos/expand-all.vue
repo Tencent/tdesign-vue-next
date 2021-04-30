@@ -61,11 +61,13 @@ export default {
       hover: true,
       transition: true,
       items: data1,
+      type: 1,
     };
   },
   methods: {
     toggleData() {
-      this.items = this.items === data1 ? data2 : data1;
+      this.items = this.type === 1 ? data2 : data1;
+      this.type = this.type === 1 ? 2 : 1;
     },
     toggleHover() {
       this.hover = !this.hover;
