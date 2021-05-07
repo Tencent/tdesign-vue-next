@@ -1,4 +1,4 @@
-import Popup from './popup.vue';
+import Popup from './popup';
 import setInstallFn from '../utils/setInstallFn';
 import { TdPopupProps } from '@TdTypes/popup/TdPopupProps';
 
