@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
@@ -12,7 +12,7 @@ const maskClass = `${prefix}-loading-mask`;
 const relativeClass = `${prefix}-loading-parent__relative`;
 const lockClass = `${prefix}-loading-lock`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   components: {
@@ -22,8 +22,8 @@ export default Vue.extend({
 
   props: {
     indicator: {
-      type: [Function, String],
-      default: '',
+      type: Function,
+      default: undefined,
     },
     text: {
       type: String,
@@ -97,7 +97,7 @@ export default Vue.extend({
     }
 
     // 当loading作为包裹元素时，添加遮罩才有效果
-    if ((this.$scopedSlots.default && this.showOverlay) || this.isService) {
+    if ((this.$slots.default && this.showOverlay) || this.isService) {
       wrapClassList.push(maskClass);
     }
 
@@ -112,13 +112,13 @@ export default Vue.extend({
 
     const { indicator } = this;
     const text = this.text ? <span>{this.text}</span> : '';
-    const loadingSlot: any = this.$scopedSlots.indicator ? this.$scopedSlots.indicator(null) : '';
+    const loadingSlot: any = this.$slots.indicator ? this.$slots.indicator(null) : '';
     const loadingFucValue = typeof indicator === 'function' ? indicator() : '';
 
     const loadingContent: any = loadingFucValue || loadingSlot || <t-icon name='loading'></t-icon>;
     const loadingDefaultDom: VNode | Node = <span class={itemClass}>{loadingContent}{text}</span>;
 
-    const defaultSlot: any = this.$scopedSlots.default ? this.$scopedSlots.default(null) : '';
+    const defaultSlot: any = this.$slots.default ? this.$slots.default(null) : '';
 
     if (this.delay && this.loading) {
       setTimeout(() => {

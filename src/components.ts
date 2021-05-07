@@ -41,5 +41,5 @@ export * from './divider';
 export * from './progress';
 // export * from './transfer';
 export * from './badge';
-// export * from './loading';
+export * from './loading';
 // export * from './time-picker';
