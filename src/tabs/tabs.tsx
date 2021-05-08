@@ -10,7 +10,7 @@ const name = `${prefix}-tabs`;
 
 export default defineComponent({
   name,
-  emits: ['change', 'add', 'remove', 'update:modelValue'],
+  emits: ['change', 'add', 'remove', 'update:value'],
 
   components: {
     RenderComponent,
@@ -19,10 +19,6 @@ export default defineComponent({
   },
 
   props: { 
-    modelValue: {
-      type: [String, Number] as PropType<TdTabsProps['value']>,
-      default: undefined,
-    }, 
     ...props 
   },
 
@@ -66,12 +62,8 @@ export default defineComponent({
       setPanelInstances();
     })
 
-    const currValue = computed(() => {
-      return props.modelValue || props.value
-    })
     return {
       panels,
-      currValue,
     }
   },
 
@@ -79,7 +71,7 @@ export default defineComponent({
     tabChange(event: Event, panel: VNode, value: TabValue) {
       // emit('xxx') 会调用onXxx函数, 所以不必在主动调用onXxx函数了
       this.$emit('change', value);
-      this.$emit('update:modelValue', value);
+      this.$emit('update:value', value);
     },
 
     tabAdd(e: MouseEvent) {
@@ -104,7 +96,7 @@ export default defineComponent({
       const {
         theme,
         panels,
-        currValue,
+        value,
         size,
         disabled,
         placement,
@@ -117,7 +109,7 @@ export default defineComponent({
         props: {
           theme,
           panels, // immutable，为子组件watch
-          currValue,
+          currValue: value,
           size,
           disabled,
           placement,
@@ -128,6 +120,7 @@ export default defineComponent({
         },
         ref: 'nav',
       };
+      console.log(value);
       return (
         <t-tab-nav {...data.props} ref="nav" />
       );

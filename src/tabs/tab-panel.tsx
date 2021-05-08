@@ -10,8 +10,8 @@ export default defineComponent({
 
   computed: {
     active(): boolean {
-      const { currValue } = this.$parent as any;
-      return this.value === currValue;
+      const { value } = this.$parent as any;
+      return this.value === value;
     },
   },
 
