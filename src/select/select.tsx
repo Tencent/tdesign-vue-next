@@ -1,4 +1,4 @@
-import { defineComponent, ref } from 'vue';
+import { defineComponent, nextTick } from 'vue';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
@@ -23,8 +23,22 @@ const name = `${prefix}-select`;
 
 export default defineComponent({
   name,
+  components: {
+    TIconChevronDown,
+    TIconClose,
+    TIconLoading,
+    TInput: Input,
+    Tag,
+    Popup,
+    TOption: Option,
+  },
+  provide(): any {
+    return {
+      tSelect: this,
+    };
+  },
   props: { ...props },
-  emits: ['change', 'input', 'clear', 'visible-change', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'update:value'],
+  emits: ['change', 'input', 'clear', 'visible-change', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'update:value', 'remove', 'create', 'search'],
   data() {
     return {
       isHover: false,
@@ -46,20 +60,6 @@ export default defineComponent({
       realValue: this.keys && this.keys.value ? this.keys.value : 'value',
       realLabel: this.keys && this.keys.label ? this.keys.label : 'label',
       tmpOptions: [],
-    };
-  },
-  components: {
-    TIconChevronDown,
-    TIconClose,
-    TIconLoading,
-    TInput: Input,
-    Tag,
-    Popup,
-    TOption: Option,
-  },
-  provide(): any {
-    return {
-      tSelect: this,
     };
   },
 
@@ -195,7 +195,7 @@ export default defineComponent({
   watch: {
     showFilter(val) {
       if (val && this.selectedSingle) {
-        this.$nextTick(() => {
+        nextTick(() => {
           const input = this.$refs.input as HTMLElement;
           input?.focus();
           this.focusing = true;
@@ -362,7 +362,7 @@ export default defineComponent({
       this.focusing = false;
     },
     monitorWidth() {
-      this.$nextTick(() => {
+      nextTick(() => {
         this.width = this.$el && this.$el.clientWidth;
       });
     },
@@ -401,6 +401,44 @@ export default defineComponent({
     const prefixIconSlot = renderTNodeJSX(this, 'prefixIcon');
     const emptySlot = renderTNodeJSX(this, 'empty');
     const loadingTextSlot = renderTNodeJSX(this, 'loadingText');
+    const slots = {
+      content: () => (
+        <div>
+          <ul v-show={showCreateOption} class={`${name}-create-option`}>
+            <t-option value={this.searchInput} label={this.searchInput} />
+          </ul>
+          {
+            loading && (
+              <li class={tipsClass}>{ loadingTextSlot ? loadingTextSlot : loadingText }</li>
+            )
+          }
+          {
+            !loading && !displayOptions.length && !showCreateOption && (
+              <li class={emptyClass}>{ emptySlot ? emptySlot : empty }</li>
+            )
+          }
+          {
+            !hasOptions && options.length
+              ? <ul>
+              {
+                options.map((item: Options, index: number) => (
+                    <t-option
+                      value={get(item, realValue)}
+                      label={get(item, realLabel)}
+                      disabled={item.disabled || this.multiLimitDisabled(get(item, realValue))}
+                      key={index}
+                    >
+                      { get(item, realLabel) }
+                    </t-option>
+                ))
+              }
+            </ul>
+              : <span v-show={!loading && options.length}>{children}</span>
+          }
+        </div>
+      ),
+    };
+
     return (
       <div ref='select'>
         <Popup
@@ -413,6 +451,7 @@ export default defineComponent({
           overlayClassName={popClass}
           overlayStyle={popupObject.overlayStyle}
           onVisibleChange={ this.visibleChange }
+          v-slots={slots}
         >
           <div class={classes} onMouseenter={ this.hoverEvent.bind(null, true) } onMouseleave={ this.hoverEvent.bind(null, false) }>
             {
@@ -471,39 +510,6 @@ export default defineComponent({
               this.showLoading && (
                 <t-icon-loading class={`${name}-right-icon ${name}-active-icon`} size={size} />
               )
-            }
-          </div>
-          <div slot='content'>
-            <ul v-show={showCreateOption} class={`${name}-create-option`}>
-              <t-option value={this.searchInput} label={this.searchInput} />
-            </ul>
-            {
-              loading && (
-                <li class={tipsClass}>{ loadingTextSlot ? loadingTextSlot : loadingText }</li>
-              )
-            }
-            {
-              !loading && !displayOptions.length && !showCreateOption && (
-                <li class={emptyClass}>{ emptySlot ? emptySlot : empty }</li>
-              )
-            }
-            {
-              !hasOptions && options.length
-                ? <ul>
-                {
-                  options.map((item: Options, index: number) => (
-                      <t-option
-                        value={get(item, realValue)}
-                        label={get(item, realLabel)}
-                        disabled={item.disabled || this.multiLimitDisabled(get(item, realValue))}
-                        key={index}
-                      >
-                        { get(item, realLabel) }
-                      </t-option>
-                  ))
-                }
-              </ul>
-                : <span v-show={!loading && options.length}>{children}</span>
             }
           </div>
         </Popup>
