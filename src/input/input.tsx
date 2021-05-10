@@ -17,10 +17,6 @@ function getValidAttrs(obj: object): object {
   return newObj;
 }
 
-// interface InputInstance extends Vue {
-//   composing: boolean;
-// }
-
 export default defineComponent({
   name,
   inheritAttrs: false,
@@ -28,6 +24,7 @@ export default defineComponent({
   emits: ['change', 'input', 'clear', 'keydown-enter', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'update:value'],
   setup(props, context) {
     const focused = ref<boolean>(false);
+    const composing = ref<boolean>(false);
     const cacheValue = ref<string | number>('');
     const innerValue = computed({
       get() {
@@ -40,7 +37,7 @@ export default defineComponent({
     });
 
     function onInput(e: InputEvent): void {
-      // if (this.composing) return;
+      if (composing.value) return;
       const { target } = e;
       const val = (target as HTMLInputElement).value;
       context.emit('change', val, { e: InputEvent });
@@ -84,6 +81,7 @@ export default defineComponent({
 
     return {
       focused,
+      composing,
       innerValue,
       onInput,
       handleKeydown,
@@ -132,10 +130,23 @@ export default defineComponent({
       input?.blur();
     },
 
+    startComposing() {
+      this.composing = true;
+    },
+
+    endComposing(e: Event) {
+      if (this.composing) {
+        this.composing = false;
+
+        const inputEvent = document.createEvent('HTMLEvents');
+        inputEvent.initEvent('input', true, true);
+        e.target.dispatchEvent(inputEvent);
+      }
+    },
+
+
   },
-  // created() {
-  //   this.composing = false;
-  // },
+
   render() {
     const inputEvents = getValidAttrs({
       onFocus: this.emitFocus,
@@ -143,6 +154,8 @@ export default defineComponent({
       onKeydown: this.handleKeydown,
       onKeyup: this.handleKeyUp,
       onKeypresss: this.handleKeypress,
+      onCompositionend: this.endComposing,
+      onCompositionstart: this.startComposing,
     });
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);

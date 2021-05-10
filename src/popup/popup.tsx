@@ -1,45 +1,3 @@
-<template>
-  <div
-    ref="reference"
-    :class="name+'-reference'"
-  >
-    <transition
-      :name="`${name}_animation`"
-      appear
-    >
-      <div
-        v-show="!disabled && showPopper"
-        ref="popper"
-        :class="name"
-        role="tooltip"
-        :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
-      >
-        <div
-          :class="_class"
-          :style="overlayStyle"
-        >
-          <slot name="content">
-            <template v-if="typeof content === 'string'">
-              {{ content }}
-            </template>
-            <render-component
-              v-else-if="typeof content === 'function'"
-              :render="content"
-            />
-          </slot>
-          <div
-            v-if="showArrow"
-            :class="name+'__arrow'"
-            data-popper-arrow
-          />
-        </div>
-      </div>
-    </transition>
-    <slot />
-  </div>
-</template>
-
-<script lang="ts">
 import { defineComponent } from 'vue';
 import { createPopper } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
@@ -304,7 +262,53 @@ export default defineComponent({
         this.doToggle();
       }
     },
+    renderContent(): JsxNode {
+      const { content } = this;
+      if (this.$slots.content) {
+        return this.$slots.content(null);
+      } if (typeof content === 'string') {
+        return content;
+      } if (typeof content === 'function') {
+        return <render-component
+          render={content}
+        />;
+      }
+    },
+  },
+  render() {
+    const { disabled, showPopper, _class, overlayStyle, showArrow } = this;
+    return (
+      <div
+        ref="reference"
+        class={`${name}-reference`}
+      >
+        <transition
+          name={`${name}_animation`}
+          appear
+        >
+          <div
+            v-show={!disabled && showPopper}
+            ref="popper"
+            class={name}
+            role="tooltip"
+            aria-hidden={(disabled || !showPopper) ? 'true' : 'false'}
+          >
+            <div
+              class={_class}
+              style={overlayStyle}
+            >
+              {this.renderContent()}
+              {
+                showArrow
+                  && <div
+                    class={`${name}__arrow`}
+                    data-popper-arrow
+                  />
+              }
+            </div>
+          </div>
+        </transition>
+        {this.$slots.default ? this.$slots.default(null) : ''}
+      </div>);
   },
 });
-
-</script>

@@ -3,7 +3,7 @@ import mapProps from '../utils/map-props';
 import setInstallFn from '../utils/setInstallFn';
 
 const Switch = mapProps([{
-  name: 'value', event: 'change',
+  name: 'value', event: 'change', alias: ['modelValue'],
 }])(_Switch);
 
 setInstallFn('Switch', Switch);

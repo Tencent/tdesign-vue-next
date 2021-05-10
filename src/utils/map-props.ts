@@ -1,4 +1,5 @@
 import { ComponentOptions, defineComponent, ComponentPublicInstance, h } from 'vue';
+import kebabCase from 'lodash/kebabCase';
 
 function toCamel(str: string): string {
   return str.replace(/-([a-z])/ig, (m, letter) => letter.toUpperCase());
@@ -27,6 +28,7 @@ function getPropOptionMap(props: (string | PropOption)[]):
   function parseProp(propOption: PropOption): ParsedPropOption {
     const {
       name: propName,
+      alias,
       ...others } = propOption;
     const camelName = propName.replace(/^[a-z]/, (letter: string) => letter.toUpperCase());
     const defaultName = `default${camelName}`;
@@ -37,11 +39,15 @@ function getPropOptionMap(props: (string | PropOption)[]):
       events = events.concat(propOption.event);
     }
     events.push(`update:${propName}`);
+    if (alias) {
+      events = events.concat(alias.map(item => `update:${item}`));
+    }
 
     return {
       events,
       defaultName,
       dataName,
+      alias,
       ...others,
     };
   }
@@ -91,8 +97,9 @@ export default function (props: (string | PropOption)[]): any {
       defineWatches[defaultName] = {
         handler(v: any): void {
           const { props } = this.$.vnode;
+          const hasDefault = props && (defaultName in props || kebabCase(defaultName) in props);
           if (
-            props && defaultName in props
+            hasDefault
             && !(propName in props)
           ) {
             this.$data[dataName] = v;
@@ -157,8 +164,8 @@ export default function (props: (string | PropOption)[]): any {
         _listeners(): Record<string, any> {
           const others = {};
           Object.keys(this.$attrs).forEach((attr: string): void => {
-            const event = /^on[A-Z][A-Z]*/.test(attr)
-              ? attr[3].toLowerCase() + attr.substr(3)
+            const event = attr.startsWith('on')
+              ? attr[2].toLowerCase() + attr.substr(2)
               : null;
             if (event && defineEvents.indexOf(event) === -1) {
               others[attr] = (...args: any[]): void => {

@@ -19,8 +19,19 @@ export const CLASS_NAMES = {
   controls: `${form}__controls`,
   controlsContent: `${form}__controls--content`,
   status: `${form}__status`,
+  help: `${form}__help`,
   extra: `${input}__extra`,
   success: `${is}-success`,
   error: `${is}-error`,
   warning: `${is}-warning`,
+};
+
+export interface TdForm {
+  addField(field: TdFormField): void;
+  removeField(field: TdFormField): void;
+};
+
+export interface TdFormField {
+  validate(): void;
+  resetField(): void;
 };

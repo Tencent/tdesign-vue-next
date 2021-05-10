@@ -1,4 +1,4 @@
-import Vue, { VNode, CreateElement } from 'vue';
+import { VNode, defineComponent, h } from 'vue';
 import { isString, isNumber } from 'lodash';
 import props from '@TdTypes/radio-group/props';
 import { RadioOptionObj, RadioOption, RadioValue } from '@TdTypes/radio/TdRadioProps';
@@ -7,23 +7,26 @@ import Radio from './radio';
 
 const name = `${prefix}-radio-group`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
-  props: { ...props },
-
   components: {
     Radio,
   },
-
   provide() {
     return {
       radioGroup: this,
     };
   },
-
-  render(h: CreateElement): VNode {
-    const { $scopedSlots } = this;
-    let children: TNodeReturnValue = $scopedSlots.default && $scopedSlots.default(null);
+  props: { ...props },
+  emits: ['change'],
+  methods: {
+    handleRadioChange(value: RadioValue, context: { e: Event }) {
+      this.$emit('change', value, context);
+    },
+  },
+  render(): VNode {
+    const { $slots } = this;
+    let children: TNodeReturnValue = $slots.default && $slots.default(null);
 
     if (this.options && this.options.length) {
       children = (this.options).map((option: RadioOption) => {
@@ -56,12 +59,5 @@ export default Vue.extend({
         {children}
       </div>
     );
-  },
-
-  methods: {
-    handleRadioChange(value: RadioValue, context: { e: Event }) {
-      this.$emit('change', value, context);
-      typeof this.onChange === 'function' && (this.onChange(value, context));
-    },
   },
 });

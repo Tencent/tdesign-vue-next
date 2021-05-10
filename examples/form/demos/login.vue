@@ -10,12 +10,16 @@
     >
       <t-form-item name='account'>
         <t-input clearable v-model="formData.account" placeholder="请输入账户名">
-          <t-icon-desktop slot="prefix-icon"></t-icon-desktop>
+          <template #prefix-icon>
+            <t-icon-desktop />
+          </template>
         </t-input>
       </t-form-item>
       <t-form-item name='password'>
         <t-input type="password" clearablec v-model="formData.password" placeholder="请输入密码">
-          <t-icon-lock-on slot="prefix-icon"></t-icon-lock-on>
+          <template #prefix-icon>
+            <t-icon-lock-on />
+          </template>
         </t-input>
       </t-form-item>
       <t-form-item>

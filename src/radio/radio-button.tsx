@@ -1,46 +1,36 @@
-import Vue, { VueConstructor, VNode } from 'vue';
+import { defineComponent, VNode } from 'vue';
 import props from '@TdTypes/radio/props';
 import Radio, { radioBtnName as name } from './radio';
-import { RadioGroupInstance } from './instance-types';
+import { omit } from '../utils/helper';
 
-interface RadioButtonInstance extends Vue {
-  radioGroup: RadioGroupInstance;
-}
-
-export default (Vue as VueConstructor<RadioButtonInstance>).extend({
+export default defineComponent({
   name,
-  inheritAttrs: false,
-  props: { ...props },
-
   components: {
     Radio,
   },
-
   provide() {
     return {
       radioButton: this,
     };
   },
-
   inject: {
     radioGroup: { default: undefined },
   },
-
+  inheritAttrs: false,
+  props: { ...props },
   render(): VNode {
-    const { $props, $listeners, $scopedSlots, radioGroup } = this;
-    const children: VNode[] | VNode | string = $scopedSlots.default && $scopedSlots.default(null);
+    const { $props, $attrs, $slots, radioGroup } = this;
+    const children: VNode[] | VNode | string = $slots.default && $slots.default(null);
 
     const radioProps = {
-      props: {
-        ...$props,
-      },
-      on: $listeners,
+      ...$props,
+      ...omit($attrs, Object.keys($attrs).filter(key => key.startsWith('on'))),
     };
 
     if (radioGroup) {
-      radioProps.props.checked = $props.value === radioGroup.value;
-      radioProps.props.disabled = $props.disabled === undefined ? radioGroup.disabled : $props.disabled;
-      radioProps.props.name = radioGroup.name;
+      radioProps.checked = $props.value === radioGroup.value;
+      radioProps.disabled = $props.disabled === undefined ? radioGroup.disabled : $props.disabled;
+      radioProps.name = radioGroup.name;
     }
 
     return <Radio {...radioProps}>{ children }</Radio>;

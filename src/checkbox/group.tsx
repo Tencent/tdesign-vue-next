@@ -83,7 +83,7 @@ export default defineComponent({
           indeterminate={this.indeterminate}
           onChange={this.onCheckAllChange}
           data-name='TDESIGN_CHECK_ALL'
-          props={{ ...option }}
+          { ...option }
         >{this.renderLabel(option)}</Checkbox>
       );
     },
@@ -138,12 +138,12 @@ export default defineComponent({
           return (
             <Checkbox
               key={index}
-              props={{ ...option }}
+              { ...option }
               checked={this.checkedMap[option.value]}
             >{this.renderLabel(option)}</Checkbox>
           );
         })}
-        {this.$slots.default() && this.$slots.default(null)}
+        {this.$slots.default && this.$slots.default(null)}
       </div>
     );
   },

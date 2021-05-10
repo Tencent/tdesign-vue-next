@@ -5,8 +5,8 @@ import mapProps from '../utils/map-props';
 import setInstallFn from '../utils/setInstallFn';
 import { TdRadioProps, TdRadioGroupProps } from '@TdTypes/radio/TdRadioProps';
 
-const Radio = mapProps(['checked'], { model: { prop: 'checked', event: 'change' } })(_Radio);
-const RadioGroup = mapProps(['value'], { model: { prop: 'value', event: 'change' } })(_Group);
+const Radio = mapProps([{ name: 'checked', event: 'change', alias: ['modelValue'] }])(_Radio);
+const RadioGroup = mapProps([{ name: 'value', event: 'change', alias: ['modelValue'] }])(_Group);
 
 setInstallFn('Radio', Radio);
 setInstallFn('RadioGroup', RadioGroup);
