@@ -120,7 +120,6 @@ export default defineComponent({
         },
         ref: 'nav',
       };
-      console.log(value);
       return (
         <t-tab-nav {...data.props} ref="nav" />
       );
