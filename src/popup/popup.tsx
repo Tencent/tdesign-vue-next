@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, Transition } from 'vue';
 import { createPopper } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
@@ -32,6 +32,7 @@ export default defineComponent({
 
   components: {
     RenderComponent,
+    Transition,
   },
 
   props: { ...props },
