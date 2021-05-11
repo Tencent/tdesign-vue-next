@@ -19,6 +19,15 @@
     <t-divider theme="vertical" />
     <span>创新</span>
   </div>
+  <t-divider>Popup</t-divider>
+  <t-popup
+    content="popup内容"
+    placement="bottom-left"
+    trigger="hover"
+  >
+    <t-button>hover我试试</t-button>
+  </t-popup>
+
   <t-divider>CheckBox</t-divider>
   <t-checkbox>默认状态</t-checkbox>
   <t-checkbox :checked="true">
@@ -70,6 +79,14 @@ export default defineComponent({
       ],
       defaultValue: '1',
     };
+  },
+  methods: {
+    handleChange(value) {
+      console.log('handleChange:', value);
+    },
+    handleClear({ e }) {
+      console.log('handleClear:', e);
+    },
   },
 });
 </script>

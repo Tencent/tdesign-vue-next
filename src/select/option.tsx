@@ -17,17 +17,17 @@ const selectName = `${prefix}-select`;
 
 export default defineComponent({
   name,
-  data() {
-    return {
-      isHover: false,
-    };
-  },
-  props: { ...props },
   components: {
     TCheckbox: Checkbox,
   },
   inject: {
     tSelect: { default: undefined },
+  },
+  props: { ...props },
+  data() {
+    return {
+      isHover: false,
+    };
   },
   computed: {
     multiLimitDisabled(): boolean {
@@ -81,6 +81,21 @@ export default defineComponent({
       return flag;
     },
   },
+  mounted() {
+    this.tSelect && this.tSelect.getOptions(this);
+  },
+  beforeUnmount() {
+    if (this.tSelect) {
+      let target = 0;
+      for (let i = 0; i < this.tSelect.options.length; i++) {
+        if (get(this.tSelect.options[i], this.tSelect.realValue) === this.value) {
+          target = i;
+          break;
+        }
+      }
+      this.tSelect.destroyOptions(target);
+    }
+  },
   methods: {
     select(e: MouseEvent) {
       e.stopPropagation();
@@ -96,21 +111,6 @@ export default defineComponent({
     mouseEvent(v: boolean) {
       this.isHover = v;
     },
-  },
-  mounted() {
-    this.tSelect && this.tSelect.getOptions(this);
-  },
-  beforeUnmount() {
-    if (this.tSelect) {
-      let target = 0;
-      for (let i = 0; i < this.tSelect.options.length; i++) {
-        if (get(this.tSelect.options[i], this.tSelect.realValue) === this.value) {
-          target = i;
-          break;
-        }
-      }
-      this.tSelect.destroyOptions(target);
-    }
   },
   render() {
     const {

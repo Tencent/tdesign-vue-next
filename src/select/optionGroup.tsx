@@ -13,10 +13,10 @@ const name = `${prefix}-option-group`;
 
 export default defineComponent({
   name,
-  props: { ...props },
   inject: {
     tSelect: { default: undefined },
   },
+  props: { ...props },
   computed: {
     classes(): Array<string|object> {
       return [
