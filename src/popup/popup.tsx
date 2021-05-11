@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, Transition } from 'vue';
 import { createPopper } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
@@ -32,6 +32,7 @@ export default defineComponent({
 
   components: {
     RenderComponent,
+    Transition,
   },
 
   props: { ...props },
@@ -264,17 +265,16 @@ export default defineComponent({
     },
     renderContent(): JsxNode {
       const { content } = this;
-      let renderContent: JsxNode;
       if (this.$slots.content) {
-        return renderContent = this.$slots.content(null);
-      } else if (typeof content === 'string') {
-        return content
-      } else if(typeof content === 'function') {
+        return this.$slots.content(null);
+      } if (typeof content === 'string') {
+        return content;
+      } if (typeof content === 'function') {
         return <render-component
           render={content}
-        />
+        />;
       }
-    }
+    },
   },
   render() {
     const { disabled, showPopper, _class, overlayStyle, showArrow } = this;
@@ -300,8 +300,8 @@ export default defineComponent({
             >
               {this.renderContent()}
               {
-                showArrow && 
-                  <div
+                showArrow
+                  && <div
                     class={`${name}__arrow`}
                     data-popper-arrow
                   />
@@ -310,6 +310,6 @@ export default defineComponent({
           </div>
         </transition>
         {this.$slots.default ? this.$slots.default(null) : ''}
-      </div>)
-  }
+      </div>);
+  },
 });
