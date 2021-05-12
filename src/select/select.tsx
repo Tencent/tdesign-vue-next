@@ -55,6 +55,7 @@ export default defineComponent({
         },
       } as PopupProps,
       width: 0,
+      options: [],
       focusing: false, // filterable时，输入框是否在focus中
       labelInValue: this.valueType === 'object',
       realValue: this.keys && this.keys.value ? this.keys.value : 'value',
@@ -290,7 +291,6 @@ export default defineComponent({
       this.value instanceof Array && this.value.splice(index, 1);
       this.emitChange(this.value);
       this.$emit('remove', { value: val, data: removeOption[0], e });
-      isFunction(this.onRemove) && this.onRemove({ value: val, data: removeOption[0], e });
     },
     hideMenu() {
       (this.$refs.popup as any).showPopper = false;
@@ -306,7 +306,6 @@ export default defineComponent({
       this.searchInput = '';
       (this.$refs.popup as any).showPopper = false;
       this.$emit('clear', { e });
-      isFunction(this.onClear) && this.onClear({ e });
     },
     getOptions(option: Options) {
       if (!option.value && !option.label) return;
@@ -340,25 +339,20 @@ export default defineComponent({
         value = val;
       }
       this.$emit('change', value);
-      isFunction(this.onChange) && this.onChange(value);
       this.monitorWidth();
     },
     createOption(value: string | number) {
       this.$emit('create', value);
-      isFunction(this.onCreate) && this.onCreate(value);
     },
     debounceOnRemote: debounce(function (this: any) {
       this.$emit('search', this.searchInput);
-      isFunction(this.onSearch) && this.onSearch(this.searchInput);
     }, 300),
     focus(e: FocusEvent) {
       this.$emit('focus', { value: this.value, e });
       this.focusing = true;
-      isFunction(this.onFocus) && this.onFocus({ value: this.value, e });
     },
     blur(e: FocusEvent) {
       this.$emit('blur', { value: this.value, e });
-      isFunction(this.onBlur) && this.onBlur({ value: this.value, e });
       this.focusing = false;
     },
     monitorWidth() {
