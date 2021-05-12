@@ -6,7 +6,7 @@ import setInstallFn from '../utils/setInstallFn';
 import { TdSelectProps, TdOptionProps, TdOptionGroupProps } from '@TdTypes/select/TdSelectProps';
 
 const Select = mapProps([{
-  name: 'value', event: 'change',
+  name: 'value', event: 'change', alias: ['modelValue'],
 }])(_Select);
 
 setInstallFn('Select', Select);
