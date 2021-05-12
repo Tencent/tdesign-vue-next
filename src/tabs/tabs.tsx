@@ -1,19 +1,16 @@
-import Vue, { VNode } from 'vue';
+import { Component, defineComponent, PropType, getCurrentInstance, onMounted, onUpdated, ref, Fragment, ComponentInternalInstance, computed } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import TTabNav from './tab-nav.vue';
 import TTabPanel from './tab-panel';
-import { TabValue } from '@TdTypes/tabs/TdTabsProps';
+import { TabValue, TdTabsProps } from '@TdTypes/tabs/TdTabsProps';
 import props from '@TdTypes/tabs/props';
 
 const name = `${prefix}-tabs`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
+  emits: ['change', 'add', 'remove', 'update:value'],
 
   components: {
     RenderComponent,
@@ -21,50 +18,64 @@ export default Vue.extend({
     TTabNav,
   },
 
-  props: { ...props },
+  props: { 
+    ...props 
+  },
 
-  data() {
+  setup(props, { slots }){
+    const panels = ref([]);
+    const instance = getCurrentInstance();
+
+    const getPaneInstanceFromSlot = (vnode: VNode, panelInstanceList: ComponentInternalInstance[] = []) => {
+
+      Array.from((vnode.children || []) as ArrayLike<VNode>).forEach(node => {
+        let type = node.type
+        type = (type as Component).name || type
+        if (type === `${prefix}-tab-panel` && node.component) {
+          panelInstanceList.push(node.component)
+        } else if(type === Fragment || type === 'template') {
+          getPaneInstanceFromSlot(node, panelInstanceList)
+        }
+      })
+      return panelInstanceList
+    }
+    const setPanelInstances = () => {
+      if (slots.default) {
+        const children = instance.subTree.children[0].children;
+        const content = Array.from(children as ArrayLike<VNode>).find(({ props }) => {
+          return props.class === `${prefix}-tabs__content`
+        })
+        if (!content) return;
+        const panelInstanceList = getPaneInstanceFromSlot(content);
+        const isChanged = !(panelInstanceList.length === panels.value.length && panelInstanceList.every((panel, index) => panel.uid === panels.value[index].uid))
+        if (isChanged) {
+          panels.value = panelInstanceList;
+        }
+      }
+    }
+
+    onMounted(() => {
+      setPanelInstances();
+    })
+
+    onUpdated(() => {
+      setPanelInstances();
+    })
+
     return {
-      // tab内的panel实例组
-      panels: [],
-    };
+      panels,
+    }
   },
 
   methods: {
-    connectPanels() {
-      const scopedSlots = this.$scopedSlots.default?.({}) || [];
-      if (scopedSlots.length) {
-        const panelSlots = scopedSlots.filter((vnode) => {
-          const {
-            componentOptions: {
-              tag = '',
-            } = {},
-          } = vnode;
-          return tag === `${prefix}-tab-panel`;
-        });
-        const panels = panelSlots.map(({ componentInstance }) => componentInstance);
-        const isChanged = !(panels.length === this.panels.length
-          && panels.every((p, i) => p === this.panels[i]));
-        if (isChanged) {
-          this.panels = panels;
-        }
-      } else if (this.panels.length !== 0) {
-        this.panels = [];
-      }
-    },
-
     tabChange(event: Event, panel: VNode, value: TabValue) {
+      // emit('xxx') 会调用onXxx函数, 所以不必在主动调用onXxx函数了
       this.$emit('change', value);
-      if (typeof this.onChange === 'function') {
-        this.onChange(value);
-      }
+      this.$emit('update:value', value);
     },
 
     tabAdd(e: MouseEvent) {
       this.$emit('add', { e });
-      if (typeof this.onAdd === 'function') {
-        this.onAdd({ e });
-      }
     },
 
     tabRemove(event: MouseEvent, value: TabValue, index: number) {
@@ -76,12 +87,8 @@ export default Vue.extend({
         e: event,
       };
       this.$emit('remove', eventData);
-      if (typeof this.onRemove === 'function') {
-        this.onRemove(eventData);
-      }
-      if ((panel instanceof TTabPanel) && (typeof panel.onRemove === 'function')) {
-        panel.onRemove();
-        panel.$emit('remove');
+      if (panel.type.name === `${prefix}-tab-panel`) {
+        panel.emit('remove');
       }
     },
 
@@ -89,7 +96,7 @@ export default Vue.extend({
       const {
         theme,
         panels,
-        value: currValue,
+        value,
         size,
         disabled,
         placement,
@@ -101,8 +108,8 @@ export default Vue.extend({
       const data = {
         props: {
           theme,
-          panels: [...panels], // immutable，为子组件watch
-          currValue,
+          panels, // immutable，为子组件watch
+          currValue: value,
           size,
           disabled,
           placement,
@@ -114,13 +121,14 @@ export default Vue.extend({
         ref: 'nav',
       };
       return (
-        <t-tab-nav {...data} />
+        <t-tab-nav {...data.props} ref="nav" />
       );
     },
 
     genTabHeader() {
       return (
         <div
+          key="tab-header"
           class={{
             [`${prefix}-tabs__header`]: true,
             [`${prefix}-is-${this.placement}`]: true,
@@ -133,22 +141,15 @@ export default Vue.extend({
 
     genTabContent() {
       return (
-        <div class={{ [`${prefix}-tabs__content`]: true }}>
-          { this.$scopedSlots.default?.({}) }
+        <div key="tab-content" class={{ [`${prefix}-tabs__content`]: true }}>
+          { this.$slots.default?.() }
         </div>
       );
     },
   },
 
-  mounted() {
-    this.connectPanels();
-  },
-
-  updated() {
-    this.connectPanels();
-  },
-
   render() {
+    // 性能优化: 在tab和content加一个key, 在上下左右切换选项卡时, 可以快速让content和content diff, header和header diff
     const header = this.genTabHeader();
     const content = this.genTabContent();
     return (
