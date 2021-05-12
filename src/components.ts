@@ -22,7 +22,7 @@ export * from './menu';
 export * from './popconfirm';
 export * from './popup';
 export * from './radio';
-// export * from './select';
+export * from './select';
 export * from './step';
 export * from './steps';
 export * from './switch';

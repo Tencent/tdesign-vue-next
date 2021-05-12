@@ -133,7 +133,7 @@ export default defineComponent({
     startComposing() {
       this.composing = true;
     },
-    
+
     endComposing(e: Event) {
       if (this.composing) {
         this.composing = false;
@@ -155,7 +155,7 @@ export default defineComponent({
       onKeyup: this.handleKeyUp,
       onKeypresss: this.handleKeypress,
       onCompositionend: this.endComposing,
-      onCompositionstart: this.startComposing
+      onCompositionstart: this.startComposing,
     });
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
