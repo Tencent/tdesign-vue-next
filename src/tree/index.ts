@@ -1,4 +1,4 @@
-import _Tree from './Tree';
+import TdTree from './td-tree';
 import mapProps from '../utils/map-props';
 import setInstallFn from '../utils/setInstallFn';
 
@@ -6,6 +6,7 @@ const Tree = mapProps([
   {
     name: 'value',
     event: ['change', 'update:value'],
+    alias: ['modelValue'],
   },
   {
     name: 'expanded',
@@ -15,12 +16,7 @@ const Tree = mapProps([
     name: 'actived',
     event: ['active', 'update:actived'],
   },
-], {
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
-})(_Tree);
+])(TdTree);
 
 setInstallFn('Tree', Tree);
 

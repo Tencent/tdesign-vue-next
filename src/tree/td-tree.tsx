@@ -1,39 +1,34 @@
-import Vue, { VNode } from 'vue';
+import { defineComponent, TransitionGroup } from 'vue';
 import upperFirst from 'lodash/upperFirst';
-
+import TreeStore from '../../common/js/tree/tree-store';
+import TreeNode from '../../common/js/tree/tree-node';
+import TreeItem from './tree-item';
+import props from '@TdTypes/tree/props';
 import {
-  TreeStore,
-  TreeFilterOptions,
   TreeNodeValue,
   TypeValueMode,
-  TreeEventState,
-} from '../../common/js/tree/TreeStore';
-import {
-  TreeNode,
-  TreeNodeProps,
-  TreeNodeData,
-} from '../../common/js/tree/TreeNode';
-import TreeItem from './TreeItem';
-import {
-  TreeProps,
-  EventState,
-} from './interface';
+  TypeEventState,
+  TypeContext,
+  TreeNodeState,
+  TypeTreeNodeModel,
+  TypeTargetNode,
+} from './types';
 import {
   TREE_NAME,
   CLASS_NAMES,
   FX,
 } from './constants';
-import { getMark } from './util';
+import {
+  getMark,
+  getTNode,
+  getNode,
+  callEmit,
+} from './util';
 
-export default Vue.extend({
+export default defineComponent({
   name: TREE_NAME,
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
-  props: {
-    ...TreeProps,
-  },
+  components: { TransitionGroup },
+  props,
   data() {
     const {
       checkProps,
@@ -47,6 +42,7 @@ export default Vue.extend({
     return {
       store: null,
       nodesMap: null,
+      mouseEvent: null,
       treeNodes: [],
       treeScope: {
         checkProps,
@@ -55,7 +51,7 @@ export default Vue.extend({
         label,
         line,
         operations,
-        scopedSlots: null,
+        slots: null,
       },
       transitionCD: null,
     };
@@ -160,7 +156,11 @@ export default Vue.extend({
       });
     },
     filter(fn) {
-      this.filterItems(fn);
+      const { store } = this;
+      store.setConfig({
+        filter: fn,
+      });
+      store.updateAll();
     },
     checkProps(props) {
       this.treeScope.checkProps = props;
@@ -180,6 +180,9 @@ export default Vue.extend({
     operations(tnode) {
       this.treeScope.operations = tnode;
     },
+  },
+  created() {
+    this.build();
   },
   methods: {
     // 创建单个 tree 节点
@@ -212,18 +215,14 @@ export default Vue.extend({
 
       let index = 0;
       while (index < treeNodes.length) {
-        const nodeView = treeNodes[index];
-        if (nodeView && nodeView.componentInstance) {
-          const { node } = nodeView.componentInstance;
-          if (node && !store.getNode(node)) {
-            // 视图列表中的节点，在树中不存在
-            const nodeViewIndex = treeNodes.indexOf(nodeView);
-            treeNodes.splice(nodeViewIndex, 1);
-            nodeView.componentInstance.$destroy();
-            nodesMap.delete(node.value);
-          } else {
-            index += 1;
-          }
+        // eslint-disable-no-param-reassign
+        const node = treeNodes[index];
+        if (node && !store.getNode(node.value)) {
+          // 视图列表中的节点，在树中不存在
+          const nodeIndex = treeNodes.indexOf(node);
+          treeNodes.splice(nodeIndex, 1);
+          // nodeView.componentInstance.$destroy();
+          nodesMap.delete(node.value);
         } else {
           index += 1;
         }
@@ -235,41 +234,44 @@ export default Vue.extend({
         store,
         treeNodes,
         treeScope,
-        $scopedSlots: scopedSlots,
       } = this;
 
-      treeScope.scopedSlots = scopedSlots;
+      treeScope.slots = this.$slots;
 
       const nodesMap = this.getNodesMap();
       this.updateNodesMap();
 
       let index = 0;
       const allNodes = store.getNodes();
+
       allNodes.forEach((node: TreeNode) => {
         if (node.visible) {
           if (nodesMap.has(node.value)) {
-            const nodeView = nodesMap.get(node.value);
-            const nodeViewIndex = treeNodes.indexOf(nodeView);
-            if (nodeViewIndex !== index) {
+            const nodeIndex = treeNodes.findIndex(n => n.value === node.value);
+            if (nodeIndex !== index) {
               // 节点存在，但位置与可视节点位置冲突，需要更新节点位置
-              treeNodes.splice(nodeViewIndex, 1);
-              treeNodes.splice(index, 0, nodeView);
+              treeNodes.splice(nodeIndex, 1);
+              const treeItem = { ...node };
+              Object.setPrototypeOf(treeItem, TreeNode.prototype);
+              treeNodes.splice(index, 0, treeItem);
             }
           } else {
             // 节点可视，且不存在视图，创建该节点视图并插入到当前位置
-            const nodeView = this.renderItem(node);
-            treeNodes.splice(index, 0, nodeView);
-            nodesMap.set(node.value, nodeView);
+            // const nodeView = this.renderItem(node);
+            const treeItem = { ...node };
+            Object.setPrototypeOf(treeItem, TreeNode.prototype);
+            treeNodes.splice(index, 0, treeItem);
+            nodesMap.set(node.value, treeItem);
           }
           index += 1;
         } else {
           if (nodesMap.has(node.value)) {
             // 节点不可视，存在该视图，需要删除该节点视图
-            const nodeView = nodesMap.get(node.value);
-            const nodeViewIndex = treeNodes.indexOf(nodeView);
-            treeNodes.splice(nodeViewIndex, 1);
+            const realNode = nodesMap.get(node.value);
+            const nodeIndex = treeNodes.indexOf(realNode);
+            treeNodes.splice(nodeIndex, 1);
             nodesMap.delete(node.value);
-            nodeView.componentInstance.$destroy();
+            // nodeView.componentInstance.$destroy();
           }
         }
       });
@@ -312,11 +314,21 @@ export default Vue.extend({
           lazy,
           valueMode: valueMode as TypeValueMode,
           filter,
-          onLoad: (info: TreeEventState) => {
+          onLoad: (info: TypeEventState) => {
             this.handleLoad(info);
           },
-          onUpdate: (state: EventState) => {
-            this.handleUpdate(state);
+          onUpdate: ({ nodes }) => {
+            nodes.forEach((node: TreeNode) => {
+              const target = this.nodesMap.get(node.value);
+              if (target) {
+                Object.keys(target).forEach((key) => {
+                  if (node[key] !== target[key]) {
+                    target[key] = node[key];
+                  }
+                });
+              }
+            });
+            this.refresh();
           },
         });
 
@@ -334,7 +346,7 @@ export default Vue.extend({
           const expandedMap = new Map();
           expanded.forEach((val) => {
             expandedMap.set(val, true);
-            if (expandParent === 'auto') {
+            if (expandParent) {
               const node = store.getNode(val);
               node.getParents().forEach((tn) => {
                 expandedMap.set(tn.value, true);
@@ -355,78 +367,71 @@ export default Vue.extend({
         this.refresh();
       }
     },
-    toggleActived(node: TreeNode): string[] {
+    toggleActived(item: TypeTargetNode): TreeNodeValue[] {
+      const node = getNode(this.store, item);
       return this.setActived(node, !node.isActived());
     },
-    setActived(node: TreeNode, isActived: boolean) {
+    setActived(item: TypeTargetNode, isActived: boolean) {
+      const node = getNode(this.store, item);
       const actived = node.setActived(isActived);
-      const event = new Event('active');
-      const state: EventState = {
-        event,
-        node,
-        path: node.getPath(),
+      const { mouseEvent } = this;
+      const ctx: TypeContext = {
+        node: node.getModel(),
+        e: mouseEvent,
       };
-      this.$emit('active', actived, state);
+      callEmit(this, 'active', [actived, ctx]);
       return actived;
     },
-    toggleExpanded(node: TreeNode): string[] {
+    toggleExpanded(item: TypeTargetNode): TreeNodeValue[] {
+      const node = getNode(this.store, item);
       return this.setExpanded(node, !node.isExpanded());
     },
-    setExpanded(node: TreeNode, isExpanded: boolean): string[] {
+    setExpanded(item: TypeTargetNode, isExpanded: boolean): TreeNodeValue[] {
+      const node = getNode(this.store, item);
       const expanded = node.setExpanded(isExpanded);
-      const event = new Event('expand');
-      const state: EventState = {
-        event,
-        node,
-        path: node.getPath(),
+      const { mouseEvent } = this;
+      const ctx: TypeContext = {
+        node: node.getModel(),
+        e: mouseEvent,
       };
-      this.$emit('expand', expanded, state);
+      callEmit(this, 'expand', [expanded, ctx]);
       return expanded;
     },
-    toggleChecked(node: TreeNode): string[] {
+    toggleChecked(item: TypeTargetNode): TreeNodeValue[] {
+      const node = getNode(this.store, item);
       return this.setChecked(node, !node.isChecked());
     },
-    setChecked(node: TreeNode, isChecked: boolean): string[] {
+    setChecked(item: TypeTargetNode, isChecked: boolean): TreeNodeValue[] {
+      const node = getNode(this.store, item);
       const checked = node.setChecked(isChecked);
-      const event = new Event('change');
-      const state: EventState = {
-        event,
-        node,
-        path: node.getPath(),
+      const ctx: TypeContext = {
+        node: node.getModel(),
       };
-      this.$emit('change', checked, state);
+      callEmit(this, 'change', [checked, ctx]);
       return checked;
     },
-    handleLoad(info: TreeEventState): void {
-      const event = new Event('load');
-      const { node, data } = info;
-      const state: EventState = {
-        event,
-        node,
-        data,
-        path: node.getPath(),
+    handleLoad(info: TypeEventState): void {
+      const { treeNodes } = this;
+      const { node } = info;
+      const ctx: TypeContext = {
+        node: node.getModel(),
       };
-      this.$emit('load', state);
+      this.treeNodes[treeNodes.indexOf(node)] = node; // update
+      callEmit(this, 'load', [ctx]);
     },
-    handleUpdate(info: EventState): void {
-      const event = new Event('update');
-      const { nodes } = info;
-      const state: EventState = {
-        event,
-        nodes,
-      };
-      this.$emit('update', state);
-      this.refresh();
-    },
-    handleClick(state: EventState): void {
+    handleClick(state: TypeEventState): void {
       const { expandOnClickNode } = this;
       const {
+        mouseEvent,
         event,
         node,
       } = state;
+
       if (!node || this.disabled || node.disabled) {
         return;
       }
+
+      this.mouseEvent = mouseEvent;
 
       let shouldExpand = expandOnClickNode;
       let shouldActive = true;
@@ -434,7 +439,7 @@ export default Vue.extend({
         const mark = getMark(
           markName,
           event.target as HTMLElement,
-          event.currentTarget as HTMLElement
+          event.currentTarget as HTMLElement,
         );
         const markValue = mark?.value || '';
         if (markValue.indexOf('expand') >= 0) {
@@ -458,9 +463,14 @@ export default Vue.extend({
         this.toggleActived(node);
       }
 
-      this.$emit('click', state);
+      const ctx: TypeContext = {
+        e: mouseEvent,
+      };
+
+      callEmit(this, 'click', [ctx]);
+      this.mouseEvent = null;
     },
-    handleChange(state: EventState): void {
+    handleChange(state: TypeEventState): void {
       const { disabled } = this;
       const { node } = state;
       if (!node || disabled || node.disabled) {
@@ -468,50 +478,64 @@ export default Vue.extend({
       }
       this.toggleChecked(node);
     },
-    filterItems(fn: (node: TreeNode) => boolean): void {
-      const { store } = this;
-      store.setConfig({
-        filter: fn,
-      });
-      store.updateAll();
-    },
-    setItem(value: TreeNodeValue, options: TreeNodeProps): void {
-      const node = this.getItem(value);
+
+    // -------- 公共方法 start --------
+    setItem(value: TreeNodeValue, options: TreeNodeState): void {
+      const node: TreeNode = this.store.getNode(value);
       const spec = options;
+      const keys = Object.keys(spec);
       if (node && spec) {
         ['expanded', 'actived', 'checked'].forEach((name) => {
-          this[`set${upperFirst(name)}`](node, spec[name]);
-          delete spec[name];
+          if (keys.includes(name)) {
+            this[`set${upperFirst(name)}`](node, spec[name]);
+            delete spec[name];
+          }
         });
         node.set(spec);
       }
     },
-    getItem(value: TreeNodeValue): TreeNode {
-      return this.store.getNode(value);
+    getItem(value: TreeNodeValue): TypeTreeNodeModel {
+      const node: TreeNode = this.store.getNode(value);
+      return node?.getModel();
     },
-    getItems(value?: TreeNodeValue, options?: TreeFilterOptions): TreeNode[] {
-      return this.store.getNodes(value, options);
+    getItems(value?: TreeNodeValue): TypeTreeNodeModel[] {
+      const nodes = this.store.getNodes(value);
+      return nodes.map((node: TreeNode) => node.getModel());
     },
-    getActived(value?: TreeNodeValue): TreeNode[] {
-      return this.store.getActivedNodes(value);
+    appendTo(para?: TreeNodeValue, item?: TreeOptionData | TreeOptionData[]): void {
+      let list = [];
+      if (Array.isArray(item)) {
+        list = item;
+      } else {
+        list = [item];
+      }
+      list.forEach((item) => {
+        const val = item?.value || '';
+        const node = getNode(this.store, val);
+        if (node) {
+          this.store.appendNodes(para, node);
+        } else {
+          this.store.appendNodes(para, item);
+        }
+      });
     },
-    getChecked(item?: TreeNodeValue): TreeNode[] {
-      return this.store.getCheckedNodes(item);
+    insertBefore(value: TreeNodeValue, item: TreeOptionData): void {
+      const val = item?.value || '';
+      const node = getNode(this.store, val);
+      if (node) {
+        this.store.insertBefore(value, node);
+      } else {
+        this.store.insertBefore(value, item);
+      }
     },
-    append(para?: TreeNodeValue | TreeNode, item?: TreeNodeData): void {
-      return this.store.appendNodes(para, item);
-    },
-    insertBefore(value: TreeNodeValue, item: TreeNodeData): void {
-      return this.store.insertBefore(value, item);
-    },
-    insertAfter(value: TreeNodeValue, item: TreeNodeData): void {
-      return this.store.insertAfter(value, item);
-    },
-    getParent(value: TreeNodeValue): TreeNode {
-      return this.store.getParent(value);
-    },
-    getParents(value: TreeNodeValue): TreeNode {
-      return this.store.getParents(value);
+    insertAfter(value: TreeNodeValue, item: TreeOptionData): void {
+      const val = item?.value || '';
+      const node = getNode(this.store, val);
+      if (node) {
+        this.store.insertAfter(value, node);
+      } else {
+        this.store.insertAfter(value, item);
+      }
     },
     remove(value?: TreeNodeValue): void {
       return this.store.remove(value);
@@ -519,23 +543,61 @@ export default Vue.extend({
     getIndex(value: TreeNodeValue): number {
       return this.store.getNodeIndex(value);
     },
+    getParent(value: TreeNodeValue): TypeTreeNodeModel {
+      const node = this.store.getParent(value);
+      return node?.getModel();
+    },
+    getParents(value: TreeNodeValue): TypeTreeNodeModel[] {
+      const nodes = this.store.getParents(value);
+      return nodes.map((node: TreeNode) => node.getModel());
+    },
+    getPath(value: TreeNodeValue): TypeTreeNodeModel[] {
+      const node = this.store.getNode(value);
+      let pathNodes = [];
+      if (node) {
+        pathNodes = node.getPath()
+          .map((node: TreeNode) => node.getModel());
+      }
+      return pathNodes;
+    },
+    // -------- 公共方法 end --------
   },
-  created() {
-    this.build();
-  },
-  render(): VNode {
+  render() {
     const {
       classList,
       treeNodes,
+      $slots,
+      empty,
     } = this;
+
+    let emptyNode = null;
+    let treeNodeList = null;
+
+    if (treeNodes.length <= 0) {
+      if ($slots?.empty) {
+        emptyNode = $slots.empty(null);
+      } else if (empty) {
+        emptyNode = getTNode(empty);
+      }
+      emptyNode = (
+        <div
+          class={CLASS_NAMES.treeEmpty}
+        >{emptyNode}</div>
+      );
+    } else {
+      treeNodeList = (
+        <transition-group
+          name={FX.treeNode}
+        >
+          {treeNodes.map(node => this.renderItem(node))}
+        </transition-group>
+      );
+    }
 
     return (
       <div class={classList}>
-        <transition-group
-          name={FX.treeNode}
-          tag="div"
-          class={CLASS_NAMES.treeList}
-        >{treeNodes}</transition-group>
+        {treeNodeList}
+        {emptyNode}
       </div>
     );
   },

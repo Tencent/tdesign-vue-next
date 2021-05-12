@@ -16,8 +16,8 @@
       :load="load"
     >
       <template #icon="{node}">
-        <t-icon v-if="node.children && !node.expanded" name="caret-right" />
-        <t-icon v-else-if="node.children && node.expanded" name="caret-down" />
+        <t-icon v-if="node.getChildren() && !node.expanded" name="caret-right" />
+        <t-icon v-else-if="node.getChildren() && node.expanded" name="caret-down" />
         <t-icon v-else name="attach" />
       </template>
     </t-tree>
@@ -26,7 +26,7 @@
 
 <script>
 import TIcon from '@/src/icon/svg';
-
+import { resolveComponent } from 'vue'
 export default {
   components: { TIcon },
   data() {
@@ -43,17 +43,17 @@ export default {
   methods: {
     icon(createElement, node) {
       let name = 'file';
-      if (node.children) {
+      const TIcon = resolveComponent('t-icon')
+      if (node.getChildren()) {
         if (node.expanded) {
           name = 'folder-open';
         } else {
           name = 'folder';
         }
       }
-      return createElement('t-icon', {
-        props: {
-          name,
-        },
+
+      return createElement(TIcon, {
+        name,
       });
     },
     load(node) {

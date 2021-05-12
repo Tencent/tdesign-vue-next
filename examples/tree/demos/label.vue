@@ -40,9 +40,7 @@ export default {
       }],
       label(createElement, node) {
         return createElement('strong', {
-          domProps: {
-            innerHTML: `value: ${node.value}, label: ${node.label}`,
-          },
+          innerHTML: `value: ${node.value}, label: ${node.label}`,
         });
       },
     };

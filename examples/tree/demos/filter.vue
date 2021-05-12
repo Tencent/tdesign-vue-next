@@ -8,6 +8,8 @@
       expand-on-click-node
       :default-expanded="expanded"
       :filter="filterByText"
+      hover
+      line
     />
   </div>
 </template>
@@ -86,9 +88,9 @@ export default {
   },
   methods: {
     onInput(state) {
-      console.log('on input:', state);
+      console.info('onInput:', state);
       this.filterByText = (node) => {
-        const rs = node.label.indexOf(this.filterText) >= 0;
+        const rs = node.data.label.indexOf(this.filterText) >= 0;
         return rs;
       };
     },

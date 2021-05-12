@@ -9,6 +9,9 @@
       hover
       :expand-mutex="mutex"
       :expand-on-click-node="expandOnClickNode"
+      @click="onClick"
+      @expand="onExpand"
+      :onExpand="propOnExpand"
     />
   </div>
 </template>
@@ -57,6 +60,15 @@ export default {
     };
   },
   methods: {
+    onClick(context) {
+      console.info('onClick', context);
+    },
+    onExpand(value, context) {
+      console.info('onExpand', value, context);
+    },
+    propOnExpand(value, context) {
+      console.info('propOnExpand', value, context);
+    },
     toggleMutex() {
       this.mutex = !this.mutex;
     },

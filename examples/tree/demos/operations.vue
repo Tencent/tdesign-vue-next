@@ -15,7 +15,7 @@
     </div>
     <div class="operations">
       <t-addon prepend="filter:">
-        <t-input v-model="filterText" @input="onInput"/>
+        <t-input v-model="filterText" @change="onInputChange"/>
       </t-addon>
     </div>
     <t-tree
@@ -27,6 +27,7 @@
       :expand-on-click-node="false"
       :label="getLabel"
       :expand-parent="expandParent"
+      :filter="filterByText"
       @expand="onExpand"
       @change="onChange"
       @active="onActive"
@@ -44,15 +45,16 @@
     <div class="operations">
       <t-button theme="primary" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
       <t-button theme="primary" @click="getAllItems">获取所有节点</t-button>
-      <t-button theme="primary" @click="getItems">获取高亮节点下的所有节点</t-button>
-      <t-button theme="primary" @click="getActived">获取所有高亮节点</t-button>
-      <t-button theme="primary" @click="getChecked">获取高亮节点下的选中节点</t-button>
-      <t-button theme="primary" @click="append">插入一个根节点</t-button>
-      <t-button theme="primary" @click="getParent">获取高亮节点的父节点</t-button>
-      <t-button theme="primary" @click="getParents">获取高亮节点的所有父节点</t-button>
-      <t-button theme="primary" @click="getIndex">获取高亮节点在子节点中的位置</t-button>
-      <t-button theme="primary" @click="setChecked">选中高亮节点</t-button>
-      <t-button theme="primary" @click="setExpanded">展开高亮节点</t-button>
+      <t-button theme="primary" @click="getActiveChildren">获取高亮节点的所有子节点</t-button>
+      <t-button theme="primary" @click="getAllActived">获取所有高亮节点</t-button>
+      <t-button theme="primary" @click="getActiveChecked">获取高亮节点下的选中节点</t-button>
+      <t-button theme="primary" @click="append()">插入一个根节点</t-button>
+      <t-button theme="primary" @click="getActiveParent">获取高亮节点的父节点</t-button>
+      <t-button theme="primary" @click="getActiveParents">获取高亮节点的所有父节点</t-button>
+      <t-button theme="primary" @click="getActiveIndex">获取高亮节点在子节点中的位置</t-button>
+      <t-button theme="primary" @click="setActiveChecked">选中高亮节点</t-button>
+      <t-button theme="primary" @click="setActiveExpanded">展开高亮节点</t-button>
+      <t-button theme="primary" @click="getActivePlainData">获取高亮节点与其子节点的数据</t-button>
     </div>
   </div>
 </template>
@@ -61,9 +63,15 @@
 export default {
   data() {
     return {
+      index: 2,
+      activeId: '',
+      activeIds: [],
+      expandIds: [],
+      checkedIds: [],
       useActived: false,
       expandParent: true,
       filterText: '',
+      filterByText: null,
       items: [{
         value: 'node1',
       }, {
@@ -84,7 +92,7 @@ export default {
     renderOperations(createElement, node) {
       return `value: ${node.value}`;
     },
-    getLabel(createElement, node) {
+    getLabelContent(node) {
       const pathNodes = node.getPath();
       let label = pathNodes
         .map(itemNode => (itemNode.getIndex() + 1))
@@ -92,129 +100,198 @@ export default {
       label = `${label} | value: ${node.value}`;
       return label;
     },
+    getLabel(createElement, node) {
+      const label = this.getLabelContent(node);
+      const { data } = node;
+      data.label = label;
+      return label;
+    },
+    setLabel(value) {
+      const { tree } = this.$refs;
+      const node = tree.getItem(value);
+      const label = this.getLabelContent(node);
+      const { data } = node;
+      data.label = label;
+    },
     getItem() {
       const { tree } = this.$refs;
       const node = tree.getItem('node1');
-      console.log('getItem:', node);
+      console.info('getItem:', node.label);
     },
     getAllItems() {
       const { tree } = this.$refs;
       const nodes = tree.getItems();
-      console.log('getItem:', nodes.map(node => node.value));
+      console.info('getAllItems:', nodes.map(node => node.value));
     },
-    getItems() {
-      const { tree } = this.$refs;
+    getActiveChildren() {
       const node = this.getActivedNode();
       let nodes = [];
       if (node) {
-        nodes = tree.getItems(node);
+        nodes = node.getChildren(true) || [];
       }
-      console.log('getItem:', nodes.map(node => node.value));
+      console.info('getActiveChildren:', nodes.map(node => node.value));
     },
-    getActived() {
-      const { tree } = this.$refs;
-      const nodes = tree.getActived();
-      console.log('getActived value:', nodes.map(node => node.value));
-      console.log('getActived:', nodes);
+    getAllActived() {
+      console.info('getActived value:', this.activeIds.slice(0));
     },
-    getChecked() {
+    getActiveChecked() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
-      const nodes = tree.getChecked(node);
-      console.log('getChecked:', nodes.map(node => node.value));
+      const nodes = tree.getItems(node.value);
+      console.info(
+        'getChecked:',
+        nodes
+          .filter(node => node.checked)
+          .map(node => node.value)
+      );
     },
     getActivedNode() {
       const { tree } = this.$refs;
-      const activedNodes = tree.getActived();
-      const [activeNode] = activedNodes;
+      const { activeId } = this;
+      const activeNode = tree.getItem(activeId);
       return activeNode;
     },
     getInsertItem() {
-      let item = {};
+      let item = null;
       if (this.useActived) {
         item = this.getActivedNode();
+      } else {
+        this.index += 1;
+        const value = `t${this.index}`;
+        item = {
+          value,
+        };
       }
       return item;
+    },
+    getPlainData(item) {
+      const root = item;
+      if (!root) return null;
+      const children = item.getChildren(true) || [];
+      const list = [root].concat(children);
+      const nodeMap = {};
+      const nodeList = list.map((item) => {
+        const node = {
+          walkData() {
+            const data = {
+              ...this.data,
+            };
+            const itemChildren = this.getChildren();
+            if (Array.isArray(itemChildren)) {
+              data.children = [];
+              itemChildren.forEach((childItem) => {
+                const childNode = nodeMap[childItem.value];
+                const childData = childNode.walkData();
+                data.children.push(childData);
+              });
+            }
+            return data;
+          },
+          ...item,
+        };
+        nodeMap[item.value] = node;
+        return node;
+      });
+      const [rootNode] = nodeList;
+      const data = rootNode.walkData();
+      return data;
     },
     append(node) {
       const { tree } = this.$refs;
       const item = this.getInsertItem();
-      if (!node) {
-        tree.append(item);
-      } else {
-        tree.append(node, item);
+      if (item) {
+        if (!node) {
+          tree.appendTo('', item);
+        } else {
+          tree.appendTo(node.value, item);
+        }
+        this.setLabel(item.value);
       }
     },
     insertBefore(node) {
       const { tree } = this.$refs;
       const item = this.getInsertItem();
-      console.log('insertBefore:', item);
-      tree.insertBefore(node, item);
+      if (item) {
+        tree.insertBefore(node.value, item);
+        this.setLabel(item.value);
+      }
     },
     insertAfter(node) {
       const { tree } = this.$refs;
       const item = this.getInsertItem();
-      tree.insertAfter(node, item);
+      if (item) {
+        tree.insertAfter(node.value, item);
+        this.setLabel(item.value);
+      };
     },
     setUseActived() {
       this.useActived = !this.useActived;
     },
-    getParent() {
+    getActiveParent() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
-      const parent = tree.getParent(node);
-      console.log('getParent', parent?.value);
+      const parent = tree.getParent(node.value);
+      console.info('getParent', parent?.value);
     },
-    getParents() {
+    getActiveParents() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
-      const parents = tree.getParents(node);
-      console.log('getParents', parents.map(node => node.value));
+      const parents = tree.getParents(node.value);
+      console.info('getParents', parents.map(node => node.value));
     },
-    setChecked() {
+    setActiveChecked() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
-      tree.setItem(node, {
+      tree.setItem(node?.value, {
         checked: true,
       });
     },
-    setExpanded() {
+    setActiveExpanded() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
-      tree.setItem(node, {
+      tree.setItem(node?.value, {
         expanded: true,
       });
     },
-    getIndex() {
+    getActiveIndex() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
-      const index = tree.getIndex(node);
-      console.log('getIndex', index);
+      const index = tree.getIndex(node.value);
+      console.info('getIndex', index);
+    },
+    getActivePlainData() {
+      const node = this.getActivedNode();
+      const data = this.getPlainData(node);
+      console.log('getActivePlainData', data);
+      return data;
     },
     remove(node) {
       const { tree } = this.$refs;
-      tree.remove(node);
+      tree.remove(node.value);
     },
     toggleExpandParent() {
       this.expandParent = !this.expandParent;
     },
     onChange(vals, state) {
-      console.log('on change:', vals, state);
+      console.info('on change:', vals, state);
+      this.checkedIds = vals;
     },
     onExpand(vals, state) {
-      console.log('on expand:', vals, state);
+      console.info('on expand:', vals, state);
+      this.expandIds = vals;
     },
     onActive(vals, state) {
-      console.log('on active:', vals, state);
+      console.info('on active:', vals, state);
+      this.activeIds = vals;
+      this.activeId = vals[0] || '';
     },
-    onInput(state) {
-      console.log('on input:', state);
-      const { tree } = this.$refs;
-      const filterFn = (node) => {
-        const rs = node.label.indexOf(this.filterText) >= 0;
+    onInputChange(state) {
+      console.info('on input:', state);
+      this.filterByText = (node) => {
+        const label = node?.data?.label || '';
+        const rs = label.indexOf(this.filterText) >= 0;
         return rs;
       };
-      tree.filterItems(filterFn);
     },
   },
 };

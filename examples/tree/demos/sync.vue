@@ -15,9 +15,9 @@
       activable
       :expand-on-click-node="false"
       :active-multiple="false"
-      :expanded.sync="expanded"
-      :actived.sync="actived"
-      :value.sync="checked"
+      v-model:expanded="expanded"
+      v-model:actived="actived"
+      v-model:value="checked"
       :value-mode="valueMode"
     />
   </div>
