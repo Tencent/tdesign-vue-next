@@ -12,6 +12,8 @@ const name = `${prefix}-alert`;
 
 export default defineComponent({
   name,
+  props: { ...props },
+  emits: ['close', 'closed'],
   data() {
     return {
       // 是否可见，关闭后置为false
@@ -19,24 +21,6 @@ export default defineComponent({
       // 是否已收起，使用折叠功能时有效，用于表示是否已折叠；默认折叠
       collapsed: true,
     };
-  },
-  props: { ...props },
-  emits: ['close', 'closed'],
-  render() {
-    const _class = [
-      `${name}`,
-      `${name}--${this.theme}`,
-      {
-        [`${prefix}-is-hidden`]: !this.visible,
-      },
-    ];
-    return (
-      <div class={_class}>
-        { this.renderIcon()}
-        { this.renderContent()}
-        { this.renderClose()}
-      </div>
-    );
   },
   mounted() {
     on(this.$el, 'transitionend', this.handleCloseEnd);
@@ -149,5 +133,21 @@ export default defineComponent({
         this.$emit('closed', { e });
       }
     },
+  },
+  render() {
+    const _class = [
+      `${name}`,
+      `${name}--${this.theme}`,
+      {
+        [`${prefix}-is-hidden`]: !this.visible,
+      },
+    ];
+    return (
+      <div class={_class}>
+        { this.renderIcon()}
+        { this.renderContent()}
+        { this.renderClose()}
+      </div>
+    );
   },
 });
