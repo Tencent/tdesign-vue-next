@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconLoading from '../icon/loading';
@@ -35,7 +35,7 @@ export default defineComponent({
     },
   },
   render() {
-    let buttonContent: JsxNode = this.renderContent();
+    let buttonContent: VNodeChild = this.renderContent();
     let icon: JsxNode;
 
     if (this.loading) {

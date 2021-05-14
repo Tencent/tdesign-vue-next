@@ -23,7 +23,7 @@
  * msg.then(instance => instance.close())
  *
  */
-import { App, createApp, nextTick } from 'vue';
+import { App, createApp, nextTick, Plugin, VNodeChild } from 'vue';
 import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
 import {
@@ -41,7 +41,7 @@ import {
 } from '@TdTypes/message/TdMessageProps';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
-const instanceMap: Map<AttachNodeReturnValue, object> = new Map();
+const instanceMap: Map<VNodeChild, object> = new Map();
 
 function handleParams(params: MessageOptions): MessageOptions {
   const options: MessageOptions = {
@@ -64,13 +64,13 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
   }
   const _p = instanceMap.get(attachDom)[placement];
   if (!_p) {
-    let wrapper = document.createElement('div');
-    
-    let instance = createApp(MessageList, {
+    const wrapper = document.createElement('div');
+
+    const instance = createApp(MessageList, {
       zIndex: options.zIndex,
       placement: options.placement,
     }).mount(wrapper);
-    
+
     instance.add(options);
     instanceMap.get(attachDom)[placement] = instance;
     attachDom.appendChild(wrapper);
@@ -99,15 +99,19 @@ const showThemeMessage: MessageMethod = (theme, params, duration) => {
 };
 
 interface ExtraApi {
-  info: MessageInfoMethod;
-  success: MessageSuccessMethod;
-  warning: MessageWarningMethod;
-  error: MessageErrorMethod;
-  question: MessageQuestionMethod;
-  loading: MessageLoadingMethod;
-  close: MessageCloseMethod;
-  closeAll: MessageCloseAllMethod;
+  info?: MessageInfoMethod;
+  success?: MessageSuccessMethod;
+  warning?: MessageWarningMethod;
+  error?: MessageErrorMethod;
+  question?: MessageQuestionMethod;
+  loading?: MessageLoadingMethod;
+  close?: MessageCloseMethod;
+  closeAll?: MessageCloseAllMethod;
 };
+
+interface TdMessagePlugin extends ExtraApi {
+  install?: Plugin;
+}
 
 const extraApi: ExtraApi = {
   info: (params, duration) => showThemeMessage('info', params, duration),
@@ -131,7 +135,8 @@ const extraApi: ExtraApi = {
   },
 };
 
-const MessagePlugin = {
+const MessagePlugin: TdMessagePlugin = {
+  /* eslint-disable no-param-reassign */
   install: (app: App) => {
     app.config.globalProperties.$message = showThemeMessage;
     // 这样定义后，可以通过 this.$message 调用插件

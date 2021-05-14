@@ -15,6 +15,7 @@ function GetCSSValue(v: string | number) {
   return isNaN(Number(v)) ? v : `${Number(v)}px`;
 }
 
+
 // 注册元素的拖拽事件
 function InitDragEvent(dragBox: HTMLElement) {
   const target = dragBox;
@@ -89,7 +90,7 @@ export default defineComponent({
       return dialogClass;
     },
 
-    dialogStyle(): Styles {
+    dialogStyle(): Record<string, string | number> {
       const { top, placement } = this;
       let topStyle = {};
 

@@ -13,6 +13,12 @@ type tAnchor = {
   handleLinkClick(link: { href: string; title: string }, e: MouseEvent): void;
 };
 
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties  {
+    tAnchor: tAnchor;
+  }
+}
+
 export default defineComponent({
   name,
   inject: {
@@ -42,7 +48,7 @@ export default defineComponent({
   },
   methods: {
     register(): void {
-      this.tAnchor.registerLink(this.href);
+      this.tAnchor.registerLink(this.href as string);
     },
     unregister(): void {
       const { href } = this;

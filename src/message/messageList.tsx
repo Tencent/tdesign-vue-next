@@ -18,8 +18,14 @@ export const MessageList = defineComponent({
   name: `${prefix}-message-list`,
   components: { TMessage },
   props: {
-    zIndex: Number,
-    placement: String,
+    zIndex: {
+      type: Number,
+      default: 0,
+    },
+    placement: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -28,7 +34,7 @@ export const MessageList = defineComponent({
     };
   },
   computed: {
-    styles(): Styles {
+    styles(): Record<string, string|number> {
       return {
         ...PLACEMENT_OFFSET[this.placement],
         zIndex: this.zIndex !== DEFAULT_Z_INDEX ? this.zIndex : DEFAULT_Z_INDEX,
@@ -71,7 +77,7 @@ export const MessageList = defineComponent({
       if (el) {
         this.messageList.push(el);
       }
-    }
+    },
   },
   render() {
     if (!this.list.length) return;

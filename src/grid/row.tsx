@@ -13,20 +13,20 @@ export default defineComponent({
     RenderComponent,
   },
 
+  provide(): { rowContext: any } {
+    return {
+      rowContext: {
+        getGutter: this.getGutter,
+      },
+    };
+  },
+
   props: { ...props },
 
   data() {
     return {
       screenSize: '',
       respHanlerToken: -1,
-    };
-  },
-
-  provide(): { rowContext: any } {
-    return {
-      rowContext: {
-        getGutter: this.getGutter,
-      },
     };
   },
 

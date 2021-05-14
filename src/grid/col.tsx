@@ -12,9 +12,9 @@ export default defineComponent({
     RenderComponent,
   },
 
-  props: { ...props },
-
   inject: ['rowContext'],
+
+  props: { ...props },
 
   data() {
     return {};

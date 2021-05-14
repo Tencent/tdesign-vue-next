@@ -12,3 +12,5 @@ declare interface TVNode extends VNode {
 declare type TNodeReturnValue = SlotReturnValue;
 declare type TNode<T = any> = (h: Function, props?: T) => SlotReturnValue;
 declare type JsxNode = SlotReturnValue;
+
+declare type ClassName = { [className: string]: any } | ClassName[] | string;

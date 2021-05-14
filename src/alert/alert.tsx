@@ -41,7 +41,7 @@ export default defineComponent({
           success: IconSuccessFill,
           warning: IconWarningFill,
           error: IconWarningFill,
-        })[this.theme];
+        })[this.theme as string];
         iconContent = <component></component>;
       }
       return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
@@ -100,7 +100,7 @@ export default defineComponent({
       const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = this.maxLine > 0 && this.maxLine < contentLength;
       if (hasCollapse && this.collapsed) {
-        messageContent = (messageContent as Array<SlotReturnValue>).slice(0, this.maxLine);
+        messageContent = (messageContent as Array<SlotReturnValue>).slice(0, this.maxLine as number);
       }
 
       // 如果需要折叠，则元素之间补<br/>；否则不补

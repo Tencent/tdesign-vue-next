@@ -30,10 +30,10 @@ export default defineComponent({
   },
   render() {
     const {
-      tag: Tag,
       $slots: { default: children },
       id,
     } = this;
+    const Tag: any = this.tag;
     const className = [name];
     const iconClassName = `${prefix}-copy`;
     return (
