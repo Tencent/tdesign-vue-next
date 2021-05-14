@@ -4,7 +4,7 @@ import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
 import { on, off, getScroll, scrollTo, getSuperAttach } from '../utils/dom';
-import props from '../../types/anchor/props';
+import props from '@TdTypes/anchor/props';
 
 const name = `${prefix}-anchor`;
 

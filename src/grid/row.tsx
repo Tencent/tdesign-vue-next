@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import responsiveObserver from '../utils/responsive-observer';
-import props from '../../types/row/props';
+import props from '@TdTypes/row/props';
 
 const name = `${prefix}-row`;
 

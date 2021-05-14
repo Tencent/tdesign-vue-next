@@ -2,8 +2,8 @@ import { defineComponent, h } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconLoading from '../icon/loading';
-import { SwitchValue } from '../../types/switch/TdSwitchProps';
-import props from '../../types/switch/props';
+import { SwitchValue } from '@TdTypes/switch/TdSwitchProps';
+import props from '@TdTypes/switch/props';
 
 const name = `${prefix}-switch`;
 

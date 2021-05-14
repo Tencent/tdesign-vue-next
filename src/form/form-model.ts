@@ -4,7 +4,7 @@ import isEmail from 'validator/lib/isEmail';
 import isDate from 'validator/lib/isDate';
 import isURL from 'validator/lib/isURL';
 import isEmpty from 'lodash/isEmpty';
-import { ValueType, FormRule, CustomValidator, ErrorList } from '../../types/form/TdFormProps';
+import { ValueType, FormRule, CustomValidator, ErrorList } from '@TdTypes/form/TdFormProps';
 
 // `{} / [] / '' / undefined / null` 等内容被认为是空； 0 和 false 被认为是正常数据，部分数据的值就是 0 或者 false
 export function isValueEmpty(val: ValueType): boolean {
