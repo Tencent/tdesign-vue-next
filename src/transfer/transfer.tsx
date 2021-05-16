@@ -1,55 +1,7 @@
-<template>
-  <div
-    :class="[
-      't-transfer',
-      showSearch ? 't-transfer-search' : '',
-      hasFooter ? 't-transfer-footer' : '',
-      showPagination ? 't-transfer-pagination' : '',
-    ]"
-  >
-    <transfer-list
-      v-bind="$props"
-      :direction="SOURCE"
-      :title="getTitle(SOURCE)"
-      :data-source="sourceList"
-      :checked-value="sourceCheckedKeys"
-      :disabled="leftListDisabled"
-      :search="getSearchProp(SOURCE)"
-      :pagination="getPaginationObj(SOURCE)"
-      :check-all="getCheckAll(SOURCE)"
-      @checkedChange="handleSourceCheckedChange"
-      @scroll="scroll"
-    >
-    </transfer-list>
-    <transfer-operations
-      :left-disabled="leftListDisabled || leftButtonDisabled || sourceCheckedKeys.length === 0"
-      :right-disabled="rightListDisabled || rightButtonDisabled || targetCheckedKeys.length === 0"
-      :operations="operations"
-      @moveToRight="transferToRight"
-      @moveToLeft="transferToLeft"
-    />
-    <transfer-list
-      v-bind="$props"
-      :direction="TARGET"
-      :data-source="targetList"
-      :checked-value="targetCheckedKeys"
-      :disabled="rightListDisabled"
-      :title="getTitle(TARGET)"
-      :search="getSearchProp(TARGET)"
-      :pagination="getPaginationObj(TARGET)"
-      :check-all="getCheckAll(TARGET)"
-      @checkedChange="handleTargetCheckedChange"
-      @scroll="scroll"
-    >
-    </transfer-list>
-  </div>
-</template>
-
-<script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
-import TransferList from './transfer-list.vue';
+import TransferList from './transfer-list';
 import TransferOperations from './components/transfer-operations';
 import { TransferItem, TransferItemKey, TransferDirection, SearchProps } from './type/transfer';
 import { CommonProps } from './interface';
@@ -59,21 +11,16 @@ const name = `${prefix}-transfer`;
 const searchObj: SearchProps = { placeholder: '请输入搜索内容', clearable: true };
 const SOURCE = 'source';
 const TARGET = 'target';
-export default Vue.extend({
+export default defineComponent({
   name,
   components: {
     TransferList,
     TransferOperations,
   },
-  model: {
-    prop: 'targetValue',
-    event: 'change',
-  },
-
   props: {
     ...CommonProps,
   },
-
+  emits: ['checkChange', 'scroll', 'update:modelValue'],
   data() {
     return {
       name,
@@ -98,14 +45,14 @@ export default Vue.extend({
       return this.getDisabledValue(1);
     },
     sourceList(): Array<TransferItem> {
-      return this.filterMethod(this.data, this.targetValue, false);
+      return this.filterMethod(this.data, this.modelValue, false);
     },
     targetList(): Array<TransferItem> {
       if (this.targetOrder === 'original') {
-        return this.filterMethod(this.data, this.targetValue, true);
+        return this.filterMethod(this.data, this.modelValue, true);
       }
       const arr: Array<TransferItem> = [];
-      this.targetValue.forEach((key: string | number | symbol) => {
+      this.modelValue.forEach((key: string | number | symbol) => {
         const val = this.data[key] as TransferItem;
         if (val) {
           arr.push(val);
@@ -114,11 +61,11 @@ export default Vue.extend({
       return arr;
     },
     hasFooter(): boolean {
-      return !!this.$scopedSlots.footer || !!this.footer;
+      return !!this.$slots.footer || !!this.footer;
     },
     showPagination(): boolean {
       // 翻页在自定义列表无效
-      return !!this.pagination && !this.$scopedSlots.content;
+      return !!this.pagination && !this.$slots.content;
     },
     showSearch(): boolean {
       // 翻页在自定义列表无效
@@ -139,7 +86,7 @@ export default Vue.extend({
   },
   methods: {
     transferTo(toDirection: TransferDirection) {
-      let targetValue: Array<TransferItemKey> = JSON.parse(JSON.stringify(this.targetValue));
+      let targetValue: Array<TransferItemKey> = JSON.parse(JSON.stringify(this.modelValue));
       let sourceCheckedKeys = 'sourceCheckedKeys';
       if (toDirection === SOURCE) {
         sourceCheckedKeys = 'targetCheckedKeys';
@@ -162,7 +109,7 @@ export default Vue.extend({
         targetValue = targetValue.concat(moveKeys);
       }
       this.setCheckedKeys();
-      this.$emit('change', targetValue);
+      this.$emit('update:modelValue', targetValue);
     },
     // 点击移到右边按钮触发的函数
     transferToRight() {
@@ -187,9 +134,9 @@ export default Vue.extend({
       });
     },
     setCheckedKeys() {
-      const { curCheckedValue, targetValue } = this;
-      this.sourceCheckedKeys = this.filterMethod(curCheckedValue, targetValue, false);
-      this.targetCheckedKeys = this.filterMethod(curCheckedValue, targetValue, true);
+      const { curCheckedValue, modelValue } = this;
+      this.sourceCheckedKeys = this.filterMethod(curCheckedValue, modelValue, false);
+      this.targetCheckedKeys = this.filterMethod(curCheckedValue, modelValue, true);
     },
     setRowKey() {
       const { rowKey } = this;
@@ -271,5 +218,75 @@ export default Vue.extend({
       this.$emit('scroll', e, bottomDistance);
     },
   },
+  render(): JsxNode {
+    const {
+      showSearch,
+      hasFooter,
+      showPagination,
+      getTitle,
+      sourceList,
+      sourceCheckedKeys,
+      leftListDisabled,
+      getSearchProp,
+      getPaginationObj,
+      getCheckAll,
+      handleSourceCheckedChange,
+      leftButtonDisabled,
+      targetCheckedKeys,
+      rightButtonDisabled,
+      operations,
+      rightListDisabled,
+      transferToRight,
+      transferToLeft,
+      targetList,
+      handleTargetCheckedChange,
+      $props
+    } = this;
+    return (
+      <div
+        class={[
+          't-transfer',
+          showSearch ? 't-transfer-search' : '',
+          hasFooter ? 't-transfer-footer' : '',
+          showPagination ? 't-transfer-pagination' : '',
+        ]}
+      >
+        <transfer-list
+          {...$props}
+          direction={SOURCE}
+          title={getTitle(SOURCE)}
+          data-source={sourceList}
+          checked-value={sourceCheckedKeys}
+          disabled={leftListDisabled}
+          search={getSearchProp(SOURCE)}
+          pagination={getPaginationObj(SOURCE)}
+          check-all={getCheckAll(SOURCE)}
+          onCheckedChange={handleSourceCheckedChange}
+          onScroll={scroll}
+        >
+        </transfer-list>
+        <transfer-operations
+          left-disabled={leftListDisabled || leftButtonDisabled || sourceCheckedKeys.length === 0}
+          right-disabled={rightListDisabled || rightButtonDisabled || targetCheckedKeys.length === 0}
+          operations={operations}
+          onMoveToRight={transferToRight}
+          onMoveToLeft={transferToLeft}
+        />
+        <transfer-list
+          {...$props}
+          direction={TARGET}
+          data-source={targetList}
+          checked-value={targetCheckedKeys}
+          disabled={rightListDisabled}
+          title={getTitle(TARGET)}
+          search={getSearchProp(TARGET)}
+          pagination={getPaginationObj(TARGET)}
+          check-all={getCheckAll(TARGET)}
+          onCheckedChange={handleTargetCheckedChange}
+          onScroll={scroll}
+        >
+        </transfer-list>
+      </div>
+    )
+  }
 });
-</script>

@@ -7,7 +7,7 @@ export const CommonProps = {
     },
   },
   // 目标列索引集合，数组，每项为数据的key值，transfer会把这些可以的数据筛选到右边
-  targetValue: {
+  modelValue: {
     type: Array,
     default(): Array<TransferItemKey> {
       return [];

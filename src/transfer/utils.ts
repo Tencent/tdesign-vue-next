@@ -1,6 +1,6 @@
-import Vue from 'vue';
+import { ComponentPublicInstance } from 'vue';
 
-function findTopNode(vm: Vue): Vue {
+function findTopNode(vm: ComponentPublicInstance): ComponentPublicInstance {
   // 找到t-transfer这层父节点
   if (vm.$options.name === 't-transfer') {
     return vm;

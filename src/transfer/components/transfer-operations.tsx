@@ -1,9 +1,9 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import TButton from '../../button';
 import { prefix } from '../../config';
 
 const name = `${prefix}-transfer-operations`;
-export default Vue.extend({
+export default defineComponent({
   name,
   props: {
     // 控制左按钮的禁用与否
@@ -62,7 +62,7 @@ export default Vue.extend({
       return renderButtonContent;
     },
   },
-  render() {
+  render(): JsxNode {
     const { leftDisabled, rightDisabled } = this.$props;
     return (
       <div class={name}>
