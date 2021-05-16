@@ -18,6 +18,7 @@ export default defineComponent({
     },
     operations: [String, Array, Function],
   },
+  emits: ['moveToRight', 'moveToLeft'],
   methods: {
     moveToRight() {
       this.$emit('moveToRight');
