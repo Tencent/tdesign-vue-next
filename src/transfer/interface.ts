@@ -1,4 +1,5 @@
 import { TransferItems, TransferItemKey } from './type/transfer';
+import { PropType } from 'vue';
 export const CommonProps = {
   data: {
     type: Array,
@@ -26,7 +27,7 @@ export const CommonProps = {
   },
   // todo 没看到API定义的类型
   search: {
-    type: [Boolean, Object, Array],
+    type: [Boolean, Object, Array] as PropType<object | boolean | Array<boolean|object>>,
     default: false,
   },
   titles: {
