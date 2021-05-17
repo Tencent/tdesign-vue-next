@@ -65,7 +65,7 @@ export default defineComponent({
   },
 
   computed: {
-    classes(): Array<string|object> {
+    classes(): ClassName {
       return [
         `${name}`,
         {
@@ -81,7 +81,7 @@ export default defineComponent({
       const { popupObject } = this;
       return `${popupObject.overlayClassName} ${name}-dropdown narrow-scrollbar`;
     },
-    arrowClass(): Array<string|object> {
+    arrowClass(): ClassName {
       const { visible } = this;
       return [
         `${name}-right-icon`,
@@ -90,7 +90,7 @@ export default defineComponent({
         },
       ];
     },
-    tipsClass(): Array<string|object> {
+    tipsClass(): ClassName {
       return [
         `${name}-loading-tips`,
         {
@@ -98,7 +98,7 @@ export default defineComponent({
         },
       ];
     },
-    emptyClass(): Array<string|object> {
+    emptyClass(): ClassName {
       return [
         `${name}-empty`,
         {

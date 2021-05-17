@@ -1,9 +1,9 @@
-import { defineComponent, VNode, nextTick, h } from 'vue';
+import { defineComponent, VNode, nextTick, h, inject } from 'vue';
 import { prefix } from '../config';
 import { validate } from './form-model';
 import { ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType } from '@TdTypes/form/TdFormProps';
 import props from '@TdTypes/form-item/props';
-import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
+import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX, TdForm } from './const';
 import Form from './form';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
@@ -24,13 +24,14 @@ const name = `${prefix}-form-item`;
 export default defineComponent({
   name,
 
-  inject: {
-    tdForm: {
-      from: 'td-form',
-    },
-  },
-
   props: { ...props },
+
+  setup() {
+    const tdForm: TdForm = inject('td-form');
+    return {
+      tdForm,
+    };
+  },
 
   data() {
     return {

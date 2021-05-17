@@ -1,8 +1,9 @@
-import { defineComponent } from 'vue';
+import { defineComponent, inject } from 'vue';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from '@TdTypes/option-group/props';
+import type { TdSelect } from './instance';
 
 const name = `${prefix}-option-group`;
 // interface Select extends Vue {
@@ -17,8 +18,15 @@ export default defineComponent({
     tSelect: { default: undefined },
   },
   props: { ...props },
+  setup() {
+    const tSelect: TdSelect = inject('tSelect');
+
+    return {
+      tSelect,
+    };
+  },
   computed: {
-    classes(): Array<string|object> {
+    classes(): ClassName {
       return [
         name,
         {
