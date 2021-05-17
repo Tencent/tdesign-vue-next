@@ -29,12 +29,12 @@ export interface TypeEventState extends TypeTreeEventState {
   mouseEvent?: MouseEvent;
   event?: Event;
   path?: TreeNode[];
-};
+}
 
 export interface TypeContext {
   node?: TypeTreeNodeModel;
   e?: MouseEvent;
-};
+}
 
 export interface TypeMark {
   name: string;
@@ -49,7 +49,7 @@ export interface TypeLineModel {
   left: boolean;
 }
 
-export interface TypeTreeInstance extends ComponentPublicInstance, TreeInstanceFunctions {};
+export interface TypeTreeInstance extends ComponentPublicInstance, TreeInstanceFunctions {}
 
 export interface TypeGetTNodeOption {
   node?: TreeNode;

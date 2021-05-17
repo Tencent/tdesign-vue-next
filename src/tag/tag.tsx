@@ -1,4 +1,4 @@
-import { defineComponent, h, VNode } from 'vue';
+import { defineComponent, h, VNodeChild } from 'vue';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import TIconClose from '../icon/close';
@@ -38,7 +38,7 @@ export default defineComponent({
         },
       ];
     },
-    tagStyle(): Styles {
+    tagStyle(): Record<string, string> {
       if (this.maxWidth) return { maxWidth: `${this.maxWidth}px` };
       return {};
     },
@@ -55,9 +55,9 @@ export default defineComponent({
     // 关闭按钮
     const closeIcon = this.closable ? <TIconClose onClick={this.handleClose} /> : '';
     // 标签内容
-    const tagContent: TNodeReturnValue = renderTNodeJSX(this, 'default') || renderTNodeJSX(this, 'content');;
+    const tagContent: TNodeReturnValue = renderTNodeJSX(this, 'default') || renderTNodeJSX(this, 'content');
     // 图标
-    let icon: VNode;
+    let icon: VNodeChild;
     if (typeof this.icon === 'function') {
       icon = this.icon(h);
     }
