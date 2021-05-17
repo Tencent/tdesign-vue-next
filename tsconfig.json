@@ -60,10 +60,10 @@
   },
   "include": [
     "./**/*.ts",
-    "./**/*.tsx"
+    "./**/*.tsx",
+    "node_modules/@tencent/tdesign-types/index.d.ts"
   ],
   "exclude": [
-    "node_modules",
     "tools",
     "common",
     "types",
@@ -71,6 +71,7 @@
     "src/calendar/**",
     "src/locale/**",
     "src/pagination/**",
+    "src/popconfirm/**",
     "src/table/**",
     "src/upload/**",
     "src/dropdown/**",
