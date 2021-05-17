@@ -30,6 +30,8 @@
     "no-confusing-arrow": 0,
     "func-style": 0,
     "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-require-imports": 0,
     "@typescript-eslint/no-var-requires": 0,
@@ -64,6 +66,12 @@
         "no-var-requires": 0,
         "no-console": 0,
         "no-unused-expressions": 0
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+          "no-undef": "off"
       }
     }
   ]
