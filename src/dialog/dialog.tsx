@@ -117,7 +117,7 @@ export default defineComponent({
       this.addKeyboardEvent(value);
     },
   },
-  beforeUmount() {
+  beforeUnmount() {
     this.disPreventScrollThrough(false);
     this.addKeyboardEvent(false);
   },
@@ -250,7 +250,7 @@ export default defineComponent({
       }
       return view && <div class={`${name}__body`}>{view}</div>;
     },
-    renderDefaultBtn(type: string, btnNode: string | Function | ButtonProps) {
+    renderDefaultBtn(type: string, btnNode: string | ((c: typeof h) => void) | ButtonProps) {
       if (!btnNode) return null;
       const r = {
         confirm: {
@@ -269,13 +269,13 @@ export default defineComponent({
       }
       if (typeof btnNode === 'object') {
         return (
-          <TButton variant={r.variant} onClick={r.onClick} {...{ props: btnNode }}>
+          <TButton variant={r.variant as ('base' | 'outline')} onClick={r.onClick} { ...btnNode }>
             {btnNode.content}
           </TButton>
         );
       }
       return (
-        <TButton variant={r.variant} onClick={r.onClick}>
+        <TButton variant={r.variant as ('base' | 'outline')} onClick={r.onClick}>
           {btnNode}
         </TButton>
       );
