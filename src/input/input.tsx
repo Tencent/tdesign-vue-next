@@ -1,4 +1,4 @@
-import { defineComponent, h, ref, computed } from 'vue';
+import { defineComponent, ref, computed, h } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
@@ -7,7 +7,7 @@ import props from '@TdTypes/input/props';
 
 const name = `${prefix}-input`;
 
-function getValidAttrs(obj: object): object {
+function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};
   Object.keys(obj).forEach((key) => {
     if (typeof obj[key] !== 'undefined') {
@@ -110,7 +110,7 @@ export default defineComponent({
   },
   methods: {
     renderIcon(
-      icon: string | Function | undefined,
+      icon: string | TNode | undefined,
       iconType: 'prefix-icon' | 'suffix-icon',
     ) {
       if (typeof icon === 'function') {

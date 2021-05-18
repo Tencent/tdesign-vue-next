@@ -150,10 +150,10 @@ export default defineComponent({
         placeholder: this.placeholder,
       };
     },
-    decreaseIcon() {
+    decreaseIcon(): VNode {
       return this.theme === 'column' ? <chevron-down size={this.size} /> : <remove size={this.size} />;
     },
-    increaseIcon() {
+    increaseIcon(): VNode {
       return this.theme === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
     },
     displayValue(): number | string {
