@@ -24,10 +24,6 @@ export default defineComponent({
     },
   },
 
-  computed: {},
-
-  watch: {},
-
   render() {
     const styles = this.width ? {
       height: this.width,

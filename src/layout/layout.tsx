@@ -17,12 +17,6 @@ export default defineComponent({
     return {};
   },
 
-  methods: {
-    renderContent() {
-      return this.$slots.default() ? this.$slots.default(null) : '';
-    },
-  },
-
   computed: {
     hasSider() {
       if (this.$slots && this.$slots.default()) {
@@ -39,8 +33,14 @@ export default defineComponent({
 
   watch: {},
 
+  methods: {
+    renderContent() {
+      return this.$slots.default() ? this.$slots.default(null) : '';
+    },
+  },
+
   render() {
-    const classes: Array<string|object> = [
+    const classes: ClassName = [
       name,
       {
         [`${name}-has-sider`]: this.hasSider,

@@ -23,10 +23,6 @@ export default defineComponent({
     },
   },
 
-  computed: {},
-
-  watch: {},
-
   render() {
     return (
       <main class="t-layout--content">
