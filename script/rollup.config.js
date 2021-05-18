@@ -90,7 +90,7 @@ const commonConfig = {
     input: [
       'src/**/**.ts',
       'src/**/**.tsx',
-      '!src/{addon,calendar,pagination,table,upload,dropdown,transfer,time-picker}/**',
+      '!src/{addon,calendar,locale,pagination,table,upload,dropdown,transfer,time-picker,utils}/**',
       '!src/dist.ts',
       '!src/**/*.d.ts',
       '!src/**/demos',

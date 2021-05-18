@@ -19,3 +19,8 @@ declare module '@vue/runtime-dom' {
   }
 }
 
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties { // todo
+    [x: string]: any;
+  }
+}

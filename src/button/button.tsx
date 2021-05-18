@@ -36,7 +36,7 @@ export default defineComponent({
   },
   render() {
     let buttonContent: VNodeChild = this.renderContent();
-    let icon: JsxNode;
+    let icon: VNodeChild;
 
     if (this.loading) {
       icon = <TIconLoading/>;

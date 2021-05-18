@@ -23,7 +23,7 @@
  * msg.then(instance => instance.close())
  *
  */
-import { App, createApp, nextTick, Plugin, VNodeChild } from 'vue';
+import { App, createApp, nextTick, Plugin, ComponentPublicInstance } from 'vue';
 import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
 import {
@@ -41,7 +41,7 @@ import {
 } from '@TdTypes/message/TdMessageProps';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
-const instanceMap: Map<VNodeChild, object> = new Map();
+const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance>> = new Map();
 
 function handleParams(params: MessageOptions): MessageOptions {
   const options: MessageOptions = {
@@ -107,7 +107,7 @@ interface ExtraApi {
   loading?: MessageLoadingMethod;
   close?: MessageCloseMethod;
   closeAll?: MessageCloseAllMethod;
-};
+}
 
 interface TdMessagePlugin extends ExtraApi {
   install?: Plugin;

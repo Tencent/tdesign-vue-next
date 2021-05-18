@@ -60,7 +60,7 @@ export const MessageList = defineComponent({
       if (!val) return;
       return isNaN(Number(val)) ? val : `${val}px`;
     },
-    msgStyles(item: { offset: object }) {
+    msgStyles(item: { offset: Array<string|number> }) {
       return item.offset && {
         position: 'relative',
         left: this.getOffset(item.offset[0]),
