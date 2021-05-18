@@ -5,7 +5,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-badge`;
 
-export default defineComponent({
+export default Vue.extend({
   name,
 
   props: { ...props },
@@ -46,7 +46,7 @@ export default defineComponent({
 
     const content = this.getContent();
     const isHidden = this.isHidden();
-    const children = this.$slots.default ? this.$slots.default(null) : '';
+    const children = this.$slots.default;
     const { xOffset, yOffset } = this.getOffset();
     const badgeClassNames = [
       {
@@ -65,9 +65,12 @@ export default defineComponent({
     return (
       <div class={name}>
         {children ? children : null}
-        {isHidden ? null : <sup class={badgeClassNames} style={inlineStyle }>{content}</sup>}
+        {isHidden ? null : (
+          <sup class={badgeClassNames} style={inlineStyle}>
+            {content}
+          </sup>
+        )}
       </div>
     );
   },
-
 });

@@ -1,22 +1,29 @@
 <template>
   <div>
     <t-badge :count="2" >
-      <t-button>按钮</t-button>
+      <div class="badge-block"></div>
     </t-badge>
     <t-badge :count="0" show-zero>
-      <t-button>按钮</t-button>
+      <div class="badge-block"></div>
     </t-badge>
     <t-badge :count="100">
-      <t-button>按钮</t-button>
-    </t-badge>
-    <t-badge :count="100" content="文字">
-      <t-button>按钮</t-button>
+      <div class="badge-block"></div>
     </t-badge>
   </div>
 </template>
 
 <style>
-.t-badge + .t-badge {
+
+.badge-block {
+  width: 40px;
+  height: 40px;
+  background: #EEEEEE;
+  border: 1px solid #DCDCDC;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.badge-block + .badge-block {
   margin-left: 16px;
 }
 </style>
