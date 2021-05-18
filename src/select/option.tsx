@@ -69,8 +69,8 @@ export default defineComponent({
           || (!isFunction(this.tSelect.filter) && this.label.toString().toLowerCase()
             .indexOf(this.tSelect.searchInput.toLowerCase()) > -1));
     },
-    labelText(): string | number {
-      return this.label || this.value;
+    labelText(): string {
+      return this.label || this.value.toString();
     },
     selected(): boolean {
       let flag = false;
