@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/divider/props';
 

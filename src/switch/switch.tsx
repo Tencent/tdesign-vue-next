@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconLoading from '../icon/loading';
@@ -53,7 +53,7 @@ export default defineComponent({
       }
       return false;
     },
-    content(): TNodeReturnValue {
+    content(): VNodeChild {
       if (typeof this.label === 'function') {
         return this.label(h, { value: this.value });
       }
@@ -108,7 +108,7 @@ export default defineComponent({
       toggle,
       contentClasses } = this;
 
-    let switchContent: TNodeReturnValue;
+    let switchContent: VNodeChild;
     let loadingContent;
 
     if (loading) {

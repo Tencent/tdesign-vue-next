@@ -29,9 +29,9 @@ export const CLASS_NAMES = {
 export interface TdForm {
   addField(field: TdFormField): void;
   removeField(field: TdFormField): void;
-};
+}
 
 export interface TdFormField {
   validate(): void;
   resetField(): void;
-};
+}

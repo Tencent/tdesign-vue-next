@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, VNodeChild, h } from 'vue';
 import Icon from '../icon';
 import Button from '../button';
 import Popup from '../popup/index';
@@ -11,7 +11,18 @@ const popupName = `${prefix}-popup`;
 
 export default defineComponent({
   name,
-  props,
+  props: {
+    ...props,
+    cancelText: {
+      type: [String, Function],
+      default: '取消',
+    },
+    confirmText: {
+      type: [String, Function],
+      default: '确定',
+    },
+  },
+  emits: ['close', 'cancel', 'confirm', 'visibleChange'],
   data() {
     return {
       name,
@@ -33,7 +44,7 @@ export default defineComponent({
         case 'warning':    // 黄色
           color = '#FFAA00';
           break;
-        case 'error':
+        case 'danger':
           color = '#FF3E00';   // 红色
           break;
         default:
@@ -58,32 +69,32 @@ export default defineComponent({
       (this.$refs.popup as any).doClose();
       this.$emit('visibleChange', visible, event);
     },
-    renderIcon(): JsxNode {
+    renderIcon(): VNodeChild {
       // 优先级 slot > Funtion > string
       if (this.$slots.icon) {
-        return this.$slots.icon;
+        return this.$slots.icon();
       }
       const arg = this.icon;
       if (typeof arg === 'function') {
-        return arg();
+        return arg(h);
       }
       const iconName = arg || this.iconName;
       return iconName ? <Icon name={iconName} style={this.iconColor} /> : '';
     },
-    renderContent(): JsxNode {
+    renderContent(): VNodeChild {
       // 优先级 slot > Function > string
       if (this.$slots.content) {
         return this.$slots.content();
       }
       const node = this.content || '确定删除吗？';
       if (typeof node === 'function') {
-        return (node as Function)();
+        return node(h);
       }
       return <div>{node}</div>;
     },
-    renderCancel(): JsxNode {
+    renderCancel(): VNodeChild {
       if (this.$slots.cancelText) {
-        return this.$slots.cancelText;
+        return this.$slots.cancelText();
       }
       if (typeof this.cancelText === 'function') {
         return this.cancelText();
@@ -98,10 +109,10 @@ export default defineComponent({
     },
     renderConfirm(): JsxNode {
       if (this.$slots.confirmText) {
-        return this.$slots.confirmText;
+        return this.$slots.confirmText();
       }
       if (typeof this.confirmText === 'function') {
-        return this.confirmBtn();
+        return this.confirmText();
       }
       return (
         <Button size='small'
@@ -113,7 +124,7 @@ export default defineComponent({
     },
   },
   render() {
-    const trigger: VNode[] | VNode | string = this.$slots.default?this.$slots.default() :null;
+    const trigger: VNode[] | VNode | string = this.$slots.default ? this.$slots.default() : null;
     const popupProps = {
       props: {
         showArrow: true,
@@ -130,8 +141,8 @@ export default defineComponent({
       //   ...this.$attrs,
       // },
     };
-    const slots={
-      content:()=>(
+    const slots = {
+      content: () => (
         <div class={`${name}__content`}>
           <div class={`${name}__body`}>
             {this.renderIcon()}
@@ -144,8 +155,8 @@ export default defineComponent({
             {this.renderConfirm()}
           </div>
         </div>
-      )
-    }
+      ),
+    };
     return (
       <div>
         <Popup ref={popupProps.ref} {...popupProps.props} v-slots={slots}>

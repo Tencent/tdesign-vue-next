@@ -8,7 +8,7 @@ import { RadioGroupInstance, RadioButtonInstance } from './instance-types';
 const name = `${prefix}-radio`;
 export const radioBtnName = `${prefix}-radio-button`;
 
-function getValidAttrs(obj: object): object {
+function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};
   Object.keys(obj).forEach((key) => {
     if (typeof obj[key] !== 'undefined') {
