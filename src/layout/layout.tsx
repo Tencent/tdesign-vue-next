@@ -19,13 +19,12 @@ export default defineComponent({
 
   computed: {
     hasSider() {
-      if (this.$slots && this.$slots.default()) {
-        const defaultSlot = (this.$slots as any).default();
-        const containSider = defaultSlot.some((vnode: any) => {
-          const tag = vnode.componentOptions && vnode.componentOptions.tag;
+      if (this.$slots && this.$slots.default) {
+        const defaultSlot = this.$slots.default();
+        return defaultSlot.some((vnode: any) => {
+          const tag = vnode.type && vnode.type.name;
           return tag === `${prefix}-aside`;
-        }) as boolean;
-        return containSider;
+        });
       }
       return false;
     },
