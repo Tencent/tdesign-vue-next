@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import responsiveObserver from '../utils/responsive-observer';
-import props from '../../types/row/props';
+import props from '@TdTypes/row/props';
 
 const name = `${prefix}-row`;
 
@@ -13,20 +13,20 @@ export default defineComponent({
     RenderComponent,
   },
 
+  provide(): { rowContext: any } {
+    return {
+      rowContext: {
+        getGutter: this.getGutter,
+      },
+    };
+  },
+
   props: { ...props },
 
   data() {
     return {
       screenSize: '',
       respHanlerToken: -1,
-    };
-  },
-
-  provide(): { rowContext: any } {
-    return {
-      rowContext: {
-        getGutter: this.getGutter,
-      },
     };
   },
 

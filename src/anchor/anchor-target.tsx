@@ -3,7 +3,7 @@ import { prefix } from '../config';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import TIconFileCopy from '../icon/file-copy';
-import props from '../../types/anchor-target/props';
+import props from '@TdTypes/anchor-target/props';
 
 const name = `${prefix}-anchor-target`;
 export default defineComponent({
@@ -30,10 +30,10 @@ export default defineComponent({
   },
   render() {
     const {
-      tag: Tag,
       $slots: { default: children },
       id,
     } = this;
+    const Tag: any = this.tag;
     const className = [name];
     const iconClassName = `${prefix}-copy`;
     return (

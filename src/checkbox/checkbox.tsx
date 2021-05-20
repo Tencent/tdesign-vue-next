@@ -64,7 +64,7 @@ export default defineComponent({
         i = i + 1;
         if (i >= 2) {
           break;
-        };
+        }
       }
       return parent;
     },

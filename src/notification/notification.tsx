@@ -1,4 +1,4 @@
-import { defineComponent, h, VNode } from 'vue';
+import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
@@ -49,7 +49,7 @@ export default defineComponent({
       if (typeof closeBtn === 'boolean') {
         return closeBtn && <t-icon-close onClick={this.close} class='t-message-close' />;
       }
-      let close: TNodeReturnValue = null;
+      let close: VNodeChild = null;
       if (typeof closeBtn === 'function') {
         close = closeBtn(h);
       } else if (typeof closeBtn === 'string') {
@@ -73,17 +73,17 @@ export default defineComponent({
           content = this.content ? (<div class={`${name}__content`}>{this.content}</div>) : '';
           break;
         }
-      };
+      }
       content = this.$slots.default ? <div class={`${name}__content`}>{this.$slots.default(null)}</div> : content;
 
       return content;
     },
     renderFooter() {
-      let footer: VNode[] | VNode | string = '';
+      let footer: VNodeChild;
 
-      if (this.footer) {
-        footer = (this.footer as Function)(h);
-      };
+      if (typeof this.footer === 'function') {
+        footer = this.footer(h);
+      }
       footer = this.$slots.footer ? this.$slots.footer(null) : footer;
 
       return footer;

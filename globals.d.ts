@@ -10,5 +10,5 @@ declare interface TVNode extends VNode {
   name: string;
 }
 declare type TNodeReturnValue = SlotReturnValue;
-declare type TNode<T = any> = (h: Function, props?: T) => SlotReturnValue;
+declare type TNode<T=any> = (h: typeof import('vue').h, props?: T) => import('vue').VNodeChild;
 declare type JsxNode = SlotReturnValue;

@@ -1,70 +1,66 @@
-import { Component, defineComponent, PropType, getCurrentInstance, onMounted, onUpdated, ref, Fragment, ComponentInternalInstance, computed } from 'vue';
+import { Component, defineComponent, getCurrentInstance, onMounted, onUpdated, ref, Fragment, ComponentInternalInstance } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import TTabNav from './tab-nav.vue';
 import TTabPanel from './tab-panel';
-import { TabValue, TdTabsProps } from '@TdTypes/tabs/TdTabsProps';
+import { TabValue } from '@TdTypes/tabs/TdTabsProps';
 import props from '@TdTypes/tabs/props';
 
 const name = `${prefix}-tabs`;
 
 export default defineComponent({
   name,
-  emits: ['change', 'add', 'remove', 'update:value'],
-
   components: {
     RenderComponent,
     TTabPanel,
     TTabNav,
   },
-
-  props: { 
-    ...props 
+  props: {
+    ...props,
   },
+  emits: ['change', 'add', 'remove', 'update:value'],
 
-  setup(props, { slots }){
+  setup(props, { slots }) {
     const panels = ref([]);
     const instance = getCurrentInstance();
 
     const getPaneInstanceFromSlot = (vnode: VNode, panelInstanceList: ComponentInternalInstance[] = []) => {
-
-      Array.from((vnode.children || []) as ArrayLike<VNode>).forEach(node => {
-        let type = node.type
-        type = (type as Component).name || type
+      Array.from((vnode.children || []) as ArrayLike<VNode>).forEach((node) => {
+        let { type } = node;
+        type = (type as Component).name || type;
         if (type === `${prefix}-tab-panel` && node.component) {
-          panelInstanceList.push(node.component)
-        } else if(type === Fragment || type === 'template') {
-          getPaneInstanceFromSlot(node, panelInstanceList)
+          panelInstanceList.push(node.component);
+        } else if (type === Fragment || type === 'template') {
+          getPaneInstanceFromSlot(node, panelInstanceList);
         }
-      })
-      return panelInstanceList
-    }
+      });
+      return panelInstanceList;
+    };
     const setPanelInstances = () => {
       if (slots.default) {
-        const children = instance.subTree.children[0].children;
-        const content = Array.from(children as ArrayLike<VNode>).find(({ props }) => {
-          return props.class === `${prefix}-tabs__content`
-        })
+        // eslint-disable-next-line prefer-destructuring
+        const { children } = instance.subTree.children[0];
+        const content = Array.from(children as ArrayLike<VNode>).find(({ props }) => props.class === `${prefix}-tabs__content`);
         if (!content) return;
         const panelInstanceList = getPaneInstanceFromSlot(content);
-        const isChanged = !(panelInstanceList.length === panels.value.length && panelInstanceList.every((panel, index) => panel.uid === panels.value[index].uid))
+        const isChanged = !(panelInstanceList.length === panels.value.length && panelInstanceList.every((panel, index) => panel.uid === panels.value[index].uid));
         if (isChanged) {
           panels.value = panelInstanceList;
         }
       }
-    }
+    };
 
     onMounted(() => {
       setPanelInstances();
-    })
+    });
 
     onUpdated(() => {
       setPanelInstances();
-    })
+    });
 
     return {
       panels,
-    }
+    };
   },
 
   methods: {

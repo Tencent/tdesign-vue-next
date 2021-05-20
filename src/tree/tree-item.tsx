@@ -126,7 +126,7 @@ export default defineComponent({
           node,
         });
       }
-      if (!node.vmIsLeaf && node.loading && node.expanded && icon !== false) {
+      if (node && !node.vmIsLeaf && node.loading && node.expanded && icon !== false) {
         iconNode = (<TIconLoading/>);
       }
 
@@ -157,7 +157,7 @@ export default defineComponent({
         CLASS_NAMES.treeLabelStrictly,
       ];
 
-      if (node.vmCheckable) {
+      if (node && node.vmCheckable) {
         labelNode = (
           <TCheckBox
             class={labelClasses}

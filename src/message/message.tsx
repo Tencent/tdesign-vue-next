@@ -35,16 +35,16 @@ export default defineComponent({
   },
 
   computed: {
-    classes(): ClassName {
+    classes(): Array<any> {
       const status = {};
       THEME_LIST.forEach((t) => {
-        status[`t-is-${t}`] = this.theme === t;
+        status[`${prefix}-is-${t}`] = this.theme === t;
       });
       return [
-        't-message',
+        name,
         status,
         {
-          't-is-closable': this.closeBtn || this.$slots.closeBtn,
+          [`${prefix}-is-closable`]: this.closeBtn || this.$slots.closeBtn,
         },
       ];
     },
@@ -73,7 +73,7 @@ export default defineComponent({
     renderClose() {
       const defaultClose = <t-icon-close />;
       return (
-        <span class='t-message-close' onClick={this.close}>
+        <span class={`${name}-close`} onClick={this.close}>
           {renderTNodeJSX(this, 'closeBtn', defaultClose)}
         </span>
       );

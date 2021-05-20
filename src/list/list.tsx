@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/list/props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -11,12 +11,15 @@ const name = `${prefix}-list`;
 
 export default defineComponent({
   name,
+  components: {
+    TIconLoading,
+  },
   props: {
     ...props,
     asyncLoading: {
       type: [String, Number, Function] as PropType<TdListProps['asyncLoading']>,
       default: undefined,
-      validator(val: string | Function | number): boolean {
+      validator(val: string | (() => void) | number): boolean {
         if (typeof val === 'string') {
           return ['loading', 'loading-more'].includes(val);
         }
@@ -40,9 +43,6 @@ export default defineComponent({
     loadingClass(): ClassName {
       return typeof this.asyncLoading === 'string' ? `${name}__load ${name}__load--${this.asyncLoading}` : `${name}__load`;
     },
-  },
-  components: {
-    TIconLoading,
   },
   methods: {
     renderLoading() {
@@ -79,7 +79,7 @@ export default defineComponent({
         });
       }
     },
-    renderContent() {
+    renderContent(): VNodeChild {
       const propsHeaderContent = renderTNodeJSX(this, 'header');
       const propsFooterContent = renderTNodeJSX(this, 'footer');
 

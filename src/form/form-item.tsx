@@ -1,9 +1,9 @@
-import { defineComponent, VNode, nextTick, h } from 'vue';
+import { defineComponent, VNode, nextTick, h, inject, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import { validate } from './form-model';
 import { ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType } from '@TdTypes/form/TdFormProps';
 import props from '@TdTypes/form-item/props';
-import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
+import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX, TdForm } from './const';
 import Form from './form';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
@@ -24,13 +24,14 @@ const name = `${prefix}-form-item`;
 export default defineComponent({
   name,
 
-  inject: {
-    tdForm: {
-      from: 'td-form',
-    },
-  },
-
   props: { ...props },
+
+  setup() {
+    const tdForm: TdForm = inject('td-form');
+    return {
+      tdForm,
+    };
+  },
 
   data() {
     return {
@@ -144,7 +145,7 @@ export default defineComponent({
           });
       });
     },
-    getLabel(): TNodeReturnValue {
+    getLabel(): VNodeChild {
       if (typeof this.label === 'function') {
         return this.label(h);
       }
@@ -197,8 +198,8 @@ export default defineComponent({
       statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'],
       slotStatusIcon: ScopedSlot,
       props?: TdFormItemProps,
-    ): TNodeReturnValue {
-      const resultIcon = (otherContent?: TNodeReturnValue) => (
+    ): VNodeChild {
+      const resultIcon = (otherContent?: VNodeChild) => (
         <span class={CLASS_NAMES.status}>{otherContent}</span>
       );
       if (statusIcon === true) {
@@ -215,13 +216,13 @@ export default defineComponent({
       }
       return null;
     },
-    getSuffixIcon(): TNodeReturnValue {
+    getSuffixIcon(): VNodeChild {
       const parent = this.$parent as FormInstance;
       const { statusIcon } = this;
       const slotStatusIcon = this.$slots.statusIcon;
       const parentStatusIcon = parent.statusIcon;
       const parentSlotStatusIcon = parent.$slots.statusIcon;
-      let resultIcon: TNodeReturnValue = this.getIcon(statusIcon, slotStatusIcon);
+      let resultIcon: VNodeChild = this.getIcon(statusIcon, slotStatusIcon);
       if (resultIcon) return resultIcon;
       if (resultIcon === false) return;
       resultIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);

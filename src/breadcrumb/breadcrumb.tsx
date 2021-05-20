@@ -7,9 +7,6 @@ const name = `${prefix}-breadcrumb`;
 
 export default defineComponent({
   name,
-  props: {
-    ...props,
-  },
   components: {
     BreadcrumbItem,
   },
@@ -17,6 +14,9 @@ export default defineComponent({
     return {
       tBreadcrumb: this,
     };
+  },
+  props: {
+    ...props,
   },
 
   render() {

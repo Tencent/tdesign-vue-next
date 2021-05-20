@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import props from '@TdTypes/tab-panel/props';
 
@@ -16,7 +16,7 @@ export default defineComponent({
   },
 
   methods: {
-    getContent(): SlotReturnValue {
+    getContent(): VNodeChild {
       if (typeof this.default === 'function') {
         return this.default(h);
       }

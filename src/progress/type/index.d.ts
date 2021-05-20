@@ -1,10 +1,10 @@
 
-import { VNode } from 'vue/types/umd';
+import { VNode } from 'vue';
 
 export interface ProgressProps {
   theme?: string;
   percentage?: number;
-  label?: boolean |  (() => VNode) | TNode;
+  label?: boolean |  (() => VNode);
   status?: string;
   color?: string | any;
   trackColor?: string;

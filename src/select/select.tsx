@@ -16,7 +16,7 @@ import Option from './option';
 import { PopupProps } from '@Popup';
 
 import props from '@TdTypes/select/props';
-import { Options, SelectValue } from '@TdTypes/select/TdSelectProps';
+import { Options, SelectValue, KeysType } from '@TdTypes/select/TdSelectProps';
 
 // import { SelectInstance } from './instance';
 const name = `${prefix}-select`;
@@ -53,19 +53,19 @@ export default defineComponent({
         overlayStyle: {
           width: '',
         },
-      } as PopupProps,
+      },
       width: 0,
       options: [],
       focusing: false, // filterable时，输入框是否在focus中
       labelInValue: this.valueType === 'object',
-      realValue: this.keys && this.keys.value ? this.keys.value : 'value',
-      realLabel: this.keys && this.keys.label ? this.keys.label : 'label',
+      realValue: this.keys && (this.keys as KeysType).value ? (this.keys as KeysType).value : 'value',
+      realLabel: this.keys && (this.keys as KeysType).label ? (this.keys as KeysType).label : 'label',
       tmpOptions: [],
     };
   },
 
   computed: {
-    classes(): Array<string|object> {
+    classes(): ClassName {
       return [
         `${name}`,
         {
@@ -81,7 +81,7 @@ export default defineComponent({
       const { popupObject } = this;
       return `${popupObject.overlayClassName} ${name}-dropdown narrow-scrollbar`;
     },
-    arrowClass(): Array<string|object> {
+    arrowClass(): ClassName {
       const { visible } = this;
       return [
         `${name}-right-icon`,
@@ -90,7 +90,7 @@ export default defineComponent({
         },
       ];
     },
-    tipsClass(): Array<string|object> {
+    tipsClass(): ClassName {
       return [
         `${name}-loading-tips`,
         {
@@ -98,7 +98,7 @@ export default defineComponent({
         },
       ];
     },
-    emptyClass(): Array<string|object> {
+    emptyClass(): ClassName {
       return [
         `${name}-empty`,
         {
@@ -177,11 +177,11 @@ export default defineComponent({
       return [];
     },
     popupObject(): PopupProps {
-      const propsObject = this.popupProps ? Object.assign({}, this.defaultProps, this.popupProps) : this.defaultProps;
-      if ((!this.popupProps || !this.popupProps.overlayStyle || !this.popupProps.overlayStyle.width) && this.width) {
+      const propsObject = this.popupProps ? Object.assign(this.defaultProps, (this.popupProps as PopupProps)) : this.defaultProps;
+      if ((!this.popupProps || !(this.popupProps as PopupProps).overlayStyle || !(this.popupProps as PopupProps).overlayStyle.width) && this.width) {
         propsObject.overlayStyle.width = `${this.width}px`;
       }
-      return propsObject;
+      return propsObject as PopupProps;
     },
     displayOptions(): Array<Options> {
       if (isFunction(this.filter)) {

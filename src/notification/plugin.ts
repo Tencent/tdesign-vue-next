@@ -1,4 +1,4 @@
-import { App, Plugin, createApp, nextTick } from 'vue';
+import { App, Plugin, createApp, nextTick, ComponentPublicInstance } from 'vue';
 import NotificationList from './notificationList';
 import { getAttach } from '../utils/dom';
 import {
@@ -15,7 +15,7 @@ import {
 
 let seed = 0;
 // 存储不同 attach 和 不同 placement 消息列表实例
-const instanceMap: Map<AttachNodeReturnValue, object> = new Map();
+const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance>> = new Map();
 
 const NotificationFunction = (options: NotificationOptions): Promise<NotificationInstance> => {
   seed += 1;
@@ -69,7 +69,7 @@ interface ExtraApi {
   error: NotificationErrorMethod;
   close: NotificationCloseMethod;
   closeAll: NotificationCloseAllMethod;
-};
+}
 
 const extraApi: ExtraApi = {
   info: options => showThemeNotification('info', options),

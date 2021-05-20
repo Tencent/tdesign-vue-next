@@ -1,10 +1,11 @@
-import { defineComponent } from 'vue';
+import { defineComponent, inject } from 'vue';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from '@TdTypes/option/props';
+import type { TdSelect } from './instance';
 import { Options } from '@TdTypes/select/TdSelectProps';
 import Checkbox from '../checkbox/index';
 // import { SelectInstance } from './instance';
@@ -24,6 +25,13 @@ export default defineComponent({
     tSelect: { default: undefined },
   },
   props: { ...props },
+  setup() {
+    const tSelect: TdSelect = inject('tSelect');
+
+    return {
+      tSelect,
+    };
+  },
   data() {
     return {
       isHover: false,
@@ -42,7 +50,7 @@ export default defineComponent({
       }
       return false;
     },
-    classes(): Array<string|object> {
+    classes(): ClassName {
       return [
         `${prefix}-select-option`,
         {
@@ -61,8 +69,8 @@ export default defineComponent({
           || (!isFunction(this.tSelect.filter) && this.label.toString().toLowerCase()
             .indexOf(this.tSelect.searchInput.toLowerCase()) > -1));
     },
-    labelText(): string | number {
-      return this.label || this.value;
+    labelText(): string {
+      return this.label || this.value.toString();
     },
     selected(): boolean {
       let flag = false;

@@ -46,7 +46,7 @@ export function hasClass(el: Element, cls: string): any {
     return el.classList.contains(cls);
   }
   return (` ${el.className} `).indexOf(` ${cls} `) > -1;
-};
+}
 
 export function addClass(el: Element, cls: string): any {
   if (!el) return;
@@ -66,7 +66,7 @@ export function addClass(el: Element, cls: string): any {
   if (!el.classList) {
     el.className = curClass;
   }
-};
+}
 
 export function removeClass(el: Element, cls: string): any {
   if (!el || !cls) return;
@@ -86,9 +86,9 @@ export function removeClass(el: Element, cls: string): any {
   if (!el.classList) {
     el.className = trim(curClass);
   }
-};
+}
 
-export const getAttach = (attach: AttachNode = 'body') => {
+export const getAttach = (attach: AttachNode = 'body'): AttachNodeReturnValue => {
   let r;
   if (!attach) return document.querySelector('body');
   if (isString(attach)) {
@@ -102,7 +102,7 @@ export const getAttach = (attach: AttachNode = 'body') => {
   return r;
 };
 
-export const getSuperAttach = (attach: SuperAttachNode = 'body') => {
+export const getSuperAttach = (attach: SuperAttachNode = 'body'): AttachNodeReturnValue => {
   let r;
   const map = {
     window: Window,
@@ -164,7 +164,11 @@ interface ScrollTopOptions {
   easing?: EasingFunction;
 }
 
-export function scrollTo(target: number, opt: ScrollTopOptions) {
+declare type ScrollToResult<T = any> = T | {
+  default: T;
+};
+
+export function scrollTo(target: number, opt: ScrollTopOptions): Promise<ScrollToResult> {
   const { container = window, duration = 450, easing = easeInOutCubic } = opt;
   const scrollTop = getScroll(container);
   const startTime = Date.now();
@@ -205,7 +209,7 @@ function containerDom(parent: VNode | Element | Iterable<any> | ArrayLike<any>, 
   }
   return false;
 }
-export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, cb: Function): void => {
+export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, cb: (() => void)): void => {
   on(document, 'click', (event: { target: Element }) => {
     if (Array.isArray(els)) {
       const flag = Array.from(els).every(item => containerDom(item, event.target) === false);

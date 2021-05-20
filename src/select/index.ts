@@ -17,5 +17,4 @@ export type SelectProps = TdSelectProps;
 export type OptionProps = TdOptionProps;
 export type OptionGroupProps = TdOptionGroupProps;
 
-
 export { Select, OptionGroup, Option };

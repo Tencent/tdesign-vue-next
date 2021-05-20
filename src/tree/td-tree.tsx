@@ -317,8 +317,8 @@ export default defineComponent({
           onLoad: (info: TypeEventState) => {
             this.handleLoad(info);
           },
-          onUpdate: ({ nodes }) => {
-            nodes.forEach((node: TreeNode) => {
+          onUpdate: (data: { nodes: TreeNode[] }) => {
+            data.nodes.forEach((node: TreeNode) => {
               const target = this.nodesMap.get(node.value);
               if (target) {
                 Object.keys(target).forEach((key) => {

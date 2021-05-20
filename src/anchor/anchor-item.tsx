@@ -2,7 +2,7 @@ import { defineComponent, VNodeChild, h } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP } from './utils';
-import props from '../../types/anchor-item/props';
+import props from '@TdTypes/anchor-item/props';
 
 const name = `${prefix}-anchor-item`;
 type tAnchor = {
@@ -12,6 +12,12 @@ type tAnchor = {
   unregisterLink(href: string): void;
   handleLinkClick(link: { href: string; title: string }, e: MouseEvent): void;
 };
+
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties  {
+    tAnchor: tAnchor;
+  }
+}
 
 export default defineComponent({
   name,
@@ -42,7 +48,7 @@ export default defineComponent({
   },
   methods: {
     register(): void {
-      this.tAnchor.registerLink(this.href);
+      this.tAnchor.registerLink(this.href as string);
     },
     unregister(): void {
       const { href } = this;

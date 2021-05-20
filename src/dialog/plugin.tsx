@@ -16,16 +16,17 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   const component = defineComponent({
     data() {
       return {
-        dialogOptions: options,
+        dialogOptions: options as Record<string, any>,
       };
     },
     render() {
+      const onClose = options.onClose || function () {
+        visible.value = false;
+      };
       return h(DialogComponent, {
-        ...this.dialogOptions,
-        onClose: options.onClose || function () {
-          visible.value = false;
-        },
+        onClose,
         visible: visible.value,
+        ...this.dialogOptions,
       });
     },
   });
