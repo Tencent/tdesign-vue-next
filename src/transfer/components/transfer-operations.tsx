@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, VNodeChild } from 'vue';
 import tdButton from '../../button';
 import { prefix } from '../../config';
 
@@ -67,7 +67,7 @@ export default defineComponent({
       return renderButtonContent;
     },
   },
-  render(): JsxNode {
+  render(): VNodeChild {
     const { leftDisabled, rightDisabled } = this.$props;
     return (
       <div class={name}>

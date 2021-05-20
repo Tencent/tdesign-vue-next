@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, VNodeChild } from 'vue';
 import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
 import TransferList from './transfer-list';
@@ -218,7 +218,7 @@ export default defineComponent({
       this.$emit('scroll', e, bottomDistance);
     },
   },
-  render(): JsxNode {
+  render(): VNodeChild {
     const {
       showSearch,
       hasFooter,
@@ -240,7 +240,7 @@ export default defineComponent({
       transferToLeft,
       targetList,
       handleTargetCheckedChange,
-      $props
+      $props,
     } = this;
     return (
       <div
@@ -287,6 +287,6 @@ export default defineComponent({
         >
         </transfer-list>
       </div>
-    )
-  }
+    );
+  },
 });
