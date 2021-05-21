@@ -7,7 +7,7 @@ const name = `${config.prefix}-locale-receiver`;
 
 interface Placement {
   [propName: string]: string | number;
-};
+}
 
 export default function getLocalRecevierMixins(componentName: string) { // eslint-disable-line
   return Vue.extend({

@@ -9,7 +9,7 @@ export function omit(obj: object, fields: string[]): object {
     delete shallowCopy[key];
   }
   return shallowCopy;
-};
+}
 
 export function removeEmptyAttrs<T>(obj: T): Partial<T>  {
   const newObj = {};

@@ -233,7 +233,7 @@ export default function (props: (string | PropOption)[]): any {
         }, this.$slots);
       },
     });
-  };
+  }
 
   return mapProps;
-};
+}
