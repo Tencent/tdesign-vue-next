@@ -14,3 +14,12 @@ static/
 examples
 site/*
 !site/v3.js
+src/addon
+src/calendar
+src/pagination
+src/table
+src/upload
+src/dropdown
+src/transfer
+src/time-picker
+src/utils
