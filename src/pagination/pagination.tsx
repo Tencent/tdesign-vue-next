@@ -1,93 +1,4 @@
-<template>
-  <div :class="_class" v-if="_pageCount > 1">
-    <!--数据统计区-->
-    <div v-if="totalContent" :class="_totalClass">
-      <slot name="totalContent">
-        {{ t(locale.total, { total: total }) }}
-      </slot>
-    </div>
-    <!-- select-->
-    <template v-if="pageSizeOption.length">
-      <t-select :size="size" :value="pageSize" :disabled="disabled" :class="_sizerClass" @change="onSelectorChange">
-        <t-option
-          v-for="(item, index) in _pageSizeOption"
-          :value="item.value"
-          :label="t(item.label, { size: item.value })"
-          :key="index"
-        >
-        </t-option>
-      </t-select>
-    </template>
-    <!-- 向前按钮-->
-    <div :class="_preBtnClass" @click="prevPage" :disabled="disabled || currentIndex === 1">
-      <t-icon-chevron-left></t-icon-chevron-left>
-    </div>
-    <!-- 页数 -->
-    <template v-if="!_isSimple">
-      <ul :class="_btnWrapClass">
-        <li :class="getButtonClass(1)" v-if="isFolded" @click="toPage(1)">1</li>
-        <li
-          :class="_btnMoreClass"
-          v-if="isFolded && isPrevMoreShow"
-          @click="prevMorePage"
-          @mouseover="prevMore = true"
-          @mouseout="prevMore = false"
-        >
-          <template v-if="prevMore">
-            <t-icon-chevron-left-double></t-icon-chevron-left-double>
-          </template>
-          <template v-else><t-icon-ellipsis></t-icon-ellipsis></template>
-        </li>
-        <li :class="getButtonClass(i)" v-for="i in pages" :key="i" @click="toPage(i)">
-          {{ i }}
-        </li>
-        <li
-          :class="_btnMoreClass"
-          v-if="isFolded && isNextMoreShow"
-          @click="nextMorePage"
-          @mouseover="nextMore = true"
-          @mouseout="nextMore = false"
-        >
-          <template v-if="nextMore">
-            <t-icon-chevron-right-double></t-icon-chevron-right-double>
-          </template>
-          <template v-else><t-icon-ellipsis></t-icon-ellipsis></template>
-        </li>
-        <li :class="getButtonClass(_pageCount)" v-if="isFolded" @click="toPage(_pageCount)">{{ _pageCount }}</li>
-      </ul>
-    </template>
-    <template v-else>
-      <t-select
-        :size="size"
-        :value="currentIndex"
-        :disabled="disabled"
-        :class="_simpleClass"
-        @change="toPage"
-      >
-        <t-option
-          v-for="item in _pageCountOption"
-          :value="item"
-          :label="`${item}/${_pageCount}`"
-          :key="`${item}/${_pageCount}`"
-        />
-      </t-select>
-    </template>
-    <!-- 向后按钮-->
-    <div :class="_nextBtnClass" @click="nextPage" :disabled="disabled || currentIndex === _pageCount">
-      <t-icon-chevron-right></t-icon-chevron-right>
-    </div>
-    <!-- 跳转-->
-    <template v-if="showJumper">
-      <div :class="_jumperClass">
-        {{ t(locale.jumpTo) }}
-        <t-input :class="_jumperInputClass" v-model="jumpIndex" @keydown.enter="jumpToPage" @blur="jumpToPage" />
-        {{ t(locale.page) }}
-      </div>
-    </template>
-  </div>
-</template>
-
-<script lang="ts">
+import { defineComponent } from 'vue';
 import config from '../config';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
@@ -100,15 +11,15 @@ import TIconEllipsis from '../icon/ellipsis';
 import TInput from '../input';
 import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
-import props from '../../types/pagination/props';
-import { TdPaginationProps } from '../../types/pagination/TdPaginationProps';
+import props from '@TdTypes/pagination/props';
+import { TdPaginationProps } from '@TdTypes/pagination/TdPaginationProps';
 
 const { prefix } = config;
 const name = `${prefix}-pagination`;
 
 const PaginationLocalReceiver = getLocalRecevierMixins('pagination');
 
-export default mixins(PaginationLocalReceiver).extend({
+export default defineComponent({
   name,
   components: {
     RenderComponent,
@@ -120,10 +31,7 @@ export default mixins(PaginationLocalReceiver).extend({
     TInput,
     Select,
   },
-  model: {
-    prop: 'current',
-    event: 'change',
-  },
+  ...mixins(PaginationLocalReceiver),
   props: {
     ...props,
     /**
@@ -147,6 +55,7 @@ export default mixins(PaginationLocalReceiver).extend({
       },
     },
   },
+  emits: ['change', 'update:pageSize', 'pageSizeChange'],
   data() {
     return {
       jumpIndex: this.current,
@@ -154,15 +63,6 @@ export default mixins(PaginationLocalReceiver).extend({
       prevMore: false,
       nextMore: false,
     };
-  },
-  watch: {
-    current: {
-      handler(v: number): void {
-        this.currentIndex = v;
-        this.jumpIndex = v;
-      },
-      immediate: true,
-    },
   },
   computed: {
     /**
@@ -249,10 +149,9 @@ export default mixins(PaginationLocalReceiver).extend({
     _pageSizeOption(): Array<{ label: string; value: number }> {
       const { pageSize } = this;
       const locale = this.locale as any;
-      const pageSizeOption = this.pageSizeOption as TdPaginationProps['pageSizeOption'];
-
+      const pageSizeOptions = this.pageSizeOptions as TdPaginationProps['pageSizeOptions'];
       const isNumber = (val: any) => typeof val === 'number';
-      const data = pageSizeOption.map((item: { label: string; value: any }) => ({
+      const data = pageSizeOptions.map((item: { label: string; value: any }) => ({
         label: isNumber(item) ? locale.itemsPerPage : item.label.replace(/\d+/, '{size}'),
         value: isNumber(item) ? item : item.value,
       }));
@@ -310,6 +209,15 @@ export default mixins(PaginationLocalReceiver).extend({
       return this._pageCount > this.maxPageBtn;
     },
   },
+  watch: {
+    current: {
+      handler(v: number): void {
+        this.currentIndex = v;
+        this.jumpIndex = v;
+      },
+      immediate: true,
+    },
+  },
   methods: {
     toPage(pageIndex: number): void {
       if (this.disabled) {
@@ -331,9 +239,6 @@ export default mixins(PaginationLocalReceiver).extend({
           pageSize: this.pageSize,
         };
         this.$emit('change', current, pageInfo);
-        if (typeof this.onChange === 'function') {
-          this.onChange(current, pageInfo);
-        }
         this.currentIndex = current;
       }
     },
@@ -389,13 +294,169 @@ export default mixins(PaginationLocalReceiver).extend({
       };
       this.$emit('update:pageSize', pageSize);
       this.$emit('pageSizeChange', pageSize, pageInfo);
-      if (typeof this.onPageSizeChange === 'function') {
-        this.onPageSizeChange(pageSize, pageInfo);
-      }
       if (isIndexChange) {
         this.toPage(pageCount);
       }
     },
+    renderTotalContent() {
+      const {
+        locale,
+        total,
+        t,
+      } = this;
+      if (this.$slots.totalContent) {
+        return this.$slots.totalContent(null);
+      }
+      return t(locale.total, { total });
+    },
+    renderPagination() {
+      const {
+        _class,
+        _pageCount,
+        totalContent,
+        _totalClass,
+        locale,
+        size,
+        pageSize,
+        disabled,
+        _sizerClass,
+        onSelectorChange,
+        pageSizeOptions,
+        _pageSizeOption,
+        _preBtnClass,
+        prevPage,
+        currentIndex,
+        _btnWrapClass,
+        getButtonClass,
+        toPage,
+        isFolded,
+        isNextMoreShow,
+        isPrevMoreShow,
+        _btnMoreClass,
+        prevMorePage,
+        nextMorePage,
+        _simpleClass,
+        pages,
+        _pageCountOption,
+        _nextBtnClass,
+        nextPage,
+        _jumperClass,
+        _jumperInputClass,
+        jumpIndex,
+        jumpToPage,
+        t,
+        _isSimple,
+        showJumper,
+      } = this;
+      const inputEvent = {
+        'onUpdate:value': (v: number) => this.jumpIndex = v,
+      };
+
+      return (
+        <div class={_class}>
+          {/* 数据统计区 */}
+          {
+            totalContent && <div class={_totalClass}>
+              {this.renderTotalContent()}
+            </div>
+          }
+
+          {/* select */}
+          {
+            pageSizeOptions.length &&  <t-select size={size} value={pageSize} disabled={disabled} class={_sizerClass} onChange={onSelectorChange}>
+              {
+                _pageSizeOption.map((item, index) => (
+                    <t-option
+                      value={item.value}
+                      label={t(item.label, { size: item.value })}
+                      key={index}
+                    >
+                    </t-option>
+                ))
+              }
+            </t-select>
+          }
+
+          {/* 向前按钮 */}
+          <div class={_preBtnClass} onClick={prevPage} disabled={disabled || currentIndex === 1}>
+            <t-icon-chevron-left></t-icon-chevron-left>
+          </div>
+          {/* 页数 */}
+          {
+            !_isSimple ? <ul class={_btnWrapClass}>
+              {
+                isFolded && <li class={getButtonClass(1)} onClick={() => toPage(1)}>1</li>
+              }
+              {
+                (isFolded && isPrevMoreShow) && <li
+                  class={_btnMoreClass}
+                  onClick={prevMorePage}
+                  onMouseover={() => this.prevMore = true}
+                  onMouseout={() => this.prevMore = false}
+                >
+                  {
+                    this.prevMore ? <t-icon-chevron-left-double></t-icon-chevron-left-double> : <t-icon-ellipsis></t-icon-ellipsis>
+                  }
+                </li>
+              }
+              {
+                pages.map(item => (
+                    <li class={getButtonClass(item)} key={item} onClick={() => toPage(item)}>
+                      { item }
+                    </li>
+                ))
+              }
+
+              {
+                (isFolded && isNextMoreShow) && <li
+                  class={_btnMoreClass}
+                  onClick={nextMorePage}
+                  onMouseover={() => this.nextMore = true}
+                  onMouseout={() => this.nextMore = false}
+                >
+                  {
+                    this.nextMore ? <t-icon-chevron-right-double></t-icon-chevron-right-double> : <t-icon-ellipsis></t-icon-ellipsis>
+                  }
+                </li>
+              }
+              {
+                isFolded && <li class={getButtonClass(_pageCount)} onClick={() => toPage(_pageCount)}>{ _pageCount }</li>
+              }
+            </ul> : <t-select
+              size={size}
+              value={currentIndex}
+              disabled={disabled}
+              class={_simpleClass}
+              onChange={toPage}
+            >
+              {
+                _pageCountOption.map(item => <t-option
+                    value={item}
+                    label={`${item}/${_pageCount}`}
+                    key={`${item}/${_pageCount}`}
+                  />)
+              }
+
+            </t-select>
+          }
+          {/* 向后按钮 */}
+          <div class={_nextBtnClass} onClick={nextPage} disabled={disabled || currentIndex === _pageCount}>
+            <t-icon-chevron-right></t-icon-chevron-right>
+          </div>
+          {/* 跳转 */}
+          {
+            showJumper && <div class={_jumperClass}>
+              { t(locale.jumpTo) }
+              <t-input class={_jumperInputClass} value={jumpIndex} {...inputEvent} onKeydownEnter={jumpToPage} onBlur={jumpToPage} />
+              { t(locale.page) }
+            </div>
+          }
+        </div>
+      );
+    },
+  },
+  render() {
+    const { _pageCount } = this;
+    return _pageCount > 1 && this.renderPagination();
   },
 });
-</script>

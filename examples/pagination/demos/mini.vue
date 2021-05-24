@@ -4,7 +4,7 @@
       size="small"
       :total="100"
       @change="onChange"
-      :page-size.sync="pageSize"
+      v-model:pageSize="pageSize"
     />
   </div>
 </template>

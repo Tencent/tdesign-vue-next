@@ -1,13 +1,19 @@
-import _Pagination from './pagination.vue';
+import _Pagination from './pagination';
 import setInstallFn from '../utils/setInstallFn';
 import mapProps from '../utils/map-props';
 import { TdPaginationProps } from '@TdTypes/pagination/TdPaginationProps';
 
 // 支持非受控属性 defaultCurrent 和 defaultSize
-const Pagination = mapProps(
-  ['current', 'pageSize'],
-  { model: { prop: 'current', event: 'change' } },
-)(_Pagination);
+const Pagination = mapProps([
+  {
+    name: 'value',
+    alias: ['current'],
+    event: 'change',
+  },
+  {
+    name: 'pageSize',
+  },
+])(_Pagination);
 
 setInstallFn('Pagination', Pagination);
 

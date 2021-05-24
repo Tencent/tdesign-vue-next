@@ -3,7 +3,7 @@
     theme="simple"
     size="small"
     :total="100"
-    :page-size.sync="pageSize"
+    v-model:pageSize="pageSize"
     @change="onChange"
   />
 </template>
