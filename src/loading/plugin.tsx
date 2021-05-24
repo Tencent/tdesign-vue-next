@@ -18,7 +18,7 @@ interface TdLoadingPlugin {
 let wrapper: Element = null;
 let loading: Ref<boolean> = ref(false);
 
-function createLoading(options: LoadingProps) {
+function createLoading(options: LoadingProps):TdLoadingHandlder {
   if (options.loading) {
     if (wrapper) {
       loading.value = true;

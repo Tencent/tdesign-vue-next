@@ -57,7 +57,7 @@ describe('Checkbox', () => {
         },
       });
       wrapper.findComponent(Checkbox).trigger('click');
-      expect(fn).toHaveBeenCalled();;
+      expect(fn).toHaveBeenCalled();
     });
   });
 });
@@ -147,7 +147,7 @@ describe('Checkbox CheckboxGroup', () => {
         },
       });
       wrapper.findComponent(Checkbox).trigger('click');
-      expect(fn).toHaveBeenCalled();;
+      expect(fn).toHaveBeenCalled();
     });
   });
 });

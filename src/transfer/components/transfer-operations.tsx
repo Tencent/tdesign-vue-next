@@ -1,10 +1,11 @@
-import Vue from 'vue';
-import TButton from '../../button';
+import { defineComponent, VNodeChild } from 'vue';
+import tdButton from '../../button';
 import { prefix } from '../../config';
 
 const name = `${prefix}-transfer-operations`;
-export default Vue.extend({
+export default defineComponent({
   name,
+  components: { tdButton },
   props: {
     // 控制左按钮的禁用与否
     leftDisabled: {
@@ -16,8 +17,12 @@ export default Vue.extend({
       type: Boolean,
       required: true,
     },
-    operations: [String, Array, Function],
+    operations: {
+      type: [String, Array, Function],
+      default: '',
+    },
   },
+  emits: ['moveToRight', 'moveToLeft'],
   methods: {
     moveToRight() {
       this.$emit('moveToRight');
@@ -31,12 +36,12 @@ export default Vue.extend({
     getIconLeft() {
       return <t-icon name="chevron-left"/>;
     },
-    getIcon(order: string) {
-      let iconFun;
+    getIcon(order: string): TNode {
+      let iconFun: TNode;
       if (!this.operations || !this.operations.length) {
         iconFun = order === 'up' ? this.getIconRight : this.getIconLeft;
       } else {
-        iconFun = (): void => null;
+        iconFun = () => null;
       }
       return iconFun;
     },
@@ -62,26 +67,26 @@ export default Vue.extend({
       return renderButtonContent;
     },
   },
-  render() {
+  render(): VNodeChild {
     const { leftDisabled, rightDisabled } = this.$props;
     return (
       <div class={name}>
-        <TButton
+        <tdButton
           variant={leftDisabled ? 'outline' : 'base'}
           disabled={leftDisabled}
           onClick={this.moveToRight}
           icon={this.getIcon('up')}
         >
           {this.buttonContent('up')}
-        </TButton>
-        <TButton
+        </tdButton>
+        <tdButton
           variant={rightDisabled ? 'outline' : 'base'}
           disabled={rightDisabled}
           onClick={this.moveToLeft}
           icon={this.getIcon('down')}
         >
           {this.buttonContent('down')}
-        </TButton>
+        </tdButton>
       </div>
     );
   },
