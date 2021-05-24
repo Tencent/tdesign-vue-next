@@ -18,7 +18,7 @@ function install(app: App, config?: Record<string, unknown>): void {
   Object.keys(plugins).forEach((key) => {
     app.use(plugins[key]);
   });
-};
+}
 
 export * from './plugins';
 export * from './components';
