@@ -95,7 +95,7 @@ describe('Button', () => {
         },
       });
       wrapper.findComponent(Button).trigger('click');
-      expect(fn).toHaveBeenCalled();;
+      expect(fn).toHaveBeenCalled();
     });
   });
 
