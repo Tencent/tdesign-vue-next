@@ -16,6 +16,8 @@ site/*
 !site/v3.js
 src/addon
 src/calendar
+src/locale
+src/pagination
 src/table
 src/upload
 src/dropdown
