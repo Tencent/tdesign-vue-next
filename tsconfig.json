@@ -61,7 +61,7 @@
   "include": [
     "./**/*.ts",
     "./**/*.tsx",
-    "node_modules/@tencent/tdesign-types/index.d.ts"
+    "node_modules/@tencent/tdesign-types/**/*"
   ],
   "exclude": [
     "tools",
@@ -77,7 +77,9 @@
     "src/dropdown/**",
     "src/transfer/**",
     "src/time-picker/**",
-    "src/utils/**"
+    "src/utils/**",
+    "node_modules/@tencent/tdesign-types/index.ts",
+    "node_modules/@tencent/tdesign-types/index.d.ts"
   ],
   "compileOnSave": false
 }

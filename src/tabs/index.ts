@@ -1,7 +1,7 @@
 import _Tabs from './tabs';
 import TabPanel from './tab-panel';
 import setInstallFn from '../utils/setInstallFn';
-import mapProps from '@src/utils/map-props';
+import mapProps from '../utils/map-props';
 
 const Tabs = mapProps([{
   name: 'value',
