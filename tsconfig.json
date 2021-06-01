@@ -1,4 +1,8 @@
 {
+  "typeRoots": [
+    "./node_modules/@types",
+    "./node_modules/@tencent/tdesign-types"
+  ],
   "compilerOptions": {
     "lib": [
       "esnext",
@@ -78,8 +82,7 @@
     "src/transfer/**",
     "src/time-picker/**",
     "src/utils/**",
-    "node_modules/@tencent/tdesign-types/index.ts",
-    "node_modules/@tencent/tdesign-types/index.d.ts"
+    "node_modules/@tencent/tdesign-types/index.ts"
   ],
   "compileOnSave": false
 }
