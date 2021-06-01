@@ -1,15 +1,15 @@
-import Layout from './layout';
-import Header from './header';
-import Footer from './footer';
-import Aside from './aside';
-import Content from './content';
-import setInstallFn from '../utils/setInstallFn';
+import _Layout from './layout';
+import _Header from './header';
+import _Footer from './footer';
+import _Aside from './aside';
+import _Content from './content';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Layout', Layout);
-setInstallFn('Header', Header);
-setInstallFn('Footer', Footer);
-setInstallFn('Aside', Aside);
-setInstallFn('Content', Content);
+const Layout: WithInstallType<typeof _Layout> = withInstall(_Layout);
+const Header: WithInstallType<typeof _Header> = withInstall(_Header);
+const Footer: WithInstallType<typeof _Footer> = withInstall(_Footer);
+const Aside: WithInstallType<typeof _Aside> = withInstall(_Aside);
+const Content: WithInstallType<typeof _Content> = withInstall(_Content);
 
 export { Layout, Header, Footer, Aside, Content };
 export default Layout;

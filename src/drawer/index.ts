@@ -1,8 +1,7 @@
-import Drawer from './drawer';
-import setInstallFn from '../utils/setInstallFn';
+import _Drawer from './drawer';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Drawer', Drawer);
+const Drawer: WithInstallType<typeof _Drawer> = withInstall(_Drawer);
 
 export { Drawer };
-
 export default Drawer;

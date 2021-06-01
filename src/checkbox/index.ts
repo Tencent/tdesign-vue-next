@@ -1,20 +1,19 @@
 import _Checkbox from './checkbox';
 import _Group from './group';
 import mapProps from '../utils/map-props';
-import setInstallFn from '../utils/setInstallFn';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdCheckboxProps } from '@TdTypes/checkbox/TdCheckboxProps';
 
-const Checkbox = mapProps([{
+const LocalCheckbox = mapProps([{
   name: 'checked', event: 'change', alias: ['modelValue'],
 }])(_Checkbox);
 
-const CheckboxGroup = mapProps([{
+const LocalCheckboxGroup = mapProps([{
   name: 'value', event: 'change', alias: ['modelValue'],
 }])(_Group);
 
-setInstallFn('Checkbox', Checkbox);
-setInstallFn('CheckboxGroup', CheckboxGroup);
+export const Checkbox : WithInstallType<typeof LocalCheckbox> = withInstall(LocalCheckbox);
+export const CheckboxGroup : WithInstallType<typeof LocalCheckboxGroup> = withInstall(LocalCheckboxGroup);
 
 export type CheckboxProps = TdCheckboxProps;
-export { Checkbox, CheckboxGroup };
 export default Checkbox;

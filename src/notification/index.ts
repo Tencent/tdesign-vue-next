@@ -1,8 +1,8 @@
 import NotifyPlugin from './plugin';
-import Notification from './notification';
-import setInstallFn from '../utils/setInstallFn';
+import _Notification from './notification';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Notification', Notification);
+const Notification: WithInstallType<typeof _Notification> = withInstall(_Notification);
 
 export { Notification, NotifyPlugin };
 export default Notification;

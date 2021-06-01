@@ -1,15 +1,15 @@
 import _Tabs from './tabs';
-import TabPanel from './tab-panel';
-import setInstallFn from '../utils/setInstallFn';
+import _TabPanel from './tab-panel';
 import mapProps from '../utils/map-props';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-const Tabs = mapProps([{
+const LocalTabs = mapProps([{
   name: 'value',
   alias: ['modelValue'],
 }])(_Tabs);
 
-setInstallFn('Tabs', Tabs);
-setInstallFn('TabPanel', TabPanel);
+const Tabs: WithInstallType<typeof LocalTabs> = withInstall(LocalTabs);
+const TabPanel: WithInstallType<typeof _TabPanel> = withInstall(_TabPanel);
 
 export { Tabs, TabPanel };
 export default Tabs;

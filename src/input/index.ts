@@ -1,13 +1,13 @@
 import _Input from './input';
 import mapProps from '../utils/map-props';
-import setInstallFn from '../utils/setInstallFn';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-const Input = mapProps([{
+const LocalInput = mapProps([{
   name: 'value',
   alias: ['modelValue'],
 }])(_Input);
 
-setInstallFn('Input', Input);
+const Input: WithInstallType<typeof LocalInput> = withInstall(LocalInput);
 
 export { Input };
 export default Input;

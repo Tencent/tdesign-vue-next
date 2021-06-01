@@ -1,7 +1,7 @@
-import Transfer from './transfer';
-import setInstallFn from '../utils/setInstallFn';
+import _Transfer from './transfer';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Transfer', Transfer);
+const Transfer: WithInstallType<typeof _Transfer> = withInstall(_Transfer);
 
 export { Transfer };
 export default Transfer;

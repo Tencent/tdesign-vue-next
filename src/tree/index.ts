@@ -1,8 +1,8 @@
 import TdTree from './td-tree';
 import mapProps from '../utils/map-props';
-import setInstallFn from '../utils/setInstallFn';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-const Tree = mapProps([
+const LocalTree = mapProps([
   {
     name: 'value',
     event: ['change', 'update:value'],
@@ -18,7 +18,7 @@ const Tree = mapProps([
   },
 ])(TdTree);
 
-setInstallFn('Tree', Tree);
+const Tree: WithInstallType<typeof LocalTree> = withInstall(LocalTree);
 
 export { Tree };
 export default Tree;

@@ -1,10 +1,9 @@
-import Row from './row';
-import Col from './col';
-import setInstallFn from '../utils/setInstallFn';
+import _Row from './row';
+import _Col from './col';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Row', Row);
-setInstallFn('Col', Col);
+const Row: WithInstallType<typeof _Row> = withInstall(_Row);
+const Col: WithInstallType<typeof _Col> = withInstall(_Col);
 
 export { Row, Col };
-
 export default { Row, Col };

@@ -1,11 +1,11 @@
-import Anchor from './anchor';
-import AnchorItem from './anchor-item';
-import AnchorTarget from './anchor-target';
-import setInstallFnc from '../utils/setInstallFn';
+import _Anchor from './anchor';
+import _AnchorItem from './anchor-item';
+import _AnchorTarget from './anchor-target';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFnc('Anchor', Anchor);
-setInstallFnc('AnchorItem', AnchorItem);
-setInstallFnc('AnchorTarget', AnchorTarget);
+const Anchor: WithInstallType<typeof _Anchor> = withInstall(_Anchor);
+const AnchorItem: WithInstallType<typeof _AnchorItem> = withInstall(_AnchorItem);
+const AnchorTarget: WithInstallType<typeof _AnchorTarget> = withInstall(_AnchorTarget);
 
 export { Anchor, AnchorItem, AnchorTarget };
 export default Anchor;

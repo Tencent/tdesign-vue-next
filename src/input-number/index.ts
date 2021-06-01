@@ -1,12 +1,13 @@
 import _InputNumber from './input-number';
-import setInstallFn from '../utils/setInstallFn';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 import mapProps from '../utils/map-props';
 
-const InputNumber = mapProps([{
+const LocalInputNumber = mapProps([{
   name: 'value',
   alias: ['modelValue'],
 }])(_InputNumber);
-setInstallFn('InputNumber', InputNumber);
+
+const InputNumber: WithInstallType<typeof LocalInputNumber> = withInstall(LocalInputNumber);
 
 export { InputNumber };
 export default InputNumber;

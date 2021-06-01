@@ -1,7 +1,7 @@
-import Icon from './svg/icon';
-import setInstallFn from '../utils/setInstallFn';
+import _Icon from './svg/icon';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Icon', Icon);
+const Icon: WithInstallType<typeof _Icon> = withInstall(_Icon);
 
 export { Icon };
 export default Icon;

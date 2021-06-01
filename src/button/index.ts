@@ -1,8 +1,8 @@
-import Button from './button';
-import setInstallFn from '../utils/setInstallFn';
+import _Button from './button';
 import { TdButtonProps } from '@TdTypes/button/TdButtonProps';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Button', Button);
+const Button: WithInstallType<typeof _Button> = withInstall(_Button);
 
 export type ButtonProps = TdButtonProps;
 export { Button };
