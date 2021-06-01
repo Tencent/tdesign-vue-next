@@ -42,6 +42,15 @@ const getPlugins = ({
   isProd = false,
 } = {}) => {
   const extensions = ['.js', '.ts'];
+  const compilerOptions = isProd
+    // 只生成一次
+    ? {
+      declaration: true,
+      declarationMap: true,
+      declarationDir: './typings',
+    }
+    : {};
+
   const plugins = [
     alias({
       entries: [
@@ -54,6 +63,8 @@ const getPlugins = ({
     commonjs(),
     typescript({
       cacheRoot: `${tmpdir()}/.rpt2_cache`,
+      tsconfigOverride: { compilerOptions },
+      useTsconfigDeclarationDir: true,
     }),
     babel({
       babelHelpers: 'bundled',
@@ -107,8 +118,7 @@ const esmConfig = {
     dir: 'es/',
     format: 'esm',
     sourcemap: true,
-    preserveModules: true,
-    preserveModulesRoot: 'src',
+    chunkFileNames: '_chunks/dep-[hash].js',
   },
 };
 
@@ -123,8 +133,7 @@ const cjsConfig = {
     format: 'cjs',
     sourcemap: true,
     exports: 'named',
-    preserveModules: true,
-    preserveModulesRoot: 'src',
+    chunkFileNames: '_chunks/dep-[hash].js',
   },
 };
 
