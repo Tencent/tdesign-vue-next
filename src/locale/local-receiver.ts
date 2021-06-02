@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import config from '../config';
 import { Locale } from './local-provider';
 import defaultLocale from './zh_CN';
@@ -10,7 +10,7 @@ interface Placement {
 }
 
 export default function getLocalRecevierMixins(componentName: string) { // eslint-disable-line
-  return Vue.extend({
+  return defineComponent({
     name,
     inject: {
       globalLocale: {

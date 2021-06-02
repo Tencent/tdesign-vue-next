@@ -2,7 +2,7 @@
   <div>
     <t-pagination
       :total="645"
-      :page-size.sync="pageSize"
+      v-model:pageSize="pageSize"
       v-model="current"
       @change="onChange"
       @pageSizeChange="onPagesizeChange"

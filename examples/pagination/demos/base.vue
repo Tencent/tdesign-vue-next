@@ -4,7 +4,7 @@
       v-model="current"
       :total="100"
       @change="onChange"
-      :pageSize.sync="pageSize"
+      v-model:pageSize="pageSize"
       @pageSizeChange="onPageSizeChange"
     />
   </div>
