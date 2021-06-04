@@ -5,7 +5,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-badge`;
 
-export default Vue.extend({
+export default defineComponent({
   name,
 
   props: { ...props },
@@ -46,7 +46,7 @@ export default Vue.extend({
 
     const content = this.getContent();
     const isHidden = this.isHidden();
-    const children = this.$slots.default;
+    const children = this.$slots.default ? this.$slots.default(null) : '';
     const { xOffset, yOffset } = this.getOffset();
     const badgeClassNames = [
       {
