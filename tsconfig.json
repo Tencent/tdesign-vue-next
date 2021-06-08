@@ -74,8 +74,6 @@
     "src/addon/**",
     "src/calendar/**",
     "src/locale/**",
-    "src/pagination/**",
-    "src/popconfirm/**",
     "src/table/**",
     "src/upload/**",
     "src/dropdown/**",
