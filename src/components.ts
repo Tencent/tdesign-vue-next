@@ -35,7 +35,7 @@ export * from './input-group';
 // export * from './dropdown';
 export * from './alert-swiper';
 export * from './input-number';
-// export * from './pagination';
+export * from './pagination';
 export * from './breadcrumbItem';
 // export * from './time-picker';
 export { Dialog } from './dialog';
