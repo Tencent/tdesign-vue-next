@@ -2,9 +2,13 @@ node_modules
 .vscode
 .DS_Store
 .vscode
-es
-lib
-dist
+
+# build files
+es/
+lib/
+dist/
+typings/
+
 _site
 package
 tmp*

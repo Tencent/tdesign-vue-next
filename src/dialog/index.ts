@@ -1,8 +1,8 @@
-import Dialog from './dialog';
+import _Dialog from './dialog';
 import DialogPlugin from './plugin';
-import setInstallFn from '../utils/setInstallFn';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Dialog', Dialog);
+const Dialog: WithInstallType<typeof _Dialog> = withInstall(_Dialog);
 
 export { Dialog, DialogPlugin };
 export default Dialog;

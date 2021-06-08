@@ -1,8 +1,8 @@
-import Breadcrumb from './breadcrumb';
-import setInstallFn from '../utils/setInstallFn';
+import _Breadcrumb from './breadcrumb';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdBreadcrumbProps, TdBreadcrumbItemProps } from '@TdTypes/breadcrumb/TdBreadcrumbProps';
 
-setInstallFn('Breadcrumb', Breadcrumb);
+const Breadcrumb: WithInstallType<typeof _Breadcrumb> = withInstall(_Breadcrumb);
 
 export type BreadcrumbItemProps = TdBreadcrumbItemProps;
 export type BreadcrumbProps = TdBreadcrumbProps;

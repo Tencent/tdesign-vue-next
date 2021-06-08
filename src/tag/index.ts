@@ -1,14 +1,14 @@
-import Tag from './tag';
+import _Tag from './tag';
 import _CheckTag from './check-tag';
-import setInstallFn from '../utils/setInstallFn';
 import mapProps from '../utils/map-props';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-const CheckTag = mapProps([{
+const LocalCheckTag = mapProps([{
   name: 'checked', event: 'change',
 }])(_CheckTag);
 
-setInstallFn('Tag', Tag);
-setInstallFn('CheckTag', CheckTag);
+const Tag: WithInstallType<typeof _Tag> = withInstall(_Tag);
+const CheckTag: WithInstallType<typeof LocalCheckTag> = withInstall(LocalCheckTag);
 
 export { Tag, CheckTag };
 export default Tag;

@@ -1,8 +1,8 @@
-import Popup from './popup';
-import setInstallFn from '../utils/setInstallFn';
+import _Popup from './popup';
 import { TdPopupProps } from '@TdTypes/popup/TdPopupProps';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Popup', Popup);
+const Popup: WithInstallType<typeof _Popup> = withInstall(_Popup);
 
 export type PopupProps = TdPopupProps;
 export { Popup };

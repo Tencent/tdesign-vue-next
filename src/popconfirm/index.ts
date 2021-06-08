@@ -1,7 +1,7 @@
-import Popconfirm from './popconfirm';
-import setInstallFn from '../utils/setInstallFn';
+import _Popconfirm from './popconfirm';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Popconfirm', Popconfirm);
+const Popconfirm: WithInstallType<typeof _Popconfirm> = withInstall(_Popconfirm);
 
 export { Popconfirm };
 export default Popconfirm;

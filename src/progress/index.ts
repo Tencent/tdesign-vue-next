@@ -1,5 +1,7 @@
-import Progress from './progress.vue';
-import setInstallFn from '../utils/setInstallFn';
-setInstallFn('Progress', Progress);
+import _Progress from './progress.vue';
+import { withInstall, WithInstallType } from '../utils/withInstall';
+
+const Progress: WithInstallType<typeof _Progress> = withInstall(_Progress);
+
 export { Progress };
 export default Progress;

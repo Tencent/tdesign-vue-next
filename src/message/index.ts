@@ -1,12 +1,8 @@
-import Message from './message';
+import _Message from './message';
 import MessagePlugin from './plugin';
-import setInstallFn from '../utils/setInstallFn';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Message', Message);
+const Message: WithInstallType<typeof _Message> = withInstall(_Message);
 
-export {
-  Message,
-  MessagePlugin,
-};
-
+export { Message, MessagePlugin };
 export default Message;

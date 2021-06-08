@@ -1,7 +1,7 @@
-import Alert from './alert';
-import setInstallFn from '../utils/setInstallFn';
+import _Alert from './alert';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Alert', Alert);
+const Alert: WithInstallType<typeof _Alert> = withInstall(_Alert);
 
 export { Alert };
 export default Alert;
