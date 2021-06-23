@@ -2,7 +2,6 @@
 import { tmpdir } from 'os';
 import url from '@rollup/plugin-url';
 import json from '@rollup/plugin-json';
-import alias from '@rollup/plugin-alias';
 import babel from '@rollup/plugin-babel';
 import vuePlugin from 'rollup-plugin-vue';
 import postcss from 'rollup-plugin-postcss';
@@ -52,12 +51,6 @@ const getPlugins = ({
     : {};
 
   const plugins = [
-    alias({
-      entries: [
-        { find: '@TdTypes', replacement: '@tencent/tdesign-types' },
-      ],
-      customResolver: nodeResolve({ extensions }),
-    }),
     nodeResolve({ extensions }),
     vuePlugin(),
     commonjs(),

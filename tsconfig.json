@@ -1,7 +1,6 @@
 {
   "typeRoots": [
-    "./node_modules/@types",
-    "./node_modules/@tencent/tdesign-types"
+    "./node_modules/@types"
   ],
   "compilerOptions": {
     "lib": [
@@ -39,7 +38,7 @@
         "common/*"
       ],
       "@TdTypes/*": [
-        "node_modules/@tencent/tdesign-types/*"
+        "types/*"
       ],
       "@Button": [
         "src/button/index.ts"
@@ -82,8 +81,7 @@
     "src/dropdown/**",
     "src/transfer/**",
     "src/time-picker/**",
-    "src/utils/**",
-    "node_modules/@tencent/tdesign-types/index.ts"
+    "src/utils/**"
   ],
   "compileOnSave": false
 }
