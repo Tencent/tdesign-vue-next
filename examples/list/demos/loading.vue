@@ -66,7 +66,7 @@ export default {
       this.listCount += 1;
     },
     renderLoading() {
-      return <span>自定义loading（function）</span>;
+      return '自定义loading（function）';
     },
     onLoadMore(e) {
       console.log('onLoadMore触发', e);

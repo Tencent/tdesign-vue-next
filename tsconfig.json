@@ -13,7 +13,7 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "isolatedModules": false,
+    "isolatedModules": true,
     "experimentalDecorators": true,
     "declaration": true,
     "esModuleInterop": true,
@@ -26,6 +26,8 @@
     "resolveJsonModule": true,
     "jsx": "preserve",
     "baseUrl": "./",
+    "types": ["vite/client"],
+    "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }],
     "paths": {
       "@src/*": [
         "src/*"
@@ -65,6 +67,7 @@
   "include": [
     "./**/*.ts",
     "./**/*.tsx",
+    "src/**/*.vue",
     "node_modules/@tencent/tdesign-types/**/*"
   ],
   "exclude": [

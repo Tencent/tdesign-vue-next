@@ -1,11 +1,7 @@
-import config from './config/index';
-import TdesignComponents from './pages/components';
-import TdesignDemoList from './pages/demo-list';
-import TdesignDemoPage from './pages/demo-page';
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
+import config from './config';
 
-const demoReq = require.context('../examples', true, /demos[/\\][\w-]+\.vue$/im);
-
-const { navs } = config;
+const { docs } = config;
 
 function getDocsRoutes(docs, type) {
   let docsRoutes = [];
@@ -31,7 +27,8 @@ function getDocsRoutes(docs, type) {
       docsRoutes = docsRoutes.concat(getDocsRoutes(children, docType));
     } else {
       docRoute = {
-        path: item.name,
+        path: item.path,
+        name: item.name,
         component: item.component,
       };
       docsRoutes.push(docRoute);
@@ -40,41 +37,28 @@ function getDocsRoutes(docs, type) {
   return docsRoutes;
 }
 
-/**
- * 生成可独立调试的 demo 路由
- * 访问路径 /demos/组件目录名/demo 文件名（无后缀）
- */
-function getDemoRoutes() {
-  if (process.env.NODE_ENV === 'development') {
-    return demoReq.keys().map((key) => {
-      const match = key.match(/([\w-]+).demos.([\w-]+).vue/);
-      const [, componentName, demoName] = match;
-      return {
-        path: `/demos/${componentName}/${demoName}`,
-        props: { componentName, demo: demoReq(key).default },
-        component: TdesignDemoPage,
-      };
-    });
-  }
-  return [];
-}
-const demoRoutes = getDemoRoutes();
 const routes = [
   {
-    path: '/components',
-    redirect: '/components/button',
-    component: TdesignComponents,
-    children: getDocsRoutes(navs.components.docs),
+    path: '/',
+    redirect: '/vue-next/components/explain',
   },
   {
-    path: '*',
-    redirect: '/components/button',
+    path: '/:catchAll(.*)',
+    redirect: '/vue-next/components/explain',
   },
-  ...demoRoutes,
-  {
-    path: '/demos*',
-    component: TdesignDemoList,
-    props: { demoRoutes },
-  },
+  ...getDocsRoutes(docs, 'doc'),
+  ...getDocsRoutes(docs, 'component'),
 ];
-export default routes;
+
+const routerConfig = {
+  history: createWebHashHistory('/'),
+  routes,
+};
+
+if (process.env.NODE_ENV === 'production') {
+  routerConfig.history = createWebHistory('/');
+}
+
+const router = createRouter(routerConfig);
+
+export default router;
