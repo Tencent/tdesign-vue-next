@@ -5,8 +5,10 @@ import { easeInOutCubic, EasingFunction } from './easing';
 import isString from 'lodash/isString';
 
 const isServer = typeof window === 'undefined';
+const trim = (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 
-const trim =  (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
+declare type ScrollContainerElement = Window | HTMLElement
+declare type ScrollContainer = (() => ScrollContainerElement) | CSSSelector;
 
 export const on = (((): any => {
   if (!isServer && document.addEventListener) {
@@ -46,7 +48,7 @@ export function hasClass(el: Element, cls: string): any {
     return el.classList.contains(cls);
   }
   return (` ${el.className} `).indexOf(` ${cls} `) > -1;
-}
+};
 
 export function addClass(el: Element, cls: string): any {
   if (!el) return;
@@ -66,7 +68,7 @@ export function addClass(el: Element, cls: string): any {
   if (!el.classList) {
     el.className = curClass;
   }
-}
+};
 
 export function removeClass(el: Element, cls: string): any {
   if (!el || !cls) return;
@@ -86,36 +88,37 @@ export function removeClass(el: Element, cls: string): any {
   if (!el.classList) {
     el.className = trim(curClass);
   }
-}
-
-export const getAttach = (attach: AttachNode = 'body'): AttachNodeReturnValue => {
-  let r;
-  if (!attach) return document.querySelector('body');
-  if (isString(attach)) {
-    const at = attach as string;
-    r = attach === 'document' ? document : document.querySelector(at);
-  } else if (typeof attach === 'function') {
-    r = attach();
-  } else {
-    console.error('TDesign Error: attach type must a string or function.');
-  }
-  return r;
 };
 
-export const getSuperAttach = (attach: SuperAttachNode = 'body'): AttachNodeReturnValue => {
-  let r;
-  const map = {
-    window: Window,
-    document: Document,
-  };
-  if (isString(attach)) {
-    r = ['window', 'document'].includes(attach) ? map[attach] : document.querySelector(attach);
-  } else if (typeof attach === 'function') {
-    r = attach();
-  } else {
-    console.error('TDesign Error: attach type must a string or function.');
+export const getAttach = (node: any): HTMLElement => {
+  const attachNode = typeof node === 'function' ? node() : node;
+  if (!attachNode) {
+    return document.body;
   }
-  return r;
+  if (isString(attachNode)) {
+    return document.querySelector(attachNode);
+  }
+  if (attachNode instanceof HTMLElement) {
+    return attachNode;
+  }
+  return document.body;
+};
+
+/**
+ * 获取滚动容器
+ * 因为document不存在scroll等属性, 因此排除document
+ * window | HTMLElement
+ * @param {ScrollContainerElement} [container='body']
+ * @returns {ScrollContainer}
+ */
+export const getScrollContainer = (container: ScrollContainer = 'body'): ScrollContainerElement => {
+  if (isString(container)) {
+    return document.querySelector(container) as HTMLElement;
+  }
+  if (typeof container === 'function') {
+    return container();
+  }
+  return container;
 };
 
 /**
@@ -221,4 +224,16 @@ export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, 
       cb && cb();
     }
   });
+};
+
+// 用于判断节点内容是否溢出
+export const isNodeOverflow = (ele: Vue | Element | Vue[] | Element[]): boolean => {
+  const { clientWidth = 0, scrollWidth = 0 } = (
+    ele as Element & { clientWidth: number; scrollWidth: number }
+  );
+
+  if (scrollWidth > clientWidth) {
+    return true;
+  }
+  return false;
 };
