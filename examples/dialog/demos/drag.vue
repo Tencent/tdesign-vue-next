@@ -7,48 +7,48 @@
 
     <t-dialog
       header="模态对话框"
-      :visible.sync="visibleModal"
+      v-model:visible="visibleModal"
       mode="modal"
       draggable
       :onClickConfirm="()=>this.visibleModal = false"
     >
-      <div slot="body">
+      <template #body>
         <div>默认点击蒙层或按ESC可关闭</div>
         <div>我是内容</div>
         <div>我是内容</div>
-      </div>
+      </template>
     </t-dialog>
 
     <t-dialog
       header="非模态对话框-可拖拽"
-      :visible.sync="visibleModelessDrag"
+      v-model:visible="visibleModelessDrag"
       mode="modeless"
       draggable
       :onClickConfirm="()=>this.visibleModelessDrag = false"
     >
-      <div slot="body">
+      <template #body>
         <div>我是内容</div>
         <div>我是内容</div>
-      </div>
+      </template>
     </t-dialog>
 
     <t-dialog
       header="非模态对话框-不可拖拽"
-      :visible.sync="visibleModeless"
+      v-model:visible="visibleModeless"
       mode="modeless"
       :onClickConfirm="()=>this.visibleModeless = false"
     >
-      <div slot="body">
+      <template #body>
         <div>我是内容</div>
         <div>我是内容</div>
-      </div>
+      </template>
     </t-dialog>
 
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-export default Vue.extend({
+import { defineComponent } from 'vue';
+export default defineComponent({
   data() {
     return {
       visibleModal: false,

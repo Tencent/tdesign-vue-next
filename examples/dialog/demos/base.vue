@@ -5,7 +5,7 @@
       header="对话框标题"
       body="对话框内容"
       :closeBtn="true"
-      :visible.sync="visible"
+      v-model:visible="visible"
       @click-confirm="onConfirm"
       :onClickConfirm="onConfirmAnother"
       :onClickCancel="onCancel"

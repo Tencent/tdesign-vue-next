@@ -6,7 +6,7 @@
     <t-button theme="primary" @click="visible3 = true">自定义底部按钮（自定义组件）</t-button>
 
     <t-dialog
-      :visible.sync="visible1"
+      v-model:visible="visible1"
       header="提示"
       body="自定义底部按钮，直接传入文字"
       confirmBtn="前往支付"
