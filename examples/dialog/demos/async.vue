@@ -2,7 +2,7 @@
   <div>
     <t-button @click="visible = true">异步加载类按钮</t-button>
     <t-dialog
-      :visible.sync="visible"
+      v-model:visible="visible"
       header="保存订单"
       body="订单保存中，请稍后"
       :confirmBtn="{

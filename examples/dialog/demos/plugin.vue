@@ -11,10 +11,10 @@
   </div>
 </template>
 <script>
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import { DialogPlugin } from '@/src/dialog';
 
-export default Vue.extend({
+export default defineComponent({
   methods: {
     showDialog() {
       const mydialog = this.$dialog({

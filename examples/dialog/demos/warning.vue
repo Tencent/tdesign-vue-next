@@ -5,7 +5,7 @@
       theme="info"
       header="提示"
       body="对话框内容"
-      :visible.sync="visible1"
+      v-model:visible="visible1"
       @click-confirm="onClickConfirm"
       :onClose="close1"
     >
@@ -16,7 +16,7 @@
       theme="success"
       header="恭喜"
       body="对话框内容"
-      :visible.sync="visible2"
+      v-model:visible="visible2"
       @click-confirm="onClickConfirm"
       :onClose="close2"
     >
@@ -27,7 +27,7 @@
       theme="warning"
       header="警示"
       body="对话框内容"
-      :visible.sync="visible3"
+      v-model:visible="visible3"
       @click-confirm="onClickConfirm"
       :onClose="close3"
     >
@@ -38,7 +38,7 @@
       theme="error"
       header="错误"
       body="对话框内容"
-      :visible.sync="visible4"
+      v-model:visible="visible4"
       @click-confirm="onClickConfirm"
       :onClose="close4"
     >
@@ -47,22 +47,22 @@
     <t-button theme="primary" @click="visible5 = true">自定义icon</t-button>
     <t-dialog
       body="对话框内容"
-      :visible.sync="visible5"
+      v-model:visible="visible5"
       @click-confirm="onClickConfirm"
       :onClose="close4"
     >
-      <div slot="header">
+      <template #header>
         <t-icon name="check-circle-filled" color="orange" />
         <span style="vertical-align: middle;">对话框标题</span>
-      </div>
+      </template>
     </t-dialog>
 
 
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-export default Vue.extend({
+import { defineComponent } from 'vue';
+export default defineComponent({
   data() {
     return {
       visible1: false,
