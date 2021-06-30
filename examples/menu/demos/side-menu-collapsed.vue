@@ -1,59 +1,39 @@
 <template>
-  <t-menu
-    theme="light"
-    active="2-1"
-    :collapsed="collapsed"
-    height="550px"
-  >
+  <t-menu theme="light" value="2-1" :collapsed="collapsed" height="550px">
     <template #logo>
       <span>LOGO</span>
     </template>
-    <t-menu-item name="item1">
+    <t-menu-item value="item1">
       <template #icon>
-        <t-icon name="user" />
+        <t-icon name="dashboard"/>
       </template>
-      菜单内容一
+      仪表盘1
     </t-menu-item>
-    <t-submenu
-      name="2"
-      mode="popup"
-    >
+    <t-submenu value="2" mode="popup">
       <template #icon>
-        <t-icon name="user" />
+        <t-icon name="mail" />
       </template>
       <template #title>
-        <span >侧边内容二</span>
+        <span>信息区</span>
       </template>
-      <t-menu-item name="2-1">
-        菜单内容一
-      </t-menu-item>
-      <t-menu-item name="2-2">
-        菜单内容二
-      </t-menu-item>
-      <t-menu-item name="2-3">
-        菜单内容三
-      </t-menu-item>
+      <t-menu-item value="2-1">菜单内容一</t-menu-item>
+      <t-menu-item value="2-2">菜单内容二</t-menu-item>
+      <t-menu-item value="2-3">菜单内容三</t-menu-item>
     </t-submenu>
-    <t-menu-item name="item3">
+    <t-menu-item value="item3">
       <template #icon>
-        <t-icon name="user" />
+        <t-icon name="play-circle" />
       </template>
-      菜单内容二
+      视频区
     </t-menu-item>
-    <t-menu-item
-      name="item4"
-      :disabled="true"
-    >
+    <t-menu-item value="item4" :disabled="true">
       <template #icon>
-        <t-icon name="user" />
+        <t-icon name="edit-1" />
       </template>
-      菜单内容三
+      资源编辑
     </t-menu-item>
     <template #options>
-      <t-icon
-        :name="iconName"
-        @click="changeCollapsed"
-      />
+      <t-icon :name="iconName" @click="changeCollapsed" />
     </template>
   </t-menu>
 </template>
