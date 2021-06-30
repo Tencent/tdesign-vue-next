@@ -18,7 +18,7 @@ export * from './drawer';
 export * from './layout';
 export * from './select';
 export * from './switch';
-// export * from './menu';
+export * from './menu';
 export * from './tooltip';
 export * from './divider';
 export * from './loading';
