@@ -47,9 +47,10 @@ export default defineComponent({
     // lifetimes
     onMounted(() => {
       if (submenu) {
+        const label = ctx.slots.default && ctx.slots.default()[0].children;
         submenu.addMenuItem({
           value: props.value,
-          label: ctx.slots.default(),
+          label,
         });
       }
     });

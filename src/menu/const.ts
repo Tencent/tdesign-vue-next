@@ -1,9 +1,9 @@
 import { MenuValue } from '@TdTypes/menu/TdMenuProps';
-import { Ref, VNodeChild } from 'vue';
+import { Ref, VNodeNormalizedChildren } from 'vue';
 
 export interface TdMenuItem {
   value: MenuValue;
-  label: VNodeChild;
+  label: VNodeNormalizedChildren;
 }
 
 export interface TdMenuInterface {
