@@ -22,11 +22,21 @@ export default defineComponent({
       `${prefix}-menu`,
       { [`${prefix}-menu--scroll`]: mode.value !== 'popup' },
     ]);
-    const expandWidth = computed(() => typeof props.width === 'number' ? `${props.width}px` : props.width);
-    const styles = computed(() => ({
-      height: '100%',
-      width: props.collapsed ? '64px' : expandWidth.value,
-    }));
+    const styles = computed(() => {
+      type widthType = typeof props.width;
+      let collapsedWidth: widthType = '64px';
+      let defaultWidth: widthType = '';
+
+      if (Array.isArray(props.width)) {
+        [defaultWidth, collapsedWidth] = props.width;
+      } else {
+        defaultWidth = props.width === 'number' ? `${props.width}px` : props.width;
+      }
+      return {
+        height: '100%',
+        width: props.collapsed ? collapsedWidth : defaultWidth,
+      };
+    });
     const activeIndexValue = ref(props.value);
     const expandedArray = ref(props.expanded || []);
     const deliver = (evt: string) => {
