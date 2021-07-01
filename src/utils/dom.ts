@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { VNode } from 'vue';
+import { ComponentPublicInstance, VNode } from 'vue';
 import raf from 'raf';
 import { easeInOutCubic, EasingFunction } from './easing';
 import isString from 'lodash/isString';
@@ -227,7 +227,7 @@ export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, 
 };
 
 // 用于判断节点内容是否溢出
-export const isNodeOverflow = (ele: Vue | Element | Vue[] | Element[]): boolean => {
+export const isNodeOverflow = (ele: ComponentPublicInstance | Element | ComponentPublicInstance[] | Element[]): boolean => {
   const { clientWidth = 0, scrollWidth = 0 } = (
     ele as Element & { clientWidth: number; scrollWidth: number }
   );

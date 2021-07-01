@@ -12,7 +12,7 @@ import {
   TypeTreeEventState,
 } from '../../common/js/tree/types';
 
-export {
+export type {
   TreeNodeValue,
   TreeNodeState,
 } from '@TdTypes/tree/TdTreeProps';

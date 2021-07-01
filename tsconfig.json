@@ -25,7 +25,6 @@
     "resolveJsonModule": true,
     "jsx": "preserve",
     "baseUrl": "./",
-    "types": ["vite/client"],
     "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }],
     "paths": {
       "@src/*": [
@@ -66,8 +65,7 @@
   "include": [
     "./**/*.ts",
     "./**/*.tsx",
-    "src/**/*.vue",
-    "node_modules/@tencent/tdesign-types/**/*"
+    "src/**/*.vue"
   ],
   "exclude": [
     "tools",
@@ -81,6 +79,7 @@
     "src/dropdown/**",
     "src/transfer/**",
     "src/time-picker/**",
+    "src/textarea/**",
     "src/utils/**"
   ],
   "compileOnSave": false
