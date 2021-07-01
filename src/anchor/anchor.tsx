@@ -1,18 +1,14 @@
 import { defineComponent, nextTick } from  'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
 import CLASSNAMES from '../utils/classnames';
-import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
-import { on, off, getScroll, scrollTo, getSuperAttach } from '../utils/dom';
-import props from '@TdTypes/anchor/props';
+import { ANCHOR_SHARP_REGEXP, getOffsetTop } from './utils';
+import { on, off, getScroll, scrollTo, getScrollContainer } from '../utils/dom';
+import props from '../../types/anchor/props';
 
 const name = `${prefix}-anchor`;
 
 export default defineComponent({
   name,
-  components: {
-    RenderComponent,
-  },
   provide(): any {
     return {
       tAnchor: this,
@@ -26,10 +22,7 @@ export default defineComponent({
     return {
       links: [] as string[],
       active: '',
-      activeLineStyle: null as ({ top: string; height: string}),
-      scrollContainer: undefined as ANCHOR_CONTAINER,
-      // 执行scrollTo设置的flag, 用来禁止执行handleScroll
-      handleScrollLock: undefined,
+      activeLineStyle: false as (boolean | { top: string; height: string}),
     };
   },
   watch: {
@@ -41,6 +34,7 @@ export default defineComponent({
       this.getScrollContainer();
     },
   },
+
   async mounted() {
     const { active } = this;
     this.getScrollContainer();
@@ -49,6 +43,7 @@ export default defineComponent({
       this.handleScrollTo(active);
     }
   },
+
   unmounted() {
     if (!this.scrollContainer) return;
     off(this.scrollContainer, 'scroll', this.handleScroll);
@@ -60,8 +55,8 @@ export default defineComponent({
      * 2. 如果是method则获取方法返回值
      */
     getScrollContainer(): void {
-      const { attach } = this;
-      this.scrollContainer = getSuperAttach(attach) as HTMLElement;
+      const { container } = this;
+      this.scrollContainer = getScrollContainer(container) as HTMLElement;
       on(this.scrollContainer, 'scroll', this.handleScroll);
       this.handleScroll();
     },
@@ -123,7 +118,7 @@ export default defineComponent({
     updateActiveLine(): void {
       const ele = this.$el.querySelector(`.${CLASSNAMES.STATUS.active}>a`) as HTMLAnchorElement;
       if (!ele) {
-        this.activeLineStyle = null;
+        this.activeLineStyle = false;
         return;
       }
       const { offsetTop: top, offsetHeight: height } = ele;
@@ -140,20 +135,13 @@ export default defineComponent({
      */
     emitChange(currentLink: string, prevLink: string) {
       this.$emit('change', currentLink, prevLink);
-      if (this.onChange) {
-        this.onChange(currentLink, prevLink);
-      }
     },
     /**
      * 监听AnchorLink点击事件
      * @param {{ href: string; title: string }} link
-     * @param {MouseEvent} e
      */
-    handleLinkClick(link: { href: string; title: string }, e: MouseEvent): void {
-      this.$emit('click', link, e);
-      if (this.onClick) {
-        this.onClick(link, e);
-      }
+    handleLinkClick(link: { href: string; title: string}): void {
+      this.$emit('click', link);
     },
     /**
      * 滚动到指定锚点
@@ -204,6 +192,7 @@ export default defineComponent({
       this.setCurrentActiveLink(active);
     },
   },
+
   render() {
     const { $slots: { default: children }, size, affix, activeLineStyle } = this;
     const className = [name, CLASSNAMES.SIZE[size], {

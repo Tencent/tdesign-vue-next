@@ -1,6 +1,6 @@
 <template>
   <div :id="`${path}#container`" class="anchor-demo anchor-container-demo">
-    <t-anchor :id="`${path}#default`" attach="#anchor-container">
+    <t-anchor :id="`${path}#default`" container="#anchor-container">
       <t-anchor-item :href="`#${path}#content-1`" title="content-1"> </t-anchor-item>
       <t-anchor-item :href="`#${path}#content-2`" title="content-2"> </t-anchor-item>
       <t-anchor-item :href="`#${path}#content-3`" title="content-3"></t-anchor-item>
