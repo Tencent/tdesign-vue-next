@@ -22,7 +22,7 @@ export default defineComponent({
     return {
       links: [] as string[],
       active: '',
-      activeLineStyle: false as (boolean | { top: string; height: string}),
+      activeLineStyle: null as ({ top: string; height: string}),
     };
   },
   watch: {
@@ -118,7 +118,7 @@ export default defineComponent({
     updateActiveLine(): void {
       const ele = this.$el.querySelector(`.${CLASSNAMES.STATUS.active}>a`) as HTMLAnchorElement;
       if (!ele) {
-        this.activeLineStyle = false;
+        this.activeLineStyle = null;
         return;
       }
       const { offsetTop: top, offsetHeight: height } = ele;
