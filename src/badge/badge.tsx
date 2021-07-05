@@ -65,9 +65,12 @@ export default defineComponent({
     return (
       <div class={name}>
         {children ? children : null}
-        {isHidden ? null : <sup class={badgeClassNames} style={inlineStyle }>{content}</sup>}
+        {isHidden ? null : (
+          <sup class={badgeClassNames} style={inlineStyle}>
+            {content}
+          </sup>
+        )}
       </div>
     );
   },
-
 });

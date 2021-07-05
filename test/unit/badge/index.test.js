@@ -41,10 +41,10 @@ describe('Badge', () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    it(':content', () => {
+    it(':count', () => {
       const wrapper = mount({
         render() {
-          return <Badge content ="new" count={2}>Tdesign</Badge>;
+          return <Badge count="new" count={2}>Tdesign</Badge>;
         },
       });
       expect(wrapper).toMatchSnapshot();
