@@ -60,7 +60,7 @@ export default {
       this.value = `${id}`;
       id += 1;
     },
-    removeTab(value) {
+    removeTab({ value }) {
       const index = this.panelData.findIndex(data => data.value === value);
       if (index < 0) return false;
       this.panelData.splice(index, 1);
