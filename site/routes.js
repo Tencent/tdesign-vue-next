@@ -14,12 +14,8 @@ function getDocsRoutes(docs, type) {
       children = item.children.sort((a, b) => {
         const nameA = a.name.toUpperCase();
         const nameB = b.name.toUpperCase();
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
         return 0;
       });
     }
@@ -29,6 +25,7 @@ function getDocsRoutes(docs, type) {
       docRoute = {
         path: item.path,
         name: item.name,
+        meta: { docType: item.docType },
         component: item.component,
       };
       docsRoutes.push(docRoute);
@@ -39,12 +36,12 @@ function getDocsRoutes(docs, type) {
 
 const routes = [
   {
-    path: '/',
-    redirect: '/vue-next/components/explain',
+    path: '/vue-next',
+    redirect: '/vue-next/components/button',
   },
   {
     path: '/:catchAll(.*)',
-    redirect: '/vue-next/components/explain',
+    redirect: '/vue-next/components/button',
   },
   ...getDocsRoutes(docs, 'doc'),
   ...getDocsRoutes(docs, 'component'),
