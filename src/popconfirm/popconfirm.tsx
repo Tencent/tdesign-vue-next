@@ -13,14 +13,14 @@ export default defineComponent({
   name,
   props: {
     ...props,
-    cancelText: {
-      type: [String, Function],
-      default: '取消',
-    },
-    confirmText: {
-      type: [String, Function],
-      default: '确定',
-    },
+    // cancelText: {
+    //   type: [String, Function],
+    //   default: '取消',
+    // },
+    // confirmText: {
+    //   type: [String, Function],
+    //   default: '确定',
+    // },
   },
   emits: ['close', 'cancel', 'confirm', 'visibleChange'],
   data() {
@@ -93,11 +93,13 @@ export default defineComponent({
       return <div>{node}</div>;
     },
     renderCancel(): VNodeChild {
-      if (this.$slots.cancelText) {
-        return this.$slots.cancelText();
+      if (this.$slots.cancelBtn) {
+        return this.$slots.cancelBtn();
       }
-      if (typeof this.cancelText === 'function') {
-        return this.cancelText();
+      if (typeof this.cancelBtn === 'function') {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        return this.cancelBtn();
       }
       return (
         <Button
@@ -108,11 +110,13 @@ export default defineComponent({
       );
     },
     renderConfirm(): JsxNode {
-      if (this.$slots.confirmText) {
-        return this.$slots.confirmText();
+      if (this.$slots.confirmBtn) {
+        return this.$slots.confirmBtn();
       }
-      if (typeof this.confirmText === 'function') {
-        return this.confirmText();
+      if (typeof this.confirmBtn === 'function') {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        return this.confirmBtn();
       }
       return (
         <Button size='small'
