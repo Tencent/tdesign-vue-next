@@ -92,7 +92,7 @@ const TransferDom = {
   unmounted: function unbind(el: TransferElement) {
     el.className = el.className.replace('v-transfer-dom', '');
     if (el.__transferDomData && el.__transferDomData.hasMovedOut === true) {
-      el.__transferDomData.parentNode && el.__transferDomData.parentNode?.appendChild?.(el);
+      el.__transferDomData.parentNode?.appendChild?.(el);
     }
     el.__transferDomData = null;
   },
