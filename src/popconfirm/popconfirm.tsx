@@ -145,7 +145,7 @@ export default defineComponent({
           ref="popup"
           visible={this.visible}
           {...popupProps}
-          onVisibleChange={(val:boolean) => this.onPopupVisibleChange(val)}
+          onVisibleChange={(val: boolean) => this.onPopupVisibleChange(val)}
           v-slots={slots}
         >
           {triggerElement}
