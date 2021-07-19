@@ -1,28 +1,22 @@
-import { defineComponent, VNodeChild, h } from 'vue';
-import Icon from '../icon';
-import Button from '../button';
+import { defineComponent } from 'vue';
+import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
+import mixins from '../utils/mixins';
+import getLocalRecevierMixins from '../locale/local-receiver';
 import Popup from '../popup/index';
 import { prefix } from '../config';
 import props from '@TdTypes/popconfirm/props';
-// import {THEME_LIST} from './const'
-// import { Popconfirm } from '../../script/types';
+import { TdPopconfirmProps, PopconfirmVisibleChangeContext } from '@TdTypes/popconfirm/TdPopconfirmProps';
+
 const name = `${prefix}-popconfirm`;
 const popupName = `${prefix}-popup`;
-
+const PopconfirmLocalReceiver = getLocalRecevierMixins('popconfirm');
 export default defineComponent({
+  ...mixins(PopconfirmLocalReceiver),
   name,
   props: {
     ...props,
-    // cancelText: {
-    //   type: [String, Function],
-    //   default: '取消',
-    // },
-    // confirmText: {
-    //   type: [String, Function],
-    //   default: '确定',
-    // },
   },
-  emits: ['close', 'cancel', 'confirm', 'visibleChange'],
+  emits: ['close', 'cancel', 'confirm', 'visibleChange', 'visible-change'],
   data() {
     return {
       name,
@@ -32,141 +26,130 @@ export default defineComponent({
   computed: {
     iconName(): string {
       const iconMap = {
-        info: 'info-circle-filled',
+        default: 'info-circle-filled',
         warning: 'error-circle-filled',
-        error: 'error-circle-filled',
+        danger: 'error-circle-filled',
       };
       return iconMap[this.theme] || '';
     },
     iconColor(): string {
       let color = '';
       switch (this.theme) {
-        case 'warning':    // 黄色
+        case 'warning':
           color = '#FFAA00';
           break;
         case 'danger':
-          color = '#FF3E00';   // 红色
+          color = '#E34D59';
           break;
         default:
-          color = '#0052D9';   // 蓝色
+          color = '#0052D9';
       }
       return `color:${color}`;
     },
   },
   methods: {
-    handleClose(event: any): void {
-      this.$emit('close', event);
+    handleCancel(e: MouseEvent) {
+      this.$emit('cancel', { e });
+      this.onCancel && this.onCancel({ e });
+      const cancelContext: PopconfirmVisibleChangeContext = { e, trigger: 'cancel' };
+      this.$emit('visible-change', false, cancelContext);
+      this.onVisibleChange && this.onVisibleChange(false, cancelContext);
     },
-    handleCancel(event: any): void {
-      this.setVisible(false, event);
-      this.$emit('cancel', event);
+    handleConfirm(e: MouseEvent) {
+      this.$emit('confirm', { e });
+      this.onConfirm && this.onConfirm({ e });
+      const confirmContext: PopconfirmVisibleChangeContext = { e, trigger: 'confirm' };
+      this.$emit('visible-change', false, confirmContext);
+      this.onVisibleChange && this.onVisibleChange(false, confirmContext);
     },
-    handleConfirm(event: any): void {
-      this.setVisible(false, event);
-      this.$emit('confirm', event);
-    },
-    setVisible(visible: boolean, event: any): void {
-      (this.$refs.popup as any).doClose();
-      this.$emit('visibleChange', visible, event);
-    },
-    renderIcon(): VNodeChild {
-      // 优先级 slot > Funtion > string
+    renderIcon() {
+      // 优先级 slot > Funtion
       if (this.$slots.icon) {
-        return this.$slots.icon();
+        return this.$slots.icon(null);
       }
       const arg = this.icon;
       if (typeof arg === 'function') {
-        return arg(h);
+        // eslint-disable-next-line @typescript-eslint/ban-types
+        return (arg as Function)();
       }
-      const iconName = arg || this.iconName;
-      return iconName ? <Icon name={iconName} style={this.iconColor} /> : '';
+      return <t-icon name={this.iconName} style={this.iconColor} />;
     },
-    renderContent(): VNodeChild {
-      // 优先级 slot > Function > string
-      if (this.$slots.content) {
-        return this.$slots.content();
-      }
-      const node = this.content || '确定删除吗？';
-      if (typeof node === 'function') {
-        return node(h);
-      }
-      return <div>{node}</div>;
+    getBtnText(api: TdPopconfirmProps['cancelBtn']) {
+      return typeof api === 'object' ? api.content : api;
     },
-    renderCancel(): VNodeChild {
-      if (this.$slots.cancelBtn) {
-        return this.$slots.cancelBtn();
-      }
-      if (typeof this.cancelBtn === 'function') {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        return this.cancelBtn();
-      }
+    getBtnProps(api: TdPopconfirmProps['confirmBtn']) {
+      return typeof api === 'object' ? api : {};
+    },
+    renderCancel(cancelBtn: TdPopconfirmProps['cancelBtn']) {
       return (
-        <Button
-          size='small'
-          variant='outline'
-          onclick={this.handleCancel}
-        >{this.cancelBtn}</Button>
+        <t-button theme="default" size="small" {...this.getBtnProps(cancelBtn)}>
+          {this.getBtnText(cancelBtn)}
+        </t-button>
       );
     },
-    renderConfirm(): JsxNode {
-      if (this.$slots.confirmBtn) {
-        return this.$slots.confirmBtn();
-      }
-      if (typeof this.confirmBtn === 'function') {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        return this.confirmBtn();
-      }
+    renderConfirm(confirmBtn: TdPopconfirmProps['confirmBtn']) {
       return (
-        <Button size='small'
-          variant="base"
-          theme="primary"
-          onclick={this.handleConfirm}
-        >{this.confirmBtn}</Button>
+        <t-button theme="primary" size="small" {...this.getBtnProps(confirmBtn)}>
+          {this.getBtnText(confirmBtn)}
+        </t-button>
       );
+    },
+    onPopupVisibleChange(val: boolean, context: PopconfirmVisibleChangeContext) {
+      this.$emit('visible-change', val, context);
+      this.onVisibleChange && this.onVisibleChange(val, context);
     },
   },
   render() {
-    const trigger: VNode[] | VNode | string = this.$slots.default ? this.$slots.default() : null;
-    const popupProps = {
-      props: {
-        showArrow: true,
-        overlayClassName: name,
-        content: this.content,
-        // $attrs放下面来, vue3中合并顺序改变了
-        // https://v3.cn.vuejs.org/guide/migration/v-bind.html#%E6%A6%82%E8%A7%88
-        ...this.$attrs,
-      },
-      ref: 'popup',
-      // https://v3.cn.vuejs.org/guide/migration/listeners-removed.html
-      // 此处移除on的绑定,文档中提到v-on=$listeners已经合并到了v-bind=$attrs
-      // on: {
-      //   ...this.$attrs,
-      // },
-    };
+    const triggerElement = renderContent(this, 'default', 'triggerElement');
+    const popupProps = Object.assign({
+      showArrow: true,
+      overlayClassName: name,
+      trigger: 'click',
+    }, this.popupProps);
+    const baseTypes = ['string', 'object'];
+    let confirmBtn: any = null;
+    if (![undefined, null].includes(this.confirmBtn)) {
+      const mBtn = this.confirmBtn || this.t(this.locale.confirm);
+      confirmBtn = baseTypes.includes(typeof mBtn)
+        ? this.renderConfirm(mBtn)
+        : renderTNodeJSX(this, 'confirmBtn');
+    }
+    let cancelBtn: any = null;
+    if (![undefined, null].includes(this.cancelBtn)) {
+      const cBtn = this.cancelBtn || this.t(this.locale.cancel);
+      cancelBtn = baseTypes.includes(typeof cBtn)
+        ? this.renderCancel(cBtn)
+        : renderTNodeJSX(this, 'cancelBtn');
+    }
     const slots = {
       content: () => (
         <div class={`${name}__content`}>
           <div class={`${name}__body`}>
             {this.renderIcon()}
             <div class={`${name}__inner`}>
-              {this.renderContent()}
+              {renderTNodeJSX(this, 'content')}
             </div>
           </div>
-          <div class="t-popconfirm__buttons">
-            {this.renderCancel()}
-            {this.renderConfirm()}
-          </div>
+          {Boolean(cancelBtn || confirmBtn) && (
+            <div class="t-popconfirm__buttons">
+              <span class="t-popconfirm__cancel" onClick={this.handleCancel}>{cancelBtn}</span>
+              <span class="t-popconfirm__confirm" onClick={this.handleConfirm}>{confirmBtn}</span>
+            </div>
+          )}
         </div>
       ),
     };
     return (
       <div>
-        <Popup ref={popupProps.ref} {...popupProps.props} v-slots={slots}>
-          {trigger}
+        <Popup
+          ref="popup"
+          visible={this.visible}
+          {...popupProps}
+          onVisibleChange={(val:boolean) => this.onPopupVisibleChange(val)}
+          v-slots={slots}
+        >
+          {triggerElement}
         </Popup>
-        <slot />
       </div>
     );
   },
