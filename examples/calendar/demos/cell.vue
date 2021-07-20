@@ -1,12 +1,14 @@
 <template>
   <t-calendar>
-    <div slot="cell" slot-scope="scope" class="my-cell">
-      <div class="cellNum">{{ diaplayNum(scope.data) }}</div>
-      <div class="cellAppend"
-           :class="getCellAppendCls(scope.data)">
-        {{ getDateStr(scope.data) }}
+    <template #cell="scope">
+      <div class="my-cell">
+        <div class="cellNum">{{ diaplayNum(scope.data) }}</div>
+        <div class="cellAppend"
+            :class="getCellAppendCls(scope.data)">
+          {{ getDateStr(scope.data) }}
+        </div>
       </div>
-    </div>
+    </template>
   </t-calendar>
 </template>
 

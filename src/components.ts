@@ -30,7 +30,7 @@ export * from './transfer';
 // export * from './upload';
 export * from './breadcrumb';
 export * from './popconfirm';
-// export * from './calendar';
+export * from './calendar';
 export * from './input-group';
 // export * from './dropdown';
 export * from './alert-swiper';

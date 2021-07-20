@@ -11,12 +11,14 @@
 
     <t-calendar ref="myCalendar"
                 :theme="theme">
-      <div class="demo-cell" slot="cell" slot-scope="scope" @click="showCeelData(scope.data)">
-        <div class="cellAppend"
-             :class="getCellAppendCls(scope.data)">
-          {{ getDateStr(scope.data) }}
+      <template #cell="scope">
+        <div class="demo-cell" @click="showCeelData(scope.data)">
+          <div class="cellAppend"
+              :class="getCellAppendCls(scope.data)">
+            {{ getDateStr(scope.data) }}
+          </div>
         </div>
-      </div>
+      </template>
     </t-calendar>
   </div>
 </template>
@@ -48,6 +50,7 @@ export default {
       return `${y}-${m}`;
     },
     getCellAppendCls(cellData) {
+      console.log(cellData)
       return {
         belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
         actived: cellData.isCurrent,
