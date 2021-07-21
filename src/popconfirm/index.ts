@@ -14,6 +14,6 @@ const LocalPopconfirm = mapProps([
   },
 ])(_Popconfirm);
 
-const PopconfirmProps: WithInstallType<typeof LocalPopconfirm> = withInstall(LocalPopconfirm);
-export { PopconfirmProps };
-export default PopconfirmProps;
+const Popconfirm: WithInstallType<typeof LocalPopconfirm> = withInstall(LocalPopconfirm);
+export { Popconfirm };
+export default Popconfirm;
