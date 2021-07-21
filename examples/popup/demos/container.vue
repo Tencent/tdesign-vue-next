@@ -1,12 +1,14 @@
 <template>
-  <t-popup
-    id="myPopup"
-    content="这是popup内容"
-    trigger="click"
-    :getOverlayContainer="getContainer"
-  >
-    <t-button>click我试试</t-button>
-  </t-popup>
+  <div>
+    <t-popup
+      id="myPopup"
+      content="这是popup内容"
+      trigger="click"
+      :getOverlayContainer="getContainer"
+    >
+      <t-button>click我试试</t-button>
+    </t-popup>
+  </div>
 </template>
 
 <script lang="ts">
