@@ -36,12 +36,8 @@ function getDocsRoutes(docs, type) {
 
 const routes = [
   {
-    path: '/vue-next',
-    redirect: '/vue-next/components/button',
-  },
-  {
-    path: '/:catchAll(.*)',
-    redirect: '/vue-next/components/button',
+    path: '/',
+    redirect: () => ({ name: 'button' }),
   },
   ...getDocsRoutes(docs, 'doc'),
   ...getDocsRoutes(docs, 'component'),
@@ -53,7 +49,7 @@ const routerConfig = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  routerConfig.history = createWebHistory('/');
+  routerConfig.history = createWebHistory('/vue-next/');
 }
 
 const router = createRouter(routerConfig);

@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
-import Popup from '../popup/index';
+import Popup  from '../popup/index';
 import { prefix } from '../config';
 import props from '@TdTypes/popconfirm/props';
 import { TdPopconfirmProps, PopconfirmVisibleChangeContext } from '@TdTypes/popconfirm/TdPopconfirmProps';
@@ -13,6 +13,10 @@ const PopconfirmLocalReceiver = getLocalRecevierMixins('popconfirm');
 export default defineComponent({
   ...mixins(PopconfirmLocalReceiver),
   name,
+  model: {
+    prop: 'visible',
+    event: 'visible-change',
+  },
   props: {
     ...props,
   },
@@ -104,7 +108,7 @@ export default defineComponent({
     const popupProps = Object.assign({
       showArrow: true,
       overlayClassName: name,
-      trigger: 'click',
+      trigger: 'manual',
     }, this.popupProps);
     const baseTypes = ['string', 'object'];
     let confirmBtn: any = null;
@@ -145,7 +149,7 @@ export default defineComponent({
           ref="popup"
           visible={this.visible}
           {...popupProps}
-          onVisibleChange={(val: boolean) => this.onPopupVisibleChange(val)}
+          onVisibleChange={this.onPopupVisibleChange}
           v-slots={slots}
         >
           {triggerElement}
