@@ -39,6 +39,10 @@ const routes = [
     path: '/',
     redirect: () => ({ name: 'button' }),
   },
+  {
+    path: '/vue-next/',
+    redirect: () => ({ name: 'button' }),
+  },
   ...getDocsRoutes(docs, 'doc'),
   ...getDocsRoutes(docs, 'component'),
 ];
@@ -49,7 +53,7 @@ const routerConfig = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  routerConfig.history = createWebHistory('/vue-next/');
+  routerConfig.history = createWebHistory('/');
 }
 
 const router = createRouter(routerConfig);
