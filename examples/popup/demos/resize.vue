@@ -5,7 +5,6 @@
       trigger="manual"
       placement="bottom-left"
       showArrow
-      :visible="true"
     >
       <textarea placeholder="拖动修改输入框尺寸" />
     </t-popup>
