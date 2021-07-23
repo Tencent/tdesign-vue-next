@@ -3,7 +3,7 @@ import Notification from './notification';
 import { TdNotificationProps, PlacementList } from '@TdTypes/notification/TdNotificationProps';
 
 const DEFAULT_Z_INDEX = 6000;
-const _margin = 16;
+const MARGIN = 16;
 
 export default defineComponent({
   components: { Notification },
@@ -43,7 +43,7 @@ export default defineComponent({
     notificationStyles(item: { offset: PlacementList; zIndex: number }) {
       const styles = {};
       this.placement.split('-').forEach((direction: 'left' | 'top' | 'bottom' | 'right') => {
-        let margin = _margin;
+        let margin = MARGIN;
         if (item.offset && item.offset[direction]) {
           margin += item.offset[direction];
         }

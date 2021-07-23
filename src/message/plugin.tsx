@@ -62,8 +62,8 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
   if (!instanceMap.get(attachDom)) {
     instanceMap.set(attachDom, {});
   }
-  const _p = instanceMap.get(attachDom)[placement];
-  if (!_p) {
+  const p = instanceMap.get(attachDom)[placement];
+  if (!p) {
     const wrapper = document.createElement('div');
 
     const instance = createApp(MessageList, {
@@ -75,13 +75,13 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
     instanceMap.get(attachDom)[placement] = instance;
     attachDom.appendChild(wrapper);
   } else {
-    _p.add(options);
+    p.add(options);
   }
   // 返回最新消息的 Element
   return new Promise((resolve) => {
-    const _ins = instanceMap.get(attachDom)[placement];
+    const ins = instanceMap.get(attachDom)[placement];
     nextTick(() => {
-      const msg: Array<MessageInstance> = _ins.messageList;
+      const msg: Array<MessageInstance> = ins.messageList;
       resolve(msg[msg.length - 1]);
     });
   });

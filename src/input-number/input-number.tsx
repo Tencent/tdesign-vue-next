@@ -25,9 +25,9 @@ type ChangeContextEvent = InputEvent | MouseEvent | FocusEvent;
 type InputNumberAttr = {
   disabled?: boolean;
   readonly?: any;
-    autocomplete?: string;
-    ref: string;
-    placeholder: string;
+  autocomplete?: string;
+  ref: string;
+  placeholder: string;
 };
 
 export default defineComponent({

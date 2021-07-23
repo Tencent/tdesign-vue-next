@@ -5,7 +5,7 @@ import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from '@TdTypes/anchor-item/props';
 
 const name = `${prefix}-anchor-item`;
-type tAnchor = {
+type TAnchor = {
   active: string;
   handleScrollTo(target: string): void;
   registerLink(href: string): void;
@@ -15,7 +15,7 @@ type tAnchor = {
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties  {
-    tAnchor: tAnchor;
+    tAnchor: TAnchor;
   }
 }
 
