@@ -13,10 +13,6 @@ const PopconfirmLocalReceiver = getLocalRecevierMixins('popconfirm');
 export default defineComponent({
   ...mixins(PopconfirmLocalReceiver),
   name,
-  model: {
-    prop: 'visible',
-    event: 'visible-change',
-  },
   props: {
     ...props,
   },
@@ -54,17 +50,13 @@ export default defineComponent({
   methods: {
     handleCancel(e: MouseEvent) {
       this.$emit('cancel', { e });
-      this.onCancel && this.onCancel({ e });
       const cancelContext: PopconfirmVisibleChangeContext = { e, trigger: 'cancel' };
       this.$emit('visible-change', false, cancelContext);
-      this.onVisibleChange && this.onVisibleChange(false, cancelContext);
     },
     handleConfirm(e: MouseEvent) {
       this.$emit('confirm', { e });
-      this.onConfirm && this.onConfirm({ e });
       const confirmContext: PopconfirmVisibleChangeContext = { e, trigger: 'confirm' };
       this.$emit('visible-change', false, confirmContext);
-      this.onVisibleChange && this.onVisibleChange(false, confirmContext);
     },
     renderIcon() {
       // 优先级 slot > Funtion
@@ -100,7 +92,6 @@ export default defineComponent({
     },
     onPopupVisibleChange(val: boolean, context: PopconfirmVisibleChangeContext) {
       this.$emit('visible-change', val, context);
-      this.onVisibleChange && this.onVisibleChange(val, context);
     },
   },
   render() {
