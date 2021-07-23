@@ -203,7 +203,7 @@ export default defineComponent({
     hasEventOn(name: string) {
       // _events 因没有被暴露在vue实例接口中，只能把这个规则注释掉
       /* eslint-disable dot-notation */
-      const eventFuncs = this['_events']?.[name];
+      const eventFuncs = this._events?.[name];
       return !!eventFuncs?.length;
     },
     getIcon() {

@@ -49,6 +49,7 @@ export default defineComponent({
       flex,
       tag,
     } = this;
+    // eslint-disable-next-line no-unused-vars
     const component = tag;
     let sizeClassObj: any = {};
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach((size) => {

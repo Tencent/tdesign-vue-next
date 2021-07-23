@@ -13,7 +13,7 @@ type Result = ValidateResult<TdFormProps['data']>;
 
 type FormInstance = InstanceType<typeof Form>;
 
-const enum VALIDATE_STATUS {
+const enum Validate_Status {
   TO_BE_VALIDATED = 'not',
   SUCCESS = 'success',
   FAIL = 'fail',
@@ -37,7 +37,7 @@ export default defineComponent({
     return {
       errorList: [] as ErrorList,
       // 当前校验状态 未校验、校验通过、校验不通过
-      verifyStatus: VALIDATE_STATUS.TO_BE_VALIDATED as VALIDATE_STATUS,
+      verifyStatus: Validate_Status.TO_BE_VALIDATED as Validate_Status,
       resetValidating: false as boolean,
       needResetField: false as boolean,
       initialValue: undefined as ValueType,
@@ -71,7 +71,7 @@ export default defineComponent({
     errorClasses(): string {
       const parent = this.$parent as FormInstance;
       if (!parent.showErrorMessage) return '';
-      if (this.verifyStatus === VALIDATE_STATUS.SUCCESS) return CLASS_NAMES.success;
+      if (this.verifyStatus === Validate_Status.SUCCESS) return CLASS_NAMES.success;
       if (!this.errorList.length) return;
       const type = this.errorList[0].type || 'error';
       return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
@@ -134,7 +134,7 @@ export default defineComponent({
         validate(this.value, this.innerRules)
           .then((r) => {
             this.errorList = r;
-            this.verifyStatus = this.errorList.length ? VALIDATE_STATUS.FAIL : VALIDATE_STATUS.SUCCESS;
+            this.verifyStatus = this.errorList.length ? Validate_Status.FAIL : Validate_Status.SUCCESS;
             resolve({
               [this.name]: r.length === 0 ? true : r,
             });
@@ -178,7 +178,7 @@ export default defineComponent({
         </span>
       );
       const list = this.errorList;
-      if (this.verifyStatus === VALIDATE_STATUS.SUCCESS) {
+      if (this.verifyStatus === Validate_Status.SUCCESS) {
         return resultIcon('check-circle-filled');
       }
       if (list && list[0]) {
@@ -262,7 +262,7 @@ export default defineComponent({
     resetHandler(): void {
       this.needResetField = false;
       this.errorList = [];
-      this.verifyStatus = VALIDATE_STATUS.TO_BE_VALIDATED;
+      this.verifyStatus = Validate_Status.TO_BE_VALIDATED;
     },
   },
 

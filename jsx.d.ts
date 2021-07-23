@@ -11,7 +11,7 @@ declare global {
 
 declare module '@vue/runtime-dom' {
   interface HTMLAttributes {
-      [attr: string]: any;
+    [attr: string]: any;
   }
 
   interface CSSProperties {

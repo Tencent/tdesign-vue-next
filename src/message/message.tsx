@@ -84,6 +84,7 @@ export default defineComponent({
       if (this.$slots.icon) {
         return this.$slots.icon(null);
       }
+      // eslint-disable-next-line no-unused-vars
       const component = {
         info: TIconInfoCircleFilled,
         success: TIconCheckCircleFilled,

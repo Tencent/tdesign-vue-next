@@ -95,6 +95,7 @@ export default defineComponent({
   },
 
   render() {
+    // eslint-disable-next-line no-unused-vars
     const component =  this.tag;
     return (
       <component class={this.classes} style={this.styles}>

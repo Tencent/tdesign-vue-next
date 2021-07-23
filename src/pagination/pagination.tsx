@@ -17,7 +17,7 @@ import { TdPaginationProps } from '@TdTypes/pagination/TdPaginationProps';
 const { prefix } = config;
 const name = `${prefix}-pagination`;
 
-const PaginationLocalReceiver = getLocalRecevierMixins('pagination');
+const PAGINATION_LOCAL_REVEIVER = getLocalRecevierMixins('pagination');
 
 export default defineComponent({
   name,
@@ -31,7 +31,7 @@ export default defineComponent({
     TInput,
     Select,
   },
-  ...mixins(PaginationLocalReceiver),
+  ...mixins(PAGINATION_LOCAL_REVEIVER),
   props: {
     ...props,
     /**
@@ -68,7 +68,7 @@ export default defineComponent({
     /**
      * 样式计算
      */
-    _class(): ClassName {
+    CLASS(): ClassName {
       return [
         `${name}`,
         CLASSNAMES.SIZE[this.size],
@@ -77,10 +77,10 @@ export default defineComponent({
         },
       ];
     },
-    _totalClass(): ClassName {
+    totalClass(): ClassName {
       return [`${name}__total`];
     },
-    _sizerClass(): ClassName {
+    sizerClass(): ClassName {
       return [
         `${name}__select`,
         // {
@@ -88,7 +88,7 @@ export default defineComponent({
         // },
       ];
     },
-    _preBtnClass(): ClassName {
+    preBtnClass(): ClassName {
       return [
         `${name}__btn`,
         `${name}__btn--prev`,
@@ -97,19 +97,19 @@ export default defineComponent({
         },
       ];
     },
-    _nextBtnClass(): ClassName {
+    nextBtnClass(): ClassName {
       return [
         `${name}__btn`,
         `${name}__btn--next`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled || this.currentIndex === this._pageCount,
+          [CLASSNAMES.STATUS.disabled]: this.disabled || this.currentIndex === this.pageCount,
         },
       ];
     },
-    _btnWrapClass(): ClassName {
+    btnWrapClass(): ClassName {
       return [`${name}__pager`];
     },
-    _btnMoreClass(): ClassName {
+    btnMoreClass(): ClassName {
       return [
         `${name}__number`,
         `${name}__number--more`,
@@ -118,10 +118,10 @@ export default defineComponent({
         },
       ];
     },
-    _jumperClass(): ClassName {
+    jumperClass(): ClassName {
       return [`${name}__jump`];
     },
-    _jumperInputClass(): ClassName {
+    jumperInputClass(): ClassName {
       return [
         `${name}__input`,
         // {
@@ -129,24 +129,24 @@ export default defineComponent({
         // },
       ];
     },
-    _simpleClass(): ClassName {
+    simpleClass(): ClassName {
       return [`${name}__select`];
     },
-    _isSimple(): boolean {
+    isSimple(): boolean {
       return this.theme === 'simple';
     },
-    _pageCount(): number {
+    pageCount(): number {
       const c: number = Math.ceil(this.total / this.pageSize);
       return c > 0 ? c : 1;
     },
-    _pageCountOption(): Array<number> {
+    pageCountOption(): Array<number> {
       const ans = [];
-      for (let i = 1; i <= this._pageCount; i++) {
+      for (let i = 1; i <= this.pageCount; i++) {
         ans.push(i);
       }
       return ans;
     },
-    _pageSizeOption(): Array<{ label: string; value: number }> {
+    pageSizeOption(): Array<{ label: string; value: number }> {
       const { pageSize } = this;
       const locale = this.locale as any;
       const pageSizeOptions = this.pageSizeOptions as TdPaginationProps['pageSizeOptions'];
@@ -178,7 +178,7 @@ export default defineComponent({
     },
 
     isNextMoreShow(): boolean {
-      return this._pageCount - 1 - this.curPageRightCount > this.currentIndex;
+      return this.pageCount - 1 - this.curPageRightCount > this.currentIndex;
     },
 
     pages(): Array<number> {
@@ -191,12 +191,12 @@ export default defineComponent({
           start = this.currentIndex - this.curPageLeftCount;
           end = this.currentIndex + this.curPageRightCount;
         } else {
-          start = this.isPrevMoreShow ? this._pageCount - this.foldedMaxPageBtn + 1 : 2;
-          end = this.isPrevMoreShow ? this._pageCount - 1 : this.foldedMaxPageBtn;
+          start = this.isPrevMoreShow ? this.pageCount - this.foldedMaxPageBtn + 1 : 2;
+          end = this.isPrevMoreShow ? this.pageCount - 1 : this.foldedMaxPageBtn;
         }
       } else {
         start = 1;
-        end = this._pageCount;
+        end = this.pageCount;
       }
 
       for (let i = start; i <= end; i++) {
@@ -206,7 +206,7 @@ export default defineComponent({
     },
 
     isFolded(): boolean {
-      return this._pageCount > this.maxPageBtn;
+      return this.pageCount > this.maxPageBtn;
     },
   },
   watch: {
@@ -226,8 +226,8 @@ export default defineComponent({
       let current = pageIndex;
       if (pageIndex < 1) {
         current = 1;
-      } else if (pageIndex > this._pageCount) {
-        current = this._pageCount;
+      } else if (pageIndex > this.pageCount) {
+        current = this.pageCount;
       }
       if (this.currentIndex !== current) {
         const prev = this.currentIndex;
@@ -311,41 +311,41 @@ export default defineComponent({
     },
     renderPagination() {
       const {
-        _class,
-        _pageCount,
+        CLASS,
+        pageCount,
         totalContent,
-        _totalClass,
+        totalClass,
         locale,
         size,
         pageSize,
         disabled,
-        _sizerClass,
+        sizerClass,
         onSelectorChange,
         pageSizeOptions,
-        _pageSizeOption,
-        _preBtnClass,
+        pageSizeOption,
+        preBtnClass,
         prevPage,
         currentIndex,
-        _btnWrapClass,
+        btnWrapClass,
         getButtonClass,
         toPage,
         isFolded,
         isNextMoreShow,
         isPrevMoreShow,
-        _btnMoreClass,
+        btnMoreClass,
         prevMorePage,
         nextMorePage,
-        _simpleClass,
+        simpleClass,
         pages,
-        _pageCountOption,
-        _nextBtnClass,
+        pageCountOption,
+        nextBtnClass,
         nextPage,
-        _jumperClass,
-        _jumperInputClass,
+        jumperClass,
+        jumperInputClass,
         jumpIndex,
         jumpToPage,
         t,
-        _isSimple,
+        isSimple,
         showJumper,
       } = this;
       const inputEvent = {
@@ -353,19 +353,19 @@ export default defineComponent({
       };
 
       return (
-        <div class={_class}>
+        <div class={CLASS}>
           {/* 数据统计区 */}
           {
-            totalContent && <div class={_totalClass}>
+            totalContent && <div class={totalClass}>
               {this.renderTotalContent()}
             </div>
           }
 
           {/* select */}
           {
-            pageSizeOptions.length &&  <t-select size={size} value={pageSize} disabled={disabled} class={_sizerClass} onChange={onSelectorChange}>
+            pageSizeOptions.length &&  <t-select size={size} value={pageSize} disabled={disabled} class={sizerClass} onChange={onSelectorChange}>
               {
-                _pageSizeOption.map((item, index) => (
+                pageSizeOption.map((item, index) => (
                     <t-option
                       value={item.value}
                       label={t(item.label, { size: item.value })}
@@ -378,18 +378,18 @@ export default defineComponent({
           }
 
           {/* 向前按钮 */}
-          <div class={_preBtnClass} onClick={prevPage} disabled={disabled || currentIndex === 1}>
+          <div class={preBtnClass} onClick={prevPage} disabled={disabled || currentIndex === 1}>
             <t-icon-chevron-left></t-icon-chevron-left>
           </div>
           {/* 页数 */}
           {
-            !_isSimple ? <ul class={_btnWrapClass}>
+            !isSimple ? <ul class={btnWrapClass}>
               {
                 isFolded && <li class={getButtonClass(1)} onClick={() => toPage(1)}>1</li>
               }
               {
                 (isFolded && isPrevMoreShow) && <li
-                  class={_btnMoreClass}
+                  class={btnMoreClass}
                   onClick={prevMorePage}
                   onMouseover={() => this.prevMore = true}
                   onMouseout={() => this.prevMore = false}
@@ -409,7 +409,7 @@ export default defineComponent({
 
               {
                 (isFolded && isNextMoreShow) && <li
-                  class={_btnMoreClass}
+                  class={btnMoreClass}
                   onClick={nextMorePage}
                   onMouseover={() => this.nextMore = true}
                   onMouseout={() => this.nextMore = false}
@@ -420,34 +420,34 @@ export default defineComponent({
                 </li>
               }
               {
-                isFolded && <li class={getButtonClass(_pageCount)} onClick={() => toPage(_pageCount)}>{ _pageCount }</li>
+                isFolded && <li class={getButtonClass(pageCount)} onClick={() => toPage(pageCount)}>{ pageCount }</li>
               }
             </ul> : <t-select
               size={size}
               value={currentIndex}
               disabled={disabled}
-              class={_simpleClass}
+              class={simpleClass}
               onChange={toPage}
             >
               {
-                _pageCountOption.map(item => <t-option
+                pageCountOption.map(item => <t-option
                     value={item}
-                    label={`${item}/${_pageCount}`}
-                    key={`${item}/${_pageCount}`}
+                    label={`${item}/${pageCount}`}
+                    key={`${item}/${pageCount}`}
                   />)
               }
 
             </t-select>
           }
           {/* 向后按钮 */}
-          <div class={_nextBtnClass} onClick={nextPage} disabled={disabled || currentIndex === _pageCount}>
+          <div class={nextBtnClass} onClick={nextPage} disabled={disabled || currentIndex === pageCount}>
             <t-icon-chevron-right></t-icon-chevron-right>
           </div>
           {/* 跳转 */}
           {
-            showJumper && <div class={_jumperClass}>
+            showJumper && <div class={jumperClass}>
               { t(locale.jumpTo) }
-              <t-input class={_jumperInputClass} value={jumpIndex} {...inputEvent} onKeydownEnter={jumpToPage} onBlur={jumpToPage} />
+              <t-input class={jumperInputClass} value={jumpIndex} {...inputEvent} onKeydownEnter={jumpToPage} onBlur={jumpToPage} />
               { t(locale.page) }
             </div>
           }
@@ -456,7 +456,7 @@ export default defineComponent({
     },
   },
   render() {
-    const { _pageCount } = this;
-    return _pageCount > 1 && this.renderPagination();
+    const { pageCount } = this;
+    return pageCount > 1 && this.renderPagination();
   },
 });

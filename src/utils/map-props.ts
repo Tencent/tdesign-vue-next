@@ -22,7 +22,7 @@ type ParsedPropOption = {
 
 
 function getPropOptionMap(props: (string | PropOption)[]):
-  { [name: string]: ParsedPropOption } {
+{ [name: string]: ParsedPropOption } {
   const propOptionMap = {};
 
   function parseProp(propOption: PropOption): ParsedPropOption {
