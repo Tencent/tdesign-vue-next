@@ -33,16 +33,16 @@ export default defineComponent({
       $slots: { default: children },
       id,
     } = this;
-    const TAG: any = this.tag;
+    const Tag: any = this.tag;
     const className = [name];
     const iconClassName = `${prefix}-copy`;
     return (
-      <TAG id={id} class={className}>
+      <Tag id={id} class={className}>
         {children && children(null)}
         <t-popup content="复制链接" placement="top" showArrow class={iconClassName}>
           <t-icon-file-copy name="file-copy" onClick={this.copyText} />
         </t-popup>
-      </TAG>
+      </Tag>
     );
   },
 });
