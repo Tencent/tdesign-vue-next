@@ -16,7 +16,7 @@ export default defineComponent({
   props: {
     ...props,
   },
-  emits: ['close', 'cancel', 'confirm', 'visibleChange', 'visible-change'],
+  emits: ['close', 'cancel', 'confirm', 'visible-change'],
   data() {
     return {
       name,
