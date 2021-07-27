@@ -226,8 +226,7 @@ export default defineComponent({
         this.handleScroll(e as WheelEvent);
       }, 10);
       //  fixed table header
-      const headerContainerWidth = fixedHeader && scrollBarWidth > 0 ? `calc(100% - ${scrollBarWidth}px)` : 'fit-content';
-      fixedTable.push(<div class="t-table__header" style={{ width: headerContainerWidth }} ref="scrollHeader">
+      fixedTable.push(<div class="t-table__header" style={{ paddingRight: `${scrollBarWidth}px` }} ref="scrollHeader">
           <table style={{ tableLayout }}>
             <TableColGroup columns={columns} />
             {this.renderHeader()}

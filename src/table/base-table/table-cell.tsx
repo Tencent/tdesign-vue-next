@@ -46,7 +46,7 @@ export default defineComponent({
     if (align) {
       attrClass[`align-${align}`] = true;
     }
-    if (width) {
+    if (width && !fixed) {
       style.overflow = 'hidden';
     }
     if (withBorder) {
