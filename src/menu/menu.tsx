@@ -23,9 +23,9 @@ export default defineComponent({
       { [`${prefix}-menu--scroll`]: mode.value !== 'popup' },
     ]);
     const styles = computed(() => {
-      type widthType = typeof props.width;
-      let collapsedWidth: widthType = '64px';
-      let defaultWidth: widthType = '';
+      type WidthType = typeof props.width;
+      let collapsedWidth: WidthType = '64px';
+      let defaultWidth: WidthType = '';
 
       if (Array.isArray(props.width)) {
         [defaultWidth, collapsedWidth] = props.width;

@@ -36,12 +36,12 @@ function getDocsRoutes(docs, type) {
 
 const routes = [
   {
-    path: '/vue-next',
-    redirect: '/vue-next/components/button',
+    path: '/',
+    redirect: () => ({ name: 'button' }),
   },
   {
-    path: '/:catchAll(.*)',
-    redirect: '/vue-next/components/button',
+    path: '/vue-next/',
+    redirect: () => ({ name: 'button' }),
   },
   ...getDocsRoutes(docs, 'doc'),
   ...getDocsRoutes(docs, 'component'),

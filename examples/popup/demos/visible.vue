@@ -1,10 +1,12 @@
 <template>
-  <t-popup
-    content="这是popup内容"
-    trigger="manual"
-    placement="right"
-    :visible="true"
-  >
-    一直显示
-  </t-popup>
+  <div>
+    <t-popup
+      content="这是popup内容"
+      trigger="manual"
+      placement="right"
+      :visible="true"
+    >
+      一直显示
+    </t-popup>
+  </div>
 </template>

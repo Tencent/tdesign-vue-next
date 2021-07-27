@@ -135,7 +135,7 @@ export default defineComponent({
     },
   },
   render() {
-    const _class = [
+    const CLASS = [
       `${name}`,
       `${name}--${this.theme}`,
       {
@@ -143,7 +143,7 @@ export default defineComponent({
       },
     ];
     return (
-      <div class={_class}>
+      <div class={CLASS}>
         { this.renderIcon()}
         { this.renderContent()}
         { this.renderClose()}

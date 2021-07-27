@@ -7,7 +7,7 @@ import isString from 'lodash/isString';
 const isServer = typeof window === 'undefined';
 const trim = (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 
-declare type ScrollContainerElement = Window | HTMLElement
+declare type ScrollContainerElement = Window | HTMLElement;
 declare type ScrollContainer = (() => ScrollContainerElement) | CSSSelector;
 
 export const on = (((): any => {
@@ -132,7 +132,7 @@ function isWindow(obj: any) {
   return obj && obj === obj.window;
 }
 
-type ScrollTarget = HTMLElement | Window | Document
+type ScrollTarget = HTMLElement | Window | Document;
 
 /**
  * 获取滚动距离

@@ -202,7 +202,7 @@ export default defineComponent({
     // 所以通过判断_events某个事件下监听函数数组是否超过一个，可以判断出组件是否监听了当前事件
     hasEventOn(name: string) {
       // _events 因没有被暴露在vue实例接口中，只能把这个规则注释掉
-      /* eslint-disable dot-notation */
+      // eslint-disable-next-line dot-notation
       const eventFuncs = this['_events']?.[name];
       return !!eventFuncs?.length;
     },

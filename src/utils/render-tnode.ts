@@ -3,7 +3,7 @@ import { h, isVNode, createTextVNode, VNode, ComponentPublicInstance  } from 'vu
 // 组件render属性的ts类型
 type RenderTsTypesSimple = string | number | boolean;
 type RenderTsTypesObject = Record<string, any> | Array<any>;
-type RenderTsTypes  = VNode | TNode | RenderTsTypesSimple | RenderTsTypesObject
+type RenderTsTypes  = VNode | TNode | RenderTsTypesSimple | RenderTsTypesObject;
 
 // 定义组件内容的渲染方式
 enum RenderWay {

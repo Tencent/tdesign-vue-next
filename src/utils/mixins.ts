@@ -1,22 +1,22 @@
 import { defineComponent, ComponentPublicInstance, ComponentOptions } from 'vue';
 
-type VueMixin = ComponentPublicInstance | ComponentOptions<never>
+type VueMixin = ComponentPublicInstance | ComponentOptions<never>;
 
 export type UnionToIntersection<U> = (U extends any
-? (k: U) => void
-: never) extends (k: infer I) => void
+  ? (k: U) => void
+  : never) extends (k: infer I) => void
   ? I
-  : never
+  : never;
 
 export type ExtractInstance<T> = T extends ComponentPublicInstance<infer V>
   ? V
   : T extends ComponentOptions<infer V>
-  ? V
-  : never
+    ? V
+    : never;
 
 export type MixedVueConstructor<Mixins extends VueMixin[]> = Mixins extends (infer T)[]
   ? ComponentPublicInstance<UnionToIntersection<ExtractInstance<T>> & ComponentPublicInstance>
-  : never
+  : never;
 
 export default function mixins<Mixins extends VueMixin[]>(
   ...mixins: Mixins
