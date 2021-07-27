@@ -1,10 +1,18 @@
 <template>
   <div>
-    <t-table :columns="columns" :data="data" :expanded-row-keys="expandedRowKeys"
-             :expanded-row-render="expandedRowRender" @expand-change="rehandleExpandChange">
-      <template #status="{ record }">
-        <p v-if="record.status === 0" class="status">健康</p>
-        <p v-if="record.status === 1" class="status unhealth">异常</p>
+    <!-- expanded-row-keys 为受控属性 -->
+    <!-- default-expanded-row-keys 为非受控属性 -->
+    <t-table
+      row-key='id'
+      :columns="columns"
+      :data="data"
+      :expanded-row-keys="expandedRowKeys"
+      :expanded-row="expandedRow"
+      @expand-change="rehandleExpandChange"
+    >
+      <template #status="{ row }">
+        <p v-if="row.status === 0" class="status">健康</p>
+        <p v-if="row.status === 1" class="status unhealth">异常</p>
       </template>
       <template #op-column><p>操作</p></template>
       <template #op="slotProps">
@@ -12,16 +20,17 @@
         <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
       </template>
     </t-table>
+
   </div>
 </template>
 
 <script>
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
-  { colKey: 'status', title: '状态', width: 100, scopedSlots: { col: 'status' } },
+  { colKey: 'status', title: '状态', width: 100, cell: 'status' },
   { colKey: 'owner', title: '管理员' },
   { colKey: 'description', title: '描述' },
-  { colKey: 'op', width: 200, scopedSlots: { title: 'op-column', col: 'op' } },
+  { colKey: 'op', width: 200, title: 'op-column', cell: 'op' },
 ];
 const data = [
   { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', description: 'test' },
@@ -34,28 +43,31 @@ export default {
     return {
       columns,
       data,
-      expandedRowKeys: [1, '2'],
-      expandedRowRender: ({ record }) => <div class="more-detail">
-          <p class="title"><b>集群名称:</b></p><p class="content">{record.instance}</p><br/>
-          <p class="title"><b>管理员:</b></p><p class="content">{record.owner}</p><br/>
-          <p class="title"><b>描述:</b></p><p class="content">{record.description}</p>
-        </div>,
+      expandedRowKeys: [1],
+      // defaultExpandedRowKeys: ['2', 4],
+      expandedRow: (h, { row }) => (
+        <div class="more-detail">
+          <p class="title"><b>集群名称:</b></p><p class="content">{row.instance}</p><br/>
+          <p class="title"><b>管理员:</b></p><p class="content">{row.owner}</p><br/>
+          <p class="title"><b>描述:</b></p><p class="content">{row.description}</p>
+        </div>
+      ),
     };
   },
   methods: {
-    rehandleClickOp({ text, record }) {
-      console.log(text, record);
+    rehandleClickOp({ text, row }) {
+      console.log(text, row);
     },
-    rehandleExpandChange({ expandedRowKeys, expandedRowData }) {
-      this.expandedRowKeys = expandedRowKeys;
-      console.log(expandedRowKeys, expandedRowData);
+    rehandleExpandChange(value, { expandedRowData }) {
+      this.expandedRowKeys = value;
+      console.log('rehandleExpandChange', value, expandedRowData);
     },
   },
 };
 </script>
 
 <style lang="less" scoped>
-@import '../../../common/style/web/index';
+@import '../../../common/style/web/_variables.less';
 /deep/ [class*='t-table-expandable-icon-cell'] .t-icon {
   background-color: transparent;
 }
@@ -87,7 +99,6 @@ export default {
   }
 }
 .more-detail {
-  margin: 0px 100px;
   > p {
     display: inline-block;
     margin: 5px;

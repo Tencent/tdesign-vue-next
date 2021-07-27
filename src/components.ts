@@ -24,7 +24,7 @@ export * from './divider';
 export * from './loading';
 // export * from './addon';
 export * from './checkbox';
-// export * from './table';
+export * from './table';
 export * from './progress';
 export * from './transfer';
 // export * from './upload';

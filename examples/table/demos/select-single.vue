@@ -1,10 +1,17 @@
 <template>
   <div>
-    <t-table :columns="columns" :data="data" :selected-row-keys="selectedRowKeys"
-             @select-change="rehandleSelectChange">
-      <template #status="{ record }">
-        <p v-if="record.status === 0" class="status">健康</p>
-        <p v-if="record.status === 1" class="status unhealth">异常</p>
+    <!-- 支持非受控属性 default-selected-row-keys -->
+    <!-- 支持语法糖 selected-row-keys.sync -->
+    <t-table
+      rowKey='id'
+      :columns="columns"
+      :data="data"
+      :selected-row-keys="selectedRowKeys"
+      @select-change="rehandleSelectChange"
+    >
+      <template #status="{ row }">
+        <p v-if="row.status === 0" class="status">健康</p>
+        <p v-if="row.status === 1" class="status unhealth">异常</p>
       </template>
       <template #op-column><p>操作</p></template>
       <template #op="slotProps">
@@ -21,12 +28,12 @@ export default {
     return {
       selectedRowKeys: [],
       columns: [
-        { colKey: 'row-select', type: 'single', width: 50 },
+        { colKey: 'row-select', type: 'single', checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }), width: 50 },
         { colKey: 'instance', title: '集群名称', width: 150 },
-        { colKey: 'status', title: '状态', width: 100, scopedSlots: { col: 'status' } },
+        { colKey: 'status', title: '状态', width: 100, cell: 'status' },
         { colKey: 'owner', title: '管理员' },
         { colKey: 'description', title: '描述' },
-        { colKey: 'op', width: 200, scopedSlots: { title: 'op-column', col: 'op' } },
+        { colKey: 'op', width: 200, title: 'op-column', cell: 'op' },
       ],
       data: [
         { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', description: 'test' },
@@ -37,19 +44,19 @@ export default {
     };
   },
   methods: {
-    rehandleClickOp({ text, record }) {
-      console.log(text, record);
+    rehandleClickOp({ text, row }) {
+      console.log(text, row);
     },
-    rehandleSelectChange({ selectedRowKeys, selectedRowData }) {
-      this.selectedRowKeys = selectedRowKeys;
-      console.log(selectedRowKeys, selectedRowData);
+    rehandleSelectChange(value, { selectedRowData }) {
+      this.selectedRowKeys = value;
+      console.log(value, selectedRowData);
     },
   },
 };
 </script>
 
 <style lang="less" scoped>
-@import "../../../common/style/web/index";
+@import '../../../common/style/web/_variables.less';
 .link {
   cursor: pointer;
   margin-right: 15px;

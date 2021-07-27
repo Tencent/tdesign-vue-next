@@ -4,14 +4,11 @@
     :columns="columns"
     :rowKey="rowKey"
     :verticalAlign="verticalAlign"
-    :bordered="bordered"
-    :hover="hover"
-    :stripe="stripe"
-    :size="size"
     :loading="isLoading"
     :pagination="pagination"
-    @page-change="rehandlePageChange"
     @change="rehandleChange">
+    bordered
+    stripe
   </t-table>
 </template>
 <script>
@@ -24,31 +21,27 @@ export default {
       isLoading: false,
       columns: [
         {
-          align: 'center',
           width: 200,
           colKey: 'name',
           title: '姓名',
-          render({ record: { name } }) {
+          render(h, { row: { name } }) {
             return name ? `${name.first} ${name.last}` : 'UNKNOW_USER';
           },
         },
         {
-          align: 'left',
           width: 200,
           colKey: 'gender',
           title: '性别',
         },
         {
-          align: 'left',
           width: 200,
           colKey: 'phone',
           title: '联系方式',
-          render({ record: { phone } }) {
+          render(h, { row: { phone } }) {
             return phone;
           },
         },
         {
-          align: 'left',
           colKey: 'email',
           title: '邮箱',
         },
@@ -56,11 +49,7 @@ export default {
       rowKey: 'property',
       tableLayout: 'auto',
       verticalAlign: 'top',
-      size: 'small',
-      bordered: true,
-      hover: true,
-      stripe: true,
-      rowClassName: rowKey => `${rowKey}-class`,
+      rowClassName: 'property-class',
       pagination: {
         current: 1,
         pageSize: 10,
@@ -94,13 +83,11 @@ export default {
       }
       this.isLoading = false;
     },
-    rehandlePageChange(curr, pageInfo) {
-      console.log('分页变化', curr, pageInfo);
-    },
+    // 也可以使用 page-change 事件
     async rehandleChange(changeParams, triggerAndData) {
-      console.log('统一Change', changeParams, triggerAndData);
-      const { curr, pageSize } = changeParams.pagination;
-      const pagination = { current: curr, pageSize  };
+      console.log('分页、排序、过滤等发生变化时会触发 change 事件：', changeParams, triggerAndData);
+      const { current, pageSize } = changeParams.pagination;
+      const pagination = { current, pageSize  };
       await this.fetchData(pagination);
     },
   },

@@ -1,3 +1,8 @@
+import { PrimaryTableCol } from '../../../types/primary-table/TdPrimaryTableProps';
+import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
+import { h, SetupContext } from 'vue';
+
 export function toString(obj: any): string {
   return Object.prototype.toString
     .call(obj)
@@ -17,19 +22,19 @@ export function debounce<T = any>(fn: Function, delay = 200): () => void {
   };
 }
 
-export function filterDataByIds(
-  data: Array<object> = [],
+export function filterDataByIds<T>(
+  data: Array<T> = [],
   ids: Array<string | number> = [],
   byId = 'id',
-): Array<object> {
+): Array<T> {
   return data.filter((d: Record<string, any> = {}) => ids.includes(d[byId]));
 }
 
 export const INNER_PRE_NAME = '@@inner-';
 
 export enum SCROLL_DIRECTION {
-  X = 'scroll-x',
-  Y = 'scroll-y',
+  X = 'x',
+  Y = 'y',
   UNKNOWN = 'unknown',
 }
 
@@ -50,3 +55,18 @@ export const getScrollDirection = (
   preScrollLeft = scrollLeft;
   return direction;
 };
+
+// 该方法主要用于排序、过滤等需要调整表头的功能，不支持 render 函数
+export function getTitle(ctx: SetupContext, column: PrimaryTableCol, colIndex: number) {
+  let result = null;
+  if (isFunction(column.title)) {
+    result = column.title(h, { col: column, colIndex });
+  } else if (ctx.slots[column.colKey]) {
+    result = ctx.slots[column.colKey](null);
+  } else if (isString(column.title)) {
+    result = ctx.slots[column.title]
+      ? ctx.slots[column.title](null)
+      : column.title;
+  }
+  return result;
+}
