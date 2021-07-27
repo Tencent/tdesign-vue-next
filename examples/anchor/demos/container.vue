@@ -40,19 +40,19 @@ export default {
     line-height: 100px;
   }
   .anchor-content-1 {
-    background: @primary-color-1;
+    // background: @primary-color-1;
   }
   .anchor-content-2 {
-    background: @primary-color-2;
+    // background: @primary-color-2;
   }
   .anchor-content-3 {
-    background: @primary-color-3;
+    // background: @primary-color-3;
   }
   .anchor-content-4 {
-    background: @primary-color-4;
+    // background: @primary-color-4;
   }
   .anchor-content-5 {
-    background: @primary-color-5;
+    // background: @primary-color-5;
   }
 }
 </style>
