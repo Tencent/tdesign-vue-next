@@ -12,7 +12,7 @@ export default defineComponent({
     },
   },
   render() {
-    const { expanded, $listeners } = this;
+    const { expanded } = this;
     const buttonProps = { ...this.$attrs };
     return <span {...buttonProps} class={`${prefix}-table-expand-box`}>{!expanded ? <TIconChevronUp /> : <TIconChevronDown />}</span>;
   },

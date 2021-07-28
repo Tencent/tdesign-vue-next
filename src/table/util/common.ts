@@ -1,25 +1,13 @@
 import { PrimaryTableCol } from '../../../types/primary-table/TdPrimaryTableProps';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
-import { h, SetupContext } from 'vue';
+import { h, SetupContext, VNodeChild } from 'vue';
 
-export function toString(obj: any): string {
+export function toString<T>(obj: T): string {
   return Object.prototype.toString
     .call(obj)
     .slice(8, -1)
     .toLowerCase();
-}
-
-export function debounce<T = any>(fn: Function, delay = 200): () => void {
-  let timer: ReturnType<typeof setTimeout>;
-  return function newFn(this: T, ...args: Array<any>): void {
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
-    const context = this;
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      fn.apply(context, args);
-    }, delay);
-  };
 }
 
 export function filterDataByIds<T>(
@@ -43,7 +31,7 @@ let preScrollTop: any;
 
 export const getScrollDirection = (
   scrollLeft: number,
-  scrollTop: number
+  scrollTop: number,
 ): SCROLL_DIRECTION => {
   let direction = SCROLL_DIRECTION.UNKNOWN;
   if (preScrollTop !== scrollTop) {
@@ -57,7 +45,7 @@ export const getScrollDirection = (
 };
 
 // 该方法主要用于排序、过滤等需要调整表头的功能，不支持 render 函数
-export function getTitle(ctx: SetupContext, column: PrimaryTableCol, colIndex: number) {
+export function getTitle(ctx: SetupContext, column: PrimaryTableCol, colIndex: number): VNodeChild | number {
   let result = null;
   if (isFunction(column.title)) {
     result = column.title(h, { col: column, colIndex });

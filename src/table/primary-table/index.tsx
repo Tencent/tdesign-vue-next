@@ -1,9 +1,9 @@
+import { defineComponent, computed, provide } from 'vue';
 import baseTableProps from '../../../types/base-table/props';
 import primaryTableProps from '../../../types/primary-table/props';
 import BaseTable from '../base-table';
 import { prefix } from '../../config';
 import { RenderExpandRowParams } from '../util/interface';
-import { defineComponent, computed, provide } from 'vue';
 import ColumnsProcessor from './columns-processor';
 
 export default defineComponent({
@@ -15,12 +15,8 @@ export default defineComponent({
   setup(props, context) {
     const { slots } = context;
     const columnsProcessor = new ColumnsProcessor(props);
-    const rehandleColumns = computed(() => {
-      return columnsProcessor.getProcessedColumns();
-    });
-    const rehandleData = computed(() => {
-      return columnsProcessor.getRehandleData();
-    });
+    const rehandleColumns = computed(() => columnsProcessor.getProcessedColumns());
+    const rehandleData = computed(() => columnsProcessor.getRehandleData());
     if (props.expandedRow || props.asyncLoading) {
       const renderRow = (params: RenderExpandRowParams): void => {
         columnsProcessor.renderRow?.(params);
@@ -31,7 +27,7 @@ export default defineComponent({
       rehandleData,
       rehandleColumns,
       slots,
-    }
+    };
   },
   render() {
     const { $props, rehandleColumns, rehandleData, slots: defaultSlots } = this;

@@ -37,7 +37,7 @@ export default defineComponent({
       defaultCurrent,
       defaultPageSize,
       renderRow,
-    }
+    };
   },
   computed: {
     // this.defaultCurrent 属于分页组件抛出的事件参数，非受控的情况也会有该事件触发
@@ -126,6 +126,19 @@ export default defineComponent({
       return commonClass;
     },
   },
+  mounted() {
+    const scrollDiv = document.createElement('div');
+    scrollDiv.style.cssText = `
+      width: 99px;
+      height: 99px;
+      overflow: scroll;
+      position: absolute;
+      top: -9999px;`;
+    scrollDiv.classList.add('scrollbar');
+    document.body.appendChild(scrollDiv);
+    this.scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+  },
   methods: {
     emitEvent(eventName: string, params: any) {
       const events = this[eventName] || this.$attrs[eventName];
@@ -150,9 +163,8 @@ export default defineComponent({
         slots,
       } = this;
       const rowEvents = {};
-      EventNameWithUpperCase.map((eventName) => {
+      EventNameWithUpperCase.forEach((eventName) => {
         rowEvents[eventName] = (params: RowEventContext<any>) => {
-          const event = this[eventName];
           this.emitEvent(eventName, params);
         };
       });
@@ -180,10 +192,14 @@ export default defineComponent({
     renderPagination(): VNode {
       const defaultPagination = this.pagination;
       const onChange = (current: number, pageInfo: PageInfo) => {
-        this.emitEvent('onChange', [{ pagination: { current, ...pageInfo }}, {
-          trigget: 'sorter',
-          currentData: this.dataSource
-        }]);
+        this.emitEvent(
+          'onChange',
+          [{ pagination: { current, ...pageInfo } },
+            {
+              trigget: 'sorter',
+              currentData: this.dataSource,
+            }],
+        );
         this.defaultCurrent = current;
         defaultPagination.onChange?.(pageInfo);
       };
@@ -212,9 +228,7 @@ export default defineComponent({
       const fixedTable: Array<VNode> = [];
       const {
         columns,
-        // provider: { asyncLoadingProps },
         tableLayout,
-        fixedHeader,
         scrollBarWidth,
         hasFixedColumns,
       } = this;
@@ -329,18 +343,5 @@ export default defineComponent({
         {body}
       </div>
     );
-  },
-  mounted() {
-    const scrollDiv = document.createElement('div');
-    scrollDiv.style.cssText = `
-      width: 99px;
-      height: 99px;
-      overflow: scroll;
-      position: absolute;
-      top: -9999px;`;
-    scrollDiv.classList.add('scrollbar');
-    document.body.appendChild(scrollDiv);
-    this.scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-    document.body.removeChild(scrollDiv);
   },
 });

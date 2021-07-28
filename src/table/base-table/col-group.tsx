@@ -1,4 +1,4 @@
-import Vue, { defineComponent, VNode } from 'vue';
+import { defineComponent, VNode } from 'vue';
 import BaseTableProps from '../../../types/base-table/props';
 import { prefix } from '../../config';
 

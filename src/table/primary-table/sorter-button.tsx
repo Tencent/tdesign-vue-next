@@ -25,10 +25,11 @@ export default defineComponent({
     nextSortOrder: {
       type: String,
       required: false,
+      default: 'cancel',
     },
   },
   render() {
-    const { $listeners, sortType, sortOrder, nextSortOrder } = this;
+    const { sortType, sortOrder, nextSortOrder } = this;
     const allowSortTypes = [];
     if (sortType === 'all') {
       allowSortTypes.push('asc', 'desc');

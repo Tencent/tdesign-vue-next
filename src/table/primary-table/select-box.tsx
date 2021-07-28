@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent } from 'vue';
 import { Checkbox, CheckboxProps } from '../../checkbox';
 import { Radio, RadioProps } from '../../radio';
 import { prefix } from '../../config';
@@ -54,7 +54,7 @@ export default defineComponent({
       disabled,
     };
     if (type === 'multiple') {
-      return <Checkbox {...props} />
+      return <Checkbox {...props} />;
     }
     return <Radio {...props} />;
   },

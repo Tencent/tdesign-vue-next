@@ -1,6 +1,7 @@
 import { BaseTableCol, RenderType } from '../../../types/base-table/TdBaseTableProps';
 import primaryTableProps from '../../../types/primary-table/props';
 import { PrimaryTableCol, SortType, TdPrimaryTableProps } from '../../../types/primary-table/TdPrimaryTableProps';
+import { App } from 'vue';
 
 export type CustomRenderName = 'title' | 'cell' | 'render';
 
@@ -9,34 +10,35 @@ export type CustomData = {
   func: CustomRenderName;
 };
 
-export interface TdInstance extends Vue {
+export interface TdInstance<T> extends App {
   cellData?: {
     type: string;
     col: BaseTableCol;
     colIndex: number;
-    row?: object;
+    row?: T;
     rowIndex?: number;
     customData: CustomData;
-    customRender: Function;
+    customRender: () => void;
   };
-};
+}
 
-export interface CellParams {
+export interface CellParams<T, U> {
   col: BaseTableCol;
   colIndex: number;
-  row?: object;
+  row?: T;
   rowIndex?: number;
-  record?: object;
-};
-export interface CellData {
+  record?: U;
+}
+
+export interface CellData<T> {
   type: string;
   col: BaseTableCol;
   colIndex: number;
-  row?: object;
+  row?: T;
   rowIndex?: number;
   customData: CustomData;
-  customRender: Function;
-};
+  customRender: () => void;
+}
 
 export const EventNameWithUpperCase = [
   'onRowHover',

@@ -1,9 +1,8 @@
-import Vue, { VNode, defineComponent } from 'vue';
+import { VNode, defineComponent } from 'vue';
 import TableCell from './table-cell';
 import { BaseTableCol, CellData } from '../../../types/base-table/TdBaseTableProps';
 import baseTableProps from '../../../types/base-table/props';
 import { prefix } from '../../config';
-import { CreateElement } from 'vue/types/umd';
 
 export default defineComponent({
   name: `${prefix}-table-header`,
@@ -68,7 +67,7 @@ export default defineComponent({
           customRender = () => title;
         }
       } else if (typeof title === 'function') {
-        customRender = (h: CreateElement, params: CellData<any>) => (title(h, {
+        customRender = (h: any, params: CellData<any>) => (title(h, {
           colIndex: params.colIndex,
           col: params.col,
         }));

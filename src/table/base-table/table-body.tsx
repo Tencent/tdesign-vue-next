@@ -1,4 +1,4 @@
-import Vue, { VNode, defineComponent, inject } from 'vue';
+import { VNode, defineComponent, inject } from 'vue';
 import { prefix } from '../../config';
 import TableRow from './table-row';
 import baseTableProps from '../../../types/base-table/props';
@@ -92,7 +92,7 @@ export default defineComponent({
       return props;
     },
     renderBody(): Array<VNode> {
-      const { data, rowClassName, provider, $slots: slots, rowspanAndColspan } = this;
+      const { data, rowClassName, $slots: slots, rowspanAndColspan } = this;
       const body: Array<VNode> = [];
       let allRowspanAndColspanProps: any;
       if (typeof rowspanAndColspan === 'function') {
