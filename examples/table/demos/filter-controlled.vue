@@ -27,7 +27,6 @@
 </template>
 
 <script>
-// TODO: 在此处处理 Data，尽量使用和 antd 不同的数据，数据处理完成后，删除该条注释
 const data = [
   {
     key: '1',

@@ -17,10 +17,6 @@ import { EventNameWithUpperCase } from '../util/interface';
 
 export default defineComponent({
   name: `${prefix}-base-table`,
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
   props: {
     ...baseTableProps,
   },
