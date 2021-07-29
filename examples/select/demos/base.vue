@@ -1,7 +1,20 @@
 <template>
   <div>
-    <t-select v-model="value" class="demo-select-base" clearable @change="handleChange" @visible-change="visibleChange">
-      <t-option v-for="(item, index) in options" :value="item.value" :label="item.label" :key="index">
+    <t-select
+      v-model="value"
+      class="demo-select-base"
+      clearable
+      placeholder="-请选择-"
+      style="width: 200px;"
+      @change="handleChange"
+      @visible-change="visibleChange"
+    >
+      <t-option
+        v-for="(item, index) in options"
+        :key="index"
+        :value="item.value"
+        :label="item.label"
+      >
         {{ item.label }}
       </t-option>
     </t-select>
