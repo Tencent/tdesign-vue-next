@@ -36,7 +36,11 @@ export default defineComponent({
     } else {
       allowSortTypes.push(sortType);
     }
-    const buttonProps = { ...this.$attrs, class: allowSortTypes.length > 1 ? `${prefix}-table-double-icons` : '' };
+    const classList = [`${prefix}-table__cell--sort-trigger`];
+    if (allowSortTypes.length > 1) {
+      classList.push(`${prefix}-table-double-icons`);
+    }
+    const buttonProps = { ...this.$attrs, class: classList };
     const tips = tooltips[nextSortOrder];
     const sortButton = allowSortTypes
       .map((direction: string) => {
@@ -46,8 +50,8 @@ export default defineComponent({
         }
         return <TIconChevronDown  size='12px'  class={className} />;
       });
-    return <div class={`${prefix}-table__cell--sort-trigger`} {...buttonProps}>
-      {tips ? <Tooltip style="line-height: 0px;" content={tips} showArrow={false}>{sortButton}</Tooltip> : sortButton}
-    </div>;
+    return <div {...buttonProps}>
+            {tips ? <Tooltip style="line-height: 0px;" content={tips} showArrow={false}>{sortButton}</Tooltip> : sortButton}
+          </div>;
   },
 });
