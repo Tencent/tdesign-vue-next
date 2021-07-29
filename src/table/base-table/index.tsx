@@ -244,7 +244,6 @@ export default defineComponent({
         </div>);
       const containerStyle = {
         height: isNaN(Number(this.height)) ? this.height : `${Number(this.height)}px`,
-        maxHeight: isNaN(Number(this.maxHeight)) ? this.maxHeight : `${Number(this.maxHeight)}px`,
         width: hasFixedColumns ? '100%' : undefined,
       };
       // fixed table body
@@ -303,6 +302,7 @@ export default defineComponent({
       columns,
       tableLayout,
       isLoading,
+      maxHeight,
     } = this;
     const body: Array<VNode> = [];
     // colgroup
@@ -331,9 +331,11 @@ export default defineComponent({
       }
     }
     const handleScroll = throttle(this.handleScroll, 100);
+    const tableContentMaxHeight = isNaN(Number(maxHeight)) ? maxHeight : `${Number(maxHeight)}px`;
+
     return (
       <div class={commonClass}>
-        <div class="t-table-content" style="overflow: auto;" onScroll={handleScroll}>
+        <div class="t-table-content" style={{ overflow: 'auto', maxHeight: tableContentMaxHeight }} onScroll={handleScroll}>
           {fixedTableContent ? fixedTableContent : <table style={{ tableLayout }}>{tableContent}</table>}
         </div>
         {body}

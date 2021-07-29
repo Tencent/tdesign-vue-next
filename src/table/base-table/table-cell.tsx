@@ -107,7 +107,7 @@ export default defineComponent({
         cellContent = customRender(h, { type, ...baseData });
       }
     } else {
-      cellContent = this.$createElement(title || '');
+      cellContent = h(title || '');
     }
     const tdAttrs = {
       ...attrs,

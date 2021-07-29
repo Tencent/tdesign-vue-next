@@ -12,8 +12,8 @@ export default defineComponent({
     },
   },
   render() {
-    const { expanded } = this;
-    const buttonProps = { ...this.$attrs };
-    return <span {...buttonProps} class={`${prefix}-table-expand-box`}>{!expanded ? <TIconChevronUp /> : <TIconChevronDown />}</span>;
+    return <span {...this.$attrs} class={`${prefix}-table-expand-box`}>
+              {!this.expanded ? <TIconChevronUp /> : <TIconChevronDown />}
+          </span>;
   },
 });
