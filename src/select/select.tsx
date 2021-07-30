@@ -232,7 +232,7 @@ export default defineComponent({
     },
     visibleChange(val: boolean) {
       if (this.focusing && !val) {
-        (this.$refs.popup as any).showPopper = true;
+        this.visible = true;
         return;
       }
       this.visible = val;
@@ -269,6 +269,7 @@ export default defineComponent({
         }
       }
       if (!this.multiple) {
+        this.searchInput = '';
         this.hideMenu();
       } else {
         if (!this.reserveKeyword) {
@@ -293,7 +294,7 @@ export default defineComponent({
       this.$emit('remove', { value: val, data: removeOption[0], e });
     },
     hideMenu() {
-      (this.$refs.popup as any).showPopper = false;
+      this.visible = false;
     },
     clearSelect(e: MouseEvent) {
       e.stopPropagation();
@@ -304,7 +305,7 @@ export default defineComponent({
       }
       this.focusing = false;
       this.searchInput = '';
-      (this.$refs.popup as any).showPopper = false;
+      this.visible = false;
       this.$emit('clear', { e });
     },
     getOptions(option: Options) {
