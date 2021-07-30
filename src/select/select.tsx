@@ -496,7 +496,7 @@ export default defineComponent({
                 <t-icon-close
                   class={`${name}-right-icon`}
                   size={size}
-                  nativeOnClick={this.clearSelect}
+                  onClick={this.clearSelect}
                 />
               )
             }

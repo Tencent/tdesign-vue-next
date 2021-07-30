@@ -93,11 +93,15 @@ export default defineComponent({
         this.hasDocumentEvent = false;
       }
     },
-    overlayStyle() {
-      if (this.popperJS) {
-        this.popperJS.update();
-        this.updateOverlayStyle();
-      }
+    overlayStyle: {
+      handler() {
+        if (this.popperJS) {
+          this.popperJS.update();
+          this.updateOverlayStyle();
+        }
+      },
+      // 需要添加deep才能监听对象单个字段更新 https://v3.vuejs.org/guide/migration/watch.html#overview
+      deep: true,
     },
   },
   mounted() {
