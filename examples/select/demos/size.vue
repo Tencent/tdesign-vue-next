@@ -4,36 +4,34 @@
       v-model="value"
       placeholder="-请选择-"
       :clearable="true"
+      size="small"
       class="demo-select-base"
-      :popupProps="popupProps"
+      :popup-props="popupProps"
       @change="handleChange"
     >
       <t-option
         v-for="(item, index) in options"
+        :key="index"
         :value="item.value"
         :label="item.label"
-        :key="index"
       >
         {{ item.label }}
       </t-option>
     </t-select>
     <t-select
+      v-model="value1"
+      placeholder="-请选择-"
+      :options="options"
+      size="medium"
+      class="demo-select-base"
+    />
+    <t-select
       v-model="value2"
       placeholder="-请选择-"
-      :clearable="true"
+      :options="options"
       size="large"
       class="demo-select-base"
-      @change="handleChange2"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
+    />
   </div>
 </template>
 
@@ -59,7 +57,8 @@ export default {
         value: 'longest',
       }],
       value: '',
-      value2: 'shanghai',
+      vaule: '',
+      value2: '',
       popupProps: {
         overlayStyle: {
           width: '300px',
@@ -69,9 +68,6 @@ export default {
   },
   methods: {
     handleChange(value) {
-      console.log(value);
-    },
-    handleChange2(value) {
       console.log(value);
     },
     visibleChange(val) {
