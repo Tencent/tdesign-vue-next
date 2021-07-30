@@ -55,7 +55,6 @@ export default defineComponent({
         },
       },
       width: 0,
-      options: [],
       focusing: false, // filterable时，输入框是否在focus中
       labelInValue: this.valueType === 'object',
       realValue: this.keys && (this.keys as KeysType).value ? (this.keys as KeysType).value : 'value',
