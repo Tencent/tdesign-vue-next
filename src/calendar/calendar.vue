@@ -552,17 +552,10 @@ export default defineComponent({
         cell: this.createCalendarCell(cellData),
         e,
       };
-      const cellEvent = this[getPropsApiByEvent(emitName)];
-      if (typeof cellEvent === 'function') {
-        cellEvent(options);
-      }
       this.$emit(emitName, options);
     },
     controllerChange(): void {
       const options = this.controllerOptions;
-      if (typeof this.onControllerChange === 'function') {
-        this.onControllerChange(options);
-      }
       this.$emit('controller-change', options);
     },
     onWeekendToggleClick(): void {
