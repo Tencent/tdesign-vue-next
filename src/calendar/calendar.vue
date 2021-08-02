@@ -92,7 +92,8 @@
           <tr class="t-calendar__table-head-row">
             <template v-for="item in cellColHeaders">
               <th v-if="checkMonthCellColHeaderVisibled(item)" :key="item.num" class="t-calendar__table-head-cell">
-                {{ item.display }}
+                <RenderTNodeTemplate v-if="isWeekRender" :render="week" :params="getCalendarWeekSlotData(item)"></RenderTNodeTemplate>
+                <slot v-else name="week" :data="getCalendarWeekSlotData(item)">{{ item.display }}</slot>
               </th>
             </template>
           </tr>
@@ -105,16 +106,22 @@
                 :key="`${item.weekNum}-${item.day}`"
                 :item="item"
                 :theme="theme"
-                @click.native="clickCell($event, item)"
-                @dblclick.native="doubleClickCell($event, item)"
-                @contextmenu.native="rightClickCell($event, item)"
+                :t="t"
+                :locale="locale"
+                @click="clickCell($event, item)"
+                @dblclick="doubleClickCell($event, item)"
+                @contextmenu="rightClickCell($event, item)"
               >
                 <!-- cell slot for month mode -->
-                <RenderTNodeTemplate v-if="cell" slot="cell" :render="cell" :params="createCalendarCell(item)"></RenderTNodeTemplate>
-                <slot v-else name="cell" slot="cell" :data="createCalendarCell(item)"></slot>
+                <template #cell>
+                  <RenderTNodeTemplate v-if="cell" :render="cell" :params="createCalendarCell(item)"></RenderTNodeTemplate>
+                  <slot v-else name="cell" :data="createCalendarCell(item)"></slot>
+                </template>
                 <!-- cellAppend slot for month mode -->
-                <RenderTNodeTemplate v-if="cellAppend" slot="cellAppend" :render="cellAppend" :params="createCalendarCell(item)"></RenderTNodeTemplate>
-                <slot v-else name="cellAppend" slot="cellAppend" :data="createCalendarCell(item)"></slot>
+                <template #cellAppend>
+                  <RenderTNodeTemplate v-if="cellAppend" :render="cellAppend" :params="createCalendarCell(item)"></RenderTNodeTemplate>
+                  <slot v-else name="cellAppend" :data="createCalendarCell(item)"></slot>
+                </template>
               </CalendarCellItem>
             </template>
           </tr>
@@ -129,16 +136,22 @@
               :key="item.num"
               :item="item"
               :theme="theme"
-              @click.native="clickCell($event, item)"
-              @dblclick.native="doubleClickCell($event, item)"
-              @contextmenu.native="rightClickCell($event, item)"
+              :t="t"
+              :locale="locale"
+              @click="clickCell($event, item)"
+              @dblclick="doubleClickCell($event, item)"
+              @contextmenu="rightClickCell($event, item)"
             >
               <!-- cell slot for year mode -->
-              <RenderTNodeTemplate v-if="cell" slot="cell" :render="cell" :params="createCalendarCell(item)"></RenderTNodeTemplate>
-              <slot v-else name="cell" slot="cell" :params="createCalendarCell(item)"></slot>
+              <template #cell>
+                <RenderTNodeTemplate v-if="cell" :render="cell" :params="createCalendarCell(item)"></RenderTNodeTemplate>
+                <slot v-else name="cell" :data="createCalendarCell(item)"></slot>
+              </template>
               <!-- cellAppend slot for year mode -->
-              <RenderTNodeTemplate v-if="cellAppend" slot="cellAppend" :render="cellAppend" :params="createCalendarCell(item)"></RenderTNodeTemplate>
-              <slot v-else name="cellAppend" slot="cellAppend" :data="createCalendarCell(item)"></slot>
+              <template #cellAppend>
+                <RenderTNodeTemplate v-if="cellAppend" :render="cellAppend" :params="createCalendarCell(item)"></RenderTNodeTemplate>
+                <slot v-else name="cellAppend" :data="createCalendarCell(item)"></slot>
+              </template>
             </CalendarCellItem>
           </tr>
         </tbody>
@@ -152,14 +165,14 @@ import {
   CalendarCell,
   ControllerOptions,
   TdCalendarProps,
-} from '@TdTypes/calendar/TdCalendarProps';
-import props from '@TdTypes/calendar/props';
-
+  CalendarWeek,
+  WeekDay,
+} from '../../types/calendar/TdCalendarProps';
+import props from '../../types/calendar/props';
 // 通用库
 import dayjs from 'dayjs';
 import calendar from 'dayjs/plugin/calendar';
-
-import mixins from '../utils/mixins';
+import { useLocalRecevier } from '../locale/local-receiver';
 import * as utils from './utils';
 import { getPropsApiByEvent } from '../utils/helper';
 
@@ -169,8 +182,6 @@ import {
   MIN_YEAR,
   FIRST_MONTH_OF_YEAR,
   LAST_MONTH_OF_YEAR,
-  TEXT_MAP,
-  MODE_OPTION_LIST,
   DEFAULT_YEAR_CELL_NUMINROW,
 } from './const';
 
@@ -190,7 +201,10 @@ import {
   ModeOption,
   CellColHeader,
   CellEventOption,
+  TextConfigType,
 } from './type';
+import { defineComponent } from '@vue/runtime-core';
+import { ref } from 'vue';
 
 dayjs.extend(calendar);
 
@@ -229,7 +243,7 @@ const getDefaultControllerConfigData = (visible = true): Record<string, any> => 
 });
 
 // 组件逻辑
-export default mixins().extend({
+export default defineComponent({
   name: COMPONENT_NAME,
   components: {
     TSelect,
@@ -242,20 +256,45 @@ export default mixins().extend({
     RenderTNodeTemplate,
   },
   props: { ...props },
-  data(): CalendarData {
+  setup() {
+    const { t, locale, globalLocale } = useLocalRecevier('calendar');
     return {
-      curDate: null,
-      curSelectedYear: null,
-      curSelectedMonth: null,
-      curSelectedMode: null,
-      isShowWeekend: true,
-      controlSize: 'small',
-    };
+      t,
+      locale,
+      globalLocale,
+      curDate: ref<dayjs.Dayjs>(null),
+      curSelectedYear: ref<number>(null),
+      curSelectedMonth: ref<number>(null),
+      curSelectedMode: ref<string>(null),
+      isShowWeekend: ref<boolean>(true),
+      controlSize: ref<SizeEnum>('small'),
+    }
   },
   computed: {
+    TEXT_MAP(): TextConfigType {
+      const { t, locale } = this;
+      const r: TextConfigType = {
+        // showWeekend: '显示周末',
+        showWeekend: t(locale.showWeekend),
+        // hideWeekend: '隐藏周末',
+        hideWeekend: t(locale.hideWeekend),
+        // today: '今天',
+        today: t(locale.today),
+        // thisMonth: '本月',
+        thisMonth: t(locale.thisMonth),
+      };
+      return r;
+    },
+    weekDipalyText(): TdCalendarProps['week'] {
+      return this.week || this.t(this.locale.week).split(',');
+    },
     // 组件最外层的class名（除去前缀，class名和theme参数一致）
     calendarCls(): Record<string, any> {
       return [`${COMPONENT_NAME}--${this.theme}`];
+    },
+
+    isWeekRender(): boolean {
+      return typeof this.week === 'function';
     },
 
     rangeFromTo(): CalendarRange {
@@ -289,25 +328,26 @@ export default mixins().extend({
     // 日历主体头部（日历模式下使用）
     cellColHeaders(): CellColHeader[] {
       const re: CellColHeader[] = [];
-      const min = 1;
-      const max = 7;
+      const min: WeekDay = 1;
+      const max: WeekDay = 7;
 
       for (let i = this.firstDayOfWeek; i <= max; i++) {
         re.push({
-          num: i,
-          display: utils.getDayCn(i),
+          num: i as WeekDay,
+          display: this.getWeekDisplay(i),
         });
       }
       if (this.firstDayOfWeek > min) {
         for (let i = min; i < this.firstDayOfWeek; i++) {
           re.push({
-            num: i,
-            display: utils.getDayCn(i),
+            num: i as WeekDay,
+            display: this.getWeekDisplay(i),
           });
         }
       }
       return re;
     },
+
     // 年份下拉框数据源
     yearSelectOptionList(): YearMonthOption[] {
       const re: YearMonthOption[] = [];
@@ -329,7 +369,7 @@ export default mixins().extend({
         const disabled = this.checkMonthAndYearSelecterDisabled(i, this.curSelectedMonth);
         re.push({
           value: i,
-          label: `${i}年`,
+          label: this.t(this.locale.yearSelection, { year: i }),
           disabled,
         });
       }
@@ -342,7 +382,7 @@ export default mixins().extend({
         const disabled = this.checkMonthAndYearSelecterDisabled(this.curSelectedYear, i);
         re.push({
           value: i,
-          label: `${i}月`,
+          label: this.t(this.locale.monthSelection, { month: i }),
           disabled,
         });
       }
@@ -351,7 +391,10 @@ export default mixins().extend({
 
     // 模式选项数据源
     modeSelectOptionList(): ModeOption[] {
-      return MODE_OPTION_LIST;
+      return [
+        { value: 'month', label: this.t(this.locale.monthRadio) },
+        { value: 'year', label: this.t(this.locale.yearRadio)  },
+      ];
     },
     // month模式下日历单元格的数据
     monthCellsData(): CalendarCell[][] {
@@ -402,7 +445,7 @@ export default mixins().extend({
     },
 
     weekendBtnText(): string {
-      return this.isShowWeekend ? TEXT_MAP.hideWeekend : TEXT_MAP.showWeekend;
+      return this.isShowWeekend ? this.TEXT_MAP.hideWeekend : this.TEXT_MAP.showWeekend;
     },
     weekendBtnVBind(): object {
       const c = this.controllerConfigData.weekend;
@@ -410,7 +453,7 @@ export default mixins().extend({
     },
 
     currentBtnText(): string {
-      return this.curSelectedMode === 'month' ? TEXT_MAP.today : TEXT_MAP.thisMonth;
+      return this.curSelectedMode === 'month' ? this.TEXT_MAP.today : this.TEXT_MAP.thisMonth;
     },
     currentBtnVBind(): object {
       const c = this.controllerConfigData.current;
@@ -472,6 +515,17 @@ export default mixins().extend({
     },
   },
   methods: {
+    getCalendarWeekSlotData(item: CellColHeader): CalendarWeek {
+      return {
+        day: item.num,
+      };
+    },
+    getWeekDisplay(weekNum: number): string {
+      const weekText = this.weekDipalyText;
+      return (typeof(weekText) === 'object' && weekText[weekNum - 1])
+        ? weekText[weekNum - 1]
+        : utils.getDayCn(weekNum);
+    },
     checkMonthCellItemShowed(cellData: CalendarCell): boolean {
       return this.isShowWeekend || cellData.day < 6;
     },
@@ -482,33 +536,26 @@ export default mixins().extend({
       };
     },
     clickCell(e: MouseEvent, cellData: CalendarCell) {
-      this.execCellEvent(e, cellData, 'click-cell');
+      this.execCellEvent(e, cellData, 'cell-click');
     },
     doubleClickCell(e: MouseEvent, cellData: CalendarCell) {
-      this.execCellEvent(e, cellData, 'double-click-cell');
+      this.execCellEvent(e, cellData, 'cell-double-click');
     },
     rightClickCell(e: MouseEvent, cellData: CalendarCell) {
       if (this.preventCellContextmenu) {
         e.preventDefault();
       }
-      this.execCellEvent(e, cellData, 'right-click-cell');
+      this.execCellEvent(e, cellData, 'cell-right-click');
     },
     execCellEvent(e: MouseEvent, cellData: CalendarCell, emitName: string) {
       const options: CellEventOption = {
         cell: this.createCalendarCell(cellData),
         e,
       };
-      const cellEvent = this[getPropsApiByEvent(emitName)];
-      if (typeof cellEvent === 'function') {
-        cellEvent(options);
-      }
       this.$emit(emitName, options);
     },
     controllerChange(): void {
       const options = this.controllerOptions;
-      if (typeof this.onControllerChange === 'function') {
-        this.onControllerChange(options);
-      }
       this.$emit('controller-change', options);
     },
     onWeekendToggleClick(): void {
