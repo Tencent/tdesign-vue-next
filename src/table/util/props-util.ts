@@ -1,8 +1,8 @@
-import { Column } from '../types/table';
+import { BaseTableCol } from '../../../types/base-table/TdBaseTableProps';
 
-export const flatColumns = (columns: Array<Column>): any => {
-  const result: Array<Column> = [];
-  columns.forEach((column: Column) => {
+export function flatColumns(columns: Array<BaseTableCol>): Array<BaseTableCol> {
+  const result: Array<BaseTableCol> = [];
+  columns.forEach((column: BaseTableCol) => {
     const { children } = column;
     if (children?.length) {
       result.push(...flatColumns(children));
@@ -13,30 +13,4 @@ export const flatColumns = (columns: Array<Column>): any => {
     }
   });
   return result;
-};
-
-export function treeMap(tree: Array<any>, mapper: Function, childrenName = 'children') {
-  return tree.map((node, index) => {
-    const extra = {};
-    if (node[childrenName]) {
-      extra[childrenName] = treeMap(node[childrenName], mapper, childrenName);
-    }
-    return {
-      ...mapper(node, index),
-      ...extra,
-    };
-  });
-}
-
-export function flatFilter(tree: Array<any>, callback: Function) {
-  return tree.reduce((acc, node) => {
-    if (callback(node)) {
-      acc.push(node);
-    }
-    if (node.children) {
-      const children = flatFilter(node.children, callback);
-      acc.push(...children);
-    }
-    return acc;
-  }, []);
 }

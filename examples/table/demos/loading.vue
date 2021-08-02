@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="margin-bottom: 10px;">设置 loading 为字符串时，可以自定义数据加载时的显示文案。</div>
+    <div style="margin-bottom: 10px;">设置 loading 自定义数据加载时的显示文案。</div>
     <t-table
       :data="data"
       :columns="columns"
@@ -8,15 +8,15 @@
       :size="size"
       :loading="loading">
     </t-table>
-    <div style="margin-bottom: 10px;">设置 loading 为对象时，可以通过设置 customRender，来自定义数据加载时的 DOM 结构。</div>
+    <div style="margin: 10px 0 10px;">通过定义名为 loading 的插槽，可以自定义加载状态</div>
     <t-table
-      :data="data"
+      :data="[]"
       :columns="columns"
       :rowKey="rowKey"
       :size="size"
-      :loading="customLoading">
+      :loading="true">
       <div slot='loading' :style="style">
-        loading....🌹
+        <t-loading :loading="true" />
       </div>
     </t-table>
   </div>
@@ -85,9 +85,6 @@ export default {
       rowKey: 'property',
       size: 'small',
       loading: true,
-      customLoading: {
-        customRender: 'loading',
-      },
       style: {
         height: '100px',
         display: 'flex',

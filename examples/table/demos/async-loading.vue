@@ -61,7 +61,7 @@ export default {
     return {
       data,
       columns,
-      asyncLoading: true,
+      asyncLoading: 'loading',
     };
   },
 };

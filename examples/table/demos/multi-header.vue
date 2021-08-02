@@ -1,5 +1,6 @@
 <template>
   <t-table
+    row-key="property"
     :data="data"
     :columns="columns"
     :bordered="true">
