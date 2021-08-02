@@ -1,11 +1,9 @@
-import Calendar from './calendar.vue';
-import setInstallFn from '../utils/setInstallFn';
+import _Calendar from './calendar.vue';
+import withInstall from '../utils/withInstall';
 import { TdCalendarProps } from '@TdTypes/calendar/TdCalendarProps';
 
-setInstallFn('Calendar', Calendar);
-
-
+export * from '../../types/calendar/TdCalendarProps';
 export type CalendarProps = TdCalendarProps;
 
-export { Calendar };
+export const Calendar = withInstall(_Calendar);
 export default Calendar;

@@ -17,7 +17,6 @@ site/*
 src/addon
 src/calendar
 src/locale
-src/table
 src/upload
 src/dropdown
 src/transfer

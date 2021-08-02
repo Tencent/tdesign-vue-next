@@ -1,26 +1,18 @@
 <template>
   <div>
-    <!-- 按钮操作区域 -->
-    <div style="margin: 16px;">
-      <t-checkbox v-model="stripe">显示斑马纹</t-checkbox>
-      <t-checkbox v-model="bordered">显示表格边框</t-checkbox>
-      <t-checkbox v-model="hover">显示悬浮效果</t-checkbox>
-    </div>
-
     <t-table
       rowKey="index"
       :data="data"
       :columns="columns"
-      :stripe="stripe"
-      :bordered="bordered"
-      :hover="hover"
+      :pagination="pagination"
+      @change="onChange"
     ></t-table>
-
   </div>
 </template>
 <script>
 const data = [];
-for (let i = 0; i < 5; i ++) {
+const TOTAL = 60;
+for (let i = 0; i < TOTAL; i ++) {
   data.push({
     index: i,
     platform: i % 2 === 0 ? '共有' : '私有',
@@ -37,9 +29,6 @@ export default {
   data() {
     return {
       data,
-      stripe: true,
-      bordered: true,
-      hover: false,
       columns: [
         {
           align: 'center',
@@ -71,25 +60,35 @@ export default {
           width: 200,
           ellipsis: true,
         },
+        {
+          colKey: 'description',
+          title: '说明',
+        },
       ],
       /** 非受控用法：与分页组件对齐 */
       pagination: {
         defaultCurrent: 2,
-        defaultPageSize: 10,
-        total: 120,
+        defaultPageSize: 5,
+        total: TOTAL,
       },
       /** 受控用法：与分页组件对齐（此处注释为受控用法示例，代码有效，勿删） */
       // pagination: {
       //   current: 1,
       //   pageSize: 10,
-      //   total: 120,
+      //   total: TOTAL,
       //   // 也可以监听表格组件的 page-change 事件进行处理
       //   onChange: (pageInfo.current) => {
       //     this.pagination.current = pageInfo.current;
       //     this.pagination.pageSize = pageInfo.pageSize;
       //   },
       // },
+      /** 也可以使用表格组件的 change 事件处理变化。排序、分页、过滤等发生变化时都会触发 change 事件 */
     };
+  },
+  methods: {
+    onChange(params, context) {
+      console.log(params, context);
+    },
   },
 };
 </script>
