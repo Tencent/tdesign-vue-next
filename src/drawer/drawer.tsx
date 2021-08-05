@@ -2,8 +2,8 @@ import { defineComponent, nextTick, ref, onUpdated, watch, toRefs, computed } fr
 import { prefix } from '../config';
 import TIconClose from '../icon/close';
 import { Button as TButton } from '../button';
-import props from '@TdTypes/drawer/props';
-import { FooterButton, CloseContext } from '@TdTypes/drawer/TdDrawerProps';
+import props from './props';
+import { FooterButton, CloseContext } from './TdDrawerProps';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 
 const name = `${prefix}-drawer`;
