@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea base demo works fine 1`] = `
+<div>
+  <div
+    class="t-textarea"
+  >
+    <textarea
+      class="t-textarea__inner"
+      name="description"
+      placeholder="请输入描述文案"
+    />
+  </div>
+</div>
+`;
+
+exports[`Textarea blur demo works fine 1`] = `
+<div>
+  <div
+    class="t-textarea"
+  >
+    <textarea
+      class="t-textarea__inner"
+      placeholder="请输入"
+    />
+  </div>
+</div>
+`;
+
+exports[`Textarea disabled demo works fine 1`] = `
+<div>
+  <div
+    class="t-textarea"
+  >
+    <textarea
+      class="t-textarea__inner t-is-disabled"
+      disabled="disabled"
+      placeholder=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Textarea keypress demo works fine 1`] = `
+<div>
+  <div
+    class="t-textarea"
+  >
+    <textarea
+      class="t-textarea__inner"
+      placeholder="请输入"
+    />
+  </div>
+</div>
+`;
+
+exports[`Textarea maxlength demo works fine 1`] = `
+<div>
+  <div
+    class="t-textarea"
+  >
+    <textarea
+      class="t-textarea__inner t-resize-none"
+      maxlength="20"
+      placeholder="请输入描述文案，最多20字符"
+    />
+    <span
+      class="t-textarea__limit"
+    >
+      0/20
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Textarea readonly demo works fine 1`] = `
+<div>
+  <div
+    class="t-textarea"
+  >
+    <textarea
+      class="t-textarea__inner"
+      placeholder=""
+      readonly="readonly"
+    />
+  </div>
+</div>
+`;
