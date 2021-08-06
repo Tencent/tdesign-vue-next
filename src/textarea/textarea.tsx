@@ -1,11 +1,14 @@
-import Vue from 'vue';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
+import { prefix } from "@src/config";
+import { getPropsApiByEvent, omit } from "@src/utils/helper";
+import { defineComponent } from "vue";
 import props from '../../types/textarea/props';
+import CLASSNAMES from '../utils/classnames';
 import isFunction from 'lodash/isFunction';
-import { getPropsApiByEvent } from '../utils/helper';
 
 const name = `${prefix}-textarea`;
+
+type TextareaEmitEvent = 'input' | 'keydown' | 'keyup' | 'keypress' | 'focus' | 'blur' | 'change';
+
 function getValidAttrs(obj: object): object {
   const newObj = {};
   Object.keys(obj).forEach((key) => {
@@ -15,33 +18,20 @@ function getValidAttrs(obj: object): object {
   });
   return newObj;
 }
-export default Vue.extend({
+
+export default defineComponent({
   name,
-  props: {
-    ...props,
-  },
+  props: {...props},
+  inheritAttrs: false,
+  emits: ['input','keydown','keyup','keypress','focus','blur','change','update:value'],
   data() {
     return {
       focused: false,
       mouseHover: false,
     };
   },
-
-  computed: {
-    inputAttrs(): Record<string, any> {
-      return getValidAttrs({
-        autofocus: this.autofocus,
-        disabled: this.disabled,
-        readonly: this.readonly,
-        placeholder: this.placeholder,
-        maxlength: this.maxlength || undefined,
-        name: this.name || undefined,
-      });
-    },
-  },
-
   methods: {
-    emitEvent(name: string, value: string | number, context: object) {
+    emitEvent(name: TextareaEmitEvent, value: string | number, context: object) {
       this.$emit(name, value, context);
       const handleName = getPropsApiByEvent(name);
       isFunction(this[handleName]) && this[handleName](value, context);
@@ -59,8 +49,9 @@ export default Vue.extend({
     handleInput(e: any): void {
       const { target } = e;
       const val = (target as HTMLInputElement).value;
-      this.$emit('input', val);
+      this.$emit('update:value', val);
       this.emitEvent('change', val, { e: InputEvent });
+      // this.value = val;
     },
     emitKeyDown(e: KeyboardEvent) {
       if (this.disabled) return;
@@ -71,6 +62,7 @@ export default Vue.extend({
       this.emitEvent('keyup', this.value, { e });
     },
     emitKeypress(e: KeyboardEvent) {
+      console.log('key press',e)
       if (this.disabled) return;
       this.emitEvent('keypress', this.value, { e });
     },
@@ -87,11 +79,11 @@ export default Vue.extend({
 
   render() {
     const inputEvents = getValidAttrs({
-      focus: this.emitFocus,
-      blur: this.emitBlur,
-      keydown: this.emitKeyDown,
-      keyup: this.emitKeyUp,
-      keypress: this.emitKeypress,
+      onFocus: this.emitFocus,
+      onBlur: this.emitBlur,
+      onKeydown: this.emitKeyDown,
+      onKeyup: this.emitKeyUp,
+      onKeypress: this.emitKeypress,
     });
     const classes = [
       `${name}__inner`,
@@ -101,11 +93,17 @@ export default Vue.extend({
         [`${prefix}-resize-none`]: this.maxlength,
       },
     ];
+
+    // console.log('.......',this.value)
+    // console.log('props',props.value)
+
     return (
       <div class={`${name}`}>
         <textarea
           onInput={this.handleInput}
-          {...{ attrs: this.inputAttrs, on: inputEvents }}
+          {...inputEvents}
+          {...this.inputAttrs}
+          ref="refInputElem"
           value={this.value}
           class={classes}
         ></textarea>
@@ -115,4 +113,4 @@ export default Vue.extend({
       </div>
     );
   },
-});
+})
