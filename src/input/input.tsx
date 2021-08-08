@@ -10,7 +10,7 @@ import { InputValue } from '@TdTypes/input/TdInputProps';
 
 const name = `${prefix}-input`;
 
-function getValidAttrs(obj: object): object {
+function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
   Object.keys(obj).forEach((key) => {
     if (typeof obj[key] !== 'undefined') {
@@ -57,7 +57,7 @@ export default defineComponent({
       this.isHover = v;
     },
     renderIcon(
-      icon: string | Function | undefined,
+      icon: string | TNode | undefined,
       iconType: 'prefix-icon' | 'suffix-icon',
     ) {
       if (typeof icon === 'function') {
