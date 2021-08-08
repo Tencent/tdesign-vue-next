@@ -4,6 +4,7 @@ import { withInstall, WithInstallType } from '../utils/withInstall';
 
 const LocalInput = mapProps([{
   name: 'value',
+  event: ['input', 'change'],
   alias: ['modelValue'],
 }])(_Input);
 
