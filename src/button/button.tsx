@@ -47,12 +47,20 @@ export default defineComponent({
     }
 
     const iconOnly = icon && (typeof buttonContent === 'undefined' || buttonContent === '');
+    let { theme } = this;
+    if (!this.theme) {
+      if (this.variant === 'base') {
+        theme = 'primary';
+      } else {
+        theme = 'default';
+      }
+    }
 
     const buttonClass = [
       `${name}`,
       CLASSNAMES.SIZE[this.size],
       `${name}--variant-${this.variant}`,
-      `${name}--theme-${this.theme}`,
+      `${name}--theme-${theme}`,
       {
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.loading]: this.loading,
