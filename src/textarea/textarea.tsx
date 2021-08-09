@@ -30,11 +30,21 @@ export default defineComponent({
       mouseHover: false,
     };
   },
+  computed: {
+    inputAttrs(): Record<string, any> {
+      return getValidAttrs({
+        autofocus: this.autofocus,
+        disabled: this.disabled,
+        readonly: this.readonly,
+        placeholder: this.placeholder,
+        maxlength: this.maxlength || undefined,
+        name: this.name || undefined,
+      });
+    },
+  },
   methods: {
     emitEvent(name: TextareaEmitEvent, value: string | number, context: object) {
       this.$emit(name, value, context);
-      const handleName = getPropsApiByEvent(name);
-      isFunction(this[handleName]) && this[handleName](value, context);
     },
 
     focus(): void {
@@ -62,7 +72,6 @@ export default defineComponent({
       this.emitEvent('keyup', this.value, { e });
     },
     emitKeypress(e: KeyboardEvent) {
-      console.log('key press',e)
       if (this.disabled) return;
       this.emitEvent('keypress', this.value, { e });
     },
@@ -93,9 +102,6 @@ export default defineComponent({
         [`${prefix}-resize-none`]: this.maxlength,
       },
     ];
-
-    // console.log('.......',this.value)
-    // console.log('props',props.value)
 
     return (
       <div class={`${name}`}>
