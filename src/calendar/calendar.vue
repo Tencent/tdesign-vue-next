@@ -435,7 +435,7 @@ export default defineComponent({
       }
       return {
         ...getDefaultControllerConfigData(),
-        ...this.controllerConfig,
+        ...(this.controllerConfig as object),
       };
     },
 

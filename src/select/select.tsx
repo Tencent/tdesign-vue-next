@@ -177,8 +177,15 @@ export default defineComponent({
       return [];
     },
     popupObject(): PopupProps {
+      const popupProps: PopupProps = this?.popupProps;
+      let styles: Styles;
+      if (this.popupProps && typeof popupProps.overlayStyle === 'function') {
+        styles = popupProps.overlayStyle(this.$refs.select as HTMLElement) || {};
+      } else if (this.popupProps && typeof popupProps.overlayStyle === 'object') {
+        styles = popupProps.overlayStyle || {};
+      }
       const propsObject = this.popupProps ? Object.assign(this.defaultProps, (this.popupProps as PopupProps)) : this.defaultProps;
-      if ((!this.popupProps || !(this.popupProps as PopupProps).overlayStyle || !(this.popupProps as PopupProps).overlayStyle.width) && this.width) {
+      if (styles?.width) {
         propsObject.overlayStyle.width = `${this.width}px`;
       }
       return propsObject as PopupProps;

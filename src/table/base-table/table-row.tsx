@@ -1,4 +1,4 @@
-import { VNode, PropType, defineComponent } from 'vue';
+import { VNode, PropType, defineComponent, h } from 'vue';
 import { prefix } from '../../config';
 import { RowspanColspan } from '../../../types/base-table/TdBaseTableProps';
 import baseTableProps from '../../../types/base-table/props';
@@ -7,6 +7,7 @@ import get from 'lodash/get';
 import { CustomData, CellData, CellParams } from '../util/interface';
 
 type Attrs = Record<string, any>;
+type createElement = ReturnType<typeof h>;
 
 const eventsName = {
   onMouseover: 'onRowHover',
@@ -62,9 +63,9 @@ export default defineComponent({
         if (typeof cell === 'function') {
           customRender = cell;
         } else if (typeof cell === 'string' && typeof this.$slots[cell] === 'function') {
-          customRender = (h, params: CellParams) => this.$slots[cell](params);
+          customRender = (h: createElement, params: CellParams) => this.$slots[cell](params);
         } else if (typeof this.$slots?.[colKey] === 'function') {
-          customRender =  (h, params: CellParams) => this.$slots[colKey](params);
+          customRender =  (h: createElement, params: CellParams) => this.$slots[colKey](params);
         } else if (typeof render === 'function') {
           customRender = render;
           customData.func = 'render';
@@ -109,11 +110,14 @@ export default defineComponent({
     Object.keys(eventsName).forEach((event) => {
       const emitEvent = eventsName[event];
       listeners[event] = (e: MouseEvent) => {
-        this.$attrs?.[emitEvent]?.({
-          e,
-          row: rowData,
-          index,
-        });
+        const val = this.$attrs?.[emitEvent];
+        if (typeof val === 'function') {
+          val?.({
+            e,
+            row: rowData,
+            index,
+          });
+        }
       };
     });
     const trProps = {

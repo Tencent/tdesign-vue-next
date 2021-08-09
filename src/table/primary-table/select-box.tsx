@@ -22,7 +22,7 @@ export default defineComponent({
     },
     type: {
       type: String,
-      validator: (value): boolean => ['multiple', 'single'].includes(value),
+      validator: (value: string): boolean => ['multiple', 'single'].includes(value),
       default: 'multiple',
     },
     checkProps: {
