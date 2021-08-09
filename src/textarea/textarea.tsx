@@ -1,9 +1,7 @@
 import { prefix } from "@src/config";
-import { getPropsApiByEvent, omit } from "@src/utils/helper";
 import { defineComponent } from "vue";
 import props from '../../types/textarea/props';
 import CLASSNAMES from '../utils/classnames';
-import isFunction from 'lodash/isFunction';
 
 const name = `${prefix}-textarea`;
 
@@ -61,7 +59,6 @@ export default defineComponent({
       const val = (target as HTMLInputElement).value;
       this.$emit('update:value', val);
       this.emitEvent('change', val, { e: InputEvent });
-      // this.value = val;
     },
     emitKeyDown(e: KeyboardEvent) {
       if (this.disabled) return;
