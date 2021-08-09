@@ -55,7 +55,7 @@ export default defineComponent({
         `${prefix}-select-option`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled || this.multiLimitDisabled,
-          [CLASSNAMES.STATUS.selected]: this.selected && (!this.tSelect || !this.tSelect.multiple),
+          [CLASSNAMES.STATUS.selected]: this.selected,
           [`${CLASSNAMES.STATUS.selected}-multiple`]: this.tSelect && this.tSelect.multiple,
           [CLASSNAMES.SIZE[this.tSelect && this.tSelect.size]]: this.tSelect && this.tSelect.size,
         },
