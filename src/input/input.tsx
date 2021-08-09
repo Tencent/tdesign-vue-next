@@ -1,13 +1,16 @@
-import { defineComponent, ref, computed, h } from 'vue';
+import { defineComponent, h, VNodeChild, nextTick } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import ClearIcon from '../icon/clear-circle-filled';
+import BrowseIcon from '../icon/browse';
+import BrowseOffIcon from '../icon/browse-off';
 import props from '@TdTypes/input/props';
+import { InputValue } from '@TdTypes/input/TdInputProps';
 
 const name = `${prefix}-input`;
 
-function getValidAttrs(obj: Record<string, any>): Record<string, any> {
+function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
   Object.keys(obj).forEach((key) => {
     if (typeof obj[key] !== 'undefined') {
@@ -21,94 +24,38 @@ export default defineComponent({
   name,
   inheritAttrs: false,
   props: { ...props },
-  emits: ['change', 'input', 'clear', 'keydown-enter', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'update:value'],
-  setup(props, context) {
-    const focused = ref<boolean>(false);
-    const composing = ref<boolean>(false);
-    const cacheValue = ref<string | number>('');
-    const innerValue = computed({
-      get() {
-        return props.value || cacheValue.value;
-      },
-      set(val: string) {
-        cacheValue.value = val;
-        context.emit('update:value', val);
-      },
-    });
-
-    function onInput(e: InputEvent): void {
-      if (composing.value) return;
-      const { target } = e;
-      const val = (target as HTMLInputElement).value;
-      context.emit('change', val, { e: InputEvent });
-      innerValue.value = val;
-    }
-
-    function emitEvent(name: any, e: FocusEvent | KeyboardEvent | InputEvent) {
-      context.emit(name, innerValue, { e });
-    }
-    function handleKeydown(e: KeyboardEvent) {
-      if (props.disabled) return;
-      const { code } = e;
-      if (code === 'Enter') {
-        emitEvent('keydown-enter', e);
-      } else {
-        emitEvent('keydown', e);
-      }
-    }
-    function handleKeyUp(e: KeyboardEvent) {
-      if (props.disabled) return;
-      emitEvent('keyup', e);
-    }
-    function handleKeypress(e: KeyboardEvent) {
-      if (props.disabled) return;
-      emitEvent('keypress', e);
-    }
-    function emitClear(e: MouseEvent) {
-      context.emit('clear', { e });
-      context.emit('change', '', { e: MouseEvent });
-      innerValue.value = '';
-    }
-    function emitFocus(e: FocusEvent) {
-      if (props.disabled) return;
-      focused.value = true;
-      emitEvent('focus', e);
-    }
-    function emitBlur(e: FocusEvent) {
-      focused.value = false;
-      emitEvent('blur', e);
-    }
-
+  emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'input', 'focus', 'blur'],
+  data() {
     return {
-      focused,
-      composing,
-      innerValue,
-      onInput,
-      handleKeydown,
-      handleKeyUp,
-      handleKeypress,
-      emitClear,
-      emitFocus,
-      emitBlur,
+      isHover: false,
+      focused: false,
+      renderType: this.type,
     };
   },
   computed: {
     showClear(): boolean {
-      return this.innerValue && !this.disabled && this.clearable;
+      return this.value && !this.disabled && this.clearable && this.isHover;
     },
     inputAttrs(): Record<string, any> {
       return getValidAttrs({
+        autofocus: this.autofocus,
         disabled: this.disabled,
         readonly: this.readonly,
         autocomplete: this.autocomplete,
         placeholder: this.placeholder || undefined,
         maxlength: this.maxlength,
         name: this.name || undefined,
-        type: this.type,
+        type: this.renderType,
       });
     },
   },
+  created() {
+    this.composing = false;
+  },
   methods: {
+    mouseEvent(v: boolean) {
+      this.isHover = v;
+    },
     renderIcon(
       icon: string | TNode | undefined,
       iconType: 'prefix-icon' | 'suffix-icon',
@@ -121,6 +68,16 @@ export default defineComponent({
       }
       return null;
     },
+    setInputValue(v: InputValue = ''): void {
+      const input = this.$refs.refInputElem as HTMLInputElement;
+      const sV = String(v);
+      if (!input) {
+        return;
+      }
+      if (input.value !== sV) {
+        input.value = sV;
+      }
+    },
     focus(): void {
       const input = this.$refs.refInputElem as HTMLInputElement;
       input?.focus();
@@ -129,42 +86,87 @@ export default defineComponent({
       const input = this.$refs.refInputElem as HTMLInputElement;
       input?.blur();
     },
-
-    startComposing() {
-      this.composing = true;
+    handleInput(e: InputEvent): void {
+      // 中文输入的时候inputType是insertCompositionText所以中文输入的时候禁止触发。
+      const checkInputType = e.inputType && e.inputType === 'insertCompositionText';
+      if (e.isComposing || checkInputType) return;
+      this.inputValueChangeHandle(e);
     },
 
-    endComposing(e: Event) {
-      if (this.composing) {
-        this.composing = false;
-
-        const inputEvent = document.createEvent('HTMLEvents');
-        inputEvent.initEvent('input', true, true);
-        e.target.dispatchEvent(inputEvent);
+    handleKeydonw(e: KeyboardEvent) {
+      if (this.disabled) return;
+      const { code } = e;
+      if (code === 'Enter') {
+        this.$emit('enter', this.value, { e });
+      } else {
+        this.$emit('keydown', this.value, { e });
       }
     },
-
-
+    handleKeyUp(e: KeyboardEvent) {
+      if (this.disabled) return;
+      this.$emit('keyup', this.value, { e });
+    },
+    handleKeypress(e: KeyboardEvent) {
+      if (this.disabled) return;
+      this.$emit('keypress', this.value, { e });
+    },
+    emitPassword() {
+      const { renderType } = this;
+      const toggleType = renderType === 'password' ? 'text' : 'password';
+      this.renderType = toggleType;
+    },
+    emitClear(e: MouseEvent) {
+      this.$emit('clear', { e });
+      this.$emit('change', '', { e });
+      this.$emit('input', '', { e });
+    },
+    emitFocus(e: FocusEvent) {
+      if (this.disabled) return;
+      this.focused = true;
+      this.$emit('focus', this.value, { e });
+    },
+    emitBlur(e: FocusEvent) {
+      this.focused = false;
+      this.$emit('blur', this.value, { e });
+    },
+    onCompositionend(e: InputEvent) {
+      this.inputValueChangeHandle(e);
+    },
+    inputValueChangeHandle(e: InputEvent) {
+      const { target } = e;
+      const val = (target as HTMLInputElement).value;
+      this.$emit('change', val, { e });
+      this.$emit('input', val, { e });
+      // 受控
+      nextTick(() => this.setInputValue(this.value));
+    },
   },
-
-  render() {
+  render(): VNodeChild {
     const inputEvents = getValidAttrs({
       onFocus: this.emitFocus,
       onBlur: this.emitBlur,
-      onKeydown: this.handleKeydown,
+      onKeydown: this.handleKeydonw,
       onKeyup: this.handleKeyUp,
       onKeypresss: this.handleKeypress,
-      onCompositionend: this.endComposing,
-      onCompositionstart: this.startComposing,
+      // input的change事件是失去焦点或者keydown的时候执行。这与api定义的change不符，所以不做任何变化。
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      onChange: () => { },
     });
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
-
     const prefixIcon = this.renderIcon(this.prefixIcon, 'prefix-icon');
     let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
 
     if (this.showClear) {
       suffixIcon = <ClearIcon class={`${name}__suffix-clear`} onClick={this.emitClear} />;
+    }
+
+    if (this.type === 'password') {
+      if (this.renderType === 'password') {
+        suffixIcon = <BrowseOffIcon class={`${name}__suffix-clear`} onClick={this.emitPassword} />;
+      } else if (this.renderType === 'text') {
+        suffixIcon = <BrowseIcon class={`${name}__suffix-clear`} onClick={this.emitPassword} />;
+      }
     }
 
     const classes = [
@@ -179,15 +181,21 @@ export default defineComponent({
       },
     ];
     return (
-      <div class={classes} {...wrapperAttrs}>
+      <div
+        class={classes}
+        onMouseenter={() => this.mouseEvent(true) }
+        onMouseleave={() => this.mouseEvent(false) }
+        {...{ attrs: wrapperAttrs }}
+      >
         {prefixIcon ? <span class={`${name}__prefix`}>{prefixIcon}</span> : null}
         <input
-          {...this.inputAttrs}
-          {...inputEvents}
+          {...this.inputAttrs }
+          {...inputEvents }
           ref="refInputElem"
-          value={this.innerValue}
+          value={this.value}
           class={`${name}__inner`}
-          onInput={this.onInput}
+          onInput={this.handleInput}
+          onCompositionend={this.onCompositionend}
         />
         {suffixIcon ? <span class={[`${name}__suffix`, { [`${name}__clear`]: this.showClear }]}>{suffixIcon}</span> : null}
       </div>
