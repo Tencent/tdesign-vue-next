@@ -17,7 +17,7 @@
         <t-radio-button value="top">top</t-radio-button>
         <t-radio-button value="bottom">bottom</t-radio-button>
       </t-radio-group>
-      <t-button theme="primary" @click="visible = true" class="t-button">Open</t-button>
+      <t-button theme="primary" @click="visible = true">Open</t-button>
     </div>
   </div>
 </template>

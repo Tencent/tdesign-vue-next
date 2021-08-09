@@ -2,21 +2,29 @@
   <div class="demo-button-icon">
     <div class="demo-button-row">
       <div class="demo-button-col">
-        <t-button>
-          <t-icon-add slot="icon"/>
+        <t-button theme="primary">
+          <template #icon>
+            <t-icon-add/>
+          </template>
           新建
         </t-button>
         <t-button variant="outline">
-          <t-icon-cloud-upload slot="icon"/>
+          <template #icon>
+            <t-icon-upload/>
+          </template>
           上传文件
         </t-button>
       </div>
       <div class="demo-button-col">
-        <t-button shape="circle">
-          <t-icon-discount slot="icon"/>
+        <t-button shape="circle" theme="primary">
+          <template #icon>
+            <t-icon-discount/>
+          </template>
         </t-button>
-        <t-button shape="circle">
-          <t-icon-cloud-download slot="icon"/>
+        <t-button shape="circle" theme="primary">
+          <template #icon>
+            <t-icon-cloud-download/>
+          </template>
         </t-button>
       </div>
       <!-- 使用 function 的形式定义 icon -->
