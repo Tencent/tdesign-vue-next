@@ -11,12 +11,12 @@ import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
 import set from 'lodash/set';
-import Popup from '../popup/index';
+import Popup, { PopupProps } from '../popup/index';
 import Option from './option';
-import { PopupProps } from '@Popup';
+import { ClassName, Styles } from '../common';
 
-import props from '@TdTypes/select/props';
-import { Options, SelectValue, KeysType } from '@TdTypes/select/TdSelectProps';
+import props from '../../types/select/props';
+import { Options, SelectValue, KeysType } from '../../types/select/TdSelectProps';
 
 // import { SelectInstance } from './instance';
 const name = `${prefix}-select`;

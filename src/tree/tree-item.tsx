@@ -6,6 +6,7 @@ import TreeNode from '../../common/js/tree/tree-node';
 import { getTNode } from './util';
 import { TypeEventState } from './types';
 import { TREE_NODE_NAME, CLASS_NAMES } from './constants';
+import { ClassName } from '../common';
 
 export const TreeItemProps = {
   node: {

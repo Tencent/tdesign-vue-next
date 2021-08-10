@@ -1,6 +1,6 @@
 import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
-import props from '@TdTypes/tab-panel/props';
+import props from '../../types/tab-panel/props';
 
 export default defineComponent({
   name: `${prefix}-tab-panel`,

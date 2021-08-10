@@ -1,4 +1,5 @@
 import { h, isVNode, createTextVNode, VNode, ComponentPublicInstance  } from 'vue';
+import { TNode } from '../common';
 
 // 组件render属性的ts类型
 type RenderTsTypesSimple = string | number | boolean;

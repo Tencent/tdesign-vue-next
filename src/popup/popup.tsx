@@ -4,9 +4,10 @@ import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { on, off, addClass, removeClass, getAttach } from '../utils/dom';
-import props from '@TdTypes/popup/props';
+import props from '../../types/popup/props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import { PopupVisibleChangeContext } from '@TdTypes/popup/TdPopupProps';
+import { PopupVisibleChangeContext } from '../../types/popup/TdPopupProps';
+import { ClassName, Styles } from '../common';
 
 const stop = (e: MouseEvent): void => e.stopPropagation();
 const { prefix } = config;

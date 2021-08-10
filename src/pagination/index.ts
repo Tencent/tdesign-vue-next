@@ -1,7 +1,7 @@
 import _Pagination from './pagination';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import mapProps from '../utils/map-props';
-import { TdPaginationProps } from '@TdTypes/pagination/TdPaginationProps';
+import { TdPaginationProps } from '../../types/pagination/TdPaginationProps';
 
 // 支持非受控属性 defaultCurrent 和 defaultSize
 const LocalPagination = mapProps([
@@ -19,6 +19,6 @@ const Pagination: WithInstallType<typeof LocalPagination> = withInstall(LocalPag
 
 export type PaginationProps = TdPaginationProps;
 
-export * from '@TdTypes/pagination/TdPaginationProps';
+export * from '../../types/pagination/TdPaginationProps';
 export { Pagination };
 export default Pagination;

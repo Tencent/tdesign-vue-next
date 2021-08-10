@@ -1,7 +1,7 @@
 import { defineComponent, VNode, computed, provide } from 'vue';
 import { prefix } from '../config';
-import { FormValidateResult, TdFormProps } from '@TdTypes/form/TdFormProps';
-import props from '@TdTypes/form/props';
+import { FormValidateResult, TdFormProps } from '../../types/form/TdFormProps';
+import props from '../../types/form/props';
 import {
   FORM_ITEM_CLASS_PREFIX, CLASS_NAMES,
   TdForm, TdFormField,

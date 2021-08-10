@@ -2,9 +2,10 @@ import { defineComponent, nextTick } from 'vue';
 import { prefix } from '../config';
 import TIconClose from '../icon/close';
 import { Button as TButton } from '../button';
-import props from '@TdTypes/drawer/props';
-import { FooterButton, CloseContext } from '@TdTypes/drawer/TdDrawerProps';
+import props from '../../types/drawer/props';
+import { FooterButton, CloseContext } from '../../types/drawer/TdDrawerProps';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
+import { ClassName, Styles } from '../common';
 
 const name = `${prefix}-drawer`;
 
