@@ -10,7 +10,7 @@
         </t-button>
         <t-button variant="outline">
           <template #icon>
-            <t-icon-upload/>
+            <t-icon-cloud-upload />
           </template>
           上传文件
         </t-button>

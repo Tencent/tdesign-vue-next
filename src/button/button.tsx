@@ -1,58 +1,33 @@
-import { defineComponent, h, VNodeChild } from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconLoading from '../icon/loading';
 import props from '@TdTypes/button/props';
-
+import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 const name = `${prefix}-button`;
 
 export default defineComponent({
   name,
   props,
-  methods: {
-    renderPropContent(propName: 'content' | 'default') {
-      const propsContent = this[propName];
-      if (typeof propsContent === 'function') {
-        return propsContent(h);
-      }
-      if (typeof propsContent !== 'undefined') {
-        return propsContent;
-      }
-      return undefined;
-    },
-    renderContent() {
-      const propsContent = this.renderPropContent('content');
-      const propsDefault = this.renderPropContent('default');
-
-      if (typeof propsContent !== 'undefined') {
-        return propsContent;
-      }
-      if (typeof propsDefault !== 'undefined') {
-        return propsDefault;
-      }
-
-      return this.$slots.default ? this.$slots.default(null) : '';
-    },
-  },
   render() {
-    let buttonContent: VNodeChild = this.renderContent();
-    let icon: VNodeChild;
+    let buttonContent = renderContent(this, 'default', 'content');
+    const icon = this.loading ? <TIconLoading/> : renderTNodeJSX(this, 'icon');
+    const iconOnly = icon && !Boolean(buttonContent);
 
-    if (this.loading) {
-      icon = <TIconLoading/>;
-    } else if (typeof this.icon === 'function') {
-      icon = this.icon(h);
-    } else if (this.$slots.icon) {
-      icon = this.$slots.icon(null);
+    let { theme } = this;
+    if (!this.theme) {
+      if (this.variant === 'base') {
+        theme = 'primary';
+      } else {
+        theme = 'default';
+      }
     }
-
-    const iconOnly = icon && (typeof buttonContent === 'undefined' || buttonContent === '');
 
     const buttonClass = [
       `${name}`,
       CLASSNAMES.SIZE[this.size],
       `${name}--variant-${this.variant}`,
-      `${name}--theme-${this.theme}`,
+      `${name}--theme-${theme}`,
       {
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.loading]: this.loading,
@@ -63,10 +38,11 @@ export default defineComponent({
       },
     ];
 
+    buttonContent = <span class={`${name}__text`}>{buttonContent}</span>;
     if (icon) {
       buttonContent = [
         icon,
-        !iconOnly ? <span class={`${name}__text`}>{buttonContent}</span> : '',
+        !iconOnly ? buttonContent : '',
       ];
     }
 
