@@ -18,6 +18,7 @@ import pkg from '../package.json';
 const name = 'tdesign';
 const externalDeps = Object.keys(pkg.dependencies || {}).concat([
   /lodash/,
+  /validator/,
   /@babel\/runtime/,
 ]);
 const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
