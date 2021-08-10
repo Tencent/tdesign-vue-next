@@ -7,7 +7,7 @@ import {
   DialogConfirmMethod,
   DialogAlertMethod,
   DialogInstance,
-} from '@TdTypes/dialog/TdDialogProps';
+} from '../../types/dialog/TdDialogProps';
 
 const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };

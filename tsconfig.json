@@ -27,17 +27,11 @@
     "baseUrl": "./",
     "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }],
     "paths": {
-      "@src/*": [
-        "src/*"
-      ],
       "@tencent/tdesign-vue": [
         "src/*"
       ],
       "@common/*": [
         "common/*"
-      ],
-      "@TdTypes/*": [
-        "types/*"
       ],
       "@Button": [
         "src/button/index.ts"
@@ -70,7 +64,7 @@
   "exclude": [
     "tools",
     "common",
-    "types",
+    "types/index.ts",
     "src/addon/**",
     "src/locale/**",
     "src/upload/**",

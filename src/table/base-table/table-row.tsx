@@ -99,6 +99,8 @@ export default defineComponent({
           customRender,
           type: 'td',
         };
+
+        // @ts-ignore: TODO
         rowBody.push(<TableCell ref={`${rowIndex}_${index}`} cellData={cellData} length={columns.length} />);
       });
       return rowBody;

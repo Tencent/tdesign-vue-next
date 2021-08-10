@@ -8,7 +8,7 @@ import TIconLoadingFill from '../icon/loading';
 import TIconClose from '../icon/close';
 import { THEME_LIST } from './const';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import props from '@TdTypes/message/props';
+import props from '../../types/message/props';
 
 const name = `${prefix}-message`;
 

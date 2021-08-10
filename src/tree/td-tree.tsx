@@ -3,7 +3,7 @@ import upperFirst from 'lodash/upperFirst';
 import TreeStore from '../../common/js/tree/tree-store';
 import TreeNode from '../../common/js/tree/tree-node';
 import TreeItem from './tree-item';
-import props from '@TdTypes/tree/props';
+import props from '../../types/tree/props';
 import {
   TreeNodeValue,
   TypeValueMode,
@@ -24,6 +24,7 @@ import {
   getNode,
   callEmit,
 } from './util';
+import { ClassName, TreeOptionData } from '../common';
 
 export default defineComponent({
   name: TREE_NAME,
