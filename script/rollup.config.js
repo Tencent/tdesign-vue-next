@@ -52,7 +52,7 @@ const getPlugins = ({
       tsconfig: 'tsconfig.json',
     }),
     babel({
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
       extensions: [...DEFAULT_EXTENSIONS, '.vue', '.ts', '.tsx'],
     }),
     postcss({
