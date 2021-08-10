@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
-import props from '@TdTypes/footer/props';
+import props from '../../types/footer/props';
 
 const name = `${prefix}-footer`;
 

@@ -1,13 +1,14 @@
 import { defineComponent, VNode, nextTick, h, inject, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import { validate } from './form-model';
-import { ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType } from '@TdTypes/form/TdFormProps';
-import props from '@TdTypes/form-item/props';
+import { ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType } from '../../types/form/TdFormProps';
+import props from '../../types/form-item/props';
 import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX, TdForm } from './const';
 import Form from './form';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
+import { ClassName, ScopedSlot, TNodeReturnValue } from '../common';
 
 type Result = ValidateResult<TdFormProps['data']>;
 
@@ -147,6 +148,7 @@ export default defineComponent({
     },
     getLabel(): VNodeChild {
       if (typeof this.label === 'function') {
+        // @ts-ignore: TODO
         return this.label(h);
       }
       if (typeof this.$slots.label === 'function') {

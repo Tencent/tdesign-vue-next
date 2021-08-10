@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import { CalendarCell } from '@TdTypes/calendar/TdCalendarProps';
+import { CalendarCell } from '../../types/calendar/TdCalendarProps';
 
 // 组件的一些常量
 import {

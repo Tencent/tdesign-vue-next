@@ -1,6 +1,6 @@
 
 import { VNode } from 'vue';
-
+import { ClassName } from '../../common';
 export interface ProgressProps {
   theme?: string;
   percentage?: number;

@@ -4,11 +4,12 @@ import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import props from '@TdTypes/option/props';
+import props from '../../types/option/props';
 import type { TdSelect } from './instance';
-import { Options } from '@TdTypes/select/TdSelectProps';
+import { Options } from '../../types/select/TdSelectProps';
 import Checkbox from '../checkbox/index';
 // import { SelectInstance } from './instance';
+import { ClassName } from '../common';
 
 const name = `${prefix}-option`;
 const selectName = `${prefix}-select`;
@@ -55,7 +56,7 @@ export default defineComponent({
         `${prefix}-select-option`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled || this.multiLimitDisabled,
-          [CLASSNAMES.STATUS.selected]: this.selected && (!this.tSelect || !this.tSelect.multiple),
+          [CLASSNAMES.STATUS.selected]: this.selected,
           [`${CLASSNAMES.STATUS.selected}-multiple`]: this.tSelect && this.tSelect.multiple,
           [CLASSNAMES.SIZE[this.tSelect && this.tSelect.size]]: this.tSelect && this.tSelect.size,
         },

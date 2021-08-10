@@ -1,9 +1,13 @@
 import _Textarea from './textarea';
 import mapProps from '../utils/map-props';
-import setInstallFn from '../utils/withInstall';
-import { TdTextareaProps } from '../../types/textarea/TdTextareaProps';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-export type TextareaProps = TdTextareaProps
+const LocalTextarea = mapProps([{
+  name: 'value',
+  alias: ['modelValue'],
+}])(_Textarea)
 
-export const Textarea = setInstallFn('Textarea', mapProps(['value'])(_Textarea));
-export default Textarea;
+const Textarea: WithInstallType<typeof LocalTextarea> = withInstall(LocalTextarea)
+
+export { Textarea }
+export default Textarea

@@ -1,6 +1,7 @@
 import { defineComponent, VNodeChild } from 'vue';
 import tdButton from '../../button';
 import { prefix } from '../../config';
+import { TNode } from '../../common';
 
 const name = `${prefix}-transfer-operations`;
 export default defineComponent({

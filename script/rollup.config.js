@@ -29,7 +29,7 @@ const input = 'src/dist.ts';
 const inputList = [
   'src/**/**.ts',
   'src/**/**.tsx',
-  '!src/{addon,calendar,locale,table,upload,dropdown,transfer,textarea,time-picker,utils}/**',
+  '!src/{addon,locale,upload,dropdown,transfer,textarea,time-picker,utils}/**',
   '!src/dist.ts',
   '!src/**/*.d.ts',
   '!src/**/demos',

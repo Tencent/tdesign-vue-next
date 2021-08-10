@@ -1,12 +1,13 @@
 import { ComponentPublicInstance } from 'vue';
 import TreeNode from '../../common/js/tree/tree-node';
+import { TNode, TreeOptionData } from '../common';
 
 import {
   TdTreeProps,
   TreeNodeValue as TdTreeNodeValue,
   TreeNodeModel,
   TreeInstanceFunctions,
-} from '@TdTypes/tree/TdTreeProps';
+} from '../../types/tree/TdTreeProps';
 
 import {
   TypeTreeEventState,
@@ -15,7 +16,7 @@ import {
 export type {
   TreeNodeValue,
   TreeNodeState,
-} from '@TdTypes/tree/TdTreeProps';
+} from '../../types/tree/TdTreeProps';
 
 export type TypeValueMode = TdTreeProps['valueMode'];
 

@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
-import props from '@TdTypes/header/props';
+import props from '../../types/header/props';
 
 const name = `${prefix}-header`;
 
