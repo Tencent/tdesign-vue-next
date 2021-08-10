@@ -38,10 +38,10 @@ export default defineComponent({
   computed: {
     // this.defaultCurrent 属于分页组件抛出的事件参数，非受控的情况也会有该事件触发
     // this.pagination.defaultCurrent 为表格组件传入的非受控属性
-    current(): number {
+    current(this: any): number {
       return this.pagination?.current || this.defaultCurrent || this.pagination?.defaultCurrent;
     },
-    pageSize(): number {
+    pageSize(this: any): number {
       return this.pagination?.pageSize || this.defaultPageSize || this.pagination?.defaultPageSize;
     },
     dataSource(): Array<DataType> {
@@ -185,7 +185,7 @@ export default defineComponent({
         </div>
       );
     },
-    renderPagination(): VNode {
+    renderPagination(this: any): VNode {
       const defaultPagination = this.pagination;
       const onChange = (current: number, pageInfo: PageInfo) => {
         this.emitEvent(

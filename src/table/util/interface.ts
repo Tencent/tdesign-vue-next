@@ -10,31 +10,31 @@ export type CustomData = {
   func: CustomRenderName;
 };
 
-export interface TdInstance<T> extends App {
+export interface TdInstance extends App {
   cellData?: {
     type: string;
     col: BaseTableCol;
     colIndex: number;
-    row?: T;
+    row?: Record<string, any>;
     rowIndex?: number;
     customData: CustomData;
     customRender: () => void;
   };
 }
 
-export interface CellParams<T, U> {
+export interface CellParams {
   col: BaseTableCol;
   colIndex: number;
-  row?: T;
+  row?: Record<string, any>;
   rowIndex?: number;
-  record?: U;
+  record?: Record<string, any>;
 }
 
-export interface CellData<T> {
+export interface CellData {
   type: string;
   col: BaseTableCol;
   colIndex: number;
-  row?: T;
+  row?: Record<string, any>;
   rowIndex?: number;
   customData: CustomData;
   customRender: () => void;

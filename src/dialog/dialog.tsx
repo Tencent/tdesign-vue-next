@@ -6,8 +6,9 @@ import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import { getAttach } from '../utils/dom';
 import TransferDom from '../utils/transfer-dom';
-import { CloseContext } from '@TdTypes/dialog/TdDialogProps';
-import props from '@TdTypes/dialog/props';
+import { CloseContext } from '../../types/dialog/TdDialogProps';
+import props from '../../types/dialog/props';
+import { ClassName } from '../common';
 
 const name = `${prefix}-dialog`;
 
@@ -225,6 +226,7 @@ export default defineComponent({
       if (typeof target === 'string') {
         view = <h5 class="title">{target}</h5>;
       } else if (typeof target === 'function') {
+        // @ts-ignore: TODO
         view = target(h);
       } else if (typeof this.$slots.header === 'function') {
         view = this.$slots.header(null);
@@ -244,6 +246,7 @@ export default defineComponent({
       if (typeof target === 'string' && target) {
         view = target;
       } else if (typeof target === 'function') {
+        // @ts-ignore: TODO
         view = target(h);
       } else if (typeof this.$slots.body === 'function') {
         view = this.$slots.body(null);
@@ -295,6 +298,7 @@ export default defineComponent({
       if (target === true) {
         view = typeof this.$slots.footer === 'function' ? this.$slots.footer(null) : defaultView;
       } else if (typeof target === 'function') {
+        // @ts-ignore: TODO
         view = target(h);
       }
 
@@ -312,6 +316,7 @@ export default defineComponent({
       if (typeof target === 'string') {
         view = target;
       } else if (typeof target === 'function') {
+        // @ts-ignore: TODO
         view = target(h);
       } else if (typeof this.$slots.closeBtn === 'function') {
         view = this.$slots.closeBtn(null);

@@ -1,8 +1,7 @@
-import { VNode, defineComponent, h } from 'vue';
+import { VNode, defineComponent, h, ComponentPublicInstance } from 'vue';
 import { prefix } from '../../config';
 import Popup from '../../popup';
 import { isNodeOverflow } from '../../utils/dom';
-import { TdInstance } from '../util/interface';
 
 const overlayStyle = {
   width: '100%',
@@ -33,14 +32,14 @@ export default defineComponent({
     // 计算当前固定列偏移的宽度
     if (fixed && children) {
       let offsetLeft = 0;
-      const fixedColumns: Array<TdInstance> = [];
+      const fixedColumns: Array<ComponentPublicInstance> = [];
       Object.keys(children).forEach((refKey) => {
-        const el = children[refKey] as TdInstance;
+        const el = children[refKey] as ComponentPublicInstance;
         if (el?.cellData?.col?.fixed === fixed) {
           fixedColumns.push(el);
         }
       });
-      const indexInFixedColumns = fixedColumns.findIndex(el => (el === this));
+      const indexInFixedColumns = fixedColumns.findIndex(el => el === this);
 
       fixedColumns.forEach((el: any, cur) => {
         if ((fixed === 'right' && cur > indexInFixedColumns) || (fixed === 'left' && cur < indexInFixedColumns)) {

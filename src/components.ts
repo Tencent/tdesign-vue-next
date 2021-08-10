@@ -37,6 +37,7 @@ export * from './alert-swiper';
 export * from './input-number';
 export * from './pagination';
 export * from './breadcrumbItem';
+export * from './textarea';
 // export * from './time-picker';
 export { Dialog } from './dialog';
 export { Message } from './message';

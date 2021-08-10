@@ -2,7 +2,8 @@ import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import responsiveObserver from '../utils/responsive-observer';
-import props from '@TdTypes/row/props';
+import props from '../../types/row/props';
+import { ClassName } from '../common';
 
 const name = `${prefix}-row`;
 

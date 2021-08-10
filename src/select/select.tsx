@@ -11,12 +11,12 @@ import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
 import set from 'lodash/set';
-import Popup from '../popup/index';
+import Popup, { PopupProps } from '../popup/index';
 import Option from './option';
-import { PopupProps } from '@Popup';
+import { ClassName, Styles } from '../common';
 
-import props from '@TdTypes/select/props';
-import { Options, SelectValue, KeysType } from '@TdTypes/select/TdSelectProps';
+import props from '../../types/select/props';
+import { Options, SelectValue, KeysType } from '../../types/select/TdSelectProps';
 
 // import { SelectInstance } from './instance';
 const name = `${prefix}-select`;
@@ -55,15 +55,14 @@ export default defineComponent({
         },
       },
       width: 0,
-      options: [],
       focusing: false, // filterable时，输入框是否在focus中
       labelInValue: this.valueType === 'object',
       realValue: this.keys && (this.keys as KeysType).value ? (this.keys as KeysType).value : 'value',
       realLabel: this.keys && (this.keys as KeysType).label ? (this.keys as KeysType).label : 'label',
-      tmpOptions: [],
+      realOptions: [] as Array<Options>,
+      searchOptions: [] as Array<Options>,
     };
   },
-
   computed: {
     classes(): ClassName {
       return [
@@ -151,8 +150,8 @@ export default defineComponent({
     selectedSingle(): string {
       if (!this.multiple && (typeof this.value === 'string' || typeof this.value === 'number')) {
         let target: Array<Options> = [];
-        if (this.options && this.options.length) {
-          target = this.options.filter(item => get(item, this.realValue) === this.value);
+        if (this.realOptions && this.realOptions.length) {
+          target = this.realOptions.filter(item => get(item, this.realValue) === this.value);
         }
         return target.length ? get(target[0], this.realLabel) : this.value;
       }
@@ -167,7 +166,7 @@ export default defineComponent({
           if (typeof item === 'object') {
             return item;
           }
-          const tmp = this.options.filter(op => get(op, this.realValue) === item);
+          const tmp = this.realOptions.filter(op => get(op, this.realValue) === item);
           const valueLabel = {};
           set(valueLabel, this.realValue, item);
           set(valueLabel, this.realLabel, tmp.length ? get(tmp[0], this.realLabel) : item);
@@ -177,8 +176,15 @@ export default defineComponent({
       return [];
     },
     popupObject(): PopupProps {
+      const popupProps: PopupProps = this?.popupProps;
+      let styles: Styles;
+      if (this.popupProps && typeof popupProps.overlayStyle === 'function') {
+        styles = popupProps.overlayStyle(this.$refs.select as HTMLElement) || {};
+      } else if (this.popupProps && typeof popupProps.overlayStyle === 'object') {
+        styles = popupProps.overlayStyle || {};
+      }
       const propsObject = this.popupProps ? Object.assign(this.defaultProps, (this.popupProps as PopupProps)) : this.defaultProps;
-      if ((!this.popupProps || !(this.popupProps as PopupProps).overlayStyle || !(this.popupProps as PopupProps).overlayStyle.width) && this.width) {
+      if (styles?.width) {
         propsObject.overlayStyle.width = `${this.width}px`;
       }
       return propsObject as PopupProps;
@@ -186,11 +192,11 @@ export default defineComponent({
     displayOptions(): Array<Options> {
       if (isFunction(this.filter)) {
         if (this.searchInput === '') {
-          return this.options;
+          return this.realOptions;
         }
-        return this.tmpOptions;
+        return this.searchOptions;
       }
-      return this.options;
+      return this.realOptions;
     },
   },
   watch: {
@@ -205,16 +211,22 @@ export default defineComponent({
     },
     searchInput(val) {
       if (isFunction(this.filter)) {
-        this.tmpOptions = this.options.filter(option => this.filter(val, option));
+        this.searchOptions = this.realOptions.filter(option => this.filter(val, option));
       } else {
         this.debounceOnRemote();
       }
       if (this.filterable && val && this.creatable) {
-        const tmp = this.options.filter(item => get(item, this.realLabel).toString() === val);
+        const tmp = this.realOptions.filter(item => get(item, this.realLabel).toString() === val);
         this.showCreateOption = !tmp.length;
       } else {
         this.showCreateOption = false;
       }
+    },
+    options: {
+      immediate: true,
+      handler(options: Array<Options>) {
+        this.realOptions = options;
+      },
     },
   },
   methods: {
@@ -232,7 +244,7 @@ export default defineComponent({
     },
     visibleChange(val: boolean) {
       if (this.focusing && !val) {
-        (this.$refs.popup as any).showPopper = true;
+        this.visible = true;
         return;
       }
       this.visible = val;
@@ -252,7 +264,7 @@ export default defineComponent({
             if (index > -1) {
               this.removeTag(index, e);
             } else {
-              this.value.push(this.options.filter(item => get(item, this.realValue) === value)[0]);
+              this.value.push(this.realOptions.filter(item => get(item, this.realValue) === value)[0]);
               this.emitChange(this.value);
             }
           } else {
@@ -269,6 +281,7 @@ export default defineComponent({
         }
       }
       if (!this.multiple) {
+        this.searchInput = '';
         this.hideMenu();
       } else {
         if (!this.reserveKeyword) {
@@ -287,13 +300,13 @@ export default defineComponent({
         return;
       }
       const val = this.value[index];
-      const removeOption = this.options.filter(item => get(item, this.realValue) === val);
+      const removeOption = this.realOptions.filter(item => get(item, this.realValue) === val);
       this.value instanceof Array && this.value.splice(index, 1);
       this.emitChange(this.value);
       this.$emit('remove', { value: val, data: removeOption[0], e });
     },
     hideMenu() {
-      (this.$refs.popup as any).showPopper = false;
+      this.visible = false;
     },
     clearSelect(e: MouseEvent) {
       e.stopPropagation();
@@ -304,23 +317,23 @@ export default defineComponent({
       }
       this.focusing = false;
       this.searchInput = '';
-      (this.$refs.popup as any).showPopper = false;
+      this.visible = false;
       this.$emit('clear', { e });
     },
     getOptions(option: Options) {
       if (!option.value && !option.label) return;
-      const tmp = this.options.filter(item => get(item, this.realValue) === option.value);
+      const tmp = this.realOptions.filter(item => get(item, this.realValue) === option.value);
       if (!tmp.length) {
         this.hasOptions = true;
         const valueLabel = {};
         set(valueLabel, this.realValue, option.value);
         set(valueLabel, this.realLabel, option.label);
         const valueLabelAble = option.disabled ? { ...valueLabel, disabled: true } : valueLabel;
-        this.options.push(valueLabelAble);
+        this.realOptions.push(valueLabelAble);
       }
     },
     destroyOptions(index: number) {
-      this.options.splice(index, 1);
+      this.realOptions.splice(index, 1);
     },
     emitChange(val: SelectValue | Array<SelectValue>) {
       let value: SelectValue | Array<SelectValue> | Array<Options> | Options;
@@ -332,7 +345,7 @@ export default defineComponent({
             value = this.selectedMultiple;
           }
         } else {
-          const target = this.options.filter(item => get(item, this.realValue) === val);
+          const target = this.realOptions.filter(item => get(item, this.realValue) === val);
           value = target.length ? target[0] : '';
         }
       } else {
@@ -372,7 +385,7 @@ export default defineComponent({
       disabled,
       popClass,
       size,
-      options,
+      realOptions,
       showPlaceholder,
       placeholder,
       selectedMultiple,
@@ -412,10 +425,10 @@ export default defineComponent({
             )
           }
           {
-            !hasOptions && options.length
+            !hasOptions && realOptions.length
               ? <ul>
               {
-                options.map((item: Options, index: number) => (
+                realOptions.map((item: Options, index: number) => (
                     <t-option
                       value={get(item, realValue)}
                       label={get(item, realLabel)}
@@ -427,7 +440,7 @@ export default defineComponent({
                 ))
               }
             </ul>
-              : <span v-show={!loading && options.length}>{children}</span>
+              : <span v-show={!loading && realOptions.length}>{children}</span>
           }
         </div>
       ),

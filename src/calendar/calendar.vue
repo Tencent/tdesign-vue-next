@@ -174,7 +174,8 @@ import dayjs from 'dayjs';
 import calendar from 'dayjs/plugin/calendar';
 import { useLocalRecevier } from '../locale/local-receiver';
 import * as utils from './utils';
-import { getPropsApiByEvent } from '../utils/helper';
+// import { getPropsApiByEvent } from '../utils/helper';
+import { SizeEnum } from '../common';
 
 // 组件的一些常量
 import {
@@ -195,7 +196,7 @@ import { RenderTNodeTemplate } from '../utils/render-tnode';
 
 // 组件相关的自定义类型
 import {
-  CalendarData,
+  // CalendarData,
   CalendarRange,
   YearMonthOption,
   ModeOption,
@@ -435,7 +436,7 @@ export default defineComponent({
       }
       return {
         ...getDefaultControllerConfigData(),
-        ...this.controllerConfig,
+        ...(this.controllerConfig as object),
       };
     },
 

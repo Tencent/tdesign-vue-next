@@ -86,6 +86,8 @@ export default defineComponent({
         type: 'th',
         withBorder,
       };
+
+      // @ts-ignore: TODO
       return <TableCell ref={`${currentRowIndex}_${colIndex}`} cellData={cellData} colspan={colspan} rowspan={rowspan} />;
     },
   },
