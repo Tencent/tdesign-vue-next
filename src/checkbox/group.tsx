@@ -1,8 +1,8 @@
 import { defineComponent, h } from 'vue';
 import { prefix } from '../config';
 import Checkbox from './checkbox';
-import checkboxGroupProps from '@TdTypes/checkbox-group/props';
-import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from '@TdTypes/checkbox/TdCheckboxProps';
+import checkboxGroupProps from './checkbox-group-props';
+import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 import intersection from 'lodash/intersection';
 
 const name = `${prefix}-checkbox-group`;

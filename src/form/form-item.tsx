@@ -1,8 +1,8 @@
 import { defineComponent, VNode, nextTick, h, inject, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import { validate } from './form-model';
-import { ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType } from '@TdTypes/form/TdFormProps';
-import props from '@TdTypes/form-item/props';
+import { ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType } from './type';
+import props from './form-item-props';
 import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX, TdForm } from './const';
 import Form from './form';
 import cloneDeep from 'lodash/cloneDeep';

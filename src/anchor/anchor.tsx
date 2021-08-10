@@ -3,7 +3,7 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP, getOffsetTop } from './utils';
 import { on, off, getScroll, scrollTo, getScrollContainer } from '../utils/dom';
-import props from '../../types/anchor/props';
+import props from './props';
 
 const name = `${prefix}-anchor`;
 

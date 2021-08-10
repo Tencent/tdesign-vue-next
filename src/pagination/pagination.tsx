@@ -11,8 +11,8 @@ import TIconEllipsis from '../icon/ellipsis';
 import TInput from '../input';
 import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
-import props from '@TdTypes/pagination/props';
-import { TdPaginationProps } from '@TdTypes/pagination/TdPaginationProps';
+import props from './props';
+import { TdPaginationProps } from './type';
 
 const { prefix } = config;
 const name = `${prefix}-pagination`;

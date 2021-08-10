@@ -4,9 +4,9 @@ import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import props from '@TdTypes/option/props';
+import props from './option-props';
 import type { TdSelect } from './instance';
-import { Options } from '@TdTypes/select/TdSelectProps';
+import { Options } from './type';
 import Checkbox from '../checkbox/index';
 // import { SelectInstance } from './instance';
 

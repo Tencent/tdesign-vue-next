@@ -2,8 +2,8 @@ import { defineComponent, nextTick } from 'vue';
 import { prefix } from '../config';
 import TIconClose from '../icon/close';
 import { Button as TButton } from '../button';
-import props from '@TdTypes/drawer/props';
-import { FooterButton, CloseContext } from '@TdTypes/drawer/TdDrawerProps';
+import props from './props';
+import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 
 const name = `${prefix}-drawer`;
@@ -116,18 +116,18 @@ export default defineComponent({
     },
     onCloseBtnClick(e: MouseEvent) {
       this.$emit('click-close-btn', e);
-      this.closeDrawer({ trigger: 'clickCloseBtn', e });
+      this.closeDrawer({ trigger: 'close-btn', e });
     },
     handleWrapperClick(e: MouseEvent) {
       this.$emit('click-overlay', e);
       if (this.closeOnClickOverlay) {
-        this.closeDrawer({ trigger: 'clickOverlay', e });
+        this.closeDrawer({ trigger: 'overlay', e });
       }
     },
     onKeyDown(e: KeyboardEvent) {
       if (this.closeOnKeydownEsc && e.key === 'Escape') {
         this.$emit('keydown-esc', e);
-        this.closeDrawer({ trigger: 'keydownEsc', e });
+        this.closeDrawer({ trigger: 'esc', e });
       }
     },
     confirmBtnAction(e: MouseEvent) {
@@ -135,9 +135,9 @@ export default defineComponent({
     },
     cancelBtnAction(e: MouseEvent) {
       this.$emit('click-cancel', e);
-      this.closeDrawer({ trigger: 'clickCancel', e });
+      this.closeDrawer({ trigger: 'cancel', e });
     },
-    closeDrawer(params: CloseContext) {
+    closeDrawer(params: DrawerCloseContext) {
       this.$emit('close', params);
       this.$emit('update:visible', false);
     },

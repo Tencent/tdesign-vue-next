@@ -1,20 +1,15 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
-import props from '@TdTypes/col/props';
+import props from './col-props';
 
 const name = `${prefix}-col`;
 
 export default defineComponent({
   name,
 
-  components: {
-    RenderComponent,
-  },
-
   inject: ['rowContext'],
 
-  props: { ...props },
+  props,
 
   data() {
     return {};

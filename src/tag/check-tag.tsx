@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import RenderComponent from '../utils/render-component';
 import config from '../config';
-import props from '@TdTypes/check-tag/props';
+import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 const { prefix } = config;

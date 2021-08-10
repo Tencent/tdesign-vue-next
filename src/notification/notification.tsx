@@ -3,7 +3,7 @@ import { prefix } from '../config';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import TIconClose from '../icon/close';
-import props from '@TdTypes/notification/props';
+import props from './props';
 
 const name = `${prefix}-notification`;
 

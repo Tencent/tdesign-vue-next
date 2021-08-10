@@ -13,10 +13,15 @@ import get from 'lodash/get';
 import set from 'lodash/set';
 import Popup from '../popup/index';
 import Option from './option';
+import props from './props';
 import { PopupProps } from '@Popup';
+import { Options, SelectValue } from '@TdTypes/select/TdSelectProps';
+import { ClassName } from '../common';
 
-import props from '@TdTypes/select/props';
-import { Options, SelectValue, KeysType } from '@TdTypes/select/TdSelectProps';
+interface KeysType {
+  value?: string;
+  label?: string
+}
 
 // import { SelectInstance } from './instance';
 const name = `${prefix}-select`;

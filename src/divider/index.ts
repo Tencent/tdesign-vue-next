@@ -1,10 +1,9 @@
 import _Divider from './divider';
-import { TdDividerProps } from '@TdTypes/divider/TdDividerProps';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdDividerProps } from './type';
 
-const Divider: WithInstallType<typeof _Divider> = withInstall(_Divider);
-
+export * from './type';
 export type DividerProps = TdDividerProps;
 
-export { Divider };
+export const Divider: WithInstallType<typeof _Divider> = withInstall(_Divider);
 export default Divider;

@@ -1,7 +1,7 @@
 import { defineComponent, ref, computed, provide, watchEffect, watch } from 'vue';
 import { prefix } from '../config';
-import props from '@TdTypes/menu/props';
-import { MenuValue } from '@TdTypes/menu/TdMenuProps';
+import props from './props';
+import { MenuValue } from './type';
 import { TdMenuInterface } from './const';
 const name = `${prefix}-menu`;
 

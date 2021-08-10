@@ -1,8 +1,11 @@
 import _Message from './message';
-import MessagePlugin from './plugin';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdMessageProps } from './type';
 
-const Message: WithInstallType<typeof _Message> = withInstall(_Message);
+export * from './type';
+export * from './plugin';
+export type MessageProps = TdMessageProps;
 
-export { Message, MessagePlugin };
+export const Message: WithInstallType<typeof _Message> = withInstall(_Message);
+export { default as MessagePlugin } from './plugin';
 export default Message;

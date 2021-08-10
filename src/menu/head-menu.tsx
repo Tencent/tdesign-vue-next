@@ -1,7 +1,7 @@
 import { defineComponent, computed, provide, ref, reactive, watch } from 'vue';
 import { prefix } from '../config';
-import props from '@TdTypes/head-menu/props';
-import { MenuValue } from '@TdTypes/menu/TdMenuProps';
+import props from './head-menu-props';
+import { MenuValue } from './type';
 import { TdMenuInterface, TdMenuItem } from './const';
 import { Tabs, TabPanel } from '../tabs';
 const name = `${prefix}-head-menu`;

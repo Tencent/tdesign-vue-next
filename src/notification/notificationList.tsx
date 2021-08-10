@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import Notification from './notification';
-import { TdNotificationProps, PlacementList } from '@TdTypes/notification/TdNotificationProps';
+import { TdNotificationProps, NotificationOptions } from './type';
 
 const DEFAULT_Z_INDEX = 6000;
 const MARGIN = 16;
@@ -40,7 +40,7 @@ export default defineComponent({
     removeAll() {
       this.list = [];
     },
-    notificationStyles(item: { offset: PlacementList; zIndex: number }) {
+    notificationStyles(item: { offset: NotificationOptions['offset']; zIndex: number }) {
       const styles = {};
       this.placement.split('-').forEach((direction: 'left' | 'top' | 'bottom' | 'right') => {
         let margin = MARGIN;

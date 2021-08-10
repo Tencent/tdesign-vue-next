@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import props from '@TdTypes/divider/props';
+import props from './props';
 
 const name = `${prefix}-divider`;
 

@@ -40,7 +40,8 @@
     "prefer-default-export": 0,
     "max-len": 0,
     "vue/no-deprecated-slot-attribute": 0,
-    "@typescript-eslint/ban-ts-ignore": 0
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0
   },
   "overrides": [
     {

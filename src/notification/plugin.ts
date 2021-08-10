@@ -11,7 +11,7 @@ import {
   NotificationSuccessMethod,
   NotificationCloseMethod,
   NotificationCloseAllMethod,
-} from '@TdTypes/notification/TdNotificationProps';
+} from './type';
 
 let seed = 0;
 // 存储不同 attach 和 不同 placement 消息列表实例

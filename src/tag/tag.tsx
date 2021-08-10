@@ -2,7 +2,7 @@ import { defineComponent, h, VNodeChild } from 'vue';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import TIconClose from '../icon/close';
-import props from '@TdTypes/tag/props';
+import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 const { prefix } = config;

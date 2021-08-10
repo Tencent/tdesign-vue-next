@@ -202,7 +202,7 @@ import {
   CellColHeader,
   CellEventOption,
   TextConfigType,
-} from './type';
+} from './type/index';
 import { defineComponent } from '@vue/runtime-core';
 import { ref } from 'vue';
 
@@ -589,7 +589,7 @@ export default defineComponent({
       return re;
     },
     // 显示当前月份\年份
-    toCurrent(value: TdCalendarProps['value']): void {
+    toCurrent(value?: TdCalendarProps['value']): void {
       this.curDate = value ? dayjs(value) : createDefaultCurDate();
       this.curSelectedYear = this.curDate.year();
       this.curSelectedMonth = parseInt(this.curDate.format('M'), 10);

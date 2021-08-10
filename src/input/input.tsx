@@ -5,8 +5,8 @@ import { omit } from '../utils/helper';
 import ClearIcon from '../icon/clear-circle-filled';
 import BrowseIcon from '../icon/browse';
 import BrowseOffIcon from '../icon/browse-off';
-import props from '@TdTypes/input/props';
-import { InputValue } from '@TdTypes/input/TdInputProps';
+import props from './props';
+import { InputValue } from './type';
 
 const name = `${prefix}-input`;
 

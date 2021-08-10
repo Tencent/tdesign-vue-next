@@ -1,7 +1,10 @@
 import _Progress from './progress.vue';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdProgressProps } from './type';
 
-const Progress: WithInstallType<typeof _Progress> = withInstall(_Progress);
+export type ProgressProps = TdProgressProps;
+export * from './type';
 
-export { Progress };
+export const Progress: WithInstallType<typeof _Progress> = withInstall(_Progress);
+
 export default Progress;

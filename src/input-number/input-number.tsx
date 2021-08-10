@@ -5,8 +5,8 @@ import Remove from '../icon/remove';
 import ChevronDown from '../icon/chevron-down';
 import ChevronUp from '../icon/chevron-up';
 import CLASSNAMES from '../utils/classnames';
-import props from '@TdTypes/input-number/props';
-import { ChangeSource } from '@TdTypes/input-number/TdInputNumberProps';
+import props from './props';
+import { ChangeSource } from './type';
 
 const name = `${prefix}-input-number`;
 

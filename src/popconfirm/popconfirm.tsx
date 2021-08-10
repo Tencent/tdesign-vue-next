@@ -4,8 +4,8 @@ import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
 import Popup  from '../popup/index';
 import { prefix } from '../config';
-import props from '@TdTypes/popconfirm/props';
-import { TdPopconfirmProps, PopconfirmVisibleChangeContext } from '@TdTypes/popconfirm/TdPopconfirmProps';
+import props from './props';
+import { TdPopconfirmProps, PopconfirmVisibleChangeContext } from './type';
 
 const name = `${prefix}-popconfirm`;
 const popupName = `${prefix}-popup`;

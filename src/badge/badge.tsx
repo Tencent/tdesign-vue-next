@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import props from '../../types/badge/props';
+import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-badge`;

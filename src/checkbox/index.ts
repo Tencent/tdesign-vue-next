@@ -2,7 +2,7 @@ import _Checkbox from './checkbox';
 import _Group from './group';
 import mapProps from '../utils/map-props';
 import { withInstall, WithInstallType } from '../utils/withInstall';
-import { TdCheckboxProps } from '@TdTypes/checkbox/TdCheckboxProps';
+import { TdCheckboxProps } from './type';
 
 const LocalCheckbox = mapProps([{
   name: 'checked', event: 'change', alias: ['modelValue'],
