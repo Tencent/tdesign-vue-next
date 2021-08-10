@@ -1,15 +1,17 @@
 import { defineComponent } from 'vue';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
+import { renderTNodeJSX, renderContent, renderTNodeJSXDefault } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
-import Popup  from '../popup/index';
+import Popup, { PopupProps }  from '../popup/index';
 import { prefix } from '../config';
 import props from '../../types/popconfirm/props';
 import { TdPopconfirmProps, PopconfirmVisibleChangeContext } from '../../types/popconfirm/TdPopconfirmProps';
-
+import TIconInfoCircleFilled from '../icon/info-circle-filled';
+import TIconErrorCircleFilled from '../icon/error-circle-filled';
 const name = `${prefix}-popconfirm`;
 const popupName = `${prefix}-popup`;
 const PopconfirmLocalReceiver = getLocalRecevierMixins('popconfirm');
+type IconConstructor = typeof TIconInfoCircleFilled;
 export default defineComponent({
   ...mixins(PopconfirmLocalReceiver),
   name,
@@ -24,27 +26,29 @@ export default defineComponent({
     };
   },
   computed: {
-    iconName(): string {
+    themeIcon(): IconConstructor {
       const iconMap = {
-        default: 'info-circle-filled',
-        warning: 'error-circle-filled',
-        danger: 'error-circle-filled',
+        default: TIconInfoCircleFilled,
+        warning: TIconErrorCircleFilled,
+        danger: TIconErrorCircleFilled,
       };
-      return iconMap[this.theme] || '';
+      return iconMap[this.theme];
     },
-    iconColor(): string {
-      let color = '';
-      switch (this.theme) {
-        case 'warning':
-          color = '#FFAA00';
-          break;
-        case 'danger':
-          color = '#E34D59';
-          break;
-        default:
-          color = '#0052D9';
-      }
-      return `color:${color}`;
+    iconCls(): string {
+      const theme = this.theme || 'default';
+      return `${name}__icon--${theme}`;
+    },
+    innerPopupProps(): PopupProps {
+      return {
+        showArrow: this.showArrow,
+        overlayClassName: name,
+        trigger: 'manual',
+        destroyOnClose: this.destroyOnClose,
+        placement: this.placement,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        ...this.popupProps,
+      };
     },
   },
   methods: {
@@ -59,16 +63,8 @@ export default defineComponent({
       this.$emit('visible-change', false, confirmContext);
     },
     renderIcon() {
-      // 优先级 slot > Funtion
-      if (this.$slots.icon) {
-        return this.$slots.icon(null);
-      }
-      const arg = this.icon;
-      if (typeof arg === 'function') {
-        // eslint-disable-next-line @typescript-eslint/ban-types
-        return (arg as Function)();
-      }
-      return <t-icon name={this.iconName} style={this.iconColor} />;
+      const Icon = this.themeIcon;
+      return renderTNodeJSXDefault(this, 'icon', <Icon class={this.iconCls} />);
     },
     getBtnText(api: TdPopconfirmProps['cancelBtn']) {
       return typeof api === 'object' ? api.content : api;
@@ -96,11 +92,6 @@ export default defineComponent({
   },
   render() {
     const triggerElement = renderContent(this, 'default', 'triggerElement');
-    const popupProps = Object.assign({
-      showArrow: true,
-      overlayClassName: name,
-      trigger: 'manual',
-    }, this.popupProps);
     const baseTypes = ['string', 'object'];
     let confirmBtn: any = null;
     if (![undefined, null].includes(this.confirmBtn)) {
@@ -139,7 +130,7 @@ export default defineComponent({
         <Popup
           ref="popup"
           visible={this.visible}
-          {...popupProps}
+          {...this.innerPopupProps}
           onVisibleChange={this.onPopupVisibleChange}
           v-slots={slots}
         >
