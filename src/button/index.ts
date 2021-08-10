@@ -1,9 +1,9 @@
 import _Button from './button';
-import { TdButtonProps } from '@TdTypes/button/TdButtonProps';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdButtonProps } from './type';
 
-const Button: WithInstallType<typeof _Button> = withInstall(_Button);
-
+export * from './type';
 export type ButtonProps = TdButtonProps;
-export { Button };
+
+export const Button: WithInstallType<typeof _Button> = withInstall(_Button);
 export default Button;
