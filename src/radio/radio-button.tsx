@@ -1,5 +1,5 @@
 import { defineComponent, VNode } from 'vue';
-import props from '@TdTypes/radio/props';
+import props from '../../types/radio/props';
 import Radio, { radioBtnName as name } from './radio';
 import { omit } from '../utils/helper';
 

@@ -2,7 +2,7 @@ import { defineComponent, VNodeChild, h } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP } from './utils';
-import props from '@TdTypes/anchor-item/props';
+import props from '../../types/anchor-item/props';
 
 const name = `${prefix}-anchor-item`;
 type TAnchor = {
@@ -78,6 +78,7 @@ export default defineComponent({
       if (typeof title === 'string') {
         titleVal = title;
       } else if (typeof title === 'function') {
+        // @ts-ignore: TODO
         titleVal = title(h);
       } else if (titleSlot) {
         titleVal = titleSlot(null);

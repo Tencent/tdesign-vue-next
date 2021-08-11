@@ -1,4 +1,4 @@
-import { MenuValue } from '@TdTypes/menu/TdMenuProps';
+import { MenuValue } from '../../types/menu/TdMenuProps';
 import { Ref, VNodeNormalizedChildren } from 'vue';
 
 export interface TdMenuItem {

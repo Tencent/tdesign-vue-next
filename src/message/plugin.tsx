@@ -38,7 +38,8 @@ import {
   MessageQuestionMethod,
   MessageCloseMethod,
   MessageCloseAllMethod,
-} from '@TdTypes/message/TdMessageProps';
+} from '../../types/message/TdMessageProps';
+import { AttachNodeReturnValue } from '../common';
 
 // 存储不同 attach 和 不同 placement 消息列表实例
 const instanceMap: Map<AttachNodeReturnValue, Record<string, ComponentPublicInstance>> = new Map();

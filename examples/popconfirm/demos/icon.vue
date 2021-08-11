@@ -9,7 +9,7 @@
 
       <div class="demo-item">
         <t-popconfirm theme="warning" content="事件通知类型偏向于提示" v-model="visible2">
-          <t-button theme="danger" variant="outline">警告</t-button>
+          <t-button theme="warning">警告</t-button>
         </t-popconfirm>
       </div>
 
@@ -20,19 +20,20 @@
       </div>
     </div>
 
+    <br><br>
     <div class="tdesign-demo-block">
       <div class="demo-item">
         <t-popconfirm content="基础气泡确认框文案示意文字按钮" :popupProps="{ placement: 'bottom' }">
           <template #icon>
-            <t-icon name="browse" style="color: #0052d9"  />
+            <t-icon name="browse" style="color: #0052d9" />
           </template>
-          <t-button theme="primary">图标（插槽）</t-button>
+          <t-button>图标（插槽）</t-button>
         </t-popconfirm>
       </div>
 
       <div class="demo-item">
         <t-popconfirm content="基础气泡确认框文案示意文字按钮" :icon='customIcon' :popupProps="{ placement: 'bottom' }">
-          <t-button theme="primary">图标（属性）</t-button>
+          <t-button>图标（属性）</t-button>
         </t-popconfirm>
       </div>
     </div>

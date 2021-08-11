@@ -3,7 +3,7 @@ import _Select from './select';
 import _Option from './option';
 import _OptionGroup from './optionGroup';
 import { withInstall, WithInstallType } from '../utils/withInstall';
-import { TdSelectProps, TdOptionProps, TdOptionGroupProps } from '@TdTypes/select/TdSelectProps';
+import { TdSelectProps, TdOptionProps, TdOptionGroupProps } from '../../types/select/TdSelectProps';
 
 const LocalSelect = mapProps([{
   name: 'value', event: 'change', alias: ['modelValue'],

@@ -1,13 +1,41 @@
 <template>
   <div class="popconfirm-demo">
     <div class="tdesign-demo-block">
-      <t-popconfirm theme="default" content="您确定要提交吗" confirmBtn='确定提交' cancelBtn='我再想想'>
-        <t-button theme="primary">自定义button文本</t-button>
+      <!-- 使用 props 定义按钮内容 -->
+      <t-popconfirm
+        theme="default"
+        content="您确定要提交吗"
+        confirmBtn='确认提交'
+        cancelBtn='我再想想'
+      >
+        <t-button variant="outline">按钮样式（属性-字符串）</t-button>
       </t-popconfirm>
+      <!-- 使用 props 定义按钮内容 -->
+      <t-popconfirm
+        theme="default"
+        content="您确定要提交吗"
+        :confirmBtn="{
+          content: '确认提交',
+          theme: 'warning'
+        }"
+        :cancelBtn="{
+          content: '我再想想',
+          theme: 'default',
+          variant: 'outline',
+        }"
+      >
+        <t-button variant="outline">按钮样式（属性-对象）</t-button>
+      </t-popconfirm>
+
+      <!-- 使用插槽定义按钮内容 -->
       <t-popconfirm theme="default" content="您确定要提交吗">
-        <t-button slot='cancelBtn' style="margin-right:12px">我再想想</t-button>
-        <t-button theme="primary" slot='confirmBtn'>确定提交</t-button>
-        <t-button theme="primary">使用Slot自定义button</t-button>
+        <template #cancelBtn>
+          <t-button  style="margin-right:12px">我再想想</t-button>
+        </template>
+        <template #confirmBtn>
+          <t-button theme="primary">确定提交</t-button>
+        </template>
+        <t-button variant="outline">按钮样式（插槽）</t-button>
       </t-popconfirm>
     </div>
   </div>

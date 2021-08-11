@@ -1,4 +1,5 @@
-import { h, isVNode, createTextVNode, VNode, ComponentPublicInstance  } from 'vue';
+import { h, isVNode, createTextVNode, VNode, ComponentPublicInstance ,Slots } from 'vue';
+import { TNode } from '../common';
 
 // 组件render属性的ts类型
 type RenderTsTypesSimple = string | number | boolean;
@@ -52,16 +53,30 @@ export const RenderTNodeTemplate = (props: { render: Function; params: Record<st
 };
 
 // 通过JSX的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
-export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, defaultNode?: VNode | JSX.Element) => {
-  const propsNode = instance.$props[name];
+export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, options?: Slots | JSX.Element) => {
+  const params = typeof options === 'object' && ('params' in options) ? options.params : null;
+  const defaultNode = typeof options === 'object' && ('defaultNode' in options) ? options.defaultNode : options;
+  const propsNode = instance[name];
   if (propsNode === false) return;
   if (propsNode === true && defaultNode) {
-    return instance.$slots[name] ? instance.$slots[name](null) : defaultNode;
+    return instance.$slots[name] ? instance.$slots[name](params) : defaultNode;
   }
-  if (typeof propsNode === 'function') return propsNode(h);
-  const isPropsEmpty = [undefined, null, ''].includes(propsNode);
-  if (isPropsEmpty && instance.$slots[name]) return instance.$slots[name](null);
+  if (typeof propsNode === 'function') return propsNode(h,params);
+  const isPropsEmpty = [undefined, params, ''].includes(propsNode);
+  if (isPropsEmpty && instance.$slots[name]) return instance.$slots[name](params);
   return propsNode;
+};
+/**
+ * 通过JSX的方式渲染 TNode，props 和 插槽同时处理。与 renderTNodeJSX 区别在于 属性值为 undefined 时会渲染默认节点
+ * @param vm 组件示例
+ * @param name 插槽和属性名称
+ * @example renderTNodeJSX(this, 'closeBtn')
+ * @example renderTNodeJSX(this, 'closeBtn', <t-icon-close />)。this.closeBtn 为空时，则兜底渲染 <t-icon-close />
+ * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <t-icon-close />, params }) 。params 为渲染节点时所需的参数
+ */
+export const renderTNodeJSXDefault = (vm: ComponentPublicInstance, name: string, options?: Slots | JSX.Element) => {
+  const defaultNode = typeof options === 'object' && 'defaultNode' in options ? options.defaultNode : options;
+  return renderTNodeJSX(vm, name, options) || defaultNode;
 };
 
 // content 优先级控制：name1 优先级高于 name2
