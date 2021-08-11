@@ -8,6 +8,7 @@ import Form from './form';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
+import { ClassName, ScopedSlot, TNodeReturnValue } from '../common';
 
 type Result = ValidateResult<TdFormProps['data']>;
 
@@ -147,6 +148,7 @@ export default defineComponent({
     },
     getLabel(): VNodeChild {
       if (typeof this.label === 'function') {
+        // @ts-ignore: TODO
         return this.label(h);
       }
       if (typeof this.$slots.label === 'function') {

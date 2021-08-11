@@ -11,10 +11,9 @@ import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
 import set from 'lodash/set';
-import Popup from '../popup/index';
+import Popup, { PopupProps } from '../popup/index';
 import Option from './option';
 import props from './props';
-import { PopupProps } from '@Popup';
 import { Options, SelectValue } from '@TdTypes/select/TdSelectProps';
 import { ClassName } from '../common';
 

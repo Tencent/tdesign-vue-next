@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import props from '@TdTypes/header/props';
+import props from './header-props';
 
 const name = `${prefix}-header`;
 

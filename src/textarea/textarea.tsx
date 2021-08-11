@@ -1,7 +1,8 @@
-import { prefix } from "@src/config";
+import { prefix } from "../config";
 import { defineComponent } from "vue";
 import props from '../../types/textarea/props';
 import CLASSNAMES from '../utils/classnames';
+import { ClassName } from '../common';
 
 const name = `${prefix}-textarea`;
 

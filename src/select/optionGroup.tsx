@@ -4,6 +4,7 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import type { TdSelect } from './instance';
+import { ClassName } from '../common';
 
 const name = `${prefix}-option-group`;
 // interface Select extends Vue {

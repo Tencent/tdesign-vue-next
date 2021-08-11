@@ -4,6 +4,7 @@ import config from '../config';
 import TIconClose from '../icon/close';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import { ClassName, TNodeReturnValue } from '../common';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;

@@ -7,6 +7,7 @@ import IconWarningFill from '../icon/error-circle-filled';
 import IconClose from '../icon/close';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import { SlotReturnValue } from '../common';
 
 const name = `${prefix}-alert`;
 
@@ -52,6 +53,7 @@ export default defineComponent({
       if (typeof this.close === 'string') {
         closeContent = this.close;
       } else if (typeof this.close === 'function') {
+        // @ts-ignore: TODO
         closeContent = this.close(h);
       } else if (this.close === true) {
         closeContent = <IconClose></IconClose>;

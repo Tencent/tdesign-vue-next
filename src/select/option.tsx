@@ -9,6 +9,7 @@ import type { TdSelect } from './instance';
 import { Options } from './type';
 import Checkbox from '../checkbox/index';
 // import { SelectInstance } from './instance';
+import { ClassName } from '../common';
 
 const name = `${prefix}-option`;
 const selectName = `${prefix}-select`;

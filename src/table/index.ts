@@ -2,7 +2,7 @@ import _BaseTable from './base-table/index';
 import _PrimaryTable from './primary-table/index';
 import mapProps from '../utils/map-props';
 import withInstall from '../utils/withInstall';
-import { prefix } from '@src/config';
+import { prefix } from '../config';
 
 
 const TPrimaryTable = mapProps([

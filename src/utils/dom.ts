@@ -3,12 +3,10 @@ import { ComponentPublicInstance, VNode } from 'vue';
 import raf from 'raf';
 import { easeInOutCubic, EasingFunction } from './easing';
 import isString from 'lodash/isString';
+import { ScrollContainer, ScrollContainerElement } from '../common';
 
 const isServer = typeof window === 'undefined';
 const trim = (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
-
-declare type ScrollContainerElement = Window | HTMLElement;
-declare type ScrollContainer = (() => ScrollContainerElement) | CSSSelector;
 
 export const on = (((): any => {
   if (!isServer && document.addEventListener) {

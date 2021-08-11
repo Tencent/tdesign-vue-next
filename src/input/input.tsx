@@ -154,7 +154,11 @@ export default defineComponent({
     });
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
+
+    // @ts-ignore: TODO
     const prefixIcon = this.renderIcon(this.prefixIcon, 'prefix-icon');
+
+    // @ts-ignore: TODO
     let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
 
     if (this.showClear) {

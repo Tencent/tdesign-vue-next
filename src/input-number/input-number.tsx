@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
 import Add from '../icon/add';
 import Remove from '../icon/remove';

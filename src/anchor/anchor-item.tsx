@@ -78,6 +78,7 @@ export default defineComponent({
       if (typeof title === 'string') {
         titleVal = title;
       } else if (typeof title === 'function') {
+        // @ts-ignore: TODO
         titleVal = title(h);
       } else if (titleSlot) {
         titleVal = titleSlot(null);

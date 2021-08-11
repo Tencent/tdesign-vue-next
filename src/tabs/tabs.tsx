@@ -1,4 +1,4 @@
-import { Component, defineComponent, getCurrentInstance, onMounted, onUpdated, ref, Fragment, ComponentInternalInstance } from 'vue';
+import { Component, defineComponent, getCurrentInstance, onMounted, onUpdated, ref, Fragment, ComponentInternalInstance, VNode } from 'vue';
 import { prefix } from '../config';
 import RenderComponent from '../utils/render-component';
 import TTabNav from './tab-nav.vue';
