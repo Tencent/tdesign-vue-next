@@ -33,5 +33,19 @@ module.exports = {
       ],
       plugins: ['@vue/babel-plugin-jsx'],
     },
+    production: {
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            modules: false,
+          },
+        ],
+      ],
+      plugins: [
+        '@vue/babel-plugin-jsx',
+        '@babel/plugin-transform-runtime',
+      ],
+    },
   },
 };
