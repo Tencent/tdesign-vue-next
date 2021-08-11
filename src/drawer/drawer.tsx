@@ -1,11 +1,10 @@
-import { defineComponent, nextTick } from 'vue';
+import { defineComponent, nextTick, ref, onUpdated, watch, toRefs, computed } from 'vue';
 import { prefix } from '../config';
 import TIconClose from '../icon/close';
 import { Button as TButton } from '../button';
-import props from '../../types/drawer/props';
-import { FooterButton, CloseContext } from '../../types/drawer/TdDrawerProps';
+import props from './props';
+import { FooterButton, CloseContext } from './TdDrawerProps';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import { ClassName, Styles } from '../common';
 
 const name = `${prefix}-drawer`;
 
@@ -21,127 +20,134 @@ export default defineComponent({
 
   emits: ['open', 'close', 'opened', 'closed', 'update:visible', 'click-overlay', 'click-close-btn', 'keydown-esc', 'click-confirm', 'click-cancel'],
 
-  computed: {
-    drawerClasses(): ClassName {
-      return [
-        't-drawer',
-        `t-drawer-${this.placement}`,
-        {
-          't-drawer-open': this.visible,
-          't-drawer-attach': this.showInAttachedElement,
-          't-drawer-no-mask': !this.showOverlay,
-        },
-      ];
-    },
-    sizeValue(): string {
-      const defaultSize = isNaN(Number(this.size)) ? this.size : `${this.size}px`;
+  // vue3 part
+  setup(props, { emit }) {
+    const { mode, placement } = toRefs(props);
+    const modeAndPlacement = computed(() => [mode.value, placement.value].join());
+    const el = ref(null);
+    const parentNode = computed(() => el.value && el.value.parentNode as HTMLElement);
+    const handlePushMode = () => {
+      if (mode.value !== 'push') return;
+      nextTick(() => {
+        if (!parentNode.value) return;
+        parentNode.value.style.cssText = 'transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;';
+      });
+    };
+
+    const { visible, size } = toRefs(props);
+    const sizeValue = computed(() => {
+      const defaultSize = isNaN(Number(size.value)) ? size.value : `${size.value}px`;
       return {
         small: '300px',
         medium: '500px',
         large: '760px',
-      }[this.size] || defaultSize;
-    },
-    wraperStyles(): Styles {
-      return {
-        // 用于抵消动画效果：transform: translateX(100%); 等
-        transform: this.visible ? 'translateX(0)' : undefined,
-        width: ['left', 'right'].includes(this.placement) ? this.sizeValue : '',
-        height: ['top', 'bottom'].includes(this.placement) ? this.sizeValue : '',
-      };
-    },
-    wraperClasses(): ClassName {
-      return ['t-drawer__content-wrapper', `t-drawer__content-wrapper-${this.placement}`];
-    },
-    parentNode(): HTMLElement {
-      return this.$el && this.$el.parentNode as HTMLElement;
-    },
-    modeAndPlacement(): string {
-      return [this.mode, this.placement].join();
-    },
-  },
-
-  watch: {
-    modeAndPlacement: {
-      handler() {
-        this.handlePushMode();
-      },
-      immediate: true,
-    },
-  },
-
-  updated() {
-    this.updatePushMode();
-  },
-
-  methods: {
-    handlePushMode() {
-      if (this.mode !== 'push') return;
-      nextTick(() => {
-        if (!this.parentNode) return;
-        this.parentNode.style.cssText = 'transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;';
-      });
-    },
-    // push 动画效果处理
-    updatePushMode() {
-      if (!this.parentNode) return;
-      if (this.mode !== 'push' || !this.parentNode) return;
+      }[size.value] || defaultSize;
+    });
+    const updatePushMode = () => {
+      if (!parentNode.value) return;
+      if (mode.value !== 'push' || !parentNode.value) return;
       const marginStr = {
-        left: `margin: 0 0 0 ${this.sizeValue}`,
-        right: `margin: 0 0 0 -${this.sizeValue}`,
-        top: `margin: ${this.sizeValue} 0 0 0`,
-        bottom: `margin: -${this.sizeValue} 0 0 0`,
-      }[this.placement];
-      if (this.visible) {
-        this.parentNode.style.cssText += marginStr;
+        left: `margin: 0 0 0 ${sizeValue.value}`,
+        right: `margin: 0 0 0 -${sizeValue.value}`,
+        top: `margin: ${sizeValue.value} 0 0 0`,
+        bottom: `margin: -${sizeValue.value} 0 0 0`,
+      }[placement.value];
+      if (visible.value) {
+        parentNode.value.style.cssText += marginStr;
       } else {
-        this.parentNode.style.cssText = this.parentNode.style.cssText.replace(/margin:.+;/, '');
+        parentNode.value.style.cssText = parentNode.value.style.cssText.replace(/margin:.+;/, '');
       }
-    },
-    getBtnText(api: FooterButton) {
-      return typeof api === 'object' ? api.content : api;
-    },
-    getBtnProps(api: FooterButton) {
-      return typeof api === 'object' ? api : {};
-    },
-    getDefaultFooter() {
-      return (
+    };
+    onUpdated(() => {
+      updatePushMode();
+    });
+    watch(modeAndPlacement, handlePushMode, { immediate: true });
+
+    const { showInAttachedElement, showOverlay } = toRefs(props);
+    const drawerClasses = computed(() => [
+      name,
+      `${name}-${placement.value}`,
+      {
+        [`${name}-open`]: visible.value,
+        [`${name}-attach`]: showInAttachedElement.value,
+        [`${name}-no-mask`]: !showOverlay.value,
+      },
+    ]);
+    const wraperStyles = computed(() => ({
+      // 用于抵消动画效果：transform: translateX(100%); 等
+      transform: visible.value ? 'translateX(0)' : undefined,
+      width: ['left', 'right'].includes(placement.value) ? sizeValue.value : '',
+      height: ['top', 'bottom'].includes(placement.value) ? sizeValue.value : '',
+    }));
+    const wraperClasses = computed(() => [`${name}__content-wrapper`, `${name}__content-wrapper-${placement.value}`]);
+    const footerStyle = computed(() => ({
+      display: 'flex',
+      justifyContent: placement.value === 'right' ? 'flex-start' : 'flex-end',
+    }));
+
+    const getBtnText = ((api: FooterButton) => typeof api === 'object' ? api.content : api);
+    const getBtnProps = ((api: FooterButton) => typeof api === 'object' ? api : {});
+
+    const { cancelBtn, confirmBtn } = toRefs(props);
+    const confirmBtnAction = ((e: MouseEvent) => {
+      emit('click-confirm', e);
+    });
+    const cancelBtnAction = ((e: MouseEvent) => {
+      emit('click-cancel', e);
+      closeDrawer({ trigger: 'clickCancel', e });
+    });
+    const closeDrawer = ((params: CloseContext) => {
+      emit('close', params);
+      emit('update:visible', false);
+    });
+    const getDefaultFooter = (() => (
         <div>
-          <t-button variant="outline" onClick={this.cancelBtnAction} {...this.getBtnProps(this.cancelBtn)}>
-            { this.getBtnText(this.cancelBtn) }
+          <t-button variant="outline" onClick={cancelBtnAction} {...getBtnProps(cancelBtn.value)}>
+            {getBtnText(cancelBtn.value)}
           </t-button>
-          <t-button onClick={this.confirmBtnAction} {...this.getBtnProps(this.confirmBtn)}>
-            { this.getBtnText(this.confirmBtn) }
+          <t-button onClick={confirmBtnAction} {...getBtnProps(confirmBtn.value)}>
+            {getBtnText(confirmBtn.value)}
           </t-button>
         </div>
-      );
-    },
-    onCloseBtnClick(e: MouseEvent) {
-      this.$emit('click-close-btn', e);
-      this.closeDrawer({ trigger: 'clickCloseBtn', e });
-    },
-    handleWrapperClick(e: MouseEvent) {
-      this.$emit('click-overlay', e);
-      if (this.closeOnClickOverlay) {
-        this.closeDrawer({ trigger: 'clickOverlay', e });
+    ));
+
+    const handleCloseBtnClick = ((e: MouseEvent) => {
+      emit('click-close-btn', e);
+      closeDrawer({ trigger: 'clickCloseBtn', e });
+    });
+    const { closeOnClickOverlay } = toRefs(props);
+    const handleWrapperClick = ((e: MouseEvent) => {
+      emit('click-overlay', e);
+      if (closeOnClickOverlay.value) {
+        closeDrawer({ trigger: 'clickOverlay', e });
       }
-    },
-    onKeyDown(e: KeyboardEvent) {
-      if (this.closeOnKeydownEsc && e.key === 'Escape') {
-        this.$emit('keydown-esc', e);
-        this.closeDrawer({ trigger: 'keydownEsc', e });
+    });
+    const { closeOnKeydownEsc } = toRefs(props);
+    const onKeyDown = ((e: KeyboardEvent) => {
+      if (closeOnKeydownEsc && e.key === 'Escape') {
+        emit('keydown-esc', e);
+        closeDrawer({ trigger: 'keydownEsc', e });
       }
-    },
-    confirmBtnAction(e: MouseEvent) {
-      this.$emit('click-confirm', e);
-    },
-    cancelBtnAction(e: MouseEvent) {
-      this.$emit('click-cancel', e);
-      this.closeDrawer({ trigger: 'clickCancel', e });
-    },
-    closeDrawer(params: CloseContext) {
-      this.$emit('close', params);
-      this.$emit('update:visible', false);
-    },
+    });
+    return {
+      el,
+      sizeValue,
+      drawerClasses,
+      wraperClasses,
+      wraperStyles,
+      footerStyle,
+      parentNode,
+      modeAndPlacement,
+      getBtnText,
+      getBtnProps,
+      confirmBtnAction,
+      cancelBtnAction,
+      closeDrawer,
+      getDefaultFooter,
+      handleCloseBtnClick,
+      handleWrapperClick,
+      onKeyDown,
+    };
   },
 
   render() {
@@ -153,15 +159,16 @@ export default defineComponent({
       <div
         class={this.drawerClasses}
         style={{ zIndex: this.zIndex }}
-        onKeydown={this.onKeyDown}
+        onkeydown={this.onKeyDown}
         v-transfer-dom={this.attach}
+        ref={'el'}
       >
-        {this.showOverlay && <div class='t-drawer__mask' onClick={this.handleWrapperClick}/>}
+        {this.showOverlay && <div class={`${name}__mask`} onClick={this.handleWrapperClick} />}
         <div class={this.wraperClasses} style={this.wraperStyles}>
-          <div class='t-drawer__header'>{renderTNodeJSX(this, 'header')}</div>
-          <div class='t-drawer__close-btn' onClick={this.onCloseBtnClick}>{renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}</div>
-          <div class="t-drawer__body">{body}</div>
-          <div class="t-drawer__footer">{renderTNodeJSX(this, 'footer', defaultFooter)}</div>
+          <div class={`${name}__header`}>{renderTNodeJSX(this, 'header')}</div>
+          <div class={`${name}__close-btn`} onClick={this.handleCloseBtnClick}>{renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}</div>
+          <div class={`${name}__body`}>{body}</div>
+          {this.footer ? <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div> : null}
         </div>
       </div>
     );
