@@ -22,7 +22,6 @@ export * from './menu';
 export * from './tooltip';
 export * from './divider';
 export * from './loading';
-// export * from './addon';
 export * from './checkbox';
 export * from './table';
 export * from './progress';

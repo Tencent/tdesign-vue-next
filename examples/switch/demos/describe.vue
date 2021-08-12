@@ -55,10 +55,10 @@ export default {
       console.log(val);
     },
     renderActiveContent() {
-      return (<t-icon-check />);
+      return (<TIconCheck />);
     },
     renderInactiveContent() {
-      return (<t-icon-close />);
+      return (<TIconClose />);
     },
     renderContent(h, data) {
       return data.value ? (<TIconCheck />) : (<TIconClose />);

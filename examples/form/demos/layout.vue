@@ -1,13 +1,11 @@
 <template>
   <div>
-    <t-row>
-      <t-col>
-        <t-radio-group v-model="formData.layout" buttonStyle="solid">
-          <t-radio-button value="vertical">纵向布局</t-radio-button>
-          <t-radio-button value="inline">行内布局</t-radio-button>
-        </t-radio-group>
-      </t-col>
-    </t-row><br>
+    <div class="controls">
+      <t-radio-group v-model="formData.layout" buttonStyle="solid">
+        <t-radio-button value="vertical">纵向布局</t-radio-button>
+        <t-radio-button value="inline">行内布局</t-radio-button>
+      </t-radio-group>
+    </div>
     <t-form
       :data="formData"
       ref="form"
@@ -42,15 +40,20 @@ export default {
     onReset() {
       this.$message.success('重置成功');
     },
-    onSubmit({ result, firstError, e }) {
-      e.preventDefault();
-      if (result === true) {
+    onSubmit({ validateResult, firstError }) {
+      if (validateResult === true) {
         this.$message.success('提交成功');
       } else {
-        console.log('Errors: ', result);
+        console.log('Errors: ', validateResult);
         this.$message.warning(firstError);
       }
     },
   },
 };
 </script>
+
+<style lang="less">
+.controls {
+  margin-bottom: 32px;
+}
+</style>
