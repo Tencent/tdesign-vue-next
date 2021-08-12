@@ -1,6 +1,6 @@
 import { defineComponent, computed, inject, onMounted } from 'vue';
 import { prefix } from '../config';
-import props from '@TdTypes/menu-item/props';
+import props from '../../types/menu-item/props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
 const name = `${prefix}-menu-item`;
 
@@ -71,4 +71,3 @@ export default defineComponent({
     );
   },
 });
-

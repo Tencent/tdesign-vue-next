@@ -1,7 +1,7 @@
 import { defineComponent, computed, provide, ref, reactive, watch } from 'vue';
 import { prefix } from '../config';
-import props from '@TdTypes/head-menu/props';
-import { MenuValue } from '@TdTypes/menu/TdMenuProps';
+import props from '../../types/head-menu/props';
+import { MenuValue } from '../../types/menu/TdMenuProps';
 import { TdMenuInterface, TdMenuItem } from './const';
 import { Tabs, TabPanel } from '../tabs';
 const name = `${prefix}-head-menu`;
@@ -114,10 +114,12 @@ export default defineComponent({
             this.$slots.logo && (<div class="t-menu__logo">{this.$slots.logo()}</div>)
           }
           <ul class="t-menu">
-            {this.$slots.default()}
+          {
+            this.$slots.default()
+          }
           </ul>
           {
-            this.$slots.options && (<div class="t-menu__options">{this.$slots.options()}</div>)
+            this.$slots.operations && (<div class="t-menu__options">{this.$slots.operations()}</div>)
           }
         </div>
         {this.mode === 'normal' && this.renderNormalSubmenu()}

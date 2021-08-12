@@ -1,8 +1,10 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import props from '@TdTypes/breadcrumb/props';
+import props from '../../types/breadcrumb/props';
 import BreadcrumbItem from '../breadcrumbItem/index';
-import { TdBreadcrumbItemProps } from '@TdTypes/breadcrumb/TdBreadcrumbProps';
+import { TdBreadcrumbItemProps } from '../../types/breadcrumb/TdBreadcrumbProps';
+import { TNodeReturnValue } from '../common';
+
 const name = `${prefix}-breadcrumb`;
 
 export default defineComponent({

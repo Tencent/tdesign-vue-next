@@ -5,8 +5,9 @@ import { omit } from '../utils/helper';
 import ClearIcon from '../icon/clear-circle-filled';
 import BrowseIcon from '../icon/browse';
 import BrowseOffIcon from '../icon/browse-off';
-import props from '@TdTypes/input/props';
-import { InputValue } from '@TdTypes/input/TdInputProps';
+import props from '../../types/input/props';
+import { InputValue } from '../../types/input/TdInputProps';
+import { TNode } from '../common';
 
 const name = `${prefix}-input`;
 
@@ -154,7 +155,11 @@ export default defineComponent({
     });
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
+
+    // @ts-ignore: TODO
     const prefixIcon = this.renderIcon(this.prefixIcon, 'prefix-icon');
+
+    // @ts-ignore: TODO
     let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
 
     if (this.showClear) {

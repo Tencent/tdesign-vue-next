@@ -132,38 +132,39 @@ export default defineComponent({
           onMouseenter={this.handleMouseEnter}
           onMouseleave={this.handleMouseLeave}
           >
-         {renderContent(this, 'default', 'content')}
-       </ul>,
+          {renderContent(this, 'default', 'content')}
+      </ul>,
       ];
       return this.mode === 'normal' ? normalSubmenu : popupSubmenu;
     },
     renderSubmenu() {
       const hasContent = this.$slots.content || this.$slots.default;
+      const icon = renderTNodeJSX(this, 'icon');
+      const svgArrow = (
+        <svg class={this.arrowClass} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"/>
+        </svg>);
       const normalSubmenu = [
-        <div class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
-          {this.$slots.icon && this.$slots.icon()}
+        <div v-ripple={this.rippleColor} class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
+          {icon}
           <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title')}</span>
-          {hasContent && <t-icon-chevron-down class="t-submenu-icon"></t-icon-chevron-down>}
+          {hasContent && svgArrow}
         </div>,
         <ul class={this.subClass} >
           {renderContent(this, 'default', 'content')}
         </ul>,
       ];
       const popupSubmenu = [
-        <div class={this.submenuClass}
-          onMouseenter={this.handleMouseEnter}
-          onMouseleave={this.handleMouseLeave}>
-          {this.$slots.icon && this.$slots.icon()}
+        <div class={this.submenuClass}>
+          {icon}
           <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title')}</span>
-          <t-icon-chevron-down class="t-submenu-icon"></t-icon-chevron-down>
+          {svgArrow}
         </div>,
-        <ul
-          class={this.popupClass}
-          onMouseenter={this.handleMouseEnter}
-          onMouseleave={this.handleMouseLeave}
-        >
-          {renderContent(this, 'default', 'content')}
-        </ul>,
+        <div ref="popup" class={this.popupClass}>
+          <ul ref="popupInner" class={`${prefix}-menu__popup-wrapper`}>
+            {renderContent(this, 'default', 'content')}
+          </ul>
+        </div>,
       ];
 
       return this.mode === 'normal' ? normalSubmenu : popupSubmenu;
@@ -171,12 +172,20 @@ export default defineComponent({
   },
   render() {
     let child = null;
+    let events = {};
+
+    if (this.mode === 'popup') {
+      events = {
+        mouseenter: this.handleMouseEnter,
+        mouseleave: this.handleMouseLeave,
+      };
+    }
 
     if (Object.keys(this.$slots).length > 0) {
       child = this.isHead ? this.renderHeadSubmenu() : this.renderSubmenu();
     }
     return (
-      <li class={this.classes}>
+      <li class={this.classes} { ...{ on: events } }>
         {child}
       </li>
     );

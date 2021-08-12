@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './app.vue';
 import router from './routes';
-import TDesign from '@src';
+import TDesign from '../src/';
 
 // import tdesign style
 import '@common/style/web/index.less';

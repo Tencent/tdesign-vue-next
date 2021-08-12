@@ -1,23 +1,24 @@
-import { Component, defineComponent, getCurrentInstance, onMounted, onUpdated, ref, Fragment, ComponentInternalInstance } from 'vue';
+import { Component, defineComponent, getCurrentInstance, onMounted, onUpdated, ref, Fragment, ComponentInternalInstance, VNode } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
 import TTabNav from './tab-nav.vue';
 import TTabPanel from './tab-panel';
-import { TabValue } from '@TdTypes/tabs/TdTabsProps';
-import props from '@TdTypes/tabs/props';
+import { TabValue } from '../../types/tabs/TdTabsProps';
+import props from '../../types/tabs/props';
 
 const name = `${prefix}-tabs`;
 
 export default defineComponent({
   name,
+
   components: {
-    RenderComponent,
     TTabPanel,
     TTabNav,
   },
+
   props: {
     ...props,
   },
+
   emits: ['change', 'add', 'remove', 'update:value'],
 
   setup(props, { slots }) {
@@ -62,8 +63,23 @@ export default defineComponent({
       panels,
     };
   },
-
+  // mounted() {
+  //   this.getPanels()
+  // },
   methods: {
+    // getPanels() {
+    //   const panels = this.$slots.default()
+    //   if (panels.length) {
+    //     const panelSlots = panels.filter((vnode) => {
+    //       const {
+    //         type,
+    //       } = vnode;
+    //       return type?.name?.endsWith(`${prefix}-tab-panel`);
+    //     });
+    //     console.log(panelSlots)
+    //     this.panels = panelSlots
+    //   }
+    // },
     tabChange(event: Event, panel: VNode, value: TabValue) {
       // emit('xxx') 会调用onXxx函数, 所以不必在主动调用onXxx函数了
       this.$emit('change', value);
@@ -143,6 +159,7 @@ export default defineComponent({
       );
     },
   },
+
 
   render() {
     // 性能优化: 在tab和content加一个key, 在上下左右切换选项卡时, 可以快速让content和content diff, header和header diff

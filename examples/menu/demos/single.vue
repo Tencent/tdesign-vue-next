@@ -8,7 +8,7 @@
       <t-menu-item value="item2">已选内容</t-menu-item>
       <t-menu-item value="item3"><a href="https://www.tencent.com" target="_blank">菜单内容二</a></t-menu-item>
       <t-menu-item value="item4" :disabled="true">菜单内容三</t-menu-item>
-      <template #options>
+      <template #operations>
         <a href="javascript:;"><t-icon name="search"/></a>
         <a href="javascript:;"><t-icon name="notification-filled"/></a>
         <a href="javascript:;"><t-icon name="home"/></a>
@@ -25,7 +25,7 @@
       <t-menu-item value="item2">菜单内容一</t-menu-item>
       <t-menu-item value="item3">菜单内容二</t-menu-item>
       <t-menu-item value="item4" :disabled="true">菜单内容三</t-menu-item>
-      <template #options>
+      <template #operations>
         <a href="javascript:;"><t-icon name="search"/></a>
         <a href="javascript:;"><t-icon name="notification-filled"/></a>
         <a href="javascript:;"><t-icon name="home"/></a>
