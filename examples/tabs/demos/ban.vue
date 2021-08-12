@@ -1,8 +1,10 @@
 <template>
   <div class="t-demo-tabs">
     <div class="t-demo-tabs__desc">
-      <p>目前支持常规，卡片两种类型选项卡</p>
-      <t-button variant="outline" @click="toggle">{{ desc }}</t-button>
+      <t-radio-group v-model="theme">
+        <t-radio value="normal">常规型</t-radio>
+        <t-radio value="card">卡片型</t-radio>
+      </t-radio-group>
     </div>
     <t-tabs
       :value="value"

@@ -2,8 +2,10 @@ import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import props from '../../types/tab-panel/props';
 
+const name = `${prefix}-tab-panel`;
+
 export default defineComponent({
-  name: `${prefix}-tab-panel`,
+  name,
 
   props: { ...props },
   emits: ['remove'],

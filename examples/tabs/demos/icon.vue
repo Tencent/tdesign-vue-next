@@ -1,21 +1,32 @@
 <template>
   <div class="t-demo-tabs">
     <div class="t-demo-tabs__desc">
-      <p>目前支持常规，卡片两种类型选项卡</p>
-      <t-button variant="outline" @click="toggle">{{ desc }}</t-button>
+      <t-radio-group v-model="theme">
+        <t-radio value="normal">常规型</t-radio>
+        <t-radio value="card">卡片型</t-radio>
+      </t-radio-group>
     </div>
     <t-tabs
       :value="value"
       :theme="theme"
       @change="(newValue) => value = newValue"
     >
-      <t-tab-panel value="first" :label="`${theme}选项卡1`">
+      <t-tab-panel value="first">
+        <template v-slot:label>
+          <t-icon name="home"/> 首页
+        </template>
         <p style="padding: 25px;">{{ `${theme}选项卡1内容` }}</p>
       </t-tab-panel>
-      <t-tab-panel value="second" :label="`${theme}选项卡2`">
+      <t-tab-panel value="second">
+        <template #label>
+          <t-icon name="calendar"/> 日程
+        </template>
         <p style="padding: 25px;">{{ `${theme}选项卡2内容` }}</p>
       </t-tab-panel>
-      <t-tab-panel value="third" :label="`${theme}选项卡3`">
+      <t-tab-panel value="third">
+        <template #label>
+          <t-icon name="layers"/> 事项
+        </template>
         <p style="padding: 25px;">{{ `${theme}选项卡3内容` }}</p>
       </t-tab-panel>
     </t-tabs>
@@ -45,25 +56,9 @@
 export default {
   data() {
     return {
-      isCard: false,
+      theme: 'normal',
       value: 'first',
     };
-  },
-
-  computed: {
-    desc() {
-      return `切换到${this.isCard ? '常规型' : '卡片型'}选项卡`;
-    },
-
-    theme() {
-      return this.isCard ? 'card' : 'normal';
-    },
-  },
-
-  methods: {
-    toggle() {
-      this.isCard = !this.isCard;
-    },
   },
 };
 </script>

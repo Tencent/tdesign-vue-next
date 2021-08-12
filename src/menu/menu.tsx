@@ -125,7 +125,7 @@ export default defineComponent({
             {this.$slots.default()}
           </ul>
           {
-            this.$slots.options && (<div class="t-menu__options">{this.$slots.options()}</div>)
+            this.$slots.operations && (<div class="t-menu__options">{this.$slots.operations()}</div>)
           }
         </div>
       </div>
