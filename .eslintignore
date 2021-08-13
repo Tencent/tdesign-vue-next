@@ -23,3 +23,8 @@ src/transfer
 src/time-picker
 src/utils
 src/textarea
+typings
+dist
+es
+lib
+types

@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig",
+  "exclude": [
+    "src/_common/utils/index.ts"
+  ]
+}
