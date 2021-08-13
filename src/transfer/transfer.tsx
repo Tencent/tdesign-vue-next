@@ -3,7 +3,7 @@ import { prefix } from '../config';
 // import { TransferItems } from './type/transfer';
 import TransferList from './transfer-list';
 import TransferOperations from './components/transfer-operations';
-import { TransferItem, TransferItemKey, TransferDirection, SearchProps } from './type/transfer';
+import { TransferItem, TransferItemKey, TransferDirection, SearchProps } from './type';
 import { CommonProps } from './interface';
 import cloneDeep from 'lodash/cloneDeep';
 

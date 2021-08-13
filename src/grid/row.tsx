@@ -1,18 +1,13 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
 import responsiveObserver from '../utils/responsive-observer';
-import props from '../../types/row/props';
-import { ClassName } from '../common';
+import props from './row-props';
+import { ClassName, Styles } from '../common';
 
 const name = `${prefix}-row`;
 
 export default defineComponent({
   name,
-
-  components: {
-    RenderComponent,
-  },
 
   provide(): { rowContext: any } {
     return {
@@ -22,7 +17,7 @@ export default defineComponent({
     };
   },
 
-  props: { ...props },
+  props,
 
   data() {
     return {
@@ -42,7 +37,7 @@ export default defineComponent({
         },
       ];
     },
-    styles() {
+    styles(): Styles {
       const gutter = this.getGutter();
       const margin: any = {};
       if (gutter[0] > 0) {

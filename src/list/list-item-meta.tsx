@@ -1,9 +1,9 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import props from '../../types/list-item-meta/props';
+import props from './list-item-meta-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
-const name = `${prefix}-list-item__meta`;
+const name = `${prefix}-list-item-meta`;
 
 export default defineComponent({
   name,

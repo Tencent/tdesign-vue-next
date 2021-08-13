@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import checkboxProps from '../../types/checkbox/props';
+import checkboxProps from './props';
 import { ClassName } from '../common';
 
 const name = `${prefix}-checkbox`;

@@ -1,120 +1,70 @@
-import { meridianBeforeFormatREG, meridianAfterFormatREG } from './constant';
+/* eslint-disable */
+
+/**
+ * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
+ * updated at 2021-08-10 17:18:59
+ * */
+
+import { TdTimePickerProps } from './type';
 import { PropType } from 'vue';
 
-// 布尔类型
-export const BooleanType = {
-  type: Boolean,
-  default: true,
-  validator(v: boolean): boolean {
-    return typeof v === 'boolean';
+export default {
+  /** 是否允许直接输入时间 */
+  allowInput: Boolean,
+  /** 是否允许清除选中值 */
+  clearable: Boolean,
+  /** 是否禁用组件 */
+  disabled: Boolean,
+  /** 禁用时间项 */
+  disableTime: {
+    type: Function as PropType<TdTimePickerProps['disableTime']>,
   },
-};
-// 字符串类型
-export const StringType = {
-  type: String,
-  default: '',
-  validator(v: string): boolean {
-    return typeof v === 'string';
-  },
-};
-// 方法类型
-export const FunctionType = {
-  type: [Function, undefined],
-  default: (): any => undefined,
-  validator(v: Function): boolean {
-    return typeof v === 'function';
-  },
-};
-// 数字类型
-export const NumberType = {
-  type: Number,
-  default: 1,
-  validator(v: number): boolean {
-    return typeof v === 'number';
-  },
-};
-
-// 对象 || 数组
-const ObjectArrayType = {
-  type: [Object, Array, undefined],
-  default: (): any => undefined,
-};
-
-// 时间输出格式
-const outputFormat = (v: string): boolean => meridianBeforeFormatREG.test(v) || meridianAfterFormatREG.test(v) || false;
-
-
-export default () => ({
-  clearable: {
-    ...BooleanType,
-  },
-  className: {
-    ...StringType,
-  },
-  defaultValue: {
-    ...ObjectArrayType,
-  },
-  disabled: {
-    ...BooleanType,
-    ...({
-      default: false,
-    }),
-  },
-  hideDisabledTime: {
-    ...BooleanType,
-  },
-  disabledHours: {
-    ...FunctionType,
-  },
-  disabledMinutes: {
-    ...FunctionType,
-  },
-  disabledSeconds: {
-    ...FunctionType,
-  },
+  /** 用于格式化时间，[详细文档](https://day.js.org/docs/en/display/format) */
   format: {
     type: String,
     default: 'HH:mm:ss',
-    validator: outputFormat,
   },
-  steps: {
-    type: Array as PropType<Array<string | number>>,
-    ...({
-      default: [1, 1, 1],
-    }),
+  /** 是否隐藏禁用状态的时间项 */
+  hideDisabledTime: {
+    type: Boolean,
+    default: true,
   },
-  readonly: {
-    ...BooleanType,
-    ...({
-      default: false,
-    }),
-  },
+  /** 占位符 */
   placeholder: {
-    ...StringType,
-    ...({
-      default: '请选择时间',
-    }),
+    type: String,
+    default: '',
   },
-  value: {
-    ...ObjectArrayType,
-  },
-  onChange: {
-    ...FunctionType,
-  },
-  allowInput: {
-    ...BooleanType,
-  },
+  /** 尺寸 */
   size: {
-    ...StringType,
-    ...({
-      default: 'small',
-      validator(v: string): boolean {
-        return [
-          'small',
-          'middle',
-          'large',
-        ].includes(v);
-      },
-    }),
+    type: String as PropType<TdTimePickerProps['size']>,
+    default: 'medium' as TdTimePickerProps['size'],
+    validator(val: TdTimePickerProps['size']): boolean {
+      return ['small', 'medium', 'large'].includes(val);
+    },
   },
-});
+  /** 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1'] */
+  steps: {
+    type: Array as PropType<TdTimePickerProps['steps']>,
+    default: () => [1, 1, 1],
+  },
+  /** 选中值 */
+  value: {
+    type: [String, Object] as PropType<TdTimePickerProps['value']>,
+  },
+  /** 选中值，非受控属性 */
+  defaultValue: {
+    type: [String, Object] as PropType<TdTimePickerProps['defaultValue']>,
+  },
+  /** 当输入框失去焦点时触发，参数 input 表示输入框内容，value 表示组件当前有效值，trigger 表示触发源头 */
+  onBlur: Function as PropType<TdTimePickerProps['onBlur']>,
+  /** 选中值发生变化时触发 */
+  onChange: Function as PropType<TdTimePickerProps['onChange']>,
+  /** 面板关闭时触发 */
+  onClose: Function as PropType<TdTimePickerProps['onClose']>,
+  /** 输入框获得焦点时触发，参数 input 表示输入框内容，value 表示组件当前有效值，trigger 表示触发源头 */
+  onFocus: Function as PropType<TdTimePickerProps['onFocus']>,
+  /** 当输入框内容发生变化时触发，参数 input 表示输入框内容，value 表示组件当前有效值 */
+  onInput: Function as PropType<TdTimePickerProps['onInput']>,
+  /** 面板打开时触发 */
+  onOpen: Function as PropType<TdTimePickerProps['onOpen']>,
+};

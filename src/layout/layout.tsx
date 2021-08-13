@@ -1,16 +1,10 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
-import { ClassName } from '../common';
 
 const name = `${prefix}-layout`;
 
 export default defineComponent({
   name,
-
-  components: {
-    RenderComponent,
-  },
 
   props: {},
 

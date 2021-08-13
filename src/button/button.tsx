@@ -2,7 +2,7 @@ import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconLoading from '../icon/loading';
-import props from '../../types/button/props';
+import props from './props';
 
 const name = `${prefix}-button`;
 

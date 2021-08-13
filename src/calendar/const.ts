@@ -1,4 +1,4 @@
-import { ModeOption } from './type';
+import { ModeOption } from './type/index';
 import { prefix } from '../config';
 
 /** 常量 */

@@ -1,15 +1,10 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
 
 const name = `${prefix}-content`;
 
 export default defineComponent({
   name,
-
-  components: {
-    RenderComponent,
-  },
 
   props: {},
 

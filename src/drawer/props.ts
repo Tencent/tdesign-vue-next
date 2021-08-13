@@ -1,9 +1,11 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-04-15 20:11:58
+ * updated at 2021-08-10 17:18:59
  * */
 
-import { TdDrawerProps } from './TdDrawerProps';
+import { TdDrawerProps } from './type';
 import { PropType } from 'vue';
 
 export default {
@@ -16,30 +18,30 @@ export default {
   body: {
     type: [String, Function] as PropType<TdDrawerProps['body']>,
   },
-  /** 对话框“取消”按钮，可自定义。值为 '' 或 null 则不显示取消按钮 */
+  /** 取消按钮，可自定义。值为 undefined 或 null 则不显示取消按钮。值类型为 Object 则表示透传 Button 组件属性 */
   cancelBtn: {
     type: [String, Object, Function] as PropType<TdDrawerProps['cancelBtn']>,
-    default: '取消',
+    default: '',
   },
   /** 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例 */
   closeBtn: {
     type: [String, Boolean, Function] as PropType<TdDrawerProps['closeBtn']>,
     default: undefined,
   },
-  /** 点击蒙层时是否触发抽屉关闭事件 */
-  closeOnClickOverlay: {
-    type: Boolean,
-    default: true,
-  },
   /** 按下 ESC 时是否触发抽屉关闭事件 */
-  closeOnKeydownEsc: {
+  closeOnEscKeydown: {
     type: Boolean,
     default: true,
   },
-  /** 对话框“确认”按钮，可自定义。值为 '' 或 null 则不显示确认按钮 */
+  /** 点击蒙层时是否触发抽屉关闭事件 */
+  closeOnOverlayClick: {
+    type: Boolean,
+    default: true,
+  },
+  /** 确认按钮，可自定义。值为 undefined 或 null 则不显示确认按钮 */
   confirmBtn: {
     type: [String, Object, Function] as PropType<TdDrawerProps['confirmBtn']>,
-    default: '确认',
+    default: '',
   },
   /** 抽屉内容，同 body */
   default: {
@@ -60,20 +62,20 @@ export default {
   /** 展开方式，有两种：直接展示在内容上方 和 推开内容区域 */
   mode: {
     type: String as PropType<TdDrawerProps['mode']>,
-    default: 'overlay',
-    validator(val: string): boolean {
+    default: 'overlay' as TdDrawerProps['mode'],
+    validator(val: TdDrawerProps['mode']): boolean {
       return ['overlay', 'push'].includes(val);
     },
   },
   /** 抽屉方向 */
   placement: {
     type: String as PropType<TdDrawerProps['placement']>,
-    default: 'right',
-    validator(val: string): boolean {
+    default: 'right' as TdDrawerProps['placement'],
+    validator(val: TdDrawerProps['placement']): boolean {
       return ['left', 'right', 'top', 'bottom'].includes(val);
     },
   },
-  /** 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示 */
+  /** 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative */
   showInAttachedElement: Boolean,
   /** 是否显示遮罩层 */
   showOverlay: {
@@ -89,21 +91,20 @@ export default {
   visible: Boolean,
   /** 组件是否可见，非受控属性 */
   defaultVisible: Boolean,
-  /** 抽屉层级 */
+  /** 抽屉层级，样式默认为 1500 */
   zIndex: {
     type: Number,
-    default: 1500,
   },
   /** 如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件 */
-  onClickCancel: Function as PropType<TdDrawerProps['onClickCancel']>,
-  /** 如果关闭按钮存在，点击关闭按钮时触发该事件，同时触发关闭事件 */
-  onClickCloseBtn: Function as PropType<TdDrawerProps['onClickCloseBtn']>,
-  /** 如果“确认”按钮存在，则点击“确认”按钮时触发 */
-  onClickConfirm: Function as PropType<TdDrawerProps['onClickConfirm']>,
-  /** 如果蒙层存在，点击蒙层时触发 */
-  onClickOverlay: Function as PropType<TdDrawerProps['onClickOverlay']>,
+  onCancel: Function as PropType<TdDrawerProps['onCancel']>,
   /** 关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发 */
   onClose: Function as PropType<TdDrawerProps['onClose']>,
+  /** 如果关闭按钮存在，点击关闭按钮时触发该事件，同时触发关闭事件 */
+  onCloseBtnClick: Function as PropType<TdDrawerProps['onCloseBtnClick']>,
+  /** 如果“确认”按钮存在，则点击“确认”按钮时触发 */
+  onConfirm: Function as PropType<TdDrawerProps['onConfirm']>,
   /** 按下 ESC 键时触发 */
-  onKeydownEsc: Function as PropType<TdDrawerProps['onKeydownEsc']>,
+  onEscKeydown: Function as PropType<TdDrawerProps['onEscKeydown']>,
+  /** 如果蒙层存在，点击蒙层时触发 */
+  onOverlayClick: Function as PropType<TdDrawerProps['onOverlayClick']>,
 };

@@ -3,7 +3,7 @@ import { prefix } from '../config';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import TIconFileCopy from '../icon/file-copy';
-import props from '../../types/anchor-target/props';
+import props from './anchor-target-props';
 
 const name = `${prefix}-anchor-target`;
 export default defineComponent({

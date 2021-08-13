@@ -1,4 +1,4 @@
-import { TransferItems, TransferItemKey } from './type/transfer';
+import { TransferItems, TransferItemKey } from './type';
 import { PropType } from 'vue';
 export const CommonProps = {
   data: {

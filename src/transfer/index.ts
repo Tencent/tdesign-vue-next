@@ -1,7 +1,9 @@
 import _Transfer from './transfer';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdTransferProps } from './type'
 
-const Transfer: WithInstallType<typeof _Transfer> = withInstall(_Transfer);
+export * from './type';
+export type TransferProps = TdTransferProps
 
-export { Transfer };
+export const Transfer: WithInstallType<typeof _Transfer> = withInstall(_Transfer);
 export default Transfer;

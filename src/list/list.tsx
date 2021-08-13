@@ -1,11 +1,11 @@
 import { defineComponent, PropType, VNodeChild } from 'vue';
 import { prefix } from '../config';
-import props from '../../types/list/props';
+import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import TIconLoading from '../icon/loading';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
-import { TdListProps } from '../../types/list/TdListProps';
+import { TdListProps } from './type';
 import { ClassName } from '../common';
 
 const name = `${prefix}-list`;

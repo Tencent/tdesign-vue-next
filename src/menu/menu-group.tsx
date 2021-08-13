@@ -1,14 +1,13 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
+import props from './menu-group-props';
 const name = `${prefix}-menu-group`;
+
 export default defineComponent({
   name,
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-  },
+
+  props,
+
   render() {
     return (
       <div class="t-menu-group">

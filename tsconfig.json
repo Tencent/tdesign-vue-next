@@ -1,7 +1,4 @@
 {
-  "typeRoots": [
-    "./node_modules/@types"
-  ],
   "compilerOptions": {
     "lib": [
       "esnext",
@@ -27,6 +24,9 @@
     "baseUrl": "./",
     "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }],
     "paths": {
+      "@src/*": [
+        "src/*"
+      ],
       "@tencent/tdesign-vue": [
         "src/*"
       ],
@@ -59,9 +59,17 @@
   "include": [
     "./**/*.ts",
     "./**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "scripts/rollup.config.js"
   ],
+  
   "exclude": [
+    "node_modules",
+    "src/_common",
+    "dist",
+    "lib",
+    "esm",
+    "es",
     "tools",
     "common",
     "types/index.ts",
