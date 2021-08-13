@@ -57,7 +57,7 @@ export default defineComponent({
       this.isHover = v;
     },
     renderIcon(
-      icon: string | TNode | undefined,
+      icon: string | Function | undefined,
       iconType: 'prefix-icon' | 'suffix-icon',
     ) {
       if (typeof icon === 'function') {

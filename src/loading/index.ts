@@ -1,6 +1,6 @@
 import _Loading from './loading';
 import { withInstall, WithInstallType } from '../utils/withInstall';
-import { TdLoadingProps } from './type';
+import { LoadingProps as TdLoadingProps } from './type';
 
 export * from './type';
 export type LoadingProps = TdLoadingProps;

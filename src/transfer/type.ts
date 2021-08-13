@@ -84,7 +84,7 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
   /**
    * 自定义渲染节点
    */
-  transferItem?: TNode<TransferItem<T>>;
+  transferItem?: TNode<any>;
   /**
    * 目标数据列表数据
    * @default []
@@ -127,7 +127,7 @@ export type TitleType = string | TNode;
 
 export type TransferListType = 'source' | 'target';
 
-export interface TransferItem<T extends DataOption = DataOption> { data: T; index: number; type: TransferListType};
+// export interface TransferItem<T extends DataOption = DataOption> { data: T; index: number; type: TransferListType};
 
 export interface TargetParams { type: TransferListType; movedValue: Array<TransferValue> };
 
@@ -138,3 +138,22 @@ export interface SearchContext { query: string; type: TransferListType; trigger:
 export type DataOption = { label?: string; value?: TransferValue; disabled?: boolean } & Record<string, any>;
 
 export type TransferValue = string | number;
+
+export interface TransferItem {
+  title?: string;
+  key?: string | number | symbol;
+  disabled?: boolean;
+  description?: string;
+}
+
+export declare interface SearchProps {
+  placeholder?: string;
+  clearable?: boolean;
+  suffixIcon?: string;
+  prefixIcon?: string;
+  size?: string;
+}
+
+export declare type TransferItems = Array<TransferItem>;
+export type TransferDirection = 'source' | 'target';
+export type TransferItemKey = string | number | symbol;

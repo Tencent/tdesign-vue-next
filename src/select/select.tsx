@@ -14,7 +14,7 @@ import set from 'lodash/set';
 import Popup, { PopupProps } from '../popup/index';
 import Option from './option';
 import props from './props';
-import { Options, SelectValue } from '@TdTypes/select/TdSelectProps';
+import { Options, SelectValue } from './type';
 import { ClassName } from '../common';
 
 interface KeysType {
