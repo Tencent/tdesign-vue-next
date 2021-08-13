@@ -1,23 +1,26 @@
 // @ts-check
-import { tmpdir } from 'os';
 import url from '@rollup/plugin-url';
 import json from '@rollup/plugin-json';
 import babel from '@rollup/plugin-babel';
 import vuePlugin from 'rollup-plugin-vue';
+import esbuild from 'rollup-plugin-esbuild';
 import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
 import analyzer from 'rollup-plugin-analyzer';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
-import typescript from 'rollup-plugin-typescript2';
 import multiInput from 'rollup-plugin-multi-input';
 import nodeResolve from '@rollup/plugin-node-resolve';
 
 import pkg from '../package.json';
 
 const name = 'tdesign';
-const externalDeps = Object.keys(pkg.dependencies || {});
+const externalDeps = Object.keys(pkg.dependencies || {}).concat([
+  /lodash/,
+  /validator/,
+  /@babel\/runtime/,
+]);
 const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
 const banner = `/**
  * ${name} v${pkg.version}
@@ -41,26 +44,19 @@ const getPlugins = ({
   isProd = false,
 } = {}) => {
   const extensions = ['.js', '.ts'];
-  const compilerOptions = isProd
-    // 只生成一次
-    ? {
-      declaration: true,
-      declarationMap: true,
-      declarationDir: './typings',
-    }
-    : {};
 
   const plugins = [
     nodeResolve({ extensions }),
     vuePlugin(),
     commonjs(),
-    typescript({
-      cacheRoot: `${tmpdir()}/.rpt2_cache`,
-      tsconfigOverride: { compilerOptions },
-      useTsconfigDeclarationDir: true,
+    esbuild({
+      target: 'esnext',
+      minify: false,
+      jsx: 'preserve',
+      tsconfig: 'tsconfig.json',
     }),
     babel({
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
       extensions: [...DEFAULT_EXTENSIONS, '.vue', '.ts', '.tsx'],
     }),
     postcss({
