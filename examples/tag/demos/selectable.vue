@@ -1,16 +1,15 @@
 <template>
   <div class="tag-demo">
-    <div class="tdesign-demo-block">
-      <t-check-tag
-        v-for="(tag, index) in tags"
-        :key="index"
-        :defaultChecked="tag.defaultChecked"
-        @click="handleClick(tag, index)"
-        @change="handleChange"
-      >
-        {{ tag.name }}
-      </t-check-tag>
-    </div>
+    <t-check-tag
+      v-for="(tag, index) in tags"
+      :key="index"
+      :defaultChecked="tag.defaultChecked"
+      :disabled="!!tag.disabled"
+      @click="handleClick(tag, index)"
+      @change="handleChange"
+    >
+      {{ tag.name }}
+    </t-check-tag>
   </div>
 </template>
 
@@ -20,18 +19,15 @@ export default {
     return {
       tags: [
         {
-          name: '选中1',
+          name: '选中',
           defaultChecked: true,
         },
         {
-          name: '选中2',
-          defaultChecked: true,
+          name: '未选',
         },
         {
-          name: '未选3',
-        },
-        {
-          name: '未选4',
+          name: 'Disabled',
+          disabled: true,
         },
       ],
     };
@@ -47,11 +43,12 @@ export default {
 };
 </script>
 
-<style scoped>
-.tag-demo .tdesign-demo-block {
+<style lang="less" scoped>
+.tag-demo {
   width: 500px;
   display: flex;
-  justify-content: space-around;
+  > * {
+    margin-right: 30px;
+  }
 }
 </style>
-

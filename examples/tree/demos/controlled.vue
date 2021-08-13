@@ -1,13 +1,13 @@
 <template>
   <div class="tdesign-tree-base">
     <t-addon prepend="checked:">
-      <t-input :value="allChecked" @input="onAllCheckedInput"/>
+      <t-input :value="allChecked"/>
     </t-addon>
     <t-addon prepend="expanded:">
-      <t-input :value="allExpanded" @input="onAllExpandedInput"/>
+      <t-input :value="allExpanded"/>
     </t-addon>
     <t-addon prepend="actived:">
-      <t-input :value="allActived" @input="onAllActivedInput"/>
+      <t-input :value="allActived"/>
     </t-addon>
     <t-tree
       :data="items"
@@ -19,6 +19,10 @@
       :actived="actived"
       :value="checked"
       :value-mode="valueMode"
+      @expand="onExpand"
+      @change="onChange"
+      @active="onActive"
+      @click="onClick"
     />
   </div>
 </template>
@@ -85,11 +89,11 @@ export default {
         }],
       }, {
         value: '2',
-        label: '2',
+        label: '2 这个节点不允许展开, 不允许激活',
         checkable: false,
         children: [{
           value: '2.1',
-          label: '2.1',
+          label: '2.1 这个节点不允许选中',
           checkable: false,
         }, {
           value: '2.2',
@@ -105,49 +109,44 @@ export default {
       if (Array.isArray(this.checked)) {
         arr = this.checked;
       }
-      return arr.map((val) => `{${val}}`).join(', ');
+      return arr.join(', ');
     },
     allExpanded() {
       let arr = [];
       if (Array.isArray(this.expanded)) {
         arr = this.expanded;
       }
-      return arr.map((val) => `{${val}}`).join(', ');
+      return arr.join(', ');
     },
     allActived() {
       let arr = [];
       if (Array.isArray(this.actived)) {
         arr = this.actived;
       }
-      return arr.map((val) => `{${val}}`).join(', ');
+      return arr.join(', ');
     },
   },
   methods: {
-    getValueFromString(val) {
-      const arr = val.split(',');
-      const vals = [];
-      arr.map((str) => str.trim()).forEach((tag) => {
-        const match = (/^\{([^{}]+)\}$/).exec(tag);
-        if (match && match[1]) {
-          vals.push(match[1]);
-        }
-      });
-      return vals;
+    onClick(context) {
+      console.info('onClick:', context);
     },
-    onAllCheckedInput(val) {
-      console.log('checked input on change', val);
-      const vals = this.getValueFromString(val);
-      this.checked = vals;
+    onChange(vals, context) {
+      console.info('onChange:', vals, context);
+      const checked = vals.filter((val) => (val !== '2.1'));
+      console.info('节点 2.1 不允许选中');
+      this.checked = checked;
     },
-    onAllExpandedInput(val) {
-      console.log('expanded input on change', val);
-      const vals = this.getValueFromString(val);
-      this.expanded = vals;
+    onExpand(vals, context) {
+      console.info('onExpand:', vals, context);
+      const expanded = vals.filter((val) => (val !== '2'));
+      console.info('节点 2 不允许展开');
+      this.expanded = expanded;
     },
-    onAllActivedInput(val) {
-      console.log('actived input on change', val);
-      const vals = this.getValueFromString(val);
-      this.actived = vals;
+    onActive(vals, context) {
+      console.info('onActive:', vals, context);
+      const actived = vals.filter((val) => (val !== '2'));
+      console.info('节点 2 不允许激活');
+      this.actived = actived;
     },
   },
 };

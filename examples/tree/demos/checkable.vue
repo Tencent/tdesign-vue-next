@@ -1,13 +1,21 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-button :variant="checkable ? 'base' : 'outline'" @click="toggleCheckAble">可选</t-button>
-      <t-button :variant="checkStrictly ? 'base' : 'outline' " @click="toggleCheckStrictly">严格模式</t-button>
-      <t-radio-group
-        name="value-mode"
-        v-model="valueMode"
-        :options="valueOptions"
-      ></t-radio-group>
+      <t-form>
+        <t-form-item label="可选">
+          <t-switch v-model="checkable" />
+        </t-form-item>
+        <t-form-item label="严格模式">
+          <t-switch v-model="checkStrictly" />
+        </t-form-item>
+        <t-form-item label="选中值模式">
+          <t-radio-group
+            name="value-mode"
+            v-model="valueMode"
+            :options="valueOptions"
+          ></t-radio-group>
+        </t-form-item>
+      </t-form>
     </div>
     <t-tree
       :data="items"
@@ -117,12 +125,6 @@ export default {
     },
     propOnChange(checked, context) {
       console.info('propOnChange:', checked, context);
-    },
-    toggleCheckAble() {
-      this.checkable = !this.checkable;
-    },
-    toggleCheckStrictly() {
-      this.checkStrictly = !this.checkStrictly;
     },
   },
 };

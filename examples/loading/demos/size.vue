@@ -1,15 +1,18 @@
 <template>
   <div class="loading-demo">
-    <span>小</span>
-    <t-loading :loading="true" :size="'small'"></t-loading>
-    <span>中</span>
-    <t-loading :loading="true" :size="'middle'"></t-loading>
-    <span>大</span>
-    <t-loading :loading="true" :size="'large'"></t-loading>
+    <div>
+      <t-loading size="small" text='加载中（小）...'></t-loading>
+    </div>
+    <div>
+      <t-loading size="medium" text='加载中（中）...'></t-loading>
+    </div>
+    <div>
+      <t-loading size="large" text='加载中（大）...'></t-loading>
+    </div>
   </div>
 </template>
 <style scoped>
-.loading-demo span {
-  margin-right: 20px;
+.loading-demo > div + div {
+  margin-top: 28px;
 }
 </style>

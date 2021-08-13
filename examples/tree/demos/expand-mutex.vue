@@ -1,8 +1,14 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-button :variant="mutex ? 'base' : 'outline'"  @click="toggleMutex">互斥展开</t-button>
-      <t-button :variant="expandOnClickNode ? 'base' : 'outline'"  @click="toggleExpandOnClickNode">点击节点触发展开</t-button>
+      <t-form labelWidth="120">
+        <t-form-item label="互斥展开">
+          <t-switch v-model="mutex"/>
+        </t-form-item>
+        <t-form-item label="整个节点可点击">
+          <t-switch v-model="expandOnClickNode"/>
+        </t-form-item>
+      </t-form>
     </div>
     <t-tree
       :data="items"
@@ -81,5 +87,9 @@ export default {
 <style scoped>
   .tdesign-tree-base .t-button{
     margin: 0 10px 10px 0;
+  }
+
+  .operations {
+    margin-bottom: 32px;
   }
 </style>

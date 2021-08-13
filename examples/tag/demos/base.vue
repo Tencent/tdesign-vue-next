@@ -1,27 +1,29 @@
 <template>
   <div class="tag-demo">
-    <div class="tdesign-demo-block">
-      <t-tag>默认</t-tag>
-      <a class="demo-link">
-        <t-tag>超链接</t-tag>
-      </a>
-    </div>
+    <t-tag @click="onClick">默认</t-tag>
+    <a href="https://www.tencent.com/zh-cn" target="_blank">
+      <t-tag>超链接</t-tag>
+    </a>
   </div>
 </template>
 
+<script>
+
+export default {
+  methods: {
+    onClick({ e }) {
+      e.stopPropagation();
+    },
+  },
+};
+</script>
+
 <style lang="less" scoped>
-.tag-demo .tdesign-demo-block {
+.tag-demo {
   width: 500px;
   display: flex;
-  justify-content: space-around;
-  .demo-link {
-    &:hover {
-      .t-tag {
-        color: #2a6fdf;
-        border-color: currentColor;
-        cursor: pointer;
-      }
-    }
+  > * {
+    margin-right: 30px;
   }
 }
 </style>

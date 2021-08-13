@@ -17,6 +17,7 @@ export default {
         this.notification = this.$notify.info({
           title: '标题名称',
           content: '这是一条需要手动关闭的消息通知',
+          duration: 0,
         });
       } else {
         // this.notification.then(ins => ins.close()); // 另一种关闭方法

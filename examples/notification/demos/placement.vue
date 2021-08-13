@@ -1,53 +1,58 @@
 <template>
   <div>
-    <t-button @click="showInTopLeft">左上角</t-button>
-    <t-button @click="showInTopRight">右上角</t-button>
+    <div class="t-message-offset">
+      <t-input placeholder='请输入横向偏移量' v-model="offsetX"></t-input>
+      <t-input placeholder='请输入纵向偏移量' v-model="offsetY"></t-input>
+    </div>
+    <t-button @click="$notify.info(infoList[0])">左上角</t-button>
+    <t-button @click="$notify.info(infoList[1])">右上角</t-button>
     <br /><br />
-    <t-button @click="showInBottomLeft">左下角</t-button>
-    <t-button @click="showInBottomRight">右下角</t-button>
+    <t-button @click="$notify.info(infoList[2])">左下角</t-button>
+    <t-button @click="$notify.info(infoList[3])">右下角</t-button>
   </div>
 </template>
 
 <script>
 export default {
-  methods: {
-    showInTopLeft() {
-      this.$notify.info({
+  data() {
+    return {
+      offsetX: '',
+      offsetY: '',
+    };
+  },
+  computed: {
+    infoList() {
+      return [
+        { placement: 'top-left' },
+        { placement: 'top-right' },
+        { placement: 'bottom-left' },
+        { placement: 'bottom-right' },
+      ].map((item) => ({
         title: '标题名称',
         content: '这是一条可以自动关闭的消息通知',
-        placement: 'top-left',
         duration: 3000,
-      });
-    },
-    showInTopRight() {
-      this.$notify.info({
-        title: '标题名称',
-        content: '这是一条可以自动关闭的消息通知',
-        duration: 3000,
-      });
-    },
-    showInBottomLeft() {
-      this.$notify.info({
-        title: '标题名称',
-        content: '这是一条可以自动关闭的消息通知',
-        placement: 'bottom-left',
-        duration: 3000,
-      });
-    },
-    showInBottomRight() {
-      this.$notify.info({
-        title: '标题名称',
-        content: '这是一条可以自动关闭的消息通知',
-        placement: 'bottom-right',
-        duration: 3000,
-      });
+        offset: [this.offsetX, this.offsetY],
+        ...item,
+      }));
     },
   },
 };
 </script>
 
 <style scoped>
-.t-button + .t-button{
-  margin-left: 10px;
-}
+  .t-button {
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+
+  .t-message-offset .t-input {
+    width: 130px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 36px;
+  }
+
+  .t-button + .t-button{
+    margin-left: 10px;
+  }
 </style>
