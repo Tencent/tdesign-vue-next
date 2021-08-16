@@ -2,7 +2,6 @@ export * from './tag';
 export * from './form';
 export * from './icon';
 export * from './list';
-export * from './step';
 export * from './tabs';
 export * from './tree';
 export * from './grid';

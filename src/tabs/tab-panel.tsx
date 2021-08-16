@@ -1,4 +1,4 @@
-import { defineComponent, h, VNodeChild } from 'vue';
+import { defineComponent, h, VNodeChild, getCurrentInstance } from 'vue';
 import { prefix } from '../config';
 import props from './tab-panel-props';
 
@@ -36,8 +36,9 @@ export default defineComponent({
   },
 
   render() {
-    const { renderOnHide, active } = this;
-    if (!renderOnHide && !active) return null;
+    const instance = getCurrentInstance();
+    const { destroyOnHide, active } = (instance as any).ctx;
+    if (!destroyOnHide && !active) return null;
     return (
       <div
         class="t-tab-panel"

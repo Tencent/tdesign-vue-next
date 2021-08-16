@@ -19,7 +19,7 @@
       <t-menu-item value="item4" :disabled="true">精准监控</t-menu-item>
     </t-menu-group>
     <template #operations>
-      <t-icon name="view-list" @click="changeCollapsed" />
+      <t-icon name="view-list" @click="changeCollapsed"/>
     </template>
   </t-menu>
 </template>

@@ -1,16 +1,10 @@
 <template>
-  <div>
-    <!-- 如果 t-step-item 没有传入 value，则使用 index 作为唯一标识 -->
-    <t-steps :defaultCurrent="1">
-      <t-step-item title="已完成的步骤"></t-step-item>
-      <t-step-item title="进行中的步骤"></t-step-item>
-      <t-step-item title="未进行的步骤"></t-step-item>
-      <t-step-item title="未进行的步骤"></t-step-item>
-    </t-steps>
-    <br>
-    <!-- 使用 options 渲染步骤条 -->
-    <t-steps v-model="current" :options="steps"></t-steps>
-  </div>
+  <t-steps :current="1" status="process">
+    <t-step-item title="已完成的步骤" content="这里是提示文字"></t-step-item>
+    <t-step-item title="进行中的步骤" content="这里是提示文字"></t-step-item>
+    <t-step-item title="未进行的步骤" content="这里是提示文字"></t-step-item>
+    <t-step-item title="未进行的步骤" content="这里是提示文字"></t-step-item>
+  </t-steps>
 </template>
 
 <script>

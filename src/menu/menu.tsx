@@ -3,6 +3,7 @@ import { prefix } from '../config';
 import props from './props';
 import { MenuValue } from './type';
 import { TdMenuInterface } from './const';
+
 const name = `${prefix}-menu`;
 
 export default defineComponent({
@@ -10,6 +11,8 @@ export default defineComponent({
   props: { ...props },
   setup(props, ctx) {
     const mode = ref(props.expandType);
+    const theme = computed(() => props.theme);
+
     const menuClass = computed(() => [
       `${prefix}-default-menu`,
       `${prefix}-menu-mode__${mode.value}`,
@@ -22,6 +25,7 @@ export default defineComponent({
       `${prefix}-menu`,
       { [`${prefix}-menu--scroll`]: mode.value !== 'popup' },
     ]);
+
     const styles = computed(() => {
       type WidthType = typeof props.width;
       let collapsedWidth: WidthType = '64px';
@@ -37,7 +41,8 @@ export default defineComponent({
         width: props.collapsed ? collapsedWidth : defaultWidth,
       };
     });
-    const activeIndexValue = ref(props.value);
+
+    const activeIndexValue = ref(props.defaultValue || props.value);
     const expandedArray = ref(props.expanded || []);
     const deliver = (evt: string) => {
       const func = `on${evt[0].toUpperCase() + evt.slice(1)}`;
@@ -61,6 +66,7 @@ export default defineComponent({
       activeIndexValue,
       expandedArray,
       mode,
+      theme,
       isHead: false,
       select: (val: MenuValue) => {
         activeIndexValue.value = val;
@@ -115,18 +121,18 @@ export default defineComponent({
     };
   },
   render() {
+    if (this.$slots.options) {
+      console.warn('TDesign Warn: `options` slot is going to be deprecated, please use `operations` for slot instead.');
+    }
+    const { logo, default: defaultSlot, operations } = this.$slots;
     return (
       <div class={this.menuClass} style={this.styles}>
-        <div class="t-default-menu__inner">
-          {
-            this.$slots.logo && (<div class="t-menu__logo">{this.$slots.logo()}</div>)
-          }
+        <div class={`${prefix}-default-menu__inner`}>
+          {logo && (<div class={`${prefix}-menu__logo`}>{logo()}</div>)}
           <ul class={this.innerClasses}>
-            {this.$slots.default()}
+            {defaultSlot()}
           </ul>
-          {
-            this.$slots.operations && (<div class="t-menu__options">{this.$slots.operations()}</div>)
-          }
+          {operations && (<div class={`${prefix}-menu__options`}>{operations()}</div>)}
         </div>
       </div>
     );

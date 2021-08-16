@@ -10,6 +10,7 @@ export interface TdMenuInterface {
   activeIndexValue: Ref<MenuValue>;
   expandedArray?: Ref<MenuValue[]>;
   mode: Ref<string>;
+  theme?: Ref<string>;
   isHead: boolean;
   select: (val: MenuValue) => void;
   open?: (val: MenuValue) => boolean;

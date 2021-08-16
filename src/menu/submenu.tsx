@@ -13,7 +13,9 @@ export default defineComponent({
   },
   props,
   setup(props, ctx) {
-    const { activeIndexValue, expandedArray, mode, isHead, selectSubMenu, open } = inject<TdMenuInterface>('TdMenu');
+    const {
+      activeIndexValue, expandedArray, mode, isHead, selectSubMenu, open,
+    } = inject<TdMenuInterface>('TdMenu');
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
     const isActive = computed(() => {
       const childIsActive = menuItems.value.some(i => i.value === activeIndexValue.value);
@@ -26,7 +28,7 @@ export default defineComponent({
       }
       return expandedArray ? expandedArray.value.includes(props.value) : false;
     });
-    let mouseInChild = false;
+
     const classes = computed(() => [
       `${prefix}-submenu`,
       {
@@ -37,13 +39,16 @@ export default defineComponent({
     ]);
     const popupClass = computed(() => [
       `${prefix}-menu__popup`,
-      { [`${prefix}-is-opened`]: popupVisible.value },
+      {
+        [`${prefix}-is-opened`]: popupVisible.value,
+        [`${prefix}-is-vertical`]: !isHead,
+      },
     ]);
     const submenuClass = computed(() => [
       `${prefix}-menu__item`,
       {
         [`${prefix}-is-opened`]: isOpen.value,
-        [`${prefix}-is-active`]: !isOpen.value && isActive.value,
+        [`${prefix}-is-active`]: isActive.value,
       },
     ]);
     const subClass = computed(() => [
@@ -52,24 +57,22 @@ export default defineComponent({
         [`${prefix}-is-opened`]: isOpen.value,
       },
     ]);
+    const arrowClass = computed(() => [
+      `${prefix}-fake-arrow`,
+      {
+        [`${prefix}-fake-arrow--active`]: isOpen.value,
+      },
+    ]);
 
     // methods
     const handleMouseEnter = () => {
-      mouseInChild = true;
       if (!popupVisible.value) {
         open(props.value);
       }
       popupVisible.value = true;
     };
-    let timeout: number;
     const handleMouseLeave = () => {
-      mouseInChild = false;
-      clearTimeout(timeout);
-      timeout = window.setTimeout(() => {
-        if (!mouseInChild) {
-          popupVisible.value = false;
-        }
-      }, 300);
+      popupVisible.value = false;
     };
     const handleHeadmenuItemClick = () => {
       const isOpen = open(props.value);
@@ -78,6 +81,7 @@ export default defineComponent({
     const handleSubmenuItemClick = () => {
       open(props.value);
     };
+
 
     // provide
     provide<TdSubMenuInterface>('TdSubmenu', {
@@ -93,6 +97,8 @@ export default defineComponent({
           selectSubMenu(menuItems.value);
         }
       }
+
+      // adjust popup height
     });
 
     return {
@@ -101,6 +107,7 @@ export default defineComponent({
       isHead,
       classes,
       subClass,
+      arrowClass,
       popupClass,
       submenuClass,
       handleMouseEnter,
@@ -145,7 +152,7 @@ export default defineComponent({
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"/>
         </svg>);
       const normalSubmenu = [
-        <div v-ripple={this.rippleColor} class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
+        <div class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
           {icon}
           <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title')}</span>
           {hasContent && svgArrow}
