@@ -5,7 +5,7 @@ import IconPromptFill from '../icon/info-circle-filled';
 import IconSuccessFill from '../icon/check-circle-filled';
 import IconWarningFill from '../icon/error-circle-filled';
 import IconClose from '../icon/close';
-import props from '../../types/alert/props';
+import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 

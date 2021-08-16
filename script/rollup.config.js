@@ -53,7 +53,7 @@ const getPlugins = ({
       target: 'esnext',
       minify: false,
       jsx: 'preserve',
-      tsconfig: 'tsconfig.json',
+      tsconfig: 'tsconfig.build.json',
     }),
     babel({
       babelHelpers: 'runtime',

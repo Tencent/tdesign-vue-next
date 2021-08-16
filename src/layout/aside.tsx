@@ -1,16 +1,11 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
-import props from '../../types/aside/props';
+import props from './aside-props';
 
 const name = `${prefix}-aside`;
 
 export default defineComponent({
   name,
-
-  components: {
-    RenderComponent,
-  },
 
   props,
 

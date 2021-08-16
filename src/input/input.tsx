@@ -5,9 +5,8 @@ import { omit } from '../utils/helper';
 import ClearIcon from '../icon/clear-circle-filled';
 import BrowseIcon from '../icon/browse';
 import BrowseOffIcon from '../icon/browse-off';
-import props from '../../types/input/props';
-import { InputValue } from '../../types/input/TdInputProps';
-import { TNode } from '../common';
+import props from './props';
+import { InputValue } from './type';
 
 const name = `${prefix}-input`;
 
@@ -58,7 +57,7 @@ export default defineComponent({
       this.isHover = v;
     },
     renderIcon(
-      icon: string | TNode | undefined,
+      icon: string | Function | undefined,
       iconType: 'prefix-icon' | 'suffix-icon',
     ) {
       if (typeof icon === 'function') {

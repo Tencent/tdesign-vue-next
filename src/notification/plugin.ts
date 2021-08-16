@@ -11,8 +11,7 @@ import {
   NotificationSuccessMethod,
   NotificationCloseMethod,
   NotificationCloseAllMethod,
-} from '../../types/notification/TdNotificationProps';
-import { AttachNodeReturnValue } from '../common';
+} from './type';
 
 let seed = 0;
 // 存储不同 attach 和 不同 placement 消息列表实例

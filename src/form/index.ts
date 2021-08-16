@@ -1,11 +1,12 @@
 import _Form from './form';
 import _FormItem from './form-item';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdFormProps, TdFormItemProps } from './type';
 
-const Form: WithInstallType<typeof _Form> = withInstall(_Form);
-const FormItem: WithInstallType<typeof _FormItem> = withInstall(_FormItem);
+export * from './type';
+export type FormProps = TdFormProps;
+export type FormItemProps = TdFormItemProps;
 
-export * from '../../types/form/TdFormProps';
-
-export { Form, FormItem };
+export const Form: WithInstallType<typeof _Form> = withInstall(_Form);
+export const FormItem: WithInstallType<typeof _FormItem> = withInstall(_FormItem);
 export default Form;

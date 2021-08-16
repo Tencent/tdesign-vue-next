@@ -1,6 +1,6 @@
 import { defineComponent, computed, inject, ref, provide, onMounted } from 'vue';
 import { prefix } from '../config';
-import props from '../../types/submenu/props';
+import props from './submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import TIconChevronDown from '../icon/chevron-down';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';

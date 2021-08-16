@@ -1,7 +1,9 @@
 import _Alert from './alert';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdAlertProps } from './type';
 
-const Alert: WithInstallType<typeof _Alert> = withInstall(_Alert);
+export * from './type';
+export type AlertProps = TdAlertProps;
 
-export { Alert };
+export const Alert: WithInstallType<typeof _Alert> = withInstall(_Alert);
 export default Alert;

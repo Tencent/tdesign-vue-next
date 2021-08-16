@@ -1,6 +1,6 @@
 import Loading from './loading';
 import { App, Plugin, createApp, ref, defineComponent } from 'vue';
-import { LoadingProps } from './type/index';
+import { LoadingProps } from './type';
 
 import type { Ref } from 'vue';
 

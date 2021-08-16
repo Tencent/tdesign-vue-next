@@ -1,10 +1,13 @@
 import _Breadcrumb from './breadcrumb';
+import _BreadcrumbItem from './breadcrumb-item';
 import { withInstall, WithInstallType } from '../utils/withInstall';
-import { TdBreadcrumbProps, TdBreadcrumbItemProps } from '../../types/breadcrumb/TdBreadcrumbProps';
+import { TdBreadcrumbProps, TdBreadcrumbItemProps } from './type';
 
-const Breadcrumb: WithInstallType<typeof _Breadcrumb> = withInstall(_Breadcrumb);
-
-export type BreadcrumbItemProps = TdBreadcrumbItemProps;
+export * from './type';
 export type BreadcrumbProps = TdBreadcrumbProps;
-export { Breadcrumb };
+export type BreadcrumbItemProps = TdBreadcrumbItemProps;
+
+export const Breadcrumb: WithInstallType<typeof _Breadcrumb> = withInstall(_Breadcrumb);
+export const BreadcrumbItem: WithInstallType<typeof _BreadcrumbItem> = withInstall(_BreadcrumbItem);
+
 export default Breadcrumb;

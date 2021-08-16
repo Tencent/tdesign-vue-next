@@ -1,9 +1,9 @@
 import _Popconfirm from './popconfirm';
 import mapProps from '../utils/map-props';
 import { withInstall, WithInstallType } from '../utils/withInstall';
-import { TdPopconfirmProps } from '../../types/popconfirm/TdPopconfirmProps';
+import { TdPopconfirmProps } from './type';
 
-export * from '../../types/popup/TdPopupProps';
+export * from './type';
 export type PopconfirmProps = TdPopconfirmProps;
 
 const LocalPopconfirm = mapProps([
@@ -14,6 +14,5 @@ const LocalPopconfirm = mapProps([
   },
 ])(_Popconfirm);
 
-const Popconfirm: WithInstallType<typeof LocalPopconfirm> = withInstall(LocalPopconfirm);
-export { Popconfirm };
+export const Popconfirm: WithInstallType<typeof LocalPopconfirm> = withInstall(LocalPopconfirm);
 export default Popconfirm;

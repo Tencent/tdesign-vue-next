@@ -1,16 +1,11 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
-import RenderComponent from '../utils/render-component';
-import props from '../../types/footer/props';
+import props from './footer-props';
 
 const name = `${prefix}-footer`;
 
 export default defineComponent({
   name,
-
-  components: {
-    RenderComponent,
-  },
 
   props,
 

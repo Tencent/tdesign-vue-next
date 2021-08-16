@@ -2,7 +2,7 @@ import { defineComponent, inject } from 'vue';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import props from '../../types/option-group/props';
+import props from './props';
 import type { TdSelect } from './instance';
 import { ClassName } from '../common';
 
