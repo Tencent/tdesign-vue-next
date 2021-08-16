@@ -2,7 +2,7 @@ import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
-import props from './props';
+import props from '../../types/radio/props';
 import { RadioGroupInstance, RadioButtonInstance } from './instance-types';
 
 const name = `${prefix}-radio`;
