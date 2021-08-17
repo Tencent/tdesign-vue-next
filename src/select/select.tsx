@@ -1,5 +1,5 @@
 import { defineComponent, nextTick } from 'vue';
-import { renderTNodeJSX, renderSlotJSX } from '../utils/render-tnode';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconChevronDown from '../icon/chevron-down';
@@ -408,7 +408,7 @@ export default defineComponent({
       showCreateOption,
       displayOptions,
     } = this;
-    const children = renderSlotJSX(this, 'default');
+    const children = renderTNodeJSX(this, 'default');
     const prefixIconSlot = renderTNodeJSX(this, 'prefixIcon');
     const emptySlot = renderTNodeJSX(this, 'empty');
     const loadingTextSlot = renderTNodeJSX(this, 'loadingText');

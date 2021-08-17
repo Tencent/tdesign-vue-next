@@ -56,7 +56,10 @@ export const RenderTNodeTemplate = (props: { render: Function; params: Record<st
 export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, options?: Slots | JSX.Element) => {
   const params = typeof options === 'object' && ('params' in options) ? options.params : null;
   const defaultNode = typeof options === 'object' && ('defaultNode' in options) ? options.defaultNode : options;
-  const propsNode = instance[name];
+  let propsNode
+  if(name in instance) {
+    propsNode = instance[name]
+  }
   if (propsNode === false) return;
   if (propsNode === true && defaultNode) {
     return instance.$slots[name] ? instance.$slots[name](params) : defaultNode;
@@ -85,8 +88,3 @@ export const renderContent = (instance: ComponentPublicInstance, name1: string, 
   const node2 = renderTNodeJSX(instance, name2);
   return [undefined, null, ''].includes(node1) ? node2 : node1;
 };
-
-export const renderSlotJSX = (instance: ComponentPublicInstance, name: string, options?: Slots | JSX.Element) => {
-  const params = typeof options === 'object' && ('params' in options) ? options.params : null;
-  return instance.$slots[name] ? instance.$slots[name](params) : ''
-}

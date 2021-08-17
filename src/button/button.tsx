@@ -9,6 +9,7 @@ const name = `${prefix}-button`;
 
 export default defineComponent({
   name,
+  inheritAttrs: false,
   props,
   render() {
     let buttonContent = renderContent(this, 'default', 'content');
@@ -46,7 +47,6 @@ export default defineComponent({
         !iconOnly ? buttonContent : '',
       ];
     }
-
     return (
       <button class={buttonClass} type={this.type} disabled={this.disabled} {...this.$attrs}>
         {buttonContent}

@@ -1,5 +1,5 @@
 import { defineComponent, inject } from 'vue';
-import { renderSlotJSX } from '../utils/render-tnode';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import get from 'lodash/get';
 import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
@@ -125,7 +125,7 @@ export default defineComponent({
     const {
       classes, show, labelText, selected, disabled, multiLimitDisabled,
     } = this;
-    const children = renderSlotJSX(this, 'default');
+    const children = renderTNodeJSX(this, 'default');
     const optionChild = children ? children : labelText;
     return (
       <li

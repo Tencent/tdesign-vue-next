@@ -16,7 +16,6 @@ export default {
   data() {
     return {
       empty(h) {
-        console.log(h);
         return <div>😊 空数据（ empty props ）</div>;
       },
     };

@@ -6,8 +6,8 @@ import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import { getAttach } from '../utils/dom';
 import TransferDom from '../utils/transfer-dom';
-import { CloseContext } from '../../types/dialog/TdDialogProps';
-import props from '../../types/dialog/props';
+import { DialogCloseContext } from './type';
+import props from './props';
 import { ClassName } from '../common';
 
 const name = `${prefix}-dialog`;
@@ -149,7 +149,7 @@ export default defineComponent({
         // 根据closeOnKeydownEsc判断按下ESC时是否触发close事件
         if (this.closeOnKeydownEsc) {
           this.emitCloseEvent({
-            trigger: 'keydownEsc',
+            trigger: 'esc',
             e,
           });
         }
@@ -158,9 +158,9 @@ export default defineComponent({
     overlayAction(e: MouseEvent) {
       this.$emit('click-overlay', e);
       // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
-      if (this.closeOnClickOverlay) {
+      if (this.closeOnOverlayClick) {
         this.emitCloseEvent({
-          trigger: 'clickOverlay',
+          trigger: 'overlay',
           e,
         });
       }
@@ -168,7 +168,7 @@ export default defineComponent({
     closeBtnAcion(e: MouseEvent) {
       this.$emit('click-close-btn', e);
       this.emitCloseEvent({
-        trigger: 'clickCloseBtn',
+        trigger: 'close-btn',
         e,
       });
     },
@@ -176,7 +176,7 @@ export default defineComponent({
     cancelBtnAction(e: MouseEvent) {
       this.$emit('click-cancel', e);
       this.emitCloseEvent({
-        trigger: 'clickCancel',
+        trigger: 'cancel',
         e,
       });
     },
@@ -192,7 +192,7 @@ export default defineComponent({
       this.$emit('closed');
     },
 
-    emitCloseEvent(context: CloseContext) {
+    emitCloseEvent(context: DialogCloseContext) {
       this.$emit('close', context);
       // 默认关闭弹窗
       this.$emit('update:visible', false);

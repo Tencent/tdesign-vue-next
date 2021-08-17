@@ -19,7 +19,7 @@
       :actived="actived"
       :value="checked"
       :value-mode="valueMode"
-      @expand="onExpand"
+      @expand="handleExpand"
       @change="onChange"
       @active="onActive"
       @click="onClick"
@@ -136,7 +136,7 @@ export default {
       console.info('节点 2.1 不允许选中');
       this.checked = checked;
     },
-    onExpand(vals, context) {
+    handleExpand(vals, context) {
       console.info('onExpand:', vals, context);
       const expanded = vals.filter((val) => (val !== '2'));
       console.info('节点 2 不允许展开');

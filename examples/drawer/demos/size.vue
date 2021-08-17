@@ -21,7 +21,7 @@
         <t-radio-button value="50%">50%</t-radio-button>
       </t-radio-group>
     </div>
-    <t-button theme="primary" @click="visible = true" class="btn-top-margin">Open</t-button>
+    <t-button @click="visible = true" style="margin-top: 16px">Open</t-button>
   </div>
 </template>
 
@@ -37,8 +37,8 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped>
-.btn-top-margin {
+<style>
+.btn-margin-top {
   margin-top: 16px;
 }
 </style>

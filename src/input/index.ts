@@ -1,3 +1,4 @@
+import _Addon from './addon';
 import _Input from './input';
 import _InputGroup from './input-group';
 import mapProps from '../utils/map-props';
@@ -13,6 +14,7 @@ const LocalInput = mapProps([{
   alias: ['modelValue'],
 }])(_Input);
 
+export const Addon: WithInstallType<typeof _Addon> = withInstall(_Addon);
 export const Input: WithInstallType<typeof LocalInput> = withInstall(LocalInput);
 export const InputGroup: WithInstallType<typeof _InputGroup> = withInstall(_InputGroup);
 export default Input;

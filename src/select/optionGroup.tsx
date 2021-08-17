@@ -1,5 +1,5 @@
 import { defineComponent, inject } from 'vue';
-import { renderSlotJSX } from '../utils/render-tnode';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './option-group-props';
@@ -37,7 +37,7 @@ export default defineComponent({
     },
   },
   render() {
-    const children = renderSlotJSX(this, 'default');
+    const children = renderTNodeJSX(this, 'default');
     return (
       <li class={this.classes}>
         <ul class={`${name}-header`}>{ this.label }</ul>
