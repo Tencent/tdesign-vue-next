@@ -85,3 +85,8 @@ export const renderContent = (instance: ComponentPublicInstance, name1: string, 
   const node2 = renderTNodeJSX(instance, name2);
   return [undefined, null, ''].includes(node1) ? node2 : node1;
 };
+
+export const renderSlotJSX = (instance: ComponentPublicInstance, name: string, options?: Slots | JSX.Element) => {
+  const params = typeof options === 'object' && ('params' in options) ? options.params : null;
+  return instance.$slots[name] ? instance.$slots[name](params) : ''
+}

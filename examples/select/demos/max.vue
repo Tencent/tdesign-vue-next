@@ -4,9 +4,9 @@
       v-model="value"
       placeholder="-请选择-"
       multiple
+      :max="2"
       :options="options"
-      :onChange="handleChange"
-      @remove="handleRemove"
+      style="width: 400px;"
     />
   </div>
 </template>
@@ -25,16 +25,8 @@ export default {
         label: '选项三',
         value: '3',
       }],
-      value: ['1', '3'],
+      value: [],
     };
-  },
-  methods: {
-    handleChange(value) {
-      console.log('handleChange:', value);
-    },
-    handleRemove(value) {
-      console.log('handleRemove:', value);
-    },
   },
 };
 </script>

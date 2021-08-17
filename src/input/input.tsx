@@ -189,11 +189,11 @@ export default defineComponent({
         class={classes}
         onMouseenter={() => this.mouseEvent(true) }
         onMouseleave={() => this.mouseEvent(false) }
-        {...{ attrs: wrapperAttrs }}
+        {...{ ...wrapperAttrs } }
       >
         {prefixIcon ? <span class={`${name}__prefix`}>{prefixIcon}</span> : null}
         <input
-          {...this.inputAttrs }
+          {...{ ...this.inputAttrs } }
           {...inputEvents }
           ref="refInputElem"
           value={this.value}

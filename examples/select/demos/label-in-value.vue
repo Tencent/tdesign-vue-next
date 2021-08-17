@@ -2,19 +2,22 @@
   <div>
     <t-select
       v-model="value"
+      valueType="object"
+      clearable
       placeholder="-请选择-"
-      disabled
-      filterable
-      style="width: 200px;display: inline-block;margin-right: 20px;"
       :options="options"
+      style="width: 200px;display: inline-block;margin-right: 20px;"
+      @change="handleChange"
     />
     <t-select
       v-model="value2"
-      placeholder="-请选择-"
+      valueType="object"
+      clearable
       multiple
-      disabled
-      style="width: 200px;display: inline-block;"
+      placeholder="-请选择-"
       :options="options"
+      style="width: 200px;display: inline-block;"
+      @change="handleChange"
     />
   </div>
 </template>
@@ -33,9 +36,14 @@ export default {
         label: '深圳',
         value: 'shenzhen',
       }],
-      value2: ['shanghai', 'beijing'],
-      value: '',
+      value: { value: 'shanghai', label: '上海' },
+      value2: [{ value: 'shanghai', label: '上海' }],
     };
+  },
+  methods: {
+    handleChange(value) {
+      console.log('handleChange:', value);
+    },
   },
 };
 </script>

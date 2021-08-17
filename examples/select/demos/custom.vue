@@ -2,42 +2,24 @@
   <div>
     <t-select
       v-model="value"
-      class="demo-select-base"
       filterable
-      clearable
-      @change="handleChange"
+      placeholder="-请选择-"
       :onSearch="remoteMethod"
       :loading="loading"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
+      :options="options"
+      style="width: 200px;display: inline-block;margin: 0 20px 20px 0;"
+    />
     <t-select
       v-model="value2"
-      class="demo-select-base"
       multiple
       filterable
-      clearable
-      size="large"
-      @change="handleChange"
-      :onSearch="remoteMethod2"
+      placeholder="-请输入搜索-"
+      :options="options2"
+      @search="remoteMethod2"
       :loading="loading2"
-    >
-      <t-option
-        v-for="(item, index) in options2"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
+      reserveKeyword
+      style="width: 400px;display: inline-block;"
+    />
   </div>
 </template>
 
@@ -108,10 +90,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-  .demo-select-base {
-    width: 200px;
-    display: inline-block;
-    margin: 0 20px;
-  }
-</style>

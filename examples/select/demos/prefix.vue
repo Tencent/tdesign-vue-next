@@ -2,19 +2,14 @@
   <div>
     <t-select
       v-model="value"
-      class="demo-select-base"
-      prefixIcon="browse"
-      @change="handleChange"
-      @visible-change="visibleChange"
+      style="width: 200px;"
+      :options="options"
+      clearable
+      placeholder="-请选择-"
     >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
+      <template #prefixIcon>
+        <t-icon name="browse" />
+      </template>
     </t-select>
   </div>
 </template>
@@ -29,31 +24,12 @@ export default {
       }, {
         label: '北京',
         value: 'beijing',
-        disabled: true,
       }, {
         label: '深圳',
         value: 'shenzhen',
-      }, {
-        label: '这是一个名字很长的城市名称',
-        value: 'long',
       }],
       value: '',
     };
   },
-  methods: {
-    handleChange(value) {
-      console.log(value);
-    },
-    visibleChange(val) {
-      console.log('visible', val);
-    },
-  },
 };
 </script>
-<style scoped>
-  .demo-select-base {
-    width: 200px;
-    display: inline-block;
-    margin: 0 20px;
-  }
-</style>

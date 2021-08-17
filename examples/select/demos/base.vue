@@ -1,19 +1,18 @@
 <template>
   <div>
     <t-select
-      v-model="value"
-      class="demo-select-base"
+      :defaultValue="defaultValue"
       clearable
       placeholder="-请选择-"
+      :onClear="handleClear"
       style="width: 200px;"
       @change="handleChange"
-      @visible-change="visibleChange"
     >
       <t-option
         v-for="(item, index) in options"
-        :key="index"
         :value="item.value"
         :label="item.label"
+        :key="index"
       >
         {{ item.label }}
       </t-option>
@@ -35,26 +34,20 @@ export default {
           value: '2',
         },
         {
-          label: '很长很长很长的选项三',
+          label: '很长很长很很长很长很长的选项三',
           value: '3',
         },
       ],
-      value: '1',
+      defaultValue: '1',
     };
   },
   methods: {
     handleChange(value) {
-      console.log(value);
+      console.log('handleChange:', value);
     },
-    visibleChange(val) {
-      console.log('visible', val);
+    handleClear({ e }) {
+      console.log('handleClear:', e);
     },
   },
 };
 </script>
-<style scoped>
-.demo-select-base {
-  display: inline-block;
-  margin: 0 20px;
-}
-</style>

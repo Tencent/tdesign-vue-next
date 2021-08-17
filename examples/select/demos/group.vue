@@ -2,21 +2,10 @@
   <div>
     <t-select
       v-model="value"
-      class="demo-select-base"
-      @change="handleChange"
-      @visible-change="visibleChange"
+      placeholder="-请选择-"
+      style="width: 200px;"
     >
       <t-option-group label="热门城市">
-        <t-option
-          v-for="(item, index) in options"
-          :value="item.value"
-          :label="item.label"
-          :key="index"
-        >
-          {{ item.label }}
-        </t-option>
-      </t-option-group>
-      <t-option-group label="广东省">
         <t-option
           v-for="(item, index) in options1"
           :value="item.value"
@@ -26,9 +15,19 @@
           {{ item.label }}
         </t-option>
       </t-option-group>
-      <t-option-group label="江苏省">
+      <t-option-group label="广东省">
         <t-option
           v-for="(item, index) in options2"
+          :value="item.value"
+          :label="item.label"
+          :key="index"
+        >
+          {{ item.label }}
+        </t-option>
+      </t-option-group>
+      <t-option-group label="江苏省">
+        <t-option
+          v-for="(item, index) in options3"
           :value="item.value"
           :label="item.label"
           :key="index"
@@ -44,14 +43,14 @@
 export default {
   data() {
     return {
-      options: [{
+      options1: [{
         label: '北京',
         value: 'beijing',
       }, {
         label: '上海',
         value: 'shanghai',
       }],
-      options1: [{
+      options2: [{
         label: '广州',
         value: 'guangzhou',
       }, {
@@ -61,7 +60,7 @@ export default {
         label: '东莞',
         value: 'dongguang',
       }],
-      options2: [{
+      options3: [{
         label: '南京',
         value: 'nanjing',
       }, {
@@ -74,20 +73,5 @@ export default {
       value: '',
     };
   },
-  methods: {
-    handleChange(value) {
-      console.log(value);
-    },
-    visibleChange(val) {
-      console.log('visible', val);
-    },
-  },
 };
 </script>
-<style scoped>
-  .demo-select-base {
-    width: 200px;
-    display: inline-block;
-    margin: 0 20px;
-  }
-</style>

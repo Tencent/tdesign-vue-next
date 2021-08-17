@@ -5,6 +5,7 @@ import { Button as TButton } from '../button';
 import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
+import TransferDom from '../utils/transfer-dom';
 
 const name = `${prefix}-drawer`;
 
@@ -14,6 +15,10 @@ export default defineComponent({
   components: {
     TIconClose,
     TButton,
+  },
+
+  directives: {
+    TransferDom,
   },
 
   props: { ...props },
@@ -105,22 +110,22 @@ export default defineComponent({
     getDefaultFooter() {
       return (
         <div>
-          <t-button variant="outline" onClick={this.cancelBtnAction} {...this.getBtnProps(this.cancelBtn)}>
-            { this.getBtnText(this.cancelBtn) }
-          </t-button>
           <t-button onClick={this.confirmBtnAction} {...this.getBtnProps(this.confirmBtn)}>
-            { this.getBtnText(this.confirmBtn) }
+            { this.getBtnText(this.confirmBtn) || '确认' }
+          </t-button>
+          <t-button variant="outline" onClick={this.cancelBtnAction} {...this.getBtnProps(this.cancelBtn)}>
+            { this.getBtnText(this.cancelBtn) || '取消' }
           </t-button>
         </div>
       );
     },
-    onCloseBtnClick(e: MouseEvent) {
+    handleCloseBtnClick(e: MouseEvent) {
       this.$emit('click-close-btn', e);
       this.closeDrawer({ trigger: 'close-btn', e });
     },
     handleWrapperClick(e: MouseEvent) {
       this.$emit('click-overlay', e);
-      if (this.closeOnClickOverlay) {
+      if (this.closeOnOverlayClick) {
         this.closeDrawer({ trigger: 'overlay', e });
       }
     },
@@ -155,12 +160,12 @@ export default defineComponent({
         onKeydown={this.onKeyDown}
         v-transfer-dom={this.attach}
       >
-        {this.showOverlay && <div class='t-drawer__mask' onClick={this.handleWrapperClick}/>}
+        {this.showOverlay && <div class={`${name}__mask`} onClick={this.handleWrapperClick}/>}
         <div class={this.wraperClasses} style={this.wraperStyles}>
-          <div class='t-drawer__header'>{renderTNodeJSX(this, 'header')}</div>
-          <div class='t-drawer__close-btn' onClick={this.onCloseBtnClick}>{renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}</div>
-          <div class="t-drawer__body">{body}</div>
-          <div class="t-drawer__footer">{renderTNodeJSX(this, 'footer', defaultFooter)}</div>
+          <div class={`${name}__header`}>{renderTNodeJSX(this, 'header')}</div>
+          <div class={`${name}__close-btn`} onClick={this.handleCloseBtnClick}>{renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}</div>
+          <div class={`${name}__body`}>{body}</div>
+          {this.footer ? <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div> : null }
         </div>
       </div>
     );

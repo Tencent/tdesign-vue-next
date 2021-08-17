@@ -1,11 +1,11 @@
 import { defineComponent, nextTick } from 'vue';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import { renderTNodeJSX, renderSlotJSX } from '../utils/render-tnode';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconChevronDown from '../icon/chevron-down';
 import TIconClose from '../icon/close';
 import TIconLoading from '../icon/loading';
-import Input from '../input/index';
+import Input from '../input';
 import Tag from '../tag/index';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
@@ -408,7 +408,7 @@ export default defineComponent({
       showCreateOption,
       displayOptions,
     } = this;
-    const children = renderTNodeJSX(this, 'default');
+    const children = renderSlotJSX(this, 'default');
     const prefixIconSlot = renderTNodeJSX(this, 'prefixIcon');
     const emptySlot = renderTNodeJSX(this, 'empty');
     const loadingTextSlot = renderTNodeJSX(this, 'loadingText');
@@ -482,7 +482,7 @@ export default defineComponent({
                   disabled={disabled}
                   onClose={this.removeTag.bind(null, index)}
                 >
-                  { get(item, realLabel) }
+                  { get(item, realLabel) === '' ? get(item, realValue) : get(item, realLabel) }
                 </tag>
               ))
             }
