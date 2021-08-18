@@ -1,7 +1,7 @@
 import { VNode, defineComponent, h } from 'vue';
 import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
-import props from './props';
+import props from './radio-group-props';
 import { RadioOptionObj, RadioOption, RadioValue } from './type';
 import { prefix } from '../config';
 import Radio, { radioBtnName } from './radio';
