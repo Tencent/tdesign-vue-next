@@ -1,7 +1,7 @@
 import { VNode, defineComponent } from 'vue';
 import TableCell from './table-cell';
-import { BaseTableCol, CellData } from '../../../types/base-table/TdBaseTableProps';
-import baseTableProps from '../../../types/base-table/props';
+import { BaseTableCol, CellData } from '../type';
+import baseTableProps from '../base-table-props';
 import { prefix } from '../../config';
 
 export default defineComponent({

@@ -1,5 +1,5 @@
 import { defineComponent, VNode } from 'vue';
-import BaseTableProps from '../../../types/base-table/props';
+import BaseTableProps from '../base-table-props';
 import { prefix } from '../../config';
 
 export default defineComponent({

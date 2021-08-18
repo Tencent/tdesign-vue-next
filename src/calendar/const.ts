@@ -1,5 +1,11 @@
-import { ModeOption } from './type/index';
 import { prefix } from '../config';
+
+interface ModeOption {
+  // 选项值
+  value: string;
+  // 选项展示的文本
+  label: string;
+}
 
 /** 常量 */
 // 组件名

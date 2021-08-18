@@ -1,5 +1,5 @@
 import { defineComponent, PropType } from 'vue';
-import { SortType } from '../../../types/primary-table/TdPrimaryTableProps';
+import { SortType } from '../type';
 import { prefix } from '../../config';
 import Tooltip from '../../tooltip';
 import TIconChevronUp from '../../icon/chevron-up';

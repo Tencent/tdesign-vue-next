@@ -9,7 +9,7 @@ import pickerPanel from './panel';
 import Input from './input';
 import Icon from '../icon';
 import { clickOut } from '../utils/dom';
-import props from '../../types/time-picker/props';
+import props from './props';
 
 import { EPickerCols, pmList, amList } from './constant';
 

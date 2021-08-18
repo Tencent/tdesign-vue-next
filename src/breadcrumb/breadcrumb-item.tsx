@@ -2,7 +2,7 @@
 import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
 import IconChevronRight from '../icon/chevron-right';
-import props from '../../types/breadcrumb-item/props';
+import props from './breadcrumb-item-props';
 
 const name = `${prefix}-breadcrumbItem`;
 const separatorClass = `${prefix}-breadcrumb__separator`;

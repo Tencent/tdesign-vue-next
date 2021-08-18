@@ -1,7 +1,7 @@
 import { VNode, PropType, defineComponent, h } from 'vue';
 import { prefix } from '../../config';
-import { RowspanColspan } from '../../../types/base-table/TdBaseTableProps';
-import baseTableProps from '../../../types/base-table/props';
+import { RowspanColspan } from '../type';
+import baseTableProps from '../base-table-props';
 import TableCell from './table-cell';
 import get from 'lodash/get';
 import { CustomData, CellData, CellParams } from '../util/interface';

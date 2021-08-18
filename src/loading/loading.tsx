@@ -1,26 +1,21 @@
 import { defineComponent } from 'vue';
-import { prefix } from '../config';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import { SIZE_CLASSNAMES } from '../utils/classnames';
-import Icon from '../icon/iconfont';
-import { addClass, removeClass } from '../utils/dom';
-import props from './props';
-import TransferDom from '../utils/transfer-dom';
 import GradientIcon from './icon/gradient';
+import { prefix } from '../config';
+import { SIZE_CLASSNAMES } from '../utils/classnames';
+import { addClass, removeClass } from '../utils/dom';
+import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
+import TransferDom from '../utils/transfer-dom';
+import props from './props';
 
 const name = `${prefix}-loading`;
-const wrapperClass = `${prefix}-loading__wrapper`;
 const fullscreenClass = `${prefix}-loading-fullscreen`;
+const lockClass = `${prefix}-loading-lock`;
 const maskClass = `${prefix}-loading-mask`;
 const relativeClass = `${prefix}-loading-parent__relative`;
-const lockClass = `${prefix}-loading-lock`;
+const wrapperClass = `${prefix}-loading__wrapper`;
 
 export default defineComponent({
   name,
-
-  components: {
-    [Icon.name]: Icon,
-  },
 
   directives: {
     TransferDom,

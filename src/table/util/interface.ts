@@ -1,6 +1,5 @@
-import { BaseTableCol, RenderType } from '../../../types/base-table/TdBaseTableProps';
-import primaryTableProps from '../../../types/primary-table/props';
-import { PrimaryTableCol, SortType, TdPrimaryTableProps } from '../../../types/primary-table/TdPrimaryTableProps';
+import primaryTableProps from '../primary-table-props';
+import { BaseTableCol, RenderType, PrimaryTableCol, SortType, TdPrimaryTableProps } from '../type';
 import { App } from 'vue';
 
 export type CustomRenderName = 'title' | 'cell' | 'render';

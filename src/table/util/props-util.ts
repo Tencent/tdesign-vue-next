@@ -1,4 +1,4 @@
-import { BaseTableCol } from '../../../types/base-table/TdBaseTableProps';
+import { BaseTableCol } from '../type';
 
 export function flatColumns(columns: Array<BaseTableCol>): Array<BaseTableCol> {
   const result: Array<BaseTableCol> = [];

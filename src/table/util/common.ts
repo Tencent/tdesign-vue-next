@@ -1,4 +1,4 @@
-import { PrimaryTableCol } from '../../../types/primary-table/TdPrimaryTableProps';
+import { PrimaryTableCol } from '../type';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 import { h, SetupContext, VNodeChild } from 'vue';

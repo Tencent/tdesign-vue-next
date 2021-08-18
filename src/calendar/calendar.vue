@@ -162,14 +162,7 @@
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue';
-import {
-  CalendarCell,
-  ControllerOptions,
-  TdCalendarProps,
-  CalendarWeek,
-  WeekDay,
-} from '../../types/calendar/TdCalendarProps';
-import props from '../../types/calendar/props';
+import props from './props';
 // 通用库
 import dayjs from 'dayjs';
 import calendar from 'dayjs/plugin/calendar';
@@ -203,7 +196,12 @@ import {
   CellColHeader,
   CellEventOption,
   TextConfigType,
-} from './type/index';
+  CalendarWeek,
+  WeekDay,
+  TdCalendarProps,
+  ControllerOptions,
+  CalendarCell,
+} from './interface';
 
 dayjs.extend(calendar);
 
