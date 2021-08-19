@@ -59,7 +59,7 @@ export default {
         {
           name: '可删除标签',
           type: 'default',
-          icon: () => <t-icon-discount />,
+          icon: () => <TIconDiscount />,
           showClose: true,
         },
         {

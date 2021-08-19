@@ -1,2 +1,2 @@
-export const LOAD_MORE = 'loading-more';
+export const LOAD_MORE = 'load-more';
 export const LOADING = 'loading';

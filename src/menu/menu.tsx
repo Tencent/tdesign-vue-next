@@ -44,14 +44,8 @@ export default defineComponent({
 
     const activeIndexValue = ref(props.defaultValue || props.value);
     const expandedArray = ref(props.expanded || []);
-    const deliver = (evt: string) => {
-      const func = `on${evt[0].toUpperCase() + evt.slice(1)}`;
-      return (val: any) => {
-        if (typeof props[func] === 'function') {
-          props[func](val);
-        }
-        ctx.emit(evt, val);
-      };
+    const deliver = (evt: string) => (val: any) => {
+      ctx.emit(evt, val);
     };
     const emitChange = deliver('change');
     const emitExpand = deliver('expand');
@@ -69,8 +63,10 @@ export default defineComponent({
       theme,
       isHead: false,
       select: (val: MenuValue) => {
-        activeIndexValue.value = val;
-        emitChange(val);
+        if (val !== activeIndexValue.value) {
+          activeIndexValue.value = val;
+          emitChange(val);
+        }
       },
       open: (val: MenuValue) => {
         const index = expandedArray.value.indexOf(val);
