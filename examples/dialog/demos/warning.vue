@@ -35,7 +35,7 @@
 
     <t-button theme="primary" @click="visible4 = true">错误反馈</t-button>
     <t-dialog
-      theme="error"
+      theme="danger"
       header="错误"
       body="对话框内容"
       v-model:visible="visible4"

@@ -3,7 +3,7 @@ import upperFirst from 'lodash/upperFirst';
 import TreeStore from '../../common/js/tree/tree-store';
 import TreeNode from '../../common/js/tree/tree-node';
 import TreeItem from './tree-item';
-import props from '../../types/tree/props';
+import props from './oldType/props';
 import {
   TreeNodeValue,
   TypeValueMode,

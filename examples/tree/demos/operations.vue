@@ -10,8 +10,14 @@
     />
     <h3 class="title">scope slot:</h3>
     <div class="operations">
-      <t-button :variant="btnSetActivedVariant" @click="setUseActived">插入节点使用高亮节点</t-button>
-      <t-button :variant="expandParent ? 'base' : 'outline'"  @click="toggleExpandParent">子节点展开触发父节点展开</t-button>
+      <t-form labelWidth="200">
+        <t-form-item label="插入节点使用高亮节点">
+          <t-switch v-model="useActived"/>
+        </t-form-item>
+        <t-form-item label="子节点展开触发父节点展开">
+          <t-switch v-model="expandParent"/>
+        </t-form-item>
+      </t-form>
     </div>
     <div class="operations">
       <t-addon prepend="filter:">
@@ -95,7 +101,7 @@ export default {
     getLabelContent(node) {
       const pathNodes = node.getPath();
       let label = pathNodes
-        .map(itemNode => (itemNode.getIndex() + 1))
+        .map((itemNode) => (itemNode.getIndex() + 1))
         .join('.');
       label = `${label} | value: ${node.value}`;
       return label;
@@ -121,15 +127,16 @@ export default {
     getAllItems() {
       const { tree } = this.$refs;
       const nodes = tree.getItems();
-      console.info('getAllItems:', nodes.map(node => node.value));
+      console.info('getAllItems:', nodes.map((node) => node.value));
     },
     getActiveChildren() {
       const node = this.getActivedNode();
+      if (!node) return;
       let nodes = [];
       if (node) {
         nodes = node.getChildren(true) || [];
       }
-      console.info('getActiveChildren:', nodes.map(node => node.value));
+      console.info('getActiveChildren:', nodes.map((node) => node.value));
     },
     getAllActived() {
       console.info('getActived value:', this.activeIds.slice(0));
@@ -137,12 +144,13 @@ export default {
     getActiveChecked() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
+      if (!node) return;
       const nodes = tree.getItems(node.value);
       console.info(
         'getChecked:',
         nodes
-          .filter(node => node.checked)
-          .map(node => node.value)
+          .filter((node) => node.checked)
+          .map((node) => node.value),
       );
     },
     getActivedNode() {
@@ -222,7 +230,7 @@ export default {
       if (item) {
         tree.insertAfter(node.value, item);
         this.setLabel(item.value);
-      };
+      }
     },
     setUseActived() {
       this.useActived = !this.useActived;
@@ -230,18 +238,21 @@ export default {
     getActiveParent() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
+      if (!node) return;
       const parent = tree.getParent(node.value);
       console.info('getParent', parent?.value);
     },
     getActiveParents() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
+      if (!node) return;
       const parents = tree.getParents(node.value);
-      console.info('getParents', parents.map(node => node.value));
+      console.info('getParents', parents.map((node) => node.value));
     },
     setActiveChecked() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
+      if (!node) return;
       tree.setItem(node?.value, {
         checked: true,
       });
@@ -249,6 +260,7 @@ export default {
     setActiveExpanded() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
+      if (!node) return;
       tree.setItem(node?.value, {
         expanded: true,
       });
@@ -256,13 +268,14 @@ export default {
     getActiveIndex() {
       const { tree } = this.$refs;
       const node = this.getActivedNode();
+      if (!node) return;
       const index = tree.getIndex(node.value);
       console.info('getIndex', index);
     },
     getActivePlainData() {
       const node = this.getActivedNode();
+      if (!node) return;
       const data = this.getPlainData(node);
-      console.log('getActivePlainData', data);
       return data;
     },
     remove(node) {

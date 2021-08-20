@@ -15,9 +15,9 @@
       activable
       :expand-on-click-node="false"
       :active-multiple="false"
-      v-model:expanded="expanded"
-      v-model:actived="actived"
-      v-model:value="checked"
+      :expanded="expanded"
+      :actived="actived"
+      :value="checked"
       :value-mode="valueMode"
     />
   </div>
@@ -105,28 +105,28 @@ export default {
       if (Array.isArray(this.checked)) {
         arr = this.checked;
       }
-      return arr.map(val => `{${val}}`).join(', ');
+      return arr.map((val) => `{${val}}`).join(', ');
     },
     allExpanded() {
       let arr = [];
       if (Array.isArray(this.expanded)) {
         arr = this.expanded;
       }
-      return arr.map(val => `{${val}}`).join(', ');
+      return arr.map((val) => `{${val}}`).join(', ');
     },
     allActived() {
       let arr = [];
       if (Array.isArray(this.actived)) {
         arr = this.actived;
       }
-      return arr.map(val => `{${val}}`).join(', ');
+      return arr.map((val) => `{${val}}`).join(', ');
     },
   },
   methods: {
     getValueFromString(val) {
       const arr = val.split(',');
       const vals = [];
-      arr.map(str => str.trim()).forEach((tag) => {
+      arr.map((str) => str.trim()).forEach((tag) => {
         const match = (/^\{([^{}]+)\}$/).exec(tag);
         if (match && match[1]) {
           vals.push(match[1]);

@@ -30,9 +30,8 @@
       <t-list-item>
         <t-list-item-meta
           :avatar="avatarUrl"
-          title="列表主内容"
-        >
-          <template slot="description">
+          title="列表主内容">
+          <template #description>
             <p>列表内容列表内容列表内容</p>
             <p>列表内容列表内容列表内容</p>
             <p>列表内容列表内容列表内容</p>

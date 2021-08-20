@@ -9,25 +9,31 @@
 
     <t-notification theme="info" title="可跳转的消息通知" content="这种一条消息通知" :footer="footer2" />
     <t-notification theme="info" title="可跳转的消息通知" content="这种一条消息通知">
-      <div slot="footer" class="t-notification__detail">
-        <span class="t-notification__detail--item">知道了</span>
-      </div>
+      <template #footer>
+        <div class="t-notification__detail">
+          <span class="t-notification__detail--item">知道了</span>
+        </div>
+      </template>
     </t-notification>
     <t-notification theme="info" title="可跳转的消息通知" content="这种一条消息通知" v-if="visible">
-      <div slot="footer" class="t-notification__detail">
-        <span class="t-notification__detail--item">重启</span>
-        <span class="t-notification__detail--item t-is-active" @click="remind">稍后提醒我(10s)</span>
-      </div>
+      <template #footer>
+        <div class="t-notification__detail">
+          <span class="t-notification__detail--item">重启</span>
+          <span class="t-notification__detail--item t-is-active" @click="remind">稍后提醒我(10s)</span>
+        </div>
+      </template>
     </t-notification>
     <t-notification theme="info" title="可跳转的消息通知" content="这种一条消息通知">
-      <div slot="footer" class="t-notification__detail">
-        <span class="t-notification__detail--item">重启</span>
-        <t-dropdown :options="options">
-          <t-button variant="text" class="tdesign-demo-dropdown"
-          >更多 <t-icon name="chevron-down" class="tdesign-demo-arrow"
-          /></t-button>
-        </t-dropdown>
-      </div>
+      <template #footer>
+        <div  class="t-notification__detail">
+          <span class="t-notification__detail--item">重启</span>
+          <t-dropdown :options="options">
+            <t-button variant="text" class="tdesign-demo-dropdown"
+            >更多 <t-icon name="chevron-down" class="tdesign-demo-arrow"
+            /></t-button>
+          </t-dropdown>
+        </div>
+      </template>
     </t-notification>
   </div>
 </template>

@@ -2,7 +2,7 @@
 import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
 import IconChevronRight from '../icon/chevron-right';
-import props from '../../types/breadcrumb-item/props';
+import props from './breadcrumb-item-props';
 
 const name = `${prefix}-breadcrumbItem`;
 const separatorClass = `${prefix}-breadcrumb__separator`;
@@ -86,9 +86,8 @@ export default defineComponent({
 
   render() {
     const { localTBreadcrumb, maxWithStyle } = this;
-    const { separator } = localTBreadcrumb;
+    const { separator: separatorPropContent } = localTBreadcrumb;
     const separatorSlot = localTBreadcrumb.$slots.separator;
-    const separatorPropContent = typeof separator === 'function' ? separator() : separator;
     const separatorContent = separatorPropContent || separatorSlot || (<IconChevronRight {...{ color: 'rgba(0,0,0,.3)' }} />);
     const itemClass = [
       `${prefix}-breadcrumb__item`,
@@ -128,7 +127,7 @@ export default defineComponent({
     return (
       <div class={itemClass}>
         {itemContent}
-        <span class={separatorClass}>{separatorContent}</span>
+        <span class={separatorClass}>{typeof separatorContent === 'function' ? separatorContent() : separatorContent}</span>
       </div>
     );
   },

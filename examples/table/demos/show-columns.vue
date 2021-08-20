@@ -40,7 +40,7 @@ export default {
 
 <style lang="less" scoped>
 @import '../../../common/style/web/_variables.less';
-/deep/ [class*='t-button'] .t-icon {
+:deep([class*='t-button']) .t-icon {
   background-color: transparent;
 }
 .link {

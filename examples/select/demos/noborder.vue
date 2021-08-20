@@ -1,10 +1,13 @@
 <template>
   <div>
-    <t-select v-model="value" :bordered="false" class="demo-select-base" clearable @change="handleChange" @visible-change="visibleChange">
-      <t-option v-for="(item, index) in options" :value="item.value" :label="item.label" :key="index">
-        {{ item.label }}
-      </t-option>
-    </t-select>
+    <t-select
+      v-model="value"
+      :bordered="false"
+      style="width: 200px;"
+      placeholder="-请选择-"
+      clearable
+      :options="options"
+    />
   </div>
 </template>
 
@@ -29,20 +32,5 @@ export default {
       value: '1',
     };
   },
-  methods: {
-    handleChange(value) {
-      console.log(value);
-    },
-    visibleChange(val) {
-      console.log('visible', val);
-    },
-  },
 };
 </script>
-<style scoped>
-.demo-select-base {
-  width: 200px;
-  display: inline-block;
-  margin: 0 20px;
-}
-</style>

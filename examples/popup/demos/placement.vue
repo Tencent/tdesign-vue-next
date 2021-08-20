@@ -7,7 +7,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>top</t-button>
+      <t-button variant='outline'>top</t-button>
     </t-popup>
     <t-popup
       class="placement-top-left"
@@ -16,7 +16,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>top-left</t-button>
+      <t-button variant='outline'>top-left</t-button>
     </t-popup>
     <t-popup
       class="placement-top-right"
@@ -25,7 +25,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>top-right</t-button>
+      <t-button variant='outline'>top-right</t-button>
     </t-popup>
     <t-popup
       class="placement-bottom"
@@ -34,7 +34,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>bottom</t-button>
+      <t-button variant='outline'>bottom</t-button>
     </t-popup>
     <t-popup
       class="placement-bottom-left"
@@ -43,7 +43,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>bottom-left</t-button>
+      <t-button variant='outline'>bottom-left</t-button>
     </t-popup>
     <t-popup
       class="placement-bottom-right"
@@ -52,7 +52,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>bottom-right</t-button>
+      <t-button variant='outline'>bottom-right</t-button>
     </t-popup>
     <t-popup
       class="placement-left"
@@ -61,7 +61,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>left</t-button>
+      <t-button variant='outline'>left</t-button>
     </t-popup>
     <t-popup
       class="placement-left-top"
@@ -70,7 +70,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>left-top</t-button>
+      <t-button variant='outline'>left-top</t-button>
     </t-popup>
     <t-popup
       class="placement-left-bottom"
@@ -79,7 +79,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>left-bottom</t-button>
+      <t-button variant='outline'>left-bottom</t-button>
     </t-popup>
     <t-popup
       class="placement-right"
@@ -88,7 +88,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>right</t-button>
+      <t-button variant='outline'>right</t-button>
     </t-popup>
     <t-popup
       class="placement-right-top"
@@ -97,7 +97,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>right-top</t-button>
+      <t-button variant='outline'>right-top</t-button>
     </t-popup>
     <t-popup
       class="placement-right-bottom"
@@ -106,7 +106,7 @@
       showArrow
       destroyOnHide
     >
-      <t-button>right-bottom</t-button>
+      <t-button variant='outline'>right-bottom</t-button>
     </t-popup>
   </div>
 </template>

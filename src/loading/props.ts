@@ -5,7 +5,7 @@
  * updated at 2021-08-10 17:18:59
  * */
 
-import { TdLoadingProps } from './newtype';
+import { TdLoadingProps } from './type';
 import { PropType } from 'vue';
 
 export default {

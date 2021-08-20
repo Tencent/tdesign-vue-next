@@ -83,7 +83,7 @@ export default {
 </script>
 <style lang="less">
 @import '../../../common/style/web/_variables.less';
-/deep/ [class*='t-table-expandable-icon-cell'] .t-icon {
+:deep([class*='t-table-expandable-icon-cell']) .t-icon {
   background-color: transparent;
 }
 .demo-container {

@@ -1,11 +1,7 @@
 <template>
-  <t-transfer
-    theme="primary"
-    :data="list"
-    v-model="targetValue"
-    :checked-value="checkedValue"
-    :search="true"
-  />
+  <div>
+    <t-transfer theme="primary" :data="list" v-model="targetValue" :checked-value="checkedValue" :search="true" />
+  </div>
 </template>
 <script>
 const list = [];

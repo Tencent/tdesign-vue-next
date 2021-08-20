@@ -134,14 +134,17 @@ export default defineComponent({
         title={labelText}
         onMouseenter={ this.mouseEvent.bind(true) }
         onMouseleave={ this.mouseEvent.bind(false) }
-        onClick={ this.select }
+        onClick={ (e: MouseEvent) => {
+          e.preventDefault();
+          this.select(e);
+        } }
       >
         {
           this.tSelect && this.tSelect.multiple
             ? <t-checkbox
                 checked={selected}
                 disabled={disabled || multiLimitDisabled}
-                nativeOnClick={ (e: MouseEvent) => {
+                click={ (e: MouseEvent) => {
                   e.preventDefault();
                 } }
               >

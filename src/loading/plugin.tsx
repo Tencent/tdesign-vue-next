@@ -1,62 +1,77 @@
-import Loading from './loading';
-import { App, Plugin, createApp, ref, defineComponent } from 'vue';
-import { LoadingProps } from './type';
+import LoadingComponent from './loading';
+import { App, Plugin, createApp, defineComponent, h } from 'vue';
+import { prefix } from '../config';
+import { getAttach, removeClass } from '../utils/dom';
+import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
 
-import type { Ref } from 'vue';
+const lockClass = `${prefix}-loading-lock`;
 
-interface TdLoadingHandlder {
-  show: () => void;
-  hide: () => void;
-}
-interface TdLoadingPlugin {
-  (opts: LoadingProps): TdLoadingHandlder;
-  show?: (opts: LoadingProps) => void;
-  hide?: (opts: LoadingProps) => void;
-  install?: Plugin;
-}
-
-let wrapper: Element = null;
-let loading: Ref<boolean> = ref(false);
-
-function createLoading(options: LoadingProps): TdLoadingHandlder {
-  if (options.loading) {
-    if (wrapper) {
-      loading.value = true;
-    } else {
-      loading = ref(true);
-      wrapper = document.createElement('div');
-      const componet = defineComponent({
-        render() {
-          return (<Loading {...options} loading={loading.value} fullscreen isService />);
-        },
+function createLoading(props: TdLoadingProps): LoadingInstance {
+  const options = { ...props };
+  const component = defineComponent({
+    data() {
+      return {
+        loadingOptions: options as Record<string, any>,
+      };
+    },
+    render() {
+      return h(LoadingComponent, {
+        ...this.loadingOptions,
       });
-      createApp(componet).mount(wrapper);
-      document.body.appendChild(wrapper);
-    }
+    },
+  });
+
+  const container = getAttach(props.attach);
+
+  const loading = createApp(component).mount(document.createElement('div'));
+
+  if (container) {
+    container.appendChild(loading.$el);
   } else {
-    document.body.removeChild(wrapper);
+    console.error('attach is not exist');
   }
 
-  return {
-    show: () => {
-      loading.value = true;
-    },
+  const loadingInstance: LoadingInstance = {
     hide: () => {
-      loading.value = false;
+      container.contains(loading.$el) && container.removeChild(loading.$el);
+      if (props.attach) {
+        while (container.getElementsByClassName('t-loading').length) {
+          container.removeChild(container.getElementsByClassName('t-loading')[0]);
+        }
+      }
     },
   };
+  return loadingInstance;
 }
 
-const LoadingPlugin: TdLoadingPlugin = createLoading;
+function produceLoading(props: boolean | TdLoadingProps): LoadingInstance {
+  // 全屏加载
+  if (typeof props === 'boolean' && props) {
+    return createLoading({
+      fullscreen: true,
+      loading: true,
+    });
+  }
 
-LoadingPlugin.show = (options: LoadingProps) => {
-  createLoading({ ...options, loading: true });
-};
-LoadingPlugin.hide = (options: LoadingProps) => {
-  createLoading({ ...options, loading: false });
-};
+  // 销毁全屏实例
+  if (typeof props === 'boolean' && !props) {
+    removeClass(document.body, lockClass);
+    document.body.removeChild(getAttach('body > .t-loading-fullscreen'));
+    return;
+  }
+
+  // 自定义配置
+  const options = { ...(props as TdLoadingProps) };
+  return createLoading(options);
+}
+
+export type LoadingPluginType = Plugin & LoadingMethod;
+
+const LoadingPlugin: LoadingPluginType = produceLoading as LoadingPluginType;
+
 LoadingPlugin.install = (app: App) => {
-  app.config.globalProperties.$loading = LoadingPlugin; // eslint-disable-line
+  // eslint-disable-next-line no-param-reassign
+  app.config.globalProperties.$loading = produceLoading;
 };
 
 export default LoadingPlugin;

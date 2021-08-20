@@ -3,22 +3,11 @@
     <t-select
       v-model="value"
       placeholder="-请选择-"
-      :clearable="true"
       multiple
-      :multipleLimit="2"
-      class="demo-select-base"
-      @change="handleChange"
+      :options="options"
+      :onChange="handleChange"
       @remove="handleRemove"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
+    />
   </div>
 </template>
 
@@ -41,18 +30,11 @@ export default {
   },
   methods: {
     handleChange(value) {
-      console.log(value);
+      console.log('handleChange:', value);
     },
     handleRemove(value) {
-      console.log(value);
+      console.log('handleRemove:', value);
     },
   },
 };
 </script>
-<style scoped>
-  .demo-select-base {
-    width: 290px;
-    display: inline-block;
-    margin: 0 20px;
-  }
-</style>

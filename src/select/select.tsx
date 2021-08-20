@@ -5,7 +5,7 @@ import CLASSNAMES from '../utils/classnames';
 import TIconChevronDown from '../icon/chevron-down';
 import TIconClose from '../icon/close';
 import TIconLoading from '../icon/loading';
-import Input from '../input/index';
+import Input from '../input';
 import Tag from '../tag/index';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
@@ -482,7 +482,7 @@ export default defineComponent({
                   disabled={disabled}
                   onClose={this.removeTag.bind(null, index)}
                 >
-                  { get(item, realLabel) }
+                  { get(item, realLabel) === '' ? get(item, realValue) : get(item, realLabel) }
                 </tag>
               ))
             }

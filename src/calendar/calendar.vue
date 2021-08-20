@@ -161,21 +161,14 @@
 </template>
 
 <script lang="ts">
-import {
-  CalendarCell,
-  ControllerOptions,
-  TdCalendarProps,
-  CalendarWeek,
-  WeekDay,
-} from '../../types/calendar/TdCalendarProps';
-import props from '../../types/calendar/props';
+import { ref, defineComponent } from 'vue';
+import props from './props';
 // 通用库
 import dayjs from 'dayjs';
 import calendar from 'dayjs/plugin/calendar';
 import { useLocalRecevier } from '../locale/local-receiver';
 import * as utils from './utils';
-// import { getPropsApiByEvent } from '../utils/helper';
-import { SizeEnum } from '../common';
+import { getPropsApiByEvent } from '../utils/helper';
 
 // 组件的一些常量
 import {
@@ -196,16 +189,19 @@ import { RenderTNodeTemplate } from '../utils/render-tnode';
 
 // 组件相关的自定义类型
 import {
-  // CalendarData,
+  CalendarData,
   CalendarRange,
   YearMonthOption,
   ModeOption,
   CellColHeader,
   CellEventOption,
   TextConfigType,
-} from './type/index';
-import { defineComponent } from '@vue/runtime-core';
-import { ref } from 'vue';
+  CalendarWeek,
+  WeekDay,
+  TdCalendarProps,
+  ControllerOptions,
+  CalendarCell,
+} from './interface';
 
 dayjs.extend(calendar);
 

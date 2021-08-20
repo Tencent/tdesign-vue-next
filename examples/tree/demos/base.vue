@@ -1,6 +1,6 @@
 <template>
   <div class="tdesign-tree-base">
-    <t-tree :data="items" transition/>
+    <t-tree :data="items" activable hover transition/>
   </div>
 </template>
 
@@ -9,18 +9,32 @@ export default {
   data() {
     return {
       items: [{
-        label: '1',
+        label: '第一段',
         children: [{
-          label: '1.1',
+          label: '第二段',
         }, {
-          label: '1.2',
+          label: '第二段',
         }],
       }, {
-        label: '2',
+        label: '第一段',
         children: [{
-          label: '2.1',
+          label: '第二段',
         }, {
-          label: '2.2',
+          label: '第二段',
+        }],
+      }, {
+        label: '第一段',
+        children: [{
+          label: '第二段',
+        }, {
+          label: '第二段',
+        }],
+      }, {
+        label: '第一段',
+        children: [{
+          label: '第二段',
+        }, {
+          label: '第二段',
         }],
       }],
     };

@@ -57,7 +57,7 @@ export default {
         value: 'longest',
       }],
       value: '',
-      vaule: '',
+      value1: '',
       value2: '',
       popupProps: {
         overlayStyle: {

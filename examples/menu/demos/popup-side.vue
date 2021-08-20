@@ -1,8 +1,8 @@
 <template>
 
-  <t-menu theme="light" active="2-1" :expanded=expanded :collapsed="collapsed" expandMutex @expand="handleExpand">
+  <t-menu theme="light" defaultValue="2-1" :expanded=expanded :collapsed="collapsed" expandMutex @expand="handleExpand" @change="changeHandler">
     <template #logo>
-      <img :width="collapsed ? 35 : 136" class="t-menu__logo--center" :src="iconUrl" alt="logo">
+      <img :width="collapsed ? 35 : 136"  :src="iconUrl" alt="logo">
     </template>
     <t-menu-item value="item1">
       <template #icon>
@@ -38,7 +38,7 @@
       </template>
       资源列表
     </t-menu-item>
-    <template #options>
+    <template #operations>
       <t-icon name="view-list" @click="changeCollapsed" />
     </template>
   </t-menu>
@@ -61,6 +61,9 @@ export default {
     },
     handleExpand(names) {
       console.log('receive handleExpand', names);
+    },
+    changeHandler(active) {
+      console.warn(active)
     },
   },
 };

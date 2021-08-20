@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-list :split="true" async-loading="loading">
+    <t-list :split="true" async-loading="loading" :onLoadMore="onLoadMore">
       <t-list-item>
         <t-list-item-meta :avatar="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
       </t-list-item>
@@ -14,7 +14,7 @@
 
     <div style="margin-bottom:16px"></div>
 
-    <t-list :split="true" async-loading="loading-more" @load-more="loadMore" :onLoadMore="onLoadMore">
+    <t-list :split="true" async-loading="loading-more" @load-more="loadMore">
       <t-list-item v-for="i in listCount" :key="i">
         <t-list-item-meta :avatar="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
       </t-list-item>

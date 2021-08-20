@@ -1,22 +1,17 @@
 <template>
   <div class="tag-demo">
-    <div class="tdesign-demo-block">
-      <t-tag size="small">标签 小</t-tag>
-      <t-tag>标签 中</t-tag>
-      <t-tag size="large">标签 大</t-tag>
-    </div>
-    <div class="tdesign-demo-block">
-      <t-tag size="small" theme="primary">标签 小</t-tag>
-      <t-tag theme="primary">标签 中</t-tag>
-      <t-tag size="large" theme="primary">标签 大</t-tag>
-    </div>
+    <t-tag size="small">小型标签</t-tag>
+    <t-tag>默认标签</t-tag>
+    <t-tag size="large">大型标签</t-tag>
   </div>
 </template>
 
-<style scoped>
-.tag-demo .tdesign-demo-block {
+<style lang="less" scoped>
+.tag-demo {
   width: 500px;
   display: flex;
-  justify-content: space-around;
+  > * {
+    margin-right: 30px;
+  }
 }
 </style>

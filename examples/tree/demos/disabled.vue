@@ -1,7 +1,11 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-button :variant="disabled ? 'base' : 'outline'"  @click="toggleDisabled">禁用树</t-button>
+      <t-form>
+        <t-form-item label="是否禁用">
+          <t-switch v-model="disabled" />
+        </t-form-item>
+      </t-form>
     </div>
     <t-tree
       :data="items"
@@ -44,11 +48,6 @@ export default {
         }],
       }],
     };
-  },
-  methods: {
-    toggleDisabled() {
-      this.disabled = !this.disabled;
-    },
   },
 };
 </script>

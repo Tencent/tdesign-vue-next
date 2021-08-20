@@ -7,7 +7,7 @@ import {
   TreeNodeValue as TdTreeNodeValue,
   TreeNodeModel,
   TreeInstanceFunctions,
-} from '../../types/tree/TdTreeProps';
+} from './oldType/TdTreeProps';
 
 import {
   TypeTreeEventState,
@@ -16,7 +16,7 @@ import {
 export type {
   TreeNodeValue,
   TreeNodeState,
-} from '../../types/tree/TdTreeProps';
+} from './oldType/TdTreeProps';
 
 export type TypeValueMode = TdTreeProps['valueMode'];
 

@@ -1,6 +1,5 @@
 <template>
   <div class="t-demo-tabs">
-    <p class="t-demo-tabs__desc">基本选项卡</p>
     <t-tabs v-model="value">
       <t-tab-panel value="first" label="选项卡1">
         <p style="padding: 25px;">选项卡1</p>

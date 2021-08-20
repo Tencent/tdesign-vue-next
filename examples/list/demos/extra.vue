@@ -12,12 +12,13 @@
           <li><a href="">操作2</a></li>
           <li><a href="">操作3</a></li>
         </template>
-        <div
-          slot="extra"
-          style="height:100px;line-height:100px;width:160px;text-align:center;background: #f0f0f0;"
-        >
-          额外内容
-        </div>
+        <template #extra>
+          <div
+            style="height:100px;line-height:100px;width:160px;text-align:center;background: #f0f0f0;"
+          >
+            额外内容
+          </div>
+        </template>
       </t-list-item>
     </t-list>
   </div>

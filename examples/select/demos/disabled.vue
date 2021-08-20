@@ -5,33 +5,17 @@
       placeholder="-请选择-"
       disabled
       filterable
-      class="demo-select-base"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
+      style="width: 200px;display: inline-block;margin-right: 20px;"
+      :options="options"
+    />
     <t-select
       v-model="value2"
       placeholder="-请选择-"
       multiple
       disabled
-      class="demo-select-base"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
+      style="width: 200px;display: inline-block;"
+      :options="options"
+    />
   </div>
 </template>
 
@@ -55,10 +39,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-  .demo-select-base {
-    width: 200px;
-    display: inline-block;
-    margin: 0 20px;
-  }
-</style>

@@ -1,15 +1,15 @@
 import { defineComponent, VNode, ref, inject } from 'vue';
 import { prefix } from '../../config';
 import { flatColumns } from '../util/props-util';
-import baseTableProps from '../../../types/base-table/props';
-import { DataType, BaseTableCol, RowEventContext } from '../../../types/base-table/TdBaseTableProps';
+import baseTableProps from '../base-table-props';
+import { DataType, BaseTableCol, RowEventContext } from '../type';
 import TableBody from './table-body';
 import TableHeader from './table-header';
 import Loading from './loading-content';
 import TableColGroup from './col-group';
 import Pagination from '../../pagination';
 import { getScrollDirection, SCROLL_DIRECTION } from '../util/common';
-import { PageInfo } from '../../../types/pagination/TdPaginationProps';
+import { PageInfo } from '../../pagination/type';
 import throttle from 'lodash/throttle';
 import { renderTNodeJSX } from '../../utils/render-tnode';
 import { EventNameWithUpperCase } from '../util/interface';

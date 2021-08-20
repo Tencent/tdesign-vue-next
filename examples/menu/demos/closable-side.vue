@@ -1,5 +1,5 @@
 <template>
-  <t-menu theme="light" value="2-1" :collapsed="collapsed" height="550px">
+  <t-menu theme="light" defaultValue="2-1" :collapsed="collapsed" height="550px">
     <template #logo>
       <span>LOGO</span>
     </template>
@@ -32,7 +32,7 @@
       </template>
       资源编辑
     </t-menu-item>
-    <template #options>
+    <template #operations>
       <t-icon :name="iconName" @click="changeCollapsed" />
     </template>
   </t-menu>

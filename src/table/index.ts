@@ -1,9 +1,9 @@
+import _ from 'lodash';
 import _BaseTable from './base-table/index';
 import _PrimaryTable from './primary-table/index';
 import mapProps from '../utils/map-props';
 import withInstall from '../utils/withInstall';
 import { prefix } from '../config';
-
 
 const TPrimaryTable = mapProps([
   {
@@ -27,7 +27,8 @@ const TPrimaryTable = mapProps([
 
 export const BaseTable = withInstall(_BaseTable);
 export const PrimaryTable = withInstall(TPrimaryTable);
-TPrimaryTable.name = `${prefix}-table`;
-export const Table = withInstall(PrimaryTable);
 
+const _LocalTable = _.cloneDeep(TPrimaryTable);
+_LocalTable.name = `${prefix}-table`;
+export const Table = withInstall(_LocalTable);
 export default Table;

@@ -1,12 +1,10 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-07-17 18:09:07
  * */
 
-import { TdListItemProps } from '../list/type';
 import { PropType } from 'vue';
+import { TdListItemProps } from './type';
 
 export default {
   /** 操作栏 */

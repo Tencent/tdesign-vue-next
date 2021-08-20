@@ -14,6 +14,8 @@ export default {
   },
 };
 </script>
-<style>
-
+<style lang="less" scoped>
+.t-textarea {
+    margin-top: 16px;
+}
 </style>

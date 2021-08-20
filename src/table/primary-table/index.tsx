@@ -1,6 +1,6 @@
 import { defineComponent, computed, provide } from 'vue';
-import baseTableProps from '../../../types/base-table/props';
-import primaryTableProps from '../../../types/primary-table/props';
+import baseTableProps from '../base-table-props';
+import primaryTableProps from '../primary-table-props';
 import BaseTable from '../base-table';
 import { prefix } from '../../config';
 import { RenderExpandRowParams } from '../util/interface';

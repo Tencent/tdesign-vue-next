@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="demo-checkbox-row">
-      <t-checkbox v-model="checked">腾讯云A</t-checkbox>
-      <t-checkbox v-model="checked">腾讯云B</t-checkbox>
-      <t-checkbox v-model="checked">腾讯云C</t-checkbox>
+    <div class="demo-checkbox-row-desc">
+      选中值: {{ checked }}
     </div>
-
     <div class="demo-checkbox-row">
-      <t-button @click="checked = false">删除</t-button>
-      <t-button @click="checked = true">开启</t-button>
+      <!-- name 非必需 -->
+      <t-checkbox-group v-model="checked" :options="['北京', '上海', '深圳']" name='city'></t-checkbox-group>
+    </div>
+    <div class="demo-checkbox-row">
+      <t-button @click="checked = ['上海']" size="small">重置</t-button>
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@
 export default {
   data() {
     return {
-      checked: false,
+      checked: ['上海'],
     };
   },
 };
@@ -26,6 +26,10 @@ export default {
 <style scoped>
 .demo-checkbox-row + .demo-checkbox-row {
   margin-top: 16px;
+}
+.demo-checkbox-row-desc {
+  color:rgba(0, 0, 0, 0.6);
+  margin-bottom: 24px;
 }
 .t-checkbox + .t-checkbox,
 .t-button + .t-button {

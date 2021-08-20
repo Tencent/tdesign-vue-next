@@ -2,44 +2,13 @@
   <div>
     <t-select
       v-model="value"
-      class="demo-select-base"
       creatable
       filterable
-      @change="handleChange"
-      @visible-change="visibleChange"
+      placeholder="请选择，支持自定义创建"
+      :options="options"
+      style="width: 200px;"
       @create="createOptions"
-      :filter="filterMethod"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
-    <t-select
-      v-model="value2"
-      class="demo-select-base"
-      multiple
-      clearable
-      creatable
-      filterable
-      @change="handleChange"
-      @create="createOptions"
-      :filter="filterMethod"
-      @visible-change="visibleChange"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
+    />
   </div>
 </template>
 
@@ -62,29 +31,13 @@ export default {
     };
   },
   methods: {
-    handleChange(value) {
-      console.log(value);
-    },
-    visibleChange(value) {
-      console.log('visible', value);
-    },
-    filterMethod(search) {
-      console.log('search', search);
-    },
     createOptions(value) {
       this.options.push({
         value,
         label: value,
       });
-      console.log('create option:', value, this.options);
+      console.log('create option:', value);
     },
   },
 };
 </script>
-<style scoped>
-  .demo-select-base {
-    width: 200px;
-    display: inline-block;
-    margin: 0 20px;
-  }
-</style>

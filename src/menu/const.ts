@@ -1,4 +1,4 @@
-import { MenuValue } from '../../types/menu/TdMenuProps';
+import { MenuValue } from './type';
 import { Ref, VNodeNormalizedChildren } from 'vue';
 
 export interface TdMenuItem {
@@ -10,6 +10,7 @@ export interface TdMenuInterface {
   activeIndexValue: Ref<MenuValue>;
   expandedArray?: Ref<MenuValue[]>;
   mode: Ref<string>;
+  theme?: Ref<string>;
   isHead: boolean;
   select: (val: MenuValue) => void;
   open?: (val: MenuValue) => boolean;

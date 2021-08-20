@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { BooleanType } from '../props';
-import * as Props from '../../../types/time-picker/props';
+import * as Props from '../props';
 import { EPickerCols } from '../constant';
 import { PropType } from 'vue';
 

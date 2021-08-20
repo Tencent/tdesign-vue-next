@@ -3,10 +3,10 @@ import { prefix } from '../config';
 import props from './list-item-meta-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
-const name = `${prefix}-list-item-meta`;
+const name = `${prefix}-list-item__meta`;
 
 export default defineComponent({
-  name,
+  name: `${prefix}-list-item-meta`,
   props,
   methods: {
     renderAvatar() {

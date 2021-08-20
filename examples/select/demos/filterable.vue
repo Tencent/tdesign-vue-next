@@ -2,41 +2,23 @@
   <div>
     <t-select
       v-model="value"
-      class="demo-select-base"
+      placeholder="-请选择-"
+      :options="options"
+      style="width: 200px;display: inline-block;margin: 0 20px 20px 0;"
       filterable
-      clearable
-      @change="handleChange"
-      @visible-change="visibleChange"
-      :filter="filterMethod"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
+      @blur="handleBlur"
+      @focus="handleFocus"
+    />
     <t-select
       v-model="value2"
-      class="demo-select-base"
       multiple
-      clearable
-      filterable
-      @change="handleChange"
+      placeholder="-请选择-"
+      :options="options"
       :filter="filterMethod"
-      @visible-change="visibleChange"
-    >
-      <t-option
-        v-for="(item, index) in options"
-        :value="item.value"
-        :label="item.label"
-        :key="index"
-      >
-        {{ item.label }}
-      </t-option>
-    </t-select>
+      style="width: 400px;display: inline-block;"
+      @blur="handleBlur"
+      @focus="handleFocus"
+    />
   </div>
 </template>
 
@@ -45,13 +27,13 @@ export default {
   data() {
     return {
       options: [{
-        label: '上海',
+        label: '上海(Shanghai)',
         value: 'shanghai',
       }, {
-        label: '北京',
+        label: '北京(Beijing)',
         value: 'beijing',
       }, {
-        label: '深圳',
+        label: '深圳(Shenzhen)',
         value: 'shenzhen',
       }],
       value: '',
@@ -59,22 +41,16 @@ export default {
     };
   },
   methods: {
-    handleChange(value) {
-      console.log(value);
+    filterMethod(search, option) {
+      console.log('search:', search, ', option:', option);
+      return option.label.indexOf(search) !== -1;
     },
-    visibleChange(value) {
-      console.log('visible', value);
+    handleBlur({ value, e }) {
+      console.log('handleBlur: ', value, e);
     },
-    filterMethod(search) {
-      console.log('search', search);
+    handleFocus({ value, e }) {
+      console.log('handleFocus: ', value, e);
     },
   },
 };
 </script>
-<style scoped>
-  .demo-select-base {
-    width: 200px;
-    display: inline-block;
-    margin: 0 20px;
-  }
-</style>

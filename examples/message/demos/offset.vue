@@ -31,3 +31,10 @@ export default {
     margin-bottom: 16px;
   }
 </style>
+
+<style scoped>
+  .t-button {
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+</style>
