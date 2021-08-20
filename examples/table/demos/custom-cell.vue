@@ -24,7 +24,7 @@
   </div>
 </template>
 <script>
-import TIconAttach from '@tencent/tdesign-vue/lib/icon/attach';
+import TIconAttach from '@tencent/tdesign-vue-next/lib/icon/attach';
 
 export default {
   components: {

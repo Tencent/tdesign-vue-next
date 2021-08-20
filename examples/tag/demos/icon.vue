@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TIconDiscount from '@tencent/tdesign-vue/lib/icon/discount';
+import TIconDiscount from '@tencent/tdesign-vue-next/lib/icon/discount';
 
 export default {
   methods: {
