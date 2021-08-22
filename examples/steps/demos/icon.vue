@@ -7,7 +7,7 @@
   </t-steps>
 </template>
 
-<script>
+<script lang="jsx">
 import TIconLogin from '@tencent/tdesign-vue-next/lib/icon/login';
 import TIconCart from '@tencent/tdesign-vue-next/lib/icon/cart';
 import TIconWallet from '@tencent/tdesign-vue-next/lib/icon/wallet';

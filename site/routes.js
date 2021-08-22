@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
-import config from './config';
+import config from './site.config';
 
 const { docs } = config;
 
@@ -51,7 +51,7 @@ const routerConfig = {
   history: createWebHashHistory('/'),
   routes,
 };
-
+console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
   routerConfig.history = createWebHistory('/');
 }

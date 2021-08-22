@@ -23,7 +23,7 @@
     </t-table>
   </div>
 </template>
-<script>
+<script lang="jsx">
 import TIconAttach from '@tencent/tdesign-vue-next/lib/icon/attach';
 
 export default {

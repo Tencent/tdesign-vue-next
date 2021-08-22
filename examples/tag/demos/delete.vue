@@ -35,7 +35,7 @@
   </div>
 </template>
 
-<script>
+<script lang="jsx">
 import TIconAdd from '@tencent/tdesign-vue-next/lib/icon/add';
 import TIconDiscount from '@tencent/tdesign-vue-next/lib/icon/discount';
 import { nextTick } from 'vue';

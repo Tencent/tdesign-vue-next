@@ -40,7 +40,7 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="jsx">
 import TIconAdd from '@tencent/tdesign-vue-next/lib/icon/add';
 import TIconCloudUpload from '@tencent/tdesign-vue-next/lib/icon/cloud-upload';
 import TIconCloudDownload from '@tencent/tdesign-vue-next/lib/icon/cloud-download';

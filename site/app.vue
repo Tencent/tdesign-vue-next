@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import siteConfig from './config';
+import siteConfig from './site.config';
 
 import { defineComponent } from 'vue';
 
