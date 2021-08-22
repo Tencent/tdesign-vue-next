@@ -7,11 +7,11 @@
   </t-steps>
 </template>
 
-<script>
-import TIconLogin from '@tencent/tdesign-vue/lib/icon/login';
-import TIconCart from '@tencent/tdesign-vue/lib/icon/cart';
-import TIconWallet from '@tencent/tdesign-vue/lib/icon/wallet';
-import TIconSuccess from '@tencent/tdesign-vue/lib/icon/check-circle';
+<script lang="jsx">
+import TIconLogin from '@tencent/tdesign-vue-next/lib/icon/login';
+import TIconCart from '@tencent/tdesign-vue-next/lib/icon/cart';
+import TIconWallet from '@tencent/tdesign-vue-next/lib/icon/wallet';
+import TIconSuccess from '@tencent/tdesign-vue-next/lib/icon/check-circle';
 
 export default {
   methods: {

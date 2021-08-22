@@ -35,7 +35,7 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="jsx">
 
 import TIconClose from '@/src/icon/close.tsx';
 import TIconCheck from '@/src/icon/check.tsx';

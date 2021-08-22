@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import TIcon from '@tencent/tdesign-vue/lib/icon/iconfont';
+import TIcon from '@tencent/tdesign-vue-next/lib/icon/iconfont';
 export default {
   components: { TIcon },
   methods: {

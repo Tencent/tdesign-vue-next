@@ -29,8 +29,8 @@
   </div>
 </template>
 <script>
-import TIconDesktop from '@tencent/tdesign-vue/lib/icon/desktop';
-import TIconLockOn from '@tencent/tdesign-vue/lib/icon/lock-on';
+import TIconDesktop from '@tencent/tdesign-vue-next/lib/icon/desktop';
+import TIconLockOn from '@tencent/tdesign-vue-next/lib/icon/lock-on';
 
 const INITIAL_DATA = {
   account: '',

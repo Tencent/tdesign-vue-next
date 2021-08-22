@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<script>
-import TIconDiscount from '@tencent/tdesign-vue/lib/icon/discount';
+<script lang="jsx">
+import TIconDiscount from '@tencent/tdesign-vue-next/lib/icon/discount';
 
 export default {
   methods: {

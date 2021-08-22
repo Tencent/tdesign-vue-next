@@ -10,8 +10,8 @@
     <t-input type="password" default-value="520 TDesign" :prefix-icon="renderPrefixIcon" />
   </div>
 </template>
-<script>
-import TIconLockOn from '@tencent/tdesign-vue/lib/icon/lock-on';
+<script lang="jsx">
+import TIconLockOn from '@tencent/tdesign-vue-next/lib/icon/lock-on';
 
 export default {
   components: {
