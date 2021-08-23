@@ -24,7 +24,7 @@ export default {
           meta: {
             docType: 'explain',
           },
-          path: '/vue/components/overview',
+          path: '/vue-next/components/overview',
           component: () => import('@common/docs/web/overview.md'),
         },
       ],
