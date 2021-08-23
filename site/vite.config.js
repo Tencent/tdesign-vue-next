@@ -37,6 +37,6 @@ export default defineConfig({
       }
     }),
     vueJsx(),
-    ...createTDesignPlugin(),
+    createTDesignPlugin(),
   ]
 })
