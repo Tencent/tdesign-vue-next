@@ -1,40 +1,54 @@
-export * from './tag';
-export * from './form';
-export * from './icon';
-export * from './list';
-export * from './tabs';
-export * from './tree';
-export * from './grid';
-export * from './alert';
-export * from './input';
-export * from './popup';
-export * from './radio';
-export * from './steps';
-export * from './badge';
-export * from './anchor';
+// 基础
 export * from './button';
-export * from './drawer';
+export * from './divider';
+export * from './icon';
+
+// 布局
+export * from './grid';
 export * from './layout';
+
+// 导航
+export * from './affix';
+export * from './anchor';
+export * from './breadcrumb';
+export * from './menu';
+export * from './pagination';
+export * from './steps';
+export * from './tabs';
+
+// 输入
+export * from './checkbox';
+export * from './form';
+export * from './input';
+export * from './input-number';
+export * from './radio';
 export * from './select';
 export * from './switch';
-export * from './menu';
-export * from './tooltip';
-export * from './divider';
-export * from './loading';
-export * from './checkbox';
-export * from './table';
-export * from './progress';
-export * from './transfer';
-// export * from './upload';
-export * from './breadcrumb';
-export * from './popconfirm';
-export * from './calendar';
-// export * from './dropdown';
-export * from './alert-swiper';
-export * from './input-number';
-export * from './pagination';
 export * from './textarea';
-// export * from './time-picker';
+export * from './transfer';
+
+// 数据展示
+export * from './badge';
+export * from './calendar';
+export * from './list';
+export * from './progress';
+export * from './table';
+export * from './tag';
+export * from './tooltip';
+export * from './tree';
+
+// 消息提醒
+
+export * from './alert';
+export * from './dialog';
+export * from './drawer';
+export * from './loading';
 export * from './message';
 export * from './notification';
-export * from './dialog';
+export * from './popconfirm';
+export * from './popup';
+export * from './alert-swiper';
+
+// export * from './upload';
+// export * from './dropdown';
+// export * from './time-picker';

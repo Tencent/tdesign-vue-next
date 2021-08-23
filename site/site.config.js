@@ -80,6 +80,15 @@ export default {
       title: '导航',
       type: 'component',
       children: [
+        {
+          title: 'Affix 固钉',
+          name: 'affix',
+          meta: {
+            docType: 'navigation',
+          },
+          path: '/vue/components/affix',
+          component: () => import('@/examples/affix/affix.md'),
+        },
         // {
         //   title: 'Anchor 锚点',
         //   name: 'anchor',
