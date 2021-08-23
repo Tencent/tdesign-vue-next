@@ -7,25 +7,14 @@ const classname = `${prefix}-icon-loading`;
 export default defineComponent({
   name,
 
-  props: {
-    size: {
-      type: String,
-      default: 'medium',
-    },
-  },
-
-  data() {
-    return {
-      classname,
-    };
-  },
-
   render() {
-    const classes = [name, `${name}-${this.size}`, classname];
+    const classes = [name, classname];
     return (
-      <div class={classes}>
-        <div></div>
-      </div>
+      <svg class={classes} viewBox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg">
+        <foreignObject x="1" y="1" width="12" height="12">
+          <div class={`${name}-conic`} />
+        </foreignObject>
+      </svg>
     );
   },
 });

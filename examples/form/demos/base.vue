@@ -14,7 +14,7 @@
         <t-input v-model="formData.tel" placeholder="请输入内容"></t-input>
       </t-form-item>
       <t-form-item label="性别" name='gender'>
-        <t-radio-group v-model="formData.gender" buttonStyle="solid">
+        <t-radio-group v-model="formData.gender">
           <t-radio value="1">男</t-radio>
           <t-radio value="2">女</t-radio>
         </t-radio-group>

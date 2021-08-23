@@ -1,5 +1,5 @@
 <template>
-  <div style="background: rgb(8,33,76); padding: 24px;">
+  <div>
     <div class="tdesign-demo-block" style="margin-bottom: 10px;">
       <t-button variant="outline" ghost>幽灵按钮</t-button>
       <t-button variant="dashed" ghost>幽灵按钮</t-button>

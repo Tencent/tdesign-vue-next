@@ -45,43 +45,42 @@
           </TSelect>
         </div>
       </div>
-      <div class="t-calendar__control-section">
-        <!-- 模式选择 -->
-        <div v-if="isModeVisible" class="t-calendar__control-section-cell" style="height: auto">
-          <TRadioGroup
-            v-model="curSelectedMode"
-            :size="controlSize"
-            :disabled="isModeDisabled"
-            v-bind="controllerConfigData.mode.radioGroupProps"
-            @change="controllerChange"
-          >
-            <TRadioButton v-for="item in modeSelectOptionList" :value="item.value" :key="item.value">{{
-              item.label
-            }}</TRadioButton>
-          </TRadioGroup>
-        </div>
-        <!-- 显示\隐藏周末 -->
-        <div v-if="theme === 'full' && isWeekendToggleVisible" class="t-calendar__control-section-cell">
-          <TButton
-            v-if="curSelectedMode === 'month'"
-            :size="controlSize"
-            :disabled="isWeekendToggleDisabled"
-            v-bind="weekendBtnVBind"
-            @click="onWeekendToggleClick()"
-          >
-            {{ weekendBtnText }}</TButton
-          >
-        </div>
-        <!-- 今天\本月 -->
-        <div v-if="theme === 'full' && isCurrentBtnVisible" class="t-calendar__control-section-cell">
-          <TButton :size="controlSize" :disabled="isCurrentBtnDisabled" v-bind="currentBtnVBind" @click="toCurrent()">
-            {{ currentBtnText }}
-          </TButton>
-        </div>
+      <!-- 模式选择 -->
+      <div v-if="isModeVisible" class="t-calendar__control-section-cell" style="height: auto">
+        <TRadioGroup
+          v-model="curSelectedMode"
+          :size="controlSize"
+          :disabled="isModeDisabled"
+          v-bind="controllerConfigData.mode.radioGroupProps"
+          @change="controllerChange"
+        >
+          <TRadioButton v-for="item in modeSelectOptionList" :value="item.value" :key="item.value">{{
+            item.label
+          }}</TRadioButton>
+        </TRadioGroup>
+      </div>
+      <!-- 显示\隐藏周末 -->
+      <div v-if="theme === 'full' && isWeekendToggleVisible" class="t-calendar__control-section-cell">
+        <TButton
+          :theme="isShowWeekend ? 'default' : 'primary'"
+          v-if="curSelectedMode === 'month'"
+          :size="controlSize"
+          :disabled="isWeekendToggleDisabled"
+          v-bind="weekendBtnVBind"
+          @click="onWeekendToggleClick()"
+        >
+          {{ weekendBtnText }}</TButton
+        >
+      </div>
+      <!-- 今天\本月 -->
+      <div v-if="theme === 'full' && isCurrentBtnVisible" class="t-calendar__control-section-cell">
+        <TButton :size="controlSize" :disabled="isCurrentBtnDisabled" v-bind="currentBtnVBind" @click="toCurrent()">
+          {{ currentBtnText }}
+        </TButton>
       </div>
     </div>
     <!-- 主体部分 -->
-    <div class="t-calendar__panel">
+    <div class="t-calendar__panel" :class="calendarPanelCls">
       <div class="t-calendar__panel-title">
         <RenderTNodeTemplate v-if="head" :render="head" :params="controllerOptions"></RenderTNodeTemplate>
         <slot v-else name="head" :data="controllerOptions"></slot>
@@ -170,6 +169,7 @@ import { useLocalRecevier } from '../locale/local-receiver';
 import * as utils from './utils';
 import { getPropsApiByEvent } from '../utils/helper';
 
+
 // 组件的一些常量
 import {
   COMPONENT_NAME,
@@ -184,7 +184,6 @@ import { Select as TSelect, Option as TOption } from '../select';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../radio';
 import { Button as TButton } from '../button';
 import CalendarCellItem from './calendar-cell.vue';
-import RenderComponent from '../utils/render-component';
 import { RenderTNodeTemplate } from '../utils/render-tnode';
 
 // 组件相关的自定义类型
@@ -249,7 +248,6 @@ export default defineComponent({
     TRadioButton,
     TButton,
     CalendarCellItem,
-    RenderComponent,
     RenderTNodeTemplate,
   },
   props: { ...props },
@@ -288,6 +286,10 @@ export default defineComponent({
     // 组件最外层的class名（除去前缀，class名和theme参数一致）
     calendarCls(): Record<string, any> {
       return [`${COMPONENT_NAME}--${this.theme}`];
+    },
+
+    calendarPanelCls(): Record<string, any> {
+      return [`${COMPONENT_NAME}__panel--${this.curSelectedMode}`];
     },
 
     isWeekRender(): boolean {
@@ -549,6 +551,10 @@ export default defineComponent({
         cell: this.createCalendarCell(cellData),
         e,
       };
+      const cellEvent = this[getPropsApiByEvent(emitName)];
+      if (typeof cellEvent === 'function') {
+        cellEvent(options);
+      }
       this.$emit(emitName, options);
     },
     controllerChange(): void {
