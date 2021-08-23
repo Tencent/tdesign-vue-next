@@ -50,6 +50,11 @@ const routes = [
 const routerConfig = {
   history: createWebHashHistory('/'),
   routes,
+  scrollBehavior: function(to, from) {
+    if (to.path !== from.path) {
+      return { top: 0 }
+    }
+  },
 };
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
