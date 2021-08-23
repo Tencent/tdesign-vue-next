@@ -5,7 +5,7 @@
       :total="685"
       @change="onChange"
       v-model:pageSize="pageSize"
-      :show-total="true"
+      :totalContent="true"
     />
   </div>
 </template>
