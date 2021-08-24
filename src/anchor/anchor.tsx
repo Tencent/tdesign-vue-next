@@ -5,6 +5,8 @@ import { ANCHOR_SHARP_REGEXP, getOffsetTop } from './utils';
 import { on, off, getScroll, scrollTo, getScrollContainer } from '../utils/dom';
 import props from './props';
 
+import Affix from '../affix';
+
 const name = `${prefix}-anchor`;
 
 export default defineComponent({
@@ -12,12 +14,12 @@ export default defineComponent({
   provide(): any {
     return {
       tAnchor: this,
+      scrollContainer: undefined,
+      handleScrollLock: undefined,
     };
   },
   props: { ...props },
   emits: ['change', 'click'],
-  scrollContainer: undefined,
-  handleScrollLock: undefined,
   data() {
     return {
       links: [] as string[],
@@ -48,6 +50,7 @@ export default defineComponent({
     if (!this.scrollContainer) return;
     off(this.scrollContainer, 'scroll', this.handleScroll);
   },
+
   methods: {
     /**
      * 获取滚动容器
@@ -194,17 +197,25 @@ export default defineComponent({
   },
 
   render() {
-    const { $slots: { default: children }, size, affix, activeLineStyle } = this;
-    const className = [name, CLASSNAMES.SIZE[size], {
-      [`${prefix}--affix`]: affix,
-    }];
-    return <div class={className}>
-      <div class={`${name}_line`}>
-        {
-          activeLineStyle && <div class="point" style={activeLineStyle} ></div>
-        }
+    const {
+      $slots: { default: children },
+      size,
+      affixProps,
+      activeLineStyle,
+    } = this;
+    const className = [name, CLASSNAMES.SIZE[size]];
+
+    const Content = (
+      <div class={className}>
+        <div class={`${name}_line`}><div class="point" style={activeLineStyle}></div></div>
+        {children && children(null)}
       </div>
-      {children && children(null)}
-    </div>;
+    );
+
+    if (affixProps) {
+      return <Affix {...affixProps}>{Content}</Affix>;
+    }
+
+    return Content;
   },
 });

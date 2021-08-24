@@ -17,6 +17,7 @@
 </template>
 <script>
 import get from 'lodash/get';
+
 export default {
   computed: {
     path() {
@@ -25,8 +26,7 @@ export default {
   },
 };
 </script>
-<style lang='less'>
-@import '../../../common/style/web/_variables.less';
+<style lang='less' scoped>
 .anchor-container-demo {
   display: flex;
 }
@@ -40,19 +40,19 @@ export default {
     line-height: 100px;
   }
   .anchor-content-1 {
-    background: @brand-color-1;
+    background: #ECF2FE;
   }
   .anchor-content-2 {
-    background: @brand-color-2;
+    background: #D4E3FC;
   }
   .anchor-content-3 {
-    background: @brand-color-3;
+    background: #BBD3FB;
   }
   .anchor-content-4 {
-    background: @brand-color-4;
+    background: #96BBF8;
   }
   .anchor-content-5 {
-    background: @brand-color-5;
+    background: #699EF5;
   }
 }
 </style>

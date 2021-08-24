@@ -13,6 +13,7 @@
 </template>
 <script>
 import get from 'lodash/get';
+
 export default {
   computed: {
     path() {
@@ -21,7 +22,7 @@ export default {
   },
 };
 </script>
-<style lang='less'>
+<style lang='less' scoped>
 .anchor-demo {
   border: 1px solid transparent;
   padding: 20px;

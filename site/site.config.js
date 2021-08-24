@@ -89,13 +89,13 @@ export default {
           path: '/vue/components/affix',
           component: () => import('@/examples/affix/affix.md'),
         },
-        // {
-        //   title: 'Anchor 锚点',
-        //   name: 'anchor',
-        //   docType: 'navigation',
-        //   path: '/vue-next/components/anchor',
-        //   component: () => import('@/examples/anchor/anchor.md'),
-        // },
+        {
+          title: 'Anchor 锚点',
+          name: 'anchor',
+          docType: 'navigation',
+          path: '/vue-next/components/anchor',
+          component: () => import('@/examples/anchor/anchor.md'),
+        },
         {
           title: 'Breadcrumb 面包屑',
           name: 'breadcrumb',

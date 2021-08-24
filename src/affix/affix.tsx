@@ -1,9 +1,16 @@
-import { defineComponent } from  'vue';
+import { defineComponent, ComponentInternalInstance  } from  'vue';
 import { prefix } from '../config';
 import isFunction from 'lodash/isFunction';
 import { on, off, getScrollContainer } from '../utils/dom';
 import props from './props';
+import { ScrollContainerElement } from '../common';
 const name = `${prefix}-affix`;
+
+export interface Affix extends ComponentInternalInstance {
+  scrollContainer: ScrollContainerElement;
+  ticking: boolean;
+  containerHeight: number;
+}
 
 export default defineComponent({
   name,
