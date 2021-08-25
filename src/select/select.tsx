@@ -1,11 +1,13 @@
-import { defineComponent, nextTick } from 'vue';
+import { defineComponent, nextTick, VNode } from 'vue';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import mixins from '../utils/mixins';
+import getLocalRecevierMixins from '../locale/local-receiver';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconChevronDown from '../icon/chevron-down';
 import TIconClose from '../icon/close';
 import TIconLoading from '../icon/loading';
-import Input from '../input';
+import TInput from '../input/index';
 import Tag from '../tag/index';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
@@ -24,14 +26,20 @@ interface KeysType {
 
 // import { SelectInstance } from './instance';
 const name = `${prefix}-select`;
+// trigger元素不超过此宽度时，下拉选项的最大宽度（用户未设置overStyle width时）
+// 用户设置overStyle width时，以设置的为准
+const DEFAULT_MAX_OVERLAY_WIDTH = 500;
+
+const SelectLocalReceiver = getLocalRecevierMixins('select');
 
 export default defineComponent({
+  ...mixins(SelectLocalReceiver),
   name,
   components: {
     TIconChevronDown,
     TIconClose,
     TIconLoading,
-    TInput: Input,
+    TInput,
     Tag,
     Popup,
     TOption: Option,
@@ -42,7 +50,7 @@ export default defineComponent({
     };
   },
   props: { ...props },
-  emits: ['change', 'input', 'clear', 'visible-change', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'update:value', 'remove', 'create', 'search'],
+  emits: ['change', 'input', 'clear', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'remove', 'create', 'search'],
   data() {
     return {
       isHover: false,
@@ -53,18 +61,14 @@ export default defineComponent({
       defaultProps: {
         trigger: 'click',
         placement: 'bottom-left' as string,
-        overlayClassName: '',
-        overlayStyle: {
-          width: '',
-        },
-      },
-      width: 0,
+        overlayClassName: '' as ClassName,
+        overlayStyle: {},
+      } as PopupProps,
       focusing: false, // filterable时，输入框是否在focus中
       labelInValue: this.valueType === 'object',
       realValue: this.keys && (this.keys as KeysType).value ? (this.keys as KeysType).value : 'value',
       realLabel: this.keys && (this.keys as KeysType).label ? (this.keys as KeysType).label : 'label',
       realOptions: [] as Array<Options>,
-      searchOptions: [] as Array<Options>,
     };
   },
   computed: {
@@ -88,10 +92,10 @@ export default defineComponent({
       const { visible } = this;
       return [
         `${name}-right-icon`,
+        `${prefix}-fake-arrow`,
         {
-          [CLASSNAMES.STATUS.visible]: visible,
-        },
-      ];
+          [`${prefix}-fake-arrow--active`]: visible,
+        }];
     },
     tipsClass(): ClassName {
       return [
@@ -110,12 +114,17 @@ export default defineComponent({
       ];
     },
     showPlaceholder(): boolean {
-      return !this.showFilter
-        && ((typeof this.value === 'string' && this.value === '' && !this.selectedSingle)
+      if (
+        !this.showFilter
+          && ((typeof this.value === 'string' && this.value === '' && !this.selectedSingle)
           || (!this.multiple && typeof this.value === 'object' && !this.selectedSingle)
           || (Array.isArray(this.value) && !this.value.length)
           || this.value === null
-          || this.value === undefined);
+          || this.value === undefined)
+      ) {
+        return true;
+      }
+      return false;
     },
     filterPlaceholder(): string {
       if (this.multiple && Array.isArray(this.value) && this.value.length) {
@@ -141,15 +150,18 @@ export default defineComponent({
         || (this.multiple && this.value instanceof Array && !this.value.length)
       );
     },
+    canFilter(): boolean {
+      return this.filterable || isFunction(this.filter);
+    },
     showLoading(): boolean {
-      return this.filterable && this.loading && !this.disabled;
+      return this.canFilter && this.loading && !this.disabled;
     },
     showFilter(): boolean {
       if (this.disabled) return false;
-      if (!this.multiple && this.selectedSingle && this.filterable) {
+      if (!this.multiple && this.selectedSingle && this.canFilter) {
         return this.visible;
       }
-      return this.filterable;
+      return this.canFilter;
     },
     selectedSingle(): string {
       if (!this.multiple && (typeof this.value === 'string' || typeof this.value === 'number')) {
@@ -157,10 +169,18 @@ export default defineComponent({
         if (this.realOptions && this.realOptions.length) {
           target = this.realOptions.filter(item => get(item, this.realValue) === this.value);
         }
-        return target.length ? get(target[0], this.realLabel) : this.value;
+        if (target.length) {
+          if (get(target[0], this.realLabel) === '') {
+            return get(target[0], this.realValue);
+          }
+          return get(target[0], this.realLabel);
+        }
+        return this.value.toString();
       }
-      if (!this.multiple && typeof this.value === 'object' && get(this.value, this.realLabel) !== undefined) {
-        return get(this.value, this.realLabel);
+      const showText = get(this.value, this.realLabel);
+      // label为空时显示value值
+      if (!this.multiple && typeof this.value === 'object' && showText !== undefined) {
+        return showText === '' ? get(this.value, this.realValue) : showText;
       }
       return '';
     },
@@ -180,25 +200,29 @@ export default defineComponent({
       return [];
     },
     popupObject(): PopupProps {
-      const popupProps: PopupProps = this?.popupProps;
-      let styles: Styles;
-      if (this.popupProps && typeof popupProps.overlayStyle === 'function') {
-        styles = popupProps.overlayStyle(this.$refs.select as HTMLElement) || {};
-      } else if (this.popupProps && typeof popupProps.overlayStyle === 'object') {
-        styles = popupProps.overlayStyle || {};
+      const propsObject = this.popupProps ? ({ ...this.defaultProps, ...this.popupProps as PopupProps }) : this.defaultProps;
+      return propsObject;
+    },
+    filterOptions(): Array<Options> {
+      // filter优先级 filter方法>仅filterable
+      if (isFunction(this.filter)) {
+        return this.realOptions.filter(option => this.filter(this.searchInput, option));
+      } if (this.filterable) {
+        // 仅有filterable属性时，默认不区分大小写过滤label
+        return this.realOptions.filter(option => option[this.realLabel].toString().toLowerCase()
+          .indexOf(this.searchInput.toString().toLowerCase()) !== -1);
       }
-      const propsObject = this.popupProps ? Object.assign(this.defaultProps, (this.popupProps as PopupProps)) : this.defaultProps;
-      if (styles?.width) {
-        propsObject.overlayStyle.width = `${this.width}px`;
-      }
-      return propsObject as PopupProps;
+      return [];
     },
     displayOptions(): Array<Options> {
-      if (isFunction(this.filter)) {
+      // 展示优先级，用户远程搜索传入>组件通过filter过滤>getOptions后的完整数据
+      if (isFunction(this.onSearch) || this.$attrs.search) {
+        return this.realOptions;
+      } if (this.canFilter && !this.creatable) {
         if (this.searchInput === '') {
           return this.realOptions;
         }
-        return this.searchOptions;
+        return this.filterOptions;
       }
       return this.realOptions;
     },
@@ -214,12 +238,10 @@ export default defineComponent({
       }
     },
     searchInput(val) {
-      if (isFunction(this.filter)) {
-        this.searchOptions = this.realOptions.filter(option => this.filter(val, option));
-      } else {
+      if (isFunction(this.onSearch) || this.$attrs.search) {
         this.debounceOnRemote();
       }
-      if (this.filterable && val && this.creatable) {
+      if (this.canFilter && val && this.creatable) {
         const tmp = this.realOptions.filter(item => get(item, this.realLabel).toString() === val);
         this.showCreateOption = !tmp.length;
       } else {
@@ -228,8 +250,9 @@ export default defineComponent({
     },
     options: {
       immediate: true,
+      deep: true,
       handler(options: Array<Options>) {
-        this.realOptions = options;
+        this.realOptions = [...options];
       },
     },
   },
@@ -257,16 +280,15 @@ export default defineComponent({
           this.searchInput = '';
         }
       }
-      this.$emit('visible-change', val);
-      this.monitorWidth();
+      val && this.monitorWidth();
     },
-    onOptionClick(value: string | number, e: MouseEvent) {
+    onOptionClick(value: string | number, e: PointerEvent) {
       if (this.value !== value) {
         if (this.multiple && this.value instanceof Array) {
           if (this.labelInValue) {
             const index = this.value.map(item => get(item, this.realValue)).indexOf(value);
             if (index > -1) {
-              this.removeTag(index, e);
+              this.removeTag(index, { e });
             } else {
               this.value.push(this.realOptions.filter(item => get(item, this.realValue) === value)[0]);
               this.emitChange(this.value);
@@ -274,7 +296,7 @@ export default defineComponent({
           } else {
             const index = this.value.indexOf(value);
             if (index > -1) {
-              this.removeTag(index, e);
+              this.removeTag(index, { e });
             } else {
               this.value.push(value);
               this.emitChange(this.value);
@@ -291,15 +313,14 @@ export default defineComponent({
         if (!this.reserveKeyword) {
           this.searchInput = '';
         }
-        if (this.filterable) {
+        if (this.canFilter) {
           const input = this.$refs.input as HTMLElement;
           input?.focus();
           this.focusing = true;
         }
       }
     },
-    removeTag(index: number, e: MouseEvent) {
-      e.stopPropagation();
+    removeTag(index: number, { e }: { e: PointerEvent }) {
       if (this.disabled) {
         return;
       }
@@ -312,7 +333,7 @@ export default defineComponent({
     hideMenu() {
       this.visible = false;
     },
-    clearSelect(e: MouseEvent) {
+    clearSelect(e: PointerEvent) {
       e.stopPropagation();
       if (this.multiple) {
         this.emitChange([]);
@@ -325,7 +346,8 @@ export default defineComponent({
       this.$emit('clear', { e });
     },
     getOptions(option: Options) {
-      if (!option.value && !option.label) return;
+      // create option值不push到options里
+      if (option.$el && option.$el.className.indexOf(`${name}-create-option-special`) !== -1) return;
       const tmp = this.realOptions.filter(item => get(item, this.realValue) === option.value);
       if (!tmp.length) {
         this.hasOptions = true;
@@ -356,7 +378,6 @@ export default defineComponent({
         value = val;
       }
       this.$emit('change', value);
-      this.monitorWidth();
     },
     createOption(value: string | number) {
       this.$emit('create', value);
@@ -372,24 +393,65 @@ export default defineComponent({
       this.$emit('blur', { value: this.value, e });
       this.focusing = false;
     },
-    monitorWidth() {
-      nextTick(() => {
-        this.width = this.$el && this.$el.clientWidth;
-      });
-    },
     hoverEvent(v: boolean) {
       this.isHover = v;
     },
+    getOverlayElm(): HTMLElement {
+      let r;
+      try {
+        r = (this.$refs.popup as any).$refs.overlay || (this.$refs.popup as any).$refs.component.$refs.overlay;
+      } catch (e) {
+        console.warn('TDesign Warn:', e);
+      }
+      return r;
+    },
+    // 打开浮层时，监听trigger元素和浮层宽度，取max
+    monitorWidth() {
+      this.$nextTick(() => {
+        let styles = (this.popupProps && (this.popupProps as PopupProps).overlayStyle) || {};
+        if (this.popupProps && isFunction((this.popupProps as PopupProps).overlayStyle)) {
+          styles = (this.popupProps as PopupProps).overlayStyle(this.$refs.select as HTMLElement) || {};
+        }
+        if (typeof styles === 'object' && !styles.width) {
+          const elWidth = (this.$refs.select as HTMLElement).getBoundingClientRect().width;
+          const popupWidth = this.getOverlayElm().getBoundingClientRect().width;
+          const width = elWidth > DEFAULT_MAX_OVERLAY_WIDTH ? elWidth : Math.min(DEFAULT_MAX_OVERLAY_WIDTH, Math.max(elWidth, popupWidth));
+          this.defaultProps.overlayStyle.width = `${Math.ceil(width)}px`;
+        }
+      });
+    },
+    getEmpty() {
+      const useLocale = !this.empty && !this.$slots.empty;
+      return useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty');
+    },
+    getLoadingText() {
+      const useLocale = !this.loadingText && !this.$slots.loadingText;
+      return useLocale ? this.t(this.locale.loadingText) : renderTNodeJSX(this, 'loadingText');
+    },
+    getCloseIcon() {
+      if (isFunction(this.locale.clearIcon)) {
+        return (
+          <span class={`${name}-right-icon`} onClick={this.clearSelect}>
+            {this.locale.clearIcon(this.$createElement)}
+          </span>
+        );
+      }
+      return (
+        <t-icon-close
+          class={`${name}-right-icon`}
+          size={this.size}
+          onClick={this.clearSelect}
+        />
+      );
+    },
   },
-  render() {
+  render(): VNode {
     const {
       classes,
-      visible,
       popupObject,
       disabled,
       popClass,
       size,
-      realOptions,
       showPlaceholder,
       placeholder,
       selectedMultiple,
@@ -400,7 +462,6 @@ export default defineComponent({
       tipsClass,
       loading,
       loadingText,
-      empty,
       emptyClass,
       hasOptions,
       realValue,
@@ -410,29 +471,30 @@ export default defineComponent({
     } = this;
     const children = renderTNodeJSX(this, 'default');
     const prefixIconSlot = renderTNodeJSX(this, 'prefixIcon');
-    const emptySlot = renderTNodeJSX(this, 'empty');
-    const loadingTextSlot = renderTNodeJSX(this, 'loadingText');
+    const emptySlot = this.getEmpty();
+    const loadingTextSlot = this.getLoadingText();
     const slots = {
       content: () => (
         <div>
           <ul v-show={showCreateOption} class={`${name}-create-option`}>
-            <t-option value={this.searchInput} label={this.searchInput} />
+            <t-option value={this.searchInput} label={this.searchInput} class={`${name}-create-option-special`} />
           </ul>
           {
             loading && (
-              <li class={tipsClass}>{ loadingTextSlot ? loadingTextSlot : loadingText }</li>
+              <li class={tipsClass}>{ loadingTextSlot || loadingText }</li>
             )
           }
           {
             !loading && !displayOptions.length && !showCreateOption && (
-              <li class={emptyClass}>{ emptySlot ? emptySlot : empty }</li>
+              <li class={emptyClass}>{ emptySlot }</li>
             )
           }
           {
-            !hasOptions && realOptions.length
+            // options直传时
+            !hasOptions && displayOptions.length && !loading
               ? <ul>
               {
-                realOptions.map((item: Options, index: number) => (
+                displayOptions.map((item: Options, index: number) => (
                     <t-option
                       value={get(item, realValue)}
                       label={get(item, realLabel)}
@@ -444,24 +506,25 @@ export default defineComponent({
                 ))
               }
             </ul>
-              : <span v-show={!loading && realOptions.length}>{children}</span>
+              : <span v-show={!loading && displayOptions.length}>{children}</span>
           }
         </div>
       ),
     };
 
     return (
-      <div ref='select'>
+      <div ref='select' class={`${name}-wrap`}>
         <Popup
           ref='popup'
           class={`${name}-popup-reference`}
-          visible={visible}
+          visible={this.visible}
           placement={popupObject.placement}
           trigger={popupObject.trigger}
           disabled={disabled}
           overlayClassName={popClass}
           overlayStyle={popupObject.overlayStyle}
           onVisibleChange={ this.visibleChange }
+          expandAnimation={true}
           v-slots={slots}
         >
           <div class={classes} onMouseenter={ this.hoverEvent.bind(null, true) } onMouseleave={ this.hoverEvent.bind(null, false) }>
@@ -480,7 +543,7 @@ export default defineComponent({
                   size={size}
                   closable={!item.disabled && !disabled}
                   disabled={disabled}
-                  onClose={this.removeTag.bind(null, index)}
+                  onClose={(e: MouseEvent) => this.removeTag(index, { e })}
                 >
                   { get(item, realLabel) === '' ? get(item, realValue) : get(item, realLabel) }
                 </tag>
@@ -505,17 +568,13 @@ export default defineComponent({
             }
             {
               this.showArrow && !this.showLoading && (
-                <t-icon-chevron-down class={this.arrowClass} size={size} />
+                <svg class={this.arrowClass} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"/>
+                </svg>
               )
             }
             {
-              this.showClose && !this.showLoading && (
-                <t-icon-close
-                  class={`${name}-right-icon`}
-                  size={size}
-                  onClick={this.clearSelect}
-                />
-              )
+              this.showClose && !this.showLoading && this.getCloseIcon()
             }
             {
               this.showLoading && (

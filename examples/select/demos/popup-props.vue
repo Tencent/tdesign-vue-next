@@ -7,13 +7,13 @@
       :popupProps="popupProps"
       style="width: 200px;display: inline-block;"
     />
-    <!-- <t-select
+    <t-select
       v-model="value"
       placeholder="-请选择-"
       :options="options"
       :popupProps="popupProps2"
       style="width: 200px;display: inline-block;margin-left: 20px;"
-    /> -->
+    />
   </div>
 </template>
 

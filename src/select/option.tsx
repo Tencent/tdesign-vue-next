@@ -1,21 +1,15 @@
-import { defineComponent, inject } from 'vue';
+import { defineComponent, VNode } from 'vue';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import get from 'lodash/get';
-import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './option-props';
-import type { TdSelect } from './instance';
 import { Options } from './type';
 import Checkbox from '../checkbox/index';
-// import { SelectInstance } from './instance';
 import { ClassName } from '../common';
 
 const name = `${prefix}-option`;
 const selectName = `${prefix}-select`;
-// interface OptionInstance extends Vue {
-//   tSelect: SelectInstance;
-// }
 
 export default defineComponent({
   name,
@@ -23,16 +17,11 @@ export default defineComponent({
     TCheckbox: Checkbox,
   },
   inject: {
-    tSelect: { default: undefined },
+    tSelect: {
+      default: undefined,
+    },
   },
   props: { ...props },
-  setup() {
-    const tSelect: TdSelect = inject('tSelect');
-
-    return {
-      tSelect,
-    };
-  },
   data() {
     return {
       isHover: false,
@@ -63,22 +52,22 @@ export default defineComponent({
       ];
     },
     show(): boolean {
-      const target = this.tSelect.displayOptions.filter((option: Options) => get(option, this.tSelect.realValue) === this.value);
-      return this.label
-        && this.tSelect
-        && ((isFunction(this.tSelect.filter) && target.length > 0)
-          || (!isFunction(this.tSelect.filter) && this.label.toString().toLowerCase()
-            .indexOf(this.tSelect.searchInput.toLowerCase()) > -1));
+      if (this.tSelect) {
+        const target = this.tSelect.displayOptions.filter((option: Options) => get(option, this.tSelect.realValue) === this.value);
+        const isCreated = this.tSelect.creatable && this.value === this.tSelect.searchInput;
+        return target.length > 0 || isCreated;
+      }
+      return false;
     },
     labelText(): string {
-      return this.label || this.value.toString();
+      return this.label || String(this.value);
     },
     selected(): boolean {
       let flag = false;
       if (!this.tSelect) return false;
       if (this.tSelect.value instanceof Array) {
         if (this.tSelect.labelInValue) {
-          flag = this.tSelect.value.map(item => get(item, this.tSelect.realValue)).indexOf(this.value) !== -1;
+          flag = this.tSelect.value.map((item: string|number|Options) => get(item, this.tSelect.realValue)).indexOf(this.value) !== -1;
         } else {
           flag = this.tSelect.value.indexOf(this.value) !== -1;
         }
@@ -92,18 +81,6 @@ export default defineComponent({
   },
   mounted() {
     this.tSelect && this.tSelect.getOptions(this);
-  },
-  beforeUnmount() {
-    if (this.tSelect) {
-      let target = 0;
-      for (let i = 0; i < this.tSelect.options.length; i++) {
-        if (get(this.tSelect.options[i], this.tSelect.realValue) === this.value) {
-          target = i;
-          break;
-        }
-      }
-      this.tSelect.destroyOptions(target);
-    }
   },
   methods: {
     select(e: MouseEvent) {
@@ -121,12 +98,12 @@ export default defineComponent({
       this.isHover = v;
     },
   },
-  render() {
+  render(): VNode {
     const {
-      classes, show, labelText, selected, disabled, multiLimitDisabled,
+      classes, labelText, selected, disabled, multiLimitDisabled, show,
     } = this;
     const children = renderTNodeJSX(this, 'default');
-    const optionChild = children ? children : labelText;
+    const optionChild = children || labelText;
     return (
       <li
         v-show={show}
@@ -144,9 +121,6 @@ export default defineComponent({
             ? <t-checkbox
                 checked={selected}
                 disabled={disabled || multiLimitDisabled}
-                click={ (e: MouseEvent) => {
-                  e.preventDefault();
-                } }
               >
                 {optionChild}
               </t-checkbox>

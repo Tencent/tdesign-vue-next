@@ -8,7 +8,7 @@
       placeholder="-请选择-"
     >
       <template #prefixIcon>
-        <t-icon name="browse" />
+        <t-icon name="browse"/>
       </template>
     </t-select>
   </div>
