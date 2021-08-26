@@ -1,21 +1,24 @@
-import { defineComponent, h, Transition } from 'vue';
+import { defineComponent, Transition } from 'vue';
 import { prefix } from '../config';
 import TIconClose from '../icon/close';
 import TButton, { ButtonProps } from '../button';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
-import { getAttach } from '../utils/dom';
-import TransferDom from '../utils/transfer-dom';
+import TIconErrorCircleFilled from '../icon/error-circle-filled';
 import { DialogCloseContext } from './type';
 import props from './props';
-import { ClassName } from '../common';
+import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
+import TransferDom from '../utils/transfer-dom';
+import { ClassName, Styles, TNode } from '../common';
+
+type FooterButton = string | ButtonProps | TNode;
+type FooterButtonType = 'confirm' | 'cancel';
 
 const name = `${prefix}-dialog`;
 
 function GetCSSValue(v: string | number) {
   return isNaN(Number(v)) ? v : `${Number(v)}px`;
 }
-
 
 // 注册元素的拖拽事件
 function InitDragEvent(dragBox: HTMLElement) {
@@ -24,7 +27,7 @@ function InitDragEvent(dragBox: HTMLElement) {
     // 算出鼠标相对元素的位置
     const disX = targetEvent.clientX - target.offsetLeft;
     const disY = targetEvent.clientY - target.offsetTop;
-    function mouseMoverHander(documentEvent: MouseEvent) {
+    function mouseMoverHandler(documentEvent: MouseEvent) {
       // 用鼠标的位置减去鼠标相对元素的位置，得到元素的位置
       const left = documentEvent.clientX - disX;
       const top = documentEvent.clientY - disY;
@@ -34,24 +37,30 @@ function InitDragEvent(dragBox: HTMLElement) {
     }
     function mouseUpHandler() {
       // 鼠标弹起来的时候不再移动
-      document.removeEventListener('mousemove', mouseMoverHander);
+      document.removeEventListener('mousemove', mouseMoverHandler);
       // 预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）
       document.removeEventListener('mouseup', mouseUpHandler);
     }
     // 元素按下时注册document鼠标监听事件
-    document.addEventListener('mousemove', mouseMoverHander);
+    document.addEventListener('mousemove', mouseMoverHandler);
     // 鼠标弹起来移除document鼠标监听事件
     document.addEventListener('mouseup', mouseUpHandler);
+    // 拖拽结束移除鼠标监听事件，解决文字拖拽结束事件未解绑问题
+    document.addEventListener('dragend', mouseUpHandler);
   });
 }
 export default defineComponent({
   name,
+
   components: {
-    TButton,
-    Transition,
     TIconClose,
     TIconInfoCircleFilled,
+    TIconCheckCircleFilled,
+    TIconErrorCircleFilled,
+    TButton,
+    Transition,
   },
+
   // 注册v-draggable指令,传入ture时候初始化拖拽事件
   directives: {
     TransferDom,
@@ -62,13 +71,11 @@ export default defineComponent({
       }
     },
   },
+
   props: { ...props },
+
   emits: ['close', 'update:visible', 'keydown-esc', 'click-overlay', 'click-close-btn', 'click-cancel', 'click-confirm', 'opened', 'closed'],
-  data() {
-    return {
-      attachTarget: null,
-    };
-  },
+
   computed: {
     // 是否模态形式的对话框
     isModal(): boolean {
@@ -91,7 +98,7 @@ export default defineComponent({
       return dialogClass;
     },
 
-    dialogStyle(): Record<string, string | number> {
+    dialogStyle(): Styles {
       const { top, placement } = this;
       let topStyle = {};
 
@@ -112,21 +119,17 @@ export default defineComponent({
       return { width: GetCSSValue(this.width), ...topStyle };
     },
   },
+
   watch: {
     visible(value) {
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
     },
   },
+
   beforeUnmount() {
     this.disPreventScrollThrough(false);
     this.addKeyboardEvent(false);
-  },
-  mounted() {
-    const { attach } = this;
-    // attach默认值为空''，返回false才不会被重新挂载
-    if (!attach) return false;
-    this.attachTarget = getAttach(attach);
   },
 
   methods: {
@@ -210,127 +213,61 @@ export default defineComponent({
     getIcon() {
       const icon = {
         info: <TIconInfoCircleFilled class="t-is-info" />,
-        warning: <TIconInfoCircleFilled class="t-is-warning" />,
-        error: <TIconInfoCircleFilled class="t-is-error" />,
+        warning: <TIconErrorCircleFilled class="t-is-warning" />,
+        danger: <TIconErrorCircleFilled class="t-is-error" />,
         success: <TIconCheckCircleFilled class="t-is-success" />,
       };
       return icon[this.theme];
     },
-    renderHeader() {
-      const target = this.header;
-      let view;
-      let isShow = true;
-      if (typeof target === 'boolean') {
-        isShow = target;
-      }
-      if (typeof target === 'string') {
-        view = <h5 class="title">{target}</h5>;
-      } else if (typeof target === 'function') {
-        // @ts-ignore: TODO
-        view = target(h);
-      } else if (typeof this.$slots.header === 'function') {
-        view = this.$slots.header(null);
-      }
+    getDefaultBtn(btnType: FooterButtonType, btnApi: FooterButton) {
+      const isCancel = btnType === 'cancel';
+      const clickAction = isCancel ? this.cancelBtnAction : this.confirmBtnAction;
+      const theme = isCancel ? 'default' : 'primary';
+      const isApiObject = typeof btnApi === 'object';
       return (
-        isShow && (
-          <div class={`${name}__header`}>
-            {this.getIcon()}
-            {view}
-          </div>
-        )
+        <t-button
+          variant="base"
+          theme={theme}
+          onClick={clickAction}
+          props={isApiObject ? btnApi : {}}
+          class={`${name}-${btnType}`}
+        >
+          { (btnApi && typeof btnApi === 'object') ? btnApi.content : btnApi }
+        </t-button>
       );
     },
-    renderBody() {
-      const target = this.body;
-      let view;
-      if (typeof target === 'string' && target) {
-        view = target;
-      } else if (typeof target === 'function') {
-        // @ts-ignore: TODO
-        view = target(h);
-      } else if (typeof this.$slots.body === 'function') {
-        view = this.$slots.body(null);
-      }
-      return view && <div class={`${name}__body`}>{view}</div>;
+    isUseDefault(btnApi: FooterButton) {
+      const baseTypes = ['string', 'object'];
+      return Boolean(btnApi && baseTypes.includes(typeof btnApi));
     },
-    renderDefaultBtn(type: string, btnNode: string | ((c: typeof h) => void) | ButtonProps) {
-      if (!btnNode) return null;
-      const r = {
-        confirm: {
-          theme: 'primary',
-          variant: 'base',
-          onClick: this.confirmBtnAction,
-        },
-        cancel: {
-          theme: 'default',
-          variant: 'outline',
-          onClick: this.cancelBtnAction,
-        },
-      }[type];
-      if (typeof btnNode === 'function') {
-        return btnNode(h);
+    // locale 全局配置，插槽，props，默认值，决定了按钮最终呈现
+    getDefaultFooter() {
+      let cancelBtn = null;
+      if (![undefined, null].includes(this.cancelBtn)) {
+        cancelBtn = this.cancelBtn || '取消';
+        const defaultCancel = this.getDefaultBtn('cancel', cancelBtn);
+        cancelBtn = this.isUseDefault(cancelBtn) ? defaultCancel : renderTNodeJSX(this, 'cancelBtn');
       }
-      if (typeof btnNode === 'object') {
-        return (
-          <TButton variant={r.variant as ('base' | 'outline')} onClick={r.onClick} { ...btnNode }>
-            {btnNode.content}
-          </TButton>
-        );
+      let confirmBtn = null;
+      if (![undefined, null].includes(this.confirmBtn)) {
+        confirmBtn = this.confirmBtn || '确认';
+        const defaultConfirm = this.getDefaultBtn('confirm', confirmBtn);
+        confirmBtn = this.isUseDefault(confirmBtn) ? defaultConfirm : renderTNodeJSX(this, 'confirmBtn');
       }
       return (
-        <TButton variant={r.variant as ('base' | 'outline')} onClick={r.onClick}>
-          {btnNode}
-        </TButton>
-      );
-    },
-
-    renderFooter() {
-      const defaultView = (
         <div>
-          {this.renderDefaultBtn('cancel', this.cancelBtn)}
-          {this.renderDefaultBtn('confirm', this.confirmBtn)}
+          {cancelBtn}
+          {confirmBtn}
         </div>
-      );
-      const target = this.footer;
-      let view;
-      if (target === false) return;
-
-      if (target === true) {
-        view = typeof this.$slots.footer === 'function' ? this.$slots.footer(null) : defaultView;
-      } else if (typeof target === 'function') {
-        // @ts-ignore: TODO
-        view = target(h);
-      }
-
-      return <div class={`${name}__footer`}>{view || defaultView}</div>;
-    },
-    renderCloseBtn() {
-      const defaultView = <t-icon-close name="close"></t-icon-close>;
-      const target = this.closeBtn;
-      let view;
-      let isShow = true;
-      if (typeof target === 'boolean') {
-        isShow = target;
-      }
-
-      if (typeof target === 'string') {
-        view = target;
-      } else if (typeof target === 'function') {
-        // @ts-ignore: TODO
-        view = target(h);
-      } else if (typeof this.$slots.closeBtn === 'function') {
-        view = this.$slots.closeBtn(null);
-      }
-
-      return (
-        isShow && (
-          <span class={`${name}__close`} onClick={this.closeBtnAcion}>
-            {view || defaultView}
-          </span>
-        )
       );
     },
     renderDialog() {
+      // header 值为 true 显示空白头部
+      const defaultHeader = <h5 class="title"></h5>;
+      const defaultCloseBtn = <t-icon-close name="close"></t-icon-close>;
+      const body = renderContent(this, 'default', 'body');
+      const defaultFooter = this.getDefaultFooter();
+      const bodyClassName = this.theme === 'default' ? `${name}__body` : `${name}__body__icon`;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div
@@ -339,10 +276,10 @@ export default defineComponent({
           style={this.dialogStyle}
           v-draggable={this.isModeless && this.draggable}
         >
-          {this.renderHeader()}
-          {this.renderBody()}
-          {this.renderFooter()}
-          {this.renderCloseBtn()}
+          <div class={`${name}__header`}>{this.getIcon()}{renderTNodeJSX(this, 'header', defaultHeader)}</div>
+          <span class={`${name}__close`} onClick={this.closeBtnAcion}>{renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}</span>
+          <div class={bodyClassName}>{body}</div>
+          <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div>
         </div>
       );
     },
@@ -361,7 +298,7 @@ export default defineComponent({
         onAfterLeave={this.afterLeave}
       >
         {(!this.destroyOnClose || this.visible) && (
-          <div v-show={this.visible} class={ctxClass} style={ctxStyle} v-transfer-dom={this.attachTarget || false}>
+          <div v-show={this.visible} class={ctxClass} style={ctxStyle} v-transfer-dom={this.attach}>
             {view}
           </div>
         )}

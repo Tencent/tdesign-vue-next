@@ -3,7 +3,7 @@
     <!-- attach挂载 -->
     <t-button theme="primary" @click="visibleBody = true">挂载在body</t-button>
     <t-button theme="primary" @click="visibleIdAttach = true">挂载特定元素</t-button>
-    <t-button theme="primary" @click="visibleFunctionAttach = true">挂载函数返回节点</t-button>
+    <!-- <t-button theme="primary" @click="visibleFunctionAttach = true">挂载函数返回节点</t-button> -->
 
     <t-dialog
       v-model:visible="visibleBody"
