@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
+import { ClassName } from '../common';
 
 const name = `${prefix}-layout`;
 

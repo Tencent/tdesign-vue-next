@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../../../common/style/web/_variables.less';
+@import '@common/style/web/_variables.less';
 :deep([class*='t-button']) .t-icon {
   background-color: transparent;
 }

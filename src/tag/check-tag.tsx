@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ComponentPublicInstance } from 'vue';
 import config from '../config';
 import props from './check-tag-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -34,7 +34,7 @@ export default defineComponent({
   },
   render() {
     // 标签内容
-    const tagContent: TNodeReturnValue = renderTNodeJSX(this, 'default') || renderTNodeJSX(this, 'content');
+    const tagContent: TNodeReturnValue = renderTNodeJSX(this as ComponentPublicInstance, 'default') || renderTNodeJSX(this as ComponentPublicInstance, 'content');
 
     return (
       <span class={this.tagClass} onClick={this.handleClick}>

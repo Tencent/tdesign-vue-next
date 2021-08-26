@@ -7,7 +7,7 @@ import ChevronUp from '../icon/chevron-up';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { ChangeSource } from './type';
-
+import { ClassName } from '../common';
 const name = `${prefix}-input-number`;
 
 type InputNumberEvent = {

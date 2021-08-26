@@ -1,7 +1,12 @@
-import Dropdown from './dropdown';
-import setInstallFn from '../utils/setInstallFn';
+import { prefix } from '../config';
+const name = `${prefix}-dropdown`;
+import { defineComponent } from 'vue';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-setInstallFn('Dropdown', Dropdown);
+const Component = defineComponent({
+  name
+})
 
-export { Dropdown };
+export const Dropdown: WithInstallType<typeof Component> = withInstall(Component);
+
 export default Dropdown;

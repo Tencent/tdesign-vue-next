@@ -8,13 +8,13 @@ import { TdInputProps } from './type';
 export * from './type';
 export type InputProps = TdInputProps;
 
-const LocalInput = mapProps([{
+
+export const Addon: WithInstallType<typeof _Addon> = withInstall(_Addon);
+export const Input: WithInstallType<typeof _Input> = withInstall(mapProps([{
   name: 'value',
   event: ['input', 'change'],
   alias: ['modelValue'],
-}])(_Input);
+}])(_Input));
 
-export const Addon: WithInstallType<typeof _Addon> = withInstall(_Addon);
-export const Input: WithInstallType<typeof LocalInput> = withInstall(LocalInput);
 export const InputGroup: WithInstallType<typeof _InputGroup> = withInstall(_InputGroup);
 export default Input;

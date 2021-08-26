@@ -2,7 +2,7 @@ import { VNode, defineComponent } from 'vue';
 import TIconChevronRight from '../icon/chevron-right';
 import TIconLoading from '../icon/loading';
 import TCheckBox from '../checkbox';
-import TreeNode from '../../common/js/tree/tree-node';
+import TreeNode from '@common/js/tree/tree-node';
 import { getTNode } from './util';
 import { TypeEventState } from './types';
 import { TREE_NODE_NAME, CLASS_NAMES } from './constants';

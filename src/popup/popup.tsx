@@ -1,4 +1,4 @@
-import { defineComponent, Transition } from 'vue';
+import { defineComponent, Transition, ComponentPublicInstance } from 'vue';
 import { createPopper } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
@@ -7,6 +7,7 @@ import { on, off, addClass, removeClass, getAttach } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { PopupVisibleChangeContext } from './type';
+import { ClassName, Styles } from '../common';
 
 const stop = (e: MouseEvent): void => e.stopPropagation();
 const { prefix } = config;
@@ -309,12 +310,12 @@ export default defineComponent({
             style={{ zIndex: this.zIndex }}
           >
             <div class={this.overlayClasses} ref="overlay">
-              {renderTNodeJSX(this, 'content')}
+              {renderTNodeJSX(this as ComponentPublicInstance, 'content')}
               {this.showArrow && <div class={`${name}__arrow`} data-popper-arrow></div>}
             </div>
           </div>
         </transition>
-        {renderContent(this, 'default', 'triggerElement')}
+        {renderContent(this as ComponentPublicInstance, 'default', 'triggerElement')}
       </div>
     );
   },

@@ -64,10 +64,11 @@ export default defineComponent({
     };
   },
   render() {
+    const { default: defaultSlot, icon: iconSlot } = this.$slots;
     return (
       <li class={this.classes} onClick={this.handleClick}>
-        {this.$slots.icon && this.$slots.icon()}
-        <span class={[`${prefix}-menu__content`]}>{this.$slots.default && this.$slots.default()}</span>
+        {iconSlot && iconSlot()}
+        <span class={[`${prefix}-menu__content`]}>{defaultSlot && defaultSlot()}</span>
       </li>
     );
   },

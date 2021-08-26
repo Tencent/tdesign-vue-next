@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
@@ -74,7 +74,7 @@ export default defineComponent({
       const defaultClose = <t-icon-close />;
       return (
         <span class={`${name}-close`} onClick={this.close}>
-          {renderTNodeJSX(this, 'closeBtn', defaultClose)}
+          {renderTNodeJSX(this as ComponentPublicInstance, 'closeBtn', defaultClose)}
         </span>
       );
     },
@@ -101,7 +101,7 @@ export default defineComponent({
     return (
       <div class={ this.classes } onMouseenter={ this.clearTimer } onMouseleave={ this.setTimer }>
         { this.renderIcon() }
-        { renderContent(this, 'default', 'content') }
+        { renderContent(this as ComponentPublicInstance, 'default', 'content') }
         { this.renderClose() }
       </div>
     );

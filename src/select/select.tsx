@@ -1,4 +1,4 @@
-import { defineComponent, nextTick, VNode } from 'vue';
+import { defineComponent, nextTick, VNode, ComponentPublicInstance } from 'vue';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
@@ -200,7 +200,7 @@ export default defineComponent({
       return [];
     },
     popupObject(): PopupProps {
-      const propsObject = this.popupProps ? ({ ...this.defaultProps, ...this.popupProps as PopupProps }) : this.defaultProps;
+      const propsObject = this.popupProps ? ({ ...this.defaultProps, ...this.popupProps as any }) : this.defaultProps;
       return propsObject;
     },
     filterOptions(): Array<Options> {
@@ -410,28 +410,28 @@ export default defineComponent({
       this.$nextTick(() => {
         let styles = (this.popupProps && (this.popupProps as PopupProps).overlayStyle) || {};
         if (this.popupProps && isFunction((this.popupProps as PopupProps).overlayStyle)) {
-          styles = (this.popupProps as PopupProps).overlayStyle(this.$refs.select as HTMLElement) || {};
+          styles = (this.popupProps as any).overlayStyle(this.$refs.select as HTMLElement) || {};
         }
         if (typeof styles === 'object' && !styles.width) {
           const elWidth = (this.$refs.select as HTMLElement).getBoundingClientRect().width;
           const popupWidth = this.getOverlayElm().getBoundingClientRect().width;
           const width = elWidth > DEFAULT_MAX_OVERLAY_WIDTH ? elWidth : Math.min(DEFAULT_MAX_OVERLAY_WIDTH, Math.max(elWidth, popupWidth));
-          this.defaultProps.overlayStyle.width = `${Math.ceil(width)}px`;
+          (this.defaultProps.overlayStyle as any).width = `${Math.ceil(width)}px`;
         }
       });
     },
     getEmpty() {
       const useLocale = !this.empty && !this.$slots.empty;
-      return useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty');
+      return useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this as ComponentPublicInstance, 'empty');
     },
     getLoadingText() {
       const useLocale = !this.loadingText && !this.$slots.loadingText;
-      return useLocale ? this.t(this.locale.loadingText) : renderTNodeJSX(this, 'loadingText');
+      return useLocale ? this.t(this.locale.loadingText) : renderTNodeJSX(this as ComponentPublicInstance, 'loadingText');
     },
     getCloseIcon() {
       if (isFunction(this.locale.clearIcon)) {
         return (
-          <span class={`${name}-right-icon`} onClick={this.clearSelect}>
+          <span class={`${name}-right-icon`} onClick={e => this.clearSelect(e as PointerEvent)}>
             {this.locale.clearIcon(this.$createElement)}
           </span>
         );
@@ -469,8 +469,8 @@ export default defineComponent({
       showCreateOption,
       displayOptions,
     } = this;
-    const children = renderTNodeJSX(this, 'default');
-    const prefixIconSlot = renderTNodeJSX(this, 'prefixIcon');
+    const children = renderTNodeJSX(this as ComponentPublicInstance, 'default');
+    const prefixIconSlot = renderTNodeJSX(this as ComponentPublicInstance, 'prefixIcon');
     const emptySlot = this.getEmpty();
     const loadingTextSlot = this.getLoadingText();
     const slots = {
@@ -543,7 +543,7 @@ export default defineComponent({
                   size={size}
                   closable={!item.disabled && !disabled}
                   disabled={disabled}
-                  onClose={(e: MouseEvent) => this.removeTag(index, { e })}
+                  onClose={(e: MouseEvent) => this.removeTag(index, { e: (e as PointerEvent) })}
                 >
                   { get(item, realLabel) === '' ? get(item, realValue) : get(item, realLabel) }
                 </tag>

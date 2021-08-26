@@ -6,8 +6,6 @@
       "dom.iterable",
       "scripthost"
     ],
-    "strict": true,
-    "sourceMap": true,
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
@@ -26,36 +24,9 @@
     "baseUrl": "./",
     "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }],
     "paths": {
-      "@src/*": [
-        "src/*"
-      ],
-      "@tencent/tdesign-vue": [
-        "src/*"
-      ],
-      "@common/*": [
-        "common/*"
-      ],
-      "@Button": [
-        "src/button/index.ts"
-      ],
-      "@Select": [
-        "src/select/index.ts"
-      ],
-      "@Pagination": [
-        "src/pagination/index.ts"
-      ],
-      "@Radio": [
-        "src/radio/index.ts"
-      ],
-      "@Checkbox": [
-        "src/checkbox/index.ts"
-      ],
-      "@Table": [
-        "src/table/index.ts"
-      ],
-      "@Popup": [
-        "src/popup/index.ts"
-      ]
+      "@src/*": ["src/*"],
+      "@tencent/tdesign-vue": ["src/*"],
+      "@common/*": ["src/_common/*"],
     }
   },
   "include": [

@@ -1,12 +1,13 @@
-import _Upload from './upload';
-import mapProps from '../utils/map-props';
-import setInstallFn from '../utils/setInstallFn';
+import { prefix } from '../config';
+const name = `${prefix}-upload`;
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
-const Upload = mapProps([
-  { name: 'fileList', event: 'change' },
-])(_Upload);
+import { defineComponent } from 'vue';
 
-setInstallFn('Upload', Upload);
+const Component = defineComponent({
+  name,
+})
 
-export { Upload };
+export const Upload: WithInstallType<typeof Component> = withInstall(Component);
+
 export default Upload;

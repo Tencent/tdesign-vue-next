@@ -129,10 +129,10 @@ export default defineComponent({
       this.focused = false;
       this.$emit('blur', this.value, { e });
     },
-    onCompositionend(e: InputEvent) {
+    onCompositionend(e: CompositionEvent) {
       this.inputValueChangeHandle(e);
     },
-    inputValueChangeHandle(e: InputEvent) {
+    inputValueChangeHandle(e: InputEvent | CompositionEvent) {
       const { target } = e;
       const val = (target as HTMLInputElement).value;
       this.$emit('change', val, { e });
@@ -198,7 +198,7 @@ export default defineComponent({
           ref="refInputElem"
           value={this.value}
           class={`${name}__inner`}
-          onInput={this.handleInput}
+          onInput={(e: Event) => this.handleInput(e as InputEvent)}
           onCompositionend={this.onCompositionend}
         />
         {suffixIcon ? <span class={[`${name}__suffix`, { [`${name}__clear`]: this.showClear }]}>{suffixIcon}</span> : null}

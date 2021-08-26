@@ -1,4 +1,4 @@
-import { defineComponent, h, VNode } from 'vue';
+import { defineComponent, h, VNode, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import IconPromptFill from '../icon/info-circle-filled';
@@ -73,12 +73,12 @@ export default defineComponent({
     },
 
     renderTitle()  {
-      const titleContent = renderTNodeJSX(this, 'title');
+      const titleContent = renderTNodeJSX(this as ComponentPublicInstance, 'title');
       return titleContent ? <div class={`${name}__title`}> {titleContent}</div> : null;
     },
 
     renderMessage() {
-      const operationContent = renderTNodeJSX(this, 'operation');
+      const operationContent = renderTNodeJSX(this as ComponentPublicInstance, 'operation');
       return (
         <div class={`${name}__message`}>
           { this.renderDescription()}
@@ -94,9 +94,9 @@ export default defineComponent({
     renderDescription() {
       let messageContent;
 
-      messageContent = renderTNodeJSX(this, 'default');
+      messageContent = renderTNodeJSX(this as ComponentPublicInstance, 'default');
       if (!messageContent) {
-        messageContent = renderTNodeJSX(this, 'message');
+        messageContent = renderTNodeJSX(this as ComponentPublicInstance, 'message');
       }
 
       const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;

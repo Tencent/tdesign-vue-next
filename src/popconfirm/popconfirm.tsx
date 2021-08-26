@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ComponentPublicInstance } from 'vue';
 import { renderTNodeJSX, renderContent, renderTNodeJSXDefault } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
@@ -64,7 +64,7 @@ export default defineComponent({
     },
     renderIcon() {
       const Icon = this.themeIcon;
-      return renderTNodeJSXDefault(this, 'icon', <Icon class={this.iconCls} />);
+      return renderTNodeJSXDefault(this as ComponentPublicInstance, 'icon', <Icon class={this.iconCls} />);
     },
     getBtnText(api: TdPopconfirmProps['cancelBtn']) {
       return typeof api === 'object' ? api.content : api;
@@ -91,21 +91,21 @@ export default defineComponent({
     },
   },
   render() {
-    const triggerElement = renderContent(this, 'default', 'triggerElement');
+    const triggerElement = renderContent(this as ComponentPublicInstance, 'default', 'triggerElement');
     const baseTypes = ['string', 'object'];
     let confirmBtn: any = null;
     if (![undefined, null].includes(this.confirmBtn)) {
       const mBtn = this.confirmBtn || this.t(this.locale.confirm);
       confirmBtn = baseTypes.includes(typeof mBtn)
         ? this.renderConfirm(mBtn)
-        : renderTNodeJSX(this, 'confirmBtn');
+        : renderTNodeJSX(this as ComponentPublicInstance, 'confirmBtn');
     }
     let cancelBtn: any = null;
     if (![undefined, null].includes(this.cancelBtn)) {
       const cBtn = this.cancelBtn || this.t(this.locale.cancel);
       cancelBtn = baseTypes.includes(typeof cBtn)
         ? this.renderCancel(cBtn)
-        : renderTNodeJSX(this, 'cancelBtn');
+        : renderTNodeJSX(this as ComponentPublicInstance, 'cancelBtn');
     }
     const slots = {
       content: () => (
@@ -113,7 +113,7 @@ export default defineComponent({
           <div class={`${name}__body`}>
             {this.renderIcon()}
             <div class={`${name}__inner`}>
-              {renderTNodeJSX(this, 'content')}
+              {renderTNodeJSX(this as ComponentPublicInstance, 'content')}
             </div>
           </div>
           {Boolean(cancelBtn || confirmBtn) && (

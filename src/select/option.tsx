@@ -109,8 +109,8 @@ export default defineComponent({
         v-show={show}
         class={classes}
         title={labelText}
-        onMouseenter={ this.mouseEvent.bind(true) }
-        onMouseleave={ this.mouseEvent.bind(false) }
+        onMouseenter={ () => this.mouseEvent(true) }
+        onMouseleave={ () => this.mouseEvent(false) }
         onClick={ (e: MouseEvent) => {
           e.preventDefault();
           this.select(e);

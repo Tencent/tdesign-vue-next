@@ -4,7 +4,7 @@ import CLASSNAMES from '../utils/classnames';
 import TIconLoading from '../icon/loading';
 import { SwitchValue } from './type';
 import props from './props';
-
+import { ClassName } from '../common';
 const name = `${prefix}-switch`;
 
 export default defineComponent({

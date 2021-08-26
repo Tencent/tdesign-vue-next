@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../../../common/style/web/_variables.less';
+@import '@common/style/web/_variables.less';
 .link {
   cursor: pointer;
   margin-right: 15px;

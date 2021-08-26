@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -14,7 +14,7 @@ export default defineComponent({
     getContent() {
       if (this.dot) return '';
       if (typeof this.count === 'function') {
-        return renderTNodeJSX(this, 'count');
+        return renderTNodeJSX(this as ComponentPublicInstance, 'count');
       }
       if (isNaN(Number(this.count))) {
         return this.count;

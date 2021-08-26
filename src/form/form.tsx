@@ -104,7 +104,7 @@ export default defineComponent({
 
   render(): VNode {
     return (
-      <form class={this.formClass} onSubmit={this.submitHandler} onReset={this.resetHandler}>
+      <form class={this.formClass} onSubmit={e => this.submitHandler(e as MouseEvent)} onReset={e => this.resetHandler(e as MouseEvent)}>
         {this.$slots.default ? this.$slots.default() : []}
       </form>
     );

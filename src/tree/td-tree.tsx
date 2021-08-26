@@ -1,7 +1,7 @@
 import { defineComponent, TransitionGroup } from 'vue';
 import upperFirst from 'lodash/upperFirst';
-import TreeStore from '../../common/js/tree/tree-store';
-import TreeNode from '../../common/js/tree/tree-node';
+import TreeStore from '../../src/_common/js/tree/tree-store';
+import TreeNode from '../../src/_common/js/tree/tree-node';
 import TreeItem from './tree-item';
 import props from './oldType/props';
 import {

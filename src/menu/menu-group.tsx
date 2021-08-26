@@ -8,12 +8,13 @@ export default defineComponent({
   name,
   props,
   render() {
+    const { default: defaultSlot } = this.$slots;
     return (
       <div class={`${prefix}-menu-group`}>
         <div class={`${prefix}-menu-group-title`}>
           {this.title}
         </div>
-        {this.$slots.default && this.$slots.default()}
+        {defaultSlot && defaultSlot()}
       </div>
     );
   },

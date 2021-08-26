@@ -49,6 +49,6 @@ export * from './popconfirm';
 export * from './popup';
 export * from './alert-swiper';
 
-// export * from './upload';
-// export * from './dropdown';
-// export * from './time-picker';
+export * from './time-picker';
+export * from './upload';
+export * from './dropdown';

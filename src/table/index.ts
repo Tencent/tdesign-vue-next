@@ -28,7 +28,7 @@ const TPrimaryTable = mapProps([
 export const BaseTable = withInstall(_BaseTable);
 export const PrimaryTable = withInstall(TPrimaryTable);
 
-const _LocalTable = _.cloneDeep(TPrimaryTable);
-_LocalTable.name = `${prefix}-table`;
-export const Table = withInstall(_LocalTable);
+const LocalTable = _.cloneDeep(TPrimaryTable);
+LocalTable.name = `${prefix}-table`;
+export const Table = withInstall(LocalTable);
 export default Table;

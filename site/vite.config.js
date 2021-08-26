@@ -12,8 +12,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, '../'),
       '@tencent/tdesign-vue-next/lib': path.resolve(__dirname, '../src'),
       '@tencent/tdesign-vue-next': path.resolve(__dirname, '../src'),
-      '@common': path.resolve(__dirname, '../common'),
-      '@TdTypes': path.resolve(__dirname, '../types'),
+      '@common': path.resolve(__dirname, '../src/_common'),
     },
   },
   server: {

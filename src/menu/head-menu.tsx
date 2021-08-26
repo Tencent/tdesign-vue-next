@@ -107,19 +107,20 @@ export default defineComponent({
     },
   },
   render() {
+    const { logo: logoSlot, default: defaultSlot, operations: operationsSlot } = this.$slots;
     return (
       <div class={this.menuClass}>
         <div class="t-head-menu__inner">
           {
-            this.$slots.logo && (<div class="t-menu__logo">{this.$slots.logo()}</div>)
+            logoSlot && (<div class="t-menu__logo">{logoSlot()}</div>)
           }
           <ul class="t-menu">
           {
-            this.$slots.default()
+            defaultSlot && defaultSlot()
           }
           </ul>
           {
-            this.$slots.operations && (<div class="t-menu__options">{this.$slots.operations()}</div>)
+            operationsSlot && (<div class="t-menu__options">{operationsSlot()}</div>)
           }
         </div>
         {this.mode === 'normal' && this.renderNormalSubmenu()}

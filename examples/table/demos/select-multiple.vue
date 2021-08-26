@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../../common/style/web/index";
+@import "@common/style/web/index";
 .link {
   cursor: pointer;
   margin-right: 15px;

@@ -2,7 +2,6 @@ import { defineComponent } from 'vue';
 import config from '../config';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
-import RenderComponent from '../utils/render-component';
 import TIconChevronLeft from '../icon/chevron-left';
 import TIconChevronRight from '../icon/chevron-right';
 import TIconChevronLeftDouble from '../icon/chevron-left-double';
@@ -13,7 +12,7 @@ import { Select } from '../select';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { TdPaginationProps } from './type';
-
+import { ClassName } from '../common';
 const { prefix } = config;
 const name = `${prefix}-pagination`;
 
@@ -22,7 +21,6 @@ const PAGINATION_LOCAL_REVEIVER = getLocalRecevierMixins('pagination');
 export default defineComponent({
   name,
   components: {
-    RenderComponent,
     TIconChevronLeft,
     TIconChevronRight,
     TIconChevronLeftDouble,
@@ -147,22 +145,14 @@ export default defineComponent({
       return ans;
     },
     pageSizeOption(): Array<{ label: string; value: number }> {
-      const { pageSize } = this;
-      const locale = this.locale as any;
       const pageSizeOptions = this.pageSizeOptions as TdPaginationProps['pageSizeOptions'];
-      const isNumber = (val: any) => typeof val === 'number';
-      const data = pageSizeOptions.map((item: { label: string; value: any }) => ({
-        label: isNumber(item) ? locale.itemsPerPage : item.label.replace(/\d+/, '{size}'),
-        value: isNumber(item) ? item : item.value,
-      }));
-      return data.find((item: { value: number }) => item.value === pageSize)
-        ? data
-        : data
-          .concat({
-            value: pageSize,
-            label: (data[0] && data[0].label) || locale.itemsPerPage,
-          })
-          .sort((a: any, b: any) => a.value - b.value);
+      const options = pageSizeOptions.map(option => typeof option === 'object'
+        ? option
+        : {
+          label: this.t(this.locale.itemsPerPage, { size: option }),
+          value: Number(option),
+        });
+      return options.sort((a, b) => a.value - b.value);
     },
 
     curPageLeftCount(): number {

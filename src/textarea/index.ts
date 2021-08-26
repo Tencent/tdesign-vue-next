@@ -9,7 +9,7 @@ const LocalTextarea = mapProps([{
 }])(_Textarea)
 
 export * from './type';
-export type TextareaProps = TdTextareaProps
+export type TextareaProps = TdTextareaProps;
 
-export const Textarea: WithInstallType<typeof LocalTextarea> = withInstall(LocalTextarea)
-export default Textarea
+export const Textarea: WithInstallType<typeof LocalTextarea> = withInstall(LocalTextarea);
+export default Textarea;

@@ -8,5 +8,3 @@
     </t-list>
   </div>
 </template>
-
-

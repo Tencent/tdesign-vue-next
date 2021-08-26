@@ -120,15 +120,15 @@ export default defineComponent({
     if (this.$slots.options) {
       console.warn('TDesign Warn: `options` slot is going to be deprecated, please use `operations` for slot instead.');
     }
-    const { logo, default: defaultSlot, operations } = this.$slots;
+    const { logo: logoSlot, default: defaultSlot, operations: operationsSlot } = this.$slots;
     return (
       <div class={this.menuClass} style={this.styles}>
         <div class={`${prefix}-default-menu__inner`}>
-          {logo && (<div class={`${prefix}-menu__logo`}>{logo()}</div>)}
+          {logoSlot && (<div class={`${prefix}-menu__logo`}>{logoSlot()}</div>)}
           <ul class={this.innerClasses}>
-            {defaultSlot()}
+            {defaultSlot && defaultSlot()}
           </ul>
-          {operations && (<div class={`${prefix}-menu__options`}>{operations()}</div>)}
+          {operationsSlot && (<div class={`${prefix}-menu__options`}>{operationsSlot()}</div>)}
         </div>
       </div>
     );

@@ -1,7 +1,9 @@
 import _Affix from './affix';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdAffixProps } from './type';
 
-const Affix: WithInstallType<typeof _Affix> = withInstall(_Affix);
+export * from './type';
 
-export { Affix };
+export const Affix: WithInstallType<typeof _Affix> = withInstall(_Affix);
+export type AffixProps = TdAffixProps;
 export default Affix;

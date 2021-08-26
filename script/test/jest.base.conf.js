@@ -18,17 +18,8 @@ module.exports = {
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
-    '^@tencent/tdesign-vue/lib/(.*)$': '<rootDir>/src/$1',
-    '^@tencent/tdesign-vue/lib/(.*)$': '<rootDir>/src/$1',
-    '^@TdTypes/(.*)$': '<rootDir>/types/$1',
-    '^@Button/(.*)$': '<rootDir>/src/button/index.ts',
-    '^@Pagination/(.*)$': '<rootDir>/src/pagination/index.ts',
-    '^@Breadcrumb/(.*)$': '<rootDir>/src/breadcrumb/index.ts',
-    '^@Radio/(.*)$': '<rootDir>/src/radio/index.ts',
-    '^@Checkbox/(.*)$': '<rootDir>/src/checkbox/index.ts',
-    '^@Select/(.*)$': '<rootDir>/src/select/index.ts',
-    '^@Table/(.*)$': '<rootDir>/src/table/index.ts',
-    '^@Popup/(.*)$': '<rootDir>/src/popup/index.ts',
+    '^@tencent/tdesign-vue-next/lib/(.*)$': '<rootDir>/src/$1',
+    '^@common/(.*)$': '<rootDir>/src/_common/$1',
     '^vue$': '<rootDir>/node_modules/vue/index.js',
   },
   modulePathIgnorePatterns: ['<rootDir>/test/unit/coverage/'],
@@ -40,7 +31,7 @@ module.exports = {
   },
   testRegex: '.*\\.test\\.js$',
   testPathIgnorePatterns: ['/node_modules/', '.history'],
-  setupFiles: ['<rootDir>/script/test/setup'],
+  setupFiles: ['<rootDir>/script/test/setup.js'],
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.json',
