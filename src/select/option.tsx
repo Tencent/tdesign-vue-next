@@ -3,6 +3,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 import get from 'lodash/get';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
+import ripple from '../utils/ripple';
 import props from './option-props';
 import { Options } from './type';
 import Checkbox from '../checkbox/index';
@@ -16,6 +17,7 @@ export default defineComponent({
   components: {
     TCheckbox: Checkbox,
   },
+  directives: { ripple },
   inject: {
     tSelect: {
       default: undefined,
@@ -114,7 +116,8 @@ export default defineComponent({
         onClick={ (e: MouseEvent) => {
           e.preventDefault();
           this.select(e);
-        } }
+        }}
+        v-ripple
       >
         {
           this.tSelect && this.tSelect.multiple

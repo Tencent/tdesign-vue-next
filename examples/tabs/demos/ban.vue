@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
   .t-demo-tabs {
 
     &__desc {
@@ -47,25 +47,9 @@
 export default {
   data() {
     return {
-      isCard: false,
+      theme: 'normal',
       value: 'first',
     };
-  },
-
-  computed: {
-    desc() {
-      return `切换到${this.isCard ? '常规型' : '卡片型'}选项卡`;
-    },
-
-    theme() {
-      return this.isCard ? 'card' : 'normal';
-    },
-  },
-
-  methods: {
-    toggle() {
-      this.isCard = !this.isCard;
-    },
   },
 };
 </script>

@@ -7,6 +7,7 @@ import { getTNode } from './util';
 import { TypeEventState } from './types';
 import { TREE_NODE_NAME, CLASS_NAMES } from './constants';
 import { ClassName } from '../common';
+import ripple from '../utils/ripple';
 
 export const TreeItemProps = {
   node: {
@@ -19,6 +20,7 @@ export const TreeItemProps = {
 
 export default defineComponent({
   name: TREE_NODE_NAME,
+  directives: { ripple },
   props: TreeItemProps,
   emits: ['click', 'change'],
   methods: {
@@ -161,6 +163,7 @@ export default defineComponent({
       if (node && node.vmCheckable) {
         labelNode = (
           <TCheckBox
+            v-ripple
             class={labelClasses}
             checked={node.checked}
             indeterminate={node.indeterminate}
@@ -174,6 +177,7 @@ export default defineComponent({
       } else {
         labelNode = (
           <span
+            v-ripple
             class={labelClasses}
           >{labelNode}</span>
         );

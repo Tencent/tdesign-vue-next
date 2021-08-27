@@ -4,11 +4,13 @@ import CLASSNAMES from '../utils/classnames';
 import TIconLoading from '../icon/loading';
 import props from './props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
+import ripple from '../utils/ripple';
 
 const name = `${prefix}-button`;
 
 export default defineComponent({
   name,
+  directives: { ripple },
   inheritAttrs: false,
   props,
   render() {
@@ -48,7 +50,7 @@ export default defineComponent({
       ];
     }
     return (
-      <button class={buttonClass} type={this.type} disabled={this.disabled} {...this.$attrs}>
+      <button v-ripple class={buttonClass} type={this.type} disabled={this.disabled} {...this.$attrs}>
         {buttonContent}
       </button>
     );
