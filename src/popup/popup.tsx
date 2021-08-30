@@ -36,7 +36,12 @@ export default defineComponent({
     Transition,
   },
 
-  props: { ...props },
+  props: {
+    ...props,
+    expandAnimation: {
+      type: Boolean,
+    },
+  },
 
   emits: ['visible-change'],
 
@@ -171,8 +176,20 @@ export default defineComponent({
       if (this.popperJS && this.popperJS.destroy) {
         this.popperJS.destroy();
       }
+      let placement = placementMap[this.currentPlacement];
+      if (this.expandAnimation) {
+        // 如果有展开收起动画 需要在beforeEnter阶段设置max-height为0 这导致popperjs无法知道overflow了 所以需要在这里手动判断设置placment
+        this.popperElm.style.display = '';
+        this.presetMaxHeight = parseInt(getComputedStyle(this.getContentElm(this.popperElm)).maxHeight, 10) || Infinity;
+        const referenceElmBottom = innerHeight - this.referenceElm.getBoundingClientRect().bottom;
+        if (referenceElmBottom < this.popperElm.scrollHeight) {
+          placement = 'top-start';
+        }
+        this.popperElm.style.display = 'none';
+      }
+
       this.popperJS = createPopper(this.referenceElm, this.popperElm, {
-        placement: placementMap[this.currentPlacement],
+        placement,
         onFirstUpdate: () => {
           this.$nextTick(this.updatePopper);
         },
@@ -295,12 +312,66 @@ export default defineComponent({
       }
       this.$emit('visible-change', val, context);
     },
+    // 以下代码用于处理展开-收起动画相关,
+    // 需要使用popup的组件设置非对外暴露的expandAnimation开启 对不需要展开收起动画的其他组件无影响
+    getContentElm(el: HTMLElement): HTMLElement {
+      if (this.expandAnimation) {
+        const content = el.querySelector(`.${name}-content`) as HTMLElement;
+        return content;
+      }
+      return null;
+    },
+    // 动画结束后 清除展开收起动画相关属性 避免造成不必要的影响
+    resetExpandStyles(el: HTMLElement): void {
+      const content = this.getContentElm(el);
+      if (content) {
+        content.style.overflow = '';
+        content.style.maxHeight = '';
+      }
+    },
+    // 设置展开动画初始条件
+    beforeEnter(el: HTMLElement): void {
+      const content = this.getContentElm(el);
+      if (content) {
+        content.style.overflow = 'hidden';
+        content.style.maxHeight = '0';
+      }
+    },
+    // 设置max-height,触发展开动画
+    enter(el: HTMLElement): void {
+      const content = this.getContentElm(el);
+      if (content) {
+        // 对比scrollHeight和组件自身设置的maxHeight 选择小的做展开动画
+        const scrollHeight = Math.min(content.scrollHeight, this.presetMaxHeight);
+        content.style.maxHeight = `${scrollHeight}px`;
+      }
+    },
+    // 设置max-height为0,触发收起动画
+    leave(el: HTMLElement): void {
+      const content = this.getContentElm(el);
+      if (content) content.style.maxHeight = '0';
+    },
+    // 设置收起动画初始条件
+    beforeLeave(el: HTMLElement): void {
+      const content = this.getContentElm(el);
+      if (content) {
+        content.style.overflow = 'hidden';
+        content.style.maxHeight = `${content.scrollHeight}px`;
+      }
+    },
   },
 
   render() {
     return (
       <div class={`${name}-reference`}>
-        <transition name={`${name}_animation`} appear>
+        <transition name={`${name}_animation`} appear
+          onBeforeEnter={this.beforeEnter}
+          onEnter={this.enter}
+          onAfterEnter={this.resetExpandStyles}
+          onBeforeLeave={this.beforeLeave}
+          onLeave={this.leave}
+          onAfterLeave={this.destroyPopper}
+        >
           <div
             class={name}
             ref='popper'
