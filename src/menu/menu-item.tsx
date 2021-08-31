@@ -22,28 +22,6 @@ export default defineComponent({
         [`${prefix}-submenu__item--icon`]: submenu && submenu.hasIcon,
       },
     ]);
-    // methods
-    const handleClick = () => {
-      if (props.disabled) return;
-      menu.select(props.value);
-
-      if (props.href) {
-        window.open(props.href, props.target);
-      } else if (props.to) {
-        const router = props.router || (ctx.expose as Record<string, any>).$router;
-        const methods: string = props.replace ? 'replace' : 'push';
-        router[methods](props.to).catch((err: Error) => {
-          // vue-router 3.1.0+ push/replace cause NavigationDuplicated error
-          // https://github.com/vuejs/vue-router/issues/2872
-          // 当前path和目标path相同时，会抛出NavigationDuplicated的错误
-          if (err.name !== 'NavigationDuplicated'
-          && !err.message.includes('Avoided redundant navigation to current location')
-          ) {
-            throw (err);
-          }
-        });
-      }
-    };
 
     // lifetimes
     onMounted(() => {
@@ -60,8 +38,30 @@ export default defineComponent({
       menu,
       active,
       classes,
-      handleClick,
     };
+  },
+  methods: {
+    handleClick() {
+      if (this.disabled) return;
+      this.menu.select(this.value);
+
+      if (this.href) {
+        window.open(this.href, this.target);
+      } else if (this.to) {
+        const router = this.router || this.$router;
+        const methods: string = props.replace ? 'replace' : 'push';
+        router[methods](this.to).catch((err: Error) => {
+          // vue-router 3.1.0+ push/replace cause NavigationDuplicated error
+          // https://github.com/vuejs/vue-router/issues/2872
+          // 当前path和目标path相同时，会抛出NavigationDuplicated的错误
+          if (err.name !== 'NavigationDuplicated'
+          && !err.message.includes('Avoided redundant navigation to current location')
+          ) {
+            throw (err);
+          }
+        });
+      }
+    },
   },
   render() {
     const { default: defaultSlot, icon: iconSlot } = this.$slots;
