@@ -5,7 +5,7 @@ import getLocalRecevierMixins from '../locale/local-receiver';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TIconChevronDown from '../icon/chevron-down';
-import TIconClose from '../icon/close';
+import TIconClose from '../icon/close-circle-filled';
 import TIconLoading from '../icon/loading';
 import TInput from '../input/index';
 import Tag from '../tag/index';
@@ -320,7 +320,8 @@ export default defineComponent({
         }
       }
     },
-    removeTag(index: number, { e }: { e: PointerEvent }) {
+    removeTag(index: number, { e }: { e: MouseEvent }) {
+      e.stopPropagation();
       if (this.disabled) {
         return;
       }
@@ -334,7 +335,6 @@ export default defineComponent({
       this.visible = false;
     },
     clearSelect(e: PointerEvent) {
-      e.stopPropagation();
       if (this.multiple) {
         this.emitChange([]);
       } else {
@@ -429,16 +429,17 @@ export default defineComponent({
       return useLocale ? this.t(this.locale.loadingText) : renderTNodeJSX(this as ComponentPublicInstance, 'loadingText');
     },
     getCloseIcon() {
+      const closeIconClass = [`${name}-right-icon`, `${name}-right-icon__clear`];
       if (isFunction(this.locale.clearIcon)) {
         return (
-          <span class={`${name}-right-icon`} onClick={e => this.clearSelect(e as PointerEvent)}>
+          <span class={closeIconClass} onClick={this.clearSelect}>
             {this.locale.clearIcon(this.$createElement)}
           </span>
         );
       }
       return (
         <t-icon-close
-          class={`${name}-right-icon`}
+          class={closeIconClass}
           size={this.size}
           onClick={this.clearSelect}
         />
@@ -543,7 +544,7 @@ export default defineComponent({
                   size={size}
                   closable={!item.disabled && !disabled}
                   disabled={disabled}
-                  onClose={(e: MouseEvent) => this.removeTag(index, { e: (e as PointerEvent) })}
+                  onClose={this.removeTag.bind(null, index)}
                 >
                   { get(item, realLabel) === '' ? get(item, realValue) : get(item, realLabel) }
                 </tag>

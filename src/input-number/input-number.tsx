@@ -1,5 +1,6 @@
 import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
+import TButton from '../button';
 import Add from '../icon/add';
 import Remove from '../icon/remove';
 import ChevronDown from '../icon/chevron-down';
@@ -37,6 +38,7 @@ export default defineComponent({
     Remove,
     ChevronDown,
     ChevronUp,
+    TButton,
   },
   props: { ...props },
   emits: ['update:value', 'change', 'blur', 'focus', 'keydown-enter', 'keydown', 'keyup', 'keypress'],
@@ -316,12 +318,11 @@ export default defineComponent({
   render() {
     return (
       <div class={this.cmptWrapClasses}>
-        {
-          this.theme !== 'normal'
-          && <span class={this.reduceClasses} {...this.reduceEvents}>
-            {this.decreaseIcon}
-          </span>
-        }
+        {this.theme !== 'normal' && <t-button class={this.reduceClasses} {...this.reduceEvents} variant="outline" v-slots={{
+          icon: () => (
+            this.decreaseIcon
+          ),
+        }} />}
         <div class={this.inputWrapProps}>
           <input
             value={this.displayValue}
@@ -330,12 +331,11 @@ export default defineComponent({
             {...this.inputEvents}
           />
         </div>
-        {
-          this.theme !== 'normal'
-          && <div class={this.addClasses} {...this.addEvents}>
-            {this.increaseIcon}
-          </div>
-        }
+        {this.theme !== 'normal' && <t-button class={this.addClasses} {...this.addEvents} variant="outline" v-slots={{
+          icon: () => (
+            this.increaseIcon
+          ),
+        }} />}
       </div>
     );
   },

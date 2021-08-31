@@ -1,10 +1,10 @@
 import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import TIconLoading from '../icon/loading';
+import Loading from '../loading';
 import { SwitchValue } from './type';
 import props from './props';
-import { ClassName } from '../common';
+import { ClassName, TNodeReturnValue } from '../common';
 const name = `${prefix}-switch`;
 
 export default defineComponent({
@@ -102,17 +102,19 @@ export default defineComponent({
   render() {
     const {
       loading,
+      disabled,
       content,
       nodeClasses,
       classes,
       toggle,
-      contentClasses } = this;
+      contentClasses,
+    } = this;
 
     let switchContent: VNodeChild;
-    let loadingContent;
+    let loadingContent: TNodeReturnValue;
 
     if (loading) {
-      loadingContent = <TIconLoading/>;
+      loadingContent = <Loading size="small" />;
     } else if (content) {
       switchContent = content;
     }
@@ -120,6 +122,7 @@ export default defineComponent({
     return (
       <div
         class={classes}
+        disabled={disabled}
         onClick={toggle}
         >
           <span class={nodeClasses}>{loadingContent}</span>

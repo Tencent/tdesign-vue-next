@@ -98,11 +98,11 @@
           </tr>
         </thead>
         <tbody class="t-calendar__table-body">
-          <tr v-for="week in monthCellsData" :key="week.num" class="t-calendar__table-body-row">
+          <tr v-for="(week, weekIndex) in monthCellsData" :key="weekIndex" class="t-calendar__table-body-row">
             <template v-for="item in week">
               <CalendarCellItem
                 v-if="checkMonthCellItemShowed(item)"
-                :key="`${item.weekNum}-${item.day}`"
+                :key="`${weekIndex}-${item.day}`"
                 :item="item"
                 :theme="theme"
                 :t="t"
@@ -131,8 +131,8 @@
         <tbody class="t-calendar__table-body">
           <tr v-for="(row, rowIndex) in yearCellsData" :key="rowIndex" class="t-calendar__table-body-row">
             <CalendarCellItem
-              v-for="item in row"
-              :key="item.num"
+              v-for="(item, itemIndex) in row"
+              :key="`${rowIndex}-${itemIndex}`"
               :item="item"
               :theme="theme"
               :t="t"
@@ -168,7 +168,7 @@ import calendar from 'dayjs/plugin/calendar';
 import { useLocalRecevier } from '../locale/local-receiver';
 import * as utils from './utils';
 import { getPropsApiByEvent } from '../utils/helper';
-
+import { SizeEnum } from '../common';
 
 // 组件的一些常量
 import {
