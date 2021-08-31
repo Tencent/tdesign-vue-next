@@ -7,22 +7,28 @@ const name = `${prefix}-layout`;
 export default defineComponent({
   name,
 
+  provide(): any {
+    return {
+      layout: this,
+    };
+  },
+
   props: {},
 
   data() {
-    return {};
+    return {
+      hasSider: false,
+    };
   },
 
   computed: {
-    hasSider() {
-      if (this.$slots && this.$slots.default) {
-        const defaultSlot = this.$slots.default();
-        return defaultSlot.some((vnode: any) => {
-          const tag = vnode.type && vnode.type.name;
-          return tag === `${prefix}-aside`;
-        });
-      }
-      return false;
+    classes(): ClassName {
+      return [
+        name,
+        {
+          [`${name}-has-sider`]: this.hasSider,
+        },
+      ];
     },
   },
 
@@ -35,14 +41,8 @@ export default defineComponent({
   },
 
   render() {
-    const classes: ClassName = [
-      name,
-      {
-        [`${name}-has-sider`]: this.hasSider,
-      },
-    ];
     return (
-      <section class={classes}>
+      <section class={this.classes}>
         {this.renderContent()}
       </section>
     );

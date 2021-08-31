@@ -7,10 +7,24 @@ const name = `${prefix}-aside`;
 export default defineComponent({
   name,
 
+  inject: {
+    layout: {
+      default: undefined,
+    },
+  },
+
   props,
 
   data() {
     return {};
+  },
+
+  mounted() {
+    this.layout.hasSider = true;
+  },
+
+  unmounted() {
+    this.layout.hasSider = false;
   },
 
   methods: {
@@ -21,7 +35,7 @@ export default defineComponent({
 
   render() {
     const styles = this.width ? {
-      height: this.width,
+      width: this.width,
     } : {};
     return (
       <aside class="t-layout--sider" style={styles}>

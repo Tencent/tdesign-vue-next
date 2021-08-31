@@ -1,6 +1,9 @@
 import { defineComponent } from 'vue';
+import isObject from 'lodash/isObject';
 import { prefix } from '../config';
 import props from './col-props';
+import { ClassName } from '../common';
+import { TdColProps, TdRowProps } from './type';
 
 const name = `${prefix}-col`;
 
@@ -15,92 +18,98 @@ export default defineComponent({
     return {};
   },
 
-  computed: {},
+  computed: {
+    classes(): ClassName {
+      const {
+        span, order, offset, push, pull,
+      } = this;
+
+      const allSizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+      const sizeClasses = allSizes.reduce((acc, currSize) => {
+        const sizeProp = this[currSize];
+        let sizeObject: any = {};
+        if (typeof sizeProp === 'number') {
+          sizeObject.span = sizeProp;
+        } else if (isObject(sizeProp)) {
+          sizeObject = sizeProp || {};
+        }
+
+        return {
+          ...acc,
+          [`${name}-${currSize}-${sizeObject.span}`]: sizeObject.span !== undefined,
+          [`${name}-${currSize}-order-${sizeObject.order}`]: parseInt(sizeObject.order, 10) >= 0,
+          [`${name}-${currSize}-offset-${sizeObject.offset}`]: parseInt(sizeObject.offset, 10) >= 0,
+          [`${name}-${currSize}-push-${sizeObject.push}`]: parseInt(sizeObject.push, 10) >= 0,
+          [`${name}-${currSize}-pull-${sizeObject.pull}`]: parseInt(sizeObject.pull, 10) >= 0,
+        };
+      }, {});
+
+      return {
+        [`${name}`]: true,
+        [`${name}-${span}`]: span !== undefined,
+        [`${name}-order-${order}`]: order,
+        [`${name}-offset-${offset}`]: offset,
+        [`${name}-push-${push}`]: push,
+        [`${name}-pull-${pull}`]: pull,
+        ...sizeClasses,
+      };
+    },
+  },
 
   watch: {},
 
   methods: {
-    parseFlex(flex: any) {
+    parseFlex(flex: TdColProps['flex']): string {
       if (typeof flex === 'number') {
-        return `${flex} ${flex} auto`;
+        return `${flex} ${flex} 0`;
       }
-      if (/^\d+(\.\d+)?(px|em|rem|%)$/.test(flex)) {
+      if (/^\d+(\.\d+)?(px|r?em|%)$/.test(flex)) {
         return `0 0 ${flex}`;
       }
       return flex;
     },
-    renderContent() {
-      return this.$slots.default ? this.$slots.default(null) : '';
+    calcColPadding(gutter: TdRowProps['gutter'], currentSize: string) {
+      const paddingObj = {};
+      if (typeof gutter === 'number' && gutter > 0) {
+        Object.assign(paddingObj, {
+          paddingLeft: `${gutter / 2}px`,
+          paddingRight: `${gutter / 2}px`,
+          paddingTop: `${gutter / 2}px`,
+          paddingBottom: `${gutter / 2}px`,
+        });
+      } else if (Array.isArray(gutter) && gutter.length) {
+        if (gutter[0] as any > 0) Object.assign(paddingObj, { paddingLeft: `${gutter[0] as any / 2}px`, paddingRight: `${gutter[0] as any / 2}px` });
+        if (gutter[1] as any > 0) Object.assign(paddingObj, { paddingTop: `${gutter[1] as any / 2}px`, paddingBottom: `${gutter[1] as any / 2}px` });
+      } else if (isObject(gutter) && gutter[currentSize]) {
+        if (Array.isArray(gutter[currentSize])) {
+          if (gutter[currentSize][0] > 0) Object.assign(paddingObj, { paddingLeft: `${gutter[currentSize][0] / 2}px`, paddingRight: `${gutter[currentSize][0] / 2}px` });
+          if (gutter[currentSize][1] > 0) Object.assign(paddingObj, { paddingTop: `${gutter[currentSize][1] / 2}px`, paddingBottom: `${gutter[currentSize][1] / 2}px` });
+        } else if (gutter[currentSize] > 0) {
+          Object.assign(paddingObj, {
+            paddingLeft: `${gutter[currentSize] / 2}px`,
+            paddingRight: `${gutter[currentSize] / 2}px`,
+            paddingTop: `${gutter[currentSize] / 2}px`,
+            paddingBottom: `${gutter[currentSize] / 2}px`,
+          });
+        }
+      }
+      return paddingObj;
     },
   },
 
   render() {
-    const {
-      span,
-      order,
-      offset,
-      push,
-      pull,
-      flex,
-      tag,
-    } = this;
-    const component = tag;
-    let sizeClassObj: any = {};
-    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach((size) => {
-      let sizeProps: any = {};
-      const propSize = this[size];
-      if (typeof propSize === 'number') {
-        sizeProps.span = propSize;
-      } else if (typeof propSize === 'object') {
-        sizeProps = propSize || {};
-      }
+    const { flex, tag, classes } = this;
 
-      sizeClassObj = {
-        ...sizeClassObj,
-        [`${name}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
-        [`${name}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
-        [`${name}-${size}-offset-${sizeProps.offset}`]:
-          sizeProps.offset || sizeProps.offset === 0,
-        [`${name}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
-        [`${name}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
-      };
-    });
-    const classes: any = {
-      [`${name}`]: true,
-      [`${name}-${span}`]: span !== undefined,
-      [`${name}-order-${order}`]: order,
-      [`${name}-offset-${offset}`]: offset,
-      [`${name}-push-${push}`]: push,
-      [`${name}-pull-${pull}`]: pull,
-      ...sizeClassObj,
-    };
-    let styles: any = {};
-    if (flex) {
-      styles.flex = this.parseFlex(flex);
-    }
-    const { rowContext }: any = this as any;
+    const styles: any = {};
+    flex && (styles.flex = this.parseFlex(flex));
+
+    const { rowContext }: any = this;
     if (rowContext) {
-      const gutter = rowContext.getGutter();
-      const padding: any = {};
-      if (gutter) {
-        if (gutter[0] > 0) {
-          padding.paddingLeft = `${gutter[0] / 2}px`;
-          padding.paddingRight = `${gutter[0] / 2}px`;
-        }
-        if (gutter[1] > 0) {
-          padding.paddingTop = `${gutter[1] / 2}px`;
-          padding.paddingBottom = `${gutter[1] / 2}px`;
-        }
-      }
-      styles = {
-        ...styles,
-        ...padding,
-      };
+      const { gutter: rowGutter, size: rowSize } = rowContext;
+      Object.assign(styles, this.calcColPadding(rowGutter, rowSize));
     }
-    return (
-      <component class={classes} style={styles}>
-        {this.renderContent()}
-      </component>
-    );
+    const colStyle = { ...styles };
+
+    return <tag class={classes} style={colStyle}>{ this.$slots.default && this.$slots.default()}</tag>;
   },
 });
