@@ -1,12 +1,13 @@
 import { defineComponent, h, VNodeChild, nextTick } from 'vue';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
-import { omit } from '../utils/helper';
-import ClearIcon from '../icon/clear-circle-filled';
+import { InputValue } from './type';
+import { getCharacterLength, omit } from '../utils/helper';
+
 import BrowseIcon from '../icon/browse';
 import BrowseOffIcon from '../icon/browse-off';
+import CLASSNAMES from '../utils/classnames';
+import ClearIcon from '../icon/close-circle-filled';
+import { prefix } from '../config';
 import props from './props';
-import { InputValue } from './type';
 
 const name = `${prefix}-input`;
 
@@ -134,7 +135,11 @@ export default defineComponent({
     },
     inputValueChangeHandle(e: InputEvent | CompositionEvent) {
       const { target } = e;
-      const val = (target as HTMLInputElement).value;
+      let val = (target as HTMLInputElement).value;
+      if (this.maxcharacter && this.maxcharacter >= 0) {
+        const stringInfo = getCharacterLength(val, this.maxcharacter);
+        val = typeof stringInfo === 'object' && stringInfo.characters;
+      }
       this.$emit('change', val, { e });
       this.$emit('input', val, { e });
       // 受控
