@@ -8,15 +8,16 @@ import TIconChevronLeftDouble from '../icon/chevron-left-double';
 import TIconChevronRightDouble from '../icon/chevron-right-double';
 import TIconEllipsis from '../icon/ellipsis';
 import TInput from '../input';
-import { Select } from '../select';
+import { Select, Option } from '../select';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { TdPaginationProps } from './type';
 import { ClassName } from '../common';
 const { prefix } = config;
+
 const name = `${prefix}-pagination`;
 
-const PAGINATION_LOCAL_REVEIVER = getLocalRecevierMixins('pagination');
+const PaginationLocalReceiver = getLocalRecevierMixins('pagination');
 
 export default defineComponent({
   name,
@@ -27,9 +28,10 @@ export default defineComponent({
     TIconChevronRightDouble,
     TIconEllipsis,
     TInput,
-    Select,
+    TSelect: Select,
+    TOption: Option,
   },
-  ...mixins(PAGINATION_LOCAL_REVEIVER),
+  ...mixins(PaginationLocalReceiver),
   props: {
     ...props,
     /**
@@ -53,11 +55,10 @@ export default defineComponent({
       },
     },
   },
-  emits: ['change', 'update:pageSize', 'pageSizeChange'],
+  emits: ['change', 'update:current', 'update:pageSize', 'pageSizeChange', 'currentChange'],
   data() {
     return {
       jumpIndex: this.current,
-      currentIndex: this.current,
       prevMore: false,
       nextMore: false,
     };
@@ -66,7 +67,7 @@ export default defineComponent({
     /**
      * 样式计算
      */
-    CLASS(): ClassName {
+    paginationClass(): ClassName {
       return [
         `${name}`,
         CLASSNAMES.SIZE[this.size],
@@ -91,7 +92,7 @@ export default defineComponent({
         `${name}__btn`,
         `${name}__btn--prev`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled || this.currentIndex === 1,
+          [CLASSNAMES.STATUS.disabled]: this.disabled || this.current === 1,
         },
       ];
     },
@@ -100,7 +101,7 @@ export default defineComponent({
         `${name}__btn`,
         `${name}__btn--next`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled || this.currentIndex === this.pageCount,
+          [CLASSNAMES.STATUS.disabled]: this.disabled || this.current === this.pageCount,
         },
       ];
     },
@@ -137,14 +138,14 @@ export default defineComponent({
       const c: number = Math.ceil(this.total / this.pageSize);
       return c > 0 ? c : 1;
     },
-    pageCountOption(): Array<number> {
+    pageCountOption(): Array<{label: string; value: number}> {
       const ans = [];
       for (let i = 1; i <= this.pageCount; i++) {
-        ans.push(i);
+        ans.push({ value: i, label: `${i}/${this.pageCount}` });
       }
       return ans;
     },
-    pageSizeOption(): Array<{ label: string; value: number }> {
+    sizeOptions(): Array<{ label: string; value: number }> {
       const pageSizeOptions = this.pageSizeOptions as TdPaginationProps['pageSizeOptions'];
       const options = pageSizeOptions.map(option => typeof option === 'object'
         ? option
@@ -164,11 +165,11 @@ export default defineComponent({
     },
 
     isPrevMoreShow(): boolean {
-      return 2 + this.curPageLeftCount < this.currentIndex;
+      return 2 + this.curPageLeftCount < this.current;
     },
 
     isNextMoreShow(): boolean {
-      return this.pageCount - 1 - this.curPageRightCount > this.currentIndex;
+      return this.pageCount - 1 - this.curPageRightCount > this.current;
     },
 
     pages(): Array<number> {
@@ -178,8 +179,8 @@ export default defineComponent({
 
       if (this.isFolded) {
         if (this.isPrevMoreShow && this.isNextMoreShow) {
-          start = this.currentIndex - this.curPageLeftCount;
-          end = this.currentIndex + this.curPageRightCount;
+          start = this.current - this.curPageLeftCount;
+          end = this.current + this.curPageRightCount;
         } else {
           start = this.isPrevMoreShow ? this.pageCount - this.foldedMaxPageBtn + 1 : 2;
           end = this.isPrevMoreShow ? this.pageCount - 1 : this.foldedMaxPageBtn;
@@ -199,17 +200,8 @@ export default defineComponent({
       return this.pageCount > this.maxPageBtn;
     },
   },
-  watch: {
-    current: {
-      handler(v: number): void {
-        this.currentIndex = v;
-        this.jumpIndex = v;
-      },
-      immediate: true,
-    },
-  },
   methods: {
-    toPage(pageIndex: number): void {
+    toPage(pageIndex: number, isTriggerChange?: boolean): void {
       if (this.disabled) {
         return;
       }
@@ -219,30 +211,32 @@ export default defineComponent({
       } else if (pageIndex > this.pageCount) {
         current = this.pageCount;
       }
-      if (this.currentIndex !== current) {
-        const prev = this.currentIndex;
-        this.currentIndex = current;
+      if (this.current !== current) {
+        const prev = this.current;
         this.jumpIndex = current;
         const pageInfo = {
-          curr: current,
-          prev,
+          current,
+          previous: prev,
           pageSize: this.pageSize,
         };
-        this.$emit('change', current, pageInfo);
-        this.currentIndex = current;
+        if (isTriggerChange !== false) {
+          this.$emit('change', pageInfo);
+        }
+        this.$emit('update:current', current);
+        this.$emit('currentChange', current, pageInfo);
       }
     },
     prevPage(): void {
-      this.toPage(this.currentIndex - 1);
+      this.toPage(this.current - 1);
     },
     nextPage(): void {
-      this.toPage(this.currentIndex + 1);
+      this.toPage(this.current + 1);
     },
     prevMorePage(): void {
-      this.toPage(this.currentIndex - this.foldedMaxPageBtn);
+      this.toPage(this.current - this.foldedMaxPageBtn);
     },
     nextMorePage(): void {
-      this.toPage(this.currentIndex + this.foldedMaxPageBtn);
+      this.toPage(this.current + this.foldedMaxPageBtn);
     },
     jumpToPage(): void {
       this.toPage(Number(this.jumpIndex));
@@ -252,7 +246,7 @@ export default defineComponent({
         `${name}__number`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
-          [CLASSNAMES.STATUS.current]: this.currentIndex === index,
+          [CLASSNAMES.STATUS.current]: this.current === index,
         },
       ];
     },
@@ -268,7 +262,7 @@ export default defineComponent({
 
       let isIndexChange = false;
 
-      if (this.currentIndex > pageCount) {
+      if (this.current > pageCount) {
         isIndexChange = true;
       }
 
@@ -278,8 +272,8 @@ export default defineComponent({
        * @param {Number} index 当前页
        */
       const pageInfo = {
-        curr: isIndexChange ? pageCount : this.currentIndex,
-        prev: this.currentIndex,
+        curr: isIndexChange ? pageCount : this.current,
+        prev: this.current,
         pageSize,
       };
       this.$emit('update:pageSize', pageSize);
@@ -301,7 +295,7 @@ export default defineComponent({
     },
     renderPagination() {
       const {
-        CLASS,
+        paginationClass,
         pageCount,
         totalContent,
         totalClass,
@@ -312,10 +306,10 @@ export default defineComponent({
         sizerClass,
         onSelectorChange,
         pageSizeOptions,
-        pageSizeOption,
+        sizeOptions,
         preBtnClass,
         prevPage,
-        currentIndex,
+        current,
         btnWrapClass,
         getButtonClass,
         toPage,
@@ -343,7 +337,7 @@ export default defineComponent({
       };
 
       return (
-        <div class={CLASS}>
+        <div class={paginationClass}>
           {/* 数据统计区 */}
           {
             totalContent && <div class={totalClass}>
@@ -355,21 +349,20 @@ export default defineComponent({
           {
             pageSizeOptions.length &&  <t-select size={size} value={pageSize} disabled={disabled} class={sizerClass} onChange={onSelectorChange}>
               {
-                pageSizeOption.map((item, index) => (
+                sizeOptions.map((item, index) => (
                     <t-option
                       value={item.value}
-                      label={t(item.label, { size: item.value })}
+                      label={item.label}
                       key={index}
-                    >
-                    </t-option>
+                    />
                 ))
               }
             </t-select>
           }
 
           {/* 向前按钮 */}
-          <div class={preBtnClass} onClick={prevPage} disabled={disabled || currentIndex === 1}>
-            <t-icon-chevron-left></t-icon-chevron-left>
+          <div class={preBtnClass} onClick={prevPage} disabled={disabled || current === 1}>
+            <t-icon-chevron-left />
           </div>
           {/* 页数 */}
           {
@@ -385,15 +378,15 @@ export default defineComponent({
                   onMouseout={() => this.prevMore = false}
                 >
                   {
-                    this.prevMore ? <t-icon-chevron-left-double></t-icon-chevron-left-double> : <t-icon-ellipsis></t-icon-ellipsis>
+                    this.prevMore ? <t-icon-chevron-left-double /> : <t-icon-ellipsis/>
                   }
                 </li>
               }
               {
                 pages.map(item => (
-                    <li class={getButtonClass(item)} key={item} onClick={() => toPage(item)}>
-                      { item }
-                    </li>
+                  <li class={getButtonClass(item)} key={item} onClick={() => toPage(item)}>
+                    { item }
+                  </li>
                 ))
               }
 
@@ -405,7 +398,7 @@ export default defineComponent({
                   onMouseout={() => this.nextMore = false}
                 >
                   {
-                    this.nextMore ? <t-icon-chevron-right-double></t-icon-chevron-right-double> : <t-icon-ellipsis></t-icon-ellipsis>
+                    this.nextMore ? <t-icon-chevron-right-double /> : <t-icon-ellipsis />
                   }
                 </li>
               }
@@ -414,24 +407,16 @@ export default defineComponent({
               }
             </ul> : <t-select
               size={size}
-              value={currentIndex}
+              value={current}
               disabled={disabled}
               class={simpleClass}
               onChange={toPage}
-            >
-              {
-                pageCountOption.map(item => <t-option
-                    value={item}
-                    label={`${item}/${pageCount}`}
-                    key={`${item}/${pageCount}`}
-                  />)
-              }
-
-            </t-select>
+              options={pageCountOption}
+            />
           }
           {/* 向后按钮 */}
-          <div class={nextBtnClass} onClick={nextPage} disabled={disabled || currentIndex === pageCount}>
-            <t-icon-chevron-right></t-icon-chevron-right>
+          <div class={nextBtnClass} onClick={nextPage} disabled={disabled || current === pageCount}>
+            <t-icon-chevron-right />
           </div>
           {/* 跳转 */}
           {
