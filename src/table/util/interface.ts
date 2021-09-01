@@ -39,7 +39,7 @@ export interface CellData {
   customRender: () => void;
 }
 
-export const EventNameWithUpperCase = [
+export const Event_Name_With_UpperCase = [
   'onRowHover',
   'onRowMouseup',
   'onRowMousedown',
@@ -61,4 +61,4 @@ export type RenderExpandRowParams = {
   rows: any;
   rowIndex: number;
   columns: TdPrimaryTableProps['columns'];
-}
+};

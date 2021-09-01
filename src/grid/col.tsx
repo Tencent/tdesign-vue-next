@@ -98,7 +98,7 @@ export default defineComponent({
   },
 
   render() {
-    const { flex, tag, classes } = this;
+    const { flex, tag: TAG, classes } = this;
 
     const styles: any = {};
     flex && (styles.flex = this.parseFlex(flex));
@@ -110,6 +110,6 @@ export default defineComponent({
     }
     const colStyle = { ...styles };
 
-    return <tag class={classes} style={colStyle}>{ this.$slots.default && this.$slots.default()}</tag>;
+    return <TAG class={classes} style={colStyle}>{ this.$slots.default && this.$slots.default()}</TAG>;
   },
 });

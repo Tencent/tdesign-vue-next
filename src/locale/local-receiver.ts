@@ -1,6 +1,6 @@
 import { computed, defineComponent, inject } from 'vue';
 import config from '../config';
-import { Locale, ComponentLocale, LocalRule } from './type';
+import { ComponentLocale, LocalRule } from './type';
 import defaultLocale from './zh_CN';
 
 const name = `${config.prefix}-locale-receiver`;
@@ -64,7 +64,7 @@ export const useLocalRecevier = (componentName: string) => {
       return globalLocale[componentName];
     }
     return defaultData;
-  })
+  });
 
   const t = (pattern: LocalRule<Placement>, placement?: Placement): string => {
     if (typeof pattern === 'string') {
@@ -87,5 +87,5 @@ export const useLocalRecevier = (componentName: string) => {
     globalLocale,
     locale,
     t
-  }
-}
+  };
+};

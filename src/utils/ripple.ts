@@ -9,7 +9,7 @@ import { DirectiveBinding } from 'vue';
 import setStyle from './set-style';
 import { prefix } from '../config';
 
-let startTimeId = null as NodeJS.Timeout
+let startTimeId = null as NodeJS.Timeout;
 
 const Ripple = {
   mounted(el: HTMLElement, binding: DirectiveBinding) {

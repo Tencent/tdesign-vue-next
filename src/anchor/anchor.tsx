@@ -205,7 +205,7 @@ export default defineComponent({
     } = this;
     const className = [name, CLASSNAMES.SIZE[size]];
 
-    const Content = (
+    const content = (
       <div class={className}>
         <div class={`${name}_line`}><div class="point" style={activeLineStyle}></div></div>
         {children && children(null)}
@@ -213,9 +213,9 @@ export default defineComponent({
     );
 
     if (affixProps) {
-      return <Affix {...affixProps}>{Content}</Affix>;
+      return <Affix {...affixProps}>{content}</Affix>;
     }
 
-    return Content;
+    return content;
   },
 });
