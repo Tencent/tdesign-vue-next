@@ -44,7 +44,6 @@
     "esm",
     "es",
     "tools",
-    "common",
     "types/index.ts",
     "src/addon/**",
     "src/locale/**",

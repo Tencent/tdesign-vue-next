@@ -3,7 +3,7 @@ dist
 lib
 es
 node_modules
-common
+src/_common
 static
 cypress
 script/test/cypress

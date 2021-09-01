@@ -1,5 +1,5 @@
 import { ComponentPublicInstance } from 'vue';
-import TreeNode from '@common/js/tree/tree-node';
+import TreeNode from '../_common/js/tree/tree-node';
 import { TNode, TreeOptionData } from '../common';
 
 import {
