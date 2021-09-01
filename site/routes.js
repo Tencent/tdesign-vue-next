@@ -52,7 +52,7 @@ const routerConfig = {
   routes,
   scrollBehavior: function(to, from) {
     if (to.path !== from.path) {
-      return { top: 0 }
+      return { top: 0 };
     }
   },
 };

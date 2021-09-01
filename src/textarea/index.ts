@@ -6,7 +6,7 @@ import { TdTextareaProps } from './type';
 const LocalTextarea = mapProps([{
   name: 'value',
   alias: ['modelValue'],
-}])(_Textarea)
+}])(_Textarea);
 
 export * from './type';
 export type TextareaProps = TdTextareaProps;

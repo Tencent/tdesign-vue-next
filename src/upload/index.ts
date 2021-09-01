@@ -6,7 +6,7 @@ import { defineComponent } from 'vue';
 
 const Component = defineComponent({
   name,
-})
+});
 
 export const Upload: WithInstallType<typeof Component> = withInstall(Component);
 

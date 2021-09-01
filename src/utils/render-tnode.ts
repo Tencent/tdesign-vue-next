@@ -1,4 +1,4 @@
-import { h, isVNode, createTextVNode, VNode, ComponentPublicInstance ,Slots } from 'vue';
+import { h, isVNode, createTextVNode, VNode, ComponentPublicInstance, Slots } from 'vue';
 import { TNode } from '../common';
 
 // 组件render属性的ts类型
@@ -64,7 +64,7 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
   if (propsNode === true && defaultNode) {
     return instance.$slots[name] ? instance.$slots[name](params) : defaultNode;
   }
-  if (typeof propsNode === 'function') return propsNode(h,params);
+  if (typeof propsNode === 'function') return propsNode(h, params);
   const isPropsEmpty = [undefined, params, ''].includes(propsNode);
   if (isPropsEmpty && instance.$slots[name]) return instance.$slots[name](params);
   return propsNode;

@@ -85,10 +85,10 @@ export default defineComponent({
   },
 
   render(): VNode {
-    const { tag, classes } = this;
+    const { tag: TAG, classes } = this;
 
     const rowStyle = this.calcRowMargin(this.gutter, this.size);
 
-    return <tag class={classes} style={rowStyle}>{this.$slots.default && this.$slots.default()}</tag>;
+    return <TAG class={classes} style={rowStyle}>{this.$slots.default && this.$slots.default()}</TAG>;
   },
 });

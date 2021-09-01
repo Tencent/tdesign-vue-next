@@ -12,7 +12,7 @@ import { getScrollDirection, SCROLL_DIRECTION } from '../util/common';
 import { PageInfo } from '../../pagination/type';
 import throttle from 'lodash/throttle';
 import { renderTNodeJSX } from '../../utils/render-tnode';
-import { EventNameWithUpperCase } from '../util/interface';
+import { Event_Name_With_UpperCase } from '../util/interface';
 
 
 export default defineComponent({
@@ -159,7 +159,7 @@ export default defineComponent({
         slots,
       } = this;
       const rowEvents = {};
-      EventNameWithUpperCase.forEach((eventName) => {
+      Event_Name_With_UpperCase.forEach((eventName) => {
         rowEvents[eventName] = (params: RowEventContext<any>) => {
           this.emitEvent(eventName, params);
         };

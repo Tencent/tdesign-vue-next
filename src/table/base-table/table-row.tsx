@@ -7,7 +7,7 @@ import get from 'lodash/get';
 import { CustomData, CellData, CellParams } from '../util/interface';
 
 type Attrs = Record<string, any>;
-type createElement = ReturnType<typeof h>;
+type CreateElement = ReturnType<typeof h>;
 
 const eventsName = {
   onMouseover: 'onRowHover',
@@ -63,9 +63,9 @@ export default defineComponent({
         if (typeof cell === 'function') {
           customRender = cell;
         } else if (typeof cell === 'string' && typeof this.$slots[cell] === 'function') {
-          customRender = (h: createElement, params: CellParams) => this.$slots[cell](params);
+          customRender = (h: CreateElement, params: CellParams) => this.$slots[cell](params);
         } else if (typeof this.$slots?.[colKey] === 'function') {
-          customRender =  (h: createElement, params: CellParams) => this.$slots[colKey](params);
+          customRender =  (h: CreateElement, params: CellParams) => this.$slots[colKey](params);
         } else if (typeof render === 'function') {
           customRender = render;
           customData.func = 'render';

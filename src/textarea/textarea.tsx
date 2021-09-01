@@ -1,5 +1,5 @@
-import { prefix } from "../config";
-import { defineComponent } from "vue";
+import { prefix } from '../config';
+import { defineComponent } from 'vue';
 import props from './props';
 import CLASSNAMES from '../utils/classnames';
 
@@ -21,7 +21,7 @@ export default defineComponent({
   name,
   props: {...props},
   inheritAttrs: false,
-  emits: ['input','keydown','keyup','keypress','focus','blur','change','update:value'],
+  emits: ['input', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
   data() {
     return {
       focused: false,

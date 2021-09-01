@@ -63,8 +63,8 @@ export default defineComponent({
       this.$emit('visible-change', false, confirmContext);
     },
     renderIcon() {
-      const Icon = this.themeIcon;
-      return renderTNodeJSXDefault(this as ComponentPublicInstance, 'icon', <Icon class={this.iconCls} />);
+      const ICON = this.themeIcon;
+      return renderTNodeJSXDefault(this as ComponentPublicInstance, 'icon', <ICON class={this.iconCls} />);
     },
     getBtnText(api: TdPopconfirmProps['cancelBtn']) {
       return typeof api === 'object' ? api.content : api;
