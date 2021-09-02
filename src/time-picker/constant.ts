@@ -1,6 +1,6 @@
 import { prefix } from '../config';
 
-export const componentName = `${prefix}-time-picker`;
+export const COMPONENT_NAME = `${prefix}-time-picker`;
 
 export enum EPickerCols {
   hour = 'hour',
@@ -12,7 +12,7 @@ export enum EPickerCols {
 export const AM = 'AM';
 export const PM = 'PM';
 
-export const meridiemList = [AM, PM];
+export const MERIDIEM_LIST = [AM, PM];
 
 // 上下午前置
 export const amFormat = /^(a|A)\s+?[h]{1,2}(:[m]{1,2}(:[s]{1,2})?)?$/;
@@ -21,7 +21,7 @@ export const pmFormat = /^[h]{1,2}(:[m]{1,2}(:[s]{1,2})?)?(\s+(a|A))?$/;
 
 export const TIME_PICKER_EMPTY: Array<undefined> = [undefined, undefined];
 
-export enum KEYBOARD_DIRECTION {
+export enum KeyboardDirection {
   left = 37,
   up = 38,
   right = 39,

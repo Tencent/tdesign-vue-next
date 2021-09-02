@@ -26,7 +26,7 @@ import {
 const CascaderLocalReceiver = getLocalRecevierMixins('cascader');
 const name = `${prefix}-cascader`;
 
-type TypeContext = { e?: Event; node?: TreeNode }
+type TypeContext = { e?: Event; node?: TreeNode };
 
 export default defineComponent({
   ...mixins(CascaderLocalReceiver),

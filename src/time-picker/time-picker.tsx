@@ -20,7 +20,7 @@ import InputItems from './input-items';
 import props from './props';
 
 import {
-  EPickerCols, EMPTY_VALUE, componentName, amFormat, pmFormat, AM,
+  EPickerCols, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM,
 } from './constant';
 
 const name = `${prefix}-time-picker`;
@@ -353,7 +353,7 @@ export default defineComponent({
         trigger="click"
         disabled={disabled}
         visible={this.isShowPanel}
-        overlayClassName={`${componentName}-panel__container`}
+        overlayClassName={`${COMPONENT_NAME}-panel__container`}
         onVisibleChange={this.panelVisibleChange}
         expandAnimation={true}
         v-slots={slots}

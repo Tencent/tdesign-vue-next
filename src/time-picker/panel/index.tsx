@@ -5,12 +5,12 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import mixins from '../../utils/mixins';
 import getLocalReceiverMixins from '../../locale/local-receiver';
 import { TimePickerPanelColInstance } from '../interface';
-import { componentName, EPickerCols } from '../constant';
+import { COMPONENT_NAME, EPickerCols } from '../constant';
 import { panelProps } from './props';
 import PanelCol from './panel-col';
 import TButton from '../../button/button';
 
-const name = `${componentName}-panel`;
+const name = `${COMPONENT_NAME}-panel`;
 
 dayjs.extend(customParseFormat);
 
@@ -54,7 +54,9 @@ export default defineComponent({
       };
     },
     cols() {
-      if (!this.formatField) [EPickerCols.hour, EPickerCols.minute, EPickerCols.second];
+      if (!this.formatField) {
+        return [EPickerCols.hour, EPickerCols.minute, EPickerCols.second]
+      };
       const {
         startAChart, hour, minute, second, endAChart,
       } = this.formatField;

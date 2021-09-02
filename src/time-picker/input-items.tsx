@@ -4,7 +4,7 @@ import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
 
 import {
-  componentName, amFormat, KEYBOARD_DIRECTION, EMPTY_VALUE, meridiemList,
+  COMPONENT_NAME, amFormat, KeyboardDirection, EMPTY_VALUE, MERIDIEM_LIST,
 } from './constant';
 
 import { prefix } from '../config';
@@ -122,11 +122,11 @@ export default defineComponent({
       } = this;
       const curDayJs = this.displayTimeList[index];
       // 增加减少
-      if ([KEYBOARD_DIRECTION.up, KEYBOARD_DIRECTION.down].includes(which)) {
+      if ([KeyboardDirection.up, KeyboardDirection.down].includes(which)) {
         if (type === 'meridiem') return;
         // 加减
         const current = curDayJs[type] ? Number(curDayJs[type]) : 0;
-        const operate = which === KEYBOARD_DIRECTION.up ? -1 : 1;
+        const operate = which === KeyboardDirection.up ? -1 : 1;
         let result = current + operate;
         // 边界检测
         if (type === 'hour') {
@@ -147,12 +147,12 @@ export default defineComponent({
           type,
           index,
         });
-      } else if ([KEYBOARD_DIRECTION.left, KEYBOARD_DIRECTION.right].includes(which)) {
+      } else if ([KeyboardDirection.left, KeyboardDirection.right].includes(which)) {
         // 移动方向
         const { target } = e;
         // 查找上下一个兄弟节点
         const { parentNode } = target;
-        const focus = which === KEYBOARD_DIRECTION.left ? parentNode.previousSibling : parentNode.nextSibling;
+        const focus = which === KeyboardDirection.left ? parentNode.previousSibling : parentNode.nextSibling;
         if (focus) {
           const input = focus.querySelector('input');
           if (!input.focus) return;
@@ -191,12 +191,12 @@ export default defineComponent({
       }
       const isEmptyVal = this.displayTimeList.every((date) => isEmptyDayjs(date));
       if (isEmptyVal) {
-        return <span class={`${componentName}__input-placeholder`}>{placeholder}</span>;
+        return <span class={`${COMPONENT_NAME}__input-placeholder`}>{placeholder}</span>;
       }
       const itemClasses = disabled
-        ? [`${componentName}__input-item`, `${componentName}__input-item-disabled`]
-        : [`${componentName}__input-item`];
-      const inputClass = `${componentName}__input-item-input`;
+        ? [`${COMPONENT_NAME}__input-item`, `${COMPONENT_NAME}__input-item-disabled`]
+        : [`${COMPONENT_NAME}__input-item`];
+      const inputClass = `${COMPONENT_NAME}__input-item-input`;
       const render: any = [];
 
       this.displayTimeList.forEach((inputTime: InputTime | undefined, index: number) => {
@@ -248,7 +248,7 @@ export default defineComponent({
         // 判断上下午位置
         if (/[h]{1}/.test(format) && (format.includes('A') || format.includes('a'))) {
           const localeMeridiemList = [this.locale.anteMeridiem, this.locale.postMeridiem];
-          const text = localeMeridiemList[meridiemList.indexOf(inputTime.meridiem.toUpperCase())];
+          const text = localeMeridiemList[MERIDIEM_LIST.indexOf(inputTime.meridiem.toUpperCase())];
           // 放在前面or后面
           render[amFormat.test(format) ? 'unshift' : 'push'](<span class={itemClasses} onClick={() => allowInput && this.onToggleMeridiem(index)}>
               <input
@@ -267,7 +267,7 @@ export default defineComponent({
   },
 
   render() {
-    const classes = [`${componentName}__input`];
+    const classes = [`${COMPONENT_NAME}__input`];
     return <div class={classes}>{this.switchRenderComponent()}</div>;
   },
 });
