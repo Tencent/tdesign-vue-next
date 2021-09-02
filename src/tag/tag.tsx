@@ -1,5 +1,5 @@
 import {
-  defineComponent, h, VNodeChild, ComponentPublicInstance,
+  defineComponent, h, VNodeChild, ComponentPublicInstance, VNode,
 } from 'vue';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
@@ -38,6 +38,8 @@ export default defineComponent({
         {
           [`${name}--ellipsis`]: this.maxWidth,
           [`${name}--close`]: this.closable,
+          [`${prefix}-is-disabled`]: this.disabled,
+          [`${name}--disabled`]: this.disabled,
         },
       ];
     },
@@ -55,8 +57,8 @@ export default defineComponent({
     },
   },
   render() {
-    // 关闭按钮
-    const closeIcon = this.closable ? <TIconClose onClick={this.handleClose} /> : '';
+    // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
+    const closeIcon: VNode | string = this.closable ? <TIconClose nativeOnClick={this.handleClose} /> : '';
     // 标签内容
     const tagContent: TNodeReturnValue = renderTNodeJSX(this as ComponentPublicInstance, 'default') || renderTNodeJSX(this as ComponentPublicInstance, 'content');
     // 图标

@@ -17,6 +17,7 @@ export * from './steps';
 export * from './tabs';
 
 // 输入
+export * from './cascader';
 export * from './checkbox';
 export * from './form';
 export * from './input';

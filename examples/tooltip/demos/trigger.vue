@@ -14,3 +14,10 @@
     </t-tooltip>
   </div>
 </template>
+
+<style lang="less" scoped>
+.tdesign-tooltip-demo {
+  display: flex;
+  align-items: center;
+}
+</style>

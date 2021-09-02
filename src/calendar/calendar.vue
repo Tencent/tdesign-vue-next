@@ -262,7 +262,7 @@ export default defineComponent({
       curSelectedMonth: ref<number>(null),
       curSelectedMode: ref<string>(null),
       isShowWeekend: ref<boolean>(true),
-      controlSize: ref<SizeEnum>('small'),
+      controlSize: ref<SizeEnum>('medium'),
     }
   },
   computed: {
