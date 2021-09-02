@@ -8,11 +8,11 @@ import TableHeader from './table-header';
 import Loading from './loading-content';
 import TableColGroup from './col-group';
 import Pagination from '../../pagination';
-import { getScrollDirection, SCROLL_DIRECTION } from '../util/common';
+import { getScrollDirection, ScrollDirection } from '../util/common';
 import { PageInfo } from '../../pagination/type';
 import throttle from 'lodash/throttle';
 import { renderTNodeJSX } from '../../utils/render-tnode';
-import { Event_Name_With_UpperCase } from '../util/interface';
+import { EVENT_NAME_WIDTH_UPPER_CASE } from '../util/interface';
 
 
 export default defineComponent({
@@ -159,7 +159,7 @@ export default defineComponent({
         slots,
       } = this;
       const rowEvents = {};
-      Event_Name_With_UpperCase.forEach((eventName) => {
+      EVENT_NAME_WIDTH_UPPER_CASE.forEach((eventName) => {
         rowEvents[eventName] = (params: RowEventContext<any>) => {
           this.emitEvent(eventName, params);
         };
@@ -286,8 +286,8 @@ export default defineComponent({
     handleScroll(e: WheelEvent) {
       const { scrollLeft, scrollTop } = e.target as HTMLElement;
       const direction = getScrollDirection(scrollLeft, scrollTop);
-      if (direction !== SCROLL_DIRECTION.UNKNOWN) {
-        const scrollListenerName = direction === SCROLL_DIRECTION.X ? 'onScrollX' : 'onScrollY';
+      if (direction !== ScrollDirection.UNKNOWN) {
+        const scrollListenerName = direction === ScrollDirection.X ? 'onScrollX' : 'onScrollY';
         this.emitEvent(scrollListenerName, {
           e,
         });

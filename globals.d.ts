@@ -1,5 +1,4 @@
-
-declare const __VERSION__: string;
+declare const PKG_VERSION: string;
 
 declare module '*.vue' {
   import type { DefineComponent, Plugin } from 'vue';

@@ -39,7 +39,7 @@ export interface CellData {
   customRender: () => void;
 }
 
-export const Event_Name_With_UpperCase = [
+export const EVENT_NAME_WIDTH_UPPER_CASE = [
   'onRowHover',
   'onRowMouseup',
   'onRowMousedown',

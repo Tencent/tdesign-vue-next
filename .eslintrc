@@ -12,7 +12,7 @@
   },
   "globals": {
     "cy": "readonly",
-    "__VERSION__": true
+    "PKG_VERSION": true
   },
   "plugins": ["vue", "@typescript-eslint"],
   "parserOptions": {

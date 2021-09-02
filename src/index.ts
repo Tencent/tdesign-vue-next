@@ -13,5 +13,5 @@ function install(app: App, config?: Record<string, unknown>): void {
 export * from './components';
 export default {
   install,
-  version: typeof __VERSION__ === 'undefined' ? '' : __VERSION__, // eslint-disable-line
+  version: typeof PKG_VERSION === 'undefined' ? '' : PKG_VERSION, // eslint-disable-line
 };

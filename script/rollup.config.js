@@ -70,7 +70,7 @@ const getPlugins = ({
     replace({
       preventAssignment: true,
       values: {
-        __VERSION__: JSON.stringify(pkg.version),
+        PKG_VERSION: JSON.stringify(pkg.version),
       },
     }),
   ];
