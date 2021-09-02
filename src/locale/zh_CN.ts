@@ -33,6 +33,7 @@ export default {
     confirm: '确定',
     anteMeridiem: '上午',
     postMeridiem: '下午',
+    placeholder: '选择时间',
   },
   dialog: {
     confirm: '确认',

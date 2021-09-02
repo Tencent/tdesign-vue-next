@@ -1,17 +1,15 @@
 <template>
   <div class="tdesign-demo-block">
-    <h1>具备清空按钮</h1>
-    <t-time-picker />
-    <h1>禁止清空按钮</h1>
-    <t-time-picker :clearable="false" />
+    <t-time-picker v-model="value" format="A hh:mm:ss" placeholder="选择时间" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'clearable',
+  name: 'twelveHours',
   data() {
     return {
+      value: 'PM 10:20:30',
     };
   },
 };
@@ -21,7 +19,7 @@ export default {
   h1 {
     margin-bottom: 20px;
     font-weight: bold;
-    color: rgba(0,0,0,.5)
+    color: rgba(0, 0, 0, .5);
   }
   h1:nth-child(3) {
     margin-top: 30px;

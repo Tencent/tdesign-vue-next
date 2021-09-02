@@ -3,40 +3,30 @@ import { prefix } from '../config';
 export const componentName = `${prefix}-time-picker`;
 
 export enum EPickerCols {
-    zh = 'zh-cn',
-    hour = 'hour',
-    minute = 'minute',
-    second = 'second',
-    en = 'en'
+  hour = 'hour',
+  minute = 'minute',
+  second = 'second',
+  meridiem = 'meridiem'
 }
 
-export const zhList = ['上午', '下午'];
-export const enList = ['am', 'pm'];
-export const pmList = ['下午', 'pm'];
-export const amList = ['上午', 'am'];
+export const AM = 'AM';
+export const PM = 'PM';
 
-export const meridianZHList = [
-  {
-    label: '上午',
-    value: 'am',
-  },
-  {
-    label: '下午',
-    value: 'pm',
-  },
-];
+export const meridiemList = [AM, PM];
 
-export const meridianENList = [
-  {
-    label: 'am',
-    value: 'am',
-  },
-  {
-    label: 'pm',
-    value: 'pm',
-  },
-];
 // 上下午前置
-export const meridianBeforeFormatREG = /^(a|A)\s+?[hH]{1,2}(:[m]{1,2}(:[s]{1,2})?)?$/;
+export const amFormat = /^(a|A)\s+?[h]{1,2}(:[m]{1,2}(:[s]{1,2})?)?$/;
 // 上下午后置
-export const meridianAfterFormatREG = /^[hH]{1,2}(:[m]{1,2}(:[s]{1,2})?)?(\s+(a|A))?$/;
+export const pmFormat = /^[h]{1,2}(:[m]{1,2}(:[s]{1,2})?)?(\s+(a|A))?$/;
+
+export const TIME_PICKER_EMPTY: Array<undefined> = [undefined, undefined];
+
+export enum KEYBOARD_DIRECTION {
+  left = 37,
+  up = 38,
+  right = 39,
+  down = 40
+}
+
+export const EMPTY_VALUE = -1;
+

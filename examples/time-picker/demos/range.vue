@@ -1,6 +1,6 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-time-picker :value="time" />
+    <t-time-range-picker class="demos" clearable v-model="time" format="HH:mm:ss" allowInput />
   </div>
 </template>
 
@@ -9,14 +9,8 @@ export default {
   name: 'timeRange',
   data() {
     return {
-      time: undefined,
+      time: ['00:00:00', '23:59:59'],
     };
   },
 };
 </script>
-
-<style scoped>
-.demos {
-  margin-top: 20px;
-}
-</style>

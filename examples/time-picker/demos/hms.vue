@@ -1,18 +1,20 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-time-picker @change="timechange" @open="open" @close="close" />
+    <t-time-picker v-model="value" @change="timechange" @open="open" @close="close" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'showSecond',
+  name: 'hms',
   data() {
-    return {};
+    return {
+      value: '12:20:30',
+    };
   },
   methods: {
-    timechange(date, time) {
-      console.log(date, time);
+    timechange(time) {
+      console.log(time);
     },
     open() {
       console.log('open');

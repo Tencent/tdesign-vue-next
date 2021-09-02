@@ -1,13 +1,22 @@
-import { prefix } from '../config';
-const name = `${prefix}-time-picker`;
+import mapProps from '../utils/map-props';
+import _TimePicker from './time-picker';
+import _TimeRangePicker from './time-range-picker';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdTimePickerProps, TdTimeRangePickerProps } from './type';
 
-import { defineComponent } from 'vue';
+export type TimePickerProps = TdTimePickerProps;
+export type TimeRangePickerProps = TdTimeRangePickerProps;
+export * from './type';
 
-const Component = defineComponent({
-  name,
-});
+const LocalTimePicker = mapProps([{
+  name: 'value', event: 'change', alias: ['modelValue'],
+}])(_TimePicker);
 
-export const TimePicker: WithInstallType<typeof Component> = withInstall(Component);
+const LocalTimeRangePicker = mapProps([{
+  name: 'value', event: 'change', alias: ['modelValue'],
+}])(_TimeRangePicker);
+
+export const TimePicker: WithInstallType<typeof _TimePicker> = withInstall(LocalTimePicker);
+export const TimeRangePicker: WithInstallType<typeof _TimeRangePicker> = withInstall(LocalTimeRangePicker);
 
 export default TimePicker;

@@ -222,13 +222,13 @@ export default {
         //   path: '/vue-next/components/upload',
         //   component: () => import('@/examples/upload/upload.md'),
         // },
-        // {
-        //   title: 'TimePicker 时间选择器',
-        //   name: 'time-picker',
-        //   docType: 'form',
-        //   path: '/vue-next/components/time-picker',
-        //   component: () => import('@/examples/time-picker/time-picker.md'),
-        // },
+        {
+          title: 'TimePicker 时间选择器',
+          name: 'time-picker',
+          docType: 'form',
+          path: '/vue-next/components/time-picker',
+          component: () => import('@/examples/time-picker/time-picker.md'),
+        },
       ],
     },
     {

@@ -1,12 +1,13 @@
 import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
-import isFunction from 'lodash/isFunction';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import isFunction from 'lodash/isFunction';
+import isEqual from 'lodash/isEqual';
 
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
 import {
-  TimePickerPanelInstance, TimeInputEvent, InputTime, TimeInputType,
+  TimeInputEvent, InputTime, TimePickerPanelInstance,
 } from './interface';
 import TPopup, { PopupVisibleChangeContext } from '../popup';
 import { prefix } from '../config';
@@ -14,13 +15,11 @@ import CLASSNAMES from '../utils/classnames';
 import PickerPanel from './panel';
 import TInput from '../input';
 import TIconTime from '../icon/time';
-
 import InputItems from './input-items';
-
-import props from './props';
+import props from './time-range-picker-props';
 
 import {
-  EPickerCols, EMPTY_VALUE, componentName, amFormat, pmFormat, AM,
+  EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, componentName, amFormat, pmFormat, AM,
 } from './constant';
 
 const name = `${prefix}-time-picker`;
@@ -29,45 +28,36 @@ dayjs.extend(customParseFormat);
 
 export default defineComponent({
   ...mixins(getLocalReceiverMixins('timePicker')),
-  name,
+  name: `${prefix}-time-range-picker`,
 
   components: {
     PickerPanel,
     TIconTime,
+    InputItems,
     TPopup,
     TInput,
-    InputItems,
   },
 
   props: { ...props },
 
-  emits: ['change', 'input', 'close', 'open', 'focus', 'blur'],
-
   data() {
-    const { defaultValue, value } = this.$props;
-    // 初始化默认值
-    const time = value || defaultValue;
     // 初始化数据
     return {
       els: [],
       focus: false,
       isShowPanel: false,
       // 时间对象
-      time: time ? dayjs(time, this.format) : undefined,
+      time: TIME_PICKER_EMPTY as Array<dayjs.Dayjs>,
       // 初始值转input展示对象
-      inputTime: time ? this.setInputValue(dayjs(time, this.format)) : undefined,
-      needClear: false,
+      inputTime: TIME_PICKER_EMPTY as Array<InputTime>,
     };
   },
 
   computed: {
     // 传递给选择面板的时间值
     panelValue(): Array<dayjs.Dayjs> {
-      const {
-        $data: { time },
-      } = this;
-
-      return time ? [dayjs(time, this.format)] : [dayjs()];
+      const time = this.time || TIME_PICKER_EMPTY;
+      return time.map((val: dayjs.Dayjs) => (val ? dayjs(val) : dayjs()));
     },
     textClassName(): string {
       const isDefault = (this.inputTime as any).some((item: InputTime) => !!item.hour && !!item.minute && !!item.second);
@@ -76,33 +66,29 @@ export default defineComponent({
   },
 
   watch: {
-    // 监听选中时间变动
-    time: {
-      handler() {
-        this.output();
-      },
-    },
     value: {
-      handler() {
-        this.time = this.value ? dayjs(this.value, this.format) : undefined;
-        this.inputTime = this.value ? this.setInputValue(dayjs(this.value, this.format)) : undefined;
+      handler(val, oldVal) {
+        if (JSON.stringify(val) === JSON.stringify(oldVal)) return;
+        const values = Array.isArray(this.value) ? this.value : [];
+        const { format } = this;
+        function getVal(value: string | undefined) {
+          return value ? dayjs(value, format) : undefined;
+        }
+        const dayjsList = [getVal(values[0]), getVal(values[1])];
+        this.time = dayjsList;
+        this.updateInputTime();
       },
+      immediate: true,
     },
   },
   methods: {
     // 输入变化
     inputChange(event: TimeInputEvent) {
-      const { type, value } = event;
-      const {
-        $data: {
-          // 鉴别是range还是单picker
-          time,
-        },
-      } = this;
-      let newTime = time;
+      const { type, value, index } = event;
+      let newTime = this.time[index];
       if (value === EMPTY_VALUE) {
         // 特殊标识，需要清空input
-        this.inputTime[type] = undefined;
+        this.inputTime[index][type] = undefined;
         // 需要重置该类型时间
         newTime[type](0);
         return;
@@ -114,27 +100,34 @@ export default defineComponent({
         newTime.minute(0);
         newTime.second(0);
       }
-      // 设置时间
       newTime = newTime.set(type, value);
       // 生成变动
-      this.time = dayjs(newTime);
+      this.time[index] = dayjs(newTime);
       // 转化展示数据
-      this.inputTime = this.setInputValue(this.time);
-      this.$emit('input', { input: value, value: this.time.format(this.format), e: event });
+      this.updateInputTime();
+
+      this.$emit('input', { input: value, value: this.time[index].format(this.format), e: event });
       const panelRef = this.$refs.panel as TimePickerPanelInstance;
       panelRef.panelColUpdate();
     },
-    // @blur
-    onBlurDefault(e: Event, trigger: TimeInputType, index: number, input: number) {
-      this.$emit('blur', {
-        trigger, input, value: this.time.format(this.format), e,
+    getFormatValues() {
+      const values: Array<string> = [];
+      this.time.forEach((time) => {
+        if (time) {
+          values.push(time.format(this.format));
+        }
       });
+      return values;
+    },
+    // @blur
+    onBlurDefault(e: Event) {
+      const value = this.getFormatValues();
+      this.$emit('blur', { value, e });
     },
     // @focus
-    onFocusDefault(e: Event, trigger: TimeInputType, index: number, input: number) {
-      this.$emit('focus', {
-        trigger, input, value: this.time.format(this.format), e,
-      });
+    onFocusDefault(e: Event) {
+      const value = this.getFormatValues();
+      this.$emit('focus', { value, e });
     },
     // 面板展示隐藏
     panelVisibleChange(val: boolean, context?: PopupVisibleChangeContext) {
@@ -148,23 +141,19 @@ export default defineComponent({
       }
     },
     // 切换上下午
-    toggleInputMeridiem() {
-      const {
-        $data: { time },
-      } = this;
-      const current = time.format('A');
-      const currentHour = time.hour() + (current === AM ? 12 : -12);
+    toggleInputMeridiem(index: number) {
+      const curTime = this.time[index];
+      const current = curTime.format('a');
+      const currentHour = curTime.hour() + (current === AM ? 12 : -12);
       // 时间变动
-      this.inputChange({
-        type: 'hour',
-        value: currentHour,
-      });
+      this.inputChange({ type: 'hour', value: currentHour, index });
     },
     // 选中时间发生变动
     pickTime(col: EPickerCols, change: string | number, index: number, value: Record<string, any>) {
       const { time, format } = this;
-      let setTime = time;
-
+      const panelRef = this.$refs.panel as TimePickerPanelInstance;
+      let shouldUpdatePanel = false;
+      let setTime = time[index];
       if (EPickerCols.hour === col) {
         setTime = value.set(
           col,
@@ -176,105 +165,91 @@ export default defineComponent({
         // 当前上下午
         let currentHour = value.hour();
         // 上下午
-        if (change === this.locale.anteMeridiem && currentHour > 12) {
+        if (change === this.locale.anteMeridiem) {
           // 上午
           currentHour -= 12;
-        } else if (change === this.locale.postMeridiem && currentHour < 12) {
+        } else if (change === this.locale.postMeridiem) {
           // 下午
           currentHour += 12;
         }
         setTime = value.hour(currentHour);
       }
-      this.time = setTime;
-
-      this.inputTime = this.setInputValue(setTime);
-      const formatValue = dayjs(setTime).format(this.format);
-      this.$emit('change', formatValue);
+      this.time[index] = setTime;
+      // 处理初始化为空的逻辑
+      if (index === 0 && !this.time[1]) {
+        this.time[1] = setTime;
+        shouldUpdatePanel = true;
+      } else if (index === 1 && !this.time[0]) {
+        this.time[0] = dayjs()
+          .hour(0)
+          .minute(0)
+          .second(0);
+        shouldUpdatePanel = true;
+      }
+      this.updateInputTime();
+      shouldUpdatePanel && panelRef.panelColUpdate();
     },
     // 确定按钮
     makeSure() {
       this.panelVisibleChange(false);
-      this.output();
-    },
-    // 此刻按钮
-    nowAction() {
-      const currentTime = dayjs();
-      // 如果此刻在不可选的时间上, 直接return
-      if (
-        isFunction(this.disableTime)
-        && this.disableTime(currentTime.get('hour'), currentTime.get('minute'), currentTime.get('second'))
-      ) {
-        return;
-      }
-      this.time = currentTime;
-      this.inputTime = this.setInputValue(this.time);
-      this.$emit('change', currentTime.format(this.format));
-    },
-    // format输出结果
-    output() {
-      if (this.needClear) {
-        this.inputTime = this.setInputValue(undefined);
-        this.needClear = false;
-      } else if (this.time) this.inputTime = this.setInputValue(this.time);
-      else this.inputTime = this.setInputValue(dayjs());
-      return this.time;
     },
     // 设置输入框展示
-    setInputValue(val: dayjs.Dayjs | undefined): InputTime | undefined {
-      const ans: InputTime = {
-        hour: undefined,
-        minute: undefined,
-        second: undefined,
-        meridiem: AM,
-      };
-      if (!val) return ans;
-      return this.dayjs2InputTime(val);
-    },
-    // dayjs对象转换输入展示数据
-    dayjs2InputTime(val: dayjs.Dayjs): InputTime {
+    updateInputTime() {
       const {
         $props: { format },
       } = this;
-      if (!val) {
-        return {
-          hour: undefined,
-          minute: undefined,
-          second: undefined,
-          meridiem: AM,
-        };
-      }
-
-      let hour: number | string = val.hour();
-      let minute: number | string = val.minute();
-      let second: number | string = val.second();
-      // 判断12小时制上下午显示问题
-      if (/[h]{1}/.test(format)) {
-        hour %= 12;
-      }
-      // 判定是否补齐小于10
-      if (/[h|H]{2}/.test(format)) {
-        hour = hour < 10 ? `0${hour}` : hour;
-      }
-      if (/[m|M]{2}/.test(format)) {
-        minute = minute < 10 ? `0${minute}` : minute;
-      }
-      if (/[s|S]{2}/.test(format)) {
-        second = second < 10 ? `0${second}` : second;
-      }
-
-      return {
-        hour,
-        minute,
-        second,
-        meridiem: val.format('a'),
-      };
+      const disPlayValues: Array<InputTime> = [];
+      (this.time || []).forEach((time: dayjs.Dayjs | undefined) => {
+        if (!time) {
+          disPlayValues.push({
+            hour: undefined,
+            minute: undefined,
+            second: undefined,
+            meridiem: AM,
+          });
+        } else {
+          let hour: number | string = time.hour();
+          let minute: number | string = time.minute();
+          let second: number | string = time.second();
+          // 判断12小时制上下午显示问题
+          if (/[h]{1}/.test(format)) {
+            hour %= 12;
+          }
+          // 判定是否补齐小于10
+          if (/[h|H]{2}/.test(format)) {
+            hour = hour < 10 ? `0${hour}` : hour;
+          }
+          if (/[m|M]{2}/.test(format)) {
+            minute = minute < 10 ? `0${minute}` : minute;
+          }
+          if (/[s|S]{2}/.test(format)) {
+            second = second < 10 ? `0${second}` : second;
+          }
+          disPlayValues.push({
+            hour,
+            minute,
+            second,
+            meridiem: time.format('a'),
+          });
+        }
+      });
+      this.inputTime = disPlayValues;
+      this.triggerUpdateValue();
     },
     // 清除选中
     clear() {
-      this.time = undefined;
-      this.needClear = true;
-      this.inputTime = this.setInputValue(undefined);
-      this.$emit('change', undefined);
+      this.time = TIME_PICKER_EMPTY;
+      this.updateInputTime();
+    },
+    triggerUpdateValue() {
+      const values: Array<string> = [];
+      this.time.forEach((time) => {
+        if (time) {
+          values.push(time.format(this.format));
+        }
+      });
+      this.$emit('change', values);
+      isFunction(this.onChange) && this.onChange(values);
     },
     renderInput() {
       const classes = [
@@ -283,10 +258,6 @@ export default defineComponent({
           [`${prefix}-is-focused`]: this.isShowPanel,
         },
       ];
-
-      const slots = {
-        'suffix-icon': () => (<t-icon-time></t-icon-time>),
-      };
       return (
         <div class={classes} onClick={() => (this.isShowPanel = true)}>
           <t-input
@@ -295,10 +266,9 @@ export default defineComponent({
             onClear={this.clear}
             clearable={this.clearable}
             readonly
-            value={this.time ? ' ' : undefined}
-            class={this.isShowPanel ? `${prefix}-is-focused` : ''}
-            v-slots={slots}
+            value={!isEqual(this.time, TIME_PICKER_EMPTY) ? ' ' : undefined}
           >
+            <t-icon-time slot="suffix-icon"></t-icon-time>
           </t-input>
           <input-items
             size={this.size}
@@ -307,7 +277,8 @@ export default defineComponent({
             format={this.format}
             allowInput={this.allowInput}
             placeholder={this.placeholder || this.locale.placeholder}
-            onToggleMeridiem={() => this.toggleInputMeridiem()}
+            isRangePicker
+            onToggleMeridiem={(index: number) => this.toggleInputMeridiem(index)}
             onBlurDefault={this.onBlurDefault}
             onFocusDefault={this.onFocusDefault}
             onChange={(e: TimeInputEvent) => this.inputChange(e)}
@@ -316,15 +287,13 @@ export default defineComponent({
       );
     },
   },
-
   render() {
     // 初始化数据
     const {
-      $props: { size, disabled },
+      $props: { size, className, disabled },
     } = this;
     // 样式类名
-    const classes = [name, CLASSNAMES.SIZE[size] || ''];
-    // TODO: 需要透传外部传入的class
+    const classes = [name, CLASSNAMES.SIZE[size], className];
 
     const slots = {
       content: () => (
@@ -336,7 +305,6 @@ export default defineComponent({
           isShowPanel={this.isShowPanel}
           onTimePick={this.pickTime}
           onSure={this.makeSure}
-          onNowAction={this.nowAction}
           steps={this.steps}
           hideDisabledTime={this.hideDisabledTime}
           disableTime={this.disableTime}
@@ -348,8 +316,8 @@ export default defineComponent({
     return (
       <t-popup
         ref="popup"
-        placement="bottom-left"
         class={classes}
+        placement="bottom-left"
         trigger="click"
         disabled={disabled}
         visible={this.isShowPanel}

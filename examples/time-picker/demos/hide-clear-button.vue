@@ -1,17 +1,18 @@
 <template>
   <div class="tdesign-demo-block">
-    <h1>后置展示</h1>
-    <t-time-picker  format="hh:mm:ss a" />
-    <h1>前置展示</h1>
-    <t-time-picker  format="a hh:mm:ss" />
+    <h1>具备清空按钮</h1>
+    <t-time-picker v-model="time1" clearable />
+    <h1>禁止清空按钮</h1>
+    <t-time-picker :clearable="false" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'twelveHours',
+  name: 'clearable',
   data() {
     return {
+      time1: '11:12:10',
     };
   },
 };

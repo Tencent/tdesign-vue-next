@@ -1,15 +1,15 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-time-picker v-model="time1" :disabled="true" />
+    <t-time-picker class="demos" v-model="time" format="h:m:s a" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'disabled',
+  name: 'format',
   data() {
     return {
-      time1: '11:12:10',
+      time: '00:00:00 am',
     };
   },
 };

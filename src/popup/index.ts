@@ -10,7 +10,6 @@ const LocalPopup = mapProps([
   {
     name: 'visible',
     event: 'visible-change',
-    alias: ['modelValue'],
   },
 ])(_Popup);
 
