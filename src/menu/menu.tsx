@@ -1,4 +1,6 @@
-import { defineComponent, ref, computed, provide, watchEffect, watch } from 'vue';
+import {
+  defineComponent, ref, computed, provide, watchEffect, watch,
+} from 'vue';
 import { prefix } from '../config';
 import props from './props';
 import { MenuValue } from './type';

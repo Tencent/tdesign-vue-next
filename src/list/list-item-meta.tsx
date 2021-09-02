@@ -24,7 +24,6 @@ export default defineComponent({
     const propsTitleContent = renderTNodeJSX(this, 'title');
     const propsDescriptionContent = renderTNodeJSX(this, 'description');
 
-
     const listItemMetaContent = [
       this.renderAvatar(),
       <div class={`${name}-content`}>

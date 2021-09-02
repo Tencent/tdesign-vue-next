@@ -9,7 +9,7 @@ export const DEFAULT_Z_INDEX = 6000;
 const getUniqueId = (() => {
   let id = 0;
   return () => {
-    id = id + 1;
+    id += 1;
     return id;
   };
 })();

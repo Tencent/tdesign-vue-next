@@ -9,6 +9,7 @@ import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { ChangeSource } from './type';
 import { ClassName } from '../common';
+
 const name = `${prefix}-input-number`;
 
 type InputNumberEvent = {
@@ -94,7 +95,7 @@ export default defineComponent({
       };
     },
     addClasses(): ClassName {
-      return  [
+      return [
         `${name}__increase`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabledAdd,
@@ -107,7 +108,7 @@ export default defineComponent({
       };
     },
     cmptWrapClasses(): ClassName {
-      return  [
+      return [
         't-input-number',
         CLASSNAMES.SIZE[this.size],
         {
@@ -145,7 +146,7 @@ export default defineComponent({
       };
     },
     inputAttrs(): InputNumberAttr {
-      return  {
+      return {
         disabled: this.disabled,
         autocomplete: 'off',
         ref: 'refInputElem',

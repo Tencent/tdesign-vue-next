@@ -87,7 +87,6 @@ describe('Badge', () => {
     });
   });
 
-
   // test slots
   describe('<slot>', () => {
     it('default', () => {

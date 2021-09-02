@@ -19,12 +19,14 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   render(): VNode {
-    const { $props, $attrs, $slots, radioGroup } = this;
+    const {
+      $props, $attrs, $slots, radioGroup,
+    } = this;
     const children: VNode[] | VNode | string = $slots.default && $slots.default(null);
 
     const radioProps = {
       ...$props,
-      ...omit($attrs, Object.keys($attrs).filter(key => key.startsWith('on'))),
+      ...omit($attrs, Object.keys($attrs).filter((key) => key.startsWith('on'))),
     };
 
     if (radioGroup) {

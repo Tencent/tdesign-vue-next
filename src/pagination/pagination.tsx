@@ -13,6 +13,7 @@ import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { TdPaginationProps } from './type';
 import { ClassName } from '../common';
+
 const { prefix } = config;
 
 const name = `${prefix}-pagination`;
@@ -147,7 +148,7 @@ export default defineComponent({
     },
     sizeOptions(): Array<{ label: string; value: number }> {
       const pageSizeOptions = this.pageSizeOptions as TdPaginationProps['pageSizeOptions'];
-      const options = pageSizeOptions.map(option => typeof option === 'object'
+      const options = pageSizeOptions.map((option) => typeof option === 'object'
         ? option
         : {
           label: this.t(this.locale.itemsPerPage, { size: option }),
@@ -347,7 +348,7 @@ export default defineComponent({
 
           {/* select */}
           {
-            pageSizeOptions.length &&  <t-select size={size} value={pageSize} disabled={disabled} class={sizerClass} onChange={onSelectorChange}>
+            pageSizeOptions.length && <t-select size={size} value={pageSize} disabled={disabled} class={sizerClass} onChange={onSelectorChange}>
               {
                 sizeOptions.map((item, index) => (
                     <t-option
@@ -383,7 +384,7 @@ export default defineComponent({
                 </li>
               }
               {
-                pages.map(item => (
+                pages.map((item) => (
                   <li class={getButtonClass(item)} key={item} onClick={() => toPage(item)}>
                     { item }
                   </li>

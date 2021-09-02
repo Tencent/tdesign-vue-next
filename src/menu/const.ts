@@ -1,5 +1,5 @@
-import { MenuValue } from './type';
 import { Ref, VNodeNormalizedChildren } from 'vue';
+import { MenuValue } from './type';
 
 export interface TdMenuItem {
   value: MenuValue;

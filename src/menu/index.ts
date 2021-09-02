@@ -5,7 +5,9 @@ import _MenuItem from './menu-item';
 import _MenuGroup from './menu-group';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import mapProps from '../utils/map-props';
-import { TdMenuProps, TdHeadMenuProps, TdSubmenuProps, TdMenuItemProps } from './type';
+import {
+  TdMenuProps, TdHeadMenuProps, TdSubmenuProps, TdMenuItemProps,
+} from './type';
 
 export * from './type';
 export type MenuProps = TdMenuProps;

@@ -1,4 +1,5 @@
 const baseConfig = require('./jest.base.conf.js');
+
 const [, , component] = process.argv.slice(2);
 let seprateConfig;
 

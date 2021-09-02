@@ -1,9 +1,12 @@
-import { defineComponent, computed, provide, ref, reactive, watch } from 'vue';
+import {
+  defineComponent, computed, provide, ref, reactive, watch,
+} from 'vue';
 import { prefix } from '../config';
 import props from './head-menu-props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdMenuItem } from './const';
 import { Tabs, TabPanel } from '../tabs';
+
 const name = `${prefix}-head-menu`;
 
 export default defineComponent({
@@ -97,7 +100,7 @@ export default defineComponent({
         <ul class={[`${prefix}-head-menu__submenu`, `${prefix}-submenu`]}>
           {
             <t-tabs value={this.activeIndexValue} onChange={this.handleTabChange}>
-              { this.submenu.map(item => (
+              { this.submenu.map((item) => (
                 <t-tab-panel value={item.value} label={item.label} />
               ))}
             </t-tabs>

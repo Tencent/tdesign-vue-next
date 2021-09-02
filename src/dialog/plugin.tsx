@@ -1,4 +1,6 @@
-import { App, createApp, ref, defineComponent, h } from 'vue';
+import {
+  App, createApp, ref, defineComponent, h,
+} from 'vue';
 import DialogComponent from './dialog';
 import { getAttach } from '../utils/dom';
 import {

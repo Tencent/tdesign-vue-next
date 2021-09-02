@@ -24,7 +24,6 @@ const TPrimaryTable = mapProps([
   },
 ])(_PrimaryTable);
 
-
 export const BaseTable = withInstall(_BaseTable);
 export const PrimaryTable = withInstall(TPrimaryTable);
 

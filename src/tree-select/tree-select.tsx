@@ -42,7 +42,7 @@ export default defineComponent({
         trigger: 'click',
         placement: 'bottom-left',
         overlayClassName: '',
-        overlayStyle: trigger => ({
+        overlayStyle: (trigger) => ({
           width: `${trigger.offsetWidth}px`,
           border: '1px solid #dcdcdc',
         }),
@@ -86,7 +86,7 @@ export default defineComponent({
     checked(): Array<TreeSelectValue> {
       if (this.multiple) {
         if (this.isObjectValue) {
-          return isArray(this.value) ? this.value.map(item => item.value) : [];
+          return isArray(this.value) ? this.value.map((item) => item.value) : [];
         }
         return isArray(this.value) ? this.value : [];
       }
@@ -200,7 +200,7 @@ export default defineComponent({
     },
     tagList(): Array<TreeSelectValue> {
       if (this.nodeInfo && isArray(this.nodeInfo)) {
-        return this.nodeInfo.map(node => node.label);
+        return this.nodeInfo.map((node) => node.label);
       }
       return this.isObjectValue ? [] : this.selectedMultiple;
     },
@@ -210,7 +210,7 @@ export default defineComponent({
       await this.change(this.defaultValue, null);
     }
     if (this.isObjectValue) {
-      this.actived = isArray(this.value) ? this.value.map(item => item.value) : [(this.value as {label: string; value: string|number}).value];
+      this.actived = isArray(this.value) ? this.value.map((item) => item.value) : [(this.value as {label: string; value: string|number}).value];
     } else {
       this.actived = isArray(this.value) ? this.value : [this.value];
     }

@@ -23,7 +23,9 @@
  * msg.then(instance => instance.close())
  *
  */
-import { App, createApp, nextTick, Plugin, ComponentPublicInstance } from 'vue';
+import {
+  App, createApp, nextTick, Plugin, ComponentPublicInstance,
+} from 'vue';
 import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
 import {
@@ -122,7 +124,7 @@ const extraApi: ExtraApi = {
   question: (params, duration) => showThemeMessage('question', params, duration),
   loading: (params, duration) => showThemeMessage('loading', params, duration),
   close: (promise) => {
-    promise.then(instance => instance.close());
+    promise.then((instance) => instance.close());
   },
   closeAll: () => {
     if (instanceMap instanceof Map) {

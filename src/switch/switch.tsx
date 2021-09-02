@@ -5,6 +5,7 @@ import Loading from '../loading';
 import { SwitchValue } from './type';
 import props from './props';
 import { ClassName, TNodeReturnValue } from '../common';
+
 const name = `${prefix}-switch`;
 
 export default defineComponent({

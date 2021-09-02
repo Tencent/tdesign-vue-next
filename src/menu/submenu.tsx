@@ -1,4 +1,6 @@
-import { defineComponent, computed, inject, ref, provide, onMounted } from 'vue';
+import {
+  defineComponent, computed, inject, ref, provide, onMounted,
+} from 'vue';
 import { prefix } from '../config';
 import props from './submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
@@ -18,7 +20,7 @@ export default defineComponent({
     } = inject<TdMenuInterface>('TdMenu');
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
     const isActive = computed(() => {
-      const childIsActive = menuItems.value.some(i => i.value === activeIndexValue.value);
+      const childIsActive = menuItems.value.some((i) => i.value === activeIndexValue.value);
       return activeIndexValue.value === props.value || childIsActive;
     });
     const popupVisible = ref(false);
@@ -81,7 +83,6 @@ export default defineComponent({
     const handleSubmenuItemClick = () => {
       open(props.value);
     };
-
 
     // provide
     provide<TdSubMenuInterface>('TdSubmenu', {
@@ -198,4 +199,3 @@ export default defineComponent({
     );
   },
 });
-

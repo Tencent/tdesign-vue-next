@@ -12,7 +12,7 @@ export default defineComponent({
       const { columns } = this;
       const colgroup: Array<VNode> = [];
       columns.forEach((column) => {
-        const { width,  minWidth, colKey } = column;
+        const { width, minWidth, colKey } = column;
         const style: any = {};
         if (width) {
           style.width = `${width}px`;

@@ -2,12 +2,13 @@ import { defineComponent, ComponentPublicInstance } from 'vue';
 import { renderTNodeJSX, renderContent, renderTNodeJSXDefault } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
-import Popup, { PopupProps }  from '../popup/index';
+import Popup, { PopupProps } from '../popup/index';
 import { prefix } from '../config';
 import props from './props';
 import { TdPopconfirmProps, PopconfirmVisibleChangeContext } from './type';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconErrorCircleFilled from '../icon/error-circle-filled';
+
 const name = `${prefix}-popconfirm`;
 const popupName = `${prefix}-popup`;
 const PopconfirmLocalReceiver = getLocalRecevierMixins('popconfirm');

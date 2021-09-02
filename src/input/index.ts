@@ -8,7 +8,6 @@ import { TdInputProps } from './type';
 export * from './type';
 export type InputProps = TdInputProps;
 
-
 export const Addon: WithInstallType<typeof _Addon> = withInstall(_Addon);
 export const Input: WithInstallType<typeof _Input> = withInstall(mapProps([{
   name: 'value',

@@ -1,4 +1,6 @@
-import { defineComponent, h, VNodeChild, nextTick } from 'vue';
+import {
+  defineComponent, h, VNodeChild, nextTick,
+} from 'vue';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
 

@@ -46,9 +46,9 @@ export default defineComponent({
       .map((direction: string) => {
         const className = direction === sortOrder ? `${prefix}-table-sort-icon-active` : `${prefix}icon-sort-default`;
         if (direction === 'asc') {
-          return <TIconChevronUp size='12px'  class={className} />;
+          return <TIconChevronUp size='12px' class={className} />;
         }
-        return <TIconChevronDown  size='12px'  class={className} />;
+        return <TIconChevronDown size='12px' class={className} />;
       });
     return <div {...buttonProps}>
             {tips ? <Tooltip style="line-height: 0px;" content={tips} showArrow={false}>{sortButton}</Tooltip> : sortButton}

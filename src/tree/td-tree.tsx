@@ -256,7 +256,7 @@ export default defineComponent({
       allNodes.forEach((node: TreeNode) => {
         if (node.visible) {
           if (nodesMap.has(node.value)) {
-            const nodeIndex = treeNodes.findIndex(n => n.value === node.value);
+            const nodeIndex = treeNodes.findIndex((n) => n.value === node.value);
             if (nodeIndex !== index) {
               // 节点存在，但位置与可视节点位置冲突，需要更新节点位置
               treeNodes.splice(nodeIndex, 1);
@@ -273,15 +273,13 @@ export default defineComponent({
             nodesMap.set(node.value, treeItem);
           }
           index += 1;
-        } else {
-          if (nodesMap.has(node.value)) {
-            // 节点不可视，存在该视图，需要删除该节点视图
-            const realNode = nodesMap.get(node.value);
-            const nodeIndex = treeNodes.indexOf(realNode);
-            treeNodes.splice(nodeIndex, 1);
-            nodesMap.delete(node.value);
-            // nodeView.componentInstance.$destroy();
-          }
+        } else if (nodesMap.has(node.value)) {
+          // 节点不可视，存在该视图，需要删除该节点视图
+          const realNode = nodesMap.get(node.value);
+          const nodeIndex = treeNodes.indexOf(realNode);
+          treeNodes.splice(nodeIndex, 1);
+          nodesMap.delete(node.value);
+          // nodeView.componentInstance.$destroy();
         }
       });
     },
@@ -598,7 +596,7 @@ export default defineComponent({
         <transition-group
           name={FX.treeNode}
         >
-          {treeNodes.map(node => this.renderItem(node))}
+          {treeNodes.map((node) => this.renderItem(node))}
         </transition-group>
       );
     }

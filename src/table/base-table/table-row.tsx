@@ -1,9 +1,11 @@
-import { VNode, PropType, defineComponent, h } from 'vue';
+import {
+  VNode, PropType, defineComponent, h,
+} from 'vue';
+import get from 'lodash/get';
 import { prefix } from '../../config';
 import { RowspanColspan } from '../type';
 import baseTableProps from '../base-table-props';
 import TableCell from './table-cell';
-import get from 'lodash/get';
 import { CustomData, CellData, CellParams } from '../util/interface';
 
 type Attrs = Record<string, any>;
@@ -48,7 +50,9 @@ export default defineComponent({
   methods: {
     // 渲染行
     renderRow(): Array<VNode> {
-      const { rowData, columns, index: rowIndex, rowspanAndColspanProps } = this;
+      const {
+        rowData, columns, index: rowIndex, rowspanAndColspanProps,
+      } = this;
       const rowBody: Array<VNode> = [];
       const customData: CustomData = {
         type: 'cell',
@@ -65,7 +69,7 @@ export default defineComponent({
         } else if (typeof cell === 'string' && typeof this.$slots[cell] === 'function') {
           customRender = (h: CreateElement, params: CellParams) => this.$slots[cell](params);
         } else if (typeof this.$slots?.[colKey] === 'function') {
-          customRender =  (h: CreateElement, params: CellParams) => this.$slots[colKey](params);
+          customRender = (h: CreateElement, params: CellParams) => this.$slots[colKey](params);
         } else if (typeof render === 'function') {
           customRender = render;
           customData.func = 'render';
@@ -107,7 +111,9 @@ export default defineComponent({
     },
   },
   render() {
-    const { rowClass, $attrs, rowData, index, rowKey, current } = this;
+    const {
+      rowClass, $attrs, rowData, index, rowKey, current,
+    } = this;
     const listeners = {};
     Object.keys(eventsName).forEach((event) => {
       const emitEvent = eventsName[event];

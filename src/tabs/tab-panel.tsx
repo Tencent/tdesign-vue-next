@@ -1,4 +1,6 @@
-import { defineComponent, h, VNodeChild, getCurrentInstance } from 'vue';
+import {
+  defineComponent, h, VNodeChild, getCurrentInstance,
+} from 'vue';
 import { prefix } from '../config';
 import props from './tab-panel-props';
 

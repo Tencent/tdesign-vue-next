@@ -1,4 +1,6 @@
-import { Component, defineComponent, getCurrentInstance, onMounted, onUpdated, ref, Fragment, ComponentInternalInstance, VNode } from 'vue';
+import {
+  Component, defineComponent, getCurrentInstance, onMounted, onUpdated, ref, Fragment, ComponentInternalInstance, VNode,
+} from 'vue';
 import { prefix } from '../config';
 import TTabNav from './tab-nav.vue';
 import TTabPanel from './tab-panel';
@@ -159,7 +161,6 @@ export default defineComponent({
       );
     },
   },
-
 
   render() {
     // 性能优化: 在tab和content加一个key, 在上下左右切换选项卡时, 可以快速让content和content diff, header和header diff

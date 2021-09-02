@@ -53,7 +53,7 @@ export default defineComponent({
         [`${name}--dot`]: !!dot,
         [`${name}--circle`]: !dot && shape === 'circle',
         [`${name}--round`]: shape === 'round',
-        ['t-size-s']: this.isSmall(),
+        't-size-s': this.isSmall(),
       },
     ];
     const inlineStyle = {
@@ -64,7 +64,7 @@ export default defineComponent({
 
     return (
       <div class={name}>
-        {children ? children : null}
+        {children || null}
         {isHidden ? null : (
           <sup class={badgeClassNames} style={inlineStyle}>
             {content}

@@ -44,7 +44,9 @@ export default defineComponent({
     return {};
   },
   render() {
-    const { checked, indeterminate, type, checkProps, disabled } = this;
+    const {
+      checked, indeterminate, type, checkProps, disabled,
+    } = this;
     const props = {
       checked,
       ...checkProps,

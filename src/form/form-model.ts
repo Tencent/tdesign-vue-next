@@ -4,7 +4,9 @@ import isEmail from 'validator/lib/isEmail';
 import isDate from 'validator/lib/isDate';
 import isURL from 'validator/lib/isURL';
 import isEmpty from 'lodash/isEmpty';
-import { ValueType, FormRule, CustomValidator, ErrorList } from './type';
+import {
+  ValueType, FormRule, CustomValidator, ErrorList,
+} from './type';
 
 // `{} / [] / '' / undefined / null` 等内容被认为是空； 0 和 false 被认为是正常数据，部分数据的值就是 0 或者 false
 export function isValueEmpty(val: ValueType): boolean {
@@ -31,7 +33,7 @@ function getStringLength(str: string): number {
     if (str.charCodeAt(i) > 127 || str.charCodeAt(i) === 94) {
       len += 2;
     } else {
-      len = len + 1;
+      len += 1;
     }
   }
   return len;
@@ -89,9 +91,9 @@ export function validateOneRule(
 // 全部数据校验
 export function validate(value: ValueType, rules: Array<FormRule>): Promise<ErrorList> {
   return new Promise((resolve) => {
-    const all = rules.map(rule => validateOneRule(value, rule));
+    const all = rules.map((rule) => validateOneRule(value, rule));
     Promise.all(all).then((arr) => {
-      const r = arr.filter(item => item !== true) as ErrorList;
+      const r = arr.filter((item) => item !== true) as ErrorList;
       resolve(r);
     });
   });

@@ -62,7 +62,7 @@ export default defineComponent({
           break;
         }
         parent = parent.$parent;
-        i = i + 1;
+        i += 1;
         if (i >= 2) {
           break;
         }

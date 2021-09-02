@@ -1,13 +1,17 @@
-import { defineComponent, VNode, nextTick, h, inject, VNodeChild } from 'vue';
-import { prefix } from '../config';
-import { validate } from './form-model';
-import { ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType } from './type';
-import props from './form-item-props';
-import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX, TdForm } from './const';
-import Form from './form';
+import {
+  defineComponent, VNode, nextTick, h, inject, VNodeChild,
+} from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
+import { prefix } from '../config';
+import { validate } from './form-model';
+import {
+  ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType,
+} from './type';
+import props from './form-item-props';
+import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX, TdForm } from './const';
+import Form from './form';
 import { ClassName, ScopedSlot, TNodeReturnValue } from '../common';
 
 type Result = ValidateResult<TdFormProps['data']>;
@@ -101,7 +105,7 @@ export default defineComponent({
     needRequiredMark(): boolean {
       const parent = this.$parent as FormInstance;
       const allowMark = parent && parent.requiredMark;
-      const isRequired = this.innerRules.filter(rule => rule.required).length > 0;
+      const isRequired = this.innerRules.filter((rule) => rule.required).length > 0;
       return Boolean(allowMark && isRequired);
     },
     innerRules(): ErrorList {
@@ -233,7 +237,7 @@ export default defineComponent({
     getEmptyValue(): ValueType {
       const parent = this.$parent as FormInstance;
       const type = Object.prototype.toString.call(lodashGet(parent.data, this.name));
-      let emptyValue: ValueType = undefined;
+      let emptyValue: ValueType;
       if (type === '[object Array]') {
         emptyValue = [];
       }

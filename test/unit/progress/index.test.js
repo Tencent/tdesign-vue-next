@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils';
 import { Progress } from '@/src/progress/index.ts';
 import { PRO_THEME, CIRCLE_SIZE } from '@/src/progress/constants.ts';
-export const STATUS_TEXT = ['success', 'error', 'warning', 'active'];
+
+const STATUS_TEXT = ['success', 'error', 'warning', 'active'];
 
 describe('Progress', () => {
   it('pure progress contains one class', () => {

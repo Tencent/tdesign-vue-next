@@ -1,8 +1,10 @@
-import { defineComponent, nextTick } from  'vue';
+import { defineComponent, nextTick } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP, getOffsetTop } from './utils';
-import { on, off, getScroll, scrollTo, getScrollContainer } from '../utils/dom';
+import {
+  on, off, getScroll, scrollTo, getScrollContainer,
+} from '../utils/dom';
 import props from './props';
 
 import Affix from '../affix';
@@ -97,7 +99,7 @@ export default defineComponent({
      * @param {string} link
      */
     unregisterLink(link: string): void {
-      this.links = this.links.filter(each => each !== link);
+      this.links = this.links.filter((each) => each !== link);
     },
     /**
      * 设置当前激活状态锚点

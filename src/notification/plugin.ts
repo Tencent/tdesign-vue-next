@@ -1,4 +1,6 @@
-import { App, Plugin, createApp, nextTick, ComponentPublicInstance } from 'vue';
+import {
+  App, Plugin, createApp, nextTick, ComponentPublicInstance,
+} from 'vue';
 import NotificationList from './notificationList';
 import { getAttach } from '../utils/dom';
 import {
@@ -73,12 +75,12 @@ interface ExtraApi {
 }
 
 const extraApi: ExtraApi = {
-  info: options => showThemeNotification('info', options),
-  success: options => showThemeNotification('success', options),
-  warning: options => showThemeNotification('warning', options),
-  error: options => showThemeNotification('error', options),
+  info: (options) => showThemeNotification('info', options),
+  success: (options) => showThemeNotification('success', options),
+  warning: (options) => showThemeNotification('warning', options),
+  error: (options) => showThemeNotification('error', options),
   close: (promise) => {
-    promise.then(instance => instance.close());
+    promise.then((instance) => instance.close());
   },
   closeAll: () => {
     instanceMap.forEach((attach) => {

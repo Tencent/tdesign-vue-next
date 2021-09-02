@@ -1,5 +1,7 @@
+import {
+  App, Plugin, createApp, defineComponent, h,
+} from 'vue';
 import LoadingComponent from './loading';
-import { App, Plugin, createApp, defineComponent, h } from 'vue';
 import { prefix } from '../config';
 import { getAttach, removeClass } from '../utils/dom';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';

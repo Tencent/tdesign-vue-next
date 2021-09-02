@@ -23,4 +23,3 @@ describe('Radio', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 });
-

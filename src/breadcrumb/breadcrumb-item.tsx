@@ -1,4 +1,3 @@
-
 import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
 import IconChevronRight from '../icon/chevron-right';
@@ -39,7 +38,6 @@ export default defineComponent({
   props: {
     ...props,
   },
-
 
   data() {
     return {
@@ -119,7 +117,7 @@ export default defineComponent({
     if ((this.href || this.to) && !this.disabled) {
       textClass.push(linkClass);
       itemContent = (
-        <a class={textClass} href={this.href} target={this.target}  {...listeners} onClick={this.bindEvent}>
+        <a class={textClass} href={this.href} target={this.target} {...listeners} onClick={this.bindEvent}>
           {textContent}
         </a>);
     }

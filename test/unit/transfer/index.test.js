@@ -76,7 +76,7 @@ describe('Transfer', () => {
         const domLi = wrapper.vm.$el.querySelectorAll('.t-transfer-list-target')[0].querySelectorAll('li');
         const dom = domLi[count].querySelectorAll('span');
         expect(dom[2].innerHTML).toBe(`内容${i + 1}`);
-        count = count + 1;
+        count += 1;
       });
     });
 
@@ -207,7 +207,7 @@ describe('Transfer', () => {
             const doms = domLi[count].querySelectorAll('span');
             expect(doms[2].innerHTML).toBe(`内容${i + 1}`);
             expect(domLi.length).toBe(checkedValue.length);
-            count = count + 1;
+            count += 1;
           });
         });
       });

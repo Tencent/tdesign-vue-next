@@ -1,4 +1,7 @@
-import { defineComponent, VNode, ref, inject } from 'vue';
+import {
+  defineComponent, VNode, ref, inject,
+} from 'vue';
+import throttle from 'lodash/throttle';
 import { prefix } from '../../config';
 import { flatColumns } from '../util/props-util';
 import baseTableProps from '../base-table-props';
@@ -10,10 +13,8 @@ import TableColGroup from './col-group';
 import Pagination from '../../pagination';
 import { getScrollDirection, ScrollDirection } from '../util/common';
 import { PageInfo } from '../../pagination/type';
-import throttle from 'lodash/throttle';
 import { renderTNodeJSX } from '../../utils/render-tnode';
 import { EVENT_NAME_WIDTH_UPPER_CASE } from '../util/interface';
-
 
 export default defineComponent({
   name: `${prefix}-base-table`,
@@ -81,7 +82,9 @@ export default defineComponent({
     },
     // common class
     commonClass(): Array<string> {
-      const { bordered, stripe, hover, size, verticalAlign, hasFixedColumns, fixedHeader } = this;
+      const {
+        bordered, stripe, hover, size, verticalAlign, hasFixedColumns, fixedHeader,
+      } = this;
       const commonClass: Array<string> = ['t-table'];
       if (bordered) {
         commonClass.push('t-table--bordered');
@@ -147,7 +150,9 @@ export default defineComponent({
       }
     },
     renderHeader(): VNode {
-      const { columns, flattedColumns, slots, bordered } = this;
+      const {
+        columns, flattedColumns, slots, bordered,
+      } = this;
       return <TableHeader
               columns={columns}
               columnsProps={flattedColumns}
@@ -266,9 +271,11 @@ export default defineComponent({
       return renderTNodeJSX(this, 'loading', <Loading />);
     },
     renderFooter() {
-      const { flattedColumns: {
-        length: colspan,
-      }, isEmpty } = this;
+      const {
+        flattedColumns: {
+          length: colspan,
+        }, isEmpty,
+      } = this;
       let footerContent: VNode;
       if (isEmpty) {
         footerContent = this.renderEmptyTable();
@@ -336,7 +343,7 @@ export default defineComponent({
     return (
       <div class={commonClass}>
         <div class="t-table-content" style={{ overflow: 'auto', maxHeight: tableContentMaxHeight }} onScroll={handleScroll}>
-          {fixedTableContent ? fixedTableContent : <table style={{ tableLayout }}>{tableContent}</table>}
+          {fixedTableContent || <table style={{ tableLayout }}>{tableContent}</table>}
         </div>
         {body}
       </div>

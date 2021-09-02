@@ -117,12 +117,10 @@ export default defineComponent({
           iconNode = slots.icon({
             node: node?.getModel(),
           });
+        } else if (!node.vmIsLeaf) {
+          iconNode = (<TIconChevronRight/>);
         } else {
-          if (!node.vmIsLeaf) {
-            iconNode = (<TIconChevronRight/>);
-          } else {
-            iconNode = '';
-          }
+          iconNode = '';
         }
       } else {
         iconNode = getTNode(icon, {
@@ -137,7 +135,7 @@ export default defineComponent({
     },
     renderLabel() {
       const { node, treeScope } = this;
-      const  { label, slots } = treeScope;
+      const { label, slots } = treeScope;
       const checkProps = treeScope.checkProps || {};
 
       let labelNode = null;

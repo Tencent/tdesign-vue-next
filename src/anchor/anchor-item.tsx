@@ -14,7 +14,7 @@ type TAnchor = {
 };
 
 declare module '@vue/runtime-core' {
-  interface ComponentCustomProperties  {
+  interface ComponentCustomProperties {
     tAnchor: TAnchor;
   }
 }
@@ -87,7 +87,9 @@ export default defineComponent({
     },
   },
   render() {
-    const { href, target, $slots, tAnchor } = this;
+    const {
+      href, target, $slots, tAnchor,
+    } = this;
     const { default: children, title: titleSlot } = $slots;
     const title = this.renderTitle();
     const titleAttr = typeof title === 'string' ? title : null;

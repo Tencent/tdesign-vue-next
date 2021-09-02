@@ -1,4 +1,6 @@
-import { defineComponent, computed, inject, onMounted } from 'vue';
+import {
+  defineComponent, computed, inject, onMounted,
+} from 'vue';
 import { prefix } from '../config';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';

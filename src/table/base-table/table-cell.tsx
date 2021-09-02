@@ -1,4 +1,6 @@
-import { VNode, defineComponent, h, ComponentPublicInstance } from 'vue';
+import {
+  VNode, defineComponent, h, ComponentPublicInstance,
+} from 'vue';
 import { prefix } from '../../config';
 import Popup from '../../popup';
 import { isNodeOverflow } from '../../utils/dom';
@@ -39,7 +41,7 @@ export default defineComponent({
           fixedColumns.push(el);
         }
       });
-      const indexInFixedColumns = fixedColumns.findIndex(el => el === this);
+      const indexInFixedColumns = fixedColumns.findIndex((el) => el === this);
 
       fixedColumns.forEach((el: any, cur) => {
         if ((fixed === 'right' && cur > indexInFixedColumns) || (fixed === 'left' && cur < indexInFixedColumns)) {
@@ -54,9 +56,15 @@ export default defineComponent({
     this.isCutOff = isNodeOverflow(this.$el);
   },
   render() {
-    const { cellData, offsetLeft, isBoundary, isCutOff } = this;
-    const { col, colIndex, row, rowIndex, customData, customRender, withBorder } = cellData;
-    const { colKey, attrs, align, ellipsis, width, className, title, fixed } = col;
+    const {
+      cellData, offsetLeft, isBoundary, isCutOff,
+    } = this;
+    const {
+      col, colIndex, row, rowIndex, customData, customRender, withBorder,
+    } = cellData;
+    const {
+      colKey, attrs, align, ellipsis, width, className, title, fixed,
+    } = col;
 
     // 固定列 单元格属性
     const style: Record<string, any> = {};
@@ -83,7 +91,9 @@ export default defineComponent({
     }
     if (className) {
       if (typeof className === 'function') {
-        attrClass[className({ type: cellData.type, col, colIndex, row, rowIndex })] = true;
+        attrClass[className({
+          type: cellData.type, col, colIndex, row, rowIndex,
+        })] = true;
       } else {
         attrClass[className] = true;
       }
@@ -91,7 +101,7 @@ export default defineComponent({
     // 自定义单元格渲染
     let cellContent: VNode;
     if (typeof customRender === 'function') {
-      const  { type, func } = customData;
+      const { type, func } = customData;
       const baseData = {
         col,
         colIndex,

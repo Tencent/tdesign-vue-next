@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { defineComponent } from 'vue';
 import config from '../config';
 
 export interface Locale {
@@ -6,7 +6,7 @@ export interface Locale {
 };
 
 const name = `${config}-locale-provider`;
-const LocaleProvider = Vue.extend({
+const LocaleProvider = defineComponent({
   name,
   props: {
     globalLocale: Object,

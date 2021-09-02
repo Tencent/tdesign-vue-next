@@ -14,3 +14,7 @@ export function flatColumns(columns: Array<BaseTableCol>): Array<BaseTableCol> {
   });
   return result;
 }
+
+export default {
+  flatColumns,
+};

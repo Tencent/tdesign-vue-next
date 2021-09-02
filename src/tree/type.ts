@@ -368,3 +368,4 @@ export interface TreeNodeModel<DataOption extends TreeOptionData = TreeOptionDat
 export interface TreeKeysType { value?: string; label?: string; children?: string };
 
 export type TreeNodeValue = string | number;
+ 

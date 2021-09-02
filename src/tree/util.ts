@@ -32,7 +32,7 @@ export function getParentMarks(name: string, element?: HTMLElement, root?: HTMLE
         el,
       };
       return mark;
-    }).filter(mark => mark.value)
+    }).filter((mark) => mark.value)
   );
 }
 

@@ -1,4 +1,6 @@
-import { defineComponent, h, VNode, ComponentPublicInstance } from 'vue';
+import {
+  defineComponent, h, VNode, ComponentPublicInstance,
+} from 'vue';
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import IconPromptFill from '../icon/info-circle-filled';
@@ -72,7 +74,7 @@ export default defineComponent({
       );
     },
 
-    renderTitle()  {
+    renderTitle() {
       const titleContent = renderTNodeJSX(this as ComponentPublicInstance, 'title');
       return titleContent ? <div class={`${name}__title`}> {titleContent}</div> : null;
     },
@@ -108,7 +110,7 @@ export default defineComponent({
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
         <div class={`${name}__description`}>
-          { hasCollapse ? (messageContent as Array<string | VNode>).map(content => (
+          { hasCollapse ? (messageContent as Array<string | VNode>).map((content) => (
             <div>
               { content}
             </div>

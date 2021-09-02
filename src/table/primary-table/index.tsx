@@ -30,15 +30,18 @@ export default defineComponent({
     };
   },
   render() {
-    const { $props, rehandleColumns, rehandleData, slots: defaultSlots } = this;
-    const slots = Object.assign(
-      {},
-      defaultSlots,
-    );
-    const props = Object.assign({}, $props, {
+    const {
+      $props, rehandleColumns, rehandleData, slots: defaultSlots,
+    } = this;
+    const slots = {
+
+      ...defaultSlots,
+    };
+    const props = {
+      ...$props,
       data: rehandleData,
       columns: rehandleColumns,
-    });
+    };
     return <BaseTable {...props}>{slots}</BaseTable>;
   },
 });

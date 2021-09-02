@@ -1,7 +1,7 @@
 import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
-const name = `${prefix}-addon`;
 
+const name = `${prefix}-addon`;
 
 export default defineComponent({
   name,
@@ -42,7 +42,7 @@ export default defineComponent({
   render() {
     const prepend = this.renderAddon(h, 'prepend', this.prepend);
     const append = this.renderAddon(h, 'append', this.append);
-    const defaultSlot: VNodeChild[] =  this.$slots.default ? this.$slots.default(null) : [null];
+    const defaultSlot: VNodeChild[] = this.$slots.default ? this.$slots.default(null) : [null];
     const className = [
       name,
       {

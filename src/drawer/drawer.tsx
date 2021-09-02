@@ -1,4 +1,5 @@
 import { defineComponent, nextTick } from 'vue';
+import { ClassName, Styles } from '@src/common';
 import { prefix } from '../config';
 import TIconClose from '../icon/close';
 import { Button as TButton } from '../button';
@@ -6,7 +7,6 @@ import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
-import { ClassName, Styles } from '@src/common';
 
 const name = `${prefix}-drawer`;
 

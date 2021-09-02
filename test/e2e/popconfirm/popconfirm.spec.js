@@ -117,7 +117,6 @@ describe('Test Popconfirm', () => {
     index += 1;
   });
 
-
   it('点击 trigger="manual"', () => {
     cy.get('.t-button').eq(index)
       .click();

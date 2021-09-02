@@ -1,10 +1,10 @@
-
 import { VNode } from 'vue';
 import { ClassName } from '../../common';
+
 export interface ProgressProps {
   theme?: string;
   percentage?: number;
-  label?: boolean |  (() => VNode);
+  label?: boolean | (() => VNode);
   status?: string;
   color?: string | any;
   trackColor?: string;

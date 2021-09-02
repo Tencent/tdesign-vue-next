@@ -15,7 +15,6 @@ const LocalPagination = mapProps([
   },
 ])(_Pagination);
 
-
 export type PaginationProps = TdPaginationProps;
 export * from './type';
 

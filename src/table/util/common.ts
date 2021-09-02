@@ -1,7 +1,7 @@
-import { PrimaryTableCol } from '../type';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 import { h, SetupContext, VNodeChild } from 'vue';
+import { PrimaryTableCol } from '../type';
 
 export function toString<T>(obj: T): string {
   return Object.prototype.toString

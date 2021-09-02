@@ -20,8 +20,8 @@ function deleteFolderRecursive(path) {
  * 拷贝文件
  * @param src 源文件路径
  * @param dist 目的文件路径
- **/
-const copyFile = (src, dist)  => {
+ * */
+const copyFile = (src, dist) => {
   fs.writeFileSync(dist, fs.readFileSync(src));
 };
 

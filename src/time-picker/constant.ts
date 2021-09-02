@@ -29,4 +29,3 @@ export enum KEYBOARD_DIRECTION {
 }
 
 export const EMPTY_VALUE = -1;
-

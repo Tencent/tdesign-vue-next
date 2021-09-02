@@ -30,6 +30,7 @@ const path = require('path');
 const _ = require('lodash');
 const utils = require('../utils');
 const config = require('./config');
+
 const cwdPath = process.cwd();
 
 function createFile(path, data = '', desc) {
@@ -124,7 +125,7 @@ function deleteComponentFromIndex(component, indexPath) {
   data = data
     .replace(new RegExp(importStr), () => '')
     .replace(new RegExp(`  ${upper},\n`), '');
-  fs.writeFile(indexPath, data,  (err) => {
+  fs.writeFile(indexPath, data, (err) => {
     if (err) {
       utils.log(err, 'error');
     } else {
@@ -148,9 +149,9 @@ function insertComponentToIndex(component, indexPath) {
   }
   // insert component at last import and component lines.
   data = data
-    .replace(importPattern, a => (`${a}\n${importPath}`))
-    .replace(cmpPattern, a => (`${a}  ${upper},\n`));
-  fs.writeFile(indexPath, data,  (err) => {
+    .replace(importPattern, (a) => (`${a}\n${importPath}`))
+    .replace(cmpPattern, (a) => (`${a}  ${upper},\n`));
+  fs.writeFile(indexPath, data, (err) => {
     if (err) {
       utils.log(err, 'error');
     } else {

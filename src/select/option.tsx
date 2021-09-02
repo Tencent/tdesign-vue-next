@@ -1,6 +1,6 @@
 import { defineComponent, VNode } from 'vue';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import get from 'lodash/get';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import ripple from '../utils/ripple';

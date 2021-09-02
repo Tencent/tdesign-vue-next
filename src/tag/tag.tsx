@@ -1,4 +1,6 @@
-import { defineComponent, h, VNodeChild, ComponentPublicInstance } from 'vue';
+import {
+  defineComponent, h, VNodeChild, ComponentPublicInstance,
+} from 'vue';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import TIconClose from '../icon/close';

@@ -3,8 +3,8 @@
  * updated at 2021-07-17 18:09:07
  * */
 
-import { TdBreadcrumbItemProps } from '../breadcrumb/type';
 import { PropType } from 'vue';
+import { TdBreadcrumbItemProps } from '../breadcrumb/type';
 
 export default {
   /** 子元素 */

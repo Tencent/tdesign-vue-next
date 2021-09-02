@@ -16,7 +16,7 @@ export default defineComponent({
   render() {
     let buttonContent = renderContent(this, 'default', 'content');
     const icon = this.loading ? <TIconLoading/> : renderTNodeJSX(this, 'icon');
-    const iconOnly = icon && !Boolean(buttonContent);
+    const iconOnly = icon && !buttonContent;
 
     let { theme } = this;
     if (!this.theme) {

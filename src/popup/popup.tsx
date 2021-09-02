@@ -3,7 +3,9 @@ import { createPopper } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
 import CLASSNAMES from '../utils/classnames';
-import { on, off, addClass, removeClass, getAttach } from '../utils/dom';
+import {
+  on, off, addClass, removeClass, getAttach,
+} from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { PopupVisibleChangeContext } from './type';
@@ -60,7 +62,7 @@ export default defineComponent({
   },
   computed: {
     overlayClasses(): ClassName {
-      const base =  [
+      const base = [
         `${name}-content`,
         {
           [`${name}-content--arrow`]: this.showArrow,
@@ -235,7 +237,7 @@ export default defineComponent({
       if (typeof styles === 'object' && refOverlayElm) {
         refOverlayElm.setAttribute(
           'style',
-          Object.keys(styles).map(key => `${key}: ${styles[key]}`)
+          Object.keys(styles).map((key) => `${key}: ${styles[key]}`)
             .join(';'),
         );
       }

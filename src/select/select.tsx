@@ -1,4 +1,10 @@
-import { defineComponent, nextTick, VNode, ComponentPublicInstance } from 'vue';
+import {
+  defineComponent, nextTick, VNode, ComponentPublicInstance,
+} from 'vue';
+import isFunction from 'lodash/isFunction';
+import debounce from 'lodash/debounce';
+import get from 'lodash/get';
+import set from 'lodash/set';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
@@ -9,10 +15,6 @@ import TIconClose from '../icon/close-circle-filled';
 import TIconLoading from '../icon/loading';
 import TInput from '../input/index';
 import Tag from '../tag/index';
-import isFunction from 'lodash/isFunction';
-import debounce from 'lodash/debounce';
-import get from 'lodash/get';
-import set from 'lodash/set';
 import Popup, { PopupProps } from '../popup/index';
 import Option from './option';
 import props from './props';
@@ -167,7 +169,7 @@ export default defineComponent({
       if (!this.multiple && (typeof this.value === 'string' || typeof this.value === 'number')) {
         let target: Array<Options> = [];
         if (this.realOptions && this.realOptions.length) {
-          target = this.realOptions.filter(item => get(item, this.realValue) === this.value);
+          target = this.realOptions.filter((item) => get(item, this.realValue) === this.value);
         }
         if (target.length) {
           if (get(target[0], this.realLabel) === '') {
@@ -190,7 +192,7 @@ export default defineComponent({
           if (typeof item === 'object') {
             return item;
           }
-          const tmp = this.realOptions.filter(op => get(op, this.realValue) === item);
+          const tmp = this.realOptions.filter((op) => get(op, this.realValue) === item);
           const valueLabel = {};
           set(valueLabel, this.realValue, item);
           set(valueLabel, this.realLabel, tmp.length ? get(tmp[0], this.realLabel) : item);
@@ -206,10 +208,10 @@ export default defineComponent({
     filterOptions(): Array<Options> {
       // filter优先级 filter方法>仅filterable
       if (isFunction(this.filter)) {
-        return this.realOptions.filter(option => this.filter(this.searchInput, option));
+        return this.realOptions.filter((option) => this.filter(this.searchInput, option));
       } if (this.filterable) {
         // 仅有filterable属性时，默认不区分大小写过滤label
-        return this.realOptions.filter(option => option[this.realLabel].toString().toLowerCase()
+        return this.realOptions.filter((option) => option[this.realLabel].toString().toLowerCase()
           .indexOf(this.searchInput.toString().toLowerCase()) !== -1);
       }
       return [];
@@ -242,7 +244,7 @@ export default defineComponent({
         this.debounceOnRemote();
       }
       if (this.canFilter && val && this.creatable) {
-        const tmp = this.realOptions.filter(item => get(item, this.realLabel).toString() === val);
+        const tmp = this.realOptions.filter((item) => get(item, this.realLabel).toString() === val);
         this.showCreateOption = !tmp.length;
       } else {
         this.showCreateOption = false;
@@ -286,11 +288,11 @@ export default defineComponent({
       if (this.value !== value) {
         if (this.multiple && this.value instanceof Array) {
           if (this.labelInValue) {
-            const index = this.value.map(item => get(item, this.realValue)).indexOf(value);
+            const index = this.value.map((item) => get(item, this.realValue)).indexOf(value);
             if (index > -1) {
               this.removeTag(index, { e });
             } else {
-              this.value.push(this.realOptions.filter(item => get(item, this.realValue) === value)[0]);
+              this.value.push(this.realOptions.filter((item) => get(item, this.realValue) === value)[0]);
               this.emitChange(this.value);
             }
           } else {
@@ -326,7 +328,7 @@ export default defineComponent({
         return;
       }
       const val = this.value[index];
-      const removeOption = this.realOptions.filter(item => get(item, this.realValue) === val);
+      const removeOption = this.realOptions.filter((item) => get(item, this.realValue) === val);
       this.value instanceof Array && this.value.splice(index, 1);
       this.emitChange(this.value);
       this.$emit('remove', { value: val, data: removeOption[0], e });
@@ -348,7 +350,7 @@ export default defineComponent({
     getOptions(option: Options) {
       // create option值不push到options里
       if (option.$el && option.$el.className.indexOf(`${name}-create-option-special`) !== -1) return;
-      const tmp = this.realOptions.filter(item => get(item, this.realValue) === option.value);
+      const tmp = this.realOptions.filter((item) => get(item, this.realValue) === option.value);
       if (!tmp.length) {
         this.hasOptions = true;
         const valueLabel = {};
@@ -371,7 +373,7 @@ export default defineComponent({
             value = this.selectedMultiple;
           }
         } else {
-          const target = this.realOptions.filter(item => get(item, this.realValue) === val);
+          const target = this.realOptions.filter((item) => get(item, this.realValue) === val);
           value = target.length ? target[0] : '';
         }
       } else {

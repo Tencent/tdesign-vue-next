@@ -1,4 +1,7 @@
-import { defineComponent, VNode, computed, provide } from 'vue';
+import {
+  defineComponent, VNode, computed, provide,
+} from 'vue';
+import isEmpty from 'lodash/isEmpty';
 import { prefix } from '../config';
 import { FormValidateResult, TdFormProps } from './type';
 import props from './props';
@@ -6,7 +9,6 @@ import {
   FORM_ITEM_CLASS_PREFIX, CLASS_NAMES,
   TdForm, TdFormField,
 } from './const';
-import isEmpty from 'lodash/isEmpty';
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
@@ -81,6 +83,7 @@ export default defineComponent({
     // 校验不通过时，滚动到第一个错误表单
     scrollTo(selector: string) {
       const dom = this.$el.querySelector(selector);
+      // eslint-disable-next-line no-undef
       const behavior = this.scrollToFirstError as ScrollBehavior;
       dom && dom.scrollIntoView({ behavior });
     },
@@ -104,7 +107,7 @@ export default defineComponent({
 
   render(): VNode {
     return (
-      <form class={this.formClass} onSubmit={e => this.submitHandler(e as MouseEvent)} onReset={e => this.resetHandler(e as MouseEvent)}>
+      <form class={this.formClass} onSubmit={(e) => this.submitHandler(e as MouseEvent)} onReset={(e) => this.resetHandler(e as MouseEvent)}>
         {this.$slots.default ? this.$slots.default() : []}
       </form>
     );
