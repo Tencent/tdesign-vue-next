@@ -64,6 +64,8 @@ export default defineComponent({
         disabled,
         hover,
         transition,
+        checkable,
+        expandOnClickNode,
       } = this;
       if (disabled) {
         list.push(CLASS_NAMES.disabled);
@@ -71,8 +73,14 @@ export default defineComponent({
       if (hover) {
         list.push(CLASS_NAMES.treeHoverable);
       }
+      if (checkable) {
+        list.push(CLASS_NAMES.treeCheckable);
+      }
       if (transition) {
         list.push(CLASS_NAMES.treeFx);
+      }
+      if (expandOnClickNode) {
+        list.push(CLASS_NAMES.treeBlockNode);
       }
       return list;
     },

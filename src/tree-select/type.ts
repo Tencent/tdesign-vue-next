@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-08-29 18:11:36
  * */
 
 import { PopupProps } from '../popup';
@@ -120,6 +120,6 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
   onSearch?: (filterWords: string) => void;
 };
 
-export type TreeSelectValue = string | number | Array<string | number>;
+export type TreeSelectValue = string | number | Object | Array<TreeSelectValue>;
 
 export interface RemoveOptions<T> { value: string | number; data: T; e: MouseEvent };

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tree-select base demo works fine 1`] = `
+<div
+  class="tdesign-tree-select-base"
+>
+  <t-tree-select
+    clearable=""
+    data="[object Object],[object Object]"
+    modelvalue=""
+    placeholder="请选择"
+  />
+</div>
+`;

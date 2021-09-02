@@ -26,6 +26,7 @@ export * from './select';
 export * from './switch';
 export * from './textarea';
 export * from './transfer';
+export * from './tree-select';
 
 // 数据展示
 export * from './badge';

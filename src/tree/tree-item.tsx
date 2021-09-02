@@ -158,6 +158,9 @@ export default defineComponent({
       const labelClasses = [
         CLASS_NAMES.treeLabel,
         CLASS_NAMES.treeLabelStrictly,
+        {
+          [CLASS_NAMES.actived]: node.isActivable() ? node.actived : false,
+        },
       ];
 
       if (node && node.vmCheckable) {
@@ -179,7 +182,7 @@ export default defineComponent({
           <span
             v-ripple
             class={labelClasses}
-          >{labelNode}</span>
+          ><span style="position: relative">{labelNode}</span></span>
         );
       }
 
@@ -230,8 +233,8 @@ export default defineComponent({
         itemNodes.push(labelNode);
       }
 
-      const spaceNode = (<span class={CLASS_NAMES.treeSpace}></span>);
-      itemNodes.push(spaceNode);
+      // const spaceNode = (<span class={CLASS_NAMES.treeSpace}></span>);
+      // itemNodes.push(spaceNode);
 
       const opNode = this.renderOperations();
       if (opNode) {

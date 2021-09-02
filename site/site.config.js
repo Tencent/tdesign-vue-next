@@ -208,6 +208,13 @@ export default {
           path: '/vue-next/components/transfer',
           component: () => import('@/examples/transfer/transfer.md'),
         },
+        {
+          title: 'TreeSelect 树选择',
+          name: 'tree-select',
+          docType: 'form',
+          path: '/vue-next/components/tree-select',
+          component: () => import('@/examples/tree-select/tree-select.md'),
+        },
         // {
         //   title: 'Upload 上传',
         //   name: 'upload',
