@@ -53,13 +53,21 @@ export default defineComponent({
         },
       ];
     },
+    isCreatedOption(): boolean {
+      return this.tSelect.creatable && this.value === this.tSelect.searchInput;
+    },
     show(): boolean {
-      if (this.tSelect) {
-        const target = this.tSelect.displayOptions.filter((option: Options) => get(option, this.tSelect.realValue) === this.value);
-        const isCreated = this.tSelect.creatable && this.value === this.tSelect.searchInput;
-        return target.length > 0 || isCreated;
+      /**
+       * 此属性主要用于slots生成options时显示控制，直传options由select进行显示控制
+       * create的option，始终显示
+       * canFilter只显示待匹配的选项
+       */
+      if (!this.tSelect) return false;
+      if (this.isCreatedOption) return true;
+      if (this.tSelect.canFilter && this.tSelect.searchInput !== '') {
+        return this.tSelect.filterOptions.some((option: Options) => get(option, this.tSelect.realValue) === this.value);
       }
-      return false;
+      return true;
     },
     labelText(): string {
       return this.label || String(this.value);
