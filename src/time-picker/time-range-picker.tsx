@@ -290,10 +290,10 @@ export default defineComponent({
   render() {
     // 初始化数据
     const {
-      $props: { size, className, disabled },
+      $props: { size, disabled },
     } = this;
     // 样式类名
-    const classes = [name, CLASSNAMES.SIZE[size], className];
+    const classes = [name, CLASSNAMES.SIZE[size]];
 
     const slots = {
       content: () => (
