@@ -1,8 +1,8 @@
 import { defineComponent, VNode, Transition } from 'vue';
 import isEqual from 'lodash/isEqual';
 import cloneDeep from 'lodash/cloneDeep';
-import TreeStore from '@common/js/tree/tree-store';
-import TreeNode from '@common/js/tree/tree-node';
+import TreeStore from '../_common/js/tree/tree-store';
+import TreeNode from '../_common/js/tree/tree-node';
 import { prefix } from '../config';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import CLASSNAMES from '../utils/classnames';

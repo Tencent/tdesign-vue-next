@@ -1,7 +1,7 @@
 import { ComponentPublicInstance } from 'vue';
 import {
   TypeTreeEventState,
-} from '@common/js/tree/types';
+} from '../_common/js/tree/types';
 import TreeNode from '../_common/js/tree/tree-node';
 import { TNode, TreeOptionData } from '../common';
 
