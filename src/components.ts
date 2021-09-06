@@ -50,6 +50,7 @@ export * from './notification';
 export * from './popconfirm';
 export * from './popup';
 export * from './alert-swiper';
+export * from './swiper';
 
 export * from './time-picker';
 export * from './upload';

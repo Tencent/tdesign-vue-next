@@ -362,6 +362,12 @@ export default {
           path: '/vue-next/components/popup',
           component: () => import('@/examples/popup/popup.md'),
         },
+        {
+          title: 'Swiper 轮播框',
+          name: 'swiper',
+          path: '/vue/components/swiper',
+          component: () => import('@/examples/swiper/swiper.md'),
+        },
       ],
     },
   ],
