@@ -55,7 +55,7 @@ export default defineComponent({
     },
     cols() {
       if (!this.formatField) {
-        return [EPickerCols.hour, EPickerCols.minute, EPickerCols.second]
+        return [EPickerCols.hour, EPickerCols.minute, EPickerCols.second];
       };
       const {
         startAChart, hour, minute, second, endAChart,

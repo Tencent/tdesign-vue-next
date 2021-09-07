@@ -1,9 +1,11 @@
 import _ from 'lodash';
+import { prefix } from '../config';
+
 import _BaseTable from './base-table/index';
 import _PrimaryTable from './primary-table/index';
 import mapProps from '../utils/map-props';
-import withInstall from '../utils/withInstall';
-import { prefix } from '../config';
+import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdBaseTableProps, TdPrimaryTableProps } from './type';
 
 const TPrimaryTable = mapProps([
   {
@@ -24,10 +26,15 @@ const TPrimaryTable = mapProps([
   },
 ])(_PrimaryTable);
 
-export const BaseTable = withInstall(_BaseTable);
-export const PrimaryTable = withInstall(TPrimaryTable);
+export type BaseTableProps = TdBaseTableProps;
+export type PrimaryTableProps = TdPrimaryTableProps;
+export * from './type';
+
+export const BaseTable: WithInstallType<typeof _BaseTable> = withInstall(_BaseTable);
+export const PrimaryTable: WithInstallType<typeof TPrimaryTable> = withInstall(TPrimaryTable);
 
 const LocalTable = _.cloneDeep(TPrimaryTable);
 LocalTable.name = `${prefix}-table`;
-export const Table = withInstall(LocalTable);
+export const Table: WithInstallType<typeof LocalTable> = withInstall(LocalTable);
+
 export default Table;

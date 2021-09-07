@@ -188,7 +188,6 @@ import { RenderTNodeTemplate } from '../utils/render-tnode';
 
 // 组件相关的自定义类型
 import {
-  CalendarData,
   CalendarRange,
   YearMonthOption,
   ModeOption,

@@ -118,7 +118,9 @@ export default defineComponent({
     this.referenceElm = this.referenceElm || this.$el;
     if (!this.popperElm || !this.referenceElm) return;
 
-    this.createPopperJS();
+    if (this.visible) {
+      this.createPopperJS();
+    }
     const reference = this.referenceElm;
     const popper = this.popperElm;
     // 无论哪种触发方式都支持 esc 隐藏浮层

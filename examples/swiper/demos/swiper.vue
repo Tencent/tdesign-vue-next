@@ -32,3 +32,5 @@
     </t-swiper>
   </div>
 </template>
+<script>
+</script>

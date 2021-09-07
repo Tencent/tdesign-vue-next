@@ -1,12 +1,10 @@
-/* eslint-disable */
-
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-04-06 21:47:53
  * */
 
-import { TdTreeProps } from './type';
 import { PropType } from 'vue';
+import { TdTreeProps } from './type';
 
 export default {
   /** 节点是否可高亮 */
@@ -35,11 +33,13 @@ export default {
     default: (): TdTreeProps['data'] => [],
   },
   /** 是否禁用树操作 */
-  disabled: Boolean,
+  disabled: {
+    type: Boolean,
+  },
   /** 数据为空时展示的文本 */
   empty: {
     type: [String, Function] as PropType<TdTreeProps['empty']>,
-    default: '',
+    default: '暂无数据',
   },
   /** 是否展开全部节点 */
   expandAll: Boolean,
@@ -69,7 +69,9 @@ export default {
     type: Function as PropType<TdTreeProps['filter']>,
   },
   /** 节点是否有悬浮状态 */
-  hover: Boolean,
+  hover: {
+    type: Boolean,
+  },
   /** 节点图标，可自定义 */
   icon: {
     type: [Boolean, Function] as PropType<TdTreeProps['icon']>,
@@ -89,7 +91,7 @@ export default {
     type: Boolean,
     default: true,
   },
-  /** 连接线。值为 false 不显示连接线；值为 true 显示默认连接线；值类型为 Function 表示自定义连接线 */
+  /** 连接线 */
   line: {
     type: [Boolean, Function] as PropType<TdTreeProps['line']>,
     default: false,
@@ -120,14 +122,14 @@ export default {
   /** 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点 */
   valueMode: {
     type: String as PropType<TdTreeProps['valueMode']>,
-    default: 'onlyLeaf' as TdTreeProps['valueMode'],
-    validator(val: TdTreeProps['valueMode']): boolean {
+    default: 'onlyLeaf',
+    validator(val: string): boolean {
       return ['onlyLeaf', 'parentFirst', 'all'].includes(val);
     },
   },
   /** 节点激活时触发 */
   onActive: Function as PropType<TdTreeProps['onActive']>,
-  /** 节点选中状态变化时触发，context.node 表示当前变化的选项 */
+  /** 节点选中时触发 */
   onChange: Function as PropType<TdTreeProps['onChange']>,
   /** 节点点击时触发 */
   onClick: Function as PropType<TdTreeProps['onClick']>,

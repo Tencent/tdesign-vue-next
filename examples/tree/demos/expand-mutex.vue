@@ -17,7 +17,6 @@
       :expand-on-click-node="expandOnClickNode"
       @click="onClick"
       @expand="handleExpand"
-      :onExpand="propOnExpand"
     />
   </div>
 </template>
@@ -71,9 +70,6 @@ export default {
     },
     handleExpand(value, context) {
       console.info('onExpand', value, context);
-    },
-    propOnExpand(value, context) {
-      console.info('propOnExpand', value, context);
     },
     toggleMutex() {
       this.mutex = !this.mutex;

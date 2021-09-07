@@ -27,6 +27,10 @@ const CascaderLocalReceiver = getLocalRecevierMixins('cascader');
 const name = `${prefix}-cascader`;
 
 type TypeContext = { e?: Event; node?: TreeNode };
+type CascaderDataType = {
+  model: TreeNodeValue | TreeNodeValue[];
+  [key: string]: any;
+}
 
 export default defineComponent({
   ...mixins(CascaderLocalReceiver),
@@ -54,10 +58,7 @@ export default defineComponent({
 
   emits: ['visible-change', 'load', 'update', 'change', 'remove', 'input'],
 
-  data(): {
-    model: TreeNodeValue | TreeNodeValue[];
-    [key: string]: any;
-    } {
+  data(): CascaderDataType {
     return {
       isHover: false,
       name,

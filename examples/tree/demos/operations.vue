@@ -310,14 +310,14 @@ export default {
 };
 </script>
 <style>
-  .tdesign-tree-operations .title{
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  .tdesign-tree-operations .operations .t-button{
-    margin: 0 10px 10px 0;
-  }
-  .tdesign-tree-operations .t-tree__operations .t-button{
-    margin-left: 10px;
-  }
+.tdesign-tree-operations .title{
+  margin: 10px 0;
+  font-weight: bold;
+}
+.tdesign-tree-operations .operations .t-button{
+  margin: 0 10px 10px 0;
+}
+.tdesign-tree-operations .t-tree__operations .t-button{
+  margin-left: 10px;
+}
 </style>

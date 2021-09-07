@@ -13,7 +13,7 @@
       checkable
     >
       <template #label="{node}">
-        <font color="blue">label: {{node.label}}, value: {{node.value}}</font>
+        <span color="blue">label: {{node.label}}, value: {{node.value}}</span>
       </template>
     </t-tree>
   </div>
@@ -38,15 +38,13 @@ export default {
           label: '2.2',
         }],
       }],
-      label(createElement, node) {
-        return createElement('strong', {
-          domProps: {
-            innerHTML: `value: ${node.value}, label: ${node.label}`,
-          },
+      label(h, node) {
+        return h('div', {
+          innerHTML: `value: ${node.value}, label: ${node.label}`,
         });
       },
     };
-  },
+  }
 };
 </script>
 <style scoped>

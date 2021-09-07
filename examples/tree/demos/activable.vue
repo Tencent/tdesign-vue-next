@@ -21,7 +21,6 @@
       :expand-on-click-node="expandOnClickNode"
       @click="onClick"
       @active="onActive"
-      :onActive="propOnActive"
     />
   </div>
 </template>
@@ -56,9 +55,6 @@ export default {
     },
     onActive(value, context) {
       console.info('onActive', value, context);
-    },
-    propOnActive(value, context) {
-      console.info('propOnActive', value, context);
     },
     toggleActivable() {
       this.activable = !this.activable;
