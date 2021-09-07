@@ -10,6 +10,18 @@ export function toString<T>(obj: T): string {
     .toLowerCase();
 }
 
+export function debounce<T = any>(fn: Function, delay = 200): () => void {
+  let timer: ReturnType<typeof setTimeout>;
+  return function newFn(this: T, ...args: Array<any>): void {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const context = this;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(context, args);
+    }, delay);
+  };
+}
+
 export function filterDataByIds<T>(
   data: Array<T> = [],
   ids: Array<string | number> = [],
@@ -20,7 +32,7 @@ export function filterDataByIds<T>(
 
 export const INNER_PRE_NAME = '@@inner-';
 
-export enum ScrollDirection {
+export enum SCROLL_DIRECTION {
   X = 'x',
   Y = 'y',
   UNKNOWN = 'unknown',
@@ -32,12 +44,12 @@ let preScrollTop: any;
 export const getScrollDirection = (
   scrollLeft: number,
   scrollTop: number,
-): ScrollDirection => {
-  let direction = ScrollDirection.UNKNOWN;
+): SCROLL_DIRECTION => {
+  let direction = SCROLL_DIRECTION.UNKNOWN;
   if (preScrollTop !== scrollTop) {
-    direction = ScrollDirection.Y;
+    direction = SCROLL_DIRECTION.Y;
   } else if (preScrollLeft !== scrollLeft) {
-    direction = ScrollDirection.X;
+    direction = SCROLL_DIRECTION.X;
   }
   preScrollTop = scrollTop;
   preScrollLeft = scrollLeft;

@@ -112,12 +112,6 @@ export default defineComponent({
         };
         // 按行渲染
         body.push(<TableRow {...props} >{slots}</TableRow>);
-        const renderRow = inject('renderRow');
-        if (typeof renderRow === 'function') {
-          renderRow({
-            rows: body, row, rowIndex: index, columns: this.columns,
-          });
-        }
       });
       return body;
     },
