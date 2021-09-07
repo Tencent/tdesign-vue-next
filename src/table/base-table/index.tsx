@@ -12,7 +12,7 @@ import TableBody from './table-body';
 import TableHeader from './table-header';
 import TableColGroup from './col-group';
 import Pagination from '../../pagination';
-import Loading from '../../loading';
+import TLoading from '../../loading';
 import { debounce, getScrollDirection, SCROLL_DIRECTION } from '../util/common';
 import { PageInfo } from '../../pagination/type';
 import { renderTNodeJSX } from '../../utils/render-tnode';
@@ -184,11 +184,10 @@ export default defineComponent({
     },
     renderHeader(): VNode {
       const {
-        columns, flattedColumns, $slots, bordered,
+        columns, $slots, bordered,
       } = this;
       return <TableHeader
               columns={columns}
-              columnsProps={flattedColumns}
               bordered={bordered}
             >{$slots}</TableHeader>;
     },
@@ -301,7 +300,7 @@ export default defineComponent({
       return fixedTable;
     },
     renderLoadingContent(): VNode {
-      return renderTNodeJSX(this, 'loading', <Loading />);
+      return renderTNodeJSX(this, 'loading', <div />);
     },
     renderFooter() {
       const {
@@ -373,12 +372,12 @@ export default defineComponent({
     }];
     return (
       <div class={commonClass}>
-        <Loading loading={isLoading} showOverlay text={this.renderLoadingContent}>
+        <TLoading loading={isLoading} showOverlay text={this.renderLoadingContent}>
           <div ref='tableContent' class={tableContentClass} style={{ overflow: 'auto', maxHeight }} onScroll={handleScroll}>
             {fixedTableContent || <table style={{ tableLayout }}>{tableContent}</table>}
           </div>
           {body}
-        </Loading>
+        </TLoading>
       </div>
     );
   },

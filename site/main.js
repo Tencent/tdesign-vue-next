@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-// import App from '../examples/select/demos/base.vue';
+// import App from '../examples/table/demos/expandable.vue';
 import App from './app.vue';
 import router from './routes';
 import TDesign from '@tencent/tdesign-vue-next';

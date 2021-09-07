@@ -52,6 +52,7 @@ export const RenderTNodeTemplate = (props: { render: Function; params: Record<st
   return renderMap[renderWay] ? renderMap[renderWay](renderResult) : h(null);
 };
 
+
 // 通过JSX的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
 export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, options?: Slots | JSX.Element) => {
   const params = typeof options === 'object' && ('params' in options) ? options.params : null;

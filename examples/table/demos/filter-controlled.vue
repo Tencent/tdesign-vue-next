@@ -30,29 +30,36 @@
 const data = [
   {
     key: '1',
-    name: 'John Brown',
-    age: 62,
-    address: 'New York No. 1 Lake Park',
+    firstName: 'Eric',
+    lastName: 'Spinke',
+    email: 'espinke0@apache.org',
   },
   {
     key: '2',
-    name: 'Jim Green',
-    age: 12,
-    address: 'London No. 1 Lake Park',
+    firstName: 'Gilberta',
+    lastName: 'Purves',
+    email: 'gpurves1@issuu.com',
   },
   {
     key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    firstName: 'Heriberto',
+    lastName: 'Kment',
+    email: 'hkment2@nsw.gov.au',
   },
   {
     key: '4',
-    name: 'Jim Red',
-    age: 32,
-    address: 'London No. 2 Lake Park',
+    firstName: 'Lazarus',
+    lastName: 'Skures',
+    email: 'lskures3@apache.org',
+  },
+  {
+    key: '5',
+    firstName: 'Zandra',
+    lastName: 'Croson',
+    email: 'zcroson5@virginia.edu',
   },
 ];
+
 
 export default {
   data() {
@@ -61,34 +68,34 @@ export default {
       filterValue: {},
       columns: [
         {
-          title: 'Name',
-          colKey: 'name',
+          title: 'FirstName',
+          colKey: 'firstName',
           // 单选过滤配置
           filter: {
             type: 'single',
             list: [
               { label: 'anyone', value: '' },
-              { label: 'Joe Black', value: 'Joe Black' },
-              { label: 'John Brown', value: 'John Brown' },
+              { label: 'Heriberto', value: 'Heriberto' },
+              { label: 'Eric', value: 'Eric' },
             ],
           },
         },
         {
-          title: 'Age',
-          colKey: 'age',
+          title: 'LastName',
+          colKey: 'lastName',
           // 多选过滤配置
           filter: {
             type: 'multiple',
             list: [
               { label: 'All', checkAll: true },
-              { label: '32', value: 32 },
-              { label: '12', value: 12 },
+              { label: 'Skures', value: 'Skures' },
+              { label: 'Purves', value: 'Purves' },
             ],
           },
         },
         {
-          title: 'Address',
-          colKey: 'address',
+          title: 'Email',
+          colKey: 'email',
           // 输入框过滤配置
           filter: {
             type: 'input',
@@ -117,14 +124,14 @@ export default {
         clearTimeout(timer);
         this.data = data.filter((item) => {
           let result = true;
-          if (filters.name) {
-            result = item.name === filters.name;
+          if (filters.firstName) {
+            result = item.firstName === filters.firstName;
           }
-          if (result && filters.age && filters.age.length) {
-            result = filters.age.includes(item.age);
+          if (result && filters.lastName && filters.lastName.length) {
+            result = filters.lastName.includes(item.lastName);
           }
-          if (result && filters.address) {
-            result = item.address.indexOf(filters.address) !== -1;
+          if (result && filters.email) {
+            result = item.email.indexOf(filters.email) !== -1;
           }
           return result;
         });

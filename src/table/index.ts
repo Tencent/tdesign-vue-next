@@ -10,7 +10,7 @@ import { TdBaseTableProps, TdPrimaryTableProps } from './type';
 const TPrimaryTable = mapProps([
   {
     name: 'expandedRowKeys',
-    event: ['expand-change', 'update:expandedRowKeys'],
+    event: 'expand-change',
   },
   {
     name: 'selectedRowKeys',
@@ -33,8 +33,8 @@ export * from './type';
 export const BaseTable: WithInstallType<typeof _BaseTable> = withInstall(_BaseTable);
 export const PrimaryTable: WithInstallType<typeof TPrimaryTable> = withInstall(TPrimaryTable);
 
-const LocalTable = _.cloneDeep(TPrimaryTable);
-LocalTable.name = `${prefix}-table`;
-export const Table: WithInstallType<typeof LocalTable> = withInstall(LocalTable);
+const LocalBaseTable = _.cloneDeep(TPrimaryTable);
+LocalBaseTable.name = `${prefix}-table`;
+export const Table: WithInstallType<typeof LocalBaseTable> = withInstall(LocalBaseTable);
 
 export default Table;
