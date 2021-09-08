@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-08-26 14:57:55
  * */
 
 import { PaginationProps, PageInfo } from '../pagination';
@@ -185,7 +185,7 @@ export interface TdPrimaryTableProps<T extends DataType =  DataType> extends Omi
   /**
    * 异步加载状态。值为 `loading` 显示默认文字 “正在加载中，请稍后”，值为 `loading-more` 显示“点击加载更多”，值为其他，表示完全自定义异步加载区域内容
    */
-  asyncLoading?: string | TNode;
+  asyncLoading?: 'loading' | 'load-more' | TNode;
   /**
    * 列配置，泛型 T 指表格数据类型
    * @default []
@@ -248,9 +248,26 @@ export interface TdPrimaryTableProps<T extends DataType =  DataType> extends Omi
    */
   defaultSort?: TableSort;
   /**
+   * 允许表格行拖拽时排序
+   * @default false
+   */
+  sortOnRowDraggable?: boolean;
+  /**
+   * 异步加载区域被点击时触发
+   */
+  onAsyncLoadingClick?: (context: { status: 'loading' | 'load-more' }) => void;
+  /**
    * 分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型
    */
   onChange?: (data: TableChangeData, context: TableChangeContext<Array<T>>) => void;
+  /**
+   * 表格数据发生变化时触发，比如：本地排序方法 sorter
+   */
+  onDataChange?: (data: Array<T>) => void;
+  /**
+   * 拖拽排序时触发
+   */
+  onDragSort?: (context: DragSortContext<T>) => void;
   /**
    * 展开行发生变化时触发，泛型 T 指表格数据类型
    */
@@ -266,14 +283,10 @@ export interface TdPrimaryTableProps<T extends DataType =  DataType> extends Omi
   /**
    * 排序发生变化时触发。其中 sortBy 表示当前排序的字段，sortType 表示排序的方式，currentDataSource 表示 sorter 排序后的结果，col 表示列配置。sort 值类型为数组时表示多字段排序
    */
-  onSortChange?: (sort: SortInfo | Array<SortInfo>, options: SortOptions<T>) => void;
+  onSortChange?: (sort: TableSort, options: SortOptions<T>) => void;
 };
 
 export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTableCol {
-  /**
-   * 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型
-   */
-  cell?: string | TNode<{ row: T; rowIndex: number; col: PrimaryTableCol; colIndex: number }>;
   /**
    * 透传参数，colKey 值为 row-select 时，配置有效。具体定义参考 Checkbox 组件 和 Radio 组件。泛型 T 指表格数据类型
    */
@@ -286,10 +299,6 @@ export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTabl
    * 过滤规则，支持多选(multiple)、单选(single)、输入框(input)三种形式。
    */
   filter?: Filter;
-  /**
-   * 自定义表头或单元格，泛型 T 指表格数据类型
-   */
-  render?: TNode<{ type: 'cell' | 'title'; row: T; rowIndex: number; col: PrimaryTableCol<T>; colIndex: number  }>;
   /**
    * 该列是否支持排序。值为 true 表示该列支持排序；值类型为函数，表示对本地数据 `data` 进行排序。泛型 T 指表格数据类型
    * @default false
@@ -317,7 +326,7 @@ export interface RowspanAndColspanParams<T> { row: T; col: BaseTableCol; rowInde
 
 export interface RowEventContext<T> { row: T; index: number; e: MouseEvent };
 
-export type DataType = { [key: string]: unknown };
+export type DataType = { [key: string]: any };
 
 export interface CellData<T> { type: 'th' | 'td'; row: T; col: BaseTableCol; rowIndex: number; colIndex: number };
 
@@ -337,6 +346,8 @@ export interface TableChangeContext<T> { trigger: TableChangeTrigger; currentDat
 
 export type TableChangeTrigger = 'filter' | 'sorter' | 'pagination';
 
+export interface DragSortContext<T> { currentIndex: number; current: T; targetIndex: number; target: T };
+
 export interface ExpandOptions<T> { expandedRowData: Array<T> };
 
 export interface SelectOptions<T> { selectedRowData: Array<T> };
@@ -351,7 +362,7 @@ export type FilterType = 'input' | 'single' | 'multiple';
 
 export type FilterProps = RadioProps | CheckboxProps | InputProps;
 
-export type SorterFun<T> = (a: T, b: T, options: { sortType: SortType }) => SortNumber;
+export type SorterFun<T> = (a: T, b: T) => SortNumber;
 
 export type SortNumber = 1 | -1 | 0;
 
