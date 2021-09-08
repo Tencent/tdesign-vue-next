@@ -1,5 +1,5 @@
 import { defineComponent, nextTick } from 'vue';
-import { ClassName, Styles } from '@src/common';
+import { ClassName, Styles } from '../common';
 import { prefix } from '../config';
 import TIconClose from '../icon/close';
 import { Button as TButton } from '../button';
