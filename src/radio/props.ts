@@ -13,12 +13,18 @@ export default {
   checked: Boolean,
   /** 是否选中，非受控属性 */
   defaultChecked: Boolean,
-  /** 是否禁用组件内容（content）触发选中 */
-  contentDisabled: Boolean,
+  /** 单选内容，同 label */
+  default: {
+    type: [String, Function] as PropType<TdRadioProps['default']>,
+  },
   /** 是否为禁用态 */
   disabled: {
     type: Boolean,
     default: undefined,
+  },
+  /** 主文案 */
+  label: {
+    type: [String, Function] as PropType<TdRadioProps['label']>,
   },
   /** HTM 元素原生属性 */
   name: {

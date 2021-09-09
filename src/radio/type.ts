@@ -17,13 +17,17 @@ export interface TdRadioProps {
    */
   defaultChecked?: boolean;
   /**
-   * 是否禁用组件内容（content）触发选中
+   * 单选内容，同 label
    */
-  contentDisabled?: boolean;
+  default?: string | TNode;
   /**
    * 是否为禁用态
    */
   disabled?: boolean;
+  /**
+   * 主文案
+   */
+  label?: string | TNode;
   /**
    * HTM 元素原生属性
    * @default ''
@@ -41,8 +45,9 @@ export interface TdRadioProps {
 
 export interface TdRadioGroupProps {
   /**
-   * 单选组件按钮形式
+   * 单选组件按钮形式（请使用 variant 代替）
    * @default outline
+   * @deprecated
    */
   buttonStyle?: 'outline' | 'solid';
   /**
@@ -71,6 +76,11 @@ export interface TdRadioGroupProps {
    * 选中的值，非受控属性
    */
   defaultValue?: RadioValue;
+  /**
+   * 单选组件按钮形式
+   * @default outline
+   */
+  variant?: 'outline' | 'primary-filled' | 'default-filled';
   /**
    * 选中值发生变化时触发
    */

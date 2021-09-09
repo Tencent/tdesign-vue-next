@@ -9,7 +9,7 @@
       </t-radio-group>
     </div>
     <div>
-      <t-radio-group buttonStyle="solid" default-value="gz">
+      <t-radio-group variant="default-filled" default-value="gz">
         <t-radio-button value="bj">选项一</t-radio-button>
         <t-radio-button value="gz">选项二</t-radio-button>
         <t-radio-button value="gz" disabled>选项三</t-radio-button>

@@ -3,7 +3,7 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import props from './props';
-import { RadioGroupInstance, RadioButtonInstance } from './instance-types';
+import { RadioGroupInstance, RadioButtonInstance } from './instance';
 
 const name = `${prefix}-radio`;
 export const radioBtnName = `${prefix}-radio-button`;
