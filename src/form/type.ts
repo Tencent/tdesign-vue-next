@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-08-30 16:09:55
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -26,7 +26,8 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   labelAlign?: 'left' | 'right' | 'top';
   /**
-   * 可以整体设置label标签宽度
+   * 可以整体设置label标签宽度，默认遵循一份栅格占比： calc(1 / 12 * 100%)
+   * @default 'calc(1 / 12 * 100%)'
    */
   labelWidth?: string | number;
   /**
@@ -79,16 +80,20 @@ export interface TdFormProps<FormData extends Data = Data> {
    * 表单提交时触发。其中 validateResult 表示校验结果，firstError 表示校验不通过的第一个规则提醒
    */
   onSubmit?: (context: SubmitContext<FormData>) => void;
+  /**
+   * 校验结束后触发
+   */
+  onValidate?: (result:  ValidateResultContext<FormData>) => void;
 };
 
 /** 组件实例方法 */
 export interface FormInstanceFunctions<FormData extends Data = Data> {
   /**
-   * 重置表单，表单里面没有重置按钮时可以使用该方法（<button type="reset" />）
+   * 重置表单，表单里面没有重置按钮时可以使用该方法（`<button type="reset" />`）
    */
   reset?: () => void;
   /**
-   * 提交表单，表单里面没有重置按钮时可以使用该方法（<button type="submit" />）
+   * 提交表单，表单里面没有重置按钮时可以使用该方法（`<button type="submit" />`）
    */
   submit?: () => void;
   /**
@@ -135,11 +140,11 @@ export interface FormRule {
    */
   boolean?: boolean;
   /**
-   * 内置校验方法，校验值是否为日期格式
+   * 内置校验方法，校验值是否为日期格式，[参数文档](https://github.com/validatorjs/validator.js)
    */
   date?: boolean | IsDateOptions;
   /**
-   * 内置校验方法，校验值是否为邮件格式
+   * 内置校验方法，校验值是否为邮件格式，[参数文档](https://github.com/validatorjs/validator.js)
    */
   email?: boolean | IsEmailOptions;
   /**
@@ -194,7 +199,7 @@ export interface FormRule {
    */
   type?: 'error' | 'warning';
   /**
-   * 内置校验方法，校验值是否为网络链接地址
+   * 内置校验方法，校验值是否为网络链接地址，[参数文档](https://github.com/validatorjs/validator.js)
    */
   url?: boolean | IsURLOptions;
   /**
@@ -213,7 +218,11 @@ export type ErrorList = Array<FormRule>;
 
 export type ValueType = any;
 
-export interface FormValidateParams { fields?: Array<string>; trigger?: 'blur' | 'change' | 'all' };
+export type ValidateResultContext<T> = Omit<SubmitContext<T>, 'e'>;
+
+export interface FormValidateParams { fields?: Array<string>; trigger?: ValidateTriggerType };
+
+export type ValidateTriggerType = 'blur' | 'change' | 'all';
 
 export type Data = { [key: string]: any };
 

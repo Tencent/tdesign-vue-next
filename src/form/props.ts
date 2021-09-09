@@ -24,9 +24,10 @@ export default {
       return ['left', 'right', 'top'].includes(val);
     },
   },
-  /** 可以整体设置label标签宽度 */
+  /** 可以整体设置label标签宽度，默认遵循一份栅格占比： calc(1 / 12 * 100%) */
   labelWidth: {
     type: [String, Number] as PropType<TdFormProps['labelWidth']>,
+    default: 'calc(1 / 12 * 100%)',
   },
   /** 表单布局，有两种方式：纵向布局 和 行内布局 */
   layout: {
@@ -87,4 +88,6 @@ export default {
   onReset: Function as PropType<TdFormProps['onReset']>,
   /** 表单提交时触发。其中 validateResult 表示校验结果，firstError 表示校验不通过的第一个规则提醒 */
   onSubmit: Function as PropType<TdFormProps['onSubmit']>,
+  /** 校验结束后触发 */
+  onValidate: Function as PropType<TdFormProps['onValidate']>,
 };

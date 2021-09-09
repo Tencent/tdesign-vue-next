@@ -8,7 +8,7 @@
       </t-radio-group>
     </div>
 
-    <t-form :data="formData" :labelAlign="formData.labelAlign">
+    <t-form :data="formData" :labelAlign="formData.labelAlign" :labelWidth="80">
       <t-form-item label="名字" name='name'>
         <t-input v-model="formData.name"></t-input>
       </t-form-item>
@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .controls {
   margin-bottom: 32px;
 }
