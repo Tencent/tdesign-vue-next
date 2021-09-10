@@ -1,12 +1,17 @@
-import { defineComponent, VNodeChild } from 'vue';
-import tdButton from '../../button';
+import { defineComponent, createElementVNode, PropType } from 'vue';
 import { prefix } from '../../config';
+import TButton from '../../button';
+import TIconChevronRight from '../../icon/chevron-right';
+import TIconChevronLeft from '../../icon/chevron-left';
 import { TNode } from '../../common';
 
 const name = `${prefix}-transfer-operations`;
+
 export default defineComponent({
   name,
-  components: { tdButton },
+  components: {
+    TButton,
+  },
   props: {
     // 控制左按钮的禁用与否
     leftDisabled: {
@@ -18,9 +23,8 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
-    operations: {
-      type: [String, Array, Function],
-      default: '',
+    operation: {
+      type: [String, Array, Function, Boolean] as PropType<Array<string | TNode> | TNode<{ direction: 'left' | 'right' }>>,
     },
   },
   emits: ['moveToRight', 'moveToLeft'],
@@ -32,62 +36,69 @@ export default defineComponent({
       this.$emit('moveToLeft');
     },
     getIconRight() {
-      return <t-icon name="chevron-right"/>;
+      return <TIconChevronRight />;
     },
     getIconLeft() {
-      return <t-icon name="chevron-left"/>;
+      return <TIconChevronLeft />;
     },
-    getIcon(order: string): TNode {
-      let iconFun: TNode;
-      if (!this.operations || !this.operations.length) {
-        iconFun = order === 'up' ? this.getIconRight : this.getIconLeft;
-      } else {
-        iconFun = () => null;
+    getIcon(direction: 'left' | 'right') {
+      if (typeof this.operation === 'function') {
+        return null;
       }
-      return iconFun;
-    },
-    buttonContent(order: string) {
-      let renderButtonContent;
-      // 处理传进来的operations是数组，函数，字符型类型以及不传
-      if (this.operations instanceof Array && this.operations.length) {
-        const buttonOrder = order === 'up' ? 0 : 1;
-        if (typeof this.operations[buttonOrder] === 'function') {
-          const operationFunc = this.operations[buttonOrder] as Function;
-          renderButtonContent = operationFunc();
-        } else if (typeof this.operations[buttonOrder] === 'string') {
-          renderButtonContent = this.operations[buttonOrder];
-        }
-      } else if (typeof this.operations === 'function') {
-        renderButtonContent = this.operations();
-      } else if (typeof this.operations === 'string') {
-        renderButtonContent = this.operations;
-      } else {
-        renderButtonContent = null;
+      if (direction === 'right' && this.operation && typeof this.operation[0] === 'function') {
+        return null;
+      }
+      if (direction === 'left' && this.operation && typeof this.operation[1] === 'function') {
+        return null;
       }
 
-      return renderButtonContent;
+      if (this.$slots.operation) {
+        return null;
+      }
+
+      return direction === 'left' ? this.getIconLeft : this.getIconRight;
+    },
+    // right:去右边，left:去左边
+    _renderButton(h: typeof createElementVNode, direction: 'left' | 'right') {
+      if (typeof this.$slots.operation === 'function') {
+        return this.$slots.operation({
+          direction,
+        });
+      }
+      if (typeof this.operation === 'function') {
+        const renderContent = this.operation;
+        return renderContent(h as any, { direction });
+      }
+      let renderContent: string | TNode;
+      if (Array.isArray(this.operation)) {
+        const [left, right] = this.operation;
+        renderContent = direction === 'right' ? right : left;
+      } else {
+        renderContent = '';
+      }
+      return renderContent;
     },
   },
-  render(): VNodeChild {
+  render(h:any) {
     const { leftDisabled, rightDisabled } = this.$props;
     return (
       <div class={name}>
-        <tdButton
-          variant={leftDisabled ? 'outline' : 'base'}
-          disabled={leftDisabled}
-          onClick={this.moveToRight}
-          icon={this.getIcon('up')}
-        >
-          {this.buttonContent('up')}
-        </tdButton>
-        <tdButton
+        <t-button
           variant={rightDisabled ? 'outline' : 'base'}
           disabled={rightDisabled}
-          onClick={this.moveToLeft}
-          icon={this.getIcon('down')}
+          onClick={this.moveToRight}
+          icon={this.getIcon('right')}
         >
-          {this.buttonContent('down')}
-        </tdButton>
+          {this._renderButton(h, 'right')}
+        </t-button>
+        <t-button
+          variant={leftDisabled ? 'outline' : 'base'}
+          disabled={leftDisabled}
+          onClick={this.moveToLeft}
+          icon={this.getIcon('left')}
+        >
+          {this._renderButton(h, 'left')}
+        </t-button>
       </div>
     );
   },

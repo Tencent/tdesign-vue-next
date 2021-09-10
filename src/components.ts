@@ -11,6 +11,7 @@ export * from './layout';
 export * from './affix';
 export * from './anchor';
 export * from './breadcrumb';
+export * from './dropdown';
 export * from './menu';
 export * from './pagination';
 export * from './steps';
@@ -19,6 +20,7 @@ export * from './tabs';
 // 输入
 export * from './cascader';
 export * from './checkbox';
+export * from './time-picker';
 export * from './form';
 export * from './input';
 export * from './input-number';
@@ -52,6 +54,4 @@ export * from './popup';
 export * from './alert-swiper';
 export * from './swiper';
 
-export * from './time-picker';
 export * from './upload';
-export * from './dropdown';
