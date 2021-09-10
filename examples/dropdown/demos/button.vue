@@ -1,40 +1,41 @@
 <template>
   <div>
     <t-dropdown :options="options" @click="clickHandler">
-      <t-button><t-icon-more slot="icon"/></t-button>
+      <t-button theme="primary" variant="outline">
+        <template #icon>
+          <t-icon-ellipsis size="12"/>
+        </template>
+      </t-button>
     </t-dropdown>
   </div>
 </template>
 <script>
-import TIconMore from '@tencent/tdesign-vue-next/lib/icon/more';
+import TIconEllipsis from '@tencent/tdesign-vue-next/lib/icon/ellipsis';
+
 export default {
   components: {
-    TIconMore,
+    TIconEllipsis,
   },
   data() {
     return {
       options: [{
-        text: '选项一',
-        id: 1,
-        iconName: 'android',
+        content: '选项一',
+        value: 1,
       }, {
-        text: '选项二',
-        id: 2,
-        iconName: 'apple',
+        content: '选项二',
+        value: 2,
       }, {
-        text: '选项三',
-        id: 3,
-        iconName: 'books',
+        content: '选项三',
+        value: 3,
       }, {
-        text: '选项四',
-        id: 4,
-        iconName: 'cloud',
+        content: '选项四',
+        value: 4,
       }],
     };
   },
   methods: {
     clickHandler(data) {
-      this.$message.success(`选中【${data.text}】`);
+      this.$message.success(`选中【${data.content}】`);
     },
   },
 };

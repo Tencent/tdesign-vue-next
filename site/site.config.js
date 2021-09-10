@@ -103,14 +103,13 @@ export default {
           path: '/vue-next/components/breadcrumb',
           component: () => import('@/examples/breadcrumb/breadcrumb.md'),
         },
-        // dropdown API 调整完成后再开放
-        // {
-        //   title: 'Dropdown 下拉菜单',
-        //   name: 'dropdown',
-        //   docType: 'navigation',
-        //   path: '/vue-next/components/dropdown',
-        //   component: () => import('@/examples/dropdown/dropdown.md'),
-        // },
+        {
+          title: 'Dropdown 下拉菜单',
+          name: 'dropdown',
+          docType: 'navigation',
+          path: '/vue-next/components/dropdown',
+          component: () => import('@/examples/dropdown/dropdown.md'),
+        },
         {
           title: 'Menu 导航菜单',
           name: 'menu',

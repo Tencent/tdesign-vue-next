@@ -129,8 +129,8 @@ export default defineComponent({
       on(reference, 'click', (e: MouseEvent) => this.doToggle({ e, trigger: 'trigger-element-click' }));
     }
     if (this.hoverTrigger) {
-      const show = () => this.doShow({ trigger: 'trigger-element-hover' });
-      const close = () => this.doClose({ trigger: 'trigger-element-hover' });
+      const show = () => this.handleOpen({ trigger: 'trigger-element-hover' });
+      const close = () => this.handleClose({ trigger: 'trigger-element-hover' });
       on(reference, 'mouseenter', show);
       on(popper, 'mouseenter', show);
       on(reference, 'mouseleave', close);
@@ -138,11 +138,11 @@ export default defineComponent({
     }
     if (this.focusTrigger) {
       if (reference.querySelector('input, textarea')) {
-        on(reference, 'focusin', () => this.doShow({ trigger: 'trigger-element-focus' }));
-        on(reference, 'focusout', () => this.doClose({ trigger: 'trigger-element-blur' }));
+        on(reference, 'focusin', () => this.handleOpen({ trigger: 'trigger-element-focus' }));
+        on(reference, 'focusout', () => this.handleClose({ trigger: 'trigger-element-blur' }));
       } else {
-        on(reference, 'mousedown', () => this.doShow({ trigger: 'trigger-element-click' }));
-        on(reference, 'mouseup', () => this.doClose({ trigger: 'trigger-element-click' }));
+        on(reference, 'mousedown', () => this.handleOpen({ trigger: 'trigger-element-click' }));
+        on(reference, 'mouseup', () => this.handleClose({ trigger: 'trigger-element-click' }));
       }
     }
     if (this.contextMenuTrigger) {
@@ -164,14 +164,14 @@ export default defineComponent({
   unmounted(): void {
     const reference = this.referenceElm;
     off(reference, 'click', this.doToggle);
-    off(reference, 'mouseup', this.doClose);
-    off(reference, 'mousedown', this.doShow);
-    off(reference, 'focusin', this.doShow);
-    off(reference, 'focusout', this.doClose);
-    off(reference, 'mousedown', this.doShow);
-    off(reference, 'mouseup', this.doClose);
-    off(reference, 'mouseleave', this.doClose);
-    off(reference, 'mouseenter', this.doShow);
+    off(reference, 'mouseup', this.handleClose);
+    off(reference, 'mousedown', this.handleOpen);
+    off(reference, 'focusin', this.handleOpen);
+    off(reference, 'focusout', this.handleClose);
+    off(reference, 'mousedown', this.handleOpen);
+    off(reference, 'mouseup', this.handleClose);
+    off(reference, 'mouseleave', this.handleClose);
+    off(reference, 'mouseenter', this.handleOpen);
   },
   methods: {
     createPopperJS(): void {
@@ -264,13 +264,13 @@ export default defineComponent({
     doToggle(context: PopupVisibleChangeContext): void {
       this.emitPopVisible(!this.visible, context);
     },
-    doShow(context: Pick<PopupVisibleChangeContext, 'trigger'>): void {
+    handleOpen(context: Pick<PopupVisibleChangeContext, 'trigger'>): void {
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         this.emitPopVisible(true, context);
       }, this.clickTrigger ? 0 : showTimeout);
     },
-    doClose(context: Pick<PopupVisibleChangeContext, 'trigger'>): void {
+    handleClose(context: Pick<PopupVisibleChangeContext, 'trigger'>): void {
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
         this.emitPopVisible(false, context);
@@ -293,7 +293,7 @@ export default defineComponent({
     },
     handleKeydown(ev: KeyboardEvent): void {
       if (ev.code === 'Escape' && this.manualTrigger) { // esc
-        this.doClose({ trigger: 'keydown-esc' });
+        this.handleClose({ trigger: 'keydown-esc' });
       }
     },
     handleDocumentClick(e: Event): void {

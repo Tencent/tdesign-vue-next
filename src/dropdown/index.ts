@@ -1,12 +1,12 @@
-import { prefix } from '../config';
-const name = `${prefix}-dropdown`;
-import { defineComponent } from 'vue';
+import _DropdownItem from './dropdown-item';
+import _Dropdown from './dropdown';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdDropdownProps } from './type';
 
-const Component = defineComponent({
-  name,
-});
+export * from './type';
+export type DropdownProps = TdDropdownProps;
 
-export const Dropdown: WithInstallType<typeof Component> = withInstall(Component);
+export const Dropdown: WithInstallType<typeof _Dropdown> = withInstall(_Dropdown);
+export const DropdownItem: WithInstallType<typeof _DropdownItem> = withInstall(_DropdownItem);
 
 export default Dropdown;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-dropdown :options="options" @click="clickHandler" @visibleChange="visibleChangeHandler" >
+    <t-dropdown :options="options" :minColumnWidth="95">
       <t-button>hover我试试</t-button>
     </t-dropdown>
   </div>
@@ -10,27 +10,23 @@ export default {
   data() {
     return {
       options: [{
-        text: '选项一',
-        id: 1,
+        content: '选项一',
+        value: 1,
+        onClick: () => this.$message.success('选项一'),
       }, {
-        text: '选项二',
-        id: 2,
+        content: '选项二',
+        value: 2,
+        onClick: () => this.$message.success('选项二'),
       }, {
-        text: '选项三',
-        id: 3,
+        content: '选项三',
+        value: 3,
+        onClick: () => this.$message.success('选项三'),
       }, {
-        text: '选项四',
-        id: 4,
+        content: '选项四',
+        value: 4,
+        onClick: () => this.$message.success('选项四'),
       }],
     };
-  },
-  methods: {
-    clickHandler(data) {
-      this.$message.success(`选中【${data.text}】`);
-    },
-    visibleChangeHandler(visible) {
-      this.$message.info(`dropdown已${visible ? '显示' : '隐藏'}`);
-    },
   },
 };
 </script>

@@ -1,23 +1,22 @@
 <template>
   <div>
-    <t-dropdown :options="options" :maxColumnHeight="200" :minItemWidth="100" >
+    <t-dropdown :options="options" :maxHeight="400" :minColumnWidth="90" >
       <t-button>hover我试试</t-button>
     </t-dropdown>
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-export default Vue.extend({
+export default{
   data() {
     const options = Array.from({ length: 20 }).map((v, k) => ({
-      text: `选项${k + 1}`,
-      id: k + 1,
+      content: `选项${k + 1}`,
+      value: k + 1,
     }));
     return {
       options,
     };
   },
-});
+};
 </script>
 <style scoped>
 .t-button {
