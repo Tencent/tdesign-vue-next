@@ -61,9 +61,8 @@ export default {
     onReset() {
       this.$message.success('重置成功');
     },
-    onSubmit({ result, firstError, e }) {
-      e.preventDefault();
-      if (result === true) {
+    onSubmit({ validateResult, firstError }) {
+      if (validateResult === true) {
         this.$message.success('提交成功');
       } else {
         console.log('Errors: ', result);

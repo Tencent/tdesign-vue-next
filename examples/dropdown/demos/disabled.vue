@@ -1,27 +1,39 @@
 <template>
-  <div>
-    <t-dropdown :options="options" :disabled="true" >
-      <t-button disabled>已禁用</t-button>
+  <div class="tdesign-demo-dropdown">
+    <t-dropdown :options="options" :popupProps={}>
+      <t-button variant="text">
+        <span class="tdesign-demo-dropdown__text">
+          更多
+          <t-icon-chevron-down size="16" />
+        </span>
+      </t-button>
     </t-dropdown>
   </div>
 </template>
-<script lang="ts">
-import Vue from 'vue';
-export default Vue.extend({
+<script>
+import { defineComponent } from 'vue'
+import TIconChevronDown from '@tencent/tdesign-vue-next/lib/icon/chevron-down';
+
+export default defineComponent({
+  components: {
+    TIconChevronDown
+  },
   data() {
     return {
       options: [{
-        text: '选项一',
-        id: 1,
+        content: '选项一',
+        value: 1,
       }, {
-        text: '选项二',
-        id: 2,
+        content: '选项二',
+        value: 2,
       }, {
-        text: '选项三',
-        id: 3,
+        content: '选项三',
+        value: 3,
+        disabled: true,
       }, {
-        text: '选项四',
-        id: 4,
+        content: '选项四',
+        value: 4,
+        disabled: true,
       }],
     };
   },

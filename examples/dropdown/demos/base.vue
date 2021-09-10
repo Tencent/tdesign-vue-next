@@ -1,50 +1,50 @@
 <template>
-  <div>
+  <div class="tdesign-demo-dropdown">
     <t-dropdown :options="options" @click="clickHandler">
-      <t-button variant="text" class="tdesign-demo-dropdown"
-      >更多 <t-icon name="chevron-down" class="tdesign-demo-arrow"
-      /></t-button>
+      <div class="tdesign-demo-dropdown-trigger" >
+        <t-button variant="text">
+          更多 <t-icon name="chevron-down" size="14" />
+        </t-button>
+      </div>
     </t-dropdown>
   </div>
 </template>
 <script>
-import Vue from 'vue';
-export default Vue.extend({
+export default {
   data() {
     return {
       options: [
         {
-          text: '操作一',
-          id: 1,
+          content: '操作一',
+          value: 1,
         },
         {
-          text: '操作二',
-          id: 2,
+          content: '操作二',
+          value: 2,
         },
         {
-          text: '操作三',
-          id: 3,
+          content: '操作三',
+          value: 3,
         },
         {
-          text: '操作四',
-          id: 4,
+          content: '操作四',
+          value: 4,
         },
       ],
     };
   },
   methods: {
     clickHandler(data) {
-      this.$message.success(`选中【${data.text}】`);
+      console.log(data)
+      this.$message.success(`选中【${data.content}】`);
     },
   },
-});
+};
 </script>
-<style scoped>
-.tdesign-demo-dropdown:hover .tdesign-demo-arrow {
-  transition: all 0.2s;
-  transform: rotateZ(-180deg);
-}
-.t-button {
-  margin-right: 20px;
+<style lang="less" scoped>
+.tdesign-demo-dropdown {
+  .t-button__text {
+    display: flex;
+  }
 }
 </style>

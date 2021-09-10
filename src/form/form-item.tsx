@@ -1,5 +1,5 @@
 import {
-  defineComponent, VNode, nextTick, h, inject, VNodeChild,
+  defineComponent, VNode, nextTick, h, VNodeChild,
 } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
@@ -7,18 +7,25 @@ import lodashSet from 'lodash/set';
 import { prefix } from '../config';
 import { validate } from './form-model';
 import {
-  ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType,
+  ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType, ValidateTriggerType,
 } from './type';
 import props from './form-item-props';
-import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX, TdForm } from './const';
-import Form from './form';
-import { ClassName, ScopedSlot, TNodeReturnValue } from '../common';
+import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
+import Form, { FormItemInstance } from './form';
+import {
+  ClassName, ScopedSlot, TNodeReturnValue, Styles,
+} from '../common';
+import TIconCheckCircleFilled from '../icon/check-circle-filled';
+import TIconErrorCircleFilled from '../icon/error-circle-filled';
+import TIconCloseCircleFilled from '../icon/close-circle-filled';
 
 type Result = ValidateResult<TdFormProps['data']>;
 
+type IconConstructor = typeof TIconErrorCircleFilled;
+
 type FormInstance = InstanceType<typeof Form>;
 
-const enum ValidateStatus {
+export const enum VALIDATE_STATUS {
   TO_BE_VALIDATED = 'not',
   SUCCESS = 'success',
   FAIL = 'fail',
@@ -29,20 +36,17 @@ const name = `${prefix}-form-item`;
 export default defineComponent({
   name,
 
-  props: { ...props },
-
-  setup() {
-    const tdForm: TdForm = inject('td-form');
-    return {
-      tdForm,
-    };
+  inject: {
+    form: { default: undefined },
   },
+
+  props: { ...props },
 
   data() {
     return {
       errorList: [] as ErrorList,
       // 当前校验状态 未校验、校验通过、校验不通过
-      verifyStatus: ValidateStatus.TO_BE_VALIDATED as ValidateStatus,
+      verifyStatus: VALIDATE_STATUS.TO_BE_VALIDATED as VALIDATE_STATUS,
       resetValidating: false as boolean,
       needResetField: false as boolean,
       initialValue: undefined as ValueType,
@@ -51,65 +55,68 @@ export default defineComponent({
 
   computed: {
     classes(): ClassName {
-      return [CLASS_NAMES.formItem, CLASS_NAMES.row, FORM_ITEM_CLASS_PREFIX + this.name];
+      return [CLASS_NAMES.formItem, FORM_ITEM_CLASS_PREFIX + this.name];
     },
     labelClasses() {
-      const parent = this.$parent as FormInstance;
+      const parent = this.form;
       const labelAlign = parent && parent.labelAlign;
-      const layout = parent && parent.layout;
-      let otherClasses = [];
-      if (layout === 'inline') {
-        otherClasses = [CLASS_NAMES.labelTop];
-      } else {
-        otherClasses = [`t-form__label--${labelAlign}`, labelAlign === 'top' ? CLASS_NAMES.col12 : CLASS_NAMES.col1];
-      }
+      const labelWidth = parent && parent.labelWidth;
+
       return [
-        CLASS_NAMES.col,
         CLASS_NAMES.label,
-        ...otherClasses,
         {
-          't-form__label--required': this.needRequiredMark,
-          't-form__label--colon': this.hasColon,
+          [`${prefix}-form__label--required`]: this.needRequiredMark,
+          [`${prefix}-form__label--colon`]: this.hasColon,
+          [`${prefix}-form__label--top`]: labelAlign === 'top' || !labelWidth,
+          [`${prefix}-form__label--left`]: labelAlign === 'left' && labelWidth,
+          [`${prefix}-form__label--right`]: labelAlign === 'right' && labelWidth,
         },
       ];
     },
     errorClasses(): string {
       const parent = this.$parent as FormInstance;
       if (!parent.showErrorMessage) return '';
-      if (this.verifyStatus === ValidateStatus.SUCCESS) return CLASS_NAMES.success;
+      if (this.verifyStatus === VALIDATE_STATUS.SUCCESS) return CLASS_NAMES.success;
       if (!this.errorList.length) return;
       const type = this.errorList[0].type || 'error';
       return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
     },
     contentClasses() {
       const getErrorClass: string = this.errorClasses;
-      return [CLASS_NAMES.controls, CLASS_NAMES.col, getErrorClass];
+      return [CLASS_NAMES.controls, getErrorClass];
     },
-    labelProps(): Record<string, any> {
-      const parent = this.$parent as FormInstance;
-      const labelProps: Record<string, any> = {};
+    contentStyle(): Styles {
+      const parent = this.form;
+      const layout = parent && parent.layout;
+      const labelAlign = parent && parent.labelAlign;
       const labelWidth = parent && parent.labelWidth;
-      if (labelWidth) {
-        labelProps.style = `min-width: ${labelWidth}px;`;
+      let contentStyle = {};
+      if (labelWidth && labelAlign !== 'top' && layout !== 'inline') {
+        if (typeof labelWidth === 'number') {
+          contentStyle = { marginLeft: `${labelWidth}px` };
+        } else {
+          contentStyle = { marginLeft: labelWidth };
+        }
       }
-      return labelProps;
+
+      return contentStyle;
     },
     value(): ValueType {
-      const parent = this.$parent as FormInstance;
+      const parent = this.form;
       return parent && parent.data && lodashGet(parent.data, this.name);
     },
     hasColon(): boolean {
-      const parent = this.$parent as FormInstance;
-      return !!(parent && parent.colon && this.getLabel());
+      const parent = this.form;
+      return !!(parent && parent.colon && this.getLabelContent());
     },
     needRequiredMark(): boolean {
-      const parent = this.$parent as FormInstance;
+      const parent = this.form;
       const allowMark = parent && parent.requiredMark;
       const isRequired = this.innerRules.filter((rule) => rule.required).length > 0;
       return Boolean(allowMark && isRequired);
     },
     innerRules(): ErrorList {
-      const parent = this.$parent as FormInstance;
+      const parent = this.form;
       const rules = parent && parent.rules;
       return (rules && rules[this.name]) || (this.rules || []);
     },
@@ -117,40 +124,38 @@ export default defineComponent({
 
   watch: {
     value() {
-      this.validate();
+      this.validate('change');
     },
   },
 
   mounted() {
     this.initialValue = cloneDeep(this.value);
-    if (this.tdForm) {
-      const { validate, resetField } = this;
-      this.tdForm.addField({
-        validate,
-        resetField,
-      });
-    }
+    this.form.children.push(this);
+  },
+
+  beforeUnmount() {
+    this.form.$emit('form-item-destroyed', this);
+    const index = this.form.children.findIndex((item: FormItemInstance) => item === this);
+    this.form.children.splice(index, 1);
   },
 
   methods: {
-    validate(): Promise<Result> {
+    async validate(trigger: ValidateTriggerType): Promise<Result> {
       this.resetValidating = true;
-      return new Promise((resolve) => {
-        validate(this.value, this.innerRules)
-          .then((r) => {
-            this.errorList = r;
-            this.verifyStatus = this.errorList.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
-            resolve({
-              [this.name]: r.length === 0 ? true : r,
-            });
-            if (this.needResetField) {
-              this.resetHandler();
-            }
-            this.resetValidating = false;
-          });
+      const rules = trigger === 'all' ? this.innerRules : this.innerRules.filter((item) => (item.trigger || 'change') === trigger);
+      const r = await validate(this.value, rules);
+      this.errorList = r;
+      this.verifyStatus = this.errorList.length ? VALIDATE_STATUS.FAIL : VALIDATE_STATUS.SUCCESS;
+      if (!rules.length) this.verifyStatus = VALIDATE_STATUS.TO_BE_VALIDATED;
+      if (this.needResetField) {
+        this.resetHandler();
+      }
+      this.resetValidating = false;
+      return ({
+        [this.name]: r.length === 0 ? true : r,
       });
     },
-    getLabel(): VNodeChild {
+    getLabelContent(): TNodeReturnValue {
       if (typeof this.label === 'function') {
         // @ts-ignore: TODO
         return this.label(h);
@@ -160,8 +165,31 @@ export default defineComponent({
       }
       return this.label;
     },
+    getLabel(): VNodeChild {
+      const parent = this.form;
+      const labelWidth = parent && parent.labelWidth;
+      const labelAlign = parent && parent.labelAlign;
+      if (Number(labelWidth) === 0) return;
+
+      let labelStyle = {};
+      if (labelWidth && labelAlign !== 'top') {
+        if (typeof labelWidth === 'number') {
+          labelStyle = { width: `${labelWidth}px` };
+        } else {
+          labelStyle = { width: labelWidth };
+        }
+      }
+
+      return (
+        <div class={this.labelClasses} style={labelStyle}>
+          <label for={this.for}>
+            {this.getLabelContent()}
+          </label>
+        </div>
+      );
+    },
     renderTipsInfo(): VNode {
-      const parent = this.$parent as FormInstance;
+      const parent = this.form;
       let helpVNode: VNode;
       if (this.help) {
         helpVNode = <div class={CLASS_NAMES.help}>{this.help}</div>;
@@ -178,25 +206,22 @@ export default defineComponent({
       return helpVNode;
     },
     getDefaultIcon(): TNodeReturnValue {
-      const resultIcon = (iconName: string) => (
+      const resultIcon = (Icon: IconConstructor) => (
         <span class={CLASS_NAMES.status}>
-          <t-icon name={iconName} size="25px"/>
+          <Icon size='25px'></Icon>
         </span>
       );
       const list = this.errorList;
-      if (this.verifyStatus === ValidateStatus.SUCCESS) {
-        return resultIcon('check-circle-filled');
+      if (this.verifyStatus === VALIDATE_STATUS.SUCCESS) {
+        return resultIcon(TIconCheckCircleFilled);
       }
       if (list && list[0]) {
         const type = this.errorList[0].type || 'error';
-        let iconName = 'check-circle-filled';
-        if (type === 'error') {
-          iconName = 'clear-circle-filled';
-        }
-        if (type === 'warning') {
-          iconName = 'error-circle-filled';
-        }
-        return resultIcon(iconName);
+        const icon = {
+          error: TIconCloseCircleFilled,
+          warning: TIconErrorCircleFilled,
+        }[type] || TIconCheckCircleFilled;
+        return resultIcon(icon as IconConstructor);
       }
       return null;
     },
@@ -204,38 +229,42 @@ export default defineComponent({
       statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'],
       slotStatusIcon: ScopedSlot,
       props?: TdFormItemProps,
-    ): VNodeChild {
-      const resultIcon = (otherContent?: VNodeChild) => (
+    ): TNodeReturnValue {
+      const resultIcon = (otherContent?: TNodeReturnValue) => (
         <span class={CLASS_NAMES.status}>{otherContent}</span>
+      );
+      const withoutIcon = () => (
+        <span class={[CLASS_NAMES.status, `${CLASS_NAMES.status}-without-icon`]}>
+        </span>
       );
       if (statusIcon === true) {
         return this.getDefaultIcon();
       }
       if (statusIcon === false) {
-        return false;
+        return withoutIcon();
       }
       if (typeof statusIcon === 'function') {
-        return resultIcon(statusIcon(h, props));
+        return resultIcon(slotStatusIcon(props));
       }
       if (typeof slotStatusIcon === 'function') {
         return resultIcon(slotStatusIcon(null));
       }
       return null;
     },
-    getSuffixIcon(): VNodeChild {
-      const parent = this.$parent as FormInstance;
+    getSuffixIcon(): TNodeReturnValue {
+      const parent = this.form;
       const { statusIcon } = this;
       const slotStatusIcon = this.$slots.statusIcon;
       const parentStatusIcon = parent.statusIcon;
       const parentSlotStatusIcon = parent.$slots.statusIcon;
-      let resultIcon: VNodeChild = this.getIcon(statusIcon, slotStatusIcon);
+      let resultIcon: TNodeReturnValue = this.getIcon(statusIcon, slotStatusIcon);
       if (resultIcon) return resultIcon;
       if (resultIcon === false) return;
       resultIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
       if (resultIcon) return resultIcon;
     },
     getEmptyValue(): ValueType {
-      const parent = this.$parent as FormInstance;
+      const parent = this.form;
       const type = Object.prototype.toString.call(lodashGet(parent.data, this.name));
       let emptyValue: ValueType;
       if (type === '[object Array]') {
@@ -247,7 +276,7 @@ export default defineComponent({
       return emptyValue;
     },
     resetField(): void {
-      const parent = this.$parent as FormInstance;
+      const parent = this.form;
       if (!this.name) {
         return;
       }
@@ -268,19 +297,15 @@ export default defineComponent({
     resetHandler(): void {
       this.needResetField = false;
       this.errorList = [];
-      this.verifyStatus = ValidateStatus.TO_BE_VALIDATED;
+      this.verifyStatus = VALIDATE_STATUS.TO_BE_VALIDATED;
     },
   },
 
   render(): VNode {
     return (
       <div class={this.classes}>
-        <div class={this.labelClasses} {...this.labelProps}>
-          <label for={this.for}>
-            {this.getLabel()}
-          </label>
-        </div>
-        <div class={this.contentClasses}>
+        {this.getLabel()}
+        <div class={this.contentClasses} style={this.contentStyle}>
           <div class={CLASS_NAMES.controlsContent}>
             {this.$slots.default ? this.$slots.default() : null}
             {this.getSuffixIcon()}

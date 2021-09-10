@@ -12,6 +12,7 @@ const name = `${prefix}-radio-group`;
 
 export default defineComponent({
   name,
+
   components: {
     Radio,
   },
@@ -30,7 +31,6 @@ export default defineComponent({
       barStyle: {},
     };
   },
-
   watch: {
     value() {
       this.$nextTick(() => {
@@ -48,7 +48,7 @@ export default defineComponent({
       this.$emit('change', value, context);
     },
     calcBarStyle() {
-      if (this.buttonStyle !== 'solid') return;
+      if (this.buttonStyle !== 'solid' && this.variant === 'outline') return;
 
       const checkedRadio: HTMLElement = this.$el.querySelector(`.${radioBtnName}.${CLASSNAMES.STATUS.checked}`);
       if (!checkedRadio) return;
@@ -81,16 +81,17 @@ export default defineComponent({
       });
     }
 
-    const groupClass = [
-      `${name}`,
-      `${name}-${this.buttonStyle}`,
-      `${name}-${this.size}`,
-    ];
-
     if (this.buttonStyle === 'solid') {
-      children.push(<div style={this.barStyle} class={`${name}-${this.buttonStyle}-bg-block`}></div>);
+      console.warn('TDesign Radio Warn: buttonStyle will be deprecated, please use `variant` instead.');
     }
-
+    const groupClass = [`${name}`, `${name}-${this.size}`, {
+      [`${name}-outline`]: this.variant === 'outline',
+      [`${name}-filled`]: this.buttonStyle === 'solid' || this.variant.includes('filled'),
+      [`${name}-primary-filled`]: this.variant === 'primary-filled',
+    }];
+    if (this.buttonStyle === 'solid' || this.variant.includes('filled')) {
+      children.push(<div style={this.barStyle} class={`${name}-filled-bg-block`}></div>);
+    }
     return (
       <div class={groupClass}>
         {children}

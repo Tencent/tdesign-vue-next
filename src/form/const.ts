@@ -25,13 +25,3 @@ export const CLASS_NAMES = {
   error: `${is}-error`,
   warning: `${is}-warning`,
 };
-
-export interface TdForm {
-  addField(field: TdFormField): void;
-  removeField(field: TdFormField): void;
-}
-
-export interface TdFormField {
-  validate(): void;
-  resetField(): void;
-}

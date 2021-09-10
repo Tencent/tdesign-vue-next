@@ -92,7 +92,7 @@ export interface TdDropdownItemProps {
   /**
    * 点击时触发
    */
-  onClick?: (context: { e: KeyboardEvent }) => void;
+  onClick?: (dropdownItem: DropdownOption, context: { e: MouseEvent }) => void;
 };
 
 export type DropdownOption = { children?: Array<TdDropdownItemProps> } & TdDropdownItemProps & Record<string, any>;
