@@ -24,7 +24,7 @@ export default defineComponent({
         }: any = this.$refs;
         popupElem.handleClose();
       }
-      this.$emit('click', data, context)
+      this.$emit('click', data, context);
     },
   },
   render() {

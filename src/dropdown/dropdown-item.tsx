@@ -41,7 +41,7 @@ export default defineComponent({
       return this.hasChildren ? <t-icon-chevron-right class="children-suffix" /> : null;
     },
     handleItemClick(e: MouseEvent): void {
-      e.stopPropagation()
+      e.stopPropagation();
       if (!this.hasChildren && !this.disabled) {
         const data = {
           value: this.value,
