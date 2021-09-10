@@ -73,7 +73,7 @@ export default defineComponent({
 
   render() {
     return (
-      <label class={this.labelClasses}>
+      <label class={this.labelClasses} {...this.$attrs}>
         <input
           type='checkbox'
           class={`${name}__former`}
