@@ -4,7 +4,6 @@ import { prefix } from '../config';
 import { FormValidateResult, TdFormProps, FormValidateParams } from './type';
 import props from './props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
-import { emitEvent } from '../utils/event';
 import FormItem from './form-item';
 import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
 

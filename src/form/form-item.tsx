@@ -25,7 +25,7 @@ type IconConstructor = typeof TIconErrorCircleFilled;
 
 type FormInstance = InstanceType<typeof Form>;
 
-export const enum VALIDATE_STATUS {
+export const enum ValidateStatus {
   TO_BE_VALIDATED = 'not',
   SUCCESS = 'success',
   FAIL = 'fail',
@@ -46,7 +46,7 @@ export default defineComponent({
     return {
       errorList: [] as ErrorList,
       // 当前校验状态 未校验、校验通过、校验不通过
-      verifyStatus: VALIDATE_STATUS.TO_BE_VALIDATED as VALIDATE_STATUS,
+      verifyStatus: ValidateStatus.TO_BE_VALIDATED as ValidateStatus,
       resetValidating: false as boolean,
       needResetField: false as boolean,
       initialValue: undefined as ValueType,
@@ -76,7 +76,7 @@ export default defineComponent({
     errorClasses(): string {
       const parent = this.$parent as FormInstance;
       if (!parent.showErrorMessage) return '';
-      if (this.verifyStatus === VALIDATE_STATUS.SUCCESS) return CLASS_NAMES.success;
+      if (this.verifyStatus === ValidateStatus.SUCCESS) return CLASS_NAMES.success;
       if (!this.errorList.length) return;
       const type = this.errorList[0].type || 'error';
       return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
@@ -145,8 +145,8 @@ export default defineComponent({
       const rules = trigger === 'all' ? this.innerRules : this.innerRules.filter((item) => (item.trigger || 'change') === trigger);
       const r = await validate(this.value, rules);
       this.errorList = r;
-      this.verifyStatus = this.errorList.length ? VALIDATE_STATUS.FAIL : VALIDATE_STATUS.SUCCESS;
-      if (!rules.length) this.verifyStatus = VALIDATE_STATUS.TO_BE_VALIDATED;
+      this.verifyStatus = this.errorList.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
+      if (!rules.length) this.verifyStatus = ValidateStatus.TO_BE_VALIDATED;
       if (this.needResetField) {
         this.resetHandler();
       }
@@ -212,7 +212,7 @@ export default defineComponent({
         </span>
       );
       const list = this.errorList;
-      if (this.verifyStatus === VALIDATE_STATUS.SUCCESS) {
+      if (this.verifyStatus === ValidateStatus.SUCCESS) {
         return resultIcon(TIconCheckCircleFilled);
       }
       if (list && list[0]) {
@@ -297,7 +297,7 @@ export default defineComponent({
     resetHandler(): void {
       this.needResetField = false;
       this.errorList = [];
-      this.verifyStatus = VALIDATE_STATUS.TO_BE_VALIDATED;
+      this.verifyStatus = ValidateStatus.TO_BE_VALIDATED;
     },
   },
 
