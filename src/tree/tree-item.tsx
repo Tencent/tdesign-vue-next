@@ -1,10 +1,13 @@
 import { VNode, defineComponent } from 'vue';
-import TIconChevronRight from '../icon/chevron-right';
+import isFunction from 'lodash/isFunction';
+import mixins from '../utils/mixins';
+import getLocalReceiverMixins from '../locale/local-receiver';
+import TIconCaretRightSmall from '../icon/caret-right-small';
 import TIconLoading from '../icon/loading';
 import TCheckBox from '../checkbox';
 import TreeNode from '../_common/js/tree/tree-node';
 import { getTNode } from './util';
-import { TypeEventState } from './types';
+import { TypeEventState } from './interface';
 import { TREE_NODE_NAME, CLASS_NAMES } from './constants';
 import { ClassName } from '../common';
 import ripple from '../utils/ripple';
@@ -19,10 +22,16 @@ export const TreeItemProps = {
 };
 
 export default defineComponent({
+  ...mixins(getLocalReceiverMixins('tree')),
   name: TREE_NODE_NAME,
   directives: { ripple },
   props: TreeItemProps,
   emits: ['click', 'change'],
+  created() {
+    if (this.node) {
+      this.data = this.node.data;
+    }
+  },
   methods: {
     getStyles(): string {
       const { level } = this.node;
@@ -44,13 +53,13 @@ export default defineComponent({
     },
     renderLine(): VNode {
       const { node, treeScope } = this;
-      const { line, slots } = treeScope;
+      const { line, scopedSlots } = treeScope;
       const iconVisible = !!treeScope.icon;
 
       let lineNode = null;
       if (line === true) {
-        if (slots?.line) {
-          lineNode = slots.line({
+        if (scopedSlots?.line) {
+          lineNode = scopedSlots.line({
             node: node?.getModel(),
           });
         } else if (node.parent && node.tree) {
@@ -107,18 +116,29 @@ export default defineComponent({
       }
       return lineNode;
     },
+    getFolderIcon() {
+      if (isFunction(this.locale.folderIcon)) {
+        return this.locale.folderIcon(this.$createElement);
+      }
+      return <TIconCaretRightSmall/>;
+    },
     renderIcon() {
       const { node, treeScope } = this;
-      const { icon, slots } = treeScope;
+      const { icon, scopedSlots } = treeScope;
+      let isDefaultIcon = false;
 
       let iconNode = null;
       if (icon === true) {
-        if (slots?.icon) {
-          iconNode = slots.icon({
+        if (scopedSlots?.icon) {
+          iconNode = scopedSlots.icon({
             node: node?.getModel(),
           });
         } else if (!node.vmIsLeaf) {
-          iconNode = (<TIconChevronRight/>);
+          isDefaultIcon = true;
+          iconNode = this.getFolderIcon();
+          if (node.loading && node.expanded) {
+            iconNode = (<TIconLoading/>);
+          }
         } else {
           iconNode = '';
         }
@@ -127,21 +147,25 @@ export default defineComponent({
           node,
         });
       }
-      if (node && !node.vmIsLeaf && node.loading && node.expanded && icon !== false) {
-        iconNode = (<TIconLoading/>);
-      }
+      iconNode = (
+        <span
+          class={[CLASS_NAMES.treeIcon, CLASS_NAMES.folderIcon, isDefaultIcon ? CLASS_NAMES.treeIconDefault : '']}
+          trigger="expand"
+          ignore="active"
+        >{iconNode}</span>
+      );
 
-      return (<span class={CLASS_NAMES.treeIcon} trigger="expand" ignore="active">{iconNode}</span>);
+      return iconNode;
     },
     renderLabel() {
       const { node, treeScope } = this;
-      const { label, slots } = treeScope;
+      const { label, scopedSlots } = treeScope;
       const checkProps = treeScope.checkProps || {};
 
       let labelNode = null;
       if (label === true) {
-        if (slots?.label) {
-          labelNode = slots.label({
+        if (scopedSlots?.label) {
+          labelNode = scopedSlots.label({
             node: node?.getModel(),
           });
         } else {
@@ -161,7 +185,7 @@ export default defineComponent({
         },
       ];
 
-      if (node && node.vmCheckable) {
+      if (node.vmCheckable) {
         labelNode = (
           <TCheckBox
             v-ripple
@@ -172,27 +196,25 @@ export default defineComponent({
             name={node.value}
             onChange={() => this.handleChange()}
             ignore="expand,active"
-            {...{ props: checkProps }}
+            {...checkProps}
           >{labelNode}</TCheckBox>
         );
       } else {
-        labelNode = (
-          <span
-            v-ripple
-            class={labelClasses}
-          ><span style="position: relative">{labelNode}</span></span>
-        );
+        const inner = <span style="position: relative">{labelNode}</span>;
+        labelNode = node.isActivable() // 使用key是为了避免元素复用，从而顺利移除ripple指令
+          ? <span key="1" v-ripple class={labelClasses}>{inner}</span>
+          : <span key="2" class={labelClasses}>{inner}</span>;
       }
 
       return labelNode;
     },
     renderOperations(): VNode {
       const { node, treeScope } = this;
-      const { operations, slots } = treeScope;
+      const { operations, scopedSlots } = treeScope;
 
       let opNode = null;
-      if (slots?.operations) {
-        opNode = slots.operations({
+      if (scopedSlots?.operations) {
+        opNode = scopedSlots.operations({
           node: node?.getModel(),
         });
       } else {
@@ -217,7 +239,6 @@ export default defineComponent({
 
       // 渲染连线排在渲染图标之后，是为了确认图标是否存在
       const lineNode = this.renderLine();
-
       if (lineNode) {
         itemNodes.push(lineNode);
       }
@@ -273,7 +294,6 @@ export default defineComponent({
     } = node;
 
     if (!tree || !tree.nodeMap.get(value)) {
-      // this.$destroy();
       return null;
     }
     const styles = this.getStyles();

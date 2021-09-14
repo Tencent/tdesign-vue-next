@@ -48,7 +48,7 @@
   </div>
 </template>
 
-<script>
+<script lang='jsx'>
 export default {
   data() {
     return {
@@ -158,14 +158,9 @@ export default {
       }, lines));
 
       if (node.isLeaf()) {
-        const tIcon = createElement('t-icon', {
-          props: {
-            name: 'heart-filled',
-          },
-        });
         const iconNode = createElement('i', {
           class: 'custom-line-icon',
-        }, [tIcon]);
+        }, [<t-icon name="heart-filled"/>]);
         lineChildren.push(iconNode);
       }
 

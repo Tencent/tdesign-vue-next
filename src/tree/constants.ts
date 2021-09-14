@@ -28,6 +28,7 @@ export const CLASS_NAMES = {
   treeLabel: `${tree}__label`,
   treeLabelStrictly: `${tree}__label--strictly`,
   treeIcon: `${tree}__icon`,
+  treeIconDefault: `${tree}__icon--default`,
   treeSpace: `${tree}__space`,
   treeOperations: `${tree}__operations`,
   line: `${tree}__line`,
