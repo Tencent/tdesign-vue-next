@@ -4,36 +4,34 @@
       <div style="margin: 16px">
         <t-checkbox v-model="allowMultipleSort">是否允许多字段排序</t-checkbox>
       </div>
-      <!-- 本地数据排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
-      <div style="margin: 16px">
-        <span> 排序方式：{{ JSON.stringify(sort) }} </span>
-      </div>
-      <t-table  
-        rowKey="id"
-        :columns="columns"
-        :data="data"
-        :sort="sort"
-        @sort-change="sortChange"
-        @data-change="dataChange"
-        :multipleSort="allowMultipleSort"
-      >
-        <template #op-column>
-          <t-icon name="descending-order"/>
-        </template>
+      <!-- 非受控用法：不需要传 sort，或者只需要传 defaultSort: { sortBy: 'status', descending: true }），defaultSort 仅第一次有效 -->
+      <!-- 非受控用法示例，代码有效，勿删 -->
+      <t-table rowKey="id" :columns="columns" :data="data" :multipleSort="allowMultipleSort">
+        <t-icon slot='op-column' name="descending-order"/>
         <template #status="{ row }">
-          <p class="status" :class="['', 'warning', 'unhealth'][row.status]">
-            {{ ['健康', '警告', '异常'][row.status] }}
-          </p>
+          <p v-if="row.status === 0" class="status">健康</p>
+          <p v-if="row.status === 1" class="status warning">警告</p>
+          <p v-if="row.status === 2" class="status unhealth">异常</p>
         </template>
       </t-table>
 
+      <!-- 受控用法示例，代码有效，勿删 -->
+      <!-- <div style="margin: 16px">
+        <span> 排序方式：{{ JSON.stringify(sort) }} </span>
+      </div>
+      <t-table rowKey="id" :columns="columns" :data="data" :sort="sort" @sort-change="sortChange" :multipleSort="allowMultipleSort">
+        <t-icon slot='op-column' name="descending-order"/>
+        <template #status="{ row }">
+          <p v-if="row.status === 0" class="status">健康</p>
+          <p v-if="row.status === 1" class="status warning">警告</p>
+          <p v-if="row.status === 2" class="status unhealth">异常</p>
+        </template>
+      </t-table> -->
     </div>
   </div>
 </template>
 
-<script lang="jsx">
-import TIconCarretDownSmall from '@tencent/tdesign-vue-next/lib/icon/caret-down-small';
-
+<script>
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
   { colKey: 'status', title: '状态', width: 100, sortType: 'all', sorter: (a, b) => a.status - b.status },
@@ -73,27 +71,11 @@ export default {
         this.sort = val ? this.multipleSorts : this.singleSort;
       },
     },
-    globalLocale: {
-      table: {
-        sortIcon: (h) => h && <TIconCarretDownSmall size='16px' />,
-      },
-    },
-  },
-  watch: {
-    allowMultipleSort: {
-      immediate: true,
-      handler(val) {
-        this.sort = val ? this.multipleSorts : this.singleSort;
-      },
-    },
   },
   methods: {
     sortChange(sort, options) {
       this.sort = sort;
       console.log('#### sortChange:', sort, options);
-    },
-    dataChange(data) {
-      this.data = data;
     },
   },
 };

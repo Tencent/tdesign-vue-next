@@ -20,7 +20,7 @@
 </template>
 <script>
 const data = [];
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 5; i ++) {
   data.push({
     index: i,
     platform: i % 2 === 0 ? '共有' : '私有',

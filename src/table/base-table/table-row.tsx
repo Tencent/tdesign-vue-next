@@ -12,13 +12,11 @@ type Attrs = Record<string, any>;
 type CreateElement = ReturnType<typeof h>;
 
 const eventsName = {
-  mouseover: 'row-hover',
-  mousedown: 'row-mousedown',
-  mouseup: 'row-mouseup',
-  click: 'row-click',
-  dblclick: 'row-db-click',
-  dragstart: 'row-dragstart',
-  dragover: 'row-dragover',
+  onMouseover: 'onRowHover',
+  onMousedown: 'onRowMousedown',
+  onMouseup: 'onRowMouseup',
+  onClick: 'onRowClick',
+  onDblclick: 'onRowDbClick',
 };
 
 export default defineComponent({
@@ -48,26 +46,7 @@ export default defineComponent({
       type: Number,
       default: 1,
     },
-    provider: {
-      type: Object,
-      default() {
-        return {
-          renderRows(): void {
-
-          },
-        };
-      },
-    },
-    on: {
-      type: Object,
-      default() {
-        return {
-
-        };
-      },
-    },
   },
-  emits: [...Object.keys(eventsName).map((key) => eventsName[key])],
   methods: {
     // 渲染行
     renderRow(): Array<VNode> {
@@ -135,34 +114,25 @@ export default defineComponent({
     const {
       rowClass, $attrs, rowData, index, rowKey, current,
     } = this;
-    const params = {
-      row: rowData,
-      index,
-    };
-    const on = {};
+    const listeners = {};
     Object.keys(eventsName).forEach((event) => {
-      const emitEventName = eventsName[event];
-      on[event] = (e: MouseEvent) => {
-        this.$emit(emitEventName, {
-          ...params,
-          e,
-        });
+      const emitEvent = eventsName[event];
+      listeners[event] = (e: MouseEvent) => {
+        const val = this.$attrs?.[emitEvent];
+        if (typeof val === 'function') {
+          val?.({
+            e,
+            row: rowData,
+            index,
+          });
+        }
       };
     });
-
-    if (this.provider.sortOnRowDraggable) {
-      $attrs.draggable = true;
-    }
-
     const trProps = {
-      ...{
-        ...$attrs,
-      },
+      ...$attrs,
       class: rowClass,
       key: rowKey ? get(rowData, rowKey) : index + current,
-      ...on,
     };
-
-    return <tr {...trProps}>{this.renderRow()}</tr>;
+    return <tr {...trProps} {...listeners}>{this.renderRow()}</tr>;
   },
 });

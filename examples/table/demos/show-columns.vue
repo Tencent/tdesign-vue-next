@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-table :rowKey="id" :columns="columns" :data="data" show-columns>
+    <t-table :columns="columns" :data="data" show-columns>
       <template #status="{ row }">
         <p v-if="row.status === 0" class="status">健康</p>
         <p v-if="row.status === 1" class="status unhealth">异常</p>

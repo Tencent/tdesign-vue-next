@@ -1,5 +1,4 @@
-import { VNode, defineComponent } from 'vue';
-import get from 'lodash/get';
+import { VNode, defineComponent, inject } from 'vue';
 import { prefix } from '../../config';
 import TableRow from './table-row';
 import baseTableProps from '../base-table-props';
@@ -18,22 +17,11 @@ export default defineComponent({
     onRowMousedown: baseTableProps.onRowMousedown,
     onRowClick: baseTableProps.onRowClick,
     onRowDbClick: baseTableProps.onRowDbClick,
-    provider: {
-      type: Object,
-      default() {
-        return {
-          renderRows(): void {
-
-          },
-        };
-      },
-    },
     current: {
       type: Number,
       default: 1,
     },
   },
-  emits: ['row-dragstart', 'row-dragover'],
   methods: {
     getRowspanAndColspanProps() {
       const props: Array<any> = [];
@@ -42,8 +30,9 @@ export default defineComponent({
         if (props[rowIndex] === undefined) {
           props[rowIndex] = {};
         }
-        columns.forEach((col, colIndex) => {
-          const { colKey } = col;
+        Object.keys(rowData).forEach((colKey) => {
+          const colIndex = columns.findIndex((col) => col.colKey === colKey);
+          const col = columns[colIndex];
           let { rowspan, colspan } = rowspanAndColspan({
             col,
             colIndex,
@@ -104,7 +93,7 @@ export default defineComponent({
     },
     renderBody(): Array<VNode> {
       const {
-        data, rowClassName, rowKey, $slots: slots, rowspanAndColspan,
+        data, rowClassName, $slots: slots, rowspanAndColspan,
       } = this;
       const body: Array<VNode> = [];
       let allRowspanAndColspanProps: any;
@@ -114,48 +103,26 @@ export default defineComponent({
       data.forEach((row: any, index: number) => {
         const rowClass = typeof rowClassName === 'function' ? rowClassName({ row, rowIndex: index }) : rowClassName;
         const rowspanAndColspanProps = allRowspanAndColspanProps ? allRowspanAndColspanProps[index] : undefined;
-        // let rowVnode: VNode;
-        const key = rowKey ? get(row, rowKey) : index + this.current;
-        const { columns, current, provider } = this.$props;
         const props = {
-          key,
-          columns,
+          ...this.$props,
           rowClass,
           rowData: row,
           index,
-          current,
-          provider,
           rowspanAndColspanProps,
-          ...{
-            onRowDragstart: () => {
-              this.$emits('row-dragstart', {
-                index, data: row,
-              });
-            },
-            onRowDragover: () => {
-              this.$emits('row-dragover', {
-                index, data: row, vNode: rowVnode,
-              });
-            },
-          },
         };
-        const rowVnode = <TableRow rowKey={this.rowKey} {...props}>{slots}</TableRow>;
         // 按行渲染
-        body.push(rowVnode);
-        provider.renderRows({
-          rows: body, row, rowIndex: index, columns: this.columns,
-        });
+        body.push(<TableRow {...props} >{slots}</TableRow>);
+        const renderRow = inject('renderRow');
+        if (typeof renderRow === 'function') {
+          renderRow({
+            rows: body, row, rowIndex: index, columns: this.columns,
+          });
+        }
       });
       return body;
     },
   },
   render() {
-    if (this.provider.sortOnRowDraggable) {
-      const className = `table-body ${this.provider.dragging ? 'dragging' : ''}`;
-      return <transition-group class={className} tag='tbody'>
-        {this.renderBody()}
-      </transition-group>;
-    }
     return <tbody class="table-body">{this.renderBody()}</tbody>;
   },
 });

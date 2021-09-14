@@ -1,48 +1,39 @@
 import {
-  defineComponent, VNode,
+  defineComponent, VNode, ref, inject,
 } from 'vue';
 import throttle from 'lodash/throttle';
-import mixins from '../../utils/mixins';
-import getLocalReceiverMixins from '../../locale/local-receiver';
 import { prefix } from '../../config';
 import { flatColumns } from '../util/props-util';
 import baseTableProps from '../base-table-props';
 import { DataType, BaseTableCol, RowEventContext } from '../type';
 import TableBody from './table-body';
 import TableHeader from './table-header';
+import Loading from './loading-content';
 import TableColGroup from './col-group';
 import Pagination from '../../pagination';
-import TLoading from '../../loading';
-import { debounce, getScrollDirection, SCROLL_DIRECTION } from '../util/common';
+import { getScrollDirection, ScrollDirection } from '../util/common';
 import { PageInfo } from '../../pagination/type';
 import { renderTNodeJSX } from '../../utils/render-tnode';
 import { EVENT_NAME_WIDTH_UPPER_CASE } from '../util/interface';
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('table')),
   name: `${prefix}-base-table`,
   props: {
     ...baseTableProps,
-    provider: {
-      type: Object,
-      default() {
-        return {
-          renderRows(): void {
-
-          },
-        };
-      },
-    },
   },
-  data() {
+  setup(props, context) {
+    const scrollBarWidth = ref(0);
+    // 用于兼容处理 Pagination 的非受控属性（非受控属性仅有 change 事件变化，无 props 变化，因此只需监听事件）
+    const defaultCurrent = ref(0);
+    // 用于兼容处理 Pagination 的非受控属性
+    const defaultPageSize = ref(0);
+    const renderRow = inject('renderRow');
     return {
-      scrollableToLeft: false,
-      scrollableToRight: false,
-      scrollBarWidth: 0,
-      // 用于兼容处理 Pagination 的非受控属性（非受控属性仅有 change 事件变化，无 props 变化，因此只需监听事件）
-      defaultCurrent: 0,
-      // 用于兼容处理 Pagination 的非受控属性
-      defaultPageSize: 0,
+      slots: context.slots,
+      scrollBarWidth,
+      defaultCurrent,
+      defaultPageSize,
+      renderRow,
     };
   },
   computed: {
@@ -96,55 +87,45 @@ export default defineComponent({
       } = this;
       const commonClass: Array<string> = ['t-table'];
       if (bordered) {
-        commonClass.push(`${prefix}-table--bordered`);
+        commonClass.push('t-table--bordered');
       }
       if (stripe) {
-        commonClass.push(`${prefix}-table--striped`);
+        commonClass.push('t-table--striped');
       }
       if (hover) {
-        commonClass.push(`${prefix}-table--hoverable`);
-      }
-      if (this.provider.sortOnRowDraggable) {
-        commonClass.push(`${prefix}-table__row--draggable`);
+        commonClass.push('t-table--hoverable');
       }
       // table size
       switch (size) {
         case 'small':
-          commonClass.push(`${prefix}-size-s`);
+          commonClass.push('t-size-s');
           break;
         case 'large':
-          commonClass.push(`${prefix}-size-l`);
+          commonClass.push('t-size-l');
           break;
         default:
       }
       // table verticalAlign
       switch (verticalAlign) {
         case 'top':
-          commonClass.push(`${prefix}-table-valign__top`);
+          commonClass.push('t-table-valign__top');
           break;
         case 'bottom':
-          commonClass.push(`${prefix}-table-valign__bottom`);
+          commonClass.push('t-table-valign__bottom');
           break;
         default:
       }
       // fixed table
       if (hasFixedColumns) {
-        commonClass.push(`${prefix}-table__cell--fixed ${prefix}-table--has-fixed`);
+        commonClass.push('t-table__cell--fixed t-table--has-fixed');
       }
       if (fixedHeader) {
-        commonClass.push(`${prefix}-table__header--fixed`);
+        commonClass.push('t-table__header--fixed');
       }
       return commonClass;
     },
   },
   mounted() {
-    if (this.hasFixedColumns) {
-      // 首次检查滚动条状态；设置settimeout 是为了等待父组件渲染完
-      setTimeout(() => {
-        this.checkScrollableToLeftOrRight();
-      }, 0);
-      this.addWindowResizeEventListener();
-    }
     const scrollDiv = document.createElement('div');
     scrollDiv.style.cssText = `
       width: 99px;
@@ -157,21 +138,7 @@ export default defineComponent({
     this.scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
   },
-  unmounted() {
-    window.removeEventListener('resize', debounce(this.checkScrollableToLeftOrRight));
-  },
   methods: {
-    // 检查是否还可以向左或者向右滚动
-    checkScrollableToLeftOrRight() {
-      const scrollContainer = this.$refs[this.fixedHeader ? 'scrollBody' : 'tableContent'] as HTMLElement;
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-      this.scrollableToLeft = scrollLeft > 0;
-      this.scrollableToRight = scrollLeft + clientWidth < scrollWidth;
-    },
-    // 窗口大小变化时横向滚动条可能出现或消失，故检查滚动条状态;
-    addWindowResizeEventListener() {
-      window.addEventListener('resize', debounce(this.checkScrollableToLeftOrRight));
-    },
     emitEvent(eventName: string, params: any) {
       const events = this[eventName] || this.$attrs[eventName];
       if (typeof events === 'function') {
@@ -184,16 +151,17 @@ export default defineComponent({
     },
     renderHeader(): VNode {
       const {
-        columns, $slots, bordered,
+        columns, flattedColumns, slots, bordered,
       } = this;
       return <TableHeader
               columns={columns}
+              columnsProps={flattedColumns}
               bordered={bordered}
-            >{$slots}</TableHeader>;
+            >{slots}</TableHeader>;
     },
     renderBody(): VNode {
       const {
-        $slots,
+        slots,
       } = this;
       const rowEvents = {};
       EVENT_NAME_WIDTH_UPPER_CASE.forEach((eventName) => {
@@ -211,14 +179,14 @@ export default defineComponent({
         rowspanAndColspan: this.rowspanAndColspan,
       };
       return (
-        <TableBody { ...props } {...rowEvents}>{$slots}</TableBody>
+        <TableBody { ...props } {...rowEvents}>{slots}</TableBody>
       );
     },
     renderEmptyTable(): VNode {
-      const useLocale = !this.empty && !this.$slots.empty;
+      const useLocale = !this.empty && !this.slots.empty;
       return (
         <div class="t-table--empty">
-          {useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty')}
+          {useLocale ? this.empty || '暂无数据' : renderTNodeJSX(this, 'empty')}
         </div>
       );
     },
@@ -233,6 +201,7 @@ export default defineComponent({
               currentData: this.dataSource,
             }],
         );
+        this.defaultCurrent = current;
         defaultPagination.onChange?.(pageInfo);
       };
       const onCurrentChange = (current: number, pageInfo: PageInfo) => {
@@ -248,10 +217,10 @@ export default defineComponent({
       return (
         <div class="t-table-pagination">
           <Pagination
-            {...defaultPagination}
-            onCurrentChange={onCurrentChange}
-            onChange={onChange}
-            onPageSizeChange={onPageSizeChange}
+           {...defaultPagination}
+           onCurrentChange={onCurrentChange}
+           onChange={onChange}
+           onPageSizeChange={onPageSizeChange}
           />
         </div>
       );
@@ -260,7 +229,6 @@ export default defineComponent({
       const fixedTable: Array<VNode> = [];
       const {
         columns,
-        provider: { asyncLoadingProps },
         tableLayout,
         scrollBarWidth,
         hasFixedColumns,
@@ -273,7 +241,7 @@ export default defineComponent({
         this.handleScroll(e as WheelEvent);
       }, 10);
       //  fixed table header
-      fixedTable.push(<div class={`${prefix}-table__header`} style={{ paddingRight: `${scrollBarWidth}px` }} ref="scrollHeader">
+      fixedTable.push(<div class="t-table__header" style={{ paddingRight: `${scrollBarWidth}px` }} ref="scrollHeader">
           <table style={{ tableLayout }}>
             <TableColGroup columns={columns} />
             {this.renderHeader()}
@@ -285,9 +253,9 @@ export default defineComponent({
       };
       // fixed table body
       fixedTable.push(<div
-        class={`${prefix}-table__body`}
+          class="t-table__body"
           style={containerStyle}
-          {...asyncLoadingProps}
+          // {...asyncLoadingProps}
           ref="scrollBody"
           onScroll={handleScroll}
         >
@@ -300,7 +268,7 @@ export default defineComponent({
       return fixedTable;
     },
     renderLoadingContent(): VNode {
-      return renderTNodeJSX(this, 'loading', <div />);
+      return renderTNodeJSX(this, 'loading', <Loading />);
     },
     renderFooter() {
       const {
@@ -323,11 +291,10 @@ export default defineComponent({
               </tfoot> : null;
     },
     handleScroll(e: WheelEvent) {
-      this.checkScrollableToLeftOrRight();
       const { scrollLeft, scrollTop } = e.target as HTMLElement;
       const direction = getScrollDirection(scrollLeft, scrollTop);
-      if (direction !== SCROLL_DIRECTION.UNKNOWN) {
-        const scrollListenerName = direction === SCROLL_DIRECTION.X ? 'scroll-x' : 'scroll-y';
+      if (direction !== ScrollDirection.UNKNOWN) {
+        const scrollListenerName = direction === ScrollDirection.X ? 'onScrollX' : 'onScrollY';
         this.emitEvent(scrollListenerName, {
           e,
         });
@@ -342,6 +309,7 @@ export default defineComponent({
       columns,
       tableLayout,
       isLoading,
+      maxHeight,
     } = this;
     const body: Array<VNode> = [];
     // colgroup
@@ -353,31 +321,31 @@ export default defineComponent({
     // fixed table
     let fixedTableContent: Array<VNode>;
     // loading
-    if (fixedHeader) {
-      fixedTableContent = this.renderTableWithFixedHeader();
+    if (isLoading) {
+      body.push(this.renderLoadingContent());
     } else {
-      // table body
-      tableContent.push(this.renderBody());
-      tableContent.push(this.renderFooter());
-    }
-    // 渲染分页
-    if (hasPagination) {
-      body.push(this.renderPagination());
+      // 渲染带有固定列的表格或者固定表头的表格
+      if (fixedHeader) {
+        fixedTableContent = this.renderTableWithFixedHeader();
+      } else {
+        // table body
+        tableContent.push(this.renderBody());
+        tableContent.push(this.renderFooter());
+      }
+      // 渲染分页
+      if (hasPagination) {
+        body.push(this.renderPagination());
+      }
     }
     const handleScroll = throttle(this.handleScroll, 100);
-    const maxHeight = isNaN(Number(this.maxHeight)) ? this.maxHeight : `${Number(this.maxHeight)}px`;
-    const tableContentClass = [`${prefix}-table-content`, {
-      [`${prefix}-table-content--scrollable-to-right`]: this.scrollableToRight,
-      [`${prefix}-table-content--scrollable-to-left`]: this.scrollableToLeft,
-    }];
+    const tableContentMaxHeight = isNaN(Number(maxHeight)) ? maxHeight : `${Number(maxHeight)}px`;
+
     return (
       <div class={commonClass}>
-        <TLoading loading={isLoading} showOverlay text={this.renderLoadingContent}>
-          <div ref='tableContent' class={tableContentClass} style={{ overflow: 'auto', maxHeight }} onScroll={handleScroll}>
-            {fixedTableContent || <table style={{ tableLayout }}>{tableContent}</table>}
-          </div>
-          {body}
-        </TLoading>
+        <div class="t-table-content" style={{ overflow: 'auto', maxHeight: tableContentMaxHeight }} onScroll={handleScroll}>
+          {fixedTableContent || <table style={{ tableLayout }}>{tableContent}</table>}
+        </div>
+        {body}
       </div>
     );
   },

@@ -6,10 +6,10 @@
     :verticalAlign="verticalAlign"
     :loading="isLoading"
     :pagination="pagination"
-    @change="rehandleChange"
+    @change="rehandleChange">
     bordered
     stripe
-    />
+  </t-table>
 </template>
 <script>
 import axios from 'axios';

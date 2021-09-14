@@ -12,7 +12,7 @@
 <script>
 const data = [];
 const TOTAL = 60;
-for (let i = 0; i < TOTAL; i++) {
+for (let i = 0; i < TOTAL; i ++) {
   data.push({
     index: i,
     platform: i % 2 === 0 ? '共有' : '私有',
