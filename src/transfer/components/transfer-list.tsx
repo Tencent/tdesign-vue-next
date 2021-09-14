@@ -14,15 +14,16 @@ import {
 import {
   PageInfo,
   TdPaginationProps,
-  Pagination as TPagination,
+  Pagination,
 } from '../../pagination';
 import {
   Checkbox as TCheckbox,
   CheckboxGroup as TCheckboxGroup, CheckboxProps,
 } from '../../checkbox';
+import { findTopNode, getLeefCount, getDataValues } from '../utils';
 import ripple from '../../utils/ripple';
 import Search from './transfer-search';
-import { renderTNodeJSX } from '../../utils/render-tnode';
+import { renderTNodeJSXDefault } from '../../utils/render-tnode';
 
 const name = `${prefix}-transfer-list`;
 
@@ -32,6 +33,7 @@ export default defineComponent({
     Search,
     TCheckbox,
     TCheckboxGroup,
+    Pagination,
   },
   directives: {
     ripple,
@@ -77,6 +79,10 @@ export default defineComponent({
     checkAll: Boolean,
     t: Function,
     locale: Object,
+    isTreeMode: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
   emits: ['pageChange', 'checkedChange', 'scroll', 'search'],
   data() {
@@ -140,6 +146,9 @@ export default defineComponent({
     isAllChecked(): boolean {
       return this.checkedValue.length > 0 && this.dataSource.every((item: TransferItemOption) => this.checkedValue.includes(item.value));
     },
+    totalCount(): number {
+      return getLeefCount(this.dataSource);
+    },
   },
   methods: {
     handlePaginationChange(pageInfo: PageInfo): void {
@@ -152,7 +161,7 @@ export default defineComponent({
     },
     handleCheckedAllChange(checked: boolean): void {
       if (checked) {
-        const allValue = this.dataSource.filter((item: TransferItemOption) => !item.disabled).map((item: TransferItemOption) => item.value);
+        const allValue = getDataValues(this.dataSource, [], { isTreeMode: this.isTreeMode, include: false });
         this.handleCheckedChange(allValue);
       } else {
         this.handleCheckedChange([]);
@@ -168,20 +177,26 @@ export default defineComponent({
         e: e.e,
         trigger: e.trigger,
       };
+      this.filterValue = e.value
       this.$emit('search', event);
     },
     renderTitle() {
       const defaultNode = this.title && typeof this.title === 'string' ? (<template>{this.title}</template>) : null;
-      const titleNode = renderTNodeJSX(this, 'title');
+      const titleNode = renderTNodeJSXDefault(this, 'title', {
+        defaultNode,
+        params: {
+          type: this.listType,
+        },
+      });
       return (<span>{titleNode}</span>);
     },
     renderContent() {
-      return (
-        <div class={`${name}__content narrow-scrollbar`} onScroll={this.scroll}>
+      const rootNode = findTopNode(this);
+      const defaultNode = (
         <TCheckboxGroup value={this.checkedValue} onChange={this.handleCheckedChange}>
           {
             this.curPageData.map((item, index) => (
-                <t-checkbox
+                <TCheckbox
                   disabled={this.disabled || item.disabled}
                   value={item.value}
                   class={[`${name}__item`, this.checkedValue.includes(item.value) ? `${prefix}-is-checked` : '']}
@@ -189,11 +204,26 @@ export default defineComponent({
                   v-ripple
                   {...{ props: this.checkboxProps }}
                   >
-                    <span>{item.label}</span>
-                </t-checkbox>
+                    {renderTNodeJSXDefault(this, 'transferItem', {
+                      defaultNode: (<span>{item.label}</span>),
+                      params: { data: item.data, index, type: this.listType },
+                    })}
+                </TCheckbox>
             ))
           }
         </TCheckboxGroup>
+      );
+
+      return (
+        <div class={`${name}__content narrow-scrollbar`} onScroll={this.scroll}>
+          {renderTNodeJSXDefault(rootNode, 'tree', {
+            defaultNode,
+            params: {
+              data: this.curPageData,
+              value: this.checkedValue,
+              onChange: this.handleCheckedChange,
+            },
+          })}
       </div>
       );
     },
@@ -202,13 +232,23 @@ export default defineComponent({
       const defaultNode: VNode = typeof empty === 'string' ? (<span>{empty}</span>) : null;
       return (
         <div class="t-transfer-empty">
-          {renderTNodeJSX(this, 'empty', defaultNode)}
+          {renderTNodeJSXDefault(this, 'empty', {
+            defaultNode,
+            params: {
+              type: this.listType,
+            },
+          })}
         </div>
       );
     },
     renderFooter() {
       const defaultNode = typeof this.footer === 'string' ? (<div class={`${prefix}-transfer-footer`}>{this.footer}</div>) : null;
-      return renderTNodeJSX(this, 'footer', defaultNode);
+      return renderTNodeJSXDefault(this, 'footer', {
+        defaultNode,
+        params: {
+          type: this.listType,
+        },
+      });
     },
   },
   render() {
@@ -230,7 +270,7 @@ export default defineComponent({
                 this.locale.title,
                 {
                   checked: this.checkedValue.length,
-                  total: this.dataSource.length,
+                  total: this.totalCount,
                 },
               )
             }</span>
@@ -238,14 +278,14 @@ export default defineComponent({
           {this.renderTitle()}
         </div>
         <div class={[`${this.name}__body`, this.search ? `${this.name}-with-search` : '']}>
-          {this.search && <search searchValue={this.filterValue} placeholder={this.t(this.locale.placeholder)} onChange={(e: string) => this.filterValue = e} disabled={this.disabled} search={this.search} onSearch={this.handleSearch} />}
+          {this.search && <search searchValue={this.filterValue} placeholder={this.t(this.locale.placeholder)} onChange={this.handleSearch} disabled={this.disabled} search={this.search} />}
           {this.curPageData.length > 0 ? this.renderContent() : this.renderEmpty()}
         </div>
         {
           (this.pagination && this.pageSize > 0 && this.pageTotal > 0)
           && <div class={`${this.name}__pagination`}>
-            <TPagination
-              props={this.paginationProps}
+            <t-pagination
+              {...this.paginationProps}
               onChange={this.handlePaginationChange}
             />
           </div>

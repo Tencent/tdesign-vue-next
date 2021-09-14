@@ -33,9 +33,10 @@ export default {
       console.log('handleCheckedChange', {
         checked, sourceChecked, targetChecked, type,
       });
+      this.checked = checked
     },
     onChange(newTargetValue) {
-      console.log(newTargetValue);
+      console.log('newTargetValue', newTargetValue);
     },
   },
 };

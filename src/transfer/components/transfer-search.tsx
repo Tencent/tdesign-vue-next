@@ -9,7 +9,7 @@ const name = `${prefix}-transfer-search`;
 export default defineComponent({
   name,
   props: {
-    searchValue: {
+    value: {
       type: String,
       default: '',
     },
@@ -18,23 +18,17 @@ export default defineComponent({
     },
     placeholder: String,
   },
-  emits: ['input', 'search'],
+  emits: ['change'],
   methods: {
     handleChange(value: string, changeCtx: any) {
-      this.$emit('input', {
-        value,
-        e: changeCtx.e,
-      });
-    },
-    handleEnter(value: string, changeCtx: any) {
-      this.$emit('search', {
+      this.$emit('change', {
         value,
         e: changeCtx.e,
       });
     },
   },
   render(): VNode {
-    const { searchValue, search, placeholder } = this;
+    const { value, search, placeholder } = this;
     const inputProps = typeof search === 'object' ? search : {
       clearable: true,
     };
@@ -43,9 +37,8 @@ export default defineComponent({
       <div class="t-transfer-list-search-wrapper" >
         <TInput
           { ...inputProps }
-          value={searchValue}
+          defaultValue={value}
           onChange={this.handleChange}
-          on-enter={this.handleEnter}
           placeholder={placeholder}
         >
           <TIconSearch slot="suffix-icon" />

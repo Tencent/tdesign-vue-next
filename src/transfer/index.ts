@@ -9,6 +9,9 @@ export type TransferProps = TdTransferProps;
 export const Transfer: WithInstallType<typeof _Transfer> = withInstall(mapProps([{
   name: 'checked',
   event: ['update:checked'],
+}, {
+  name: 'value',
   alias: ['modelValue'],
 }])(_Transfer));
+
 export default Transfer;

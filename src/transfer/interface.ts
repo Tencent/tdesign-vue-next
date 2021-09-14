@@ -12,6 +12,7 @@ export interface TransferItemOption {
   disabled: boolean;
   key: string;
   data: DataOption;
+  children?: TransferItemOption[];
 }
 
 export type TransferListOptionBase<T> = {

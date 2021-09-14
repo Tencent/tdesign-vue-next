@@ -1,5 +1,5 @@
 import {
-  defineComponent, VNode,
+  defineComponent, VNode, PropType
 } from 'vue';
 import pick from 'lodash/pick';
 import { prefix } from '../config';
@@ -16,7 +16,7 @@ import {
   TargetParams,
   SearchEvent,
   SearchOption,
-  TdTransferProps,
+  KeysType,
 } from './interface';
 import { PageInfo, TdPaginationProps } from '../pagination/type';
 import mixins from '../utils/mixins';
@@ -42,8 +42,10 @@ export default defineComponent({
     TransferList,
     TransferOperations,
   },
-  props,
-  emits: ['checkChange', 'change', 'scroll', 'search', 'page-change', 'update:checked', 'checked-change'],
+  props: {
+    ...props
+  },
+  emits: ['checkChange', 'change', 'scroll', 'search', 'page-change', 'update:checked', 'checked-change', 'update:value'],
   data(): DataType {
     return {
       name,
@@ -63,7 +65,12 @@ export default defineComponent({
       return this.getTransferData(this.data);
     },
     sourceList(): Array<TransferItemOption> {
-      return this.filterMethod(this.transferData, this.value, false);
+      console.log('val' )
+      console.log(this.value)
+      return this.transferData.filter((item) => {
+        const isMatch = this.value.indexOf(item.value) > -1;
+        return !isMatch
+      });
     },
     targetList(): Array<TransferItemOption> {
       const list: Array<TransferItemOption> = [];
@@ -121,8 +128,8 @@ export default defineComponent({
   methods: {
     getTransferData(data: Array<DataOption>): Array<TransferItemOption> {
       const list: Array<TransferItemOption> = data.map((transferDataItem, index): TransferItemOption => {
-        const labelKey = this.keys?.label || 'label';
-        const valueKey = this.keys?.value || 'value';
+        const labelKey = (this.keys as KeysType)?.label || 'label';
+        const valueKey = (this.keys as KeysType)?.value || 'value';
         if (transferDataItem[labelKey] === undefined) {
           throw `${labelKey} is not in DataOption ${JSON.stringify(transferDataItem)}`;
         }
@@ -163,6 +170,7 @@ export default defineComponent({
         type: toDirection, movedValue: checkedValue,
       };
       this.$emit('change', newTargetValue, params);
+      this.$emit('update:value', newTargetValue, params);
     },
     // 点击移到右边按钮触发的函数
     transferToRight() {
@@ -182,7 +190,7 @@ export default defineComponent({
         targetChecked,
         type: listType,
       };
-      // 支持checked.sync
+      // 支持v-model:checked
       this.$emit('update:checked', checked);
       this.checkedValue[listType] = val;
       this.$emit('checked-change', event);
@@ -229,7 +237,7 @@ export default defineComponent({
           onScroll={($event: any) => this.handleScroll($event, listType)}
           onSearch={this.handleSearch}
           onPageChange={($event: any) => this.handlePageChange($event, listType)}
-          scopedSlots={scopedSlots}
+          v-slots={scopedSlots}
           t={this.t}
           locale={this.locale}
         ></transfer-list>
@@ -253,7 +261,7 @@ export default defineComponent({
           operation={this.operation}
           onMoveToRight={this.transferToRight}
           onMoveToLeft={this.transferToLeft}
-          scopedSlots={{ operation: this.$slots.operation }}
+          v-slots={{ operation: this.$slots.operation }}
         />
         {this.renderTransferList(TARGET)}
       </div>

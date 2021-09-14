@@ -53,8 +53,13 @@ export const RenderTNodeTemplate = (props: { render: Function; params: Record<st
 };
 
 
+interface JSXRenderContext {
+  defaultNode?: VNode;
+  params?: Record<string, any>;
+}
+
 // 通过JSX的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
-export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, options?: Slots | JSX.Element) => {
+export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, options?: Slots | JSXRenderContext | JSX.Element) => {
   const params = typeof options === 'object' && ('params' in options) ? options.params : null;
   const defaultNode = typeof options === 'object' && ('defaultNode' in options) ? options.defaultNode : options;
   let propsNode;
@@ -78,7 +83,7 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
  * @example renderTNodeJSX(this, 'closeBtn', <t-icon-close />)。this.closeBtn 为空时，则兜底渲染 <t-icon-close />
  * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <t-icon-close />, params }) 。params 为渲染节点时所需的参数
  */
-export const renderTNodeJSXDefault = (vm: ComponentPublicInstance, name: string, options?: Slots | JSX.Element) => {
+export const renderTNodeJSXDefault = (vm: ComponentPublicInstance, name: string, options?: Slots | JSXRenderContext) => {
   const defaultNode = typeof options === 'object' && 'defaultNode' in options ? options.defaultNode : options;
   return renderTNodeJSX(vm, name, options) || defaultNode;
 };
