@@ -204,6 +204,7 @@ export default defineComponent({
           {...inputEvents }
           ref="refInputElem"
           value={this.value}
+          autoFocus={props.autofocus}
           class={`${name}__inner`}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
           onCompositionend={this.onCompositionend}
