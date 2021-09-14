@@ -30,7 +30,7 @@ type TypeContext = { e?: Event; node?: TreeNode };
 type CascaderDataType = {
   model: TreeNodeValue | TreeNodeValue[];
   [key: string]: any;
-}
+};
 
 export default defineComponent({
   ...mixins(CascaderLocalReceiver),
