@@ -5,8 +5,8 @@
  * updated at 2021-08-10 17:18:59
  * */
 
-import { TdTransferProps } from './type';
 import { PropType } from 'vue';
+import { TdTransferProps } from './type';
 
 export default {
   /** 用于控制复选框属性 */

@@ -1,64 +1,95 @@
-import { defineComponent, VNodeChild } from 'vue';
+import {
+  defineComponent, VNode, PropType
+} from 'vue';
+import pick from 'lodash/pick';
 import { prefix } from '../config';
-// import { TransferItems } from './type/transfer';
-import TransferList from './transfer-list';
+import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
-import { TransferItem, TransferItemKey, TransferDirection, SearchProps } from './type';
-import { CommonProps } from './interface';
-import cloneDeep from 'lodash/cloneDeep';
+import {
+  DataOption,
+  TransferListType,
+  TransferItemOption,
+  CheckedOptions,
+  TransferValue,
+  EmptyType,
+  TransferListOptionBase,
+  TargetParams,
+  SearchEvent,
+  SearchOption,
+  KeysType,
+} from './interface';
+import { PageInfo, TdPaginationProps } from '../pagination/type';
+import mixins from '../utils/mixins';
+import getLocalReceiverMixins from '../locale/local-receiver';
+import props from './props';
+import { getTransferListOption } from './utils';
+import { TNode } from '../common';
 
 const name = `${prefix}-transfer`;
-const searchObj: SearchProps = { placeholder: '请输入搜索内容', clearable: true };
 const SOURCE = 'source';
 const TARGET = 'target';
+
+type DataType = {
+  name: string;
+  SOURCE: TransferListType;
+  TARGET: TransferListType;
+}
+
 export default defineComponent({
+  ...mixins(getLocalReceiverMixins('transfer')),
   name,
   components: {
     TransferList,
     TransferOperations,
   },
   props: {
-    ...CommonProps,
+    ...props
   },
-  emits: ['checkChange', 'scroll', 'update:modelValue'],
-  data() {
+  emits: ['checkChange', 'change', 'scroll', 'search', 'page-change', 'update:checked', 'checked-change', 'update:value'],
+  data(): DataType {
     return {
       name,
       SOURCE,
       TARGET,
-      curCheckedValue: [],
-      sourceCheckedKeys: [], // 源数据被选中的key
-      targetCheckedKeys: [], // 目标数据被选中的key,
     };
   },
   computed: {
     leftButtonDisabled(): boolean {
-      return this.directions === 'right';
+      return this.direction === 'right';
     },
     rightButtonDisabled(): boolean {
-      return this.directions === 'left';
+      return this.direction === 'left';
     },
-    leftListDisabled(): boolean {
-      return this.getDisabledValue(0);
+    // props 传入的 data 格式化后的数据
+    transferData(): Array<TransferItemOption> {
+      return this.getTransferData(this.data);
     },
-    rightListDisabled(): boolean {
-      return this.getDisabledValue(1);
-    },
-    sourceList(): Array<TransferItem> {
-      return this.filterMethod(this.data, this.modelValue, false);
-    },
-    targetList(): Array<TransferItem> {
-      if (this.targetOrder === 'original') {
-        return this.filterMethod(this.data, this.modelValue, true);
-      }
-      const arr: Array<TransferItem> = [];
-      this.modelValue.forEach((key: string | number | symbol) => {
-        const val = this.data[key] as TransferItem;
-        if (val) {
-          arr.push(val);
-        }
+    sourceList(): Array<TransferItemOption> {
+      console.log('val' )
+      console.log(this.value)
+      return this.transferData.filter((item) => {
+        const isMatch = this.value.indexOf(item.value) > -1;
+        return !isMatch
       });
-      return arr;
+    },
+    targetList(): Array<TransferItemOption> {
+      const list: Array<TransferItemOption> = [];
+      // 按照 targetValue 顺序，找到原数据
+      this.value.forEach((value) => {
+        const item = this.transferData.find((item) => item.value === value);
+        if (item === null) {
+          throw `target value "${value}" was not found not from data ${JSON.stringify(this.data)}`;
+        }
+        list.push(item);
+      });
+      return list;
+    },
+    // 被选中的value
+    checkedValue(): TransferListOptionBase<TransferValue[]> {
+      return {
+        [SOURCE]: this.sourceList.filter((data) => this.checked.includes(data.value)).map((data) => data.value),
+        [TARGET]: this.targetList.filter((data) => this.checked.includes(data.value)).map((data) => data.value),
+      };
     },
     hasFooter(): boolean {
       return !!this.$slots.footer || !!this.footer;
@@ -71,45 +102,75 @@ export default defineComponent({
       // 翻页在自定义列表无效
       return !!this.search;
     },
-  },
-  watch: {
-    checkedValue(val: Array<TransferItemKey>): void {
-      this.curCheckedValue = cloneDeep(val);
+    footerOption(): TransferListOptionBase<string | Function> {
+      const footer = this.footer || '';
+      return getTransferListOption<string | Function>(footer);
+    },
+    emptyOption(): TransferListOptionBase<EmptyType> {
+      return getTransferListOption<EmptyType>(this.empty);
+    },
+    searchOption(): TransferListOptionBase<SearchOption> {
+      return getTransferListOption<SearchOption>(this.search);
+    },
+    checkAllOption(): TransferListOptionBase<boolean> {
+      return getTransferListOption<boolean>(this.showCheckAll);
+    },
+    disabledOption(): TransferListOptionBase<boolean> {
+      return getTransferListOption<boolean>(this.disabled);
+    },
+    titleOption(): TransferListOptionBase<string | TNode> {
+      return getTransferListOption<string | TNode>(this.title);
+    },
+    paginationOption(): TransferListOptionBase<TdPaginationProps> {
+      return getTransferListOption<TdPaginationProps>(this.pagination);
     },
   },
-  created() {
-    this.curCheckedValue = this.checkedValue;
-    this.setRowKey();
-  },
-  mounted() {
-    this.setCheckedKeys();
-  },
   methods: {
-    transferTo(toDirection: TransferDirection) {
-      let targetValue: Array<TransferItemKey> = JSON.parse(JSON.stringify(this.modelValue));
-      let sourceCheckedKeys = 'sourceCheckedKeys';
-      if (toDirection === SOURCE) {
-        sourceCheckedKeys = 'targetCheckedKeys';
-      }
-      const moveKeys: Array<TransferItemKey> = [];
-      this[sourceCheckedKeys] = this[sourceCheckedKeys].filter((key: TransferItemKey) => {
-        const data = this.getItemData(key) || {};
-        const isMove = !data.disabled;
-        if (isMove) {
-          moveKeys.push(key);
+    getTransferData(data: Array<DataOption>): Array<TransferItemOption> {
+      const list: Array<TransferItemOption> = data.map((transferDataItem, index): TransferItemOption => {
+        const labelKey = (this.keys as KeysType)?.label || 'label';
+        const valueKey = (this.keys as KeysType)?.value || 'value';
+        if (transferDataItem[labelKey] === undefined) {
+          throw `${labelKey} is not in DataOption ${JSON.stringify(transferDataItem)}`;
         }
-        return !isMove;
+        if (transferDataItem[valueKey] === undefined) {
+          throw `${valueKey} is not in DataOption ${JSON.stringify(transferDataItem)}`;
+        }
+        return ({
+          label: transferDataItem[labelKey] as string,
+          value: transferDataItem[valueKey],
+          key: `key__value_${transferDataItem[valueKey]}_index_${index}`,
+          disabled: transferDataItem.disabled ?? false,
+          data: transferDataItem,
+        });
       });
-      this.curCheckedValue = this.curCheckedValue.filter((key: TransferItemKey) => moveKeys.indexOf(key) === -1);
+      return list;
+    },
+    transferTo(toDirection: TransferListType) {
+      const oldTargetValue: Array<TransferValue> = JSON.parse(JSON.stringify(this.value));
+      let newTargetValue: Array<TransferValue>;
+      const checkedValue = toDirection === TARGET ? this.checkedValue[SOURCE] : this.checkedValue[TARGET];
+      // target->source
       if (toDirection === SOURCE) {
-        targetValue = targetValue.filter((key: TransferItemKey) => moveKeys.indexOf(key) === -1);
-      } else if (this.targetOrder === 'unshift') {
-        targetValue = moveKeys.concat(targetValue);
+        newTargetValue = oldTargetValue.filter((v) => !checkedValue.includes(v));
+      } else if (this.targetSort === 'original') {
+        // 按照原始顺序
+        newTargetValue = this.transferData.filter((item) => oldTargetValue.includes(item.value) || checkedValue.includes(item.value))
+          .map((item) => item.value);
+      } else if (this.targetSort === 'unshift') {
+        newTargetValue = checkedValue.concat(oldTargetValue);
       } else {
-        targetValue = targetValue.concat(moveKeys);
+        newTargetValue = oldTargetValue.concat(checkedValue);
       }
-      this.setCheckedKeys();
-      this.$emit('update:modelValue', targetValue);
+
+      // 清空checked。与toDirection相反
+      this.handleCheckedChange([], toDirection === SOURCE ? TARGET : SOURCE);
+
+      const params: TargetParams = {
+        type: toDirection, movedValue: checkedValue,
+      };
+      this.$emit('change', newTargetValue, params);
+      this.$emit('update:value', newTargetValue, params);
     },
     // 点击移到右边按钮触发的函数
     transferToRight() {
@@ -119,173 +180,90 @@ export default defineComponent({
     transferToLeft() {
       this.transferTo(SOURCE);
     },
-    handleSourceCheckedChange(val: Array<any>, isChangeByUser: boolean) {
-      this.sourceCheckedKeys = val;
-      isChangeByUser && this.$emit('checkChange', this.sourceCheckedKeys, this.targetCheckedKeys);
+    handleCheckedChange(val: Array<TransferValue>, listType: TransferListType) {
+      const sourceChecked = listType === SOURCE ? val : this.checkedValue[SOURCE];
+      const targetChecked = listType === TARGET ? val : this.checkedValue[TARGET];
+      const checked = [...sourceChecked, ...targetChecked];
+      const event: CheckedOptions = {
+        checked,
+        sourceChecked,
+        targetChecked,
+        type: listType,
+      };
+      // 支持v-model:checked
+      this.$emit('update:checked', checked);
+      this.checkedValue[listType] = val;
+      this.$emit('checked-change', event);
     },
-    handleTargetCheckedChange(val: Array<any>, isChangeByUser: boolean) {
-      this.targetCheckedKeys = val;
-      isChangeByUser && this.$emit('checkChange', this.sourceCheckedKeys, this.targetCheckedKeys);
-    },
-    filterMethod(sourceArr: Array<any>, targetArr: Array<any>, needMatch: boolean): Array<any> {
-      return sourceArr.filter((item) => {
-        const isMatch = targetArr.indexOf(item.key) > -1;
+    filterMethod(transferList: Array<TransferItemOption>, targetValueList: Array<TransferValue>, needMatch: boolean): Array<TransferItemOption> {
+      return transferList.filter((item) => {
+        const isMatch = targetValueList.indexOf(item.value) > -1;
         return needMatch ? isMatch : !isMatch;
       });
     },
-    setCheckedKeys() {
-      const { curCheckedValue, modelValue } = this;
-      this.sourceCheckedKeys = this.filterMethod(curCheckedValue, modelValue, false);
-      this.targetCheckedKeys = this.filterMethod(curCheckedValue, modelValue, true);
+    handleScroll(e: Event, listType: TransferListType) {
+      const target = e.target as HTMLElement;
+      const bottomDistance = target.scrollHeight - target.scrollTop - target.clientHeight;
+      const event: { e: Event; bottomDistance: number; type: TransferListType } = {
+        e,
+        bottomDistance,
+        type: listType,
+      };
+      this.$emit('scroll', event);
     },
-    setRowKey() {
-      const { rowKey } = this;
-      if (!rowKey) {
-        return;
-      }
-      if (typeof rowKey === 'string') {
-        this.data.forEach((item: TransferItem) => {
-          item.key = this.getKey(item[rowKey], item.key); // eslint-disable-line
-        });
-      } else {
-        this.data.forEach((item: TransferItem) => {
-          item.key = this.getKey(rowKey(item), item.key); // eslint-disable-line
-        });
-      }
+    handleSearch(e: SearchEvent) {
+      this.$emit('search', event);
     },
-    getKey(value: TransferItemKey, key: TransferItemKey): TransferItemKey {
-      return typeof value === 'undefined' ? key : value;
+    handlePageChange(pageInfo: PageInfo, listType: TransferListType) {
+      this.$emit('page-change', pageInfo, { type: listType });
     },
-    getItemData(key: TransferItemKey): TransferItem {
-      // 获取key对应的数据
-      const data = this.data.filter((item: TransferItem) => item.key === key);
-      return data.length ? data[0] : {};
-    },
-    getPaginationObj(direction: string) {
-      let paginationObj = null;
-      if (this.pagination && this.pagination instanceof Array) {
-        const order = direction === SOURCE ? 0 : 1;
-        paginationObj = this.pagination[order];
-      } else {
-        paginationObj = this.pagination;
-      }
-      return paginationObj;
-    },
-    getTitle(direction: string) {
-      let targetTitle;
-      const index = direction === SOURCE ? 0 : 1;
-      const titles = ['源列表', '目标列表'];
-      if (typeof this.titles === 'string') {
-        targetTitle = this.titles;
-      } else if (this.titles instanceof Array && this.titles[index]) {
-        targetTitle = this.titles[index];
-      }
-      return targetTitle || titles[index];
-    },
-    getDisabledValue(index: number) {
-      if (typeof this.disabled === 'boolean') {
-        return this.disabled;
-      }
-      if (this.disabled instanceof Array && this.disabled.length > index) {
-        return this.disabled[index];
-      }
-      return false;
-    },
-    getSearchProp(direction: TransferDirection): any {
-      let searchProp;
-      if (this.search && typeof this.search === 'boolean') {
-        searchProp = searchObj;
-      } else if (this.search instanceof Array && this.search.length) {
-        const index = direction === SOURCE ? 0 : 1;
-        searchProp = this.search[index];
-      } else {
-        // 处理this.search为false和为inputProps的object形式
-        searchProp = this.search;
-      }
-      return searchProp;
-    },
-    getCheckAll(direction: string) {
-      let targetCheckAll;
-      if (direction === 'source') {
-        targetCheckAll = this.checkAll instanceof Array && this.checkAll.length >= 1 ? this.checkAll[0] : this.checkAll;
-      } else {
-        targetCheckAll = this.checkAll instanceof Array && this.checkAll.length >= 2 ? this.checkAll[1] : this.checkAll;
-      }
-      return targetCheckAll;
-    },
-    scroll(e: any) {
-      const bottomDistance = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight;
-      this.$emit('scroll', e, bottomDistance);
+    renderTransferList(listType: TransferListType) {
+      const scopedSlots = pick(this.$slots, ['title', 'empty', 'footer', 'operation', 'transferItem']);
+      return (
+        <transfer-list
+          checkboxProps={this.checkboxProps}
+          transferItem={this.transferItem}
+          list-type={listType}
+          title={this.titleOption[listType]}
+          data-source={listType === SOURCE ? this.sourceList : this.targetList}
+          checked-value={this.checkedValue[listType]}
+          disabled={this.disabledOption[listType]}
+          search={this.searchOption[listType]}
+          pagination={this.paginationOption[listType]}
+          check-all={this.checkAllOption[listType]}
+          footer={this.footerOption[listType]}
+          empty={this.emptyOption[listType]}
+          onCheckedChange={($event: any) => this.handleCheckedChange($event, listType)}
+          onScroll={($event: any) => this.handleScroll($event, listType)}
+          onSearch={this.handleSearch}
+          onPageChange={($event: any) => this.handlePageChange($event, listType)}
+          v-slots={scopedSlots}
+          t={this.t}
+          locale={this.locale}
+        ></transfer-list>
+      );
     },
   },
-  render(): VNodeChild {
-    const {
-      showSearch,
-      hasFooter,
-      showPagination,
-      getTitle,
-      sourceList,
-      sourceCheckedKeys,
-      leftListDisabled,
-      getSearchProp,
-      getPaginationObj,
-      getCheckAll,
-      handleSourceCheckedChange,
-      leftButtonDisabled,
-      targetCheckedKeys,
-      rightButtonDisabled,
-      operations,
-      rightListDisabled,
-      transferToRight,
-      transferToLeft,
-      targetList,
-      handleTargetCheckedChange,
-      $props,
-    } = this;
+  render(): VNode {
     return (
       <div
         class={[
           't-transfer',
-          showSearch ? 't-transfer-search' : '',
-          hasFooter ? 't-transfer-footer' : '',
-          showPagination ? 't-transfer-pagination' : '',
+          this.showSearch ? 't-transfer-search' : '',
+          this.hasFooter ? 't-transfer-footer' : '',
+          this.showPagination ? 't-transfer-pagination' : '',
         ]}
       >
-        <transfer-list
-          {...$props}
-          direction={SOURCE}
-          title={getTitle(SOURCE)}
-          data-source={sourceList}
-          checked-value={sourceCheckedKeys}
-          disabled={leftListDisabled}
-          search={getSearchProp(SOURCE)}
-          pagination={getPaginationObj(SOURCE)}
-          check-all={getCheckAll(SOURCE)}
-          onCheckedChange={handleSourceCheckedChange}
-          onScroll={scroll}
-        >
-        </transfer-list>
+        {this.renderTransferList(SOURCE)}
         <transfer-operations
-          left-disabled={leftListDisabled || leftButtonDisabled || sourceCheckedKeys.length === 0}
-          right-disabled={rightListDisabled || rightButtonDisabled || targetCheckedKeys.length === 0}
-          operations={operations}
-          onMoveToRight={transferToRight}
-          onMoveToLeft={transferToLeft}
+          left-disabled={this.disabledOption[TARGET] || this.leftButtonDisabled || this.checkedValue[TARGET].length === 0}
+          right-disabled={this.disabledOption[SOURCE] || this.rightButtonDisabled || this.checkedValue[SOURCE].length === 0}
+          operation={this.operation}
+          onMoveToRight={this.transferToRight}
+          onMoveToLeft={this.transferToLeft}
+          v-slots={{ operation: this.$slots.operation }}
         />
-        <transfer-list
-          {...$props}
-          direction={TARGET}
-          data-source={targetList}
-          checked-value={targetCheckedKeys}
-          disabled={rightListDisabled}
-          title={getTitle(TARGET)}
-          search={getSearchProp(TARGET)}
-          pagination={getPaginationObj(TARGET)}
-          check-all={getCheckAll(TARGET)}
-          onCheckedChange={handleTargetCheckedChange}
-          onScroll={scroll}
-        >
-        </transfer-list>
+        {this.renderTransferList(TARGET)}
       </div>
     );
   },

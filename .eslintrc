@@ -105,7 +105,8 @@
       {
         "checkLoops": false
       }
-    ]
+    ],
+    "vue/require-default-prop": 0
   },
   "overrides": [
     {
