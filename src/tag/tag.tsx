@@ -58,7 +58,7 @@ export default defineComponent({
   },
   render() {
     // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
-    const closeIcon: VNode | string = this.closable ? <TIconClose nativeOnClick={this.handleClose} /> : '';
+    const closeIcon: VNode | string = this.closable ? <TIconClose onClick={this.handleClose} /> : '';
     // 标签内容
     const tagContent: TNodeReturnValue = renderTNodeJSX(this as ComponentPublicInstance, 'default') || renderTNodeJSX(this as ComponentPublicInstance, 'content');
     // 图标
