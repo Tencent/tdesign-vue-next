@@ -11,6 +11,7 @@ export const Transfer: WithInstallType<typeof _Transfer> = withInstall(mapProps(
   event: ['update:checked'],
 }, {
   name: 'value',
+  event: ['change'],
   alias: ['modelValue'],
 }])(_Transfer));
 

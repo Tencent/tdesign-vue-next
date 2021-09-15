@@ -213,7 +213,7 @@ export default defineComponent({
           }
         </TCheckboxGroup>
       );
-
+      console.log(this.curPageData)
       return (
         <div class={`${name}__content narrow-scrollbar`} onScroll={this.scroll}>
           {renderTNodeJSXDefault(rootNode, 'tree', {

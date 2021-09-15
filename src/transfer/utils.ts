@@ -4,6 +4,8 @@ import {
   TransferListOptionBase, TransferItemOption, TdTransferProps, TransferValue, DataOption,
 } from './interface';
 
+export { emitEvent } from '../utils/event';
+
 interface TreeNode {
   children?: Array<TreeNode>
 }
@@ -43,6 +45,7 @@ function getDataValues(data: Array<TransferItemOption>, filterValues: Array<Tran
       for (let i = 0; i < data.length; i++) {
         const item = data[i];
         const isInclude = filterValues.includes(item.value);
+        console.log(isInclude)
         if (!include && isInclude) {
           continue; // 排除模式下子元素一律排除
         }

@@ -6,7 +6,6 @@ import { prefix } from '../config';
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
 import {
-  DataOption,
   TransferListType,
   TransferItemOption,
   CheckedOptions,
@@ -16,13 +15,17 @@ import {
   TargetParams,
   SearchEvent,
   SearchOption,
-  KeysType,
+  TdTransferProps,
 } from './interface';
+
+import {
+  getTransferListOption, emitEvent, getDataValues, getTransferData,
+  filterTransferData,
+} from './utils';
 import { PageInfo, TdPaginationProps } from '../pagination/type';
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
 import props from './props';
-import { getTransferListOption } from './utils';
 import { TNode } from '../common';
 
 const name = `${prefix}-transfer`;
@@ -54,6 +57,10 @@ export default defineComponent({
     };
   },
   computed: {
+    isTreeMode(): boolean {
+      const treeSlot = this.$slots.tree;
+      return typeof treeSlot === 'function';
+    },
     leftButtonDisabled(): boolean {
       return this.direction === 'right';
     },
@@ -62,31 +69,19 @@ export default defineComponent({
     },
     // props 传入的 data 格式化后的数据
     transferData(): Array<TransferItemOption> {
-      return this.getTransferData(this.data);
+      return getTransferData(this.data, this.keys, this.isTreeMode);
     },
     sourceList(): Array<TransferItemOption> {
-      return this.transferData.filter((item) => {
-        const isMatch = this.value.indexOf(item.value) > -1;
-        return !isMatch;
-      });
+      return filterTransferData(this.transferData, this.value, false, this.isTreeMode);
     },
     targetList(): Array<TransferItemOption> {
-      const list: Array<TransferItemOption> = [];
-      // 按照 targetValue 顺序，找到原数据
-      this.value.forEach((value) => {
-        const item = this.transferData.find((item) => item.value === value);
-        if (item === null) {
-          throw `target value "${value}" was not found not from data ${JSON.stringify(this.data)}`;
-        }
-        list.push(item);
-      });
-      return list;
+      return filterTransferData(this.transferData, this.value, true, this.isTreeMode);
     },
     // 被选中的value
     checkedValue(): TransferListOptionBase<TransferValue[]> {
       return {
-        [SOURCE]: this.sourceList.filter((data) => this.checked.includes(data.value)).map((data) => data.value),
-        [TARGET]: this.targetList.filter((data) => this.checked.includes(data.value)).map((data) => data.value),
+        [SOURCE]: getDataValues(this.sourceList, this.checked, { isTreeMode: this.isTreeMode }),
+        [TARGET]: getDataValues(this.targetList, this.checked, { isTreeMode: this.isTreeMode }),
       };
     },
     hasFooter(): boolean {
@@ -124,26 +119,6 @@ export default defineComponent({
     },
   },
   methods: {
-    getTransferData(data: Array<DataOption>): Array<TransferItemOption> {
-      const list: Array<TransferItemOption> = data.map((transferDataItem, index): TransferItemOption => {
-        const labelKey = (this.keys as KeysType)?.label || 'label';
-        const valueKey = (this.keys as KeysType)?.value || 'value';
-        if (transferDataItem[labelKey] === undefined) {
-          throw `${labelKey} is not in DataOption ${JSON.stringify(transferDataItem)}`;
-        }
-        if (transferDataItem[valueKey] === undefined) {
-          throw `${valueKey} is not in DataOption ${JSON.stringify(transferDataItem)}`;
-        }
-        return ({
-          label: transferDataItem[labelKey] as string,
-          value: transferDataItem[valueKey],
-          key: `key__value_${transferDataItem[valueKey]}_index_${index}`,
-          disabled: transferDataItem.disabled ?? false,
-          data: transferDataItem,
-        });
-      });
-      return list;
-    },
     transferTo(toDirection: TransferListType) {
       const oldTargetValue: Array<TransferValue> = JSON.parse(JSON.stringify(this.value));
       let newTargetValue: Array<TransferValue>;
@@ -153,8 +128,7 @@ export default defineComponent({
         newTargetValue = oldTargetValue.filter((v) => !checkedValue.includes(v));
       } else if (this.targetSort === 'original') {
         // 按照原始顺序
-        newTargetValue = this.transferData.filter((item) => oldTargetValue.includes(item.value) || checkedValue.includes(item.value))
-          .map((item) => item.value);
+        newTargetValue = getDataValues(this.transferData, oldTargetValue.concat(checkedValue), { isTreeMode: this.isTreeMode });
       } else if (this.targetSort === 'unshift') {
         newTargetValue = checkedValue.concat(oldTargetValue);
       } else {
@@ -167,8 +141,7 @@ export default defineComponent({
       const params: TargetParams = {
         type: toDirection, movedValue: checkedValue,
       };
-      this.$emit('change', newTargetValue, params);
-      this.$emit('update:value', newTargetValue, params);
+      emitEvent<Parameters<TdTransferProps['onChange']>>(this, 'change', newTargetValue, params);
     },
     // 点击移到右边按钮触发的函数
     transferToRight() {
@@ -190,8 +163,7 @@ export default defineComponent({
       };
       // 支持v-model:checked
       this.$emit('update:checked', checked);
-      this.checkedValue[listType] = val;
-      this.$emit('checked-change', event);
+      emitEvent<Parameters<TdTransferProps['onCheckedChange']>>(this, 'checked-change', event);
     },
     filterMethod(transferList: Array<TransferItemOption>, targetValueList: Array<TransferValue>, needMatch: boolean): Array<TransferItemOption> {
       return transferList.filter((item) => {
@@ -207,16 +179,16 @@ export default defineComponent({
         bottomDistance,
         type: listType,
       };
-      this.$emit('scroll', event);
+      emitEvent<Parameters<TdTransferProps['onScroll']>>(this, 'scroll', event);
     },
-    handleSearch(event: SearchEvent) {
-      this.$emit('search', event);
+    handleSearch(e: SearchEvent) {
+      emitEvent<Parameters<TdTransferProps['onSearch']>>(this, 'search', e);
     },
     handlePageChange(pageInfo: PageInfo, listType: TransferListType) {
-      this.$emit('page-change', pageInfo, { type: listType });
+      emitEvent<Parameters<TdTransferProps['onPageChange']>>(this, 'page-change', pageInfo, { type: listType });
     },
     renderTransferList(listType: TransferListType) {
-      const scopedSlots = pick(this.$slots, ['title', 'empty', 'footer', 'operation', 'transferItem']);
+      const scopedSlots = pick(this.$slots, ['title', 'empty', 'footer', 'operation', 'transferItem', 'default', 'tree']);
       return (
         <transfer-list
           checkboxProps={this.checkboxProps}
@@ -235,10 +207,10 @@ export default defineComponent({
           onScroll={($event: any) => this.handleScroll($event, listType)}
           onSearch={this.handleSearch}
           onPageChange={($event: any) => this.handlePageChange($event, listType)}
-          v-slots={scopedSlots}
           t={this.t}
           locale={this.locale}
-        ></transfer-list>
+          isTreeMode={this.isTreeMode}
+        >{scopedSlots}</transfer-list>
       );
     },
   },
@@ -250,6 +222,7 @@ export default defineComponent({
           this.showSearch ? 't-transfer-search' : '',
           this.hasFooter ? 't-transfer-footer' : '',
           this.showPagination ? 't-transfer-pagination' : '',
+          this.isTreeMode ? 't-transfer-with-tree' : '',
         ]}
       >
         {this.renderTransferList(SOURCE)}

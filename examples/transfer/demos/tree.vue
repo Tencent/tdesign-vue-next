@@ -8,7 +8,7 @@
       @checkedChange="handleCheckedChange"
     >
       <template v-slot:tree="slotProps">
-        <t-tree v-bind="slotProps" checkable hover expand-all transition />
+        <t-tree  v-bind="slotProps" checkable hover expand-all transition />
       </template>
     </t-transfer>
   </div>
