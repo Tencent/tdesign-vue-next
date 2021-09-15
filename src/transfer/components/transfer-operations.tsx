@@ -79,7 +79,7 @@ export default defineComponent({
       return renderContent;
     },
   },
-  render(h:any) {
+  render(h: any) {
     const { leftDisabled, rightDisabled } = this.$props;
     return (
       <div class={name}>

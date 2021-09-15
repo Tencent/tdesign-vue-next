@@ -1,4 +1,4 @@
-import { VNode, h, ComponentPublicInstance } from 'vue';
+import { VNode, h } from 'vue';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
 import {

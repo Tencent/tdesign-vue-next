@@ -16,7 +16,6 @@ import {
   TypeEventState,
   TreeNodeState,
   TypeTreeNodeModel,
-  TypeTreeInstance,
   TypeTargetNode,
 } from './interface';
 import {

@@ -1,5 +1,5 @@
 import {
-  defineComponent, VNode, PropType
+  defineComponent, VNode
 } from 'vue';
 import pick from 'lodash/pick';
 import { prefix } from '../config';
@@ -33,7 +33,7 @@ type DataType = {
   name: string;
   SOURCE: TransferListType;
   TARGET: TransferListType;
-}
+};
 
 export default defineComponent({
   ...mixins(getLocalReceiverMixins('transfer')),
@@ -65,11 +65,9 @@ export default defineComponent({
       return this.getTransferData(this.data);
     },
     sourceList(): Array<TransferItemOption> {
-      console.log('val' )
-      console.log(this.value)
       return this.transferData.filter((item) => {
         const isMatch = this.value.indexOf(item.value) > -1;
-        return !isMatch
+        return !isMatch;
       });
     },
     targetList(): Array<TransferItemOption> {
@@ -211,7 +209,7 @@ export default defineComponent({
       };
       this.$emit('scroll', event);
     },
-    handleSearch(e: SearchEvent) {
+    handleSearch(event: SearchEvent) {
       this.$emit('search', event);
     },
     handlePageChange(pageInfo: PageInfo, listType: TransferListType) {

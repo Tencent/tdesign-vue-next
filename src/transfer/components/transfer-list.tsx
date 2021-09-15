@@ -177,7 +177,7 @@ export default defineComponent({
         e: e.e,
         trigger: e.trigger,
       };
-      this.filterValue = e.value
+      this.filterValue = e.value;
       this.$emit('search', event);
     },
     renderTitle() {
