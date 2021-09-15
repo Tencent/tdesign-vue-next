@@ -6,12 +6,13 @@ import { TdPaginationProps } from './type';
 // 支持非受控属性 defaultCurrent 和 defaultSize
 const LocalPagination = mapProps([
   {
-    name: 'value',
-    alias: ['current'],
-    event: 'change',
+    name: 'current',
+    alias: ['modelValue'],
+    event: 'current-change',
   },
   {
     name: 'pageSize',
+    event: 'page-size-change',
   },
 ])(_Pagination);
 

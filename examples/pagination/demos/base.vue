@@ -6,6 +6,7 @@
       @change="onChange"
       v-model:pageSize="pageSize"
       @pageSizeChange="onPageSizeChange"
+      @currentChange="onCurrentChange"
     />
   </div>
 </template>
@@ -19,12 +20,15 @@ export default {
     };
   },
   methods: {
-    onPageSizeChange(val) {
-      console.log('size:', val);
+    onPageSizeChange(size) {
+      console.log('page-size:', size);
     },
-    onChange(index, event) {
+    onCurrentChange(index, pageInfo) {
       console.log(`转到第${index}页`);
-      console.log(event);
+      console.log(pageInfo);
+    },
+    onChange(pageInfo) {
+      console.log(pageInfo);
     },
   },
 };

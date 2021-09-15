@@ -56,7 +56,7 @@ export default defineComponent({
       },
     },
   },
-  emits: ['change', 'update:current', 'update:pageSize', 'pageSizeChange', 'currentChange'],
+  emits: ['change', 'update:current', 'update:pageSize', 'page-size-change', 'current-change'],
   data() {
     return {
       jumpIndex: this.current,
@@ -224,7 +224,7 @@ export default defineComponent({
           this.$emit('change', pageInfo);
         }
         this.$emit('update:current', current);
-        this.$emit('currentChange', current, pageInfo);
+        this.$emit('current-change', current, pageInfo);
       }
     },
     prevPage(): void {
@@ -277,8 +277,7 @@ export default defineComponent({
         prev: this.current,
         pageSize,
       };
-      this.$emit('update:pageSize', pageSize);
-      this.$emit('pageSizeChange', pageSize, pageInfo);
+      this.$emit('page-size-change', pageSize, pageInfo);
       if (isIndexChange) {
         this.toPage(pageCount);
       }
