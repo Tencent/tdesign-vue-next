@@ -10,7 +10,6 @@ export default {
   cascader: {
     empty: '暂无数据',
     loadingText: '加载中',
-    placeholder: '请选择'
   },
   calendar: {
     yearSelection: '{year} 年',
@@ -50,13 +49,21 @@ export default {
   },
   table: {
     empty: '暂无数据',
+    // 展开和收起图标（使用收起图标）
+    expandIcon: null,
+    // 排序图标（使用降序图标）
+    sortIcon: null,
   },
   select: {
     empty: '暂无数据',
     loadingText: '加载中',
+    // 清除按钮
+    clearIcon: null,
   },
   tree: {
     empty: '暂无数据',
+    // 目录层级图标
+    folderIcon: null,
   },
   treeSelect: {
     empty: '暂无数据',
@@ -69,12 +76,12 @@ export default {
       year: '请选择年份',
     },
     weekdays: {
-      shorthand: '日,一,二,三,四,五,六',
-      longhand: '星期一,星期二,星期三,星期四,星期五,星期六,星期日',
+      shorthand: ['日', '一', '二', '三', '四', '五', '六'],
+      longhand: ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'],
     },
     months: {
-      shorthand: '一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月',
-      longhand: '一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月',
+      shorthand: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+      longhand: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
     },
     firstDayOfWeek: 0,
     rangeSeparator: ' 至 ',
@@ -83,17 +90,17 @@ export default {
     dayAriaLabel: '日',
     weekAbbreviation: '周',
     yearAriaLabel: '年',
+    monthAriaLabel: '月',
     confirm: '确定',
     selectTime: '选择时间',
     selectDate: '选择日期',
-    presets: {
-      Today: '今天',
-      'Last 2 days': '最近2天',
-      'Last 7 days': '最近7天',
-      'Last 14 days': '最近14天',
-      'Last 30 days': '最近30天',
-      'Next 30 Days': '未来30天',
-      'Month to date': '月初至今',
-    },
+    nextYear: '下一年',
+    preYear: '上一年',
+    nextMonth: '下个月',
+    preMonth: '上个月',
+    preDecade: '上个十年',
+    nextDecade: '下个十年',
+    now: '当前',
   },
+  steps: {},
 };

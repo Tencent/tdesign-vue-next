@@ -5,7 +5,11 @@
     :columns="columns"
     height="200"
     bordered
-  ></t-table>
+  >
+  <template #operation="slotProps">
+      <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
+    </template>
+  </t-table>
 </template>
 <script>
 const data = [];
@@ -29,7 +33,7 @@ export default {
       columns: [
         {
           align: 'center',
-          width: 150,
+          width: 100,
           colKey: 'index',
           title: '序号',
           fixed: 'left',
@@ -37,7 +41,7 @@ export default {
         {
           colKey: 'platform',
           title: '平台',
-          width: 150,
+          width: 100,
           fixed: 'left',
         },
         {
@@ -56,6 +60,11 @@ export default {
           width: 250,
         },
         {
+          colKey: 'description',
+          title: '说明',
+          width: 100,
+        },
+        {
           colKey: 'needed',
           title: '是否必传',
           width: 150,
@@ -64,11 +73,17 @@ export default {
         {
           colKey: 'operation',
           title: '操作',
-          width: 80,
+          width: 100,
+          cell: 'operation',
           fixed: 'right',
         },
       ],
     };
+  },
+  methods: {
+    rehandleClickOp({ text, row }) {
+      console.log(text, row);
+    },
   },
 };
 </script>

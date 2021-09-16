@@ -21,6 +21,7 @@ export type MixedVueConstructor<Mixins extends VueMixin[]> = Mixins extends (inf
 export default function mixins<Mixins extends VueMixin[]>(
   ...mixins: Mixins
 ): MixedVueConstructor<Mixins>;
+
 export default function mixins(...mixins: (ComponentPublicInstance | ComponentOptions<ComponentPublicInstance>)[]):
 any {
   return defineComponent({ mixins });

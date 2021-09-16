@@ -1,9 +1,13 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, h } from 'vue';
+import isFunction from 'lodash/isFunction';
+import mixins from '../../utils/mixins';
+import getLocalReceiverMixins from '../../locale/local-receiver';
 import { SortType } from '../type';
 import { prefix } from '../../config';
 import Tooltip from '../../tooltip';
 import TIconChevronUp from '../../icon/chevron-up';
 import TIconChevronDown from '../../icon/chevron-down';
+import { Styles } from '../../common';
 
 const tooltips = {
   asc: '点击升序',
@@ -11,7 +15,10 @@ const tooltips = {
   cancel: '点击取消排序',
 };
 
+type SortTypeEnums = Array<'desc' | 'asc'>;
+
 export default defineComponent({
+  ...mixins(getLocalReceiverMixins('table')),
   name: `${prefix}-sorter-button`,
   props: {
     sortType: {
@@ -28,30 +35,46 @@ export default defineComponent({
       default: 'cancel',
     },
   },
+  emits: ['change'],
+  computed: {
+    allowSortTypes(): SortTypeEnums {
+      return this.sortType === 'all'
+        ? ['asc', 'desc']
+        : [this.sortType];
+    },
+  },
+  methods: {
+    getSortIcon(direction: string, className: string) {
+      const icon = isFunction(this.locale.sortIcon)
+        ? this.locale.sortIcon(h)
+        : <TIconChevronDown size='16px' />;
+      let style: Styles = {};
+      if (direction === 'asc') {
+        style = {
+          transform: 'rotate(-180deg)',
+          top: '-1px',
+          ...style,
+        };
+      } else {
+        style.bottom = '-1px';
+      }
+      const sortClassName = [`${prefix}-table-sort-icon`, className, `${prefix}-table-sort-${direction}`];
+      return <span style={style} class={sortClassName}>{icon}</span>;
+    },
+  },
   render() {
-    const { sortType, sortOrder, nextSortOrder } = this;
-    const allowSortTypes = [];
-    if (sortType === 'all') {
-      allowSortTypes.push('asc', 'desc');
-    } else {
-      allowSortTypes.push(sortType);
-    }
-    const classList = [`${prefix}-table__cell--sort-trigger`];
-    if (allowSortTypes.length > 1) {
-      classList.push(`${prefix}-table-double-icons`);
-    }
-    const buttonProps = { ...this.$attrs, class: classList };
+    const {
+      allowSortTypes, sortOrder, nextSortOrder,
+    } = this;
+    const buttonProps = { class: allowSortTypes.length > 1 ? `${prefix}-table-double-icons` : '' };
     const tips = tooltips[nextSortOrder];
     const sortButton = allowSortTypes
       .map((direction: string) => {
-        const className = direction === sortOrder ? `${prefix}-table-sort-icon-active` : `${prefix}icon-sort-default`;
-        if (direction === 'asc') {
-          return <TIconChevronUp size='12px' class={className} />;
-        }
-        return <TIconChevronDown size='12px' class={className} />;
+        const className = direction === sortOrder ? `${prefix}-table-sort-icon-active` : `${prefix}-icon-sort-default`;
+        return this.getSortIcon(direction, className);
       });
-    return <div {...buttonProps}>
-            {tips ? <Tooltip style="line-height: 0px;" content={tips} showArrow={false}>{sortButton}</Tooltip> : sortButton}
-          </div>;
+    return <div class={`${prefix}-table__cell--sort-trigger`} {...buttonProps}>
+      {tips ? <Tooltip style="line-height: 0px;" content={tips} showArrow={false}>{sortButton}</Tooltip> : sortButton}
+    </div>;
   },
 });

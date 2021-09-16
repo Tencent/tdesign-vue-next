@@ -1,4 +1,4 @@
-import { App } from 'vue';
+import { ComponentPublicInstance } from 'vue';
 import primaryTableProps from '../primary-table-props';
 import {
   BaseTableCol, RenderType, PrimaryTableCol, SortType, TdPrimaryTableProps,
@@ -11,7 +11,7 @@ export type CustomData = {
   func: CustomRenderName;
 };
 
-export interface TdInstance extends App {
+export interface TdInstance extends ComponentPublicInstance {
   cellData?: {
     type: string;
     col: BaseTableCol;
@@ -41,24 +41,22 @@ export interface CellData {
   customRender: () => void;
 }
 
-export const EVENT_NAME_WIDTH_UPPER_CASE = [
-  'onRowHover',
-  'onRowMouseup',
-  'onRowMousedown',
-  'onRowClick',
-  'onRowDbClick',
+export const EventNameWithKebab = [
+  'row-hover',
+  'row-mouseup',
+  'row-mousedown',
+  'row-click',
+  'row-db-click',
+  'row-dragstart',
+  'row-dragover',
 ];
+
 export const ExpandProps = {
   expandedRowKeys: primaryTableProps.expandedRowKeys,
   expandedRow: primaryTableProps.expandedRow,
 };
 
-export type SortColumnAndOrder = {
-  sortOrder: SortType;
-  sortColumn: PrimaryTableCol;
-};
-
-export type RenderExpandRowParams = {
+export type RenderExpandRow = {
   row: any;
   rows: any;
   rowIndex: number;

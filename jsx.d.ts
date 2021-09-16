@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+/* eslint-disable */
 import { HTMLAttributes } from 'vue';
 
 declare global {

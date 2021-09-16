@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, h } from 'vue';
 import { Checkbox, CheckboxProps } from '../../checkbox';
 import { Radio, RadioProps } from '../../radio';
 import { prefix } from '../../config';
@@ -45,19 +45,18 @@ export default defineComponent({
   },
   render() {
     const {
-      checked, indeterminate, type, checkProps, disabled,
+      checked, indeterminate, type, checkProps, disabled, $attrs,
     } = this;
     const props = {
       checked,
-      ...checkProps,
-      style: 'display: inline-block',
       indeterminate,
-      type: inputType[type],
       disabled,
+      ...checkProps,
+      ...$attrs,
+      ...{
+        style: 'display: inline-block',
+      },
     };
-    if (type === 'multiple') {
-      return <Checkbox {...props} />;
-    }
-    return <Radio {...props} />;
+    return h(inputType[type], props);
   },
 });

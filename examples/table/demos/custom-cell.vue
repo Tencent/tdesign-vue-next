@@ -77,7 +77,6 @@ export default {
           colKey: 'description',
           // render 即可渲染表头，也可以渲染单元格。但 cell 只能渲染单元格，title 只能渲染表头
           render(h, context) {
-            console.log(context);
             const { type, rowIndex, colIndex } = context;
             if (type === 'title') return 'render';
             return `render 方法渲染单元格: ${rowIndex}-${colIndex}`;

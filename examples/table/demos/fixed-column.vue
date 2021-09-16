@@ -4,7 +4,11 @@
     :columns="columns"
     rowKey="index"
     bordered
-  ></t-table>
+  >
+    <template #operation="slotProps">
+      <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
+    </template>
+  </t-table>
 </template>
 <script>
 const data = [];
@@ -18,7 +22,7 @@ for (let i = 0; i < 5; i ++) {
       postion: `读取 ${i} 个数据的嵌套信息值`,
     },
     needed: i % 4 === 0 ? '是' : '否',
-    operation: '删除',
+    description: '数据源',
   });
 }
 export default {
@@ -28,7 +32,7 @@ export default {
       columns: [
         {
           align: 'center',
-          width: 150,
+          width: 100,
           colKey: 'index',
           title: '序号',
           fixed: 'left',
@@ -36,7 +40,7 @@ export default {
         {
           colKey: 'platform',
           title: '平台',
-          width: 150,
+          width: 100,
           fixed: 'left',
         },
         {
@@ -55,6 +59,11 @@ export default {
           width: 250,
         },
         {
+          colKey: 'description',
+          title: '说明',
+          width: 100,
+        },
+        {
           colKey: 'needed',
           title: '是否必传',
           width: 150,
@@ -63,8 +72,9 @@ export default {
         {
           colKey: 'operation',
           title: '操作',
-          width: 80,
+          width: 100,
           fixed: 'right',
+          cell: 'operation',
         },
       ],
     };

@@ -19,6 +19,7 @@
 </template>
 <script lang="jsx">
 import TIconApp from '@tencent/tdesign-vue-next/lib/icon/app';
+
 export default {
   components: {
     TIconApp,
@@ -76,5 +77,8 @@ export default {
 .link {
   color: #0052d9;
   text-decoration: none;
+}
+.t-icon {
+  font-size: 16px;
 }
 </style>

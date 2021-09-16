@@ -1,47 +1,94 @@
 import { defineComponent, computed, provide } from 'vue';
 import baseTableProps from '../base-table-props';
+import {
+  DataType, TdBaseTableProps, TdPrimaryTableProps, PrimaryTableCol,
+} from '../type';
 import primaryTableProps from '../primary-table-props';
-import BaseTable from '../base-table';
+import SimpleTable from '../base-table';
 import { prefix } from '../../config';
-import { RenderExpandRowParams } from '../util/interface';
-import ColumnsProcessor from './columns-processor';
+import expand from './mixins/expand';
+import select from './mixins/select';
+import sort from './mixins/sort';
+import rowDraggable from './mixins/row-draggable';
+import filter from './mixins/filter';
+import showColumns from './mixins/show-columns';
+import asyncLoadingMixin from './mixins/async-loading';
+import { RenderExpandRow } from '../util/interface';
+import { PageInfo } from '../../pagination/type';
+import { emitEvent } from '../../utils/event';
+
+type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
+type ChangeContext = Parameters<TdPrimaryTableProps['onChange']>;
 
 export default defineComponent({
   name: `${prefix}-primary-table`,
+  components: { SimpleTable },
+  mixins: [expand, select, sort, rowDraggable, filter, showColumns, asyncLoadingMixin],
   props: {
     ...baseTableProps,
     ...primaryTableProps,
   },
-  setup(props, context) {
-    const { slots } = context;
-    const columnsProcessor = new ColumnsProcessor(props);
-    const rehandleColumns = computed(() => columnsProcessor.getProcessedColumns());
-    const rehandleData = computed(() => columnsProcessor.getRehandleData());
-    if (props.expandedRow || props.asyncLoading) {
-      const renderRow = (params: RenderExpandRowParams): void => {
-        columnsProcessor.renderRow?.(params);
-      };
-      provide('renderRow', renderRow);
+  emits: ['change', 'page-change'],
+  computed: {
+    rehandleData(): Array<DataType> {
+      return this.asyncLoadingHandler();
+    },
+    rehandleColumns(): Array<PrimaryTableCol> {
+      let columns = this.columns.map((col) => ({ ...col }));
+      columns = this.getShowColumns([...this.columns]);
+      columns = this.getSorterColumns(columns);
+      columns = this.getFilterColumns(columns);
+      columns = this.getSelectColumns(columns);
+      columns = this.getExpandColumns(columns);
+      return columns;
+    },
+  },
+  created() {
+    if (typeof this.$attrs['expanded-row-render'] !== 'undefined') {
+      console.warn('The expandedRowRender prop is deprecated. Use expandedRow instead.');
     }
-    return {
-      rehandleData,
-      rehandleColumns,
-      slots,
-    };
+  },
+  methods: {
+    // 提供给 BaseTable 添加渲染 Rows 方法
+    renderRows(params: RenderExpandRow): void {
+      const { row, rowIndex, rows } = params;
+      if (row.colKey === 'async-loading-row') {
+        rows.splice(rowIndex, 1, this.renderAsyncLoadingRow());
+        return;
+      }
+      this.renderExpandedRow(params);
+    },
   },
   render() {
     const {
-      $props, rehandleColumns, rehandleData, slots: defaultSlots,
+      $props, $slots: scopedSlots, rehandleColumns, showColumns,
     } = this;
-    const slots = {
-
-      ...defaultSlots,
-    };
-    const props = {
+    const baseTableProps = {
       ...$props,
-      data: rehandleData,
+      data: this.rehandleData,
       columns: rehandleColumns,
+      provider: {
+        renderRows: this.renderRows,
+        sortOnRowDraggable: this.sortOnRowDraggable,
+        dragging: this.dragging,
+        scopedSlots,
+      },
+      onPageChange: (pageInfo: PageInfo, newDataSource: Array<DataType>) => {
+        emitEvent<PageChangeContext>(this, 'page-change', pageInfo, newDataSource);
+        emitEvent<ChangeContext>(
+          this, 'change',
+          { pagination: pageInfo },
+          { trigger: 'pagination', currentData: newDataSource },
+        );
+      },
+      onRowDragstart: this.onDragStart,
+      onRowDragover: this.onDragOver,
     };
-    return <BaseTable {...props}>{slots}</BaseTable>;
+    return (
+      <div>
+        {showColumns && this.renderShowColumns()}
+        <simple-table {...baseTableProps}></simple-table>
+      </div>
+    );
   },
 });

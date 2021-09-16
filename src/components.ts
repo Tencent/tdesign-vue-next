@@ -55,3 +55,5 @@ export * from './alert-swiper';
 export * from './swiper';
 
 export * from './upload';
+
+export * from './locale';

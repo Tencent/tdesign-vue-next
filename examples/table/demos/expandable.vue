@@ -25,6 +25,7 @@
 </template>
 
 <script lang="jsx">
+
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
   { colKey: 'status', title: '状态', width: 100, cell: 'status' },

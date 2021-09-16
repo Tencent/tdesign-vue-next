@@ -4,6 +4,7 @@ import {
 import { prefix } from '../../config';
 import Popup from '../../popup';
 import { isNodeOverflow } from '../../utils/dom';
+import { TdInstance } from '../util/interface';
 
 const overlayStyle = {
   width: '100%',
@@ -13,6 +14,9 @@ const overlayStyle = {
 
 export default defineComponent({
   name: `${prefix}-table-cell`,
+  components: {
+    Popup,
+  },
   props: {
     cellData: {
       type: Object,
@@ -29,31 +33,38 @@ export default defineComponent({
     };
   },
   mounted() {
-    const { fixed } = this.cellData?.col;
-    const children = this.$parent.$refs;
-    // 计算当前固定列偏移的宽度
-    if (fixed && children) {
-      let offsetLeft = 0;
-      const fixedColumns: Array<ComponentPublicInstance> = [];
-      Object.keys(children).forEach((refKey) => {
-        const el = children[refKey] as ComponentPublicInstance;
-        if (el?.cellData?.col?.fixed === fixed) {
-          fixedColumns.push(el);
-        }
-      });
-      const indexInFixedColumns = fixedColumns.findIndex((el) => el === this);
-
-      fixedColumns.forEach((el: any, cur) => {
-        if ((fixed === 'right' && cur > indexInFixedColumns) || (fixed === 'left' && cur < indexInFixedColumns)) {
-          const { width } = el.cellData?.col;
-          const { clientWidth } = el.$el;
-          offsetLeft += width > 0 ? width : clientWidth;
-        }
-      });
-      this.isBoundary = fixed === 'left' ? indexInFixedColumns === fixedColumns.length - 1 : indexInFixedColumns === 0;
-      this.offsetLeft = offsetLeft;
-    }
-    this.isCutOff = isNodeOverflow(this.$el);
+    this.init();
+  },
+  updated() {
+    this.init();
+  },
+  methods: {
+    init() {
+      const { fixed } = this.cellData?.col;
+      const children = this.$parent.$refs;
+      // 计算当前固定列偏移的宽度
+      if (fixed) {
+        let offsetLeft = 0;
+        const fixedColumns: Array<ComponentPublicInstance> = [];
+        Object.keys(children).forEach((refKey) => {
+          const el = children[refKey] as TdInstance;
+          if (el?.cellData?.col?.fixed === fixed) {
+            fixedColumns.push(el);
+          }
+        });
+        const indexInFixedColumns = fixedColumns.findIndex((el: ComponentPublicInstance) => (el === this));
+        fixedColumns.forEach((el: any, cur: number) => {
+          if ((fixed === 'right' && cur > indexInFixedColumns) || (fixed === 'left' && cur < indexInFixedColumns)) {
+            const { width } = el.cellData?.col;
+            const { clientWidth } = el.$el;
+            offsetLeft += width > 0 ? width : clientWidth;
+          }
+        });
+        this.isBoundary = fixed === 'left' ? indexInFixedColumns === fixedColumns.length - 1 : indexInFixedColumns === 0;
+        this.offsetLeft = offsetLeft;
+      }
+      this.isCutOff = isNodeOverflow(this.$el);
+    },
   },
   render() {
     const {
@@ -136,8 +147,10 @@ export default defineComponent({
           overlayStyle={overlayStyle}
           placement="bottom-left"
           showArrow={false}
+          v-slots={
+            slots
+          }
         >
-          {slots}
         </Popup>
       </td>;
     }

@@ -15,18 +15,6 @@ export type EmitEventName = {
  * @example emitEvent<[TransferValue[], TargetParams]>(this, 'change', newTargetValue, params);
  * @example emitEvent<[SearchEvent[], TargetParams]>(this, { event: 'search', method: 'onChange' }, {query: ''});
  */
-export function emitEvent<T extends any[]>(vm: ComponentPublicInstance, eventName: EmitEventName, ...args: T) {
-  let emitEventName: string;
-  let emitEventMethodName: string;
-  if (typeof eventName === 'string') {
-    emitEventName = eventName;
-    emitEventMethodName = getPropsApiByEvent(eventName);
-  } else {
-    emitEventName = eventName.event;
-    emitEventMethodName = eventName.method;
-  }
-  vm.$emit(emitEventName, ...args);
-  if (typeof vm.$props[emitEventMethodName] === 'function') {
-    vm.$props[emitEventMethodName](...args);
-  }
+export function emitEvent<T extends any[]>(vm: ComponentPublicInstance, eventName: string, ...args: T) {
+  vm.$emit(eventName, ...args);
 }

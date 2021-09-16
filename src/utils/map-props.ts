@@ -1,6 +1,11 @@
 import { ComponentOptions, defineComponent, ComponentPublicInstance, h } from 'vue';
 import kebabCase from 'lodash/kebabCase';
 
+const defaultModel = {
+  prop: 'value',
+  event: 'update:value',
+};
+
 function toCamel(str: string): string {
   return str.replace(/-([a-z])/ig, (m, letter) => letter.toUpperCase());
 }
@@ -12,6 +17,10 @@ type PropOption = {
 };
 
 
+type Option = {
+  model?: typeof defaultModel;
+};
+
 type ParsedPropOption = {
   defaultName: string;
   dataName: string;
@@ -21,14 +30,14 @@ type ParsedPropOption = {
 };
 
 
-function getPropOptionMap(props: (string | PropOption)[]):
-{ [name: string]: ParsedPropOption } {
+function getPropOptionMap(props: (string | PropOption)[], options: Option = {}): { [name: string]: ParsedPropOption } {
   const propOptionMap = {};
+
+  const { model } = options;
 
   function parseProp(propOption: PropOption): ParsedPropOption {
     const {
       name: propName,
-      alias,
       ...others } = propOption;
     const camelName = propName.replace(/^[a-z]/, (letter: string) => letter.toUpperCase());
     const defaultName = `default${camelName}`;
@@ -37,17 +46,16 @@ function getPropOptionMap(props: (string | PropOption)[]):
     let events: string[] = [];
     if (propOption.event) {
       events = events.concat(propOption.event);
-    }
-    events.push(`update:${propName}`);
-    if (alias) {
-      events = events.concat(alias.map(item => `update:${item}`));
+    } else if (model.prop === propName) {
+      events = events.concat(model.event);
+    } else {
+      events = events.concat(`update:${propName}`);
     }
 
     return {
       events,
       defaultName,
       dataName,
-      alias,
       ...others,
     };
   }
@@ -58,9 +66,9 @@ function getPropOptionMap(props: (string | PropOption)[]):
     };
     let propOption: PropOption;
     if (typeof prop === 'string') {
-      propOption = Object.assign({}, defaultOption, { name: prop });
+      propOption = { ...defaultOption, name: prop };
     } else {
-      propOption = Object.assign({}, defaultOption, prop);
+      propOption = { ...defaultOption, ...prop };
     }
 
     propOptionMap[propOption.name] = parseProp(propOption);
@@ -69,20 +77,24 @@ function getPropOptionMap(props: (string | PropOption)[]):
   return propOptionMap;
 }
 
-export default function (props: (string | PropOption)[]): any {
+export default function (props: (string | PropOption)[], options: Option = {}): any {
   function mapProps(componentConstructor: ComponentPublicInstance): any {
     const component: ComponentOptions<ComponentPublicInstance> = componentConstructor;
-    const propOptionMap = getPropOptionMap(props);
+    const model = options.model || defaultModel;
+    const propOptionMap = getPropOptionMap(props, { model });
 
     const defineProps: Record<string, any> = { ...component.props };
     const defineWatches = {};
     let defineEvents: string[] = [];
     const defineMethods = {};
 
-    const camelPropsKeys = Object.keys(component.props).map(key => toCamel(key));
+    const propsKeys: string[] = Object.keys(component.props);
+    const camelPropsKeys = propsKeys.map((key) => toCamel(key));
 
     Object.keys(propOptionMap).forEach((propName) => {
-      const { events, alias, defaultName, dataName } = propOptionMap[propName];
+      const {
+        events, alias, defaultName, dataName,
+      } = propOptionMap[propName];
 
       defineProps[propName] = component.props[propName];
       defineProps[defaultName] = component.props[defaultName];
@@ -164,12 +176,9 @@ export default function (props: (string | PropOption)[]): any {
         _listeners(): Record<string, any> {
           const others = {};
           Object.keys(this.$attrs).forEach((attr: string): void => {
-            const event = attr.startsWith('on')
-              ? attr[2].toLowerCase() + attr.substr(2)
-              : null;
+            let event: string
             if (event && defineEvents.indexOf(event) === -1) {
               others[attr] = (...args: any[]): void => {
-                // (this.$listeners[event] as Function)(...args);
                 this.$emit(event, ...args);
               };
             }

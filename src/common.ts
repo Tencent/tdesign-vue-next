@@ -1,12 +1,13 @@
 /** Vue3 特有全局变量 */
 type VNode = import('vue').VNode;
-export type ScopedSlot = (props: any) => SlotReturnValue;
+export type ScopedSlot = () => SlotReturnValue;
 export type SlotReturnValue = VNode | string | boolean | null | undefined | SlotReturnArray;
 export type SlotReturnArray = Array<SlotReturnValue>;
 export interface TVNode extends VNode {
   name: string;
 }
 export type TNodeReturnValue = SlotReturnValue;
+// eslint-disable-next-line no-unused-vars
 export type TNode<T=any> = (h: typeof import('vue').h, props?: T) => import('vue').VNodeChild;
 export type JsxNode = SlotReturnValue;
 

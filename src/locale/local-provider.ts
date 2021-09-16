@@ -1,11 +1,8 @@
 import { defineComponent } from 'vue';
-import config from '../config';
+import { prefix } from '../config';
+import { Locale } from './type';
 
-export interface Locale {
-  [propName: string]: string | string[] | Locale;
-};
-
-const name = `${config}-locale-provider`;
+const name = `${prefix}-locale-provider`;
 const LocaleProvider = defineComponent({
   name,
   props: {
@@ -17,7 +14,7 @@ const LocaleProvider = defineComponent({
     };
   },
   render() {
-    return this.$scopedSlots.default ? this.$scopedSlots.default[0]() : null;
+    return this.$slots.default ? this.$slots.default() : null;
   },
 });
 
