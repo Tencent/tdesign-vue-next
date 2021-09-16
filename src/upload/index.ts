@@ -1,13 +1,12 @@
-import { prefix } from '../config';
-const name = `${prefix}-upload`;
+import _Upload from './upload';
 import { withInstall, WithInstallType } from '../utils/withInstall';
+import { TdUploadProps } from './type';
+import mapProps from '../utils/map-props';
 
-import { defineComponent } from 'vue';
+export * from './type';
+export type UploadProps = TdUploadProps;
 
-const Component = defineComponent({
-  name,
-});
-
-export const Upload: WithInstallType<typeof Component> = withInstall(Component);
-
+export const Upload: WithInstallType<typeof _Upload> = withInstall(mapProps([{
+  name: 'files', event: 'change', alias: ['modelValue']
+}])(_Upload));
 export default Upload;

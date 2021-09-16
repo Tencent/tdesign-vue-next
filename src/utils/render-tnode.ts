@@ -58,7 +58,16 @@ interface JSXRenderContext {
   params?: Record<string, any>;
 }
 
-// 通过JSX的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
+/**
+ * 通过JSX的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
+ * @param vm 组件实例
+ * @param name 插槽和属性名称
+ * @param options 值可能为默认渲染节点，也可能是默认渲染节点和参数的集合
+ * @example renderTNodeJSX(this, 'closeBtn')  优先级 props function 大于 插槽
+ * @example renderTNodeJSX(this, 'closeBtn', <t-icon-close />)。 当属性值为 true 时则渲染 <t-icon-close />
+ * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <t-icon-close />, params })。 params 为渲染节点时所需的参数
+ */
+
 export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, options?: Slots | JSXRenderContext | JSX.Element) => {
   const params = typeof options === 'object' && ('params' in options) ? options.params : null;
   const defaultNode = typeof options === 'object' && ('defaultNode' in options) ? options.defaultNode : options;
@@ -75,22 +84,36 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
   if (isPropsEmpty && instance.$slots[name]) return instance.$slots[name](params);
   return propsNode;
 };
+
 /**
  * 通过JSX的方式渲染 TNode，props 和 插槽同时处理。与 renderTNodeJSX 区别在于 属性值为 undefined 时会渲染默认节点
- * @param vm 组件示例
+ * @param vm 组件实例
  * @param name 插槽和属性名称
  * @example renderTNodeJSX(this, 'closeBtn')
  * @example renderTNodeJSX(this, 'closeBtn', <t-icon-close />)。this.closeBtn 为空时，则兜底渲染 <t-icon-close />
  * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <t-icon-close />, params }) 。params 为渲染节点时所需的参数
  */
-export const renderTNodeJSXDefault = (vm: ComponentPublicInstance, name: string, options?: Slots | JSXRenderContext) => {
+export const renderTNodeJSXDefault = (vm: ComponentPublicInstance, name: string, options?: Slots | JSXRenderContext | JSX.Element) => {
   const defaultNode = typeof options === 'object' && 'defaultNode' in options ? options.defaultNode : options;
   return renderTNodeJSX(vm, name, options) || defaultNode;
 };
 
-// content 优先级控制：name1 优先级高于 name2
-export const renderContent = (instance: ComponentPublicInstance, name1: string, name2: string) => {
-  const node1 = renderTNodeJSX(instance, name1);
-  const node2 = renderTNodeJSX(instance, name2);
-  return [undefined, null, ''].includes(node1) ? node2 : node1;
+/**
+ * 用于处理相同名称的 TNode 渲染
+ * @param vm 组件实例
+ * @param name1 第一个名称，优先级高于 name2
+ * @param name2 第二个名称
+ * @param defaultNode 默认渲染内容：当 name1 和 name2 都为空时会启动默认内容渲染
+ * @example renderContent(this, 'default', 'content')
+ * @example renderContent(this, 'default', 'content', '我是默认内容')
+ * @example renderContent(this, 'default', 'content', { defaultNode: '我是默认内容', params })
+ */
+export const renderContent = (vm: ComponentPublicInstance, name1: string, name2: string, options?: VNode | JSXRenderContext | JSX.Element) => {
+  const params = typeof options === 'object' && 'params' in options ? options.params : null;
+  const defaultNode = typeof options === 'object' && 'defaultNode' in options ? options.defaultNode : options;
+  const toParams = params ? { params } : undefined;
+  const node1 = renderTNodeJSX(vm, name1, toParams);
+  const node2 = renderTNodeJSX(vm, name2, toParams);
+  const r = [undefined, null, ''].includes(node1) ? node2 : node1;
+  return [undefined, null, ''].includes(r) ? defaultNode : r;
 };

@@ -1,4 +1,4 @@
-import { XhrOptions, UploadProgressEvent } from './interface';
+import { XhrOptions } from './interface';
 
 export default function xhr({
   action,
@@ -22,29 +22,30 @@ export default function xhr({
   Object.keys(sendData).forEach((key) => {
     formData.append(key, data[key]);
   });
-  formData.append(name, file.originFileObj);
+  formData.append(name, file.raw);
+
+  xhr.open('post', action, true);
 
   // custom request headers
   Object.keys(headers).forEach((key) => {
     xhr.setRequestHeader(key, headers[key]);
   });
 
-  xhr.open('post', action, true);
+  xhr.onerror = (event: ProgressEvent) => onError({ event, file });
 
-  xhr.onerror = (event: UploadProgressEvent) => onError({ event, file });
-
-  xhr.onprogress = function (event: UploadProgressEvent) {
+  xhr.onprogress = function (event: ProgressEvent) {
+    let percent = 0;
     if (event.total > 0) {
-      event.percent = event.loaded / event.total * 100; // eslint-disable-line
+      percent = Math.round((event.loaded / event.total) * 100);
     }
-    onProgress({ event, file });
+    onProgress({ event, percent, file });
   };
 
-  xhr.onload = function (event: UploadProgressEvent) {
-    if (xhr.status < 200 || xhr.status >= 300) {
-      return onError({ event });
-    }
+  xhr.onload = function (event: ProgressEvent) {
     let response;
+    if (xhr.status < 200 || xhr.status >= 300) {
+      return onError({ event, file, response });
+    }
     const text = xhr.responseText || xhr.response;
     try {
       response = JSON.parse(text);
@@ -57,4 +58,4 @@ export default function xhr({
   xhr.send(formData);
 
   return xhr;
-};
+}
