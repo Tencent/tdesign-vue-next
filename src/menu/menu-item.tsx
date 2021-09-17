@@ -10,6 +10,7 @@ const name = `${prefix}-menu-item`;
 export default defineComponent({
   name,
   props: { ...props },
+  emits: ['click'],
   setup(props, ctx) {
     const menu = inject<TdMenuInterface>('TdMenu');
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', null);
@@ -46,7 +47,7 @@ export default defineComponent({
     handleClick() {
       if (this.disabled) return;
       this.menu.select(this.value);
-
+      this.$emit('click');
       if (this.href) {
         window.open(this.href, this.target);
       } else if (this.to) {

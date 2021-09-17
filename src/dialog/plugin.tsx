@@ -34,6 +34,15 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   });
   const dialog = createApp(component).mount(wrapper);
 
+  if (options.className) {
+    options.className.split(' ').forEach((name) => {
+      dialog.$el.classList.add(name.trim());
+    });
+  }
+  if (options.style) {
+    (dialog.$el as HTMLElement).style.cssText += options.style;
+  }
+
   const container = getAttach(options.attach);
   if (container) {
     container.appendChild(wrapper);
@@ -53,7 +62,6 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
     },
     destroy: () => {
       visible.value = false;
-      container.removeChild(wrapper);
     },
   };
   return dialogNode;

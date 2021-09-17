@@ -64,7 +64,7 @@
   </div>
 </template>
 
-<script>
+<script lang="jsx">
 import { MessagePlugin } from '@/src/message';
 
 export default {

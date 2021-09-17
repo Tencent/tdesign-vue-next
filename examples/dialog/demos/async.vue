@@ -10,7 +10,7 @@
         theme: 'primary',
         loading: true
       }"
-      :onClickConfirm="onConfirm"
+      :onConfirm="onConfirm"
       :onClose="close"
     >
     </t-dialog>

@@ -33,7 +33,7 @@
       资源编辑
     </t-menu-item>
     <template #operations>
-      <t-icon :name="iconName" @click="changeCollapsed" />
+      <t-icon class="t-menu__operations-icon" :name="iconName" @click="changeCollapsed" />
     </template>
   </t-menu>
 </template>

@@ -1,24 +1,39 @@
 <template>
   <div class="tag-demo">
-    <div class="tdesign-demo-block">
-      可删除
+    <div class="tag-block">
+      <t-tag theme="primary" closable>标签一</t-tag>
+      <t-tag theme="success" closable>标签二</t-tag>
+      <t-tag theme="warning" closable>标签三</t-tag>
+      <t-tag theme="danger" closable>标签四</t-tag>
+    </div>
+    <div class="tag-block light">
+      <t-tag theme="primary" variant="light" closable>标签一</t-tag>
+      <t-tag theme="success" variant="light" closable>标签二</t-tag>
+      <t-tag theme="warning" variant="light" closable>标签三</t-tag>
+      <t-tag theme="danger" variant="light" closable>标签四</t-tag>
+    </div>
+    <div class="tag-block plain">
+      <t-tag variant="plain" theme="primary" closable>标签一</t-tag>
+      <t-tag variant="plain" theme="success" closable>标签二</t-tag>
+      <t-tag variant="plain" theme="warning" closable>标签三</t-tag>
+      <t-tag variant="plain" theme="danger" closable>标签四</t-tag>
+    </div>
+    <div class="tag-block">
       <t-tag
         v-for="(tag, index) in tags"
         :key="index"
         :theme="tag.type"
-        :variant="tag.variant"
-        :maxWidth="tag.maxWidth"
         :closable="tag.showClose"
         :icon="tag.icon"
         :disabled="!!tag.disabled"
+        :maxWidth="tag.maxWidth"
         @click="handleClick"
         @close="handleClose(index)"
       >
         {{ tag.name }}
       </t-tag>
     </div>
-    <div class="tdesign-demo-block editable">
-      可添加
+    <div class="tag-block editable">
       <t-tag v-if="!inputVisible" @click="handleClickAdd">
         <t-icon-add />
         添加标签
@@ -52,15 +67,17 @@ export default {
       inputVisible: false,
       tags: [
         {
-          name: '可删除标签',
+          name: '可删除标签可删除标签',
           type: 'default',
           showClose: true,
+          maxWidth: 100,
         },
         {
-          name: '可删除标签',
+          name: '可删除标签可删除标签',
           type: 'default',
-          icon: () => <TIconDiscount />,
+          icon: () => <t-icon-discount />,
           showClose: true,
+          maxWidth: 100,
         },
         {
           name: '可删除标签',
@@ -79,7 +96,7 @@ export default {
       console.log(event);
     },
     handleInputEnter(val) {
-      if (val) {
+      if (val && !this.tags.some((item) => item.name === val)) {
         this.tags.push({ name: val, type: 'default', showClose: true });
       }
       this.inputVisible = false;
@@ -95,10 +112,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.tag-demo .tdesign-demo-block {
+.tag-block {
   display: flex;
+  margin-bottom: 30px;
   > * {
-    margin-left: 30px;
+    margin-right: 30px;
   }
 }
 

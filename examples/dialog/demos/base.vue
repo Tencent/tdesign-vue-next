@@ -4,14 +4,12 @@
     <t-dialog
       header="对话框标题"
       body="对话框内容"
-      :closeBtn="true"
       v-model:visible="visible"
-      @click-confirm="onConfirm"
-      :onClickConfirm="onConfirmAnother"
-      :onClickCancel="onCancel"
-      :onKeydownEsc="onKeydownEsc"
-      :onClickCloseBtn="onClickCloseBtn"
-      :onClickOverlay="onClickOverlay"
+      :onConfirm="onConfirmAnother"
+      :onCancel="onCancel"
+      :onEscKeydown="onEscKeydown"
+      :onCloseBtnClick="onCloseBtnClick"
+      :onOverlayClick="onOverlayClick"
       :onClose="close"
     >
     </t-dialog>
@@ -25,27 +23,27 @@ export default {
     };
   },
   methods: {
-    onConfirm() {
-      console.log('@click-confirm与onClickConfirm任选一种方式即可，其他几个事件类似');
+    onConfirm(context) {
+      console.log('@confirm与onConfirm任选一种方式即可，其他几个事件类似', context);
       this.visible = false;
     },
-    onConfirmAnother() {
-      console.log('点击了确认按钮');
+    onConfirmAnother(context) {
+      console.log('点击了确认按钮', context);
     },
-    close() {
-      console.log('关闭弹窗，点击关闭按钮、按下ESC、点击蒙层等触发');
+    close(context) {
+      console.log('关闭弹窗，点击关闭按钮、按下ESC、点击蒙层等触发', context);
     },
-    onCancel() {
-      console.log('点击了取消按钮');
+    onCancel(context) {
+      console.log('点击了取消按钮', context);
     },
-    onKeydownEsc() {
-      console.log('按下了ESC');
+    onEscKeydown(context) {
+      console.log('按下了ESC', context);
     },
-    onClickCloseBtn() {
-      console.log('点击了关闭按钮');
+    onCloseBtnClick(context) {
+      console.log('点击了关闭按钮', context);
     },
-    onClickOverlay() {
-      console.log('点击了蒙层');
+    onOverlayClick(context) {
+      console.log('点击了蒙层', context);
     },
   },
 };

@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import props from './list-item-meta-props';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-list-item__meta`;
 
@@ -10,14 +10,19 @@ export default defineComponent({
   props,
   methods: {
     renderAvatar() {
-      if (this.avatar && typeof this.avatar === 'string') {
+      if (this.avatar || this.$slots.avatar) {
+        console.warn('`avatar` is going to be deprecated, please use `image` instead');
+      }
+      const thumbnail = renderContent(this, 'avatar', 'image');
+      if (!thumbnail) return;
+      if (typeof thumbnail === 'string') {
         return (
           <div class={`${name}-avatar`}>
-            <img src={this.avatar} alt=""></img>
+            <img src={thumbnail}></img>
           </div>
         );
       }
-      return renderTNodeJSX(this, 'avator');
+      return <div class={`${name}-avatar`}>{thumbnail}</div>;
     },
   },
   render() {

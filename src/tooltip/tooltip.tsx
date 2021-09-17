@@ -15,6 +15,7 @@ export default defineComponent({
     ...popupProps,
     ...props,
   },
+  emits: ['visible-change'],
   data() {
     return {
       timer: null,
@@ -64,6 +65,7 @@ export default defineComponent({
   methods: {
     onTipVisibleChange(val: boolean) {
       this.tooltipVisible = val;
+      this.$emit('visible-change', this.tooltipVisible);
     },
   },
   render() {

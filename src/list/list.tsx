@@ -17,16 +17,6 @@ export default defineComponent({
   },
   props: {
     ...props,
-    asyncLoading: {
-      type: [String, Number, Function] as PropType<TdListProps['asyncLoading']>,
-      default: undefined,
-      validator(val: string | (() => void) | number): boolean {
-        if (typeof val === 'string') {
-          return ['loading', 'loading-more'].includes(val);
-        }
-        return true;
-      },
-    },
   },
   emits: ['scroll', 'load-more'],
   computed: {
@@ -42,7 +32,9 @@ export default defineComponent({
       ];
     },
     loadingClass(): ClassName {
-      return typeof this.asyncLoading === 'string' ? `${name}__load ${name}__load--${this.asyncLoading}` : `${name}__load`;
+      return typeof this.asyncLoading === 'string' && ['loading', 'load-more'].includes(this.asyncLoading)
+        ? `${name}__load ${name}__load--${this.asyncLoading}`
+        : `${name}__load`;
     },
   },
   methods: {

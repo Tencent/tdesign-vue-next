@@ -1,13 +1,14 @@
 <template>
-  <div class="tdesign-checkbox-group">
-    <div class="demo-checkbox-row-desc" v-if="city.length">选中值: {{ city }}</div>
-    <div class="demo-checkbox-all">
+  <div class="tdesign-demo-block-column">
+    <div>选中值: {{ city.join(',') }}</div>
+    <div>
       <t-checkbox :checked="checkAll" :indeterminate="indeterminate" :onChange="handleSelectAll">全选</t-checkbox>
       <t-checkbox v-model="disabled">禁用全部</t-checkbox>
     </div>
-    <div>
-      <t-checkbox-group v-model="city" :options="options" :disabled="disabled" />
-    </div>
+    <t-checkbox-group v-model="city" :options="options" :disabled="disabled" />
+
+    <div>选中值: {{ city2.join(',') }}</div>
+    <t-checkbox-group v-model="city2" :options="options2"/>
   </div>
 </template>
 
@@ -18,18 +19,17 @@ export default {
       city: ['北京'],
       disabled: false,
       options: [
-        {
-          value: '北京',
-          label: '北京',
-        },
-        {
-          value: '上海',
-          label: '上海',
-        },
-        {
-          value: '广州',
-          label: '广州',
-        },
+        { value: '北京', label: '北京' },
+        { value: '上海', label: '上海' },
+        { value: '广州', label: '广州' },
+      ],
+
+      city2: ['深圳'],
+      options2: [
+        { label: '全选', checkAll: true },
+        { value: '深圳', label: '深圳' },
+        { value: '杭州', label: '杭州' },
+        { value: '厦门', label: '厦门' },
       ],
     };
   },
@@ -48,16 +48,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.tdesign-checkbox-group > div {
-  margin-bottom: 16px;
-}
-.demo-checkbox-all > label {
-  margin-right: 16px;
-}
-
-.demo-checkbox-row-desc {
-  color: rgba(0, 0, 0, 0.6);
-}
-</style>

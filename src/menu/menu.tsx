@@ -130,7 +130,7 @@ export default defineComponent({
           <ul class={this.innerClasses}>
             {defaultSlot && defaultSlot()}
           </ul>
-          {operationsSlot && (<div class={`${prefix}-menu__options`}>{operationsSlot()}</div>)}
+          {operationsSlot && (<div class={`${prefix}-menu__operations`}>{operationsSlot()}</div>)}
         </div>
       </div>
     );

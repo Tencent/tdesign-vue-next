@@ -20,4 +20,10 @@
 
 {{ placement }}
 
+### 组件实例方法 与 插件调用
+
+除了常规的组件使用，还可以通过组件实例方法`$message.success`和插件方式`MessagePlugin.success`使用
+
+{{ plugin }}
+
 :: BASE_PROPS ::

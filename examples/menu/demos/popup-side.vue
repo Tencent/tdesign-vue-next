@@ -39,7 +39,7 @@
       资源列表
     </t-menu-item>
     <template #operations>
-      <t-icon name="view-list" @click="changeCollapsed" />
+      <t-icon class="t-menu__operations-icon" name="view-list" @click="changeCollapsed" />
     </template>
   </t-menu>
 </template>

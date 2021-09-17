@@ -11,9 +11,10 @@
     </t-menu-item>
     <t-menu-item value="4" :disabled="true">菜单4</t-menu-item>
     <template #options>
-      <a href="javascript:;"><t-icon name="search"/></a>
-      <a href="javascript:;"><t-icon name="notification-filled"/></a>
-      <a href="javascript:;"><t-icon name="home"/></a>
+      <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="search"/></a>
+      <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="mail"/></a>
+      <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="user"/></a>
+      <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="ellipsis"/></a>
     </template>
   </t-head-menu>
 </template>

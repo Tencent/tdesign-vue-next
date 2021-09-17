@@ -4,11 +4,7 @@
 ::: demo demos/stripe list
 :::
 
-### 额外内容
-::: demo demos/extra list
-:::
-
-### 加载
+### 异步加载
 ::: demo demos/loading list
 :::
 

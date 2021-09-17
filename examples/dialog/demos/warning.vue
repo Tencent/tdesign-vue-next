@@ -1,12 +1,13 @@
 <template>
   <div>
     <t-button theme="primary" @click="visible1 = true">提示反馈</t-button>
+  
     <t-dialog
       theme="info"
       header="提示"
       body="对话框内容"
       v-model:visible="visible1"
-      @click-confirm="onClickConfirm"
+      @confirm="onClickConfirm"
       :onClose="close1"
     >
     </t-dialog>
@@ -17,7 +18,7 @@
       header="恭喜"
       body="对话框内容"
       v-model:visible="visible2"
-      @click-confirm="onClickConfirm"
+      @confirm="onClickConfirm"
       :onClose="close2"
     >
     </t-dialog>
@@ -28,8 +29,10 @@
       header="警示"
       body="对话框内容"
       v-model:visible="visible3"
-      @click-confirm="onClickConfirm"
+      @confirm="onClickConfirm"
       :onClose="close3"
+      :cancelBtn="null"
+
     >
     </t-dialog>
 
@@ -39,29 +42,33 @@
       header="错误"
       body="对话框内容"
       v-model:visible="visible4"
-      @click-confirm="onClickConfirm"
+      @confirm="onClickConfirm"
       :onClose="close4"
+      :cancelBtn="null"
     >
     </t-dialog>
 
     <t-button theme="primary" @click="visible5 = true">自定义icon</t-button>
     <t-dialog
       body="对话框内容"
+      :closeBtn="false"
       v-model:visible="visible5"
-      @click-confirm="onClickConfirm"
-      :onClose="close4"
+      @confirm="onClickConfirm"
+      :onClose="close5"
     >
       <template #header>
-        <t-icon name="check-circle-filled" color="orange" />
-        <span style="vertical-align: middle;">对话框标题</span>
+        <div>
+          <t-icon name="check-circle-filled" color="orange" />
+          <span style="vertical-align: middle;">对话框标题</span>
+        </div>
       </template>
     </t-dialog>
 
-
   </div>
 </template>
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
+
 export default defineComponent({
   data() {
     return {
@@ -73,12 +80,15 @@ export default defineComponent({
     };
   },
   methods: {
-    onClickConfirm(close: Function, e: Event): void {
+    onClickConfirm(context) {
+      const { e } = context;
       // todo something else here
       this.sendingRequest();
-      // close dialog
-      close();
-      // stop propagation
+      this.visible1 = false;
+      this.visible2 = false;
+      this.visible3 = false;
+      this.visible4 = false;
+      this.visible5 = false;
       e.stopPropagation();
     },
     sendingRequest() {
@@ -96,6 +106,9 @@ export default defineComponent({
     },
     close4() {
       this.visible4 = false;
+    },
+    close5() {
+      this.visible5 = false;
     },
   },
 });

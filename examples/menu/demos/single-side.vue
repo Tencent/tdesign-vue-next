@@ -15,7 +15,7 @@
       <t-menu-item value="item9">资源编辑</t-menu-item>
     </t-menu>
 
-    <t-menu theme="light" value="dashboard" style="margin-right: 50px" height="550px" >
+    <t-menu theme="dark" defaultValue="dashboard" height="550px" >
       <template #logo>
         <img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
       </template>

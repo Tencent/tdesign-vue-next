@@ -2,6 +2,7 @@ import { prefix } from '../config';
 import { defineComponent } from 'vue';
 import props from './props';
 import CLASSNAMES from '../utils/classnames';
+import calcTextareaHeight from './calcTextareaHeight';
 
 const name = `${prefix}-textarea`;
 
@@ -26,6 +27,7 @@ export default defineComponent({
     return {
       focused: false,
       mouseHover: false,
+      textareaStyle: {},
     };
   },
   computed: {
@@ -40,7 +42,27 @@ export default defineComponent({
       });
     },
   },
+
+  mounted() {
+    this.adjustTextareaHeight();
+  },
+
+  watch: {
+    value() {
+      this.adjustTextareaHeight();
+    }
+  },
+
   methods: {
+    adjustTextareaHeight() {
+      if (this.autosize === true) {
+        this.textareaStyle = calcTextareaHeight(this.$refs.refTextareaElem as HTMLTextAreaElement);
+      } else if (typeof this.autosize === 'object') {
+        const { minRows, maxRows } = this.autosize
+        this.textareaStyle = calcTextareaHeight(this.$refs.refTextareaElem as HTMLTextAreaElement, minRows, maxRows);
+      }
+    },
+
     emitEvent(name: TextareaEmitEvent, value: string | number, context: object) {
       this.$emit(name, value, context);
     },
@@ -91,10 +113,8 @@ export default defineComponent({
       onKeyup: this.emitKeyUp,
       onKeypress: this.emitKeypress,
     });
-    const { class: className, style } = this.$attrs;
     const classes = [
       `${name}__inner`,
-      `${className}`,
       {
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
@@ -108,10 +128,11 @@ export default defineComponent({
           onInput={this.handleInput}
           {...inputEvents}
           {...this.inputAttrs}
-          ref="refInputElem"
+          ref="refTextareaElem"
           value={this.value}
-          style={style}
+          style={this.textareaStyle}
           class={classes}
+          {...this.$attrs}
         ></textarea>
         {this.maxlength ? (
           <span class={`${name}__limit`}>{`${String(this.value)?.length || 0}/${this.maxlength}`}</span>

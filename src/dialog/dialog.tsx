@@ -5,11 +5,12 @@ import TButton, { ButtonProps } from '../button';
 import TIconInfoCircleFilled from '../icon/info-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import TIconErrorCircleFilled from '../icon/error-circle-filled';
-import { DialogCloseContext } from './type';
+import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import { ClassName, Styles, TNode } from '../common';
+import { emitEvent } from '../utils/event';
 
 type FooterButton = string | ButtonProps | TNode;
 type FooterButtonType = 'confirm' | 'cancel';
@@ -74,7 +75,7 @@ export default defineComponent({
 
   props: { ...props },
 
-  emits: ['close', 'update:visible', 'keydown-esc', 'click-overlay', 'click-close-btn', 'click-cancel', 'click-confirm', 'opened', 'closed'],
+  emits: ['esc-keydown', 'update:visible', 'overlay-click', 'close-btn-click', 'cancel', 'confirm', 'opened', 'closed', 'close'],
 
   computed: {
     // 是否模态形式的对话框
@@ -148,7 +149,7 @@ export default defineComponent({
     },
     keyboardEvent(e: KeyboardEvent) {
       if (e.code === 'Escape') {
-        this.$emit('keydown-esc', e);
+        emitEvent<Parameters<TdDialogProps['onEscKeydown']>>(this, 'esc-keydown', { e });
         // 根据closeOnKeydownEsc判断按下ESC时是否触发close事件
         if (this.closeOnKeydownEsc) {
           this.emitCloseEvent({
@@ -159,7 +160,7 @@ export default defineComponent({
       }
     },
     overlayAction(e: MouseEvent) {
-      this.$emit('click-overlay', e);
+      emitEvent<Parameters<TdDialogProps['onOverlayClick']>>(this, 'overlay-click', { e });
       // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
       if (this.closeOnOverlayClick) {
         this.emitCloseEvent({
@@ -169,7 +170,7 @@ export default defineComponent({
       }
     },
     closeBtnAcion(e: MouseEvent) {
-      this.$emit('click-close-btn', e);
+      emitEvent<Parameters<TdDialogProps['onCloseBtnClick']>>(this, 'close-btn-click', { e });
       this.emitCloseEvent({
         trigger: 'close-btn',
         e,
@@ -177,26 +178,26 @@ export default defineComponent({
     },
 
     cancelBtnAction(e: MouseEvent) {
-      this.$emit('click-cancel', e);
+      emitEvent<Parameters<TdDialogProps['onCancel']>>(this, 'cancel', { e });
       this.emitCloseEvent({
         trigger: 'cancel',
         e,
       });
     },
     confirmBtnAction(e: MouseEvent) {
-      this.$emit('click-confirm', e);
+      emitEvent<Parameters<TdDialogProps['onConfirm']>>(this, 'confirm', { e });
     },
     // 打开弹窗动画结束时事件
     afterEnter() {
-      this.$emit('opened');
+      emitEvent<Parameters<TdDialogProps['onOpened']>>(this, 'opened');
     },
     // 关闭弹窗动画结束时事件
     afterLeave() {
-      this.$emit('closed');
+      emitEvent<Parameters<TdDialogProps['onClosed']>>(this, 'closed');
     },
 
     emitCloseEvent(context: DialogCloseContext) {
-      this.$emit('close', context);
+      emitEvent<Parameters<TdDialogProps['onClose']>>(this, 'close', context);
       // 默认关闭弹窗
       this.$emit('update:visible', false);
     },
@@ -229,7 +230,7 @@ export default defineComponent({
           variant="base"
           theme={theme}
           onClick={clickAction}
-          props={isApiObject ? btnApi : {}}
+          {...isApiObject ? btnApi : {}}
           class={`${name}-${btnType}`}
         >
           { (btnApi && typeof btnApi === 'object') ? btnApi.content : btnApi }

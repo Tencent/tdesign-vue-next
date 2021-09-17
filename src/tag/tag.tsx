@@ -70,7 +70,7 @@ export default defineComponent({
     return (
       <span class={this.tagClass} style={this.tagStyle} onClick={this.handleClick}>
         {icon}
-        {tagContent}
+        {this.maxWidth ? <span style={this.tagStyle} class={`${name}--text`}>{tagContent}</span> : tagContent}
         {closeIcon}
       </span>
     );

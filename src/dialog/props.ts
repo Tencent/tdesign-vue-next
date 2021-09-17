@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-09-17 15:51:08
  * */
 
 import { TdDialogProps } from './type';
@@ -101,20 +101,14 @@ export default {
     type: [String, Number] as PropType<TdDialogProps['top']>,
   },
   /** 控制对话框是否显示 */
-  visible: {
-    type: Boolean,
-    default: true,
-  },
+  visible: Boolean,
   /** 控制对话框是否显示，非受控属性 */
-  defaultVisible: {
-    type: Boolean,
-    default: true,
-  },
+  defaultVisible: Boolean,
   /** 对话框宽度，示例：320, '500px', '80%' */
   width: {
     type: [String, Number] as PropType<TdDialogProps['width']>,
   },
-  /** 对话框层级，Web 侧样式默认为 5500，移动端和小程序样式默认为 1500 */
+  /** 对话框层级，Web 侧样式默认为 2500，移动端和小程序样式默认为 1500 */
   zIndex: {
     type: Number,
   },

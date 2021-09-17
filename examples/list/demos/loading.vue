@@ -2,13 +2,13 @@
   <div>
     <t-list :split="true" async-loading="loading" :onLoadMore="onLoadMore">
       <t-list-item>
-        <t-list-item-meta :avatar="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
       </t-list-item>
       <t-list-item>
-        <t-list-item-meta :avatar="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
       </t-list-item>
       <t-list-item>
-        <t-list-item-meta :avatar="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
       </t-list-item>
     </t-list>
 
@@ -16,7 +16,7 @@
 
     <t-list :split="true" async-loading="loading-more" @load-more="loadMore">
       <t-list-item v-for="i in listCount" :key="i">
-        <t-list-item-meta :avatar="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
       </t-list-item>
     </t-list>
 
@@ -26,7 +26,7 @@
 
     <t-list :split="true">
       <t-list-item>
-        <t-list-item-meta :avatar="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
       </t-list-item>
       <template #asyncLoading>DIY 的正在加载……</template>
     </t-list>
@@ -35,7 +35,7 @@
 
     <t-list :split="true" @load-more="loadMore">
       <t-list-item v-for="i in listCount" :key="i">
-        <t-list-item-meta :avatar="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
       </t-list-item>
       <template #asyncLoading>DIY 的加载更多</template>
     </t-list>
@@ -46,7 +46,7 @@
 
     <t-list :async-loading="renderLoading" :split="true" @load-more="loadMore">
       <t-list-item v-for="i in listCount" :key="i">
-        <t-list-item-meta :avatar="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容"></t-list-item-meta>
       </t-list-item>
       <template #asyncLoading>DIY 的加载更多</template>
     </t-list>

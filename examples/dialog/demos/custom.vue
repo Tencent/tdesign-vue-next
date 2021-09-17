@@ -11,7 +11,7 @@
       body="自定义底部按钮，直接传入文字"
       confirmBtn="前往支付"
       cancelBtn="关闭"
-      :onClickConfirm="onConfirm"
+      :onConfirm="onConfirm"
       :onClose="close1"
     >
     </t-dialog>
