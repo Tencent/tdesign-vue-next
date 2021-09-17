@@ -252,6 +252,7 @@ export default defineComponent({
         lazy,
         valueMode,
         filter,
+        keys,
       } = this;
       if (list && list.length > 0) {
         const store = new TreeStore({
@@ -266,6 +267,7 @@ export default defineComponent({
           disabled,
           load,
           lazy,
+          keys,
           valueMode: valueMode as TypeValueMode,
           filter,
           onLoad: (info: TypeEventState) => {
