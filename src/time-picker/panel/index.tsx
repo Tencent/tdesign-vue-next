@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
@@ -73,20 +73,23 @@ export default defineComponent({
     },
   },
   watch: {
-    isShowPanel(val: boolean) {
-      if (val) {
-        this.panelColUpdate();
-      }
+    isShowPanel: {
+      handler(val: boolean) {
+        if (val) {
+          this.panelColUpdate();
+        }
+      },
+      immediate: true,
     },
   },
   methods: {
     panelColUpdate() {
-      const panelCol0 = this.$refs.panelCol_0 as TimePickerPanelColInstance;
-      const panelCol1 = this.$refs.panelCol_1 as TimePickerPanelColInstance;
-      this.$nextTick(() => {
+      nextTick(() => {
+        const panelCol0 = this.$refs.panelCol_0 as TimePickerPanelColInstance;
+        const panelCol1 = this.$refs.panelCol_1 as TimePickerPanelColInstance;
         panelCol0 && panelCol0.updateTimeScrollPos();
         panelCol1 && panelCol1.updateTimeScrollPos();
-      });
+      })
     },
     scrollToTime(colIndex: number, col: EPickerCols, time: number | string, behavior: ScrollBehavior) {
       const scroller = this.$refs[`panelCol_${colIndex}`] as TimePickerPanelColInstance;

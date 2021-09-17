@@ -3,8 +3,6 @@ import debounce from 'lodash/debounce';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
-import mixins from '../../utils/mixins';
-import getLocalReceiverMixins from '../../locale/local-receiver';
 import { panelColProps } from './props';
 import { COMPONENT_NAME, EPickerCols } from '../constant';
 
@@ -15,7 +13,6 @@ const name = `${prefix}-time-picker-pane-col`;
 dayjs.extend(customParseFormat);
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('timePicker')),
   name,
   data() {
     return {
@@ -144,7 +141,7 @@ export default defineComponent({
           },
         ];
         return (
-          <li class={classNames} onclick={(e: MouseEvent) => this.handleTimeItemClick(e, col, el)}>
+          <li class={classNames} onClick={(e: MouseEvent) => this.handleTimeItemClick(e, col, el)}>
             {el}
           </li>
         );

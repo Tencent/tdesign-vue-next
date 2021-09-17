@@ -161,6 +161,13 @@ export default {
           component: () => import('@/examples/checkbox/checkbox.md'),
         },
         {
+          title: 'DatePicker 日期选择器',
+          name: 'date-picker',
+          docType: 'form',
+          path: '/vue-next/components/date-picker',
+          component: () => import('@/examples/date-picker/date-picker.md'),
+        },
+        {
           title: 'Form 表单',
           name: 'form',
           docType: 'form',

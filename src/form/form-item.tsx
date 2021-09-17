@@ -244,10 +244,10 @@ export default defineComponent({
         return withoutIcon();
       }
       if (typeof statusIcon === 'function') {
-        return resultIcon(slotStatusIcon(props));
+        return resultIcon(slotStatusIcon());
       }
       if (typeof slotStatusIcon === 'function') {
-        return resultIcon(slotStatusIcon(null));
+        return resultIcon(slotStatusIcon());
       }
       return null;
     },

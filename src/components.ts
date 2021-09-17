@@ -20,7 +20,7 @@ export * from './tabs';
 // 输入
 export * from './cascader';
 export * from './checkbox';
-export * from './time-picker';
+export * from './date-picker';
 export * from './form';
 export * from './input';
 export * from './input-number';
@@ -29,6 +29,7 @@ export * from './select';
 export * from './switch';
 export * from './textarea';
 export * from './transfer';
+export * from './time-picker';
 export * from './tree-select';
 
 // 数据展示
