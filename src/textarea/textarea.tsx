@@ -91,8 +91,10 @@ export default defineComponent({
       onKeyup: this.emitKeyUp,
       onKeypress: this.emitKeypress,
     });
+    const { class: className, style } = this.$attrs;
     const classes = [
       `${name}__inner`,
+      `${className}`,
       {
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
@@ -108,6 +110,7 @@ export default defineComponent({
           {...this.inputAttrs}
           ref="refInputElem"
           value={this.value}
+          style={style}
           class={classes}
         ></textarea>
         {this.maxlength ? (

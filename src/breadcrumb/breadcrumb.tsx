@@ -26,6 +26,7 @@ export default defineComponent({
     if (this.options && this.options.length) {
       content = this.options.map((option: TdBreadcrumbItemProps, index: number) => (
           <BreadcrumbItem
+            {...this.$attrs}
             key={index}
             maxWidth={option.maxWidth}
             disabled={option.disabled}

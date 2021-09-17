@@ -521,6 +521,7 @@ export default defineComponent({
         }}
       >
         <div class={cascaderInnerClasses}
+            {...this.$attrs}
             onMouseenter={() => {
               this.isHover = true;
             }}

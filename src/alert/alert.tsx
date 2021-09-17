@@ -147,7 +147,7 @@ export default defineComponent({
       },
     ];
     return (
-      <div class={CLASS}>
+      <div class={CLASS} {...this.$attrs}>
         { this.renderIcon()}
         { this.renderContent()}
         { this.renderClose()}

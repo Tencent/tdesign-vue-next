@@ -63,7 +63,7 @@ export default defineComponent({
     };
 
     return (
-      <div class={name}>
+      <div class={name} {...this.$attrs}>
         {children || null}
         {isHidden ? null : (
           <sup class={badgeClassNames} style={inlineStyle}>

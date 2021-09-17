@@ -123,7 +123,7 @@ export default defineComponent({
     }
 
     return (
-      <div class={itemClass}>
+      <div class={itemClass} {...this.$attrs}>
         {itemContent}
         <span class={separatorClass}>{typeof separatorContent === 'function' ? separatorContent() : separatorContent}</span>
       </div>

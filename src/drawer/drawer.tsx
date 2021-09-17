@@ -160,6 +160,7 @@ export default defineComponent({
         style={{ zIndex: this.zIndex }}
         onKeydown={this.onKeyDown}
         v-transfer-dom={this.attach}
+        {...this.$attrs}
       >
         {this.showOverlay && <div class={`${name}__mask`} onClick={this.handleWrapperClick}/>}
         <div class={this.wraperClasses} style={this.wraperStyles}>

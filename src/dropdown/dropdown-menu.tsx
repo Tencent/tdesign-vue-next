@@ -53,7 +53,7 @@ export default defineComponent({
       const menuClass = [`${name}__column`, 'narrow-scrollbar', { submenu__visible: showSubmenu }];
       return (
         <div 
-          class={menuClass} 
+          class={menuClass}
           style={{
             maxHeight: `${this.maxHeight}px`,
           }}

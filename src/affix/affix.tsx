@@ -103,7 +103,7 @@ export default defineComponent({
 
     if (fixedTop !== false) {
       return (
-        <div>
+        <div {...this.$attrs}>
           <div style={oldWidthHeight}></div>
           <div class={name} style={{ zIndex, top: `${fixedTop}px`, width: oldWidthHeight.width }}>
             {children?.()}

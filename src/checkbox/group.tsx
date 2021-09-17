@@ -132,7 +132,7 @@ export default defineComponent({
 
   render() {
     return (
-      <div class={name}>
+      <div class={name} {...this.$attrs}>
         {!!this.optionList.length && this.optionList.map((option, index) => {
           if (option.checkAll) return this.renderCheckAll(option);
           return (

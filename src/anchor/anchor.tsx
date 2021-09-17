@@ -204,11 +204,12 @@ export default defineComponent({
       size,
       affixProps,
       activeLineStyle,
+      $attrs,
     } = this;
-    const className = [name, CLASSNAMES.SIZE[size]];
+    const innerClass = [name, CLASSNAMES.SIZE[size]];
 
     const content = (
-      <div class={className}>
+      <div class={innerClass} {...$attrs}>
         <div class={`${name}_line`}><div class="point" style={activeLineStyle}></div></div>
         {children && children(null)}
       </div>
