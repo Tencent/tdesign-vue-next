@@ -1,11 +1,11 @@
 <template>
   <div class="t-demo-tabs">
-    <!-- <div class="t-demo-tabs__desc">
+    <div class="t-demo-tabs__desc">
       <t-radio-group v-model="theme">
         <t-radio value="normal">常规型</t-radio>
         <t-radio value="card">卡片型</t-radio>
       </t-radio-group>
-    </div> -->
+    </div>
     <t-tabs
       :value="value"
       :theme="theme"

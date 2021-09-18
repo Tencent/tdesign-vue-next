@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      current: 12,
+      current: 1,
       pageSize: 5,
     };
   },

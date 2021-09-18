@@ -201,6 +201,7 @@ export default defineComponent({
       return this.pageCount > this.maxPageBtn;
     },
   },
+
   methods: {
     toPage(pageIndex: number, isTriggerChange?: boolean): void {
       if (this.disabled) {
@@ -432,6 +433,6 @@ export default defineComponent({
   },
   render() {
     const { pageCount } = this;
-    return pageCount > 1 && this.renderPagination();
+    return pageCount >= 1 && this.renderPagination();
   },
 });
