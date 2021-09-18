@@ -14,6 +14,7 @@
       :stripe="stripe"
       :bordered="bordered"
       :hover="hover"
+      @row-click="handleRowClick"
     ></t-table>
 
   </div>
@@ -91,5 +92,10 @@ export default {
       // },
     };
   },
+  methods: {
+    handleRowClick (e){
+      console.log(e)
+    }
+  }
 };
 </script>

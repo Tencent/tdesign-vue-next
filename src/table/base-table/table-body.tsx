@@ -118,7 +118,9 @@ export default defineComponent({
         const rowspanAndColspanProps = allRowspanAndColspanProps ? allRowspanAndColspanProps[index] : undefined;
         // let rowVnode: VNode;
         const key = rowKey ? get(row, rowKey) : index + this.current;
-        const { columns, current, provider } = this.$props;
+        const {
+          columns, current, provider, onRowHover, onRowMouseup, onRowMousedown, onRowDbClick, onRowClick,
+        } = this.$props;
         const props = {
           key,
           columns,
@@ -129,6 +131,11 @@ export default defineComponent({
           provider,
           rowspanAndColspanProps,
           ...{
+            onRowHover,
+            onRowMouseup,
+            onRowMousedown,
+            onRowDbClick,
+            onRowClick,
             onRowDragstart: () => {
               emitEvent(this, 'row-dragstart', {
                 index, data: row,
