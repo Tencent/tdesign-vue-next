@@ -324,6 +324,8 @@ export interface Cell {
   disabled: boolean;
   additional: boolean;
   highlight: boolean;
+  startOfRange: boolean;
+  endOfRange: boolean;
   now: boolean;
   text: string;
   value: Date;

@@ -66,6 +66,8 @@ export default defineComponent({
                         additional={col.additional}
                         disabled={col.disabled}
                         highlight={col.highlight}
+                        startOfRange={col.startOfRange}
+                        endOfRange={col.endOfRange}
                         now={col.now}
                         text={col.text}
                         value={col.value}

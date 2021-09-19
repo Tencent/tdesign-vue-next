@@ -290,7 +290,7 @@ export default defineComponent({
       this.endValue = this.firstClickValue;
     },
     handleTypeChange(direction: string, type: string) {
-      this.$data[`${direction}Type`] = type;
+      this[`${direction}Type`] = type;
     },
   },
   render() {
