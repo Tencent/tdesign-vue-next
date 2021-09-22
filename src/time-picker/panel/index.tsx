@@ -89,7 +89,7 @@ export default defineComponent({
         const panelCol1 = this.$refs.panelCol_1 as TimePickerPanelColInstance;
         panelCol0 && panelCol0.updateTimeScrollPos();
         panelCol1 && panelCol1.updateTimeScrollPos();
-      })
+      });
     },
     scrollToTime(colIndex: number, col: EPickerCols, time: number | string, behavior: ScrollBehavior) {
       const scroller = this.$refs[`panelCol_${colIndex}`] as TimePickerPanelColInstance;

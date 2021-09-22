@@ -3,7 +3,7 @@ type RowsType = number | null;
 type ResultType = {
   height?: string,
   minHeight?: string
-}
+};
 
 let hiddenTextarea: HTMLTextAreaElement;
 

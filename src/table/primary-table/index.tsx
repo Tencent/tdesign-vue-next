@@ -1,4 +1,4 @@
-import { defineComponent, computed, provide } from 'vue';
+import { defineComponent } from 'vue';
 import baseTableProps from '../base-table-props';
 import {
   DataType, TdBaseTableProps, TdPrimaryTableProps, PrimaryTableCol,

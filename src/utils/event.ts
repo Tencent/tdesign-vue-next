@@ -1,5 +1,4 @@
 import { ComponentPublicInstance } from 'vue';
-import { getPropsApiByEvent } from './helper';
 
 export type EmitEventName = {
   event: string;

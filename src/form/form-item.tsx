@@ -228,7 +228,6 @@ export default defineComponent({
     getIcon(
       statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'],
       slotStatusIcon: ScopedSlot,
-      props?: TdFormItemProps,
     ): TNodeReturnValue {
       const resultIcon = (otherContent?: TNodeReturnValue) => (
         <span class={CLASS_NAMES.status}>{otherContent}</span>
@@ -260,7 +259,7 @@ export default defineComponent({
       let resultIcon: TNodeReturnValue = this.getIcon(statusIcon, slotStatusIcon);
       if (resultIcon) return resultIcon;
       if (resultIcon === false) return;
-      resultIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon, this.$props);
+      resultIcon = this.getIcon(parentStatusIcon, parentSlotStatusIcon);
       if (resultIcon) return resultIcon;
     },
     getEmptyValue(): ValueType {

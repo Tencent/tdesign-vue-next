@@ -15,10 +15,10 @@ import TableHeader from './table-header';
 import TableColGroup from './col-group';
 import Pagination from '../../pagination';
 import TLoading from '../../loading';
-import { debounce, getScrollDirection, SCROLL_DIRECTION } from '../util/common';
+import { debounce, getScrollDirection, ScrollDirection } from '../util/common';
 import { PageInfo } from '../../pagination/type';
 import { renderTNodeJSX } from '../../utils/render-tnode';
-import { EventNameWithKebab } from '../util/interface';
+import { EVENT_NAME_WITH_KEBAB } from '../util/interface';
 import { emitEvent } from '../../utils/event';
 
 type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
@@ -42,7 +42,7 @@ export default defineComponent({
       },
     },
   },
-  emits: ['page-change', 'scroll-x', 'scroll-y', ...EventNameWithKebab],
+  emits: ['page-change', 'scroll-x', 'scroll-y', ...EVENT_NAME_WITH_KEBAB],
   data() {
     return {
       scrollableToLeft: false,
@@ -195,7 +195,7 @@ export default defineComponent({
         provider: { scopedSlots },
       } = this;
       const rowEvents = {};
-      EventNameWithKebab.forEach((eventName) => {
+      EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
         rowEvents[`on${eventName.replace(eventName[0], eventName[0].toUpperCase())}`] = (params: RowEventContext<any>) => {
           emitEvent(this, eventName, params);
         };
@@ -316,8 +316,8 @@ export default defineComponent({
       this.checkScrollableToLeftOrRight();
       const { scrollLeft, scrollTop } = e.target as HTMLElement;
       const direction = getScrollDirection(scrollLeft, scrollTop);
-      if (direction !== SCROLL_DIRECTION.UNKNOWN) {
-        const scrollListenerName = direction === SCROLL_DIRECTION.X ? 'scroll-x' : 'scroll-y';
+      if (direction !== ScrollDirection.UNKNOWN) {
+        const scrollListenerName = direction === ScrollDirection.X ? 'scroll-x' : 'scroll-y';
         emitEvent(this, scrollListenerName, {
           e,
         });

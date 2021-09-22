@@ -1,7 +1,7 @@
 import { ComponentPublicInstance } from 'vue';
 import primaryTableProps from '../primary-table-props';
 import {
-  BaseTableCol, RenderType, PrimaryTableCol, SortType, TdPrimaryTableProps,
+  BaseTableCol, RenderType, TdPrimaryTableProps,
 } from '../type';
 
 export type CustomRenderName = 'title' | 'cell' | 'render';
@@ -41,7 +41,7 @@ export interface CellData {
   customRender: () => void;
 }
 
-export const EventNameWithKebab = [
+export const EVENT_NAME_WITH_KEBAB = [
   'row-hover',
   'row-mouseup',
   'row-mousedown',

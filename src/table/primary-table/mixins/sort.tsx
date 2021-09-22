@@ -1,4 +1,4 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { PrimaryTableProps } from '@src/table';
 import SorterButton from '../sorter-button';

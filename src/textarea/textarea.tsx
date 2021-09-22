@@ -58,7 +58,7 @@ export default defineComponent({
       if (this.autosize === true) {
         this.textareaStyle = calcTextareaHeight(this.$refs.refTextareaElem as HTMLTextAreaElement);
       } else if (typeof this.autosize === 'object') {
-        const { minRows, maxRows } = this.autosize
+        const { minRows, maxRows } = this.autosize;
         this.textareaStyle = calcTextareaHeight(this.$refs.refTextareaElem as HTMLTextAreaElement, minRows, maxRows);
       }
     },

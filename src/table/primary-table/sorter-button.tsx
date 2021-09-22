@@ -5,7 +5,6 @@ import getLocalReceiverMixins from '../../locale/local-receiver';
 import { SortType } from '../type';
 import { prefix } from '../../config';
 import Tooltip from '../../tooltip';
-import TIconChevronUp from '../../icon/chevron-up';
 import TIconChevronDown from '../../icon/chevron-down';
 import { Styles } from '../../common';
 

@@ -316,7 +316,7 @@ export default defineComponent({
       if (this.theme === 'file-input' || this.showUploadList) {
         return <t-button variant='outline'>选择文件</t-button>;
       }
-      const iconSlot = {icon: () => <TIconUpload slot='icon'/>}
+      const iconSlot = {icon: () => <TIconUpload slot='icon'/>};
       return (
         <t-button variant='outline' v-slots={iconSlot}>点击上传
         </t-button>

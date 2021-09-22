@@ -1,6 +1,6 @@
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
-import { h, ComponentPublicInstance, VNodeChild } from 'vue';
+import { ComponentPublicInstance, VNodeChild } from 'vue';
 import { PrimaryTableCol } from '../type';
 
 export function toString<T>(obj: T): string {
@@ -32,7 +32,7 @@ export function filterDataByIds<T>(
 
 export const INNER_PRE_NAME = '@@inner-';
 
-export enum SCROLL_DIRECTION {
+export enum ScrollDirection {
   X = 'x',
   Y = 'y',
   UNKNOWN = 'unknown',
@@ -44,12 +44,12 @@ let preScrollTop: any;
 export const getScrollDirection = (
   scrollLeft: number,
   scrollTop: number,
-): SCROLL_DIRECTION => {
-  let direction = SCROLL_DIRECTION.UNKNOWN;
+): ScrollDirection => {
+  let direction = ScrollDirection.UNKNOWN;
   if (preScrollTop !== scrollTop) {
-    direction = SCROLL_DIRECTION.Y;
+    direction = ScrollDirection.Y;
   } else if (preScrollLeft !== scrollLeft) {
-    direction = SCROLL_DIRECTION.X;
+    direction = ScrollDirection.X;
   }
   preScrollTop = scrollTop;
   preScrollLeft = scrollLeft;

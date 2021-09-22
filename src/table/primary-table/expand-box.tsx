@@ -37,6 +37,7 @@ export default defineComponent({
   },
   render() {
     const { expanded } = this;
+
     return (
       <span onClick={(e) => { this.$emit('click', e); }} class={`${prefix}-table-expand-box`}>
         {this.getExpandIcon(expanded)}

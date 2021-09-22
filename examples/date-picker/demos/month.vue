@@ -3,3 +3,5 @@
     <t-date-picker theme="primary" mode="month" format="YYYY-MM月"></t-date-picker>
   </div>
 </template>
+<script>
+</script>
