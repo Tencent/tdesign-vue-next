@@ -29,7 +29,7 @@
   </div>
 </template>
 
-<script>
+<script lang="jsx">
 import { NotifyPlugin } from '@tencent/tdesign-vue-next';
 
 export default {

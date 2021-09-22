@@ -1,34 +1,46 @@
-import { defineComponent, nextTick } from 'vue';
+import { defineComponent, nextTick, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import { ANCHOR_SHARP_REGEXP, getOffsetTop } from './utils';
+import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
 import {
   on, off, getScroll, scrollTo, getScrollContainer,
 } from '../utils/dom';
 import props from './props';
-
+import { renderTNodeJSX } from '../utils/render-tnode';
+import { SlotReturnValue } from '../common';
 import Affix from '../affix';
 
 const name = `${prefix}-anchor`;
 
+export interface Anchor extends ComponentPublicInstance {
+  scrollContainer: ANCHOR_CONTAINER;
+  // 执行scrollTo设置的flag, 用来禁止执行handleScroll
+  handleScrollLock: boolean;
+}
+
 export default defineComponent({
+
   name,
+
   provide(): any {
     return {
       tAnchor: this,
-      scrollContainer: undefined,
-      handleScrollLock: undefined,
     };
   },
+
   props: { ...props },
+
   emits: ['change', 'click'],
+
   data() {
     return {
       links: [] as string[],
       active: '',
-      activeLineStyle: null as ({ top: string; height: string}),
+      scrollContainer: null as ANCHOR_CONTAINER,
+      activeLineStyle: {} as { top: string; height: string; opacity: number; },
     };
   },
+
   watch: {
     attach() {
       // 清空上一个container的事件监听
@@ -130,6 +142,7 @@ export default defineComponent({
       this.activeLineStyle = {
         top: `${top}px`,
         height: `${height}px`,
+        opacity: 1,
       };
     },
     /**
@@ -196,6 +209,10 @@ export default defineComponent({
       }
       this.setCurrentActiveLink(active);
     },
+    renderCursor() {
+      const titleContent: SlotReturnValue = renderTNodeJSX(this, 'cursor');
+      return titleContent || <div class="cursor"></div>;
+    },
   },
 
   render() {
@@ -210,7 +227,11 @@ export default defineComponent({
 
     const content = (
       <div class={innerClass} {...$attrs}>
-        <div class={`${name}_line`}><div class="point" style={activeLineStyle}></div></div>
+        <div class={`${name}_line`}>
+          <div class="cursor-wrapper" style={activeLineStyle}>
+            {this.renderCursor()}
+          </div>
+        </div>
         {children && children(null)}
       </div>
     );

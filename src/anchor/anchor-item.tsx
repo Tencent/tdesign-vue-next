@@ -1,23 +1,12 @@
-import { defineComponent, VNodeChild, h } from 'vue';
+import {
+  defineComponent, h, VNodeChild,
+} from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
 
 const name = `${prefix}-anchor-item`;
-type TAnchor = {
-  active: string;
-  handleScrollTo(target: string): void;
-  registerLink(href: string): void;
-  unregisterLink(href: string): void;
-  handleLinkClick(link: { href: string; title: string }, e: MouseEvent): void;
-};
-
-declare module '@vue/runtime-core' {
-  interface ComponentCustomProperties {
-    tAnchor: TAnchor;
-  }
-}
 
 export default defineComponent({
   name,
@@ -43,6 +32,9 @@ export default defineComponent({
       },
     },
   },
+  mounted() {
+    this.register();
+  },
   unmounted() {
     this.unregister();
   },
@@ -66,11 +58,6 @@ export default defineComponent({
         e,
       );
     },
-    /**
-     * 更加props和slot渲染title
-     *
-     * @returns
-     */
     renderTitle() {
       const { title, $slots } = this;
       const { title: titleSlot } = $slots;
@@ -78,7 +65,6 @@ export default defineComponent({
       if (typeof title === 'string') {
         titleVal = title;
       } else if (typeof title === 'function') {
-        // @ts-ignore: TODO
         titleVal = title(h);
       } else if (titleSlot) {
         titleVal = titleSlot(null);

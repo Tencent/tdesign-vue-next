@@ -4,12 +4,14 @@ import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import TIconFileCopy from '../icon/file-copy';
 import props from './anchor-target-props';
+import TPopup from '../popup';
 
 const name = `${prefix}-anchor-target`;
 export default defineComponent({
   name,
 
   components: {
+    TPopup,
     TIconFileCopy,
   },
 
@@ -30,10 +32,10 @@ export default defineComponent({
   },
   render() {
     const {
+      tag: Tag,
       $slots: { default: children },
       id,
     } = this;
-    const Tag: any = this.tag;
     const className = [name];
     const iconClassName = `${prefix}-copy`;
     return (

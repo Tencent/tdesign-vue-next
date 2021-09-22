@@ -34,12 +34,15 @@ export default defineComponent({
       }
       return <span style={style}>{icon}</span>;
     },
+    handleClick(e: Event) {
+      this.$emit('click', e);
+    },
   },
   render() {
     const { expanded } = this;
 
     return (
-      <span onClick={(e) => { this.$emit('click', e); }} class={`${prefix}-table-expand-box`}>
+      <span class={`${prefix}-table-expand-box`}onClick={this.handleClick}>
         {this.getExpandIcon(expanded)}
       </span>
     );

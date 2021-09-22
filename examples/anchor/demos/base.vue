@@ -1,12 +1,12 @@
 <template>
   <div :id="`${path}#default`" class='anchor-demo' style="display: flex">
     <div style="flex:1"></div>
-    <t-anchor :affixProps="{ offsetTop: 90 }">
-      <t-anchor-item :href="`#${path}#default`" title="定义"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#multiple`" title="服务功能"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#small`" title="使用指南"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#large`" title="创建签名"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#container`" title="创建内容"></t-anchor-item>
+    <t-anchor :affixProps="{ offsetTop: 150 }">
+      <t-anchor-item href="#基础锚点" title="基础锚点"></t-anchor-item>
+      <t-anchor-item href="#多级锚点" title="多级锚点"></t-anchor-item>
+      <t-anchor-item href="#指定容器锚点" title="指定容器锚点"></t-anchor-item>
+      <t-anchor-item href="#特定交互锚点" title="特定交互锚点"></t-anchor-item>
+      <t-anchor-item href="#尺寸" title="尺寸"></t-anchor-item>
       <t-anchor-item :href="`#${path}#anchor-target-6`" title="保密协议"></t-anchor-item>
       <t-anchor-item :href="`#${path}#anchor-target-7`" title="其他"></t-anchor-item>
     </t-anchor>

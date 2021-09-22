@@ -88,7 +88,6 @@ export default {
       return item;
     },
     append(node) {
-      console.log(node)
       const { tree } = this.$refs;
       const item = this.getInsertItem();
       if (item) {

@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script>
+<script lang="jsx">
 export default {
   data() {
     return {
