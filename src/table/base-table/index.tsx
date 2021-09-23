@@ -20,6 +20,7 @@ import { PageInfo } from '../../pagination/type';
 import { renderTNodeJSX } from '../../utils/render-tnode';
 import { EVENT_NAME_WITH_KEBAB } from '../util/interface';
 import { emitEvent } from '../../utils/event';
+import { getPropsApiByEvent } from '../../utils/helper';
 
 type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
 
@@ -196,7 +197,7 @@ export default defineComponent({
       } = this;
       const rowEvents = {};
       EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
-        rowEvents[`on${eventName.replace(eventName[0], eventName[0].toUpperCase())}`] = (params: RowEventContext<any>) => {
+        rowEvents[getPropsApiByEvent(eventName)] = (params: RowEventContext<any>) => {
           emitEvent(this, eventName, params);
         };
       });

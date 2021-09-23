@@ -1,8 +1,8 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="small" placeholder='请选择'></t-cascader>
+    <!-- <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="small" placeholder='请选择'></t-cascader> -->
     <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="medium" placeholder='请选择'></t-cascader>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="large" placeholder='请选择'></t-cascader>
+    <!-- <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="large" placeholder='请选择'></t-cascader> -->
   </div>
 </template>
 
