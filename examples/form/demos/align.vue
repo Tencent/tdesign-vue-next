@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="controls">
-      <t-radio-group v-model="formData.labelAlign" buttonStyle="solid">
+      <t-radio-group v-model="formData.labelAlign" variant="default-filled">
         <t-radio-button value="left">左对齐</t-radio-button>
         <t-radio-button value="right">右对齐</t-radio-button>
         <t-radio-button value="top">顶部对齐</t-radio-button>

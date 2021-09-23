@@ -18,7 +18,7 @@
         <t-input v-model="formData.email"></t-input>
       </t-form-item>
       <t-form-item label="性别" name='gender'>
-        <t-radio-group v-model="formData.gender" buttonStyle="solid">
+        <t-radio-group v-model="formData.gender">
           <t-radio value="male">男</t-radio>
           <t-radio value="femal">女</t-radio>
         </t-radio-group>
@@ -101,12 +101,12 @@ export default {
     onReset() {
       this.$message.success('重置成功');
     },
-    onSubmit({ result, firstError, e }) {
+    onSubmit({ validateResult, firstError }) {
       e.preventDefault();
       if (result === true) {
         this.$message.success('提交成功');
       } else {
-        console.log('Errors: ', result);
+        console.log('Validate Errors: ', firstError, validateResult);
         this.$message.warning(firstError);
       }
     },

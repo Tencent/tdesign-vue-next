@@ -56,9 +56,6 @@ export default {
       ],
     };
   },
-  mounted() {
-    console.log(this.$refs.form)
-  },
   methods: {
     onReset() {
       this.$message.success('重置成功');
@@ -67,7 +64,7 @@ export default {
       if (validateResult === true) {
         this.$message.success('提交成功');
       } else {
-        console.log('Errors: ', result);
+        console.log('Validate Errors: ', firstError, validateResult);
         this.$message.warning(firstError);
       }
     },
