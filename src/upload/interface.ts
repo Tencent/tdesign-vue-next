@@ -8,6 +8,7 @@ export interface XhrOptions {
   withCredentials: boolean;
   headers: { [key: string]: string };
   data: { [key: string]: any } | Function;
+  method: TdUploadProps['method'];
   file: UploadFile;
   name: string;
   onError: ({ event, file, response }: { event: ProgressEvent; file?: UploadFile; response?: any }) => void;

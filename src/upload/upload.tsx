@@ -210,6 +210,7 @@ export default defineComponent({
         action: this.action,
         data: this.data,
         file,
+        method: this.method,
         name: this.name,
         headers: this.headers,
         withCredentials: this.withCredentials,
@@ -359,7 +360,10 @@ export default defineComponent({
         dragActive: this.dragActive,
         uploadingFile: this.multiple ? this.toUploadFiles : this.loadingFile,
       };
-      const triggerElement = renderContent(this, 'default', 'trigger', { params });
+      let triggerElement = renderContent(this, 'default', 'trigger', { params });
+      if (!Array.isArray(triggerElement)) {
+        triggerElement = {}
+      }
       return (
         <dragger
           onChange={this.handleDragChange}

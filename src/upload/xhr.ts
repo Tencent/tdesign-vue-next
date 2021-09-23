@@ -5,6 +5,7 @@ export default function xhr({
   withCredentials = false,
   headers = {},
   data = {},
+  method,
   file,
   name = 'file',
   onError,
@@ -24,7 +25,8 @@ export default function xhr({
   });
   formData.append(name, file.raw);
 
-  xhr.open('post', action, true);
+  console.log(method)
+  xhr.open(method, action, true);
 
   // custom request headers
   Object.keys(headers).forEach((key) => {
