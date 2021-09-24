@@ -74,7 +74,7 @@ export default defineComponent({
       ];
     },
     errorClasses(): string {
-      const parent = this.$parent as FormInstance;
+      const parent = this.form as FormInstance;
       if (!parent.showErrorMessage) return '';
       if (this.verifyStatus === ValidateStatus.SUCCESS) return CLASS_NAMES.success;
       if (!this.errorList.length) return;
