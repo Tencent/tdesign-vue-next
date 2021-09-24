@@ -65,7 +65,7 @@ const Ripple = {
         right: `${width}px`,
         width: `${width + 20}px`,
         height: '100%',
-        transition: `right ${period}ms cubic-bezier(.38, 0, .24, 1), background ${period * 2}ms linear`,
+        transition: `transform ${period}ms cubic-bezier(.38, 0, .24, 1), background ${period * 2}ms linear`,
         transform: 'skewX(-8deg)',
         pointerEvents: 'none',
         position: 'absolute',
@@ -96,7 +96,7 @@ const Ripple = {
 
       clearTimeout(startTimeId);
       startTimeId = setTimeout(() => {
-        ripple.style.right = '-2px';
+        ripple.style.transform = `translateX(${width}px)`;
       }, 0);
 
       const handleClearRipple = () => {
