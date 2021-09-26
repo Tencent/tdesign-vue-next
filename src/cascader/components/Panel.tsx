@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 import isNumber from 'lodash/isNumber';
 
 import { prefix } from '../../config';
-import Item from './item';
+import Item from './Item';
 import { ContextType, TreeNode } from '../interface';
 import { renderTNodeJSX } from '../../utils/render-tnode';
 import getLocalRecevierMixins from '../../locale/local-receiver';
