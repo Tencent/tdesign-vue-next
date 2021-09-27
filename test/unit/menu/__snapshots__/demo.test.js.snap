@@ -3,7 +3,8 @@
 exports[`Menu single demo works fine 1`] = `
 <div>
   <div
-    class="t-head-menu t-menu-mode__dropdown t-menu--light"
+    class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+    modelvalue="item2"
   >
     <div
       class="t-head-menu__inner"
@@ -11,101 +12,114 @@ exports[`Menu single demo works fine 1`] = `
       <div
         class="t-menu__logo"
       >
+        
         <img
           alt="logo"
-          class="t-menu__logo--center"
           src="https://www.tencent.com/img/index/menu_logo_hover.png"
           width="136"
         />
+        
       </div>
-       
       <ul
         class="t-menu"
       >
-         
+        
         <li
-          class="t-menu__item"
+          class="t-menu__item t-menu__item--plain"
         >
-          <span>
-            菜单内容一
+          <!---->
+          <span
+            class="t-menu__content"
+          >
+            
+            内容列表
+            
           </span>
         </li>
-         
         <li
-          class="t-menu__item"
+          class="t-menu__item t-is-active t-menu__item--plain"
         >
-          <span>
+          <!---->
+          <span
+            class="t-menu__content"
+          >
+            
             已选内容
+            
           </span>
         </li>
-         
         <li
-          class="t-menu__item"
+          class="t-menu__item t-is-disabled t-menu__item--plain"
         >
-          <span>
-            菜单内容二
+          <!---->
+          <span
+            class="t-menu__content"
+          >
+            
+            内容列表
+            
           </span>
         </li>
-         
-        <li
-          class="t-menu__item t-is-disabled"
-        >
-          <span>
-            菜单内容三
-          </span>
-        </li>
-         
+        
       </ul>
-       
       <div
-        class="t-menu__options"
+        class="t-menu__operations"
       >
-        <div>
-          <a
-            href="javascript:;"
+        
+        <a
+          href="javascript:;"
+        >
+          <svg
+            class="t-icon t-icon-search"
           >
-            <svg
-              class="t-icon t-icon-search"
-            >
-              <use
-                xlink:href="#t-icon-search"
-              />
-            </svg>
-          </a>
-           
-          <a
-            href="javascript:;"
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+        </a>
+        <a
+          href="javascript:;"
+        >
+          <svg
+            class="t-icon t-icon-mail"
           >
-            <svg
-              class="t-icon t-icon-notification-filled"
-            >
-              <use
-                xlink:href="#t-icon-notification-filled"
-              />
-            </svg>
-          </a>
-           
-          <a
-            href="javascript:;"
+            <use
+              href="#t-icon-mail"
+            />
+          </svg>
+        </a>
+        <a
+          href="javascript:;"
+        >
+          <svg
+            class="t-icon t-icon-user"
           >
-            <svg
-              class="t-icon t-icon-home"
-            >
-              <use
-                xlink:href="#t-icon-home"
-              />
-            </svg>
-          </a>
-        </div>
+            <use
+              href="#t-icon-user"
+            />
+          </svg>
+        </a>
+        <a
+          href="javascript:;"
+        >
+          <svg
+            class="t-icon t-icon-ellipsis"
+          >
+            <use
+              href="#t-icon-ellipsis"
+            />
+          </svg>
+        </a>
+        
       </div>
     </div>
-     
+    <!---->
   </div>
-   
   <br />
-   
   <div
-    class="t-head-menu t-menu-mode__dropdown t-menu--dark"
+    class="t-menu t-head-menu t-menu-mode__normal t-menu--dark"
+    height="120px"
+    modelvalue="item1"
   >
     <div
       class="t-head-menu__inner"
@@ -113,95 +127,108 @@ exports[`Menu single demo works fine 1`] = `
       <div
         class="t-menu__logo"
       >
+        
         <img
           alt="logo"
-          class="t-menu__logo--center"
           src="https://www.tencent.com/img/index/menu_logo.png"
           width="136"
         />
+        
       </div>
-       
       <ul
         class="t-menu"
       >
-         
+        
         <li
-          class="t-menu__item"
+          class="t-menu__item t-is-active t-menu__item--plain"
         >
-          <span>
+          <!---->
+          <span
+            class="t-menu__content"
+          >
+            
             已选内容
+            
           </span>
         </li>
-         
         <li
-          class="t-menu__item"
+          class="t-menu__item t-menu__item--plain"
         >
-          <span>
-            菜单内容一
+          <!---->
+          <span
+            class="t-menu__content"
+          >
+            
+            内容列表
+            
           </span>
         </li>
-         
         <li
-          class="t-menu__item"
+          class="t-menu__item t-is-disabled t-menu__item--plain"
         >
-          <span>
-            菜单内容二
+          <!---->
+          <span
+            class="t-menu__content"
+          >
+            
+            内容列表
+            
           </span>
         </li>
-         
-        <li
-          class="t-menu__item t-is-disabled"
-        >
-          <span>
-            菜单内容三
-          </span>
-        </li>
-         
+        
       </ul>
-       
       <div
-        class="t-menu__options"
+        class="t-menu__operations"
       >
-        <div>
-          <a
-            href="javascript:;"
+        
+        <a
+          href="javascript:;"
+        >
+          <svg
+            class="t-icon t-icon-search t-menu__operations-icon"
           >
-            <svg
-              class="t-icon t-icon-search"
-            >
-              <use
-                xlink:href="#t-icon-search"
-              />
-            </svg>
-          </a>
-           
-          <a
-            href="javascript:;"
+            <use
+              href="#t-icon-search"
+            />
+          </svg>
+        </a>
+        <a
+          href="javascript:;"
+        >
+          <svg
+            class="t-icon t-icon-mail t-menu__operations-icon"
           >
-            <svg
-              class="t-icon t-icon-notification-filled"
-            >
-              <use
-                xlink:href="#t-icon-notification-filled"
-              />
-            </svg>
-          </a>
-           
-          <a
-            href="javascript:;"
+            <use
+              href="#t-icon-mail"
+            />
+          </svg>
+        </a>
+        <a
+          href="javascript:;"
+        >
+          <svg
+            class="t-icon t-icon-user t-menu__operations-icon"
           >
-            <svg
-              class="t-icon t-icon-home"
-            >
-              <use
-                xlink:href="#t-icon-home"
-              />
-            </svg>
-          </a>
-        </div>
+            <use
+              href="#t-icon-user"
+            />
+          </svg>
+        </a>
+        <a
+          href="javascript:;"
+        >
+          <svg
+            class="t-icon t-icon-ellipsis t-menu__operations-icon"
+          >
+            <use
+              href="#t-icon-ellipsis"
+            />
+          </svg>
+        </a>
+        
       </div>
     </div>
-     
+    <!---->
   </div>
 </div>
 `;

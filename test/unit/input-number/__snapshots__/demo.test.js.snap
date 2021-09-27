@@ -1,0 +1,612 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputNumber center demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-m"
+    modelvalue="3"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M128 480L896 480 896 544 128 544Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner t-input-number-text-align"
+        placeholder=""
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+</div>
+`;
+
+exports[`InputNumber defaultDemo demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-m"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M128 480L896 480 896 544 128 544Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner t-input-number-text-align"
+        placeholder=""
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+</div>
+`;
+
+exports[`InputNumber disabled demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-m t-is-disabled"
+    modelvalue="3"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease t-is-disabled"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M128 480L896 480 896 544 128 544Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner t-is-disabled t-input-number-text-align"
+        disabled=""
+        placeholder=""
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase t-is-disabled"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+</div>
+`;
+
+exports[`InputNumber format demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-m"
+    modelvalue="3"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M128 480L896 480 896 544 128 544Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner t-input-number-text-align"
+        placeholder=""
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+</div>
+`;
+
+exports[`InputNumber left demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-m t-is-controls-right"
+    modelvalue="3"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-chevron-down t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M514.72285696 704.7972396800001L520.12398592 703.85630784C525.44129472 702.4731296 530.472656 699.70458368 534.64508928 695.5504467200001L534.64508928 695.5504467200001 910.3632832 320.41891840000005 865.108448 275.16408320000005 512.02827328 627.72684352 160.0351072 275.20768640000006 114.78027328 320.46252160000006 489.38601344 695.5130879999999C496.31708544 702.46731264 505.65104192 705.56179008 514.72285696 704.7972396800001Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder=""
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-chevron-up t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M509.24008704 256.163392L514.71568448 256.13496384C521.97472 256.74779712 529.06494656 259.82337344 534.628192 265.36222272L534.628192 265.36222272 910.3463808 640.4937536 865.091552 685.7485888 511.99872896 333.24849216 160.00556288 685.7485888 114.75072896 640.4937536 466.75072896 288.06449216 466.72826816 288.00732608 489.35568512 265.37990912C493.52487168 261.22251328 498.55406784 258.45003712 503.87029504 257.06270464L509.24008704 256.163392 509.24008704 256.163392Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+</div>
+`;
+
+exports[`InputNumber size demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-s"
+    modelvalue="3"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove t-size-s"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M128 480L896 480 896 544 128 544Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner t-input-number-text-align"
+        placeholder=""
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add t-size-s"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+  <div
+    class="t-input-number t-size-m"
+    modelvalue="3"
+    style="margin: 0px 50px;"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M128 480L896 480 896 544 128 544Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner t-input-number-text-align"
+        placeholder=""
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+  <div
+    class="t-input-number t-size-l"
+    modelvalue="3"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove t-size-l"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M128 480L896 480 896 544 128 544Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner t-input-number-text-align"
+        placeholder=""
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add t-size-l"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+</div>
+`;
+
+exports[`InputNumber step demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-m"
+    modelvalue="3.2"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M128 480L896 480 896 544 128 544Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner t-input-number-text-align"
+        placeholder=""
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+</div>
+`;
+
+exports[`InputNumber undefined demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-m"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M128 480L896 480 896 544 128 544Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner t-input-number-text-align"
+        placeholder="输入"
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add t-size-m"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+</div>
+`;

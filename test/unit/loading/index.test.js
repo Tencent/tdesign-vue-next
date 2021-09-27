@@ -84,7 +84,7 @@ describe('Loading', () => {
           indicator: '<i>加载中</i>',
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 });

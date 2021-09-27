@@ -11,7 +11,7 @@ describe('Divider', () => {
           return <Divider theme="vertical"></Divider>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':dashed', () => {
@@ -20,7 +20,7 @@ describe('Divider', () => {
           return <Divider dashed></Divider>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':align', () => {
@@ -29,7 +29,7 @@ describe('Divider', () => {
           return <Divider align="left">TDesign</Divider>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
@@ -41,7 +41,7 @@ describe('Divider', () => {
           return <Divider>TDesign</Divider>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 });

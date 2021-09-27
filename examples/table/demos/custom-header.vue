@@ -18,7 +18,7 @@
   </div>
 </template>
 <script lang="jsx">
-import TIconApp from '@tencent/tdesign-vue-next/lib/icon/app';
+import TIconApp from '@tencent/tdesign-vue-next/icon/app';
 
 export default {
   components: {

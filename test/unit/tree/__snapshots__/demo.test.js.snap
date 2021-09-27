@@ -1,0 +1,8135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tree:demo activable demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="operations"
+  >
+    <form
+      class="t-form"
+    >
+      
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            节点可高亮
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            节点可多选高亮
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m"
+              disabled="false"
+              modelvalue="false"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            整个节点可点击
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m"
+              disabled="false"
+              modelvalue="false"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      
+    </form>
+  </div>
+  <div
+    class="t-tree t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t47"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t48"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t49"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t50"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t51"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t52"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.2
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo base demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t1"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            第一段
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t4"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            第一段
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t7"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            第一段
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t10"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            第一段
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo checkable demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="operations"
+  >
+    <form
+      class="t-form"
+    >
+      
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+          style="width: calc(1 / 12 * 100%);"
+        >
+          <label
+            for=""
+          >
+            可选
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+          style="width: calc(1 / 12 * 100%);"
+        >
+          <label
+            for=""
+          >
+            严格模式
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m"
+              disabled="false"
+              modelvalue="false"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+          style="width: calc(1 / 12 * 100%);"
+        >
+          <label
+            for=""
+          >
+            选中值模式
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-radio-group t-radio-group-medium t-radio-group-outline"
+              modelvalue="onlyLeaf"
+            >
+              
+              <label
+                class="t-radio t-is-checked"
+              >
+                <input
+                  class="t-radio__former"
+                  name="value-mode"
+                  type="radio"
+                  value="onlyLeaf"
+                />
+                <span
+                  class="t-radio__input"
+                />
+                <span
+                  class="t-radio__label"
+                >
+                  
+                  onlyLeaf
+                  
+                </span>
+              </label>
+              <label
+                class="t-radio"
+              >
+                <input
+                  class="t-radio__former"
+                  name="value-mode"
+                  type="radio"
+                  value="parentFirst"
+                />
+                <span
+                  class="t-radio__input"
+                />
+                <span
+                  class="t-radio__label"
+                >
+                  
+                  parentFirst
+                  
+                </span>
+              </label>
+              <label
+                class="t-radio"
+              >
+                <input
+                  class="t-radio__former"
+                  name="value-mode"
+                  type="radio"
+                  value="all"
+                />
+                <span
+                  class="t-radio__input"
+                />
+                <span
+                  class="t-radio__label"
+                >
+                  
+                  all
+                  
+                </span>
+              </label>
+              
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      
+    </form>
+  </div>
+  <div
+    class="t-tree t-tree--hoverable t-tree--checkable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="1"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="1.1"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="1.1.1"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="1.1.1.1"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="1.1.1.2"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="1.1.2"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="1.1.2.1"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.2.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.2.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="1.1.2.2"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.2.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.2.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="1.2"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="1.2.1"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.2.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="1.2.1.1"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.2.1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2.1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="1.2.1.2"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.2.1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2.1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="1.2.2"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.2.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="1.2.2.1"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.2.2.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2.2.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="1.2.2.2"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.2.2.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2.2.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="2"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="2.1"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="2.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="2.2"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="2.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2.2
+            
+          </span>
+        </label>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo controlled demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="t-addon t-addon--prepend"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      checked:
+    </span>
+    <div
+      class="t-input t-size-m"
+    >
+      <!---->
+      <input
+        autocomplete="false"
+        autofocus="function Boolean() { [native code] }"
+        class="t-input__inner"
+        type="text"
+      />
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-addon t-addon--prepend"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      expanded:
+    </span>
+    <div
+      class="t-input t-size-m"
+    >
+      <!---->
+      <input
+        autocomplete="false"
+        autofocus="function Boolean() { [native code] }"
+        class="t-input__inner"
+        type="text"
+      />
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-addon t-addon--prepend"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      actived:
+    </span>
+    <div
+      class="t-input t-size-m"
+    >
+      <!---->
+      <input
+        autocomplete="false"
+        autofocus="function Boolean() { [native code] }"
+        class="t-input__inner"
+        type="text"
+      />
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-tree t-tree--checkable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="1"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="1.1"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="1.1.1"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="3"
+        data-value="1.1.1.1"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="3"
+        data-value="1.1.1.2"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="2"
+        data-value="1.1.2"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="1"
+        data-value="1.2"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-active"
+        data-level="0"
+        data-value="2"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active t-tree__label t-tree__label--strictly t-is-active"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2 这个节点不允许展开, 不允许激活
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="1"
+        data-value="2.1"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="2.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2.1 这个节点不允许选中
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="1"
+        data-value="2.2"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="2.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2.2
+            
+          </span>
+        </label>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo disabled demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="operations"
+  >
+    <form
+      class="t-form"
+    >
+      
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+          style="width: calc(1 / 12 * 100%);"
+        >
+          <label
+            for=""
+          >
+            是否禁用
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      
+    </form>
+  </div>
+  <div
+    class="t-tree t-is-disabled t-tree--hoverable t-tree--checkable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="0"
+        data-value="t53"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t53"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="1"
+        data-value="t54"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t54"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="2"
+        data-value="t55"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t55"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="2"
+        data-value="t56"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t56"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="1"
+        data-value="t57"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t57"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="2"
+        data-value="t58"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t58"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="2"
+        data-value="t59"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t59"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="0"
+        data-value="t60"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t60"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="1"
+        data-value="t61"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t61"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-disabled"
+        data-level="1"
+        data-value="t62"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            disabled=""
+            name="t62"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2.2
+            
+          </span>
+        </label>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo empty demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="t-tree t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      
+    </transition-group-stub>
+    <div
+      class="t-tree__empty"
+    >
+      暂无数据
+    </div>
+  </div>
+  <br />
+  <div
+    class="t-tree t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      
+    </transition-group-stub>
+    <div
+      class="t-tree__empty"
+    >
+      😊 空数据（string）
+    </div>
+  </div>
+  <br />
+  <div
+    class="t-tree t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      
+    </transition-group-stub>
+    <div
+      class="t-tree__empty"
+    >
+      <div>
+        😊 空数据（ empty props ）
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    class="t-tree t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      
+    </transition-group-stub>
+    <div
+      class="t-tree__empty"
+    >
+      
+      <div>
+        😊 空数据（slot）
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tree:demo expand-all demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="operations"
+  >
+    <form
+      class="t-form"
+    >
+      
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            切换数据
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m"
+              disabled="false"
+              modelvalue="false"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            提供 hover 状态
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            展开动画
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      
+    </form>
+  </div>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t13"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t14"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="t15"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="t16"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t17"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="t18"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.2.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="t19"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.2.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t20"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t21"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t22"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.2
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo expand-level demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t23"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="1"
+        data-value="t24"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="1"
+        data-value="t27"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t30"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="1"
+        data-value="t31"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="1"
+        data-value="t32"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.2
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo expand-mutex demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="operations"
+  >
+    <form
+      class="t-form"
+    >
+      
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            互斥展开
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            整个节点可点击
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      
+    </form>
+  </div>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx t-tree--block-node"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t33"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t40"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo filter demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="t-addon t-addon--prepend"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      filter:
+    </span>
+    <div
+      class="t-input t-size-m"
+      modelvalue=""
+    >
+      <!---->
+      <input
+        autocomplete="false"
+        autofocus="function Boolean() { [native code] }"
+        class="t-input__inner"
+        type="text"
+      />
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx t-tree--block-node"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="1"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="2"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo icon demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <h3>
+    render:
+  </h3>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t79"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-folder"
+          >
+            <use
+              href="#t-icon-folder"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t80"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-folder"
+          >
+            <use
+              href="#t-icon-folder"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+  <h3>
+    scope slot:
+  </h3>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t81"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+          <svg
+            class="t-icon t-icon-caret-right"
+          >
+            <use
+              href="#t-icon-caret-right"
+            />
+          </svg>
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t82"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+          <svg
+            class="t-icon t-icon-caret-right"
+          >
+            <use
+              href="#t-icon-caret-right"
+            />
+          </svg>
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo label demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <h3>
+    render:
+  </h3>
+  <div
+    class="t-tree t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t67"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <div>
+              value: t67, label: 1
+            </div>
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t68"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <div>
+              value: t68, label: 1.1
+            </div>
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t69"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <div>
+              value: t69, label: 1.2
+            </div>
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t70"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <div>
+              value: t70, label: 2
+            </div>
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t71"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <div>
+              value: t71, label: 2.1
+            </div>
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t72"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <div>
+              value: t72, label: 2.2
+            </div>
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+  <h3>
+    scope slot:
+  </h3>
+  <div
+    class="t-tree t-tree--checkable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t73"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="t73"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            
+            <span
+              color="blue"
+            >
+              label: 1, value: t73
+            </span>
+            
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t74"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="t74"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            
+            <span
+              color="blue"
+            >
+              label: 1.1, value: t74
+            </span>
+            
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t75"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="t75"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            
+            <span
+              color="blue"
+            >
+              label: 1.2, value: t75
+            </span>
+            
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t76"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="t76"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            
+            <span
+              color="blue"
+            >
+              label: 2, value: t76
+            </span>
+            
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t77"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="t77"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            
+            <span
+              color="blue"
+            >
+              label: 2.1, value: t77
+            </span>
+            
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t78"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="t78"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            
+            <span
+              color="blue"
+            >
+              label: 2.2, value: t78
+            </span>
+            
+            
+          </span>
+        </label>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo lazy demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t65"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="0"
+        data-value="t66"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo line demo works fine 1`] = `
+<div
+  class="tdesign-tree-line"
+>
+  <div
+    class="operations"
+  >
+    <form
+      class="t-form"
+    >
+      
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+          style="width: calc(1 / 12 * 100%);"
+        >
+          <label
+            for=""
+          >
+            显示连线
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+          style="width: calc(1 / 12 * 100%);"
+        >
+          <label
+            for=""
+          >
+            显示图标
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      
+    </form>
+  </div>
+  <div
+    class="t-tree t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="1"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="1.1"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--leaf t-tree__line--first"
+          style="--level: 1;"
+        />
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="1.2"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--leaf"
+          style="--level: 1;"
+        />
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="2"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="2.1"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--first"
+          style="--level: 1;"
+        />
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="2.1.1"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--first"
+          style="--level: 2; box-shadow: calc(-1 * var(--space)) 0 var(--color);"
+        />
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="2.1.1.1"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--first"
+          style="--level: 3; box-shadow: calc(-1 * var(--space)) 0 var(--color),calc(-2 * var(--space)) 0 var(--color);"
+        />
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="4"
+        data-value="2.1.1.1.1"
+        style="--level: 4;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--leaf t-tree__line--first"
+          style="--level: 4; box-shadow: calc(-2 * var(--space)) 0 var(--color),calc(-3 * var(--space)) 0 var(--color);"
+        />
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1.1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="4"
+        data-value="2.1.1.1.2"
+        style="--level: 4;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--leaf"
+          style="--level: 4; box-shadow: calc(-2 * var(--space)) 0 var(--color),calc(-3 * var(--space)) 0 var(--color);"
+        />
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1.1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="2.1.2"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--leaf"
+          style="--level: 2; box-shadow: calc(-1 * var(--space)) 0 var(--color);"
+        />
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="2.2"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--leaf"
+          style="--level: 1;"
+        />
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="3"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            3
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="3.1"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--leaf t-tree__line--first"
+          style="--level: 1;"
+        />
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            3.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="3.2"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__line t-tree__line--leaf"
+          style="--level: 1;"
+        />
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            3.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="4"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            4
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+  <h3>
+    render
+  </h3>
+  <div
+    class="t-tree t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="1"
+        style="--level: 0;"
+      >
+        
+        <div
+          class="custom-line custom-line-first"
+        >
+          <div
+            class="custom-line-box"
+          />
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="1.1"
+        style="--level: 1;"
+      >
+        
+        <div
+          class="custom-line custom-line-first custom-line-leaf"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class=""
+            />
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="1.2"
+        style="--level: 1;"
+      >
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class=""
+            />
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="2"
+        style="--level: 0;"
+      >
+        
+        <div
+          class="custom-line"
+        >
+          <div
+            class="custom-line-box"
+          />
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="2.1"
+        style="--level: 1;"
+      >
+        
+        <div
+          class="custom-line custom-line-first"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class=""
+            />
+          </div>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="2.1.1"
+        style="--level: 2;"
+      >
+        
+        <div
+          class="custom-line custom-line-first"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class=""
+            />
+          </div>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="2.1.1.1"
+        style="--level: 3;"
+      >
+        
+        <div
+          class="custom-line custom-line-first custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class=""
+            />
+          </div>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="4"
+        data-value="2.1.1.1.1"
+        style="--level: 4;"
+      >
+        
+        <div
+          class="custom-line custom-line-first custom-line-leaf"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class=""
+            />
+            <span
+              class=""
+            />
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1.1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="4"
+        data-value="2.1.1.1.2"
+        style="--level: 4;"
+      >
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class=""
+            />
+            <span
+              class=""
+            />
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1.1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="2.1.2"
+        style="--level: 2;"
+      >
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class=""
+            />
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="2.2"
+        style="--level: 1;"
+      >
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class=""
+            />
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="3"
+        style="--level: 0;"
+      >
+        
+        <div
+          class="custom-line"
+        >
+          <div
+            class="custom-line-box"
+          />
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            3
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="3.1"
+        style="--level: 1;"
+      >
+        
+        <div
+          class="custom-line custom-line-first custom-line-leaf"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class=""
+            />
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            3.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="3.2"
+        style="--level: 1;"
+      >
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            <span
+              class=""
+            />
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            3.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="4"
+        style="--level: 0;"
+      >
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          />
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            4
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+  <h3>
+    scope slot
+  </h3>
+  <div
+    class="t-tree t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="1"
+        style="--level: 0;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-first"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            
+          </div>
+          <!--v-if-->
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="1.1"
+        style="--level: 1;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-first custom-line-leaf"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class=""
+            />
+            
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="1.2"
+        style="--level: 1;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class=""
+            />
+            
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="2"
+        style="--level: 0;"
+      >
+        
+        
+        <div
+          class="custom-line"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            
+          </div>
+          <!--v-if-->
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="2.1"
+        style="--level: 1;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-first"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class=""
+            />
+            
+          </div>
+          <!--v-if-->
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="2.1.1"
+        style="--level: 2;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-first"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class=""
+            />
+            
+          </div>
+          <!--v-if-->
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="3"
+        data-value="2.1.1.1"
+        style="--level: 3;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-first custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class=""
+            />
+            
+          </div>
+          <!--v-if-->
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="4"
+        data-value="2.1.1.1.1"
+        style="--level: 4;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-first custom-line-leaf"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class=""
+            />
+            <span
+              class=""
+            />
+            
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1.1.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="4"
+        data-value="2.1.1.1.2"
+        style="--level: 4;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class=""
+            />
+            <span
+              class=""
+            />
+            
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.1.1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="2.1.2"
+        style="--level: 2;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class="custom-line-cross"
+            />
+            <span
+              class=""
+            />
+            
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.1.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="2.2"
+        style="--level: 1;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class=""
+            />
+            
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="3"
+        style="--level: 0;"
+      >
+        
+        
+        <div
+          class="custom-line"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            
+          </div>
+          <!--v-if-->
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            3
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="3.1"
+        style="--level: 1;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-first custom-line-leaf"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class=""
+            />
+            
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            3.1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="3.2"
+        style="--level: 1;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            <span
+              class=""
+            />
+            
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            3.2
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="4"
+        style="--level: 0;"
+      >
+        
+        
+        <div
+          class="custom-line custom-line-leaf custom-line-last"
+        >
+          <div
+            class="custom-line-box"
+          >
+            
+            
+          </div>
+          <i
+            class="custom-line-icon"
+          >
+            <svg
+              class="t-icon t-icon-heart-filled"
+            >
+              <use
+                href="#t-icon-heart-filled"
+              />
+            </svg>
+          </i>
+        </div>
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            4
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo load demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t63"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-loading"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t64"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-loading"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2
+          </span>
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Tree:demo operations demo works fine 1`] = `
+<div
+  class="tdesign-tree-operations"
+>
+  <h3
+    class="title"
+  >
+    render:
+  </h3>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="node1"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1 | value: node1
+          </span>
+        </span>
+        <span
+          class="t-tree__operations"
+          ignore="active,expand"
+        >
+          value: node1
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="node2"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2 | value: node2
+          </span>
+        </span>
+        <span
+          class="t-tree__operations"
+          ignore="active,expand"
+        >
+          value: node2
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+  <h3
+    class="title"
+  >
+    scope slot:
+  </h3>
+  <div
+    class="operations"
+  >
+    <form
+      class="t-form"
+    >
+      
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            插入节点使用高亮节点
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m"
+              disabled="false"
+              modelvalue="false"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            子节点展开触发父节点展开
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      
+    </form>
+  </div>
+  <div
+    class="operations"
+  >
+    <div
+      class="t-addon t-addon--prepend"
+    >
+      <span
+        class="t-addon__prepend"
+      >
+        filter:
+      </span>
+      <div
+        class="t-input t-size-m"
+        modelvalue=""
+      >
+        <!---->
+        <input
+          autocomplete="false"
+          autofocus="function Boolean() { [native code] }"
+          class="t-input__inner"
+          type="text"
+        />
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-tree t-tree--hoverable t-tree--checkable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="node1"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="node1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1 | value: node1
+            
+          </span>
+        </label>
+        <span
+          class="t-tree__operations"
+          ignore="active,expand"
+        >
+          
+          <button
+            class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              添加子节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              前插节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              后插节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-base t-button--theme-danger"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              删除
+              
+            </span>
+          </button>
+          
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="node2"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="node2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2 | value: node2
+            
+          </span>
+        </label>
+        <span
+          class="t-tree__operations"
+          ignore="active,expand"
+        >
+          
+          <button
+            class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              添加子节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              前插节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              后插节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-base t-button--theme-danger"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              删除
+              
+            </span>
+          </button>
+          
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+  <h3
+    class="title"
+  >
+    api:
+  </h3>
+  <div
+    class="operations"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取 value 为 'node1' 的单个节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取所有节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点的所有子节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取所有高亮节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点下的选中节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        插入一个根节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点的父节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点的所有父节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点在子节点中的位置
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        选中高亮节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        展开高亮节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点与其子节点的数据
+        
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tree:demo state demo works fine 1`] = `
+<div
+  class="tdesign-tree-operations"
+>
+  <h3
+    class="title"
+  >
+    render:
+  </h3>
+  <div
+    class="t-tree t-tree--hoverable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="node1"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            1 | value: node1
+          </span>
+        </span>
+        <span
+          class="t-tree__operations"
+          ignore="active,expand"
+        >
+          value: node1
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="node2"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            2 | value: node2
+          </span>
+        </span>
+        <span
+          class="t-tree__operations"
+          ignore="active,expand"
+        >
+          value: node2
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+  <h3
+    class="title"
+  >
+    scope slot:
+  </h3>
+  <div
+    class="operations"
+  >
+    <form
+      class="t-form"
+    >
+      
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            插入节点使用高亮节点
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m"
+              disabled="false"
+              modelvalue="false"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-form__item t-form-item__"
+      >
+        <div
+          class="t-form__label t-form__label--right"
+        >
+          <label
+            for=""
+          >
+            子节点展开触发父节点展开
+          </label>
+        </div>
+        <div
+          class="t-form__controls"
+        >
+          <div
+            class="t-form__controls--content"
+          >
+            
+            <div
+              class="t-switch t-size-m t-is-checked"
+              disabled="false"
+              modelvalue="true"
+            >
+              <span
+                class="t-switch__handle"
+              >
+                <!---->
+              </span>
+              <div
+                class="t-switch__content t-size-m"
+              >
+                <!---->
+              </div>
+            </div>
+            
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+      
+    </form>
+  </div>
+  <div
+    class="operations"
+  >
+    <div
+      class="t-addon t-addon--prepend"
+    >
+      <span
+        class="t-addon__prepend"
+      >
+        filter:
+      </span>
+      <div
+        class="t-input t-size-m"
+        modelvalue=""
+      >
+        <!---->
+        <input
+          autocomplete="false"
+          autofocus="function Boolean() { [native code] }"
+          class="t-input__inner"
+          type="text"
+        />
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-tree t-tree--hoverable t-tree--checkable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="node1"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="node1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1 | value: node1
+            
+          </span>
+        </label>
+        <span
+          class="t-tree__operations"
+          ignore="active,expand"
+        >
+          
+          <button
+            class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              添加子节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              前插节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              后插节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-base t-button--theme-danger"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              删除
+              
+            </span>
+          </button>
+          
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="node2"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="node2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2 | value: node2
+            
+          </span>
+        </label>
+        <span
+          class="t-tree__operations"
+          ignore="active,expand"
+        >
+          
+          <button
+            class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              添加子节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              前插节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              后插节点
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-s t-button--variant-base t-button--theme-danger"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              删除
+              
+            </span>
+          </button>
+          
+        </span>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+  <h3
+    class="title"
+  >
+    api:
+  </h3>
+  <div
+    class="operations"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取 value 为 'node1' 的单个节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取所有节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点的所有子节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取所有高亮节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点下的选中节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        插入一个根节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点的父节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点的所有父节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点在子节点中的位置
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        选中高亮节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        展开高亮节点
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        获取高亮节点与其子节点的数据
+        
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tree:demo sync demo works fine 1`] = `
+<div
+  class="tdesign-tree-base"
+>
+  <div
+    class="t-addon t-addon--prepend"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      checked:
+    </span>
+    <div
+      class="t-input t-size-m"
+    >
+      <!---->
+      <input
+        autocomplete="false"
+        autofocus="function Boolean() { [native code] }"
+        class="t-input__inner"
+        type="text"
+      />
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-addon t-addon--prepend"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      expanded:
+    </span>
+    <div
+      class="t-input t-size-m"
+    >
+      <!---->
+      <input
+        autocomplete="false"
+        autofocus="function Boolean() { [native code] }"
+        class="t-input__inner"
+        type="text"
+      />
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-addon t-addon--prepend"
+  >
+    <span
+      class="t-addon__prepend"
+    >
+      actived:
+    </span>
+    <div
+      class="t-input t-size-m"
+    >
+      <!---->
+      <input
+        autocomplete="false"
+        autofocus="function Boolean() { [native code] }"
+        class="t-input__inner"
+        type="text"
+      />
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-tree t-tree--checkable t-tree--fx"
+    modelvalue=""
+  >
+    <transition-group-stub>
+      
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="1"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="1.1"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="2"
+        data-value="1.1.1"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="3"
+        data-value="1.1.1.1"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.1.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="3"
+        data-value="1.1.1.2"
+        style="--level: 3;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="2"
+        data-value="1.1.2"
+        style="--level: 2;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="1"
+        data-value="1.2"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            1.2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open t-is-active"
+        data-level="0"
+        data-value="2"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active t-tree__label t-tree__label--strictly t-is-active"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="1"
+        data-value="2.1"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="2.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2.1
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item"
+        data-level="1"
+        data-value="2.2"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="2.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            2.2
+            
+          </span>
+        </label>
+        
+      </div>
+      
+    </transition-group-stub>
+    <!---->
+  </div>
+</div>
+`;

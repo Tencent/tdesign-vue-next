@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { HeadMenu } from '@/src/menu/index.ts';
+import { HeadMenu } from '@/src/menu';
 
 // every component needs four parts: props/events/slots/functions.
 describe('HeadMenu', () => {
@@ -11,16 +11,16 @@ describe('HeadMenu', () => {
           return <HeadMenu theme={'light'}></HeadMenu>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':active', () => {
       const wrapper = mount({
         render() {
-          return <HeadMenu active={'2-1'}></HeadMenu>;
+          return <HeadMenu value={'2-1'}></HeadMenu>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':height', () => {
@@ -29,36 +29,36 @@ describe('HeadMenu', () => {
           return <HeadMenu height={'750px'}></HeadMenu>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
   describe('slot', () => {
     it('<logo>', () => {
       const wrapper = mount(HeadMenu, {
-        scopedSlots: {
+        slots: {
           logo: '<div></div>',
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('<default>', () => {
       const wrapper = mount(HeadMenu, {
-        scopedSlots: {
+        slots: {
           default: '<div></div>',
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('<options>', () => {
       const wrapper = mount(HeadMenu, {
-        scopedSlots: {
+        slots: {
           options: '<div></div>',
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 });

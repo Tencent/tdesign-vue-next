@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Affix base demo works fine 1`] = `
+<div
+  class="affix-base"
+>
+  <div>
+    
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      style="height: 40px;"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Base
+        
+      </span>
+    </button>
+    
+  </div>
+</div>
+`;
+
+exports[`Affix container demo works fine 1`] = `
+<div
+  class="affix-container"
+>
+  <div
+    class="affix-container-demo1"
+  >
+    <div
+      class="background"
+    >
+      <div>
+        
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            FixedTop top:0
+            
+          </span>
+        </button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;

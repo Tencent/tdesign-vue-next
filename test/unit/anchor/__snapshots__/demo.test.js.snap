@@ -3,104 +3,123 @@
 exports[`Anchor base demo works fine 1`] = `
 <div
   class="anchor-demo"
-  id="http://example.com#default"
+  id="#default"
+  style="display: flex;"
 >
   <div
-    class="t-anchor t-size-m"
-  >
+    style="flex: 1;"
+  />
+  <div>
+    
     <div
-      class="t-anchor_line"
-    />
-    <div
-      class="t-anchor-item"
+      class="t-anchor t-size-m"
     >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#default"
-        target="_self"
-        title="定义"
+      <div
+        class="t-anchor_line"
       >
-        定义
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#multiple"
-        target="_self"
-        title="服务功能"
+        <div
+          class="cursor-wrapper"
+        >
+          <div
+            class="cursor"
+          />
+        </div>
+      </div>
+      
+      <div
+        class="t-anchor-item"
       >
-        服务功能
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#small"
-        target="_self"
-        title="使用指南"
+        <a
+          class="t-anchor-item_link"
+          href="#基础锚点"
+          target="_self"
+          title="基础锚点"
+        >
+          基础锚点
+        </a>
+        <!---->
+      </div>
+      <div
+        class="t-anchor-item"
       >
-        使用指南
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#large"
-        target="_self"
-        title="创建签名"
+        <a
+          class="t-anchor-item_link"
+          href="#多级锚点"
+          target="_self"
+          title="多级锚点"
+        >
+          多级锚点
+        </a>
+        <!---->
+      </div>
+      <div
+        class="t-anchor-item"
       >
-        创建签名
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#container"
-        target="_self"
-        title="创建内容"
+        <a
+          class="t-anchor-item_link"
+          href="#指定容器锚点"
+          target="_self"
+          title="指定容器锚点"
+        >
+          指定容器锚点
+        </a>
+        <!---->
+      </div>
+      <div
+        class="t-anchor-item"
       >
-        创建内容
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-6"
-        target="_self"
-        title="保密协议"
+        <a
+          class="t-anchor-item_link"
+          href="#特定交互锚点"
+          target="_self"
+          title="特定交互锚点"
+        >
+          特定交互锚点
+        </a>
+        <!---->
+      </div>
+      <div
+        class="t-anchor-item"
       >
-        保密协议
-      </a>
-    </div>
-     
-    <div
-      class="t-anchor-item"
-    >
-      <a
-        class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-7"
-        target="_self"
-        title="其他"
+        <a
+          class="t-anchor-item_link"
+          href="#尺寸"
+          target="_self"
+          title="尺寸"
+        >
+          尺寸
+        </a>
+        <!---->
+      </div>
+      <div
+        class="t-anchor-item"
       >
-        其他
-      </a>
+        <a
+          class="t-anchor-item_link"
+          href="##anchor-target-6"
+          target="_self"
+          title="保密协议"
+        >
+          保密协议
+        </a>
+        <!---->
+      </div>
+      <div
+        class="t-anchor-item"
+      >
+        <a
+          class="t-anchor-item_link"
+          href="##anchor-target-7"
+          target="_self"
+          title="其他"
+        >
+          其他
+        </a>
+        <!---->
+      </div>
+      
     </div>
+    
   </div>
 </div>
 `;
@@ -108,103 +127,116 @@ exports[`Anchor base demo works fine 1`] = `
 exports[`Anchor bounds demo works fine 1`] = `
 <div
   class="anchor-demo"
-  id="http://example.com#nested"
+  id="#multiple"
 >
   <div
     class="t-anchor t-size-m"
   >
     <div
       class="t-anchor_line"
-    />
+    >
+      <div
+        class="cursor-wrapper"
+      >
+        <div
+          class="cursor"
+        />
+      </div>
+    </div>
+    
     <div
       class="t-anchor-item"
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-1"
+        href="##default"
         target="_self"
         title="定义"
       >
         定义
       </a>
+      <!---->
     </div>
-     
     <div
       class="t-anchor-item"
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-2"
+        href="##multiple"
         target="_self"
         title="服务功能"
       >
         服务功能
       </a>
+      <!---->
     </div>
-     
     <div
       class="t-anchor-item"
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-3"
+        href="##small"
         target="_self"
         title="使用指南"
       >
         使用指南
       </a>
+      
       <div
         class="t-anchor-item"
       >
         <a
           class="t-anchor-item_link"
-          href="#http://example.com#anchor-target-4"
+          href="##large"
           target="_self"
           title="创建签名"
         >
           创建签名
         </a>
+        <!---->
       </div>
-       
       <div
         class="t-anchor-item"
       >
         <a
           class="t-anchor-item_link"
-          href="#http://example.com#anchor-target-5"
+          href="##container"
           target="_self"
           title="创建内容"
         >
           创建内容
         </a>
+        <!---->
       </div>
+      
     </div>
-     
     <div
       class="t-anchor-item"
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-6"
+        href="##anchor-target-6"
         target="_self"
         title="保密协议"
       >
         保密协议
       </a>
+      <!---->
     </div>
-     
     <div
       class="t-anchor-item"
     >
       <a
         class="t-anchor-item_link"
-        href="#http://example.com#anchor-target-7"
+        href="##anchor-target-7"
         target="_self"
         title="其他"
       >
         其他
       </a>
+      <!---->
     </div>
+    
   </div>
 </div>
 `;
@@ -212,22 +244,37 @@ exports[`Anchor bounds demo works fine 1`] = `
 exports[`Anchor target demo works fine 1`] = `
 <div
   class="anchor-demo"
-  id="http://example.com#anchor-target"
+  id="#anchor-target"
 >
-  <h1
+  <div
     class="t-anchor-target"
-    id="http://example.com#anchor-target-1"
+    id="#anchor-target-1"
   >
+    
     定义
+    
     <div
       class="t-popup-reference t-copy"
-      style="position: relative;"
     >
-      <transition-stub
-        appear="true"
-        name="t-popup_animation"
-      />
-       
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-popup-content--arrow"
+          >
+            复制链接
+            <div
+              class="t-popup__arrow"
+              data-popper-arrow="true"
+            />
+          </div>
+        </div>
+      </transition-stub>
+      
       <svg
         class="t-icon t-icon-file-copy"
         name="file-copy"
@@ -241,45 +288,38 @@ exports[`Anchor target demo works fine 1`] = `
           fill-rule="evenodd"
         />
       </svg>
-      <div
-        class="resize-sensor"
-        dir="ltr"
-        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-      >
-        <div
-          class="resize-sensor-expand"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-          />
-        </div>
-        <div
-          class="resize-sensor-shrink"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-          />
-        </div>
-      </div>
+      
     </div>
-  </h1>
-   
-  <h2
+  </div>
+  <div
     class="t-anchor-target"
-    id="http://example.com#anchor-target-2"
+    id="#anchor-target-2"
   >
+    
     服务功能
+    
     <div
       class="t-popup-reference t-copy"
-      style="position: relative;"
     >
-      <transition-stub
-        appear="true"
-        name="t-popup_animation"
-      />
-       
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-popup-content--arrow"
+          >
+            复制链接
+            <div
+              class="t-popup__arrow"
+              data-popper-arrow="true"
+            />
+          </div>
+        </div>
+      </transition-stub>
+      
       <svg
         class="t-icon t-icon-file-copy"
         name="file-copy"
@@ -293,45 +333,38 @@ exports[`Anchor target demo works fine 1`] = `
           fill-rule="evenodd"
         />
       </svg>
-      <div
-        class="resize-sensor"
-        dir="ltr"
-        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-      >
-        <div
-          class="resize-sensor-expand"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-          />
-        </div>
-        <div
-          class="resize-sensor-shrink"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-          />
-        </div>
-      </div>
+      
     </div>
-  </h2>
-   
-  <h3
+  </div>
+  <div
     class="t-anchor-target"
-    id="http://example.com#anchor-target-3"
+    id="#anchor-target-3"
   >
+    
     使用指南
+    
     <div
       class="t-popup-reference t-copy"
-      style="position: relative;"
     >
-      <transition-stub
-        appear="true"
-        name="t-popup_animation"
-      />
-       
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-popup-content--arrow"
+          >
+            复制链接
+            <div
+              class="t-popup__arrow"
+              data-popper-arrow="true"
+            />
+          </div>
+        </div>
+      </transition-stub>
+      
       <svg
         class="t-icon t-icon-file-copy"
         name="file-copy"
@@ -345,45 +378,38 @@ exports[`Anchor target demo works fine 1`] = `
           fill-rule="evenodd"
         />
       </svg>
-      <div
-        class="resize-sensor"
-        dir="ltr"
-        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-      >
-        <div
-          class="resize-sensor-expand"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-          />
-        </div>
-        <div
-          class="resize-sensor-shrink"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-          />
-        </div>
-      </div>
+      
     </div>
-  </h3>
-   
-  <h3
+  </div>
+  <div
     class="t-anchor-target"
-    id="http://example.com#anchor-target-4"
+    id="#anchor-target-4"
   >
+    
     创建签名
+    
     <div
       class="t-popup-reference t-copy"
-      style="position: relative;"
     >
-      <transition-stub
-        appear="true"
-        name="t-popup_animation"
-      />
-       
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-popup-content--arrow"
+          >
+            复制链接
+            <div
+              class="t-popup__arrow"
+              data-popper-arrow="true"
+            />
+          </div>
+        </div>
+      </transition-stub>
+      
       <svg
         class="t-icon t-icon-file-copy"
         name="file-copy"
@@ -397,45 +423,38 @@ exports[`Anchor target demo works fine 1`] = `
           fill-rule="evenodd"
         />
       </svg>
-      <div
-        class="resize-sensor"
-        dir="ltr"
-        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-      >
-        <div
-          class="resize-sensor-expand"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-          />
-        </div>
-        <div
-          class="resize-sensor-shrink"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-          />
-        </div>
-      </div>
+      
     </div>
-  </h3>
-   
-  <h3
+  </div>
+  <div
     class="t-anchor-target"
-    id="http://example.com#anchor-target-5"
+    id="#anchor-target-5"
   >
+    
     创建内容
+    
     <div
       class="t-popup-reference t-copy"
-      style="position: relative;"
     >
-      <transition-stub
-        appear="true"
-        name="t-popup_animation"
-      />
-       
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-popup-content--arrow"
+          >
+            复制链接
+            <div
+              class="t-popup__arrow"
+              data-popper-arrow="true"
+            />
+          </div>
+        </div>
+      </transition-stub>
+      
       <svg
         class="t-icon t-icon-file-copy"
         name="file-copy"
@@ -449,45 +468,38 @@ exports[`Anchor target demo works fine 1`] = `
           fill-rule="evenodd"
         />
       </svg>
-      <div
-        class="resize-sensor"
-        dir="ltr"
-        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-      >
-        <div
-          class="resize-sensor-expand"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-          />
-        </div>
-        <div
-          class="resize-sensor-shrink"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-          />
-        </div>
-      </div>
+      
     </div>
-  </h3>
-   
-  <h3
+  </div>
+  <div
     class="t-anchor-target"
-    id="http://example.com#anchor-target-6"
+    id="#anchor-target-6"
   >
+    
     保密协议
+    
     <div
       class="t-popup-reference t-copy"
-      style="position: relative;"
     >
-      <transition-stub
-        appear="true"
-        name="t-popup_animation"
-      />
-       
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-popup-content--arrow"
+          >
+            复制链接
+            <div
+              class="t-popup__arrow"
+              data-popper-arrow="true"
+            />
+          </div>
+        </div>
+      </transition-stub>
+      
       <svg
         class="t-icon t-icon-file-copy"
         name="file-copy"
@@ -501,45 +513,38 @@ exports[`Anchor target demo works fine 1`] = `
           fill-rule="evenodd"
         />
       </svg>
-      <div
-        class="resize-sensor"
-        dir="ltr"
-        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-      >
-        <div
-          class="resize-sensor-expand"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-          />
-        </div>
-        <div
-          class="resize-sensor-shrink"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-          />
-        </div>
-      </div>
+      
     </div>
-  </h3>
-   
-  <h3
+  </div>
+  <div
     class="t-anchor-target"
-    id="http://example.com#anchor-target-7"
+    id="#anchor-target-7"
   >
+    
     其他
+    
     <div
       class="t-popup-reference t-copy"
-      style="position: relative;"
     >
-      <transition-stub
-        appear="true"
-        name="t-popup_animation"
-      />
-       
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-popup-content--arrow"
+          >
+            复制链接
+            <div
+              class="t-popup__arrow"
+              data-popper-arrow="true"
+            />
+          </div>
+        </div>
+      </transition-stub>
+      
       <svg
         class="t-icon t-icon-file-copy"
         name="file-copy"
@@ -553,29 +558,8 @@ exports[`Anchor target demo works fine 1`] = `
           fill-rule="evenodd"
         />
       </svg>
-      <div
-        class="resize-sensor"
-        dir="ltr"
-        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-      >
-        <div
-          class="resize-sensor-expand"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-          />
-        </div>
-        <div
-          class="resize-sensor-shrink"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-          />
-        </div>
-      </div>
+      
     </div>
-  </h3>
+  </div>
 </div>
 `;

@@ -18,8 +18,7 @@ module.exports = {
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
-    '^@tencent/tdesign-vue-next/lib/(.*)$': '<rootDir>/src/$1',
-    '^@common/(.*)$': '<rootDir>/src/_common/$1',
+    '^@tencent/tdesign-vue-next(.*)': '<rootDir>/src/$1',
     '^vue$': '<rootDir>/node_modules/vue/index.js',
   },
   modulePathIgnorePatterns: ['<rootDir>/test/unit/coverage/'],

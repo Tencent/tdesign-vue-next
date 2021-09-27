@@ -1,10 +1,15 @@
 import { mount } from '@vue/test-utils';
-import demo from '@/examples/swiper/demos/base.vue';
+import swiper from '@/examples/swiper/demos/swiper.vue';
+import vertical from '@/examples/swiper/demos/vertical.vue';
 
-// unit test for component in examples.
 describe('Swiper', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(demo);
+  it('swiper demo works fine', () => {
+    const wrapper = mount(swiper);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+
+  it('vertical demo works fine', () => {
+    const wrapper = mount(vertical);
     expect(wrapper.element).toMatchSnapshot();
   });
 });

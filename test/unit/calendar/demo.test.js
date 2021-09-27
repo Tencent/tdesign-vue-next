@@ -2,19 +2,20 @@ import { mount } from '@vue/test-utils';
 import MockDate from 'mockdate';
 import base from '@/examples/calendar/demos/base.vue';
 import card from '@/examples/calendar/demos/card.vue';
-import cardCell from '@/examples/calendar/demos/cardCell.vue';
+import cardCell from '@/examples/calendar/demos/card-cell.vue';
 import cell from '@/examples/calendar/demos/cell.vue';
-import cellAppend from '@/examples/calendar/demos/cellAppend.vue';
-import controllerConfig from '@/examples/calendar/demos/controllerConfig.vue';
+import cellAppend from '@/examples/calendar/demos/cell-append.vue';
+import controllerConfig from '@/examples/calendar/demos/controller-config.vue';
 import value from '@/examples/calendar/demos/value.vue';
 import events from '@/examples/calendar/demos/events.vue';
-import firstDayOfWeek from '@/examples/calendar/demos/firstDayOfWeek.vue';
+import firstDayOfWeek from '@/examples/calendar/demos/first-day-of-week.vue';
 import head from '@/examples/calendar/demos/head.vue';
 import filter from '@/examples/calendar/demos/filter.vue';
 import mode from '@/examples/calendar/demos/mode.vue';
 import range from '@/examples/calendar/demos/range.vue';
-import eventsPropsApi from '@/examples/calendar/demos/eventsPropsApi.vue';
-import slotPropsApi from '@/examples/calendar/demos/slotPropsApi.vue';
+import eventsPropsApi from '@/examples/calendar/demos/events-props-api.vue';
+import slotPropsApi from '@/examples/calendar/demos/slot-props-api.vue';
+import week from '@/examples/calendar/demos/week.vue';
 
 // 固定时间，当使用 new Date() 时，返回固定时间，防止“当前时间”的副作用影响，导致 snapshot 变更，mockdate 插件见 https://github.com/boblauer/MockDate
 MockDate.set('2020-12-28');
@@ -93,4 +94,9 @@ describe('Calendar', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
   // 插槽示例(end)
+
+  it('week demo works fine', () => {
+    const wrapper = mount(week);
+    expect(wrapper.element).toMatchSnapshot();
+  });
 });

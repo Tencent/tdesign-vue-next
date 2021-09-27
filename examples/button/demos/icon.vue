@@ -41,11 +41,11 @@
   </div>
 </template>
 <script lang="jsx">
-import TIconAdd from '@tencent/tdesign-vue-next/lib/icon/add';
-import TIconCloudUpload from '@tencent/tdesign-vue-next/lib/icon/cloud-upload';
-import TIconCloudDownload from '@tencent/tdesign-vue-next/lib/icon/cloud-download';
-import TIconDiscount from '@tencent/tdesign-vue-next/lib/icon/discount';
-import TIconSearch from '@tencent/tdesign-vue-next/lib/icon/search';
+import TIconAdd from '@tencent/tdesign-vue-next/icon/add';
+import TIconCloudUpload from '@tencent/tdesign-vue-next/icon/cloud-upload';
+import TIconCloudDownload from '@tencent/tdesign-vue-next/icon/cloud-download';
+import TIconDiscount from '@tencent/tdesign-vue-next/icon/discount';
+import TIconSearch from '@tencent/tdesign-vue-next/icon/search';
 
 export default {
   components: {

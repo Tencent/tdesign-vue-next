@@ -3,112 +3,114 @@
 exports[`Select base demo works fine 1`] = `
 <div>
   <div
-    class="demo-select-base"
+    class="t-select-wrap"
+    style="width: 200px;"
   >
     <div
-      class="t-popup-reference"
-      style="width: 100%; position: relative;"
+      class="t-popup-reference t-select-popup-reference"
     >
-      <transition-stub
-        appear="true"
-        name="t-popup_animation"
-      />
-       
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+            style=""
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <li
+                class="t-select-empty t-size-m"
+              >
+                暂无数据
+              </li>
+              <span
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-select-option t-is-selected t-size-m"
+                  title="已选择的选项"
+                >
+                  
+                  已选择的选项
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="短的选项二"
+                >
+                  
+                  短的选项二
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="很长很长很很长很长很长的选项三"
+                >
+                  
+                  很长很长很很长很长很长的选项三
+                  
+                </li>
+                
+                
+              </span>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
       <div
         class="t-select t-size-m"
       >
-        <svg
-          class="t-icon t-icon- t-size-m t-select-left-icon"
-          style="display: none;"
-        >
-          <use
-            xlink:href="#t-icon-"
-          />
-        </svg>
-         
-        <span
-          class="t-select-placeholder"
-          style="display: none;"
-        >
-           请选择
-        </span>
-         
-        <input
-          name="t-select"
-          style="width: 0px;"
-          type="hidden"
-          value="1"
-        />
-          
+        <!---->
+        <!---->
+        
+        
         <span
           class="t-select-selectedSingle"
           title="1"
         >
-          
-        1
-      
+          1
         </span>
-         
-        <div
-          class="t-input t-size-m t-select-input"
-          style="display: none;"
-        >
-          <input
-            class="t-input__inner"
-            placeholder="1"
-            type="text"
-          />
-        </div>
-         
+        <!---->
         <svg
-          class="t-icon t-icon-chevron-down t-size-m t-select-right-icon"
+          class="t-select-right-icon t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <use
-            xlink:href="#t-icon-chevron-down"
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
           />
         </svg>
-         
-        <svg
-          class="t-icon t-icon-close t-size-m t-select-right-icon"
-          style="display: none;"
-        >
-          <use
-            xlink:href="#t-icon-close"
-          />
-        </svg>
-         
-        <svg
-          class="t-icon t-icon-loading t-size-m t-select-right-icon"
-          style="display: none;"
-        >
-          <use
-            xlink:href="#t-icon-loading"
-          />
-        </svg>
+        <!---->
+        <!---->
       </div>
-       
-      <div
-        class="resize-sensor"
-        dir="ltr"
-        style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-      >
-        <div
-          class="resize-sensor-expand"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-          />
-        </div>
-        <div
-          class="resize-sensor-shrink"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-        >
-          <div
-            style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-          />
-        </div>
-      </div>
+      
     </div>
   </div>
 </div>

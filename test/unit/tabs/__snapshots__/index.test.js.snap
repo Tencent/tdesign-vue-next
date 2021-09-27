@@ -1,101 +1,383 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs :props :addable 1`] = `
-<div class="t-tabs">
-  <div class="t-tabs__header t-is-top">
-    <div class="t-tabs__nav">
-      <!---->
-      <div class="t-tabs__nav-container t-is-top">
-        <!---->
-        <!---->
-        <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap">
-            <div class="t-tabs__bar t-is-top"></div>
+<div
+  class="t-tabs"
+>
+  
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+        <!--v-if-->
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap"
+            style="transform: translateX(-0px);"
+          >
+            
+            <!--v-if-->
+            
+            
+            
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="t-tabs__content"></div>
+  <div
+    class="t-tabs__content"
+  >
+    <!---->
+  </div>
+  
+</div>
+`;
+
+exports[`Tabs :props :defaultValue 1`] = `
+<div
+  class="t-tabs"
+>
+  
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+        <!--v-if-->
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap"
+            style="transform: translateX(-0px);"
+          >
+            
+            <!--v-if-->
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  >
+    <!---->
+  </div>
+  
+</div>
+`;
+
+exports[`Tabs :props :disabled 1`] = `
+<div
+  class="t-tabs"
+>
+  
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+        <!--v-if-->
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap"
+            style="transform: translateX(-0px);"
+          >
+            
+            <!--v-if-->
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-tabs__content"
+  >
+    <!---->
+  </div>
+  
 </div>
 `;
 
 exports[`Tabs :props :placement 1`] = `
-<div class="t-tabs">
-  <div class="t-tabs__header t-is-left">
-    <div class="t-tabs__nav">
-      <!---->
-      <div class="t-tabs__nav-container t-is-left">
-        <!---->
-        <!---->
-        <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap">
-            <div class="t-tabs__bar t-is-left"></div>
+<div
+  class="t-tabs"
+>
+  
+  <div
+    class="t-tabs__header t-is-left"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+        <!--v-if-->
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-left"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap t-is-vertical"
+            style="transform: translateX(-0px);"
+          >
+            
+            <!--v-if-->
+            
+            
+            
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="t-tabs__content"></div>
+  <div
+    class="t-tabs__content"
+  >
+    <!---->
+  </div>
+  
 </div>
 `;
 
 exports[`Tabs :props :size 1`] = `
-<div class="t-tabs">
-  <div class="t-tabs__header t-is-top">
-    <div class="t-tabs__nav">
-      <!---->
-      <div class="t-tabs__nav-container t-is-top">
-        <!---->
-        <!---->
-        <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap">
-            <div class="t-tabs__bar t-is-top"></div>
+<div
+  class="t-tabs"
+>
+  
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+        <!--v-if-->
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap"
+            style="transform: translateX(-0px);"
+          >
+            
+            <!--v-if-->
+            
+            
+            
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="t-tabs__content"></div>
+  <div
+    class="t-tabs__content"
+  >
+    <!---->
+  </div>
+  
 </div>
 `;
 
 exports[`Tabs :props :theme 1`] = `
-<div class="t-tabs">
-  <div class="t-tabs__header t-is-top">
-    <div class="t-tabs__nav">
-      <!---->
-      <div class="t-tabs__nav-container t-tabs__nav--card t-is-top">
-        <!---->
-        <!---->
-        <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap">
-            <!---->
+<div
+  class="t-tabs"
+>
+  
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+        <!--v-if-->
+      </div>
+      <div
+        class="t-tabs__nav-container t-tabs__nav--card t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap"
+            style="transform: translateX(-0px);"
+          >
+            
+            
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="t-tabs__content"></div>
+  <div
+    class="t-tabs__content"
+  >
+    <!---->
+  </div>
+  
 </div>
 `;
 
 exports[`Tabs :props :value 1`] = `
-<div class="t-tabs">
-  <div class="t-tabs__header t-is-top">
-    <div class="t-tabs__nav">
-      <!---->
-      <div class="t-tabs__nav-container t-is-top">
-        <!---->
-        <!---->
-        <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap">
-            <div class="t-tabs__bar t-is-top"></div>
+<div
+  class="t-tabs"
+>
+  
+  <div
+    class="t-tabs__header t-is-top"
+  >
+    <div
+      class="t-tabs__nav"
+    >
+      <div
+        class="t-tabs__operations t-tabs__operations--left"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+      </div>
+      <div
+        class="t-tabs__operations t-tabs__operations--right"
+      >
+        <transition-stub>
+          <!--v-if-->
+        </transition-stub>
+        <!--v-if-->
+      </div>
+      <div
+        class="t-tabs__nav-container t-is-top"
+      >
+        <div
+          class="t-tabs__nav-scroll"
+        >
+          <div
+            class="t-tabs__nav-wrap"
+            style="transform: translateX(-0px);"
+          >
+            
+            <!--v-if-->
+            
+            
+            
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="t-tabs__content"></div>
+  <div
+    class="t-tabs__content"
+  >
+    <!---->
+  </div>
+  
 </div>
 `;

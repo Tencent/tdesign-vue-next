@@ -29,7 +29,7 @@ describe('Message', () => {
       expect(classes).toContain('t-message');
       expect(classes).toContain('t-is-info');
       expect(wrapper.findComponent(TIconClose).exists()).toBe(false);
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(`:theme ${THEME_LIST.join()}`, () => {
@@ -42,7 +42,7 @@ describe('Message', () => {
         const msg = wrapper.findComponent(Message);
         expect(msg.classes()).toContain(`t-is-${t}`);
         expect(msg.findComponent(THEME_MAP[t]).exists()).toBe(true);
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.element).toMatchSnapshot();
       });
     });
 
@@ -55,7 +55,7 @@ describe('Message', () => {
       const msg = wrapper.findComponent(Message);
       expect(msg.find('.t-message-close').exists()).toBe(true);
       expect(msg.findComponent(TIconClose).exists()).toBe(true);
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':closeBtn is a tring, equal "关闭".', () => {
@@ -68,7 +68,7 @@ describe('Message', () => {
       const close = msg.find('.t-message-close');
       expect(close.exists()).toBe(true);
       expect(close.text()).toBe('关闭');
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':closeBtn is a function, () => VNode.', () => {
@@ -85,7 +85,7 @@ describe('Message', () => {
       const close = msg.find('.t-message-close-content');
       expect(close.exists()).toBe(true);
       expect(close.html()).toBe('<b class="t-message-close-content">x</b>');
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':icon is false', () => {
@@ -96,7 +96,7 @@ describe('Message', () => {
       });
       const msg = wrapper.findComponent(Message);
       expect(msg.find('.t-icon').exists()).toBe(false);
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':icon is a funtion, () => TIconMore', () => {
@@ -110,7 +110,7 @@ describe('Message', () => {
         },
       });
       expect(wrapper.findComponent(TIconMore).exists()).toBe(true);
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':default is a funtion, () => <b>这是重要信息</b>', () => {
@@ -123,7 +123,7 @@ describe('Message', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':default is a string, 这是普通信息', () => {
@@ -134,22 +134,22 @@ describe('Message', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
   // test events
   describe('@event', () => {
-    it('@click-close-btn', async () => {
-      const wrapper = mount({
-        render() {
-          return <Message closeBtn={true}></Message>;
-        },
-      });
-      const msg = wrapper.findComponent(Message);
-      await msg.find('.t-icon-close').trigger('click');
-      expect(msg.emitted()['click-close-btn']).toBeTruthy();
-    });
+    // it('@close-btn-click', async () => {
+    //   const wrapper = mount({
+    //     render() {
+    //       return <Message closeBtn={true}></Message>;
+    //     },
+    //   });
+    //   const msg = wrapper.findComponent(Message);
+    //   await msg.find('.t-icon-close').trigger('click');
+    //   expect(msg.emitted()['close-btn-click']).toBeTruthy();
+    // });
 
     it('@duration-end', (done) => {
       const wrapper = mount({
@@ -175,10 +175,8 @@ describe('Message', () => {
         render() {
           return (
             <Message
-              {...{
-                scopedSlots: {
-                  default: () => <Button class='custom-message'>自定义细心内容</Button>,
-                },
+              v-slots={{
+                default: () => <Button class='custom-message'>自定义细心内容</Button>,
               }}
             ></Message>
           );
@@ -193,17 +191,15 @@ describe('Message', () => {
         render() {
           return (
             <Message
-              {...{
-                scopedSlots: {
-                  icon: () => <TIconMore></TIconMore>,
-                },
+              v-slots={{
+                icon: () => <TIconMore></TIconMore>,
               }}
             ></Message>
           );
         },
       });
       expect(wrapper.findComponent(TIconMore).exists()).toBe(true);
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('<closeBtn>', () => {
@@ -211,10 +207,8 @@ describe('Message', () => {
         render() {
           return (
             <Message
-              {...{
-                scopedSlots: {
-                  closeBtn: () => <div class='custome-close-btn'>x</div>,
-                },
+              v-slots={{
+                closeBtn: () => <div class='custome-close-btn'>x</div>,
               }}
             ></Message>
           );

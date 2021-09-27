@@ -50,7 +50,6 @@ export default {
       return `${y}-${m}`;
     },
     getCellAppendCls(cellData) {
-      console.log(cellData)
       return {
         belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
         actived: cellData.isCurrent,

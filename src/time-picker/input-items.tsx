@@ -42,7 +42,7 @@ export default defineComponent({
   },
 
   computed: {
-    displayTimeList(): Array<InputTime | undefined> {
+    displayTimeList(): Array<InputTime | undefined> | Record<string, any> {
       return this.isRangePicker ? this.dayjs : [this.dayjs];
     },
   },
@@ -189,7 +189,7 @@ export default defineComponent({
       function isEmptyDayjs(val: InputTime) {
         return val === undefined || (val.hour === undefined && val.minute === undefined && val.second === undefined);
       }
-      const isEmptyVal = this.displayTimeList.every((date) => isEmptyDayjs(date));
+      const isEmptyVal = this.displayTimeList.every((date: InputTime) => isEmptyDayjs(date));
       if (isEmptyVal) {
         return <span class={`${COMPONENT_NAME}__input-placeholder`}>{placeholder}</span>;
       }

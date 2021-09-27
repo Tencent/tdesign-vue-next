@@ -1,7 +1,7 @@
 <template>
   <div class="tdesign-tree-select-filterable">
     <div class="operation">
-      <t-radio-group v-model="type" buttonStyle="solid">
+      <t-radio-group v-model="type" variant="default-filled">
         <t-radio-button value="default">默认</t-radio-button>
         <t-radio-button value="function">自定义方法</t-radio-button>
       </t-radio-group>

@@ -11,7 +11,7 @@ describe('Badge', () => {
           return <Badge color="green">Tdesign</Badge>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':count', () => {
@@ -20,7 +20,7 @@ describe('Badge', () => {
           return <Badge count={2}>Tdesign</Badge>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':dot', () => {
@@ -29,7 +29,7 @@ describe('Badge', () => {
           return <Badge dot={true} count={2}>Tdesign</Badge>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':maxCount', () => {
@@ -38,7 +38,7 @@ describe('Badge', () => {
           return <Badge maxCount={33} count={2}>Tdesign</Badge>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':count', () => {
@@ -47,7 +47,7 @@ describe('Badge', () => {
           return <Badge count="new" count={2}>Tdesign</Badge>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':size', () => {
@@ -56,7 +56,7 @@ describe('Badge', () => {
           return <Badge size = "small" count={2}>Tdesign</Badge>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':shape', () => {
@@ -65,7 +65,7 @@ describe('Badge', () => {
           return <Badge shape = "round" count={2}>Tdesign</Badge>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':showZero', () => {
@@ -74,7 +74,7 @@ describe('Badge', () => {
           return <Badge showZero={true} count={2}>Tdesign</Badge>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':offset', () => {
@@ -83,7 +83,7 @@ describe('Badge', () => {
           return <Badge offset={[10, 10]} count={2}>Tdesign</Badge>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
@@ -95,7 +95,7 @@ describe('Badge', () => {
           return <Badge count={2}>Tdesign</Badge>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 });

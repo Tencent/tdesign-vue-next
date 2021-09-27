@@ -1,15 +1,153 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MenuItem props :disabled 1`] = `<li class="t-menu__item t-is-disabled"><span></span></li>`;
+exports[`MenuItem props :disabled 1`] = `
+<div
+  class="t-default-menu t-menu-mode__normal t-menu--light"
+  style="height: 100%; width: 232px;"
+>
+  <div
+    class="t-default-menu__inner"
+  >
+    <!---->
+    <ul
+      class="t-menu t-menu--scroll"
+    >
+      
+      <li
+        class="t-menu__item t-is-active t-is-disabled t-menu__item--plain"
+      >
+        <!---->
+        <span
+          class="t-menu__content"
+        >
+          <!---->
+        </span>
+      </li>
+      
+    </ul>
+    <!---->
+  </div>
+</div>
+`;
 
-exports[`MenuItem props :name 1`] = `<li class="t-menu__item"><span></span></li>`;
+exports[`MenuItem props :name 1`] = `
+<div
+  class="t-default-menu t-menu-mode__normal t-menu--light"
+  style="height: 100%; width: 232px;"
+>
+  <div
+    class="t-default-menu__inner"
+  >
+    <!---->
+    <ul
+      class="t-menu t-menu--scroll"
+    >
+      
+      <li
+        class="t-menu__item t-is-active t-menu__item--plain"
+        name="1-1"
+      >
+        <!---->
+        <span
+          class="t-menu__content"
+        >
+          <!---->
+        </span>
+      </li>
+      
+    </ul>
+    <!---->
+  </div>
+</div>
+`;
 
-exports[`MenuItem props :route 1`] = `<a href="" target="_self" class="t-menu__item"><span></span></a>`;
+exports[`MenuItem props :route 1`] = `
+<div
+  class="t-default-menu t-menu-mode__normal t-menu--light"
+  style="height: 100%; width: 232px;"
+>
+  <div
+    class="t-default-menu__inner"
+  >
+    <!---->
+    <ul
+      class="t-menu t-menu--scroll"
+    >
+      
+      <li
+        class="t-menu__item t-is-active t-menu__item--plain"
+        route="/user/list"
+      >
+        <!---->
+        <span
+          class="t-menu__content"
+        >
+          <!---->
+        </span>
+      </li>
+      
+    </ul>
+    <!---->
+  </div>
+</div>
+`;
 
-exports[`MenuItem slot <default> 1`] = `<li class="t-menu__item"><span><div></div></span></li>`;
+exports[`MenuItem slot <default> 1`] = `
+<div
+  class="t-default-menu t-menu-mode__normal t-menu--light"
+  style="height: 100%; width: 232px;"
+>
+  <div
+    class="t-default-menu__inner"
+  >
+    <!---->
+    <ul
+      class="t-menu t-menu--scroll"
+    >
+      
+      <li
+        class="t-menu__item t-is-active t-menu__item--plain"
+      >
+        <!---->
+        <span
+          class="t-menu__content"
+        >
+          <!---->
+        </span>
+      </li>
+      
+    </ul>
+    <!---->
+  </div>
+</div>
+`;
 
 exports[`MenuItem slot <icon> 1`] = `
-<li class="t-menu__item">
-  <div></div><span></span>
-</li>
+<div
+  class="t-default-menu t-menu-mode__normal t-menu--light"
+  style="height: 100%; width: 232px;"
+>
+  <div
+    class="t-default-menu__inner"
+  >
+    <!---->
+    <ul
+      class="t-menu t-menu--scroll"
+    >
+      
+      <li
+        class="t-menu__item t-is-active t-menu__item--plain"
+      >
+        <!---->
+        <span
+          class="t-menu__content"
+        >
+          <!---->
+        </span>
+      </li>
+      
+    </ul>
+    <!---->
+  </div>
+</div>
 `;

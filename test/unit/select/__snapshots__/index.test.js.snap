@@ -1,435 +1,1375 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select :props :bordered 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;"> <span class="t-select-selectedSingle">
-
+<div
+  class="t-select-wrap"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <span
+        class="t-select-placeholder"
+      >
+         
+        
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select :props :clearable 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;"> <span class="t-select-selectedSingle">
-
+<div
+  class="t-select-wrap"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <span
+        class="t-select-placeholder"
+      >
+         
+        
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select :props :creatable 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;"> <span class="t-select-selectedSingle">
-
+<div
+  class="t-select-wrap"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <span
+        class="t-select-placeholder"
+      >
+         
+        
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select :props :disabled 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-is-disabled t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;"> <span class="t-select-selectedSingle">
-
+<div
+  class="t-select-wrap"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-is-disabled t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-is-disabled t-size-m"
+    >
+      <!---->
+      <span
+        class="t-select-placeholder"
+      >
+         
+        
       </span>
-      <div class="t-input t-size-m t-is-disabled t-select-input" style="display: none;"><input disabled="disabled" placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select :props :labelInValue 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;"> <span class="t-select-selectedSingle">
-
+<div
+  class="t-select-wrap"
+  labelinvalue="false"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <span
+        class="t-select-placeholder"
+      >
+         
+        
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select :props :loading 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;"> <span class="t-select-selectedSingle">
-
+<div
+  class="t-select-wrap"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <li
+              class="t-select-loading-tips t-size-m"
+            >
+              加载中
+            </li>
+            <!---->
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <span
+        class="t-select-placeholder"
+      >
+         
+        
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select :props :multiple 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;">
+<div
+  class="t-select-wrap"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                title=""
+              >
+                <label
+                  class="t-checkbox undefined"
+                  modelvalue="false"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    
+                    
+                  </span>
+                </label>
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
       <!---->
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      <span
+        class="t-select-placeholder"
+      >
+         
+        
+      </span>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select :props :placeholder 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> please select</span> <input type="hidden" name="t-select" style="width: 0px;"> <span class="t-select-selectedSingle">
-
+<div
+  class="t-select-wrap"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <span
+        class="t-select-placeholder"
+      >
+         
+        please select
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="please select" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select :props :remote 1`] = `
-<div remote="true">
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;"> <span class="t-select-selectedSingle">
-
+<div
+  class="t-select-wrap"
+  remote="true"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <span
+        class="t-select-placeholder"
+      >
+         
+        
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select :props :reserveKeyword 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;"> <span class="t-select-selectedSingle">
-
+<div
+  class="t-select-wrap"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <span
+        class="t-select-placeholder"
+      >
+         
+        
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select :props :size 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-l"><svg class="t-icon t-icon- t-size-l t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" style="width: 0px;"> <span class="t-select-selectedSingle">
-
+<div
+  class="t-select-wrap"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-l t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-l"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              <!---->
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-l"
+    >
+      <!---->
+      <span
+        class="t-select-placeholder"
+      >
+         
+        
       </span>
-      <div class="t-input t-size-l t-select-input" style="display: none;"><input placeholder="请选择" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-l t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-l t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-l t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      
+      
+      <!---->
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select Option :props :disabled 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="1" style="width: 0px;"> <span title="1" class="t-select-selectedSingle">
+<div
+  class="t-select-wrap"
+  modelvalue="1"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              
+              <li
+                class="t-select-option t-is-disabled t-is-selected t-size-m"
+                title="1"
+              >
+                1
+              </li>
+              
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <!---->
+      
+      
+      <span
+        class="t-select-selectedSingle"
+        title="1"
+      >
         1
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="1" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select Option :props :label 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="1" style="width: 0px;"> <span title="1" class="t-select-selectedSingle">
+<div
+  class="t-select-wrap"
+  modelvalue="1"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              
+              <li
+                class="t-select-option t-is-selected t-size-m"
+                title="1"
+              >
+                1
+              </li>
+              
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <!---->
+      
+      
+      <span
+        class="t-select-selectedSingle"
+        title="1"
+      >
         1
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="1" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select Option :props :value 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="1" style="width: 0px;"> <span title="1" class="t-select-selectedSingle">
+<div
+  class="t-select-wrap"
+  modelvalue="1"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              
+              <li
+                class="t-select-option t-is-selected t-size-m"
+                title="1"
+              >
+                1
+              </li>
+              
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <!---->
+      
+      
+      <span
+        class="t-select-selectedSingle"
+        title="1"
+      >
         1
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="1" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;
 
 exports[`Select OptionGroup :props :value 1`] = `
-<div>
-  <div class="t-popup-reference" style="width: 100%; position: relative;">
-    <transition-stub name="t-popup_animation" appear="true"></transition-stub>
-    <div class="t-select t-size-m"><svg class="t-icon t-icon- t-size-m t-select-left-icon" style="display: none;">
-        <use xlink:href="#t-icon-"></use>
-      </svg> <span class="t-select-placeholder" style="display: none;"> 请选择</span> <input type="hidden" name="t-select" value="1" style="width: 0px;"> <span title="1" class="t-select-selectedSingle">
+<div
+  class="t-select-wrap"
+  modelvalue="1"
+>
+  <div
+    class="t-popup-reference t-select-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-select-dropdown narrow-scrollbar"
+          style=""
+        >
+          
+          <div>
+            <ul
+              class="t-select-create-option"
+              style="display: none;"
+            >
+              <li
+                class="t-select-option t-size-m t-select-create-option-special"
+                title=""
+              >
+                
+              </li>
+            </ul>
+            <!---->
+            <li
+              class="t-select-empty t-size-m"
+            >
+              暂无数据
+            </li>
+            <span
+              style="display: none;"
+            >
+              
+              <li
+                class="t-option-group t-size-m"
+              >
+                <ul
+                  class="t-option-group-header"
+                >
+                  num
+                </ul>
+                <ul>
+                  
+                  <li
+                    class="t-select-option t-is-selected t-size-m"
+                    title="1"
+                  >
+                    1
+                  </li>
+                  
+                </ul>
+              </li>
+              <li
+                class="t-option-group t-size-m"
+              >
+                <ul
+                  class="t-option-group-header"
+                >
+                  abc
+                </ul>
+                <ul>
+                  
+                  <li
+                    class="t-select-option t-size-m"
+                    title="a"
+                  >
+                    a
+                  </li>
+                  
+                </ul>
+              </li>
+              
+            </span>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-select t-size-m"
+    >
+      <!---->
+      <!---->
+      
+      
+      <span
+        class="t-select-selectedSingle"
+        title="1"
+      >
         1
       </span>
-      <div class="t-input t-size-m t-select-input" style="display: none;"><input placeholder="1" type="text" class="t-input__inner"></div> <svg class="t-icon t-icon-chevron-down t-size-m t-select-right-icon">
-        <use xlink:href="#t-icon-chevron-down"></use>
-      </svg> <svg class="t-icon t-icon-close t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-close"></use>
-      </svg> <svg class="t-icon t-icon-loading t-size-m t-select-right-icon" style="display: none;">
-        <use xlink:href="#t-icon-loading"></use>
+      <!---->
+      <svg
+        class="t-select-right-icon t-fake-arrow"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
       </svg>
+      <!---->
+      <!---->
     </div>
-    <div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-      <div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s;"></div>
-      </div>
-      <div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;">
-        <div style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"></div>
-      </div>
-    </div>
+    
   </div>
 </div>
 `;

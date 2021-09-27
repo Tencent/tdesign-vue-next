@@ -1,9 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Textarea $attrs textarea attrs should pass to textarea element 1`] = `<div class="t-textarea" maxlength="20"><textarea placeholder="please text" name="description" class="t-textarea__inner"></textarea></div>`;
+exports[`Textarea $attrs textarea attrs should pass to textarea element 1`] = `
+<div
+  class="t-textarea"
+>
+  <textarea
+    class="t-textarea__inner"
+    maxlength="20"
+    name="description"
+    placeholder="please text"
+  />
+  <!---->
+</div>
+`;
 
-exports[`Textarea :props :disabled 1`] = `<div class="t-textarea"><textarea disabled="disabled" placeholder="" class="t-textarea__inner t-is-disabled"></textarea></div>`;
+exports[`Textarea :props :disabled 1`] = `
+<div
+  class="t-textarea"
+>
+  <textarea
+    class="t-textarea__inner t-is-disabled"
+    disabled=""
+    placeholder=""
+  />
+  <!---->
+</div>
+`;
 
-exports[`Textarea :props :maxlength 1`] = `<div class="t-textarea"><textarea placeholder="" maxlength="10" class="t-textarea__inner t-resize-none"></textarea><span class="t-textarea__limit">9/10</span></div>`;
+exports[`Textarea :props :maxlength 1`] = `
+<div
+  class="t-textarea"
+>
+  <textarea
+    class="t-textarea__inner t-resize-none"
+    maxlength="10"
+    placeholder=""
+  />
+  <span
+    class="t-textarea__limit"
+  >
+    9/10
+  </span>
+</div>
+`;
 
-exports[`Textarea :props :readonly 1`] = `<div class="t-textarea"><textarea readonly="readonly" placeholder="" class="t-textarea__inner"></textarea></div>`;
+exports[`Textarea :props :readonly 1`] = `
+<div
+  class="t-textarea"
+>
+  <textarea
+    class="t-textarea__inner"
+    placeholder=""
+    readonly=""
+  />
+  <!---->
+</div>
+`;

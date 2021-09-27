@@ -8,7 +8,7 @@ describe('Steps', () => {
     cmp = mount(Steps, {
       propsData: {
         direction: 'vertical',
-        type: 'dot',
+        theme: 'dot',
       },
     });
   });
@@ -17,10 +17,7 @@ describe('Steps', () => {
     expect(cmp.vm.direction).toEqual('vertical');
   });
   it('equals type to "dot"', () => {
-    expect(cmp.vm.type).toEqual('dot');
-  });
-  it('equals status to "wait"', () => {
-    expect(cmp.vm.status).toEqual('wait');
+    expect(cmp.vm.theme).toEqual('dot');
   });
   it('equals sequence to "positive"', () => {
     expect(cmp.vm.sequence).toEqual('positive');

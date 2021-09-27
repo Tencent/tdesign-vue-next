@@ -11,7 +11,7 @@
   </div>
 </template>
 <script lang="jsx">
-import TIconLockOn from '@tencent/tdesign-vue-next/lib/icon/lock-on';
+import TIconLockOn from '@tencent/tdesign-vue-next/icon/lock-on';
 
 export default {
   components: {

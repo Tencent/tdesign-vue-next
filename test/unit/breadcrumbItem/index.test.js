@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import Breadcrumb from '@/src/breadcrumb/index.ts';
-import BreadcrumbItem from '@/src/breadcrumbItem/index.ts';
+import BreadcrumbItem from '@/src/breadcrumb/breadcrumb-item.tsx';
 
 describe('Breadcrumb', () => {
   describe(':props', () => {
@@ -66,14 +66,14 @@ describe('Breadcrumb', () => {
         render() {
           return <Breadcrumb size={'large'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
         },
-        scopedSlots: {
+        slots: {
           separator: '<i>-</i>',
         },
         provide: {
           tBreadcrumb: this,
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 });

@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import TIconEllipsis from '@tencent/tdesign-vue-next/lib/icon/ellipsis';
+import TIconEllipsis from '@tencent/tdesign-vue-next/icon/ellipsis';
 
 export default {
   components: {

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { Menu } from '@/src/menu/index.ts';
+import { Menu } from '@/src/menu';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Menu', () => {
@@ -11,7 +11,7 @@ describe('Menu', () => {
           return <Menu></Menu>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':theme', () => {
@@ -20,16 +20,16 @@ describe('Menu', () => {
           return <Menu theme={'light'}></Menu>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':active', () => {
       const wrapper = mount({
         render() {
-          return <Menu active={'2-1'}></Menu>;
+          return <Menu value={'2-1'}></Menu>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':width', () => {
@@ -38,7 +38,7 @@ describe('Menu', () => {
           return <Menu width={'256px'}></Menu>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':height', () => {
@@ -47,7 +47,7 @@ describe('Menu', () => {
           return <Menu height={'750px'}></Menu>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':collapsed', () => {
@@ -56,7 +56,7 @@ describe('Menu', () => {
           return <Menu collapsed={true}></Menu>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':collapsedWidth', () => {
@@ -65,36 +65,36 @@ describe('Menu', () => {
           return <Menu collapsedWidth={'100px'}></Menu>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
   describe('slot', () => {
     it('<logo>', () => {
       const wrapper = mount(Menu, {
-        scopedSlots: {
+        slots: {
           logo: '<div></div>',
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('<default>', () => {
       const wrapper = mount(Menu, {
-        scopedSlots: {
+        slots: {
           default: '<div></div>',
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('<options>', () => {
       const wrapper = mount(Menu, {
-        scopedSlots: {
+        slots: {
           options: '<div></div>',
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 });

@@ -5,7 +5,7 @@ import { withInstall, WithInstallType } from '../utils/withInstall';
 const LocalTreeSelect = mapProps([
   {
     name: 'value',
-    event: ['change'],
+    event: ['change', 'clear', 'focus', 'blur', 'remove', 'search'],
     alias: ['modelValue'],
   },
 ])(_TreeSelect);

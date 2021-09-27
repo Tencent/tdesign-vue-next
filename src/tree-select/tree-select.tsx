@@ -250,16 +250,16 @@ export default defineComponent({
       this.$emit('clear', { e });
       isFunction(this.onClear) && this.onClear({ e });
     },
-    focus(value: InputValue, context: { e: FocusEvent }) {
+    focus(e: FocusEvent) {
       this.focusing = true;
-      this.$emit('focus', { value: this.value, e: context.e });
-      isFunction(this.onFocus) && this.onFocus({ e: context.e });
+      this.$emit('focus', { value: this.value, e });
+      isFunction(this.onFocus) && this.onFocus({ e });
     },
-    blur(value: InputValue, context: { e: FocusEvent }) {
+    blur(e: FocusEvent) {
       this.focusing = false;
       this.filterText = '';
-      this.$emit('blur', { value: this.value, e: context.e });
-      isFunction(this.onBlur) && this.onBlur({ value: this.value, e: context.e });
+      this.$emit('blur', { value: this.value, e });
+      isFunction(this.onBlur) && this.onBlur({ value: this.value, e });
     },
     remove(options: RemoveOptions<TreeOptionData>) {
       this.$emit('remove', options);
@@ -380,8 +380,8 @@ export default defineComponent({
         disabled={this.disabled}
         placeholder={this.filterPlaceholder}
         onInput={this.onInput}
-        onBlur={this.blur}
-        onFocus={this.focus}
+        onBlur={(value: InputValue, context: { e: FocusEvent }) => this.blur(context.e)}
+        onFocus={(value: InputValue, context: { e: FocusEvent }) => this.focus(context.e)}
       />
     );
     const tagItem = (

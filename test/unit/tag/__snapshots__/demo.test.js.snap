@@ -4,25 +4,29 @@ exports[`Tag base demo works fine 1`] = `
 <div
   class="tag-demo"
 >
-  <div
-    class="tdesign-demo-block"
+  <span
+    class="t-tag t-tag--default t-size-m t-tag--dark"
+  >
+    <!---->
+    
+    默认
+    
+    
+  </span>
+  <a
+    href="https://www.tencent.com/zh-cn"
+    target="_blank"
   >
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark"
     >
-      默认
+      <!---->
+      
+      超链接
+      
+      
     </span>
-     
-    <a
-      class="demo-link"
-    >
-      <span
-        class="t-tag t-tag--default t-size-m t-tag--dark"
-      >
-        超链接
-      </span>
-    </a>
-  </div>
+  </a>
 </div>
 `;
 
@@ -31,81 +35,370 @@ exports[`Tag delete demo works fine 1`] = `
   class="tag-demo"
 >
   <div
-    class="tdesign-demo-block"
+    class="tag-block"
+  >
+    <span
+      class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close"
+    >
+      <!---->
+      
+      标签一
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close"
+    >
+      <!---->
+      
+      标签二
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close"
+    >
+      <!---->
+      
+      标签三
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close"
+    >
+      <!---->
+      
+      标签四
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="tag-block light"
+  >
+    <span
+      class="t-tag t-tag--primary t-size-m t-tag--light t-tag--close"
+    >
+      <!---->
+      
+      标签一
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--success t-size-m t-tag--light t-tag--close"
+    >
+      <!---->
+      
+      标签二
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--warning t-size-m t-tag--light t-tag--close"
+    >
+      <!---->
+      
+      标签三
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--danger t-size-m t-tag--light t-tag--close"
+    >
+      <!---->
+      
+      标签四
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="tag-block plain"
+  >
+    <span
+      class="t-tag t-tag--primary t-size-m t-tag--plain t-tag--close"
+    >
+      <!---->
+      
+      标签一
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--success t-size-m t-tag--plain t-tag--close"
+    >
+      <!---->
+      
+      标签二
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--warning t-size-m t-tag--plain t-tag--close"
+    >
+      <!---->
+      
+      标签三
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--danger t-size-m t-tag--plain t-tag--close"
+    >
+      <!---->
+      
+      标签四
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="tag-block"
+  >
+    
+    <span
+      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+      style="max-width: 100px;"
+    >
+      <!---->
+      <span
+        class="t-tag--text"
+        style="max-width: 100px;"
+      >
+        
+        可删除标签可删除标签
+        
+      </span>
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+      style="max-width: 100px;"
+    >
+      <svg
+        class="t-icon t-icon-discount"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M493.04229568 116.1597152C508.86786752 116.30420928 524.0067104 121.97761344 535.39539904 133.36630208L942.6889024 540.659808C967.6824576 565.65336256 965.1497984 608.70858112 937.0320512 636.82633024L631.56192128 942.2964608C603.44417216 970.414208 560.3889536 972.9468672 535.39539904 947.953312L128.10189312 540.659808C116.179456 528.73737088 110.52056832 512.70502848 110.91453056 496.14468224L110.89530624 496.1568576 110.89530624 180.1597152C110.89530624 147.33822144 135.6018784 120.28725696 167.43155456 116.59028992L174.89530624 116.1597152 493.04229568 116.1597152ZM174.89530624 180.0957152L174.89530624 496.1568576 174.06330624 496.1277152 580.65023296 902.6984768 897.4340736 585.91464192 491.69530624 180.1597152 174.89530624 180.0957152ZM396.1453088 256.40588416C466.8377568 256.40588416 524.1453088 313.71343616 524.1453088 384.40588416 524.1453088 455.09833216 466.8377568 512.40588416 396.1453088 512.40588416 325.4528608 512.40588416 268.1453088 455.09833216 268.1453088 384.40588416 268.1453088 313.71343616 325.4528608 256.40588416 396.1453088 256.40588416ZM396.1453088 320.40588416C360.7990848 320.40588416 332.1453088 349.05966016 332.1453088 384.40588416 332.1453088 419.75210816 360.7990848 448.40588416 396.1453088 448.40588416 431.4915328 448.40588416 460.1453088 419.75210816 460.1453088 384.40588416 460.1453088 349.05966016 431.4915328 320.40588416 396.1453088 320.40588416Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <span
+        class="t-tag--text"
+        style="max-width: 100px;"
+      >
+        
+        可删除标签可删除标签
+        
+      </span>
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close t-is-disabled t-tag--disabled"
+    >
+      <!---->
+      
+      可删除标签
+      
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    
+  </div>
+  <div
+    class="tag-block editable"
   >
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark"
     >
+      <!---->
       
-      隐藏叉
-    
-    </span>
-    <span
-      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
-    >
-      
-      显示叉
-    
       <svg
-        class="t-icon t-icon-close"
+        class="t-icon t-icon-add"
         version="1.1"
         viewBox="0 0 1024 1024"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
-          fill-opacity=".9"
+          d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
           fill-rule="evenodd"
         />
       </svg>
-    </span>
-    <span
-      class="t-tag t-tag--info t-size-m t-tag--dark t-tag--close"
-    >
+       添加标签 
       
-      可删除
-    
-      <svg
-        class="t-icon t-icon-close"
-        version="1.1"
-        viewBox="0 0 1024 1024"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
-          fill-opacity=".9"
-          fill-rule="evenodd"
-        />
-      </svg>
-    </span>
-    <span
-      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis"
-      style="max-width: 150px;"
-    >
       
-      默认超过八个字超出部分隐藏
-    
-    </span>
-    <span
-      class="t-tag t-tag--info t-size-m t-tag--dark"
-    >
-      
-      添加标签
-    
     </span>
   </div>
-</div>
-`;
-
-exports[`Tag disabled demo works fine 1`] = `
-<div
-  class="tdesign-tag-disabled"
->
-  <span
-    class="check-tag t-tag t-tag--check t-tag--default t-tag--disabled"
-  >
-    失效标签
-  </span>
 </div>
 `;
 
@@ -113,46 +406,26 @@ exports[`Tag icon demo works fine 1`] = `
 <div
   class="tdesign-tag-icon"
 >
-  <div
-    class="tdesign-demo-block"
+  <span
+    class="t-tag t-tag--default t-size-m t-tag--dark"
   >
-    
-    自定义图标标签：
-    
-    <span
-      class="custom-icon t-tag t-tag--default t-size-m t-tag--dark"
+    <svg
+      class="t-icon t-icon-discount"
+      version="1.1"
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <span>
-        ×
-      </span>
-      标签
-    </span>
-  </div>
-   
-  <div
-    class="tdesign-demo-block"
-  >
+      <path
+        d="M493.04229568 116.1597152C508.86786752 116.30420928 524.0067104 121.97761344 535.39539904 133.36630208L942.6889024 540.659808C967.6824576 565.65336256 965.1497984 608.70858112 937.0320512 636.82633024L631.56192128 942.2964608C603.44417216 970.414208 560.3889536 972.9468672 535.39539904 947.953312L128.10189312 540.659808C116.179456 528.73737088 110.52056832 512.70502848 110.91453056 496.14468224L110.89530624 496.1568576 110.89530624 180.1597152C110.89530624 147.33822144 135.6018784 120.28725696 167.43155456 116.59028992L174.89530624 116.1597152 493.04229568 116.1597152ZM174.89530624 180.0957152L174.89530624 496.1568576 174.06330624 496.1277152 580.65023296 902.6984768 897.4340736 585.91464192 491.69530624 180.1597152 174.89530624 180.0957152ZM396.1453088 256.40588416C466.8377568 256.40588416 524.1453088 313.71343616 524.1453088 384.40588416 524.1453088 455.09833216 466.8377568 512.40588416 396.1453088 512.40588416 325.4528608 512.40588416 268.1453088 455.09833216 268.1453088 384.40588416 268.1453088 313.71343616 325.4528608 256.40588416 396.1453088 256.40588416ZM396.1453088 320.40588416C360.7990848 320.40588416 332.1453088 349.05966016 332.1453088 384.40588416 332.1453088 419.75210816 360.7990848 448.40588416 396.1453088 448.40588416 431.4915328 448.40588416 460.1453088 419.75210816 460.1453088 384.40588416 460.1453088 349.05966016 431.4915328 320.40588416 396.1453088 320.40588416Z"
+        fill-opacity=".9"
+        fill-rule="evenodd"
+      />
+    </svg>
     
-    图标标签：
+    默认标签
     
-    <span
-      class="t-tag t-tag--default t-size-m t-tag--dark"
-    >
-      <svg
-        class="t-icon t-icon-search"
-        version="1.1"
-        viewBox="0 0 1024 1024"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M416 128C575.05800768 128 704 256.94199232 704 416 704 495.52900416 671.7644992 567.52900416 619.64675328 619.64675328L858.5096704 858.5096704 813.2548352 903.7644992 569.33373568 659.8328576C524.93400192 687.812288 472.35742272 704 416 704 256.94199232 704 128 575.05800768 128 416 128 256.94199232 256.94199232 128 416 128ZM416 192C292.28821632 192 192 292.28821632 192 416 192 539.71178368 292.28821632 640 416 640 539.71178368 640 640 539.71178368 640 416 640 292.28821632 539.71178368 192 416 192Z"
-          fill-opacity=".9"
-          fill-rule="evenodd"
-        />
-      </svg>
-      标签
-    </span>
-  </div>
+    
+  </span>
 </div>
 `;
 
@@ -163,9 +436,18 @@ exports[`Tag long-text demo works fine 1`] = `
   <span
     class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis"
     style="max-width: 150px;"
-    title="超长省略文本标签超长省略文本标签"
+    title="默认超八个字超长文本标签超长省略文本标签"
   >
-    超长省略文本标签超长省略文本标签
+    <!---->
+    <span
+      class="t-tag--text"
+      style="max-width: 150px;"
+    >
+      
+      默认超八个字超长文本标签超长省略文本标签
+      
+    </span>
+    
   </span>
 </div>
 `;
@@ -177,31 +459,47 @@ exports[`Tag plain demo works fine 1`] = `
   <span
     class="t-tag t-tag--primary t-size-m t-tag--plain"
   >
+    <!---->
+    
     标签一
+    
+    
   </span>
-   
   <span
     class="t-tag t-tag--success t-size-m t-tag--plain"
   >
+    <!---->
+    
     标签二
+    
+    
   </span>
-   
   <span
-    class="t-tag t-tag--info t-size-m t-tag--plain"
+    class="t-tag t-tag--default t-size-m t-tag--plain"
   >
+    <!---->
+    
     标签三
+    
+    
   </span>
-   
   <span
     class="t-tag t-tag--warning t-size-m t-tag--plain"
   >
+    <!---->
+    
     标签四
+    
+    
   </span>
-   
   <span
     class="t-tag t-tag--danger t-size-m t-tag--plain"
   >
+    <!---->
+    
     标签五
+    
+    
   </span>
 </div>
 `;
@@ -210,38 +508,29 @@ exports[`Tag selectable demo works fine 1`] = `
 <div
   class="tag-demo"
 >
-  <div
-    class="tdesign-demo-block"
+  
+  <span
+    class="t-tag t-tag--check t-tag--default t-tag--checked"
   >
-    <span
-      class="t-tag t-tag--check t-tag--default t-tag--checked"
-    >
-      
-      选中1
     
-    </span>
-    <span
-      class="t-tag t-tag--check t-tag--default t-tag--checked"
-    >
-      
-      选中2
+    选中
     
-    </span>
-    <span
-      class="t-tag t-tag--check t-tag--default"
-    >
-      
-      未选3
+  </span>
+  <span
+    class="t-tag t-tag--check t-tag--default"
+  >
     
-    </span>
-    <span
-      class="t-tag t-tag--check t-tag--default"
-    >
-      
-      未选4
+    未选
     
-    </span>
-  </div>
+  </span>
+  <span
+    class="t-tag t-tag--check t-tag--default t-tag--disabled"
+  >
+    
+    Disabled
+    
+  </span>
+  
 </div>
 `;
 
@@ -252,57 +541,70 @@ exports[`Tag shape demo works fine 1`] = `
   <div
     class="tdesign-demo-block"
   >
-    
-    正常：
-    
+     正常 
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark"
     >
+      <!---->
+      
       标签一
+      
+      
     </span>
-     
     <span
       class="t-tag t-tag--primary t-size-m t-tag--dark"
     >
+      <!---->
+      
       标签一
+      
+      
     </span>
   </div>
-   
   <div
     class="tdesign-demo-block"
   >
-    
-    圆角：
-    
+     圆角 
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark t-tag--round"
     >
+      <!---->
+      
       标签一
+      
+      
     </span>
-     
     <span
       class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--round"
     >
+      <!---->
+      
       标签一
+      
+      
     </span>
   </div>
-   
   <div
     class="tdesign-demo-block"
   >
-    
-    标记：
-    
+     标记 
     <span
       class="t-tag t-tag--default t-size-m t-tag--dark t-tag--mark"
     >
+      <!---->
+      
       标签一
+      
+      
     </span>
-     
     <span
       class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--mark"
     >
+      <!---->
+      
       标签一
+      
+      
     </span>
   </div>
 </div>
@@ -312,165 +614,32 @@ exports[`Tag size demo works fine 1`] = `
 <div
   class="tag-demo"
 >
-  <div
-    class="tdesign-demo-block"
+  <span
+    class="t-tag t-tag--default t-size-s t-tag--dark"
   >
-    <span
-      class="t-tag t-tag--default t-size-s t-tag--dark"
-    >
-      标签 小
-    </span>
-     
-    <span
-      class="t-tag t-tag--default t-size-m t-tag--dark"
-    >
-      标签 中
-    </span>
-     
-    <span
-      class="t-tag t-tag--default t-size-l t-tag--dark"
-    >
-      标签 大
-    </span>
-  </div>
-   
-  <div
-    class="tdesign-demo-block"
+    <!---->
+    
+    小型标签
+    
+    
+  </span>
+  <span
+    class="t-tag t-tag--default t-size-m t-tag--dark"
   >
-    <span
-      class="t-tag t-tag--primary t-size-s t-tag--dark"
-    >
-      标签 小
-    </span>
-     
-    <span
-      class="t-tag t-tag--primary t-size-m t-tag--dark"
-    >
-      标签 中
-    </span>
-     
-    <span
-      class="t-tag t-tag--primary t-size-l t-tag--dark"
-    >
-      标签 大
-    </span>
-  </div>
-</div>
-`;
-
-exports[`Tag theme demo works fine 1`] = `
-<div
-  class="tdesign-tag-theme"
->
-  <div
-    class="tdesign-demo-block"
+    <!---->
+    
+    默认标签
+    
+    
+  </span>
+  <span
+    class="t-tag t-tag--default t-size-l t-tag--dark"
   >
+    <!---->
     
-    深色
+    大型标签
     
-    <span
-      class="t-tag t-tag--primary t-size-m t-tag--dark"
-    >
-      标签一
-    </span>
-     
-    <span
-      class="t-tag t-tag--success t-size-m t-tag--dark"
-    >
-      标签二
-    </span>
-     
-    <span
-      class="t-tag t-tag--info t-size-m t-tag--dark"
-    >
-      标签三
-    </span>
-     
-    <span
-      class="t-tag t-tag--warning t-size-m t-tag--dark"
-    >
-      标签四
-    </span>
-     
-    <span
-      class="t-tag t-tag--danger t-size-m t-tag--dark"
-    >
-      标签五
-    </span>
-  </div>
-   
-  <div
-    class="tdesign-demo-block light"
-  >
     
-    浅色
-    
-    <span
-      class="t-tag t-tag--primary t-size-m t-tag--light"
-    >
-      标签一
-    </span>
-     
-    <span
-      class="t-tag t-tag--success t-size-m t-tag--light"
-    >
-      标签二
-    </span>
-     
-    <span
-      class="t-tag t-tag--info t-size-m t-tag--light"
-    >
-      标签三
-    </span>
-     
-    <span
-      class="t-tag t-tag--warning t-size-m t-tag--light"
-    >
-      标签四
-    </span>
-     
-    <span
-      class="t-tag t-tag--danger t-size-m t-tag--light"
-    >
-      标签五
-    </span>
-  </div>
-   
-  <div
-    class="tdesign-demo-block plain"
-  >
-    
-    朴素
-    
-    <span
-      class="t-tag t-tag--primary t-size-m t-tag--plain"
-    >
-      标签一
-    </span>
-     
-    <span
-      class="t-tag t-tag--success t-size-m t-tag--plain"
-    >
-      标签二
-    </span>
-     
-    <span
-      class="t-tag t-tag--info t-size-m t-tag--plain"
-    >
-      标签三
-    </span>
-     
-    <span
-      class="t-tag t-tag--warning t-size-m t-tag--plain"
-    >
-      标签四
-    </span>
-     
-    <span
-      class="t-tag t-tag--danger t-size-m t-tag--plain"
-    >
-      标签五
-    </span>
-  </div>
+  </span>
 </div>
 `;

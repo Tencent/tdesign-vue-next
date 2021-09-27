@@ -4,7 +4,7 @@
     <br>
     <t-dialog v-model:visible="visible2" header="温馨提示" body="系统重启后会短暂影响页面访问，确认重启吗？" mode="normal" theme="warning" :onConfirm="close2" ></t-dialog>
     <br>
-    <t-dialog v-model:visible="visible3" header="推送失败" body="请检查推送数据是否符合要求" mode="normal" theme="error" :onConfirm="close3" ></t-dialog>
+    <t-dialog v-model:visible="visible3" header="推送失败" body="请检查推送数据是否符合要求" mode="normal" theme="danger" :onConfirm="close3" ></t-dialog>
     <br>
     <t-dialog v-model:visible="visible4" header="操作成功" body="是否前往查看订单列表" mode="normal" theme="success" :onConfirm="close4" ></t-dialog>
     <br>

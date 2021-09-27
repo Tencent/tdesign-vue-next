@@ -7,46 +7,96 @@ exports[`Tabs ban demo works fine 1`] = `
   <div
     class="t-demo-tabs__desc"
   >
-    <p>
-      目前支持常规，卡片两种类型选项卡
-    </p>
-     
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
+      modelvalue="normal"
     >
-      切换到卡片型选项卡
-    </button>
+      
+      <label
+        class="t-radio t-is-checked"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="normal"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          常规型
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="card"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          卡片型
+          
+        </span>
+      </label>
+      
+    </div>
   </div>
-   
   <div
     class="t-tabs"
   >
+    
     <div
       class="t-tabs__header t-is-top"
     >
       <div
         class="t-tabs__nav"
       >
-        <!---->
-         
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+          <!--v-if-->
+        </div>
         <div
           class="t-tabs__nav-container t-is-top"
         >
-          <!---->
-           
-          <!---->
-           
           <div
             class="t-tabs__nav-scroll"
           >
             <div
               class="t-tabs__nav-wrap"
+              style="transform: translateX(-0px);"
             >
-              <div
-                class="t-tabs__bar t-is-top"
-              />
-               
+              
+              <!--v-if-->
+              
+              
+              
             </div>
           </div>
         </div>
@@ -55,20 +105,45 @@ exports[`Tabs ban demo works fine 1`] = `
     <div
       class="t-tabs__content"
     >
+      
       <div
         class="t-tab-panel"
       >
+        
         <p
           style="padding: 25px;"
         >
           normal选项卡1内容
         </p>
+        
       </div>
-       
-      <!---->
-       
-      <!---->
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          normal选项卡2内容
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          normal选项卡1内容
+        </p>
+        
+      </div>
+      
     </div>
+    
   </div>
 </div>
 `;
@@ -77,40 +152,47 @@ exports[`Tabs base demo works fine 1`] = `
 <div
   class="t-demo-tabs"
 >
-  <p
-    class="t-demo-tabs__desc"
-  >
-    基本选项卡
-  </p>
-   
   <div
     class="t-tabs"
+    modelvalue="first"
   >
+    
     <div
       class="t-tabs__header t-is-top"
     >
       <div
         class="t-tabs__nav"
       >
-        <!---->
-         
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+          <!--v-if-->
+        </div>
         <div
           class="t-tabs__nav-container t-is-top"
         >
-          <!---->
-           
-          <!---->
-           
           <div
             class="t-tabs__nav-scroll"
           >
             <div
               class="t-tabs__nav-wrap"
+              style="transform: translateX(-0px);"
             >
-              <div
-                class="t-tabs__bar t-is-top"
-              />
-               
+              
+              <!--v-if-->
+              
+              
+              
             </div>
           </div>
         </div>
@@ -119,20 +201,45 @@ exports[`Tabs base demo works fine 1`] = `
     <div
       class="t-tabs__content"
     >
+      
       <div
         class="t-tab-panel"
       >
+        
         <p
           style="padding: 25px;"
         >
           选项卡1
         </p>
+        
       </div>
-       
-      <!---->
-       
-      <!---->
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡2
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡3
+        </p>
+        
+      </div>
+      
     </div>
+    
   </div>
 </div>
 `;
@@ -144,46 +251,97 @@ exports[`Tabs combination demo works fine 1`] = `
   <div
     class="t-demo-tabs__desc"
   >
-    <p>
-      目前支持常规，卡片两种类型选项卡
-    </p>
-     
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
+      modelvalue="normal"
     >
-      切换到卡片型选项卡
-    </button>
+      
+      <label
+        class="t-radio t-is-checked"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="normal"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          常规型
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="card"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          卡片型
+          
+        </span>
+      </label>
+      
+    </div>
   </div>
-   
   <div
     class="t-tabs"
+    modelvalue="1"
   >
+    
     <div
       class="t-tabs__header t-is-top"
     >
       <div
         class="t-tabs__nav"
       >
-        <!---->
-         
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+          <!--v-if-->
+        </div>
         <div
           class="t-tabs__nav-container t-is-top"
         >
-          <!---->
-           
-          <!---->
-           
           <div
             class="t-tabs__nav-scroll"
           >
             <div
               class="t-tabs__nav-wrap"
+              style="transform: translateX(-0px);"
             >
-              <div
-                class="t-tabs__bar t-is-top"
-              />
-               
+              
+              <!--v-if-->
+              
+              
+              
             </div>
           </div>
         </div>
@@ -192,34 +350,251 @@ exports[`Tabs combination demo works fine 1`] = `
     <div
       class="t-tabs__content"
     >
+      
+      
       <div
         class="t-tab-panel"
+        style="display: none;"
       >
+        
         <p
           style="padding: 25px;"
         >
           选项卡1
         </p>
+        
       </div>
-       
-      <!---->
-       
-      <!---->
-       
-      <!---->
-       
-      <!---->
-       
-      <!---->
-       
-      <!---->
-       
-      <!---->
-       
-      <!---->
-       
-      <!---->
+      <div
+        class="t-tab-panel"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡2
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡3
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡4
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡5
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡6
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡7
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡8
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡9
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡10
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡11
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡12
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡13
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡14
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡15
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡16
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡17
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡18
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡19
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡20
+        </p>
+        
+      </div>
+      
+      
     </div>
+    
   </div>
 </div>
 `;
@@ -235,47 +610,57 @@ exports[`Tabs custom demo works fine 1`] = `
       可以动态增加选项卡，仅支持卡片型
     </p>
   </div>
-   
   <div
     class="t-tabs"
   >
+    
     <div
       class="t-tabs__header t-is-top"
     >
       <div
         class="t-tabs__nav"
       >
-        <span
-          class="t-tabs__add-btn t-size-m"
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
         >
-          <svg
-            class="t-icon t-icon-add"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+          <div
+            class="t-tabs__btn t-tabs__add-btn t-size-m"
           >
-            <path
-              d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-         
+            <svg
+              class="t-icon t-icon-add"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
         <div
           class="t-tabs__nav-container t-tabs__nav--card t-is-top t-is-addable"
         >
-          <!---->
-           
-          <!---->
-           
           <div
             class="t-tabs__nav-scroll"
           >
             <div
               class="t-tabs__nav-wrap"
+              style="transform: translateX(-0px);"
             >
-              <!---->
-               
+              
+              
             </div>
           </div>
         </div>
@@ -284,17 +669,183 @@ exports[`Tabs custom demo works fine 1`] = `
     <div
       class="t-tabs__content"
     >
+      
+      
       <div
         class="t-tab-panel"
       >
+        
         <p
           style="padding: 25px;"
         >
           原有选项卡内容
         </p>
+        
       </div>
-      <!---->
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          原有选项卡内容
+        </p>
+        
+      </div>
+      
+      
     </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Tabs icon demo works fine 1`] = `
+<div
+  class="t-demo-tabs"
+>
+  <div
+    class="t-demo-tabs__desc"
+  >
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
+      modelvalue="normal"
+    >
+      
+      <label
+        class="t-radio t-is-checked"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="normal"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          常规型
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="card"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          卡片型
+          
+        </span>
+      </label>
+      
+    </div>
+  </div>
+  <div
+    class="t-tabs"
+  >
+    
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+          <!--v-if-->
+        </div>
+        <div
+          class="t-tabs__nav-container t-is-top"
+        >
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap"
+              style="transform: translateX(-0px);"
+            >
+              
+              <!--v-if-->
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      
+      <div
+        class="t-tab-panel"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          normal选项卡1内容
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          normal选项卡2内容
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          normal选项卡3内容
+        </p>
+        
+      </div>
+      
+    </div>
+    
   </div>
 </div>
 `;
@@ -310,47 +861,57 @@ exports[`Tabs operation demo works fine 1`] = `
       可以动态增加选项卡，仅支持卡片型
     </p>
   </div>
-   
   <div
     class="t-tabs"
   >
+    
     <div
       class="t-tabs__header t-is-top"
     >
       <div
         class="t-tabs__nav"
       >
-        <span
-          class="t-tabs__add-btn t-size-m"
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
         >
-          <svg
-            class="t-icon t-icon-add"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+          <div
+            class="t-tabs__btn t-tabs__add-btn t-size-m"
           >
-            <path
-              d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-         
+            <svg
+              class="t-icon t-icon-add"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
         <div
           class="t-tabs__nav-container t-tabs__nav--card t-is-top t-is-addable"
         >
-          <!---->
-           
-          <!---->
-           
           <div
             class="t-tabs__nav-scroll"
           >
             <div
               class="t-tabs__nav-wrap"
+              style="transform: translateX(-0px);"
             >
-              <!---->
-               
+              
+              
             </div>
           </div>
         </div>
@@ -359,17 +920,35 @@ exports[`Tabs operation demo works fine 1`] = `
     <div
       class="t-tabs__content"
     >
+      
+      
       <div
         class="t-tab-panel"
       >
+        
         <p
           style="padding: 25px;"
         >
           原有选项卡内容
         </p>
+        
       </div>
-      <!---->
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          原有选项卡内容
+        </p>
+        
+      </div>
+      
+      
     </div>
+    
   </div>
 </div>
 `;
@@ -381,75 +960,138 @@ exports[`Tabs position demo works fine 1`] = `
   <div
     class="t-demo-tabs__desc"
   >
-    <p>
-      目前支持上下左右四个方向，但仅支持常规型选项卡
-    </p>
-     
-    <button
-      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
+      modelvalue="top"
     >
       
-      top
-    
-    </button>
-     
-    <button
-      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
-    >
+      <label
+        class="t-radio t-is-checked"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="top"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          top
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="right"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          right
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="bottom"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          bottom
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="left"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          left
+          
+        </span>
+      </label>
       
-      right
-    
-    </button>
-     
-    <button
-      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
-    >
-      
-      bottom
-    
-    </button>
-     
-    <button
-      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
-    >
-      
-      left
-    
-    </button>
+    </div>
   </div>
-   
   <div
     class="t-tabs"
   >
+    
     <div
       class="t-tabs__header t-is-top"
     >
       <div
         class="t-tabs__nav"
       >
-        <!---->
-         
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+          <!--v-if-->
+        </div>
         <div
           class="t-tabs__nav-container t-is-top"
         >
-          <!---->
-           
-          <!---->
-           
           <div
             class="t-tabs__nav-scroll"
           >
             <div
               class="t-tabs__nav-wrap"
+              style="transform: translateX(-0px);"
             >
-              <div
-                class="t-tabs__bar t-is-top"
-              />
-               
+              
+              <!--v-if-->
+              
+              
+              
             </div>
           </div>
         </div>
@@ -458,20 +1100,45 @@ exports[`Tabs position demo works fine 1`] = `
     <div
       class="t-tabs__content"
     >
+      
       <div
         class="t-tab-panel"
       >
+        
         <p
           style="padding: 25px;"
         >
           选项卡1
         </p>
+        
       </div>
-       
-      <!---->
-       
-      <!---->
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡2
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡3
+        </p>
+        
+      </div>
+      
     </div>
+    
   </div>
 </div>
 `;
@@ -483,57 +1150,96 @@ exports[`Tabs size demo works fine 1`] = `
   <div
     class="t-demo-tabs__desc"
   >
-    <p>
-      目前支持medium，large两种类型选项卡
-    </p>
-     
-    <button
-      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
+      modelvalue="medium"
     >
       
-      medium
-    
-    </button>
-     
-    <button
-      class="t-demo-tabs__btn t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
-    >
+      <label
+        class="t-radio t-is-checked"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="medium"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          medium
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+        modelvalue="false"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="large"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          large
+          
+        </span>
+      </label>
       
-      large
-    
-    </button>
+    </div>
   </div>
-   
   <div
     class="t-tabs"
   >
+    
     <div
       class="t-tabs__header t-is-top"
     >
       <div
         class="t-tabs__nav"
       >
-        <!---->
-         
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+          <!--v-if-->
+        </div>
         <div
           class="t-tabs__nav-container t-is-top"
         >
-          <!---->
-           
-          <!---->
-           
           <div
             class="t-tabs__nav-scroll"
           >
             <div
               class="t-tabs__nav-wrap"
+              style="transform: translateX(-0px);"
             >
-              <div
-                class="t-tabs__bar t-is-top"
-              />
-               
+              
+              <!--v-if-->
+              
+              
+              
             </div>
           </div>
         </div>
@@ -542,50 +1248,84 @@ exports[`Tabs size demo works fine 1`] = `
     <div
       class="t-tabs__content"
     >
+      
       <div
         class="t-tab-panel"
       >
+        
         <p
           style="padding: 25px;"
         >
           选项卡1
         </p>
+        
       </div>
-       
-      <!---->
-       
-      <!---->
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡2
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡3
+        </p>
+        
+      </div>
+      
     </div>
+    
   </div>
-   
   <br />
-   
   <div
     class="t-tabs"
   >
+    
     <div
       class="t-tabs__header t-is-top"
     >
       <div
         class="t-tabs__nav"
       >
-        <!---->
-         
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+          <!--v-if-->
+        </div>
         <div
           class="t-tabs__nav-container t-tabs__nav--card t-is-top"
         >
-          <!---->
-           
-          <!---->
-           
           <div
             class="t-tabs__nav-scroll"
           >
             <div
               class="t-tabs__nav-wrap"
+              style="transform: translateX(-0px);"
             >
-              <!---->
-               
+              
+              
             </div>
           </div>
         </div>
@@ -594,20 +1334,45 @@ exports[`Tabs size demo works fine 1`] = `
     <div
       class="t-tabs__content"
     >
+      
       <div
         class="t-tab-panel"
       >
+        
         <p
           style="padding: 25px;"
         >
           选项卡1
         </p>
+        
       </div>
-       
-      <!---->
-       
-      <!---->
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡2
+        </p>
+        
+      </div>
+      <div
+        class="t-tab-panel"
+        style="display: none;"
+      >
+        
+        <p
+          style="padding: 25px;"
+        >
+          选项卡3
+        </p>
+        
+      </div>
+      
     </div>
+    
   </div>
 </div>
 `;

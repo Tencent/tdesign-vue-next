@@ -7,88 +7,374 @@ exports[`Popconfirm base demo works fine 1`] = `
   <div
     class="tdesign-demo-block"
   >
-    <div>
+    <div
+      class="demo-item"
+    >
       <div
-        class="t-popup-reference"
-        style="position: relative;"
+        modelvalue="false"
       >
-        <transition-stub
-          appear="true"
-          name="t-popup_animation"
-        />
-         
-        <button
-          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-          type="button"
-        >
-          Hover
-        </button>
         <div
-          class="resize-sensor"
-          dir="ltr"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+          class="t-popup-reference"
         >
-          <div
-            class="resize-sensor-expand"
-            style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-          >
+          <transition-stub>
             <div
-              style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-            />
-          </div>
-          <div
-            class="resize-sensor-shrink"
-            style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+              aria-hidden="true"
+              class="t-popup"
+              role="tooltip"
+              style="display: none;"
+            >
+              <div
+                class="t-popup-content t-popup-content--arrow t-popconfirm"
+              >
+                
+                <div
+                  class="t-popconfirm__content"
+                >
+                  <div
+                    class="t-popconfirm__body"
+                  >
+                    <svg
+                      class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
+                      version="1.1"
+                      viewBox="0 0 1024 1024"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
+                        fill-opacity=".9"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                    <div
+                      class="t-popconfirm__inner"
+                    >
+                      确认删除订单吗
+                    </div>
+                  </div>
+                  <div
+                    class="t-popconfirm__buttons"
+                  >
+                    <span
+                      class="t-popconfirm__cancel"
+                    >
+                      <button
+                        class="t-button t-size-s t-button--variant-base t-button--theme-default"
+                        type="button"
+                      >
+                        <span
+                          class="t-button__text"
+                        >
+                          
+                          取消
+                          
+                        </span>
+                      </button>
+                    </span>
+                    <span
+                      class="t-popconfirm__confirm"
+                    >
+                      <button
+                        class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+                        type="button"
+                      >
+                        <span
+                          class="t-button__text"
+                        >
+                          
+                          确定
+                          
+                        </span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+                
+                <div
+                  class="t-popup__arrow"
+                  data-popper-arrow="true"
+                />
+              </div>
+            </div>
+          </transition-stub>
+          
+          
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            type="button"
           >
-            <div
-              style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-            />
-          </div>
+            <span
+              class="t-button__text"
+            >
+              
+              删除订单
+              
+            </span>
+          </button>
+          
+          
         </div>
       </div>
-      <slot />
     </div>
-     
-    <div>
+    <!-- 通过透传按钮属性自定义按钮，cancelBtn 和 confirmBtn 值为 null 或 undefined 时表示不显示该按钮 -->
+    <!-- 可以使用 popupProps.placement 控制弹出方向 -->
+    <div
+      class="demo-item"
+    >
       <div
-        class="t-popup-reference"
-        style="position: relative;"
+        modelvalue="false"
       >
-        <transition-stub
-          appear="true"
-          name="t-popup_animation"
-        />
-         
-        <button
-          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-          type="button"
-        >
-          Hover
-        </button>
         <div
-          class="resize-sensor"
-          dir="ltr"
-          style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+          class="t-popup-reference"
         >
+          <transition-stub>
+            <div
+              aria-hidden="true"
+              class="t-popup"
+              role="tooltip"
+              style="display: none;"
+            >
+              <div
+                class="t-popup-content t-popup-content--arrow t-popconfirm"
+              >
+                
+                <div
+                  class="t-popconfirm__content"
+                >
+                  <div
+                    class="t-popconfirm__body"
+                  >
+                    <svg
+                      class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
+                      version="1.1"
+                      viewBox="0 0 1024 1024"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
+                        fill-opacity=".9"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                    <div
+                      class="t-popconfirm__inner"
+                    >
+                      你看到了吗？
+                    </div>
+                  </div>
+                  <div
+                    class="t-popconfirm__buttons"
+                  >
+                    <span
+                      class="t-popconfirm__cancel"
+                    >
+                      <!---->
+                    </span>
+                    <span
+                      class="t-popconfirm__confirm"
+                    >
+                      <button
+                        class="t-button t-size-s t-button--variant-outline t-button--theme-primary"
+                        type="button"
+                      >
+                        <span
+                          class="t-button__text"
+                        >
+                          
+                          看到了
+                          
+                        </span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+                
+                <div
+                  class="t-popup__arrow"
+                  data-popper-arrow="true"
+                />
+              </div>
+            </div>
+          </transition-stub>
+          
+          
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              点我看按钮
+              
+            </span>
+          </button>
+          
+          
+        </div>
+      </div>
+    </div>
+    <!-- 受控用法：自由控制浮层显示与否 -->
+    <div
+      class="demo-item"
+    >
+      <div
+        modelvalue="false"
+      >
+        <div
+          class="t-popup-reference"
+          style="position: relative;"
+        >
+          <transition-stub />
+          
+          
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              提交审核
+              
+            </span>
+          </button>
+          
+          
           <div
-            class="resize-sensor-expand"
+            class="resize-sensor"
+            dir="ltr"
             style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
           >
             <div
-              style="position: absolute; left: 0px; top: 0px; transition: 0s;"
-            />
-          </div>
-          <div
-            class="resize-sensor-shrink"
-            style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
-          >
+              class="resize-sensor-expand"
+              style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+            >
+              <div
+                style="position: absolute; left: 0px; top: 0px; transition: 0s;"
+              />
+            </div>
             <div
-              style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
-            />
+              class="resize-sensor-shrink"
+              style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"
+            >
+              <div
+                style="position: absolute; left: 0px; top: 0px; transition: 0s; width: 200%; height: 200%;"
+              />
+            </div>
           </div>
         </div>
       </div>
-      <slot />
+    </div>
+    <div
+      class="demo-item"
+    >
+      <div
+        modelvalue="false"
+      >
+        <div
+          class="t-popup-reference"
+        >
+          <transition-stub>
+            <div
+              aria-hidden="true"
+              class="t-popup"
+              role="tooltip"
+              style="display: none;"
+            >
+              <div
+                class="t-popup-content t-popup-content--arrow t-popconfirm"
+              >
+                
+                <div
+                  class="t-popconfirm__content"
+                >
+                  <div
+                    class="t-popconfirm__body"
+                  >
+                    <svg
+                      class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
+                      version="1.1"
+                      viewBox="0 0 1024 1024"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
+                        fill-opacity=".9"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                    <div
+                      class="t-popconfirm__inner"
+                    >
+                      确认删除订单吗
+                    </div>
+                  </div>
+                  <div
+                    class="t-popconfirm__buttons"
+                  >
+                    <span
+                      class="t-popconfirm__cancel"
+                    >
+                      <button
+                        class="t-button t-size-s t-button--variant-base t-button--theme-default"
+                        type="button"
+                      >
+                        <span
+                          class="t-button__text"
+                        >
+                          
+                          取消
+                          
+                        </span>
+                      </button>
+                    </span>
+                    <span
+                      class="t-popconfirm__confirm"
+                    >
+                      <button
+                        class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+                        type="button"
+                      >
+                        <span
+                          class="t-button__text"
+                        >
+                          
+                          确定
+                          
+                        </span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+                
+                <div
+                  class="t-popup__arrow"
+                  data-popper-arrow="true"
+                />
+              </div>
+            </div>
+          </transition-stub>
+          
+          
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              禁用按钮
+              
+            </span>
+          </button>
+          
+          
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,36 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Submenu props :disabled 1`] = `
-<ul class="t-submenu t-is-disabled">
+<li
+  class="t-submenu t-is-disabled"
+  on="[object Object]"
+>
   <!---->
-  <!---->
-</ul>
+</li>
 `;
 
 exports[`Submenu props :name 1`] = `
-<ul class="t-submenu">
+<li
+  class="t-submenu"
+  name="1"
+  on="[object Object]"
+>
   <!---->
-  <!---->
-</ul>
-`;
-
-exports[`Submenu slot <default> 1`] = `
-<ul class="t-submenu">
-  <!---->
-  <!---->
-</ul>
-`;
-
-exports[`Submenu slot <icon> 1`] = `
-<ul class="t-submenu">
-  <!---->
-  <!---->
-</ul>
-`;
-
-exports[`Submenu slot <title> 1`] = `
-<ul class="t-submenu">
-  <!---->
-  <!---->
-</ul>
+</li>
 `;

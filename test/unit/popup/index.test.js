@@ -13,16 +13,12 @@ describe('Popup', () => {
         trigger: 'click',
         content: 'txt',
         showArrow: true,
-        destroyOnHide: true,
+        destroyOnClose: true,
       },
     });
   });
 
   it('equals disabled to true', () => {
     expect(cmp.vm.disabled).toEqual(true);
-  });
-
-  it('equals disabled to true', () => {
-    expect(cmp.vm.clickTrigger).toEqual(true);
   });
 });

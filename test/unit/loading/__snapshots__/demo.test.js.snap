@@ -1,137 +1,285 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loading base demo works fine 1`] = `
-<span
-  class="t-loading"
+exports[`Loading attach demo works fine 1`] = `
+<div
+  class="loading-attach-demo"
 >
-  <svg
-    class="t-icon t-icon-loading"
+  <div
+    class="loading-attach-demo__title"
+    id="alice"
   >
-    <use
-      xlink:href="#t-icon-loading"
-    />
-  </svg>
-</span>
+    Hello, I'm Alice.
+  </div>
+  <div
+    class="loading-attach-demo__title"
+    id="bob"
+  >
+    Hi, I'm Bob.
+  </div>
+  <div
+    class="t-loading t-size-m t-loading-mask t-loading-lock t-loading__wrapper v-transfer-dom"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 14 14"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="1"
+        y="1"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Loading base demo works fine 1`] = `
+<div
+  class="t-loading-demo"
+>
+  <div
+    class="t-loading t-size-m t-loading-lock v-transfer-dom"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 14 14"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="1"
+        y="1"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+  <!-- 自定义加载图标 -->
+  <!-- &lt;t-loading&gt;
+      &lt;template #indicator&gt;
+        &lt;img src="https://tdesign.gtimg.com/icon/loading.png" class="t-icon-loading" /&gt;
+      &lt;/template&gt;
+    &lt;/t-loading&gt; -->
+</div>
 `;
 
 exports[`Loading delay demo works fine 1`] = `
-<div>
-  <slot />
-   
-  <div
-    class="switch-demo"
-  >
-    
-    Loading state:
-    
+<div
+  class="loading-delay-demo"
+>
+  <div>
+    <!-- loading 作为独立元素 -->
     <div
-      class="t-switch t-size-m"
+      class="t-loading t-size-s t-loading-lock v-transfer-dom"
     >
-      <span
-        class="t-switch__handle"
-      />
-      <div
-        class="t-switch__content t-size-m"
-      />
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="switch-demo"
+    >
+      <!--v-if-->
     </div>
   </div>
+  <br />
+  <div
+    class="wrap"
+  >
+    <!-- loading 作为包裹元素 -->
+    <div
+      class="t-loading-parent__relative"
+    >
+      
+      <div
+        class="wrap"
+      />
+      
+      <!---->
+    </div>
+  </div>
+  <button
+    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      快速重新加载数据（无loading）
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      慢速重新加载数据
+      
+    </span>
+  </button>
 </div>
 `;
 
 exports[`Loading fullscreen demo works fine 1`] = `
 <div>
-  <slot />
-   
+  <div
+    class="t-loading t-size-m t-loading-fullscreen t-loading-lock v-transfer-dom"
+  >
+    <!---->
+    <!---->
+  </div>
   <div
     class="switch-demo"
   >
-    
-    Loading state:
-    
+     全局加载开关（开启加载1秒后自动归位）： 
     <div
       class="t-switch t-size-m"
+      disabled="false"
+      modelvalue="false"
     >
       <span
         class="t-switch__handle"
-      />
+      >
+        <!---->
+      </span>
       <div
         class="t-switch__content t-size-m"
-      />
+      >
+        <!---->
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`Loading iconText demo works fine 1`] = `
-<span
-  class="t-loading t-loading-text"
+<div
+  class="t-loading t-size-s t-loading-lock v-transfer-dom"
 >
   <svg
-    class="t-icon t-icon-loading"
+    class="t-loading__gradient t-icon-loading"
+    height="1em"
+    size="small"
+    version="1.1"
+    viewBox="0 0 14 14"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <use
-      xlink:href="#t-icon-loading"
-    />
-  </svg>
-  <span>
-    加载中
-  </span>
-</span>
-`;
-
-exports[`Loading indicatorSlot demo works fine 1`] = `
-<div>
-  <span
-    class="t-loading"
-  >
-    <svg
-      class="t-icon t-icon-loading"
+    <foreignobject
+      height="12"
+      width="12"
+      x="1"
+      y="1"
     >
-      <use
-        xlink:href="#t-icon-loading"
+      <div
+        class="t-loading__gradient-conic"
       />
-    </svg>
-  </span>
-</div>
-`;
-
-exports[`Loading preventScrollThrough demo works fine 1`] = `
-<span
-  class="t-loading"
->
-  <svg
-    class="t-icon t-icon-loading"
-  >
-    <use
-      xlink:href="#t-icon-loading"
-    />
+    </foreignobject>
   </svg>
-</span>
+  <div
+    class="t-loading-text"
+  >
+    拼命加载中...
+  </div>
+</div>
 `;
 
 exports[`Loading service demo works fine 1`] = `
 <div>
   <div
-    class="switch-demo"
+    class="loading-service-demo"
+    id="loading-service-demo"
   >
-    
-    开启函数方式调用:
-    
-    <div
-      class="t-switch t-size-m"
+    我是service的容器
+  </div>
+  <br />
+  <p>
+    this.$loading(true)
+  </p>
+  <p>
+    this.$loading({ attach: '#loading-service-demo', showOverlay: true })
+  </p>
+  <br />
+  <button
+    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-switch__handle"
-      />
-      <div
-        class="t-switch__content t-size-m"
-      />
-    </div>
-  </div>
-   
-  <div>
-    函数方式调用只支持全屏模式
-  </div>
+      
+      服务方式加载（全屏）
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      服务方式加载（局部）
+      
+    </span>
+  </button>
+  <br />
+  <br />
+  <p>
+    LoadingPlugin(true)
+  </p>
+  <p>
+    LoadingPlugin({ attach: '#loading-service-demo', showOverlay: true })
+  </p>
+  <br />
+  <button
+    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      服务方式加载（全屏）
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      服务方式加载（局部）
+      
+    </span>
+  </button>
 </div>
 `;
 
@@ -139,89 +287,225 @@ exports[`Loading size demo works fine 1`] = `
 <div
   class="loading-demo"
 >
-  <span>
-    小
-  </span>
-   
-  <span
-    class="t-loading t-size-s"
-  >
-    <svg
-      class="t-icon t-icon-loading"
+  <div>
+    <div
+      class="t-loading t-size-s t-loading-lock v-transfer-dom"
     >
-      <use
-        xlink:href="#t-icon-loading"
-      />
-    </svg>
-  </span>
-   
-  <span>
-    中
-  </span>
-   
-  <span
-    class="t-loading"
-  >
-    <svg
-      class="t-icon t-icon-loading"
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="small"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <div
+        class="t-loading-text"
+      >
+        加载中（小）...
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="t-loading t-size-m t-loading-lock v-transfer-dom"
     >
-      <use
-        xlink:href="#t-icon-loading"
-      />
-    </svg>
-  </span>
-   
-  <span>
-    大
-  </span>
-   
-  <span
-    class="t-loading t-size-l"
-  >
-    <svg
-      class="t-icon t-icon-loading"
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <div
+        class="t-loading-text"
+      >
+        加载中（中）...
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="t-loading t-size-l t-loading-lock v-transfer-dom"
     >
-      <use
-        xlink:href="#t-icon-loading"
-      />
-    </svg>
-  </span>
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="large"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <div
+        class="t-loading-text"
+      >
+        加载中（大）...
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Loading text demo works fine 1`] = `
-<span
-  class="t-loading"
+<div
+  class="t-loading-demo"
 >
-  加载中...
-</span>
+  <!-- 使用 props 实现自定义 -->
+  <div
+    class="t-loading t-size-m t-loading-lock v-transfer-dom"
+  >
+    <!---->
+    <div
+      class="t-loading-text"
+    >
+      静态文字加载中...
+    </div>
+  </div>
+  <!-- 使用 props 实现自定义 -->
+  <div
+    class="t-loading t-size-m t-loading-lock v-transfer-dom"
+  >
+    <!---->
+    <div
+      class="t-loading-text"
+    >
+      <span>
+        变量文字加载中...
+      </span>
+    </div>
+  </div>
+  <div
+    class="t-loading t-size-m t-loading-lock v-transfer-dom"
+  >
+    <!---->
+    <div
+      class="t-loading-text"
+    >
+      
+      插槽文字加载中...
+      
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Loading wrap demo works fine 1`] = `
 <div
-  class="loading-demo"
+  class="loading-wrap-demo"
 >
   <div
     class="t-loading-parent__relative"
   >
+    
     <div>
       this is loading component
     </div>
+    <div>
+      this is loading component
+    </div>
+    <div>
+      this is loading component
+    </div>
+    <div>
+      this is loading component
+    </div>
+    <div>
+      this is loading component
+    </div>
+    
     <div
-      class="t-loading__wrapper t-loading-mask"
+      class="t-loading t-loading__wrapper t-loading-mask t-size-s"
     >
-      <span
-        class="t-loading"
+      <div
+        class="t-loading-mask-text"
       >
         <svg
-          class="t-icon t-icon-loading"
+          class="t-loading__gradient t-icon-loading"
+          height="1em"
+          size="small"
+          version="1.1"
+          viewBox="0 0 14 14"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <use
-            xlink:href="#t-icon-loading"
-          />
+          <foreignobject
+            height="12"
+            width="12"
+            x="1"
+            y="1"
+          >
+            <div
+              class="t-loading__gradient-conic"
+            />
+          </foreignobject>
         </svg>
-      </span>
+        <!---->
+      </div>
     </div>
+  </div>
+  <br />
+  <div>
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        加载中
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        加载完成
+        
+      </span>
+    </button>
   </div>
 </div>
 `;

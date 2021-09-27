@@ -9,7 +9,7 @@ describe('Button', () => {
           return <Button variant={'base'}>text</Button>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.wrapperElement).toMatchSnapshot();
     });
     it(':size', () => {
       const wrapper = mount({
@@ -17,7 +17,7 @@ describe('Button', () => {
           return <Button size={'large'}>text</Button>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.wrapperElement).toMatchSnapshot();
     });
     it(':icon function', () => {
       const wrapper = mount(Button, {
@@ -27,7 +27,7 @@ describe('Button', () => {
           },
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.wrapperElement).toMatchSnapshot();
     });
     it(':shape', () => {
       const wrapper = mount({
@@ -35,7 +35,7 @@ describe('Button', () => {
           return <Button shape="round">text</Button>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.wrapperElement).toMatchSnapshot();
     });
     it(':loading', () => {
       const wrapper = mount({
@@ -43,7 +43,7 @@ describe('Button', () => {
           return <Button loading={true}>text</Button>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.wrapperElement).toMatchSnapshot();
     });
     it(':block', () => {
       const wrapper = mount({
@@ -51,7 +51,7 @@ describe('Button', () => {
           return <Button block={true}>text</Button>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.wrapperElement).toMatchSnapshot();
     });
     it(':disabled', () => {
       const fn = jest.fn();
@@ -62,9 +62,9 @@ describe('Button', () => {
       });
       wrapper.trigger('click');
       expect(fn).not.toHaveBeenCalled();
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.wrapperElement).toMatchSnapshot();
     });
-    it.only(':content', () => {
+    it(':content', () => {
       const renderContent = function () {
         return 'foo';
       };
@@ -77,12 +77,12 @@ describe('Button', () => {
               <Button default="foo">bar</Button>
               <Button default={renderContent}>bar</Button>
 
-              <Button content={0}>bar</Button>
+              <Button content={'0'}>bar</Button>
             </div>
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.wrapperElement).toMatchSnapshot();
     });
   });
 
@@ -102,11 +102,11 @@ describe('Button', () => {
   describe('<slot>', () => {
     it('<icon>', () => {
       const wrapper = mount(Button, {
-        scopedSlots: {
+        slots: {
           icon: '<div></div>',
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.wrapperElement).toMatchSnapshot();
     });
   });
 });

@@ -9,12 +9,12 @@ exports[`Radio base demo works fine 1`] = `
   >
     <label
       class="t-radio"
+      modelvalue="false"
     >
       <input
         class="t-radio__former"
         name=""
         type="radio"
-        value=""
       />
       <span
         class="t-radio__input"
@@ -22,18 +22,19 @@ exports[`Radio base demo works fine 1`] = `
       <span
         class="t-radio__label"
       >
+        
         未选中项
+        
       </span>
     </label>
-     
     <label
       class="t-radio t-is-checked"
+      modelvalue="false"
     >
       <input
         class="t-radio__former"
         name=""
         type="radio"
-        value=""
       />
       <span
         class="t-radio__input"
@@ -41,19 +42,20 @@ exports[`Radio base demo works fine 1`] = `
       <span
         class="t-radio__label"
       >
+        
         选中项
+        
       </span>
     </label>
-     
     <label
-      class="t-radio t-is-disabled"
+      class="t-radio t-is-checked t-is-disabled"
+      modelvalue="false"
     >
       <input
         class="t-radio__former"
         disabled=""
         name=""
         type="radio"
-        value=""
       />
       <span
         class="t-radio__input"
@@ -61,19 +63,20 @@ exports[`Radio base demo works fine 1`] = `
       <span
         class="t-radio__label"
       >
+        
         选中禁用态
+        
       </span>
     </label>
-     
     <label
       class="t-radio t-is-disabled"
+      modelvalue="false"
     >
       <input
         class="t-radio__former"
         disabled=""
         name=""
         type="radio"
-        value=""
       />
       <span
         class="t-radio__input"
@@ -81,7 +84,9 @@ exports[`Radio base demo works fine 1`] = `
       <span
         class="t-radio__label"
       >
+        
         未选中禁用态
+        
       </span>
     </label>
   </div>
@@ -94,8 +99,9 @@ exports[`Radio radio button demo works fine 1`] = `
 >
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-medium"
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
     >
+      
       <label
         class="t-radio-button"
       >
@@ -111,10 +117,13 @@ exports[`Radio radio button demo works fine 1`] = `
         <span
           class="t-radio-button__label"
         >
+          
+          
           选项一
+          
+          
         </span>
       </label>
-       
       <label
         class="t-radio-button t-is-checked"
       >
@@ -130,10 +139,13 @@ exports[`Radio radio button demo works fine 1`] = `
         <span
           class="t-radio-button__label"
         >
+          
+          
           选项二
+          
+          
         </span>
       </label>
-       
       <label
         class="t-radio-button t-is-checked t-is-disabled"
       >
@@ -150,10 +162,13 @@ exports[`Radio radio button demo works fine 1`] = `
         <span
           class="t-radio-button__label"
         >
+          
+          
           选项三
+          
+          
         </span>
       </label>
-       
       <label
         class="t-radio-button t-is-disabled"
       >
@@ -170,16 +185,21 @@ exports[`Radio radio button demo works fine 1`] = `
         <span
           class="t-radio-button__label"
         >
+          
+          
           选项四
+          
+          
         </span>
       </label>
+      
     </div>
   </div>
-   
   <div>
     <div
-      class="t-radio-group t-radio-group-solid t-radio-group-medium"
+      class="t-radio-group t-radio-group-medium t-radio-group-filled"
     >
+      
       <label
         class="t-radio-button"
       >
@@ -195,10 +215,13 @@ exports[`Radio radio button demo works fine 1`] = `
         <span
           class="t-radio-button__label"
         >
+          
+          
           选项一
+          
+          
         </span>
       </label>
-       
       <label
         class="t-radio-button t-is-checked"
       >
@@ -214,10 +237,13 @@ exports[`Radio radio button demo works fine 1`] = `
         <span
           class="t-radio-button__label"
         >
+          
+          
           选项二
+          
+          
         </span>
       </label>
-       
       <label
         class="t-radio-button t-is-checked t-is-disabled"
       >
@@ -234,10 +260,13 @@ exports[`Radio radio button demo works fine 1`] = `
         <span
           class="t-radio-button__label"
         >
+          
+          
           选项三
+          
+          
         </span>
       </label>
-       
       <label
         class="t-radio-button t-is-disabled"
       >
@@ -254,9 +283,17 @@ exports[`Radio radio button demo works fine 1`] = `
         <span
           class="t-radio-button__label"
         >
+          
+          
           选项四
+          
+          
         </span>
       </label>
+      <div
+        class="t-radio-group-filled-bg-block"
+      />
+      
     </div>
   </div>
 </div>
@@ -264,13 +301,16 @@ exports[`Radio radio button demo works fine 1`] = `
 
 exports[`Radio radio button size demo works fine 1`] = `
 <div
-  class="tdesign-radio-button-size"
+  class="tdesign-demo-block-row"
 >
-  <div>
+  <div
+    class="tdesign-demo-block-column"
+  >
     <div>
       <div
-        class="t-radio-group t-radio-group-outline t-radio-group-small"
+        class="t-radio-group t-radio-group-small t-radio-group-outline"
       >
+        
         <label
           class="t-radio-button t-is-checked"
         >
@@ -286,10 +326,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             北京
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -305,10 +348,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             上海
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -324,10 +370,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             广州
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -343,16 +392,21 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             深圳
+            
+            
           </span>
         </label>
+        
       </div>
     </div>
-     
     <div>
       <div
-        class="t-radio-group t-radio-group-outline t-radio-group-medium"
+        class="t-radio-group t-radio-group-medium t-radio-group-outline"
       >
+        
         <label
           class="t-radio-button"
         >
@@ -368,10 +422,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             北京
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button t-is-checked"
         >
@@ -387,10 +444,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             上海
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -406,10 +466,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             广州
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -425,16 +488,21 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             深圳
+            
+            
           </span>
         </label>
+        
       </div>
     </div>
-     
     <div>
       <div
-        class="t-radio-group t-radio-group-outline t-radio-group-large"
+        class="t-radio-group t-radio-group-large t-radio-group-outline"
       >
+        
         <label
           class="t-radio-button"
         >
@@ -450,10 +518,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             北京
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -469,10 +540,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             上海
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button t-is-checked"
         >
@@ -488,10 +562,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             广州
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -507,18 +584,25 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             深圳
+            
+            
           </span>
         </label>
+        
       </div>
     </div>
   </div>
-   
-  <div>
+  <div
+    class="tdesign-demo-block-column"
+  >
     <div>
       <div
-        class="t-radio-group t-radio-group-solid t-radio-group-small"
+        class="t-radio-group t-radio-group-small t-radio-group-filled"
       >
+        
         <label
           class="t-radio-button t-is-checked"
         >
@@ -534,10 +618,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             北京
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -553,10 +640,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             上海
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -572,10 +662,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             广州
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -591,16 +684,24 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             深圳
+            
+            
           </span>
         </label>
+        <div
+          class="t-radio-group-filled-bg-block"
+        />
+        
       </div>
     </div>
-     
     <div>
       <div
-        class="t-radio-group t-radio-group-solid t-radio-group-medium"
+        class="t-radio-group t-radio-group-medium t-radio-group-filled"
       >
+        
         <label
           class="t-radio-button"
         >
@@ -616,10 +717,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             北京
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button t-is-checked"
         >
@@ -635,10 +739,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             上海
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -654,10 +761,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             广州
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -673,16 +783,24 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             深圳
+            
+            
           </span>
         </label>
+        <div
+          class="t-radio-group-filled-bg-block"
+        />
+        
       </div>
     </div>
-     
     <div>
       <div
-        class="t-radio-group t-radio-group-solid t-radio-group-large"
+        class="t-radio-group t-radio-group-large t-radio-group-filled"
       >
+        
         <label
           class="t-radio-button"
         >
@@ -698,10 +816,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             北京
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -717,10 +838,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             上海
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button t-is-checked"
         >
@@ -736,10 +860,13 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             广州
+            
+            
           </span>
         </label>
-         
         <label
           class="t-radio-button"
         >
@@ -755,9 +882,17 @@ exports[`Radio radio button size demo works fine 1`] = `
           <span
             class="t-radio-button__label"
           >
+            
+            
             深圳
+            
+            
           </span>
         </label>
+        <div
+          class="t-radio-group-filled-bg-block"
+        />
+        
       </div>
     </div>
   </div>
@@ -770,8 +905,10 @@ exports[`Radio radio group demo works fine 1`] = `
 >
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-medium"
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
+      modelvalue=""
     >
+      
       <label
         class="t-radio"
       >
@@ -787,7 +924,9 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           北京
+          
         </span>
       </label>
       <label
@@ -805,7 +944,9 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           上海
+          
         </span>
       </label>
       <label
@@ -823,7 +964,9 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           广州
+          
         </span>
       </label>
       <label
@@ -841,16 +984,19 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           深圳
+          
         </span>
       </label>
+      
     </div>
   </div>
-   
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-medium"
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
     >
+      
       <label
         class="t-radio"
       >
@@ -866,7 +1012,9 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           北京
+          
         </span>
       </label>
       <label
@@ -884,7 +1032,9 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           上海
+          
         </span>
       </label>
       <label
@@ -902,7 +1052,9 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           广州
+          
         </span>
       </label>
       <label
@@ -920,16 +1072,19 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           深圳
+          
         </span>
       </label>
+      
     </div>
   </div>
-   
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-medium"
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
     >
+      
       <label
         class="t-radio t-is-disabled"
       >
@@ -946,7 +1101,9 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           北京
+          
         </span>
       </label>
       <label
@@ -965,7 +1122,9 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           上海
+          
         </span>
       </label>
       <label
@@ -983,7 +1142,9 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           广州
+          
         </span>
       </label>
       <label
@@ -1001,18 +1162,22 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           深圳
+          
         </span>
       </label>
+      
     </div>
   </div>
-   
   <div>
     <div
-      class="t-radio-group t-radio-group-outline t-radio-group-medium"
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
     >
+      
       <label
         class="t-radio"
+        modelvalue="false"
       >
         <input
           class="t-radio__former"
@@ -1026,12 +1191,14 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           北京
+          
         </span>
       </label>
-       
       <label
         class="t-radio"
+        modelvalue="false"
       >
         <input
           class="t-radio__former"
@@ -1045,12 +1212,14 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           上海
+          
         </span>
       </label>
-       
       <label
         class="t-radio t-is-checked"
+        modelvalue="false"
       >
         <input
           class="t-radio__former"
@@ -1064,12 +1233,14 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           广州
+          
         </span>
       </label>
-       
       <label
         class="t-radio t-is-disabled"
+        modelvalue="false"
       >
         <input
           class="t-radio__former"
@@ -1084,9 +1255,12 @@ exports[`Radio radio group demo works fine 1`] = `
         <span
           class="t-radio__label"
         >
+          
           深圳
+          
         </span>
       </label>
+      
     </div>
   </div>
 </div>

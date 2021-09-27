@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import TreeSelect from '@/src/tree-select/index.ts';
 
 // every component needs four parts: props/events/slots/functions.
-describe('Tree-select', () => {
+describe('TreeSelect', () => {
   // test props api
   describe(':props', () => {
     it('', () => {

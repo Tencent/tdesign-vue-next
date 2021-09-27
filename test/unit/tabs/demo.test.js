@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import base from '@/examples/tabs/demos/base.vue';
+import icon from '@/examples/tabs/demos/icon.vue';
 import ban from '@/examples/tabs/demos/ban.vue';
 import operation from '@/examples/tabs/demos/operation.vue';
 import position from '@/examples/tabs/demos/position.vue';
@@ -11,6 +12,10 @@ import custom from '@/examples/tabs/demos/custom.vue';
 describe('Tabs', () => {
   it('base demo works fine', () => {
     const wrapper = mount(base);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+  it('icon demo works fine', () => {
+    const wrapper = mount(icon);
     expect(wrapper.element).toMatchSnapshot();
   });
   it('ban demo works fine', () => {

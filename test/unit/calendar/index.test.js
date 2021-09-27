@@ -23,7 +23,7 @@ describe('Calendar', () => {
           return <Calendar value={'1998-11-11'}></Calendar>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':mode', () => {
@@ -32,7 +32,7 @@ describe('Calendar', () => {
           return <Calendar mode={'year'}></Calendar>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':firstDayOfWeek', () => {
@@ -41,7 +41,7 @@ describe('Calendar', () => {
           return <Calendar firstDayOfWeek={3}></Calendar>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':isShowWeekendDefault', () => {
@@ -50,7 +50,7 @@ describe('Calendar', () => {
           return <Calendar isShowWeekendDefault={false}></Calendar>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':range', () => {
@@ -63,7 +63,7 @@ describe('Calendar', () => {
           return <Calendar range={testRange}></Calendar>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':theme', () => {
@@ -72,7 +72,7 @@ describe('Calendar', () => {
           return <Calendar theme={'card'}></Calendar>;
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 

@@ -11,3 +11,6 @@ export function copyText(text: string) {
   clip.destroy();
   div.remove();
 }
+
+
+export default copyText

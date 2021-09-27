@@ -21,7 +21,7 @@
   </div>
 </template>
 <script>
-import TIconMore from '@tencent/tdesign-vue-next/lib/icon/more';
+import TIconMore from '@tencent/tdesign-vue-next/icon/more';
 
 export default {
   components: {

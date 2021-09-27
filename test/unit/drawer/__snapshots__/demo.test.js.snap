@@ -1,67 +1,1425 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Drawer base demo works fine 1`] = `
-<div>
+exports[`Drawer Demo CurrentDOMModeUsageExample wroks fine 1`] = `
+<div
+  class="t-container"
+>
   <div
-    style="display: none;"
+    class="t-suf-container"
   >
     <div
-      class="t-drawer t-drawer-right t-drawer-attach"
-      style="z-index: 1500;"
-      tabindex="-1"
+      class="t-drawer t-drawer-right t-drawer-attach v-transfer-dom"
     >
       <div
         class="t-drawer__mask"
-        style="transition-duration: 300ms;"
-        tabindex="-1"
       />
-       
       <div
         class="t-drawer__content-wrapper t-drawer__content-wrapper-right"
-        style="transition-duration: 300ms; width: 300px;"
+        style="width: 300px;"
       >
-        <h5
-          class="t-drawer__header"
-          slot="title"
-        >
-          Drawer
-        </h5>
-         
         <div
-          class="t-drawer__close-btn"
+          class="t-drawer__header"
         >
-          <svg
-            class="t-submenu-icon t-icon t-icon-close"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
+          标题名称
         </div>
-         
+        <!---->
         <div
           class="t-drawer__body"
         >
+          
           <p>
             This is a drawer
           </p>
+          
         </div>
-         
-        <!---->
+        <div
+          class="t-drawer__footer"
+        >
+          <div>
+            <button
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                确认
+                
+              </span>
+            </button>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                取消
+                
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tdesign-radio-button"
+    >
+       抽屉弹出方向： 
+      <div
+        class="t-radio-group t-radio-group-medium t-radio-group-outline"
+        modelvalue="right"
+      >
+        
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="left"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            left
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button t-is-checked"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="right"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            right
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="top"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            top
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="bottom"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            bottom
+            
+            
+          </span>
+        </label>
+        
+      </div>
+    </div>
+    <br />
+    <div
+      class="tdesign-radio-button"
+    >
+       抽屉弹出模式： 
+      <div
+        class="t-radio-group t-radio-group-medium t-radio-group-outline"
+        modelvalue="overlay"
+      >
+        
+        <label
+          class="t-radio-button t-is-checked"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="overlay"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            overlay
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="push"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            push
+            
+            
+          </span>
+        </label>
+        
+      </div>
+    </div>
+    <br />
+    <br />
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Open
+        
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Drawer Demo CustomUsageExample wroks fine 1`] = `
+<div>
+  <!-- 使用插槽自定义 -->
+  <div
+    class="t-drawer t-drawer-right v-transfer-dom"
+  >
+    <div
+      class="t-drawer__mask"
+    />
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper-right"
+      style="width: 300px;"
+    >
+      <!---->
+      
+      <div
+        class="t-drawer__body"
+      >
+        
+        <p>
+          This is the body of drawer
+        </p>
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        
+        <button
+          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            确定
+            
+          </span>
+        </button>
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            取消
+            
+          </span>
+        </button>
+        
       </div>
     </div>
   </div>
-   
+  <!-- 使用 props 自定义 -->
+  <div
+    class="t-drawer t-drawer-right v-transfer-dom"
+  >
+    <div
+      class="t-drawer__mask"
+    />
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper-right"
+      style="width: 300px;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        This is the title.
+      </div>
+      
+      <div
+        class="t-drawer__body"
+      >
+        
+        <p>
+          This is the body of drawer
+        </p>
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        <div>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              confrim
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              cancel
+              
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 单独定义确认/取消按钮 -->
+  <div
+    class="t-drawer t-drawer-right v-transfer-dom"
+  >
+    <div
+      class="t-drawer__mask"
+    />
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper-right"
+      style="width: 300px;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        I am the title
+      </div>
+      
+      <div
+        class="t-drawer__body"
+      >
+        
+        <p>
+          This is the body of drawer
+        </p>
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        <div>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
+            disabled=""
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              OK
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              cancel
+              
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    Open
+    <span
+      class="t-button__text"
+    >
+      
+      Open(插槽定义)
+      
+    </span>
+  </button>
+      
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      Open(属性定义)
+      
+    </span>
+  </button>
+      
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      Open(单独设置确认/取消按钮)
+      
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Drawer Demo NoMaskUsageExample wroks fine 1`] = `
+<div>
+  <div
+    class="t-drawer t-drawer-right t-drawer-no-mask v-transfer-dom"
+  >
+    <!---->
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper-right"
+      style="width: 300px;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        标题名称
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body"
+      >
+        
+        <p>
+          This is a drawer
+        </p>
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        <div>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              确认
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              取消
+              
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      Open
+      
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Drawer Demo PlacementUsageExample wroks fine 1`] = `
+<div>
+  <!-- @click-cancel 和 :onClickCancel 两种写法都支持； :onClickOverlay 和 @click-overlay 两种写法都支持-->
+  <div
+    class="t-drawer t-drawer-right v-transfer-dom"
+  >
+    <div
+      class="t-drawer__mask"
+    />
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper-right"
+      style="width: 300px;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        标题名称
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body"
+      >
+        
+        <p>
+          This is a drawer
+        </p>
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        <div>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              确认
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              取消
+              
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="tdesign-radio-button"
+  >
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
+      modelvalue="right"
+    >
+      
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="left"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          left
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="right"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          right
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="top"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          top
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="bottom"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          bottom
+          
+          
+        </span>
+      </label>
+      
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        Open
+        
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Drawer Demo PopupUsageExample wroks fine 1`] = `
+<div>
+  <!---->
+  <!-- 状态控制区 -->
+  <div
+    class="tdesign-radio-button"
+  >
+     抽屉弹出方向： 
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
+      modelvalue="right"
+    >
+      
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="left"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          left
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="right"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          right
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="top"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          top
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="bottom"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          bottom
+          
+          
+        </span>
+      </label>
+      
+    </div>
+  </div>
+  <br />
+  <div
+    class="tdesign-radio-button"
+  >
+     抽屉弹出模式： 
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
+      modelvalue="push"
+    >
+      
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="overlay"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          overlay
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="push"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          push
+          
+          
+        </span>
+      </label>
+      
+    </div>
+  </div>
+  <br />
+  <br />
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      Open
+      
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Drawer Demo SizeUsageExample wroks fine 1`] = `
+<div>
+  <div
+    class="t-drawer t-drawer-right v-transfer-dom"
+  >
+    <div
+      class="t-drawer__mask"
+    />
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper-right"
+      style="width: 300px;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        标题名称
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body"
+      >
+        
+        <p>
+          This is a drawer
+        </p>
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        <div>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              确认
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              取消
+              
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="tdesign-radio-button"
+  >
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-outline"
+      modelvalue="right"
+    >
+      
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="left"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          left
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="right"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          right
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="top"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          top
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="bottom"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          bottom
+          
+          
+        </span>
+      </label>
+      
+    </div>
+  </div>
+  <div
+    class="tdesign-radio-button"
+  >
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-outline btn-top-margin"
+      modelvalue="small"
+    >
+      
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="small"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          small(300px)
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="medium"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          medium(500px)
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="large"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          large(760px)
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="200"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          200
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="400px"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          400px
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="50%"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          50%
+          
+          
+        </span>
+      </label>
+      
+    </div>
+  </div>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="margin-top: 16px;"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      Open
+      
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Drawer Demo destroy wroks fine 1`] = `
+<div>
+  <!-- 动画效果待开发 -->
+  <!---->
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      Open
+      
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Drawer Demo operation wroks fine 1`] = `
+<div>
+  <div
+    class="t-drawer t-drawer-right v-transfer-dom"
+  >
+    <div
+      class="t-drawer__mask"
+    />
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper-right"
+      style="width: 300px;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        标题名称
+      </div>
+      <!---->
+      <div
+        class="t-drawer__body"
+      >
+        
+        <div>
+          <span>
+            Label A
+          </span>
+          <div
+            class="t-input t-size-m"
+          >
+            <!---->
+            <input
+              autocomplete="false"
+              autofocus="function Boolean() { [native code] }"
+              class="t-input__inner"
+              type="text"
+            />
+            <!---->
+          </div>
+        </div>
+        <div>
+          <span>
+            Label B
+          </span>
+          <div
+            class="t-input t-size-m"
+          >
+            <!---->
+            <input
+              autocomplete="false"
+              autofocus="function Boolean() { [native code] }"
+              class="t-input__inner"
+              type="text"
+            />
+            <!---->
+          </div>
+        </div>
+        <div>
+          <span>
+            Label C
+          </span>
+          <div
+            class="t-input t-size-m"
+          >
+            <!---->
+            <input
+              autocomplete="false"
+              autofocus="function Boolean() { [native code] }"
+              class="t-input__inner"
+              type="text"
+            />
+            <!---->
+          </div>
+        </div>
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        <div>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              确认
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              取消
+              
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      Open
+      
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Drawer base demo works fine 1`] = `
+<div>
+  <div
+    class="t-drawer t-drawer-right v-transfer-dom"
+  >
+    <div
+      class="t-drawer__mask"
+    />
+    <div
+      class="t-drawer__content-wrapper t-drawer__content-wrapper-right"
+      style="width: 300px;"
+    >
+      <div
+        class="t-drawer__header"
+      >
+        header
+      </div>
+      <div
+        class="t-drawer__close-btn"
+      >
+        <svg
+          class="t-icon t-icon-close t-submenu-icon"
+          version="1.1"
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+            fill-opacity=".9"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div
+        class="t-drawer__body"
+      >
+        
+        <p>
+          This is a controlled drawer
+        </p>
+        
+      </div>
+      <div
+        class="t-drawer__footer"
+      >
+        <div>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              确认
+              
+            </span>
+          </button>
+          <button
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              取消
+              
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      Open a Drawer
+      
+    </span>
   </button>
 </div>
 `;

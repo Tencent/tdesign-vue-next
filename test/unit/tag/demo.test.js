@@ -1,11 +1,9 @@
 import { mount } from '@vue/test-utils';
 import base from '@/examples/tag/demos/base.vue';
-import theme from '@/examples/tag/demos/theme.vue';
 import plain from '@/examples/tag/demos/plain.vue';
 import selectable from '@/examples/tag/demos/selectable.vue';
 import deleteDemo from '@/examples/tag/demos/delete.vue';
 import icon from '@/examples/tag/demos/icon.vue';
-import disabled from '@/examples/tag/demos/disabled.vue';
 import longText from '@/examples/tag/demos/long-text.vue';
 import size from '@/examples/tag/demos/size.vue';
 import shape from '@/examples/tag/demos/shape.vue';
@@ -15,10 +13,7 @@ describe('Tag', () => {
     const wrapper = mount(base);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('theme demo works fine', () => {
-    const wrapper = mount(theme);
-    expect(wrapper.element).toMatchSnapshot();
-  });
+
   it('plain demo works fine', () => {
     const wrapper = mount(plain);
     expect(wrapper.element).toMatchSnapshot();
@@ -33,10 +28,6 @@ describe('Tag', () => {
   });
   it('icon demo works fine', () => {
     const wrapper = mount(icon);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('disabled demo works fine', () => {
-    const wrapper = mount(disabled);
     expect(wrapper.element).toMatchSnapshot();
   });
   it('long-text demo works fine', () => {

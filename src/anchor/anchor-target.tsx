@@ -42,7 +42,7 @@ export default defineComponent({
       <Tag id={id} class={className}>
         {children && children(null)}
         <t-popup content="复制链接" placement="top" showArrow class={iconClassName}>
-          <t-icon-file-copy name="file-copy" onClick={this.copyText} />
+          <TIconFileCopy name="file-copy" onClick={this.copyText} />
         </t-popup>
       </Tag>
     );

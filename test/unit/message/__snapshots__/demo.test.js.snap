@@ -1,27 +1,154 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Message close demo works fine 1`] = `
-<div class="t-demo-message">
-  <div class="t-message t-is-info"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-info-circle-filled">
-      <path fill-opacity=".9" fill-rule="evenodd" d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"></path>
-    </svg>计时结束触发事件 duration-end（10s）</div>
-  <!---->
-  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-info-circle-filled">
-      <path fill-opacity=".9" fill-rule="evenodd" d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"></path>
-    </svg>点击关闭按钮触发事件 click-close-btn <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-close t-message-close">
-      <path fill-opacity=".9" fill-rule="evenodd" d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"></path>
-    </svg></div>
-  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-info-circle-filled">
-      <path fill-opacity=".9" fill-rule="evenodd" d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"></path>
-    </svg>自定义关闭按钮（文字）<span class="t-message-close"> 关闭 </span></div>
-  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-info-circle-filled">
-      <path fill-opacity=".9" fill-rule="evenodd" d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"></path>
-    </svg>自定义关闭按钮（函数）<span class="t-message-close"> <div class="t-message-close"><b>x</b></div> </span></div>
-  <div class="t-message t-is-info t-is-closable"><svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" class="t-icon t-icon-info-circle-filled">
-      <path fill-opacity=".9" fill-rule="evenodd" d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"></path>
+<div
+  class="t-demo-message"
+>
+  <div
+    class="t-message t-is-info"
+  >
+    <svg
+      class="t-icon t-icon-info-circle-filled"
+      version="1.1"
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
+        fill-opacity=".9"
+        fill-rule="evenodd"
+      />
     </svg>
-    自定义关闭按钮（插槽）
-    <span class="t-message-close"> <div class="t-message-close"><b>x</b></div> </span>
+    
+    计时结束触发事件 duration-end（10s）
+    
+    <span
+      class="t-message-close"
+    >
+      <!---->
+    </span>
+  </div>
+  <!--v-if-->
+  <div
+    class="t-message t-is-info t-is-closable"
+  >
+    <svg
+      class="t-icon t-icon-info-circle-filled"
+      version="1.1"
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
+        fill-opacity=".9"
+        fill-rule="evenodd"
+      />
+    </svg>
+    
+    点击关闭按钮触发事件 click-close-btn 
+    
+    <span
+      class="t-message-close"
+    >
+      <svg
+        class="t-icon t-icon-close"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-message t-is-info t-is-closable"
+  >
+    <svg
+      class="t-icon t-icon-info-circle-filled"
+      version="1.1"
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
+        fill-opacity=".9"
+        fill-rule="evenodd"
+      />
+    </svg>
+    
+    自定义关闭按钮（文字）
+    
+    <span
+      class="t-message-close"
+    >
+      关闭
+    </span>
+  </div>
+  <div
+    class="t-message t-is-info t-is-closable"
+  >
+    <svg
+      class="t-icon t-icon-info-circle-filled"
+      version="1.1"
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
+        fill-opacity=".9"
+        fill-rule="evenodd"
+      />
+    </svg>
+    
+    自定义关闭按钮（函数）
+    
+    <span
+      class="t-message-close"
+    >
+      <div
+        class="t-message-close"
+      >
+        <b>
+          x
+        </b>
+      </div>
+    </span>
+  </div>
+  <div
+    class="t-message t-is-info t-is-closable"
+  >
+    <svg
+      class="t-icon t-icon-info-circle-filled"
+      version="1.1"
+      viewBox="0 0 1024 1024"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
+        fill-opacity=".9"
+        fill-rule="evenodd"
+      />
+    </svg>
+    
+     自定义关闭按钮（插槽） 
+    
+    <span
+      class="t-message-close"
+    >
+      
+      <div
+        class="t-message-close"
+      >
+        <b>
+          x
+        </b>
+      </div>
+      
+    </span>
   </div>
 </div>
 `;
@@ -29,18 +156,29 @@ exports[`Message close demo works fine 1`] = `
 exports[`Message closeAll demo works fine 1`] = `
 <div>
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    点击打开多个消息
+    <span
+      class="t-button__text"
+    >
+      
+      点击打开多个消息
+      
+    </span>
   </button>
-   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     id="t-demo-msg-close-all"
     type="button"
   >
-    点击关闭所有消息
+    <span
+      class="t-button__text"
+    >
+      
+      点击关闭所有消息
+      
+    </span>
   </button>
 </div>
 `;
@@ -48,85 +186,165 @@ exports[`Message closeAll demo works fine 1`] = `
 exports[`Message offset demo works fine 1`] = `
 <div>
   <p>
-    
-    偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。
-  
+     偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。 
   </p>
-   
   <br />
-   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    带 offset 信息位置
+    <span
+      class="t-button__text"
+    >
+      
+      带 offset 信息位置
+      
+    </span>
   </button>
 </div>
 `;
 
 exports[`Message placement demo works fine 1`] = `
 <div>
+  <div
+    class="t-message-offset"
+  >
+    <div
+      class="t-input t-size-m"
+      modelvalue=""
+    >
+      <!---->
+      <input
+        autocomplete="false"
+        autofocus="function Boolean() { [native code] }"
+        class="t-input__inner"
+        placeholder="请输入横向偏移量"
+        type="text"
+      />
+      <!---->
+    </div>
+    <div
+      class="t-input t-size-m"
+      modelvalue=""
+    >
+      <!---->
+      <input
+        autocomplete="false"
+        autofocus="function Boolean() { [native code] }"
+        class="t-input__inner"
+        placeholder="请输入纵向偏移量"
+        type="text"
+      />
+      <!---->
+    </div>
+  </div>
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    center
+    <span
+      class="t-button__text"
+    >
+      
+      center
+      
+    </span>
   </button>
-   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    top
+    <span
+      class="t-button__text"
+    >
+      
+      top
+      
+    </span>
   </button>
-   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    left
+    <span
+      class="t-button__text"
+    >
+      
+      left
+      
+    </span>
   </button>
-   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    right
+    <span
+      class="t-button__text"
+    >
+      
+      right
+      
+    </span>
   </button>
-   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    bottom
+    <span
+      class="t-button__text"
+    >
+      
+      bottom
+      
+    </span>
   </button>
-   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    top-left
+    <span
+      class="t-button__text"
+    >
+      
+      top-left
+      
+    </span>
   </button>
-   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    top-right
+    <span
+      class="t-button__text"
+    >
+      
+      top-right
+      
+    </span>
   </button>
-   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    bottom-left
+    <span
+      class="t-button__text"
+    >
+      
+      bottom-left
+      
+    </span>
   </button>
-   
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    bottom-right
+    <span
+      class="t-button__text"
+    >
+      
+      bottom-right
+      
+    </span>
   </button>
 </div>
 `;
@@ -136,289 +354,432 @@ exports[`Message plugin demo works fine 1`] = `
   <p>
     组件内调用-信息设置：this.$message.info('用户表示普通操作信息提示')
   </p>
-   
   <br />
-   
   <div
     class="t-demo-message-theme"
   >
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      info
+      <span
+        class="t-button__text"
+      >
+        
+        info
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      success
+      <span
+        class="t-button__text"
+      >
+        
+        success
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      warning
+      <span
+        class="t-button__text"
+      >
+        
+        warning
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      error
+      <span
+        class="t-button__text"
+      >
+        
+        error
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      question
+      <span
+        class="t-button__text"
+      >
+        
+        question
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      loading
+      <span
+        class="t-button__text"
+      >
+        
+        loading
+        
+      </span>
     </button>
   </div>
-   
   <br />
   <br />
-   
   <p>
     组件内调用-时间设置：this.$message.info('用户表示普通操作信息提示', 1000)
   </p>
-   
   <br />
-   
   <div
     class="t-demo-message-duration"
   >
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      info
+      <span
+        class="t-button__text"
+      >
+        
+        info
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      success
+      <span
+        class="t-button__text"
+      >
+        
+        success
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      warning
+      <span
+        class="t-button__text"
+      >
+        
+        warning
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      error
+      <span
+        class="t-button__text"
+      >
+        
+        error
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      question
+      <span
+        class="t-button__text"
+      >
+        
+        question
+        
+      </span>
     </button>
-     
+    <!-- 0 表示永远不自动消失 -->
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      loading
+      <span
+        class="t-button__text"
+      >
+        
+        loading
+        
+      </span>
     </button>
   </div>
-   
   <br />
   <br />
-   
   <p>
     组件内调用-设置更多内容：this.$message.info({ content: '用户表示普通操作信息提示', duration: 1000 })
   </p>
-   
   <br />
-   
   <div
     class="t-demo-message-obj"
   >
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      普通信息
+      <span
+        class="t-button__text"
+      >
+        
+        普通信息
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      显示关闭按钮
+      <span
+        class="t-button__text"
+      >
+        
+        显示关闭按钮
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      设置显示时间
+      <span
+        class="t-button__text"
+      >
+        
+        设置显示时间
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      自定义内容
+      <span
+        class="t-button__text"
+      >
+        
+        自定义内容
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      自定义关闭按钮
+      <span
+        class="t-button__text"
+      >
+        
+        自定义关闭按钮
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      loading
+      <span
+        class="t-button__text"
+      >
+        
+        loading
+        
+      </span>
     </button>
   </div>
-   
   <br />
   <br />
-   
   <p>
     组件内调用-主函数：this.$message({ content: '用户表示普通操作信息提示', duration: 1000 })
   </p>
-   
   <br />
-   
   <div
     class="t-demo-message-main"
   >
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      普通信息
+      <span
+        class="t-button__text"
+      >
+        
+        普通信息
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      显示关闭按钮
+      <span
+        class="t-button__text"
+      >
+        
+        显示关闭按钮
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      设置显示时间
+      <span
+        class="t-button__text"
+      >
+        
+        设置显示时间
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      自定义内容
+      <span
+        class="t-button__text"
+      >
+        
+        自定义内容
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      自定义关闭按钮
+      <span
+        class="t-button__text"
+      >
+        
+        自定义关闭按钮
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      loading
+      <span
+        class="t-button__text"
+      >
+        
+        loading
+        
+      </span>
     </button>
   </div>
-   
   <br />
   <br />
-   
   <p>
     按需引入：MessagePlugin.info({ content: '用户表示普通操作信息提示', duration: 1000 })
   </p>
-   
   <br />
-   
   <div
     class="t-demo-message-theme"
   >
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      info
+      <span
+        class="t-button__text"
+      >
+        
+        info
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      success
+      <span
+        class="t-button__text"
+      >
+        
+        success
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      warning
+      <span
+        class="t-button__text"
+      >
+        
+        warning
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      error
+      <span
+        class="t-button__text"
+      >
+        
+        error
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      question
+      <span
+        class="t-button__text"
+      >
+        
+        question
+        
+      </span>
     </button>
-     
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
       type="button"
     >
-      loading
+      <span
+        class="t-button__text"
+      >
+        
+        loading
+        
+      </span>
     </button>
   </div>
-   
   <br />
   <br />
 </div>
 `;
 
 exports[`Message toggle demo works fine 1`] = `
-<div>
+<div
+  id="t-demo-message-toggle"
+>
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
   >
-    
-    自由控制关闭时机（打开）
-  
+    <span
+      class="t-button__text"
+    >
+      
+       自由控制关闭时机（打开） 
+      
+    </span>
   </button>
 </div>
 `;
@@ -442,9 +803,15 @@ exports[`Message type demo works fine 1`] = `
         fill-rule="evenodd"
       />
     </svg>
+    
     用户表示普通操作信息提示
+    
+    <span
+      class="t-message-close"
+    >
+      <!---->
+    </span>
   </div>
-   
   <div
     class="t-message t-is-success"
   >
@@ -460,9 +827,15 @@ exports[`Message type demo works fine 1`] = `
         fill-rule="evenodd"
       />
     </svg>
+    
     用户表示操作顺利达成
+    
+    <span
+      class="t-message-close"
+    >
+      <!---->
+    </span>
   </div>
-   
   <div
     class="t-message t-is-warning"
   >
@@ -478,9 +851,15 @@ exports[`Message type demo works fine 1`] = `
         fill-rule="evenodd"
       />
     </svg>
+    
     用户表示操作引起一定后果
+    
+    <span
+      class="t-message-close"
+    >
+      <!---->
+    </span>
   </div>
-   
   <div
     class="t-message t-is-error"
   >
@@ -496,9 +875,15 @@ exports[`Message type demo works fine 1`] = `
         fill-rule="evenodd"
       />
     </svg>
+    
     用户表示操作引起严重的后果
+    
+    <span
+      class="t-message-close"
+    >
+      <!---->
+    </span>
   </div>
-   
   <div
     class="t-message t-is-question"
   >
@@ -514,9 +899,15 @@ exports[`Message type demo works fine 1`] = `
         fill-rule="evenodd"
       />
     </svg>
+    
     用于帮助用户操作的信息提示
+    
+    <span
+      class="t-message-close"
+    >
+      <!---->
+    </span>
   </div>
-   
   <div
     class="t-message t-is-loading"
   >
@@ -532,7 +923,14 @@ exports[`Message type demo works fine 1`] = `
         fill-rule="evenodd"
       />
     </svg>
+    
     用于表示操作正在生效的过程中
+    
+    <span
+      class="t-message-close"
+    >
+      <!---->
+    </span>
   </div>
 </div>
 `;

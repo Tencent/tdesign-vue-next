@@ -26,6 +26,7 @@ exports[`Alert base demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -33,11 +34,13 @@ exports[`Alert base demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条成功的消息提示
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--info"
   >
@@ -60,6 +63,7 @@ exports[`Alert base demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -69,11 +73,13 @@ exports[`Alert base demo works fine 1`] = `
           <div>
             这是一条普通的消息提示
           </div>
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--warning"
   >
@@ -96,6 +102,7 @@ exports[`Alert base demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -103,13 +110,15 @@ exports[`Alert base demo works fine 1`] = `
           class="t-alert__description"
         >
           
-      这是一条警示信息
-    
+           这是一条警示信息 
+          
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--error"
   >
@@ -132,6 +141,7 @@ exports[`Alert base demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -139,11 +149,14 @@ exports[`Alert base demo works fine 1`] = `
           class="t-alert__description"
         >
           
-    高危操作/出错信息提示
-  
+           高危操作/出错信息提示 
+          
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
 </div>
 `;
@@ -174,6 +187,7 @@ exports[`Alert close demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -181,11 +195,13 @@ exports[`Alert close demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条成功的消息提示
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--info"
   >
@@ -208,6 +224,7 @@ exports[`Alert close demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -215,7 +232,9 @@ exports[`Alert close demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条普通的消息提示
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
     <div
@@ -224,7 +243,6 @@ exports[`Alert close demo works fine 1`] = `
       知道了
     </div>
   </div>
-   
   <div
     class="t-alert t-alert--warning"
   >
@@ -247,6 +265,7 @@ exports[`Alert close demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -254,7 +273,9 @@ exports[`Alert close demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条警示信息
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
     <div
@@ -263,7 +284,6 @@ exports[`Alert close demo works fine 1`] = `
       FunctionPropClose
     </div>
   </div>
-   
   <div
     class="t-alert t-alert--error"
   >
@@ -286,6 +306,7 @@ exports[`Alert close demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -293,15 +314,15 @@ exports[`Alert close demo works fine 1`] = `
           class="t-alert__description"
         >
           高危操作/出错信息提示
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
     <div
       class="t-alert__close"
     >
-      
-      Slot Close
-    
+       Slot Close 
     </div>
   </div>
 </div>
@@ -333,30 +354,36 @@ exports[`Alert collapse demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
         <div
           class="t-alert__description"
         >
+          
           <div>
             <span>
               这是折叠的第一条消息
             </span>
           </div>
           <div>
-             
+            <span>
+              这是折叠的第二条消息
+            </span>
           </div>
+          
           <div
             class="t-alert__collapse"
           >
             展开全部
           </div>
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--info"
   >
@@ -379,28 +406,35 @@ exports[`Alert collapse demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
         <div
           class="t-alert__description"
         >
+          
           <div>
             <span>
               这是折叠的第一条消息
             </span>
           </div>
           <div>
-             
+            <span>
+              这是折叠的第二条消息
+            </span>
           </div>
+          
           <div
             class="t-alert__collapse"
           >
             展开全部
           </div>
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
 </div>
 `;
@@ -431,6 +465,7 @@ exports[`Alert icon demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -438,11 +473,13 @@ exports[`Alert icon demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条成功的消息提示
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--info"
   >
@@ -465,6 +502,7 @@ exports[`Alert icon demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -472,11 +510,13 @@ exports[`Alert icon demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条普通的消息提示
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--warning"
   >
@@ -499,6 +539,7 @@ exports[`Alert icon demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -506,11 +547,13 @@ exports[`Alert icon demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条警示消息提示
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--error"
   >
@@ -533,6 +576,7 @@ exports[`Alert icon demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -540,11 +584,13 @@ exports[`Alert icon demo works fine 1`] = `
           class="t-alert__description"
         >
           高危操作/出错信息提示
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--warning"
   >
@@ -555,13 +601,14 @@ exports[`Alert icon demo works fine 1`] = `
         class="t-icon t-icon-error-circle-filled"
       >
         <use
-          xlink:href="#t-icon-error-circle-filled"
+          href="#t-icon-error-circle-filled"
         />
       </svg>
     </div>
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -569,11 +616,13 @@ exports[`Alert icon demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条警示信息(以function形式自定义icon)
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--error"
   >
@@ -584,13 +633,14 @@ exports[`Alert icon demo works fine 1`] = `
         class="t-icon t-icon-error-circle-filled"
       >
         <use
-          xlink:href="#t-icon-error-circle-filled"
+          href="#t-icon-error-circle-filled"
         />
       </svg>
     </div>
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -598,9 +648,12 @@ exports[`Alert icon demo works fine 1`] = `
           class="t-alert__description"
         >
           高危操作/出错信息提示(以slot形式自定义icon)
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    <!---->
   </div>
 </div>
 `;
@@ -631,6 +684,7 @@ exports[`Alert operation demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -638,18 +692,21 @@ exports[`Alert operation demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条成功的消息提示
+          <!---->
         </div>
         <div
           class="t-alert__operation"
         >
+          
           <span>
             相关操作
           </span>
+          
         </div>
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--info"
   >
@@ -672,6 +729,7 @@ exports[`Alert operation demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -679,18 +737,21 @@ exports[`Alert operation demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条普通的消息提示
+          <!---->
         </div>
         <div
           class="t-alert__operation"
         >
+          
           <span>
             相关操作
           </span>
+          
         </div>
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--warning"
   >
@@ -713,6 +774,7 @@ exports[`Alert operation demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -720,18 +782,21 @@ exports[`Alert operation demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条警示信息
+          <!---->
         </div>
         <div
           class="t-alert__operation"
         >
+          
           <span>
             相关操作
           </span>
+          
         </div>
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--error"
   >
@@ -754,6 +819,7 @@ exports[`Alert operation demo works fine 1`] = `
     <div
       class="t-alert__content"
     >
+      <!---->
       <div
         class="t-alert__message"
       >
@@ -761,197 +827,20 @@ exports[`Alert operation demo works fine 1`] = `
           class="t-alert__description"
         >
           高危操作/出错信息提示
+          <!---->
         </div>
         <div
           class="t-alert__operation"
         >
+          
           <span>
             相关操作
           </span>
+          
         </div>
       </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Alert swiper demo works fine 1`] = `
-<div
-  class="t-alert-swiper t-alert-swiper--success"
->
-  <div
-    class="t-alert-swiper__content"
-  >
-    <div
-      class="t-alert-swiper__swiper-wrap"
-      style="width: 400%; left: -0%;"
-    >
-      <div
-        class="t-alert t-alert--success"
-      >
-        <div
-          class="t-alert__icon"
-        >
-          <svg
-            class="t-icon t-icon-check-circle-filled"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM690.8655168 353.58818368L464.56401024 579.82818368 328.82684416 444.09785152 283.57201024 489.35268544 464.59134592 670.3720192 509.84617984 625.1171872 736.120352 398.8430176 690.8655168 353.58818368Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-        <div
-          class="t-alert__content"
-        >
-          <div
-            class="t-alert__message"
-          >
-            <div
-              class="t-alert__description"
-            >
-              【到期提醒】
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="t-alert t-alert--info"
-      >
-        <div
-          class="t-alert__icon"
-        >
-          <svg
-            class="t-icon t-icon-info-circle-filled"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-        <div
-          class="t-alert__content"
-        >
-          <div
-            class="t-alert__message"
-          >
-            <div
-              class="t-alert__description"
-            >
-              【到期提醒】
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="t-alert t-alert--warning"
-      >
-        <div
-          class="t-alert__icon"
-        >
-          <svg
-            class="t-icon t-icon-error-circle-filled"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 672L480 672 480 736 544 736 544 672ZM544 288L480 288 480 608 544 608 544 288Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-        <div
-          class="t-alert__content"
-        >
-          <div
-            class="t-alert__message"
-          >
-            <div
-              class="t-alert__description"
-            >
-              【到期提醒】
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="t-alert t-alert--error"
-      >
-        <div
-          class="t-alert__icon"
-        >
-          <svg
-            class="t-icon t-icon-error-circle-filled"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 672L480 672 480 736 544 736 544 672ZM544 288L480 288 480 608 544 608 544 288Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-        <div
-          class="t-alert__content"
-        >
-          <div
-            class="t-alert__message"
-          >
-            <div
-              class="t-alert__description"
-            >
-              【到期提醒】
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <ul
-    class="t-alert-swiper__trigger-wrap"
-  >
-    <li
-      class="t-alert-swiper__trigger--active"
-    />
-    <li
-      class=""
-    />
-    <li
-      class=""
-    />
-    <li
-      class=""
-    />
-  </ul>
-  <div
-    class="t-alert-swiper__close"
-  >
-     
-    <svg
-      class="t-icon t-icon-close"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M760.9780096 217.6L806.2328448 262.85483392 557.312 511.744 806.2328448 760.6580096 760.9780096 805.9128448 512.064 556.992 263.17483392 805.9128448 217.92 760.6580096 466.816 511.744 217.92 262.85483392 263.17483392 217.6 512.064 466.496 760.9780096 217.6Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
-      />
-    </svg>
+    <!---->
   </div>
 </div>
 `;
@@ -985,7 +874,8 @@ exports[`Alert title demo works fine 1`] = `
       <div
         class="t-alert__title"
       >
-         这是一条成功的消息提示
+         
+        这是一条成功的消息提示
       </div>
       <div
         class="t-alert__message"
@@ -994,18 +884,21 @@ exports[`Alert title demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条普通的消息提示描述，这是一条普通的消息提示描述，这是一条普通的消息提示描述，这是一条普通的消息提示描述，
+          <!---->
         </div>
         <div
           class="t-alert__operation"
         >
+          
           <span>
             相关操作
           </span>
+          
         </div>
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--info"
   >
@@ -1031,7 +924,8 @@ exports[`Alert title demo works fine 1`] = `
       <div
         class="t-alert__title"
       >
-         这是一条普通的消息提示
+         
+        这是一条普通的消息提示
       </div>
       <div
         class="t-alert__message"
@@ -1040,18 +934,21 @@ exports[`Alert title demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条普通的消息提示这是一条普通的消息提示这是一条普通的消息提示这是一条普通的消息提示
+          <!---->
         </div>
         <div
           class="t-alert__operation"
         >
+          
           <span>
             相关操作
           </span>
+          
         </div>
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--warning"
   >
@@ -1077,7 +974,8 @@ exports[`Alert title demo works fine 1`] = `
       <div
         class="t-alert__title"
       >
-         这是一条警示信息
+         
+        这是一条警示信息
       </div>
       <div
         class="t-alert__message"
@@ -1086,18 +984,21 @@ exports[`Alert title demo works fine 1`] = `
           class="t-alert__description"
         >
           这是一条警示信息这是一条警示信息这是一条警示信息这是一条警示信息
+          <!---->
         </div>
         <div
           class="t-alert__operation"
         >
+          
           <span>
             相关操作
           </span>
+          
         </div>
       </div>
     </div>
+    <!---->
   </div>
-   
   <div
     class="t-alert t-alert--error"
   >
@@ -1123,7 +1024,8 @@ exports[`Alert title demo works fine 1`] = `
       <div
         class="t-alert__title"
       >
-         高危操作/出错信息提示
+         
+        高危操作/出错信息提示
       </div>
       <div
         class="t-alert__message"
@@ -1132,16 +1034,20 @@ exports[`Alert title demo works fine 1`] = `
           class="t-alert__description"
         >
           高危操作/出错信息提示高危操作/出错信息提示高危操作/出错信息提示高危操作/出错信息提示
+          <!---->
         </div>
         <div
           class="t-alert__operation"
         >
+          
           <span>
             相关操作
           </span>
+          
         </div>
       </div>
     </div>
+    <!---->
   </div>
 </div>
 `;

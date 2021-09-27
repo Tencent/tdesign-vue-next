@@ -1,15 +1,13 @@
 import { mount } from '@vue/test-utils';
 import base from '@/examples/table/demos/base.vue';
-import fixedHeader from '@/examples/table/demos/fixedHeader.vue';
-import fixedColumn from '@/examples/table/demos/fixedColumn.vue';
-import customCell from '@/examples/table/demos/customCell.vue';
+import fixedHeader from '@/examples/table/demos/fixed-header.vue';
+import fixedColumn from '@/examples/table/demos/fixed-column.vue';
+import customCell from '@/examples/table/demos/custom-cell.vue';
 import empty from '@/examples/table/demos/empty.vue';
-import multiHeader from '@/examples/table/demos/multiHeader.vue';
+import multiHeader from '@/examples/table/demos/multi-header.vue';
 import expandable from '@/examples/table/demos/expandable.vue';
-import draggable from '@/examples/table/demos/draggable.vue';
-import selectSingle from '@/examples/table/demos/selectSingle.vue';
-import selectMultiple from '@/examples/table/demos/selectMultiple.vue';
-import ajax from '@/examples/table/demos/ajax.vue';
+import selectSingle from '@/examples/table/demos/select-single.vue';
+import selectMultiple from '@/examples/table/demos/select-multiple.vue';
 
 // unit test for component in examples.
 describe('Table', () => {
@@ -45,20 +43,12 @@ describe('Table', () => {
     const wraper = mount(expandable);
     expect(wraper.element).toMatchSnapshot();
   });
-  it('draggable demo works fine', () => {
-    const wraper = mount(draggable);
-    expect(wraper.element).toMatchSnapshot();
-  });
   it('selectSingle demo works fine', () => {
     const wraper = mount(selectSingle);
     expect(wraper.element).toMatchSnapshot();
   });
   it('selectMultiple demo works fine', () => {
     const wraper = mount(selectMultiple);
-    expect(wraper.element).toMatchSnapshot();
-  });
-  it('ajax demo works fine', () => {
-    const wraper = mount(ajax);
     expect(wraper.element).toMatchSnapshot();
   });
 });

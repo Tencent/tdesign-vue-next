@@ -2,48 +2,171 @@
 
 exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height height = 100 1`] = `
 <div>
-  <div class="t-table t-table__header--fixed">
-    <div class="t-table-content" style="overflow: auto;">
-      <div class="t-table__header" style="width: 100%;">
-        <table style="table-layout: fixed;">
-          <colgroup>
-            <col>
-            <col>
-            <col>
-          </colgroup>
-          <thead columnsprops="[object Object],[object Object],[object Object]">
-            <tr>
-              <td class="" key="id" colspan="1" rowspan="1">id</td>
-              <td class="" key="type" colspan="1" rowspan="1">类型</td>
-              <td class="" key="value" colspan="1" rowspan="1">取值</td>
-            </tr>
-          </thead>
-        </table>
+  <!---->
+  <div
+    class="t-table t-table__header--fixed"
+    defaultexpandedrowkeys=""
+    expandedrowkeys=""
+    expandonrowclick="false"
+    multiplesort="false"
+    showcolumns="false"
+    showexpandarrow="true"
+    sortonrowdraggable="false"
+  >
+    <div
+      class="t-loading-parent__relative"
+    >
+      
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        
+        <div
+          class="t-table__header"
+          style="padding-right: 0px;"
+        >
+          <table
+            style="table-layout: fixed;"
+          >
+            <colgroup>
+              
+              <col />
+              <col />
+              <col />
+              
+            </colgroup>
+            <thead>
+              
+              <tr>
+                
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  id
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  类型
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  取值
+                </td>
+                
+              </tr>
+              
+            </thead>
+          </table>
+        </div>
+        <div
+          class="t-table__body"
+          style="height: 100px;"
+        >
+          <table
+            style="table-layout: fixed;"
+          >
+            <colgroup>
+              
+              <col />
+              <col />
+              <col />
+              
+            </colgroup>
+            <tbody
+              class="table-body"
+            >
+              
+              <tr
+                draggable="false"
+              >
+                
+                <td
+                  class=""
+                  length="3"
+                >
+                  1
+                </td>
+                <td
+                  class=""
+                  length="3"
+                >
+                  Number
+                </td>
+                <td
+                  class=""
+                  length="3"
+                >
+                  1
+                </td>
+                
+              </tr>
+              <tr
+                draggable="false"
+              >
+                
+                <td
+                  class=""
+                  length="3"
+                >
+                  2
+                </td>
+                <td
+                  class=""
+                  length="3"
+                >
+                  Number
+                </td>
+                <td
+                  class=""
+                  length="3"
+                >
+                  2
+                </td>
+                
+              </tr>
+              <tr
+                draggable="false"
+              >
+                
+                <td
+                  class=""
+                  length="3"
+                >
+                  3
+                </td>
+                <td
+                  class=""
+                  length="3"
+                >
+                  Number
+                </td>
+                <td
+                  class=""
+                  length="3"
+                >
+                  3
+                </td>
+                
+              </tr>
+              
+            </tbody>
+            <!---->
+          </table>
+        </div>
+        
       </div>
-      <div class="t-table__body" style="max-height: 100px;">
-        <table style="table-layout: fixed;">
-          <colgroup>
-            <col>
-            <col>
-            <col>
-          </colgroup>
-          <tbody class="table-body">
-            <tr class="">
-              <td class="" key="id" length="3">1</td>
-              <td class="" key="type" length="3">Number</td>
-              <td class="" key="value" length="3">1</td>
-            </tr>
-            <tr class="">
-              <td class="" key="id" length="3">2</td>
-              <td class="" key="type" length="3">Number</td>
-              <td class="" key="value" length="3">2</td>
-            </tr>
-          </tbody>
-          <tfoot></tfoot>
-        </table>
-      </div>
-    </div>
-    <div class="t-table-pagination">
+      
+      
+      
       <!---->
     </div>
   </div>
@@ -52,24 +175,66 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 
 exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height size = "large", verticalAlign="top" 1`] = `
 <div>
-  <div class="t-table t-size-l t-table-valign__top">
-    <div class="t-table-content" style="overflow: auto;">
-      <table style="table-layout: fixed;">
-        <colgroup></colgroup>
-        <thead columnsprops="">
-          <tr></tr>
-        </thead>
-        <tbody class="table-body"></tbody>
-        <tfoot>
-          <tr>
-            <td colspan="0">
-              <div class="t-table--empty">暂无数据</div>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-    <div class="t-table-pagination">
+  <!---->
+  <div
+    class="t-table t-size-l t-table-valign__top"
+    defaultexpandedrowkeys=""
+    expandedrowkeys=""
+    expandonrowclick="false"
+    multiplesort="false"
+    showcolumns="false"
+    showexpandarrow="true"
+    sortonrowdraggable="false"
+  >
+    <div
+      class="t-loading-parent__relative"
+    >
+      
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          
+          <colgroup>
+            
+            
+          </colgroup>
+          <thead>
+            
+            <tr>
+              
+              
+            </tr>
+            
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            
+            
+          </tbody>
+          <tfoot>
+            <tr>
+              <td
+                colspan="0"
+              >
+                <div
+                  class="t-table--empty"
+                >
+                  暂无数据
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+          
+        </table>
+      </div>
+      
+      
+      
       <!---->
     </div>
   </div>
@@ -78,24 +243,66 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 
 exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height size = "medium", verticalAlign="bottom" 1`] = `
 <div>
-  <div class="t-table t-table-valign__bottom">
-    <div class="t-table-content" style="overflow: auto;">
-      <table style="table-layout: fixed;">
-        <colgroup></colgroup>
-        <thead columnsprops="">
-          <tr></tr>
-        </thead>
-        <tbody class="table-body"></tbody>
-        <tfoot>
-          <tr>
-            <td colspan="0">
-              <div class="t-table--empty">暂无数据</div>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-    <div class="t-table-pagination">
+  <!---->
+  <div
+    class="t-table t-table-valign__bottom"
+    defaultexpandedrowkeys=""
+    expandedrowkeys=""
+    expandonrowclick="false"
+    multiplesort="false"
+    showcolumns="false"
+    showexpandarrow="true"
+    sortonrowdraggable="false"
+  >
+    <div
+      class="t-loading-parent__relative"
+    >
+      
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          
+          <colgroup>
+            
+            
+          </colgroup>
+          <thead>
+            
+            <tr>
+              
+              
+            </tr>
+            
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            
+            
+          </tbody>
+          <tfoot>
+            <tr>
+              <td
+                colspan="0"
+              >
+                <div
+                  class="t-table--empty"
+                >
+                  暂无数据
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+          
+        </table>
+      </div>
+      
+      
+      
       <!---->
     </div>
   </div>
@@ -104,37 +311,150 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 
 exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height size = "small", verticalAlign="middle" 1`] = `
 <div>
-  <div class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s">
-    <div class="t-table-content" style="overflow: auto;">
-      <table style="table-layout: fixed;">
-        <colgroup>
-          <col>
-          <col>
-          <col>
-        </colgroup>
-        <thead columnsprops="[object Object],[object Object],[object Object]">
-          <tr>
-            <td class="" key="id" colspan="1" rowspan="1">id</td>
-            <td class="" key="type" colspan="1" rowspan="1">类型</td>
-            <td class="" key="value" colspan="1" rowspan="1">取值</td>
-          </tr>
-        </thead>
-        <tbody class="table-body">
-          <tr class="">
-            <td class="" key="id" length="3">1</td>
-            <td class="" key="type" length="3">Number</td>
-            <td class="" key="value" length="3">1</td>
-          </tr>
-          <tr class="">
-            <td class="" key="id" length="3">2</td>
-            <td class="" key="type" length="3">Number</td>
-            <td class="" key="value" length="3">2</td>
-          </tr>
-        </tbody>
-        <tfoot></tfoot>
-      </table>
-    </div>
-    <div class="t-table-pagination">
+  <!---->
+  <div
+    class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s"
+    defaultexpandedrowkeys=""
+    expandedrowkeys=""
+    expandonrowclick="false"
+    multiplesort="false"
+    showcolumns="false"
+    showexpandarrow="true"
+    sortonrowdraggable="false"
+  >
+    <div
+      class="t-loading-parent__relative"
+    >
+      
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          
+          <colgroup>
+            
+            <col />
+            <col />
+            <col />
+            
+          </colgroup>
+          <thead>
+            
+            <tr>
+              
+              <td
+                class=""
+                colspan="1"
+                rowspan="1"
+              >
+                id
+              </td>
+              <td
+                class=""
+                colspan="1"
+                rowspan="1"
+              >
+                类型
+              </td>
+              <td
+                class=""
+                colspan="1"
+                rowspan="1"
+              >
+                取值
+              </td>
+              
+            </tr>
+            
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class=""
+                length="3"
+              >
+                1
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                Number
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                1
+              </td>
+              
+            </tr>
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class=""
+                length="3"
+              >
+                2
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                Number
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                2
+              </td>
+              
+            </tr>
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class=""
+                length="3"
+              >
+                3
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                Number
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                3
+              </td>
+              
+            </tr>
+            
+          </tbody>
+          <!---->
+          
+        </table>
+      </div>
+      
+      
+      
       <!---->
     </div>
   </div>
@@ -143,24 +463,66 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 
 exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
 <div>
-  <div class="t-table">
-    <div class="t-table-content" style="overflow: auto;">
-      <table style="table-layout: fixed;">
-        <colgroup></colgroup>
-        <thead columnsprops="">
-          <tr></tr>
-        </thead>
-        <tbody class="table-body"></tbody>
-        <tfoot>
-          <tr>
-            <td colspan="0">
-              <div class="t-table--empty">暂无数据</div>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-    <div class="t-table-pagination">
+  <!---->
+  <div
+    class="t-table"
+    defaultexpandedrowkeys=""
+    expandedrowkeys=""
+    expandonrowclick="false"
+    multiplesort="false"
+    showcolumns="false"
+    showexpandarrow="true"
+    sortonrowdraggable="false"
+  >
+    <div
+      class="t-loading-parent__relative"
+    >
+      
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          
+          <colgroup>
+            
+            
+          </colgroup>
+          <thead>
+            
+            <tr>
+              
+              
+            </tr>
+            
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            
+            
+          </tbody>
+          <tfoot>
+            <tr>
+              <td
+                colspan="0"
+              >
+                <div
+                  class="t-table--empty"
+                >
+                  暂无数据
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+          
+        </table>
+      </div>
+      
+      
+      
       <!---->
     </div>
   </div>
@@ -169,37 +531,156 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
 
 exports[`Table :props :props.columns \`columns\` with align, width, minWidth and ellipsis 1`] = `
 <div>
-  <div class="t-table">
-    <div class="t-table-content" style="overflow: auto;">
-      <table style="table-layout: fixed;">
-        <colgroup>
-          <col style="width: 100px; min-width: 200px;">
-          <col>
-          <col>
-        </colgroup>
-        <thead columnsprops="[object Object],[object Object],[object Object]">
-          <tr>
-            <td class="align-left text-ellipsis" key="id" style="overflow: hidden;" colspan="1" rowspan="1">id</td>
-            <td class="" key="type" colspan="1" rowspan="1">类型</td>
-            <td class="" key="value" colspan="1" rowspan="1">取值</td>
-          </tr>
-        </thead>
-        <tbody class="table-body">
-          <tr class="">
-            <td class="align-left text-ellipsis" key="id" style="overflow: hidden;" length="3">1</td>
-            <td class="" key="type" length="3">Number</td>
-            <td class="" key="value" length="3">1</td>
-          </tr>
-          <tr class="">
-            <td class="align-left text-ellipsis" key="id" style="overflow: hidden;" length="3">2</td>
-            <td class="" key="type" length="3">Number</td>
-            <td class="" key="value" length="3">2</td>
-          </tr>
-        </tbody>
-        <tfoot></tfoot>
-      </table>
-    </div>
-    <div class="t-table-pagination">
+  <!---->
+  <div
+    class="t-table"
+    defaultexpandedrowkeys=""
+    expandedrowkeys=""
+    expandonrowclick="false"
+    multiplesort="false"
+    showcolumns="false"
+    showexpandarrow="true"
+    sortonrowdraggable="false"
+  >
+    <div
+      class="t-loading-parent__relative"
+    >
+      
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          
+          <colgroup>
+            
+            <col
+              style="width: 100px; min-width: 200px;"
+            />
+            <col />
+            <col />
+            
+          </colgroup>
+          <thead>
+            
+            <tr>
+              
+              <td
+                class="align-left text-ellipsis"
+                colspan="1"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                id
+              </td>
+              <td
+                class=""
+                colspan="1"
+                rowspan="1"
+              >
+                类型
+              </td>
+              <td
+                class=""
+                colspan="1"
+                rowspan="1"
+              >
+                取值
+              </td>
+              
+            </tr>
+            
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class="align-left text-ellipsis"
+                length="3"
+                style="overflow: hidden;"
+              >
+                1
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                Number
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                1
+              </td>
+              
+            </tr>
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class="align-left text-ellipsis"
+                length="3"
+                style="overflow: hidden;"
+              >
+                2
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                Number
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                2
+              </td>
+              
+            </tr>
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class="align-left text-ellipsis"
+                length="3"
+                style="overflow: hidden;"
+              >
+                3
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                Number
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                3
+              </td>
+              
+            </tr>
+            
+          </tbody>
+          <!---->
+          
+        </table>
+      </div>
+      
+      
+      
       <!---->
     </div>
   </div>
@@ -208,52 +689,229 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
 
 exports[`Table :props :props.columns \`columns\` with children 1`] = `
 <div>
-  <div class="t-table">
-    <div class="t-table-content" style="overflow: auto;">
-      <table style="table-layout: fixed;">
-        <colgroup>
-          <col>
-          <col>
-        </colgroup>
-        <thead columnsprops="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]">
-          <tr>
-            <td class="" colspan="4" rowspan="1">属性及说明</td>
-            <td class="" colspan="2" rowspan="1">属性及说明</td>
-          </tr>
-          <tr>
-            <td class="align-left text-ellipsis test" key="platform" style="overflow: hidden;" colspan="1" rowspan="2">平台</td>
-            <td class="" colspan="3" rowspan="1">类型及默认值</td>
-            <td class="align-left text-ellipsis test2" key="property" style="overflow: hidden;" colspan="1" rowspan="2">属性</td>
-            <td class="align-left text-ellipsis row" key="description" style="overflow: hidden;" colspan="1" rowspan="2">说明</td>
-          </tr>
-          <tr>
-            <td class="align-left text-ellipsis row" key="type" style="overflow: hidden;" colspan="1" rowspan="1">类型</td>
-            <td class="align-left text-ellipsis test4" key="default" style="overflow: hidden;" colspan="1" rowspan="1">默认值</td>
-            <td class="align-left text-ellipsis test3" key="needed" style="overflow: hidden;" colspan="1" rowspan="1">是否必传</td>
-          </tr>
-        </thead>
-        <tbody class="table-body">
-          <tr class="">
-            <td class="align-left text-ellipsis test" key="platform" style="overflow: hidden;" length="6">公有</td>
-            <td class="align-left text-ellipsis row" key="type" style="overflow: hidden;" length="6">any[]</td>
-            <td class="align-left text-ellipsis test4" key="default" style="overflow: hidden;" length="6">[]</td>
-            <td class="align-left text-ellipsis test3" key="needed" style="overflow: hidden;" length="6">Y</td>
-            <td class="align-left text-ellipsis test2" key="property" style="overflow: hidden;" length="6">data</td>
-            <td class="align-left text-ellipsis row" key="description" style="overflow: hidden;" length="6">数据源</td>
-          </tr>
-          <tr class="">
-            <td class="align-left text-ellipsis test" key="platform" style="overflow: hidden;" length="6">公有</td>
-            <td class="align-left text-ellipsis row" key="type" style="overflow: hidden;" length="6">String</td>
-            <td class="align-left text-ellipsis test4" key="default" style="overflow: hidden;" length="6">-1</td>
-            <td class="align-left text-ellipsis test3" key="needed" style="overflow: hidden;" length="6">Y</td>
-            <td class="align-left text-ellipsis test2" key="property" style="overflow: hidden;" length="6">rowkey</td>
-            <td class="align-left text-ellipsis row" key="description" style="overflow: hidden;" length="6">指定rowkey</td>
-          </tr>
-        </tbody>
-        <tfoot></tfoot>
-      </table>
-    </div>
-    <div class="t-table-pagination">
+  <!---->
+  <div
+    class="t-table"
+    defaultexpandedrowkeys=""
+    expandedrowkeys=""
+    expandonrowclick="false"
+    multiplesort="false"
+    showcolumns="false"
+    showexpandarrow="true"
+    sortonrowdraggable="false"
+  >
+    <div
+      class="t-loading-parent__relative"
+    >
+      
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          
+          <colgroup>
+            
+            <col />
+            <col />
+            
+          </colgroup>
+          <thead>
+            
+            <tr>
+              
+              <td
+                class=""
+                colspan="4"
+                rowspan="1"
+              >
+                汇总属性
+              </td>
+              <td
+                class=""
+                colspan="2"
+                rowspan="1"
+              >
+                属性及说明
+              </td>
+              
+            </tr>
+            <tr>
+              
+              <td
+                class="align-left text-ellipsis test"
+                colspan="1"
+                rowspan="2"
+                style="overflow: hidden;"
+              >
+                平台
+              </td>
+              <td
+                class=""
+                colspan="3"
+                rowspan="1"
+              >
+                类型及默认值
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                colspan="1"
+                rowspan="2"
+                style="overflow: hidden;"
+              >
+                属性
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                rowspan="2"
+                style="overflow: hidden;"
+              >
+                说明
+              </td>
+              
+            </tr>
+            <tr>
+              
+              <td
+                class="align-left text-ellipsis row"
+                colspan="1"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                类型
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                colspan="1"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                默认值
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                colspan="1"
+                rowspan="1"
+                style="overflow: hidden;"
+              >
+                是否必传
+              </td>
+              
+            </tr>
+            
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class="align-left text-ellipsis test"
+                length="6"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                length="6"
+                style="overflow: hidden;"
+              >
+                any[]
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                length="6"
+                style="overflow: hidden;"
+              >
+                []
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                length="6"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                length="6"
+                style="overflow: hidden;"
+              >
+                data
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                length="6"
+                style="overflow: hidden;"
+              >
+                数据源
+              </td>
+              
+            </tr>
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class="align-left text-ellipsis test"
+                length="6"
+                style="overflow: hidden;"
+              >
+                公有
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                length="6"
+                style="overflow: hidden;"
+              >
+                String
+              </td>
+              <td
+                class="align-left text-ellipsis test4"
+                length="6"
+                style="overflow: hidden;"
+              >
+                -1
+              </td>
+              <td
+                class="align-left text-ellipsis test3"
+                length="6"
+                style="overflow: hidden;"
+              >
+                Y
+              </td>
+              <td
+                class="align-left text-ellipsis test2"
+                length="6"
+                style="overflow: hidden;"
+              >
+                rowkey
+              </td>
+              <td
+                class="align-left text-ellipsis row"
+                length="6"
+                style="overflow: hidden;"
+              >
+                指定rowkey
+              </td>
+              
+            </tr>
+            
+          </tbody>
+          <!---->
+          
+        </table>
+      </div>
+      
+      
+      
       <!---->
     </div>
   </div>
@@ -262,37 +920,154 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
 
 exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
 <div>
-  <div class="t-table t-table__cell--fixed t-table--has-fixed">
-    <div class="t-table-content" style="overflow: auto;">
-      <table style="table-layout: fixed;">
-        <colgroup>
-          <col>
-          <col>
-          <col>
-        </colgroup>
-        <thead columnsprops="[object Object],[object Object],[object Object]">
-          <tr>
-            <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" colspan="1" rowspan="1">id</td>
-            <td class="" key="type" colspan="1" rowspan="1">类型</td>
-            <td class="" key="value" colspan="1" rowspan="1">取值</td>
-          </tr>
-        </thead>
-        <tbody class="table-body">
-          <tr class="">
-            <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" length="3">1</td>
-            <td class="" key="type" length="3">Number</td>
-            <td class="" key="value" length="3">1</td>
-          </tr>
-          <tr class="">
-            <td class="t-table__cell--fixed-left" key="id" style="position: sticky; left: 0px;" length="3">2</td>
-            <td class="" key="type" length="3">Number</td>
-            <td class="" key="value" length="3">2</td>
-          </tr>
-        </tbody>
-        <tfoot></tfoot>
-      </table>
-    </div>
-    <div class="t-table-pagination">
+  <!---->
+  <div
+    class="t-table t-table__cell--fixed t-table--has-fixed"
+    defaultexpandedrowkeys=""
+    expandedrowkeys=""
+    expandonrowclick="false"
+    multiplesort="false"
+    showcolumns="false"
+    showexpandarrow="true"
+    sortonrowdraggable="false"
+  >
+    <div
+      class="t-loading-parent__relative"
+    >
+      
+      <div
+        class="t-table-content"
+        style="overflow: auto;"
+      >
+        <table
+          style="table-layout: fixed;"
+        >
+          
+          <colgroup>
+            
+            <col />
+            <col />
+            <col />
+            
+          </colgroup>
+          <thead>
+            
+            <tr>
+              
+              <td
+                class="t-table__cell--fixed-left"
+                colspan="1"
+                rowspan="1"
+                style="position: sticky; left: 0px;"
+              >
+                id
+              </td>
+              <td
+                class=""
+                colspan="1"
+                rowspan="1"
+              >
+                类型
+              </td>
+              <td
+                class=""
+                colspan="1"
+                rowspan="1"
+              >
+                取值
+              </td>
+              
+            </tr>
+            
+          </thead>
+          <tbody
+            class="table-body"
+          >
+            
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class="t-table__cell--fixed-left"
+                length="3"
+                style="position: sticky; left: 0px;"
+              >
+                1
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                Number
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                1
+              </td>
+              
+            </tr>
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class="t-table__cell--fixed-left"
+                length="3"
+                style="position: sticky; left: 0px;"
+              >
+                2
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                Number
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                2
+              </td>
+              
+            </tr>
+            <tr
+              draggable="false"
+            >
+              
+              <td
+                class="t-table__cell--fixed-left"
+                length="3"
+                style="position: sticky; left: 0px;"
+              >
+                3
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                Number
+              </td>
+              <td
+                class=""
+                length="3"
+              >
+                3
+              </td>
+              
+            </tr>
+            
+          </tbody>
+          <!---->
+          
+        </table>
+      </div>
+      
+      
+      
       <!---->
     </div>
   </div>

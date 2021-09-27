@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="medium" mutipile placeholder='请选择' max="3"></t-cascader>
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="medium" mutipile placeholder='请选择' :max="3"></t-cascader>
   </div>
 </template>
 

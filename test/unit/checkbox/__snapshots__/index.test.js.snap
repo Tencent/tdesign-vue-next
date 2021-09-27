@@ -1,21 +1,466 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox :props :checked 1`] = `<label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" value="" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label"></span></label>`;
+exports[`Checkbox :props :checked 1`] = `
+<label
+  class="t-checkbox undefined t-is-checked"
+  modelvalue="false"
+>
+  <input
+    class="t-checkbox__former"
+    type="checkbox"
+  />
+  <span
+    class="t-checkbox__input"
+  />
+  <span
+    class="t-checkbox__label"
+  >
+    <!---->
+  </span>
+</label>
+`;
 
-exports[`Checkbox :props :defaultChecked 1`] = `<label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" value="" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label"></span></label>`;
+exports[`Checkbox :props :defaultChecked 1`] = `
+<label
+  class="t-checkbox undefined t-is-checked"
+  modelvalue="false"
+>
+  <input
+    class="t-checkbox__former"
+    type="checkbox"
+  />
+  <span
+    class="t-checkbox__input"
+  />
+  <span
+    class="t-checkbox__label"
+  >
+    <!---->
+  </span>
+</label>
+`;
 
-exports[`Checkbox :props :disabled 1`] = `<label class="t-checkbox t-is-disabled"><input type="checkbox" class="t-checkbox__former" disabled="" value="" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label"></span></label>`;
+exports[`Checkbox :props :disabled 1`] = `
+<label
+  class="t-checkbox undefined t-is-disabled"
+  modelvalue="false"
+>
+  <input
+    class="t-checkbox__former"
+    disabled=""
+    type="checkbox"
+  />
+  <span
+    class="t-checkbox__input"
+  />
+  <span
+    class="t-checkbox__label"
+  >
+    <!---->
+  </span>
+</label>
+`;
 
-exports[`Checkbox :props :indeterminate 1`] = `<label class="t-checkbox t-is-indeterminate"><input type="checkbox" class="t-checkbox__former" value="" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label"></span></label>`;
+exports[`Checkbox :props :indeterminate 1`] = `
+<label
+  class="t-checkbox undefined t-is-indeterminate"
+  modelvalue="false"
+>
+  <input
+    class="t-checkbox__former"
+    type="checkbox"
+  />
+  <span
+    class="t-checkbox__input"
+  />
+  <span
+    class="t-checkbox__label"
+  >
+    <!---->
+  </span>
+</label>
+`;
 
-exports[`Checkbox :props :name 1`] = `<label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" value="" name="checkbox-name"><span class="t-checkbox__input"></span><span class="t-checkbox__label"></span></label>`;
+exports[`Checkbox :props :name 1`] = `
+<label
+  class="t-checkbox undefined"
+  modelvalue="false"
+>
+  <input
+    class="t-checkbox__former"
+    name="checkbox-name"
+    type="checkbox"
+  />
+  <span
+    class="t-checkbox__input"
+  />
+  <span
+    class="t-checkbox__label"
+  >
+    <!---->
+  </span>
+</label>
+`;
 
-exports[`Checkbox CheckboxGroup :props :defaultValue 1`] = `<div class="t-checkbox-group"><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" value="gz" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label">广州</span></label><label class="t-checkbox t-is-checked t-is-disabled"><input type="checkbox" class="t-checkbox__former" disabled="" value="sz" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label">深圳</span></label></div>`;
+exports[`Checkbox CheckboxGroup :props :checked 1`] = `
+<div
+  checked="sz"
+  class="t-checkbox-group"
+  modelvalue=""
+>
+  <!---->
+  
+  <label
+    class="t-checkbox undefined"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      name=""
+      type="checkbox"
+      value="gz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-checkbox undefined t-is-disabled"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      disabled=""
+      name=""
+      type="checkbox"
+      value="sz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+</div>
+`;
 
-exports[`Checkbox CheckboxGroup :props :disabled 1`] = `<div class="t-checkbox-group"><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" value="bj" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label">北京</span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" value="gz" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label">广州</span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" value="sz" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label">深圳</span></label></div>`;
+exports[`Checkbox CheckboxGroup :props :defaultChecked 1`] = `
+<div
+  class="t-checkbox-group"
+  defaultchecked="sz"
+  modelvalue=""
+>
+  <!---->
+  
+  <label
+    class="t-checkbox undefined"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      name=""
+      type="checkbox"
+      value="gz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-checkbox undefined t-is-disabled"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      disabled=""
+      name=""
+      type="checkbox"
+      value="sz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+</div>
+`;
 
-exports[`Checkbox CheckboxGroup :props :name 1`] = `<div class="t-checkbox-group"><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" value="gz" name="checkbox-name"><span class="t-checkbox__input"></span><span class="t-checkbox__label">广州</span></label><label class="t-checkbox t-is-disabled"><input type="checkbox" class="t-checkbox__former" disabled="" value="sz" name="checkbox-name"><span class="t-checkbox__input"></span><span class="t-checkbox__label">深圳</span></label></div>`;
+exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
+<div
+  class="t-checkbox-group"
+  modelvalue=""
+>
+  <!---->
+  
+  <label
+    class="t-checkbox undefined t-is-disabled"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      disabled=""
+      name=""
+      type="checkbox"
+      value="bj"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      北京
+      
+    </span>
+  </label>
+  <label
+    class="t-checkbox undefined t-is-disabled"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      disabled=""
+      name=""
+      type="checkbox"
+      value="gz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-checkbox undefined"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      name=""
+      type="checkbox"
+      value="sz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+</div>
+`;
 
-exports[`Checkbox CheckboxGroup :props :options 1`] = `<div class="t-checkbox-group"><label class="t-checkbox t-is-disabled"><input type="checkbox" class="t-checkbox__former" disabled="" value="gz" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label">广州</span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" value="sz" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label">深圳</span></label></div>`;
+exports[`Checkbox CheckboxGroup :props :max 1`] = `
+<div
+  class="t-checkbox-group"
+  modelvalue=""
+>
+  
+  <label
+    class="t-checkbox undefined"
+  >
+    <input
+      class="t-checkbox__former"
+      name=""
+      type="checkbox"
+      value="bj"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      北京
+      
+    </span>
+  </label>
+  <label
+    class="t-checkbox undefined t-is-checked"
+  >
+    <input
+      class="t-checkbox__former"
+      name=""
+      type="checkbox"
+      value="gz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-checkbox undefined t-is-checked"
+  >
+    <input
+      class="t-checkbox__former"
+      name=""
+      type="checkbox"
+      value="sz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+  <!---->
+</div>
+`;
 
-exports[`Checkbox CheckboxGroup :props :value 1`] = `<div class="t-checkbox-group"><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" value="gz" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label">广州</span></label><label class="t-checkbox t-is-checked t-is-disabled"><input type="checkbox" class="t-checkbox__former" disabled="" value="sz" name=""><span class="t-checkbox__input"></span><span class="t-checkbox__label">深圳</span></label></div>`;
+exports[`Checkbox CheckboxGroup :props :name 1`] = `
+<div
+  class="t-checkbox-group"
+  modelvalue=""
+>
+  <!---->
+  
+  <label
+    class="t-checkbox undefined"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      name="checkbox-name"
+      type="checkbox"
+      value="gz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-checkbox undefined t-is-disabled"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      disabled=""
+      name="checkbox-name"
+      type="checkbox"
+      value="sz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+</div>
+`;
+
+exports[`Checkbox CheckboxGroup :props :options 1`] = `
+<div
+  class="t-checkbox-group"
+  modelvalue=""
+>
+  
+  <label
+    class="t-checkbox undefined t-is-disabled"
+  >
+    <input
+      class="t-checkbox__former"
+      disabled=""
+      name=""
+      type="checkbox"
+      value="gz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      广州
+      
+    </span>
+  </label>
+  <label
+    class="t-checkbox undefined"
+  >
+    <input
+      class="t-checkbox__former"
+      name=""
+      type="checkbox"
+      value="sz"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      深圳
+      
+    </span>
+  </label>
+  
+  <!---->
+</div>
+`;

@@ -2,40 +2,39 @@
 
 exports[`Badge base demo works fine 1`] = `
 <div>
-  <h3
-    class="demo-t-badge-title"
-  >
-    1.红点样式：
-  </h3>
-   
   <div
     class="demo-badge-block"
   >
     <div
       class="t-badge"
     >
+      
       <div
         class="badge-block"
       />
+      
       <sup
         class="t-badge--dot"
-      />
+      >
+        
+      </sup>
     </div>
-     
     <div
       class="t-badge"
     >
       
-      解锁新徽章
-    
+       解锁新徽章 
+      
       <sup
         class="t-badge--dot"
-      />
+      >
+        
+      </sup>
     </div>
-     
     <div
       class="t-badge"
     >
+      
       <svg
         class="t-icon"
         style="font-size: 24px;"
@@ -48,74 +47,13 @@ exports[`Badge base demo works fine 1`] = `
           fill-rule="evenodd"
         />
       </svg>
+      
       <sup
         class="t-badge--dot"
-      />
+      >
+        
+      </sup>
     </div>
-  </div>
-   
-  <h3
-    class="demo-t-badge-title"
-  >
-    2.数字样式徽标：
-  </h3>
-   
-  <div
-    class="t-badge"
-  >
-    <div
-      class="badge-block"
-    />
-    <sup
-      class="t-badge--circle"
-    >
-      2
-    </sup>
-  </div>
-   
-  <div
-    class="t-badge"
-  >
-    <div
-      class="badge-block"
-    />
-    <sup
-      class="t-badge--circle"
-    >
-      99
-    </sup>
-  </div>
-   
-  <div
-    class="t-badge"
-  >
-    <div
-      class="badge-block"
-    />
-    <sup
-      class="t-badge--circle"
-    >
-      99+
-    </sup>
-  </div>
-   
-  <h3
-    class="demo-t-badge-title"
-  >
-    3.自定义式徽标：
-  </h3>
-   
-  <div
-    class="t-badge"
-  >
-    <div
-      class="badge-block"
-    />
-    <sup
-      class="t-badge--circle"
-    >
-      new
-    </sup>
   </div>
 </div>
 `;
@@ -125,20 +63,25 @@ exports[`Badge custom demo works fine 1`] = `
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--dot"
-    />
+    >
+      
+    </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
       style="background: rgb(82, 196, 26);"
@@ -146,13 +89,14 @@ exports[`Badge custom demo works fine 1`] = `
       99
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--round"
       style="background: rgb(45, 183, 245);"
@@ -168,35 +112,39 @@ exports[`Badge number demo works fine 1`] = `
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
     >
       2
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
     >
       0
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
     >
@@ -211,22 +159,25 @@ exports[`Badge offset demo works fine 1`] = `
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
     >
       2
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
       style="right: 10px; top: 10px;"
@@ -234,13 +185,14 @@ exports[`Badge offset demo works fine 1`] = `
       2
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
       style="right: -10px; top: 10px;"
@@ -248,13 +200,14 @@ exports[`Badge offset demo works fine 1`] = `
       2
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
       style="right: -10px; top: -10px;"
@@ -262,13 +215,14 @@ exports[`Badge offset demo works fine 1`] = `
       2
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
       style="right: 10px; top: -10px;"
@@ -284,22 +238,25 @@ exports[`Badge shape demo works fine 1`] = `
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
     >
       2
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--round"
     >
@@ -316,84 +273,89 @@ exports[`Badge size demo works fine 1`] = `
   >
     1.默认大小
   </h3>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
     >
       2
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
     >
       99
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle"
     >
       99+
     </sup>
   </div>
-   
   <h3
     class="demo-t-badge-title"
   >
     2.小
   </h3>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle t-size-s"
     >
       2
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle t-size-s"
     >
       99
     </sup>
   </div>
-   
   <div
     class="t-badge"
   >
+    
     <div
       class="badge-block"
     />
+    
     <sup
       class="t-badge--circle t-size-s"
     >

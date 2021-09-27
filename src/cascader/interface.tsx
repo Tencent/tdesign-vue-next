@@ -68,9 +68,9 @@ export interface SuffixIconProps {
 export interface CascaderItemProps {
   node: TreeNode;
   cascaderContext: CascaderContextType;
-  onClick;
-  onChange;
-  onMouseEnter;
+  onClick: any;
+  onChange: any;
+  onMouseEnter: any;
 }
 
 export type ContextType = { e?: Event; node?: TreeNode };

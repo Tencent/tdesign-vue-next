@@ -51,8 +51,8 @@
 </template>
 
 <script lang="jsx">
-import TIconAdd from '@tencent/tdesign-vue-next/lib/icon/add';
-import TIconDiscount from '@tencent/tdesign-vue-next/lib/icon/discount';
+import TIconAdd from '@tencent/tdesign-vue-next/icon/add';
+import TIconDiscount from '@tencent/tdesign-vue-next/icon/discount';
 import { nextTick } from 'vue';
 
 export default {
@@ -75,7 +75,7 @@ export default {
         {
           name: '可删除标签可删除标签',
           type: 'default',
-          icon: () => <t-icon-discount />,
+          icon: () => <TIconDiscount />,
           showClose: true,
           maxWidth: 100,
         },

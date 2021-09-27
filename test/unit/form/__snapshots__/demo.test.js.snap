@@ -5,11 +5,13 @@ exports[`Form base demo works fine 1`] = `
   <form
     class="t-form"
   >
+    
     <div
-      class="t-form__item t-row t-form-item__name"
+      class="t-form__item t-form-item__name"
     >
       <div
-        class="t-col t-form__label t-form__label--right t-col-1 t-form__label--colon"
+        class="t-form__label t-form__label--colon t-form__label--right"
+        style="width: calc(1 / 12 * 100%);"
       >
         <label
           for=""
@@ -18,29 +20,38 @@ exports[`Form base demo works fine 1`] = `
         </label>
       </div>
       <div
-        class="t-form__controls t-col"
+        class="t-form__controls"
       >
         <div
           class="t-form__controls--content"
         >
+          
           <div
             class="t-input t-size-m"
+            modelvalue=""
           >
+            <!---->
             <input
+              autocomplete="false"
+              autofocus="function Boolean() { [native code] }"
               class="t-input__inner"
               placeholder="请输入内容"
               type="text"
             />
+            <!---->
           </div>
+          
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
-     
     <div
-      class="t-form__item t-row t-form-item__tel"
+      class="t-form__item t-form-item__tel"
     >
       <div
-        class="t-col t-form__label t-form__label--right t-col-1 t-form__label--colon"
+        class="t-form__label t-form__label--colon t-form__label--right"
+        style="width: calc(1 / 12 * 100%);"
       >
         <label
           for=""
@@ -49,29 +60,38 @@ exports[`Form base demo works fine 1`] = `
         </label>
       </div>
       <div
-        class="t-form__controls t-col"
+        class="t-form__controls"
       >
         <div
           class="t-form__controls--content"
         >
+          
           <div
             class="t-input t-size-m"
+            modelvalue=""
           >
+            <!---->
             <input
+              autocomplete="false"
+              autofocus="function Boolean() { [native code] }"
               class="t-input__inner"
               placeholder="请输入内容"
               type="text"
             />
+            <!---->
           </div>
+          
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
-     
     <div
-      class="t-form__item t-row t-form-item__gender"
+      class="t-form__item t-form-item__gender"
     >
       <div
-        class="t-col t-form__label t-form__label--right t-col-1 t-form__label--colon"
+        class="t-form__label t-form__label--colon t-form__label--right"
+        style="width: calc(1 / 12 * 100%);"
       >
         <label
           for=""
@@ -80,16 +100,20 @@ exports[`Form base demo works fine 1`] = `
         </label>
       </div>
       <div
-        class="t-form__controls t-col"
+        class="t-form__controls"
       >
         <div
           class="t-form__controls--content"
         >
+          
           <div
-            class="t-radio-group t-radio-group-solid t-radio-group-medium"
+            class="t-radio-group t-radio-group-medium t-radio-group-outline"
+            modelvalue=""
           >
+            
             <label
               class="t-radio"
+              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -103,12 +127,14 @@ exports[`Form base demo works fine 1`] = `
               <span
                 class="t-radio__label"
               >
+                
                 男
+                
               </span>
             </label>
-             
             <label
               class="t-radio"
+              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -122,19 +148,25 @@ exports[`Form base demo works fine 1`] = `
               <span
                 class="t-radio__label"
               >
+                
                 女
+                
               </span>
             </label>
+            
           </div>
+          
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
-     
     <div
-      class="t-form__item t-row t-form-item__course"
+      class="t-form__item t-form-item__course"
     >
       <div
-        class="t-col t-form__label t-form__label--right t-col-1 t-form__label--colon"
+        class="t-form__label t-form__label--colon t-form__label--right"
+        style="width: calc(1 / 12 * 100%);"
       >
         <label
           for=""
@@ -143,16 +175,19 @@ exports[`Form base demo works fine 1`] = `
         </label>
       </div>
       <div
-        class="t-form__controls t-col"
+        class="t-form__controls"
       >
         <div
           class="t-form__controls--content"
         >
+          
           <div
             class="t-checkbox-group"
+            modelvalue=""
           >
+            
             <label
-              class="t-checkbox"
+              class="t-checkbox undefined"
             >
               <input
                 class="t-checkbox__former"
@@ -166,11 +201,13 @@ exports[`Form base demo works fine 1`] = `
               <span
                 class="t-checkbox__label"
               >
+                
                 语文
+                
               </span>
             </label>
             <label
-              class="t-checkbox"
+              class="t-checkbox undefined"
             >
               <input
                 class="t-checkbox__former"
@@ -184,11 +221,13 @@ exports[`Form base demo works fine 1`] = `
               <span
                 class="t-checkbox__label"
               >
+                
                 数学
+                
               </span>
             </label>
             <label
-              class="t-checkbox"
+              class="t-checkbox undefined"
             >
               <input
                 class="t-checkbox__former"
@@ -202,19 +241,26 @@ exports[`Form base demo works fine 1`] = `
               <span
                 class="t-checkbox__label"
               >
+                
                 英语
+                
               </span>
             </label>
+            
+            <!---->
           </div>
+          
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
-     
     <div
-      class="t-form__item t-row t-form-item__status"
+      class="t-form__item t-form-item__status"
     >
       <div
-        class="t-col t-form__label t-form__label--right t-col-1 t-form__label--colon"
+        class="t-form__label t-form__label--colon t-form__label--right"
+        style="width: calc(1 / 12 * 100%);"
       >
         <label
           for=""
@@ -223,58 +269,86 @@ exports[`Form base demo works fine 1`] = `
         </label>
       </div>
       <div
-        class="t-form__controls t-col"
+        class="t-form__controls"
       >
         <div
           class="t-form__controls--content"
         >
+          
           <div
             class="t-switch t-size-m"
+            disabled="false"
+            modelvalue="false"
           >
             <span
               class="t-switch__handle"
-            />
+            >
+              <!---->
+            </span>
             <div
               class="t-switch__content t-size-m"
-            />
+            >
+              <!---->
+            </div>
           </div>
+          
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
-     
     <div
-      class="t-form__item t-row t-form-item__"
+      class="t-form__item t-form-item__"
     >
       <div
-        class="t-col t-form__label t-form__label--right t-col-1"
+        class="t-form__label t-form__label--right"
+        style="width: calc(1 / 12 * 100%);"
       >
         <label
           for=""
-        />
+        >
+          
+        </label>
       </div>
       <div
-        class="t-form__controls t-col"
+        class="t-form__controls"
       >
         <div
           class="t-form__controls--content"
         >
+          
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary"
             style="margin-right: 10px;"
             type="submit"
           >
-            提交
+            <span
+              class="t-button__text"
+            >
+              
+              提交
+              
+            </span>
           </button>
-           
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
             type="reset"
           >
-            重置
+            <span
+              class="t-button__text"
+            >
+              
+              重置
+              
+            </span>
           </button>
+          
+          <!---->
         </div>
+        <!---->
       </div>
     </div>
+    
   </form>
 </div>
 `;

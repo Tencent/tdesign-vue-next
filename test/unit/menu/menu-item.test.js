@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { MenuItem } from '@/src/menu/index.ts';
+import { MenuItem, Menu } from '@/src/menu';
 
 // every component needs four parts: props/events/slots/functions.
 describe('MenuItem', () => {
@@ -8,48 +8,82 @@ describe('MenuItem', () => {
     it(':name', () => {
       const wrapper = mount({
         render() {
-          return <MenuItem name="1-1"></MenuItem>;
+          return (
+            <Menu>
+              <MenuItem name="1-1"></MenuItem>
+            </Menu>
+          );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':route', () => {
       const wrapper = mount({
         render() {
-          return <MenuItem route={'/user/list'}></MenuItem>;
+          return (
+            <Menu>
+              <MenuItem route={'/user/list'}></MenuItem>
+            </Menu>
+          );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it(':disabled', () => {
       const wrapper = mount({
         render() {
-          return <MenuItem disabled={true}></MenuItem>;
+          return (
+            <Menu>
+              <MenuItem disabled={true}></MenuItem>
+            </Menu>
+          );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 
   describe('slot', () => {
     it('<icon>', () => {
-      const wrapper = mount(MenuItem, {
-        scopedSlots: {
+      const wrapper = mount({
+        provide: {
+          TdMenu: Menu,
+        },
+        render() {
+          return (
+            <Menu>
+              <MenuItem />
+            </Menu>
+          );
+        },
+      }, {
+        slots: {
           icon: '<div></div>',
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
 
     it('<default>', () => {
-      const wrapper = mount(MenuItem, {
-        scopedSlots: {
+      const wrapper = mount({
+        provide: {
+          TdMenu: Menu,
+        },
+        render() {
+          return (
+            <Menu>
+              <MenuItem />
+            </Menu>
+          );
+        },
+      }, {
+        slots: {
           default: '<div></div>',
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
 });
