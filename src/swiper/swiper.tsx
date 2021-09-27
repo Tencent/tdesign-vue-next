@@ -48,14 +48,14 @@ export default defineComponent({
       if (this.direction === 'vertical') {
         wraperStyles = {
           height: `${this.items.length * 100}%`,
-          top: `-${this.index * 100}%`,
-          transition: `top ${this.duration / 1000}s`,
+          transform: `translate3d(0,${(-this.index * 100) / this.items.length}%,0)`,
+          transition: `transform ${this.duration / 1000}s`,
         };
       } else {
         wraperStyles = {
           width: `${this.items.length * 100}%`,
-          left: `-${this.index * 100}%`,
-          transition: `left ${this.duration / 1000}s`,
+          transform: `translate3d(${(-this.index * 100) / this.items.length}%,0,0)`,
+          transition: `transform ${this.duration / 1000}s`,
         };
       }
       return (
