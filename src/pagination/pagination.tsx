@@ -274,11 +274,12 @@ export default defineComponent({
        * @param {Number} index 当前页
        */
       const pageInfo = {
-        curr: isIndexChange ? pageCount : this.current,
-        prev: this.current,
+        current: isIndexChange ? pageCount : this.current,
+        previous: this.current,
         pageSize,
       };
       this.$emit('page-size-change', pageSize, pageInfo);
+      this.$emit('change', pageInfo);
       if (isIndexChange) {
         this.toPage(pageCount);
       }
