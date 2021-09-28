@@ -26,6 +26,7 @@ export * from './input';
 export * from './input-number';
 export * from './radio';
 export * from './select';
+export * from './slider';
 export * from './switch';
 export * from './textarea';
 export * from './transfer';
@@ -54,7 +55,6 @@ export * from './popconfirm';
 export * from './popup';
 export * from './alert-swiper';
 export * from './swiper';
-
 export * from './upload';
 
 export * from './locale';

@@ -203,6 +203,12 @@ export default {
           component: () => import('@/examples/select/select.md'),
         },
         {
+          title: 'Slider 滑块',
+          name: 'slider',
+          path: '/vue/components/slider',
+          component: () => import('@/examples/slider/slider.md'),
+        },
+        {
           title: 'Switch 开关',
           name: 'switch',
           docType: 'form',

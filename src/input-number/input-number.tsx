@@ -290,6 +290,7 @@ export default defineComponent({
         this.handleInputError(true);
         return false;
       }
+      this.handleInputError(false);
       return true;
     },
     empty(v: string) {

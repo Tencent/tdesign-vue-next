@@ -2,11 +2,11 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-08-29 16:07:25
  * */
 
-import { TdSliderProps } from './type';
 import { PropType } from 'vue';
+import { TdSliderProps } from './type';
 
 export default {
   /** 是否禁用组件 */
@@ -35,10 +35,12 @@ export default {
   /** 滑块范围最大值 */
   max: {
     type: Number,
+    default: 100,
   },
   /** 滑块范围最小值 */
   min: {
     type: Number,
+    default: 0,
   },
   /** 双游标滑块 */
   range: Boolean,
