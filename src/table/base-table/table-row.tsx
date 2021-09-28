@@ -23,6 +23,9 @@ const eventsName = {
 
 export default defineComponent({
   name: `${prefix}-table-row`,
+  components: {
+    TableCell,
+  },
   props: {
     rowClass: baseTableProps.rowClassName,
     columns: baseTableProps.columns,
@@ -117,8 +120,7 @@ export default defineComponent({
           type: 'td',
         };
 
-        // @ts-ignore: TODO
-        rowBody.push(<TableCell ref={`${rowIndex}_${index}`} cellData={cellData} length={columns.length} />);
+        rowBody.push(<table-cell ref={`${rowIndex}_${index}`} cellData={cellData} length={columns.length} />);
       });
       return rowBody;
     },

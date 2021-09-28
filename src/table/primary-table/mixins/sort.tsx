@@ -175,6 +175,10 @@ export default defineComponent({
             </div>
           );
         }
+        const { children } = item;
+        if (children && children.length) {
+          column.children = this.getSorterColumns(children);
+        }
         return column;
       });
       this.handleDataSort();

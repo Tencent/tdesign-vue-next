@@ -85,6 +85,10 @@ export default defineComponent({
               </div>
             </div>);
         }
+        const { children } = item;
+        if (children && children.length) {
+          column.children = this.getFilterColumns(children);
+        }
         return column;
       });
     },
