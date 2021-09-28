@@ -3,6 +3,8 @@ import { UploadFile, TdUploadProps } from './type';
 export type UploadProps = TdUploadProps;
 export * from './type';
 
+import { SuccessContext, ProgressContext } from './type';
+
 export interface XhrOptions {
   action: string;
   withCredentials: boolean;
@@ -20,18 +22,7 @@ export interface HTMLInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
 }
 
-export interface ProgressContext {
-  event: ProgressEvent;
-  file: UploadFile;
-  percent: number;
-}
-
-export interface SuccessContext {
-  event: ProgressEvent;
-  file: UploadFile;
-  response: any;
-}
-
+export type { SuccessContext, ProgressContext } from './type'
 export interface UploadRemoveOptions {
   e: MouseEvent;
   file?: UploadFile;

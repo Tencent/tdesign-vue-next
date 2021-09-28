@@ -239,14 +239,14 @@ export default defineComponent({
       emitEvent<Parameters<TdUploadProps['onFail']>>(this, 'fail', context);
     },
 
-    handleProgress({ event, file, percent }: ProgressContext) {
+    handleProgress({ e, file, percent }: ProgressContext) {
       file.percent = percent;
       this.loadingFile = file;
-      const progressCtx = { percent, e: event, file };
+      const progressCtx = { percent, e, file };
       emitEvent<Parameters<TdUploadProps['onProgress']>>(this, 'progress', progressCtx);
     },
 
-    handleSuccess({ event, file, response }: SuccessContext) {
+    handleSuccess({ e, file, response }: SuccessContext) {
       file.status = 'success';
       file.url = response.url || file.url;
       // 从待上传文件队列中移除上传成功的文件
@@ -255,11 +255,14 @@ export default defineComponent({
       // 上传成功的文件发送到 files
       const newFile: UploadFile = { ...file, response };
       const files = this.multiple ? this.files.concat(newFile) : [newFile];
-      const context = { e: event, response, trigger: 'upload-success' };
+      const context = { e, response, trigger: 'upload-success' };
       this.emitChangeEvent(files, context);
-      const sContext = {
-        file, fileList: files, e: event, response,
+      let sContext: SuccessContext = {
+        file, fileList: files, e, response,
       };
+      if (typeof this.formatResponse === 'function') {
+        sContext = this.formatResponse(sContext) as SuccessContext;
+      }
       emitEvent<Parameters<TdUploadProps['onSuccess']>>(this, 'success', sContext);
       // https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL
       this.URL && this.URL.revokeObjectURL(this.loadingFile.url);

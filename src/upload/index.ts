@@ -3,7 +3,7 @@ import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdUploadProps } from './type';
 import mapProps from '../utils/map-props';
 
-export * from './type';
+export * from './interface';
 export type UploadProps = TdUploadProps;
 
 export const Upload: WithInstallType<typeof _Upload> = withInstall(mapProps([{
