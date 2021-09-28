@@ -61,7 +61,7 @@ export default defineComponent({
   },
   render() {
     const {
-      $props, $slots: scopedSlots, rehandleColumns, showColumns,
+      $props, $slots, rehandleColumns, showColumns,
     } = this;
     const baseTableProps = {
       ...$props,
@@ -71,7 +71,6 @@ export default defineComponent({
         renderRows: this.renderRows,
         sortOnRowDraggable: this.sortOnRowDraggable,
         dragging: this.dragging,
-        scopedSlots,
       },
       onPageChange: (pageInfo: PageInfo, newDataSource: Array<DataType>) => {
         emitEvent<PageChangeContext>(this, 'page-change', pageInfo, newDataSource);
@@ -87,7 +86,7 @@ export default defineComponent({
     return (
       <div>
         {showColumns && this.renderShowColumns()}
-        <simple-table {...baseTableProps}></simple-table>
+        <simple-table {...baseTableProps}>{$slots}</simple-table>
       </div>
     );
   },

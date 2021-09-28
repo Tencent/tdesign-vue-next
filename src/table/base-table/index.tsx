@@ -184,16 +184,16 @@ export default defineComponent({
     },
     renderHeader(): VNode {
       const {
-        columns, provider: { scopedSlots }, bordered,
+        columns, $slots, bordered,
       } = this;
       return <TableHeader
               columns={columns}
               bordered={bordered}
-            >{scopedSlots}</TableHeader>;
+            >{$slots}</TableHeader>;
     },
     renderBody(): VNode {
       const {
-        provider: { scopedSlots },
+        $slots,
       } = this;
       const rowEvents = {};
       EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
@@ -211,7 +211,7 @@ export default defineComponent({
         rowspanAndColspan: this.rowspanAndColspan,
       };
       return (
-        <TableBody { ...props } {...rowEvents}>{scopedSlots}</TableBody>
+        <TableBody { ...props } {...rowEvents}>{$slots}</TableBody>
       );
     },
     renderEmptyTable(): VNode {

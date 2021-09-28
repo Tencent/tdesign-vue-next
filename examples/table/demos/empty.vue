@@ -9,6 +9,18 @@
     <t-table
       :data="data"
       :columns="columns"
+      :rowKey="rowKey"
+    >
+      <template #empty>
+        <span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">
+          😊 我是自定义的空内容 😊: slot
+        </span>
+      </template>
+    </t-table>
+    <br/><br/>
+    <t-table
+      :data="data"
+      :columns="columns"
       :empty="empty"
       :rowKey="rowKey"
     ></t-table>
@@ -48,7 +60,7 @@ export default {
       rowKey: 'property',
       empty: () => (
         <span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">
-          😊 我是自定义的空内容 😊
+          😊 我是自定义的空内容 😊: empty function
         </span>
       ),
     };

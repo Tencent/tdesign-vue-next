@@ -1258,10 +1258,131 @@ exports[`Table empty demo works fine 1`] = `
                   <div
                     class="t-table--empty"
                   >
+                    
                     <span
                       style="display: flex; align-items: center; justify-content: center; height: 100px; color: rgba(0, 0, 0, 0.26);"
                     >
-                      😊 我是自定义的空内容 😊
+                       😊 我是自定义的空内容 😊: slot 
+                    </span>
+                    
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+            
+          </table>
+        </div>
+        
+        
+        
+        <!---->
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div>
+    <!---->
+    <div
+      class="t-table"
+      defaultexpandedrowkeys=""
+      expandedrowkeys=""
+      expandonrowclick="false"
+      multiplesort="false"
+      showcolumns="false"
+      showexpandarrow="true"
+      sortonrowdraggable="false"
+    >
+      <div
+        class="t-loading-parent__relative"
+      >
+        
+        <div
+          class="t-table-content"
+          style="overflow: auto;"
+        >
+          <table
+            style="table-layout: fixed;"
+          >
+            
+            <colgroup>
+              
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              
+            </colgroup>
+            <thead>
+              
+              <tr>
+                
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  类型
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  平台
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  属性
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  默认值
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  是否必传
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  说明
+                </td>
+                
+              </tr>
+              
+            </thead>
+            <tbody
+              class="table-body"
+            >
+              
+              
+            </tbody>
+            <tfoot>
+              <tr>
+                <td
+                  colspan="6"
+                >
+                  <div
+                    class="t-table--empty"
+                  >
+                    <span
+                      style="display: flex; align-items: center; justify-content: center; height: 100px; color: rgba(0, 0, 0, 0.26);"
+                    >
+                      😊 我是自定义的空内容 😊: empty function
                     </span>
                   </div>
                 </td>
