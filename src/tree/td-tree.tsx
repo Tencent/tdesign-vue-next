@@ -283,6 +283,16 @@ export default defineComponent({
           nodesMap.delete(node.value);
         }
       });
+      const { nodeMap } = store;
+      nodesMap.forEach((value: any, key: string) => {
+        if (!nodeMap.has(key)) {
+          // 这个节点可能被删掉了，视图也要同步删掉
+          const nodeView = nodesMap.get(key);
+          const nodeViewIndex = treeNodes.indexOf(nodeView);
+          treeNodes.splice(nodeViewIndex, 1);
+          nodesMap.delete(key);
+        }
+      });
     },
 
     // 树结构变化后，重新
@@ -517,12 +527,7 @@ export default defineComponent({
       return nodes.map((node: TreeNode) => node.getModel());
     },
     appendTo(para?: TreeNodeValue, item?: TreeOptionData | TreeOptionData[]): void {
-      let list = [];
-      if (Array.isArray(item)) {
-        list = item;
-      } else {
-        list = [item];
-      }
+      const list = Array.isArray(item) ? item : [item];
       list.forEach((item) => {
         const val = item?.value || '';
         const node = getNode(this.store, val);

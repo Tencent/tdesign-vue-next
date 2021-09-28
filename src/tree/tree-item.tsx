@@ -293,9 +293,11 @@ export default defineComponent({
       value,
     } = node;
 
-    if (!tree || !tree.nodeMap.get(value)) {
-      return null;
-    }
+    // 即使该节点从树中被删除也不要返回 null，null 会变成一个 comment 节点
+    // 导致 transition-group 向上添加退场动画时出现错误
+    // if (!tree || !tree.nodeMap.get(value)) {
+    //   return null;
+    // }
     const styles = this.getStyles();
     const classList = this.getClassList();
     return (
