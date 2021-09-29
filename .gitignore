@@ -5,9 +5,9 @@ node_modules
 
 # build files
 es/
+esm/
 lib/
 dist/
-typings/
 
 _site
 package

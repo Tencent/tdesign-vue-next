@@ -4,19 +4,17 @@ import _TimeRangePicker from './time-range-picker';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdTimePickerProps, TdTimeRangePickerProps } from './type';
 
+import './style';
+
+export * from './type';
 export type TimePickerProps = TdTimePickerProps;
 export type TimeRangePickerProps = TdTimeRangePickerProps;
-export * from './type';
 
-const LocalTimePicker = mapProps([{
+export const TimePicker: WithInstallType<typeof _TimePicker> = withInstall(mapProps([{
   name: 'value', event: 'change', alias: ['modelValue'],
-}])(_TimePicker);
-
-const LocalTimeRangePicker = mapProps([{
+}])(_TimePicker));
+export const TimeRangePicker: WithInstallType<typeof _TimeRangePicker> = withInstall(mapProps([{
   name: 'value', event: 'change', alias: ['modelValue'],
-}])(_TimeRangePicker);
-
-export const TimePicker: WithInstallType<typeof _TimePicker> = withInstall(LocalTimePicker);
-export const TimeRangePicker: WithInstallType<typeof _TimeRangePicker> = withInstall(LocalTimeRangePicker);
+}])(_TimeRangePicker));
 
 export default TimePicker;

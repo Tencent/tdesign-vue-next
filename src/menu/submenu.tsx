@@ -1,5 +1,5 @@
 import {
-  defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance, VNode,
+  defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance,
 } from 'vue';
 import { prefix } from '../config';
 import props from './submenu-props';

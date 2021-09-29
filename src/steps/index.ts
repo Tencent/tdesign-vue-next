@@ -4,6 +4,8 @@ import mapProps from '../utils/map-props';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdStepsProps, TdStepItemProps } from './type';
 
+import './style';
+
 export * from './type';
 export type StepsProps = TdStepsProps;
 export type StepItemProps = TdStepItemProps;

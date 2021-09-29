@@ -3,6 +3,8 @@ import mapProps from '../utils/map-props';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdSwitchProps } from './type';
 
+import './style';
+
 export * from './type';
 export type SwitchProps = TdSwitchProps;
 

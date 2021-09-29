@@ -3,7 +3,8 @@ import { withInstall, WithInstallType } from '../utils/withInstall';
 import mapProps from '../utils/map-props';
 import { TdTransferProps } from './type';
 
-export * from './type';
+import './style';
+
 export type TransferProps = TdTransferProps;
 
 export const Transfer: WithInstallType<typeof _Transfer> = withInstall(mapProps([{

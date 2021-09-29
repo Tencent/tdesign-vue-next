@@ -5,15 +5,15 @@ import _OptionGroup from './optionGroup';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdSelectProps, TdOptionProps, TdOptionGroupProps } from './type';
 
+import './style';
+
+export * from './type';
 export type SelectProps = TdSelectProps;
 export type OptionProps = TdOptionProps;
 export type OptionGroupProps = TdOptionGroupProps;
-export * from './type';
 
-const LocalSelect = mapProps([{
+export const Select: WithInstallType<typeof _Select> = withInstall(mapProps([{
   name: 'value', event: 'change', alias: ['modelValue'],
-}])(_Select);
-
-export const Select: WithInstallType<typeof _Select> = withInstall(LocalSelect);
+}])(_Select));
 export const Option: WithInstallType<typeof _Option> = withInstall(_Option);
 export const OptionGroup: WithInstallType<typeof _OptionGroup> = withInstall(_OptionGroup);

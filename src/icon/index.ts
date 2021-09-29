@@ -1,7 +1,7 @@
 import _Icon from './svg/icon';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 
-const Icon: WithInstallType<typeof _Icon> = withInstall(_Icon);
+import './style';
 
-export { Icon };
+export const Icon: WithInstallType<typeof _Icon> = withInstall(_Icon);
 export default Icon;

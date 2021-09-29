@@ -4,8 +4,9 @@ import _ListItemMeta from './list-item-meta';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdListProps, TdListItemProps, TdListItemMetaProps } from './type';
 
-export * from './type';
+import './style';
 
+export * from './type';
 export type ListProps = TdListProps;
 export type ListItemProps = TdListItemProps;
 export type ListItemMetaProps = TdListItemMetaProps;

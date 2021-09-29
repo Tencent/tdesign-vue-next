@@ -32,6 +32,9 @@ const name = `${prefix}-tree-select`;
 export default defineComponent({
   ...mixins(getLocalReceiverMixins('treeSelect')),
   name,
+  components: {
+    Tree,
+  },
   props,
   emits: ['change', 'clear', 'focus', 'blur', 'remove', 'search'],
   data() {
@@ -75,7 +78,7 @@ export default defineComponent({
     isObjectValue(): boolean {
       return this.valueType === 'object';
     },
-    checked(): Array<TreeSelectValue> {
+    checked(): Array<TreeNodeValue> {
       if (this.multiple) {
         if (this.isObjectValue) {
           return isArray(this.value) ? this.value.map((item) => item.value) : [];
@@ -338,7 +341,7 @@ export default defineComponent({
       ),
     };
     const treeItem = (
-      <Tree
+      <tree
         ref="tree"
         v-show={this.showTree}
         value={this.checked}

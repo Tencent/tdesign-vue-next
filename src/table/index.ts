@@ -1,15 +1,16 @@
 import _ from 'lodash';
 import { prefix } from '../config';
-
 import _BaseTable from './base-table/index';
 import _PrimaryTable from './primary-table/index';
 import mapProps from '../utils/map-props';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdBaseTableProps, TdPrimaryTableProps } from './type';
 
+import './style';
+
+export * from './type';
 export type BaseTableProps = TdBaseTableProps;
 export type PrimaryTableProps = TdPrimaryTableProps;
-export * from './type';
 
 const TPrimaryTable = mapProps([
   {

@@ -3,6 +3,8 @@ import _Dropdown from './dropdown';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdDropdownProps } from './type';
 
+import './style';
+
 export * from './type';
 export type DropdownProps = TdDropdownProps;
 

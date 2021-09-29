@@ -4,6 +4,8 @@ import _AnchorTarget from './anchor-target';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdAnchorProps, TdAnchorTargetProps, TdAnchorItemProps } from './type';
 
+import './style';
+
 export * from './type';
 export type AnchorProps = TdAnchorProps;
 export type AnchorTargetProps = TdAnchorTargetProps;

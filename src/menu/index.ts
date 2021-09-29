@@ -9,6 +9,8 @@ import {
   TdMenuProps, TdHeadMenuProps, TdSubmenuProps, TdMenuItemProps,
 } from './type';
 
+import './style';
+
 export * from './type';
 export type MenuProps = TdMenuProps;
 export type HeadMenuProps = TdHeadMenuProps;

@@ -5,6 +5,8 @@ import mapProps from '../utils/map-props';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdInputProps } from './type';
 
+import './style';
+
 export * from './type';
 export type InputProps = TdInputProps;
 
@@ -14,6 +16,6 @@ export const Input: WithInstallType<typeof _Input> = withInstall(mapProps([{
   event: ['input', 'change'],
   alias: ['modelValue'],
 }])(_Input));
-
 export const InputGroup: WithInstallType<typeof _InputGroup> = withInstall(_InputGroup);
+
 export default Input;

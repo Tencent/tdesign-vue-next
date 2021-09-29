@@ -1,12 +1,14 @@
-import TdTree from './td-tree';
+import _TdTree from './td-tree';
 import mapProps from '../utils/map-props';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdTreeProps } from './type';
 
+import './style';
+
 export * from './type';
 export type TreeProps = TdTreeProps;
 
-const LocalTree = mapProps([
+export const Tree: WithInstallType<typeof _TdTree> = withInstall(mapProps([
   {
     name: 'value',
     event: ['change', 'update:value'],
@@ -20,6 +22,5 @@ const LocalTree = mapProps([
     name: 'actived',
     event: ['active', 'update:actived'],
   },
-])(TdTree);
-export const Tree: WithInstallType<typeof LocalTree> = withInstall(LocalTree);
+])(_TdTree));
 export default Tree;

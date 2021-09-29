@@ -3,6 +3,8 @@ import _FormItem from './form-item';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdFormProps, TdFormItemProps } from './type';
 
+import './style';
+
 export * from './type';
 export type FormProps = TdFormProps;
 export type FormItemProps = TdFormItemProps;
