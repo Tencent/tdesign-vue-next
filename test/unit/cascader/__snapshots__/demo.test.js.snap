@@ -2,7 +2,6 @@
 
 exports[`Cascader base demo works fine 1`] = `
 <div>
-  <!-- &lt;t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="small" placeholder='请选择'&gt;&lt;/t-cascader&gt; -->
   <div
     class="t-demo-cascader"
     modelvalue="1.1"
@@ -30,7 +29,7 @@ exports[`Cascader base demo works fine 1`] = `
               >
                 
                 <li
-                  class="t-cascader-item t-is-expanded t-size-m t-cascader-item-have-icon"
+                  class="t-cascader-item t-is-expanded t-size-s"
                 >
                   <span
                     class="t-cascader-item__label"
@@ -40,20 +39,14 @@ exports[`Cascader base demo works fine 1`] = `
                   </span>
                   <svg
                     class="t-icon t-icon-chevron-right t-cascader-icon t-is-expanded"
-                    version="1.1"
-                    viewBox="0 0 1024 1024"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                      fill-opacity=".9"
-                      fill-rule="evenodd"
+                    <use
+                      href="#t-icon-chevron-right"
                     />
                   </svg>
                 </li>
                 <li
-                  class="t-cascader-item t-size-m t-cascader-item-have-icon"
+                  class="t-cascader-item t-size-s"
                 >
                   <span
                     class="t-cascader-item__label"
@@ -63,15 +56,151 @@ exports[`Cascader base demo works fine 1`] = `
                   </span>
                   <svg
                     class="t-icon t-icon-chevron-right t-cascader-icon"
-                    version="1.1"
-                    viewBox="0 0 1024 1024"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                      fill-opacity=".9"
-                      fill-rule="evenodd"
+                    <use
+                      href="#t-icon-chevron-right"
+                    />
+                  </svg>
+                </li>
+                
+              </ul>
+              <ul
+                class="t-cascader-menu"
+              >
+                
+                <li
+                  class="t-cascader-item t-is-selected t-is-expanded t-size-s"
+                >
+                  <span
+                    class="t-cascader-item__label"
+                    role="label"
+                  >
+                    黄浦区
+                  </span>
+                  <!---->
+                </li>
+                <li
+                  class="t-cascader-item t-size-s"
+                >
+                  <span
+                    class="t-cascader-item__label"
+                    role="label"
+                  >
+                    静安区
+                  </span>
+                  <!---->
+                </li>
+                <li
+                  class="t-cascader-item t-size-s"
+                >
+                  <span
+                    class="t-cascader-item__label"
+                    role="label"
+                  >
+                    浦东新区
+                  </span>
+                  <!---->
+                </li>
+                
+              </ul>
+              
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-cascader t-size-s t-demo-cascader"
+        modelvalue="1.1"
+      >
+        <!---->
+        <span
+          class="t-cascader-content"
+          title="1.1"
+        >
+          1.1
+        </span>
+        
+        
+        <svg
+          class="t-cascader-icon t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-demo-cascader"
+    modelvalue="1.1"
+  >
+    <div
+      class="t-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-cascader-dropdown"
+          >
+            
+            <div
+              class="t-cascader-panel t-cascader--normal"
+            >
+              
+              <ul
+                class="t-cascader-menu t-cascader-menu__seperator"
+              >
+                
+                <li
+                  class="t-cascader-item t-is-expanded t-size-m"
+                >
+                  <span
+                    class="t-cascader-item__label"
+                    role="label"
+                  >
+                    上海
+                  </span>
+                  <svg
+                    class="t-icon t-icon-chevron-right t-cascader-icon t-is-expanded"
+                  >
+                    <use
+                      href="#t-icon-chevron-right"
+                    />
+                  </svg>
+                </li>
+                <li
+                  class="t-cascader-item t-size-m"
+                >
+                  <span
+                    class="t-cascader-item__label"
+                    role="label"
+                  >
+                    深圳
+                  </span>
+                  <svg
+                    class="t-icon t-icon-chevron-right t-cascader-icon"
+                  >
+                    <use
+                      href="#t-icon-chevron-right"
                     />
                   </svg>
                 </li>
@@ -125,14 +254,18 @@ exports[`Cascader base demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-cascader t-size-m t-demo-cascader t-demo-cascader"
+        class="t-cascader t-size-m t-demo-cascader"
         modelvalue="1.1"
       >
+        <!---->
         <span
           class="t-cascader-content"
+          title="1.1"
         >
-          上海 / 黄浦区
+          1.1
         </span>
+        
+        
         <svg
           class="t-cascader-icon t-fake-arrow"
           fill="none"
@@ -148,10 +281,152 @@ exports[`Cascader base demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
+        <!---->
       </div>
       
     </div>
   </div>
-  <!-- &lt;t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="large" placeholder='请选择'&gt;&lt;/t-cascader&gt; -->
+  <div
+    class="t-demo-cascader"
+    modelvalue="1.1"
+  >
+    <div
+      class="t-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-cascader-dropdown"
+          >
+            
+            <div
+              class="t-cascader-panel t-cascader--normal"
+            >
+              
+              <ul
+                class="t-cascader-menu t-cascader-menu__seperator"
+              >
+                
+                <li
+                  class="t-cascader-item t-is-expanded t-size-l"
+                >
+                  <span
+                    class="t-cascader-item__label"
+                    role="label"
+                  >
+                    上海
+                  </span>
+                  <svg
+                    class="t-icon t-icon-chevron-right t-cascader-icon t-is-expanded"
+                  >
+                    <use
+                      href="#t-icon-chevron-right"
+                    />
+                  </svg>
+                </li>
+                <li
+                  class="t-cascader-item t-size-l"
+                >
+                  <span
+                    class="t-cascader-item__label"
+                    role="label"
+                  >
+                    深圳
+                  </span>
+                  <svg
+                    class="t-icon t-icon-chevron-right t-cascader-icon"
+                  >
+                    <use
+                      href="#t-icon-chevron-right"
+                    />
+                  </svg>
+                </li>
+                
+              </ul>
+              <ul
+                class="t-cascader-menu"
+              >
+                
+                <li
+                  class="t-cascader-item t-is-selected t-is-expanded t-size-l"
+                >
+                  <span
+                    class="t-cascader-item__label"
+                    role="label"
+                  >
+                    黄浦区
+                  </span>
+                  <!---->
+                </li>
+                <li
+                  class="t-cascader-item t-size-l"
+                >
+                  <span
+                    class="t-cascader-item__label"
+                    role="label"
+                  >
+                    静安区
+                  </span>
+                  <!---->
+                </li>
+                <li
+                  class="t-cascader-item t-size-l"
+                >
+                  <span
+                    class="t-cascader-item__label"
+                    role="label"
+                  >
+                    浦东新区
+                  </span>
+                  <!---->
+                </li>
+                
+              </ul>
+              
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-cascader t-size-l t-demo-cascader"
+        modelvalue="1.1"
+      >
+        <!---->
+        <span
+          class="t-cascader-content"
+          title="1.1"
+        >
+          1.1
+        </span>
+        
+        
+        <svg
+          class="t-cascader-icon t-fake-arrow"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+      </div>
+      
+    </div>
+  </div>
 </div>
 `;

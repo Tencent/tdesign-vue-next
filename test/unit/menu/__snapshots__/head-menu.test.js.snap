@@ -117,7 +117,13 @@ exports[`HeadMenu slot <options> 1`] = `
     >
       <!---->
     </ul>
-    <!---->
+    <div
+      class="t-menu__operations"
+    >
+      
+      <div />
+      
+    </div>
   </div>
   <!---->
 </div>

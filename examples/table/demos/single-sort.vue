@@ -71,12 +71,7 @@ export default {
     request(sort) {
       // 模拟异步请求，进行数据排序
       const timer = setTimeout(() => {
-        this.data = data.concat().sort((a, b) => {
-          if (!sort || !sort.sortBy) return data;
-          return sort.descending
-            ? String(a[sort.sortBy]).localeCompare(String(b[sort.sortBy]))
-            : String(b[sort.sortBy]).localeCompare(String(a[sort.sortBy]));
-        });
+        this.data = data.concat().sort((a, b) => (sort.descending ? b[sort.sortBy] - a[sort.sortBy] : a[sort.sortBy] - b[sort.sortBy]));
         clearTimeout(timer);
       }, 100);
     },

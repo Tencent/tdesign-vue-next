@@ -6,7 +6,7 @@
       @reset="onReset"
       @submit="onSubmit"
       :colon="true"
-      labelWidth="0"
+      labelWidth="calc(2em + 24px)"
     >
       <t-form-item name='account'>
         <t-input clearable v-model="formData.account" placeholder="请输入账户名">

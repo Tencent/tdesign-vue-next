@@ -89,7 +89,7 @@ exports[`Calendar card demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-select-right-icon t-fake-arrow"
+            class="t-fake-arrow t-select-right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -373,7 +373,7 @@ exports[`Calendar card demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -561,7 +561,7 @@ exports[`Calendar card demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -1600,7 +1600,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-select-right-icon t-fake-arrow"
+            class="t-fake-arrow t-select-right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1872,7 +1872,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -2060,7 +2060,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -3599,7 +3599,7 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -3787,7 +3787,7 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -5082,7 +5082,7 @@ exports[`Calendar events demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -5270,7 +5270,7 @@ exports[`Calendar events demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -6599,7 +6599,7 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -6787,7 +6787,7 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -8116,7 +8116,7 @@ exports[`Calendar filter demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -8304,7 +8304,7 @@ exports[`Calendar filter demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -9235,7 +9235,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-select-right-icon t-fake-arrow"
+            class="t-fake-arrow t-select-right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -9507,7 +9507,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -9695,7 +9695,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -10960,7 +10960,7 @@ exports[`Calendar mode demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-select-right-icon t-fake-arrow"
+            class="t-fake-arrow t-select-right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -11232,7 +11232,7 @@ exports[`Calendar mode demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -11889,7 +11889,7 @@ exports[`Calendar week demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -12077,7 +12077,7 @@ exports[`Calendar week demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -13345,7 +13345,7 @@ exports[`Calendar week demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -13533,7 +13533,7 @@ exports[`Calendar week demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -14801,7 +14801,7 @@ exports[`Calendar week demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -14989,7 +14989,7 @@ exports[`Calendar week demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-select-right-icon t-fake-arrow"
+                  class="t-fake-arrow t-select-right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"

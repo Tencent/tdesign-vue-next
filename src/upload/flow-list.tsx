@@ -1,7 +1,7 @@
 import { defineComponent, VNode, PropType } from 'vue';
 import { UploadFile } from './type';
 import TButton from '../button';
-import { returnFileSize, abridgeName } from './util';
+import { returnFileSize, abridgeName, UPLOAD_NAME } from './util';
 import { FlowRemoveContext } from './interface';
 import TIconLoading from '../icon/loading';
 import TIconTimeFilled from '../icon/time-filled';
@@ -9,6 +9,7 @@ import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import TIconErrorCircleFilled from '../icon/error-circle-filled';
 import TIconDelete from '../icon/delete';
 import TIconBrowse from '../icon/browse';
+import props from './props';
 
 export default defineComponent({
   name: 'TUploadFlowList',
@@ -18,6 +19,7 @@ export default defineComponent({
   },
 
   props: {
+    showUploadProgress: props.showUploadProgress,
     // 已上传完成的文件
     files: Array as PropType<Array<UploadFile>>,
     // 上传队列中的文件（可能存在已经上传过的文件）
@@ -84,16 +86,16 @@ export default defineComponent({
       let status = null;
       switch (file.status) {
         case 'success':
-          status = <div class='t-upload__flow-status'><TIconCheckCircleFilled /><span>上传成功</span></div>;
+          status = <div class={`${UPLOAD_NAME}__flow-status`}><TIconCheckCircleFilled /><span>上传成功</span></div>;
           break;
         case 'fail':
-          status = <div class='t-upload__flow-status'><TIconErrorCircleFilled /><span>上传失败</span></div>;
+          status = <div class={`${UPLOAD_NAME}__flow-status`}><TIconErrorCircleFilled /><span>上传失败</span></div>;
           break;
         case 'progress':
-          status = <div class='t-upload__flow-status'><TIconLoading /><span>上传中 {Math.min(file.percent, 99)}%</span></div>;
+          this.showUploadProgress && (status = <div class={`${UPLOAD_NAME}__flow-status`}><TIconLoading /><span>上传中 {Math.min(file.percent, 99)}%</span></div>);
           break;
         case 'waiting':
-          status = <div class='t-upload__flow-status'><TIconTimeFilled /><span>待上传</span></div>;
+          status = <div class={`${UPLOAD_NAME}__flow-status`}><TIconTimeFilled /><span>待上传</span></div>;
           break;
       }
       return status;
@@ -130,7 +132,7 @@ export default defineComponent({
     renderDrager() {
       return (
         <div
-          class='t-upload__flow-empty'
+          class={`${UPLOAD_NAME}__flow-empty`}
           onDrop={this.handleDrop}
           onDragenter={this.handleDragenter}
           onDragover={this.handleDragover}
@@ -141,7 +143,7 @@ export default defineComponent({
 
     renderFileList() {
       return (
-        <table class='t-upload__flow-table'>
+        <table class={`${UPLOAD_NAME}__flow-table`}>
           <tr><th>文件名</th><th>大小</th><th>状态</th><th>操作</th></tr>
           {this.showInitial && (
             <tr><td colspan={4}>{this.renderDrager()}</td></tr>
@@ -151,7 +153,7 @@ export default defineComponent({
               <td>{abridgeName(file.name, 7, 10)}</td>
               <td>{returnFileSize(file.size)}</td>
               <td>{this.renderStatus(file)}</td>
-              <td><span class='t-upload__flow-button' onClick={(e: MouseEvent) => this.remove({ e, index, file })}>删除</span></td>
+              <td><span class={`${UPLOAD_NAME}__flow-button`} onClick={(e: MouseEvent) => this.remove({ e, index, file })}>删除</span></td>
             </tr>
           ))}
         </table>
@@ -160,33 +162,33 @@ export default defineComponent({
 
     renderImgList() {
       return (
-        <div class='t-upload__flow-card-area'>
+        <div class={`${UPLOAD_NAME}__flow-card-area`}>
           {this.showInitial && this.renderDrager()}
           {!!this.listFiles.length && (
-            <ul class='t-upload-card clearfix'>
+            <ul class={`${UPLOAD_NAME}-card clearfix`}>
               {this.listFiles.map((file, index) => (
-                <li class='t-upload-card__item'>
-                  <div class={['t-upload-card__content', { 't-upload-card__content-border': file.status !== 'waiting' }]}>
+                <li class={`${UPLOAD_NAME}-card__item`}>
+                  <div class={[`${UPLOAD_NAME}-card__content`, { [`${UPLOAD_NAME}-card__content-border`]: file.status !== 'waiting' }]}>
                     {file.status === 'fail' && (
-                      <div class='t-upload-card__status-wrap'><TIconErrorCircleFilled size='20px'/><p>上传失败</p></div>
+                      <div class={`${UPLOAD_NAME}-card__status-wrap`}><TIconErrorCircleFilled size='20px'/><p>上传失败</p></div>
                     )}
                     {file.status === 'progress' && (
-                      <div class='t-upload-card__status-wrap'><TIconLoading size='20px'/><p>上传中 {Math.min(file.percent, 99)}</p></div>
+                      <div class={`${UPLOAD_NAME}-card__status-wrap`}><TIconLoading size='20px'/><p>上传中 {Math.min(file.percent, 99)}</p></div>
                     )}
                     {(['waiting', 'success'].includes(file.status) || (!file.status && file.url)) && (
-                      <img class="t-upload-card__image" src={file.url || '//tdesign.gtimg.com/tdesign-default-img.png'} />
+                      <img class={`${UPLOAD_NAME}-card__image`} src={file.url || '//tdesign.gtimg.com/tdesign-default-img.png'} />
                     )}
-                    <div class="t-upload-card__mask">
-                      {file.url && <span class="t-upload-card__mask__item">
+                    <div class={`${UPLOAD_NAME}-card__mask`}>
+                      {file.url && <span class={`${UPLOAD_NAME}-card__mask__item`}>
                         <TIconBrowse onClick={(e: MouseEvent) => this.onViewClick(e, file)}/>
-                        <span class="t-upload-card__mask__item-divider"></span>
+                        <span class={`${UPLOAD_NAME}-card__mask__item-divider`}></span>
                       </span>}
-                      <span class="t-upload-card__mask__item" onClick={(e: MouseEvent) => this.remove({ e, index, file })}>
+                      <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => this.remove({ e, index, file })}>
                         <TIconDelete/>
                       </span>
                     </div>
                   </div>
-                  <p class="t-upload-card__name">{abridgeName(file.name)}</p>
+                  <p class={`${UPLOAD_NAME}-card__name`}>{abridgeName(file.name)}</p>
                 </li>
               ))}
             </ul>
@@ -198,18 +200,18 @@ export default defineComponent({
 
   render(): VNode {
     return (
-      <div class={['t-upload__flow', `t-upload__flow-${this.display}`]}>
-        <div class='t-upload__flow-op'>
+      <div class={[`${UPLOAD_NAME}__flow`, `${UPLOAD_NAME}__flow-${this.display}`]}>
+        <div class={`${UPLOAD_NAME}__flow-op`}>
           {this.$slots.default && this.$slots.default(null)}
-          <small class='t-upload__small t-upload__flow-placeholder'>{this.placeholder}</small>
+          <small class={`${UPLOAD_NAME}__small ${UPLOAD_NAME}__flow-placeholder`}>{this.placeholder}</small>
         </div>
         {this.display === 'file-flow' && this.renderFileList()}
         {this.display === 'image-flow' && this.renderImgList()}
-        <div class='t-upload__flow-bottom'>
-          <t-button theme='default' onClick={this.cancel}>取消</t-button>
-          <t-button disabled={!this.allowUpload} theme='primary' onClick={(e: MouseEvent) => this.upload(this.waitingUploadFiles, e)}>
+        <div class={`${UPLOAD_NAME}__flow-bottom`}>
+          <TButton theme='default' onClick={this.cancel}>取消</TButton>
+          <TButton disabled={!this.allowUpload} theme='primary' onClick={(e: MouseEvent) => this.upload(this.waitingUploadFiles, e)}>
             {this.uploadText}
-          </t-button>
+          </TButton>
         </div>
       </div>
     );

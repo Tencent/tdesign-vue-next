@@ -4,6 +4,7 @@
       :data="formData"
       :rules="rules"
       ref="form"
+      :labelWidth="100"
       @reset="onReset"
       @submit="onSubmit"
       scrollToFirstError="smooth"
@@ -37,7 +38,8 @@
       </t-form-item>
       <t-form-item>
         <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
-        <t-button type="reset">重置</t-button>
+        <t-button theme="default" variant="base" type="reset" style="margin-right: 10px">重置</t-button>
+        <t-button theme="default" variant="base" @click="handleClear">清除校验结果</t-button>
       </t-form-item>
     </t-form>
   </div>
@@ -109,6 +111,9 @@ export default {
         console.log('Validate Errors: ', firstError, validateResult);
         this.$message.warning(firstError);
       }
+    },
+    handleClear() {
+      this.$refs.form.clearValidate();
     },
   },
 };

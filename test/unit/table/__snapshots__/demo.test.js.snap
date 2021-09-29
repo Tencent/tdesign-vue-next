@@ -162,6 +162,7 @@ exports[`Table base demo works fine 1`] = `
             >
               
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -207,6 +208,7 @@ exports[`Table base demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -252,6 +254,7 @@ exports[`Table base demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -297,6 +300,7 @@ exports[`Table base demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -342,6 +346,7 @@ exports[`Table base demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -564,6 +569,7 @@ exports[`Table base demo works fine 2`] = `
             >
               
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -609,6 +615,7 @@ exports[`Table base demo works fine 2`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -654,6 +661,7 @@ exports[`Table base demo works fine 2`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -699,6 +707,7 @@ exports[`Table base demo works fine 2`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -744,6 +753,7 @@ exports[`Table base demo works fine 2`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -910,6 +920,7 @@ exports[`Table customCell demo works fine 1`] = `
             >
               
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -969,6 +980,7 @@ exports[`Table customCell demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -1510,6 +1522,7 @@ exports[`Table expandable demo works fine 1`] = `
             >
               
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -1644,6 +1657,7 @@ exports[`Table expandable demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -1780,6 +1794,7 @@ exports[`Table expandable demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -1916,6 +1931,7 @@ exports[`Table expandable demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -2197,6 +2213,7 @@ exports[`Table fixedColumn demo works fine 1`] = `
           >
             
             <tr
+              class=""
               draggable="false"
             >
               
@@ -2265,6 +2282,7 @@ exports[`Table fixedColumn demo works fine 1`] = `
               
             </tr>
             <tr
+              class=""
               draggable="false"
             >
               
@@ -2333,6 +2351,7 @@ exports[`Table fixedColumn demo works fine 1`] = `
               
             </tr>
             <tr
+              class=""
               draggable="false"
             >
               
@@ -2401,6 +2420,7 @@ exports[`Table fixedColumn demo works fine 1`] = `
               
             </tr>
             <tr
+              class=""
               draggable="false"
             >
               
@@ -2469,6 +2489,7 @@ exports[`Table fixedColumn demo works fine 1`] = `
               
             </tr>
             <tr
+              class=""
               draggable="false"
             >
               
@@ -2688,6 +2709,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
             >
               
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -2739,6 +2761,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -2790,6 +2813,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -2841,6 +2865,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -2892,6 +2917,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -2943,6 +2969,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -2994,6 +3021,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3045,6 +3073,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3096,6 +3125,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3147,6 +3177,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3198,6 +3229,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3249,6 +3281,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3300,6 +3333,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3351,6 +3385,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3402,6 +3437,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3453,6 +3489,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3504,6 +3541,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3555,6 +3593,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3606,6 +3645,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3657,6 +3697,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -3844,6 +3885,7 @@ exports[`Table multiHeader demo works fine 1`] = `
           >
             
             <tr
+              class=""
               draggable="false"
             >
               
@@ -3892,6 +3934,7 @@ exports[`Table multiHeader demo works fine 1`] = `
               
             </tr>
             <tr
+              class=""
               draggable="false"
             >
               
@@ -4080,6 +4123,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
             >
               
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -4164,6 +4208,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -4249,6 +4294,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -4333,6 +4379,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -4543,6 +4590,7 @@ exports[`Table selectSingle demo works fine 1`] = `
             >
               
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -4629,6 +4677,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -4716,6 +4765,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 
@@ -4802,6 +4852,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                 
               </tr>
               <tr
+                class=""
                 draggable="false"
               >
                 

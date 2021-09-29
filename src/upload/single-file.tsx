@@ -1,11 +1,13 @@
 import { defineComponent, PropType } from 'vue';
+import { prefix } from '../config';
 import TIconClearCircleFilled from '../icon/close-circle-filled';
 import TIconLoading from '../icon/loading';
 import TIconErrorCircleFilled from '../icon/error-circle-filled';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import { UploadFile } from './type';
 import { ClassName } from '../common';
-import { abridgeName } from './util';
+import { abridgeName, UPLOAD_NAME } from './util';
+import props from './props';
 
 export default defineComponent({
   name: 'TUploadSingleFile',
@@ -22,6 +24,7 @@ export default defineComponent({
   },
   
   props: {
+    showUploadProgress: props.showUploadProgress,
     file: Object as PropType<UploadFile>,
     loadingFile: Object as PropType<UploadFile>,
     remove: Function as PropType<(e: MouseEvent) => void>,
@@ -48,7 +51,7 @@ export default defineComponent({
       return this.display === 'file-input';
     },
     showProgress(): boolean {
-      return this.loadingFile && this.loadingFile.status === 'progress';
+      return !!(this.loadingFile && this.loadingFile.status === 'progress');
     },
     showDelete(): boolean {
       return this.file && this.file.name && !this.loadingFile;
@@ -63,14 +66,14 @@ export default defineComponent({
     },
     inputTextClass(): ClassName {
       return [
-        't-input__inner',
-        { 't-upload__placeholder': !this.inputName },
+        `${prefix}-input__inner`,
+        { [`${UPLOAD_NAME}__placeholder`]: !this.inputName },
       ];
     },
     classes(): ClassName {
       return [
-        't-upload__single',
-        `t-upload__single-${this.display}`,
+        `${UPLOAD_NAME}__single`,
+        `${UPLOAD_NAME}__single-${this.display}`,
       ];
     },
   },
@@ -81,12 +84,14 @@ export default defineComponent({
         return <TIconErrorCircleFilled />;
       }
 
-      return (
-        <div class='t-upload__single-progress'>
-          <TIconLoading></TIconLoading>
-          <span class='t-upload__single-percent'>{Math.min(this.loadingFile.percent, 99)}%</span>
-        </div>
-      );
+      if (this.showUploadProgress) {
+        return (
+          <div class={`${UPLOAD_NAME}__single-progress`}>
+            <TIconLoading></TIconLoading>
+            <span class={`${UPLOAD_NAME}__single-percent`}>{Math.min(this.loadingFile.percent, 99)}%</span>
+          </div>
+        );
+      }
     },
 
     renderResult() {
@@ -102,20 +107,20 @@ export default defineComponent({
     renderFilePreviewAsText() {
       if (!this.inputName) return;
       return (
-        <div class='t-upload__single-display-text t-display-text--margin'>
-          <span class='t-upload__single-name'>{this.inputName}</span>
+        <div class={`${UPLOAD_NAME}__single-display-text t-display-text--margin`}>
+          <span class={`${UPLOAD_NAME}__single-name`}>{this.inputName}</span>
           {this.showProgress
             ? this.renderProgress()
-            : <TIconClearCircleFilled class="t-upload-icon-delete" onClick={(e: MouseEvent) => this.remove(e)}/>}
+            : <TIconClearCircleFilled class={`${UPLOAD_NAME}-icon-delete`} nativeOnClick={(e: MouseEvent) => this.remove(e)}/>}
         </div>
       );
     },
     // 输入框型预览
     renderFilePreviewAsInput() {
       return (
-        <div class='t-upload__single-input-preview t-input'>
+        <div class={`${UPLOAD_NAME}__single-input-preview ${prefix}-input`}>
           <div class={this.inputTextClass}>
-            {<span class='t-upload__single-input-text'>{abridgeName(this.inputText, 4, 6)}</span>}
+            {<span class={`${UPLOAD_NAME}__single-input-text`}>{abridgeName(this.inputText, 4, 6)}</span>}
             {this.showProgress && this.renderProgress()}
             {this.renderResult()}
           </div>
@@ -130,7 +135,7 @@ export default defineComponent({
         {this.showInput && this.renderFilePreviewAsInput()}
         {this.$slots.default && this.$slots.default(null)}
         {this.showTextPreview && this.renderFilePreviewAsText()}
-        {this.showInput && this.showDelete && <span class='t-upload__single-input-delete' onClick={(e: MouseEvent) => this.remove(e)}>删除</span>}
+        {this.showInput && this.showDelete && <span class={`${UPLOAD_NAME}__single-input-delete`} onClick={(e: MouseEvent) => this.remove(e)}>删除</span>}
       </div>
     );
   },

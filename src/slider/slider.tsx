@@ -156,6 +156,8 @@ export default defineComponent({
       if (this.dragging === true) return;
       if (Array.isArray(newVal) && this.range) {
         [this.firstValue, this.secondValue] = newVal;
+      } else {
+        this.prevValue = newVal as number;
       }
     },
     firstValue(val: number) {
@@ -226,11 +228,12 @@ export default defineComponent({
       }
       // 双向滑块
       if (this.range && Array.isArray(value)) {
-        let [firstValue, secondValue] = [value[0], value[1]];
-        // 第一个值大于第二个值时替换
-        firstValue > secondValue ? ([firstValue, secondValue] = [secondValue, firstValue]) : null;
+        let [firstValue, secondValue] = [Math.min(...value), Math.max(...value)];
+        firstValue > max ? (firstValue = this.firstValue) : null;
         firstValue < min ? (firstValue = min) : null;
+        secondValue < min ? (secondValue = this.secondValue) : null;
         secondValue > max ? (secondValue = max) : null;
+        [this.firstValue, this.secondValue] = [firstValue, secondValue];
         return [firstValue, secondValue];
       }
       let preValue = value;

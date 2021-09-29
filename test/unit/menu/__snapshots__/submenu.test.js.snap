@@ -3,7 +3,6 @@
 exports[`Submenu props :disabled 1`] = `
 <li
   class="t-submenu t-is-disabled"
-  on="[object Object]"
 >
   <!---->
 </li>
@@ -13,7 +12,6 @@ exports[`Submenu props :name 1`] = `
 <li
   class="t-submenu"
   name="1"
-  on="[object Object]"
 >
   <!---->
 </li>

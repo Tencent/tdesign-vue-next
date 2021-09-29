@@ -505,7 +505,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
       >
         <div
           class="t-form__label t-form__label--right"
-          style="width: calc(1 / 12 * 100%);"
+          style="width: 100px;"
         >
           <label
             for=""
@@ -515,6 +515,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
         </div>
         <div
           class="t-form__controls"
+          style="margin-left: 100px;"
         >
           <div
             class="t-form__controls--content"
@@ -547,7 +548,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
       >
         <div
           class="t-form__label t-form__label--right"
-          style="width: calc(1 / 12 * 100%);"
+          style="width: 100px;"
         >
           <label
             for=""
@@ -557,6 +558,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
         </div>
         <div
           class="t-form__controls"
+          style="margin-left: 100px;"
         >
           <div
             class="t-form__controls--content"
@@ -589,7 +591,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
       >
         <div
           class="t-form__label t-form__label--right"
-          style="width: calc(1 / 12 * 100%);"
+          style="width: 100px;"
         >
           <label
             for=""
@@ -599,6 +601,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
         </div>
         <div
           class="t-form__controls"
+          style="margin-left: 100px;"
         >
           <div
             class="t-form__controls--content"
@@ -1996,7 +1999,7 @@ exports[`Tree:demo disabled demo works fine 1`] = `
       >
         <div
           class="t-form__label t-form__label--right"
-          style="width: calc(1 / 12 * 100%);"
+          style="width: 100px;"
         >
           <label
             for=""
@@ -2006,6 +2009,7 @@ exports[`Tree:demo disabled demo works fine 1`] = `
         </div>
         <div
           class="t-form__controls"
+          style="margin-left: 100px;"
         >
           <div
             class="t-form__controls--content"
@@ -4278,7 +4282,7 @@ exports[`Tree:demo line demo works fine 1`] = `
       >
         <div
           class="t-form__label t-form__label--right"
-          style="width: calc(1 / 12 * 100%);"
+          style="width: 100px;"
         >
           <label
             for=""
@@ -4288,6 +4292,7 @@ exports[`Tree:demo line demo works fine 1`] = `
         </div>
         <div
           class="t-form__controls"
+          style="margin-left: 100px;"
         >
           <div
             class="t-form__controls--content"
@@ -4320,7 +4325,7 @@ exports[`Tree:demo line demo works fine 1`] = `
       >
         <div
           class="t-form__label t-form__label--right"
-          style="width: calc(1 / 12 * 100%);"
+          style="width: 100px;"
         >
           <label
             for=""
@@ -4330,6 +4335,7 @@ exports[`Tree:demo line demo works fine 1`] = `
         </div>
         <div
           class="t-form__controls"
+          style="margin-left: 100px;"
         >
           <div
             class="t-form__controls--content"

@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-29 16:07:25
+ * updated at 2021-09-15 18:08:53
  * */
 
 import { InputNumberProps } from '../input-number';
@@ -32,7 +32,7 @@ export interface TdSliderProps {
   /**
    * 刻度标记，示例：[0, 10, 40, 200] 或者 { 10: (val) => val + '%', 50: (h, val) => <button>{val}</button> }
    */
-  marks?: Array<number> | Marks;
+  marks?: Array<number> | SliderMarks;
   /**
    * 滑块范围最大值
    * @default 100
@@ -71,6 +71,6 @@ export interface TdSliderProps {
   onChange?: (value: SliderValue) => void;
 };
 
-export interface Marks { [mark: number]: string | TNode<{ value: number }> };
+export interface SliderMarks { [mark: number]: string | TNode<{ value: number }> };
 
 export type SliderValue = number | Array<number>;

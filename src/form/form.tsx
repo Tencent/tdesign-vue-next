@@ -100,10 +100,21 @@ export default defineComponent({
       });
     },
     resetHandler(e?: FormResetEvent) {
+      if (this.preventSubmitDefault) {
+        e && e.preventDefault();
+        e && e.stopPropagation();
+      }
       this.children
         .filter((child: any) => this.isFunction(child.resetField))
         .map((child: any) => child.resetField());
       this.$emit('reset', { e });
+    },
+    clearValidate(fields?: Array<string>) {
+      this.children.forEach((child) => {
+        if (this.isFunction(child.resetHandler) && this.needValidate(child.name, fields)) {
+          child.resetHandler();
+        }
+      });
     },
     // If there is no reset button in form, this function can be used
     reset() {

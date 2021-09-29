@@ -13,6 +13,7 @@ const lockClass = `${prefix}-loading-lock`;
 const maskClass = `${prefix}-loading-mask`;
 const relativeClass = `${prefix}-loading-parent__relative`;
 const wrapperClass = `${prefix}-loading__wrapper`;
+const inheritColorClass = `${prefix}-loading--inherit-color`;
 
 export default defineComponent({
   name,
@@ -27,6 +28,7 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    inheritColor: Boolean,
   },
 
   data() {
@@ -52,6 +54,9 @@ export default defineComponent({
       }
       if (this.attach) {
         ret.push(wrapperClass);
+      }
+      if (this.inheritColor) {
+        ret.push(inheritColorClass);
       }
       return ret;
     },

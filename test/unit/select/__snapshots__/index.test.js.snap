@@ -64,7 +64,7 @@ exports[`Select :props :bordered 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -150,7 +150,7 @@ exports[`Select :props :clearable 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -236,7 +236,7 @@ exports[`Select :props :creatable 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -322,7 +322,7 @@ exports[`Select :props :disabled 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -409,7 +409,7 @@ exports[`Select :props :labelInValue 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -495,7 +495,7 @@ exports[`Select :props :loading 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -599,7 +599,7 @@ exports[`Select :props :multiple 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -685,7 +685,7 @@ exports[`Select :props :placeholder 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -772,7 +772,7 @@ exports[`Select :props :remote 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -858,7 +858,7 @@ exports[`Select :props :reserveKeyword 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -944,7 +944,7 @@ exports[`Select :props :size 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1038,7 +1038,7 @@ exports[`Select Option :props :disabled 1`] = `
       </span>
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1132,7 +1132,7 @@ exports[`Select Option :props :label 1`] = `
       </span>
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1226,7 +1226,7 @@ exports[`Select Option :props :value 1`] = `
       </span>
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1352,7 +1352,7 @@ exports[`Select OptionGroup :props :value 1`] = `
       </span>
       <!---->
       <svg
-        class="t-select-right-icon t-fake-arrow"
+        class="t-fake-arrow t-select-right-icon"
         fill="none"
         height="16"
         viewBox="0 0 16 16"

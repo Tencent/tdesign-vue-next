@@ -2,7 +2,7 @@ import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
 import Popup from '../popup/index';
 import DropdownMenu from './dropdown-menu';
-import { DropdownOption } from './type';
+import { DropdownOption, TdDropdownProps } from './type';
 import props from './props';
 
 const name = `${prefix}-dropdown`;
@@ -31,18 +31,20 @@ export default defineComponent({
     const trigger: VNode[] | VNode | string = this.$slots.default
       ? this.$slots.default(null) : '';
 
+    const _popupProps = this.popupProps as TdDropdownProps['popupProps'];
+
+    const overlayClassName = _popupProps && _popupProps.overlayClassName ? [name, _popupProps.overlayClassName] : name;
     const popupProps = {
       ...this.$attrs,
       disabled: this.disabled,
-      showArrow: false,
       placement: this.placement,
       trigger: this.trigger,
-      overlayClassName: name,
-      ref: 'popup',
+      overlayClassName,
+      ref: 'popup'
     };
 
     return (
-      <Popup {...popupProps} {...this.popupProps} destroyOnClose ref="popupElem" expandAnimation v-slots={{
+      <Popup {...popupProps}  destroyOnClose ref="popupElem" expandAnimation v-slots={{
         content: () => <dropdown-menu
           options={this.options}
           maxHeight={this.maxHeight}

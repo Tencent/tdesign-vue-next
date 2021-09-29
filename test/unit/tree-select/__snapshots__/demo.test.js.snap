@@ -253,7 +253,7 @@ exports[`TreeSelect base demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-select-right-icon t-fake-arrow"
+          class="t-fake-arrow t-select-right-icon"
           fill="none"
           height="16"
           style="font-size: medium;"
@@ -620,7 +620,7 @@ exports[`TreeSelect filterable demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-select-right-icon t-fake-arrow"
+          class="t-fake-arrow t-select-right-icon"
           fill="none"
           height="16"
           style="font-size: medium;"
@@ -823,7 +823,7 @@ exports[`TreeSelect lazy demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-select-right-icon t-fake-arrow"
+          class="t-fake-arrow t-select-right-icon"
           fill="none"
           height="16"
           style="font-size: medium;"
@@ -1238,7 +1238,7 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-select-right-icon t-fake-arrow"
+          class="t-fake-arrow t-select-right-icon"
           fill="none"
           height="16"
           style="font-size: medium;"
@@ -1551,7 +1551,7 @@ exports[`TreeSelect prefix demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-select-right-icon t-fake-arrow"
+          class="t-fake-arrow t-select-right-icon"
           fill="none"
           height="16"
           style="font-size: medium;"

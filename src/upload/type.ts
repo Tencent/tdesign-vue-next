@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-07-18 15:53:07
+ * updated at 2021-09-25 15:53:00
  * */
 
 import { TNode } from '../common';
@@ -69,7 +71,7 @@ export interface TdUploadProps {
    */
   max?: number;
   /**
-   * 上传接口方法
+   * HTTP 请求类型
    * @default POST
    */
   method?: 'POST' | 'GET' | 'PUT' | 'OPTION';
@@ -89,6 +91,19 @@ export interface TdUploadProps {
    */
   placeholder?: string;
   /**
+   * 自定义上传方法。返回值 status 表示上传成功或失败，error 表示上传失败的原因，response 表示请求上传成功后的返回数据，response.url 表示上传成功后的图片地址。示例一：`{ status: 'fail', error: '上传失败', response }`。示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }`
+   */
+  requestMethod?: (files: UploadFile) => Promise<RequestMethodResponse>;
+  /**
+   * 是否显示上传进度
+   * @default true
+   */
+  showUploadProgress?: boolean;
+  /**
+   * 图片文件大小限制，单位 KB。可选单位有：`'B' | 'KB' | 'MB' | 'GB'`。示例一：`1000`。示例二：`{ size: 2, unit: 'MB', message: '图片大小不超过 {sizeLimit} MB' }`
+   */
+  sizeLimit?: number | SizeLimitObj;
+  /**
    * 组件风格。custom 表示完全自定义风格；file 表示默认文件上传风格；file-input 表示输入框形式的文件上传；file-flow 表示文件批量上传；image 表示默认图片上传风格；image-flow 表示图片批量上传
    * @default file
    */
@@ -107,6 +122,10 @@ export interface TdUploadProps {
    * @default false
    */
   withCredentials?: boolean;
+  /**
+   * 点击「取消上传」时触发
+   */
+  onCancelUpload?: () => void;
   /**
    * 已上传文件列表发生变化时触发
    */
@@ -132,14 +151,14 @@ export interface TdUploadProps {
    */
   onProgress?: (options: ProgressContext) => void;
   /**
-   * 上传失败后触发
+   * 移除文件时触发
    */
   onRemove?: (context: UploadRemoveContext) => void;
   /**
    * 上传成功后触发
    */
   onSuccess?: (context: SuccessContext) => void;
-}
+};
 
 export interface UploadFile extends File {
   /**
@@ -171,7 +190,7 @@ export interface UploadFile extends File {
    * 文件上传状态：上传成功，上传失败，上传中，等待上传
    * @default ''
    */
-  status?: 'success' | 'fail' | 'progress' | 'waiting';
+  status?:  'success' | 'fail' | 'progress' | 'waiting';
   /**
    * 文件类型
    * @default ''
@@ -182,38 +201,22 @@ export interface UploadFile extends File {
    * @default ''
    */
   url?: string;
-}
+};
 
 export type ResponseType = { error?: string; url?: string } & Record<string, any>;
 
-export interface TriggerContext {
-  dragActive?: boolean;
-  uploadingFile?: UploadFile | Array<UploadFile>
-}
+export interface RequestMethodResponse { status: 'success' | 'fail'; error?: string; response: { url?: string; [key: string]: any } };
 
-export interface UploadChangeContext {
-  e?: MouseEvent | ProgressEvent;
-  response?: any;
-  trigger: string;
-  index?: number;
-  file?: UploadFile
-}
+export interface SizeLimitObj { size: number; unit: SizeUnit ; message?: string };
 
-export interface ProgressContext {
-  e: ProgressEvent;
-  file: UploadFile;
-  percent: number
-}
+export type SizeUnit = 'B' | 'KB' | 'MB' | 'GB';
 
-export interface UploadRemoveContext {
-  index?: number;
-  file?: UploadFile;
-  e: MouseEvent
-}
+export interface TriggerContext { dragActive?: boolean; uploadingFile?: UploadFile | Array<UploadFile> };
 
-export interface SuccessContext {
-  e: ProgressEvent;
-  file: UploadFile;
-  fileList: UploadFile[];
-  response: any
-}
+export interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: string; index?: number; file?: UploadFile };
+
+export interface ProgressContext { e: ProgressEvent; file: UploadFile; percent: number };
+
+export interface UploadRemoveContext { index?: number; file?: UploadFile; e: MouseEvent };
+
+export interface SuccessContext { e: ProgressEvent; file: UploadFile; fileList: UploadFile[]; response: any };

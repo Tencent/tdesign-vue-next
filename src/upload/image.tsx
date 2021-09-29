@@ -6,6 +6,8 @@ import IIconDelete from '../icon/delete';
 import IIconUpload from '../icon/upload';
 import TIconBrowse from '../icon/browse';
 import TIconLoading from '../icon/loading';
+import { UPLOAD_NAME } from './util';
+import props from './props';
 
 export default defineComponent({
   name: 'TImageUpload',
@@ -14,6 +16,7 @@ export default defineComponent({
     TIconAdd, IIconDelete, IIconUpload, TIconBrowse, TIconLoading,
   },
   props: {
+    showUploadProgress: props.showUploadProgress,
     files: {
       type: Array as PropType<Array<UploadFile>>,
     },
@@ -52,35 +55,35 @@ export default defineComponent({
 
   render() {
     return (
-      <ul class='t-upload-card'>
+      <ul class={`${UPLOAD_NAME}-card`}>
         {this.files && this.files.map((file, index) => (
-            <li class='t-upload-card__item t-is--background'>
-              <div class='t-upload-card__content t-upload-card__box'>
-                <img class='t-upload-card__image' src={file.url} />
-                <div class='t-upload-card__mask' onClick={this.onMaskClick}>
-                  <span class='t-upload-card__mask__item' onClick={(e: MouseEvent) => e.stopPropagation()}>
-                    <TIconBrowse onClick={(e: MouseEvent) => this.onViewClick(e, file)}/>
-                  </span>
-                  <span class="t-upload-card__mask__item-divider"></span>
+          <li class={`${UPLOAD_NAME}-card__item t-is--background`}>
+            <div class={`${UPLOAD_NAME}-card__content ${UPLOAD_NAME}-card__box`}>
+              <img class={`${UPLOAD_NAME}-card__image`} src={file.url} />
+              <div class={`${UPLOAD_NAME}-card__mask`} onClick={this.onMaskClick}>
+                <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
+                  <TIconBrowse nativeOnClick={(e: MouseEvent) => this.onViewClick(e, file)}/>
+                </span>
+                <span class={`${UPLOAD_NAME}-card__mask__item-divider`}></span>
 
-                  <span class='t-upload-card__mask__item' onClick={(e: MouseEvent) => e.stopPropagation()}>
-                    <IIconDelete onClick={(e: MouseEvent) => this.remove({ e, file, index })} />
-                  </span>
-                </div>
+                <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
+                  <IIconDelete nativeOnClick={(e: MouseEvent) => this.remove({ e, file, index })} />
+                </span>
               </div>
-            </li>
+            </div>
+          </li>
         ))}
         {this.showTrigger && (
-          <li class='t-upload-card__item t-is--background' onClick={this.trigger}>
-            {this.loadingFile && this.loadingFile.status === 'progress' ? (
-              <div class='t-upload-card-container t-upload-card__box'>
+          <li class={`${UPLOAD_NAME}-card__item t-is--background`} onClick={this.trigger}>
+            {this.showUploadProgress && this.loadingFile && this.loadingFile.status === 'progress' ? (
+              <div class={`${UPLOAD_NAME}-card-container ${UPLOAD_NAME}-card__box`}>
                 <TIconLoading></TIconLoading>
                 <p>上传中 {Math.min(this.loadingFile.percent, 99)}%</p>
               </div>
             ) : (
-              <div class='t-upload-card-container t-upload-card__box'>
+              <div class={`${UPLOAD_NAME}-card-container ${UPLOAD_NAME}-card__box`}>
                 <TIconAdd></TIconAdd>
-                <p class='t-upload__small'>点击上传图片</p>
+                <p class={`${UPLOAD_NAME}__small`}>点击上传图片</p>
               </div>
             )}
           </li>

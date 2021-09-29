@@ -9,7 +9,7 @@
     <t-form
       :data="formData"
       :rules="rules"
-      :labelWidth="100"
+      :labelWidth="80"
       ref="formValidatorStatus"
       @reset="onReset"
       @submit="onSubmit"

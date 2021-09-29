@@ -4,17 +4,20 @@ import {
 import { prefix } from '../config';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
+import ripple from '../utils/ripple';
+import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-menu-item`;
 
 export default defineComponent({
   name,
+  directives: { ripple },
   props: { ...props },
   emits: ['click'],
   setup(props, ctx) {
     const menu = inject<TdMenuInterface>('TdMenu');
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', null);
-    const active = computed(() => menu.activeIndexValue.value === props.value);
+    const active = computed(() => menu.activeValue.value === props.value);
     const classes = computed(() => [
       `${prefix}-menu__item`,
       {
@@ -28,11 +31,12 @@ export default defineComponent({
 
     // lifetimes
     onMounted(() => {
+      menu?.vMenu?.add({ value: props.value, parent: submenu?.value });
+
       if (submenu) {
-        const label = ctx.slots.default && ctx.slots.default()[0].children;
         submenu.addMenuItem({
           value: props.value,
-          label,
+          label: ctx.slots.default(),
         });
       }
     });
@@ -67,11 +71,10 @@ export default defineComponent({
     },
   },
   render() {
-    const { default: defaultSlot, icon: iconSlot } = this.$slots;
     return (
-      <li class={this.classes} onClick={this.handleClick}>
-        {iconSlot && iconSlot()}
-        <span class={[`${prefix}-menu__content`]}>{defaultSlot && defaultSlot()}</span>
+      <li v-ripple class={this.classes} onClick={this.handleClick}>
+        {renderTNodeJSX(this, 'icon')}
+        <span class={[`${prefix}-menu__content`]}>{renderContent(this, 'default', 'content')}</span>
       </li>
     );
   },

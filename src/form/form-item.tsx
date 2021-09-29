@@ -4,10 +4,11 @@ import {
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
+import isNil from 'lodash/isNil';
 import { prefix } from '../config';
 import { validate } from './form-model';
 import {
-  ErrorList, TdFormItemProps, TdFormProps, ValidateResult, ValueType, ValidateTriggerType,
+  Data, FormRule, TdFormItemProps, TdFormProps, ValueType, ValidateTriggerType, AllValidateResult,
 } from './type';
 import props from './form-item-props';
 import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
@@ -19,13 +20,12 @@ import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import TIconErrorCircleFilled from '../icon/error-circle-filled';
 import TIconCloseCircleFilled from '../icon/close-circle-filled';
 
-type Result = ValidateResult<TdFormProps['data']>;
-
 type IconConstructor = typeof TIconErrorCircleFilled;
 
 type FormInstance = InstanceType<typeof Form>;
+export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
 
-export const enum ValidateStatus {
+export const enum VALIDATE_STATUS {
   TO_BE_VALIDATED = 'not',
   SUCCESS = 'success',
   FAIL = 'fail',
@@ -44,9 +44,9 @@ export default defineComponent({
 
   data() {
     return {
-      errorList: [] as ErrorList,
+      errorList: [],
       // 当前校验状态 未校验、校验通过、校验不通过
-      verifyStatus: ValidateStatus.TO_BE_VALIDATED as ValidateStatus,
+      verifyStatus: VALIDATE_STATUS.TO_BE_VALIDATED,
       resetValidating: false as boolean,
       needResetField: false as boolean,
       initialValue: undefined as ValueType,
@@ -59,8 +59,8 @@ export default defineComponent({
     },
     labelClasses() {
       const parent = this.form;
-      const labelAlign = parent && parent.labelAlign;
-      const labelWidth = parent && parent.labelWidth;
+      const labelAlign = isNil(this.labelAlign) ? parent?.labelAlign : this.labelAlign;
+      const labelWidth = isNil(this.labelWidth) ? parent?.labelWidth : this.labelWidth;
 
       return [
         CLASS_NAMES.label,
@@ -76,7 +76,7 @@ export default defineComponent({
     errorClasses(): string {
       const parent = this.form as FormInstance;
       if (!parent.showErrorMessage) return '';
-      if (this.verifyStatus === ValidateStatus.SUCCESS) return CLASS_NAMES.success;
+      if (this.verifyStatus === VALIDATE_STATUS.SUCCESS) return CLASS_NAMES.success;
       if (!this.errorList.length) return;
       const type = this.errorList[0].type || 'error';
       return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
@@ -87,11 +87,10 @@ export default defineComponent({
     },
     contentStyle(): Styles {
       const parent = this.form;
-      const layout = parent && parent.layout;
-      const labelAlign = parent && parent.labelAlign;
-      const labelWidth = parent && parent.labelWidth;
+      const labelAlign = isNil(this.labelAlign) ? parent?.labelAlign : this.labelAlign;
+      const labelWidth = isNil(this.labelWidth) ? parent?.labelWidth : this.labelWidth;
       let contentStyle = {};
-      if (labelWidth && labelAlign !== 'top' && layout !== 'inline') {
+      if (labelWidth && labelAlign !== 'top') {
         if (typeof labelWidth === 'number') {
           contentStyle = { marginLeft: `${labelWidth}px` };
         } else {
@@ -115,7 +114,7 @@ export default defineComponent({
       const isRequired = this.innerRules.filter((rule) => rule.required).length > 0;
       return Boolean(allowMark && isRequired);
     },
-    innerRules(): ErrorList {
+    innerRules(): FormRule[] {
       const parent = this.form;
       const rules = parent && parent.rules;
       return (rules && rules[this.name]) || (this.rules || []);
@@ -140,20 +139,27 @@ export default defineComponent({
   },
 
   methods: {
-    async validate(trigger: ValidateTriggerType): Promise<Result> {
+    async validate<T>(trigger: ValidateTriggerType): Promise<FormItemValidateResult<T>> {
       this.resetValidating = true;
       const rules = trigger === 'all' ? this.innerRules : this.innerRules.filter((item) => (item.trigger || 'change') === trigger);
       const r = await validate(this.value, rules);
-      this.errorList = r;
-      this.verifyStatus = this.errorList.length ? ValidateStatus.FAIL : ValidateStatus.SUCCESS;
-      if (!rules.length) this.verifyStatus = ValidateStatus.TO_BE_VALIDATED;
+      const errorList = r.filter((item) => item.result !== true);
+      // 仅有自定义校验方法才会存在 successList
+      this.successList = r.filter((item) => item.result === true && item.message && item.type === 'success');
+      // 根据校验结果设置校验状态
+      if (rules.length) {
+        this.verifyStatus = errorList.length ? VALIDATE_STATUS.FAIL : VALIDATE_STATUS.SUCCESS;
+      } else {
+        this.verifyStatus = VALIDATE_STATUS.TO_BE_VALIDATED;
+      }
+      // 重置处理
       if (this.needResetField) {
         this.resetHandler();
       }
       this.resetValidating = false;
       return ({
-        [this.name]: r.length === 0 ? true : r,
-      });
+        [this.name]: errorList.length === 0 ? true : r,
+      } as FormItemValidateResult<T>);
     },
     getLabelContent(): TNodeReturnValue {
       if (typeof this.label === 'function') {
@@ -165,10 +171,10 @@ export default defineComponent({
       }
       return this.label;
     },
-    getLabel(): VNodeChild {
+    getLabel(): TNodeReturnValue {
       const parent = this.form;
-      const labelWidth = parent && parent.labelWidth;
-      const labelAlign = parent && parent.labelAlign;
+      const labelWidth = isNil(this.labelWidth) ? parent?.labelWidth : this.labelWidth;
+      const labelAlign = isNil(this.labelAlign) ? parent?.labelAlign : this.labelAlign;
       if (Number(labelWidth) === 0) return;
 
       let labelStyle = {};
@@ -212,7 +218,7 @@ export default defineComponent({
         </span>
       );
       const list = this.errorList;
-      if (this.verifyStatus === ValidateStatus.SUCCESS) {
+      if (this.verifyStatus === VALIDATE_STATUS.SUCCESS) {
         return resultIcon(TIconCheckCircleFilled);
       }
       if (list && list[0]) {
@@ -296,7 +302,7 @@ export default defineComponent({
     resetHandler(): void {
       this.needResetField = false;
       this.errorList = [];
-      this.verifyStatus = ValidateStatus.TO_BE_VALIDATED;
+      this.verifyStatus = VALIDATE_STATUS.TO_BE_VALIDATED;
     },
   },
 

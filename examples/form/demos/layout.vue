@@ -8,7 +8,7 @@
     </div>
     <t-form
       :data="formData"
-      :labelWidth="80"
+      labelWidth="calc(2em + 24px)"
       :layout="formData.layout"
       ref="form"
       @reset="onReset"

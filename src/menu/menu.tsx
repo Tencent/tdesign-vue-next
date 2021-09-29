@@ -1,10 +1,13 @@
 import {
-  defineComponent, ref, computed, provide, watchEffect, watch,
+  defineComponent, ref, computed, provide, watchEffect, watch, onMounted,
 } from 'vue';
 import { prefix } from '../config';
 import props from './props';
 import { MenuValue } from './type';
 import { TdMenuInterface } from './const';
+import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
+import VMenu from './v-menu';
+import { ClassName } from '../common';
 
 const name = `${prefix}-menu`;
 
@@ -14,7 +17,7 @@ export default defineComponent({
   setup(props, ctx) {
     const mode = ref(props.expandType);
     const theme = computed(() => props.theme);
-
+    const isMutex = computed(() => props.expandMutex);
     const menuClass = computed(() => [
       `${prefix}-default-menu`,
       `${prefix}-menu-mode__${mode.value}`,
@@ -27,27 +30,23 @@ export default defineComponent({
       `${prefix}-menu`,
       { [`${prefix}-menu--scroll`]: mode.value !== 'popup' },
     ]);
+    const expandWidth = typeof props.width === 'number' ? `${props.width}px` : props.width;
+    const styles: ClassName = computed(() => ({
+      height: '100%',
+      width: props.collapsed ? '64px' : expandWidth,
+    }));
 
-    const styles = computed(() => {
-      type WidthType = typeof props.width;
-      let collapsedWidth: WidthType = '64px';
-      let defaultWidth: WidthType = '';
-
-      if (Array.isArray(props.width)) {
-        [defaultWidth, collapsedWidth] = props.width;
-      } else {
-        defaultWidth = props.width === 'number' ? `${props.width}px` : props.width;
-      }
-      return {
-        height: '100%',
-        width: props.collapsed ? collapsedWidth : defaultWidth,
+    const activeValue = ref(props.defaultValue || props.value);
+    const activeValues = ref([]);
+    const expandValues = ref(props.expanded || []);
+    const deliver = (evt: string) => {
+      const func = `on${evt[0].toUpperCase() + evt.slice(1)}`;
+      return (val: any) => {
+        if (typeof props[func] === 'function') {
+          props[func](val);
+        }
+        ctx.emit(evt, val);
       };
-    });
-
-    const activeIndexValue = ref(props.defaultValue || props.value);
-    const expandedArray = ref(props.expanded || []);
-    const deliver = (evt: string) => (val: any) => {
-      ctx.emit(evt, val);
     };
     const emitChange = deliver('change');
     const emitExpand = deliver('expand');
@@ -58,39 +57,22 @@ export default defineComponent({
       emitCollapse(mode.value);
     });
 
+    const vMenu = new VMenu({ isMutex: isMutex.value, expandValues: expandValues.value });
     provide<TdMenuInterface>('TdMenu', {
-      activeIndexValue,
-      expandedArray,
+      activeValue,
+      activeValues,
+      expandValues,
       mode,
       theme,
       isHead: false,
-      select: (val: MenuValue) => {
-        if (val !== activeIndexValue.value) {
-          activeIndexValue.value = val;
-          emitChange(val);
-        }
+      vMenu,
+      select: (value: MenuValue) => {
+        activeValue.value = value;
+        emitChange(value);
       },
-      open: (val: MenuValue) => {
-        const index = expandedArray.value.indexOf(val);
-
-        if (props.expandMutex || mode.value === 'popup') {
-          expandedArray.value.splice(0, 1);
-          if (index === -1) {
-            expandedArray.value.push(val);
-            emitExpand(expandedArray.value);
-            return true;
-          }
-        } else {
-          if (index > -1) {
-            expandedArray.value.splice(index, 1);
-            emitExpand(expandedArray.value);
-            return true;
-          }
-          expandedArray.value.push(val);
-          emitExpand(expandedArray.value);
-          return false;
-        }
-        emitExpand(expandedArray.value);
+      open: (value: MenuValue) => {
+        expandValues.value = vMenu.expand(value);
+        emitExpand(expandValues.value);
       },
     });
 
@@ -98,39 +80,45 @@ export default defineComponent({
     watch(
       () => props.expanded,
       (value) => {
-        expandedArray.value = value;
+        expandValues.value = value;
+        vMenu.expandValues = new Set(value);
       },
     );
-    watch(
-      () => props.value,
-      (value) => {
-        activeIndexValue.value = value;
-      },
-    );
+    const updateActiveValues = (value: MenuValue) => {
+      activeValue.value = value;
+      activeValues.value = vMenu.select(value);
+    };
+    watch(() => props.value, updateActiveValues);
+    watch(() => props.defaultValue, updateActiveValues);
 
-    const openedNames = computed(() => props.expanded ? [...props.expanded] : []);
+    // timelifes
+    onMounted(() => {
+      activeValues.value = vMenu.select(activeValue.value);
+    });
 
     return {
       styles,
       menuClass,
       innerClasses,
-      openedNames,
-      expandedArray,
+      activeValue,
+      activeValues,
+      expandValues,
     };
   },
   render() {
     if (this.$slots.options) {
       console.warn('TDesign Warn: `options` slot is going to be deprecated, please use `operations` for slot instead.');
     }
-    const { logo: logoSlot, default: defaultSlot, operations: operationsSlot } = this.$slots;
+    const operations = renderContent(this, 'operations', 'options');
+    const logo = renderTNodeJSX(this, 'logo');
     return (
       <div class={this.menuClass} style={this.styles}>
         <div class={`${prefix}-default-menu__inner`}>
-          {logoSlot && (<div class={`${prefix}-menu__logo`}>{logoSlot()}</div>)}
+          {logo && (<div class={`${prefix}-menu__logo`}>{logo}</div>)}
           <ul class={this.innerClasses}>
-            {defaultSlot && defaultSlot()}
+            {renderContent(this, 'default', 'content')}
           </ul>
-          {operationsSlot && (<div class={`${prefix}-menu__operations`}>{operationsSlot()}</div>)}
+          {operations && (<div class={`${prefix}-menu__operations`}>{operations}</div>)}
         </div>
       </div>
     );

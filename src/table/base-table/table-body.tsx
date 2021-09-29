@@ -3,6 +3,7 @@ import get from 'lodash/get';
 import { prefix } from '../../config';
 import TableRow from './table-row';
 import baseTableProps from '../base-table-props';
+import primaryTableProps from '../primary-table-props';
 import { BaseTableCol } from '../type';
 import { emitEvent } from '../../utils/event';
 
@@ -20,6 +21,7 @@ export default defineComponent({
     onRowMousedown: baseTableProps.onRowMousedown,
     onRowClick: baseTableProps.onRowClick,
     onRowDbClick: baseTableProps.onRowDbClick,
+    selectedRowKeys: primaryTableProps.selectedRowKeys,
     provider: {
       type: Object,
       default() {
@@ -36,6 +38,11 @@ export default defineComponent({
     },
   },
   emits: ['row-dragstart', 'row-dragover'],
+  computed: {
+    selectColumn(): any {
+      return this.columns.find(({ type }: any) => ['multiple', 'single'].includes(type)) || {};
+    },
+  },
   methods: {
     getRowspanAndColspanProps() {
       const props: Array<any> = [];
@@ -106,7 +113,7 @@ export default defineComponent({
     },
     renderBody(): Array<VNode> {
       const {
-        data, rowClassName, rowKey, $slots: slots, rowspanAndColspan,
+        data, rowClassName, rowKey, $slots: slots, rowspanAndColspan, selectedRowKeys, selectColumn,
       } = this;
       const body: Array<VNode> = [];
       let allRowspanAndColspanProps: any;
@@ -114,17 +121,31 @@ export default defineComponent({
         allRowspanAndColspanProps = this.getRowspanAndColspanProps();
       }
       data.forEach((row: any, index: number) => {
-        const rowClass = typeof rowClassName === 'function' ? rowClassName({ row, rowIndex: index }) : rowClassName;
+        const defaultRowClass = typeof rowClassName === 'function' ? rowClassName({ row, rowIndex: index }) : rowClassName;
+        const rowClass: Array<string> = [];
+        if (Array.isArray(defaultRowClass)) {
+          rowClass.push(...defaultRowClass);
+        }
         const rowspanAndColspanProps = allRowspanAndColspanProps ? allRowspanAndColspanProps[index] : undefined;
         // let rowVnode: VNode;
         const key = rowKey ? get(row, rowKey) : index + this.current;
         const {
           columns, current, provider, onRowHover, onRowMouseup, onRowMousedown, onRowDbClick, onRowClick,
         } = this.$props;
+        if (selectedRowKeys?.indexOf(key) > -1) {
+          const disabled = typeof selectColumn.disabled === 'function'
+            ? selectColumn.disabled({ row, rowIndex: index })
+            : selectColumn.disabled;
+
+          if (disabled) {
+            rowClass.push(`${prefix}-table-row--disabled`);
+          }
+          rowClass.push(`${prefix}-table-row--selected`);
+        }
         const props = {
           key,
           columns,
-          rowClass,
+          rowClass: rowClass.join(' '),
           rowData: row,
           index,
           current,
