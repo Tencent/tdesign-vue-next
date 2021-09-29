@@ -323,15 +323,17 @@ export default defineComponent({
         }
       }
     },
-    removeTag(index: number, { e }: { e: MouseEvent }) {
-      e.stopPropagation();
+    removeTag(index: number, context?: { e?: MouseEvent }) {
+      const { e } = context || {};
+      e && e.stopPropagation();
       if (this.disabled) {
         return;
       }
       const val = this.value[index];
       const removeOption = this.realOptions.filter((item) => get(item, this.realValue) === val);
-      this.value instanceof Array && this.value.splice(index, 1);
-      this.emitChange(this.value);
+      const tempValue = this.value instanceof Array ? [].concat(this.value) : [];
+      tempValue.splice(index, 1);
+      this.emitChange(tempValue);
       this.$emit('remove', { value: val, data: removeOption[0], e });
     },
     hideMenu() {
@@ -540,18 +542,26 @@ export default defineComponent({
                 <span class={`${name}-placeholder`}> { placeholder }</span>
               )
             }
-            {
-              selectedMultiple.map((item: Options, index: number) => (
-                <tag
-                  key={index}
-                  size={size}
-                  closable={!item.disabled && !disabled}
-                  disabled={disabled}
-                  onClose={this.removeTag.bind(null, index)}
-                >
-                  { get(item, realLabel) === '' ? get(item, realValue) : get(item, realLabel) }
-                </tag>
-              ))
+            {this.valueDisplay || this.$slots.valueDisplay
+              ? renderTNodeJSX(this, 'valueDisplay', {
+                params: { value: selectedMultiple, onClose: (index: number) => this.removeTag(index) },
+              })
+              : (
+                selectedMultiple.map((item: Options, index: number) => (
+                  <tag
+                    key={index}
+                    size={size}
+                    closable={!item.disabled && !disabled}
+                    disabled={disabled}
+                    style="max-width: 100%;"
+                    maxWidth="100%"
+                    title={get(item, realLabel)}
+                    onClose={this.removeTag.bind(null, index)}
+                  >
+                    { get(item, realLabel) }
+                  </tag>
+                ))
+              )
             }
             {!multiple && !showPlaceholder && !showFilter && (
               <span title={selectedSingle} class={`${name}-selectedSingle`}>{ selectedSingle }</span>

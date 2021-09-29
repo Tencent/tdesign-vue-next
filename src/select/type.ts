@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-09-29 14:49:44
  * */
 
 import { PopupProps } from '../popup';
@@ -19,6 +19,10 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    * @default false
    */
   clearable?: boolean;
+  /**
+   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义
+   */
+  collapsedItems?: TNode;
   /**
    * 是否允许用户创建新条目，需配合 filterable 使用
    * @default false
@@ -63,6 +67,11 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    */
   max?: number;
   /**
+   * 最小折叠数量，用于多选情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠
+   * @default 0
+   */
+  minCollapsedNum?: number;
+  /**
    * 是否允许多选
    * @default false
    */
@@ -104,6 +113,10 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    */
   defaultValue?: SelectValue;
   /**
+   * 自定义选中项呈现方式
+   */
+  valueDisplay?: TNode;
+  /**
    * 用于控制选中值的类型。假设数据选项为：[{ label: '姓名', value: 'name' }]，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
    * @default value
    */
@@ -125,6 +138,10 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    */
   onCreate?: (value: string | number) => void;
   /**
+   * 回车键按下时触发。`inputValue` 表示输入框的值，`value` 表示选中值
+   */
+  onEnter?: (context: { inputValue: string; e: KeyboardEvent; value: SelectValue }) => void;
+  /**
    * 输入框获得焦点时触发
    */
   onFocus?: (context: { value: SelectValue; e: FocusEvent }) => void;
@@ -136,6 +153,10 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    * 输入值变化时，触发搜索事件。主要用于远程搜索新数据
    */
   onSearch?: (filterWords: string) => void;
+  /**
+   * 下拉框隐藏/显示时触发
+   */
+  onVisibleChange?: (visible: boolean) => void;
 };
 
 export interface TdOptionProps {

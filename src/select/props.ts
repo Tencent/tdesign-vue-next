@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-09-29 14:49:44
  * */
 
 import { TdSelectProps } from './type';
@@ -16,6 +16,10 @@ export default {
   },
   /** 是否可以清空选项 */
   clearable: Boolean,
+  /** 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义 */
+  collapsedItems: {
+    type: Function as PropType<TdSelectProps['collapsedItems']>,
+  },
   /** 是否允许用户创建新条目，需配合 filterable 使用 */
   creatable: Boolean,
   /** 是否禁用组件 */
@@ -44,6 +48,11 @@ export default {
   },
   /** 用于控制多选数量，值为 0 则不限制 */
   max: {
+    type: Number,
+    default: 0,
+  },
+  /** 最小折叠数量，用于多选情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠 */
+  minCollapsedNum: {
     type: Number,
     default: 0,
   },
@@ -85,6 +94,10 @@ export default {
   defaultValue: {
     type: [String, Number, Object, Array] as PropType<TdSelectProps['defaultValue']>,
   },
+  /** 自定义选中项呈现方式 */
+  valueDisplay: {
+    type: Function as PropType<TdSelectProps['valueDisplay']>,
+  },
   /** 用于控制选中值的类型。假设数据选项为：[{ label: '姓名', value: 'name' }]，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。 */
   valueType: {
     type: String as PropType<TdSelectProps['valueType']>,
@@ -101,10 +114,14 @@ export default {
   onClear: Function as PropType<TdSelectProps['onClear']>,
   /** 当选择新创建的条目时触发 */
   onCreate: Function as PropType<TdSelectProps['onCreate']>,
+  /** 回车键按下时触发。`inputValue` 表示输入框的值，`value` 表示选中值 */
+  onEnter: Function as PropType<TdSelectProps['onEnter']>,
   /** 输入框获得焦点时触发 */
   onFocus: Function as PropType<TdSelectProps['onFocus']>,
   /** 多选模式下，选中数据被移除时触发 */
   onRemove: Function as PropType<TdSelectProps['onRemove']>,
   /** 输入值变化时，触发搜索事件。主要用于远程搜索新数据 */
   onSearch: Function as PropType<TdSelectProps['onSearch']>,
+  /** 下拉框隐藏/显示时触发 */
+  onVisibleChange: Function as PropType<TdSelectProps['onVisibleChange']>,
 };

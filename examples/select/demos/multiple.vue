@@ -4,14 +4,45 @@
       v-model="value"
       placeholder="-请选择-"
       multiple
+      :min-collapsed-num="1"
       :options="options"
-      :onChange="handleChange"
-      @remove="handleRemove"
     />
+    <br/><br/>
+
+    <!-- 自定义选中项内容，valueDisplay 为 function -->
+    <t-select
+      v-model="value"
+      placeholder="-请选择-"
+      multiple
+      :valueDisplay="valueDisplay"
+      :options="options"
+    />
+    <br/><br/>
+
+    <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
+    <t-select
+      v-model="value"
+      placeholder="-请选择-"
+      multiple
+      :options="options"
+    >
+      <template #valueDisplay="{ value, onClose }">
+        <t-tag
+          v-for="(item, index) in value"
+          :key="index"
+          :closable="true"
+          :onClose="() => onClose(index)"
+          theme="success"
+          variant="light"
+        >
+          {{item.label}}（{{item.value}}）
+        </t-tag>
+      </template>
+    </t-select>
   </div>
 </template>
 
-<script>
+<script lang='jsx'>
 export default {
   data() {
     return {
@@ -29,11 +60,19 @@ export default {
     };
   },
   methods: {
-    handleChange(value) {
-      console.log('handleChange:', value);
-    },
-    handleRemove(value) {
-      console.log('handleRemove:', value);
+    valueDisplay(h, { value, onClose }) {
+      if (!(value instanceof Array)) return;
+      return value.map((item, index) => (
+        <t-tag
+          key={index}
+          theme="warning"
+          variant="light"
+          closable={true}
+          onClose={() => onClose(index)}
+        >
+          {item.label}（{item.value}）
+        </t-tag>
+      ));
     },
   },
 };
