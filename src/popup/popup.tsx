@@ -186,7 +186,8 @@ export default defineComponent({
         this.popperElm.style.display = '';
         this.presetMaxHeight = parseInt(getComputedStyle(this.getContentElm(this.popperElm)).maxHeight, 10) || Infinity;
         const referenceElmBottom = innerHeight - this.referenceElm.getBoundingClientRect().bottom;
-        if (referenceElmBottom < this.popperElm.scrollHeight) {
+        const referenceElmTop = this.referenceElm.getBoundingClientRect().top;
+        if (referenceElmBottom < this.popperElm.scrollHeight && referenceElmTop >= this.popperElm.scrollHeight) {
           placement = 'top-start';
         }
         this.popperElm.style.display = 'none';
