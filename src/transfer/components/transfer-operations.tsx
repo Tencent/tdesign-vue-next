@@ -85,7 +85,7 @@ export default defineComponent({
       <div class={name}>
         <t-button
           variant={rightDisabled ? 'outline' : 'base'}
-          key={rightDisabled ? 'outline' : 'base'}
+          key={rightDisabled ? 'right-outline' : 'right-base'}
           disabled={rightDisabled}
           onClick={this.moveToRight}
           icon={this.getIcon('right')}
@@ -94,7 +94,7 @@ export default defineComponent({
         </t-button>
         <t-button
           variant={leftDisabled ? 'outline' : 'base'}
-          key={leftDisabled ? 'outline' : 'base'}
+          key={rightDisabled ? 'left-outline' : 'left-base'}
           disabled={leftDisabled}
           onClick={this.moveToLeft}
           icon={this.getIcon('left')}

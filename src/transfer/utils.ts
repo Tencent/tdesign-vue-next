@@ -65,7 +65,7 @@ function getDataValues(data: Array<TransferItemOption>, filterValues: Array<Tran
   }
   return data.filter((item) => {
     const isInclude = filterValues.includes(item.value);
-    return (include && isInclude) || (!include && !isInclude);
+    return ((include && isInclude) || (!include && !isInclude)) && !item.disabled;
   }).map((item) => item.value);
 }
 
