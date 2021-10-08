@@ -31,9 +31,9 @@ export default defineComponent({
     const trigger: VNode[] | VNode | string = this.$slots.default
       ? this.$slots.default(null) : '';
 
-    const _popupProps = this.popupProps as TdDropdownProps['popupProps'];
+    const POPUP_PROPS = this.popupProps as TdDropdownProps['popupProps'];
 
-    const overlayClassName = _popupProps && _popupProps.overlayClassName ? [name, _popupProps.overlayClassName] : name;
+    const overlayClassName = POPUP_PROPS && POPUP_PROPS.overlayClassName ? [name, POPUP_PROPS.overlayClassName] : name;
     const popupProps = {
       ...this.$attrs,
       disabled: this.disabled,

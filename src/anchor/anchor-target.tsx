@@ -32,19 +32,19 @@ export default defineComponent({
   },
   render() {
     const {
-      tag: Tag,
+      tag: TAG,
       $slots: { default: children },
       id,
     } = this;
     const className = [name];
     const iconClassName = `${prefix}-copy`;
     return (
-      <Tag id={id} class={className}>
+      <TAG id={id} class={className}>
         {children && children(null)}
         <t-popup content="复制链接" placement="top" showArrow class={iconClassName}>
           <TIconFileCopy name="file-copy" onClick={this.copyText} />
         </t-popup>
-      </Tag>
+      </TAG>
     );
   },
 });

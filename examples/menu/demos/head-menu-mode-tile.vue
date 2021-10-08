@@ -7,7 +7,7 @@
     <t-menu-item value="item2">已选内容</t-menu-item>
     <t-menu-item value="item3">菜单内容二</t-menu-item>
     <t-menu-item value="item4" :disabled="true">菜单内容三</t-menu-item>
-    <template #options>
+    <template #operations>
       <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="search"/></a>
       <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="mail"/></a>
       <a href="javascript:;"><t-icon class="t-menu__operations-icon" name="user"/></a>

@@ -288,9 +288,9 @@ export default defineComponent({
     } = this;
 
     const {
-      tree,
+      // tree,
       level,
-      value,
+      // value,
     } = node;
 
     // 即使该节点从树中被删除也不要返回 null，null 会变成一个 comment 节点
@@ -298,6 +298,7 @@ export default defineComponent({
     // if (!tree || !tree.nodeMap.get(value)) {
     //   return null;
     // }
+
     const styles = this.getStyles();
     const classList = this.getClassList();
     return (

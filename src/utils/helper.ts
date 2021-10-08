@@ -104,13 +104,3 @@ export function getCharacterLength(str: string, maxCharacter?: number) {
   }
   return len;
 }
-
-/**
- * kebab-case转camelCase
- * @param str 传入字符串
- * @param maxCharacter 规定最大字符串长度
- * @returns 当没有传入maxCharacter时返回字符串字符长度，当传入maxCharacter时返回截取之后的字符串和长度。
- */
-export const toCamelCase = (str:string) => str
-.toLowerCase()
-.replace(/[^a-zA-Z0-9]+(.)/g, (m, char) => char.toUpperCase());

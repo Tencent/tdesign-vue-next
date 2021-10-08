@@ -229,16 +229,16 @@ export default defineComponent({
       // 双向滑块
       if (this.range && Array.isArray(value)) {
         let [firstValue, secondValue] = [Math.min(...value), Math.max(...value)];
-        firstValue > max ? (firstValue = this.firstValue) : null;
-        firstValue < min ? (firstValue = min) : null;
-        secondValue < min ? (secondValue = this.secondValue) : null;
-        secondValue > max ? (secondValue = max) : null;
+        firstValue > max ? firstValue = this.firstValue : null;
+        firstValue < min ? firstValue = min : null;
+        secondValue < min ? secondValue = this.secondValue : null;
+        secondValue > max ? secondValue = max : null;
         [this.firstValue, this.secondValue] = [firstValue, secondValue];
         return [firstValue, secondValue];
       }
       let preValue = value;
-      preValue < min ? (preValue = min) : null;
-      preValue > max ? (preValue = max) : null;
+      preValue < min ? preValue = min : null;
+      preValue > max ? preValue = max : null;
       return preValue;
     },
     setInputProps(): void {
@@ -407,8 +407,8 @@ export default defineComponent({
     const {
       min, max, layout, disabled, vertical,
     } = this;
-    const ButtonGroup = this.renderInputButton();
-    const Masks = this.renderMask();
+    const BUTTON_GROUP = this.renderInputButton();
+    const MASKS = this.renderMask();
     return (
       <div class={this.containerClass}>
         <div
@@ -452,10 +452,10 @@ export default defineComponent({
                 ))}
               </div>
             )}
-            {Masks}
+            {MASKS}
           </div>
         </div>
-        {ButtonGroup}
+        {BUTTON_GROUP}
       </div>
     );
   },

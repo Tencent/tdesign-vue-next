@@ -25,7 +25,6 @@ export default function xhr({
   });
   formData.append(name, file.raw);
 
-  console.log(method)
   xhr.open(method, action, true);
 
   // custom request headers

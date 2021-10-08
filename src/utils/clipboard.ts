@@ -13,4 +13,4 @@ export function copyText(text: string) {
 }
 
 
-export default copyText
+export default copyText;

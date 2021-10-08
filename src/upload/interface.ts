@@ -22,7 +22,7 @@ export interface HTMLInputEvent extends Event {
   target: HTMLInputElement & EventTarget;
 }
 
-export type { SuccessContext, ProgressContext } from './type'
+export type { SuccessContext, ProgressContext } from './type';
 export interface UploadRemoveOptions {
   e: MouseEvent;
   file?: UploadFile;

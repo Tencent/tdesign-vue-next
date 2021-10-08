@@ -63,18 +63,19 @@ const SIZE_MAP = {
 function isOverSizeLimit(fileSize: number, sizeLimit: number, unit: SizeUnit) {
   // 以 KB 为单位进行比较
   const units = ['B', 'KB', 'MB', 'GB'];
-  const KBIndex = 1;
+  const KB_INDEX = 1;
   let index = units.indexOf(unit);
   if (index === -1) {
     console.warn(`TDesign Upload Warn: \`sizeLimit.unit\` can only be one of ${units.join()}`);
-    index = KBIndex;
+    index = KB_INDEX;
   }
   const num = SIZE_MAP[unit];
-  const limit = index < KBIndex ? (sizeLimit / num) : (sizeLimit * num);
+  const limit = index < KB_INDEX ? (sizeLimit / num) : (sizeLimit * num);
   return fileSize <= limit;
 }
 
 export default defineComponent({
+  ...mixins(getLocalReceiverMixins('upload')),
   name,
   
   components: {
@@ -477,7 +478,7 @@ export default defineComponent({
       };
       let triggerElement = renderContent(this, 'default', 'trigger', { params });
       if (!Array.isArray(triggerElement)) {
-        triggerElement = {}
+        triggerElement = {};
       }
       return (
         <dragger
