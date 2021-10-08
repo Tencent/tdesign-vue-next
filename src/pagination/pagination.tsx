@@ -281,7 +281,7 @@ export default defineComponent({
       this.$emit('page-size-change', pageSize, pageInfo);
       this.$emit('change', pageInfo);
       if (isIndexChange) {
-        this.toPage(pageCount);
+        this.toPage(pageCount, false);
       }
     },
     renderTotalContent() {

@@ -213,7 +213,11 @@ describe('Transfer', () => {
       //       );
       //     },
       //   });
-      //   expect(wrapper.vm.$el.querySelector('.t-transfer-list-source').lastChild.querySelector('p').innerHTML).toBe('source源');
+      //   expect(wrapper.vm.$el
+      //     .querySelector('.t-transfer-list-source')
+      //     .lastChild.querySelector('p')
+      //     .innerHTML)
+      //     .toBe('source源');
       // });
     });
 
@@ -263,7 +267,8 @@ describe('Transfer', () => {
       //       return <Transfer operation={operation}></Transfer>;
       //     },
       //   });
-      //   expect(wrapper.vm.$el.querySelector('.t-transfer-operations button').innerHTML).toEqual('<span class="t-button__text"><div>go to right</div></span>');
+      //   expect(wrapper.vm.$el.querySelector('.t-transfer-operations button').innerHTML)
+      //     .toEqual('<span class="t-button__text"><div>go to right</div></span>');
       // });
     });
 
