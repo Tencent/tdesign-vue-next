@@ -144,6 +144,7 @@ export default defineComponent({
       const rules = trigger === 'all' ? this.innerRules : this.innerRules.filter((item) => (item.trigger || 'change') === trigger);
       const r = await validate(this.value, rules);
       const errorList = r.filter((item) => item.result !== true);
+      this.errorList = errorList;
       // 仅有自定义校验方法才会存在 successList
       this.successList = r.filter((item) => item.result === true && item.message && item.type === 'success');
       // 根据校验结果设置校验状态
@@ -302,6 +303,7 @@ export default defineComponent({
     resetHandler(): void {
       this.needResetField = false;
       this.errorList = [];
+      this.successList = [];
       this.verifyStatus = ValidateStatus.TO_BE_VALIDATED;
     },
   },

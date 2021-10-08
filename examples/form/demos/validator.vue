@@ -103,9 +103,9 @@ export default {
     onReset() {
       this.$message.success('重置成功');
     },
-    onSubmit({ validateResult, firstError }) {
+    onSubmit({ validateResult, firstError, e }) {
       e.preventDefault();
-      if (result === true) {
+      if (validateResult === true) {
         this.$message.success('提交成功');
       } else {
         console.log('Validate Errors: ', firstError, validateResult);

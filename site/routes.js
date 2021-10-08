@@ -1,7 +1,12 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
 import config from './site.config';
+import TdesignComponents from './pages/components.vue';
+import TdesignDemoList from './pages/demo-list.vue';
+import TdesignDemoPage from './pages/demo-page.vue';
 
 const { docs } = config;
+
+export const demoFiles = import.meta.globEager('../examples/**/demos/*.vue');
 
 function getDocsRoutes(docs, type) {
   let docsRoutes = [];
@@ -23,9 +28,8 @@ function getDocsRoutes(docs, type) {
       docsRoutes = docsRoutes.concat(getDocsRoutes(children, docType));
     } else {
       docRoute = {
-        path: item.path,
-        name: item.name,
-        meta: { docType: item.docType },
+        path: item.name,
+        meta: item.meta || {},
         component: item.component,
       };
       docsRoutes.push(docRoute);
@@ -34,17 +38,44 @@ function getDocsRoutes(docs, type) {
   return docsRoutes;
 }
 
+function getDemoRoutes() {
+  if (process.env.NODE_ENV === 'development') {
+    return Object.keys(demoFiles).map((key) => {
+      const match = key.match(/([\w-]+).demos.([\w-]+).vue/);
+      const [, componentName, demoName] = match;
+      return {
+        path: `/vue-next/demos/${componentName}/${demoName}`,
+        props: { componentName, demo: demoFiles[key].default },
+        component: TdesignDemoPage,
+      };
+    });
+  }
+  return [];
+}
+
+const demoRoutes = getDemoRoutes();
+
 const routes = [
   {
-    path: '/',
-    redirect: () => ({ name: 'button' }),
+    path: '/vue-next/components',
+    redirect: '/vue-next/components/button',
+    component: TdesignComponents,
+    children: getDocsRoutes(docs),
   },
   {
     path: '/vue-next/',
-    redirect: () => ({ name: 'button' }),
+    redirect: '/vue-next/components/button',
   },
-  ...getDocsRoutes(docs, 'doc'),
-  ...getDocsRoutes(docs, 'component'),
+  {
+    path: '/',
+    redirect: '/vue-next/components/button',
+  },
+  ...demoRoutes,
+  {
+    path: '/vue-next/demos',
+    component: TdesignDemoList,
+    props: { demoRoutes },
+  },
 ];
 
 const routerConfig = {
@@ -56,7 +87,7 @@ const routerConfig = {
     }
   },
 };
-console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+
 if (process.env.NODE_ENV === 'production') {
   routerConfig.history = createWebHistory('/');
 }
