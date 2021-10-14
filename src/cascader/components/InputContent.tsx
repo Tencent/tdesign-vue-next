@@ -80,10 +80,14 @@ export default defineComponent({
     },
   },
   mounted() {
-    document.addEventListener('click', (event) => { this.outerClickListenerFn(event); });
+    document.addEventListener('click', (event) => {
+      this.outerClickListenerFn(event);
+    });
   },
   unmounted() {
-    document.removeEventListener('click', (event) => { this.outerClickListenerFn(event); });
+    document.removeEventListener('click', (event) => {
+      this.outerClickListenerFn(event);
+    });
   },
   methods: {
     outerClickListenerFn(event: MouseEvent | TouchEvent) {

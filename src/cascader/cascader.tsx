@@ -18,7 +18,7 @@ import InputContent from './components/InputContent';
 // types
 import TreeNode from '../_common/js/tree/tree-node';
 import {
-  ListenersType, TreeNodeValue, EVENT_NAME_WITH_KEBAB, TreeOptionData,
+  ListenersType, TreeNodeValue, EVENT_NAME_WITH_KEBAB,
   CascaderContextType,
 } from './interface';
 import props from './props';
