@@ -770,7 +770,7 @@ exports[`DatePicker base demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="function Boolean() { [native code] }"
+            autofocus="false"
             class="t-input__inner"
             readonly=""
             type="text"
@@ -2310,7 +2310,7 @@ exports[`DatePicker datePresets demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="function Boolean() { [native code] }"
+            autofocus="false"
             class="t-input__inner"
             readonly=""
             type="text"
@@ -3861,7 +3861,7 @@ exports[`DatePicker datePresetsAlt demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="function Boolean() { [native code] }"
+            autofocus="false"
             class="t-input__inner"
             readonly=""
             type="text"
@@ -5414,7 +5414,7 @@ exports[`DatePicker datePresetsTime demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="function Boolean() { [native code] }"
+            autofocus="false"
             class="t-input__inner"
             readonly=""
             type="text"
@@ -6942,7 +6942,7 @@ exports[`DatePicker dateRange demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="function Boolean() { [native code] }"
+            autofocus="false"
             class="t-input__inner"
             readonly=""
             type="text"
@@ -7302,7 +7302,7 @@ exports[`DatePicker month demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="function Boolean() { [native code] }"
+            autofocus="false"
             class="t-input__inner"
             readonly=""
             type="text"
@@ -7633,7 +7633,7 @@ exports[`DatePicker year demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="function Boolean() { [native code] }"
+            autofocus="false"
             class="t-input__inner"
             readonly=""
             type="text"

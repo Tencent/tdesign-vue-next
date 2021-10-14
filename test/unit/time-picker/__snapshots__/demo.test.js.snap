@@ -824,7 +824,7 @@ exports[`Time-picker base demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="function Boolean() { [native code] }"
+          autofocus="false"
           class="t-input__inner"
           readonly=""
           type="text"
@@ -1704,7 +1704,7 @@ exports[`Time-picker base demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="function Boolean() { [native code] }"
+          autofocus="false"
           class="t-input__inner"
           readonly=""
           type="text"

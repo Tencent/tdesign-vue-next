@@ -229,16 +229,28 @@ export default defineComponent({
       // 双向滑块
       if (this.range && Array.isArray(value)) {
         let [firstValue, secondValue] = [Math.min(...value), Math.max(...value)];
-        firstValue > max ? firstValue = this.firstValue : null;
-        firstValue < min ? firstValue = min : null;
-        secondValue < min ? secondValue = this.secondValue : null;
-        secondValue > max ? secondValue = max : null;
+        if (firstValue > max) {
+          firstValue = this.firstValue;
+        }
+        if (firstValue < min) {
+          firstValue = min;
+        }
+        if (secondValue < min) {
+          secondValue = this.secondValue;
+        }
+        if (secondValue > max) {
+          secondValue = max;
+        }
         [this.firstValue, this.secondValue] = [firstValue, secondValue];
         return [firstValue, secondValue];
       }
       let preValue = value;
-      preValue < min ? preValue = min : null;
-      preValue > max ? preValue = max : null;
+      if (preValue < min) {
+        preValue = min;
+      }
+      if (preValue > max) {
+        preValue = max;
+      }
       return preValue;
     },
     setInputProps(): void {

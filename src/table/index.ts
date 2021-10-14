@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import { prefix } from '../config';
 import _BaseTable from './base-table/index';
 import _PrimaryTable from './primary-table/index';
@@ -34,7 +34,7 @@ const TPrimaryTable = mapProps([
 export const BaseTable: WithInstallType<typeof _BaseTable> = withInstall(_BaseTable);
 export const PrimaryTable: WithInstallType<typeof TPrimaryTable> = withInstall(TPrimaryTable);
 
-const LocalBaseTable = _.cloneDeep(TPrimaryTable);
+const LocalBaseTable = cloneDeep(TPrimaryTable);
 LocalBaseTable.name = `${prefix}-table`;
 export const Table: WithInstallType<typeof LocalBaseTable> = withInstall(LocalBaseTable);
 

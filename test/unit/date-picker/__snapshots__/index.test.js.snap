@@ -297,7 +297,7 @@ exports[`DatePicker :mode 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="function Boolean() { [native code] }"
+          autofocus="false"
           class="t-input__inner"
           readonly=""
           type="text"
@@ -941,7 +941,7 @@ exports[`DatePicker :range 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="function Boolean() { [native code] }"
+          autofocus="false"
           class="t-input__inner"
           readonly=""
           type="text"
@@ -1295,7 +1295,7 @@ exports[`DatePicker :value 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="function Boolean() { [native code] }"
+          autofocus="false"
           class="t-input__inner"
           readonly=""
           type="text"

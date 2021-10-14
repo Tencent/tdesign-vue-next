@@ -22,7 +22,7 @@ export default {
               value: '1.2',
             },
             {
-              label: '浦东新区',
+              label: '上海很远很远很远很远很远的地方',
               value: '1.3',
             },
           ],

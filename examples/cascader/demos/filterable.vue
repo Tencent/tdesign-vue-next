@@ -1,6 +1,7 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable placeholder='请选择'></t-cascader>
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" filterable clearable placeholder='请选择'></t-cascader>
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value2" filterable clearable multiple placeholder='请选择'></t-cascader>
   </div>
 </template>
 
@@ -42,7 +43,8 @@ export default {
           ],
         },
       ],
-      value: '1.1',
+      value: '',
+      value2: ['1.1']
     };
   },
 };

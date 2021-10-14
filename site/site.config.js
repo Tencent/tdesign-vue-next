@@ -86,7 +86,7 @@ export default {
           meta: {
             docType: 'navigation',
           },
-          path: '/vue/components/affix',
+          path: '/vue-next/components/affix',
           component: () => import('@/examples/affix/affix.md'),
         },
         {
@@ -150,7 +150,7 @@ export default {
           meta: {
             docType: 'form',
           },
-          path: '/vue/components/cascader',
+          path: '/vue-next/components/cascader',
           component: () => import('@/examples/cascader/cascader.md'),
         },
         {
@@ -205,7 +205,7 @@ export default {
         {
           title: 'Slider 滑块',
           name: 'slider',
-          path: '/vue/components/slider',
+          path: '/vue-next/components/slider',
           component: () => import('@/examples/slider/slider.md'),
         },
         {
@@ -377,7 +377,7 @@ export default {
         {
           title: 'Swiper 轮播框',
           name: 'swiper',
-          path: '/vue/components/swiper',
+          path: '/vue-next/components/swiper',
           component: () => import('@/examples/swiper/swiper.md'),
         },
       ],

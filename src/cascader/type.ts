@@ -26,6 +26,11 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   clearable?: boolean;
   /**
+   * 多选下是否可折叠
+   * @default false
+   */
+  collapseTags?: boolean;
+  /**
    * 是否禁用组件
    * @default false
    */

@@ -1,16 +1,9 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" placeholder='请选择' multiple clearable size="small"></t-cascader>
-    <t-cascader
-      class="t-demo-cascader"
-      :options="options"
-      v-model="value"
-      multiple
-      clearable
-      size="medium"
-      placeholder='请选择'
-    ></t-cascader>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" placeholder='请选择' multiple clearable size="large"></t-cascader>
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" multiple clearable size="small" />
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" multiple clearable />
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" multiple clearable size="large" />
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" multiple clearable collapseTags />
   </div>
 </template>
 

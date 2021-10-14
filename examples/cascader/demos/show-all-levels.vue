@@ -40,7 +40,7 @@ export default {
               value: '2.2',
             },
             {
-              label: '这里是深圳的一个特别长长长长长长长长的地名',
+              label: '福田区',
               value: '2.3',
             },
           ],

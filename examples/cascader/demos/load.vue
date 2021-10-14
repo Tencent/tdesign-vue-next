@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable placeholder='请选择'></t-cascader>
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable :load="load" />
   </div>
 </template>
 
@@ -10,41 +10,41 @@ export default {
     return {
       options: [
         {
-          label: '上海很远很远很远很远很远的地方',
+          label: '上海',
           value: '1',
-          children: [
-            {
-              label: '黄浦区',
-              value: '1.1',
-            },
-            {
-              label: '静安区',
-              value: '1.2',
-            },
-            {
-              label: '浦东新区',
-              value: '1.3',
-            },
-          ],
+          children: true,
         },
         {
           label: '深圳',
           value: '2',
-          children: [
-            {
-              label: '宝安区',
-              value: '2.1',
-            },
-            {
-              label: '南山很远很远很远很远很远的地方',
-              value: '2.2',
-            },
-          ],
+          children: true,
         },
       ],
-      value: '1.1',
+      value: '',
     };
   },
+  methods: {
+    load(node) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          let nodes = [];
+          if (node.level < 3) {
+            nodes = [
+              {
+                label: `${node.label}.1`,
+                children: node.level < 2,
+              },
+              {
+                label: `${node.label}.2`,
+                children: node.level < 2,
+              },
+            ];
+          }
+          resolve(nodes);
+        }, 1000);
+      })
+    }
+  }
 };
 </script>
 <style scoped>

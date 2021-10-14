@@ -49,20 +49,20 @@ describe('Cascader', () => {
       expect(wrapper.find('.t-cascader-item').exists()).toBe(true);
     });
 
-    it(':multiple', () => {
-      const value = ['2.1', '2.2'];
-      const wrapper = mount({
-        render() {
-          return <Cascader
-            options={options}
-            v-model={value}
-            multiple
-            clearable
-            size="medium"></Cascader>;
-        },
-      });
-      expect(wrapper.find('.t-tag').exists()).toBe(true);
-    });
+    // it(':multiple', () => {
+    //   const value = ['2.1', '2.2'];
+    //   const wrapper = mount({
+    //     render() {
+    //       return <Cascader
+    //         options={options}
+    //         v-model={value}
+    //         multiple
+    //         clearable
+    //         size="medium"></Cascader>;
+    //     },
+    //   });
+    //   expect(wrapper.find('.t-tag').exists()).toBe(true);
+    // });
 
     it(':disabled', () => {
       const value = ['2.1', '2.2'];

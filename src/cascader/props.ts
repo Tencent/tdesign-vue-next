@@ -17,6 +17,8 @@ export default {
   checkStrictly: Boolean,
   /** 是否支持清空选项 */
   clearable: Boolean,
+  /** 是否折叠tag */
+  collapseTags: Boolean,
   /** 是否禁用组件 */
   disabled: Boolean,
   /** 无匹配选项时的内容 */

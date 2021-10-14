@@ -34,7 +34,7 @@ exports[`Form base demo works fine 1`] = `
             <!---->
             <input
               autocomplete="false"
-              autofocus="function Boolean() { [native code] }"
+              autofocus="false"
               class="t-input__inner"
               placeholder="请输入内容"
               type="text"
@@ -75,7 +75,7 @@ exports[`Form base demo works fine 1`] = `
             <!---->
             <input
               autocomplete="false"
-              autofocus="function Boolean() { [native code] }"
+              autofocus="false"
               class="t-input__inner"
               placeholder="请输入内容"
               type="text"

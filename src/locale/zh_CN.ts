@@ -10,6 +10,7 @@ export default {
   cascader: {
     empty: '暂无数据',
     loadingText: '加载中',
+    placeholderText: '请选择',
   },
   calendar: {
     yearSelection: '{year} 年',
