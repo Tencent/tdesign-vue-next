@@ -71,8 +71,9 @@ export default defineComponent({
   },
 
   methods: {
-    bindEvent() {
+    bindEvent(e: MouseEvent) {
       if (!this.href || !this.disabled) {
+        e.preventDefault();
         const { to } = this;
         const router = this.router || this.$router;
         if (to && router) {
@@ -117,7 +118,7 @@ export default defineComponent({
     if ((this.href || this.to) && !this.disabled) {
       textClass.push(linkClass);
       itemContent = (
-        <a class={textClass} href={this.href} target={this.target} {...listeners} onClick={this.bindEvent}>
+        <a class={textClass} href={this.href}target={this.target} {...listeners} onClick={this.bindEvent}>
           {textContent}
         </a>);
     }
