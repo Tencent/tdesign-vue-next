@@ -20,11 +20,11 @@ export interface CascaderContextType
   | 'checkProps'
   | 'showAllLevels'
   | 'max'
-  | 'collapseTags'
+  | 'value'
+  | 'minCollapsedNum'
   > {
   treeStore: TreeStore;
-  model: CascaderValue;
-  setModel: (val: CascaderValue) => void;
+  setValue: (val: CascaderValue) => void;
   visible: boolean;
   setVisible: (val: boolean) => void;
   treeNodes: TreeNode[];
@@ -51,6 +51,7 @@ export interface InputContentProps {
   cascaderContext: CascaderContextType;
   placeholder: TdCascaderProps['placeholder'];
   listeners: ListenersType;
+  collapsedItems: TdCascaderProps['collapsedItems'];
 }
 
 export interface ContentProps {
@@ -77,9 +78,9 @@ export interface SuffixIconProps {
 export interface CascaderItemProps {
   node: TreeNode;
   cascaderContext: CascaderContextType;
-  onClick: any;
-  onChange: any;
-  onMouseEnter: any;
+  onClick: (ctx: ContextType) => void;
+  onChange: (ctx: ContextType | { e: boolean; node: TreeNode }) => void;
+  onMouseEnter: (ctx: ContextType) => void;
 }
 
 export type ContextType = { e?: Event; node?: TreeNode };

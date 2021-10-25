@@ -8,7 +8,6 @@ exports[`Input $attrs input attrs should pass to input element 1`] = `
   <!---->
   <input
     autocomplete="false"
-    autofocus="false"
     class="t-input__inner"
     name="password"
     placeholder="please text"
@@ -40,7 +39,6 @@ exports[`Input :props :autocomplete 1`] = `
   <!---->
   <input
     autocomplete="true"
-    autofocus="false"
     class="t-input__inner"
     type="text"
   />
@@ -55,7 +53,6 @@ exports[`Input :props :disabled 1`] = `
   <!---->
   <input
     autocomplete="false"
-    autofocus="false"
     class="t-input__inner"
     disabled=""
     type="text"
@@ -77,7 +74,6 @@ exports[`Input :props :prefix-icon 1`] = `
   </span>
   <input
     autocomplete="false"
-    autofocus="false"
     class="t-input__inner"
     type="text"
   />
@@ -92,7 +88,6 @@ exports[`Input :props :readonly 1`] = `
   <!---->
   <input
     autocomplete="false"
-    autofocus="false"
     class="t-input__inner"
     readonly=""
     type="text"
@@ -108,7 +103,6 @@ exports[`Input :props :size 1`] = `
   <!---->
   <input
     autocomplete="false"
-    autofocus="false"
     class="t-input__inner"
     type="text"
   />
@@ -123,7 +117,6 @@ exports[`Input :props :suffix-icon 1`] = `
   <!---->
   <input
     autocomplete="false"
-    autofocus="false"
     class="t-input__inner"
     type="text"
   />

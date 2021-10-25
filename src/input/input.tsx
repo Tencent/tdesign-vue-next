@@ -52,6 +52,18 @@ export default defineComponent({
       });
     },
   },
+  watch: {
+    autofocus: {
+      handler(val) {
+        if (val) {
+          this.$nextTick(() => {
+            (this.$refs.refInputElem as HTMLInputElement).focus();
+          });
+        }
+      },
+      immediate: true,
+    },
+  },
   created() {
     this.composing = false;
   },
@@ -204,7 +216,6 @@ export default defineComponent({
           {...inputEvents }
           ref="refInputElem"
           value={this.value}
-          autoFocus={this.autofocus}
           class={`${name}__inner`}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
           onCompositionend={this.onCompositionend}

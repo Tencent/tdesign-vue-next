@@ -1,30 +1,7 @@
-import { getFullPathLabel } from './helper';
+import { getFullPathLabel, getTreeValue } from './helper';
 import {
-  TreeNode, TreeNodeValue, TreeOptionData, CascaderContextType,
+  TreeNode, TreeNodeValue, CascaderContextType,
 } from '../interface';
-
-/**
- * treeValue计算方法
- * @param model
- * @returns
- */
-export const getTreeValue = (model: CascaderContextType['model']) => {
-  let treeValue: TreeNodeValue[] = [];
-  if (Array.isArray(model)) {
-    if (model.length > 0 && typeof model[0] === 'object') {
-      treeValue = (model as TreeOptionData[]).map((val) => val.value);
-    } else if (model.length) {
-      treeValue = model as TreeNodeValue[];
-    }
-  } else if (model) {
-    if (typeof model === 'object') {
-      treeValue = [(model as TreeOptionData).value];
-    } else {
-      treeValue = [model];
-    }
-  }
-  return treeValue;
-};
 
 /**
  * input和treeStore变化的副作用
@@ -59,9 +36,11 @@ export const treeNodesEffect = (
  */
 export const treeStoreExpendEffect = (
   treeStore: CascaderContextType['treeStore'],
-  treeValue: TreeNodeValue[],
+  value: CascaderContextType['value'],
   expend: TreeNodeValue[],
 ) => {
+  const treeValue = getTreeValue(value);
+  if (!treeStore) return;
   // init expanded, 无expend状态时设置
   if (Array.isArray(treeValue) && expend.length === 0) {
     const expandedMap = new Map();

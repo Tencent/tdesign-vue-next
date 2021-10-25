@@ -1,14 +1,16 @@
 import { defineComponent, VNode, Transition } from 'vue';
 import isEqual from 'lodash/isEqual';
+import isEmpty from 'lodash/isEmpty';
 
 // utils
 import { prefix } from '../config';
 import TreeStore from '../_common/js/tree/tree-store';
 import { emitEvent } from '../utils/event';
 import { getPropsApiByEvent } from '../utils/helper';
+import { getTreeValue } from './utils/helper';
 
 // common logic
-import { getTreeValue, treeNodesEffect, treeStoreExpendEffect } from './utils/cascader';
+import { treeNodesEffect, treeStoreExpendEffect } from './utils/cascader';
 
 // component
 import Panel from './components/Panel';
@@ -20,6 +22,7 @@ import TreeNode from '../_common/js/tree/tree-node';
 import {
   ListenersType, TreeNodeValue, EVENT_NAME_WITH_KEBAB,
   CascaderContextType,
+  TdCascaderProps,
 } from './interface';
 import props from './props';
 
@@ -39,14 +42,14 @@ export default defineComponent({
     ...props,
   },
 
-  emits: ['visible-change', 'load', 'update', 'change', 'remove', 'input'],
+  emits: ['change', 'remove', 'blur', 'focus'],
 
   data() {
     return {
       visible: false,
       treeStore: null,
       inputVal: '',
-      model: this.value as TreeNodeValue | TreeNodeValue[],
+      scopeVal: this.defaultValue as any,
       treeNodes: [],
       filterActive: false,
       expend: [] as TreeNodeValue[],
@@ -54,27 +57,13 @@ export default defineComponent({
   },
 
   computed: {
-    cascaderContext(): CascaderContextType {
-      const {
-        size = 'medium',
-        disabled = false,
-        checkStrictly = false,
-        lazy = true,
-        multiple = false,
-        filterable = false,
-        clearable = false,
-        checkProps = {},
-        max = undefined,
-        showAllLevels = true,
-        collapseTags,
-      } = this;
-
-      const stateFns = {
+    stateFns() {
+      return {
         setTreeNodes: (nodes: TreeNode[]) => {
           this.treeNodes = nodes;
         },
-        setModel: (val: TreeNodeValue | TreeNodeValue[]) => {
-          this.model = val;
+        setValue: (val: TreeNodeValue | TreeNodeValue[]) => {
+          this.$emit('change', val);
         },
         setVisible: (val: boolean) => {
           this.visible = val;
@@ -89,9 +78,24 @@ export default defineComponent({
           this.expend = val;
         },
       };
+    },
+    cascaderContext(): CascaderContextType {
+      const value = this.scopeVal as TdCascaderProps['value'];
+      const {
+        size = 'medium',
+        disabled = false,
+        checkStrictly = false,
+        lazy = true,
+        multiple = false,
+        filterable = false,
+        clearable = false,
+        checkProps = {},
+        max = 0,
+        showAllLevels = true,
+        minCollapsedNum = 0,
+      } = this;
 
       const {
-        model,
         visible,
         treeStore,
         treeNodes,
@@ -110,38 +114,26 @@ export default defineComponent({
         clearable,
         showAllLevels,
         max,
-        model,
+        value,
         visible,
         treeStore,
         treeNodes,
         filterActive,
         inputVal,
-        collapseTags,
-        ...stateFns,
+        minCollapsedNum,
+        ...this.stateFns,
       };
-    },
-    treeValue() {
-      return getTreeValue(this.model);
     },
   },
 
   watch: {
-    model: {
-      handler(val) {
-        if (!this.treeStore) return;
-        if (!isEqual(val, this.value)) {
-          this.$emit('change', this.model);
-        }
-        this.updatedTreeNodes();
-      },
-    },
+    // 处理外部传进来的value
     value: {
       handler(val) {
-        // 处理外部传进来的value
-        if (isEqual(val, this.model)) return;
-        this.model = val;
+        if (isEqual(val, this.scopeVal)) return;
+        this.scopeVal = val;
+        this.updateExpend();
       },
-      immediate: true,
     },
     inputVal() {
       this.updatedTreeNodes();
@@ -152,19 +144,13 @@ export default defineComponent({
         this.inputVal = '';
       }
     },
-    treeValue() {
-      this.updateExpend();
-    },
   },
 
   mounted() {
+    if (!isEmpty(this.value)) {
+      this.scopeVal = this.value;
+    }
     this.init();
-    if (this.multiple && !Array.isArray(this.model)) {
-      this.model = [];
-    }
-    if (!this.multiple && Array.isArray(this.model)) {
-      this.model = '';
-    }
     ['checkStrictly', 'disabled', 'keys', 'lazy', 'load', 'options', 'valueMode'].forEach((key) => {
       this.$watch(key, () => {
         this.init();
@@ -221,12 +207,12 @@ export default defineComponent({
     // 更新节点展开状态
     updateExpend() {
       const {
-        cascaderContext: { treeStore },
-        treeValue,
+        cascaderContext: { treeStore, value },
         expend,
       } = this;
-      treeStoreExpendEffect(treeStore, treeValue, expend);
-      treeStore.replaceChecked(treeValue);
+      if (!treeStore) return;
+      treeStoreExpendEffect(treeStore, value, expend);
+      treeStore.replaceChecked(getTreeValue(value));
     },
   },
   render(): VNode {
@@ -236,6 +222,8 @@ export default defineComponent({
       empty,
       $attrs,
       cascaderContext,
+      $slots,
+      placeholder,
     } = this;
 
     const popupProps = this.popupProps as PopupProps;
@@ -256,12 +244,12 @@ export default defineComponent({
         visible={visible}
         trigger={popupProps?.trigger || 'click'}
         expandAnimation={true}
-        {...popupProps}
         v-slots={{
-          content: () => <panel empty={empty} trigger={trigger} cascaderContext={cascaderContext} onChange={listeners.onChange}/>,
+          content: () => <panel empty={empty} trigger={trigger} cascaderContext={cascaderContext} onChange={listeners.onChange}>{$slots}</panel>,
         }}
+        {...popupProps}
       >
-        <InputContent {...$attrs} cascaderContext={cascaderContext} listeners={listeners}/>
+        <InputContent {...$attrs} cascaderContext={cascaderContext} placeholder={placeholder} listeners={listeners}>{$slots}</InputContent>
       </Popup>
     </div >);
   },

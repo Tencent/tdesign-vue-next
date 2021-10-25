@@ -46,11 +46,10 @@ export default defineComponent({
       },
       cascaderContext,
       panels,
+      $slots,
     } = this;
-
-    const useLocale = !this.empty && !this.$slots.empty;
+    const useLocale = !this.empty && !$slots.empty;
     const empty = useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty');
-
     const handleExpand = (ctx: ContextType, trigger: 'hover' | 'click') => {
       const { node } = ctx;
       const {
@@ -75,7 +74,7 @@ export default defineComponent({
     // innerComponents
     const renderEmpty = (
       <ul class={[`${name}-menu`]}>
-        <li class={[`${name}-item`, `${name}-item__is-empty`]}>{empty}</li>
+        {!$slots.empty ? <li class={[`${name}-item`, `${name}-item__is-empty`]}>{empty}</li> : empty}
       </ul>
     );
 

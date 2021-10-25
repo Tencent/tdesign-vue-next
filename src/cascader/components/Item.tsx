@@ -29,11 +29,11 @@ function RenderLabelInner(name: string, node: TreeNode, cascaderContext: Cascade
   if (filterActive) {
     const ctx = labelText.split(inputVal);
     return (() => (
-      <>
+      <span>
         {ctx[0]}
         <span class={`${name}__label--filter`}>{inputVal}</span>
         {ctx[1]}
-      </>
+      </span>
     ))();
   }
   return (() => (
@@ -60,15 +60,15 @@ function RenderLabelContent(node: TreeNode, cascaderContext: CascaderContextType
 function RenderCheckBox(node: TreeNode, cascaderContext: CascaderContextType, handleChange: CheckboxProps['onChange']) {
   const name = `${prefix}-cascader-item`;
 
-  const { checkProps, model, max } = cascaderContext;
+  const { checkProps, value, max } = cascaderContext;
   const label = RenderLabelInner(name, node, cascaderContext);
   return (<Checkbox
-    {...checkProps}
     checked={node.checked}
     indeterminate={node.indeterminate}
-    disabled={node.isDisabled() || ((model as TreeNodeValue[]).length >= max && max !== 0)}
+    disabled={node.isDisabled() || ((value as TreeNodeValue[]).length >= max && max !== 0)}
     name={node.value}
     onChange={handleChange}
+    {...checkProps}
   >{label}</Checkbox>);
 }
 
@@ -80,12 +80,6 @@ export default defineComponent({
   props: {
     node: {
       type: Object as PropType<TreeNode>,
-      default() {
-        return {};
-      },
-    },
-    checkProps: {
-      type: Object,
       default() {
         return {};
       },
@@ -106,6 +100,13 @@ export default defineComponent({
     },
   },
   render() {
+    const {
+      node,
+      itemClass,
+      iconClass,
+      cascaderContext,
+    } = this;
+
     const handleClick = (e: Event) => {
       e.stopPropagation();
       const ctx: ContextType = {
@@ -132,12 +133,6 @@ export default defineComponent({
       this.$emit('mouseenter', ctx);
     };
 
-    const {
-      node,
-      itemClass,
-      iconClass,
-      cascaderContext,
-    } = this;
     return (<li v-ripple class={itemClass} onClick={handleClick} onMouseenter={handleMouseenter}>
       {cascaderContext.multiple ? RenderCheckBox(node, cascaderContext, handleChange) : RenderLabelContent(node, cascaderContext)}
       {node.children

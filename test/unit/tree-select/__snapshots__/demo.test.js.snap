@@ -245,7 +245,6 @@ exports[`TreeSelect base demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="false"
             class="t-input__inner"
             placeholder="请选择"
             type="text"
@@ -612,7 +611,6 @@ exports[`TreeSelect filterable demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="false"
             class="t-input__inner"
             placeholder="shenzhen"
             type="text"
@@ -815,7 +813,6 @@ exports[`TreeSelect lazy demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="false"
             class="t-input__inner"
             placeholder="请选择"
             type="text"
@@ -1231,7 +1228,6 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="false"
             class="t-input__inner"
             type="text"
           />
@@ -1543,7 +1539,6 @@ exports[`TreeSelect prefix demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
-            autofocus="false"
             class="t-input__inner"
             placeholder="请输入"
             type="text"

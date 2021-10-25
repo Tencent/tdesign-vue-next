@@ -18,7 +18,6 @@ exports[`Input addon demo works fine 1`] = `
       <!---->
       <input
         autocomplete="false"
-        autofocus="false"
         class="t-input__inner"
         placeholder="请输入内容"
         type="text"
@@ -37,7 +36,6 @@ exports[`Input addon demo works fine 1`] = `
       <!---->
       <input
         autocomplete="false"
-        autofocus="false"
         class="t-input__inner"
         placeholder="请输入内容"
         type="text"
@@ -64,7 +62,6 @@ exports[`Input addon demo works fine 1`] = `
       <!---->
       <input
         autocomplete="false"
-        autofocus="false"
         class="t-input__inner"
         placeholder="请输入内容"
         type="text"
@@ -90,7 +87,6 @@ exports[`Input base demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       placeholder="请输入内容（无默认值）"
       type="text"
@@ -106,7 +102,6 @@ exports[`Input base demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       placeholder="请输入内容（有默认值）"
       type="text"
@@ -126,7 +121,6 @@ exports[`Input disabled demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       disabled=""
       type="text"
@@ -152,7 +146,6 @@ exports[`Input group demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="false"
           class="t-input__inner"
           type="text"
         />
@@ -164,7 +157,6 @@ exports[`Input group demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="false"
           class="t-input__inner"
           type="text"
         />
@@ -184,7 +176,6 @@ exports[`Input group demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="false"
           class="t-input__inner"
           type="text"
         />
@@ -196,7 +187,6 @@ exports[`Input group demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="false"
           class="t-input__inner"
           type="text"
         />
@@ -216,7 +206,6 @@ exports[`Input group demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="false"
           class="t-input__inner"
           type="text"
         />
@@ -228,7 +217,6 @@ exports[`Input group demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="false"
           class="t-input__inner"
           type="text"
         />
@@ -249,7 +237,6 @@ exports[`Input group demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="false"
           class="t-input__inner"
           type="text"
         />
@@ -267,7 +254,6 @@ exports[`Input group demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="false"
           class="t-input__inner"
           type="text"
         />
@@ -280,7 +266,6 @@ exports[`Input group demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="false"
           class="t-input__inner"
           type="text"
         />
@@ -293,7 +278,6 @@ exports[`Input group demo works fine 1`] = `
         <!---->
         <input
           autocomplete="false"
-          autofocus="false"
           class="t-input__inner"
           type="text"
         />
@@ -332,7 +316,6 @@ exports[`Input password demo works fine 1`] = `
     </span>
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       type="password"
     />
@@ -375,7 +358,6 @@ exports[`Input password demo works fine 1`] = `
     </span>
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       type="password"
     />
@@ -409,7 +391,6 @@ exports[`Input size demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       placeholder="请输入内容"
       type="text"
@@ -422,7 +403,6 @@ exports[`Input size demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       placeholder="请输入内容"
       type="text"
@@ -435,7 +415,6 @@ exports[`Input size demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       placeholder="请输入内容"
       type="text"
@@ -455,7 +434,6 @@ exports[`Input status demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       type="text"
     />
@@ -467,7 +445,6 @@ exports[`Input status demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       type="text"
     />
@@ -479,7 +456,6 @@ exports[`Input status demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
-      autofocus="false"
       class="t-input__inner"
       type="text"
     />

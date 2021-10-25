@@ -90,7 +90,7 @@ export default defineComponent({
       [`${name}-primary-filled`]: this.variant === 'primary-filled',
     }];
     if (this.buttonStyle === 'solid' || this.variant.includes('filled')) {
-      children.push(<div style={this.barStyle} class={`${name}-filled-bg-block`}></div>);
+      children && children.push(<div style={this.barStyle} class={`${name}-filled-bg-block`}></div>);
     }
     return (
       <div class={groupClass}>

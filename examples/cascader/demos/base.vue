@@ -1,7 +1,10 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="small" placeholder='请选择'></t-cascader>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="medium" placeholder='请选择'></t-cascader>
+    <div class="t-demo-cascader-title">非受控用法</div>
+    <t-cascader class="t-demo-cascader" :options="options" :defaultValue="value" clearable size="small" placeholder='请选择'></t-cascader>
+    <div class="t-demo-cascader-title">受控用法</div>
+    <t-cascader class="t-demo-cascader" :options="options" :value="value" clearable size="medium" placeholder='请选择'></t-cascader>
+    <div class="t-demo-cascader-title">受控+语法糖用法</div>
     <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="large" placeholder='请选择'></t-cascader>
   </div>
 </template>
@@ -46,10 +49,13 @@ export default {
       ],
       value: '1.1',
     };
-  },
+  }
 };
 </script>
 <style scoped>
+.t-demo-cascader-title {
+  margin: 10px 0;
+}
 .t-demo-cascader + .t-demo-cascader {
   margin-top: 16px;
 }

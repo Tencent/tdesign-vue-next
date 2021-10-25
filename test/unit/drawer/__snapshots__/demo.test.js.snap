@@ -1245,7 +1245,6 @@ exports[`Drawer Demo operation wroks fine 1`] = `
             <!---->
             <input
               autocomplete="false"
-              autofocus="false"
               class="t-input__inner"
               type="text"
             />
@@ -1262,7 +1261,6 @@ exports[`Drawer Demo operation wroks fine 1`] = `
             <!---->
             <input
               autocomplete="false"
-              autofocus="false"
               class="t-input__inner"
               type="text"
             />
@@ -1279,7 +1277,6 @@ exports[`Drawer Demo operation wroks fine 1`] = `
             <!---->
             <input
               autocomplete="false"
-              autofocus="false"
               class="t-input__inner"
               type="text"
             />

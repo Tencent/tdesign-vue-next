@@ -76,6 +76,11 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
     propsNode = instance[name];
   }
   if (propsNode === false) return;
+  
+  // 同名优先处理插槽
+  if (instance.$slots[name]) {
+    return instance.$slots[name](params)
+  }
   if (propsNode === true && defaultNode) {
     return instance.$slots[name] ? instance.$slots[name](params) : defaultNode;
   }

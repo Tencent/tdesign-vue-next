@@ -7,7 +7,7 @@ import mixins from '../../utils/mixins';
 
 // component
 import Tag from '../../tag';
-import Input from '../../input';
+import Input, { InputValue } from '../../input';
 import CloseCircleFilledIcon from '../../icon/close-circle-filled';
 import FakeArrow from '../../common-components/fake-arrow';
 
@@ -56,7 +56,6 @@ export default defineComponent({
   data() {
     return {
       isHover: false,
-      inputVal: '',
     };
   },
   computed: {
@@ -109,6 +108,9 @@ export default defineComponent({
         cascaderContext,
         placeholder, singleContent, multipleContent,
         listeners,
+        $slots: {
+          collapsedItems,
+        },
       } = this;
 
       const {
@@ -120,10 +122,10 @@ export default defineComponent({
         visible,
         inputVal,
         setInputVal,
-        collapseTags,
+        minCollapsedNum,
       } = cascaderContext;
 
-      const { onFocus, onBlur } = listeners as InputContentProps['listeners'];
+      const { onFocus, onBlur, onRemove } = listeners as InputContentProps['listeners'];
 
       const renderSelfTag = (node: TreeNode, index: number) => <Tag
           closable
@@ -131,7 +133,7 @@ export default defineComponent({
           disabled={disabled}
           onClose={(ctx) => {
             ctx.e.stopPropagation();
-            handleRemoveTagEffect(cascaderContext, node);
+            handleRemoveTagEffect(cascaderContext, node, onRemove);
           }}
           size={size}
         >
@@ -142,24 +144,26 @@ export default defineComponent({
         <span className={`${prefix}-cascader-content`}>{singleContent}</span>
       ) : (
         <>
-          {collapseTags && multipleContent.length > 1 ? (
+          {minCollapsedNum > 0 && multipleContent.length > minCollapsedNum ? (
             <>
-              {renderSelfTag(multipleContent[0], 0)}
-              <Tag size={size} disabled={disabled}>
-                +{multipleContent.length - 1}
-              </Tag>
+              {multipleContent.slice(0, minCollapsedNum).map((node: TreeNode, index: number) => (
+                renderSelfTag(node, index)
+              ))}
+              {!collapsedItems ? <Tag size={size} disabled={disabled}>
+                +{multipleContent.length - minCollapsedNum}
+              </Tag> : collapsedItems(null)}
             </>
           ) : (
-            multipleContent.map((node: TreeNode, index) => (
+            multipleContent.map((node: TreeNode, index: number) => (
               renderSelfTag(node, index)
             ))
           )}
         </>
       );
 
-      const inputPlaceholder = multiple ? multipleContent.map((node) => node.label).join('、') : singleContent;
+      const inputPlaceholder = multiple ? multipleContent.map((node: TreeNode) => node.label).join('、') : singleContent;
 
-      const filterContent = (
+      const filterContent = () => (
         <Input
           size={size}
           placeholder={ inputPlaceholder || placeholder || this.t(this.locale.placeholderText)}
@@ -168,13 +172,13 @@ export default defineComponent({
             setInputVal(value);
             setFilterActive(!!value);
           }}
-          onFocus={(v, context) => isFunction(onFocus) && onFocus({ inputVal, e: context?.e })}
-        onBlur={(v, context) => isFunction(onBlur) && onBlur({ inputVal, e: context?.e })}
+          onFocus={(v: InputValue, context: { e: FocusEvent }) => isFunction(onFocus) && onFocus({ inputVal, e: context?.e })}
+          onBlur={(v: InputValue, context: { e: FocusEvent }) => isFunction(onBlur) && onBlur({ inputVal, e: context?.e })}
           autofocus={visible}
         />
       );
 
-      return filterable && visible ? filterContent : generalContent;
+      return filterable && visible ? filterContent() : generalContent;
     },
     renderSuffixIcon() {
       const {

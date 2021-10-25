@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-10-19 19:02:20
  * */
 
 import { TdCascaderProps } from './type';
@@ -17,8 +17,10 @@ export default {
   checkStrictly: Boolean,
   /** 是否支持清空选项 */
   clearable: Boolean,
-  /** 是否折叠tag */
-  collapseTags: Boolean,
+  /** 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义 */
+  collapsedItems: {
+    type: Function as PropType<TdCascaderProps['collapsedItems']>,
+  },
   /** 是否禁用组件 */
   disabled: Boolean,
   /** 无匹配选项时的内容 */
@@ -43,6 +45,11 @@ export default {
   },
   /** 用于控制多选数量，值为 0 则不限制 */
   max: {
+    type: Number,
+    default: 0,
+  },
+  /** 最小折叠数量，用于多选情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠 */
+  minCollapsedNum: {
     type: Number,
     default: 0,
   },

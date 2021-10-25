@@ -1,4 +1,7 @@
-import { TreeNode, CascaderContextType, TreeNodeValue } from '../interface';
+import isFunction from 'lodash/isFunction';
+import {
+  TreeNode, CascaderContextType, TreeNodeValue, TdCascaderProps,
+} from '../interface';
 
 /**
  * icon Class
@@ -47,14 +50,14 @@ export function getCascaderInnerClasses(prefix: string, CLASSNAMES: any, cascade
  */
 export function getCloseShow(isHover: boolean, cascaderContext: CascaderContextType) {
   const {
-    multiple, model, disabled, clearable, visible,
+    multiple, value, disabled, clearable, visible,
   } = cascaderContext;
   return !!(
     !visible
     && clearable
     && isHover
     && !disabled
-    && ((!multiple && model) || (multiple && (model as TreeNodeValue[]).length))
+    && ((!multiple && value) || (multiple && (value as TreeNodeValue[]).length))
   );
 }
 
@@ -85,10 +88,11 @@ export function getPlaceholderShow(
  */
 export function getSingleContent(cascaderContext: CascaderContextType) {
   const {
-    model, multiple, treeStore, showAllLevels,
+    value, multiple, treeStore, showAllLevels,
   } = cascaderContext;
-  if (multiple || !model) return;
-  const node = treeStore && treeStore.getNodes(model as TreeNodeValue | TreeNode);
+  if (multiple || !value) return '';
+  if (Array.isArray(value)) return '';
+  const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
   if (!(node && node.length)) {
     return '';
   }
@@ -96,7 +100,7 @@ export function getSingleContent(cascaderContext: CascaderContextType) {
   if (path && path.length) {
     return showAllLevels ? path.map((node: TreeNode) => node.label).join('/') : path[path.length - 1].label;
   }
-  return model as string;
+  return value as string;
 }
 
 /**
@@ -106,19 +110,20 @@ export function getSingleContent(cascaderContext: CascaderContextType) {
  * @returns
  */
 export function getMultipleContent(cascaderContext: CascaderContextType) {
-  const { model, multiple, treeStore } = cascaderContext;
+  const { value, multiple, treeStore } = cascaderContext;
 
-  if (!multiple || !model) return [];
+  if (!multiple) return [];
+  if (multiple && !Array.isArray(value)) return [];
 
-  const node = treeStore && treeStore.getNodes(model as TreeNodeValue | TreeNode);
+  const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
   if (!node) return [];
 
-  const path = (model as TreeNodeValue[]).map((item: TreeNodeValue) => {
+  const path = (value as TreeNodeValue[]).map((item: TreeNodeValue) => {
     const node = treeStore.getNodes(item);
     return node[0];
   });
-  if (model && (model as TreeNodeValue[]).length) {
-    return path && path.length ? path : (model as TreeNode[]);
+  if (value && (value as TreeNodeValue[]).length) {
+    return path && path.length ? path : (value as TreeNode[]);
   }
   return [];
 }
@@ -151,10 +156,10 @@ export function outerClickListenerEffect(
  */
 export function closeIconClickEffect(cascaderContext: CascaderContextType) {
   const {
-    setVisible, setModel, treeStore, multiple,
+    setVisible, setValue, treeStore, multiple,
   } = cascaderContext;
 
-  setModel(multiple ? [] : '');
+  setValue(multiple ? [] : '');
   treeStore.resetChecked();
   treeStore.resetExpanded();
   setVisible(false);
@@ -164,12 +169,15 @@ export function closeIconClickEffect(cascaderContext: CascaderContextType) {
  * tag 关闭按钮点击副作用
  * @param cascaderContext
  */
-export function handleRemoveTagEffect(cascaderContext: CascaderContextType, node: TreeNode) {
-  const { disabled, setModel } = cascaderContext;
+export function handleRemoveTagEffect(cascaderContext: CascaderContextType, node: TreeNode, onRemove: TdCascaderProps['onRemove']) {
+  const { disabled, setValue } = cascaderContext;
 
   if (disabled) return;
   const checked = node.setChecked(!node.isChecked());
-  setModel(checked);
+  setValue(checked);
+  if (isFunction(onRemove)) {
+    onRemove({ value: checked, node });
+  }
 }
 
 /**

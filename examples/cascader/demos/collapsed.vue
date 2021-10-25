@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div class="t-demo-cascader-title">非受控用法</div>
-    <t-cascader class="t-demo-cascader" :options="options" :defaultValue="value" multiple clearable size="small" />
-    <div class="t-demo-cascader-title">受控用法</div>
-    <t-cascader class="t-demo-cascader" :options="options" :value="value" multiple clearable />
-    <div class="t-demo-cascader-title">受控+语法糖用法</div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" multiple clearable size="large" />
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" :onRemove="handleBlur" multiple :minCollapsedNum="1" />
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" :onRemove="handleBlur" multiple :minCollapsedNum="2" />
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" multiple clearable :minCollapsedNum="1">
+      <template #collapsedItems>
+        自定义折叠内容
+      </template>
+    </t-cascader>
   </div>
 </template>
 
@@ -47,15 +48,18 @@ export default {
           ],
         },
       ],
-      value: ['1.1'],
+      value: ['1.1', '1.2', '1.3'],
+      open: true
     };
   },
+  methods: {
+    handleBlur(e) {
+      console.log(e)
+    }
+  }
 };
 </script>
 <style scoped>
-.t-demo-cascader-title {
-  margin: 10px 0;
-}
 .t-demo-cascader + .t-demo-cascader {
   margin-top: 16px;
 }

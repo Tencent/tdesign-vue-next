@@ -504,7 +504,23 @@ exports[`Dialog custom body demo works fine 1`] = `
         <div
           class="t-dialog__body"
         >
-          对话框内容
+          
+          <div>
+            不需要标题的内容
+          </div>
+          <div>
+            我是内容
+          </div>
+          <div>
+            我是内容
+          </div>
+          <div>
+            我是内容
+          </div>
+          <div>
+            我是内容
+          </div>
+          
         </div>
         <div
           class="t-dialog__footer"
@@ -579,7 +595,23 @@ exports[`Dialog custom body demo works fine 1`] = `
         <div
           class="t-dialog__body"
         >
-          对话框内容
+          
+          <div>
+            不需要底部按钮的内容
+          </div>
+          <div>
+            我是内容
+          </div>
+          <div>
+            我是内容
+          </div>
+          <div>
+            我是内容
+          </div>
+          <div>
+            我是内容
+          </div>
+          
         </div>
         <div
           class="t-dialog__footer"
@@ -629,12 +661,9 @@ exports[`Dialog custom body demo works fine 1`] = `
         <div
           class="t-dialog__body"
         >
-          <div>
-            <h1>
-              参数传递优先于插槽内容
-            </h1>
-            这是渲染函数输出结果
-          </div>
+          
+          被渲染函数覆盖的插槽内容
+          
         </div>
         <div
           class="t-dialog__footer"
