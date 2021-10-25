@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-29 18:11:36
+ * updated at 2021-10-15 14:33:12
  * */
 
 import { PopupProps } from '../popup';
@@ -15,6 +15,10 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    * @default false
    */
   clearable?: boolean;
+  /**
+   * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义
+   */
+  collapsedItems?: TNode;
   /**
    * 数据
    * @default []
@@ -54,6 +58,11 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    * @default 0
    */
   max?: number;
+  /**
+   * 最小折叠数量，用于多选情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠
+   * @default 0
+   */
+  minCollapsedNum?: number;
   /**
    * 是否允许多选
    * @default false
@@ -101,7 +110,7 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
   /**
    * 节点选中状态变化时触发，context.node 表示当前变化的选项
    */
-  onChange?: (value: Array<TreeSelectValue>, context: { node: TreeNodeModel<DataOption> }) => void;
+  onChange?: (value: TreeSelectValue, context: { node: TreeNodeModel<DataOption> }) => void;
   /**
    * 点击清除按钮时触发
    */

@@ -236,6 +236,16 @@ exports[`TreeSelect base demo works fine 1`] = `
         </span>
         
         
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          
+        </span>
         <!---->
         <div
           class="t-input t-size-m t-select-input"
@@ -598,6 +608,16 @@ exports[`TreeSelect filterable demo works fine 1`] = `
         
         
         <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          
+        </span>
+        <span
           class="t-select-selectedSingle"
           title="shenzhen"
         >
@@ -804,6 +824,16 @@ exports[`TreeSelect lazy demo works fine 1`] = `
         </span>
         
         
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          
+        </span>
         <!---->
         <div
           class="t-input t-size-m t-select-input"
@@ -1219,6 +1249,16 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           </svg>
         </span>
         
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +2
+          
+          
+        </span>
         <!---->
         <div
           class="t-input t-size-m t-select-input"
@@ -1530,6 +1570,16 @@ exports[`TreeSelect prefix demo works fine 1`] = `
         </span>
         
         
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          
+        </span>
         <!---->
         <div
           class="t-input t-size-m t-select-input"

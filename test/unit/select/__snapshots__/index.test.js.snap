@@ -61,6 +61,16 @@ exports[`Select :props :bordered 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -147,6 +157,16 @@ exports[`Select :props :clearable 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -233,6 +253,16 @@ exports[`Select :props :creatable 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -319,6 +349,16 @@ exports[`Select :props :disabled 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -406,6 +446,16 @@ exports[`Select :props :labelInValue 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -492,6 +542,16 @@ exports[`Select :props :loading 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -596,6 +656,16 @@ exports[`Select :props :multiple 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -682,6 +752,16 @@ exports[`Select :props :placeholder 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -769,6 +849,16 @@ exports[`Select :props :remote 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -855,6 +945,16 @@ exports[`Select :props :reserveKeyword 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -941,6 +1041,16 @@ exports[`Select :props :size 1`] = `
       </span>
       
       
+      <span
+        class="t-tag t-tag--default t-size-l t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <!---->
       <!---->
       <svg
@@ -1030,6 +1140,16 @@ exports[`Select Option :props :disabled 1`] = `
       <!---->
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <span
         class="t-select-selectedSingle"
         title="1"
@@ -1125,6 +1245,16 @@ exports[`Select Option :props :label 1`] = `
       
       
       <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
+      <span
         class="t-select-selectedSingle"
         title="1"
       >
@@ -1218,6 +1348,16 @@ exports[`Select Option :props :value 1`] = `
       <!---->
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <span
         class="t-select-selectedSingle"
         title="1"
@@ -1344,6 +1484,16 @@ exports[`Select OptionGroup :props :value 1`] = `
       <!---->
       
       
+      <span
+        class="t-tag t-tag--default t-size-m t-tag--dark"
+        style="display: none;"
+      >
+        <!---->
+        
+        +0
+        
+        
+      </span>
       <span
         class="t-select-selectedSingle"
         title="1"

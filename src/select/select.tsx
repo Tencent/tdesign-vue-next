@@ -234,9 +234,7 @@ export default defineComponent({
     showFilter(val) {
       if (val && this.selectedSingle) {
         nextTick(() => {
-          const input = this.$refs.input as HTMLElement;
-          input?.focus();
-          this.focusing = true;
+          this.doFocus();
         });
       }
     },
@@ -284,6 +282,7 @@ export default defineComponent({
         }
       }
       val && this.monitorWidth();
+      val && this.canFilter && this.doFocus();
     },
     onOptionClick(value: string | number, e: PointerEvent) {
       if (this.value !== value) {
@@ -316,11 +315,7 @@ export default defineComponent({
         if (!this.reserveKeyword) {
           this.searchInput = '';
         }
-        if (this.canFilter) {
-          const input = this.$refs.input as HTMLElement;
-          input?.focus();
-          this.focusing = true;
-        }
+        this.canFilter && this.doFocus();
       }
     },
     removeTag(index: number, context?: { e?: MouseEvent }) {
@@ -398,6 +393,9 @@ export default defineComponent({
       this.$emit('blur', { value: this.value, e });
       this.focusing = false;
     },
+    enter(e: KeyboardEvent) {
+      this.$emit('blur', { inputValue: this.searchInput, value: this.value, e });
+    },
     hoverEvent(v: boolean) {
       this.isHover = v;
     },
@@ -449,6 +447,11 @@ export default defineComponent({
           onClick={this.clearSelect}
         />
       );
+    },
+    doFocus() {
+      const input = this.$refs.input as HTMLElement;
+      input?.focus();
+      this.focusing = true;
     },
   },
   render(): VNode {
@@ -549,6 +552,7 @@ export default defineComponent({
               : (
                 selectedMultiple.map((item: Options, index: number) => (
                   <tag
+                    v-show={this.minCollapsedNum <= 0 || index < this.minCollapsedNum}
                     key={index}
                     size={size}
                     closable={!item.disabled && !disabled}
@@ -562,6 +566,17 @@ export default defineComponent({
                   </tag>
                 ))
               )
+            }
+            {this.collapsedItems || this.$slots.collapsedItems
+              ? renderTNodeJSX(this, 'collapsedItems', {
+                params: { count: selectedMultiple.length - this.minCollapsedNum, value: selectedMultiple, size },
+              })
+              : <tag
+                  v-show={this.minCollapsedNum > 0 && selectedMultiple.length > this.minCollapsedNum}
+                  size={size}
+                >
+                  { `+${selectedMultiple.length - this.minCollapsedNum}` }
+                </tag>
             }
             {!multiple && !showPlaceholder && !showFilter && (
               <span title={selectedSingle} class={`${name}-selectedSingle`}>{ selectedSingle }</span>
@@ -577,6 +592,7 @@ export default defineComponent({
                   class={`${name}-input`}
                   onFocus={this.focus}
                   onBlur={this.blur}
+                  onEnter={this.enter}
                 />
               )
             }

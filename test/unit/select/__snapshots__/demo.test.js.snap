@@ -86,6 +86,16 @@ exports[`Select base demo works fine 1`] = `
         
         
         <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          
+        </span>
+        <span
           class="t-select-selectedSingle"
           title="1"
         >

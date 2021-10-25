@@ -392,6 +392,14 @@ export default defineComponent({
         </Tag>
       ))
     );
+    const collapsedItem = (this.collapsedItems || this.$slots.collapsedItems) && this.minCollapsedNum > 0 && this.tagList.length > this.minCollapsedNum
+      ? renderTNodeJSX(this, 'collapsedItems', { params: { count: this.tagList.length - this.minCollapsedNum, value: this.selectedMultiple, size: this.size } })
+      : (<Tag
+      v-show={this.minCollapsedNum > 0 && this.tagList.length > this.minCollapsedNum}
+      size={this.size}
+    >
+      { `+${this.tagList.length - this.minCollapsedNum}` }
+    </Tag>);
     const slots = {
       content: () => (
         <>
@@ -427,6 +435,7 @@ export default defineComponent({
             }
             <span v-show={this.showPlaceholder} class={`${prefix}-select-placeholder`}>{this.placeholder}</span>
             {tagItem}
+            {collapsedItem}
             {
               !this.multiple && !this.showPlaceholder && !this.showFilter && (
                 <span title={this.selectedSingle} class={`${prefix}-select-selectedSingle`}>{this.selectedSingle}</span>

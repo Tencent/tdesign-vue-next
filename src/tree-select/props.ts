@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-29 18:11:36
+ * updated at 2021-10-13 17:46:32
  * */
 
 import { TdTreeSelectProps } from './type';
@@ -11,6 +11,10 @@ import { PropType } from 'vue';
 export default {
   /** 是否允许清空 */
   clearable: Boolean,
+  /** 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义 */
+  collapsedItems: {
+    type: Function as PropType<TdTreeSelectProps['collapsedItems']>,
+  },
   /** 数据 */
   data: {
     type: Array as PropType<TdTreeSelectProps['data']>,
@@ -38,6 +42,11 @@ export default {
   },
   /** 用于控制多选数量，值为 0 则不限制 */
   max: {
+    type: Number,
+    default: 0,
+  },
+  /** 最小折叠数量，用于多选情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠 */
+  minCollapsedNum: {
     type: Number,
     default: 0,
   },
