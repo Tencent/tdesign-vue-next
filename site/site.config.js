@@ -271,6 +271,15 @@ export default {
           component: () => import('@/examples/calendar/calendar.md'),
         },
         {
+          title: 'Comment 评论',
+          name: 'comment',
+          meta: {
+            docType: 'data',
+          },
+          path: '/vue-next/components/comment',
+          component: () => import('@/examples/comment/comment.md'),
+        },
+        {
           title: 'List 列表',
           name: 'list',
           docType: 'data',
