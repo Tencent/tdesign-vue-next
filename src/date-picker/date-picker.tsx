@@ -64,6 +64,7 @@ export default defineComponent({
       els: [],
       isOpen: false,
       timeValue: dayjs(),
+      endTimeValue: dayjs(),
     };
   },
   computed: {
@@ -180,6 +181,13 @@ export default defineComponent({
       this.start = start;
       this.timeValue = dayjs(start);
       this.dateClick(new Date(start));
+    },
+    handleEndTimePick(col: EPickerCols, time: number) {
+      const end = new Date(this.end as Date);
+      end[`set${firstUpperCase(col)}s`](time);
+      this.end = end;
+      this.endTimeValue = dayjs(end);
+      this.dateClick(new Date(end));
     },
     initClickAway(el: Element) {
       this.els.push(el);
@@ -381,6 +389,7 @@ export default defineComponent({
     },
     toggleTime() {
       this.timeValue = dayjs(this.start as Date);
+      this.endTimeValue = dayjs(this.end as Date);
 
       this.showTime = !this.showTime;
     },
@@ -604,7 +613,7 @@ export default defineComponent({
     } = this.$props;
 
     const {
-      start, end, showTime, timeValue, locales, isOpen,
+      start, end, showTime, timeValue, endTimeValue, locales, isOpen,
     } = this.$data;
     const panelComponent = range ? (
       <t-date-range
@@ -637,6 +646,15 @@ export default defineComponent({
               isShowPanel={showTime}
               isFooterDisplay={false}
             />
+            { range && (<TTimePickerPanel
+              format="HH:mm:ss"
+              cols={[EPickerCols.hour, EPickerCols.minute, EPickerCols.second]}
+              steps={[1, 1, 1]}
+              value={[endTimeValue]}
+              onTimePick={this.handleEndTimePick}
+              isShowPanel={showTime}
+              isFooterDisplay={false}
+            />)}
           </div>
         )
         }
