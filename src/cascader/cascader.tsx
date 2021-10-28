@@ -1,8 +1,8 @@
 import { defineComponent, VNode, Transition } from 'vue';
 import isEqual from 'lodash/isEqual';
-import isEmpty from 'lodash/isEmpty';
 
 // utils
+import isEmpty from 'lodash/isEmpty';
 import { prefix } from '../config';
 import TreeStore from '../_common/js/tree/tree-store';
 import { emitEvent } from '../utils/event';
@@ -83,7 +83,6 @@ export default defineComponent({
       const value = this.scopeVal as TdCascaderProps['value'];
       const {
         size = 'medium',
-        disabled = false,
         checkStrictly = false,
         lazy = true,
         multiple = false,
@@ -91,6 +90,7 @@ export default defineComponent({
         clearable = false,
         checkProps = {},
         max = 0,
+        disabled,
         showAllLevels = true,
         minCollapsedNum = 0,
       } = this;
@@ -133,9 +133,14 @@ export default defineComponent({
         if (isEqual(val, this.scopeVal)) return;
         this.scopeVal = val;
         this.updateExpend();
+        this.updatedTreeNodes();
       },
     },
     inputVal() {
+      const { cascaderContext: { value, setExpend } } = this;
+      if (!getTreeValue(value).length) {
+        setExpend([]);
+      }
       this.updatedTreeNodes();
     },
     filterActive() {
@@ -147,9 +152,15 @@ export default defineComponent({
   },
 
   mounted() {
-    if (!isEmpty(this.value)) {
-      this.scopeVal = this.value;
+    const { value, multiple } = this;
+    if ((multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value))) {
+      this.$emit('change', multiple ? [] : '');
+      console.warn('TDesign Warn:', 'cascader props value invalid, automatic calibration');
     }
+    if (!isEmpty(value)) {
+      this.scopeVal = value;
+    }
+
     this.init();
     ['checkStrictly', 'disabled', 'keys', 'lazy', 'load', 'options', 'valueMode'].forEach((key) => {
       this.$watch(key, () => {

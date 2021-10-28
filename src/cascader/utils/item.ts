@@ -1,4 +1,4 @@
-import { CascaderContextType, TreeNode } from '../interface';
+import { CascaderContextType, TreeNode, TreeNodeValue } from '../interface';
 
 /**
  * 是否显示省略计算方法
@@ -15,24 +15,45 @@ export function getLabelIsEllipsis(node: TreeNode, size: CascaderContextType['si
   return sizeMap[size] < node.label.length;
 }
 
+export function getNodeStatusClass(
+  node: TreeNode,
+  CLASSNAMES: any,
+  cascaderContext: CascaderContextType,
+) {
+  const {
+    checkStrictly, multiple, value, max,
+  } = cascaderContext;
+  const expandedActive = !checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true);
+
+  const isLeaf = node.isLeaf();
+
+  const isDisabled = node.disabled || (multiple && (value as TreeNodeValue[]).length >= max && max !== 0);
+
+  const isSelected = node.checked || (multiple && !checkStrictly && ((node.expanded && !isLeaf)));
+
+  return [
+    {
+      [CLASSNAMES.STATUS.selected]: !isDisabled && isSelected,
+      [CLASSNAMES.STATUS.expanded]: !isDisabled && expandedActive,
+      [CLASSNAMES.STATUS.disabled]: isDisabled,
+    },
+  ];
+}
+
 export function getCascaderItemClass(
   prefix: string,
   node: TreeNode,
   CLASSNAMES: any,
   cascaderContext: CascaderContextType,
 ) {
-  const { checkStrictly, multiple, size } = cascaderContext;
-  const expandedActive = !checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true);
-
+  const { size } = cascaderContext;
   return [
     `${prefix}-cascader-item`,
+    ...getNodeStatusClass(node, CLASSNAMES, cascaderContext),
     {
-      [CLASSNAMES.STATUS.selected]: node.checked,
-      [CLASSNAMES.STATUS.expanded]: expandedActive,
-      [CLASSNAMES.STATUS.disabled]: node.disabled,
-      [CLASSNAMES.STATUS.active]: node.actived || (multiple && node.expanded),
-      [CLASSNAMES.SIZE[size]]: size,
       [`${prefix}-cascader-item-have-icon`]: node.children,
+      [`${prefix}-cascader-item-is-leaf`]: node.isLeaf(),
+      [CLASSNAMES.SIZE[size]]: size,
     },
   ];
 }
@@ -43,12 +64,8 @@ export function getCascaderItemIconClass(
   CLASSNAMES: any,
   cascaderContext: CascaderContextType,
 ) {
-  const { checkStrictly } = cascaderContext;
-
   return [
-    `${prefix}-cascader-icon`,
-    {
-      [CLASSNAMES.STATUS.expanded]: !checkStrictly && node.expanded,
-    },
+    `${prefix}-cascader-item-icon`,
+    ...getNodeStatusClass(node, CLASSNAMES, cascaderContext),
   ];
 }

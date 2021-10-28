@@ -25,10 +25,10 @@ export default defineComponent({
   props: {
     empty: CascaderProps.empty,
     trigger: CascaderProps.trigger,
+    onChange: CascaderProps.onChange,
     cascaderContext: {
       type: Object as PropType<CascaderContextType>,
     },
-    onChange: CascaderProps.onChange,
   },
   emits: ['change'],
 
@@ -73,7 +73,9 @@ export default defineComponent({
 
     // innerComponents
     const renderEmpty = (
-      <ul class={[`${name}-menu`]}>
+      <ul class={[`${name}-menu`, {
+        [`${name}-menu__filter`]: filterActive,
+      }]}>
         {!$slots.empty ? <li class={[`${name}-item`, `${name}-item__is-empty`]}>{empty}</li> : empty}
       </ul>
     );
@@ -104,7 +106,7 @@ export default defineComponent({
 
     const filterPanelsContainer = (
       <ul class={
-        [`${name}-menu`, `${name}-menu__seperator`]
+        [`${name}-menu`, `${name}-menu__seperator`, `${name}-menu__filter`]
       }>
         {treeNodes.map((node: TreeNode) => renderItem(node))}
       </ul>

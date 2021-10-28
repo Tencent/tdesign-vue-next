@@ -1,6 +1,6 @@
 import isFunction from 'lodash/isFunction';
 import {
-  TreeNode, CascaderContextType, TreeNodeValue, TdCascaderProps,
+  TreeNode, CascaderContextType, TreeNodeValue, CascaderProps,
 } from '../interface';
 
 /**
@@ -10,12 +10,30 @@ import {
  * @param cascaderContext
  * @returns
  */
-export function getIconClass(prefix: string, CLASSNAMES: any, cascaderContext: CascaderContextType) {
-  const { visible } = cascaderContext;
+export function getCloseIconClass(prefix: string, CLASSNAMES: any, cascaderContext: CascaderContextType) {
+  const { visible, disabled } = cascaderContext;
   return [
     `${prefix}-cascader-icon`,
     {
       [CLASSNAMES.STATUS.visible]: visible,
+      [CLASSNAMES.STATUS.disabled]: disabled,
+    },
+  ];
+}
+
+/**
+ * icon Class
+ * @param prefix
+ * @param CLASSNAMES
+ * @param cascaderContext
+ * @returns
+ */
+export function getFakeArrowIconClass(prefix: string, CLASSNAMES: any, cascaderContext: CascaderContextType) {
+  const { disabled } = cascaderContext;
+  return [
+    `${prefix}-cascader-icon`,
+    {
+      [CLASSNAMES.STATUS.disabled]: disabled,
     },
   ];
 }
@@ -37,7 +55,7 @@ export function getCascaderInnerClasses(prefix: string, CLASSNAMES: any, cascade
       [CLASSNAMES.STATUS.disabled]: disabled,
       [CLASSNAMES.STATUS.active]: visible,
       [CLASSNAMES.SIZE[size]]: size,
-      [`${name}-is-multiple`]: multiple,
+      [`${prefix}-cascader-is-multiple`]: multiple,
     },
   ];
 }
@@ -98,7 +116,7 @@ export function getSingleContent(cascaderContext: CascaderContextType) {
   }
   const path = node && node[0].getPath();
   if (path && path.length) {
-    return showAllLevels ? path.map((node: TreeNode) => node.label).join('/') : path[path.length - 1].label;
+    return showAllLevels ? path.map((node: TreeNode) => node.label).join(' / ') : path[path.length - 1].label;
   }
   return value as string;
 }
@@ -154,22 +172,34 @@ export function outerClickListenerEffect(
  * closeIcon点击副作用
  * @param cascaderContext
  */
-export function closeIconClickEffect(cascaderContext: CascaderContextType) {
+export function closeIconClickEffect(cascaderContext: CascaderContextType, onChange: CascaderProps['onChange']) {
   const {
-    setVisible, setValue, treeStore, multiple,
+    setVisible, multiple, setExpend, setValue,
   } = cascaderContext;
 
-  setValue(multiple ? [] : '');
-  treeStore.resetChecked();
-  treeStore.resetExpanded();
   setVisible(false);
+
+  // 手动设置的展开需要去除
+  if (multiple) {
+    setExpend([]);
+  }
+
+  setValue(multiple ? [] : '');
+
+  if (onChange && isFunction(onChange)) {
+    onChange(multiple ? [] : '', { e: MouseEvent });
+  }
 }
 
 /**
  * tag 关闭按钮点击副作用
  * @param cascaderContext
  */
-export function handleRemoveTagEffect(cascaderContext: CascaderContextType, node: TreeNode, onRemove: TdCascaderProps['onRemove']) {
+export function handleRemoveTagEffect(
+  cascaderContext: CascaderContextType,
+  node: TreeNode,
+  onRemove: CascaderProps['onRemove'],
+) {
   const { disabled, setValue } = cascaderContext;
 
   if (disabled) return;

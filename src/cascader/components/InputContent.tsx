@@ -13,7 +13,8 @@ import FakeArrow from '../../common-components/fake-arrow';
 
 // common logic
 import {
-  getIconClass,
+  getCloseIconClass,
+  getFakeArrowIconClass,
   getCascaderInnerClasses,
   getCloseShow,
   getPlaceholderShow,
@@ -28,7 +29,7 @@ import {
 // type
 import { ClassName } from '../../common';
 import {
-  TreeNode, CascaderContextType, InputContentProps,
+  TreeNode, InputContentProps,
 } from '../interface';
 import CascaderProps from '../props';
 
@@ -45,7 +46,7 @@ export default defineComponent({
   },
   props: {
     cascaderContext: {
-      type: Object as PropType<CascaderContextType>,
+      type: Object as PropType<InputContentProps['cascaderContext']>,
     },
     placeholder: CascaderProps.placeholder,
     listeners: {
@@ -59,8 +60,11 @@ export default defineComponent({
     };
   },
   computed: {
-    iconClass(): ClassName {
-      return getIconClass(prefix, CLASSNAMES, this.cascaderContext);
+    closeIconClass(): ClassName {
+      return getCloseIconClass(prefix, CLASSNAMES, this.cascaderContext);
+    },
+    fakeArrowIconClass(): ClassName {
+      return getFakeArrowIconClass(prefix, CLASSNAMES, this.cascaderContext);
     },
     cascaderInnerClasses(): ClassName {
       return getCascaderInnerClasses(prefix, CLASSNAMES, this.cascaderContext);
@@ -183,9 +187,10 @@ export default defineComponent({
     renderSuffixIcon() {
       const {
         closeShow,
-        iconClass,
+        closeIconClass,
+        fakeArrowIconClass,
         cascaderContext: {
-          multiple, size, visible, disabled,
+          size, visible, disabled,
         },
         listeners,
       } = this;
@@ -194,20 +199,16 @@ export default defineComponent({
       const closeIconClick = (context: { e: MouseEvent }) => {
         context.e.stopPropagation();
 
-        closeIconClickEffect(this.cascaderContext);
-
-        if (onChange && isFunction(onChange)) {
-          onChange(multiple ? [] : '', { e: MouseEvent });
-        }
+        closeIconClickEffect(this.cascaderContext, onChange);
       };
 
       if (closeShow) {
         return <Transition name={`${prefix}-cascader-close-icon-fade`} appear>
-          <CloseCircleFilledIcon class={iconClass} size={size} onClick={closeIconClick}/>
+          <CloseCircleFilledIcon class={closeIconClass} size={size} onClick={closeIconClick}/>
         </Transition>;
       }
 
-      return <FakeArrow overlayClassName={`${name}-icon`} isActive={visible} disabled={disabled} />;
+      return <FakeArrow overlayClassName={fakeArrowIconClass} isActive={visible} disabled={disabled} />;
     },
   },
   render() {

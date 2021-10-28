@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="t-demo-cascader-title">非受控用法</div>
+    <!-- 非受控用法 -->
     <t-cascader class="t-demo-cascader" :options="options" :defaultValue="value" clearable size="small" placeholder='请选择'></t-cascader>
-    <div class="t-demo-cascader-title">受控用法</div>
-    <t-cascader class="t-demo-cascader" :options="options" :value="value" clearable size="medium" placeholder='请选择'></t-cascader>
-    <div class="t-demo-cascader-title">受控+语法糖用法</div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="large" placeholder='请选择'></t-cascader>
+    <!-- 受控+语法糖用法 -->
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="medium" placeholder='请选择'></t-cascader>
+    <!-- 受控用法 -->
+    <t-cascader class="t-demo-cascader" :options="options" :value="value" @change="handleValueChange" clearable size="large" placeholder='请选择'></t-cascader>
   </div>
 </template>
 
@@ -49,6 +49,11 @@ export default {
       ],
       value: '1.1',
     };
+  },
+  methods: {
+    handleValueChange(e) {
+      this.value = e
+    }
   }
 };
 </script>

@@ -40,6 +40,7 @@ export const treeStoreExpendEffect = (
   expend: TreeNodeValue[],
 ) => {
   const treeValue = getTreeValue(value);
+
   if (!treeStore) return;
   // init expanded, 无expend状态时设置
   if (Array.isArray(treeValue) && expend.length === 0) {
@@ -54,6 +55,8 @@ export const treeStoreExpendEffect = (
       });
       const expandedArr = Array.from(expandedMap.keys());
       treeStore.replaceExpanded(expandedArr);
+    } else {
+      treeStore.resetExpanded();
     }
   }
   // 本地维护 expend，更加可控，不需要依赖于 tree 的状态

@@ -93,9 +93,13 @@ export default function (props: (string | PropOption)[]): any {
       }
       defineEvents = defineEvents.concat(events);
 
+      // does not destroy the original defaultValue logic
+      const defaultList: string[] = []
+
       // watch default prop
       defineWatches[defaultName] = {
         handler(v: any): void {
+          if (defaultList.indexOf(defaultName + this.$.uid) > -1) return;
           const { props } = this.$.vnode;
           const hasDefault = props && (defaultName in props || kebabCase(defaultName) in props);
           if (
@@ -104,6 +108,7 @@ export default function (props: (string | PropOption)[]): any {
           ) {
             this.$data[dataName] = v;
           }
+          defaultList.push(defaultName + this.$.uid)
         },
         immediate: true,
       };

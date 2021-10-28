@@ -28,7 +28,7 @@ export default {
       return new Promise((resolve) => {
         setTimeout(() => {
           let nodes = [];
-          if (node.level < 3) {
+          if (node.level < 2) {
             nodes = [
               {
                 label: `${node.label}.1`,

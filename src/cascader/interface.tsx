@@ -2,9 +2,8 @@ import { TdCascaderProps, CascaderValue } from './type';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
 import { TreeNodeValue } from '../_common/js/tree/types';
-import { ClassName } from '../common';
 
-export type CascaderProps = TdCascaderProps;
+export type CascaderProps = TdCascaderProps
 
 export * from './type';
 export interface CascaderContextType
@@ -60,22 +59,7 @@ export interface ContentProps {
   listeners: InputContentProps['listeners'];
   isHover: boolean;
 }
-
-export interface InnerContentProps {
-  cascaderContext: CascaderContextType;
-  isHover: boolean;
-  listeners: InputContentProps['listeners'];
-  placeholder: TdCascaderProps['placeholder'];
-}
-
-export interface SuffixIconProps {
-  closeShow: boolean;
-  iconClass: ClassName;
-  cascaderContext: CascaderContextType;
-  listeners: InputContentProps['listeners'];
-}
-
-export interface CascaderItemProps {
+export interface CascaderItemPropsType {
   node: TreeNode;
   cascaderContext: CascaderContextType;
   onClick: (ctx: ContextType) => void;

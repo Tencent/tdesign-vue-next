@@ -13,64 +13,15 @@ import { getCascaderItemClass, getCascaderItemIconClass, getLabelIsEllipsis } fr
 import Checkbox, { CheckboxProps } from '../../checkbox/index';
 import Tooltip from '../../tooltip/index';
 import ChevronRightCircleIcon from '../../icon/chevron-right';
-import LoadingIcon from '../../icon/loading';
+import LoadingIcon from '../../loading/icon/gradient';
 
 // type
 import TreeNode from '../../_common/js/tree/tree-node';
 import { ClassName } from '../../common';
-import { ContextType, CascaderContextType } from '../interface';
+import { ContextType, CascaderContextType, CascaderItemPropsType } from '../interface';
 import { TreeNodeValue } from '../../_common/js/tree/types';
 
 const name = `${prefix}-cascader-item`;
-
-function RenderLabelInner(name: string, node: TreeNode, cascaderContext: CascaderContextType) {
-  const { filterActive, inputVal } = cascaderContext;
-  const labelText = filterActive ? getFullPathLabel(node) : node.label;
-  if (filterActive) {
-    const ctx = labelText.split(inputVal);
-    return (() => (
-      <span>
-        {ctx[0]}
-        <span class={`${name}__label--filter`}>{inputVal}</span>
-        {ctx[1]}
-      </span>
-    ))();
-  }
-  return (() => (
-    <>
-      {labelText}
-    </>
-  ))();
-}
-
-function RenderLabelContent(node: TreeNode, cascaderContext: CascaderContextType) {
-  const label = RenderLabelInner(name, node, cascaderContext);
-  const isEllipsis = getLabelIsEllipsis(node, cascaderContext.size);
-  if (isEllipsis) {
-    return (<span class={`${name}__label`} role="label">
-      {label}
-      <div class={`${name}__label--ellipsis`}>
-        <Tooltip content={node.label} placement="top-left" />
-      </div>
-    </span>);
-  }
-  return (<span class={[`${name}__label`]} role="label" >{label}</span>);
-}
-
-function RenderCheckBox(node: TreeNode, cascaderContext: CascaderContextType, handleChange: CheckboxProps['onChange']) {
-  const name = `${prefix}-cascader-item`;
-
-  const { checkProps, value, max } = cascaderContext;
-  const label = RenderLabelInner(name, node, cascaderContext);
-  return (<Checkbox
-    checked={node.checked}
-    indeterminate={node.indeterminate}
-    disabled={node.isDisabled() || ((value as TreeNodeValue[]).length >= max && max !== 0)}
-    name={node.value}
-    onChange={handleChange}
-    {...checkProps}
-  >{label}</Checkbox>);
-}
 
 export default defineComponent({
   name,
@@ -79,13 +30,13 @@ export default defineComponent({
 
   props: {
     node: {
-      type: Object as PropType<TreeNode>,
+      type: Object as PropType<CascaderItemPropsType['node']>,
       default() {
         return {};
       },
     },
     cascaderContext: {
-      type: Object as PropType<CascaderContextType>,
+      type: Object as PropType<CascaderItemPropsType['cascaderContext']>,
     },
   },
 
@@ -132,6 +83,58 @@ export default defineComponent({
       };
       this.$emit('mouseenter', ctx);
     };
+
+    function RenderLabelInner(name: string, node: TreeNode, cascaderContext: CascaderContextType) {
+      const { filterActive, inputVal } = cascaderContext;
+      const labelText = filterActive ? getFullPathLabel(node) : node.label;
+      if (filterActive) {
+        const ctx = labelText.split(inputVal);
+        return (() => (
+          <span>
+            {ctx[0]}
+            <span class={`${name}__label--filter`}>{inputVal}</span>
+            {ctx[1]}
+          </span>
+        ))();
+      }
+      return (() => (
+        <>
+          {labelText}
+        </>
+      ))();
+    }
+
+    function RenderLabelContent(node: TreeNode, cascaderContext: CascaderContextType) {
+      const label = RenderLabelInner(name, node, cascaderContext);
+      const isEllipsis = getLabelIsEllipsis(node, cascaderContext.size);
+      if (isEllipsis) {
+        return (<span class={`${name}__label`} role="label">
+          {label}
+          <div class={`${name}__label--ellipsis`}>
+            <Tooltip content={node.label} placement="top-left" />
+          </div>
+        </span>);
+      }
+      return (<span class={[`${name}__label`]} role="label" >{label}</span>);
+    }
+
+    function RenderCheckBox(node: TreeNode, cascaderContext: CascaderContextType, handleChange: CheckboxProps['onChange']) {
+      const name = `${prefix}-cascader-item`;
+
+      const {
+        checkProps, value, max, size,
+      } = cascaderContext;
+      const label = RenderLabelInner(name, node, cascaderContext);
+      return (<Checkbox
+        checked={node.checked}
+        indeterminate={node.indeterminate}
+        disabled={node.isDisabled() || ((value as TreeNodeValue[]).length >= max && max !== 0)}
+        name={node.value}
+        size={size}
+        onChange={handleChange}
+        {...checkProps}
+      >{label}</Checkbox>);
+    }
 
     return (<li v-ripple class={itemClass} onClick={handleClick} onMouseenter={handleMouseenter}>
       {cascaderContext.multiple ? RenderCheckBox(node, cascaderContext, handleChange) : RenderLabelContent(node, cascaderContext)}
