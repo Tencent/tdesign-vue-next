@@ -7,7 +7,7 @@ exports[`InputNumber center demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
       type="button"
     >
       
@@ -38,7 +38,7 @@ exports[`InputNumber center demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
       type="button"
     >
       
@@ -68,7 +68,7 @@ exports[`InputNumber defaultDemo demo works fine 1`] = `
     class="t-input-number t-size-m"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
       type="button"
     >
       
@@ -99,7 +99,7 @@ exports[`InputNumber defaultDemo demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
       type="button"
     >
       
@@ -130,7 +130,7 @@ exports[`InputNumber disabled demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease t-is-disabled"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled"
       type="button"
     >
       
@@ -162,7 +162,7 @@ exports[`InputNumber disabled demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase t-is-disabled"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase t-is-disabled"
       type="button"
     >
       
@@ -193,7 +193,7 @@ exports[`InputNumber format demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
       type="button"
     >
       
@@ -224,7 +224,7 @@ exports[`InputNumber format demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
       type="button"
     >
       
@@ -255,7 +255,7 @@ exports[`InputNumber left demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
       type="button"
     >
       
@@ -287,7 +287,7 @@ exports[`InputNumber left demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
       type="button"
     >
       
@@ -319,7 +319,7 @@ exports[`InputNumber size demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
       type="button"
     >
       
@@ -350,7 +350,7 @@ exports[`InputNumber size demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
       type="button"
     >
       
@@ -377,7 +377,7 @@ exports[`InputNumber size demo works fine 1`] = `
     style="margin: 0px 50px;"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
       type="button"
     >
       
@@ -408,7 +408,7 @@ exports[`InputNumber size demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
       type="button"
     >
       
@@ -434,7 +434,7 @@ exports[`InputNumber size demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
       type="button"
     >
       
@@ -465,7 +465,7 @@ exports[`InputNumber size demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
       type="button"
     >
       
@@ -496,7 +496,7 @@ exports[`InputNumber step demo works fine 1`] = `
     modelvalue="3.2"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
       type="button"
     >
       
@@ -527,7 +527,7 @@ exports[`InputNumber step demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
       type="button"
     >
       
@@ -557,7 +557,7 @@ exports[`InputNumber undefined demo works fine 1`] = `
     class="t-input-number t-size-m"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
       type="button"
     >
       
@@ -588,7 +588,7 @@ exports[`InputNumber undefined demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
       type="button"
     >
       

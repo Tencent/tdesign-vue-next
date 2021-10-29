@@ -16,6 +16,7 @@ export default defineComponent({
   render() {
     let buttonContent = renderContent(this, 'default', 'content');
     const icon = this.loading ? <TIconLoading/> : renderTNodeJSX(this, 'icon');
+    const disabled = this.disabled || this.loading;
     const iconOnly = icon && !buttonContent;
 
     let { theme } = this;
@@ -33,21 +34,18 @@ export default defineComponent({
       `${name}--variant-${this.variant}`,
       `${name}--theme-${theme}`,
       {
-        [CLASSNAMES.STATUS.disabled]: this.disabled,
+        [CLASSNAMES.STATUS.disabled]: disabled,
         [CLASSNAMES.STATUS.loading]: this.loading,
         [`${name}--icon-only`]: iconOnly,
-        [`${name}--shape-${this.shape}`]: this.shape !== 'square',
+        [`${name}--shape-${this.shape}`]: this.shape !== 'rectangle',
         [`${name}--ghost`]: this.ghost,
         [CLASSNAMES.SIZE.block]: this.block,
       },
     ];
 
-    buttonContent = <span class={`${name}__text`}>{buttonContent}</span>;
+    buttonContent = buttonContent ? <span class={`${name}__text`}>{buttonContent}</span> : '';
     if (icon) {
-      buttonContent = [
-        icon,
-        !iconOnly ? buttonContent : '',
-      ];
+      buttonContent = [icon, buttonContent];
     }
     return (
       <button v-ripple class={buttonClass} type={this.type} disabled={this.disabled} {...this.$attrs}>

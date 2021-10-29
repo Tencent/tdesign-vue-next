@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
 import config from './site.config';
 import TdesignComponents from './pages/components.vue';
-import TdesignDemoList from './pages/demo-list.vue';
 import TdesignDemoPage from './pages/demo-page.vue';
+import TdesignPlayground from './pages/playground.vue';
 
 const { docs } = config;
 
@@ -72,9 +72,8 @@ const routes = [
   },
   ...demoRoutes,
   {
-    path: '/vue-next/demos',
-    component: TdesignDemoList,
-    props: { demoRoutes },
+    path: '/vue-next/playground',
+    component: TdesignPlayground,
   },
 ];
 

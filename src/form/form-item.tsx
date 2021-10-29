@@ -55,7 +55,10 @@ export default defineComponent({
 
   computed: {
     classes(): ClassName {
-      return [CLASS_NAMES.formItem, FORM_ITEM_CLASS_PREFIX + this.name];
+      return [CLASS_NAMES.formItem, FORM_ITEM_CLASS_PREFIX + this.name, {
+        [CLASS_NAMES.formItemWithHelp]: this.help,
+        [CLASS_NAMES.formItemWithExtra]: this.renderTipsInfo(),
+      }];
     },
     labelClasses() {
       const parent = this.form;

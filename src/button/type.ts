@@ -41,12 +41,12 @@ export interface TdButtonProps {
    */
   loading?: boolean;
   /**
-   * 按钮形状，有三种：方形、圆角方形、圆形
+   * 按钮形状，有 4 种：长方形、正方形、圆角长方形、圆形
    * @default square
    */
-  shape?: 'square' | 'round' | 'circle';
+  shape?: 'rectangle' | 'square' | 'round' | 'circle';
   /**
-   * 组件子元素（默认插槽）
+   * 组件尺寸
    * @default medium
    */
   size?: SizeEnum;

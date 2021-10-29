@@ -5,7 +5,7 @@ import { prefix } from '../config';
 import { STATUS_CLASSNAMES } from '../utils/classnames';
 import ripple from '../utils/ripple';
 import itemProps from './dropdown-item-props';
-
+import { renderTNodeJSX } from '../utils/render-tnode';
 import { TNodeReturnValue } from '../common';
 
 const name = `${prefix}-dropdown__item`;
@@ -79,7 +79,7 @@ export default defineComponent({
           v-ripple
         >
           <div class={`${name}__content`}>
-            <span class={`${name}__content__text`}>{this.content}</span>
+            <span class={`${name}__content__text`}>{renderTNodeJSX(this, 'content')}</span>
           </div>
           { this.renderSuffix()}
         </div>

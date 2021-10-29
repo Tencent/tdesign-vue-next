@@ -62,12 +62,12 @@ export default defineComponent({
               <img class={`${UPLOAD_NAME}-card__image`} src={file.url} />
               <div class={`${UPLOAD_NAME}-card__mask`} onClick={this.onMaskClick}>
                 <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
-                  <TIconBrowse nativeOnClick={(e: MouseEvent) => this.onViewClick(e, file)}/>
+                  <TIconBrowse onClick={(e: MouseEvent) => this.onViewClick(e, file)}/>
                 </span>
                 <span class={`${UPLOAD_NAME}-card__mask__item-divider`}></span>
 
                 <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
-                  <IIconDelete nativeOnClick={(e: MouseEvent) => this.remove({ e, file, index })} />
+                  <IIconDelete onClick={(e: MouseEvent) => this.remove({ e, file, index })} />
                 </span>
               </div>
             </div>

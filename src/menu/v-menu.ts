@@ -9,7 +9,7 @@ interface VMenuData {
 
 interface VMenuItem {
   value?: MenuValue;
-  parent: MenuNode;
+  parent: MenuValue;
 }
 
 const getTreePaths = (node: VMenuData, val: MenuValue, ans: MenuValue[]): MenuValue[] => {
@@ -29,6 +29,16 @@ const getTreeSameParentNodes = (node: VMenuData, val: MenuValue): VMenuData[] =>
     if (child.value === val) return node.children;
     const target = getTreeSameParentNodes(child, val);
     if (target) return target;
+  }
+};
+
+const DFS = (root: VMenuData, val: MenuValue): VMenuData => {
+  if (root.value === val) return root;
+  if (root.children.length > 0) {
+    for (let i = 0, len = root.children.length; i < len; i++) {
+      const res = DFS(root.children[i], val);
+      if (res) return res;
+    }
   }
 };
 
@@ -67,6 +77,11 @@ export default class VMenu {
     if (item.parent == null) {
       this.data.children.push(node);
       node.parent = this.data;
+    } else if (this.data.children.length > 0) {
+      const pNode = DFS(this.data, parent);
+      if (pNode) {
+        pNode.children.push(node);
+      }
     } else {
       this.cache.add(node);
     }

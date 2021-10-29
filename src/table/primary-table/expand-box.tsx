@@ -32,6 +32,7 @@ export default defineComponent({
       if (!expanded) {
         style.transform = 'rotate(-180deg)';
       }
+      if (!icon) return false;
       return <span style={style}>{icon}</span>;
     },
     handleClick(e: Event) {
@@ -40,10 +41,11 @@ export default defineComponent({
   },
   render() {
     const { expanded } = this;
-
+    const icon = this.getExpandIcon(expanded);
+    if (!icon) return null;
     return (
       <span class={`${prefix}-table-expand-box`}onClick={this.handleClick}>
-        {this.getExpandIcon(expanded)}
+        {icon}
       </span>
     );
   },

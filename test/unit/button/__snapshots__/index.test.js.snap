@@ -112,7 +112,7 @@ exports[`Button :props :icon function 1`] = `
 
 exports[`Button :props :loading 1`] = `
 <button
-  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-loading"
+  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
   type="button"
 >
   

@@ -293,6 +293,9 @@ export default defineComponent({
       if (this.$slots.totalContent) {
         return this.$slots.totalContent(null);
       }
+      if (typeof this.totalContent === 'function') {
+        return this.totalContent();
+      }
       return t(locale.total, { total });
     },
     renderPagination() {

@@ -160,11 +160,11 @@ export default defineComponent({
       return this.theme === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
     },
     displayValue(): number | string {
-      if (this.value === undefined) return;
       // inputing
       if (this.inputing && this.userInput !== null) {
         return this.filterValue;
       }
+      if (this.value === undefined) return '';
       // end input
       return this.format && !this.inputing ? this.format(this.value) : this.value.toFixed(this.digitsNum);
     },
@@ -256,6 +256,7 @@ export default defineComponent({
     },
     handleStartInput() {
       this.inputing = true;
+      if (this.value === undefined) return;
       this.filterValue = this.value.toFixed(this.digitsNum);
     },
     handleEndInput(e: FocusEvent) {
@@ -320,7 +321,7 @@ export default defineComponent({
   render() {
     return (
       <div class={this.cmptWrapClasses}>
-        {this.theme !== 'normal' && <t-button class={this.reduceClasses} {...this.reduceEvents} variant="outline" v-slots={{
+        {this.theme !== 'normal' && <t-button class={this.reduceClasses} {...this.reduceEvents} variant="outline" shape="square" v-slots={{
           icon: () => (
             this.decreaseIcon
           ),
@@ -333,7 +334,7 @@ export default defineComponent({
             {...this.inputEvents}
           />
         </div>
-        {this.theme !== 'normal' && <t-button class={this.addClasses} {...this.addEvents} variant="outline" v-slots={{
+        {this.theme !== 'normal' && <t-button class={this.addClasses} {...this.addEvents} variant="outline" shape="square" v-slots={{
           icon: () => (
             this.increaseIcon
           ),

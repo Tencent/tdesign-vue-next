@@ -39,7 +39,7 @@ exports[`Textarea :props :maxlength 1`] = `
   <span
     class="t-textarea__limit"
   >
-    9/10
+    0/10
   </span>
 </div>
 `;

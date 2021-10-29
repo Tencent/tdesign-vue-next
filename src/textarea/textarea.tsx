@@ -60,6 +60,8 @@ export default defineComponent({
       } else if (typeof this.autosize === 'object') {
         const { minRows, maxRows } = this.autosize;
         this.textareaStyle = calcTextareaHeight(this.$refs.refTextareaElem as HTMLTextAreaElement, minRows, maxRows);
+      } else if (this.$attrs.rows) {
+        this.textareaStyle = { height: 'auto', minHeight: 'auto' };
       }
     },
 
@@ -127,15 +129,15 @@ export default defineComponent({
         <textarea
           onInput={this.handleInput}
           {...inputEvents}
+          {...this.$attrs}
           {...this.inputAttrs}
           ref="refTextareaElem"
           value={this.value}
           style={this.textareaStyle}
           class={classes}
-          {...this.$attrs}
         ></textarea>
         {this.maxlength ? (
-          <span class={`${name}__limit`}>{`${String(this.value)?.length || 0}/${this.maxlength}`}</span>
+          <span class={`${name}__limit`}>{`${this.value ? String(this.value)?.length : 0}/${this.maxlength}`}</span>
         ) : null}
       </div>
     );
