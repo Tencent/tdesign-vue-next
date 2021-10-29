@@ -1,24 +1,24 @@
 
 <template>
-  <div>
-    <h1>使用插槽</h1>
-    <t-calendar>
-      <template #week="scope">
-        {{ scope.data.day === 7 ? '星期天' : `星期${scope.data.day}` }}
-      </template>
-    </t-calendar>
+  <div class="tdesign-demo-block-column-large">
+    <div class="tdesign-demo-block-column">
+      <h3>使用插槽</h3>
+      <t-calendar>
+        <template #week="scope">
+          {{ scope.data.day === 7 ? '星期天' : `星期${scope.data.day}` }}
+        </template>
+      </t-calendar>
+    </div>
 
-    <br>
+    <div class="tdesign-demo-block-column">
+      <h3>使用week属性 - Array</h3>
+      <t-calendar :week="week" :firstDayOfWeek="7"></t-calendar>
+    </div>
 
-    <h1>使用week属性 - Array</h1>
-    <t-calendar :week="week" :firstDayOfWeek="7">
-    </t-calendar>
-
-    <br>
-
-    <h1>使用week属性 - TNode</h1>
-    <t-calendar :week="renderWeek">
-    </t-calendar>
+    <div class="tdesign-demo-block-column">
+      <h3>使用week属性 - TNode</h3>
+      <t-calendar :week="renderWeek"></t-calendar>
+    </div>
   </div>
 </template>
 

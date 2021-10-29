@@ -1,65 +1,100 @@
 <template>
   <t-calendar>
-    <template #cell="scope">
-      <div class="my-cell">
-        <div class="cellNum">{{ diaplayNum(scope.data) }}</div>
-        <div class="cellAppend"
-            :class="getCellAppendCls(scope.data)">
-          {{ getDateStr(scope.data) }}
-        </div>
+    <template #cell="{ data }">
+      <div class="outerWarrper">
+        <div class="number">{{ diaplayNum(data) }}</div>
+        <template v-if="isShow(data)">
+          <div class="slotWarrper">
+            <div v-for="(item, index) in dataList" :key="index" class="item">
+              <span :class="item.value"></span>
+              {{item.label}}
+            </div>
+          </div>
+          <div class="shadow"/>
+        </template>
       </div>
     </template>
   </t-calendar>
 </template>
 
 <script>
+import dayjs from 'dayjs';
+
 export default {
+  data() {
+    return {
+      dataList: [{
+        value: 'error',
+        label: '错误事件',
+      }, {
+        value: 'waring',
+        label: '警告事件',
+      }, {
+        value: 'success',
+        label: '正常事件',
+      }],
+    };
+  },
   methods: {
-    getDateStr(cellData) {
-      const y = cellData.date.getFullYear();
-      const m = cellData.date.getMonth() + 1;
-      if (cellData.mode === 'year') {
-        return `${y}-${m}`;
-      }
-      const d = cellData.date.getDate();
-      return `${y}-${m}-${d}`;
+    isShow(data) {
+      return data.mode === 'month' ? data.day === 15 : dayjs(data.formattedDate).month() === 7;
     },
     diaplayNum(cellData) {
       if (cellData.mode === 'month') {
         return cellData.date.getDate();
       }
-      // cellData.mode === 'year'
-      return cellData.month;
-    },
-    getCellAppendCls(cellData) {
-      return {
-        belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
-        actived: cellData.isCurrent,
-      };
+      return cellData.date.getMonth() + 1;
     },
   },
 };
 </script>
 
-<style scoped>
-.cellNum {
-  margin-right: 10px;
-  text-align: right;
-  font-weight: 700;
-  font-size: 16px;
+<style lang="less" scoped>
+.outerWarrper {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
-.cellAppend {
-  margin: 10px;
-  background-color: #ebf2ff;
-  color: #888;
-  border-radius: 3px;
-  padding: 2px 4px;
+.slotWarrper {
+  position: absolute;
+  bottom: 2px;
+  left: 5px;
 }
-.cellAppend.belongCurrent {
-  color: #0052d9;
+.shadow {
+  position: absolute;
+  width: 100%;
+  height: 12px;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
 }
-.cellAppend.actived {
-  background-color: #0052d9;
-  color: #ebf2ff;
+.number {
+  font-weight: bold;
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  font-size: 14px;
+}
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+  span {
+    display: block;
+    left: 1px;
+    width: 5px;
+    height: 5px;
+    border-radius: 10px;
+    margin-right: 4px;
+  }
+}
+.error  {
+  background: #E34D59;
+}
+.waring {
+  background: #ED7B2F;
+}
+.success {
+  background: #00A870;
 }
 </style>

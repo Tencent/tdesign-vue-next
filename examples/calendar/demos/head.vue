@@ -1,8 +1,8 @@
 <template>
   <t-calendar>
-    <div slot="head">
+    <template #head>
       🗓 TDesign开发计划
-    </div>
+    </template>
   </t-calendar>
 </template>
 

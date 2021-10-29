@@ -34,12 +34,12 @@
           <t-switch v-model="controllerConfig.month.selecteProps.disabled"></t-switch>
         </p>
         <p>
+          <label>是否禁用“隐藏周末”控件：</label>
+          <t-switch v-model="controllerConfig.weekend.hideWeekendButtonProps.disabled"></t-switch>
+          <label>是否禁用“显示周末”控件：</label>
+          <t-switch v-model="controllerConfig.weekend.showWeekendButtonProps.disabled"></t-switch>
           <label>是否显示“隐藏\显示周末”控件：</label>
           <t-switch v-model="controllerConfig.weekend.visible"></t-switch>
-          <label>是否禁用“隐藏周末”按钮控件：</label>
-          <t-switch v-model="controllerConfig.weekend.hideWeekendButtonProps.disabled"></t-switch>
-          <label>是否禁用“显示周末”按钮控件：</label>
-          <t-switch v-model="controllerConfig.weekend.showWeekendButtonProps.disabled"></t-switch>
         </p>
         <p>
           <label>是否显示“今天\本月”控件：</label>

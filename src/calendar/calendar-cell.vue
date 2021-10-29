@@ -1,6 +1,6 @@
 <template>
   <!-- 高亮：t-is-checked; 灰度：t-is-disabled-->
-  <td v-if="item" :class="cellCls">
+  <td v-if="item" :class="cellCls" @click="clickCell" @dblclick="dblclick" @contextmenu="contextmenuClick">
     <slot name="cell" :data="item">
       <div class="t-calendar__table-body-cell-value">{{ valueDisplay }}</div>
       <div class="t-calendar__table-body-cell-content">
@@ -11,6 +11,8 @@
 </template>
 
 <script lang="ts">
+import dayjs from 'dayjs';
+
 // 通用库
 import { defineComponent } from 'vue';
 
@@ -22,6 +24,7 @@ import { CalendarCell } from './type';
 
 export default defineComponent({
   name: `${COMPONENT_NAME}-cell`,
+  inheritAttrs: false,
   props: {
     item: {
       type: Object,
@@ -34,6 +37,7 @@ export default defineComponent({
     t: Function,
     locale: Object,
   },
+  emits: ['click', 'dblclick', 'rightClick'],
   computed: {
     allowSlot(): boolean {
       return this.theme === 'full';
@@ -50,12 +54,28 @@ export default defineComponent({
       return map[(this.item.date.getMonth()).toString()];
     },
     cellCls(): Record<string, any> {
+      const {
+        mode, date, formattedDate, isCurrent,
+      } = this.item;
+      const isNow = mode === 'year' ? new Date().getMonth() === date.getMonth() : formattedDate === dayjs().format('YYYY-MM-DD');
       return [
         't-calendar__table-body-cell',
         {
           't-is-disabled': this.disabled,
-          't-is-checked': this.item.isCurrent,
+          't-is-checked': isCurrent,
+          't-is-now': isNow,
         }];
+    },
+  },
+  methods: {
+    clickCell(e: MouseEvent) {
+      this.$emit('click', e);
+    },
+    dblclick(e: MouseEvent) {
+      this.$emit('dblclick', e);
+    },
+    contextmenuClick(e: MouseEvent) {
+      this.$emit('rightClick', e);
     },
   },
 });

@@ -109,7 +109,7 @@
                 :locale="locale"
                 @click="clickCell($event, item)"
                 @dblclick="doubleClickCell($event, item)"
-                @contextmenu="rightClickCell($event, item)"
+                @rightClick="rightClickCell($event, item)"
               >
                 <!-- cell slot for month mode -->
                 <template #cell>
@@ -139,7 +139,7 @@
               :locale="locale"
               @click="clickCell($event, item)"
               @dblclick="doubleClickCell($event, item)"
-              @contextmenu="rightClickCell($event, item)"
+              @rightClick="rightClickCell($event, item)"
             >
               <!-- cell slot for year mode -->
               <template #cell>
@@ -249,13 +249,13 @@ export default defineComponent({
     CalendarCellItem,
     RenderTNodeTemplate,
   },
+  emits: ['cell-click', 'cell-double-click', 'cell-right-click', 'controller-change'],
   props: { ...props },
   setup() {
-    const { t, locale, globalLocale } = useLocalRecevier('calendar');
+    const { t, locale } = useLocalRecevier('calendar');
     return {
       t,
       locale,
-      globalLocale,
       curDate: ref<dayjs.Dayjs>(null),
       curSelectedYear: ref<number>(null),
       curSelectedMonth: ref<number>(null),
@@ -534,6 +534,7 @@ export default defineComponent({
       };
     },
     clickCell(e: MouseEvent, cellData: CalendarCell) {
+      this.curDate = dayjs(cellData.date);
       this.execCellEvent(e, cellData, 'cell-click');
     },
     doubleClickCell(e: MouseEvent, cellData: CalendarCell) {
@@ -545,15 +546,12 @@ export default defineComponent({
       }
       this.execCellEvent(e, cellData, 'cell-right-click');
     },
-    execCellEvent(e: MouseEvent, cellData: CalendarCell, emitName: string) {
+    execCellEvent(e: MouseEvent, cellData: CalendarCell, emitName: "cell-click" | "cell-double-click" | "cell-right-click" | "controller-change") {
       const options: CellEventOption = {
         cell: this.createCalendarCell(cellData),
         e,
       };
       const cellEvent = this[getPropsApiByEvent(emitName)];
-      if (typeof cellEvent === 'function') {
-        cellEvent(options);
-      }
       this.$emit(emitName, options);
     },
     controllerChange(): void {

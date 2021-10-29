@@ -9,10 +9,9 @@
       </t-select>
     </div>
 
-    <t-calendar ref="myCalendar"
-                :theme="theme">
+    <t-calendar ref="myCalendar" @cell-right-click="handleClick" :theme="theme">
       <template #cell="scope">
-        <div class="demo-cell" @click="showCeelData(scope.data)">
+        <div class="demo-cell" >
           <div class="cellAppend"
               :class="getCellAppendCls(scope.data)">
             {{ getDateStr(scope.data) }}
@@ -35,6 +34,9 @@ export default {
     };
   },
   methods: {
+    handleClick() {
+      console.log(123)
+    },
     getDateStr(cellData) {
       const y = cellData.date.getFullYear();
       const m = cellData.date.getMonth() + 1;
@@ -77,14 +79,11 @@ export default {
 }
 .cellAppend {
   margin: 10px;
-  background-color: #ebf2ff;
   color: #888;
   border-radius: 3px;
   padding: 2px 4px;
 }
-.cellAppend.belongCurrent {
-  color: #0052d9;
-}
+
 .cellAppend.actived {
   background-color: #0052d9;
   color: #ebf2ff;

@@ -1,34 +1,20 @@
 <template>
   <t-calendar>
-    <template #cellAppend="scope">
-      <div class="cellAppend" @click="showCellData(scope.data)"
-           :class="getCellAppendCls(scope.data)">
-        {{ getDateStr(scope.data) }}
+    <template #cellAppend="{ data }">
+      <div v-if="getShow(data)" class="cell-append-demo-outer">
+        <t-tag theme="primary" size="small" class="activeTag">{{data.mode == "month" ? '今天' : '本月'}}</t-tag>
       </div>
     </template>
   </t-calendar>
 </template>
 
 <script>
+import dayjs from 'dayjs';
+
 export default {
   methods: {
-    getDateStr(cellData) {
-      const y = cellData.date.getFullYear();
-      const m = cellData.date.getMonth() + 1;
-      if (cellData.mode === 'year') {
-        return `${y}-${m}`;
-      }
-      const d = cellData.date.getDate();
-      return `${y}-${m}-${d}`;
-    },
-    getCellAppendCls(cellData) {
-      return {
-        belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
-        actived: cellData.isCurrent,
-      };
-    },
-    showCellData(cellData) {
-      console.info(cellData);
+    getShow(data) {
+      return data.mode === 'month' ? dayjs().format('YYYY-MM-DD') === data.formattedDate : data.date.getMonth() === new Date().getMonth();
     },
   },
 };

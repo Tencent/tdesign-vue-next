@@ -2,7 +2,6 @@
   <div>
     <div style="margin: 12px 0">
       <label>日历的第一列为：</label>
-
       <t-select v-model="firstDayOfWeek" class="demo-select-base">
         <t-option v-for="item in options" :key="item.value"
                   :value="item.value" :label="item.label" />
