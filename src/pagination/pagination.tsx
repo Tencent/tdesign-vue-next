@@ -349,7 +349,7 @@ export default defineComponent({
 
           {/* select */}
           {
-            pageSizeOptions.length && <t-select size={size} value={pageSize} disabled={disabled} class={sizerClass} onChange={onSelectorChange}>
+            pageSizeOptions.length > 0 && <t-select size={size} value={pageSize} disabled={disabled} class={sizerClass} onChange={onSelectorChange}>
               {
                 sizeOptions.map((item, index) => (
                     <t-option
