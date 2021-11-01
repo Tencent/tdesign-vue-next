@@ -23,7 +23,7 @@ const getTreePaths = (node: VMenuData, val: MenuValue, ans: MenuValue[]): MenuVa
 };
 
 const getTreeSameParentNodes = (node: VMenuData, val: MenuValue): VMenuData[] => {
-  if (!node) return;
+  if (!node) return [];
   for (let i = 0; i < node.children.length; ++i) {
     const child = node.children[i];
     if (child.value === val) return node.children;

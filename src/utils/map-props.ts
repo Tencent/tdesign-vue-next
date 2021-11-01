@@ -94,7 +94,7 @@ export default function (props: (string | PropOption)[]): any {
       defineEvents = defineEvents.concat(events);
 
       // does not destroy the original defaultValue logic
-      const defaultList: string[] = []
+      const defaultList: string[] = [];
 
       // watch default prop
       defineWatches[defaultName] = {
@@ -108,7 +108,7 @@ export default function (props: (string | PropOption)[]): any {
           ) {
             this.$data[dataName] = v;
           }
-          defaultList.push(defaultName + this.$.uid)
+          defaultList.push(defaultName + this.$.uid);
         },
         immediate: true,
       };

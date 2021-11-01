@@ -17,7 +17,7 @@ export default defineComponent({
       const actions = renderTNodeJSX(this, 'actions');
       return actions && actions.length ? (
         <ul class={`${preName}__actions`}>
-          {actions.map((action: Slot, index:number) => (
+          {actions.map((action: Slot, index: number) => (
             <li key={`action-${index}`}>{action}</li>
           ))}
         </ul>
@@ -65,7 +65,7 @@ export default defineComponent({
     },
   },
 
-  render():VNode {
+  render(): VNode {
     return (
       <div class={preName}>
         <div class={`${preName}__inner`}>

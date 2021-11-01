@@ -3,7 +3,7 @@ import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
 import { TreeNodeValue } from '../_common/js/tree/types';
 
-export type CascaderProps = TdCascaderProps
+export type CascaderProps = TdCascaderProps;
 
 export * from './type';
 export interface CascaderContextType

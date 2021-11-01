@@ -286,11 +286,10 @@ export function getWeeks(
   const maxDays = getDaysInMonth({ year, month });
 
   const daysArr = [];
-  let i = 1;
 
   const today = getToday();
 
-  for (i; i <= maxDays; i++) {
+  for (let i = 1; i <= maxDays; i++) {
     const currentDay = new Date(year, month, i);
 
     daysArr.push({

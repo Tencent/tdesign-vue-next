@@ -82,7 +82,7 @@ export default defineComponent({
         filteredIdx = timeList.filter((t) => {
           const params = this.currentTimes;
           params[index] = Number(t);
-          return this.disableTime && !this.disableTime?.apply(this, params);
+          return this.disableTime && !this.disableTime.apply(this, params);
         }).indexOf(preIdx);
       }
       return filteredIdx;

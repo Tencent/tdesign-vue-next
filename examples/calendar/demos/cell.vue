@@ -54,47 +54,49 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-}
-.slotWarrper {
-  position: absolute;
-  bottom: 2px;
-  left: 5px;
-}
-.shadow {
-  position: absolute;
-  width: 100%;
-  height: 12px;
-  bottom: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
-}
-.number {
-  font-weight: bold;
-  position: absolute;
-  top: 3px;
-  right: 5px;
-  font-size: 14px;
-}
-.item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  color: rgba(0, 0, 0, 0.6);
-  span {
-    display: block;
-    left: 1px;
-    width: 5px;
-    height: 5px;
-    border-radius: 10px;
-    margin-right: 4px;
+
+  .shadow {
+    position: absolute;
+    width: 100%;
+    height: 12px;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
   }
-}
-.error  {
-  background: #E34D59;
-}
-.waring {
-  background: #ED7B2F;
-}
-.success {
-  background: #00A870;
+  .number {
+    font-weight: bold;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    font-size: 14px;
+  }
+  .item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.6);
+    span {
+      display: block;
+      left: 1px;
+      width: 5px;
+      height: 5px;
+      border-radius: 10px;
+      margin-right: 4px;
+    }
+  }
+  .error  {
+    background: #E34D59;
+  }
+  .waring {
+    background: #ED7B2F;
+  }
+  .success {
+    background: #00A870;
+  }
+
+  .slotWarrper {
+    position: absolute;
+    bottom: 2px;
+    left: 5px;
+  }
 }
 </style>

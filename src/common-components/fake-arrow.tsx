@@ -24,9 +24,9 @@ export default defineComponent({
       return [
         name,
         {
-          [`${name}--active`]: this?.isActive,
+          [`${name}--active`]: this.isActive,
         },
-        this?.overlayClassName,
+        this.overlayClassName,
       ];
     },
   },

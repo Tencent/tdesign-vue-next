@@ -120,8 +120,8 @@ export default defineComponent({
         const rect = (refs.popupInner as HTMLElement)?.getBoundingClientRect();
         const $popup = refs.popup;
 
-        ($popup as HTMLElement)?.style?.setProperty('--popup-max-height', `${rect.height}px`);
-        ($popup as HTMLElement)?.style?.setProperty('--popup-width', `${rect.width}px`);
+        ($popup as HTMLElement)?.style?.setProperty('--popup-max-height', `${rect?.height}px`);
+        ($popup as HTMLElement)?.style?.setProperty('--popup-width', `${rect?.width}px`);
       }
     });
 

@@ -50,7 +50,7 @@ function getDataValues(data: Array<TransferItemOption>, filterValues: Array<Tran
         }
 
         // 只找叶子节点
-        if (item?.children && item.children?.length > 0) {
+        if (item.children && item.children?.length > 0) {
           const childResult = getDataValues(item.children, filterValues, {
             isTreeMode,
             include,
@@ -102,11 +102,14 @@ function isAllNodeValid(data: TransferItemOption, filterValues: Array<TransferVa
 }
 
 function isTreeNodeValid(data: TransferItemOption, filterValues: Array<TransferValue>, needMatch: boolean): boolean {
+  if (!data) return !needMatch;
+
   if (filterValues.includes(data.value)) {
     return needMatch;
   }
-  if (data?.children) {
-    return data?.children.some((item) => isTreeNodeValid(item, filterValues, needMatch));
+
+  if (data.children) {
+    return data.children.some((item) => isTreeNodeValid(item, filterValues, needMatch));
   }
   return !needMatch;
 }

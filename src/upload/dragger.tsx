@@ -114,7 +114,7 @@ export default defineComponent({
     renderImage() {
       return (
         <div class='t-upload__dragger-img-wrap'>
-          {this.imageUrl && <img src={this.imageUrl || 'default.png'}></img>}
+          {this.imageUrl && <img src={this.imageUrl}></img>}
         </div>
       );
     },

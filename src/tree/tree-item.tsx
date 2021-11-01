@@ -164,9 +164,9 @@ export default defineComponent({
 
       let labelNode = null;
       if (label === true) {
-        if (scopedSlots?.label) {
+        if (scopedSlots.label) {
           labelNode = scopedSlots.label({
-            node: node?.getModel(),
+            node: node.getModel(),
           });
         } else {
           labelNode = node.label || '';

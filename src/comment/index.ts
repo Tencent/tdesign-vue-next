@@ -7,5 +7,5 @@ import './style';
 export * from './type';
 export type CommentProps = TdCommentProps;
 
-export const Comment = withInstall<typeof _Comment>(_Comment);
+export const Comment: WithInstallType<typeof _Comment> = withInstall(_Comment);
 export default Comment;
