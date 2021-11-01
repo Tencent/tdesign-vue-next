@@ -44,7 +44,9 @@ export default defineComponent({
     return (
       <div
         class="t-tab-panel"
-        v-show={active}
+        // TODO: use v-show to replace display:none. , in the production env, v-show is performance for v-if.
+        style={!active && { display: 'none' }
+        }
       >
         {this.getContent()}
       </div>
