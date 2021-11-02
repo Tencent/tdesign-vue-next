@@ -265,6 +265,7 @@ exports[`Anchor target demo works fine 1`] = `
         >
           <div
             class="t-popup-content t-popup-content--arrow"
+            style="max-width: 480px;"
           >
             复制链接
             <div
@@ -310,6 +311,7 @@ exports[`Anchor target demo works fine 1`] = `
         >
           <div
             class="t-popup-content t-popup-content--arrow"
+            style="max-width: 480px;"
           >
             复制链接
             <div
@@ -355,6 +357,7 @@ exports[`Anchor target demo works fine 1`] = `
         >
           <div
             class="t-popup-content t-popup-content--arrow"
+            style="max-width: 480px;"
           >
             复制链接
             <div
@@ -400,6 +403,7 @@ exports[`Anchor target demo works fine 1`] = `
         >
           <div
             class="t-popup-content t-popup-content--arrow"
+            style="max-width: 480px;"
           >
             复制链接
             <div
@@ -445,6 +449,7 @@ exports[`Anchor target demo works fine 1`] = `
         >
           <div
             class="t-popup-content t-popup-content--arrow"
+            style="max-width: 480px;"
           >
             复制链接
             <div
@@ -490,6 +495,7 @@ exports[`Anchor target demo works fine 1`] = `
         >
           <div
             class="t-popup-content t-popup-content--arrow"
+            style="max-width: 480px;"
           >
             复制链接
             <div
@@ -535,6 +541,7 @@ exports[`Anchor target demo works fine 1`] = `
         >
           <div
             class="t-popup-content t-popup-content--arrow"
+            style="max-width: 480px;"
           >
             复制链接
             <div

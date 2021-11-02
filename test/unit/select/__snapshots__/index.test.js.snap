@@ -16,7 +16,6 @@ exports[`Select :props :bordered 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -112,7 +111,6 @@ exports[`Select :props :clearable 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -208,7 +206,6 @@ exports[`Select :props :creatable 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -304,7 +301,6 @@ exports[`Select :props :disabled 1`] = `
       >
         <div
           class="t-popup-content t-is-disabled t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -401,7 +397,6 @@ exports[`Select :props :labelInValue 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -497,7 +492,6 @@ exports[`Select :props :loading 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -593,7 +587,6 @@ exports[`Select :props :multiple 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -707,7 +700,6 @@ exports[`Select :props :placeholder 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -804,7 +796,6 @@ exports[`Select :props :remote 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -900,7 +891,6 @@ exports[`Select :props :reserveKeyword 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -996,7 +986,6 @@ exports[`Select :props :size 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -1093,7 +1082,6 @@ exports[`Select Option :props :disabled 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -1197,7 +1185,6 @@ exports[`Select Option :props :label 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -1301,7 +1288,6 @@ exports[`Select Option :props :value 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>
@@ -1405,7 +1391,6 @@ exports[`Select OptionGroup :props :value 1`] = `
       >
         <div
           class="t-popup-content t-select-dropdown narrow-scrollbar"
-          style=""
         >
           
           <div>

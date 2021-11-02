@@ -39,6 +39,16 @@ export const off = (((): any => {
   };
 })());
 
+export function once(element: Node, event: string, handler: EventListenerOrEventListenerObject) {
+  const handlerFn = typeof handler === 'function' ? handler : handler.handleEvent;
+  const callback = (evt: any) => {
+    handlerFn(evt);
+    off(element, event, callback);
+  };
+
+  on(element, event, callback);
+}
+
 export function hasClass(el: Element, cls: string): any {
   if (!el || !cls) return false;
   if (cls.indexOf(' ') !== -1) throw new Error('className should not contain space.');

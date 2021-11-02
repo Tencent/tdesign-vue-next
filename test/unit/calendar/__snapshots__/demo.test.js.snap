@@ -26,7 +26,6 @@ exports[`Calendar card demo works fine 1`] = `
           >
             <div
               class="t-popup-content t-select-dropdown narrow-scrollbar"
-              style=""
             >
               
               <div>
@@ -164,7 +163,6 @@ exports[`Calendar card demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -434,7 +432,6 @@ exports[`Calendar card demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -1567,7 +1564,6 @@ exports[`Calendar cardCell demo works fine 1`] = `
           >
             <div
               class="t-popup-content t-select-dropdown narrow-scrollbar"
-              style=""
             >
               
               <div>
@@ -1693,7 +1689,6 @@ exports[`Calendar cardCell demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -1963,7 +1958,6 @@ exports[`Calendar cardCell demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -3440,7 +3434,6 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -3710,7 +3703,6 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -4943,7 +4935,6 @@ exports[`Calendar events demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -5213,7 +5204,6 @@ exports[`Calendar events demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -6480,7 +6470,6 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -6750,7 +6739,6 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -7994,7 +7982,6 @@ exports[`Calendar filter demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -8264,7 +8251,6 @@ exports[`Calendar filter demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -9259,7 +9245,6 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
           >
             <div
               class="t-popup-content t-select-dropdown narrow-scrollbar"
-              style=""
             >
               
               <div>
@@ -9415,7 +9400,6 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -9685,7 +9669,6 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -11044,7 +11027,6 @@ exports[`Calendar mode demo works fine 1`] = `
           >
             <div
               class="t-popup-content t-select-dropdown narrow-scrollbar"
-              style=""
             >
               
               <div>
@@ -11170,7 +11152,6 @@ exports[`Calendar mode demo works fine 1`] = `
                 >
                   <div
                     class="t-popup-content t-select-dropdown narrow-scrollbar"
-                    style=""
                   >
                     
                     <div>
@@ -11842,7 +11823,6 @@ exports[`Calendar week demo works fine 1`] = `
                   >
                     <div
                       class="t-popup-content t-select-dropdown narrow-scrollbar"
-                      style=""
                     >
                       
                       <div>
@@ -12112,7 +12092,6 @@ exports[`Calendar week demo works fine 1`] = `
                   >
                     <div
                       class="t-popup-content t-select-dropdown narrow-scrollbar"
-                      style=""
                     >
                       
                       <div>
@@ -13321,7 +13300,6 @@ exports[`Calendar week demo works fine 1`] = `
                   >
                     <div
                       class="t-popup-content t-select-dropdown narrow-scrollbar"
-                      style=""
                     >
                       
                       <div>
@@ -13591,7 +13569,6 @@ exports[`Calendar week demo works fine 1`] = `
                   >
                     <div
                       class="t-popup-content t-select-dropdown narrow-scrollbar"
-                      style=""
                     >
                       
                       <div>
@@ -14800,7 +14777,6 @@ exports[`Calendar week demo works fine 1`] = `
                   >
                     <div
                       class="t-popup-content t-select-dropdown narrow-scrollbar"
-                      style=""
                     >
                       
                       <div>
@@ -15070,7 +15046,6 @@ exports[`Calendar week demo works fine 1`] = `
                   >
                     <div
                       class="t-popup-content t-select-dropdown narrow-scrollbar"
-                      style=""
                     >
                       
                       <div>

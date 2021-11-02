@@ -18,7 +18,6 @@ exports[`Select base demo works fine 1`] = `
         >
           <div
             class="t-popup-content t-select-dropdown narrow-scrollbar"
-            style=""
           >
             
             <div>
