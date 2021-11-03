@@ -431,6 +431,9 @@ export default defineComponent({
       const useLocale = !this.loadingText && !this.$slots.loadingText;
       return useLocale ? this.t(this.locale.loadingText) : renderTNodeJSX(this as ComponentPublicInstance, 'loadingText');
     },
+    getPlaceholderText() {
+      return this.placeholder || this.t(this.locale.placeholderText);
+    },
     getCloseIcon() {
       const closeIconClass = [`${name}-right-icon`, `${name}-right-icon__clear`];
       if (isFunction(this.locale.clearIcon)) {
@@ -462,7 +465,6 @@ export default defineComponent({
       popClass,
       size,
       showPlaceholder,
-      placeholder,
       selectedMultiple,
       multiple,
       showFilter,
@@ -482,6 +484,7 @@ export default defineComponent({
     const prefixIconSlot = renderTNodeJSX(this as ComponentPublicInstance, 'prefixIcon');
     const emptySlot = this.getEmpty();
     const loadingTextSlot = this.getLoadingText();
+    const placeholderText = this.getPlaceholderText();
     const slots = {
       content: () => (
         <div>
@@ -542,7 +545,7 @@ export default defineComponent({
             }
             {
               showPlaceholder && (
-                <span class={`${name}-placeholder`}> { placeholder }</span>
+                <span class={`${name}-placeholder`}> { placeholderText }</span>
               )
             }
             {this.valueDisplay || this.$slots.valueDisplay

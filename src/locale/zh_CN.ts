@@ -58,6 +58,7 @@ export default {
   select: {
     empty: '暂无数据',
     loadingText: '加载中',
+    placeholderText: '请选择',
     // 清除按钮
     clearIcon: null,
   },
@@ -104,4 +105,7 @@ export default {
     now: '当前',
   },
   steps: {},
+  upload: {
+    sizeLimitMessage: '图片大小不能超过 {sizeLimit}',
+  },
 };

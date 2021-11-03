@@ -11,6 +11,8 @@ import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import { ClassName, Styles, TNode } from '../common';
 import { emitEvent } from '../utils/event';
+import mixins from '../utils/mixins';
+import getLocalReceiverMixins from '../locale/local-receiver';
 
 type FooterButton = string | ButtonProps | TNode;
 type FooterButtonType = 'confirm' | 'cancel';
@@ -51,6 +53,7 @@ function InitDragEvent(dragBox: HTMLElement) {
   });
 }
 export default defineComponent({
+  ...mixins(getLocalReceiverMixins('dialog')),
   name,
 
   components: {
@@ -245,13 +248,13 @@ export default defineComponent({
     getDefaultFooter() {
       let cancelBtn = null;
       if (![undefined, null].includes(this.cancelBtn)) {
-        cancelBtn = this.cancelBtn || '取消';
+        cancelBtn = this.cancelBtn || this.t(this.locale.cancel);
         const defaultCancel = this.getDefaultBtn('cancel', cancelBtn);
         cancelBtn = this.isUseDefault(cancelBtn) ? defaultCancel : renderTNodeJSX(this, 'cancelBtn');
       }
       let confirmBtn = null;
       if (![undefined, null].includes(this.confirmBtn)) {
-        confirmBtn = this.confirmBtn || '确认';
+        confirmBtn = this.confirmBtn || this.t(this.locale.confirm);
         const defaultConfirm = this.getDefaultBtn('confirm', confirmBtn);
         confirmBtn = this.isUseDefault(confirmBtn) ? defaultConfirm : renderTNodeJSX(this, 'confirmBtn');
       }

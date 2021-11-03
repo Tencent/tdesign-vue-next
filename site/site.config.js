@@ -30,6 +30,30 @@ export default {
       ],
     },
     {
+      title: '全局配置',
+      name: 'configs',
+      children: [
+        {
+          title: '文本语言配置',
+          name: 'config',
+          meta: {
+            docType: 'explain',
+          },
+          path: '/vue-next/components/config',
+          component: () => import('@/examples/locale-provider/locale-provider.md'),
+        },
+        {
+          title: '自定义主题',
+          name: 'custom-theme',
+          meta: {
+            docType: 'explain',
+          },
+          path: '/vue-next/components/custom-theme',
+          component: () => import('@common/theme.md'),
+        },
+      ],
+    },
+    {
       title: '基础',
       type: 'component', // 组件文档
       children: [

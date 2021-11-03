@@ -37,7 +37,8 @@ exports[`Drawer Demo CurrentDOMModeUsageExample wroks fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
+              props="[object Object]"
               type="button"
             >
               <span
@@ -49,7 +50,8 @@ exports[`Drawer Demo CurrentDOMModeUsageExample wroks fine 1`] = `
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
+              props="[object Object]"
               type="button"
             >
               <span
@@ -60,6 +62,7 @@ exports[`Drawer Demo CurrentDOMModeUsageExample wroks fine 1`] = `
                 
               </span>
             </button>
+            <!---->
           </div>
         </div>
       </div>
@@ -384,8 +387,8 @@ exports[`Drawer Demo CustomUsageExample wroks fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
-            disabled=""
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -397,7 +400,8 @@ exports[`Drawer Demo CustomUsageExample wroks fine 1`] = `
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -408,6 +412,7 @@ exports[`Drawer Demo CustomUsageExample wroks fine 1`] = `
               
             </span>
           </button>
+          <!---->
         </div>
       </div>
     </div>
@@ -483,7 +488,8 @@ exports[`Drawer Demo NoMaskUsageExample wroks fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -495,7 +501,8 @@ exports[`Drawer Demo NoMaskUsageExample wroks fine 1`] = `
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -506,6 +513,7 @@ exports[`Drawer Demo NoMaskUsageExample wroks fine 1`] = `
               
             </span>
           </button>
+          <!---->
         </div>
       </div>
     </div>
@@ -558,7 +566,8 @@ exports[`Drawer Demo PlacementUsageExample wroks fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -570,7 +579,8 @@ exports[`Drawer Demo PlacementUsageExample wroks fine 1`] = `
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -581,6 +591,7 @@ exports[`Drawer Demo PlacementUsageExample wroks fine 1`] = `
               
             </span>
           </button>
+          <!---->
         </div>
       </div>
     </div>
@@ -909,7 +920,8 @@ exports[`Drawer Demo SizeUsageExample wroks fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -921,7 +933,8 @@ exports[`Drawer Demo SizeUsageExample wroks fine 1`] = `
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -932,6 +945,7 @@ exports[`Drawer Demo SizeUsageExample wroks fine 1`] = `
               
             </span>
           </button>
+          <!---->
         </div>
       </div>
     </div>
@@ -1290,7 +1304,8 @@ exports[`Drawer Demo operation wroks fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -1302,7 +1317,8 @@ exports[`Drawer Demo operation wroks fine 1`] = `
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -1313,6 +1329,7 @@ exports[`Drawer Demo operation wroks fine 1`] = `
               
             </span>
           </button>
+          <!---->
         </div>
       </div>
     </div>
@@ -1377,7 +1394,8 @@ exports[`Drawer base demo works fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -1389,7 +1407,8 @@ exports[`Drawer base demo works fine 1`] = `
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
+            props="[object Object]"
             type="button"
           >
             <span
@@ -1400,6 +1419,7 @@ exports[`Drawer base demo works fine 1`] = `
               
             </span>
           </button>
+          <!---->
         </div>
       </div>
     </div>

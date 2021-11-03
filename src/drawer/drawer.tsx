@@ -7,10 +7,16 @@ import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
+import mixins from '../utils/mixins';
+import getLocalReceiverMixins from '../locale/local-receiver';
+
+type FooterButtonType = 'confirm' | 'cancel';
 
 const name = `${prefix}-drawer`;
 
 export default defineComponent({
+  ...mixins(getLocalReceiverMixins('drawer')),
+
   name,
 
   components: {
@@ -102,21 +108,45 @@ export default defineComponent({
         this.parentNode.style.cssText = this.parentNode.style.cssText.replace(/margin:.+;/, '');
       }
     },
-    getBtnText(api: FooterButton) {
-      return typeof api === 'object' ? api.content : api;
-    },
-    getBtnProps(api: FooterButton) {
-      return typeof api === 'object' ? api : {};
-    },
-    getDefaultFooter() {
+    getDefaultBtn(btnType: FooterButtonType, btnApi: FooterButton) {
+      const isCancel = btnType === 'cancel';
+      const clickAction = isCancel ? this.cancelBtnAction : this.confirmBtnAction;
+      const theme = isCancel ? 'default' : 'primary';
+      const isApiObject = typeof btnApi === 'object';
       return (
-        <div>
-          <t-button onClick={this.confirmBtnAction} {...this.getBtnProps(this.confirmBtn)}>
-            { this.getBtnText(this.confirmBtn) || '确认' }
-          </t-button>
-          <t-button variant="outline" onClick={this.cancelBtnAction} {...this.getBtnProps(this.cancelBtn)}>
-            { this.getBtnText(this.cancelBtn) || '取消' }
-          </t-button>
+        <t-button
+          theme={theme}
+          onClick={clickAction}
+          props={isApiObject ? btnApi : {}}
+          class={`${name}-${btnType}`}
+        >
+          { (btnApi && typeof btnApi === 'object') ? btnApi.content : btnApi }
+        </t-button>
+      );
+    },
+    isUseDefault(btnApi: FooterButton) {
+      const baseTypes = ['string', 'object'];
+      return Boolean(btnApi && baseTypes.includes(typeof btnApi));
+    },
+    // locale 全局配置，插槽，props，默认值，决定了按钮最终呈现
+    getDefaultFooter() {
+      let cancelBtn = null;
+      if (![undefined, null].includes(this.cancelBtn)) {
+        cancelBtn = this.cancelBtn || this.t(this.locale.cancel);
+        const defaultCancel = this.getDefaultBtn('cancel', cancelBtn);
+        cancelBtn = this.isUseDefault(cancelBtn) ? defaultCancel : renderTNodeJSX(this, 'cancelBtn');
+      }
+      let confirmBtn = null;
+      if (![undefined, null].includes(this.confirmBtn)) {
+        confirmBtn = this.confirmBtn || this.t(this.locale.confirm);
+        const defaultConfirm = this.getDefaultBtn('confirm', confirmBtn);
+        confirmBtn = this.isUseDefault(confirmBtn) ? defaultConfirm : renderTNodeJSX(this, 'confirmBtn');
+      }
+      return (
+        <div style={this.footerStyle}>
+          {this.placement === 'right' ? confirmBtn : null}
+          {cancelBtn}
+          {this.placement !== 'right' ? confirmBtn : null}
         </div>
       );
     },
