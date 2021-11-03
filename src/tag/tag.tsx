@@ -61,10 +61,7 @@ export default defineComponent({
     // 标签内容
     const tagContent: TNodeReturnValue = renderTNodeJSX(this as ComponentPublicInstance, 'default') || renderTNodeJSX(this as ComponentPublicInstance, 'content');
     // 图标
-    let icon: VNodeChild;
-    if (typeof this.icon === 'function') {
-      icon = this.icon(h);
-    }
+    const icon = renderTNodeJSX(this, 'icon');
 
     return (
       <span class={this.tagClass} style={this.tagStyle} onClick={this.handleClick}>
