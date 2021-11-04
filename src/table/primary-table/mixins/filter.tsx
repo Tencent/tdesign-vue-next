@@ -35,7 +35,7 @@ export default defineComponent({
     },
 
     getFilterContent(column: PrimaryTableCol) {
-      const types = ['single', 'multiple', 'input', 'custom'];
+      const types = ['single', 'multiple', 'input'];
       if (column.type && !types.includes(column.filter.type)) {
         console.error(`column.type must be the following: ${JSON.stringify(types)}`);
         return;
