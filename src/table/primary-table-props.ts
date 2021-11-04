@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-04 16:07:12
+ * updated at 2021-11-04 17:57:13
  * */
 
 import { TdPrimaryTableProps } from '../table/type';

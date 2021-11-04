@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-04 16:07:12
+ * updated at 2021-11-04 17:57:13
  * */
 
 import { PaginationProps, PageInfo } from '../pagination';
@@ -376,7 +376,7 @@ export type CheckProps<T> = CheckboxProps | RadioProps | ((options: { row: T; ro
 
 export interface Filter { type: FilterType; list?: Array<OptionData>; props?: FilterProps; component?: TNode };
 
-export type FilterType = 'input' | 'single' | 'multiple' | 'custom';
+export type FilterType = 'input' | 'single' | 'multiple';
 
 export type FilterProps = RadioProps | CheckboxProps | InputProps;
 

@@ -1,6 +1,6 @@
 /** Vue3 特有全局变量 */
 type VNode = import('vue').VNode;
-export type ScopedSlot = () => SlotReturnValue;
+export type ScopedSlot = (props: any) => SlotReturnValue;
 export type SlotReturnValue = VNode | string | boolean | null | undefined | SlotReturnArray;
 export type SlotReturnArray = Array<SlotReturnValue>;
 export interface TVNode extends VNode {
