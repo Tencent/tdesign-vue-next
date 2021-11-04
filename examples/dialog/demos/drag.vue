@@ -10,7 +10,7 @@
       v-model:visible="visibleModal"
       mode="modal"
       draggable
-      :onConfirm="()=>this.visibleModal = false"
+      :onConfirm="() => visibleModal = false"
     >
       <template #body>
         <div>默认点击蒙层或按ESC可关闭</div>
@@ -24,7 +24,7 @@
       v-model:visible="visibleModelessDrag"
       mode="modeless"
       draggable
-      :onConfirm="()=>this.visibleModelessDrag = false"
+      :onConfirm="() => visibleModelessDrag = false"
     >
       <template #body>
         <div>我是内容</div>
@@ -36,7 +36,7 @@
       header="非模态对话框-不可拖拽"
       v-model:visible="visibleModeless"
       mode="modeless"
-      :onConfirm="()=>this.visibleModeless = false"
+      :onConfirm="() => visibleModeless = false"
     >
       <template #body>
         <div>我是内容</div>

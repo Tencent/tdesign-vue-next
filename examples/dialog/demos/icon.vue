@@ -15,31 +15,31 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      visible1: true,
-      visible2: true,
-      visible3: true,
-      visible4: true,
-    };
-  },
-  methods: {
-    close1() {
-      this.visible1 = false;
-    },
-    close2() {
-      this.visible2 = false;
-    },
-    close3() {
-      this.visible3 = false;
-    },
-    close4() {
-      this.visible4 = false;
-    },
+import { defineComponent, ref } from 'vue';
 
+export default defineComponent({
+  setup() {
+    const visible1 = ref(false);
+    const visible2 = ref(false);
+    const visible3 = ref(false);
+    const visible4 = ref(false);
+
+    return {
+      close1() {
+        visible1.value = false;
+      },
+      close2() {
+        visible2.value = false;
+      },
+      close3() {
+        visible3.value = false;
+      },
+      close4() {
+        visible4.value = false;
+      },
+    }
   },
-};
+});
 </script>
 <style scoped>
 .t-button {

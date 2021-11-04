@@ -177,9 +177,7 @@ export default defineComponent({
       popperElm.removeEventListener('click', stop);
       document.body.removeChild(popperElm);
     }
-  },
-  unmounted(): void {
-    this.offEvents.forEach((handler) => handler());
+    this.offEvents.forEach((handler) => handler && handler());
   },
   methods: {
     createPopper(): void {

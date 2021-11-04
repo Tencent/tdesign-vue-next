@@ -9,7 +9,7 @@
       v-model:visible="visibleBody"
       attach="body"
       header="挂载在body"
-      :onConfirm="()=>this.visibleBody = false"
+      :onConfirm="() => visibleBody = false"
     >
       <template #body>
         <div>我是被挂载到body元素的对话框</div>
@@ -24,7 +24,7 @@
       v-model:visible="visibleIdAttach"
       attach="#app"
       header="挂载到id为app的元素"
-      :onConfirm="()=>this.visibleIdAttach = false"
+      :onConfirm="() => visibleIdAttach = false"
     >
       <template #body>
         <div>通过querySelect指定元素挂载</div>
@@ -39,7 +39,7 @@
       v-model:visible="visibleFunctionAttach"
       :attach="getAttach"
       header="函数返回挂载节点"
-      :onConfirm="()=>this.visibleFunctionAttach = false"
+      :onConfirm="() => visibleFunctionAttach = false"
     >
       <template #body>
         <div>指定函数返回的节点为挂载点</div>
@@ -52,21 +52,24 @@
 
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  data() {
-    return {
-      visibleBody: false,
-      visibleIdAttach: false,
-      visibleFunctionAttach: false,
-    };
-  },
-  methods: {
-    getAttach() {
-      return this.$root.$el;
-    },
+<script>
+import { defineComponent, ref, getCurrentInstance } from 'vue';
 
+export default defineComponent({
+  setup() {
+    const visibleBody = ref(false);
+    const visibleIdAttach = ref(false);
+    const visibleFunctionAttach = ref(false);
+    const { ctx } = getCurrentInstance();
+    const getAttach = () => {
+      return ctx.$root.$el;
+    }
+    return {
+      visibleBody,
+      visibleIdAttach,
+      visibleFunctionAttach,
+      getAttach
+    }
   },
 });
 </script>

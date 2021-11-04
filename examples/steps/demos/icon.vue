@@ -14,19 +14,21 @@ import TIconWallet from '@tencent/tdesign-vue-next/icon/wallet';
 import TIconSuccess from '@tencent/tdesign-vue-next/icon/check-circle';
 
 export default {
-  methods: {
-    renderLoginIcon() {
-      return <TIconLogin />;
-    },
-    renderCartIcon() {
-      return <TIconCart />;
-    },
-    renderWalletIcon() {
-      return <TIconWallet />;
-    },
-    renderSuccessIcon() {
-      return <TIconSuccess />;
-    },
-  },
+  setup() {
+    return {
+      renderLoginIcon() {
+        return <TIconLogin />;
+      },
+      renderCartIcon() {
+        return <TIconCart />;
+      },
+      renderWalletIcon() {
+        return <TIconWallet />;
+      },
+      renderSuccessIcon() {
+        return <TIconSuccess />;
+      },
+    }
+  }
 };
 </script>

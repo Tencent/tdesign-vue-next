@@ -10,35 +10,42 @@
   </div>
 </template>
 <script>
+import { defineComponent } from 'vue'
+import { MessagePlugin } from '@tencent/tdesign-vue-next'
 import TIconEllipsis from '@tencent/tdesign-vue-next/icon/ellipsis';
 
-export default {
+const options = [
+  {
+    content: '操作一',
+    value: 1,
+  },
+  {
+    content: '操作二',
+    value: 2,
+  },
+  {
+    content: '操作三',
+    value: 3,
+  },
+  {
+    content: '操作四',
+    value: 4,
+  },
+]
+export default defineComponent({
   components: {
     TIconEllipsis,
   },
-  data() {
+  setup() {
+    const clickHandler = (data) => {
+      MessagePlugin.success(`选中【${data.content}】`);
+    }
     return {
-      options: [{
-        content: '选项一',
-        value: 1,
-      }, {
-        content: '选项二',
-        value: 2,
-      }, {
-        content: '选项三',
-        value: 3,
-      }, {
-        content: '选项四',
-        value: 4,
-      }],
-    };
-  },
-  methods: {
-    clickHandler(data) {
-      this.$message.success(`选中【${data.content}】`);
-    },
-  },
-};
+      clickHandler,
+      options
+    }
+  }
+});
 </script>
 <style scoped>
 .t-button {

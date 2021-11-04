@@ -18,21 +18,22 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      visible: false,
-    };
-  },
-  methods: {
-    close() {
-      console.error('===close');
-      this.visible = false;
-    },
-    onConfirm() {
-      console.log('click确定');
-    },
-  },
+import { defineComponent, ref } from 'vue';
 
-};
+export default defineComponent({
+  setup() {
+    const visible = ref(false);
+
+    return {
+      visible,
+      close() {
+        console.error('===close');
+        visible.value = false;
+      },
+      onConfirm() {
+        console.log('click确定');
+      },
+    }
+  },
+});
 </script>

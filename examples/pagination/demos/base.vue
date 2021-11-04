@@ -2,9 +2,9 @@
   <div>
     <t-pagination
       v-model="current"
+      v-model:pageSize="pageSize"
       :total="100"
       @change="onChange"
-      v-model:pageSize="pageSize"
       @pageSizeChange="onPageSizeChange"
       @currentChange="onCurrentChange"
     />
@@ -12,24 +12,35 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      current: 1,
-      pageSize: 5,
-    };
-  },
-  methods: {
-    onPageSizeChange(size) {
+import { defineComponent, ref } from "vue";
+import { MessagePlugin } from '@tencent/tdesign-vue-next'
+
+export default defineComponent({
+  setup() {
+    const current = ref(1);
+    const pageSize = ref(5);
+
+    const onPageSizeChange = (size) => {
       console.log('page-size:', size);
-    },
-    onCurrentChange(index, pageInfo) {
-      console.log(`转到第${index}页`);
+      MessagePlugin.success(`pageSize变化为${size}`);
+    }
+
+    const onCurrentChange = (index, pageInfo) => {
+      MessagePlugin.success(`转到第${index}页`);
       console.log(pageInfo);
-    },
-    onChange(pageInfo) {
+    }
+
+    const onChange = (pageInfo) => {
       console.log(pageInfo);
-    },
+    }
+
+    return {
+      current,
+      pageSize,
+      onPageSizeChange,
+      onCurrentChange,
+      onChange
+    }
   },
-};
+});
 </script>

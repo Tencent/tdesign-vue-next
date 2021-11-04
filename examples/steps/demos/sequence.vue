@@ -14,17 +14,23 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from "vue";
+
+const steps = [
+  { title: '已完成的步骤', value: 'first', content: '点击切换步骤' },
+  { title: '进行中的步骤', value: 'second', content: '点击切换步骤' },
+  { title: '进行中的步骤', value: 'third', content: () => '这是进行中的步骤' },
+  { title: '已完成的步骤', value: 'forth', content: '点击切换步骤' },
+]
+
+export default defineComponent({
+  setup() {
+    const current = ref('third');
+
     return {
-      current: 'third',
-      steps: [
-        { title: '已完成的步骤', value: 'first', content: '点击切换步骤' },
-        { title: '进行中的步骤', value: 'second', content: '点击切换步骤' },
-        { title: '进行中的步骤', value: 'third', content: () => '这是进行中的步骤' },
-        { title: '已完成的步骤', value: 'forth', content: '点击切换步骤' },
-      ],
-    };
-  },
-};
+      current,
+      steps
+    }
+  }
+});
 </script>

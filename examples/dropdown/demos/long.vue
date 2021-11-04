@@ -6,16 +6,17 @@
   </div>
 </template>
 <script lang="ts">
+const options = Array.from({ length: 20 }).map((v, k) => ({
+  content: `选项${k + 1}`,
+  value: k + 1,
+}));
+
 export default{
-  data() {
-    const options = Array.from({ length: 20 }).map((v, k) => ({
-      content: `选项${k + 1}`,
-      value: k + 1,
-    }));
+  setup() {
     return {
-      options,
-    };
-  },
+      options
+    }
+  }
 };
 </script>
 <style scoped>

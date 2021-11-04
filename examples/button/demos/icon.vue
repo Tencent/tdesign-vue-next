@@ -36,30 +36,33 @@
           Function Icon
         </t-button>
       </div>
-
     </div>
   </div>
 </template>
 <script lang="jsx">
+import { defineComponent } from 'vue'
+
 import TIconAdd from '@tencent/tdesign-vue-next/icon/add';
 import TIconCloudUpload from '@tencent/tdesign-vue-next/icon/cloud-upload';
 import TIconCloudDownload from '@tencent/tdesign-vue-next/icon/cloud-download';
 import TIconDiscount from '@tencent/tdesign-vue-next/icon/discount';
 import TIconSearch from '@tencent/tdesign-vue-next/icon/search';
 
-export default {
+export default defineComponent({
   components: {
     TIconAdd,
     TIconCloudUpload,
     TIconCloudDownload,
     TIconDiscount,
   },
-  methods: {
-    renderIcon() {
-      return <TIconSearch />;
-    },
+  setup() {
+    return { 
+      renderIcon() {
+        return <TIconSearch />;
+      },
+    }
   },
-};
+});
 </script>
 
 <style scoped>

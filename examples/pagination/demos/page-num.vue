@@ -1,36 +1,48 @@
 <template>
   <div>
     <t-pagination
-      :total="645"
-      v-model:pageSize="pageSize"
       v-model="current"
-      :on-page-size-change="onPageSizeChange"
-      @pageSizeChange="onPagesizeChange"
+      v-model:pageSize="pageSize"
+      :total="645"
+      :page-size-options="[10,20,30,100,200]"
       show-sizer
-      :page-size-option="[10,20,30,100,200]"
+      @change="onChange"
+      @pageSizeChange="onPageSizeChange"
+      @currentChange="onCurrentChange"
     />
   </div>
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from "vue";
+import { MessagePlugin } from '@tencent/tdesign-vue-next'
+
+export default defineComponent({
+  setup() {
+    const current = ref(1);
+    const pageSize = ref(20);
+
+    const onPageSizeChange = (size) => {
+      console.log('page-size:', size);
+      MessagePlugin.success(`pageSize变化为${size}`);
+    }
+
+    const onCurrentChange = (index, pageInfo) => {
+      MessagePlugin.success(`转到第${index}页`);
+      console.log(pageInfo);
+    }
+
+    const onChange = (pageInfo) => {
+      console.log(pageInfo);
+    }
+
     return {
-      pageSize: 20,
-      current: 1,
-      onPageSizeChange: (pageSize, event) => {
-        console.log('fire on prop');
-        console.log(`${pageSize}`);
-        console.log(event);
-      },
-    };
+      current,
+      pageSize,
+      onPageSizeChange,
+      onCurrentChange,
+      onChange
+    }
   },
-  methods: {
-    onPagesizeChange(pageSize, event) {
-      console.log('fire on event');
-      console.log(`${pageSize}`);
-      console.log(event);
-    },
-  },
-};
+});
 </script>

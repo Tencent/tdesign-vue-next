@@ -1,17 +1,17 @@
 <template>
   <div class="t-demo-tabs">
     <div class="t-demo-tabs__desc">
-      <t-radio-group v-model="placement">
-        <t-radio value="top">top</t-radio>
-        <t-radio value="right">right</t-radio>
-        <t-radio value="bottom">bottom</t-radio>
-        <t-radio value="left">left</t-radio>
+      <t-radio-group variant="default-filled" v-model="placement">
+        <t-radio-button value="top">top</t-radio-button>
+        <t-radio-button value="right">right</t-radio-button>
+        <t-radio-button value="bottom">bottom</t-radio-button>
+        <t-radio-button value="left">left</t-radio-button>
       </t-radio-group>
     </div>
     <t-tabs
       :value="value"
       :placement="placement"
-      @change="(newValue) => value = newValue"
+      @change="handlerChange"
     >
       <t-tab-panel value="first" label="选项卡1">
         <p style="padding: 25px;">选项卡1</p>
@@ -25,6 +25,27 @@
     </t-tabs>
   </div>
 </template>
+
+<script>
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const value = ref('first');
+    const placement = ref('top');
+
+    const handlerChange = (newValue) => {
+      value.value = newValue;
+    }
+
+    return {
+      handlerChange,
+      placement,
+      value
+    };
+  }
+});
+</script>
 
 <style lang="less">
   .t-demo-tabs {
@@ -48,20 +69,3 @@
     }
   }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      placement: 'top',
-      value: 'first',
-    };
-  },
-
-  methods: {
-    posBtnClick(index) {
-      this.currPos = this.posArr[index];
-    },
-  },
-};
-</script>

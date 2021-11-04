@@ -5,12 +5,11 @@
     </div>
 
     <t-tabs
-      :value="value"
+      v-model="value"
       theme="card"
       :addable="true"
       @add="addTab"
       @remove="removeTab"
-      @change="changeTab"
     >
       <t-tab-panel
         v-for="data in panelData"
@@ -26,30 +25,27 @@
 </template>
 
 <script>
+import { defineComponent, ref } from 'vue'
+
 let id = 0;
-
-export default {
-  data() {
-    return {
+export default defineComponent({
+  setup() {
+    const value = ref('first');
+    const panelData = ref([{
       value: 'first',
-      panelData: [{
-        value: 'first',
-        label: '原有选项卡',
-        removable: false,
-        content: '原有选项卡内容',
-      }, {
-        value: 'second',
-        label: '原有选项卡',
-        removable: true,
-        content: '原有选项卡内容',
-      }],
-    };
-  },
+      label: '原有选项卡',
+      removable: false,
+      content: '原有选项卡内容',
+    }, {
+      value: 'second',
+      label: '原有选项卡',
+      removable: true,
+      content: '原有选项卡内容',
+    }])
 
-  methods: {
-    addTab() {
-      this.panelData = [
-        ...this.panelData,
+    const addTab = () => {
+      panelData.value = [
+        ...panelData.value,
         {
           value: `${id}`,
           label: '新选项卡',
@@ -57,22 +53,26 @@ export default {
           content: '新选项卡内容',
         },
       ];
-      this.value = `${id}`;
+      value.value = `${id}`;
       id += 1;
-    },
-    removeTab({ value }) {
-      const index = this.panelData.findIndex(data => data.value === value);
+    }
+
+    const removeTab = ({ value }) => {
+      const index = panelData.value.findIndex(data => data.value === value);
       if (index < 0) return false;
-      this.panelData.splice(index, 1);
-      if (this.value === value) {
-        this.value = this.panelData[index - 1].value;
+      panelData.value.splice(index, 1);
+      if (value.value === value) {
+        value.value = panelData.value[index - 1].value;
       }
-    },
-    changeTab(value) {
-      this.value = value;
-    },
+    }
+    return {
+      value,
+      panelData,
+      addTab,
+      removeTab
+    }
   },
-};
+});
 </script>
 
 <style lang="less">

@@ -24,27 +24,30 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+
 export default defineComponent({
-  data() {
+  setup() {
+    const visible = ref(false);
+    const visibleCenter = ref(false);
+    const visibleTop = ref(false);
+
     return {
-      visible: false,
-      visibleCenter: false,
-      visibleTop: false,
+      visible,
+      visibleCenter,
+      visibleTop,
       placement: 'top',
       top: '50px',
-    };
-  },
-  methods: {
-    close1() {
-      this.visible = false;
-    },
-    close2() {
-      this.visibleCenter = false;
-    },
-    close3() {
-      this.visibleTop = false;
-    },
+      close1() {
+        visible.value = false;
+      },
+      close2() {
+        visibleCenter.value = false;
+      },
+      close3() {
+        visibleTop.value = false;
+      },
+    }
   },
 });
 </script>

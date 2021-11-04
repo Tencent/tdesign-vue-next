@@ -8,7 +8,7 @@
       v-model:visible="visibleModal"
       mode="modal"
       draggable
-      :onConfirm="()=>this.visibleModal = false"
+      :onConfirm="() => visibleModal = false"
     >
       <template #body>
         <div>默认点击蒙层或按ESC可关闭</div>
@@ -22,7 +22,7 @@
       v-model:visible="visibleModelessDrag"
       mode="modeless"
       draggable
-      :onConfirm="()=>this.visibleModelessDrag = false"
+      :onConfirm="() => visibleModelessDrag = false"
     >
       <template #body>
         <div>我是内容</div>
@@ -32,17 +32,19 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      visibleModal: false,
-      visibleModelessDrag: false,
-    };
-  },
-  methods: {
+import { defineComponent, ref } from 'vue';
 
-  },
-};
+export default defineComponent({
+  setup() {
+    const visibleModal = ref(false);
+    const visibleModelessDrag = ref(false);
+
+    return { 
+      visibleModal,
+      visibleModelessDrag
+    }
+  }
+});
 </script>
 <style scoped>
 .t-button {

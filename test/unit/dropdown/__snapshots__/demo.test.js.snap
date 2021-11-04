@@ -1190,7 +1190,7 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
                   <span
                     class="t-dropdown__item__content__text"
                   >
-                    选项一
+                    操作一
                   </span>
                 </div>
                 <!---->
@@ -1208,7 +1208,7 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
                   <span
                     class="t-dropdown__item__content__text"
                   >
-                    选项二
+                    操作二
                   </span>
                 </div>
                 <!---->
@@ -1226,7 +1226,7 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
                   <span
                     class="t-dropdown__item__content__text"
                   >
-                    选项三
+                    操作三
                   </span>
                 </div>
                 <!---->
@@ -1244,7 +1244,7 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
                   <span
                     class="t-dropdown__item__content__text"
                   >
-                    选项四
+                    操作四
                   </span>
                 </div>
                 <!---->

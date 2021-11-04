@@ -67,49 +67,45 @@
   </div>
 </template>
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  data() {
-    return {
-      visible1: false,
-      visible2: false,
-      visible3: false,
-      visible4: false,
-      visible5: false,
-    };
-  },
-  methods: {
-    onClickConfirm(context) {
+  setup() {
+    const visible1 = ref(false)
+    const visible2 = ref(false)
+    const visible3 = ref(false)
+    const visible4 = ref(false)
+    const visible5 = ref(false)
+
+    const onClickConfirm = (context) => {
       const { e } = context;
       // todo something else here
-      this.sendingRequest();
-      this.visible1 = false;
-      this.visible2 = false;
-      this.visible3 = false;
-      this.visible4 = false;
-      this.visible5 = false;
+      visible1.value = false;
+      visible2.value = false;
+      visible3.value = false;
+      visible4.value = false;
+      visible5.value = false;
       e.stopPropagation();
-    },
-    sendingRequest() {
-      console.log('sending request');
-    },
+    }
 
-    close1() {
-      this.visible1 = false;
-    },
-    close2() {
-      this.visible2 = false;
-    },
-    close3() {
-      this.visible3 = false;
-    },
-    close4() {
-      this.visible4 = false;
-    },
-    close5() {
-      this.visible5 = false;
-    },
+    return {
+      onClickConfirm,
+      close1() {
+        visible1.value = false;
+      },
+      close2() {
+        visible2.value = false;
+      },
+      close3() {
+        visible3.value = false;
+      },
+      close4() {
+        visible4.value = false;
+      },
+      close5() {
+        visible5.value = false;
+      },
+    }
   },
 });
 </script>

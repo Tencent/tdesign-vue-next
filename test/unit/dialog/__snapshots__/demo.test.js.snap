@@ -407,379 +407,6 @@ exports[`Dialog base demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog custom body demo works fine 1`] = `
-<div>
-  <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-    type="button"
-  >
-    <span
-      class="t-button__text"
-    >
-      
-      隐藏底部
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-    type="button"
-  >
-    <span
-      class="t-button__text"
-    >
-      
-      隐藏标题
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-    type="button"
-  >
-    <span
-      class="t-button__text"
-    >
-      
-      渲染函数定义内容
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-    type="button"
-  >
-    <span
-      class="t-button__text"
-    >
-      
-      插槽方式定义内容
-      
-    </span>
-  </button>
-  <transition-stub>
-    <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
-      style="display: none;"
-    >
-      
-      <div
-        class="t-dialog-mask"
-      />
-      <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
-      >
-        <div
-          class="t-dialog__header"
-        >
-          <!---->
-          <!---->
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            name="close"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M512.0032 570.83072L708.864 767.6864 767.6928 708.8576 570.83456 511.99936 767.6928 315.14176 708.864 256.3104 512.0032 453.168 315.14368 256.30848 256.31232 315.13984 453.17184 511.99936 256.31232 708.8576 315.14368 767.6928 512.0032 570.83072Z"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
-          <div>
-            不需要标题的内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                
-                取消
-                
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                
-                确认
-                
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </transition-stub>
-  <transition-stub>
-    <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
-      style="display: none;"
-    >
-      
-      <div
-        class="t-dialog-mask"
-      />
-      <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
-      >
-        <div
-          class="t-dialog__header"
-        >
-          <!---->
-          提示
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            name="close"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M512.0032 570.83072L708.864 767.6864 767.6928 708.8576 570.83456 511.99936 767.6928 315.14176 708.864 256.3104 512.0032 453.168 315.14368 256.30848 256.31232 315.13984 453.17184 511.99936 256.31232 708.8576 315.14368 767.6928 512.0032 570.83072Z"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
-          <div>
-            不需要底部按钮的内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <!---->
-        </div>
-      </div>
-      
-    </div>
-  </transition-stub>
-  <transition-stub>
-    <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
-      style="display: none;"
-    >
-      
-      <div
-        class="t-dialog-mask"
-      />
-      <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
-      >
-        <div
-          class="t-dialog__header"
-        >
-          <!---->
-          标题
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            name="close"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M512.0032 570.83072L708.864 767.6864 767.6928 708.8576 570.83456 511.99936 767.6928 315.14176 708.864 256.3104 512.0032 453.168 315.14368 256.30848 256.31232 315.13984 453.17184 511.99936 256.31232 708.8576 315.14368 767.6928 512.0032 570.83072Z"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
-          被渲染函数覆盖的插槽内容
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                
-                取消
-                
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                
-                确认
-                
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </transition-stub>
-  <transition-stub>
-    <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
-      style="display: none;"
-    >
-      
-      <div
-        class="t-dialog-mask"
-      />
-      <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
-        style="max-height: calc(100% - 20%);"
-      >
-        <div
-          class="t-dialog__header"
-        >
-          <!---->
-          对话框标题
-        </div>
-        <span
-          class="t-dialog__close"
-        >
-          <svg
-            class="t-icon t-icon-close"
-            name="close"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M512.0032 570.83072L708.864 767.6864 767.6928 708.8576 570.83456 511.99936 767.6928 315.14176 708.864 256.3104 512.0032 453.168 315.14368 256.30848 256.31232 315.13984 453.17184 511.99936 256.31232 708.8576 315.14368 767.6928 512.0032 570.83072Z"
-            />
-          </svg>
-        </span>
-        <div
-          class="t-dialog__body"
-        >
-          
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          <div>
-            我是内容
-          </div>
-          
-        </div>
-        <div
-          class="t-dialog__footer"
-        >
-          <div>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                
-                取消
-                
-              </span>
-            </button>
-            <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
-              type="button"
-            >
-              <span
-                class="t-button__text"
-              >
-                
-                确认
-                
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </transition-stub>
-</div>
-`;
-
 exports[`Dialog custom demo works fine 1`] = `
 <div>
   <p>
@@ -1331,6 +958,7 @@ exports[`Dialog icon demo works fine 1`] = `
   <transition-stub>
     <div
       class="t-dialog-ctx v-transfer-dom"
+      style="display: none;"
     >
       
       <!---->
@@ -1413,6 +1041,7 @@ exports[`Dialog icon demo works fine 1`] = `
   <transition-stub>
     <div
       class="t-dialog-ctx v-transfer-dom"
+      style="display: none;"
     >
       
       <!---->
@@ -1495,6 +1124,7 @@ exports[`Dialog icon demo works fine 1`] = `
   <transition-stub>
     <div
       class="t-dialog-ctx v-transfer-dom"
+      style="display: none;"
     >
       
       <!---->
@@ -1577,6 +1207,7 @@ exports[`Dialog icon demo works fine 1`] = `
   <transition-stub>
     <div
       class="t-dialog-ctx v-transfer-dom"
+      style="display: none;"
     >
       
       <!---->
@@ -1656,10 +1287,54 @@ exports[`Dialog icon demo works fine 1`] = `
     </div>
   </transition-stub>
   <br />
-  <!--v-if-->
-  <!--v-if-->
-  <!--v-if-->
-  <!--v-if-->
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      theme: info
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      theme: warning
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      theme: error
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      theme: success
+      
+    </span>
+  </button>
 </div>
 `;
 

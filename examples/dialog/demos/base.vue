@@ -16,35 +16,33 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const visible = ref(false);
     return {
-      visible: false,
-    };
+      visible,
+      onConfirmAnother(context) {
+        console.log('点击了确认按钮', context);
+        visible.value = false;
+      },
+      close(context) {
+        console.log('关闭弹窗，点击关闭按钮、按下ESC、点击蒙层等触发', context);
+      },
+      onCancel(context) {
+        console.log('点击了取消按钮', context);
+      },
+      onEscKeydown(context) {
+        console.log('按下了ESC', context);
+      },
+      onCloseBtnClick(context) {
+        console.log('点击了关闭按钮', context);
+      },
+      onOverlayClick(context) {
+        console.log('点击了蒙层', context);
+      },
+    }
   },
-  methods: {
-    onConfirm(context) {
-      console.log('@confirm与onConfirm任选一种方式即可，其他几个事件类似', context);
-      this.visible = false;
-    },
-    onConfirmAnother(context) {
-      console.log('点击了确认按钮', context);
-    },
-    close(context) {
-      console.log('关闭弹窗，点击关闭按钮、按下ESC、点击蒙层等触发', context);
-    },
-    onCancel(context) {
-      console.log('点击了取消按钮', context);
-    },
-    onEscKeydown(context) {
-      console.log('按下了ESC', context);
-    },
-    onCloseBtnClick(context) {
-      console.log('点击了关闭按钮', context);
-    },
-    onOverlayClick(context) {
-      console.log('点击了蒙层', context);
-    },
-  },
-};
+});
 </script>

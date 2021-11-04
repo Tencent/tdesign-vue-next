@@ -26,9 +26,4 @@
     </t-layout>
   </div>
 </template>
-
-<style lang="less">
-// .logo {
-//   margin-top: 24px;
-// }
-</style>
+<script />

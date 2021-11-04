@@ -6,7 +6,6 @@ import warning from '@/examples/dialog/demos/warning.vue';
 import async from '@/examples/dialog/demos/async.vue';
 import modal from '@/examples/dialog/demos/modal.vue';
 import position from '@/examples/dialog/demos/position.vue';
-import body from '@/examples/dialog/demos/custom/body.vue';
 import attach from '@/examples/dialog/demos/attach.vue';
 import drag from '@/examples/dialog/demos/drag.vue';
 import plugin from '@/examples/dialog/demos/plugin.vue';
@@ -42,10 +41,6 @@ describe('Dialog', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it('custom body demo works fine', () => {
-    const wrapper = mount(body);
-    expect(wrapper.element).toMatchSnapshot();
-  });
   it('attach demo works fine', () => {
     const wrapper = mount(attach);
     expect(wrapper.element).toMatchSnapshot();

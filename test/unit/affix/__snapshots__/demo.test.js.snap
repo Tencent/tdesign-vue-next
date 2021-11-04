@@ -8,7 +8,6 @@ exports[`Affix base demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="height: 40px;"
       type="button"
     >
       <span

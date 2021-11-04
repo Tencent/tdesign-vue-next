@@ -1,33 +1,46 @@
 <template>
   <div>
     <t-pagination
-      :total="645"
-      v-model:pageSize="pageSize"
       v-model="current"
-      @change="onChange"
-      @pageSizeChange="onPagesizeChange"
+      v-model:pageSize="pageSize"
+      :total="645"
       show-jumper
+      @change="onChange"
+      @pageSizeChange="onPageSizeChange"
+      @currentChange="onCurrentChange"
     />
   </div>
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const current = ref(1);
+    const pageSize = ref(20);
+
+    const onPageSizeChange = (size) => {
+      console.log('page-size:', size);
+      MessagePlugin.success(`pageSize变化为${size}`);
+    }
+
+    const onCurrentChange = (index, pageInfo) => {
+      MessagePlugin.success(`转到第${index}页`);
+      console.log(pageInfo);
+    }
+
+    const onChange = (pageInfo) => {
+      console.log(pageInfo);
+    }
+
     return {
-      pageSize: 20,
-      current: 1,
-    };
+      current,
+      pageSize,
+      onPageSizeChange,
+      onCurrentChange,
+      onChange
+    }
   },
-  methods: {
-    onChange(index, event) {
-      console.log(`转到第${index}页`);
-      console.log(event);
-    },
-    onPagesizeChange(pageSize, event) {
-      console.log(`${pageSize}`);
-      console.log(event);
-    },
-  },
-};
+});
 </script>

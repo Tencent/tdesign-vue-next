@@ -8,11 +8,13 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  setup() {
     return {
       current: 1,
-    };
-  },
-};
+    }
+  }
+});
 </script>

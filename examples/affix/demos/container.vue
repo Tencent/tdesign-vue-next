@@ -2,7 +2,7 @@
   <div class="affix-container">
     <div
       class="affix-container-demo1"
-      ref="affixContainer"
+      ref="affixContainerRef"
     >
       <div class="background">
         <t-affix
@@ -19,22 +19,29 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      fixedTop: 0,
-      fixedBottom: 0,
-    };
-  },
-  methods: {
-    getContainer() {
-      return this.$refs?.affixContainer;
-    },
-    handleFixedChange(affixed, { top }) {
-      this.fixedTop = top;
-    },
-  },
-};
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const fixedTop = ref(0)
+    const affixContainerRef = ref(null);
+
+    const getContainer = () => {
+      return affixContainerRef.value;
+    }
+    
+    const handleFixedChange = (affixed, { top }) => {
+      fixedTop.value = top;
+    }
+
+    return { 
+      fixedTop,
+      affixContainerRef,
+      getContainer,
+      handleFixedChange
+    }
+  }
+});
 </script>
 
 <style lang="less" scoped>

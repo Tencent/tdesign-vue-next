@@ -1,15 +1,14 @@
 <template>
   <div class="t-demo-tabs">
     <div class="t-demo-tabs__desc">
-      <t-radio-group v-model="size">
-        <t-radio value="medium">medium</t-radio>
-        <t-radio value="large">large</t-radio>
+      <t-radio-group variant="default-filled" v-model="size">
+        <t-radio-button value="medium">medium</t-radio-button>
+        <t-radio-button value="large">large</t-radio-button>
       </t-radio-group>
     </div>
     <t-tabs
-      :value="value1"
+      v-model="value1"
       :size="size"
-      @change="(newValue) => value1 = newValue"
     >
       <t-tab-panel value="first" label="选项卡1">
         <p style="padding: 25px;">选项卡1</p>
@@ -23,10 +22,9 @@
     </t-tabs>
     <br />
     <t-tabs
-      :value="value2"
+      v-model="value2"
       theme="card"
       :size="size"
-      @change="(newValue) => value2 = newValue"
     >
       <t-tab-panel value="first" label="选项卡1">
         <p style="padding: 25px;">选项卡1</p>
@@ -40,7 +38,23 @@
     </t-tabs>
   </div>
 </template>
+<script>
+import { defineComponent, ref } from 'vue'
 
+export default defineComponent({
+  setup() {
+    const size = ref('medium');
+    const value1 = ref('first');
+    const value2 = ref('first');
+
+    return {
+      size,
+      value1,
+      value2,
+    }
+  },
+});
+</script>
 <style lang="less">
   .t-demo-tabs {
 
@@ -60,21 +74,3 @@
   }
 </style>
 
-<script>
-export default {
-  data() {
-    return {
-      sizeArr: ['medium', 'large'],
-      size: 'medium',
-      value1: 'first',
-      value2: 'first',
-    };
-  },
-
-  methods: {
-    sizeBtnClick(index) {
-      this.size = this.sizeArr[index];
-    },
-  },
-};
-</script>

@@ -26,19 +26,23 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const beforeClose = () => {
+      return window.confirm('确认关闭吗？');
+    }
+
+    const handleClosed = () => {
+      alert('closed');
+    }
+
     return {
       warningClose: () => 'FunctionPropClose',
+      beforeClose,
+      handleClosed,
     };
-  },
-  methods: {
-    beforeClose() {
-      return window.confirm('确认关闭吗？');
-    },
-    handleClosed() {
-      alert('closed');
-    },
-  },
-};
+  }
+});
 </script>

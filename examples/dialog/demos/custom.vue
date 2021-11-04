@@ -46,34 +46,34 @@
   </div>
 </template>
 <script lang="jsx">
+import { defineComponent, ref } from 'vue';
 
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const visible1 = ref(false);
+    const visible2 = ref(false);
+    const visible3 = ref(false);
+
     return {
-      visible1: false,
-      visible2: false,
-      visible3: false,
-    };
+      getConfirmBtn() {
+        return <t-button theme='primary' disabled>我知道了</t-button>;
+      },
+      close1() {
+        visible1.value = false;
+      },
+      close2() {
+        visible2.value = false;
+      },
+      close3() {
+        visible3.value = false;
+      },
+      onConfirm() {
+        visible1.value = false;
+        alert('跳转支付~');
+      },
+    }
   },
-  methods: {
-    getConfirmBtn() {
-      return <t-button theme='primary' disabled>我知道了</t-button>;
-    },
-    close1() {
-      this.visible1 = false;
-    },
-    close2() {
-      this.visible2 = false;
-    },
-    close3() {
-      this.visible3 = false;
-    },
-    onConfirm() {
-      this.visible1 = false;
-      alert('跳转支付~');
-    },
-  },
-};
+});
 </script>
 <style scoped>
 .t-button {

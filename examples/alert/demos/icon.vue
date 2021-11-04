@@ -13,11 +13,13 @@
   </div>
 </template>
 <script lang="jsx">
-export default {
-  data() {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
     return {
       warningIcon: () => <t-icon name="error-circle-filled" />,
-    };
-  },
-};
+    }
+  }
+});
 </script>

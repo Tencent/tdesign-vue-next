@@ -26,20 +26,4 @@
     </t-alert>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      warningClose: () => 'FunctionPropClose',
-    };
-  },
-  methods: {
-    beforeClose() {
-      return window.confirm('确认关闭吗？');
-    },
-    handleClosed() {
-      alert('closed');
-    },
-  },
-};
-</script>
+<script />

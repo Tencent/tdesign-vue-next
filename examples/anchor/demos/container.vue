@@ -16,15 +16,18 @@
   </div>
 </template>
 <script>
+import { defineComponent, computed, getCurrentInstance } from 'vue'
 import get from 'lodash/get';
 
-export default {
-  computed: {
-    path() {
-      return get(this, '$route.path', '');
-    },
+export default defineComponent({
+  setup() {
+    const { ctx } = getCurrentInstance();
+    const path = computed(() => {
+      return get(ctx, '$route.path', '');
+    })
+    return { path };
   },
-};
+});
 </script>
 <style lang='less' scoped>
 .anchor-container-demo {

@@ -23,16 +23,16 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      warningClose: () => 'FunctionPropClose',
-    };
-  },
-  methods: {
-    handleOperation() {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const handleOperation = () => {
       alert('operation clicked');
-    },
-  },
-};
+    }
+    return {
+      handleOperation,
+    }
+  }
+});
 </script>

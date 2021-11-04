@@ -13,13 +13,15 @@
   </div>
 </template>
 <script lang="jsx">
-export default {
-  data() {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  setup() {
     return {
       infoMessage: () => (
         <div>这是一条普通的消息提示</div>
       ),
-    };
-  },
-};
+    }
+  }
+});
 </script>

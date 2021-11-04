@@ -1,15 +1,15 @@
 <template>
   <div class="t-demo-tabs">
     <div class="t-demo-tabs__desc">
-      <t-radio-group v-model="theme">
-        <t-radio value="normal">常规型</t-radio>
-        <t-radio value="card">卡片型</t-radio>
+      <t-radio-group variant="default-filled" v-model="theme">
+        <t-radio-button value="normal">常规型</t-radio-button>
+        <t-radio-button value="card">卡片型</t-radio-button>
       </t-radio-group>
     </div>
     <t-tabs
       :value="value"
       :theme="theme"
-      @change="(newValue) => value = newValue"
+      @change="handlerChange"
     >
       <t-tab-panel value="first" :label="`${theme}选项卡1`">
         <p style="padding: 25px;">{{ `${theme}选项卡1内容` }}</p>
@@ -23,7 +23,26 @@
     </t-tabs>
   </div>
 </template>
+<script>
+import { defineComponent, ref } from 'vue'
 
+export default defineComponent({
+  setup() {
+    const value = ref('first');
+    const theme = ref('normal');
+
+    const handlerChange = (newValue) => {
+      value.value = newValue;
+    }
+
+    return {
+      handlerChange,
+      theme,
+      value
+    };
+  }
+});
+</script>
 <style lang="less" scoped>
   .t-demo-tabs {
 
@@ -43,13 +62,4 @@
   }
 </style>
 
-<script>
-export default {
-  data() {
-    return {
-      theme: 'normal',
-      value: 'first',
-    };
-  },
-};
-</script>
+
