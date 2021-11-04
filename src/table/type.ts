@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-26 14:57:55
+ * updated at 2021-11-04 19:04:23
  * */
 
 import { PaginationProps, PageInfo } from '../pagination';
@@ -113,6 +113,14 @@ export interface TdBaseTableProps<T extends DataType = DataType> {
    */
   onRowMousedown?: (context: RowEventContext<T>) => void;
   /**
+   * 鼠标在表格行进入时触发，泛型 T 指表格数据类型
+   */
+  onRowMouseenter?: (context: RowEventContext<T>) => void;
+  /**
+   * 鼠标在表格行离开时触发，泛型 T 指表格数据类型
+   */
+  onRowMouseleave?: (context: RowEventContext<T>) => void;
+  /**
    * 鼠标在表格行按下又弹起时触发，泛型 T 指表格数据类型
    */
   onRowMouseup?: (context: RowEventContext<T>) => void;
@@ -154,10 +162,10 @@ export interface BaseTableCol<T extends DataType = DataType> {
    */
   colKey?: string;
   /**
-   * 内容超出时，是否显示省略号
+   * 内容超出时，是否显示省略号。值为 true ，则浮层默认显示单元格内容；值类型为 Function 则显示自定义内容
    * @default false
    */
-  ellipsis?: boolean;
+  ellipsis?: boolean | TNode<{ row: T; col: BaseTableCol; rowIndex: number; colIndex: number }>;
   /**
    * 固定列显示位置
    * @default left
@@ -206,6 +214,11 @@ export interface TdPrimaryTableProps<T extends DataType =  DataType> extends Omi
    */
   defaultExpandedRowKeys?: Array<string | number>;
   /**
+   * 用于控制是否显示「展开图标列」，值为 false 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容，示例：`(h, { index }) => index === 0 ? false : <icon class='custom-icon' />`。expandedRow 存在时，该参数有效
+   * @default true
+   */
+  expandIcon?: TNode<ExpandArrowRenderParams<T>>;
+  /**
    * 是否允许点击行展开
    */
   expandOnRowClick?: boolean;
@@ -234,11 +247,6 @@ export interface TdPrimaryTableProps<T extends DataType =  DataType> extends Omi
    * 选中的行，控制属性，非受控属性
    */
   defaultSelectedRowKeys?: Array<string | number>;
-  /**
-   * 用于控制是否显示展开图标，支持自定义图标
-   * @default true
-   */
-  showExpandArrow?: boolean | TNode;
   /**
    * 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序
    */
@@ -288,6 +296,10 @@ export interface TdPrimaryTableProps<T extends DataType =  DataType> extends Omi
 
 export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTableCol {
   /**
+   * 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型
+   */
+  cell?: string | TNode<{ row: T; rowIndex: number; col: PrimaryTableCol; colIndex: number }>;
+  /**
    * 透传参数，colKey 值为 row-select 时，配置有效。具体定义参考 Checkbox 组件 和 Radio 组件。泛型 T 指表格数据类型
    */
   checkProps?: CheckProps<T>;
@@ -296,16 +308,20 @@ export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTabl
    */
   disabled?: (options: {row: T; rowIndex: number }) => boolean;
   /**
-   * 过滤规则，支持多选(multiple)、单选(single)、输入框(input)三种形式。
+   * 过滤规则，支持多选(multiple)、单选(single)、输入框(input) 等三种形式。想要自定义过滤组件，可通过 `filter.component` 实现，示例：`(h) => <div>过滤组件</div>`
    */
   filter?: Filter;
+  /**
+   * 自定义表头或单元格，泛型 T 指表格数据类型
+   */
+  render?: TNode<{ type: 'cell' | 'title'; row: T; rowIndex: number; col: PrimaryTableCol<T>; colIndex: number  }>;
   /**
    * 该列是否支持排序。值为 true 表示该列支持排序；值类型为函数，表示对本地数据 `data` 进行排序。泛型 T 指表格数据类型
    * @default false
    */
   sorter?: boolean | SorterFun<T>;
   /**
-   * 当前列支持排序的方式
+   * 当前列支持排序的方式，desc 表示当前列只能进行降序排列；asc 表示当前列只能进行升序排列；all 表示当前列既可升序排列，又可以降序排列
    * @default all
    */
   sortType?: SortType;
@@ -332,6 +348,8 @@ export interface CellData<T> { type: 'th' | 'td'; row: T; col: BaseTableCol; row
 
 export type RenderType = 'cell' | 'title';
 
+export interface ExpandArrowRenderParams<T> { row: T; index: number };
+
 export type FilterValue = Record<string, FilterItemValue>;
 
 export type FilterItemValue = string | number | Array<string | number>;
@@ -356,7 +374,7 @@ export interface SortOptions<T> { currentDataSource?: Array<T>; col: PrimaryTabl
 
 export type CheckProps<T> = CheckboxProps | RadioProps | ((options: { row: T; rowIndex: number }) => CheckboxProps | RadioProps);
 
-export interface Filter { type: FilterType; list?: Array<OptionData>; props: FilterProps };
+export interface Filter { type: FilterType; list?: Array<OptionData>; props?: FilterProps; component?: TNode };
 
 export type FilterType = 'input' | 'single' | 'multiple';
 

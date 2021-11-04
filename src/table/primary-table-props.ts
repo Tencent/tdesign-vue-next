@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-26 14:57:55
+ * updated at 2021-11-04 19:04:23
  * */
 
 import { TdPrimaryTableProps } from '../table/type';
@@ -32,6 +32,11 @@ export default {
     type: Array as PropType<TdPrimaryTableProps['defaultExpandedRowKeys']>,
     default: (): TdPrimaryTableProps['defaultExpandedRowKeys'] => [],
   },
+  /** 用于控制是否显示「展开图标列」，值为 false 则不会显示。可以精确到某一行是否显示，还可以自定义展开图标内容，示例：`(h, { index }) => index === 0 ? false : <icon class='custom-icon' />`。expandedRow 存在时，该参数有效 */
+  expandIcon: {
+    type: [Boolean, Function] as PropType<TdPrimaryTableProps['expandIcon']>,
+    default: true,
+  },
   /** 是否允许点击行展开 */
   expandOnRowClick: Boolean,
   /** 自定义过滤图标 */
@@ -55,11 +60,6 @@ export default {
   /** 选中的行，控制属性，非受控属性 */
   defaultSelectedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['defaultSelectedRowKeys']>,
-  },
-  /** 用于控制是否显示展开图标，支持自定义图标 */
-  showExpandArrow: {
-    type: [Boolean, Function] as PropType<TdPrimaryTableProps['showExpandArrow']>,
-    default: true,
   },
   /** 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序 */
   sort: {

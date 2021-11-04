@@ -40,7 +40,7 @@ export default defineComponent({
         console.error(`column.type must be the following: ${JSON.stringify(types)}`);
         return;
       }
-      const component = {
+      const component = column?.filter?.component || {
         single: RadioGroup,
         multiple: CheckboxGroup,
         input: Input,

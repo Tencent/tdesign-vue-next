@@ -70,10 +70,10 @@ exports[`Table base demo works fine 1`] = `
       class="t-table t-table--bordered t-table--striped"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
+      expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
       showcolumns="false"
-      showexpandarrow="true"
       sortonrowdraggable="false"
     >
       <div
@@ -477,10 +477,10 @@ exports[`Table base demo works fine 2`] = `
       class="t-table t-table--bordered t-table--striped"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
+      expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
       showcolumns="false"
-      showexpandarrow="true"
       sortonrowdraggable="false"
     >
       <div
@@ -841,10 +841,10 @@ exports[`Table customCell demo works fine 1`] = `
       class="t-table"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
+      expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
       showcolumns="false"
-      showexpandarrow="true"
       sortonrowdraggable="false"
     >
       <div
@@ -1063,10 +1063,10 @@ exports[`Table empty demo works fine 1`] = `
       class="t-table"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
+      expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
       showcolumns="false"
-      showexpandarrow="true"
       sortonrowdraggable="false"
     >
       <div
@@ -1178,10 +1178,10 @@ exports[`Table empty demo works fine 1`] = `
       class="t-table"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
+      expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
       showcolumns="false"
-      showexpandarrow="true"
       sortonrowdraggable="false"
     >
       <div
@@ -1299,10 +1299,10 @@ exports[`Table empty demo works fine 1`] = `
       class="t-table"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
+      expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
       showcolumns="false"
-      showexpandarrow="true"
       sortonrowdraggable="false"
     >
       <div
@@ -1423,10 +1423,10 @@ exports[`Table expandable demo works fine 1`] = `
       class="t-table"
       defaultexpandedrowkeys=""
       expandedrowkeys="1"
+      expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
       showcolumns="false"
-      showexpandarrow="true"
       sortonrowdraggable="false"
     >
       <div
@@ -2090,10 +2090,10 @@ exports[`Table fixedColumn demo works fine 1`] = `
     class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
@@ -2579,10 +2579,10 @@ exports[`Table fixedHeader demo works fine 1`] = `
     class="t-table t-table__header--fixed"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
@@ -3771,10 +3771,10 @@ exports[`Table multiHeader demo works fine 1`] = `
     class="t-table t-table--bordered"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
@@ -4007,11 +4007,11 @@ exports[`Table selectMultiple demo works fine 1`] = `
       class="t-table"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
+      expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
       selectedrowkeys="1,2"
       showcolumns="false"
-      showexpandarrow="true"
       sortonrowdraggable="false"
     >
       <div
@@ -4490,11 +4490,11 @@ exports[`Table selectSingle demo works fine 1`] = `
       class="t-table"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
+      expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
       selectedrowkeys=""
       showcolumns="false"
-      showexpandarrow="true"
       sortonrowdraggable="false"
     >
       <div

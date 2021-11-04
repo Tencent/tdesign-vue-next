@@ -7,10 +7,10 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     class="t-table t-table__header--fixed"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
@@ -183,10 +183,10 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     class="t-table t-size-l t-table-valign__top"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
@@ -251,10 +251,10 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     class="t-table t-table-valign__bottom"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
@@ -319,10 +319,10 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
@@ -474,10 +474,10 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
     class="t-table"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
@@ -542,10 +542,10 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
     class="t-table"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
@@ -703,10 +703,10 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
     class="t-table"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
@@ -936,10 +936,10 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
     class="t-table t-table__cell--fixed t-table--has-fixed"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
+    expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
     showcolumns="false"
-    showexpandarrow="true"
     sortonrowdraggable="false"
   >
     <div
