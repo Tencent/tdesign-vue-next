@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-26 14:57:55
+ * updated at 2021-11-04 16:07:12
  * */
 
 import { TdBaseTableProps } from '../table/type';
@@ -100,6 +100,10 @@ export default {
   onRowHover: Function as PropType<TdBaseTableProps['onRowHover']>,
   /** 鼠标在表格行按下时触发，泛型 T 指表格数据类型 */
   onRowMousedown: Function as PropType<TdBaseTableProps['onRowMousedown']>,
+  /** 鼠标在表格行进入时触发，泛型 T 指表格数据类型 */
+  onRowMouseenter: Function as PropType<TdBaseTableProps['onRowMouseenter']>,
+  /** 鼠标在表格行离开时触发，泛型 T 指表格数据类型 */
+  onRowMouseleave: Function as PropType<TdBaseTableProps['onRowMouseleave']>,
   /** 鼠标在表格行按下又弹起时触发，泛型 T 指表格数据类型 */
   onRowMouseup: Function as PropType<TdBaseTableProps['onRowMouseup']>,
   /** 表格内容横向滚动时触发 */

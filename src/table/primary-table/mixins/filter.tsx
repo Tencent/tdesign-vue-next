@@ -35,7 +35,7 @@ export default defineComponent({
     },
 
     getFilterContent(column: PrimaryTableCol) {
-      const types = ['single', 'multiple', 'input'];
+      const types = ['single', 'multiple', 'input', 'custom'];
       if (column.type && !types.includes(column.filter.type)) {
         console.error(`column.type must be the following: ${JSON.stringify(types)}`);
         return;
@@ -44,6 +44,7 @@ export default defineComponent({
         single: RadioGroup,
         multiple: CheckboxGroup,
         input: Input,
+        custom: column.filter.component,
       }[column.filter.type];
       if (!component) return;
       const props = {

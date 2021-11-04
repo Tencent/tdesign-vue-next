@@ -33,30 +33,35 @@ const data = [
     firstName: 'Eric',
     lastName: 'Spinke',
     email: 'espinke0@apache.org',
+    date: '2021-10-27 17:19:12'
   },
   {
     key: '2',
     firstName: 'Gilberta',
     lastName: 'Purves',
     email: 'gpurves1@issuu.com',
+    date: '2021-10-22 17:19:12'
   },
   {
     key: '3',
     firstName: 'Heriberto',
     lastName: 'Kment',
     email: 'hkment2@nsw.gov.au',
+    date: '2021-10-12 17:19:12'
   },
   {
     key: '4',
     firstName: 'Lazarus',
     lastName: 'Skures',
     email: 'lskures3@apache.org',
+    date: '2021-01-27 17:19:12'
   },
   {
     key: '5',
     firstName: 'Zandra',
     lastName: 'Croson',
     email: 'zcroson5@virginia.edu',
+    date: '2021-01-27 15:19:12'
   },
 ];
 
@@ -102,6 +107,21 @@ export default {
             props: { placeholder: '输入关键词过滤' },
           },
         },
+        {
+          title: 'Date',
+          colKey: 'date',
+          // 日期过滤配置
+          filter: {
+            type: 'custom',
+            component: (h) => (
+               <t-date-picker
+                theme="primary"
+                range
+                mode="month"
+              ></t-date-picker>
+            ),
+          },
+        },
       ],
     };
   },
@@ -132,6 +152,10 @@ export default {
           }
           if (result && filters.email) {
             result = item.email.indexOf(filters.email) !== -1;
+          }
+          if (result && filters.date?.length) {
+            const [start, end] = filters.date;
+            result = new Date(start) < new Date(item.date) && new Date(end) > new Date(item.date);
           }
           return result;
         });
