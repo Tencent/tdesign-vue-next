@@ -19,7 +19,6 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         
         <div
@@ -27,7 +26,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
           style="padding-right: 0px;"
         >
           <table
-            style="table-layout: fixed;"
+            style="table-layout: fixed; padding-right: 0px;"
           >
             <colgroup>
               
@@ -195,7 +194,6 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         <table
           style="table-layout: fixed;"
@@ -219,23 +217,16 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             
             
           </tbody>
-          <tfoot>
-            <tr>
-              <td
-                colspan="0"
-              >
-                <div
-                  class="t-table--empty"
-                >
-                  暂无数据
-                </div>
-              </td>
-            </tr>
-          </tfoot>
+          <!---->
           
         </table>
       </div>
       
+      <div
+        class="t-table--empty"
+      >
+        暂无数据
+      </div>
       
       
       <!---->
@@ -263,7 +254,6 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         <table
           style="table-layout: fixed;"
@@ -287,23 +277,16 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             
             
           </tbody>
-          <tfoot>
-            <tr>
-              <td
-                colspan="0"
-              >
-                <div
-                  class="t-table--empty"
-                >
-                  暂无数据
-                </div>
-              </td>
-            </tr>
-          </tfoot>
+          <!---->
           
         </table>
       </div>
       
+      <div
+        class="t-table--empty"
+      >
+        暂无数据
+      </div>
       
       
       <!---->
@@ -331,7 +314,6 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         <table
           style="table-layout: fixed;"
@@ -486,7 +468,6 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         <table
           style="table-layout: fixed;"
@@ -510,23 +491,16 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
             
             
           </tbody>
-          <tfoot>
-            <tr>
-              <td
-                colspan="0"
-              >
-                <div
-                  class="t-table--empty"
-                >
-                  暂无数据
-                </div>
-              </td>
-            </tr>
-          </tfoot>
+          <!---->
           
         </table>
       </div>
       
+      <div
+        class="t-table--empty"
+      >
+        暂无数据
+      </div>
       
       
       <!---->
@@ -554,7 +528,6 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         <table
           style="table-layout: fixed;"
@@ -715,7 +688,6 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         <table
           style="table-layout: fixed;"
@@ -948,7 +920,6 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         <table
           style="table-layout: fixed;"

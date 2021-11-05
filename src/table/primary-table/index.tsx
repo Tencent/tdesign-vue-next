@@ -63,15 +63,7 @@ export default defineComponent({
     const {
       $props, $slots, rehandleColumns, showColumns,
     } = this;
-    const baseTableProps = {
-      ...$props,
-      data: this.rehandleData,
-      columns: rehandleColumns,
-      provider: {
-        renderRows: this.renderRows,
-        sortOnRowDraggable: this.sortOnRowDraggable,
-        dragging: this.dragging,
-      },
+    const listeners = {
       onPageChange: (pageInfo: PageInfo, newDataSource: Array<DataType>) => {
         emitEvent<PageChangeContext>(this, 'page-change', pageInfo, newDataSource);
         emitEvent<ChangeContext>(
@@ -82,6 +74,23 @@ export default defineComponent({
       },
       onRowDragstart: this.onDragStart,
       onRowDragover: this.onDragOver,
+      onRowClick: this.onRowClick,
+    };
+    if (this.expandOnRowClick) {
+      listeners.onRowClick = (params: { row: Record<string, any>, index: number }) => {
+        this.handleExpandChange(params.row);
+      };
+    }
+    const baseTableProps = {
+      ...$props,
+      data: this.rehandleData,
+      columns: rehandleColumns,
+      provider: {
+        renderRows: this.renderRows,
+        sortOnRowDraggable: this.sortOnRowDraggable,
+        dragging: this.dragging,
+      },
+      ...listeners,
     };
     return (
       <div>

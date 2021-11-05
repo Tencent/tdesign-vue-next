@@ -43,6 +43,8 @@ export interface CellData {
 
 export const EVENT_NAME_WITH_KEBAB = [
   'row-hover',
+  'row-mouseenter',
+  'row-mouseleave',
   'row-mouseup',
   'row-mousedown',
   'row-click',

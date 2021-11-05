@@ -12,7 +12,7 @@ const name = `${prefix}-slider`;
 interface MarkItem {
   point: number;
   position: number;
-  mark: string | number | TNode;
+  mark: string | number | TNode<{ value: number }>;
 }
 interface SliderButtonType{
   setPosition: (param: number) => {};

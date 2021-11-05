@@ -1,7 +1,19 @@
 <template>
-  <div>
+  <div class="tdesign-demo-block-column">
     <!-- expanded-row-keys 为受控属性 -->
     <!-- default-expanded-row-keys 为非受控属性 -->
+    <div>
+      <t-radio-group v-model="expandControl" variant="default-filled">
+        <t-radio-button value="true">显示展开图标</t-radio-button>
+        <t-radio-button value="false">隐藏展开图标</t-radio-button>
+        <t-radio-button value="custom">自由控制展开图标</t-radio-button>
+      </t-radio-group>
+    </div>
+
+    <div>
+      允许点击行之后展开/收起: <t-switch v-model="expandOnRowClick" /> <br>
+    </div>
+
     <t-table
       row-key='id'
       :columns="columns"
@@ -9,7 +21,9 @@
       :expanded-row-keys="expandedRowKeys"
       :expanded-row="expandedRow"
       @expand-change="rehandleExpandChange"
-    >
+      :expandIcon="expandIcon"
+      :expandOnRowClick="expandOnRowClick"
+    > 
       <template #status="{ row }">
         <p v-if="row.status === 0" class="status">健康</p>
         <p v-if="row.status === 1" class="status unhealth">异常</p>
@@ -20,11 +34,12 @@
         <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
       </template>
     </t-table>
-
   </div>
 </template>
 
 <script lang="jsx">
+import TIconChevronDownCircle from '@tencent/tdesign-vue-next/icon/chevron-down-circle';
+import TIconChevronDown from '@tencent/tdesign-vue-next/icon/chevron-down';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
@@ -39,12 +54,20 @@ const data = [
   { id: 3, instance: 'JQTest3', status: 0, owner: 'jenny', description: 'test' },
   { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', description: 'test' },
 ];
+
+
 export default {
+  components: {
+    TIconChevronDown
+  },
   data() {
     return {
+      expandControl: 'true',
+      expandIcon: true,
+      expandOnRowClick: true,
       columns,
       data,
-      expandedRowKeys: [1],
+      expandedRowKeys: ['2'],
       // defaultExpandedRowKeys: ['2', 4],
       expandedRow: (h, { row }) => (
         <div class="more-detail">
@@ -53,7 +76,33 @@ export default {
           <p class="title"><b>描述:</b></p><p class="content">{row.description}</p>
         </div>
       ),
+      globalLocale: {
+        table: {
+          expandIcon: (h) => h && <TIconChevronDown />,
+        },
+      },
     };
+  },
+  watch: {
+    expandControl(val) {
+      if (val === 'true') {
+        // expandIcon 默认为 true，表示显示默认展开图标
+        this.expandIcon = true;
+      } else if (val === 'false') {
+        // expandIcon 值为 false，则表示隐藏全部展开图标
+        this.expandIcon = false;
+      } else if (val === 'custom') {
+        // 完全自由控制表格的每一行是否显示展开图标，以及显示什么内容
+        this.expandIcon = (h, { row, index }) => {
+          // 第一行不显示展开图标
+          if (index === 0) return false;
+          // 第三行，使用自定义展开图标
+          if (row.id === 3) return <TIconChevronDown />;
+          // 其他行，使用表格同款展开图标
+          return <TIconChevronDownCircle />;
+        };
+      }
+    },
   },
   methods: {
     rehandleClickOp({ text, row }) {

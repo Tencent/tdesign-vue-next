@@ -1,4 +1,7 @@
 /** Vue3 特有全局变量 */
+import { h } from 'vue';
+
+type CreateElement = typeof h;
 type VNode = import('vue').VNode;
 export type ScopedSlot = () => SlotReturnValue;
 export type SlotReturnValue = VNode | string | boolean | null | undefined | SlotReturnArray;
@@ -7,7 +10,9 @@ export interface TVNode extends VNode {
   name: string;
 }
 export type TNodeReturnValue = SlotReturnValue;
-export type TNode<T=any> = (h: typeof import('vue').h, props?: T) => import('vue').VNodeChild;
+export type TNode<T = undefined> = T extends undefined
+  ? (h: typeof import('vue').h) => import('vue').VNodeChild
+  : (h: typeof import('vue').h, props?: T) => import('vue').VNodeChild;
 
 export type AttachNodeReturnValue = HTMLElement | Element | Document;
 export type AttachNode = CSSSelector | (() => AttachNodeReturnValue);

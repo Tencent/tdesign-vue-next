@@ -82,7 +82,6 @@ exports[`Table base demo works fine 1`] = `
         
         <div
           class="t-table-content"
-          style="overflow: auto;"
         >
           <table
             style="table-layout: fixed;"
@@ -489,7 +488,6 @@ exports[`Table base demo works fine 2`] = `
         
         <div
           class="t-table-content"
-          style="overflow: auto;"
         >
           <table
             style="table-layout: fixed;"
@@ -853,7 +851,6 @@ exports[`Table customCell demo works fine 1`] = `
         
         <div
           class="t-table-content"
-          style="overflow: auto;"
         >
           <table
             style="table-layout: fixed;"
@@ -1075,7 +1072,6 @@ exports[`Table empty demo works fine 1`] = `
         
         <div
           class="t-table-content"
-          style="overflow: auto;"
         >
           <table
             style="table-layout: fixed;"
@@ -1147,23 +1143,16 @@ exports[`Table empty demo works fine 1`] = `
               
               
             </tbody>
-            <tfoot>
-              <tr>
-                <td
-                  colspan="6"
-                >
-                  <div
-                    class="t-table--empty"
-                  >
-                    暂无数据
-                  </div>
-                </td>
-              </tr>
-            </tfoot>
+            <!---->
             
           </table>
         </div>
         
+        <div
+          class="t-table--empty"
+        >
+          暂无数据
+        </div>
         
         
         <!---->
@@ -1190,7 +1179,6 @@ exports[`Table empty demo works fine 1`] = `
         
         <div
           class="t-table-content"
-          style="overflow: auto;"
         >
           <table
             style="table-layout: fixed;"
@@ -1262,29 +1250,22 @@ exports[`Table empty demo works fine 1`] = `
               
               
             </tbody>
-            <tfoot>
-              <tr>
-                <td
-                  colspan="6"
-                >
-                  <div
-                    class="t-table--empty"
-                  >
-                    
-                    <span
-                      style="display: flex; align-items: center; justify-content: center; height: 100px; color: rgba(0, 0, 0, 0.26);"
-                    >
-                       😊 我是自定义的空内容 😊: slot 
-                    </span>
-                    
-                  </div>
-                </td>
-              </tr>
-            </tfoot>
+            <!---->
             
           </table>
         </div>
         
+        <div
+          class="t-table--empty"
+        >
+          
+          <span
+            style="display: flex; align-items: center; justify-content: center; height: 100px; color: rgba(0, 0, 0, 0.26);"
+          >
+             😊 我是自定义的空内容 😊: slot 
+          </span>
+          
+        </div>
         
         
         <!---->
@@ -1311,7 +1292,6 @@ exports[`Table empty demo works fine 1`] = `
         
         <div
           class="t-table-content"
-          style="overflow: auto;"
         >
           <table
             style="table-layout: fixed;"
@@ -1383,27 +1363,20 @@ exports[`Table empty demo works fine 1`] = `
               
               
             </tbody>
-            <tfoot>
-              <tr>
-                <td
-                  colspan="6"
-                >
-                  <div
-                    class="t-table--empty"
-                  >
-                    <span
-                      style="display: flex; align-items: center; justify-content: center; height: 100px; color: rgba(0, 0, 0, 0.26);"
-                    >
-                      😊 我是自定义的空内容 😊: empty function
-                    </span>
-                  </div>
-                </td>
-              </tr>
-            </tfoot>
+            <!---->
             
           </table>
         </div>
         
+        <div
+          class="t-table--empty"
+        >
+          <span
+            style="display: flex; align-items: center; justify-content: center; height: 100px; color: rgba(0, 0, 0, 0.26);"
+          >
+            😊 我是自定义的空内容 😊: empty function
+          </span>
+        </div>
         
         
         <!---->
@@ -1414,17 +1387,118 @@ exports[`Table empty demo works fine 1`] = `
 `;
 
 exports[`Table expandable demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-column"
+>
   <!-- expanded-row-keys 为受控属性 -->
   <!-- default-expanded-row-keys 为非受控属性 -->
+  <div>
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-filled"
+      modelvalue="true"
+    >
+      
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="true"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          显示展开图标
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="false"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          隐藏展开图标
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="custom"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          自由控制展开图标
+          
+          
+        </span>
+      </label>
+      <div
+        class="t-radio-group-filled-bg-block"
+      />
+      
+    </div>
+  </div>
+  <div>
+     允许点击行之后展开/收起: 
+    <div
+      class="t-switch t-size-m t-is-checked"
+      disabled="false"
+      modelvalue="true"
+    >
+      <span
+        class="t-switch__handle"
+      >
+        <!---->
+      </span>
+      <div
+        class="t-switch__content t-size-m"
+      >
+        <!---->
+      </div>
+    </div>
+     
+    <br />
+  </div>
   <div>
     <!---->
     <div
       class="t-table"
       defaultexpandedrowkeys=""
-      expandedrowkeys="1"
+      expandedrowkeys="2"
       expandicon="true"
-      expandonrowclick="false"
+      expandonrowclick="true"
       multiplesort="false"
       showcolumns="false"
       sortonrowdraggable="false"
@@ -1435,7 +1509,6 @@ exports[`Table expandable demo works fine 1`] = `
         
         <div
           class="t-table-content"
-          style="overflow: auto;"
         >
           <table
             style="table-layout: fixed;"
@@ -1535,7 +1608,7 @@ exports[`Table expandable demo works fine 1`] = `
                     class="t-table-expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: all .2s; display: flex; align-items: center; transform: rotate(-180deg);"
                     >
                       <svg
                         class="t-icon t-icon-chevron-down-circle"
@@ -1604,7 +1677,9 @@ exports[`Table expandable demo works fine 1`] = `
                 </td>
                 
               </tr>
-              <tr>
+              <tr
+                style="display: none;"
+              >
                 
                 <td
                   class="t-table-expanded-cell"
@@ -1670,7 +1745,7 @@ exports[`Table expandable demo works fine 1`] = `
                     class="t-table-expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center; transform: rotate(-180deg);"
+                      style="transition: all .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-down-circle"
@@ -1739,9 +1814,7 @@ exports[`Table expandable demo works fine 1`] = `
                 </td>
                 
               </tr>
-              <tr
-                style="display: none;"
-              >
+              <tr>
                 
                 <td
                   class="t-table-expanded-cell"
@@ -2102,7 +2175,6 @@ exports[`Table fixedColumn demo works fine 1`] = `
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         <table
           style="table-layout: fixed;"
@@ -2591,7 +2663,6 @@ exports[`Table fixedHeader demo works fine 1`] = `
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         
         <div
@@ -2599,7 +2670,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
           style="padding-right: 0px;"
         >
           <table
-            style="table-layout: fixed;"
+            style="table-layout: fixed; padding-right: 0px;"
           >
             <colgroup>
               
@@ -3783,7 +3854,6 @@ exports[`Table multiHeader demo works fine 1`] = `
       
       <div
         class="t-table-content"
-        style="overflow: auto;"
       >
         <table
           style="table-layout: fixed;"
@@ -4020,7 +4090,6 @@ exports[`Table selectMultiple demo works fine 1`] = `
         
         <div
           class="t-table-content"
-          style="overflow: auto;"
         >
           <table
             style="table-layout: fixed;"
@@ -4503,7 +4572,6 @@ exports[`Table selectSingle demo works fine 1`] = `
         
         <div
           class="t-table-content"
-          style="overflow: auto;"
         >
           <table
             style="table-layout: fixed;"

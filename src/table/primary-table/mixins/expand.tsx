@@ -21,6 +21,7 @@ export default defineComponent({
     rowKey: baseTableProps.rowKey,
     ...ExpandProps,
   },
+  emits: ['expand-change'],
   computed: {
     reRowKey(): string {
       return this.rowKey || 'id';
@@ -28,24 +29,36 @@ export default defineComponent({
   },
   methods: {
     getExpandColumns(columns: Columns): Columns {
+      if (!this.expandedRow || !this.expandIcon) return columns;
       return this.expandedRow
         ? [
           {
             colKey: expandedColKey,
             width: 25,
             attrs: { class: [`${prefix}-table-expandable-icon-cell`] },
-            cell: (h, { row }) => this.renderExpandIconCell({ row }),
+            cell: (h, { row, rowIndex }) => this.renderExpandIconCell({ row, rowIndex }),
           },
           ...columns,
         ]
         : columns;
     },
     // 渲染展开单元格内容
-    renderExpandIconCell({ row = {} }: Record<string, any>): VNode {
+    renderExpandIconCell({ row = {}, rowIndex }: Record<string, any>): VNode {
       const { expandedRowKeys = [] } = this;
       const id = get(row, this.reRowKey);
       const isExpanded = expandedRowKeys.indexOf(id) !== -1;
-      return <ExpandBox expanded={isExpanded} onClick={(): void => this.handleExpandChange(row)} />;
+      return (
+        <ExpandBox
+          expandIcon={this.expandIcon}
+          expanded={isExpanded}
+          row={row}
+          rowIndex={rowIndex}
+          onClick={(e: MouseEvent) => {
+            this.expandOnRowClick && e.stopPropagation();
+            this.handleExpandChange(row);
+          }}
+        >{{ expandIcon: this.$slots.expandIcon }}</ExpandBox>
+      );
     },
     // 渲染被展开的TableRow内容
     renderExpandedRow({
@@ -74,11 +87,11 @@ export default defineComponent({
       ];
 
       rows.push(<TableRow
-          key={`ExpandTableRowBox${rowIndex}`}
-          rowKey={this.rowKey}
-          style={{ ...(!isShowExpanded ? { display: 'none' } : {}) }}
-          columns={columns}
-        />);
+        key={`ExpandTableRowBox${rowIndex}`}
+        rowKey={this.rowKey}
+        style={{ ...(!isShowExpanded ? { display: 'none' } : {}) }}
+        columns={columns}
+      />);
     },
     // handle
     handleExpandChange(record: Record<string, any> = {}): void {

@@ -13,6 +13,8 @@ type CreateElement = ReturnType<typeof h>;
 
 const eventsName = {
   mouseover: 'row-hover',
+  mouseleave: 'row-mouseleave',
+  mouseenter: 'row-mouseenter',
   mousedown: 'row-mousedown',
   mouseup: 'row-mouseup',
   click: 'row-click',

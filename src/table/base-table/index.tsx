@@ -53,6 +53,7 @@ export default defineComponent({
       defaultCurrent: 0,
       // 用于兼容处理 Pagination 的非受控属性
       defaultPageSize: 0,
+      useFixedHeader: false,
     };
   },
   computed: {
@@ -88,16 +89,20 @@ export default defineComponent({
     isLoading(): boolean {
       return !!this.loading;
     },
-    tableHeight(): number {
-      const { height } = this;
-      if (typeof height === 'string') {
-        return parseInt(height, 10);
+    tableHeight(): number | string {
+      const { height, maxHeight, useFixedHeader } = this;
+      if (height !== 'auto' && height) {
+        return height;
       }
-      return height || 0;
+      if (maxHeight && useFixedHeader) {
+        return maxHeight;
+      }
+      return 'auto';
     },
     // 是否固定表头
     fixedHeader(): boolean {
-      return this.tableHeight > 0;
+      const { tableHeight } = this;
+      return tableHeight !== 'auto';
     },
     // common class
     commonClass(): Array<string> {
@@ -166,6 +171,10 @@ export default defineComponent({
     document.body.appendChild(scrollDiv);
     this.scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
+    const { maxHeight } = this;
+    if (maxHeight && (this.$refs.tableContent as HTMLElement).clientHeight > maxHeight) {
+      this.useFixedHeader = true;
+    }
   },
   unmounted() {
     window.removeEventListener('resize', debounce(this.checkScrollableToLeftOrRight));
@@ -255,6 +264,7 @@ export default defineComponent({
         tableLayout,
         scrollBarWidth,
         hasFixedColumns,
+        tableHeight,
       } = this;
       // handle scroll
       const handleScroll = throttle((e: Event) => {
@@ -264,14 +274,15 @@ export default defineComponent({
         this.handleScroll(e as WheelEvent);
       }, 10);
       //  fixed table header
-      fixedTable.push(<div class={`${prefix}-table__header`} style={{ paddingRight: `${scrollBarWidth}px` }} ref="scrollHeader">
-          <table style={{ tableLayout }}>
+      const paddingRight = `${scrollBarWidth}px`;
+      fixedTable.push(<div class={`${prefix}-table__header`} style={{ paddingRight }} ref="scrollHeader">
+          <table style={{ tableLayout, paddingRight }}>
             <TableColGroup columns={columns} />
             {this.renderHeader()}
           </table>
         </div>);
       const containerStyle = {
-        height: isNaN(Number(this.height)) ? this.height : `${Number(this.height)}px`,
+        height: isNaN(Number(tableHeight)) ? tableHeight : `${Number(tableHeight)}px`,
         width: hasFixedColumns ? '100%' : undefined,
       };
       // fixed table body
@@ -297,14 +308,9 @@ export default defineComponent({
       const {
         flattedColumns: {
           length: colspan,
-        }, isEmpty,
+        },
       } = this;
-      let footerContent: VNode;
-      if (isEmpty) {
-        footerContent = this.renderEmptyTable();
-      } else {
-        footerContent = renderTNodeJSX(this, 'footer');
-      }
+      const footerContent: VNode = renderTNodeJSX(this, 'footer');
       return footerContent ? <tfoot>
                 <tr>
                   <td colspan={colspan}>
@@ -333,6 +339,8 @@ export default defineComponent({
       columns,
       tableLayout,
       isLoading,
+      isEmpty,
+      useFixedHeader,
     } = this;
     const body: Array<VNode> = [];
     // colgroup
@@ -344,19 +352,21 @@ export default defineComponent({
     // fixed table
     let fixedTableContent: Array<VNode>;
     // loading
-    if (fixedHeader) {
+    if (fixedHeader || useFixedHeader) {
       fixedTableContent = this.renderTableWithFixedHeader();
     } else {
       // table body
       tableContent.push(this.renderBody());
       tableContent.push(this.renderFooter());
     }
+    if (isEmpty) {
+      body.push(this.renderEmptyTable());
+    }
     // 渲染分页
     if (hasPagination) {
       body.push(this.renderPagination());
     }
     const handleScroll = throttle(this.handleScroll, 100);
-    const maxHeight = isNaN(Number(this.maxHeight)) ? this.maxHeight : `${Number(this.maxHeight)}px`;
     const tableContentClass = [`${prefix}-table-content`, {
       [`${prefix}-table-content--scrollable-to-right`]: this.scrollableToRight,
       [`${prefix}-table-content--scrollable-to-left`]: this.scrollableToLeft,
@@ -364,7 +374,7 @@ export default defineComponent({
     return (
       <div class={commonClass}>
         <TLoading loading={isLoading} showOverlay text={this.renderLoadingContent}>
-          <div ref='tableContent' class={tableContentClass} style={{ overflow: 'auto', maxHeight }} onScroll={handleScroll}>
+          <div ref='tableContent' class={tableContentClass} onScroll={handleScroll}>
             {fixedTableContent || <table style={{ tableLayout }}>{tableContent}</table>}
           </div>
           {body}

@@ -1,5 +1,6 @@
 import { ComponentPublicInstance } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
+
 import {
   TransferListOptionBase, TransferItemOption, TdTransferProps, TransferValue, DataOption,
 } from './interface';

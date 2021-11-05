@@ -90,6 +90,10 @@ export default defineComponent({
         disabled: typeof column.disabled === 'function' ? column.disabled({ row, rowIndex }) : column.disabled,
         rowIndex,
         onChange: (): void => this.handleSelectChange(row),
+        onClick: (e: MouseEvent) => {
+          // 选中行功能中，点击 checkbo/radio 需阻止事件冒泡，避免触发不必要的 onRowClick
+          e.stopPropagation();
+        },
       };
       return <SelectBox {...selectBoxProps} />;
     },
