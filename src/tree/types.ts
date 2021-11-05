@@ -19,7 +19,7 @@ export type {
 
 export type TypeValueMode = TdTreeProps['valueMode'];
 
-export type TypeTNodeProp = string | TNode;
+export type TypeTNodeProp = string | TNode<TypeTreeNodeModel>;
 
 export type TypeTreeNodeModel = TreeNodeModel<TreeOptionData>;
 

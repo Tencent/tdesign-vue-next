@@ -25,6 +25,10 @@ export default defineComponent({
     const visible4 = ref(false);
 
     return {
+      visible1,
+      visible2,
+      visible3,
+      visible4,
       close1() {
         visible1.value = false;
       },

@@ -55,6 +55,9 @@ export default defineComponent({
     const visible3 = ref(false);
 
     return {
+      visible1,
+      visible2,
+      visible3,
       getConfirmBtn() {
         return <t-button theme='primary' disabled>我知道了</t-button>;
       },

@@ -86,7 +86,7 @@ export default defineComponent({
     visible(val) {
       if (val) {
         this.updatePopper();
-        if (!this.hasDocumentEvent && (this.manualTrigger || this.contextMenuTrigger || this.clickTrigger)) {
+        if (!this.hasDocumentEvent && (this.hasTrigger['context-menu'] || this.hasTrigger.click)) {
           on(document, 'click', this.handleDocumentClick);
           this.hasDocumentEvent = true;
         }

@@ -2,6 +2,9 @@ import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
 import TDateHeader from '../basic/header';
 import TDateTable from '../basic/table';
+import { prefix } from '../../config';
+
+import { DateValue } from '../type';
 
 import {
   getWeeks,
@@ -37,24 +40,12 @@ export default defineComponent({
       type: Array,
       default: () => [TODAY, TODAY],
     },
-    minDate: {
-      type: Date,
-      default: undefined,
-    },
-    maxDate: {
-      type: Date,
-      default: undefined,
-    },
-    firstDayOfWeek: {
-      type: Number,
-      default: 0,
-    },
-    disableDate: {
-      type: Function,
-      default() {
-        return () => {};
-      },
-    },
+    minDate: Date,
+    maxDate: Date,
+    firstDayOfWeek: Number,
+    disableDate: Function,
+    onChange: Function,
+    onPick: Function,
   },
   emits: ['change'],
   data() {
@@ -156,7 +147,7 @@ export default defineComponent({
       const {
         disableDate, minDate, maxDate, startValue, endValue,
       } = this;
-      const { firstDayOfWeek } = this;
+      const { firstDayOfWeek } = this.$props;
       let data;
 
       const start = startValue;
@@ -185,10 +176,9 @@ export default defineComponent({
 
       return flagActive(data, { start, end, type });
     },
-    getClickHandler(direction: string) {
+    getClickHandler(direction: string, date: DateValue, e: MouseEvent) {
       const type = this[`${direction}Type`];
-
-      return (date: any) => this[`click${firstUpperCase(type)}`](date, direction);
+      return this[`click${firstUpperCase(type)}`](date, e);
     },
     clickHeader(flag: number, direction: string) {
       const year = this[`${direction}Year`];
@@ -295,16 +285,24 @@ export default defineComponent({
   },
   render() {
     const {
+      leftYear,
+      leftMonth,
       leftType,
+      leftData,
+
+      rightYear,
+      rightMonth,
       rightType,
+      rightData,
+
       firstDayOfWeek,
     } = this;
     return (
-      <div class="t-date-range">
-        <div class="t-date">
+      <div class={`${prefix}-date-range`}>
+        <div class={`${prefix}-date`}>
           <t-date-header
-            year={this.leftYear}
-            month={this.leftMonth}
+            year={leftYear}
+            month={leftMonth}
             type={leftType}
             onBtnClick={(flag: number) => this.clickHeader(flag, LEFT)}
             onTypeChange={(type: string) => this.handleTypeChange(LEFT, type)}
@@ -313,15 +311,15 @@ export default defineComponent({
           <t-date-table
             type={leftType}
             first-day-of-week={firstDayOfWeek}
-            data={this.leftData}
-            onCellClick={this.getClickHandler(LEFT)}
+            data={leftData}
+            onCellClick={(date: DateValue, e: MouseEvent) => this.getClickHandler(LEFT, date, e)}
             onCellMouseEnter={this.onMouseEnter}
           />
         </div>
-        <div class="t-date">
+        <div class={`${prefix}-date`}>
           <t-date-header
-            year={this.rightYear}
-            month={this.rightMonth}
+            year={rightYear}
+            month={rightMonth}
             type={rightType}
             onBtnClick={(flag: number) => this.clickHeader(flag, RIGHT)}
             onTypeChange={(type: string) => this.handleTypeChange(RIGHT, type)}
@@ -330,9 +328,9 @@ export default defineComponent({
           <t-date-table
             type={rightType}
             first-day-of-week={firstDayOfWeek}
-            data={this.rightData}
+            data={rightData}
             onUpdateType={this.onTypeChange}
-            onCellClick={this.getClickHandler(RIGHT)}
+            onCellClick={(date: DateValue, e: MouseEvent) => this.getClickHandler(RIGHT, date, e)}
             onCellMouseEnter={this.onMouseEnter}
           />
         </div>

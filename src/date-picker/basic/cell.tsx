@@ -21,34 +21,34 @@ export default defineComponent({
       lastDayOfMonth,
       onClick,
       onMouseEnter,
-    } = this.$props;
+    } = this;
     const cellClass = [
       name,
       {
-        't-date-cell--now': now,
-        't-date-cell--active': active,
-        't-date-cell--disabled': disabled,
-        't-date-cell--highlight': highlight,
-        't-date-cell--active-start': startOfRange,
-        't-date-cell--active-end': endOfRange,
-        't-date-cell--additional': additional,
-        't-date-cell--first-day-of-month': firstDayOfMonth,
-        't-date-cell--last-day-of-month': lastDayOfMonth,
+        [`${prefix}-date-cell--now`]: now,
+        [`${prefix}-date-cell--active`]: active,
+        [`${prefix}-date-cell--disabled`]: disabled,
+        [`${prefix}-date-cell--highlight`]: highlight,
+        [`${prefix}-date-cell--active-start`]: startOfRange,
+        [`${prefix}-date-cell--active-end`]: endOfRange,
+        [`${prefix}-date-cell--additional`]: additional,
+        [`${prefix}-date-cell--first-day-of-month`]: firstDayOfMonth,
+        [`${prefix}-date-cell--last-day-of-month`]: lastDayOfMonth,
       },
     ];
 
     return (
       <td class={cellClass}>
         <div
-          class="t-date-cell__wrapper"
-          onClick={() => {
+          class={`${prefix}-date-cell__wrapper`}
+          onClick={(e: MouseEvent) => {
             if (!disabled) {
-              onClick(value);
+              onClick(value, { e });
             }
           }}
           onMouseenter={() => onMouseEnter && onMouseEnter(value)}
         >
-          <span class="t-date-cell__text">{text}</span>
+          <span class={`${prefix}-date-cell__text`}>{text}</span>
         </div>
       </td>
     );

@@ -89,6 +89,11 @@ export default defineComponent({
     }
 
     return {
+      visible1,
+      visible2,
+      visible3,
+      visible4,
+      visible5,
       onClickConfirm,
       close1() {
         visible1.value = false;

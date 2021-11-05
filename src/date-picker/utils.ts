@@ -143,7 +143,10 @@ function isSameDate(date1: Date, date2: Date) {
  * @param {Object} { start, end } 范围
  * @returns {Boolean}
  */
-function isBetween(value: { getFullYear: () => number; getMonth: () => number; getDate: () => number }, { start, end }: { start: any; end: any }): boolean {
+function isBetween(
+  value: { getFullYear: () => number; getMonth: () => number; getDate: () => number },
+  { start, end }: { start: any; end: any },
+): boolean {
   const date = new Date(value.getFullYear(), value.getMonth(), value.getDate());
 
   const startTime = new Date(start.getFullYear(), start.getMonth(), start.getDate());
@@ -240,9 +243,9 @@ export function subtractMonth(date: Date, num: any): Date {
   const day = date.getDate();
   const newDate = new Date(date);
 
-  let NUM = num;
+  let _num = num;
   // eslint-disable-next-line no-plusplus
-  while (NUM--) {
+  while (_num--) {
     newDate.setDate(0);
   }
   newDate.setDate(day);
@@ -256,10 +259,10 @@ export function subtractMonth(date: Date, num: any): Date {
  * @returns {Date}
  */
 export function addMonth(date: Date, num: number): Date {
-  let NUM = num;
-  if (num < 0) NUM = 0;
+  let _num = num;
+  if (num < 0) _num = 0;
   const newDate = new Date(date);
-  newDate.setMonth(date.getMonth() + NUM);
+  newDate.setMonth(date.getMonth() + _num);
   return newDate;
 }
 
@@ -378,7 +381,7 @@ export function getYears(
 }
 
 export function getMonths(year: number, { disableDate = () => false, minDate, maxDate }: OptionsType) {
-  const MONTH_ARR = [];
+  const MonthArr = [];
 
   const today = getToday();
 
@@ -396,7 +399,7 @@ export function getMonths(year: number, { disableDate = () => false, minDate, ma
       if (outOfRanges(d, minDate, maxDate)) outOfRangeDay += 1;
     }
 
-    MONTH_ARR.push({
+    MonthArr.push({
       value: date,
       now: isSame(date, today, 'month'),
       disabled: disabledDay === daysInMonth || outOfRangeDay === daysInMonth,
@@ -405,10 +408,10 @@ export function getMonths(year: number, { disableDate = () => false, minDate, ma
     });
   }
 
-  return chunk(MONTH_ARR, 4);
+  return chunk(MonthArr, 4);
 }
 
-export interface DateTime {
+interface DateTime {
   active: boolean;
   highlight: boolean;
   startOfRange: boolean;
@@ -421,21 +424,28 @@ export function flagActive(data: any[], { ...args }: any) {
 
   if (!end) {
     return data.map((row: any[]) => row.map((item: DateTime) => {
-      const ITEM = item;
-      ITEM.active = isSame(item.value, start, type);
-      return ITEM;
+      const _item = item;
+      _item.active = isSame(item.value, start, type);
+      return _item;
     }));
   }
 
   return data.map((row: any[]) => row.map((item: DateTime) => {
-    const ITEM = item;
+    const _item = item;
     const date = item.value;
     const isStart = isSame(start, date, type);
     const isEnd = isSame(end, date, type);
-    ITEM.active = isStart || isEnd;
-    ITEM.highlight = isBetween(date, { start, end });
-    ITEM.startOfRange = isStart;
-    ITEM.endOfRange = isEnd;
-    return ITEM;
+    _item.active = isStart || isEnd;
+    _item.highlight = isBetween(date, { start, end });
+    _item.startOfRange = isStart;
+    _item.endOfRange = isEnd;
+    return _item;
   }));
+}
+
+// extract time format from a completed date format 'YYYY-MM-DD HH:mm' -> 'HH:mm'
+export function extractTimeFormat(dateFormat: string) {
+  const res = dateFormat.match(/(a\s)?h{1,2}:m{1,2}(:s{1,2})?(\sa)?/i);
+  if (!res) return null;
+  return res[0];
 }

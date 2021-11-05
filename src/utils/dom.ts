@@ -223,8 +223,8 @@ function containerDom(parent: VNode | Element | Iterable<any> | ArrayLike<any>, 
 export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, cb: (() => void)): void => {
   on(document, 'click', (event: { target: Element }) => {
     if (Array.isArray(els)) {
-      const flag = Array.from(els).every(item => containerDom(item, event.target) === false);
-      flag && cb && cb();
+      const isFlag = Array.from(els).every((item) => containerDom(item, event.target) === false);
+      isFlag && cb && cb();
     } else {
       if (containerDom(els, event.target)) {
         return false;

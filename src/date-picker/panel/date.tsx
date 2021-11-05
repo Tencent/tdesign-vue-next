@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue';
 import TDateHeader from '../basic/header';
 import TDateTable from '../basic/table';
+import { prefix } from '../../config';
 
 import {
   getWeeks,
@@ -30,24 +31,16 @@ export default defineComponent({
       default: 'date',
       validator: (v: string) => ['year', 'month', 'date'].indexOf(v) > -1,
     },
-    minDate: {
-      type: Date,
-      default: undefined,
-    },
-    maxDate: {
-      type: Date,
-      default: undefined,
-    },
-    firstDayOfWeek: {
-      type: Number,
-      default: 0,
-    },
+    minDate: Date,
+    maxDate: Date,
+    firstDayOfWeek: Number,
     disableDate: {
       type: Function,
       default() {
         return () => {};
       },
     },
+    onChange: Function,
   },
   emits: ['change'],
   data() {
@@ -63,7 +56,6 @@ export default defineComponent({
         year, month, type, value, mode, disableDate, minDate, maxDate, firstDayOfWeek,
       } = this;
       let data;
-
       const options = {
         disableDate,
         minDate,
@@ -108,23 +100,23 @@ export default defineComponent({
       if (this.mode === 'month') {
         this.$emit('change', date);
       } else {
-        this.$data.type = 'date';
-        this.$data.year = date.getFullYear();
-        this.$data.month = date.getMonth();
+        this.type = 'date';
+        this.year = date.getFullYear();
+        this.month = date.getMonth();
       }
     },
     clickYear(date: Date) {
       if (this.mode === 'year') {
         this.$emit('change', date);
       } else {
-        this.$data.type = 'month';
-        this.$data.year = date.getFullYear();
+        this.type = 'month';
+        this.year = date.getFullYear();
       }
     },
     clickHeader(flag: number) {
       let monthCount = 0;
       let next = null;
-      switch (this.$data.type) {
+      switch (this.type) {
         case 'date':
           monthCount = 1;
           break;
@@ -135,7 +127,7 @@ export default defineComponent({
           monthCount = 120;
       }
 
-      const current = new Date(this.$data.year, this.$data.month);
+      const current = new Date(this.year, this.month);
 
       switch (flag) {
         case 1:
@@ -149,27 +141,30 @@ export default defineComponent({
           break;
       }
 
-      this.$data.year = next.getFullYear();
-      this.$data.month = next.getMonth();
+      this.year = next.getFullYear();
+      this.month = next.getMonth();
     },
     onTypeChange(type: string) {
-      this.$data.type = type;
+      this.type = type;
     },
   },
   render() {
+    const {
+      year, month, type, tableData, firstDayOfWeek,
+    } = this;
     return (
-      <div class="t-date">
+      <div class={`${prefix}-date`}>
         <t-date-header
-          year={this.year}
-          month={this.month}
-          type={this.$data.type}
+          year={year}
+          month={month}
+          type={type}
           onBtnClick={this.clickHeader}
           onTypeChange={this.onTypeChange}
         />
         <t-date-table
-          type={this.$data.type}
-          firstDayOfWeek={this.firstDayOfWeek}
-          data={this.tableData}
+          type={type}
+          firstDayOfWeek={firstDayOfWeek}
+          data={tableData}
           onCellClick={this.getClickHandler()}
         />
       </div>

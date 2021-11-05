@@ -55,7 +55,7 @@ export default defineComponent({
   watch: {
     autofocus: {
       handler(val) {
-        if (val) {
+        if (val === true) {
           this.$nextTick(() => {
             (this.$refs.refInputElem as HTMLInputElement).focus();
           });
@@ -131,9 +131,9 @@ export default defineComponent({
       this.renderType = toggleType;
     },
     emitClear(e: MouseEvent) {
-      this.$emit('clear', { e });
-      this.$emit('change', '', { e });
-      this.$emit('input', '', { e });
+      this.$emit('clear', e);
+      this.$emit('change', '', e);
+      this.$emit('input', '', e);
     },
     emitFocus(e: FocusEvent) {
       if (this.disabled) return;

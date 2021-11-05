@@ -35,7 +35,9 @@ exports[`Drawer Demo CurrentDOMModeUsageExample wroks fine 1`] = `
         <div
           class="t-drawer__footer"
         >
-          <div>
+          <div
+            style="display: flex; justify-content: flex-start;"
+          >
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
               props="[object Object]"
@@ -385,7 +387,9 @@ exports[`Drawer Demo CustomUsageExample wroks fine 1`] = `
       <div
         class="t-drawer__footer"
       >
-        <div>
+        <div
+          style="display: flex; justify-content: flex-start;"
+        >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
             props="[object Object]"
@@ -486,7 +490,9 @@ exports[`Drawer Demo NoMaskUsageExample wroks fine 1`] = `
       <div
         class="t-drawer__footer"
       >
-        <div>
+        <div
+          style="display: flex; justify-content: flex-start;"
+        >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
             props="[object Object]"
@@ -564,7 +570,9 @@ exports[`Drawer Demo PlacementUsageExample wroks fine 1`] = `
       <div
         class="t-drawer__footer"
       >
-        <div>
+        <div
+          style="display: flex; justify-content: flex-start;"
+        >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
             props="[object Object]"
@@ -918,7 +926,9 @@ exports[`Drawer Demo SizeUsageExample wroks fine 1`] = `
       <div
         class="t-drawer__footer"
       >
-        <div>
+        <div
+          style="display: flex; justify-content: flex-start;"
+        >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
             props="[object Object]"
@@ -1302,7 +1312,9 @@ exports[`Drawer Demo operation wroks fine 1`] = `
       <div
         class="t-drawer__footer"
       >
-        <div>
+        <div
+          style="display: flex; justify-content: flex-start;"
+        >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
             props="[object Object]"
@@ -1392,7 +1404,9 @@ exports[`Drawer base demo works fine 1`] = `
       <div
         class="t-drawer__footer"
       >
-        <div>
+        <div
+          style="display: flex; justify-content: flex-start;"
+        >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
             props="[object Object]"

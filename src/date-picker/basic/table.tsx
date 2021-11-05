@@ -42,45 +42,29 @@ export default defineComponent({
     return (
       <div class={panelClass}>
         <table>
-          {
-            type === 'date' && (
-              <thead>
-                <tr>
-                  {
-                    weekArr.map((value: string, i: number) => (
-                      <th key={i}>{value}</th>
-                    ))
-                  }
-                </tr>
-              </thead>
-            )
-          }
+          {type === 'date' && (
+            <thead>
+              <tr>
+                {weekArr.map((value: string, i: number) => (
+                  <th key={i}>{value}</th>
+                ))}
+              </tr>
+            </thead>
+          )}
           <tbody>
-            {
-              data.map((row: Cell[], i: number) => (
-                <tr key={i}>
-                  {
-                    row.map((col: Cell, j: number) => (
-                      <t-date-picker-cell
-                        active={col.active}
-                        additional={col.additional}
-                        disabled={col.disabled}
-                        highlight={col.highlight}
-                        startOfRange={col.startOfRange}
-                        endOfRange={col.endOfRange}
-                        now={col.now}
-                        text={col.text}
-                        value={col.value}
-                        onClick={onCellClick}
-                        onMouseEnter={onCellMouseEnter}
-                        {...this.$attrs}
-                        key={j}
-                      />
-                    ))
-                  }
-                </tr>
-              ))
-            }
+            {data.map((row: Cell[], i: number) => (
+              <tr key={i}>
+                {row.map((col: Cell, j: number) => (
+                  <t-date-picker-cell
+                    {...col}
+                    {...this.$attrs}
+                    key={j}
+                    onClick={onCellClick}
+                    onMouseEnter={onCellMouseEnter}
+                  />
+                ))}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

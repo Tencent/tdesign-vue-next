@@ -46,21 +46,20 @@
 
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
-export default defineComponent({
-  data() {
-    return {
-      visibleModal: false,
-      visibleModelessDrag: false,
-      visibleModeless: false,
-    };
-  },
-  methods: {
-    getAttach() {
-      return this.$root.$el;
-    },
+<script >
+import { defineComponent, ref } from 'vue';
 
+export default defineComponent({
+  setup() {
+    const visibleModal = ref(false);
+    const visibleModelessDrag = ref(false);
+    const visibleModeless = ref(false);
+
+    return {
+      visibleModal,
+      visibleModelessDrag,
+      visibleModeless,
+    }
   },
 });
 </script>

@@ -6,6 +6,7 @@ import TIconChevronRight from '../../icon/chevron-right';
 import mixins from '../../utils/mixins';
 import getLocalReceiverMixins from '../../locale/local-receiver';
 import props from './header-props';
+import { prefix } from '../../config';
 
 export default defineComponent({
   ...mixins(getLocalReceiverMixins('datePicker')),
@@ -19,7 +20,7 @@ export default defineComponent({
   render() {
     const {
       type, year, month, onBtnClick, onTypeChange,
-    } = this.$props;
+    } = this;
     const startYear = parseInt((this.year / 10).toString(), 10) * 10;
     const {
       rangeSeparator, yearAriaLabel, monthAriaLabel, now, preMonth, preYear, nextMonth, nextYear, preDecade, nextDecade,
@@ -37,8 +38,8 @@ export default defineComponent({
       nextLabel = nextYear;
     }
     return (
-      <div class="t-date-picker-header">
-        <span class="t-date-picker-header-title">
+      <div class={`${prefix}-date-picker-header`}>
+        <span class={`${prefix}-date-picker-header-title`}>
           {
             type === 'year' && (
               <span>
@@ -55,7 +56,7 @@ export default defineComponent({
           {
             type !== 'year' && (
               <t-button
-                class="t-date-header__btn"
+                class={`${prefix}-date-header__btn`}
                 variant="text"
                 size="small"
                 onClick={() => onTypeChange('year')}
@@ -67,7 +68,7 @@ export default defineComponent({
           {
             type === 'date' && (
               <t-button
-                class="t-date-header__btn"
+                class={`${prefix}-date-header__btn`}
                 variant="text"
                 size="small"
                 onClick={() => onTypeChange('month')}
@@ -78,16 +79,32 @@ export default defineComponent({
           }
         </span>
 
-        <span class="t-date-picker-header-controller">
-          <t-button class="t-date-picker-header-controller__btn" variant="text" onClick={() => onBtnClick(-1)} title={preLabel}>
-            <t-icon-chevron-left slot="icon" />
-          </t-button>
-          <t-button class="t-date-picker-header-controller__btn t-date-picker-header-controller__btn--now" variant="text" onClick={() => onBtnClick(0)} title={now}>
-            <t-icon-round slot="icon" />
-          </t-button>
-          <t-button class="t-date-picker-header-controller__btn" variant="text" onClick={() => onBtnClick(1)} title={nextLabel}>
-            <t-icon-chevron-right slot="icon" />
-          </t-button>
+        <span class={`${prefix}-date-picker-header-controller`}>
+          <t-button
+            class={`${prefix}-date-picker-header-controller__btn`}
+            variant="text" onClick={() => onBtnClick(-1)}
+            title={preLabel}
+            v-slots={{
+              icon: () => <t-icon-chevron-left />,
+            }} />
+          <t-button
+            class={[`${prefix}-date-picker-header-controller__btn`, `${prefix}-date-picker-header-controller__btn--now`]}
+            variant="text"
+            onClick={() => onBtnClick(0)}
+            title={now}
+            v-slots={{
+              icon: () => <t-icon-round />,
+            }}
+          />
+          <t-button
+            class={`${prefix}-date-picker-header-controller__btn`}
+            variant="text"
+            onClick={() => onBtnClick(1)}
+            title={nextLabel}
+            v-slots={{
+              icon: () => <t-icon-chevron-right />,
+            }}
+          />
         </span>
       </div>
     );

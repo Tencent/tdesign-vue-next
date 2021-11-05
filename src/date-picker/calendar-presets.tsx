@@ -2,6 +2,7 @@ import isFunction from 'lodash/isFunction';
 import { PropType, defineComponent } from 'vue';
 import { TdDatePickerProps } from './type';
 import { CalendarPresetsProps, DateValue } from './interface';
+import { prefix } from '../config';
 
 import { Button as TButton } from '../button';
 
@@ -33,18 +34,16 @@ export default defineComponent({
     },
   },
   render() {
-    const { presets } = this.$props;
+    const { presets } = this;
     if (presets) {
       return (
-        <div class="t-date-picker-presets">
+        <div class={`${prefix}-date-picker-presets`}>
           <ul>
-          {
-            presets && Object.keys(presets).map((key: string) => (
-              <li key={key}>
-                <a onClick={() => this.clickPreset(presets[key])}>{ key }</a>
-              </li>
-            ))
-          }
+          {presets && Object.keys(presets).map((key: string) => (
+            <li key={key}>
+              <a onClick={() => this.clickPreset(presets[key])}>{ key }</a>
+            </li>
+          ))}
           </ul>
         </div>
       );

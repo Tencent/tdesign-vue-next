@@ -69,6 +69,12 @@ export default defineComponent({
     modeAndPlacement(): string {
       return [this.mode, this.placement].join();
     },
+    footerStyle(): Styles {
+      return {
+        display: 'flex',
+        justifyContent: this.placement === 'right' ? 'flex-start' : 'flex-end',
+      };
+    },
   },
 
   watch: {

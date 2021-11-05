@@ -1,4 +1,4 @@
-import { VNode, defineComponent } from 'vue';
+import { VNode, h, defineComponent } from 'vue';
 import isFunction from 'lodash/isFunction';
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
@@ -118,7 +118,7 @@ export default defineComponent({
     },
     getFolderIcon() {
       if (isFunction(this.locale.folderIcon)) {
-        return this.locale.folderIcon(this.$createElement);
+        return this.locale.folderIcon(h);
       }
       return <TIconCaretRightSmall/>;
     },

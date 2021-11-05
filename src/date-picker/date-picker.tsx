@@ -1,7 +1,10 @@
 import { defineComponent, nextTick, ComponentPublicInstance } from 'vue';
-import debounce from 'lodash/debounce';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
+import TIconCalendar from '../icon/calendar';
+import TIconTime from '../icon/time';
+import TIconClose from '../icon/close';
+
 import { prefix } from '../config';
 import props from './props';
 import CLASSNAMES from '../utils/classnames';
@@ -9,9 +12,6 @@ import CLASSNAMES from '../utils/classnames';
 import { clickOut } from '../utils/dom';
 import { Button as TButton } from '../button';
 import { Input as TInput } from '../input';
-import TIconCalendar from '../icon/calendar';
-import TIconTime from '../icon/time';
-import TIconClose from '../icon/close';
 import TPopup from '../popup';
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
@@ -22,17 +22,15 @@ import TDate from './panel/date';
 import TDateRange from './panel/date-range';
 import TTimePickerPanel from '../time-picker/panel';
 import { EPickerCols } from '../time-picker/constant';
-import { firstUpperCase } from './utils';
+import { firstUpperCase, extractTimeFormat } from './utils';
 
 dayjs.extend(isBetween);
 
-const onOpenDebounce = debounce((vm?: any) => {
-  vm.createPopover();
-}, 250);
+const name = `${prefix}-date-picker`;
 
 export default defineComponent({
   ...mixins(getLocalReceiverMixins('datePicker')),
-  name: `${prefix}-date-picker`,
+  name,
   components: {
     TIconTime,
     TIconCalendar,
@@ -49,7 +47,7 @@ export default defineComponent({
   emits: ['input', 'open', 'close', 'focus', 'click', 'change'],
   data() {
     return {
-      tempValue: '',
+      tempValue: '' as string | number | dayjs.Dayjs | Date,
       locales: {} as CustomLocale,
       monthDate: new Date(),
       start: new Date(),
@@ -61,9 +59,8 @@ export default defineComponent({
       multiSeparator: ',',
       inlineView: false,
       showTime: false,
-      els: [],
       isOpen: false,
-      timeValue: dayjs(),
+      startTimeValue: dayjs(),
       endTimeValue: dayjs(),
     };
   },
@@ -76,12 +73,11 @@ export default defineComponent({
     },
     formattedValue: {
       get() {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const vm: any = this;
         const {
-          tempValue, range, mode, isOpen, startText, endText, locales, selectedDates,
-        } = vm;
-        const selectedFmtDates: string[] = selectedDates.map((d: Date) => vm.formatDate(d));
+          tempValue, range, mode, isOpen, startText, endText, locales, value: outValue,
+        } = this;
+        const selectedDates = this.getDates(outValue);
+        const selectedFmtDates: string[] = selectedDates.map((d: Date) => this.formatDate(d));
 
         if (tempValue) {
           return tempValue;
@@ -109,34 +105,29 @@ export default defineComponent({
         return value;
       },
       set(value: dayjs.ConfigType) {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const vm: any = this;
-        const { min, dateFormat } = vm;
+        const { min, dateFormat } = this;
         if (value) {
-          if (String(value).length >= String(vm.formatDate(min || new Date())).length && dayjs(value, dateFormat)) {
-            vm.tempValue = '';
-            vm.setDate(value, true);
+          if (String(value).length >= String(this.formatDate(min || new Date())).length && dayjs(value, dateFormat)) {
+            this.tempValue = '';
+            this.setDate(value, true);
           } else {
-            vm.tempValue = value;
+            this.tempValue = value;
           }
         }
       },
     },
     rangeText: {
       get() {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const vm: any = this;
-        let range = vm.startText;
-        if (vm.range) {
-          range += ` ${vm.locales.rangeSeparator} ${vm.endText}`;
+        let range = this.startText;
+        if (this.range) {
+          range += ` ${this.locales.rangeSeparator} ${this.endText}`;
         }
         return range;
       },
       set(value: any) {
         // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const vm: any = this;
-        if (vm.value) {
-          vm.setDate(value, false);
+        if (this.value) {
+          this.setDate(value, false);
         }
       },
     },
@@ -152,22 +143,22 @@ export default defineComponent({
     },
     classes(): any {
       return [
-        't-date-picker',
-        't-input',
+        name,
+        `${prefix}-input`,
         CLASSNAMES.SIZE[this.size] || '',
         {
-          't-date-picker--month-picker': this.mode === 'year' || this.mode === 'month',
-          't-inline': this.inline || this.inlineView,
+          [`${name}--month-picker`]: this.mode === 'year' || this.mode === 'month',
+          [`${prefix}-inline`]: this.inline || this.inlineView,
         },
       ];
     },
     pickerStyles() {
       return {
-        't-date-picker--container': true,
-        't-date-picker-picker--open': this.isOpen || this.inlineView,
-        't-date-picker--calendar-inline-view': this.inlineView,
-        't-date-picker--ranges-show': !!this.presets && this.range,
-        't-date-picker--date': this.mode === 'date',
+        [`${name}--container`]: true,
+        [`${name}--open`]: this.isOpen || this.inlineView,
+        [`${name}--calendar-inline-view`]: this.inlineView,
+        [`${name}--ranges-show`]: !!this.presets && this.range,
+        [`${name}--date`]: this.mode === 'date',
       };
     },
   },
@@ -175,33 +166,25 @@ export default defineComponent({
     this.attachDatePicker();
   },
   methods: {
-    handleTimePick(col: EPickerCols, time: number) {
-      const start = new Date(this.start as Date);
-      start[`set${firstUpperCase(col)}s`](time);
-      this.start = start;
-      this.timeValue = dayjs(start);
-      this.dateClick(new Date(start));
-    },
-    handleEndTimePick(col: EPickerCols, time: number) {
-      const end = new Date(this.end as Date);
-      end[`set${firstUpperCase(col)}s`](time);
-      this.end = end;
-      this.endTimeValue = dayjs(end);
-      this.dateClick(new Date(end));
-    },
-    initClickAway(el: Element) {
-      this.els.push(el);
-      if (this.els.length > 1) {
-        clickOut(this.els, () => {
-          this.clickAway();
-        });
+    handleTimePick(col: EPickerCols, time: number, index: number) {
+      if (!this.range || index === 0) {
+        const start = new Date(this.start);
+        start[`set${firstUpperCase(col)}s`](time);
+        this.start = start;
+        this.startTimeValue = dayjs(start);
+        this.dateClick(new Date(start));
+      } else {
+        const end = new Date(this.end);
+        end[`set${firstUpperCase(col)}s`](time);
+        this.end = end;
+        this.endTimeValue = dayjs(end);
+        this.dateClick(new Date(end));
       }
     },
     attachDatePicker(): any {
       // language init
       this.setLocales();
 
-      this.initClickAway(this.$el);
       const startDate: Date = new Date();
       const endDate: Date = new Date();
 
@@ -332,12 +315,6 @@ export default defineComponent({
           break;
       }
     },
-    hoverDate(value: Date) {
-      const dt = this.normalizeDateTime(value, this.end as Date);
-      if (this.inSelection && dt > this.start) {
-        this.end = dt;
-      }
-    },
     toggle() {
       if (!this.disabled) {
         if (this.isOpen) {
@@ -358,7 +335,6 @@ export default defineComponent({
         // open
         this.isOpen = true;
         nextTick().then(() => {
-          onOpenDebounce(this);
           this.$emit('open', this.selectedDates);
         });
       }
@@ -392,19 +368,13 @@ export default defineComponent({
       this.endTimeValue = dayjs(this.end as Date);
 
       this.showTime = !this.showTime;
+
+      this.$nextTick(() => {
+        const timePickerPanel = this.$refs.timePickerPanel as any;
+        timePickerPanel && timePickerPanel.panelColUpdate();
+      });
     },
 
-    clickAway() {
-      if (this.isOpen) {
-        // reset start and end
-        const { selectedDates } = this;
-        if (selectedDates.length > 1) {
-          this.start = new Date(selectedDates[0]);
-          this.end = new Date(selectedDates[1]);
-        }
-        this.close();
-      }
-    },
     clickRange(value: DateValue) {
       if (Array.isArray(value)) {
         const [start, end] = value as dayjs.ConfigType[];
@@ -418,7 +388,11 @@ export default defineComponent({
       }
       this.clickedApply();
     },
-    clear(triggerChange = false): void {
+    clear(triggerChange = false, e?: MouseEvent): void {
+      if (e && e.stopPropagation) {
+        e && e.stopPropagation();
+      }
+
       // close picker
       this.close();
 
@@ -476,11 +450,11 @@ export default defineComponent({
         min, max, disableDate, dateFormat,
       } = this;
       if (!disableDate) {
-        return false;
+        return true;
       }
       // 值类型为 Function 则表示返回值为 true 的日期会被禁用
       if (typeof disableDate === 'function') {
-        return disableDate(value);
+        return !disableDate(value);
       }
 
       // 禁用日期，示例：['A', 'B'] 表示日期 A 和日期 B 会被禁用。
@@ -492,7 +466,7 @@ export default defineComponent({
             isIncludes = true;
           }
         });
-        return isIncludes;
+        return !isIncludes;
       }
 
       // { before: 'A', after: 'B' } 表示在 A 之前和在 B 之后的日期都会被禁用。
@@ -501,7 +475,7 @@ export default defineComponent({
         const compareMax = dayjs(new Date(max)).startOf('day');
 
         // check min
-        return !dayjs(value).isBetween(compareMin, compareMax, null, '[]');
+        return dayjs(value).isBetween(compareMin, compareMax, null, '[]');
       }
 
       // { from: 'A', to: 'B' } 表示在 A 到 B 之间的日期会被禁用。
@@ -511,7 +485,7 @@ export default defineComponent({
         const compareMax = dayjs(new Date(to)).startOf('day');
 
         // check min
-        return dayjs(value).isBetween(compareMin, compareMax, null, '[]');
+        return !dayjs(value).isBetween(compareMin, compareMax, null, '[]');
       }
 
       return true;
@@ -519,6 +493,20 @@ export default defineComponent({
     setDate(inputDate: any = '', triggerChange = false): void {
       if ((inputDate !== 0 && !inputDate) || (inputDate instanceof Array && inputDate.length === 0)) {
         return this.clear(triggerChange);
+      }
+
+      const selectedDates = this.getDates(inputDate);
+
+      this.selectedDates = selectedDates;
+      if (selectedDates.length > 0) {
+        const [start, end] = selectedDates;
+        this.start = start;
+        this.end = end || start;
+      }
+    },
+    getDates(inputDate: any = ''): Date[] {
+      if ((inputDate !== 0 && !inputDate) || (inputDate instanceof Array && inputDate.length === 0)) {
+        return [];
       }
 
       const format = this.dateFormat || '';
@@ -542,7 +530,7 @@ export default defineComponent({
             break;
 
           case 'range':
-            dates = inputDate.split(this.locales?.rangeSeparator || '-').map((d) => {
+            dates = inputDate.split(this.locales.rangeSeparator || '-').map((d) => {
               const d1 = this.parseDate(d, format);
               return d1;
             });
@@ -559,12 +547,7 @@ export default defineComponent({
       });
       selectedDates.sort((a, b) => a.getTime() - b.getTime());
 
-      this.selectedDates = selectedDates;
-      if (selectedDates.length > 0) {
-        const [start, end] = selectedDates;
-        this.start = start;
-        this.end = end || start;
-      }
+      return selectedDates;
     },
     formatDate(date: Date, format = ''): string {
       let dateFormat = format || this.dateFormat || this.locales.format;
@@ -577,21 +560,6 @@ export default defineComponent({
       return dayjs(d1).format(dateFormat);
     },
 
-    createPopover() {
-      if (this.inlineView) {
-        return;
-      }
-      const nativeInput = this.$refs.native as ComponentPublicInstance;
-
-      const tip: HTMLElement = this.$refs.dropdownPopup as HTMLElement;
-      const refEl: Element = ((nativeInput && nativeInput.$el) || this.$el) as Element;
-
-      if (!tip || !refEl) {
-        return;
-      }
-
-      this.initClickAway(tip);
-    },
     getPlaceholderText() {
       const { placeholder, mode } = this.$props;
 
@@ -599,6 +567,7 @@ export default defineComponent({
     },
   },
   render() {
+    // props
     const {
       popupProps,
       disabled,
@@ -610,27 +579,25 @@ export default defineComponent({
       presets,
       mode,
       range,
-    } = this.$props;
+    } = this;
 
+    // data
     const {
-      start, end, showTime, timeValue, endTimeValue, locales, isOpen,
-    } = this.$data;
+      start, end, showTime, startTimeValue, locales, isOpen, endTimeValue,
+    } = this;
+
+    const panelProps = {
+      value: range ? [start, end] : start,
+      mode,
+      firstDayOfWeek: 0,
+      disableDate: (d: Date) => !this.isEnabled(d),
+      onChange: this.dateClick,
+    };
+
     const panelComponent = range ? (
-      <t-date-range
-        value={[start, end]}
-        mode={mode}
-        firstDayOfWeek={0}
-        disableDate={this.isEnabled}
-        onChange={this.dateClick}
-      />
+      <t-date-range {...panelProps} />
     ) : (
-      <t-date
-        value={start}
-        mode={mode}
-        firstDayOfWeek={0}
-        disableDate={this.isEnabled}
-        onChange={this.dateClick}
-      />
+      <t-date {...panelProps} />
     );
 
     const popupContent = () => (
@@ -638,15 +605,16 @@ export default defineComponent({
         {enableTimePicker && showTime && (
           <div>
             <TTimePickerPanel
-              format="HH:mm:ss"
+              ref="timePickerPanel"
+              format={extractTimeFormat(this.dateFormat) || 'HH:mm:ss'}
               cols={[EPickerCols.hour, EPickerCols.minute, EPickerCols.second]}
               steps={[1, 1, 1]}
-              value={[timeValue]}
+              value={!range ? [startTimeValue] : [startTimeValue, endTimeValue]}
               onTimePick={this.handleTimePick}
               isShowPanel={showTime}
               isFooterDisplay={false}
             />
-            { range && (<TTimePickerPanel
+            {range && (<TTimePickerPanel
               format="HH:mm:ss"
               cols={[EPickerCols.hour, EPickerCols.minute, EPickerCols.second]}
               steps={[1, 1, 1]}
@@ -655,35 +623,28 @@ export default defineComponent({
               isShowPanel={showTime}
               isFooterDisplay={false}
             />)}
-          </div>
-        )
+          </div>)
         }
         {!showTime && panelComponent}
         {presets && range && (
           <TCalendarPresets presets={presets} locales={locales} onClickRange={this.clickRange} />
         )}
-        {
-          enableTimePicker && (
-            <div class="t-date-picker--apply">
-              {
-                enableTimePicker && (
-                  <t-button theme="primary" variant="text" onClick={this.toggleTime}>
-                    {showTime ? locales.selectDate : locales.selectTime}
-                  </t-button>
-                )
-              }
-              {
-                <t-button theme="primary" onClick={this.clickedApply}>
-                  {locales.confirm}
-                </t-button>
-              }
-            </div>
-          )
-        }
+        {enableTimePicker && (
+          <div class={`${name}--apply`}>
+            {enableTimePicker && (
+              <t-button theme="primary" variant="text" onClick={this.toggleTime}>
+                {showTime ? locales.selectDate : locales.selectTime}
+              </t-button>
+            )}
+            {<t-button theme="primary" onClick={this.clickedApply}>
+              {locales.confirm}
+            </t-button>}
+          </div>
+        )}
       </div>
     );
     const inputClassNames = [
-      't-form-controls',
+      `${prefix}-form-controls`,
       {
         [CLASSNAMES.STATUS.active]: this.isOpen,
       },
@@ -692,21 +653,26 @@ export default defineComponent({
       <div class={this.classes}>
         <t-popup
           ref="popup"
-          class="t-date-picker-popup-reference"
+          class={`${name}-popup-reference`}
           trigger="click"
           placement="bottom-left"
           disabled={disabled}
           showArrow={false}
           visible={isOpen}
           popupProps={popupProps}
-          overlayClassName="t-date-picker"
+          overlayClassName={name}
           content={popupContent}
-          onVisibleChange={this.toggle}
           expandAnimation={true}
+          onVisibleChange={(visible: boolean, context: {
+            trigger: string,
+          }) => {
+            if (context.trigger === 'document') {
+              this.toggle();
+            }
+          }}
         >
-          <div class={inputClassNames}>
+          <div class={inputClassNames} onClick={this.toggle}>
             <t-input
-              {...this.$attrs}
               ref="native"
               v-model={this.formattedValue}
               disabled={disabled}
@@ -716,7 +682,7 @@ export default defineComponent({
               allowInput={allowInput ? 1 : 0}
               size={size}
               inputProps={inputProps}
-              onClear={() => this.clear(true)}
+              onClear={(context: any) => this.clear(true, context.e)}
               focus={this.onNativeFocus}
               input={this.onNativeInput}
               click={this.onClick}
