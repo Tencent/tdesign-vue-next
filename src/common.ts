@@ -1,7 +1,4 @@
 /** Vue3 特有全局变量 */
-import { h } from 'vue';
-
-type CreateElement = typeof h;
 type VNode = import('vue').VNode;
 export type ScopedSlot = () => SlotReturnValue;
 export type SlotReturnValue = VNode | string | boolean | null | undefined | SlotReturnArray;

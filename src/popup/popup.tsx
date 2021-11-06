@@ -4,7 +4,7 @@ import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
 import CLASSNAMES from '../utils/classnames';
 import {
-  on, off, once, addClass, removeClass, getAttach,
+  on, off, once, getAttach,
 } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';

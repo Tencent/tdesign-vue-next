@@ -1,5 +1,5 @@
 import {
-  defineComponent, h, VNodeChild, ComponentPublicInstance, VNode,
+  defineComponent, ComponentPublicInstance, VNode,
 } from 'vue';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';

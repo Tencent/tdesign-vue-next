@@ -1,4 +1,4 @@
-import { defineComponent, nextTick, ComponentPublicInstance } from 'vue';
+import { defineComponent, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 import TIconCalendar from '../icon/calendar';
@@ -9,7 +9,6 @@ import { prefix } from '../config';
 import props from './props';
 import CLASSNAMES from '../utils/classnames';
 
-import { clickOut } from '../utils/dom';
 import { Button as TButton } from '../button';
 import { Input as TInput } from '../input';
 import TPopup from '../popup';

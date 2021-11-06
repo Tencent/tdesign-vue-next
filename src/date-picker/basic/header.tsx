@@ -8,7 +8,9 @@ import getLocalReceiverMixins from '../../locale/local-receiver';
 import props from './header-props';
 import { prefix } from '../../config';
 
+const name = `${prefix}-date-picker-header`;
 export default defineComponent({
+  name,
   ...mixins(getLocalReceiverMixins('datePicker')),
   components: {
     TButton,

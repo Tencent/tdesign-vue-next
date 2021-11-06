@@ -14,8 +14,9 @@ import {
   firstUpperCase,
 } from '../utils';
 
+const name = `${prefix}-date-picker-panel`;
 export default defineComponent({
-  name: 'TDatePanel',
+  name,
   components: {
     TDateHeader,
     TDateTable,

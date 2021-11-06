@@ -3,7 +3,6 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import props from './props';
-import { RadioGroupInstance, RadioButtonInstance } from './instance';
 
 const name = `${prefix}-radio`;
 export const radioBtnName = `${prefix}-radio-button`;
@@ -16,12 +15,6 @@ function getValidAttrs(obj: Record<string, any>): Record<string, any> {
     }
   });
   return newObj;
-}
-declare module '@vue/runtime-core' {
-  interface ComponentCustomProperties {
-    radioGroup: RadioGroupInstance;
-    radioButton: RadioButtonInstance;
-  }
 }
 
 export default defineComponent({

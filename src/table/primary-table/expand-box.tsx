@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent } from 'vue';
 import isFunction from 'lodash/isFunction';
 import mixins from '../../utils/mixins';
 import getLocalReceiverMixins from '../../locale/local-receiver';

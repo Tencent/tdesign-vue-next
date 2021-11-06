@@ -243,9 +243,9 @@ export function subtractMonth(date: Date, num: any): Date {
   const day = date.getDate();
   const newDate = new Date(date);
 
-  let _num = num;
+  let NUM = num;
   // eslint-disable-next-line no-plusplus
-  while (_num--) {
+  while (NUM--) {
     newDate.setDate(0);
   }
   newDate.setDate(day);
@@ -381,7 +381,7 @@ export function getYears(
 }
 
 export function getMonths(year: number, { disableDate = () => false, minDate, maxDate }: OptionsType) {
-  const MonthArr = [];
+  const MONTH_ARR = [];
 
   const today = getToday();
 
@@ -399,7 +399,7 @@ export function getMonths(year: number, { disableDate = () => false, minDate, ma
       if (outOfRanges(d, minDate, maxDate)) outOfRangeDay += 1;
     }
 
-    MonthArr.push({
+    MONTH_ARR.push({
       value: date,
       now: isSame(date, today, 'month'),
       disabled: disabledDay === daysInMonth || outOfRangeDay === daysInMonth,
@@ -408,10 +408,10 @@ export function getMonths(year: number, { disableDate = () => false, minDate, ma
     });
   }
 
-  return chunk(MonthArr, 4);
+  return chunk(MONTH_ARR, 4);
 }
 
-interface DateTime {
+export interface DateTime {
   active: boolean;
   highlight: boolean;
   startOfRange: boolean;
@@ -424,22 +424,22 @@ export function flagActive(data: any[], { ...args }: any) {
 
   if (!end) {
     return data.map((row: any[]) => row.map((item: DateTime) => {
-      const _item = item;
-      _item.active = isSame(item.value, start, type);
-      return _item;
+      const ITEM = item;
+      ITEM.active = isSame(item.value, start, type);
+      return ITEM;
     }));
   }
 
   return data.map((row: any[]) => row.map((item: DateTime) => {
-    const _item = item;
+    const ITEM = item;
     const date = item.value;
     const isStart = isSame(start, date, type);
     const isEnd = isSame(end, date, type);
-    _item.active = isStart || isEnd;
-    _item.highlight = isBetween(date, { start, end });
-    _item.startOfRange = isStart;
-    _item.endOfRange = isEnd;
-    return _item;
+    ITEM.active = isStart || isEnd;
+    ITEM.highlight = isBetween(date, { start, end });
+    ITEM.startOfRange = isStart;
+    ITEM.endOfRange = isEnd;
+    return ITEM;
   }));
 }
 

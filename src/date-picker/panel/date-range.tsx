@@ -23,8 +23,9 @@ const TODAY = getToday();
 const LEFT = 'left';
 const RIGHT = 'right';
 
+const name = `${prefix}-date-picker-date-range`;
 export default defineComponent({
-  name: 'TDatePickerDateRange',
+  name,
   components: {
     TDateHeader,
     TDateTable,
