@@ -8,24 +8,28 @@
   </div>
 </template>
 <script>
-export default {
-  name: 'FullScrennLoading',
-  data() {
-    return {
-      loading: false,
-    };
-  },
-  watch: {
-    loading(v) {
-      if (v) {
+import { defineComponent, ref, watch } from "vue";
+
+export default defineComponent({
+  setup() {
+    const loading = ref(false);
+    
+    watch(
+      () => loading.value,
+      (v) => {
+        if (!v) return;
         const timer = setTimeout(() => {
-          this.loading = false;
+          loading.value = false;
           clearTimeout(timer);
         }, 1000);
       }
-    },
+    )
+
+    return {
+      loading
+    }
   },
-};
+});
 </script>
 <style scoped>
 .switch-demo {

@@ -8,33 +8,35 @@
       :onClickOverlay="() => visible = false"
       :placement="placement"
     >
-      <p>This is a drawer</p>
+      <p>抽屉的内容</p>
     </t-drawer>
     <div class="tdesign-radio-button">
       <t-radio-group :defaultValue="placement" v-model="placement">
-        <t-radio-button value="left">left</t-radio-button>
-        <t-radio-button value="right">right</t-radio-button>
-        <t-radio-button value="top">top</t-radio-button>
-        <t-radio-button value="bottom">bottom</t-radio-button>
+        <t-radio-button value="left">左侧</t-radio-button>
+        <t-radio-button value="right">右侧</t-radio-button>
+        <t-radio-button value="top">上方</t-radio-button>
+        <t-radio-button value="bottom">下方</t-radio-button>
       </t-radio-group>
-      <t-button theme="primary" @click="visible = true">Open</t-button>
     </div>
+    <t-button variant="outline" @click="visible = true" class="btn-top-margin">打开抽屉</t-button>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 export default defineComponent({
-  data() {
+  setup() {
+    const visible = ref(false);
+    const placement = ref('right');
     return {
-      visible: false,
-      placement: 'right',
-    };
+      visible,
+      placement
+    }
   },
 });
 </script>
 <style scoped>
-.t-button {
-  margin-left: 20px;
+.btn-top-margin {
+  margin-top: 16px;
 }
 </style>

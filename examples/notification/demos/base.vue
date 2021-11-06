@@ -13,17 +13,20 @@
       :duration="5000"
       @duration-end="show = false"
     />
-    <t-button @click="show = true" v-if="!show">点击打开计时通知</t-button>
+    <t-button variant="outline" @click="show = true" v-if="!show">点击打开计时通知</t-button>
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const show = ref(true);
     return {
-      show: true,
-    };
-  },
-};
+      show
+    }
+  }
+});
 </script>
 <style scoped>
 .t-notification + .t-notification {

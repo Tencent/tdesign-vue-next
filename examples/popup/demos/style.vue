@@ -7,7 +7,7 @@
       overlayClassName="custom-popup"
       placement="bottom-left"
     >
-      <t-button>click我试试</t-button>
+      <t-button variant="outline">click我试试</t-button>
     </t-popup>
     <t-popup
       :style="{marginLeft: '10px'}"
@@ -16,7 +16,7 @@
       :overlayStyle="triggerElem => ({ width: `${triggerElem.offsetWidth}px` })"
       placement="bottom-left"
     >
-      <t-button>根据 trigger 元素定制 overlayStyle</t-button>
+      <t-button variant="outline">根据 trigger 元素定制 overlayStyle</t-button>
     </t-popup>
   </div>
 </template>

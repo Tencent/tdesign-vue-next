@@ -1,6 +1,11 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable placeholder='请选择'></t-cascader>
+    <!-- 非受控用法 -->
+    <t-cascader class="t-demo-cascader" :options="options" :defaultValue="value" clearable size="small" placeholder='请选择'></t-cascader>
+    <!-- 受控+语法糖用法 -->
+    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="medium" placeholder='请选择'></t-cascader>
+    <!-- 受控用法 -->
+    <t-cascader class="t-demo-cascader" :options="options" :value="value" @change="handleValueChange" clearable size="large" placeholder='请选择'></t-cascader>
   </div>
 </template>
 
@@ -10,7 +15,7 @@ export default {
     return {
       options: [
         {
-          label: '当选项一数据展示文本过长时',
+          label: '选项一',
           value: '1',
           children: [
             {
@@ -22,7 +27,7 @@ export default {
               value: '1.2',
             },
             {
-              label: '当选项数据展示文本过长时',
+              label: '子选项三',
               value: '1.3',
             },
           ],
@@ -36,7 +41,7 @@ export default {
               value: '2.1',
             },
             {
-              label: '当选项数据展示文本过长时',
+              label: '子选项二',
               value: '2.2',
             },
           ],
@@ -45,9 +50,17 @@ export default {
       value: '1.1',
     };
   },
+  methods: {
+    handleValueChange(e) {
+      this.value = e;
+    },
+  },
 };
 </script>
 <style scoped>
+.t-demo-cascader-title {
+  margin: 10px 0;
+}
 .t-demo-cascader + .t-demo-cascader {
   margin-top: 16px;
 }

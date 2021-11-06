@@ -42,12 +42,12 @@
           <t-switch v-model="controllerConfig.weekend.visible"></t-switch>
         </p>
         <p>
-          <label>是否显示“今天\本月”控件：</label>
-          <t-switch v-model="controllerConfig.current.visible"></t-switch>
           <label>是否禁用“今天”按钮控件：</label>
           <t-switch v-model="controllerConfig.current.currentDayButtonProps.disabled"></t-switch>
           <label>是否禁用“本月”按钮控件：</label>
           <t-switch v-model="controllerConfig.current.currentMonthButtonProps.disabled"></t-switch>
+          <label>是否显示“今天\本月”控件：</label>
+          <t-switch v-model="controllerConfig.current.visible"></t-switch>
         </p>
       </fieldset>
     </div>

@@ -6,8 +6,8 @@
     <t-notification title="自定义关闭按钮(插槽)" content="这是一条消息通知">
       <template #closeBtn>x</template>
     </t-notification>
-    <t-button @click="visible = !visible">处理开关事件</t-button>
-    <t-button @click="visible2 = !visible2">处理定时关闭事件（3s）</t-button>
+    <t-button variant="outline" @click="visible = !visible">处理开关事件</t-button>
+    <t-button variant="outline" @click="visible2 = !visible2">处理定时关闭事件（3s）</t-button>
     <t-notification
       v-if="visible"
       @click-close-btn="visible = false"
@@ -24,21 +24,23 @@
 </template>
 
 <script lang="jsx">
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const visible = ref(false);
+    const visible2 = ref(false);
     return {
-      visible: false,
-      visible2: false,
-    };
+      visible,
+      visible2,
+      closeBtn() {
+        return (
+          <span>close</span>
+        );
+      },
+    }
   },
-  methods: {
-    closeBtn() {
-      return (
-        <span>close</span>
-      );
-    },
-  },
-};
+});
 </script>
 
 <style scoped>

@@ -27,13 +27,13 @@
           <template #icon>
             <t-icon name="browse" style="color: #0052d9" />
           </template>
-          <t-button>图标（插槽）</t-button>
+          <t-button variant="outline">自定义图标（插槽）</t-button>
         </t-popconfirm>
       </div>
 
       <div class="demo-item">
         <t-popconfirm content="基础气泡确认框文案示意文字按钮" :icon='customIcon' :popupProps="{ placement: 'bottom' }">
-          <t-button>图标（属性）</t-button>
+          <t-button variant="outline">自定义图标（属性）</t-button>
         </t-popconfirm>
       </div>
     </div>
@@ -41,19 +41,23 @@
 </template>
 
 <script lang="jsx">
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  reunt() {
+    const visible1 = ref(true);
+    const visible2 = ref(true);
+    const visible3 = ref(true);
+
     return {
-      visible1: true,
-      visible2: true,
-      visible3: true,
-    };
-  },
-  methods: {
-    customIcon() {
-      return (<t-icon name='browse' style="margin-right: 8px"/>);
-    },
-  },
-};
+      visible1,
+      visible2,
+      visible3,
+      customIcon() {
+        return (<t-icon name='browse' style="margin-right: 8px"/>);
+      },
+    }
+  }
+});
 </script>
 

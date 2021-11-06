@@ -5,7 +5,7 @@
         v-model:visible="visible"
         :placement="placement"
         :mode="mode"
-        header="标题名称"
+        header="抽屉标题"
         showInAttachedElement
       >
         <p>This is a drawer</p>
@@ -34,15 +34,20 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+
 export default defineComponent({
-  data() {
+  setup() {
+    const visible = ref(false);
+    const placement = ref('right');
+    const mode = ref('overlay');
+
     return {
-      visible: false,
-      placement: 'right',
-      mode: 'overlay',
-    };
-  },
+      visible,
+      placement,
+      mode
+    }
+  }
 });
 </script>
 <style scoped>
@@ -50,7 +55,6 @@ export default defineComponent({
   position: relative;
   height: 400px;
   overflow: hidden;
-  background: #fafafa;
   border: 1px solid #ebedf0;
   border-radius: 2px;
 }

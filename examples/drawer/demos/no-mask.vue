@@ -1,31 +1,29 @@
 <template>
   <div>
-    <t-drawer v-model:visible="visible" @close="handleClose" :showOverlay="false" header="标题名称">
-      <p>This is a drawer</p>
+    <t-drawer v-model:visible="visible" @close="handleClose" :showOverlay="false" header="抽屉标题">
+      <p>抽屉的内容</p>
     </t-drawer>
 
-    <t-button theme="primary" @click="handleClick">Open</t-button>
+    <t-button variant="outline" @click="handleClick">打开抽屉</t-button>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+
 export default defineComponent({
-  data() {
+  setup() {
+    const visible = ref(false);
+
     return {
-      visible: false,
-    };
-  },
-  methods: {
-    setVisible(state) {
-      this.visible = state;
-    },
-    handleClick() {
-      this.setVisible(true);
-    },
-    handleClose() {
-      this.setVisible(false);
-    },
+      visible,
+      handleClick() {
+        visible.value = true;
+      },
+      handleClose() {
+        visible.value = false;
+      }
+    }
   },
 });
 </script>

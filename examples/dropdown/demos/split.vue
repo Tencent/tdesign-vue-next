@@ -1,15 +1,10 @@
 <template>
-  <t-dropdown :options="options" >
-    <t-button theme="primary" variant="outline">
-      <template #icon>
-        <t-icon-ellipsis size="12"/>
-      </template>
-    </t-button>
+  <t-dropdown :options="options" :minColumnWidth="88">
+    <t-button theme="default" variant="outline">下拉菜单</t-button>
   </t-dropdown>
 </template>
 <script>
-import TIconEllipsis from '@tencent/tdesign-vue-next/icon/ellipsis';
-
+import { defineComponent } from "vue";
 const options = [{
     content: '操作一',
     value: 1,
@@ -25,16 +20,13 @@ const options = [{
     value: 4,
   }]
 
-export default {
-  components: {
-    TIconEllipsis,
-  },
+export default defineComponent({
   setup() {
     return {
       options
     }
   }
-};
+});
 </script>
 <style scoped>
 .t-button {

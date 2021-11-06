@@ -1,18 +1,13 @@
 <template>
   <div>
     <t-dropdown :options="options" @click="clickHandler">
-      <t-button theme="primary" variant="outline">
-        <template #icon>
-          <t-icon-ellipsis size="12"/>
-        </template>
-      </t-button>
+      <t-button theme="default" variant="outline">下拉菜单</t-button>
     </t-dropdown>
   </div>
 </template>
 <script>
 import { defineComponent } from 'vue'
 import { MessagePlugin } from '@tencent/tdesign-vue-next'
-import TIconEllipsis from '@tencent/tdesign-vue-next/icon/ellipsis';
 
 const options = [
   {
@@ -33,9 +28,6 @@ const options = [
   },
 ]
 export default defineComponent({
-  components: {
-    TIconEllipsis,
-  },
   setup() {
     const clickHandler = (data) => {
       MessagePlugin.success(`选中【${data.content}】`);

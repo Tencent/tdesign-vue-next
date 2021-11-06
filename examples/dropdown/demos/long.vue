@@ -1,7 +1,7 @@
 <template>
   <div>
-    <t-dropdown :options="options" :maxHeight="400" :minColumnWidth="90" >
-      <t-button>hover我试试</t-button>
+    <t-dropdown :options="options" :maxHeight="400" :minColumnWidth="88" >
+      <t-button variant="text">下拉菜单</t-button>
     </t-dropdown>
   </div>
 </template>

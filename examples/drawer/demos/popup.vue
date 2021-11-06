@@ -5,22 +5,11 @@
       attach="body"
       :mode="mode"
       :placement="placement"
-      header="标题名称"
+      header="抽屉标题"
     >
-      <p>Drawer 默认挂载在元素本身所在的位置，而在 PUSH 模式下，推动的是 attach 元素，因此全局模式需要设置 attach 为 body。</p>
+      <p>抽屉的内容</p>
     </t-drawer>
 
-    <!-- 状态控制区 -->
-    <div class="tdesign-radio-button">
-      抽屉弹出方向：
-      <t-radio-group v-model="placement">
-        <t-radio-button value="left">left</t-radio-button>
-        <t-radio-button value="right">right</t-radio-button>
-        <t-radio-button value="top">top</t-radio-button>
-        <t-radio-button value="bottom">bottom</t-radio-button>
-      </t-radio-group>
-    </div>
-    <br>
     <div class="tdesign-radio-button">
       抽屉弹出模式：
       <t-radio-group v-model="mode">

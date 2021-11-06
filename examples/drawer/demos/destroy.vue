@@ -1,21 +1,23 @@
 <template>
   <div>
     <!-- 动画效果待开发 -->
-    <t-drawer v-model:visible="visible" header='标题名称' destroyOnClose>
-      <p>This is the body of drawer</p>
+    <t-drawer v-model:visible="visible" header='抽屉标题' destroyOnClose>
+      <p>抽屉的内容</p>
     </t-drawer>
 
-    <t-button @click="visible = true">Open</t-button>
+    <t-button @click="visible = true">打开抽屉</t-button>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 export default defineComponent({
-  data() {
+  setup() {
+    const visible = ref(false);
+
     return {
-      visible: false,
-    };
+      visible
+    }
   },
 });
 </script>

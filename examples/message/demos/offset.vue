@@ -4,15 +4,18 @@
       偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。
     </p>
     <br>
-    <t-button @click="this.showOffsetMsg">带 offset 信息位置</t-button>
+    <t-button @click="showOffsetMsg">带 offset 信息位置</t-button>
   </div>
 </template>
 
 <script>
-export default {
-  methods: {
-    showOffsetMsg() {
-      this.$message.info({
+import { defineComponent } from 'vue'
+import { MessagePlugin } from '@tencent/tdesign-vue-next';
+
+export default defineComponent({
+  setup() {
+    const showOffsetMsg = () => {
+      MessagePlugin.info({
         content: '用户表示普通操作信息提示',
         placement: 'top',
         offset: {
@@ -20,9 +23,12 @@ export default {
           left: '-300px',
         },
       });
-    },
-  },
-};
+    }
+    return {
+      showOffsetMsg
+    }
+  }
+});
 </script>
 
 <style scoped>

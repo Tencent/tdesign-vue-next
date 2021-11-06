@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-demo">
+  <div  class="tdesign-demo-block-column-large">
     <div>
       <t-loading size="small" text='加载中（小）...'></t-loading>
     </div>
@@ -11,8 +11,3 @@
     </div>
   </div>
 </template>
-<style scoped>
-.loading-demo > div + div {
-  margin-top: 28px;
-}
-</style>

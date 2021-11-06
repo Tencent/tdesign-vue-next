@@ -2,14 +2,6 @@
   <div class="t-demo-message">
 
     <t-message
-      v-if="isShowDurationMsg"
-      :duration="10000"
-      @duration-end="isShowDurationMsg = false"
-    >计时结束触发事件 duration-end（10s）</t-message>
-
-    <t-button v-if="!isShowDurationMsg" @click="isShowDurationMsg = true">再次弹出计时信息</t-button>
-
-    <t-message
       v-if="isShowMsg"
       :closeBtn="true"
       @click-close-btn="isShowMsg = false"
@@ -35,31 +27,35 @@
 </template>
 
 <script lang="jsx">
-export default {
-  data() {
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const isShowMsg = ref(true);
+    const closableMsg = ref(true);
+    const closableMsg1 = ref(true);
+    const closableMsg2 = ref(true);
+
     return {
-      isShowMsg: true,
-      isShowDurationMsg: true,
-      closableMsg: true,
-      closableMsg1: true,
-      closableMsg2: true,
-    };
+      isShowMsg,
+      closableMsg,
+      closableMsg1,
+      closableMsg2,
+      closeBtn() {
+        return (
+          <div
+            class='t-message-close'
+            onClick={() => {
+              closableMsg1.value = false;
+            }}
+          >
+            <b>x</b>
+          </div>
+        );
+      },
+    }
   },
-  methods: {
-    closeBtn() {
-      return (
-        <div
-          class='t-message-close'
-          onClick={() => {
-            this.closableMsg1 = false;
-          }}
-        >
-          <b>x</b>
-        </div>
-      );
-    },
-  },
-};
+});
 </script>
 <style lang="less" scoped>
   .t-demo-message {

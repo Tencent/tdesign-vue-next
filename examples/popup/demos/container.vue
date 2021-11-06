@@ -14,8 +14,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
-  methods: {
-    getContainer: () => document.getElementById('myPopup'),
+  setup() {
+    return {
+      getContainer: () => document.getElementById('myPopup'),
+    }
   },
 });
 </script>

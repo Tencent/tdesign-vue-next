@@ -3343,25 +3343,6 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
       </p>
       <p>
         <label>
-          是否显示“今天\\本月”控件：
-        </label>
-        <div
-          class="t-switch t-size-m t-is-checked"
-          disabled="false"
-          modelvalue="true"
-        >
-          <span
-            class="t-switch__handle"
-          >
-            <!---->
-          </span>
-          <div
-            class="t-switch__content t-size-m"
-          >
-            <!---->
-          </div>
-        </div>
-        <label>
           是否禁用“今天”按钮控件：
         </label>
         <div
@@ -3387,6 +3368,25 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
           class="t-switch t-size-m"
           disabled="false"
           modelvalue="false"
+        >
+          <span
+            class="t-switch__handle"
+          >
+            <!---->
+          </span>
+          <div
+            class="t-switch__content t-size-m"
+          >
+            <!---->
+          </div>
+        </div>
+        <label>
+          是否显示“今天\\本月”控件：
+        </label>
+        <div
+          class="t-switch t-size-m t-is-checked"
+          disabled="false"
+          modelvalue="true"
         >
           <span
             class="t-switch__handle"

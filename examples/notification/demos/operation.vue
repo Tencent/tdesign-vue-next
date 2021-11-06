@@ -2,36 +2,22 @@
   <div>
     <t-notification
       theme="info"
-      title="可跳转的消息通知"
-      content="文案不限长度，但是展示最大显示三行折行的末尾显示折行末尾显示折行末尾显示折行末尾显示折行末尾显示折行折行末尾显示折行折行末尾显示折行末尾显示折行折行末尾"
+      title="超出的文本省略号显示"
+      :content="content"
       :footer="footer"
     />
 
-    <t-notification theme="info" title="可跳转的消息通知" content="这种一条消息通知" :footer="footer2" />
-    <t-notification theme="info" title="可跳转的消息通知" content="这种一条消息通知">
+    <t-notification theme="info" title="消息通知标题" content="使用 function 自定义底部内容" :footer="footer2" />
+    <t-notification theme="info" content="1. 使用插槽自定义标题 2. 使用插槽自定义底部内容" v-if="visible">
+      <template #title>
+        <div>消息通知标题 <small>消息通知副标题</small></div>
+      </template>
       <template #footer>
         <div class="t-notification__detail">
-          <span class="t-notification__detail--item">知道了</span>
-        </div>
-      </template>
-    </t-notification>
-    <t-notification theme="info" title="可跳转的消息通知" content="这种一条消息通知" v-if="visible">
-      <template #footer>
-        <div class="t-notification__detail">
-          <span class="t-notification__detail--item">重启</span>
-          <span class="t-notification__detail--item t-is-active" @click="remind">稍后提醒我(10s)</span>
-        </div>
-      </template>
-    </t-notification>
-    <t-notification theme="info" title="可跳转的消息通知" content="这种一条消息通知">
-      <template #footer>
-        <div  class="t-notification__detail">
-          <span class="t-notification__detail--item">重启</span>
-          <t-dropdown :options="options">
-            <t-button variant="text" class="tdesign-demo-dropdown"
-            >更多 <t-icon name="chevron-down" class="tdesign-demo-arrow"
-            /></t-button>
-          </t-dropdown>
+          <t-button class="t-notification__detail--item" theme="default" variant="text">取消</t-button>
+          <t-button class="t-notification__detail--item" theme="primary" variant="text" @click="remind">
+            稍后提醒我(10s)
+          </t-button>
         </div>
       </template>
     </t-notification>
@@ -39,54 +25,42 @@
 </template>
 
 <script lang="jsx">
-export default {
-  data() {
-    return {
-      visible: true,
-      options: [
-        {
-          text: '操作一',
-          id: 1,
-        },
-        {
-          text: '操作二',
-          id: 2,
-        },
-        {
-          text: '操作三',
-          id: 3,
-        },
-        {
-          text: '操作四',
-          id: 4,
-        },
-      ],
-    };
-  },
-  methods: {
-    footer() {
-      return (
-        <div slot="footer" class="t-notification__detail">
-          <span class="t-notification__detail--item t-is-active">查看详情</span>
-        </div>
-      );
-    },
+import { defineComponent, ref } from 'vue'
 
-    footer2() {
-      return (
-        <div slot="footer" class="t-notification__detail">
-          <span class="t-notification__detail--item t-is-active">查看详情</span>
-        </div>
-      );
-    },
-    remind() {
-      this.visible = false;
+export default defineComponent({
+  setup() {
+    const visible = ref(true);
+
+    const remind = () => {
+      visible.value = false;
       setTimeout(() => {
-        this.visible = true;
+        visible.value = true;
       }, 10000);
-    },
+    }
+
+    return {
+      visible,
+      remind,
+      footer() {
+        return (
+          <div slot="footer" class="t-notification__detail">
+            <span class="t-notification__detail--item t-is-active">查看详情</span>
+          </div>
+        );
+      },
+      footer2() {
+        return (
+          <div slot="footer" class="t-notification__detail">
+            <span class="t-notification__detail--item t-is-active">查看详情</span>
+          </div>
+        );
+      },
+      content() {
+        return '文案不限长度，但在实际使用时建议文案显示内容不易过多，建议最大展示行数数量以三行为宜，最后一行折行末尾处超出文本建议会变为省略号显示。';
+      },
+    }
   },
-};
+});
 </script>
 
 <style scoped>

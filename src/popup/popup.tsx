@@ -186,8 +186,8 @@ export default defineComponent({
 
       const overlayContainer = getAttach(this.attach);
       overlayContainer.appendChild(popperElm);
-      if (this.popperJS && this.popperJS.destroy) {
-        this.popperJS.destroy();
+      if (this.popper && this.popper.destroy) {
+        this.popper.destroy();
       }
 
       let placement = placementMap[currentPlacement] as Placement;

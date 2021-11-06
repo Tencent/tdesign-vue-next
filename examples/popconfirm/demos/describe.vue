@@ -24,6 +24,14 @@
 </template>
 
 <style lang="less" scoped>
+.popconfirm-demo .tdesign-demo-block {
+  display: flex;
+  justify-content: flex-start;
+}
+.popconfirm-demo .demo-item {
+  width: 240px;
+  text-align: left;
+}
 .title {
   font-weight: 500;
   font-size: 14px;
@@ -31,6 +39,5 @@
 .describe {
   margin-top: 10px;
   font-size: 12px;
-  color: rgba(0, 0, 0, .6);
 }
 </style>

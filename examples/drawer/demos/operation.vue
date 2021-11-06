@@ -1,46 +1,47 @@
 <template>
   <div>
     <t-drawer v-model:visible="visible" @close="handleClose" header='标题名称'>
-      <div>
-        <span>Label A</span>
+      <div class="t-drawer-demo-div">
+        <span>标签 A</span>
         <t-input />
       </div>
-      <div>
-        <span>Label B</span>
+      <div class="t-drawer-demo-div">
+        <span>标签 B</span>
         <t-input />
       </div>
-      <div>
-        <span>Label C</span>
+      <div class="t-drawer-demo-div">
+        <span>标签 C</span>
         <t-input />
       </div>
     </t-drawer>
-    <t-button theme="primary" @click="handleClick">Open</t-button>
+    <t-button variant="outline" @click="handleClick">打开抽屉</t-button>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+
 export default defineComponent({
-  data() {
+  setup() {
+    const visible = ref(false);
+
     return {
-      visible: false,
-    };
-  },
-  methods: {
-    setVisible(state) {
-      this.visible = state;
-    },
-    handleClick() {
-      this.setVisible(true);
-    },
-    handleClose() {
-      this.setVisible(false);
-    },
+      visible,
+      handleClick() {
+        visible.value = true;
+      },
+      handleClose() {
+        visible.value = false;
+      }
+    }
   },
 });
 </script>
 <style scoped>
 .t-button {
   margin-right: 20px;
+}
+.t-drawer-demo-div {
+  margin-bottom: 24px;
 }
 </style>

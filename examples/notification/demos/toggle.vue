@@ -1,32 +1,33 @@
 <template>
   <div>
-    <t-button @click="toggle">自由控制关闭时机（{{ notification ? '关闭' : '打开' }}）</t-button>
+    <t-button variant="outline" @click="toggle">自由控制关闭时机（{{ notification ? '关闭' : '打开' }}）</t-button>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      notification: null,
-    };
-  },
-  methods: {
-    toggle() {
-      if (!this.notification) {
-        this.notification = this.$notify.info({
+import { defineComponent, ref } from 'vue';
+import { NotifyPlugin } from '@tencent/tdesign-vue-next';
+
+export default defineComponent({
+  setup() {
+    const notificationFlag = ref(null);
+    const toggle = () => {
+      if (!notificationFlag.value) {
+        notificationFlag.value = NotifyPlugin.info({
           title: '标题名称',
           content: '这是一条需要手动关闭的消息通知',
           duration: 0,
         });
       } else {
-        // this.notification.then(ins => ins.close()); // 另一种关闭方法
-        this.$notify.close(this.notification);
-        this.notification = null;
+        NotifyPlugin.close(notificationFlag.value);
+        notificationFlag.value = null;
       }
-    },
+    }
+    return {
+      toggle
+    }
   },
-};
+});
 </script>
 
 <style scoped>

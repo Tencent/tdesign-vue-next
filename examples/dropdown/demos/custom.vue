@@ -1,7 +1,13 @@
 <template>
   <div>
-    <t-dropdown :options="options" placement="top-left" trigger="click" :hideAfterItemClick="false" >
-      <t-button>click我试试</t-button>
+    <t-dropdown 
+      :options="options"
+      placement="top-left"
+      trigger="click"
+      :hideAfterItemClick="false"
+      :minColumnWidth="100"
+    >
+      <t-button variant="text">下拉菜单</t-button>
     </t-dropdown>
   </div>
 </template>

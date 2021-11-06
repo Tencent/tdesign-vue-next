@@ -1,19 +1,22 @@
 <template>
-  <div>
+  <div class="tdesign-demo-block-column">
     <div id="loading-service-demo" ref='content' class="loading-service-demo">我是service的容器</div>
-    <br>
+
     <p>this.$loading(true)</p>
     <p>this.$loading({ attach: '#loading-service-demo', showOverlay: true })</p>
-    <br>
-    <t-button @click="showFullScreen1" size="small">服务方式加载（全屏）</t-button>
-    <t-button @click="showAttach1" size="small" :disabled="attachLoading">服务方式加载（局部）</t-button>
 
-    <br><br>
+    <div class="tdesign-demo-block-row">
+      <t-button @click="showFullScreen1" size="small">服务方式加载（全屏）</t-button>
+      <t-button @click="showAttach1" size="small" :disabled="attachLoading">服务方式加载（局部）</t-button>
+    </div>
+    
     <p>LoadingPlugin(true)</p>
     <p>LoadingPlugin({ attach: '#loading-service-demo', showOverlay: true })</p>
-    <br>
-    <t-button @click="showFullScreen2" size="small">服务方式加载（全屏）</t-button>
-    <t-button @click="showAttach2" size="small" :disabled="attachLoading">服务方式加载（局部）</t-button>
+
+    <div class="tdesign-demo-block-row">
+      <t-button @click="showFullScreen2" size="small">函数方式加载（全屏）</t-button>
+      <t-button @click="showAttach2" class="t-loading__btn" size="small" :disabled="attachLoading">函数方式加载（局部）</t-button>
+    </div>
   </div>
 </template>
 <script>
@@ -73,13 +76,9 @@ export default {
   position: relative;
   width: 100%;
   height: 64px;
-  border: 1px #fafafa solid;
-  text-align: center;
-  padding: 12px;
-  margin-bottom: 12px;
-}
-
-div .t-button + .t-button {
-  margin-left: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px var(--component-border, #eee) solid;
 }
 </style>

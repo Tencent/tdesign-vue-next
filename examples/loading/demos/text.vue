@@ -11,14 +11,17 @@
   </div>
 </template>
 <script lang="jsx">
-export default {
-  name: 'TextLoading',
-  methods: {
-    renderText() {
-      return <span>变量文字加载中...</span>;
-    },
-  },
-};
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  setup() {
+    return {
+      renderText() {
+        return <span>变量文字加载中...</span>;
+      },
+    }
+  }
+});
 </script>
 
 <style>

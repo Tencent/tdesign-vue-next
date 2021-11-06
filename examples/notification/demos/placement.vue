@@ -4,16 +4,43 @@
       <t-input placeholder='请输入横向偏移量' v-model="offsetX"></t-input>
       <t-input placeholder='请输入纵向偏移量' v-model="offsetY"></t-input>
     </div>
-    <t-button @click="$notify.info(infoList[0])">左上角</t-button>
-    <t-button @click="$notify.info(infoList[1])">右上角</t-button>
+    <t-button variant="outline" @click="$notify.info(infoList[0])">左上角</t-button>
+    <t-button variant="outline" @click="$notify.info(infoList[1])">右上角</t-button>
     <br /><br />
-    <t-button @click="$notify.info(infoList[2])">左下角</t-button>
-    <t-button @click="$notify.info(infoList[3])">右下角</t-button>
+    <t-button variant="outline" @click="$notify.info(infoList[2])">左下角</t-button>
+    <t-button variant="outline" @click="$notify.info(infoList[3])">右下角</t-button>
   </div>
 </template>
 
 <script>
-export default {
+import { defineComponent, ref, computed } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const offsetX = ref('');
+    const offsetY = ref('');
+    
+    const infoList = computed(() => {
+      return [
+        { placement: 'top-left' },
+        { placement: 'top-right' },
+        { placement: 'bottom-left' },
+        { placement: 'bottom-right' },
+      ].map((item) => ({
+        title: '标题名称',
+        content: '这是一条可以自动关闭的消息通知',
+        duration: 3000,
+        offset: [offsetX.value, offsetY.value],
+        ...item,
+      }));
+    })
+
+    return {
+      infoList,
+      offsetX,
+      offsetY
+    }
+  },
   data() {
     return {
       offsetX: '',
@@ -36,7 +63,7 @@ export default {
       }));
     },
   },
-};
+});
 </script>
 
 <style scoped>

@@ -84,27 +84,19 @@ exports[`Loading base demo works fine 1`] = `
 
 exports[`Loading delay demo works fine 1`] = `
 <div
-  class="loading-delay-demo"
+  class="tdesign-demo-block-column"
 >
   <div>
-    <!-- loading 作为独立元素 -->
-    <div
-      class="t-loading t-size-s t-loading-lock v-transfer-dom"
-    >
-      <!---->
-      <!---->
-    </div>
+    <!--v-if-->
     <div
       class="switch-demo"
     >
       <!--v-if-->
     </div>
   </div>
-  <br />
   <div
     class="wrap"
   >
-    <!-- loading 作为包裹元素 -->
     <div
       class="t-loading-parent__relative"
     >
@@ -116,30 +108,34 @@ exports[`Loading delay demo works fine 1`] = `
       <!---->
     </div>
   </div>
-  <button
-    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-    type="button"
+  <div
+    class="tdesign-demo-block-row"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      type="button"
     >
-      
-      快速重新加载数据（无loading）
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-    type="button"
-  >
-    <span
-      class="t-button__text"
+      <span
+        class="t-button__text"
+      >
+        
+        快速重新加载数据（无loading）
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      type="button"
     >
-      
-      慢速重新加载数据
-      
-    </span>
-  </button>
+      <span
+        class="t-button__text"
+      >
+        
+        慢速重新加载数据
+        
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
@@ -202,90 +198,95 @@ exports[`Loading iconText demo works fine 1`] = `
   <div
     class="t-loading-text"
   >
-    拼命加载中...
+    加载中...
   </div>
 </div>
 `;
 
 exports[`Loading service demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-column"
+>
   <div
     class="loading-service-demo"
     id="loading-service-demo"
   >
     我是service的容器
   </div>
-  <br />
   <p>
     this.$loading(true)
   </p>
   <p>
     this.$loading({ attach: '#loading-service-demo', showOverlay: true })
   </p>
-  <br />
-  <button
-    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-    type="button"
+  <div
+    class="tdesign-demo-block-row"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      type="button"
     >
-      
-      服务方式加载（全屏）
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-    type="button"
-  >
-    <span
-      class="t-button__text"
+      <span
+        class="t-button__text"
+      >
+        
+        服务方式加载（全屏）
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      type="button"
     >
-      
-      服务方式加载（局部）
-      
-    </span>
-  </button>
-  <br />
-  <br />
+      <span
+        class="t-button__text"
+      >
+        
+        服务方式加载（局部）
+        
+      </span>
+    </button>
+  </div>
   <p>
     LoadingPlugin(true)
   </p>
   <p>
     LoadingPlugin({ attach: '#loading-service-demo', showOverlay: true })
   </p>
-  <br />
-  <button
-    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-    type="button"
+  <div
+    class="tdesign-demo-block-row"
   >
-    <span
-      class="t-button__text"
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+      type="button"
     >
-      
-      服务方式加载（全屏）
-      
-    </span>
-  </button>
-  <button
-    class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-    type="button"
-  >
-    <span
-      class="t-button__text"
+      <span
+        class="t-button__text"
+      >
+        
+        函数方式加载（全屏）
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn"
+      type="button"
     >
-      
-      服务方式加载（局部）
-      
-    </span>
-  </button>
+      <span
+        class="t-button__text"
+      >
+        
+        函数方式加载（局部）
+        
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`Loading size demo works fine 1`] = `
 <div
-  class="loading-demo"
+  class="tdesign-demo-block-column-large"
 >
   <div>
     <div

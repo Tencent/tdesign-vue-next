@@ -15,7 +15,7 @@
     <!-- 使用 props 自定义 -->
     <t-drawer
       v-model:visible="visible2"
-      :header="() => 'This is the title.'"
+      :header="() => '抽屉标题'"
       :footer="renderFooter"
       closeBtn
     >
@@ -45,24 +45,26 @@
 </template>
 
 <script lang="jsx">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+
 export default defineComponent({
-  data() {
+  setup() {
+    const visible = ref(false);
+    const visible2 = ref(false);
+    const visible3 = ref(false);
     return {
-      visible: false,
-      visible2: false,
-      visible3: false,
-    };
-  },
-  methods: {
-    renderFooter() {
-      return (
-        <div>
-          <t-button>confrim</t-button>
-          <t-button variant='outline' onClick={() => this.visible2 = false}>cancel</t-button>
-        </div>
-      );
-    },
+      visible,
+      visible2,
+      visible3,
+      renderFooter() {
+        return (
+          <div>
+            <t-button>confrim</t-button>
+            <t-button variant='outline' onClick={() => this.visible2 = false}>cancel</t-button>
+          </div>
+        );
+      },
+    }
   },
 });
 </script>
