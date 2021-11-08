@@ -4,7 +4,7 @@ import isNumber from 'lodash/isNumber';
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption, RadioValue } from './type';
 import { prefix } from '../config';
-import Radio, { radioBtnName } from './radio';
+import Radio, { RADIO_BTN_NAME } from './radio';
 import { TNodeReturnValue } from '../common';
 import CLASSNAMES from '../utils/classnames';
 
@@ -50,7 +50,7 @@ export default defineComponent({
     calcBarStyle() {
       if (this.buttonStyle !== 'solid' && this.variant === 'outline') return;
 
-      const checkedRadio: HTMLElement = this.$el.querySelector(`.${radioBtnName}.${CLASSNAMES.STATUS.checked}`);
+      const checkedRadio: HTMLElement = this.$el.querySelector(`.${RADIO_BTN_NAME}.${CLASSNAMES.STATUS.checked}`);
       if (!checkedRadio) return;
       const { offsetWidth, offsetLeft } = checkedRadio;
       this.barStyle = { width: `${offsetWidth}px`, left: `${offsetLeft}px` };

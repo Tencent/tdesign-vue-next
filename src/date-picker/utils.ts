@@ -259,10 +259,10 @@ export function subtractMonth(date: Date, num: any): Date {
  * @returns {Date}
  */
 export function addMonth(date: Date, num: number): Date {
-  let _num = num;
-  if (num < 0) _num = 0;
+  let NUM = num;
+  if (NUM < 0) NUM = 0;
   const newDate = new Date(date);
-  newDate.setMonth(date.getMonth() + _num);
+  newDate.setMonth(date.getMonth() + NUM);
   return newDate;
 }
 

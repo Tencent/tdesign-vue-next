@@ -5,7 +5,7 @@ import { omit } from '../utils/helper';
 import props from './props';
 
 const name = `${prefix}-radio`;
-export const radioBtnName = `${prefix}-radio-button`;
+export const RADIO_BTN_NAME = `${prefix}-radio-button`;
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};
@@ -66,7 +66,7 @@ export default defineComponent({
       inputProps.name = radioGroup.name;
     }
 
-    const prefixCls = radioButton ? radioBtnName : name;
+    const prefixCls = radioButton ? RADIO_BTN_NAME : name;
 
     const inputClass = [
       `${prefixCls}`,
