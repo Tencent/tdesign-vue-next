@@ -625,21 +625,35 @@ export default defineComponent({
           </div>)
         }
         {!showTime && panelComponent}
-        {presets && range && (
-          <TCalendarPresets presets={presets} locales={locales} onClickRange={this.clickRange} />
-        )}
-        {enableTimePicker && (
-          <div class={`${name}--apply`}>
-            {enableTimePicker && (
-              <t-button theme="primary" variant="text" onClick={this.toggleTime}>
-                {showTime ? locales.selectDate : locales.selectTime}
-              </t-button>
-            )}
-            {<t-button theme="primary" onClick={this.clickedApply}>
-              {locales.confirm}
-            </t-button>}
-          </div>
-        )}
+        {
+          (!!presets || enableTimePicker) && (
+            <div class={`${prefix}-date-picker__footer`}>
+              <TCalendarPresets
+                presets={presets}
+                locales={locales}
+                onClickRange={this.clickRange}
+              />
+              {
+                enableTimePicker && (
+                  <div class={`${name}--apply`}>
+                    {
+                      enableTimePicker && (
+                        <t-button theme="primary" variant="text" onClick={this.toggleTime}>
+                          {showTime ? locales.selectDate : locales.selectTime}
+                        </t-button>
+                      )
+                    }
+                    {
+                      <t-button theme="primary" onClick={this.clickedApply}>
+                        {locales.confirm}
+                      </t-button>
+                    }
+                  </div>
+                )
+              }
+            </div>
+          )
+        }
       </div>
     );
     const inputClassNames = [
