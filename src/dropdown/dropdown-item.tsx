@@ -11,7 +11,7 @@ import { TNodeReturnValue } from '../common';
 const name = `${prefix}-dropdown__item`;
 
 export default defineComponent({
-  name,
+  name: `${prefix}-dropdown-item`,
   components: {
     TIconChevronRight, TDivider
   },

@@ -1,11 +1,11 @@
 <template>
   <div class="demo-slider">
     <div class="vertical-block">
-      <t-slider v-model="value1" :layout="layout" :show-tooltip="true"> </t-slider>
+      <t-slider v-model="value1" :layout="layout" :show-tooltip="true" :inputNumberProps="false" />
     </div>
 
     <div class="vertical-block">
-      <t-slider v-model="value2" :layout="layout" range :show-tooltip="true"> </t-slider>
+      <t-slider v-model="value2" :layout="layout" range :show-tooltip="true" :inputNumberProps="false" />
     </div>
   </div>
 </template>
@@ -24,6 +24,6 @@ export default {
 .vertical-block {
   display: inline-block;
   padding: 30px 24px;
-  height: 200px;
+  height: 300px;
 }
 </style>

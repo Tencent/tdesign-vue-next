@@ -1,7 +1,7 @@
 <template>
   <div class="tdesign-demo-item--datepicker">
     <t-date-picker
-      v-bind:presets="presets"
+      :presets="presets"
       theme="primary"
       mode="date"
       range

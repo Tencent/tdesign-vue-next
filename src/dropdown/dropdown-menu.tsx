@@ -7,7 +7,7 @@ import { TNodeReturnValue } from '../common';
 const name = `${prefix}-dropdown__menu`;
 
 export default defineComponent({
-  name,
+  name: `${prefix}-dropdown-menu`,
   components: {
     DropdownItem
   },

@@ -85,8 +85,6 @@ export default defineComponent({
       newPos: null,
       prevValue: this.value,
       showTooltip: true,
-
-      placement: 'top',
       trigger: 'hover',
       showArrow: true,
       overlayStyle: undefined,
@@ -96,6 +94,16 @@ export default defineComponent({
   },
 
   computed: {
+    placement() {
+      if (this.tooltipProps instanceof Object) {
+        const {
+          placement,
+        } = this.tooltipProps;
+        if (placement) return placement;
+      }
+
+      return this.vertical ? 'right' : 'top';
+    },
     rangeDiff() {
       return this.max - this.min;
     },
@@ -140,7 +148,6 @@ export default defineComponent({
     setTooltipProps() {
       if (this.tooltipProps instanceof Object) {
         const {
-          placement,
           trigger,
           destroyOnHide,
           showArrow,
@@ -148,7 +155,6 @@ export default defineComponent({
           overlayClassName,
           attach,
         } = this.tooltipProps;
-        this.placement = placement;
         if (!this.empty(trigger)) {
           this.trigger = trigger;
         }

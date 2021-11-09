@@ -1,12 +1,12 @@
 <template>
   <div class="demo-slider">
     <div class="block">
-      <t-slider v-model="value1" :show-tooltip="true" :max="max" :min="min" :marks="marks"></t-slider>
+      <t-slider v-model="value1" :show-tooltip="true" :max="max" :min="min" :marks="marks" :inputNumberProps="false"></t-slider>
     </div>
 
-    <!-- <div class="block">
-      <t-slider v-model="value2" range :show-tooltip="true" :max="max" :min="min" :marks="marks"> </t-slider>
-    </div> -->
+    <div class="block">
+      <t-slider v-model="value2" range :show-tooltip="true" :max="max" :min="min" :marks="marks" :inputNumberProps="false" />
+    </div>
   </div>
 </template>
 <script>

@@ -1,11 +1,11 @@
 <template>
   <div class="demo-slider">
     <div class="block">
-      <t-slider v-model="value1"> </t-slider>
+      <t-slider v-model="value1" :inputNumberProps="false" />
     </div>
 
     <div class="block">
-      <t-slider v-model="value2" range :tooltipProps="{}"> </t-slider>
+      <t-slider v-model="value2" range :tooltipProps="{}" :inputNumberProps="false"/>
     </div>
   </div>
 </template>

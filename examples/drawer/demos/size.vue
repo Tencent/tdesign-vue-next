@@ -30,9 +30,11 @@ export default defineComponent({
   setup() {
     const visible = ref(false);
     const size = ref('small');
+    const placement = ref('right');
     return {
       visible,
-      size
+      size,
+      placement
     }
   }
 });

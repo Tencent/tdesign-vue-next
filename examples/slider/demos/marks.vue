@@ -1,11 +1,11 @@
 <template>
   <div class="demo-slider">
     <div class="block">
-      <t-slider v-model="value1" :show-tooltip="true" :marks="marks1"> </t-slider>
+      <t-slider v-model="value1" :show-tooltip="true" :marks="marks1" :inputNumberProps="false" />
     </div>
 
     <div class="block">
-      <t-slider v-model="value2" range :show-tooltip="true" :marks="marks2"> </t-slider>
+      <t-slider v-model="value2" range :show-tooltip="true" :marks="marks2" :inputNumberProps="false" />
     </div>
   </div>
 </template>
@@ -17,19 +17,19 @@ export default {
       value2: [30, 70],
       marks1: {
         0: '0°C',
-        12: '12°C',
         20: '20°C',
-        37: '37°C',
-        50: <strong style="color: #1989FA">50°C</strong>,
-        60: <button style="color: #1989FA">60°C</button>,
+        40: '40°C',
+        60: '60°C',
+        80: <span style="color: #0052d9">80°C</span>,
+        100: <span style="color: #0052d9">100°C</span>,
       },
       marks2: {
         0: '0°C',
-        8: '8°C',
-        30: '30°C',
-        37: '37°C',
-        50: <strong style="color: #1989FA">50°C</strong>,
-        70: '70°C',
+        20: '20°C',
+        40: '40°C',
+        60: '60°C',
+        80: <span style="color: #0052d9">80°C</span>,
+        100: '100°C',
       },
     };
   },

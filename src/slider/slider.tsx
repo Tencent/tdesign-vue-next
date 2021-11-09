@@ -39,7 +39,7 @@ export default defineComponent({
       inputDecimalPlaces: 0,
       inputFormat: null,
       inputPlaceholder: '',
-      inputTheme: 'normal',
+      inputTheme: 'column',
       showSteps: false,
     };
   },
@@ -63,7 +63,6 @@ export default defineComponent({
     },
     sliderNumberClass(): ClassName {
       return [
-        `${name}__-input`,
         `${name}-input`,
         {
           'is-vertical': this.vertical,
@@ -373,7 +372,9 @@ export default defineComponent({
         max, min, sliderNumberClass, range,
       } = this;
       return (
-        <div class={`${name}-input-container`}>
+        <div class={[`${name}-input-container`, {
+          'is-vertical': this.vertical,
+        }]}>
           {this.inputNumberProps && (
             <t-input-number
               class={sliderNumberClass}
@@ -393,6 +394,7 @@ export default defineComponent({
               theme={this.inputTheme}
             />
           )}
+          {this.inputNumberProps && range && <div class="center-line" />}
           {this.inputNumberProps && range && (
             <t-input-number
               class={this.sliderNumberClass}

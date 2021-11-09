@@ -2,10 +2,10 @@
   <div>
     <div class="demo-slider">
       <div class="block">
-        <t-slider v-model="value1" :show-tooltip="true" :inputNumberProps="inputNumberProps"> </t-slider>
+        <t-slider v-model="value1" :show-tooltip="true" :inputNumberProps="inputNumberProps" />
       </div>
       <div class="block">
-        <t-slider v-model="value2" range :show-tooltip="true" :inputNumberProps="inputNumberProps"> </t-slider>
+        <t-slider v-model="value2" range :show-tooltip="true" :inputNumberProps="inputNumberProps" />
       </div>
     </div>
   </div>

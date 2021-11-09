@@ -17,11 +17,11 @@ exports[`Slider base demo works fine 1`] = `
         aria-orientation="horizontal"
         aria-valuemax="100"
         aria-valuemin="0"
-        class="t-slider t-slider--with-input"
+        class="t-slider"
         role="slider"
       >
         <div
-          class="t-slider__rail show-input"
+          class="t-slider__rail"
         >
           <div
             class="t-slider__track"
@@ -72,21 +72,8 @@ exports[`Slider base demo works fine 1`] = `
       <div
         class="t-slider-input-container"
       >
-        <div
-          class="t-input-number t-size-m t-input-number--normal t-slider__-input t-slider-input"
-        >
-          <!---->
-          <div
-            class="t-input"
-          >
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-            />
-          </div>
-          <!---->
-        </div>
+        <!---->
+        <!---->
         <!---->
       </div>
     </div>
@@ -104,12 +91,12 @@ exports[`Slider base demo works fine 1`] = `
         aria-orientation="horizontal"
         aria-valuemax="100"
         aria-valuemin="0"
-        class="t-slider t-slider--with-input"
+        class="t-slider"
         role="slider"
         tooltip-props="[object Object]"
       >
         <div
-          class="t-slider__rail show-input"
+          class="t-slider__rail"
         >
           <div
             class="t-slider__track"
@@ -196,36 +183,9 @@ exports[`Slider base demo works fine 1`] = `
       <div
         class="t-slider-input-container"
       >
-        <div
-          class="t-input-number t-size-m t-input-number--normal t-slider__-input t-slider-input"
-        >
-          <!---->
-          <div
-            class="t-input"
-          >
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-            />
-          </div>
-          <!---->
-        </div>
-        <div
-          class="t-input-number t-size-m t-input-number--normal t-slider__-input t-slider-input"
-        >
-          <!---->
-          <div
-            class="t-input"
-          >
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-            />
-          </div>
-          <!---->
-        </div>
+        <!---->
+        <!---->
+        <!---->
       </div>
     </div>
   </div>

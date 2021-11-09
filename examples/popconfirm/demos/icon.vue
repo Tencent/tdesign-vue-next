@@ -44,7 +44,7 @@
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  reunt() {
+  setup() {
     const visible1 = ref(true);
     const visible2 = ref(true);
     const visible3 = ref(true);

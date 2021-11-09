@@ -1,6 +1,6 @@
 <template>
   <div class="tdesign-demo-item--datepicker">
-    <t-date-picker v-bind:presets="presets" theme="primary" mode="date" range></t-date-picker>
+    <t-date-picker :presets="presets" theme="primary" mode="date" range></t-date-picker>
   </div>
 </template>
 
