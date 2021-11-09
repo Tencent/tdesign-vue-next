@@ -273,7 +273,6 @@ exports[`DatePicker :mode 1`] = `
               </div>
             </div>
             <!---->
-            <!---->
           </div>
           <!---->
         </div>
@@ -904,7 +903,6 @@ exports[`DatePicker :range 1`] = `
               </div>
             </div>
             <!---->
-            <!---->
           </div>
           <!---->
         </div>
@@ -1250,7 +1248,6 @@ exports[`DatePicker :value 1`] = `
                 </table>
               </div>
             </div>
-            <!---->
             <!---->
           </div>
           <!---->
