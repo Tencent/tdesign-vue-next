@@ -20,7 +20,6 @@ export default defineComponent({
     },
     presets: {
       type: Object as PropType<TdDatePickerProps['presets']>,
-      required: true,
     },
   },
   emits: ['click-range'],
@@ -35,19 +34,16 @@ export default defineComponent({
   },
   render() {
     const { presets } = this;
-    if (presets) {
-      return (
-        <div class={`${prefix}-date-picker-presets`}>
-          <ul>
-          {presets && Object.keys(presets).map((key: string) => (
-            <li key={key}>
-              <a onClick={() => this.clickPreset(presets[key])}>{ key }</a>
-            </li>
-          ))}
-          </ul>
-        </div>
-      );
-    }
-    return null;
+    return (
+      <div class={`${prefix}-date-picker-presets`}>
+        <ul>
+        {presets && Object.keys(presets).map((key: string) => (
+          <li key={key}>
+            <a onClick={() => this.clickPreset(presets[key])}>{ key }</a>
+          </li>
+        ))}
+        </ul>
+      </div>
+    );
   },
 });

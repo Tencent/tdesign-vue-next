@@ -335,7 +335,7 @@ exports[`DatePicker :range 1`] = `
           class="t-popup-content t-date-picker"
         >
           <div
-            class="t-date-picker--container"
+            class="t-date-picker--container t-date-picker--ranges-show"
           >
             <!---->
             <div

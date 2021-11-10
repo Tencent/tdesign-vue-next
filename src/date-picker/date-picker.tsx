@@ -156,7 +156,7 @@ export default defineComponent({
         [`${name}--container`]: true,
         [`${name}--open`]: this.isOpen || this.inlineView,
         [`${name}--calendar-inline-view`]: this.inlineView,
-        [`${name}--ranges-show`]: !!this.presets && this.range,
+        [`${name}--ranges-show`]: this.range,
         [`${name}--date`]: this.mode === 'date',
       };
     },

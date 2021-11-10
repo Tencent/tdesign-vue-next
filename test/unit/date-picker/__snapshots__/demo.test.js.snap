@@ -5725,7 +5725,7 @@ exports[`DatePicker dateRange demo works fine 1`] = `
               class="t-popup-content t-date-picker"
             >
               <div
-                class="t-date-picker--container t-date-picker--date"
+                class="t-date-picker--container t-date-picker--ranges-show t-date-picker--date"
               >
                 <!---->
                 <div
@@ -7319,7 +7319,7 @@ exports[`DatePicker dateRange demo works fine 1`] = `
               class="t-popup-content t-date-picker"
             >
               <div
-                class="t-date-picker--container t-date-picker--date"
+                class="t-date-picker--container t-date-picker--ranges-show t-date-picker--date"
               >
                 <!---->
                 <div
@@ -8851,7 +8851,13 @@ exports[`DatePicker dateRange demo works fine 1`] = `
                 <div
                   class="t-date-picker__footer"
                 >
-                  <!---->
+                  <div
+                    class="t-date-picker-presets"
+                  >
+                    <ul>
+                      <!---->
+                    </ul>
+                  </div>
                   <div
                     class="t-date-picker--apply"
                   >
