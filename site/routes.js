@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
 import config from './site.config';
-import TdesignComponents from './pages/components.vue';
-import TdesignDemoPage from './pages/demo-page.vue';
-import TdesignPlayground from './pages/playground.vue';
+import TdesignComponents from './components/components.vue';
+import TdesignDemoPage from './components/demo-page.vue';
+import TdesignPlayground from './components/playground.vue';
 
 const { docs } = config;
 

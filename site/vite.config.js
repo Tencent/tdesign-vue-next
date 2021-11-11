@@ -1,8 +1,11 @@
 import * as path from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import codeRaw from './plugin-tdoc/code-raw';
 import createTDesignPlugin from './plugin-tdoc';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import { VitePWA } from 'vite-plugin-pwa';
+import pwaConfig from './pwaConfig';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -35,6 +38,10 @@ export default defineConfig({
       }
     }),
     vueJsx(),
+    codeRaw({
+      fileRegex: /\.code$/
+    }),
     createTDesignPlugin(),
+    VitePWA(pwaConfig),
   ]
 });

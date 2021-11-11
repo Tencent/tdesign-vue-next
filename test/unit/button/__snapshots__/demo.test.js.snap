@@ -1,406 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button base demo works fine 1`] = `
-<div>
-  <div
-    class="tdesign-demo-block"
+<div
+  class="tdesign-demo-block-row"
+>
+  <button
+    class="t-button t-size-m t-button--variant-base t-button--theme-default"
+    type="button"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        填充按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        描边按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        虚框按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        文字按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled t-is-loading"
-      type="button"
+    <span
+      class="t-button__text"
     >
       
-      <svg
-        class="t-icon t-icon-loading"
-        version="1.1"
-        viewBox="0 0 1024 1024"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-          fill-opacity=".9"
-          fill-rule="evenodd"
-        />
-      </svg>
-      <span
-        class="t-button__text"
-      >
-        
-        加载中
-        
-      </span>
+      填充按钮
       
-    </button>
-  </div>
-  <div
-    class="tdesign-demo-block"
+    </span>
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        填充按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        描边按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        虚框按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-primary"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        文字按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
-      type="button"
+    <span
+      class="t-button__text"
     >
       
-      <svg
-        class="t-icon t-icon-loading"
-        version="1.1"
-        viewBox="0 0 1024 1024"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-          fill-opacity=".9"
-          fill-rule="evenodd"
-        />
-      </svg>
-      <span
-        class="t-button__text"
-      >
-        
-        加载中
-        
-      </span>
+      描边按钮
       
-    </button>
-  </div>
-  <div
-    class="tdesign-demo-block"
+    </span>
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+    type="button"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-success"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        填充按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-success"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        描边按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-success"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        虚框按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-success"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        文字按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-success t-is-disabled t-is-loading"
-      type="button"
+    <span
+      class="t-button__text"
     >
       
-      <svg
-        class="t-icon t-icon-loading"
-        version="1.1"
-        viewBox="0 0 1024 1024"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-          fill-opacity=".9"
-          fill-rule="evenodd"
-        />
-      </svg>
-      <span
-        class="t-button__text"
-      >
-        
-        加载中
-        
-      </span>
+      虚框按钮
       
-    </button>
-  </div>
-  <div
-    class="tdesign-demo-block"
+    </span>
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-text t-button--theme-default"
+    type="button"
   >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-warning"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        填充按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-warning"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        描边按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-warning"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        虚框按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-warning"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        文字按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-warning t-is-disabled t-is-loading"
-      type="button"
+    <span
+      class="t-button__text"
     >
       
-      <svg
-        class="t-icon t-icon-loading"
-        version="1.1"
-        viewBox="0 0 1024 1024"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-          fill-opacity=".9"
-          fill-rule="evenodd"
-        />
-      </svg>
-      <span
-        class="t-button__text"
-      >
-        
-        加载中
-        
-      </span>
+      文字按钮
       
-    </button>
-  </div>
-  <div
-    class="tdesign-demo-block"
-  >
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-danger"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        填充按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        描边按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-dashed t-button--theme-danger"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        虚框按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-text t-button--theme-danger"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-        文字按钮
-        
-      </span>
-    </button>
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-danger t-is-disabled t-is-loading"
-      type="button"
-    >
-      
-      <svg
-        class="t-icon t-icon-loading"
-        version="1.1"
-        viewBox="0 0 1024 1024"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-          fill-opacity=".9"
-          fill-rule="evenodd"
-        />
-      </svg>
-      <span
-        class="t-button__text"
-      >
-        
-        加载中
-        
-      </span>
-      
-    </button>
-  </div>
+    </span>
+  </button>
 </div>
 `;
 
 exports[`Button block demo works fine 1`] = `
 <div
-  class="demo-button-row"
+  class="tdesign-demo-block-row"
+  style="justify-content: center;"
 >
   <div
-    class="demo-button-col"
+    class="tdesign-demo-block-column"
+    style="min-width: 320px; max-width: 640px;"
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary t-size-full-width"
@@ -664,16 +326,14 @@ exports[`Button loading demo works fine 1`] = `
 
 exports[`Button size demo works fine 1`] = `
 <div
-  style="width: 600px;"
+  class="tdesign-demo-block-column"
 >
   <div
-    class="t-row t-row-start t-row-top tdesign-demo-block"
+    class="tdesign-demo-block-row"
   >
-    
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-s t-button--variant-base t-button--theme-primary"
         type="button"
@@ -686,12 +346,10 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-s t-button--variant-outline t-button--theme-default"
         type="button"
@@ -704,12 +362,10 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-s t-button--variant-dashed t-button--theme-default"
         type="button"
@@ -722,12 +378,10 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-s t-button--variant-text t-button--theme-default"
         type="button"
@@ -740,18 +394,14 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
-    
   </div>
   <div
-    class="t-row t-row-start t-row-top tdesign-demo-block"
+    class="tdesign-demo-block-row"
   >
-    
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
         type="button"
@@ -764,12 +414,10 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
         type="button"
@@ -782,12 +430,10 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
         type="button"
@@ -800,12 +446,10 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-m t-button--variant-text t-button--theme-default"
         type="button"
@@ -818,18 +462,14 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
-    
   </div>
   <div
-    class="t-row t-row-start t-row-top tdesign-demo-block"
+    class="tdesign-demo-block-row"
   >
-    
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-l t-button--variant-base t-button--theme-primary"
         type="button"
@@ -842,12 +482,10 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-l t-button--variant-outline t-button--theme-default"
         type="button"
@@ -860,12 +498,10 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-l t-button--variant-dashed t-button--theme-default"
         type="button"
@@ -878,12 +514,10 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
     <div
-      class="t-col t-col-3"
+      class="item"
     >
-      
       <button
         class="t-button t-size-l t-button--variant-text t-button--theme-default"
         type="button"
@@ -896,17 +530,69 @@ exports[`Button size demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
-    
   </div>
 </div>
 `;
 
 exports[`Button theme demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-column"
+>
   <div
-    class="tdesign-demo-block"
+    class="tdesign-demo-block-row"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        填充按钮
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        描边按钮
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        虚框按钮
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        文字按钮
+        
+      </span>
+    </button>
+  </div>
+  <div
+    class="tdesign-demo-block-row"
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -916,7 +602,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        主要按钮
+        填充按钮
         
       </span>
     </button>
@@ -928,7 +614,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        次要按钮
+        描边按钮
         
       </span>
     </button>
@@ -958,7 +644,7 @@ exports[`Button theme demo works fine 1`] = `
     </button>
   </div>
   <div
-    class="tdesign-demo-block"
+    class="tdesign-demo-block-row"
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-danger"
@@ -968,7 +654,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        主要按钮
+        填充按钮
         
       </span>
     </button>
@@ -980,7 +666,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        次要按钮
+        描边按钮
         
       </span>
     </button>
@@ -998,6 +684,110 @@ exports[`Button theme demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-danger"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        文字按钮
+        
+      </span>
+    </button>
+  </div>
+  <div
+    class="tdesign-demo-block-row"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        填充按钮
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-warning"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        描边按钮
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-warning"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        虚框按钮
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-warning"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        文字按钮
+        
+      </span>
+    </button>
+  </div>
+  <div
+    class="tdesign-demo-block-row"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-success"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        填充按钮
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-success"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        描边按钮
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-dashed t-button--theme-success"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        虚框按钮
+        
+      </span>
+    </button>
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-success"
       type="button"
     >
       <span
