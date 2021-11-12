@@ -11,18 +11,23 @@
   </div>
 </template>
 <script lang="jsx">
+import { defineComponent } from 'vue';
 import TIconLockOn from '@tencent/tdesign-vue-next/icon/lock-on';
 
-export default {
+export default defineComponent({
   components: {
     TIconLockOn,
   },
-  methods: {
-    renderPrefixIcon() {
+  setup() {
+    const renderPrefixIcon = () => {
       return <TIconLockOn></TIconLockOn>;
-    },
-  },
-};
+    }
+
+    return {
+      renderPrefixIcon
+    }
+  }
+});
 </script>
 
 <style scoped>

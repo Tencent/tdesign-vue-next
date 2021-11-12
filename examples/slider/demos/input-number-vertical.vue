@@ -10,16 +10,21 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const value1 = ref(12);
+    const value2 = ref([30, 70]);
+
     return {
-      value1: 12,
-      value2: [30, 70],
+      value1,
+      value2,
       inputNumberProps: { theme: 'column' },
       layout: 'vertical',
-    };
+    }
   },
-};
+});
 </script>
 <style>
 .number-vertical-block {

@@ -4,6 +4,8 @@
   </div>
 </template>
 <script>
+import { defineComponent, ref } from 'vue';
+
 const list = [];
 for (let i = 0; i < 20; i++) {
   list.push({
@@ -12,12 +14,13 @@ for (let i = 0; i < 20; i++) {
     disabled: i % 4 < 1,
   });
 }
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const checked = ref(list.map((item) => item.value).filter((v) => v % 2 === 0))
     return {
-      list,
-      checked: list.map((item) => item.value).filter((v) => v % 2 === 0), // 偶数
-    };
-  },
-};
+      checked,
+      list
+    }
+  }
+});
 </script>

@@ -12,23 +12,23 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      value: '',
-      options: [{
-        label: '1',
-        value: '1',
-        children: true,
-      }, {
-        label: '2',
-        value: '2',
-        children: true,
-      }],
-    };
-  },
-  methods: {
-    loadFunc(node) {
+import { defineComponent, ref } from 'vue';
+
+const options = [{
+  label: '1',
+  value: '1',
+  children: true,
+}, {
+  label: '2',
+  value: '2',
+  children: true,
+}]
+
+export default defineComponent({
+  setup() {
+    const value = ref('');
+    
+    const loadFunc = (node) => {
       return new Promise((resolve) => {
         setTimeout(() => {
           let nodes = [];
@@ -46,9 +46,15 @@ export default {
           resolve(nodes);
         }, 2000);
       });
-    },
-  },
-};
+    }
+
+    return {
+      value,
+      options,
+      loadFunc
+    }
+  }
+});
 </script>
 <style scoped>
 .tdesign-tree-select-lazy {

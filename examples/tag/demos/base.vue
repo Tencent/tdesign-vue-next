@@ -8,14 +8,17 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 
-export default {
-  methods: {
-    onClick({ e }) {
-      e.stopPropagation();
-    },
-  },
-};
+export default defineComponent({
+  setup() {
+    return {
+      onClick({ e }) {
+        e.stopPropagation();
+      }
+    }
+  }
+});
 </script>
 
 <style lang="less" scoped>

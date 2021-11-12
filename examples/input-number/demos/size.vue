@@ -24,14 +24,18 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const value1 = ref(3)
+    const value2 = ref(3)
+    const value3 = ref(3)
     return {
-      value1: 3,
-      value2: 3,
-      value3: 3,
-    };
-  },
-  methods: {},
-};
+      value1,
+      value2,
+      value3
+    }
+  }
+});
 </script>

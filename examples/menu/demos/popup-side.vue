@@ -45,26 +45,35 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      expanded: ['2'],
-      disabled: true,
-      collapsed: false,
-      iconUrl: 'https://www.tencent.com/img/index/menu_logo_hover.png',
-    };
-  },
-  methods: {
-    changeCollapsed() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const collapsed = ref(false);
+    const iconUrl = ref('https://www.tencent.com/img/index/menu_logo_hover.png');
+    
+    const changeCollapsed = () => {
       this.collapsed = !this.collapsed;
       this.iconUrl = this.collapsed ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png' : 'https://www.tencent.com/img/index/menu_logo_hover.png';
-    },
-    handleExpand(names) {
+    }
+
+    const handleExpand = (names) => {
       console.log('receive handleExpand', names);
-    },
-    changeHandler(active) {
+    }
+
+    const changeHandler = (active) => {
       console.warn(active)
-    },
+    }
+
+    return {
+      collapsed,
+      iconUrl,
+      changeCollapsed,
+      expanded: ['2'],
+      disabled: true,
+      handleExpand,
+      changeHandler
+    }
   },
-};
+});
 </script>

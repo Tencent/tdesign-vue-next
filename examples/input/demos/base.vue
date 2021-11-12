@@ -6,16 +6,19 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      input: 'Welcome to TDesign',
-    };
-  },
-  methods: {
-    onEnter() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const input = ref('Welcome to TDesign');
+    const onEnter = () => {
       console.log('trigger enter');
-    },
-  },
-};
+    }
+
+    return {
+      input,
+      onEnter
+    }
+  }
+});
 </script>

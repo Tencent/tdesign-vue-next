@@ -12,12 +12,14 @@
   </div>
 </template>
 <script>
+import { defineComponent } from 'vue';
+
 const list = [];
-export default {
-  data() {
+export default defineComponent({
+  setup() {
     return {
-      list,
-    };
-  },
-};
+      list
+    }
+  }
+});
 </script>

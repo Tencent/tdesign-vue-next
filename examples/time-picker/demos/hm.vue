@@ -4,11 +4,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'showSecond',
-  data() {
-    return {};
-  },
-};
-</script>
+<script />

@@ -14,33 +14,34 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent } from 'vue';
+const tags = [
+  {
+    name: '选中',
+    defaultChecked: true,
+  },
+  {
+    name: '未选',
+  },
+  {
+    name: 'Disabled',
+    disabled: true,
+  },
+]
+
+export default defineComponent({
+  setup() {
     return {
-      tags: [
-        {
-          name: '选中',
-          defaultChecked: true,
-        },
-        {
-          name: '未选',
-        },
-        {
-          name: 'Disabled',
-          disabled: true,
-        },
-      ],
-    };
-  },
-  methods: {
-    handleClick(tag, index) {
-      console.log(tag, index);
-    },
-    handleChange(isChecked) {
-      console.log(isChecked);
-    },
-  },
-};
+      tags,
+      handleClick(tag, index) {
+        console.log(tag, index);
+      },
+      handleChange(isChecked) {
+        console.log(isChecked);
+      },
+    }
+  }
+});
 </script>
 
 <style lang="less" scoped>

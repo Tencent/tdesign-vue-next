@@ -36,45 +36,55 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+const options = [{
+  label: '上海',
+  value: 'shanghai',
+}, {
+  label: '北京',
+  value: 'beijing',
+  disabled: true,
+}, {
+  label: '深圳',
+  value: 'shenzhen',
+}, {
+  label: '这是一个名字很长的城市名称',
+  value: 'long',
+}, {
+  label: '这是一个名字很长很长很长的城市名称',
+  value: 'longest',
+}]
+
+export default defineComponent({
+  setup() {
+    const value = ref('');
+    const value1 = ref('');
+    const value2 = ref('');
+
+    const handleChange = (value) => {
+      console.log(value);
+    }
+
+    const visibleChange = (value) => {
+      console.log('visible', val);
+    }
+
     return {
-      options: [{
-        label: '上海',
-        value: 'shanghai',
-      }, {
-        label: '北京',
-        value: 'beijing',
-        disabled: true,
-      }, {
-        label: '深圳',
-        value: 'shenzhen',
-      }, {
-        label: '这是一个名字很长的城市名称',
-        value: 'long',
-      }, {
-        label: '这是一个名字很长很长很长的城市名称',
-        value: 'longest',
-      }],
-      value: '',
-      value1: '',
-      value2: '',
+      value,
+      value1,
+      value2,
       popupProps: {
         overlayStyle: {
           width: '300px',
         },
       },
-    };
+      options,
+      handleChange,
+      visibleChange
+    }
   },
-  methods: {
-    handleChange(value) {
-      console.log(value);
-    },
-    visibleChange(val) {
-      console.log('visible', val);
-    },
-  },
-};
+});
 </script>
 <style scoped>
   .demo-select-base {

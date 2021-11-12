@@ -5,16 +5,18 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
 
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const presets = {
+      // '今天', // Today
+      今天: dayjs(),
+    }
     return {
-      presets: {
-        // '今天', // Today
-        今天: dayjs(),
-      },
-    };
-  },
-};
+      presets,
+    }
+  }
+});
 </script>

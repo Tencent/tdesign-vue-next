@@ -13,28 +13,14 @@
   </div>
 </template>
 <script>
-/* eslint-disable no-param-reassign */
-export default {
-  data() {
-    return {
-      files: [],
-      uploadMethod: 'requestSuccessMethod',
-    };
-  },
-  computed: {
-    requestMethod() {
-      return this[this.uploadMethod];
-    },
-  },
-  watch: {
-    // 切换上传示例时，重置 file 数据
-    uploadMethod() {
-      this.files = [];
-    },
-  },
-  methods: {
-    // file 为等待上传的文件信息，用于提供给上传接口
-    requestSuccessMethod(file /** UploadFile */) {
+import { defineComponent, ref, watch, computed } from "vue";
+
+export default defineComponent({
+  setup() {
+    const files = ref([]);
+    const uploadMethod = ref('requestSuccessMethod');
+
+    const requestSuccessMethod = (file) => {
       console.log(file);
       return new Promise((resolve) => {
         // file.percent 用于控制上传进度，如果不希望显示上传进度，则不对 file.percent 设置值即可。
@@ -47,14 +33,26 @@ export default {
           clearTimeout(timer);
         }, 500);
       });
-    },
-    requestFailMethod(file /** UploadFile */) {
+    }
+
+    const requestFailMethod = (file) => {
       console.log(file);
       return new Promise((resolve) => {
         // resolve 参数为关键代码
         resolve({ status: 'fail', error: '上传失败，请检查文件是否符合规范' });
       });
-    },
+    }
+
+    const requestMethod = computed(() => {
+      files.value = [];
+      return uploadMethod === 'requestSuccessMethod' ? requestSuccessMethod : requestFailMethod;
+    })
+
+    return {
+      files,
+      uploadMethod,
+      requestMethod,
+    }
   },
-};
+});
 </script>

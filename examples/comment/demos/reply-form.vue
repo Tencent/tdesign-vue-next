@@ -15,26 +15,27 @@
 </template>
 
 <script>
+import { defineComponent, ref } from 'vue';
 import { NotifyPlugin } from '@tencent/tdesign-vue-next';
 
-export default {
-  name: 'replyForm',
-  data() {
-    return {
-      replyData: '',
-      NotifyPlugin,
-    };
-  },
-  methods: {
-    submitReply() {
+export default defineComponent({
+  setup() {
+    const replyData = ref('');
+
+    const submitReply = () => {
       NotifyPlugin.info({
         title: '回复内容',
         content: this.replyData,
         duration: 3000,
       });
-    },
+    }
+    
+    return {
+      replyData,
+      submitReply
+    }
   },
-};
+});
 </script>
 
 <style lang="less" scoped>

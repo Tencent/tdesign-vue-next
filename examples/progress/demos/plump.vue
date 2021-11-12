@@ -34,6 +34,9 @@
     </div>
   </div>
 </template>
+
+<script />
+
 <style scoped>
 .t-progress-domo-margin{
   margin: 15px 0 10px

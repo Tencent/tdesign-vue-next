@@ -8,15 +8,15 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      value: '',
-    };
-  },
-  methods: {
+import { defineComponent, ref } from 'vue';
 
-  },
-};
+export default defineComponent({
+  setup() {
+    const value = ref('');
+    return {
+      value
+    }
+  }
+});
 </script>
 <style></style>

@@ -19,38 +19,45 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from "vue";
+
+const options = [{
+  label: '广东省',
+  value: 'guangdong',
+  children: [{
+    label: '广州市',
+    value: 'guangzhou',
+  }, {
+    label: '深圳市',
+    value: 'shenzhen',
+  }],
+}, {
+  label: '江苏省',
+  value: 'jiangsu',
+  children: [{
+    label: '南京市',
+    value: 'nanjing',
+  }, {
+    label: '苏州市',
+    value: 'suzhou',
+  }],
+}]
+
+export default defineComponent({
+  setup() {
+    const value = ref({ label: '深圳市', value: 'shenzhen' });
+    const mulValue = ref([
+      { label: '广州市', value: 'guangzhou' },
+      { label: '深圳市', value: 'shenzhen' },
+    ]);
+    
     return {
-      value: { label: '深圳市', value: 'shenzhen' },
-      mulValue: [
-        { label: '广州市', value: 'guangzhou' },
-        { label: '深圳市', value: 'shenzhen' },
-      ],
-      options: [{
-        label: '广东省',
-        value: 'guangdong',
-        children: [{
-          label: '广州市',
-          value: 'guangzhou',
-        }, {
-          label: '深圳市',
-          value: 'shenzhen',
-        }],
-      }, {
-        label: '江苏省',
-        value: 'jiangsu',
-        children: [{
-          label: '南京市',
-          value: 'nanjing',
-        }, {
-          label: '苏州市',
-          value: 'suzhou',
-        }],
-      }],
-    };
-  },
-};
+      value,
+      mulValue,
+      options,
+    }
+  }
+});
 </script>
 <style scoped>
 .tdesign-tree-select-base {

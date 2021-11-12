@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-button variant="outline" @click="toggle">自由控制关闭时机（{{ notification ? '关闭' : '打开' }}）</t-button>
+    <t-button variant="outline" @click="toggle">自由控制关闭时机（{{ notificationFlag ? '关闭' : '打开' }}）</t-button>
   </div>
 </template>
 
@@ -24,6 +24,7 @@ export default defineComponent({
       }
     }
     return {
+      notificationFlag,
       toggle
     }
   },

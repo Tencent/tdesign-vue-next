@@ -4,6 +4,8 @@
   </div>
 </template>
 <script>
+import { defineComponent, ref } from 'vue';
+
 const list = [];
 for (let i = 0; i < 20; i++) {
   list.push({
@@ -11,12 +13,13 @@ for (let i = 0; i < 20; i++) {
     label: `内容${i + 1}`,
   });
 }
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const targetValue = ref(list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0))
     return {
+      targetValue,
       list,
-      targetValue: list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0), // 偶数
-    };
-  },
-};
+    }
+  }
+});
 </script>

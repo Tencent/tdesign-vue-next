@@ -7,18 +7,20 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      checked1: true,
-    };
-  },
-  methods: {
-    onChange(value, context) {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const checked1 = ref(true);
+    const onChange = () => {
       console.log('change: ', value, context);
-    },
+    }
+    return {
+      checked1,
+      onChange
+    }
   },
-};
+});
 </script>
 
 <style scoped>

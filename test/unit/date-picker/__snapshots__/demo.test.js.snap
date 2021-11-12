@@ -5636,17 +5636,17 @@ exports[`DatePicker datePresetsTime demo works fine 1`] = `
                     
                     <li>
                       <a>
+                        最近7天
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        最近3天
+                      </a>
+                    </li>
+                    <li>
+                      <a>
                         今天
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        快捷标签3
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        快捷标签7
                       </a>
                     </li>
                     

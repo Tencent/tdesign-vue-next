@@ -23,34 +23,45 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      options: [{
-        label: '上海(Shanghai)',
-        value: 'shanghai',
-      }, {
-        label: '北京(Beijing)',
-        value: 'beijing',
-      }, {
-        label: '深圳(Shenzhen)',
-        value: 'shenzhen',
-      }],
-      value: '',
-      value2: [],
-    };
-  },
-  methods: {
-    filterMethod(search, option) {
+import { defineComponent, ref } from 'vue';
+
+const options = [{
+  label: '上海(Shanghai)',
+  value: 'shanghai',
+}, {
+  label: '北京(Beijing)',
+  value: 'beijing',
+}, {
+  label: '深圳(Shenzhen)',
+  value: 'shenzhen',
+}]
+
+export default defineComponent({
+  setup() {
+    const value = ref('');
+    const value2 = ref([]);
+
+    const filterMethod = (search, option) => {
       console.log('search:', search, ', option:', option);
       return option.label.indexOf(search) !== -1;
-    },
-    handleBlur({ value, e }) {
+    }
+
+    const handleBlur = ({ value, e }) => {
       console.log('handleBlur: ', value, e);
-    },
-    handleFocus({ value, e }) {
+    }
+
+    const handleFocus = ({ value, e }) => {
       console.log('handleFocus: ', value, e);
-    },
+    }
+    
+    return {
+      value,
+      value2,
+      options,
+      filterMethod,
+      handleBlur,
+      handleFocus
+    }
   },
-};
+});
 </script>

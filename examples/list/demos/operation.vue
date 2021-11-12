@@ -43,14 +43,15 @@
 </template>
 
 <script>
-import TIconCheckCircleFilled from '@/src/icon/check-circle-filled.tsx';
+import { defineComponent } from 'vue';
+import TIconCheckCircleFilled from '@tencent/tdesign-vue-next/icon/check-circle-filled';
 
-export default {
+export default defineComponent({
   components: { TIconCheckCircleFilled },
-  data() {
+  setup() {
     return {
       avatarUrl: 'https://tdesign.gtimg.com/list-icon.png',
-    };
-  },
-};
+    }
+  }
+});
 </script>

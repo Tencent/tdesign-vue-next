@@ -23,6 +23,8 @@
     </t-badge>
   </div>
 </template>
+<script />
+
 <style scoped>
   .demo-t-badge-title {
       margin: 20px 0;

@@ -17,7 +17,7 @@
     </template>
   </t-comment>
 </template>
-
+<script />
 <style lang="less" scoped>
   .action-text {
     display: inline-block;

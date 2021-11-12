@@ -21,11 +21,15 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    scrollHandler(e) {
-      console.log(e);
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  setup() {
+    return {
+      scrollHandler(e) {
+        console.log(e);
+      }
     }
-  },
-};
+  }
+});
 </script>

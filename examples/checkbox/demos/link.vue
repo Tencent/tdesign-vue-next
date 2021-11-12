@@ -14,13 +14,16 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const checked = ref(['上海']);
     return {
-      checked: ['上海'],
-    };
-  },
-};
+      checked
+    }
+  }
+});
 </script>
 
 <style scoped>

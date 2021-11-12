@@ -28,23 +28,25 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      value: '',
-      value2: '',
-      value3: '',
-    };
-  },
-  methods: {
-    onChange(value, e) {
-      console.log('onChange：', value, e);
-    },
-    onChange2(value, e) {
-      console.log('onChange2：', value, e);
-    },
+import { defineComponent, ref } from 'vue';
 
-  },
-};
+export default defineComponent({
+  setup() {
+    const value = ref('');
+    const value2 = ref('');
+    const value3 = ref('');
+    return {
+      value,
+      value2,
+      value3,
+      onChange(value, e) {
+        console.log('onChange：', value, e);
+      },
+      onChange2(value, e) {
+        console.log('onChange2：', value, e);
+      },
+    }
+  }
+});
 </script>
 <style></style>

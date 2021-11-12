@@ -214,7 +214,7 @@ exports[`Tabs base demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-          选项卡1
+          选项卡1的内容，使用 t-tab-pannel 渲染
         </p>
         
       </div>
@@ -226,7 +226,7 @@ exports[`Tabs base demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-          选项卡2
+          选项卡2的内容，使用 t-tab-pannel 渲染
         </p>
         
       </div>
@@ -234,15 +234,67 @@ exports[`Tabs base demo works fine 1`] = `
         class="t-tab-panel"
         style="display: none;"
       >
-        
         <p
           style="padding: 25px;"
         >
-          选项卡3
+          选项卡3的内容，使用 t-tab-pannel 渲染
         </p>
-        
       </div>
       
+    </div>
+    
+  </div>
+  <!-- 方式二：使用 list 定义 Tab -->
+  <div
+    class="t-tabs"
+    modelvalue="1"
+  >
+    
+    <div
+      class="t-tabs__header t-is-top"
+    >
+      <div
+        class="t-tabs__nav"
+      >
+        <div
+          class="t-tabs__operations t-tabs__operations--left"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+        </div>
+        <div
+          class="t-tabs__operations t-tabs__operations--right"
+        >
+          <transition-stub>
+            <!--v-if-->
+          </transition-stub>
+          <!--v-if-->
+        </div>
+        <div
+          class="t-tabs__nav-container t-is-top"
+        >
+          <div
+            class="t-tabs__nav-scroll"
+          >
+            <div
+              class="t-tabs__nav-wrap"
+              style="transform: translateX(-0px);"
+            >
+              
+              <!--v-if-->
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-tabs__content"
+    >
+      <!---->
     </div>
     
   </div>

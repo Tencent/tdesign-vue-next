@@ -10,6 +10,8 @@
   </div>
 </template>
 <script>
+import { defineComponent, ref } from 'vue';
+
 const list = [];
 for (let i = 0; i < 20; i++) {
   list.push({
@@ -18,26 +20,32 @@ for (let i = 0; i < 20; i++) {
     disabled: i % 4 < 1,
   });
 }
-export default {
-  data() {
-    return {
-      list,
-      targetValue: [],
-      checked: [],
-    };
-  },
-  methods: {
-    handleCheckedChange({
+
+export default defineComponent({
+  setup() {
+    const targetValue = ref([]);
+    const checked = ref([]);
+
+    const handleCheckedChange = ({
       checked, sourceChecked, targetChecked, type,
-    }) {
+    }) => {
       console.log('handleCheckedChange', {
         checked, sourceChecked, targetChecked, type,
       });
-      this.checked = checked
-    },
-    onChange(newTargetValue) {
+      checked.value = checked
+    }
+
+    const onChange = () => {
       console.log('newTargetValue', newTargetValue);
-    },
-  },
-};
+    }
+
+    return {
+      list,
+      targetValue,
+      checked,
+      handleCheckedChange,
+      onChange,
+    }
+  }
+});
 </script>

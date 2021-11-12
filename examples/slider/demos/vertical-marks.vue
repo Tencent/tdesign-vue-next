@@ -10,11 +10,16 @@
   </div>
 </template>
 <script lang='jsx'>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const value1 = ref(12);
+    const value2 = ref([30, 70]);
+
     return {
-      value1: 12,
-      value2: [30, 70],
+      value1,
+      value2,
       layout: 'vertical',
       marks1: {
         0: '0°C',
@@ -32,14 +37,12 @@ export default {
         80: <span style="color: #0052d9">80°C</span>,
         100: <span style="color: #0052d9">100°C</span>,
       },
-    };
+      change(value) {
+        console.log('change value', value);
+      },
+    }
   },
-  methods: {
-    change(value) {
-      console.log('change value', value);
-    },
-  },
-};
+});
 </script>
 <style>
 .vertical-marks-block {

@@ -5,12 +5,14 @@
 </template>
 
 <script>
-export default {
-  name: 'timeRange',
-  data() {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const time = ref(['00:00:00', '23:59:59']);
     return {
-      time: ['00:00:00', '23:59:59'],
-    };
-  },
-};
+      time
+    }
+  }
+});
 </script>

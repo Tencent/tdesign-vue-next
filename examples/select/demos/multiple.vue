@@ -43,24 +43,25 @@
 </template>
 
 <script lang='jsx'>
-export default {
-  data() {
-    return {
-      options: [{
-        label: '选项一',
-        value: '1',
-      }, {
-        label: '选项二',
-        value: '2',
-      }, {
-        label: '选项三',
-        value: '3',
-      }],
-      value: ['1', '3'],
-    };
-  },
-  methods: {
-    valueDisplay(h, { value, onClose }) {
+
+import { defineComponent, ref } from 'vue';
+
+const options = [{
+  label: '选项一',
+  value: '1',
+}, {
+  label: '选项二',
+  value: '2',
+}, {
+  label: '选项三',
+  value: '3',
+}]
+
+export default defineComponent({
+  setup(){
+    const value = ref(['1', '3']);
+
+    const valueDisplay = (h, { value, onClose }) => {
       if (!(value instanceof Array)) return;
       return value.map((item, index) => (
         <t-tag
@@ -73,7 +74,13 @@ export default {
           {item.label}（{item.value}）
         </t-tag>
       ));
-    },
-  },
-};
+    }
+
+    return {
+      value,
+      options,
+      valueDisplay
+    }
+  }
+});
 </script>

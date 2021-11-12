@@ -24,38 +24,38 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      options: [{
-        label: '上海',
-        value: 'shanghai',
-      }, {
-        label: '北京',
-        value: 'beijing',
-        disabled: true,
-      }, {
-        label: '深圳',
-        value: 'shenzhen',
-      }],
-      options2: [],
-      value: '',
-      value2: [],
-      loading: false,
-      loading2: false,
-    };
-  },
-  methods: {
-    handleChange(value) {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const options = ref([{
+      label: '上海',
+      value: 'shanghai',
+    }, {
+      label: '北京',
+      value: 'beijing',
+      disabled: true,
+    }, {
+      label: '深圳',
+      value: 'shenzhen',
+    }]);
+    const options2 = ref([]);
+    const value = ref('');
+    const value2 = ref([]);
+    const loading = ref(false);
+    const loading2 = ref(false);
+
+    const handleChange = (value) => {
       console.log(value);
-    },
-    remoteMethod(search) {
+    }
+    
+    const remoteMethod = (search) => {
       console.log('search', search);
       if (search) {
-        this.loading = true;
+        loading.value = true;
         setTimeout(() => {
-          this.loading = false;
-          this.options = [{
+          loading.value = false;
+          options.value = [{
             value: `${search}_test1`,
             label: `${search}_test1`,
           }, {
@@ -67,14 +67,15 @@ export default {
           }];
         }, 500);
       }
-    },
-    remoteMethod2(search) {
+    }
+
+    const remoteMethod2 = (search) => {
       console.log('search2', search);
       if (search) {
-        this.loading2 = true;
+        loading2.value = true;
         setTimeout(() => {
-          this.loading2 = false;
-          this.options2 = [{
+          loading2.value = false;
+          options2.value = [{
             value: `${search}_test1`,
             label: `${search}_test1`,
           }, {
@@ -86,7 +87,19 @@ export default {
           }];
         }, 500);
       }
-    },
-  },
-};
+    }
+
+    return {
+      options,
+      options2,
+      value,
+      value2,
+      loading,
+      loading2,
+      handleChange,
+      remoteMethod,
+      remoteMethod2,
+    }
+  }
+});
 </script>

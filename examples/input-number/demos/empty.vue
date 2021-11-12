@@ -8,11 +8,14 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const value = ref(undefined);
     return {
-      value: undefined,
-    };
-  },
-};
+      value
+    }
+  }
+});
 </script>

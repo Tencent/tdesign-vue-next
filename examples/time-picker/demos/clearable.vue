@@ -3,26 +3,24 @@
     <h1>具备清空按钮</h1>
     <t-time-picker v-model="time1" />
     <h1>禁止清空按钮</h1>
-    <t-time-picker v-model="time2" :clearable="disabledClear" />
+    <t-time-picker v-model="time2" :clearable="false" />
   </div>
 </template>
 
 <script>
-export default {
-  name: 'clearable',
-  data() {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const time1 = ref('11:12:10');
+    const time2 = ref('11:12:10');
+
     return {
-      time1: '11:12:10',
-      time2: '11:12:10',
-      disabledClear: false,
-    };
-  },
-  methods: {
-    onClear() {
-      this.time1 = null;
-    },
-  },
-};
+      time1,
+      time2,
+    }
+  }
+});
 </script>
 <style lang="less" scoped>
 .tdesign-demo-block {

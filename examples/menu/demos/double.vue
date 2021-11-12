@@ -60,11 +60,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
-  data() {
+  setup() {
     return {
       expanded: ['1'],
       expanded2: ['1'],
     };
-  },
+  }
 });
 </script>

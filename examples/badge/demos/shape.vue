@@ -8,6 +8,7 @@
     </t-badge>
   </div>
 </template>
+<script />
 
 <style>
 .badge-block {

@@ -9,7 +9,7 @@
     </template>
   </t-head-menu>
 </template>
-
+<script />
 <style lang="less">
   .demo-box {
     width: 200px;

@@ -4,8 +4,7 @@
     <div style="margin: 12px 0">
       <label>请选择风格：</label>
       <t-select v-model="theme" class="demo-select-base">
-        <t-option v-for="item in themeOptions" :key="item.value"
-                  :value="item.value" :label="item.label" />
+        <t-option v-for="item in themeOptions" :key="item.value" :value="item.value" :label="item.label" />
       </t-select>
     </div>
 
@@ -23,45 +22,52 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      theme: 'card',
-      themeOptions: [
-        { value: 'full', label: '全屏风格' },
-        { value: 'card', label: '卡片风格' },
-      ],
-    };
-  },
-  methods: {
-    handleClick() {
-      console.log(123)
-    },
-    getDateStr(cellData) {
+import { defineComponent, ref } from 'vue';
+const themeOptions = [
+  { value: 'full', label: '全屏风格' },
+  { value: 'card', label: '卡片风格' },
+]
+
+export default defineComponent({
+  setup() {
+    const theme = ref('card')
+
+    const getDateStr = (cellData) => {
       const y = cellData.date.getFullYear();
       const m = cellData.date.getMonth() + 1;
       const d = cellData.date.getDate();
       if (cellData.theme === 'full') {
         return `${y}-${m}-${d}`;
       }
-
       if (cellData.mode === 'month') {
         return `${d}`;
       }
-
       return `${y}-${m}`;
-    },
-    getCellAppendCls(cellData) {
+    }
+
+    const getCellAppendCls = (cellData) => {
       return {
         belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
         actived: cellData.isCurrent,
       };
-    },
-    showCeelData(cellData) {
-      console.info(cellData);
-    },
+    }
+
+    const showCeelData = (cellData) => {
+      console.info(cellData)
+    }
+
+    return {
+      theme,
+      themeOptions,
+      getDateStr,
+      getCellAppendCls,
+      showCeelData,
+      handleClick() {
+        console.log(123)
+      }
+    }
   },
-};
+});
 </script>
 
 <style scoped>

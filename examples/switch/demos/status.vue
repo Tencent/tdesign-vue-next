@@ -9,14 +9,25 @@
 </template>
 
 <script>
-export default {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
   data() {
     return {
       checked1: true,
       checked2: true,
     };
   },
-};
+  setup() {
+    const checked1 = ref(true);
+    const checked2 = ref(true);
+
+    return {
+      checked1,
+      checked2,
+    }
+  }
+});
 </script>
 
 <style scoped>

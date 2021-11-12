@@ -6,15 +6,18 @@
 </template>
 
 <script>
-export default {
-  name: 'timePickerBase',
-  data() {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const time1 = ref('20:22');
+    const time2 = ref('21:22');
     return {
-      time1: '20:22',
-      time2: '21:22',
-    };
-  },
-};
+      time1,
+      time2
+    }
+  }
+});
 </script>
 
 <style scoped>

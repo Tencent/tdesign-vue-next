@@ -8,25 +8,26 @@
 </template>
 
 <script>
-export default {
-  name: 'canInput',
-  data() {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const time1 = ref('20:22:33');
+    const time2 = ref('22:22:22');
     return {
-      time1: '20:22:33',
-      time2: '22:22:22',
-    };
-  },
-  methods: {
-    blur(v) {
-      console.log('blur');
-      console.log(v);
-    },
-    focus(v) {
-      console.log('focus');
-      console.log(v);
-    },
-  },
-};
+      time1,
+      time2,
+      blur(v) {
+        console.log('blur');
+        console.log(v);
+      },
+      focus(v) {
+        console.log('focus');
+        console.log(v);
+      },
+    }
+  }
+});
 </script>
 
 <style lang="less" scoped>

@@ -9,3 +9,4 @@
     <t-menu-item value="item4" :disabled="true">资源编辑</t-menu-item>
   </t-menu>
 </template>
+<script />

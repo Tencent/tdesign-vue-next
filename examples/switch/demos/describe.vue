@@ -36,35 +36,38 @@
   </div>
 </template>
 <script lang="jsx">
+import { defineComponent, ref } from 'vue';
 
-import TIconClose from '@/src/icon/close.tsx';
-import TIconCheck from '@/src/icon/check.tsx';
+import TIconClose from '@tencent/tdesign-vue-next/icon/close';
+import TIconCheck from '@tencent/tdesign-vue-next/icon/check';
 
-export default {
+export default defineComponent({
   components: { TIconClose, TIconCheck },
-  data() {
+  setup() {
+    const checked = ref(true);
+    const renderChecked = ref(true);
+    const renderChecked2 = ref(true);
+    const slotChecked = ref(true);
     return {
-      checked: true,
-      renderChecked: true,
-      renderChecked2: true,
-      slotChecked: true,
-    };
+      checked,
+      renderChecked,
+      renderChecked2,
+      slotChecked,
+      onChange(val) {
+        console.log(val);
+      },
+      renderActiveContent() {
+        return (<TIconCheck />);
+      },
+      renderInactiveContent() {
+        return (<TIconClose />);
+      },
+      renderContent(h, data) {
+        return data.value ? (<TIconCheck />) : (<TIconClose />);
+      },
+    }
   },
-  methods: {
-    onChange(val) {
-      console.log(val);
-    },
-    renderActiveContent() {
-      return (<TIconCheck />);
-    },
-    renderInactiveContent() {
-      return (<TIconClose />);
-    },
-    renderContent(h, data) {
-      return data.value ? (<TIconCheck />) : (<TIconClose />);
-    },
-  },
-};
+});
 </script>
 
 <style scoped>

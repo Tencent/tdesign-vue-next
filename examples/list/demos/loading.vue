@@ -54,23 +54,31 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      listCount: 1,
-      avatarUrl: 'https://tdesign.gtimg.com/list-icon.png',
-    };
-  },
-  methods: {
-    loadMore() {
-      this.listCount += 1;
-    },
-    renderLoading() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const listCount = ref(1);
+
+    const loadMore = () => {
+      listCount.value += 1;
+    }
+
+    const renderLoading = () => {
       return '自定义loading（function）';
-    },
-    onLoadMore(e) {
+    }
+
+    const onLoadMore = (e) => {
       console.log('onLoadMore触发', e);
-    },
+    }
+
+    return {
+      listCount,
+      renderLoading,
+      onLoadMore,
+      loadMore,
+      avatarUrl: 'https://tdesign.gtimg.com/list-icon.png',
+    }
   },
-};
+});
 </script>

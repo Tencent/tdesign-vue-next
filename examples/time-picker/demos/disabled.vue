@@ -5,12 +5,16 @@
 </template>
 
 <script>
-export default {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
   name: 'disabled',
-  data() {
+  setup() {
+    const time1 = ref('11:12:10');
+
     return {
-      time1: '11:12:10',
-    };
-  },
-};
+      time1,
+    }
+  }
+});
 </script>

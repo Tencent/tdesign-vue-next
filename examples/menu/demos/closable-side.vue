@@ -39,21 +39,25 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref, computed } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const collapsed = ref(true);
+
+    const iconName = computed(() => {
+      collapsed.value ? 'chevron-right' : 'chevron-left';
+    })
+
+    const changeCollapsed = () => {
+      collapsed.value = !collapsed.value;
+    }
+
     return {
-      collapsed: true,
-    };
+      iconName,
+      collapsed,
+      changeCollapsed
+    }
   },
-  computed: {
-    iconName() {
-      return this.collapsed ? 'chevron-right' : 'chevron-left';
-    },
-  },
-  methods: {
-    changeCollapsed() {
-      this.collapsed = !this.collapsed;
-    },
-  },
-};
+});
 </script>

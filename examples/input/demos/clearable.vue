@@ -10,16 +10,18 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      value: 'Hello TDesign',
-    };
-  },
-  methods: {
-    onClear() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const value = ref('Hello TDesign');
+    const onClear = () => {
       console.log('clear');
-    },
+    }
+    return {
+      value,
+      onClear
+    }
   },
-};
+});
 </script>

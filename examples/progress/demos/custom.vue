@@ -24,6 +24,8 @@
   </div>
 </template>
 
+<script />
+
 <style scoped>
 .t-progress-domo-margin{
   margin-top:20px;

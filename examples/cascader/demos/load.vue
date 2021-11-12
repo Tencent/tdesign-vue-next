@@ -5,26 +5,26 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      options: [
-        {
-          label: '选项1',
-          value: '1',
-          children: true,
-        },
-        {
-          label: '选项2',
-          value: '2',
-          children: true,
-        },
-      ],
-      value: '',
-    };
-  },
-  methods: {
-    load(node) {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const options = ref([
+      {
+        label: '选项1',
+        value: '1',
+        children: true,
+      },
+      {
+        label: '选项2',
+        value: '2',
+        children: true,
+      },
+    ]);
+    
+    const value = ref('');
+
+    const load = (node) => {
       return new Promise((resolve) => {
         setTimeout(() => {
           let nodes = [];
@@ -43,9 +43,14 @@ export default {
           resolve(nodes);
         }, 1000);
       });
-    },
+    }
+    return {
+      options,
+      value,
+      load
+    }
   },
-};
+});
 </script>
 <style scoped>
 .t-demo-cascader + .t-demo-cascader {

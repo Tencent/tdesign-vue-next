@@ -11,31 +11,37 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+const options = [{
+  name: '广东省',
+  pinyin: 'guangdong',
+  children: [{
+    name: '广州市',
+    pinyin: 'guangzhou',
+  }, {
+    name: '深圳市',
+    pinyin: 'shenzhen',
+  }],
+}, {
+  name: '江苏省',
+  pinyin: 'jiangsu',
+  children: [{
+    name: '南京市',
+    pinyin: 'nanjing',
+  }, {
+    name: '苏州市',
+    pinyin: 'suzhou',
+  }],
+}]
+
+export default defineComponent({
+  setup() {
+    const value = ref('shenzhen');
+
     return {
-      value: 'shenzhen',
-      options: [{
-        name: '广东省',
-        pinyin: 'guangdong',
-        children: [{
-          name: '广州市',
-          pinyin: 'guangzhou',
-        }, {
-          name: '深圳市',
-          pinyin: 'shenzhen',
-        }],
-      }, {
-        name: '江苏省',
-        pinyin: 'jiangsu',
-        children: [{
-          name: '南京市',
-          pinyin: 'nanjing',
-        }, {
-          name: '苏州市',
-          pinyin: 'suzhou',
-        }],
-      }],
+      value,
+      options,
       popupProps: {
         overlayStyle: {
           width: '500px',
@@ -48,9 +54,9 @@ export default {
           children: 'children',
         },
       },
-    };
-  },
-};
+    }
+  }
+});
 </script>
 <style scoped>
 .tdesign-tree-select-base {

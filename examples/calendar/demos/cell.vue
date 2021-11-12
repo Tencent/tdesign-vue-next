@@ -18,35 +18,40 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
 
-export default {
-  data() {
-    return {
-      dataList: [{
-        value: 'error',
-        label: '错误事件',
-      }, {
-        value: 'waring',
-        label: '警告事件',
-      }, {
-        value: 'success',
-        label: '正常事件',
-      }],
-    };
-  },
-  methods: {
-    isShow(data) {
+const dataList = [{
+  value: 'error',
+  label: '错误事件',
+}, {
+  value: 'waring',
+  label: '警告事件',
+}, {
+  value: 'success',
+  label: '正常事件',
+}]
+
+export default defineComponent({
+  setup() {
+    const isShow = (data) => {
       return data.mode === 'month' ? data.day === 15 : dayjs(data.formattedDate).month() === 7;
-    },
-    diaplayNum(cellData) {
+    }
+
+    const diaplayNum = (cellData) => {
       if (cellData.mode === 'month') {
         return cellData.date.getDate();
       }
       return cellData.date.getMonth() + 1;
-    },
+    }
+
+    return {
+      dataList,
+      diaplayNum,
+      isShow
+    }
   },
-};
+});
 </script>
 
 <style lang="less" scoped>

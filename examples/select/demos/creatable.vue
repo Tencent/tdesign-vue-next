@@ -13,31 +13,38 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      options: [{
-        label: '上海',
-        value: 'shanghai',
-      }, {
-        label: '北京',
-        value: 'beijing',
-      }, {
-        label: '深圳',
-        value: 'shenzhen',
-      }],
-      value: '',
-      value2: [],
-    };
-  },
-  methods: {
-    createOptions(value) {
-      this.options.push({
+import { defineComponent, ref } from 'vue';
+
+const options = [{
+  label: '上海',
+  value: 'shanghai',
+}, {
+  label: '北京',
+  value: 'beijing',
+}, {
+  label: '深圳',
+  value: 'shenzhen',
+}]
+
+export default defineComponent({
+  setup() {
+    const value = ref('');
+    const value2 = ref([]);
+
+    const createOptions = () => {
+      options.value.push({
         value,
         label: value,
       });
       console.log('create option:', value);
-    },
+    }
+
+    return {
+      value,
+      value2,
+      options,
+      createOptions
+    }
   },
-};
+});
 </script>

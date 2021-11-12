@@ -128,23 +128,30 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+
+  setup() {
+    const collapsed = ref(false)
+    const collapsed2 = ref(false)
+
+    const changeCollapsed = () => {
+      collapsed.value = !collapsed.value
+    }
+
+    const changeCollapsed2 = () => {
+      collapsed2.value = !collapsed2.value
+    }
+
     return {
       expanded: ['2', '3'],
       expanded2: ['2', '3'],
-      disabled: true,
-      collapsed: false,
-      collapsed2: false,
-    };
+      collapsed,
+      collapsed2,
+      changeCollapsed,
+      changeCollapsed2
+    }
   },
-  methods: {
-    changeCollapsed() {
-      this.collapsed = !this.collapsed;
-    },
-    changeCollapsed2() {
-      this.collapsed2 = !this.collapsed2;
-    },
-  },
-};
+});
 </script>

@@ -23,3 +23,4 @@
     </t-list>
   </div>
 </template>
+<script />

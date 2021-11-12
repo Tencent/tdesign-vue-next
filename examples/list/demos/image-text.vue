@@ -50,11 +50,13 @@
 }
 </style>
 <script>
-export default {
-  data() {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  setup() {
     return {
       avatarUrl: 'https://tdesign.gtimg.com/list-icon.png',
     };
-  },
-};
+  }
+});
 </script>

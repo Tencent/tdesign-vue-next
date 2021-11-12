@@ -11,18 +11,20 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
 
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const presets = {
+      // '今天', // Today
+      最近7天: [dayjs().subtract(7, 'day'), dayjs().subtract(1, 'day')],
+      最近3天: [dayjs().subtract(3, 'day'), dayjs().subtract(1, 'day')],
+      今天: [dayjs()],
+    }
     return {
-      presets: {
-        // '今天', // Today
-        今天: dayjs(),
-        快捷标签3: dayjs().subtract(3, 'day'),
-        快捷标签7: dayjs().subtract(7, 'day'),
-      },
-    };
-  },
-};
+      presets,
+    }
+  }
+});
 </script>

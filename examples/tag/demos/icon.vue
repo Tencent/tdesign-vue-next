@@ -15,16 +15,19 @@
 </template>
 
 <script lang="jsx">
+import { defineComponent } from 'vue';
 import TIconDiscount from '@tencent/tdesign-vue-next/icon/discount';
 
-export default {
+export default defineComponent({
   components: { TIconDiscount },
-  methods: {
-    renderDiscountIcon() {
-      return <TIconDiscount />;
-    },
-  },
-};
+  setup() {
+    return { 
+      renderDiscountIcon() {
+        return <TIconDiscount />;
+      },
+    }
+  }
+});
 </script>
 
 <style lang="less">

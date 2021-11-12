@@ -8,18 +8,20 @@
 
 <script lang="jsx">
 import dayjs from 'dayjs';
+import { defineComponent } from 'vue'
 
-export default {
-  methods: {
-    renderHead(h, params) {
+export default defineComponent({
+  setup() {
+    const renderHead = (h, params) => {
       let title = params.filterDate.getFullYear();
       if (params.mode === 'month') {
         title += `-${params.filterDate.getMonth() + 1}`;
       }
       title += ' 工作安排';
       return <div>{title}</div>;
-    },
-    renderCell(h, params) {
+    }
+
+    const renderCell = (h, params) => {
       const dataList = [{
         value: 'error',
         label: '错误事件',
@@ -44,9 +46,14 @@ export default {
           {params.mode === 'year' ? dayjs(params.formattedDate).month() : dayjs(params.formattedDate).date()}
         </div>
       </div>;
-    },
-  },
-};
+    }
+
+    return {
+      renderHead,
+      renderCell
+    }
+  }
+});
 </script>
 <style lang="less" scoped>
 .calendar-slot-props-api-demo {

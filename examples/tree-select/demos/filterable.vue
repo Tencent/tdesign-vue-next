@@ -25,40 +25,45 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+const options = [{
+  label: '广东省',
+  value: 'guangdong',
+  children: [{
+    label: '广州市',
+    value: 'guangzhou',
+  }, {
+    label: '深圳市',
+    value: 'shenzhen',
+  }],
+}, {
+  label: '江苏省',
+  value: 'jiangsu',
+  children: [{
+    label: '南京市',
+    value: 'nanjing',
+  }, {
+    label: '苏州市',
+    value: 'suzhou',
+  }],
+}]
+
+export default defineComponent({
+  setup() {
+    const value = ref('shenzhen');
+    const type = ref('default');
+
     return {
-      value: 'shenzhen',
-      type: 'default',
-      options: [{
-        label: '广东省',
-        value: 'guangdong',
-        children: [{
-          label: '广州市',
-          value: 'guangzhou',
-        }, {
-          label: '深圳市',
-          value: 'shenzhen',
-        }],
-      }, {
-        label: '江苏省',
-        value: 'jiangsu',
-        children: [{
-          label: '南京市',
-          value: 'nanjing',
-        }, {
-          label: '苏州市',
-          value: 'suzhou',
-        }],
-      }],
-    };
-  },
-  methods: {
-    filterFunction(searchText, node) {
-      return node.data.label.indexOf(searchText) >= 0;
-    },
-  },
-};
+      value,
+      type,
+      options,
+      filterFunction(searchText, node) {
+        return node.data.label.indexOf(searchText) >= 0;
+      },
+    }
+  }
+});
 </script>
 <style scoped>
 .tdesign-tree-select-filterable {

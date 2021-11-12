@@ -8,14 +8,17 @@
 </template>
 
 <script>
-export default {
-  name: 'clearable',
-  data() {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const time1 = ref('11:12:10');
+
     return {
-      time1: '11:12:10',
-    };
-  },
-};
+      time1,
+    }
+  }
+});
 </script>
 <style lang="less" scoped>
 .tdesign-demo-block {

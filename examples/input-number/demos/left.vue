@@ -10,11 +10,14 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const value = ref(3);
     return {
-      value: 3,
-    };
-  },
-};
+      value
+    }
+  }
+});
 </script>

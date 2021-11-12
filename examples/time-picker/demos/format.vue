@@ -5,12 +5,15 @@
 </template>
 
 <script>
-export default {
-  name: 'format',
-  data() {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const time = ref('00:00:00 am');
+
     return {
-      time: '00:00:00 am',
-    };
-  },
-};
+      time,
+    }
+  }
+});
 </script>

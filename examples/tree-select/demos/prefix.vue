@@ -12,34 +12,40 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+const options = [{
+  label: '开发一组',
+  value: 'group1',
+  children: [{
+    label: '小赵',
+    value: 'zhao',
+  }, {
+    label: '小钱',
+    value: 'qian',
+  }],
+}, {
+  label: '开发二组',
+  value: 'group2',
+  children: [{
+    label: '小孙',
+    value: 'sun',
+  }, {
+    label: '小李',
+    value: 'li',
+  }],
+}]
+
+export default defineComponent({
+  setup() {
+    const value = ref('');
+
     return {
-      value: '',
-      options: [{
-        label: '开发一组',
-        value: 'group1',
-        children: [{
-          label: '小赵',
-          value: 'zhao',
-        }, {
-          label: '小钱',
-          value: 'qian',
-        }],
-      }, {
-        label: '开发二组',
-        value: 'group2',
-        children: [{
-          label: '小孙',
-          value: 'sun',
-        }, {
-          label: '小李',
-          value: 'li',
-        }],
-      }],
-    };
-  },
-};
+      value,
+      options
+    }
+  }
+});
 </script>
 <style scoped>
 .tdesign-tree-select-prefix {

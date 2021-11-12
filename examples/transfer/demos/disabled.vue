@@ -1,9 +1,11 @@
 <template>
   <div>
-    <t-transfer :data="list" :disabled="[false, true]" :default-value="targetValue" />
+    <t-transfer :data="list" :disabled="[false, true]" :default-value="defaultValue" />
   </div>
 </template>
 <script>
+import { defineComponent } from 'vue';
+
 const list = [];
 for (let i = 0; i < 20; i++) {
   list.push({
@@ -12,12 +14,14 @@ for (let i = 0; i < 20; i++) {
     disabled: i % 4 < 1,
   });
 }
-export default {
-  data() {
+
+export default defineComponent({
+  setup() {
+    
     return {
       list,
-      targetValue: list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0), // 偶数
-    };
+      defaultValue: list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0)
+    }
   },
-};
+});
 </script>

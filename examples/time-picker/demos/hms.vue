@@ -5,23 +5,23 @@
 </template>
 
 <script>
-export default {
-  name: 'hms',
-  data() {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const value = ref('12:20:30');
     return {
-      value: '12:20:30',
-    };
-  },
-  methods: {
-    timechange(time) {
-      console.log(time);
-    },
-    open() {
-      console.log('open');
-    },
-    close() {
-      console.log('close');
-    },
-  },
-};
+      value,
+      timechange(time) {
+        console.log(time);
+      },
+      open() {
+        console.log('open');
+      },
+      close() {
+        console.log('close');
+      },
+    }
+  }
+});
 </script>

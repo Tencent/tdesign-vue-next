@@ -25,21 +25,32 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      collapsed: false,
-      iconUrl: 'https://www.tencent.com/img/index/menu_logo_hover.png',
-    };
-  },
-  methods: {
-    changeHandler(active) {
+import { defineComponent, ref, computed } from 'vue'
+export default defineComponent({
+  setup() {
+    const collapsed = ref(true);
+    const iconUrl = ref('https://www.tencent.com/img/index/menu_logo_hover.png');
+
+    const iconName = computed(() => {
+      collapsed.value ? 'chevron-right' : 'chevron-left';
+    })
+
+    const changeCollapsed = () => {
+      collapsed.value = !collapsed.value;
+      iconUrl.value = collapsed.value ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png' : 'https://www.tencent.com/img/index/menu_logo_hover.png';
+    }
+
+    const changeHandler = (active) => {
       console.log('change', active);
-    },
-    changeCollapsed() {
-      this.collapsed = !this.collapsed;
-      this.iconUrl = this.collapsed ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png' : 'https://www.tencent.com/img/index/menu_logo_hover.png';
-    },
+    }
+
+    return {
+      iconUrl,
+      iconName,
+      collapsed,
+      changeCollapsed,
+      changeHandler
+    }
   },
-};
+});
 </script>

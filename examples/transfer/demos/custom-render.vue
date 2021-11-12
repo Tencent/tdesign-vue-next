@@ -12,6 +12,8 @@
 </template>
 
 <script lang="jsx">
+import { defineComponent, ref } from 'vue';
+
 const list = [];
 for (let i = 0; i < 20; i++) {
   list.push({
@@ -20,16 +22,13 @@ for (let i = 0; i < 20; i++) {
     description: `第${i + 1}段信息`,
   });
 }
-export default {
-  data() {
-    return {
-      list,
-      targetValue: [],
-      checkedValue: [],
-    };
-  },
-  methods: {
-    transferItem(h, { data, index, type }) {
+
+export default defineComponent({
+  setup() {
+    const targetValue = ref([]);
+    const checkedValue = ref([]);
+
+    const transferItem = (h, { data, index, type }) => {
       const sourceLabel = (
         <span class="transfer-item">
           {data.label} - {data.description}
@@ -41,7 +40,14 @@ export default {
         </span>
       );
       return type === 'source' ? sourceLabel : targetLabel;
-    },
+    }
+
+    return {
+      targetValue,
+      checkedValue,
+      list,
+      transferItem
+    }
   },
-};
+});
 </script>

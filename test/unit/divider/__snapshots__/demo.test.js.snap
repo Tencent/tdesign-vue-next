@@ -3,7 +3,7 @@
 exports[`Divider base demo works fine 1`] = `
 <div>
   <p>
-     通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。 
+     这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
   </p>
   <div
     class="t-divider t-divider--horizontal"
@@ -11,7 +11,7 @@ exports[`Divider base demo works fine 1`] = `
     <!---->
   </div>
   <p>
-     通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。 
+     这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
   </p>
   <div
     class="t-divider t-divider--horizontal t-divider--dashed"
@@ -19,7 +19,7 @@ exports[`Divider base demo works fine 1`] = `
     <!---->
   </div>
   <p>
-     通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。 
+     这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
   </p>
 </div>
 `;
@@ -27,7 +27,7 @@ exports[`Divider base demo works fine 1`] = `
 exports[`Divider text demo works fine 1`] = `
 <div>
   <p>
-     通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。 
+     这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
   </p>
   <div
     class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
@@ -41,10 +41,10 @@ exports[`Divider text demo works fine 1`] = `
     </span>
   </div>
   <p>
-     通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。 
+     这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
   </p>
   <div
-    class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
+    class="t-divider t-divider--horizontal t-divider--dashed t-divider--with-text t-divider--with-text-center"
   >
     <span
       class="t-divider-inner-text"
@@ -55,10 +55,10 @@ exports[`Divider text demo works fine 1`] = `
     </span>
   </div>
   <p>
-     通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。 
+     这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
   </p>
   <div
-    class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-right"
+    class="t-divider t-divider--horizontal t-divider--dashed t-divider--with-text t-divider--with-text-right"
   >
     <span
       class="t-divider-inner-text"
@@ -69,7 +69,7 @@ exports[`Divider text demo works fine 1`] = `
     </span>
   </div>
   <p>
-     通过高效广告平台，协助品牌和市场营销者触达数以亿计的中国消费者通过金融科技及企业服务，促进合作伙伴业务发展，助力实现数字化升级，我们大力投资于人才队伍和推动科技创新，积极参与互联网行业协同发展。 
+     这是第四种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 
   </p>
 </div>
 `;
@@ -96,7 +96,7 @@ exports[`Divider vertical demo works fine 1`] = `
     合作
   </span>
   <div
-    class="t-divider t-divider--vertical"
+    class="t-divider t-divider--vertical t-divider--dashed"
   >
     <!---->
   </div>

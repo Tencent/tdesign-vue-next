@@ -21,6 +21,8 @@
     </t-badge>
   </div>
 </template>
+<script />
+
 <style>
 .badge-block {
   width: 40px;

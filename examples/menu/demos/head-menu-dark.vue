@@ -15,3 +15,4 @@
     </template>
   </t-head-menu>
 </template>
+<script />

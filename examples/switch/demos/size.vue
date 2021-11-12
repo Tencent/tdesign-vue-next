@@ -10,19 +10,20 @@
 </template>
 
 <script>
+import { defineComponent, ref } from 'vue';
 
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const checked = ref(true);
+
     return {
-      checked: true,
-    };
-  },
-  methods: {
-    onChange(val) {
-      console.log(val);
-    },
-  },
-};
+      checked,
+      onChange(val) {
+        console.log(val);
+      },
+    }
+  }
+});
 </script>
 
 

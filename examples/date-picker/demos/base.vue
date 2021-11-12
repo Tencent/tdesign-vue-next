@@ -4,11 +4,14 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const date = ref('2021-11-10');
     return {
-      date: '2021-11-10'
+      date
     }
   }
-}
+})
 </script>

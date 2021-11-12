@@ -5,14 +5,16 @@
 </template>
 
 <script>
-export default {
-  name: 'twelveHours',
-  data() {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const value = ref('PM 10:20:30');
     return {
-      value: 'PM 10:20:30',
-    };
-  },
-};
+      value
+    }
+  }
+});
 </script>
 <style lang="less" scoped>
 .tdesign-demo-block {

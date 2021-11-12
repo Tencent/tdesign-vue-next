@@ -9,15 +9,20 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
 
-export default {
-  methods: {
-    getShow(data) {
+export default defineComponent({
+  setup() {
+    const getShow = (data) => {
       return data.mode === 'month' ? dayjs().format('YYYY-MM-DD') === data.formattedDate : data.date.getMonth() === new Date().getMonth();
-    },
+    }
+
+    return {
+      getShow
+    }
   },
-};
+});
 </script>
 
 

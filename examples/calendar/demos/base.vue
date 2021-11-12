@@ -1,3 +1,4 @@
 <template>
-  <t-calendar></t-calendar>
+  <t-calendar />
 </template>
+<script />

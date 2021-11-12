@@ -23,27 +23,31 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      options: [{
-        label: '上海',
-        value: 'shanghai',
-      }, {
-        label: '北京',
-        value: 'beijing',
-      }, {
-        label: '深圳',
-        value: 'shenzhen',
-      }],
-      value: { value: 'shanghai', label: '上海' },
-      value2: [{ value: 'shanghai', label: '上海' }],
-    };
-  },
-  methods: {
-    handleChange(value) {
+import { defineComponent, ref } from 'vue';
+const options = [{
+  label: '上海',
+  value: 'shanghai',
+}, {
+  label: '北京',
+  value: 'beijing',
+}, {
+  label: '深圳',
+  value: 'shenzhen',
+}]
+
+export default defineComponent({
+  setup() {
+    const handleChange = (value) => {
       console.log('handleChange:', value);
-    },
+    }
+    const value = ref({ value: 'shanghai', label: '上海' });
+    const value2 = ref([{ value: 'shanghai', label: '上海' }]);
+    return {
+      value,
+      value2,
+      options,
+      handleChange
+    }
   },
-};
+});
 </script>

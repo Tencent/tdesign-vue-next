@@ -10,11 +10,16 @@
   </div>
 </template>
 <script lang='jsx'>
+import { defineComponent, ref } from 'vue';
+
 export default {
-  data() {
+  setup() {
+    const value1 = ref(12);
+    const value2 = ref([30, 70]);
+
     return {
-      value1: 12,
-      value2: [30, 70],
+      value1,
+      value2,
       marks1: {
         0: '0°C',
         20: '20°C',
@@ -31,7 +36,7 @@ export default {
         80: <span style="color: #0052d9">80°C</span>,
         100: '100°C',
       },
-    };
+    }
   },
 };
 </script>

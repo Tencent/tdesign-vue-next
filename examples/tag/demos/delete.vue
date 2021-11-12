@@ -51,9 +51,9 @@
 </template>
 
 <script lang="jsx">
+import { defineComponent, nextTick, ref } from 'vue';
 import TIconAdd from '@tencent/tdesign-vue-next/icon/add';
 import TIconDiscount from '@tencent/tdesign-vue-next/icon/discount';
-import { nextTick } from 'vue';
 
 export default {
   components: {
@@ -62,31 +62,62 @@ export default {
     // eslint-disable-next-line vue/no-unused-components
     TIconDiscount,
   },
-  data() {
+  setup() {
+    const inputVisible = ref(false);
+    const tags = ref([
+      {
+        name: '可删除标签可删除标签',
+        type: 'default',
+        showClose: true,
+        maxWidth: 100,
+      },
+      {
+        name: '可删除标签可删除标签',
+        type: 'default',
+        icon: () => <TIconDiscount />,
+        showClose: true,
+        maxWidth: 100,
+      },
+      {
+        name: '可删除标签',
+        type: 'default',
+        showClose: true,
+        disabled: true,
+      },
+    ])
+    const input = ref('')
+
+    const handleClose = (index) => {
+      tags.value.splice(index, 1);
+    }
+
+    const handleClick = (event) => {
+      console.log(event);
+    }
+
+    const handleInputEnter = (val) => {
+      if (val && !this.tags.some((item) => item.name === val)) {
+        tags.value.tags.push({ name: val, type: 'default', showClose: true });
+      }
+      inputVisible.value = false;
+    }
+
+    const handleClickAdd = () => {
+      inputVisible.value = true;
+      nextTick(() => {
+        input.value.focus();
+      });
+    }
+
     return {
-      inputVisible: false,
-      tags: [
-        {
-          name: '可删除标签可删除标签',
-          type: 'default',
-          showClose: true,
-          maxWidth: 100,
-        },
-        {
-          name: '可删除标签可删除标签',
-          type: 'default',
-          icon: () => <TIconDiscount />,
-          showClose: true,
-          maxWidth: 100,
-        },
-        {
-          name: '可删除标签',
-          type: 'default',
-          showClose: true,
-          disabled: true,
-        },
-      ],
-    };
+      inputVisible,
+      tags,
+      input,
+      handleClose,
+      handleClick,
+      handleInputEnter,
+      handleClickAdd
+    }
   },
   methods: {
     handleClose(index) {

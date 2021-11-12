@@ -28,15 +28,9 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      style: { margin: '20px 0 10px' },
-    };
-  },
-};
-</script>
+
+<script />
+
 <style scoped>
 .t-progress-domo-margin{
   margin: 10px 0 5px

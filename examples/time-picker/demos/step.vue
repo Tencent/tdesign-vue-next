@@ -5,12 +5,14 @@
 </template>
 
 <script>
-export default {
-  name: 'step',
-  data() {
+import { defineComponent, ref } from "vue";
+
+export default defineComponent({
+  setup() {
+    const time1 = ref('09:18:17');
     return {
-      time1: '09:18:17',
-    };
-  },
-};
+      time1
+    }
+  }
+});
 </script>

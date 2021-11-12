@@ -12,16 +12,17 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const value = ref(3.2);
     return {
-      value: 3.2,
-    };
+      value,
+      onChange(ev) {
+        console.info(ev);
+      },
+    }
   },
-  methods: {
-    onChange(ev) {
-      console.info(ev);
-    },
-  },
-};
+});
 </script>

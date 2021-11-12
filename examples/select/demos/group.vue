@@ -40,38 +40,47 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+const options1 = [{
+  label: '北京',
+  value: 'beijing',
+}, {
+  label: '上海',
+  value: 'shanghai',
+}]
+
+const options2 = [{
+  label: '广州',
+  value: 'guangzhou',
+}, {
+  label: '深圳',
+  value: 'shenzhen',
+}, {
+  label: '东莞',
+  value: 'dongguang',
+}]
+
+const options3 = [{
+  label: '南京',
+  value: 'nanjing',
+}, {
+  label: '苏州',
+  value: '苏州',
+}, {
+  label: '无锡',
+  value: 'wuxi',
+}]
+
+export default defineComponent({
+  setup() {
+    const value = ref('');
     return {
-      options1: [{
-        label: '北京',
-        value: 'beijing',
-      }, {
-        label: '上海',
-        value: 'shanghai',
-      }],
-      options2: [{
-        label: '广州',
-        value: 'guangzhou',
-      }, {
-        label: '深圳',
-        value: 'shenzhen',
-      }, {
-        label: '东莞',
-        value: 'dongguang',
-      }],
-      options3: [{
-        label: '南京',
-        value: 'nanjing',
-      }, {
-        label: '苏州',
-        value: '苏州',
-      }, {
-        label: '无锡',
-        value: 'wuxi',
-      }],
-      value: '',
-    };
-  },
-};
+      value,
+      options1,
+      options2,
+      options3
+    }
+  }
+});
 </script>

@@ -1,15 +1,7 @@
 <template>
   <div>
-    <t-calendar :isShowWeekendDefault="isShowWeekendDefault"></t-calendar>
+    <t-calendar :isShowWeekendDefault="false"></t-calendar>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      isShowWeekendDefault: false,
-    };
-  },
-};
-</script>
+<script />

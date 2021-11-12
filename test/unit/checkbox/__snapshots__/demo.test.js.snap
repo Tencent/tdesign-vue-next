@@ -107,7 +107,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
   class="tdesign-demo-block-column"
 >
   <div>
-    选中值: 北京
+    选中值: 北京（业务侧自定义全选功能）
   </div>
   <div>
     <label

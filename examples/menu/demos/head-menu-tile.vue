@@ -20,44 +20,49 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+const menus = [{
+  title: '菜单1',
+  children: [{
+    title: '子菜单1-1',
+  }, {
+    title: '子菜单1-2',
+  }, {
+    title: '子菜单1-3',
+  }],
+}, {
+  title: '菜单2',
+  children: [{
+    title: '子菜单2-1',
+  }, {
+    title: '子菜单2-2',
+  }, {
+    title: '子菜单2-3',
+  }],
+}, {
+  title: '菜单3',
+  children: [{
+    title: '子菜单3-1',
+  }, {
+    title: '子菜单3-2',
+  }, {
+    title: '子菜单3-3',
+  }],
+}]
+
+export default defineComponent({
+  setup() {
+    const active = ref('2-1')
+
+    const changeHandler = (active) => {
+      active.value = active;
+    }
     return {
-      active: '2-1',
-      menus: [{
-        title: '菜单1',
-        children: [{
-          title: '子菜单1-1',
-        }, {
-          title: '子菜单1-2',
-        }, {
-          title: '子菜单1-3',
-        }],
-      }, {
-        title: '菜单2',
-        children: [{
-          title: '子菜单2-1',
-        }, {
-          title: '子菜单2-2',
-        }, {
-          title: '子菜单2-3',
-        }],
-      }, {
-        title: '菜单3',
-        children: [{
-          title: '子菜单3-1',
-        }, {
-          title: '子菜单3-2',
-        }, {
-          title: '子菜单3-3',
-        }],
-      }],
-    };
-  },
-  methods: {
-    changeHandler(active) {
-      this.active = active;
-    },
-  },
-};
+      active,
+      menus,
+      changeHandler
+    }
+  }
+});
 </script>

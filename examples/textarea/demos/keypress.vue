@@ -10,23 +10,25 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const value = ref('');
+
     return {
-      value: '',
-    };
-  },
-  methods: {
-    onKeypress(value, e) {
-      console.log('onKeypress: ', value, e);
-    },
-    onKeydown(value, e) {
-      console.log('onKeydown: ', value, e);
-    },
-    onKeyup(value, e) {
-      console.log('onKeyup: ', value, e);
-    },
-  },
-};
+      value,
+      onKeypress(value, e) {
+        console.log('onKeypress: ', value, e);
+      },
+      onKeydown(value, e) {
+        console.log('onKeydown: ', value, e);
+      },
+      onKeyup(value, e) {
+        console.log('onKeyup: ', value, e);
+      },
+    }
+  }
+});
 </script>
 <style></style>

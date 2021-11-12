@@ -4,11 +4,16 @@
   </div>
 </template>
 <script>
-export default {
-  methods: {
-    onFocus() {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const onFocus = () => {
       console.log('focused');
-    },
-  },
-};
+    }
+    return {
+      onFocus
+    }
+  }
+});
 </script>

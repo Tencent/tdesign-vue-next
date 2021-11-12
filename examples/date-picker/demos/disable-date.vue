@@ -19,39 +19,39 @@
 
 </template>
 <script>
+import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
 
-export default {
-  data() {
-    return {
-      // 禁用昨天、前天
-      disableDate: [dayjs().subtract(1, 'day').format(), dayjs().subtract(2, 'day').format()],
-      // 只可选择最近6天内的日期
-      disableDate2: {
-        before: dayjs().subtract(2, 'day').format(),
-        after: dayjs().add(3, 'day').format(),
-      },
-      // 明后三天禁用
-      disableDate3: {
-        from: dayjs().add(1, 'day').format(),
-        to: dayjs().add(3, 'day').format(),
-      },
-      disableDate4: {
-        before: dayjs().subtract(2, 'day').format(),
-        after: dayjs().add(10, 'day').format(),
-      },
+export default defineComponent({
+  setup() {
+    const disableDate = [dayjs().subtract(1, 'day').format(), dayjs().subtract(2, 'day').format()];
+    const disableDate2 = {
+      before: dayjs().subtract(2, 'day').format(),
+      after: dayjs().add(3, 'day').format(),
     };
+    const disableDate3 = {
+      from: dayjs().add(1, 'day').format(),
+      to: dayjs().add(3, 'day').format(),
+    };
+    const disableDate4 = {
+      before: dayjs().subtract(2, 'day').format(),
+      after: dayjs().add(10, 'day').format(),
+    }
+    return {
+      disableDate,
+      disableDate2,
+      disableDate3,
+      disableDate4,
+      getDisableDate(date) {
+        // 禁用所有周六
+        return dayjs(date).day() === 6;
+      },
+      onChange(value) {
+        console.log(value);
+      },
+    }
   },
-  methods: {
-    getDisableDate(date) {
-      // 禁用所有周六
-      return dayjs(date).day() === 6;
-    },
-    onChange(value) {
-      console.log(value);
-    },
-  },
-};
+});
 </script>
 <style scoped>
 .tdesign-demo-item--datepicker {

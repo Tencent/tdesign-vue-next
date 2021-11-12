@@ -48,24 +48,24 @@
 </template>
 
 <script lang="jsx">
-export default {
-  data() {
-    return {
-      options: [{
-        label: '选项一',
-        value: '1',
-      }, {
-        label: '选项二',
-        value: '2',
-      }, {
-        label: '选项三',
-        value: '3',
-      }],
-      value: ['1', '3'],
-    };
-  },
-  methods: {
-    collapsedItems(h, { value, count }) {
+import { defineComponent, ref } from 'vue';
+
+const options = [{
+  label: '选项一',
+  value: '1',
+}, {
+  label: '选项二',
+  value: '2',
+}, {
+  label: '选项三',
+  value: '3',
+}]
+
+export default defineComponent({
+  setup() {
+    const value = ref(['1', '3']);
+
+    const collapsedItems = (h, { value, count }) => {
       if (!(value instanceof Array) || !count) return;
       return (
         <t-popup v-slots={{
@@ -80,7 +80,13 @@ export default {
           </span>
         </t-popup>
       );
-    },
+    }
+
+    return {
+      options,
+      value,
+      collapsedItems,
+    }
   },
-};
+});
 </script>

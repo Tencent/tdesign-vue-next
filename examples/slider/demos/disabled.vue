@@ -10,15 +10,20 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const value1 = ref(12);
+    const value2 = ref([30, 70]);
+
     return {
-      value1: 12,
-      value2: [30, 70],
-      inputNumberProps: { theme: 'column' },
-    };
+      value1,
+      value2,
+      tooltipProps: {},
+    }
   },
-};
+});
 </script>
 <style>
 .block {

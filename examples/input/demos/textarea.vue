@@ -6,13 +6,16 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const value = ref('');
     return {
-      value: '',
-    };
-  },
-};
+      value
+    }
+  }
+});
 </script>
 <style lang="less" scoped>
 .t-textarea {
