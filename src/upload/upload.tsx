@@ -531,6 +531,7 @@ export default defineComponent({
             toUploadFiles={this.toUploadFiles}
             max={this.max}
             onImgPreview={this.handlePreviewImg}
+            disabled={this.disabled}
           ></ImageCard>
         )}
         {this.showUploadList && (

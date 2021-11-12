@@ -8,6 +8,8 @@ import TIconBrowse from '../icon/browse';
 import TIconLoading from '../icon/loading';
 import { UPLOAD_NAME } from './util';
 import props from './props';
+import CLASSNAMES from '../utils/classnames';
+import { prefix } from '../config';
 
 export default defineComponent({
   name: 'TImageUpload',
@@ -31,6 +33,7 @@ export default defineComponent({
     },
     multiple: Boolean,
     max: Number,
+    disabled: Boolean,
   },
 
   emits: ['img-preview'],
@@ -57,7 +60,7 @@ export default defineComponent({
     return (
       <ul class={`${UPLOAD_NAME}-card`}>
         {this.files && this.files.map((file, index) => (
-          <li class={`${UPLOAD_NAME}-card__item t-is--background`}>
+          <li class={`${UPLOAD_NAME}-card__item ${prefix}-is--background`}>
             <div class={`${UPLOAD_NAME}-card__content ${UPLOAD_NAME}-card__box`}>
               <img class={`${UPLOAD_NAME}-card__image`} src={file.url} />
               <div class={`${UPLOAD_NAME}-card__mask`} onClick={this.onMaskClick}>
@@ -74,7 +77,9 @@ export default defineComponent({
           </li>
         ))}
         {this.showTrigger && (
-          <li class={`${UPLOAD_NAME}-card__item t-is--background`} onClick={this.trigger}>
+          <li class={[`${UPLOAD_NAME}-card__item ${prefix}-is--background`, {
+            [CLASSNAMES.STATUS.disabled]: this.disabled
+          }]} onClick={this.trigger}>
             {this.showUploadProgress && this.loadingFile && this.loadingFile.status === 'progress' ? (
               <div class={`${UPLOAD_NAME}-card-container ${UPLOAD_NAME}-card__box`}>
                 <TIconLoading></TIconLoading>
