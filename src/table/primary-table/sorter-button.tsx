@@ -47,7 +47,9 @@ export default defineComponent({
       const icon = isFunction(this.locale.sortIcon)
         ? this.locale.sortIcon(h)
         : <TIconChevronDown size='16px' />;
-      let style: Styles = {};
+      let style: Styles = {
+        left: '0px',
+      };
       if (direction === 'asc') {
         style = {
           transform: 'rotate(-180deg)',
@@ -73,7 +75,7 @@ export default defineComponent({
         return this.getSortIcon(direction, className);
       });
     return <div class={`${prefix}-table__cell--sort-trigger`} {...buttonProps}>
-      {tips ? <Tooltip style="line-height: 0px;" content={tips} showArrow={false}>{sortButton}</Tooltip> : sortButton}
+      {tips ? <Tooltip style="line-height: 0px;position:relative;" content={tips} showArrow={false}>{sortButton}</Tooltip> : sortButton}
     </div>;
   },
 });

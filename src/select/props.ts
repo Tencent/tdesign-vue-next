@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-29 14:49:44
+ * updated at 2021-11-10 14:56:14
  * */
 
 import { TdSelectProps } from './type';
@@ -29,7 +29,7 @@ export default {
     type: [String, Function] as PropType<TdSelectProps['empty']>,
     default: '',
   },
-  /** 过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据 */
+  /** 自定义过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据 */
   filter: {
     type: Function as PropType<TdSelectProps['filter']>,
   },

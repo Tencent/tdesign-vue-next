@@ -1,50 +1,51 @@
 <template>
-  <div class="tdesign-tree-line">
-    <div class="operations">
-      <t-form>
-        <t-form-item label="显示连线">
-          <t-switch v-model="showLine"/>
-        </t-form-item>
-        <t-form-item label="显示图标">
-          <t-switch v-model="showIcon"/>
-        </t-form-item>
-      </t-form>
-    </div>
-    <t-tree
-      :data="items"
-      :line="showLine"
-      :icon="showIcon"
-      expand-all
-    />
-    <h3>render</h3>
-    <t-tree
-      :data="items"
-      :icon="showIcon"
-      expand-all
-      :line="renderLine"
-    />
-    <h3>scope slot</h3>
-    <t-tree
-      :data="items"
-      :icon="showIcon"
-      line
-      expand-all
-    >
-      <template #line="{node}">
-        <div v-if="showLine" :class="lineClass(node)">
-          <div class="custom-line-box">
-            <span
-              v-for="(item, index) in getLineNodes(node)"
-              :key="index"
-              :class="{'custom-line-cross': item.cross}"
-            ></span>
+  <div class="tdesign-demo-block-column-large">
+    <t-form>
+      <t-form-item label="显示连线" style="margin-bottom: 16px">
+        <t-switch v-model="showLine"/>
+      </t-form-item>
+      <t-form-item label="显示图标" style="margin-bottom: 16px">
+        <t-switch v-model="showIcon"/>
+      </t-form-item>
+    </t-form>
+
+    <div class="tdesign-demo-block-column">
+      <t-tree
+        :data="items"
+        :line="showLine"
+        :icon="showIcon"
+        expand-all
+      />
+      <h3>render</h3>
+      <t-tree
+        :data="items"
+        :icon="showIcon"
+        expand-all
+        :line="renderLine"
+      />
+      <h3>scope slot</h3>
+      <t-tree
+        :data="items"
+        :icon="showIcon"
+        line
+        expand-all
+      >
+        <template #line="{node}">
+          <div v-if="showLine" :class="lineClass(node)">
+            <div class="custom-line-box">
+              <span
+                v-for="(item, index) in getLineNodes(node)"
+                :key="index"
+                :class="{'custom-line-cross': item.cross}"
+              ></span>
+            </div>
+            <i class="custom-line-icon" v-if="node.isLeaf()">
+              <t-icon name="heart-filled"/>
+            </i>
           </div>
-          <i class="custom-line-icon" v-if="node.isLeaf()">
-            <t-icon name="heart-filled"/>
-          </i>
-        </div>
-      </template>
-    </t-tree>
+        </template>
+      </t-tree>
+    </div>
   </div>
 </template>
 

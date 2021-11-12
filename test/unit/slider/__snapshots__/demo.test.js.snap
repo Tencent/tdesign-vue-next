@@ -52,7 +52,6 @@ exports[`Slider base demo works fine 1`] = `
                     0
                     <div
                       class="t-popup__arrow"
-                      data-popper-arrow="true"
                     />
                   </div>
                 </div>
@@ -127,7 +126,6 @@ exports[`Slider base demo works fine 1`] = `
                     0
                     <div
                       class="t-popup__arrow"
-                      data-popper-arrow="true"
                     />
                   </div>
                 </div>
@@ -164,7 +162,6 @@ exports[`Slider base demo works fine 1`] = `
                     0
                     <div
                       class="t-popup__arrow"
-                      data-popper-arrow="true"
                     />
                   </div>
                 </div>

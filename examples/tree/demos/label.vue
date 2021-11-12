@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tree-base">
+  <div class="tdesign-tree-demo">
     <h3>render:</h3>
     <t-tree
       :data="items"
@@ -13,7 +13,7 @@
       checkable
     >
       <template #label="{node}">
-        <span color="blue">label: {{node.label}}, value: {{node.value}}</span>
+        <span style="color: blue">label: {{node.label}}, value: {{node.value}}</span>
       </template>
     </t-tree>
   </div>
@@ -39,7 +39,7 @@ export default {
         }],
       }],
       label(h, node) {
-        return h('div', {
+        return h('strong', {
           innerHTML: `value: ${node.value}, label: ${node.label}`,
         });
       },
@@ -47,8 +47,23 @@ export default {
   }
 };
 </script>
-<style scoped>
-  .demo-tree-base {
-    display: block;
-  }
+<style>
+.tdesign-tree-demo .t-tree {
+  margin-bottom: 20px;
+}
+.tdesign-tree-demo .title{
+  margin-bottom: 10px;
+}
+.tdesign-tree-demo .tips{
+  margin-bottom: 10px;
+}
+.tdesign-tree-demo .operations{
+  margin-bottom: 10px;
+}
+.tdesign-tree-demo .t-form__item {
+  margin-bottom: 5px;
+}
+.tdesign-tree-demo .t-button{
+  margin: 0 10px 10px 0;
+}
 </style>

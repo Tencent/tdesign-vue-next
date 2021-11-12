@@ -91,7 +91,6 @@ exports[`Popconfirm base demo works fine 1`] = `
                 
                 <div
                   class="t-popup__arrow"
-                  data-popper-arrow="true"
                 />
               </div>
             </div>

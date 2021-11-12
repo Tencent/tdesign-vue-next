@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-29 14:49:44
+ * updated at 2021-11-11 17:20:10
  * */
 
 import { PopupProps } from '../popup';
@@ -22,7 +22,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
    * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义
    */
-  collapsedItems?: TNode;
+  collapsedItems?: TNode<{ value: SelectOption[]; collapsedSelectedItems: SelectOption[]; count: number }>;
   /**
    * 是否允许用户创建新条目，需配合 filterable 使用
    * @default false
@@ -39,7 +39,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
    */
   empty?: string | TNode;
   /**
-   * 过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据
+   * 自定义过滤方法，用于对现有数据进行搜索过滤，判断是否过滤某一项数据
    */
   filter?: (filterWords: string, option: SelectOption) => boolean | Promise<boolean>;
   /**
@@ -115,7 +115,7 @@ export interface TdSelectProps<SelectOption extends Options = Options> {
   /**
    * 自定义选中项呈现方式
    */
-  valueDisplay?: TNode;
+  valueDisplay?: TNode<{ value: SelectOption[]; onClose: () => void }>;
   /**
    * 用于控制选中值的类型。假设数据选项为：[{ label: '姓名', value: 'name' }]，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
    * @default value

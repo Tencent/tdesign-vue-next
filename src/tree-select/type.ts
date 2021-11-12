@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-10-15 14:33:12
+ * updated at 2021-11-11 17:18:20
  * */
 
 import { PopupProps } from '../popup';
@@ -18,7 +18,7 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
   /**
    * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义
    */
-  collapsedItems?: TNode;
+  collapsedItems?: TNode<{ value: DataOption[]; collapsedSelectedItems: DataOption[]; count: number }>;
   /**
    * 数据
    * @default []
@@ -98,6 +98,10 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    * 选中值，非受控属性
    */
   defaultValue?: TreeSelectValue;
+  /**
+   * 自定义选中项呈现方式
+   */
+  valueDisplay?: TNode<{ value: DataOption[]; onClose: () => void }>;
   /**
    * 用于控制选中值的类型。假设数据选项为：[{ label: '姓名', value: 'name' }]，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据
    * @default value

@@ -502,6 +502,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
       
       <div
         class="t-form__item t-form-item__"
+        style="margin-bottom: 16px;"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -545,6 +546,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
       </div>
       <div
         class="t-form__item t-form-item__"
+        style="margin-bottom: 16px;"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -588,6 +590,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
       </div>
       <div
         class="t-form__item t-form-item__"
+        style="margin-bottom: 16px;"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -608,70 +611,81 @@ exports[`Tree:demo checkable demo works fine 1`] = `
           >
             
             <div
-              class="t-radio-group t-radio-group-medium t-radio-group-outline"
+              class="t-radio-group t-radio-group-medium t-radio-group-filled"
               modelvalue="onlyLeaf"
             >
               
+              
               <label
-                class="t-radio t-is-checked"
+                class="t-radio-button t-is-checked"
               >
                 <input
-                  class="t-radio__former"
+                  class="t-radio-button__former"
                   name="value-mode"
                   type="radio"
                   value="onlyLeaf"
                 />
                 <span
-                  class="t-radio__input"
+                  class="t-radio-button__input"
                 />
                 <span
-                  class="t-radio__label"
+                  class="t-radio-button__label"
                 >
                   
+                  
                   onlyLeaf
+                  
                   
                 </span>
               </label>
               <label
-                class="t-radio"
+                class="t-radio-button"
               >
                 <input
-                  class="t-radio__former"
+                  class="t-radio-button__former"
                   name="value-mode"
                   type="radio"
                   value="parentFirst"
                 />
                 <span
-                  class="t-radio__input"
+                  class="t-radio-button__input"
                 />
                 <span
-                  class="t-radio__label"
+                  class="t-radio-button__label"
                 >
                   
+                  
                   parentFirst
+                  
                   
                 </span>
               </label>
               <label
-                class="t-radio"
+                class="t-radio-button"
               >
                 <input
-                  class="t-radio__former"
+                  class="t-radio-button__former"
                   name="value-mode"
                   type="radio"
                   value="all"
                 />
                 <span
-                  class="t-radio__input"
+                  class="t-radio-button__input"
                 />
                 <span
-                  class="t-radio__label"
+                  class="t-radio-button__label"
                 >
+                  
                   
                   all
                   
+                  
                 </span>
               </label>
+              
+              <div
+                class="t-radio-group-filled-bg-block"
+              />
               
             </div>
             
@@ -2552,7 +2566,7 @@ exports[`Tree:demo empty demo works fine 1`] = `
 
 exports[`Tree:demo expand-all demo works fine 1`] = `
 <div
-  class="tdesign-tree-base"
+  class="tdesign-tree-demo"
 >
   <div
     class="operations"
@@ -2584,47 +2598,6 @@ exports[`Tree:demo expand-all demo works fine 1`] = `
               class="t-switch t-size-m"
               disabled="false"
               modelvalue="false"
-            >
-              <span
-                class="t-switch__handle"
-              >
-                <!---->
-              </span>
-              <div
-                class="t-switch__content t-size-m"
-              >
-                <!---->
-              </div>
-            </div>
-            
-            <!---->
-          </div>
-          <!---->
-        </div>
-      </div>
-      <div
-        class="t-form__item t-form-item__"
-      >
-        <div
-          class="t-form__label t-form__label--right"
-        >
-          <label
-            for=""
-          >
-            提供 hover 状态
-          </label>
-        </div>
-        <div
-          class="t-form__controls"
-        >
-          <div
-            class="t-form__controls--content"
-          >
-            
-            <div
-              class="t-switch t-size-m t-is-checked"
-              disabled="false"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -2688,7 +2661,7 @@ exports[`Tree:demo expand-all demo works fine 1`] = `
     </form>
   </div>
   <div
-    class="t-tree t-tree--hoverable t-tree--fx"
+    class="t-tree t-tree--fx"
     modelvalue=""
   >
     <transition-group-stub>
@@ -3525,7 +3498,7 @@ exports[`Tree:demo icon demo works fine 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t79"
+        data-value="t77"
         style="--level: 0;"
       >
         
@@ -3556,7 +3529,7 @@ exports[`Tree:demo icon demo works fine 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t80"
+        data-value="t78"
         style="--level: 0;"
       >
         
@@ -3600,7 +3573,7 @@ exports[`Tree:demo icon demo works fine 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t81"
+        data-value="t79"
         style="--level: 0;"
       >
         
@@ -3633,7 +3606,7 @@ exports[`Tree:demo icon demo works fine 1`] = `
       <div
         class="t-tree__item"
         data-level="0"
-        data-value="t82"
+        data-value="t80"
         style="--level: 0;"
       >
         
@@ -3672,7 +3645,7 @@ exports[`Tree:demo icon demo works fine 1`] = `
 
 exports[`Tree:demo label demo works fine 1`] = `
 <div
-  class="tdesign-tree-base"
+  class="tdesign-tree-demo"
 >
   <h3>
     render:
@@ -3686,7 +3659,7 @@ exports[`Tree:demo label demo works fine 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t67"
+        data-value="t65"
         style="--level: 0;"
       >
         
@@ -3715,9 +3688,9 @@ exports[`Tree:demo label demo works fine 1`] = `
           <span
             style="position: relative;"
           >
-            <div>
-              value: t67, label: 1
-            </div>
+            <strong>
+              value: t65, label: 1
+            </strong>
           </span>
         </span>
         
@@ -3725,7 +3698,7 @@ exports[`Tree:demo label demo works fine 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="1"
-        data-value="t68"
+        data-value="t66"
         style="--level: 1;"
       >
         
@@ -3742,9 +3715,75 @@ exports[`Tree:demo label demo works fine 1`] = `
           <span
             style="position: relative;"
           >
-            <div>
-              value: t68, label: 1.1
-            </div>
+            <strong>
+              value: t66, label: 1.1
+            </strong>
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t67"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <strong>
+              value: t67, label: 1.2
+            </strong>
+          </span>
+        </span>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="0"
+        data-value="t68"
+        style="--level: 0;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          ignore="active"
+          trigger="expand"
+        >
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tree__label t-tree__label--strictly"
+        >
+          <span
+            style="position: relative;"
+          >
+            <strong>
+              value: t68, label: 2
+            </strong>
           </span>
         </span>
         
@@ -3769,56 +3808,17 @@ exports[`Tree:demo label demo works fine 1`] = `
           <span
             style="position: relative;"
           >
-            <div>
-              value: t69, label: 1.2
-            </div>
+            <strong>
+              value: t69, label: 2.1
+            </strong>
           </span>
         </span>
         
       </div>
       <div
         class="t-tree__item t-tree__item--open"
-        data-level="0"
+        data-level="1"
         data-value="t70"
-        style="--level: 0;"
-      >
-        
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            <div>
-              value: t70, label: 2
-            </div>
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="t71"
         style="--level: 1;"
       >
         
@@ -3835,36 +3835,9 @@ exports[`Tree:demo label demo works fine 1`] = `
           <span
             style="position: relative;"
           >
-            <div>
-              value: t71, label: 2.1
-            </div>
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="t72"
-        style="--level: 1;"
-      >
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            <div>
-              value: t72, label: 2.2
-            </div>
+            <strong>
+              value: t70, label: 2.2
+            </strong>
           </span>
         </span>
         
@@ -3885,7 +3858,7 @@ exports[`Tree:demo label demo works fine 1`] = `
       <div
         class="t-tree__item t-tree__item--open"
         data-level="0"
-        data-value="t73"
+        data-value="t71"
         style="--level: 0;"
       >
         
@@ -3915,6 +3888,92 @@ exports[`Tree:demo label demo works fine 1`] = `
         >
           <input
             class="t-checkbox__former"
+            name="t71"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            
+            <span
+              style="color: blue;"
+            >
+              label: 1, value: t71
+            </span>
+            
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t72"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
+            name="t72"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            
+            <span
+              style="color: blue;"
+            >
+              label: 1.1, value: t72
+            </span>
+            
+            
+          </span>
+        </label>
+        
+      </div>
+      <div
+        class="t-tree__item t-tree__item--open"
+        data-level="1"
+        data-value="t73"
+        style="--level: 1;"
+      >
+        
+        <span
+          class="t-tree__icon t-folder-icon"
+          ignore="active"
+          trigger="expand"
+        >
+          
+        </span>
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
+        >
+          <input
+            class="t-checkbox__former"
             name="t73"
             type="checkbox"
           />
@@ -3927,9 +3986,9 @@ exports[`Tree:demo label demo works fine 1`] = `
             
             
             <span
-              color="blue"
+              style="color: blue;"
             >
-              label: 1, value: t73
+              label: 1.2, value: t73
             </span>
             
             
@@ -3939,17 +3998,29 @@ exports[`Tree:demo label demo works fine 1`] = `
       </div>
       <div
         class="t-tree__item t-tree__item--open"
-        data-level="1"
+        data-level="0"
         data-value="t74"
-        style="--level: 1;"
+        style="--level: 0;"
       >
         
         <span
-          class="t-tree__icon t-folder-icon"
+          class="t-tree__icon t-folder-icon t-tree__icon--default"
           ignore="active"
           trigger="expand"
         >
-          
+          <svg
+            class="t-icon t-icon-caret-right-small"
+            version="1.1"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M384 320L384 704 672 512 384 320Z"
+              fill-opacity=".9"
+              fill-rule="evenodd"
+            />
+          </svg>
         </span>
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
@@ -3970,9 +4041,9 @@ exports[`Tree:demo label demo works fine 1`] = `
             
             
             <span
-              color="blue"
+              style="color: blue;"
             >
-              label: 1.1, value: t74
+              label: 2, value: t74
             </span>
             
             
@@ -4013,9 +4084,9 @@ exports[`Tree:demo label demo works fine 1`] = `
             
             
             <span
-              color="blue"
+              style="color: blue;"
             >
-              label: 1.2, value: t75
+              label: 2.1, value: t75
             </span>
             
             
@@ -4025,29 +4096,17 @@ exports[`Tree:demo label demo works fine 1`] = `
       </div>
       <div
         class="t-tree__item t-tree__item--open"
-        data-level="0"
+        data-level="1"
         data-value="t76"
-        style="--level: 0;"
+        style="--level: 1;"
       >
         
         <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
+          class="t-tree__icon t-folder-icon"
           ignore="active"
           trigger="expand"
         >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
+          
         </span>
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
@@ -4068,95 +4127,9 @@ exports[`Tree:demo label demo works fine 1`] = `
             
             
             <span
-              color="blue"
+              style="color: blue;"
             >
-              label: 2, value: t76
-            </span>
-            
-            
-          </span>
-        </label>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="t77"
-        style="--level: 1;"
-      >
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-          ignore="expand,active"
-          modelvalue="false"
-        >
-          <input
-            class="t-checkbox__former"
-            name="t77"
-            type="checkbox"
-          />
-          <span
-            class="t-checkbox__input"
-          />
-          <span
-            class="t-checkbox__label"
-          >
-            
-            
-            <span
-              color="blue"
-            >
-              label: 2.1, value: t77
-            </span>
-            
-            
-          </span>
-        </label>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="t78"
-        style="--level: 1;"
-      >
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-          ignore="expand,active"
-          modelvalue="false"
-        >
-          <input
-            class="t-checkbox__former"
-            name="t78"
-            type="checkbox"
-          />
-          <span
-            class="t-checkbox__input"
-          />
-          <span
-            class="t-checkbox__label"
-          >
-            
-            
-            <span
-              color="blue"
-            >
-              label: 2.2, value: t78
+              label: 2.2, value: t76
             </span>
             
             
@@ -4173,99 +4146,28 @@ exports[`Tree:demo label demo works fine 1`] = `
 
 exports[`Tree:demo lazy demo works fine 1`] = `
 <div
-  class="tdesign-tree-base"
+  class="tdesign-tree-demo"
 >
-  <div
-    class="t-tree t-tree--hoverable t-tree--fx"
-    modelvalue=""
+  <h3
+    class="title"
   >
-    <transition-group-stub>
-      
-      <div
-        class="t-tree__item"
-        data-level="0"
-        data-value="t65"
-        style="--level: 0;"
-      >
-        
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item"
-        data-level="0"
-        data-value="t66"
-        style="--level: 0;"
-      >
-        
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2
-          </span>
-        </span>
-        
-      </div>
-      
-    </transition-group-stub>
-    <!---->
-  </div>
-</div>
-`;
-
-exports[`Tree:demo line demo works fine 1`] = `
-<div
-  class="tdesign-tree-line"
->
+    数据延迟加载
+  </h3>
+  <p
+    class="tips"
+  >
+    默认为点击加载数据。
+  </p>
+  <p
+    class="tips"
+  >
+    valueMode 默认为 'onlyLeaf'。选中父节点时，子节点由于未加载，无法更新和获取选中状态，导致无法更新父节点的状态。
+  </p>
+  <p
+    class="tips"
+  >
+    所以使用延迟加载时，推荐 valueMode 设置为 'all' 或者 'parentFirst'。
+  </p>
   <div
     class="operations"
   >
@@ -4278,17 +4180,15 @@ exports[`Tree:demo line demo works fine 1`] = `
       >
         <div
           class="t-form__label t-form__label--right"
-          style="width: 100px;"
         >
           <label
             for=""
           >
-            显示连线
+            可选
           </label>
         </div>
         <div
           class="t-form__controls"
-          style="margin-left: 100px;"
         >
           <div
             class="t-form__controls--content"
@@ -4321,26 +4221,24 @@ exports[`Tree:demo line demo works fine 1`] = `
       >
         <div
           class="t-form__label t-form__label--right"
-          style="width: 100px;"
         >
           <label
             for=""
           >
-            显示图标
+            严格模式
           </label>
         </div>
         <div
           class="t-form__controls"
-          style="margin-left: 100px;"
         >
           <div
             class="t-form__controls--content"
           >
             
             <div
-              class="t-switch t-size-m t-is-checked"
+              class="t-switch t-size-m"
               disabled="false"
-              modelvalue="true"
+              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -4363,13 +4261,13 @@ exports[`Tree:demo line demo works fine 1`] = `
     </form>
   </div>
   <div
-    class="t-tree t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--checkable t-tree--fx"
     modelvalue=""
   >
     <transition-group-stub>
       
       <div
-        class="t-tree__item t-tree__item--open"
+        class="t-tree__item"
         data-level="0"
         data-value="1"
         style="--level: 0;"
@@ -4394,77 +4292,31 @@ exports[`Tree:demo line demo works fine 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
         >
+          <input
+            class="t-checkbox__former"
+            name="1"
+            type="checkbox"
+          />
           <span
-            style="position: relative;"
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
           >
+            
             1
+            
           </span>
-        </span>
+        </label>
         
       </div>
       <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="1.1"
-        style="--level: 1;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--leaf t-tree__line--first"
-          style="--level: 1;"
-        />
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="1.2"
-        style="--level: 1;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--leaf"
-          style="--level: 1;"
-        />
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            1.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
+        class="t-tree__item"
         data-level="0"
         data-value="2"
         style="--level: 0;"
@@ -4489,1925 +4341,2184 @@ exports[`Tree:demo line demo works fine 1`] = `
             />
           </svg>
         </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
+        <label
+          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          ignore="expand,active"
+          modelvalue="false"
         >
+          <input
+            class="t-checkbox__former"
+            name="2"
+            type="checkbox"
+          />
           <span
-            style="position: relative;"
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
           >
+            
             2
+            
           </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="2.1"
-        style="--level: 1;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--first"
-          style="--level: 1;"
-        />
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="2"
-        data-value="2.1.1"
-        style="--level: 2;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--first"
-          style="--level: 2; box-shadow: calc(-1 * var(--space)) 0 var(--color);"
-        />
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="3"
-        data-value="2.1.1.1"
-        style="--level: 3;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--first"
-          style="--level: 3; box-shadow: calc(-1 * var(--space)) 0 var(--color),calc(-2 * var(--space)) 0 var(--color);"
-        />
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="4"
-        data-value="2.1.1.1.1"
-        style="--level: 4;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--leaf t-tree__line--first"
-          style="--level: 4; box-shadow: calc(-2 * var(--space)) 0 var(--color),calc(-3 * var(--space)) 0 var(--color);"
-        />
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.1.1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="4"
-        data-value="2.1.1.1.2"
-        style="--level: 4;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--leaf"
-          style="--level: 4; box-shadow: calc(-2 * var(--space)) 0 var(--color),calc(-3 * var(--space)) 0 var(--color);"
-        />
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.1.1.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="2"
-        data-value="2.1.2"
-        style="--level: 2;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--leaf"
-          style="--level: 2; box-shadow: calc(-1 * var(--space)) 0 var(--color);"
-        />
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="2.2"
-        style="--level: 1;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--leaf"
-          style="--level: 1;"
-        />
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="3"
-        style="--level: 0;"
-      >
-        
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            3
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="3.1"
-        style="--level: 1;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--leaf t-tree__line--first"
-          style="--level: 1;"
-        />
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            3.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="3.2"
-        style="--level: 1;"
-      >
-        
-        <span
-          class="t-tree__line t-tree__line--leaf"
-          style="--level: 1;"
-        />
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            3.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="4"
-        style="--level: 0;"
-      >
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            4
-          </span>
-        </span>
+        </label>
         
       </div>
       
     </transition-group-stub>
     <!---->
   </div>
-  <h3>
-    render
-  </h3>
-  <div
-    class="t-tree t-tree--fx"
-    modelvalue=""
+</div>
+`;
+
+exports[`Tree:demo line demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-column-large"
+>
+  <form
+    class="t-form"
   >
-    <transition-group-stub>
-      
+    
+    <div
+      class="t-form__item t-form-item__"
+      style="margin-bottom: 16px;"
+    >
       <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="1"
-        style="--level: 0;"
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
       >
-        
-        <div
-          class="custom-line custom-line-first"
+        <label
+          for=""
         >
-          <div
-            class="custom-line-box"
-          />
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            1
-          </span>
-        </span>
-        
+          显示连线
+        </label>
       </div>
       <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="1.1"
-        style="--level: 1;"
+        class="t-form__controls"
+        style="margin-left: 100px;"
       >
-        
         <div
-          class="custom-line custom-line-first custom-line-leaf"
-        >
-          <div
-            class="custom-line-box"
-          >
-            <span
-              class=""
-            />
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
-            >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
+          class="t-form__controls--content"
         >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="1.2"
-        style="--level: 1;"
-      >
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
           <div
-            class="custom-line-box"
+            class="t-switch t-size-m t-is-checked"
+            disabled="false"
+            modelvalue="true"
           >
             <span
-              class=""
-            />
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
+              class="t-switch__handle"
             >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
+              <!---->
+            </span>
+            <div
+              class="t-switch__content t-size-m"
+            >
+              <!---->
+            </div>
+          </div>
+          
+          <!---->
         </div>
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__"
+      style="margin-bottom: 16px;"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          显示图标
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls--content"
         >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            1.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="2"
-        style="--level: 0;"
-      >
-        
-        <div
-          class="custom-line"
-        >
           <div
-            class="custom-line-box"
-          />
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="2.1"
-        style="--level: 1;"
-      >
-        
-        <div
-          class="custom-line custom-line-first"
-        >
-          <div
-            class="custom-line-box"
+            class="t-switch t-size-m t-is-checked"
+            disabled="false"
+            modelvalue="true"
           >
             <span
-              class=""
-            />
-          </div>
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="2"
-        data-value="2.1.1"
-        style="--level: 2;"
-      >
-        
-        <div
-          class="custom-line custom-line-first"
-        >
-          <div
-            class="custom-line-box"
-          >
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class=""
-            />
-          </div>
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="3"
-        data-value="2.1.1.1"
-        style="--level: 3;"
-      >
-        
-        <div
-          class="custom-line custom-line-first custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          >
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class=""
-            />
-          </div>
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="4"
-        data-value="2.1.1.1.1"
-        style="--level: 4;"
-      >
-        
-        <div
-          class="custom-line custom-line-first custom-line-leaf"
-        >
-          <div
-            class="custom-line-box"
-          >
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class=""
-            />
-            <span
-              class=""
-            />
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
+              class="t-switch__handle"
             >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.1.1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="4"
-        data-value="2.1.1.1.2"
-        style="--level: 4;"
-      >
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          >
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class=""
-            />
-            <span
-              class=""
-            />
+              <!---->
+            </span>
+            <div
+              class="t-switch__content t-size-m"
+            >
+              <!---->
+            </div>
           </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
-            >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.1.1.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="2"
-        data-value="2.1.2"
-        style="--level: 2;"
-      >
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          >
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class=""
-            />
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
-            >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
+          <!---->
         </div>
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.2
-          </span>
-        </span>
-        
+        <!---->
       </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="2.2"
-        style="--level: 1;"
-      >
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          >
-            <span
-              class=""
-            />
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
-            >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="3"
-        style="--level: 0;"
-      >
-        
-        <div
-          class="custom-line"
-        >
-          <div
-            class="custom-line-box"
-          />
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            3
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="3.1"
-        style="--level: 1;"
-      >
-        
-        <div
-          class="custom-line custom-line-first custom-line-leaf"
-        >
-          <div
-            class="custom-line-box"
-          >
-            <span
-              class=""
-            />
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
-            >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            3.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="3.2"
-        style="--level: 1;"
-      >
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          >
-            <span
-              class=""
-            />
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
-            >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            3.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="4"
-        style="--level: 0;"
-      >
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          />
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
-            >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
-        </div>
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            4
-          </span>
-        </span>
-        
-      </div>
-      
-    </transition-group-stub>
-    <!---->
-  </div>
-  <h3>
-    scope slot
-  </h3>
+    </div>
+    
+  </form>
   <div
-    class="t-tree t-tree--fx"
-    modelvalue=""
+    class="tdesign-demo-block-column"
   >
-    <transition-group-stub>
-      
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="1"
-        style="--level: 0;"
-      >
-        
+    <div
+      class="t-tree t-tree--fx"
+      modelvalue=""
+    >
+      <transition-group-stub>
         
         <div
-          class="custom-line custom-line-first"
-        >
-          <div
-            class="custom-line-box"
-          >
-            
-            
-          </div>
-          <!--v-if-->
-        </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="1.1"
-        style="--level: 1;"
-      >
-        
-        
-        <div
-          class="custom-line custom-line-first custom-line-leaf"
-        >
-          <div
-            class="custom-line-box"
-          >
-            
-            <span
-              class=""
-            />
-            
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
-            >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
-        </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="1"
+          style="--level: 0;"
         >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
           <span
-            style="position: relative;"
-          >
-            1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="1.2"
-        style="--level: 1;"
-      >
-        
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          >
-            
-            <span
-              class=""
-            />
-            
-          </div>
-          <i
-            class="custom-line-icon"
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
           >
             <svg
-              class="t-icon t-icon-heart-filled"
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <use
-                href="#t-icon-heart-filled"
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
               />
             </svg>
-          </i>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              1
+            </span>
+          </span>
+          
         </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="1.1"
+          style="--level: 1;"
         >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
           <span
-            style="position: relative;"
+            class="t-tree__line t-tree__line--leaf t-tree__line--first"
+            style="--level: 1;"
+          />
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
           >
-            1.2
+            
           </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="2"
-        style="--level: 0;"
-      >
-        
-        
-        <div
-          class="custom-line"
-        >
-          <div
-            class="custom-line-box"
+          <span
+            class="t-tree__label t-tree__label--strictly"
           >
-            
-            
-          </div>
-          <!--v-if-->
+            <span
+              style="position: relative;"
+            >
+              1.1
+            </span>
+          </span>
+          
         </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="2.1"
-        style="--level: 1;"
-      >
-        
-        
         <div
-          class="custom-line custom-line-first"
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="1.2"
+          style="--level: 1;"
         >
-          <div
-            class="custom-line-box"
+          
+          <span
+            class="t-tree__line t-tree__line--leaf"
+            style="--level: 1;"
+          />
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
           >
             
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
             <span
-              class=""
-            />
-            
-          </div>
-          <!--v-if-->
+              style="position: relative;"
+            >
+              1.2
+            </span>
+          </span>
+          
         </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="2"
-        data-value="2.1.1"
-        style="--level: 2;"
-      >
-        
-        
         <div
-          class="custom-line custom-line-first"
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="2"
+          style="--level: 0;"
         >
-          <div
-            class="custom-line-box"
-          >
-            
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class=""
-            />
-            
-          </div>
-          <!--v-if-->
-        </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
+          
           <span
-            style="position: relative;"
-          >
-            2.1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="3"
-        data-value="2.1.1.1"
-        style="--level: 3;"
-      >
-        
-        
-        <div
-          class="custom-line custom-line-first custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          >
-            
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class=""
-            />
-            
-          </div>
-          <!--v-if-->
-        </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="4"
-        data-value="2.1.1.1.1"
-        style="--level: 4;"
-      >
-        
-        
-        <div
-          class="custom-line custom-line-first custom-line-leaf"
-        >
-          <div
-            class="custom-line-box"
-          >
-            
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class=""
-            />
-            <span
-              class=""
-            />
-            
-          </div>
-          <i
-            class="custom-line-icon"
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
           >
             <svg
-              class="t-icon t-icon-heart-filled"
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <use
-                href="#t-icon-heart-filled"
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
               />
             </svg>
-          </i>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2
+            </span>
+          </span>
+          
         </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="2.1"
+          style="--level: 1;"
         >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
           <span
-            style="position: relative;"
-          >
-            2.1.1.1.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="4"
-        data-value="2.1.1.1.2"
-        style="--level: 4;"
-      >
-        
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          >
-            
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class=""
-            />
-            <span
-              class=""
-            />
-            
-          </div>
-          <i
-            class="custom-line-icon"
+            class="t-tree__line t-tree__line--first"
+            style="--level: 1;"
+          />
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
           >
             <svg
-              class="t-icon t-icon-heart-filled"
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <use
-                href="#t-icon-heart-filled"
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
               />
             </svg>
-          </i>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1
+            </span>
+          </span>
+          
         </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="2"
+          data-value="2.1.1"
+          style="--level: 2;"
         >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
           <span
-            style="position: relative;"
-          >
-            2.1.1.1.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="2"
-        data-value="2.1.2"
-        style="--level: 2;"
-      >
-        
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          >
-            
-            <span
-              class="custom-line-cross"
-            />
-            <span
-              class=""
-            />
-            
-          </div>
-          <i
-            class="custom-line-icon"
+            class="t-tree__line t-tree__line--first"
+            style="--level: 2; box-shadow: calc(-1 * var(--space)) 0 var(--color);"
+          />
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
           >
             <svg
-              class="t-icon t-icon-heart-filled"
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <use
-                href="#t-icon-heart-filled"
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
               />
             </svg>
-          </i>
-        </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
-        >
-          
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
-          >
-            2.1.2
           </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="2.2"
-        style="--level: 1;"
-      >
-        
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
+          <span
+            class="t-tree__label t-tree__label--strictly"
           >
-            
             <span
-              class=""
-            />
-            
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
+              style="position: relative;"
             >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
+              2.1.1
+            </span>
+          </span>
+          
         </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="3"
+          data-value="2.1.1.1"
+          style="--level: 3;"
         >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
           <span
-            style="position: relative;"
-          >
-            2.2
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="3"
-        style="--level: 0;"
-      >
-        
-        
-        <div
-          class="custom-line"
-        >
-          <div
-            class="custom-line-box"
-          >
-            
-            
-          </div>
-          <!--v-if-->
-        </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon t-tree__icon--default"
-          ignore="active"
-          trigger="expand"
-        >
-          <svg
-            class="t-icon t-icon-caret-right-small"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M384 320L384 704 672 512 384 320Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
+            class="t-tree__line t-tree__line--first"
+            style="--level: 3; box-shadow: calc(-1 * var(--space)) 0 var(--color),calc(-2 * var(--space)) 0 var(--color);"
+          />
           <span
-            style="position: relative;"
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
           >
-            3
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
           </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="3.1"
-        style="--level: 1;"
-      >
-        
-        
-        <div
-          class="custom-line custom-line-first custom-line-leaf"
-        >
-          <div
-            class="custom-line-box"
+          <span
+            class="t-tree__label t-tree__label--strictly"
           >
-            
             <span
-              class=""
-            />
-            
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
+              style="position: relative;"
             >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
+              2.1.1.1
+            </span>
+          </span>
+          
         </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="4"
+          data-value="2.1.1.1.1"
+          style="--level: 4;"
         >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
           <span
-            style="position: relative;"
-          >
-            3.1
-          </span>
-        </span>
-        
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="1"
-        data-value="3.2"
-        style="--level: 1;"
-      >
-        
-        
-        <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
+            class="t-tree__line t-tree__line--leaf t-tree__line--first"
+            style="--level: 4; box-shadow: calc(-2 * var(--space)) 0 var(--color),calc(-3 * var(--space)) 0 var(--color);"
+          />
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
           >
             
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
             <span
-              class=""
-            />
-            
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
+              style="position: relative;"
             >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
+              2.1.1.1.1
+            </span>
+          </span>
+          
         </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="4"
+          data-value="2.1.1.1.2"
+          style="--level: 4;"
         >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
           <span
-            style="position: relative;"
+            class="t-tree__line t-tree__line--leaf"
+            style="--level: 4; box-shadow: calc(-2 * var(--space)) 0 var(--color),calc(-3 * var(--space)) 0 var(--color);"
+          />
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
           >
-            3.2
+            
           </span>
-        </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.1.1.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="2"
+          data-value="2.1.2"
+          style="--level: 2;"
+        >
+          
+          <span
+            class="t-tree__line t-tree__line--leaf"
+            style="--level: 2; box-shadow: calc(-1 * var(--space)) 0 var(--color);"
+          />
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="2.2"
+          style="--level: 1;"
+        >
+          
+          <span
+            class="t-tree__line t-tree__line--leaf"
+            style="--level: 1;"
+          />
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="3"
+          style="--level: 0;"
+        >
+          
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              3
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="3.1"
+          style="--level: 1;"
+        >
+          
+          <span
+            class="t-tree__line t-tree__line--leaf t-tree__line--first"
+            style="--level: 1;"
+          />
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              3.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="3.2"
+          style="--level: 1;"
+        >
+          
+          <span
+            class="t-tree__line t-tree__line--leaf"
+            style="--level: 1;"
+          />
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              3.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="4"
+          style="--level: 0;"
+        >
+          
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              4
+            </span>
+          </span>
+          
+        </div>
         
-      </div>
-      <div
-        class="t-tree__item t-tree__item--open"
-        data-level="0"
-        data-value="4"
-        style="--level: 0;"
-      >
-        
+      </transition-group-stub>
+      <!---->
+    </div>
+    <h3>
+      render
+    </h3>
+    <div
+      class="t-tree t-tree--fx"
+      modelvalue=""
+    >
+      <transition-group-stub>
         
         <div
-          class="custom-line custom-line-leaf custom-line-last"
-        >
-          <div
-            class="custom-line-box"
-          >
-            
-            
-          </div>
-          <i
-            class="custom-line-icon"
-          >
-            <svg
-              class="t-icon t-icon-heart-filled"
-            >
-              <use
-                href="#t-icon-heart-filled"
-              />
-            </svg>
-          </i>
-        </div>
-        
-        <span
-          class="t-tree__icon t-folder-icon"
-          ignore="active"
-          trigger="expand"
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="1"
+          style="--level: 0;"
         >
           
-        </span>
-        <span
-          class="t-tree__label t-tree__label--strictly"
-        >
-          <span
-            style="position: relative;"
+          <div
+            class="custom-line custom-line-first"
           >
-            4
+            <div
+              class="custom-line-box"
+            />
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
           </span>
-        </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="1.1"
+          style="--level: 1;"
+        >
+          
+          <div
+            class="custom-line custom-line-first custom-line-leaf"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class=""
+              />
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              1.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="1.2"
+          style="--level: 1;"
+        >
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class=""
+              />
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              1.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="2"
+          style="--level: 0;"
+        >
+          
+          <div
+            class="custom-line"
+          >
+            <div
+              class="custom-line-box"
+            />
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="2.1"
+          style="--level: 1;"
+        >
+          
+          <div
+            class="custom-line custom-line-first"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class=""
+              />
+            </div>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="2"
+          data-value="2.1.1"
+          style="--level: 2;"
+        >
+          
+          <div
+            class="custom-line custom-line-first"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class=""
+              />
+            </div>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="3"
+          data-value="2.1.1.1"
+          style="--level: 3;"
+        >
+          
+          <div
+            class="custom-line custom-line-first custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class=""
+              />
+            </div>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.1.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="4"
+          data-value="2.1.1.1.1"
+          style="--level: 4;"
+        >
+          
+          <div
+            class="custom-line custom-line-first custom-line-leaf"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class=""
+              />
+              <span
+                class=""
+              />
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.1.1.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="4"
+          data-value="2.1.1.1.2"
+          style="--level: 4;"
+        >
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class=""
+              />
+              <span
+                class=""
+              />
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.1.1.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="2"
+          data-value="2.1.2"
+          style="--level: 2;"
+        >
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class=""
+              />
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="2.2"
+          style="--level: 1;"
+        >
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class=""
+              />
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="3"
+          style="--level: 0;"
+        >
+          
+          <div
+            class="custom-line"
+          >
+            <div
+              class="custom-line-box"
+            />
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              3
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="3.1"
+          style="--level: 1;"
+        >
+          
+          <div
+            class="custom-line custom-line-first custom-line-leaf"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class=""
+              />
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              3.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="3.2"
+          style="--level: 1;"
+        >
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              <span
+                class=""
+              />
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              3.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="4"
+          style="--level: 0;"
+        >
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            />
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              4
+            </span>
+          </span>
+          
+        </div>
         
-      </div>
-      
-    </transition-group-stub>
-    <!---->
+      </transition-group-stub>
+      <!---->
+    </div>
+    <h3>
+      scope slot
+    </h3>
+    <div
+      class="t-tree t-tree--fx"
+      modelvalue=""
+    >
+      <transition-group-stub>
+        
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="1"
+          style="--level: 0;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-first"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              
+            </div>
+            <!--v-if-->
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="1.1"
+          style="--level: 1;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-first custom-line-leaf"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class=""
+              />
+              
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              1.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="1.2"
+          style="--level: 1;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class=""
+              />
+              
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              1.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="2"
+          style="--level: 0;"
+        >
+          
+          
+          <div
+            class="custom-line"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              
+            </div>
+            <!--v-if-->
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="2.1"
+          style="--level: 1;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-first"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class=""
+              />
+              
+            </div>
+            <!--v-if-->
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="2"
+          data-value="2.1.1"
+          style="--level: 2;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-first"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class=""
+              />
+              
+            </div>
+            <!--v-if-->
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="3"
+          data-value="2.1.1.1"
+          style="--level: 3;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-first custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class=""
+              />
+              
+            </div>
+            <!--v-if-->
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.1.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="4"
+          data-value="2.1.1.1.1"
+          style="--level: 4;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-first custom-line-leaf"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class=""
+              />
+              <span
+                class=""
+              />
+              
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.1.1.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="4"
+          data-value="2.1.1.1.2"
+          style="--level: 4;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class=""
+              />
+              <span
+                class=""
+              />
+              
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.1.1.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="2"
+          data-value="2.1.2"
+          style="--level: 2;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class="custom-line-cross"
+              />
+              <span
+                class=""
+              />
+              
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.1.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="2.2"
+          style="--level: 1;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class=""
+              />
+              
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              2.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="3"
+          style="--level: 0;"
+        >
+          
+          
+          <div
+            class="custom-line"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              
+            </div>
+            <!--v-if-->
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon t-tree__icon--default"
+            ignore="active"
+            trigger="expand"
+          >
+            <svg
+              class="t-icon t-icon-caret-right-small"
+              version="1.1"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M384 320L384 704 672 512 384 320Z"
+                fill-opacity=".9"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              3
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="3.1"
+          style="--level: 1;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-first custom-line-leaf"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class=""
+              />
+              
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              3.1
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="1"
+          data-value="3.2"
+          style="--level: 1;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              <span
+                class=""
+              />
+              
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              3.2
+            </span>
+          </span>
+          
+        </div>
+        <div
+          class="t-tree__item t-tree__item--open"
+          data-level="0"
+          data-value="4"
+          style="--level: 0;"
+        >
+          
+          
+          <div
+            class="custom-line custom-line-leaf custom-line-last"
+          >
+            <div
+              class="custom-line-box"
+            >
+              
+              
+            </div>
+            <i
+              class="custom-line-icon"
+            >
+              <svg
+                class="t-icon t-icon-heart-filled"
+              >
+                <use
+                  href="#t-icon-heart-filled"
+                />
+              </svg>
+            </i>
+          </div>
+          
+          <span
+            class="t-tree__icon t-folder-icon"
+            ignore="active"
+            trigger="expand"
+          >
+            
+          </span>
+          <span
+            class="t-tree__label t-tree__label--strictly"
+          >
+            <span
+              style="position: relative;"
+            >
+              4
+            </span>
+          </span>
+          
+        </div>
+        
+      </transition-group-stub>
+      <!---->
+    </div>
   </div>
 </div>
 `;
@@ -6503,12 +6614,12 @@ exports[`Tree:demo load demo works fine 1`] = `
 
 exports[`Tree:demo operations demo works fine 1`] = `
 <div
-  class="tdesign-tree-operations"
+  class="tdesign-tree-demo"
 >
   <h3
     class="title"
   >
-    render:
+    Render:
   </h3>
   <div
     class="t-tree t-tree--hoverable t-tree--fx"
@@ -6585,7 +6696,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
   <h3
     class="title"
   >
-    scope slot:
+    Scope Slot:
   </h3>
   <div
     class="operations"
@@ -6902,7 +7013,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
   <h3
     class="title"
   >
-    api:
+    API:
   </h3>
   <div
     class="operations"
@@ -7052,17 +7163,22 @@ exports[`Tree:demo operations demo works fine 1`] = `
       </span>
     </button>
   </div>
+  <p
+    class="tips"
+  >
+    * 相关信息通过控制台输出
+  </p>
 </div>
 `;
 
 exports[`Tree:demo state demo works fine 1`] = `
 <div
-  class="tdesign-tree-operations"
+  class="tdesign-tree-demo"
 >
   <h3
     class="title"
   >
-    render:
+    Render:
   </h3>
   <div
     class="t-tree t-tree--hoverable t-tree--fx"
@@ -7139,7 +7255,7 @@ exports[`Tree:demo state demo works fine 1`] = `
   <h3
     class="title"
   >
-    scope slot:
+    Scope Slot:
   </h3>
   <div
     class="operations"
@@ -7456,7 +7572,7 @@ exports[`Tree:demo state demo works fine 1`] = `
   <h3
     class="title"
   >
-    api:
+    API:
   </h3>
   <div
     class="operations"
@@ -7606,6 +7722,11 @@ exports[`Tree:demo state demo works fine 1`] = `
       </span>
     </button>
   </div>
+  <p
+    class="tips"
+  >
+    * 相关信息通过控制台输出
+  </p>
 </div>
 `;
 

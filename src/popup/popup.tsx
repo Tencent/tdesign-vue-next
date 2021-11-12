@@ -30,6 +30,7 @@ const placementMap = {
   'right-top': 'right-start',
   'right-bottom': 'right-end',
 };
+
 const showTimeout = 250;
 const hideTimeout = 150;
 const triggers = ['click', 'hover', 'focus', 'context-menu'] as const;
@@ -208,25 +209,6 @@ export default defineComponent({
         onFirstUpdate: () => {
           this.$nextTick(this.updatePopper);
         },
-        modifiers: this.showArrow ? [
-          {
-            name: 'offset',
-            options: {
-              offset: ({ placement, reference }: any) => {
-                const arrowOffset = 10;
-
-                // reference 宽度小于箭头宽度时设置偏移值，以保证箭头位置不会超出 popper
-                if (reference.width < arrowOffset) {
-                  const offset = arrowOffset - reference.width;
-                  if (/(top|bottom)-start/.test(placement)) return [-offset, 0];
-                  if (/(top|bottom)-end/.test(placement)) return [offset, 0];
-                }
-
-                return [];
-              },
-            },
-          },
-        ] : [],
       });
       popperElm.addEventListener('click', stop);
       // 监听trigger元素尺寸变化
@@ -379,7 +361,7 @@ export default defineComponent({
           >
             <div class={this.overlayClasses} ref="overlay">
               {renderTNodeJSX(this, 'content')}
-              {this.showArrow && <div class={`${name}__arrow`} data-popper-arrow></div>}
+              {this.showArrow && <div class={`${name}__arrow`}></div>}
             </div>
           </div>
         </transition>

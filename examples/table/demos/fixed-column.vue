@@ -81,3 +81,8 @@ export default {
   },
 };
 </script>
+<style lang="less" scoped>
+.tdesign-demo-block-column {
+  width: 100%;
+}
+</style>

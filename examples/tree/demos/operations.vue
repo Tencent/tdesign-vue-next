@@ -1,6 +1,6 @@
 <template>
-  <div class="tdesign-tree-operations">
-    <h3 class="title">render:</h3>
+  <div class="tdesign-tree-demo">
+    <h3 class="title">Render:</h3>
     <t-tree
       :data="items"
       hover
@@ -8,7 +8,7 @@
       :label="getLabel"
       :operations="renderOperations"
     />
-    <h3 class="title">scope slot:</h3>
+    <h3 class="title">Scope Slot:</h3>
     <div class="operations">
       <t-form labelWidth="200">
         <t-form-item label="插入节点使用高亮节点">
@@ -47,7 +47,7 @@
         <t-button size="small" variant="base" theme="danger" @click="remove(node)">删除</t-button>
       </template>
     </t-tree>
-    <h3 class="title">api:</h3>
+    <h3 class="title">API:</h3>
     <div class="operations">
       <t-button theme="primary" @click="getItem">获取 value 为 'node1' 的单个节点</t-button>
       <t-button theme="primary" @click="getAllItems">获取所有节点</t-button>
@@ -62,6 +62,7 @@
       <t-button theme="primary" @click="setActiveExpanded">展开高亮节点</t-button>
       <t-button theme="primary" @click="getActivePlainData">获取高亮节点与其子节点的数据</t-button>
     </div>
+    <p class="tips">* 相关信息通过控制台输出</p>
   </div>
 </template>
 
@@ -309,15 +310,11 @@ export default {
   },
 };
 </script>
-<style>
-.tdesign-tree-operations .title{
-  margin: 10px 0;
-  font-weight: bold;
-}
-.tdesign-tree-operations .operations .t-button{
-  margin: 0 10px 10px 0;
-}
-.tdesign-tree-operations .t-tree__operations .t-button{
-  margin-left: 10px;
+<style scoped>
+@import url('./common/demo.css');
+
+.tips {
+  font-size: 10px;
+  color: gray;
 }
 </style>

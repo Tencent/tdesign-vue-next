@@ -1,12 +1,9 @@
 <template>
-  <div class="tdesign-tree-base">
+  <div class="tdesign-tree-demo">
     <div class="operations">
       <t-form labelWidth="150">
         <t-form-item label="切换数据">
           <t-switch @change="toggleData" />
-        </t-form-item>
-        <t-form-item label="提供 hover 状态">
-          <t-switch v-model="hover"/>
         </t-form-item>
         <t-form-item label="展开动画">
           <t-switch v-model="transition"/>
@@ -16,7 +13,6 @@
     <t-tree
       :data="items"
       expand-all
-      :hover="hover"
       :transition="transition"
     />
   </div>
@@ -66,7 +62,6 @@ const data2 = [{
 export default {
   data() {
     return {
-      hover: true,
       transition: true,
       items: data1,
     };

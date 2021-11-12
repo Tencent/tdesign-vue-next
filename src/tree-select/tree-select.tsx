@@ -200,6 +200,14 @@ export default defineComponent({
       return this.isObjectValue ? [] : this.selectedMultiple;
     },
   },
+  watch: {
+    async value() {
+      await this.changeNodeInfo();
+      if (!this.multiple) {
+        this.actived = this.nodeInfo ? [this.nodeInfo.value] : [];
+      }
+    },
+  },
   async mounted() {
     if (!this.value && this.defaultValue) {
       await this.change(this.defaultValue, null);
@@ -393,7 +401,14 @@ export default defineComponent({
       ))
     );
     const collapsedItem = (this.collapsedItems || this.$slots.collapsedItems) && this.minCollapsedNum > 0 && this.tagList.length > this.minCollapsedNum
-      ? renderTNodeJSX(this, 'collapsedItems', { params: { count: this.tagList.length - this.minCollapsedNum, value: this.selectedMultiple, size: this.size } })
+      ? renderTNodeJSX(this, 'collapsedItems',
+        {
+          params: {
+            count: this.tagList.length - this.minCollapsedNum,
+            value: this.selectedMultiple,
+            collapsedSelectedItems: this.selectedMultiple.slice(this.minCollapsedNum),
+          },
+        })
       : (<Tag
       v-show={this.minCollapsedNum > 0 && this.tagList.length > this.minCollapsedNum}
       size={this.size}

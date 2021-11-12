@@ -40,7 +40,7 @@ export default defineComponent({
   render() {
     const instance = getCurrentInstance();
     const { destroyOnHide, active } = (instance as any).ctx;
-    if (!destroyOnHide && !active) return null;
+    if (destroyOnHide && !active) return null;
     return (
       <div
         class="t-tab-panel"

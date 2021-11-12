@@ -90,7 +90,12 @@ export default defineComponent({
       return !!this.loading;
     },
     tableHeight(): number | string {
-      const { height, maxHeight, useFixedHeader } = this;
+      const {
+        height, maxHeight, useFixedHeader, isEmpty,
+      } = this;
+      if (isEmpty) {
+        return 'auto';
+      }
       if (height !== 'auto' && height) {
         return height;
       }

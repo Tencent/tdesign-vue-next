@@ -64,7 +64,9 @@ exports[`Table base demo works fine 1`] = `
       </span>
     </label>
   </div>
-  <div>
+  <div
+    style="width: 100%;"
+  >
     <!---->
     <div
       class="t-table t-table--bordered t-table--striped"
@@ -470,7 +472,9 @@ exports[`Table base demo works fine 2`] = `
       </span>
     </label>
   </div>
-  <div>
+  <div
+    style="width: 100%;"
+  >
     <!---->
     <div
       class="t-table t-table--bordered t-table--striped"
@@ -833,7 +837,9 @@ exports[`Table customCell demo works fine 1`] = `
     </ul>
     <br />
   </div>
-  <div>
+  <div
+    style="width: 100%;"
+  >
     <!---->
     <div
       class="t-table"
@@ -1054,7 +1060,9 @@ exports[`Table customCell demo works fine 1`] = `
 
 exports[`Table empty demo works fine 1`] = `
 <div>
-  <div>
+  <div
+    style="width: 100%;"
+  >
     <!---->
     <div
       class="t-table"
@@ -1161,7 +1169,9 @@ exports[`Table empty demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <div>
+  <div
+    style="width: 100%;"
+  >
     <!---->
     <div
       class="t-table"
@@ -1274,7 +1284,9 @@ exports[`Table empty demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <div>
+  <div
+    style="width: 100%;"
+  >
     <!---->
     <div
       class="t-table"
@@ -1491,7 +1503,9 @@ exports[`Table expandable demo works fine 1`] = `
      
     <br />
   </div>
-  <div>
+  <div
+    style="width: 100%;"
+  >
     <!---->
     <div
       class="t-table"
@@ -2157,7 +2171,9 @@ exports[`Table expandable demo works fine 1`] = `
 `;
 
 exports[`Table fixedColumn demo works fine 1`] = `
-<div>
+<div
+  style="width: 100%;"
+>
   <!---->
   <div
     class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed"
@@ -2645,7 +2661,9 @@ exports[`Table fixedColumn demo works fine 1`] = `
 `;
 
 exports[`Table fixedHeader demo works fine 1`] = `
-<div>
+<div
+  style="width: 100%;"
+>
   <!---->
   <div
     class="t-table t-table__header--fixed"
@@ -3836,7 +3854,9 @@ exports[`Table fixedHeader demo works fine 1`] = `
 `;
 
 exports[`Table multiHeader demo works fine 1`] = `
-<div>
+<div
+  style="width: 100%;"
+>
   <!---->
   <div
     class="t-table t-table--bordered"
@@ -4071,7 +4091,9 @@ exports[`Table selectMultiple demo works fine 1`] = `
 <div>
   <!-- 支持非受控属性 default-selected-row-keys -->
   <!-- 支持语法糖 selected-row-keys.sync -->
-  <div>
+  <div
+    style="width: 100%;"
+  >
     <!---->
     <div
       class="t-table"
@@ -4553,7 +4575,9 @@ exports[`Table selectSingle demo works fine 1`] = `
 <div>
   <!-- 支持非受控属性 default-selected-row-keys -->
   <!-- 支持语法糖 selected-row-keys.sync -->
-  <div>
+  <div
+    style="width: 100%;"
+  >
     <!---->
     <div
       class="t-table"

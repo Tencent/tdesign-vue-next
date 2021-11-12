@@ -93,7 +93,7 @@ export default defineComponent({
       ...listeners,
     };
     return (
-      <div>
+      <div style="width: 100%">
         {showColumns && this.renderShowColumns()}
         <simple-table {...baseTableProps}>{$slots}</simple-table>
       </div>

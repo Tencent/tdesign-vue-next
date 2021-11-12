@@ -2,18 +2,16 @@
   <div class="tdesign-tree-base">
     <div class="operations">
       <t-form>
-        <t-form-item label="可选">
+        <t-form-item label="可选" style="margin-bottom: 16px">
           <t-switch v-model="checkable" />
         </t-form-item>
-        <t-form-item label="严格模式">
+        <t-form-item label="严格模式" style="margin-bottom: 16px">
           <t-switch v-model="checkStrictly" />
         </t-form-item>
-        <t-form-item label="选中值模式">
-          <t-radio-group
-            name="value-mode"
-            v-model="valueMode"
-            :options="valueOptions"
-          ></t-radio-group>
+        <t-form-item label="选中值模式" style="margin-bottom: 16px">
+          <t-radio-group name="value-mode" variant="default-filled" v-model="valueMode">
+            <t-radio-button v-for="item in valueOptions" :key="item.value" :value="item.value">{{ item.label }}</t-radio-button>
+          </t-radio-group>
         </t-form-item>
       </t-form>
     </div>
@@ -129,8 +127,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-  .tdesign-tree-base .t-button{
-    margin: 0 10px 10px 0;
-  }
-</style>
