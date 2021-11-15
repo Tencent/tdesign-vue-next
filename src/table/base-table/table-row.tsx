@@ -72,11 +72,12 @@ export default defineComponent({
         rowData, columns, index: rowIndex, rowspanAndColspanProps,
       } = this;
       const rowBody: Array<VNode> = [];
-      const customData: CustomData = {
-        type: 'cell',
-        func: 'cell',
-      };
+
       columns.forEach((column, index) => {
+        const customData: CustomData = {
+          type: 'cell',
+          func: 'cell',
+        };
         const { render, cell } = column;
         const { colKey } = column;
 

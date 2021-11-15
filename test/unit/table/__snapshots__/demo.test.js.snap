@@ -4299,7 +4299,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                 
               </tr>
               <tr
-                class=""
+                class="t-table__row--disabled"
                 draggable="false"
               >
                 
@@ -4470,7 +4470,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                 
               </tr>
               <tr
-                class=""
+                class="t-table__row--disabled"
                 draggable="false"
               >
                 

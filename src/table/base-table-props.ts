@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-05 00:45:48
+ * updated at 2021-11-09 20:28:26
  * */
 
 import { TdBaseTableProps } from '../table/type';
@@ -52,7 +52,7 @@ export default {
   },
   /** 行类名，泛型 T 指表格数据类型 */
   rowClassName: {
-    type: [String, Function] as PropType<TdBaseTableProps['rowClassName']>,
+    type: [String, Object, Array, Function] as PropType<TdBaseTableProps['rowClassName']>,
   },
   /** 使用 rowKey 唯一标识一行数据 */
   rowKey: {

@@ -15,6 +15,6 @@ import '@common/site/src/styles/main.less';
 
 const app = createApp(App);
 
-app.component('codesandbox', codesandbox)
+app.component('codesandbox', codesandbox);
 
 app.use(TDesign).use(router).mount('#app');

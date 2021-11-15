@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-05 00:45:48
+ * updated at 2021-11-09 20:28:26
  * */
 
 import { TdPrimaryTableProps } from '../table/type';
@@ -83,7 +83,7 @@ export default {
   onExpandChange: Function as PropType<TdPrimaryTableProps['onExpandChange']>,
   /** 过滤参数发生变化时触发，泛型 T 指表格数据类型 */
   onFilterChange: Function as PropType<TdPrimaryTableProps['onFilterChange']>,
-  /** 选中行发生变化时触发，泛型 T 指表格数据类型 */
+  /** 选中行发生变化时触发，泛型 T 指表格数据类型。两个参数，第一个参数为选中行 keys，第二个参数为更多参数，具体如下：`type = uncheck` 表示当前行操作为「取消行选中」；`type = check` 表示当前行操作为「行选中」； `currentRowKey` 表示当前操作行的 rowKey 值； `currentRowData` 表示当前操作行的行数据 */
   onSelectChange: Function as PropType<TdPrimaryTableProps['onSelectChange']>,
   /** 排序发生变化时触发。其中 sortBy 表示当前排序的字段，sortType 表示排序的方式，currentDataSource 表示 sorter 排序后的结果，col 表示列配置。sort 值类型为数组时表示多字段排序 */
   onSortChange: Function as PropType<TdPrimaryTableProps['onSortChange']>,

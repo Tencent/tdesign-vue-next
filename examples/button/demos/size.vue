@@ -20,3 +20,4 @@
     </div>
   </div>
 </template>
+<script />

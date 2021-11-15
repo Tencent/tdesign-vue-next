@@ -1,13 +1,15 @@
 import { defineComponent, VNode } from 'vue';
 import get from 'lodash/get';
-import { PrimaryTableCol } from '../../type';
+import { PrimaryTableCol, TdPrimaryTableProps } from '../../type';
 import primaryTableProps from '../../primary-table-props';
 import baseTableProps from '../../base-table-props';
 import { prefix } from '../../../config';
-import { filterDataByIds } from '../../util/common';
+import { filterDataByIds, isRowSelectedDisabled } from '../../util/common';
 import SelectBox from '../select-box';
 import { emitEvent } from '../../../utils/event';
 import { Checkbox } from '../../../checkbox';
+
+type SelectChangeParams = Parameters<TdPrimaryTableProps['onSelectChange']>;
 
 export default defineComponent({
   name: `${prefix}-primary-table-select`,
@@ -27,13 +29,7 @@ export default defineComponent({
       return this.columns.find(({ type }) => ['multiple', 'single'].includes(type)) || {};
     },
     canSelectedRows(): Array<Record<string, any>> {
-      const { selectColumn } = this;
-      return this.data.filter((row, rowIndex): boolean => {
-        const disabled = typeof selectColumn.disabled === 'function'
-          ? selectColumn.disabled({ row, rowIndex })
-          : selectColumn.disabled;
-        return !disabled;
-      });
+      return this.data.filter((row, rowIndex): boolean => !this.isDisabled(row, rowIndex));
     },
     isSelectedAll(): boolean {
       return !!(
@@ -50,6 +46,9 @@ export default defineComponent({
     },
   },
   methods: {
+    isDisabled(row: Record<string, any>, rowIndex: number): boolean {
+      return isRowSelectedDisabled(this.selectColumn, row, rowIndex);
+    },
     // get
     getSelectColumns(columns: Array<PrimaryTableCol>): Array<PrimaryTableCol> {
       return columns.map((c: PrimaryTableCol): PrimaryTableCol => {
@@ -115,6 +114,9 @@ export default defineComponent({
       }
       emitEvent(this, 'select-change', selectedRowKeys, {
         selectedRowData: filterDataByIds(this.data, selectedRowKeys, reRowKey),
+        currentRowKey: id,
+        currentRowData: record,
+        type: isSelected ? 'uncheck' : 'check',
       });
     },
     handleSelectAll(): void {
@@ -126,6 +128,8 @@ export default defineComponent({
         : [...disabledSelectedRowKeys, ...canSelectedRowKeys]) as Array<string | number>;
       const params = {
         selectedRowData: filterDataByIds(this.data, allIds, reRowKey),
+        type: this.isSelectedAll ? 'uncheck' : 'check',
+        currentRowKey: 'CHECK_ALL_BOX',
       };
       emitEvent(this, 'select-change', allIds, params);
     },

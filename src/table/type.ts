@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-05 00:45:48
+ * updated at 2021-11-09 20:28:26
  * */
 
 import { PaginationProps, PageInfo } from '../pagination';
@@ -285,7 +285,7 @@ export interface TdPrimaryTableProps<T extends DataType =  DataType> extends Omi
    */
   onFilterChange?: (filterValue: FilterValue, context: { col: PrimaryTableCol<T> }) => void;
   /**
-   * 选中行发生变化时触发，泛型 T 指表格数据类型
+   * 选中行发生变化时触发，泛型 T 指表格数据类型。两个参数，第一个参数为选中行 keys，第二个参数为更多参数，具体如下：`type = uncheck` 表示当前行操作为「取消行选中」；`type = check` 表示当前行操作为「行选中」； `currentRowKey` 表示当前操作行的 rowKey 值； `currentRowData` 表示当前操作行的行数据
    */
   onSelectChange?: (selectedRowKeys: Array<string | number>, options: SelectOptions<T>) => void;
   /**
@@ -294,7 +294,7 @@ export interface TdPrimaryTableProps<T extends DataType =  DataType> extends Omi
   onSortChange?: (sort: TableSort, options: SortOptions<T>) => void;
 };
 
-export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTableCol {
+export interface PrimaryTableCol<T extends DataType = DataType> extends Omit<BaseTableCol, 'cell' | 'title' | 'render'> {
   /**
    * 自定义单元格渲染。值类型为 Function 表示以函数形式渲染单元格。值类型为 string 表示使用插槽渲染，插槽名称为 cell 的值。默认使用 colKey 作为插槽名称。优先级高于 render。泛型 T 指表格数据类型
    */
@@ -336,6 +336,13 @@ export interface PrimaryTableCol<T extends DataType = DataType> extends BaseTabl
   type?: 'single' | 'multiple';
 };
 
+export interface TdEnhancedTableProps {
+  /**
+   * 树形结构相关配置。`tree.indent` 表示树结点缩进距离，单位：px，默认为 24px。`tree.treeNodeColumnIndex` 表示树结点在第几列渲染，默认为 0 ，第一列。`tree.childrenKey` 表示树形结构子节点字段，默认为 children。`tree.checkStrictly` 表示树形结构的行选中（多选），父子行选中是否独立，默认独立，值为 true
+   */
+  tree?: TableTreeConfig;
+};
+
 export interface RowspanColspan { colspan: number; rowspan: number };
 
 export interface RowspanAndColspanParams<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number };
@@ -368,7 +375,7 @@ export interface DragSortContext<T> { currentIndex: number; current: T; targetIn
 
 export interface ExpandOptions<T> { expandedRowData: Array<T> };
 
-export interface SelectOptions<T> { selectedRowData: Array<T> };
+export interface SelectOptions<T> { selectedRowData: Array<T>; type: 'uncheck' | 'check'; currentRowKey?: string; currentRowData?: T };
 
 export interface SortOptions<T> { currentDataSource?: Array<T>; col: PrimaryTableCol };
 
@@ -385,3 +392,5 @@ export type SorterFun<T> = (a: T, b: T) => SortNumber;
 export type SortNumber = 1 | -1 | 0;
 
 export type SortType = 'desc' | 'asc' | 'all';
+
+export interface TableTreeConfig { indent?: number; treeNodeColumnIndex?: number; childrenKey?: 'children'; checkStrictly?: boolean };
