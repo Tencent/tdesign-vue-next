@@ -78,8 +78,9 @@ export default defineComponent({
     },
     errorClasses(): string {
       const parent = this.form as FormInstance;
+      const { successBorder } = this.$props;
       if (!parent.showErrorMessage) return '';
-      if (this.verifyStatus === ValidateStatus.SUCCESS) return CLASS_NAMES.success;
+      if (this.verifyStatus === ValidateStatus.SUCCESS && successBorder) return CLASS_NAMES.success;
       if (!this.errorList.length) return;
       const type = this.errorList[0].type || 'error';
       return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
@@ -112,15 +113,15 @@ export default defineComponent({
       return !!(parent && parent.colon && this.getLabelContent());
     },
     needRequiredMark(): boolean {
+      const { requiredMark } = this.$props;
+      if (typeof requiredMark === 'boolean') return requiredMark;
       const parent = this.form;
-      const allowMark = parent && parent.requiredMark;
       const isRequired = this.innerRules.filter((rule) => rule.required).length > 0;
-      return Boolean(allowMark && isRequired);
+      return Boolean(parent?.requiredMark && isRequired);
     },
     innerRules(): FormRule[] {
       const parent = this.form;
-      const rules = parent && parent.rules;
-      return (rules && rules[this.name]) || (this.rules || []);
+      return lodashGet(parent?.rules, this.name) || (this.rules || []);
     },
   },
 

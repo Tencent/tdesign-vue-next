@@ -57,8 +57,8 @@ export async function validateOneRule(
   let vValidateFun;
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
-    // 非必填选项，值为空，无需校验，直接返回 true
-    if (!rule.required && isValueEmpty(value)) {
+    // 非必填选项，值为空，非自定义规则：无需校验，直接返回 true
+    if (!rule.required && isValueEmpty(value) && !rule.validator) {
       return validateResult;
     }
     const validateRule = VALIDATE_MAP[key];

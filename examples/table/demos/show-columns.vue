@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
+
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
   { colKey: 'status', title: '状态', width: 100, scopedSlots: { col: 'status' } },
@@ -28,14 +30,15 @@ const data = [
   { id: 3, instance: 'JQTest3', status: 0, owner: 'jenny', description: 'test' },
   { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', description: 'test' },
 ];
-export default {
-  data() {
+
+export default defineComponent({
+  setup() {
     return {
       columns,
       data,
     };
   },
-};
+});
 </script>
 
 <style lang="less" scoped>

@@ -18,6 +18,7 @@
   </div>
 </template>
 <script lang="jsx">
+import { defineComponent } from 'vue';
 import { EnhancedTable } from '@tencent/tdesign-vue-next';
 
 const data = [];
@@ -47,37 +48,40 @@ for (let i = 0; i < 5; i++) {
   });
   data.push(obj);
 }
-export default {
+
+const columns = [
+  {
+    width: '200',
+    className: 'row',
+    colKey: 'key',
+    title: '编号',
+  },
+  {
+    width: 200,
+    colKey: 'platform',
+    title: '平台',
+  },
+  {
+    colKey: 'type',
+    title: '类型',
+  },
+  {
+    colKey: 'default',
+    title: '默认值',
+  },
+  {
+    colKey: 'needed',
+    title: '是否必传',
+  },
+]
+
+export default defineComponent({
   components: { TEnhancedTable: EnhancedTable },
-  data() {
+  setup() {
     return {
       data,
-      columns: [
-        {
-          width: '200',
-          className: 'row',
-          colKey: 'key',
-          title: '编号',
-        },
-        {
-          width: 200,
-          colKey: 'platform',
-          title: '平台',
-        },
-        {
-          colKey: 'type',
-          title: '类型',
-        },
-        {
-          colKey: 'default',
-          title: '默认值',
-        },
-        {
-          colKey: 'needed',
-          title: '是否必传',
-        },
-      ],
-    };
-  },
-};
+      columns
+    }
+  }
+});
 </script>

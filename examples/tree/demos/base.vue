@@ -5,41 +5,45 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent } from 'vue'
+
+const items =  [{
+  label: '第一段',
+  children: [{
+    label: '第二段',
+  }, {
+    label: '第二段',
+  }],
+}, {
+  label: '第一段',
+  children: [{
+    label: '第二段',
+  }, {
+    label: '第二段',
+  }],
+}, {
+  label: '第一段',
+  children: [{
+    label: '第二段',
+  }, {
+    label: '第二段',
+  }],
+}, {
+  label: '第一段',
+  children: [{
+    label: '第二段',
+  }, {
+    label: '第二段',
+  }],
+}]
+
+export default defineComponent({
+  setup() {
     return {
-      items: [{
-        label: '第一段',
-        children: [{
-          label: '第二段',
-        }, {
-          label: '第二段',
-        }],
-      }, {
-        label: '第一段',
-        children: [{
-          label: '第二段',
-        }, {
-          label: '第二段',
-        }],
-      }, {
-        label: '第一段',
-        children: [{
-          label: '第二段',
-        }, {
-          label: '第二段',
-        }],
-      }, {
-        label: '第一段',
-        children: [{
-          label: '第二段',
-        }, {
-          label: '第二段',
-        }],
-      }],
-    };
-  },
-};
+      items
+    }
+  }
+});
 </script>
 <style scoped>
   .demo-tree-base {

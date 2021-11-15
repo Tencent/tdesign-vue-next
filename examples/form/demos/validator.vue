@@ -45,6 +45,38 @@
   </div>
 </template>
 <script>
+import { defineComponent, ref } from 'vue';
+import { MessagePlugin } from '@tencent/tdesign-vue-next';
+
+const rules = {
+  account: [
+    { required: true, message: '姓名必填', type: 'error' },
+    { min: 2, message: '至少需要两个字', type: 'error' },
+  ],
+  password: [
+    { required: true, message: '密码必填', type: 'error' },
+  ],
+  email: [
+    { required: true, message: '格式必须为邮箱', type: 'warning' },
+  ],
+  gender: [
+    { required: true, message: '性别必填', type: 'warning' },
+  ],
+  course: [
+    { required: true, message: '课程必填', type: 'warning' },
+  ],
+  'content.url': [
+    { required: true, message: '个人网站必填', type: 'warning' },
+    {
+      url: {
+        protocols: ['http', 'https', 'ftp'],
+        // eslint-disable-next-line @typescript-eslint/camelcase
+        require_protocol: true,
+      },
+      message: '请输入正确的个人主页',
+    },
+  ],
+}
 
 const INITIAL_DATA = {
   account: '',
@@ -57,64 +89,44 @@ const INITIAL_DATA = {
   },
   course: [],
 };
-export default {
-  data() {
-    return {
-      formData: { ...INITIAL_DATA },
-      courseOptions: [
-        { label: '语文', value: '1' },
-        { label: '数学', value: '2' },
-        { label: '英语', value: '3' },
-        { label: '体育', value: '4' },
-      ],
-      rules: {
-        account: [
-          { required: true, message: '姓名必填', type: 'error' },
-          { min: 2, message: '至少需要两个字', type: 'error' },
-        ],
-        password: [
-          { required: true, message: '密码必填', type: 'error' },
-        ],
-        email: [
-          { required: true, message: '格式必须为邮箱', type: 'warning' },
-        ],
-        gender: [
-          { required: true, message: '性别必填', type: 'warning' },
-        ],
-        course: [
-          { required: true, message: '课程必填', type: 'warning' },
-        ],
-        'content.url': [
-          { required: true, message: '个人网站必填', type: 'warning' },
-          {
-            url: {
-              protocols: ['http', 'https', 'ftp'],
-              // eslint-disable-next-line @typescript-eslint/camelcase
-              require_protocol: true,
-            },
-            message: '请输入正确的个人主页',
-          },
-        ],
-      },
-    };
-  },
+export default defineComponent({
+  setup() {
+    const formData = ref({ ...INITIAL_DATA });
+    const form = ref(null);
+    const courseOptions = [
+      { label: '语文', value: '1' },
+      { label: '数学', value: '2' },
+      { label: '英语', value: '3' },
+      { label: '体育', value: '4' },
+    ]
 
-  methods: {
-    onReset() {
-      this.$message.success('重置成功');
-    },
-    onSubmit({ validateResult, firstError, e }) {
+    const onReset = () => {
+      MessagePlugin.success('重置成功');
+    }
+
+    const onSubmit = ({ validateResult, firstError, e }) => {
       e.preventDefault();
       if (validateResult === true) {
-        this.$message.success('提交成功');
+        MessagePlugin.success('提交成功');
       } else {
         console.log('Validate Errors: ', firstError, validateResult);
-        this.$message.warning(firstError);
+        MessagePlugin.warning(firstError);
       }
-    },
-    handleClear() {
-      this.$refs.form.clearValidate();
-    },
+    }
+
+    const handleClear = () => {
+      form.value.clearValidate();
+    }
+    
+    return {
+      form,
+      rules,
+      formData,
+      courseOptions,
+      onReset,
+      onSubmit,
+      handleClear
+    }
   },
-};
+});
 </script>

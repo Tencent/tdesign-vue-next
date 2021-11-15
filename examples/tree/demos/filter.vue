@@ -15,87 +15,95 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      filterText: '',
-      filterByText: null,
-      expanded: ['1.1.1'],
-      items: [{
-        value: '1',
-        label: '1',
-        children: [{
-          value: '1.1',
-          label: '1.1',
-          children: [{
-            value: '1.1.1',
-            label: '1.1.1',
-            children: [{
-              value: '1.1.1.1',
-              label: '1.1.1.1',
-            }, {
-              value: '1.1.1.2',
-              label: '1.1.1.2',
-            }],
-          }, {
-            value: '1.1.2',
-            label: '1.1.2',
-            children: [{
-              value: '1.1.2.1',
-              label: '1.1.2.1',
-            }, {
-              value: '1.1.2.2',
-              label: '1.1.2.2',
-            }],
-          }],
-        }, {
-          value: '1.2',
-          label: '1.2',
-          children: [{
-            value: '1.2.1',
-            label: '1.2.1',
-            children: [{
-              value: '1.2.1.1',
-              label: '1.2.1.1',
-            }, {
-              value: '1.2.1.2',
-              label: '1.2.1.2',
-            }],
-          }, {
-            value: '1.2.2',
-            label: '1.2.2',
-            children: [{
-              value: '1.2.2.1',
-              label: '1.2.2.1',
-            }, {
-              value: '1.2.2.2',
-              label: '1.2.2.2',
-            }],
-          }],
-        }],
+import { defineComponent, ref } from 'vue';
+
+const items = [{
+  value: '1',
+  label: '1',
+  children: [{
+    value: '1.1',
+    label: '1.1',
+    children: [{
+      value: '1.1.1',
+      label: '1.1.1',
+      children: [{
+        value: '1.1.1.1',
+        label: '1.1.1.1',
       }, {
-        value: '2',
-        label: '2',
-        children: [{
-          value: '2.1',
-          label: '2.1',
-        }, {
-          value: '2.2',
-          label: '2.2',
-        }],
+        value: '1.1.1.2',
+        label: '1.1.1.2',
       }],
-    };
-  },
-  methods: {
-    onInput(state) {
+    }, {
+      value: '1.1.2',
+      label: '1.1.2',
+      children: [{
+        value: '1.1.2.1',
+        label: '1.1.2.1',
+      }, {
+        value: '1.1.2.2',
+        label: '1.1.2.2',
+      }],
+    }],
+  }, {
+    value: '1.2',
+    label: '1.2',
+    children: [{
+      value: '1.2.1',
+      label: '1.2.1',
+      children: [{
+        value: '1.2.1.1',
+        label: '1.2.1.1',
+      }, {
+        value: '1.2.1.2',
+        label: '1.2.1.2',
+      }],
+    }, {
+      value: '1.2.2',
+      label: '1.2.2',
+      children: [{
+        value: '1.2.2.1',
+        label: '1.2.2.1',
+      }, {
+        value: '1.2.2.2',
+        label: '1.2.2.2',
+      }],
+    }],
+  }],
+}, {
+  value: '2',
+  label: '2',
+  children: [{
+    value: '2.1',
+    label: '2.1',
+  }, {
+    value: '2.2',
+    label: '2.2',
+  }],
+}]
+
+export default defineComponent({
+  setup() {
+    const filterText = ref('');
+    const filterByText = ref(null);
+    const expanded = ref(['1.1.1']);
+
+    const onInput = (state) => {
       console.info('onInput:', state);
-      this.filterByText = (node) => {
-        const rs = node.data.label.indexOf(this.filterText) >= 0;
+      filterByText.value = (node) => {
+        const rs = node.data.label.indexOf(filterText.value) >= 0;
         return rs;
       };
-    },
-  },
-};
+    }
+
+    return {
+      items,
+      filterText,
+      filterByText,
+      expanded,
+      onInput
+    }
+  }
+});
 </script>
 <style scoped>
   .demo-tree-base {

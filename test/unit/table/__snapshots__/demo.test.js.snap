@@ -1700,48 +1700,7 @@ exports[`Table expandable demo works fine 1`] = `
                   colspan="6"
                   length="1"
                 >
-                  <div
-                    class="more-detail"
-                  >
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        集群名称:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      JQTest1
-                    </p>
-                    <br />
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        管理员:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      jenny;peter
-                    </p>
-                    <br />
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        描述:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      test
-                    </p>
-                  </div>
+                  <!---->
                 </td>
                 
               </tr>
@@ -1835,48 +1794,7 @@ exports[`Table expandable demo works fine 1`] = `
                   colspan="6"
                   length="1"
                 >
-                  <div
-                    class="more-detail"
-                  >
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        集群名称:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      JQTest2
-                    </p>
-                    <br />
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        管理员:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      jenny
-                    </p>
-                    <br />
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        描述:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      test
-                    </p>
-                  </div>
+                  <!---->
                 </td>
                 
               </tr>
@@ -1972,48 +1890,7 @@ exports[`Table expandable demo works fine 1`] = `
                   colspan="6"
                   length="1"
                 >
-                  <div
-                    class="more-detail"
-                  >
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        集群名称:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      JQTest3
-                    </p>
-                    <br />
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        管理员:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      jenny
-                    </p>
-                    <br />
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        描述:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      test
-                    </p>
-                  </div>
+                  <!---->
                 </td>
                 
               </tr>
@@ -2109,48 +1986,7 @@ exports[`Table expandable demo works fine 1`] = `
                   colspan="6"
                   length="1"
                 >
-                  <div
-                    class="more-detail"
-                  >
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        集群名称:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      JQTest4
-                    </p>
-                    <br />
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        管理员:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      peter
-                    </p>
-                    <br />
-                    <p
-                      class="title"
-                    >
-                      <b>
-                        描述:
-                      </b>
-                    </p>
-                    <p
-                      class="content"
-                    >
-                      test
-                    </p>
-                  </div>
+                  <!---->
                 </td>
                 
               </tr>

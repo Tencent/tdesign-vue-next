@@ -23,36 +23,44 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      selectedRowKeys: [],
-      columns: [
-        { colKey: 'row-select', type: 'single', checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }), width: 50 },
-        { colKey: 'instance', title: '集群名称', width: 150 },
-        { colKey: 'status', title: '状态', width: 100, cell: 'status' },
-        { colKey: 'owner', title: '管理员' },
-        { colKey: 'description', title: '描述' },
-        { colKey: 'op', width: 200, title: 'op-column', cell: 'op' },
-      ],
-      data: [
-        { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', description: 'test' },
-        { id: '2', instance: 'JQTest2', status: 1, owner: 'jenny', description: 'test' },
-        { id: 3, instance: 'JQTest3', status: 0, owner: 'jenny', description: 'test' },
-        { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', description: 'test' },
-      ],
-    };
-  },
-  methods: {
-    rehandleClickOp({ text, row }) {
+import { defineComponent, ref } from 'vue';
+
+const columns = [
+  { colKey: 'row-select', type: 'single', checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }), width: 50 },
+  { colKey: 'instance', title: '集群名称', width: 150 },
+  { colKey: 'status', title: '状态', width: 100, cell: 'status' },
+  { colKey: 'owner', title: '管理员' },
+  { colKey: 'description', title: '描述' },
+  { colKey: 'op', width: 200, title: 'op-column', cell: 'op' },
+]
+const data = [
+  { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', description: 'test' },
+  { id: '2', instance: 'JQTest2', status: 1, owner: 'jenny', description: 'test' },
+  { id: 3, instance: 'JQTest3', status: 0, owner: 'jenny', description: 'test' },
+  { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', description: 'test' },
+]
+export default defineComponent({
+  setup() {
+    const selectedRowKeys = ref([]);
+
+    const rehandleClickOp = () => {
       console.log(text, row);
-    },
-    rehandleSelectChange(value, { selectedRowData }) {
-      this.selectedRowKeys = value;
+    }
+
+    const rehandleSelectChange = (value, { selectedRowData }) => {
+      selectedRowKeys.value = value;
       console.log(value, selectedRowData);
-    },
+    }
+
+    return {
+      selectedRowKeys,
+      columns,
+      data,
+      rehandleClickOp,
+      rehandleSelectChange
+    }
   },
-};
+});
 </script>
 
 <style lang="less" scoped>

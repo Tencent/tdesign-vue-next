@@ -20,32 +20,36 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent } from 'vue'
+
+const items = [{
+  label: '1',
+  children: [{
+    label: '1.1',
+  }, {
+    label: '1.2',
+  }],
+}, {
+  label: '2',
+  children: [{
+    label: '2.1',
+  }, {
+    label: '2.2',
+  }],
+}]
+
+export default defineComponent({
+  setup() {
     return {
-      items: [{
-        label: '1',
-        children: [{
-          label: '1.1',
-        }, {
-          label: '1.2',
-        }],
-      }, {
-        label: '2',
-        children: [{
-          label: '2.1',
-        }, {
-          label: '2.2',
-        }],
-      }],
+      items,
       label(h, node) {
         return h('strong', {
           innerHTML: `value: ${node.value}, label: ${node.label}`,
         });
       },
-    };
+    }
   }
-};
+});
 </script>
 <style>
 .tdesign-tree-demo .t-tree {

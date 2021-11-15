@@ -29,6 +29,9 @@
   </div>
 </template>
 <script>
+import { defineComponent, ref } from 'vue';
+import { MessagePlugin } from '@tencent/tdesign-vue-next';
+
 import TIconDesktop from '@tencent/tdesign-vue-next/icon/desktop';
 import TIconLockOn from '@tencent/tdesign-vue-next/icon/lock-on';
 
@@ -37,29 +40,32 @@ const INITIAL_DATA = {
   password: '',
 };
 
-export default {
+export default defineComponent({
   components: {
     TIconDesktop,
     TIconLockOn,
   },
-  data() {
-    return {
-      formData: { ...INITIAL_DATA },
-    };
-  },
+  setup() {
+    const formData = ref({ ...INITIAL_DATA })
+    
+    const onReset = () => {
+      MessagePlugin.success('重置成功');
+    }
 
-  methods: {
-    onReset() {
-      this.$message.success('重置成功');
-    },
-    onSubmit({ validateResult, firstError }) {
+    const onSubmit = ({ validateResult, firstError }) => {
       if (validateResult === true) {
-        this.$message.success('提交成功');
+        MessagePlugin.success('提交成功');
       } else {
-        console.log('Errors: ', validateResult);
-        this.$message.warning(firstError);
+        console.log('Validate Errors: ', firstError, validateResult);
+        MessagePlugin.warning(firstError);
       }
-    },
+    }
+
+    return {
+      formData,
+      onReset,
+      onSubmit
+    }
   },
-};
+});
 </script>

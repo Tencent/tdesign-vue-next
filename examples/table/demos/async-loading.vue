@@ -17,6 +17,8 @@
 </template>
 
 <script lang="jsx">
+import { defineComponent, ref, computed } from 'vue';
+
 const data = [
   {
     key: '1',
@@ -68,30 +70,33 @@ const columns = [
   },
 ];
 
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const asyncLoading = ref('loading');
+
+    const customLoadingNode = (h) => {
+      return <div class='t-table--loading-async'>这是自定义加载状态和内容</div>;
+    }
+
+    const loadingNode = computed(() => {
+      return asyncLoading.value === 'loading-custom'
+        ? customLoadingNode
+        : asyncLoading.value;
+    })
+
+    const onAsyncLoadingClick = ({ status }) => {
+      if (status === 'load-more') {
+        asyncLoading.value = 'loading';
+      }
+    }
+
     return {
       data,
       columns,
-      asyncLoading: 'loading',
-    };
-  },
-  computed: {
-    loadingNode() {
-      return this.asyncLoading === 'loading-custom'
-        ? this.customLoadingNode
-        : this.asyncLoading;
-    },
-  },
-  methods: {
-    customLoadingNode(h) {
-      return <div class='t-table--loading-async'>这是自定义加载状态和内容</div>;
-    },
-    onAsyncLoadingClick({ status }) {
-      if (status === 'load-more') {
-        this.asyncLoading = 'loading';
-      }
-    },
-  },
-};
+      loadingNode,
+      asyncLoading,
+      onAsyncLoadingClick,
+    }
+  }
+});
 </script>

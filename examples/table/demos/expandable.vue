@@ -38,6 +38,8 @@
 </template>
 
 <script lang="jsx">
+import { defineComponent, ref, watch } from 'vue';
+
 import TIconChevronDownCircle from '@tencent/tdesign-vue-next/icon/chevron-down-circle';
 import TIconChevronDown from '@tencent/tdesign-vue-next/icon/chevron-down';
 
@@ -48,6 +50,7 @@ const columns = [
   { colKey: 'description', title: '描述' },
   { colKey: 'op', width: 200, title: 'op-column', cell: 'op' },
 ];
+
 const data = [
   { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', description: 'test' },
   { id: '2', instance: 'JQTest2', status: 1, owner: 'jenny', description: 'test' },
@@ -56,44 +59,34 @@ const data = [
 ];
 
 
-export default {
+export default defineComponent({
   components: {
     TIconChevronDown
   },
-  data() {
-    return {
-      expandControl: 'true',
-      expandIcon: true,
-      expandOnRowClick: true,
-      columns,
-      data,
-      expandedRowKeys: ['2'],
-      // defaultExpandedRowKeys: ['2', 4],
-      expandedRow: (h, { row }) => (
-        <div class="more-detail">
-          <p class="title"><b>集群名称:</b></p><p class="content">{row.instance}</p><br/>
-          <p class="title"><b>管理员:</b></p><p class="content">{row.owner}</p><br/>
-          <p class="title"><b>描述:</b></p><p class="content">{row.description}</p>
-        </div>
-      ),
-      globalLocale: {
-        table: {
-          expandIcon: (h) => h && <TIconChevronDown />,
-        },
-      },
-    };
-  },
-  watch: {
-    expandControl(val) {
+  setup() {
+    const expandControl = ref("true");
+    const expandIcon = ref(true);
+    const expandOnRowClick = ref(true);
+    const expandedRowKeys = ref(['2']);
+
+    const expandedRow = (h, { row }) => {
+      <div class="more-detail">
+        <p class="title"><b>集群名称:</b></p><p class="content">{row.instance}</p><br/>
+        <p class="title"><b>管理员:</b></p><p class="content">{row.owner}</p><br/>
+        <p class="title"><b>描述:</b></p><p class="content">{row.description}</p>
+      </div>
+    }
+
+    watch(() => expandControl.value, (val) => {
       if (val === 'true') {
         // expandIcon 默认为 true，表示显示默认展开图标
-        this.expandIcon = true;
+        expandIcon.value = true;
       } else if (val === 'false') {
         // expandIcon 值为 false，则表示隐藏全部展开图标
-        this.expandIcon = false;
+        expandIcon.value = false;
       } else if (val === 'custom') {
         // 完全自由控制表格的每一行是否显示展开图标，以及显示什么内容
-        this.expandIcon = (h, { row, index }) => {
+        expandIcon.value = (h, { row, index }) => {
           // 第一行不显示展开图标
           if (index === 0) return false;
           // 第三行，使用自定义展开图标
@@ -102,18 +95,30 @@ export default {
           return <TIconChevronDownCircle />;
         };
       }
-    },
-  },
-  methods: {
-    rehandleClickOp({ text, row }) {
+    })
+
+    const rehandleClickOp = ({ text, row }) => {
       console.log(text, row);
-    },
-    rehandleExpandChange(value, { expandedRowData }) {
-      this.expandedRowKeys = value;
+    }
+    
+    const rehandleExpandChange = (value, { expandedRowData }) => {
+      expandedRowKeys.value = value;
       console.log('rehandleExpandChange', value, expandedRowData);
-    },
-  },
-};
+    }
+
+    return {
+      columns,
+      data,
+      expandControl,
+      expandIcon,
+      expandOnRowClick,
+      expandedRowKeys,
+      expandedRow,
+      rehandleClickOp,
+      rehandleExpandChange
+    }
+  }
+});
 </script>
 
 <style lang="less" scoped>

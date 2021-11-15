@@ -40,6 +40,11 @@ export default {
     type: String,
     default: '',
   },
+  /** 是否显示必填符号，优先级高于 Form.requiredMark */
+  requiredMark: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 表单字段校验规则 */
   rules: {
     type: Array as PropType<TdFormItemProps['rules']>,
@@ -50,4 +55,6 @@ export default {
     type: [Boolean, Function] as PropType<TdFormItemProps['statusIcon']>,
     default: undefined,
   },
+  /** 是否显示校验成功的边框，默认不显示 */
+  successBorder: Boolean,
 };

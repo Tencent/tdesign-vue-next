@@ -38,13 +38,18 @@
           </div>
         </template>
       </t-form-item>
-      <t-form-item label="新增" name='add' help="自定义新增icon">
-        <t-input v-model="formData.add"></t-input>
+      <t-form-item v-for="(item, index) in addlist" :key="item.id" label="新增" :name='item.name'>
+        <t-input v-model="formData[item.name]"></t-input>
         <template #statusIcon>
-          <t-icon name='add-rectangle' size="25px"/>
+          <t-button v-if="item.id === 0 || item.id === lastAddItem - 1" @click="addItem" variant="dashed">
+            <t-icon name='add' size="16px" style="color: #0004"/>
+          </t-button>
+          <t-button v-if="item.id > 0" @click="removeItem(item, index)" variant="dashed">
+            <t-icon name='remove' size="16px" style="color: #0004"/>
+          </t-button>
         </template>
       </t-form-item>
-      <t-form-item label="帮助" name='help' help="自定义帮助icon">
+      <t-form-item label="帮助" name='help' :statusIcon="getStatusIcon" help="自定义帮助icon">
         <t-input v-model="formData.help"></t-input>
         <template #statusIcon>
           <t-icon name='help-circle' size="25px"/>
@@ -58,7 +63,10 @@
   </div>
 </template>
 
-<script lang='jsx'>
+<script lang="jsx">
+import { defineComponent, ref, onMounted } from 'vue';
+import { MessagePlugin } from '@tencent/tdesign-vue-next'
+
 const INITIAL_DATA = {
   fail: '',
   warning: '',
@@ -70,61 +78,77 @@ const INITIAL_DATA = {
   help: '',
 };
 
-export default {
-  data() {
-    return {
-      formData: { ...INITIAL_DATA },
-      rules: {
-        fail: [
-          { required: true, message: '必填', type: 'error' },
-        ],
-        warning: [
-          { required: true, message: '必填', type: 'warning' },
-        ],
-        success: [
-          { validator: () => true },
-        ],
-        failB: [
-          { required: true, message: '必填', type: 'error' },
-        ],
-        warningB: [
-          { required: true, message: '必填', type: 'warning' },
-        ],
-      },
-      addlist: [
-        { id: 0, name: 'add0' },
-      ],
-      lastAddItem: 1,
-    };
-  },
-  mounted() {
-    this.$refs.formValidatorStatus.validate();
-  },
-  methods: {
-    addItem() {
-      const addNum = this.lastAddItem;
+const rules =  {
+  fail: [
+    { required: true, message: '必填', type: 'error' },
+  ],
+  warning: [
+    { required: true, message: '必填', type: 'warning' },
+  ],
+  success: [
+    { validator: () => true },
+  ],
+  failB: [
+    { required: true, message: '必填', type: 'error' },
+  ],
+  warningB: [
+    { required: true, message: '必填', type: 'warning' },
+  ],
+}
+
+export default defineComponent({
+  setup() {
+    const formData = ref({ ...INITIAL_DATA });
+    const formValidatorStatus = ref(null);
+
+    const addlist = ref([
+      { id: 0, name: 'add0' },
+    ]);
+    const lastAddItem = ref(1);
+
+    const addItem = () => {
+      const addNum = lastAddItem.value;
       INITIAL_DATA[`add${addNum}`] = '';
-      this.addlist.push({ id: addNum, name: `add${addNum}` });
-      this.lastAddItem += 1;
-    },
-    removeItem(item, index) {
+      addlist.value.push({ id: addNum, name: `add${addNum}` });
+      lastAddItem.value += 1;
+    }
+    const removeItem = (item, index) => {
       delete INITIAL_DATA[`add${item.id}`];
-      this.addlist.splice(index, 1);
-    },
-    onReset() {
-      this.$message.success('重置成功');
-    },
-    onSubmit({ validateResult, firstError }) {
+      addlist.value.splice(index, 1);
+    }
+
+    const onReset = () => {
+      MessagePlugin.success('重置成功');
+    }
+
+    const onSubmit = ({ validateResult, firstError }) => {
       if (validateResult === true) {
-        this.$message.success('提交成功');
+        MessagePlugin.success('提交成功');
       } else {
-        this.$message.warning(firstError);
+        console.log('Validate Errors: ', firstError, validateResult);
+        MessagePlugin.warning(firstError);
       }
-    },
-    getStatusIcon(h) {
-      console.log(h);
+    }
+
+    onMounted(() => {
+      formValidatorStatus.value.validate();
+    })
+
+    const getStatusIcon = () => {
       return <t-icon name='help-circle' size="25px" style="color: #0006"/>;
-    },
-  },
-};
+    }
+
+    return {
+      formValidatorStatus,
+      formData,
+      rules,
+      onReset,
+      onSubmit,
+      getStatusIcon,
+      addlist,
+      addItem,
+      removeItem
+    }
+  }
+});
 </script>

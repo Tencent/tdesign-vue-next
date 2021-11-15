@@ -50,73 +50,67 @@
 </template>
 
 <script lang='jsx'>
-export default {
-  data() {
-    return {
-      showLine: true,
-      showIcon: true,
-      items: [{
-        value: '1',
-        label: '1',
+import { defineComponent, ref } from 'vue';
+
+const items = [{
+  value: '1',
+  label: '1',
+  children: [{
+    value: '1.1',
+    label: '1.1',
+  }, {
+    value: '1.2',
+    label: '1.2',
+  }],
+}, {
+  value: '2',
+  label: '2',
+  children: [{
+    value: '2.1',
+    label: '2.1',
+    children: [{
+      value: '2.1.1',
+      label: '2.1.1',
+      children: [{
+        value: '2.1.1.1',
+        label: '2.1.1.1',
         children: [{
-          value: '1.1',
-          label: '1.1',
+          value: '2.1.1.1.1',
+          label: '2.1.1.1.1',
         }, {
-          value: '1.2',
-          label: '1.2',
+          value: '2.1.1.1.2',
+          label: '2.1.1.1.2',
         }],
-      }, {
-        value: '2',
-        label: '2',
-        children: [{
-          value: '2.1',
-          label: '2.1',
-          children: [{
-            value: '2.1.1',
-            label: '2.1.1',
-            children: [{
-              value: '2.1.1.1',
-              label: '2.1.1.1',
-              children: [{
-                value: '2.1.1.1.1',
-                label: '2.1.1.1.1',
-              }, {
-                value: '2.1.1.1.2',
-                label: '2.1.1.1.2',
-              }],
-            }],
-          }, {
-            value: '2.1.2',
-            label: '2.1.2',
-          }],
-        }, {
-          value: '2.2',
-          label: '2.2',
-        }],
-      }, {
-        value: '3',
-        label: '3',
-        children: [{
-          value: '3.1',
-          label: '3.1',
-        }, {
-          value: '3.2',
-          label: '3.2',
-        }],
-      }, {
-        value: '4',
-        label: '4',
       }],
-    };
-  },
-  methods: {
-    toggleLine() {
-      this.showLine = !this.showLine;
-    },
-    toggleIcon() {
-      this.showIcon = !this.showIcon;
-    },
-    getLineNodes(node) {
+    }, {
+      value: '2.1.2',
+      label: '2.1.2',
+    }],
+  }, {
+    value: '2.2',
+    label: '2.2',
+  }],
+}, {
+  value: '3',
+  label: '3',
+  children: [{
+    value: '3.1',
+    label: '3.1',
+  }, {
+    value: '3.2',
+    label: '3.2',
+  }],
+}, {
+  value: '4',
+  label: '4',
+}]
+
+export default defineComponent({
+  setup() {
+    const showLine = ref(true);
+    const showIcon = ref(true);
+
+    const getLineNodes = (node) => {
       const nodes = node.getParents().reverse();
       const lineNodes = [];
       nodes.forEach((item, index) => {
@@ -128,8 +122,9 @@ export default {
         lineNodes.push(line);
       });
       return lineNodes;
-    },
-    lineClass(node) {
+    }
+    
+    const lineClass = (node) => {
       const list = ['custom-line'];
       if (node.isFirst()) {
         list.push('custom-line-first');
@@ -141,13 +136,14 @@ export default {
         list.push('custom-line-last');
       }
       return list;
-    },
-    renderLine(createElement, node) {
-      if (!this.showLine) return null;
+    }
+
+    const renderLine = (createElement, node) => {
+      if (!showLine.value) return null;
 
       const lineChildren = [];
 
-      const lines = this.getLineNodes(node)
+      const lines = getLineNodes(node)
         .map((item) => createElement('span', {
           class: {
             'custom-line-cross': item.cross,
@@ -166,11 +162,20 @@ export default {
       }
 
       return createElement('div', {
-        class: this.lineClass(node),
+        class: lineClass(node),
       }, lineChildren);
-    },
+    }
+
+    return {
+      items,
+      showLine,
+      showIcon,
+      getLineNodes,
+      lineClass,
+      renderLine
+    }
   },
-};
+});
 </script>
 <style>
 .tdesign-tree-line .operations .t-button{

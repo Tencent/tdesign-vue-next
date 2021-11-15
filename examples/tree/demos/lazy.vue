@@ -29,31 +29,28 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      checkable: true,
-      checkStrictly: false,
-      value: [
-        '1.1',
-        '1.1.1',
-      ],
-      items: [{
-        label: '1',
-        value: '1',
-        children: true,
-      }, {
-        label: '2',
-        value: '2',
-        children: true,
-      }],
-    };
-  },
-  methods: {
-    onLoad(state) {
+import { defineComponent, ref} from 'vue'
+
+const items = [{
+  label: '1',
+  value: '1',
+  children: true,
+}, {
+  label: '2',
+  value: '2',
+  children: true,
+}]
+
+export default defineComponent({
+  setup() {
+    const checkable = ref(true);
+    const checkStrictly = ref(false);
+    
+    const onLoad = (state) => {
       console.log('on load:', state);
-    },
-    load(node) {
+    }
+
+    const load = (node) => {
       return new Promise((resolve) => {
         setTimeout(() => {
           let nodes = [];
@@ -71,9 +68,17 @@ export default {
           resolve(nodes);
         }, 1000);
       });
-    },
-  },
-};
+    }
+
+    return {
+      items,
+      checkable,
+      checkStrictly,
+      onLoad,
+      load
+    }
+  }
+});
 </script>
 <style scoped>
 .tdesign-tree-demo .t-tree {

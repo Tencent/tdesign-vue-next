@@ -22,18 +22,22 @@
   </div>
 </template>
 <script>
+import { defineComponent, ref } from 'vue';
+
 const INITIAL_DATA = {
   labelAlign: 'right',
   name: '',
   password: '',
 };
-export default {
-  data() {
+
+export default defineComponent({
+  setup() {
+    const formData = ref({ ...INITIAL_DATA })
     return {
-      formData: { ...INITIAL_DATA },
-    };
-  },
-};
+      formData
+    }
+  }
+});
 </script>
 
 <style lang="less" scoped>

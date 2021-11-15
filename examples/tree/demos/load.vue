@@ -11,20 +11,18 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      items: [{
-        label: '1',
-        children: true,
-      }, {
-        label: '2',
-        children: true,
-      }],
-    };
-  },
-  methods: {
-    load(node) {
+import { defineComponent } from 'vue'
+
+const items = [{
+  label: '1',
+  children: true,
+}, {
+  label: '2',
+  children: true,
+}]
+export default defineComponent({
+  setup() {
+    const load = (node) => {
       return new Promise((resolve) => {
         setTimeout(() => {
           let nodes = [];
@@ -40,9 +38,14 @@ export default {
           resolve(nodes);
         }, 1000);
       });
-    },
+    }
+
+    return {
+      items,
+      load
+    }
   },
-};
+});
 </script>
 <style scoped>
   .demo-tree-base {

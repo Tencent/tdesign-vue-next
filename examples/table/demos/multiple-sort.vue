@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import { defineComponent, ref } from 'vue';
+
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
   { colKey: 'status', title: '状态', width: 100, sortType: 'all', sorter: true },
@@ -30,28 +32,30 @@ const data = [
   { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', survivalTime: 1500 },
 ];
 
-export default {
-  data() {
-    return {
-      data,
-      columns,
-      sort: [{
-        sortBy: 'status',
-        descending: true,
-      }, {
-        sortBy: 'survivalTime',
-        descending: false,
-      }],
-    };
-  },
-  methods: {
-    sortChange(val) {
-      this.sort = val;
+export default defineComponent({
+  setup() {
+    const sort = ref([{
+      sortBy: 'status',
+      descending: true,
+    }, {
+      sortBy: 'survivalTime',
+      descending: false,
+    }])
+
+    const sortChange = (val) => {
+      sort.value = val;
       // Request: 发起远程请求进行排序
       console.log('发起远程请求进行排序（未模拟请求数据）');
-    },
-  },
-};
+    }
+
+    return {
+      data,
+      sort,
+      columns,
+      sortChange
+    }
+  }
+});
 </script>
 <style lang="less">
 @import '@common/style/web/_variables.less';

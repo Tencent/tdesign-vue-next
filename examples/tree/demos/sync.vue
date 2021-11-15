@@ -24,106 +24,105 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      valueMode: 'onlyLeaf',
-      checked: ['1.1.1.1', '1.1.1.2'],
-      expanded: ['1', '1.1', '1.1.1', '2'],
-      actived: ['2'],
-      items: [{
-        value: '1',
-        label: '1',
-        children: [{
-          value: '1.1',
-          label: '1.1',
-          children: [{
-            value: '1.1.1',
-            label: '1.1.1',
-            children: [{
-              value: '1.1.1.1',
-              label: '1.1.1.1',
-            }, {
-              value: '1.1.1.2',
-              label: '1.1.1.2',
-            }],
-          }, {
-            value: '1.1.2',
-            label: '1.1.2',
-            children: [{
-              value: '1.1.2.1',
-              label: '1.1.2.1',
-            }, {
-              value: '1.1.2.2',
-              label: '1.1.2.2',
-            }],
-          }],
-        }, {
-          value: '1.2',
-          label: '1.2',
-          children: [{
-            value: '1.2.1',
-            label: '1.2.1',
-            children: [{
-              value: '1.2.1.1',
-              label: '1.2.1.1',
-            }, {
-              value: '1.2.1.2',
-              label: '1.2.1.2',
-            }],
-          }, {
-            value: '1.2.2',
-            label: '1.2.2',
-            children: [{
-              value: '1.2.2.1',
-              label: '1.2.2.1',
-            }, {
-              value: '1.2.2.2',
-              label: '1.2.2.2',
-            }],
-          }],
-        }],
+import { defineComponent, ref, computed } from 'vue';
+
+const items = [{
+  value: '1',
+  label: '1',
+  children: [{
+    value: '1.1',
+    label: '1.1',
+    children: [{
+      value: '1.1.1',
+      label: '1.1.1',
+      children: [{
+        value: '1.1.1.1',
+        label: '1.1.1.1',
       }, {
-        value: '2',
-        label: '2',
-        checkable: false,
-        children: [{
-          value: '2.1',
-          label: '2.1',
-          checkable: false,
-        }, {
-          value: '2.2',
-          label: '2.2',
-          checkable: false,
-        }],
+        value: '1.1.1.2',
+        label: '1.1.1.2',
       }],
-    };
-  },
-  computed: {
-    allChecked() {
+    }, {
+      value: '1.1.2',
+      label: '1.1.2',
+      children: [{
+        value: '1.1.2.1',
+        label: '1.1.2.1',
+      }, {
+        value: '1.1.2.2',
+        label: '1.1.2.2',
+      }],
+    }],
+  }, {
+    value: '1.2',
+    label: '1.2',
+    children: [{
+      value: '1.2.1',
+      label: '1.2.1',
+      children: [{
+        value: '1.2.1.1',
+        label: '1.2.1.1',
+      }, {
+        value: '1.2.1.2',
+        label: '1.2.1.2',
+      }],
+    }, {
+      value: '1.2.2',
+      label: '1.2.2',
+      children: [{
+        value: '1.2.2.1',
+        label: '1.2.2.1',
+      }, {
+        value: '1.2.2.2',
+        label: '1.2.2.2',
+      }],
+    }],
+  }],
+}, {
+  value: '2',
+  label: '2',
+  checkable: false,
+  children: [{
+    value: '2.1',
+    label: '2.1',
+    checkable: false,
+  }, {
+    value: '2.2',
+    label: '2.2',
+    checkable: false,
+  }],
+}]
+export default defineComponent({
+  setup() {
+    const checked = ref(['1.1.1.1', '1.1.1.2']);
+    const expanded = ref(['1', '1.1', '1.1.1', '2']);
+    const actived = ref(['2']);
+
+    const allChecked = computed(() => {
       let arr = [];
-      if (Array.isArray(this.checked)) {
-        arr = this.checked;
+      if (Array.isArray(checked.value)) {
+        arr = checked.value;
       }
-      return arr.map((val) => `{${val}}`).join(', ');
-    },
-    allExpanded() {
+      return arr.join(', ');
+    })
+
+    const allExpanded = computed(() => {
       let arr = [];
-      if (Array.isArray(this.expanded)) {
-        arr = this.expanded;
+      if (Array.isArray(expanded.value)) {
+        arr = expanded.value;
       }
-      return arr.map((val) => `{${val}}`).join(', ');
-    },
-    allActived() {
+      return arr.join(', ');
+    })
+
+    const allActived = computed(() => {
       let arr = [];
-      if (Array.isArray(this.actived)) {
-        arr = this.actived;
+      if (Array.isArray(actived.value)) {
+        arr = actived.value;
       }
-      return arr.map((val) => `{${val}}`).join(', ');
-    },
-  },
-  methods: {
-    getValueFromString(val) {
+      return arr.join(', ');
+    })
+
+    const getValueFromString = () => {
       const arr = val.split(',');
       const vals = [];
       arr.map((str) => str.trim()).forEach((tag) => {
@@ -133,24 +132,41 @@ export default {
         }
       });
       return vals;
-    },
-    onAllCheckedInput(val) {
+    }
+
+    const onAllCheckedInput = (val) => {
       console.log('checked input on change', val);
-      const vals = this.getValueFromString(val);
-      this.checked = vals;
-    },
-    onAllExpandedInput(val) {
+      const vals = getValueFromString(val);
+      checked.value = vals;
+    }
+
+    const onAllExpandedInput = (val) => {
       console.log('expanded input on change', val);
-      const vals = this.getValueFromString(val);
-      this.expanded = vals;
-    },
-    onAllActivedInput(val) {
+      const vals = getValueFromString(val);
+      expanded.value = vals;
+    }
+
+    const onAllActivedInput = (val) => {
       console.log('actived input on change', val);
-      const vals = this.getValueFromString(val);
-      this.actived = vals;
-    },
-  },
-};
+      const vals = getValueFromString(val);
+      actived.value = vals;
+    }
+
+    return {
+      checked,
+      expanded,
+      actived,
+      valueMode: 'onlyLeaf',
+      items,
+      allChecked,
+      allExpanded,
+      allActived,
+      onAllCheckedInput,
+      onAllExpandedInput,
+      onAllActivedInput
+    }
+  }
+});
 </script>
 <style scoped>
   .demo-tree-base {

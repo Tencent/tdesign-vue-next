@@ -27,91 +27,89 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      index: 2,
-      useActived: false,
-      expandParent: true,
-      filterText: '',
-      filterByText: null,
-      // icon 要先预置到节点中，才能触发视图更新
-      items: [{
-        icon: '',
-        label: 'node1',
-        value: 'node1',
-      }, {
-        icon: '',
-        label: 'node2',
-        value: 'node2',
-      }],
-    };
-  },
-  computed: {
-    btnSetActivedVariant() {
-      let variant = 'outline';
-      if (this.useActived) {
-        variant = 'base';
-      }
-      return variant;
+import { defineComponent, ref } from 'vue';
+
+const items = [{
+  icon: '',
+  label: 'node1',
+  value: 'node1',
+}, {
+  icon: '',
+  label: 'node2',
+  value: 'node2',
+}]
+
+const changeIcon = (node) => {
+  const { data } = node;
+  // 需要自定义视图的数据，如果较多，可以存放到 data 里面
+  data.icon = data.icon === 'folder' ? 'folder-open' : 'folder';
+}
+
+const icon = (createElement, node) => {
+  const { data } = node;
+  let name = 'file';
+  if (node.getChildren()) {
+    if (node.expanded) {
+      name = 'folder-open';
+    } else {
+      name = 'folder';
+    }
+  }
+  if (data.icon) {
+    name = data.icon;
+  }
+  return createElement('t-icon', {
+    props: {
+      name,
     },
-  },
-  methods: {
-    icon(createElement, node) {
-      const { data } = node;
-      let name = 'file';
-      if (node.getChildren()) {
-        if (node.expanded) {
-          name = 'folder-open';
-        } else {
-          name = 'folder';
-        }
-      }
-      if (data.icon) {
-        name = data.icon;
-      }
-      return createElement('t-icon', {
-        props: {
-          name,
-        },
-      });
-    },
-    getInsertItem() {
+  });
+}
+
+export default defineComponent({
+  setup() {
+    const index = ref(2);
+
+    const check = (node) => {
+      console.info('check:', node);
+    }
+
+    const tree = ref(null)
+    const remove = (node) => {
+      tree.value.remove(node.value);
+    }
+
+    const getInsertItem = () => {
       let item = null;
-      this.index += 1;
-      const value = `t${this.index}`;
+      index.value += 1;
+      const value = `t${index.value}`;
       item = {
         icon: '',
         label: value,
         value,
       };
       return item;
-    },
-    append(node) {
-      const { tree } = this.$refs;
-      const item = this.getInsertItem();
+    } 
+    const append = (node) => {
+      const item = getInsertItem();
       if (item) {
         if (!node) {
-          tree.appendTo('', item);
+          tree.value.appendTo('', item);
         } else {
-          tree.appendTo(node.value, item);
+          tree.value.appendTo(node.value, item);
         }
       }
-    },
-    check(node) {
-      console.info('check:', node);
-    },
-    changeIcon(node) {
-      const { data } = node;
-      // 需要自定义视图的数据，如果较多，可以存放到 data 里面
-      data.icon = data.icon === 'folder' ? 'folder-open' : 'folder';
-    },
-    remove(node) {
-      const { tree } = this.$refs;
-      tree.remove(node.value);
-    },
-  },
-};
+    }
+    
+    return {
+      items,
+      icon,
+      check,
+      changeIcon,
+      remove,
+      append
+    }
+  }
+});
 </script>
 <style>
   .tdesign-tree-state .title{

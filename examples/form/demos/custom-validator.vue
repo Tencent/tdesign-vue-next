@@ -26,69 +26,84 @@
   </div>
 </template>
 <script>
+import { defineComponent, ref } from 'vue';
+import { MessagePlugin } from '@tencent/tdesign-vue-next';
 
 const INITIAL_DATA = {
   account: '',
   password: '',
   rePassword: '',
 };
-export default {
-  data() {
-    return {
-      formData: { ...INITIAL_DATA },
-      rules: {
-        account: [
-          { required: true, message: '姓名必填', type: 'error' },
-          {
-            min: 2, message: '至少需要两个字', type: 'error', trigger: 'blur',
-          },
-        ],
-        password: [
-          { required: true, message: '密码必填', type: 'error' },
-        ],
-        rePassword: [
-          // 自定义校验规则
-          { required: true, message: '密码必填', type: 'error' },
-          { validator: this.rePassword, message: '两次密码不一致' },
-        ],
-      },
-    };
-  },
 
-  methods: {
-    onReset() {
-      this.$message.success('重置成功');
-    },
-    onSubmit({ validateResult, firstError }) {
+export default defineComponent({
+  setup() {
+    const formData = ref({ ...INITIAL_DATA })
+    const form = ref(null);
+
+    const onReset = () => {
+      MessagePlugin.success('重置成功');
+    }
+
+    const onSubmit = ({ validateResult, firstError, e }) => {
+      e.preventDefault();
       if (validateResult === true) {
-        this.$message.success('提交成功');
+        MessagePlugin.success('提交成功');
       } else {
-        console.log('Errors: ', validateResult);
-        this.$message.warning(firstError);
+        console.log('Validate Errors: ', firstError, validateResult);
+        MessagePlugin.warning(firstError);
       }
-    },
-    onValidate({ validateResult, firstError }) {
+    }
+
+    const onValidate = ({ validateResult, firstError }) => {
       if (validateResult === true) {
         console.log('Validate Success');
       } else {
         console.log('Validate Errors: ', firstError, validateResult);
       }
-    },
-    handleBlur() {
-      this.$refs.form.validate({
+    }
+
+    const handleBlur = () => {
+      form.value.validate({
         fields: ['account'],
         trigger: 'blur',
       });
-    },
-    // 自定义异步校验器
-    rePassword(val) {
+    } 
+    
+    const rePassword = (val) => {
       return new Promise((resolve) => {
         const timer = setTimeout(() => {
-          resolve(this.formData.password === val);
+          resolve(formData.value.password === val);
           clearTimeout(timer);
         });
       });
-    },
-  },
-};
+    }
+
+    const rules = {
+      account: [
+        { required: true, message: '姓名必填', type: 'error' },
+        {
+          min: 2, message: '至少需要两个字', type: 'error', trigger: 'blur',
+        },
+      ],
+      password: [
+        { required: true, message: '密码必填', type: 'error' },
+      ],
+      rePassword: [
+        // 自定义校验规则
+        { required: true, message: '密码必填', type: 'error' },
+        { validator: rePassword, message: '两次密码不一致' },
+      ],
+    }
+
+    return {
+      form,
+      formData,
+      rules,
+      onReset,
+      onSubmit,
+      onValidate,
+      handleBlur,
+    }
+  }
+});
 </script>

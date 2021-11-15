@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { defineComponent, ref } from 'vue';
 
 const data1 = [{
   label: '1',
@@ -59,19 +60,22 @@ const data2 = [{
   }],
 }];
 
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const items = ref(data1);
+    const transition = ref(true);
+
+    const toggleData = () => {
+      items.value = items.value === data1 ? data2 : data1;
+    }
+
     return {
-      transition: true,
-      items: data1,
-    };
-  },
-  methods: {
-    toggleData() {
-      this.items = this.items === data1 ? data2 : data1;
-    },
-  },
-};
+      items,
+      transition,
+      toggleData,
+    }
+  }
+});
 </script>
 <style scoped>
   .tdesign-tree-base .t-button{

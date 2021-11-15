@@ -34,6 +34,7 @@
 </template>
 
 <script lang="jsx">
+import { defineComponent, watch, ref } from 'vue';
 import TIconCarretDownSmall from '@tencent/tdesign-vue-next/icon/caret-down-small';
 
 const columns = [
@@ -44,61 +45,58 @@ const columns = [
 ];
 
 // 本地数据排序，表示组件内部会对参数 data 进行数据排序。如果 data 数据为 10 条，就仅对这 10 条数据进行排序。
-const data = [
+const initData = [
   { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', survivalTime: 1000 },
   { id: 2, instance: 'JQTest2', status: 1, owner: 'jenny', survivalTime: 1000 },
   { id: 3, instance: 'JQTest3', status: 2, owner: 'jenny', survivalTime: 500 },
   { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', survivalTime: 1500 },
 ];
 
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const data = ref([...initData])
+    const sort = ref({});
+    const singleSort = ref({
+      sortBy: 'status',
+      descending: true,
+    });
+
+    const multipleSorts = ref([{
+      sortBy: 'status',
+      descending: true,
+    }]);
+
+    const allowMultipleSort = ref(false);
+    const globalLocale = ref({
+      table: {
+        sortIcon: (h) => h && <TIconCarretDownSmall size='16px' />,
+      }
+    })
+
+    watch(() => allowMultipleSort.value, (val) => {
+      sort.value = val ? multipleSorts.value : singleSort.value;
+    })
+
+    const sortChange = (sort, options) => {
+      sort.value = sort;
+      console.log('#### sortChange:', sort, options);
+    }
+
+    const dataChange = (data) => {
+      data.value = data;
+    }
+
     return {
       data,
       columns,
-      sort: {},
-      singleSort: {
-        sortBy: 'status',
-        descending: true,
-      },
-      multipleSorts: [{
-        sortBy: 'status',
-        descending: true,
-      }],
-      allowMultipleSort: false,
-      globalLocale: {
-        table: {
-          sortIcon: (h) => h && <TIconCarretDownSmall size='16px' />,
-        },
-      },
-    };
+      sort,
+      sortChange,
+      dataChange,
+      globalLocale,
+      allowMultipleSort
+    }
   },
-  watch: {
-    allowMultipleSort: {
-      immediate: true,
-      handler(val) {
-        this.sort = val ? this.multipleSorts : this.singleSort;
-      },
-    },
-  },
-  watch: {
-    allowMultipleSort: {
-      immediate: true,
-      handler(val) {
-        this.sort = val ? this.multipleSorts : this.singleSort;
-      },
-    },
-  },
-  methods: {
-    sortChange(sort, options) {
-      this.sort = sort;
-      console.log('#### sortChange:', sort, options);
-    },
-    dataChange(data) {
-      this.data = data;
-    },
-  },
-};
+});
 </script>
 <style lang="less">
 @import '@common/style/web/_variables.less';

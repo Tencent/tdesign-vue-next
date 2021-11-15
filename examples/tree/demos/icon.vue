@@ -25,23 +25,21 @@
 </template>
 
 <script>
-import TIcon from '@/src/icon/svg';
-import { resolveComponent } from 'vue'
-export default {
+import { defineComponent, resolveComponent, ref } from 'vue'
+import TIcon from '@tencent/tdesign-vue-next/icon';
+
+export default defineComponent({
   components: { TIcon },
-  data() {
-    return {
-      items: [{
-        label: '1',
-        children: true,
-      }, {
-        label: '2',
-        children: true,
-      }],
-    };
-  },
-  methods: {
-    icon(createElement, node) {
+  setup() {
+    const items = ref([{
+      label: '1',
+      children: true,
+    }, {
+      label: '2',
+      children: true,
+    }])
+
+    const icon = (createElement, node) => {
       let name = 'file';
       const TIcon = resolveComponent('t-icon')
       if (node.getChildren()) {
@@ -55,8 +53,9 @@ export default {
       return createElement(TIcon, {
         name,
       });
-    },
-    load(node) {
+    }
+
+    const load = (node) => {
       const maxLevel = 2;
       return new Promise((resolve) => {
         setTimeout(() => {
@@ -73,9 +72,15 @@ export default {
           resolve(nodes);
         }, 100);
       });
-    },
-  },
-};
+    }
+
+    return {
+      items,
+      icon,
+      load
+    }
+  }
+});
 </script>
 <style scoped>
   .demo-tree-base {

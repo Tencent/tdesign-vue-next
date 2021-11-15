@@ -29,101 +29,109 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      valueMode: 'onlyLeaf',
-      checkable: true,
-      checkStrictly: false,
-      valueOptions: [
-        {
-          value: 'onlyLeaf',
-          label: 'onlyLeaf',
-        },
-        {
-          value: 'parentFirst',
-          label: 'parentFirst',
-        },
-        {
-          value: 'all',
-          label: 'all',
-        },
-      ],
-      items: [{
-        value: '1',
-        label: '1',
-        children: [{
-          value: '1.1',
-          label: '1.1',
-          children: [{
-            value: '1.1.1',
-            label: '1.1.1',
-            children: [{
-              value: '1.1.1.1',
-              label: '1.1.1.1',
-            }, {
-              value: '1.1.1.2',
-              label: '1.1.1.2',
-            }],
-          }, {
-            value: '1.1.2',
-            label: '1.1.2',
-            children: [{
-              value: '1.1.2.1',
-              label: '1.1.2.1',
-            }, {
-              value: '1.1.2.2',
-              label: '1.1.2.2',
-            }],
-          }],
-        }, {
-          value: '1.2',
-          label: '1.2',
-          children: [{
-            value: '1.2.1',
-            label: '1.2.1',
-            children: [{
-              value: '1.2.1.1',
-              label: '1.2.1.1',
-            }, {
-              value: '1.2.1.2',
-              label: '1.2.1.2',
-            }],
-          }, {
-            value: '1.2.2',
-            label: '1.2.2',
-            children: [{
-              value: '1.2.2.1',
-              label: '1.2.2.1',
-            }, {
-              value: '1.2.2.2',
-              label: '1.2.2.2',
-            }],
-          }],
-        }],
+import { defineComponent, ref } from 'vue';
+
+const valueOptions = [
+  {
+    value: 'onlyLeaf',
+    label: 'onlyLeaf',
+  },
+  {
+    value: 'parentFirst',
+    label: 'parentFirst',
+  },
+  {
+    value: 'all',
+    label: 'all',
+  }
+]
+
+const items = [{
+  value: '1',
+  label: '1',
+  children: [{
+    value: '1.1',
+    label: '1.1',
+    children: [{
+      value: '1.1.1',
+      label: '1.1.1',
+      children: [{
+        value: '1.1.1.1',
+        label: '1.1.1.1',
       }, {
-        value: '2',
-        label: '2',
-        children: [{
-          value: '2.1',
-          label: '2.1',
-        }, {
-          value: '2.2',
-          label: '2.2',
-        }],
+        value: '1.1.1.2',
+        label: '1.1.1.2',
       }],
-    };
-  },
-  methods: {
-    onClick(context) {
+    }, {
+      value: '1.1.2',
+      label: '1.1.2',
+      children: [{
+        value: '1.1.2.1',
+        label: '1.1.2.1',
+      }, {
+        value: '1.1.2.2',
+        label: '1.1.2.2',
+      }],
+    }],
+  }, {
+    value: '1.2',
+    label: '1.2',
+    children: [{
+      value: '1.2.1',
+      label: '1.2.1',
+      children: [{
+        value: '1.2.1.1',
+        label: '1.2.1.1',
+      }, {
+        value: '1.2.1.2',
+        label: '1.2.1.2',
+      }],
+    }, {
+      value: '1.2.2',
+      label: '1.2.2',
+      children: [{
+        value: '1.2.2.1',
+        label: '1.2.2.1',
+      }, {
+        value: '1.2.2.2',
+        label: '1.2.2.2',
+      }],
+    }],
+  }],
+}, {
+  value: '2',
+  label: '2',
+  children: [{
+    value: '2.1',
+    label: '2.1',
+  }, {
+    value: '2.2',
+    label: '2.2',
+  }],
+}]
+
+export default defineComponent({
+  setup() {
+    const valueMode = ref('onlyLeaf');
+    const checkable = ref(true);
+    const checkStrictly = ref(false);
+
+    const onClick = (context) => {
       console.info('onClick:', context);
-    },
-    onChange(checked, context) {
+    }
+    const onChange = (checked, context) => {
       console.info('onChange:', checked, context);
-    },
-    propOnChange(checked, context) {
-      console.info('propOnChange:', checked, context);
-    },
-  },
-};
+    }
+
+    return {
+      valueMode,
+      checkable,
+      checkStrictly,
+      valueOptions,
+      items,
+      onClick,
+      onChange,
+    }
+  }
+});
 </script>

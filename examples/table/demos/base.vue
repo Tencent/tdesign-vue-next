@@ -20,6 +20,8 @@
   </div>
 </template>
 <script>
+import { defineComponent, ref } from 'vue';
+
 const data = [];
 for (let i = 0; i < 5; i++) {
   data.push({
@@ -34,68 +36,57 @@ for (let i = 0; i < 5; i++) {
     description: '数据源',
   });
 }
-export default {
-  data() {
-    return {
-      data,
-      stripe: true,
-      bordered: true,
-      hover: false,
-      columns: [
-        {
-          align: 'center',
-          width: '100',
-          className: 'row',
-          colKey: 'index',
-          title: '序号',
-        },
-        {
-          width: 100,
-          colKey: 'platform',
-          title: '平台',
-        },
-        {
-          colKey: 'type',
-          title: '类型',
-        },
-        {
-          colKey: 'default',
-          title: '默认值',
-        },
-        {
-          colKey: 'needed',
-          title: '是否必传',
-        },
-        {
-          colKey: 'detail.postion',
-          title: '详情信息',
-          width: 200,
-          ellipsis: true,
-        },
-      ],
-      /** 非受控用法：与分页组件对齐 */
-      pagination: {
-        defaultCurrent: 2,
-        defaultPageSize: 10,
-        total: 120,
-      },
-      /** 受控用法：与分页组件对齐（此处注释为受控用法示例，代码有效，勿删） */
-      // pagination: {
-      //   current: 1,
-      //   pageSize: 10,
-      //   total: 120,
-      //   // 也可以监听表格组件的 page-change 事件进行处理
-      //   onChange: (pageInfo.current) => {
-      //     this.pagination.current = pageInfo.current;
-      //     this.pagination.pageSize = pageInfo.pageSize;
-      //   },
-      // },
-    };
+
+const columns = [
+  {
+    align: 'center',
+    width: '100',
+    className: 'row',
+    colKey: 'index',
+    title: '序号',
   },
-  methods: {
-    handleRowClick (e){
+  {
+    width: 100,
+    colKey: 'platform',
+    title: '平台',
+  },
+  {
+    colKey: 'type',
+    title: '类型',
+  },
+  {
+    colKey: 'default',
+    title: '默认值',
+  },
+  {
+    colKey: 'needed',
+    title: '是否必传',
+  },
+  {
+    colKey: 'detail.postion',
+    title: '详情信息',
+    width: 200,
+    ellipsis: true,
+  },
+]
+export default defineComponent({
+  setup() {
+    const stripe = ref(true);
+    const bordered = ref(true);
+    const hover = ref(false);
+
+    const handleRowClick = (e) => {
       console.log(e)
     }
+
+    return {
+      data,
+      columns,
+      stripe,
+      bordered,
+      hover,
+      handleRowClick,
+    }
   }
-};
+});
 </script>

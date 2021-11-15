@@ -36,6 +36,8 @@
   </div>
 </template>
 <script>
+import { defineComponent, ref } from 'vue';
+import { MessagePlugin } from '@tencent/tdesign-vue-next';
 
 const INITIAL_DATA = {
   name: '',
@@ -45,29 +47,33 @@ const INITIAL_DATA = {
   status: false,
 };
 
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const formData = ref({ ...INITIAL_DATA });
+
+    const onReset = () => {
+      MessagePlugin.success('重置成功');
+    }
+
+    const onSubmit = ({ validateResult, firstError }) => {
+      if (validateResult === true) {
+        MessagePlugin.success('提交成功');
+      } else {
+        console.log('Validate Errors: ', firstError, validateResult);
+        MessagePlugin.warning(firstError);
+      }
+    }
+
     return {
-      formData: { ...INITIAL_DATA },
+      formData,
       courseOptions: [
         { label: '语文', value: '1' },
         { label: '数学', value: '2' },
         { label: '英语', value: '3' },
       ],
-    };
-  },
-  methods: {
-    onReset() {
-      this.$message.success('重置成功');
-    },
-    onSubmit({ validateResult, firstError }) {
-      if (validateResult === true) {
-        this.$message.success('提交成功');
-      } else {
-        console.log('Validate Errors: ', firstError, validateResult);
-        this.$message.warning(firstError);
-      }
-    },
-  },
-};
+      onReset,
+      onSubmit
+    }
+  }
+});
 </script>

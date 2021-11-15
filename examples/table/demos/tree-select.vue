@@ -31,6 +31,7 @@
 </template>
 
 <script lang="jsx">
+import { defineComponent, ref, watch } from 'vue';
 import { EnhancedTable } from '@tencent/tdesign-vue-next';
 
 const data = [];
@@ -63,69 +64,73 @@ for (let i = 0; i < 5; i++) {
   });
   data.push(obj);
 }
+const columns = [
+  {
+    colKey: 'row-select',
+    type: 'multiple',
+    // 禁用行选中方式一：使用 disabled 禁用行（示例代码有效，勿删）。disabled 参数：{row: RowData; rowIndex: number })
+    // 这种方式禁用行选中，当前行会添加行类名 t-table__row--disabled，禁用行文字变灰
+    // disabled: ({ rowIndex }) => rowIndex === 1 || rowIndex === 3,
 
-export default {
+    // 禁用行选中方式二：使用 checkProps 禁用行（示例代码有效，勿删）
+    // 这种方式禁用行选中，行文本不会变灰
+    checkProps: ({ row }) => ({ disabled: row.status !== 0 }),
+    width: 50,
+  },
+  {
+    colKey: 'instance',
+    title: '集群名称',
+    width: 250,
+  },
+  {
+    colKey: 'status',
+    title: '状态',
+    width: 100,
+    cell: (h, { row }) => row.status === 0
+      ? <p class="status">健康</p>
+      : <p class="status unhealth">异常</p>,
+  },
+  { colKey: 'owner', title: '管理员' },
+  { colKey: 'description', title: '描述' },
+]
+export default defineComponent({
   components: { TEnhancedTable: EnhancedTable },
-  data() {
-    return {
-      checkStrictly: 'true',
-      selectedRowKeys: [],
-      expandedRowKeys: [],
-      columns: [
-        {
-          colKey: 'row-select',
-          type: 'multiple',
-          // 禁用行选中方式一：使用 disabled 禁用行（示例代码有效，勿删）。disabled 参数：{row: RowData; rowIndex: number })
-          // 这种方式禁用行选中，当前行会添加行类名 t-table__row--disabled，禁用行文字变灰
-          // disabled: ({ rowIndex }) => rowIndex === 1 || rowIndex === 3,
+  setup() {
+    const checkStrictly = ref('true');
+    const selectedRowKeys = ref([]);
+    const expandedRowKeys = ref([]);
 
-          // 禁用行选中方式二：使用 checkProps 禁用行（示例代码有效，勿删）
-          // 这种方式禁用行选中，行文本不会变灰
-          checkProps: ({ row }) => ({ disabled: row.status !== 0 }),
-          width: 50,
-        },
-        {
-          colKey: 'instance',
-          title: '集群名称',
-          width: 250,
-        },
-        {
-          colKey: 'status',
-          title: '状态',
-          width: 100,
-          cell: (h, { row }) => row.status === 0
-            ? <p class="status">健康</p>
-            : <p class="status unhealth">异常</p>,
-        },
-        { colKey: 'owner', title: '管理员' },
-        { colKey: 'description', title: '描述' },
-      ],
-      data,
-    };
-  },
-  watch: {
-    checkStrictly() {
-      this.selectedRowKeys = [];
-    },
-  },
-  methods: {
-    rehandleClickOp({ text, row }) {
-      console.log(text, row);
-    },
-    rehandleSelectChange(value, { selectedRowData }) {
-      this.selectedRowKeys = value;
+    watch(() => checkStrictly.value, () => {
+      selectedRowKeys.value = [];
+    })
+
+    const rehandleSelectChange = (value, { selectedRowData }) => {
+      selectedRowKeys.value = value;
       console.log(value, selectedRowData);
-    },
-    expandedRowRender(h, { row }) {
+    }
+
+    const expandedRowRender = (h, { row }) => {
       return (
         <div>这是展开项数据，{row.key}</div>
       );
-    },
-    onExpandChange(val) {
-      this.expandedRowKeys = val;
-    },
+    }
+
+    const onExpandChange = (val) => {
+      expandedRowKeys.value = val;
+    }
+
+    return {
+      checkStrictly,
+      selectedRowKeys,
+      expandedRowKeys,
+      data,
+      columns,
+      rehandleSelectChange,
+      expandedRowRender,
+      onExpandChange
+    }
   },
-};
+});
 </script>
 
 <style lang="less">

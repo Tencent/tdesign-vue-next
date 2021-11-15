@@ -5,15 +5,6 @@
       <span style="padding-left: 36px">已选筛选条件：{{ filterValue }}</span>
     </div>
 
-    <!-- 可以使用语法糖 .sync ，此处代码有效，勿删！ 其中，filterIcon 用于自定义筛选图标-->
-    <!-- <t-table
-      rowKey='key'
-      :columns="columns"
-      :data="data"
-      :filter-value.sync="filterValue"
-      :filterIcon="filterIcon"
-    /> -->
-
     <!-- filter-value.sync 等同于 filter-value + filter-change -->
     <t-table
       rowKey='key'
@@ -27,7 +18,9 @@
 </template>
 
 <script lang="jsx">
-const data = [
+import { defineComponent, ref } from 'vue';
+
+const initData = [
   {
     key: '1',
     firstName: 'Eric',
@@ -65,84 +58,68 @@ const data = [
   },
 ];
 
-
-export default {
-  data() {
-    return {
-      data,
-      filterValue: {},
-      columns: [
-        {
-          title: 'FirstName',
-          colKey: 'firstName',
-          // 单选过滤配置
-          filter: {
-            type: 'single',
-            list: [
-              { label: 'anyone', value: '' },
-              { label: 'Heriberto', value: 'Heriberto' },
-              { label: 'Eric', value: 'Eric' },
-            ],
-          },
-        },
-        {
-          title: 'LastName',
-          colKey: 'lastName',
-          // 多选过滤配置
-          filter: {
-            type: 'multiple',
-            list: [
-              { label: 'All', checkAll: true },
-              { label: 'Skures', value: 'Skures' },
-              { label: 'Purves', value: 'Purves' },
-            ],
-          },
-        },
-        {
-          title: 'Email',
-          colKey: 'email',
-          // 输入框过滤配置
-          filter: {
-            type: 'input',
-            props: { placeholder: '输入关键词过滤' },
-          },
-        },
-        {
-          title: 'Date',
-          colKey: 'date',
-          // 日期过滤配置
-          filter: {
-            type: 'custom',
-            component: (h) => (
-               <t-date-picker
-                theme="primary"
-                range
-                mode="month"
-              ></t-date-picker>
-            ),
-          },
-        },
+const columns = [
+  {
+    title: 'FirstName',
+    colKey: 'firstName',
+    // 单选过滤配置
+    filter: {
+      type: 'single',
+      list: [
+        { label: 'anyone', value: '' },
+        { label: 'Heriberto', value: 'Heriberto' },
+        { label: 'Eric', value: 'Eric' },
       ],
-    };
+    },
   },
-  methods: {
-    onFilterChange(filters) {
-      this.filterValue = filters;
-      // 模拟异步请求进行数据过滤
-      this.request(filters);
+  {
+    title: 'LastName',
+    colKey: 'lastName',
+    // 多选过滤配置
+    filter: {
+      type: 'multiple',
+      list: [
+        { label: 'All', checkAll: true },
+        { label: 'Skures', value: 'Skures' },
+        { label: 'Purves', value: 'Purves' },
+      ],
     },
-    setFilters() {
-      this.filterValue = {};
-      this.data = data;
+  },
+  {
+    title: 'Email',
+    colKey: 'email',
+    // 输入框过滤配置
+    filter: {
+      type: 'input',
+      props: { placeholder: '输入关键词过滤' },
     },
-    filterIcon(h) {
-      console.log(h);
-      return <i>icon</i>;
+  },
+  {
+    title: 'Date',
+    colKey: 'date',
+    // 日期过滤配置
+    filter: {
+      type: 'custom',
+      component: () => (
+        <t-date-picker
+          theme="primary"
+          range
+          mode="month"
+        />
+      ),
     },
-    request(filters) {
+  },
+]
+
+export default defineComponent({
+  setup() {
+    const filterValue = ref({});
+    const data = ref([ ...initData]);
+
+    const request = (filters) => {
       const timer = setTimeout(() => {
         clearTimeout(timer);
-        this.data = data.filter((item) => {
+        data.value = initData.filter((item) => {
           let result = true;
           if (filters.firstName) {
             result = item.firstName === filters.firstName;
@@ -160,9 +137,27 @@ export default {
           return result;
         });
       }, 100);
-    },
-  },
-};
+    }
+
+    const onFilterChange = (filters) => {
+      filterValue.value = filters
+      request(filters)
+    }
+
+    const setFilters = () => {
+      filterValue.value = {};
+      data.value = ref([ ...initData]);
+    }
+
+    return {
+      filterValue,
+      data,
+      columns,
+      onFilterChange,
+      setFilters
+    }
+  }
+});
 </script>
 <style scoped>
 .table-operations {

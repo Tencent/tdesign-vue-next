@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { defineComponent, ref } from 'vue';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
@@ -34,7 +35,7 @@ const columns = [
   { colKey: 'owner', title: '管理员', width: 100 },
 ];
 
-const data = [
+const initData = [
   {
     id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', survivalTime: 1000,
   },
@@ -49,22 +50,23 @@ const data = [
   },
 ];
 
-export default {
-  data() {
+export default defineComponent({
+  setup() {
+    const data = ref([ ...initData]);
+
+    const onDragSort = ({ currentIndex, targetIndex }) => {
+      const temp = data.value[currentIndex];
+      data.value[currentIndex] = data.value[targetIndex]
+      data.value[targetIndex] = temp
+    }
+
     return {
       data,
       columns,
-    };
+      onDragSort
+    }
   },
-  methods: {
-    // 必须手动实现交换数据，否则data不会发生变异
-    onDragSort({ currentIndex, targetIndex }) {
-      const temp = this.data[currentIndex];
-      this.data[currentIndex] = this.data[targetIndex]
-      this.data[targetIndex] = temp
-    },
-  },
-};
+});
 </script>
 <style scoped lang="less">
 :deep([class*='t-table-expandable-icon-cell']) .t-icon {
