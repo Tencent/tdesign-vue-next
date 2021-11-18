@@ -58,27 +58,30 @@ const demoRoutes = getDemoRoutes();
 const routes = [
   {
     path: '/vue-next/components',
-    redirect: '/vue-next/components/button',
+    redirect: '/vue-next/components/divider',
     component: TdesignComponents,
     children: getDocsRoutes(docs),
   },
   {
     path: '/vue-next/',
-    redirect: '/vue-next/components/button',
+    redirect: '/vue-next/components/divider',
   },
   {
     path: '/',
-    redirect: '/vue-next/components/button',
+    redirect: '/vue-next/components/divider',
   },
-  ...demoRoutes,
-  {
-    path: '/vue-next/playground',
-    component: TdesignPlayground,
-  },
+  ...demoRoutes
 ];
 
+if(process.env.NODE_ENV === 'development') {
+  routes.push({
+    path: '/vue-next/playground',
+    component: TdesignPlayground,
+  })
+}
+
 const routerConfig = {
-  history: createWebHashHistory('/'),
+  history: createWebHistory(),
   routes,
   scrollBehavior: function(to, from) {
     if (to.path !== from.path) {
@@ -87,9 +90,10 @@ const routerConfig = {
   },
 };
 
-if (process.env.NODE_ENV === 'production') {
-  routerConfig.history = createWebHistory('/');
-}
+// console.log(process.env.NODE_ENV)
+// if (process.env.NODE_ENV !== 'development') {
+//   routerConfig.history = createWebHistory();
+// }
 
 const router = createRouter(routerConfig);
 
