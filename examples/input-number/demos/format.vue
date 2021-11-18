@@ -6,7 +6,7 @@
       :min="-2"
       :format="value => `${value}%`"
       @change="onChange"
-    ></t-input-number>
+    />
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default defineComponent({
       onChange(ev) {
         console.info(ev);
       },
-    }
-  }
+    };
+  },
 });
 </script>

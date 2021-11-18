@@ -8,9 +8,9 @@
       <t-option-group label="热门城市">
         <t-option
           v-for="(item, index) in options1"
+          :key="index"
           :value="item.value"
           :label="item.label"
-          :key="index"
         >
           {{ item.label }}
         </t-option>
@@ -18,9 +18,9 @@
       <t-option-group label="广东省">
         <t-option
           v-for="(item, index) in options2"
+          :key="index"
           :value="item.value"
           :label="item.label"
-          :key="index"
         >
           {{ item.label }}
         </t-option>
@@ -28,9 +28,9 @@
       <t-option-group label="江苏省">
         <t-option
           v-for="(item, index) in options3"
+          :key="index"
           :value="item.value"
           :label="item.label"
-          :key="index"
         >
           {{ item.label }}
         </t-option>
@@ -48,7 +48,7 @@ const options1 = [{
 }, {
   label: '上海',
   value: 'shanghai',
-}]
+}];
 
 const options2 = [{
   label: '广州',
@@ -59,7 +59,7 @@ const options2 = [{
 }, {
   label: '东莞',
   value: 'dongguang',
-}]
+}];
 
 const options3 = [{
   label: '南京',
@@ -70,7 +70,7 @@ const options3 = [{
 }, {
   label: '无锡',
   value: 'wuxi',
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -79,8 +79,8 @@ export default defineComponent({
       value,
       options1,
       options2,
-      options3
-    }
-  }
+      options3,
+    };
+  },
 });
 </script>

@@ -1,7 +1,12 @@
 <template>
   <div class="tag-demo">
-    <t-tag @click="onClick">默认</t-tag>
-    <a href="https://www.tencent.com/zh-cn" target="_blank">
+    <t-tag @click="onClick">
+      默认
+    </t-tag>
+    <a
+      href="https://www.tencent.com/zh-cn"
+      target="_blank"
+    >
       <t-tag>超链接</t-tag>
     </a>
   </div>
@@ -15,9 +20,9 @@ export default defineComponent({
     return {
       onClick({ e }) {
         e.stopPropagation();
-      }
-    }
-  }
+      },
+    };
+  },
 });
 </script>
 

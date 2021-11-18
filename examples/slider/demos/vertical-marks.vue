@@ -1,11 +1,27 @@
 <template>
   <div class="demo-slider">
     <div class="vertical-marks-block">
-      <t-slider v-model="value1" @change="change" :layout="layout" vertical :show-tooltip="true" :marks="marks1" :inputNumberProps="false" />
+      <t-slider
+        v-model="value1"
+        :layout="layout"
+        vertical
+        :show-tooltip="true"
+        :marks="marks1"
+        :input-number-props="false"
+        @change="change"
+      />
     </div>
 
     <div class="vertical-marks-block">
-      <t-slider v-model="value2" :layout="layout" vertical range :show-tooltip="true" :marks="marks2" :inputNumberProps="false" />
+      <t-slider
+        v-model="value2"
+        :layout="layout"
+        vertical
+        range
+        :show-tooltip="true"
+        :marks="marks2"
+        :input-number-props="false"
+      />
     </div>
   </div>
 </template>
@@ -40,7 +56,7 @@ export default defineComponent({
       change(value) {
         console.log('change value', value);
       },
-    }
+    };
   },
 });
 </script>

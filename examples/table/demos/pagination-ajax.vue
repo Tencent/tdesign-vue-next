@@ -2,14 +2,14 @@
   <t-table
     :data="data"
     :columns="columns"
-    :rowKey="rowKey"
-    :verticalAlign="verticalAlign"
+    :row-key="rowKey"
+    :vertical-align="verticalAlign"
     :loading="isLoading"
     :pagination="pagination"
-    @change="rehandleChange"
     bordered
     stripe
-    />
+    @change="rehandleChange"
+  />
 </template>
 <script>
 import axios from 'axios';
@@ -41,19 +41,19 @@ const columns = [
     colKey: 'email',
     title: '邮箱',
   },
-]
+];
 
 export default defineComponent({
   setup() {
     const data = ref([]);
     const isLoading = ref(false);
-    
+
     const pagination = ref({
       current: 1,
       pageSize: 10,
-    })
-    
-    const fetchData = async (pagination = pagination.value) => {
+    });
+
+    const fetchData = async (paginationVal = pagination.value) => {
       try {
         isLoading.value = true;
         const { current, pageSize } = pagination;
@@ -67,7 +67,7 @@ export default defineComponent({
         });
         data.value = response.data.results;
         pagination.value = {
-          ...pagination,
+          ...paginationVal,
           total: 120,
         };
         console.log('分页数据', response.data.results);
@@ -75,18 +75,18 @@ export default defineComponent({
         data.value = [];
       }
       isLoading.value = false;
-    }
+    };
 
     const rehandleChange = async (changeParams, triggerAndData) => {
       console.log('分页、排序、过滤等发生变化时会触发 change 事件：', changeParams, triggerAndData);
       const { current, pageSize } = changeParams.pagination;
-      const pagination = { current, pageSize  };
+      const pagination = { current, pageSize };
       await fetchData(pagination);
-    }
+    };
 
     onMounted(async () => {
       await fetchData(pagination.value);
-    })
+    });
 
     return {
       data,
@@ -95,8 +95,8 @@ export default defineComponent({
       rowKey: 'property',
       verticalAlign: 'top',
       pagination,
-      rehandleChange
-    }
-  }
+      rehandleChange,
+    };
+  },
 });
 </script>

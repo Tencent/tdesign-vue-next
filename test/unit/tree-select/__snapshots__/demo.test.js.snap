@@ -340,7 +340,7 @@ exports[`TreeSelect filterable demo works fine 1`] = `
         >
           
           
-          默认
+           默认 
           
           
         </span>
@@ -362,7 +362,7 @@ exports[`TreeSelect filterable demo works fine 1`] = `
         >
           
           
-          自定义方法
+           自定义方法 
           
           
         </span>

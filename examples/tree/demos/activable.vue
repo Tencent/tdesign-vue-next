@@ -1,15 +1,15 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-form labelWidth="120">
+      <t-form label-width="120">
         <t-form-item label="节点可高亮">
-          <t-switch v-model="activable"/>
+          <t-switch v-model="activable" />
         </t-form-item>
         <t-form-item label="节点可多选高亮">
-          <t-switch v-model="activeMultiple"/>
+          <t-switch v-model="activeMultiple" />
         </t-form-item>
         <t-form-item label="整个节点可点击">
-          <t-switch v-model="expandOnClickNode"/>
+          <t-switch v-model="expandOnClickNode" />
         </t-form-item>
       </t-form>
     </div>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
 
 const items = [{
   label: '1',
@@ -42,7 +42,7 @@ const items = [{
   }, {
     label: '2.2',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -52,11 +52,11 @@ export default defineComponent({
 
     const onClick = (context) => {
       console.info('onClick', context);
-    }
+    };
 
-    const onActive = (context) => {
+    const onActive = (value, context) => {
       console.info('onActive', value, context);
-    }
+    };
 
     return {
       activable,
@@ -65,7 +65,7 @@ export default defineComponent({
       items,
       onClick,
       onActive,
-    }
+    };
   },
 });
 </script>

@@ -1,10 +1,19 @@
 <template>
   <div class="demo-slider">
     <div class="block">
-      <t-slider v-model="value1" :show-tooltip="true" :inputNumberProps="inputNumberProps" />
+      <t-slider
+        v-model="value1"
+        :show-tooltip="true"
+        :input-number-props="inputNumberProps"
+      />
     </div>
     <div class="block">
-      <t-slider v-model="value2" range :show-tooltip="true" :inputNumberProps="inputNumberProps" />
+      <t-slider
+        v-model="value2"
+        range
+        :show-tooltip="true"
+        :input-number-props="inputNumberProps"
+      />
     </div>
   </div>
 </template>
@@ -20,7 +29,7 @@ export default defineComponent({
       value1,
       value2,
       inputNumberProps: { theme: 'column' },
-    }
+    };
   },
 });
 </script>

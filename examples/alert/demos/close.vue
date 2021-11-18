@@ -18,7 +18,10 @@
       @close="beforeClose"
       @closed="handleClosed"
     />
-    <t-alert theme="error" message="高危操作/出错信息提示">
+    <t-alert
+      theme="error"
+      message="高危操作/出错信息提示"
+    >
       <template #close>
         Slot Close
       </template>
@@ -26,23 +29,21 @@
   </div>
 </template>
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   setup() {
-    const beforeClose = () => {
-      return window.confirm('确认关闭吗？');
-    }
+    const beforeClose = () => window.confirm('确认关闭吗？');
 
     const handleClosed = () => {
       alert('closed');
-    }
+    };
 
     return {
       warningClose: () => 'FunctionPropClose',
       beforeClose,
       handleClosed,
     };
-  }
+  },
 });
 </script>

@@ -1,13 +1,22 @@
 <template>
   <div class="tdesign-tree-base">
     <t-addon prepend="checked:">
-      <t-input :value="allChecked" @input="onAllCheckedInput"/>
+      <t-input
+        :value="allChecked"
+        @input="onAllCheckedInput"
+      />
     </t-addon>
     <t-addon prepend="expanded:">
-      <t-input :value="allExpanded" @input="onAllExpandedInput"/>
+      <t-input
+        :value="allExpanded"
+        @input="onAllExpandedInput"
+      />
     </t-addon>
     <t-addon prepend="actived:">
-      <t-input :value="allActived" @input="onAllActivedInput"/>
+      <t-input
+        :value="allActived"
+        @input="onAllActivedInput"
+      />
     </t-addon>
     <t-tree
       :data="items"
@@ -91,7 +100,7 @@ const items = [{
     label: '2.2',
     checkable: false,
   }],
-}]
+}];
 export default defineComponent({
   setup() {
     const checked = ref(['1.1.1.1', '1.1.1.2']);
@@ -104,7 +113,7 @@ export default defineComponent({
         arr = checked.value;
       }
       return arr.join(', ');
-    })
+    });
 
     const allExpanded = computed(() => {
       let arr = [];
@@ -112,7 +121,7 @@ export default defineComponent({
         arr = expanded.value;
       }
       return arr.join(', ');
-    })
+    });
 
     const allActived = computed(() => {
       let arr = [];
@@ -120,9 +129,9 @@ export default defineComponent({
         arr = actived.value;
       }
       return arr.join(', ');
-    })
+    });
 
-    const getValueFromString = () => {
+    const getValueFromString = (val) => {
       const arr = val.split(',');
       const vals = [];
       arr.map((str) => str.trim()).forEach((tag) => {
@@ -132,25 +141,25 @@ export default defineComponent({
         }
       });
       return vals;
-    }
+    };
 
     const onAllCheckedInput = (val) => {
       console.log('checked input on change', val);
       const vals = getValueFromString(val);
       checked.value = vals;
-    }
+    };
 
     const onAllExpandedInput = (val) => {
       console.log('expanded input on change', val);
       const vals = getValueFromString(val);
       expanded.value = vals;
-    }
+    };
 
     const onAllActivedInput = (val) => {
       console.log('actived input on change', val);
       const vals = getValueFromString(val);
       actived.value = vals;
-    }
+    };
 
     return {
       checked,
@@ -163,9 +172,9 @@ export default defineComponent({
       allActived,
       onAllCheckedInput,
       onAllExpandedInput,
-      onAllActivedInput
-    }
-  }
+      onAllActivedInput,
+    };
+  },
 });
 </script>
 <style scoped>

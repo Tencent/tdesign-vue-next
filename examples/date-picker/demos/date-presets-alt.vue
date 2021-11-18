@@ -1,13 +1,19 @@
 <template>
   <div class="tdesign-demo-item--datepicker">
-    <t-date-picker v-model="selectedDates" :presets="presets" theme="primary" mode="date" range>
+    <t-date-picker
+      v-model="selectedDates"
+      :presets="presets"
+      theme="primary"
+      mode="date"
+      range
+    >
       <template #default="{ trigger }">
         <t-button
           v-for="(value, key) in presets"
-          v-bind:key="key"
+          :key="key"
           theme="primary"
           variant="text"
-          v-on:click="trigger('clickRange', value, true)"
+          @click="trigger('clickRange', value, true)"
         >
           {{ key }}
         </t-button>
@@ -29,12 +35,12 @@ export default defineComponent({
       最近7天: [dayjs().subtract(7, 'day'), dayjs().subtract(1, 'day')],
       最近3天: [dayjs().subtract(3, 'day'), dayjs().subtract(1, 'day')],
       今天: [dayjs()],
-    }
+    };
     return {
       selectedDates,
       presets,
       dateText: '日期',
-    }
-  }
+    };
+  },
 });
 </script>

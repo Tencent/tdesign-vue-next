@@ -1,25 +1,25 @@
 <template>
   <div class="tdesign-tree-select-base">
     <t-tree-select
-      :data="options"
       v-model="value"
+      :data="options"
       clearable
-      valueType="object"
+      value-type="object"
       placeholder="请选择"
     />
     <t-tree-select
+      v-model="mulValue"
       class="tree-select-multiple"
       :data="options"
-      v-model="mulValue"
       clearable
       multiple
-      valueType="object"
+      value-type="object"
       placeholder="请选择"
     />
   </div>
 </template>
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
 const options = [{
   label: '广东省',
@@ -41,7 +41,7 @@ const options = [{
     label: '苏州市',
     value: 'suzhou',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -50,13 +50,13 @@ export default defineComponent({
       { label: '广州市', value: 'guangzhou' },
       { label: '深圳市', value: 'shenzhen' },
     ]);
-    
+
     return {
       value,
       mulValue,
       options,
-    }
-  }
+    };
+  },
 });
 </script>
 <style scoped>

@@ -1,13 +1,18 @@
 <template>
   <div class="tdesign-tree-base">
-    <t-tree :data="items" activable hover transition/>
+    <t-tree
+      :data="items"
+      activable
+      hover
+      transition
+    />
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
-const items =  [{
+const items = [{
   label: '第一段',
   children: [{
     label: '第二段',
@@ -35,14 +40,14 @@ const items =  [{
   }, {
     label: '第二段',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
     return {
-      items
-    }
-  }
+      items,
+    };
+  },
 });
 </script>
 <style scoped>

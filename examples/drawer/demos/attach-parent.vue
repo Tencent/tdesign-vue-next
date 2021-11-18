@@ -6,29 +6,43 @@
         :placement="placement"
         :mode="mode"
         header="抽屉标题"
-        showInAttachedElement
+        show-in-attached-element
       >
         <p>This is a drawer</p>
       </t-drawer>
       <div class="tdesign-radio-button">
         抽屉弹出方向：
         <t-radio-group v-model="placement">
-          <t-radio-button value="left">left</t-radio-button>
-          <t-radio-button value="right">right</t-radio-button>
-          <t-radio-button value="top">top</t-radio-button>
-          <t-radio-button value="bottom">bottom</t-radio-button>
+          <t-radio-button value="left">
+            left
+          </t-radio-button>
+          <t-radio-button value="right">
+            right
+          </t-radio-button>
+          <t-radio-button value="top">
+            top
+          </t-radio-button>
+          <t-radio-button value="bottom">
+            bottom
+          </t-radio-button>
         </t-radio-group>
       </div>
       <br>
       <div class="tdesign-radio-button">
         抽屉弹出模式：
         <t-radio-group v-model="mode">
-          <t-radio-button value="overlay">overlay</t-radio-button>
-          <t-radio-button value="push">push</t-radio-button>
+          <t-radio-button value="overlay">
+            overlay
+          </t-radio-button>
+          <t-radio-button value="push">
+            push
+          </t-radio-button>
         </t-radio-group>
       </div>
       <br><br>
-      <t-button @click="visible = true">Open</t-button>
+      <t-button @click="visible = true">
+        Open
+      </t-button>
     </div>
   </div>
 </template>
@@ -45,9 +59,9 @@ export default defineComponent({
     return {
       visible,
       placement,
-      mode
-    }
-  }
+      mode,
+    };
+  },
 });
 </script>
 <style scoped>

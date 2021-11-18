@@ -12,7 +12,7 @@ exports[`Button base demo works fine 1`] = `
       class="t-button__text"
     >
       
-      填充按钮
+       填充按钮 
       
     </span>
   </button>
@@ -24,7 +24,7 @@ exports[`Button base demo works fine 1`] = `
       class="t-button__text"
     >
       
-      描边按钮
+       描边按钮 
       
     </span>
   </button>
@@ -36,7 +36,7 @@ exports[`Button base demo works fine 1`] = `
       class="t-button__text"
     >
       
-      虚框按钮
+       虚框按钮 
       
     </span>
   </button>
@@ -48,7 +48,7 @@ exports[`Button base demo works fine 1`] = `
       class="t-button__text"
     >
       
-      文字按钮
+       文字按钮 
       
     </span>
   </button>
@@ -72,7 +72,7 @@ exports[`Button block demo works fine 1`] = `
         class="t-button__text"
       >
         
-        填充按钮
+         填充按钮 
         
       </span>
     </button>
@@ -84,7 +84,7 @@ exports[`Button block demo works fine 1`] = `
         class="t-button__text"
       >
         
-        描边按钮
+         描边按钮 
         
       </span>
     </button>
@@ -96,7 +96,7 @@ exports[`Button block demo works fine 1`] = `
         class="t-button__text"
       >
         
-        虚框按钮
+         虚框按钮 
         
       </span>
     </button>
@@ -108,7 +108,7 @@ exports[`Button block demo works fine 1`] = `
         class="t-button__text"
       >
         
-        文字按钮
+         文字按钮 
         
       </span>
     </button>
@@ -342,7 +342,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          填充按钮
+           填充按钮 
           
         </span>
       </button>
@@ -358,7 +358,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          描边按钮
+           描边按钮 
           
         </span>
       </button>
@@ -374,7 +374,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          虚框按钮
+           虚框按钮 
           
         </span>
       </button>
@@ -390,7 +390,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          文字按钮
+           文字按钮 
           
         </span>
       </button>
@@ -410,7 +410,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          填充按钮
+           填充按钮 
           
         </span>
       </button>
@@ -426,7 +426,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          描边按钮
+           描边按钮 
           
         </span>
       </button>
@@ -442,7 +442,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          虚框按钮
+           虚框按钮 
           
         </span>
       </button>
@@ -458,7 +458,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          文字按钮
+           文字按钮 
           
         </span>
       </button>
@@ -478,7 +478,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          填充按钮
+           填充按钮 
           
         </span>
       </button>
@@ -494,7 +494,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          描边按钮
+           描边按钮 
           
         </span>
       </button>
@@ -510,7 +510,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          虚框按钮
+           虚框按钮 
           
         </span>
       </button>
@@ -526,7 +526,7 @@ exports[`Button size demo works fine 1`] = `
           class="t-button__text"
         >
           
-          文字按钮
+           文字按钮 
           
         </span>
       </button>
@@ -550,7 +550,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        填充按钮
+         填充按钮 
         
       </span>
     </button>
@@ -562,7 +562,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        描边按钮
+         描边按钮 
         
       </span>
     </button>
@@ -574,7 +574,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        虚框按钮
+         虚框按钮 
         
       </span>
     </button>
@@ -586,7 +586,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        文字按钮
+         文字按钮 
         
       </span>
     </button>
@@ -602,7 +602,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        填充按钮
+         填充按钮 
         
       </span>
     </button>
@@ -614,7 +614,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        描边按钮
+         描边按钮 
         
       </span>
     </button>
@@ -626,7 +626,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        虚框按钮
+         虚框按钮 
         
       </span>
     </button>
@@ -638,7 +638,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        文字按钮
+         文字按钮 
         
       </span>
     </button>
@@ -654,7 +654,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        填充按钮
+         填充按钮 
         
       </span>
     </button>
@@ -666,7 +666,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        描边按钮
+         描边按钮 
         
       </span>
     </button>
@@ -678,7 +678,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        虚框按钮
+         虚框按钮 
         
       </span>
     </button>
@@ -690,7 +690,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        文字按钮
+         文字按钮 
         
       </span>
     </button>
@@ -706,7 +706,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        填充按钮
+         填充按钮 
         
       </span>
     </button>
@@ -718,7 +718,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        描边按钮
+         描边按钮 
         
       </span>
     </button>
@@ -730,7 +730,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        虚框按钮
+         虚框按钮 
         
       </span>
     </button>
@@ -742,7 +742,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        文字按钮
+         文字按钮 
         
       </span>
     </button>
@@ -758,7 +758,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        填充按钮
+         填充按钮 
         
       </span>
     </button>
@@ -770,7 +770,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        描边按钮
+         描边按钮 
         
       </span>
     </button>
@@ -782,7 +782,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        虚框按钮
+         虚框按钮 
         
       </span>
     </button>
@@ -794,7 +794,7 @@ exports[`Button theme demo works fine 1`] = `
         class="t-button__text"
       >
         
-        文字按钮
+         文字按钮 
         
       </span>
     </button>

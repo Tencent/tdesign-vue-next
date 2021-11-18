@@ -1,11 +1,17 @@
 <template>
   <div class="tdesign-demo-block-column-large">
     <t-form>
-      <t-form-item label="显示连线" style="margin-bottom: 16px">
-        <t-switch v-model="showLine"/>
+      <t-form-item
+        label="显示连线"
+        style="margin-bottom: 16px"
+      >
+        <t-switch v-model="showLine" />
       </t-form-item>
-      <t-form-item label="显示图标" style="margin-bottom: 16px">
-        <t-switch v-model="showIcon"/>
+      <t-form-item
+        label="显示图标"
+        style="margin-bottom: 16px"
+      >
+        <t-switch v-model="showIcon" />
       </t-form-item>
     </t-form>
 
@@ -31,16 +37,22 @@
         expand-all
       >
         <template #line="{node}">
-          <div v-if="showLine" :class="lineClass(node)">
+          <div
+            v-if="showLine"
+            :class="lineClass(node)"
+          >
             <div class="custom-line-box">
               <span
                 v-for="(item, index) in getLineNodes(node)"
                 :key="index"
                 :class="{'custom-line-cross': item.cross}"
-              ></span>
+              />
             </div>
-            <i class="custom-line-icon" v-if="node.isLeaf()">
-              <t-icon name="heart-filled"/>
+            <i
+              v-if="node.isLeaf()"
+              class="custom-line-icon"
+            >
+              <t-icon name="heart-filled" />
             </i>
           </div>
         </template>
@@ -103,7 +115,7 @@ const items = [{
 }, {
   value: '4',
   label: '4',
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -122,8 +134,8 @@ export default defineComponent({
         lineNodes.push(line);
       });
       return lineNodes;
-    }
-    
+    };
+
     const lineClass = (node) => {
       const list = ['custom-line'];
       if (node.isFirst()) {
@@ -136,7 +148,7 @@ export default defineComponent({
         list.push('custom-line-last');
       }
       return list;
-    }
+    };
 
     const renderLine = (createElement, node) => {
       if (!showLine.value) return null;
@@ -164,7 +176,7 @@ export default defineComponent({
       return createElement('div', {
         class: lineClass(node),
       }, lineChildren);
-    }
+    };
 
     return {
       items,
@@ -172,8 +184,8 @@ export default defineComponent({
       showIcon,
       getLineNodes,
       lineClass,
-      renderLine
-    }
+      renderLine,
+    };
   },
 });
 </script>

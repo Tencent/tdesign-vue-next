@@ -1,29 +1,34 @@
 <template>
   <div class="switch-demo">
     <div class="tdesign-demo-block">
-      <t-switch v-model="checked" :label="['开', '关']">
-      </t-switch>
-      <t-switch :label="['开', '关']">
-      </t-switch>
+      <t-switch
+        v-model="checked"
+        :label="['开', '关']"
+      />
+      <t-switch :label="['开', '关']" />
     </div>
     <div class="tdesign-demo-block">
-      <t-switch v-model="renderChecked" :label="[renderActiveContent, renderInactiveContent]">
-      </t-switch>
-      <t-switch :label="[renderActiveContent, renderInactiveContent]">
-      </t-switch>
+      <t-switch
+        v-model="renderChecked"
+        :label="[renderActiveContent, renderInactiveContent]"
+      />
+      <t-switch :label="[renderActiveContent, renderInactiveContent]" />
     </div>
     <div class="tdesign-demo-block">
-      <t-switch v-model="renderChecked2" :label="renderContent">
-      </t-switch>
-      <t-switch :label="renderContent">
-      </t-switch>
+      <t-switch
+        v-model="renderChecked2"
+        :label="renderContent"
+      />
+      <t-switch :label="renderContent" />
     </div>
     <div class="tdesign-demo-block">
       <t-switch v-model="slotChecked">
-        <template v-slot:label="slotProps">{{slotProps.value?'开':'关'}}</template>
+        <template #label="slotProps">
+          {{ slotProps.value?'开':'关' }}
+        </template>
       </t-switch>
       <t-switch>
-        <template v-slot:label="slotProps">
+        <template #label="slotProps">
           <template v-if="slotProps.value">
             <t-icon-check />
           </template>
@@ -65,7 +70,7 @@ export default defineComponent({
       renderContent(h, data) {
         return data.value ? (<TIconCheck />) : (<TIconClose />);
       },
-    }
+    };
   },
 });
 </script>

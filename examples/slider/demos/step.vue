@@ -1,11 +1,22 @@
 <template>
   <div class="demo-slider">
     <div class="block">
-      <t-slider v-model="value1" :show-tooltip="true" :step="step" :inputNumberProps="false" />
+      <t-slider
+        v-model="value1"
+        :show-tooltip="true"
+        :step="step"
+        :input-number-props="false"
+      />
     </div>
 
     <div class="block">
-      <t-slider v-model="value2" range :show-tooltip="true" :step="step" :inputNumberProps="false" />
+      <t-slider
+        v-model="value2"
+        range
+        :show-tooltip="true"
+        :step="step"
+        :input-number-props="false"
+      />
     </div>
   </div>
 </template>
@@ -20,8 +31,8 @@ export default defineComponent({
       value1,
       value2,
       step: 4,
-    }
-  }
+    };
+  },
 });
 </script>
 <style>

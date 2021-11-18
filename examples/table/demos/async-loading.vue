@@ -1,18 +1,24 @@
 <template>
   <div>
     <t-radio-group v-model="asyncLoading">
-      <t-radio-button value="load-more">加载更多</t-radio-button>
-      <t-radio-button value="loading">加载中</t-radio-button>
-      <t-radio-button value="loading-custom">自定义加载更多</t-radio-button>
+      <t-radio-button value="load-more">
+        加载更多
+      </t-radio-button>
+      <t-radio-button value="loading">
+        加载中
+      </t-radio-button>
+      <t-radio-button value="loading-custom">
+        自定义加载更多
+      </t-radio-button>
     </t-radio-group>
 
     <t-table
-      rowKey="key"
+      row-key="key"
       :columns="columns"
       :data="data"
-      :asyncLoading="loadingNode"
+      :async-loading="loadingNode"
       @async-loading-click="onAsyncLoadingClick"
-    ></t-table>
+    />
   </div>
 </template>
 
@@ -74,21 +80,17 @@ export default defineComponent({
   setup() {
     const asyncLoading = ref('loading');
 
-    const customLoadingNode = (h) => {
-      return <div class='t-table--loading-async'>这是自定义加载状态和内容</div>;
-    }
+    const customLoadingNode = (h) => <div class='t-table--loading-async'>这是自定义加载状态和内容</div>;
 
-    const loadingNode = computed(() => {
-      return asyncLoading.value === 'loading-custom'
-        ? customLoadingNode
-        : asyncLoading.value;
-    })
+    const loadingNode = computed(() => asyncLoading.value === 'loading-custom'
+      ? customLoadingNode
+      : asyncLoading.value);
 
     const onAsyncLoadingClick = ({ status }) => {
       if (status === 'load-more') {
         asyncLoading.value = 'loading';
       }
-    }
+    };
 
     return {
       data,
@@ -96,7 +98,7 @@ export default defineComponent({
       loadingNode,
       asyncLoading,
       onAsyncLoadingClick,
-    }
-  }
+    };
+  },
 });
 </script>

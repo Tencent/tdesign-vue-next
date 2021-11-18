@@ -1,13 +1,18 @@
 <template>
   <div>
-    <t-dropdown :options="options" :minColumnWidth="88">
-      <t-button variant="text">下拉菜单</t-button>
+    <t-dropdown
+      :options="options"
+      :min-column-width="88"
+    >
+      <t-button variant="text">
+        下拉菜单
+      </t-button>
     </t-dropdown>
   </div>
 </template>
 <script>
-import { defineComponent } from 'vue'
-import { MessagePlugin } from '@tencent/tdesign-vue-next'
+import { defineComponent } from 'vue';
+import { MessagePlugin } from '@tencent/tdesign-vue-next';
 
 const options = [{
   content: '选项一',
@@ -25,14 +30,14 @@ const options = [{
   content: '选项四',
   value: 4,
   onClick: () => MessagePlugin.success('选项四'),
-}]
+}];
 
 export default defineComponent({
   setup() {
     return {
-      options
-    }
-  }
+      options,
+    };
+  },
 });
 </script>
 <style scoped>

@@ -32,7 +32,7 @@ exports[`Menu single demo works fine 1`] = `
             class="t-menu__content"
           >
             
-            菜单1
+             菜单1 
             
           </span>
         </li>
@@ -44,7 +44,7 @@ exports[`Menu single demo works fine 1`] = `
             class="t-menu__content"
           >
             
-            菜单2
+             菜单2 
             
           </span>
         </li>
@@ -56,7 +56,7 @@ exports[`Menu single demo works fine 1`] = `
             class="t-menu__content"
           >
             
-            禁用菜单
+             禁用菜单 
             
           </span>
         </li>
@@ -147,7 +147,7 @@ exports[`Menu single demo works fine 1`] = `
             class="t-menu__content"
           >
             
-            菜单1
+             菜单1 
             
           </span>
         </li>
@@ -159,7 +159,7 @@ exports[`Menu single demo works fine 1`] = `
             class="t-menu__content"
           >
             
-            菜单2
+             菜单2 
             
           </span>
         </li>
@@ -171,7 +171,7 @@ exports[`Menu single demo works fine 1`] = `
             class="t-menu__content"
           >
             
-            禁用菜单
+             禁用菜单 
             
           </span>
         </li>

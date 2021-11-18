@@ -14,7 +14,7 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-        默认样式
+         默认样式 
       </div>
       <div
         class="t-progress"
@@ -65,7 +65,7 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-        不显示数字
+         不显示数字 
       </div>
       <div
         class="t-progress"
@@ -112,7 +112,7 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-        自定义内容
+         自定义内容 
       </div>
       <div
         class="t-progress"
@@ -167,7 +167,7 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-        进度完成
+         进度完成 
       </div>
       <div
         class="t-progress"
@@ -229,7 +229,7 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-        进度状态发生重大错误
+         进度状态发生重大错误 
       </div>
       <div
         class="t-progress"
@@ -289,7 +289,7 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-        进度被中断
+         进度被中断 
       </div>
       <div
         class="t-progress"
@@ -359,7 +359,7 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-        小尺寸
+         小尺寸 
       </div>
       <div
         class="t-progress"
@@ -411,7 +411,7 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-        默认尺寸
+         默认尺寸 
       </div>
       <div
         class="t-progress"
@@ -466,7 +466,7 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-        大尺寸
+         大尺寸 
       </div>
       <div
         class="t-progress"
@@ -518,7 +518,7 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-        自定义尺寸与颜色
+         自定义尺寸与颜色 
       </div>
       <div
         class="t-progress"
@@ -861,7 +861,7 @@ exports[`Progress line demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      默认样式
+       默认样式 
     </div>
     <div
       class="t-progress"
@@ -890,7 +890,7 @@ exports[`Progress line demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      100%
+       100% 
     </div>
     <div
       class="t-progress"
@@ -919,7 +919,7 @@ exports[`Progress line demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      进度完成
+       进度完成 
     </div>
     <div
       class="t-progress"
@@ -959,7 +959,7 @@ exports[`Progress line demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      进度状态发生重大错误
+       进度状态发生重大错误 
     </div>
     <div
       class="t-progress"
@@ -999,7 +999,7 @@ exports[`Progress line demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      进度被中断
+       进度被中断 
     </div>
     <div
       class="t-progress"
@@ -1039,7 +1039,7 @@ exports[`Progress line demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      active
+       active 
     </div>
     <div
       class="t-progress"
@@ -1068,7 +1068,7 @@ exports[`Progress line demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      不显示数字
+       不显示数字 
     </div>
     <div
       class="t-progress"
@@ -1093,7 +1093,7 @@ exports[`Progress line demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      自定义内容
+       自定义内容 
     </div>
     <div
       class="t-progress"
@@ -1122,7 +1122,7 @@ exports[`Progress line demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      自定义颜色与高度
+       自定义颜色与高度 
     </div>
     <div
       class="t-progress"
@@ -1151,7 +1151,7 @@ exports[`Progress line demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      渐变色
+       渐变色 
     </div>
     <div
       class="t-progress"
@@ -1238,7 +1238,7 @@ exports[`Progress plump demo works fine 1`] = `
       <div
         class="t-progress-domo-margin"
       >
-        默认样式
+         默认样式 
       </div>
       <div
         class="t-progress"
@@ -1267,7 +1267,7 @@ exports[`Progress plump demo works fine 1`] = `
       <div
         class="t-progress-domo-margin"
       >
-        进度0-10%时数字数字位置出现在目前进度的右边区域
+         进度0-10%时数字数字位置出现在目前进度的右边区域 
       </div>
       <div
         class="t-progress"
@@ -1295,7 +1295,7 @@ exports[`Progress plump demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      100%
+       100% 
     </div>
     <div
       class="t-progress"
@@ -1322,7 +1322,7 @@ exports[`Progress plump demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      进度完成
+       进度完成 
     </div>
     <div
       class="t-progress"
@@ -1349,7 +1349,7 @@ exports[`Progress plump demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      进度状态发生重大错误
+       进度状态发生重大错误 
     </div>
     <div
       class="t-progress"
@@ -1376,7 +1376,7 @@ exports[`Progress plump demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      进度被中断
+       进度被中断 
     </div>
     <div
       class="t-progress"
@@ -1403,7 +1403,7 @@ exports[`Progress plump demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      active
+       active 
     </div>
     <div
       class="t-progress"
@@ -1430,7 +1430,7 @@ exports[`Progress plump demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      不显示数字
+       不显示数字 
     </div>
     <div
       class="t-progress"
@@ -1452,7 +1452,7 @@ exports[`Progress plump demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      自定义内容
+       自定义内容 
     </div>
     <div
       class="t-progress"
@@ -1481,7 +1481,7 @@ exports[`Progress plump demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      自定义颜色与高度
+       自定义颜色与高度 
     </div>
     <div
       class="t-progress"
@@ -1508,7 +1508,7 @@ exports[`Progress plump demo works fine 1`] = `
     <div
       class="t-progress-domo-margin"
     >
-      渐变色
+       渐变色 
     </div>
     <div
       class="t-progress"

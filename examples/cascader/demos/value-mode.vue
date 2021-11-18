@@ -1,8 +1,29 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value1" placeholder='请选择' multiple value-mode="onlyLeaf"></t-cascader>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value2" placeholder='请选择' multiple value-mode="parentFirst"></t-cascader>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value3" placeholder='请选择' multiple value-mode="all" ></t-cascader>
+    <t-cascader
+      v-model="value1"
+      class="t-demo-cascader"
+      :options="options"
+      placeholder="请选择"
+      multiple
+      value-mode="onlyLeaf"
+    />
+    <t-cascader
+      v-model="value2"
+      class="t-demo-cascader"
+      :options="options"
+      placeholder="请选择"
+      multiple
+      value-mode="parentFirst"
+    />
+    <t-cascader
+      v-model="value3"
+      class="t-demo-cascader"
+      :options="options"
+      placeholder="请选择"
+      multiple
+      value-mode="all"
+    />
   </div>
 </template>
 
@@ -42,7 +63,7 @@ const options = [
       },
     ],
   },
-]
+];
 
 export default defineComponent({
   setup() {

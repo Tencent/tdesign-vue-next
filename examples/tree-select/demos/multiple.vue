@@ -32,7 +32,7 @@ const options = [{
     label: '苏州市',
     value: 'suzhou',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -40,9 +40,9 @@ export default defineComponent({
 
     return {
       value,
-      options
-    }
-  }
+      options,
+    };
+  },
 });
 </script>
 <style scoped>

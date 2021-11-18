@@ -1,20 +1,20 @@
 <template>
   <div>
-    <t-button @click="visible = true">异步加载类按钮</t-button>
+    <t-button @click="visible = true">
+      异步加载类按钮
+    </t-button>
     <t-dialog
       v-model:visible="visible"
       header="保存订单"
       body="订单保存中，请稍后"
-      :confirmBtn="{
+      :confirm-btn="{
         content: '保存中...',
         theme: 'primary',
         loading: true
       }"
-      :onConfirm="onConfirm"
-      :onClose="close"
-    >
-    </t-dialog>
-
+      :on-confirm="onConfirm"
+      :on-close="close"
+    />
   </div>
 </template>
 <script>
@@ -33,7 +33,7 @@ export default defineComponent({
       onConfirm() {
         console.log('click确定');
       },
-    }
+    };
   },
 });
 </script>

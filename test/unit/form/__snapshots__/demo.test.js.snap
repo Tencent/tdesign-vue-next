@@ -129,7 +129,7 @@ exports[`Form base demo works fine 1`] = `
                 class="t-radio__label"
               >
                 
-                男
+                 男 
                 
               </span>
             </label>
@@ -150,7 +150,7 @@ exports[`Form base demo works fine 1`] = `
                 class="t-radio__label"
               >
                 
-                女
+                 女 
                 
               </span>
             </label>
@@ -330,7 +330,7 @@ exports[`Form base demo works fine 1`] = `
               class="t-button__text"
             >
               
-              提交
+               提交 
               
             </span>
           </button>
@@ -342,7 +342,7 @@ exports[`Form base demo works fine 1`] = `
               class="t-button__text"
             >
               
-              重置
+               重置 
               
             </span>
           </button>

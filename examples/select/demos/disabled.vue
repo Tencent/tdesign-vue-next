@@ -31,17 +31,17 @@ const options = [{
 }, {
   label: '深圳',
   value: 'shenzhen',
-}]
+}];
 
 export default defineComponent({
   setup() {
-    const value = ref('')
+    const value = ref('');
     const value2 = ref(['shanghai', 'beijing']);
     return {
       value,
       value2,
       options,
-    }
-  }
+    };
+  },
 });
 </script>

@@ -1,15 +1,25 @@
 <template>
   <div>
-    <t-drawer v-model:visible="visible" header="header" :onClickConfirm="onClickConfirm" :closeBtn="true">
+    <t-drawer
+      v-model:visible="visible"
+      header="header"
+      :on-click-confirm="onClickConfirm"
+      :close-btn="true"
+    >
       <p>This is a controlled drawer</p>
     </t-drawer>
-    <t-button variant="outline" @click="handleClick">打开抽屉</t-button>
+    <t-button
+      variant="outline"
+      @click="handleClick"
+    >
+      打开抽屉
+    </t-button>
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { MessagePlugin } from '@tencent/tdesign-vue-next'
+import { MessagePlugin } from '@tencent/tdesign-vue-next';
 
 export default defineComponent({
   setup() {
@@ -17,22 +27,22 @@ export default defineComponent({
 
     const handleClick = () => {
       visible.value = true;
-    }
+    };
 
     const onClickConfirm = () => {
       MessagePlugin.info('数据保存中...', 1000);
       const timer = setTimeout(() => {
         clearTimeout(timer);
         visible.value = false;
-        Message.info('数据保存成功!');
+        MessagePlugin.info('数据保存成功!');
       }, 1000);
-    }
+    };
 
     return {
       visible,
       handleClick,
-      onClickConfirm
-    }
+      onClickConfirm,
+    };
   },
 });
 </script>

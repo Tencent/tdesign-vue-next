@@ -6,7 +6,7 @@
       @keypress="onKeypress"
       @keydown="onKeydown"
       @keyup="onKeyup"
-    ></t-textarea>
+    />
   </div>
 </template>
 <script>
@@ -27,8 +27,8 @@ export default defineComponent({
       onKeyup(value, e) {
         console.log('onKeyup: ', value, e);
       },
-    }
-  }
+    };
+  },
 });
 </script>
 <style></style>

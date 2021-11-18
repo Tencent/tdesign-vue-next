@@ -7,17 +7,17 @@
       :min-collapsed-num="1"
       :options="options"
     />
-    <br/><br/>
+    <br><br>
 
     <!-- 自定义选中项内容，valueDisplay 为 function -->
     <t-select
       v-model="value"
       placeholder="-请选择-"
       multiple
-      :valueDisplay="valueDisplay"
+      :value-display="valueDisplay"
       :options="options"
     />
-    <br/><br/>
+    <br><br>
 
     <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
     <t-select
@@ -26,16 +26,16 @@
       multiple
       :options="options"
     >
-      <template #valueDisplay="{ value, onClose }">
+      <template #valueDisplay="{ value: val, onClose }">
         <t-tag
-          v-for="(item, index) in value"
+          v-for="(item, index) in val"
           :key="index"
           :closable="true"
-          :onClose="() => onClose(index)"
+          :on-close="() => onClose(index)"
           theme="success"
           variant="light"
         >
-          {{item.label}}（{{item.value}}）
+          {{ item.label }}（{{ item.value }}）
         </t-tag>
       </template>
     </t-select>
@@ -55,15 +55,15 @@ const options = [{
 }, {
   label: '选项三',
   value: '3',
-}]
+}];
 
 export default defineComponent({
-  setup(){
+  setup() {
     const value = ref(['1', '3']);
 
-    const valueDisplay = (h, { value, onClose }) => {
-      if (!(value instanceof Array)) return;
-      return value.map((item, index) => (
+    const valueDisplay = (h, { value: val, onClose }) => {
+      if (!(val instanceof Array)) return;
+      return val.map((item, index) => (
         <t-tag
           key={index}
           theme="warning"
@@ -74,13 +74,13 @@ export default defineComponent({
           {item.label}（{item.value}）
         </t-tag>
       ));
-    }
+    };
 
     return {
       value,
       options,
-      valueDisplay
-    }
-  }
+      valueDisplay,
+    };
+  },
 });
 </script>

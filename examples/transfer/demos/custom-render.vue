@@ -1,13 +1,12 @@
 <template>
   <div>
     <t-transfer
+      v-model="targetValue"
       theme="primary"
       :data="list"
-      v-model="targetValue"
       :checked-value="checkedValue"
       :transfer-item="transferItem"
-    >
-    </t-transfer>
+    />
   </div>
 </template>
 
@@ -40,14 +39,14 @@ export default defineComponent({
         </span>
       );
       return type === 'source' ? sourceLabel : targetLabel;
-    }
+    };
 
     return {
       targetValue,
       checkedValue,
       list,
-      transferItem
-    }
+      transferItem,
+    };
   },
 });
 </script>

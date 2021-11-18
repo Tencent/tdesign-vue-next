@@ -1,6 +1,10 @@
 <template>
   <div class="tdesign-demo-dropdown">
-    <t-dropdown :options="options" @click="clickHandler" :maxColumnWidth="120">
+    <t-dropdown
+      :options="options"
+      :max-column-width="120"
+      @click="clickHandler"
+    >
       <t-button variant="text">
         <span class="tdesign-demo-dropdown__text">
           下拉菜单
@@ -12,7 +16,7 @@
 </template>
 <script>
 import TIconChevronDown from '@tencent/tdesign-vue-next/icon/chevron-down';
-import { MessagePlugin } from '@tencent/tdesign-vue-next'
+import { MessagePlugin } from '@tencent/tdesign-vue-next';
 
 const options = [{
   content: '选项一',
@@ -57,8 +61,7 @@ const options = [{
     content: '选项十一',
     value: 11,
   }],
-}]
-
+}];
 
 export default {
   components: {
@@ -67,11 +70,11 @@ export default {
   setup() {
     const clickHandler = (data) => {
       MessagePlugin.success(`选中【${data.content}】`);
-    }
+    };
     return {
       clickHandler,
-      options
-    }
+      options,
+    };
   },
 };
 </script>

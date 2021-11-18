@@ -2,7 +2,7 @@
   <div>
     <t-popup
       content="这是popup内容"
-      destroyOnHide
+      destroy-on-hide
     >
       <t-button>hover我试试</t-button>
     </t-popup>

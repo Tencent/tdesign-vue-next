@@ -1,19 +1,23 @@
 <template>
   <div>
-    <div class="table-operations" style="margin: 16px">
-      <t-button @click="setFilters">清除筛选条件</t-button>
+    <div
+      class="table-operations"
+      style="margin: 16px"
+    >
+      <t-button @click="setFilters">
+        清除筛选条件
+      </t-button>
       <span style="padding-left: 36px">已选筛选条件：{{ filterValue }}</span>
     </div>
 
     <!-- filter-value.sync 等同于 filter-value + filter-change -->
     <t-table
-      rowKey='key'
+      row-key="key"
       :columns="columns"
       :data="data"
       :filter-value="filterValue"
       @filter-change="onFilterChange"
     />
-
   </div>
 </template>
 
@@ -26,35 +30,35 @@ const initData = [
     firstName: 'Eric',
     lastName: 'Spinke',
     email: 'espinke0@apache.org',
-    date: '2021-10-27 17:19:12'
+    date: '2021-10-27 17:19:12',
   },
   {
     key: '2',
     firstName: 'Gilberta',
     lastName: 'Purves',
     email: 'gpurves1@issuu.com',
-    date: '2021-10-22 17:19:12'
+    date: '2021-10-22 17:19:12',
   },
   {
     key: '3',
     firstName: 'Heriberto',
     lastName: 'Kment',
     email: 'hkment2@nsw.gov.au',
-    date: '2021-10-12 17:19:12'
+    date: '2021-10-12 17:19:12',
   },
   {
     key: '4',
     firstName: 'Lazarus',
     lastName: 'Skures',
     email: 'lskures3@apache.org',
-    date: '2021-01-27 17:19:12'
+    date: '2021-01-27 17:19:12',
   },
   {
     key: '5',
     firstName: 'Zandra',
     lastName: 'Croson',
     email: 'zcroson5@virginia.edu',
-    date: '2021-01-27 15:19:12'
+    date: '2021-01-27 15:19:12',
   },
 ];
 
@@ -109,12 +113,12 @@ const columns = [
       ),
     },
   },
-]
+];
 
 export default defineComponent({
   setup() {
     const filterValue = ref({});
-    const data = ref([ ...initData]);
+    const data = ref([...initData]);
 
     const request = (filters) => {
       const timer = setTimeout(() => {
@@ -137,26 +141,26 @@ export default defineComponent({
           return result;
         });
       }, 100);
-    }
+    };
 
     const onFilterChange = (filters) => {
-      filterValue.value = filters
-      request(filters)
-    }
+      filterValue.value = filters;
+      request(filters);
+    };
 
     const setFilters = () => {
       filterValue.value = {};
-      data.value = ref([ ...initData]);
-    }
+      data.value = ref([...initData]);
+    };
 
     return {
       filterValue,
       data,
       columns,
       onFilterChange,
-      setFilters
-    }
-  }
+      setFilters,
+    };
+  },
 });
 </script>
 <style scoped>

@@ -1,12 +1,18 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-time-picker class="demos" v-model="time1"> </t-time-picker>
-    <t-time-picker class="demos" v-model="time2"> </t-time-picker>
+    <t-time-picker
+      v-model="time1"
+      class="demos"
+    />
+    <t-time-picker
+      v-model="time2"
+      class="demos"
+    />
   </div>
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -14,9 +20,9 @@ export default defineComponent({
     const time2 = ref('21:22');
     return {
       time1,
-      time2
-    }
-  }
+      time2,
+    };
+  },
 });
 </script>
 

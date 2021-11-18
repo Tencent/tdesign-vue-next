@@ -1,7 +1,23 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" filterable clearable placeholder='请选择'></t-cascader>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value2" filterable clearable multiple placeholder='请选择' :minCollapsedNum="2"></t-cascader>
+    <t-cascader
+      v-model="value"
+      class="t-demo-cascader"
+      :options="options"
+      filterable
+      clearable
+      placeholder="请选择"
+    />
+    <t-cascader
+      v-model="value2"
+      class="t-demo-cascader"
+      :options="options"
+      filterable
+      clearable
+      multiple
+      placeholder="请选择"
+      :min-collapsed-num="2"
+    />
   </div>
 </template>
 
@@ -51,9 +67,9 @@ export default defineComponent({
     return {
       value,
       value2,
-      options
-    }
-  }
+      options,
+    };
+  },
 });
 </script>
 <style scoped>

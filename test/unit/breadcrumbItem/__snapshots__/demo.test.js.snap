@@ -18,7 +18,7 @@ exports[`Breadcrumb-item base demo works fine 1`] = `
         style="max-width: 120px;"
       >
         
-        首页
+         首页 
         
       </span>
     </a>

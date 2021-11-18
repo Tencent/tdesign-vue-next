@@ -4,7 +4,7 @@
       v-model="value"
       filterable
       placeholder="-请选择-"
-      :onSearch="remoteMethod"
+      :on-search="remoteMethod"
       :loading="loading"
       :options="options"
       style="width: 200px;display: inline-block;margin: 0 20px 20px 0;"
@@ -15,10 +15,10 @@
       filterable
       placeholder="-请输入搜索-"
       :options="options2"
-      @search="remoteMethod2"
       :loading="loading2"
-      reserveKeyword
+      reserve-keyword
       style="width: 400px;display: inline-block;"
+      @search="remoteMethod2"
     />
   </div>
 </template>
@@ -47,8 +47,8 @@ export default defineComponent({
 
     const handleChange = (value) => {
       console.log(value);
-    }
-    
+    };
+
     const remoteMethod = (search) => {
       console.log('search', search);
       if (search) {
@@ -67,7 +67,7 @@ export default defineComponent({
           }];
         }, 500);
       }
-    }
+    };
 
     const remoteMethod2 = (search) => {
       console.log('search2', search);
@@ -87,7 +87,7 @@ export default defineComponent({
           }];
         }, 500);
       }
-    }
+    };
 
     return {
       options,
@@ -99,7 +99,7 @@ export default defineComponent({
       handleChange,
       remoteMethod,
       remoteMethod2,
-    }
-  }
+    };
+  },
 });
 </script>

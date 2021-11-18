@@ -34,7 +34,7 @@ const options = [{
 }, {
   label: '深圳(Shenzhen)',
   value: 'shenzhen',
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -44,24 +44,24 @@ export default defineComponent({
     const filterMethod = (search, option) => {
       console.log('search:', search, ', option:', option);
       return option.label.indexOf(search) !== -1;
-    }
+    };
 
     const handleBlur = ({ value, e }) => {
       console.log('handleBlur: ', value, e);
-    }
+    };
 
     const handleFocus = ({ value, e }) => {
       console.log('handleFocus: ', value, e);
-    }
-    
+    };
+
     return {
       value,
       value2,
       options,
       filterMethod,
       handleBlur,
-      handleFocus
-    }
+      handleFocus,
+    };
   },
 });
 </script>

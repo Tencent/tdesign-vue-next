@@ -3,16 +3,30 @@
     <!-- 外部控制 -->
     <div style="margin: 12px 0">
       <label>请选择风格：</label>
-      <t-select v-model="theme" class="demo-select-base">
-        <t-option v-for="item in themeOptions" :key="item.value" :value="item.value" :label="item.label" />
+      <t-select
+        v-model="theme"
+        class="demo-select-base"
+      >
+        <t-option
+          v-for="item in themeOptions"
+          :key="item.value"
+          :value="item.value"
+          :label="item.label"
+        />
       </t-select>
     </div>
 
-    <t-calendar ref="myCalendar" @cell-right-click="handleClick" :theme="theme">
+    <t-calendar
+      ref="myCalendar"
+      :theme="theme"
+      @cell-right-click="handleClick"
+    >
       <template #cell="scope">
-        <div class="demo-cell" >
-          <div class="cellAppend"
-              :class="getCellAppendCls(scope.data)">
+        <div class="demo-cell">
+          <div
+            class="cellAppend"
+            :class="getCellAppendCls(scope.data)"
+          >
             {{ getDateStr(scope.data) }}
           </div>
         </div>
@@ -23,14 +37,15 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
+
 const themeOptions = [
   { value: 'full', label: '全屏风格' },
   { value: 'card', label: '卡片风格' },
-]
+];
 
 export default defineComponent({
   setup() {
-    const theme = ref('card')
+    const theme = ref('card');
 
     const getDateStr = (cellData) => {
       const y = cellData.date.getFullYear();
@@ -43,18 +58,16 @@ export default defineComponent({
         return `${d}`;
       }
       return `${y}-${m}`;
-    }
+    };
 
-    const getCellAppendCls = (cellData) => {
-      return {
-        belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
-        actived: cellData.isCurrent,
-      };
-    }
+    const getCellAppendCls = (cellData) => ({
+      belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
+      actived: cellData.isCurrent,
+    });
 
     const showCeelData = (cellData) => {
-      console.info(cellData)
-    }
+      console.info(cellData);
+    };
 
     return {
       theme,
@@ -63,9 +76,9 @@ export default defineComponent({
       getCellAppendCls,
       showCeelData,
       handleClick() {
-        console.log(123)
-      }
-    }
+        console.log(123);
+      },
+    };
   },
 });
 </script>

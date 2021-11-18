@@ -36,7 +36,7 @@ exports[`Divider text demo works fine 1`] = `
       class="t-divider-inner-text"
     >
       
-      TDesign
+       TDesign 
       
     </span>
   </div>
@@ -50,7 +50,7 @@ exports[`Divider text demo works fine 1`] = `
       class="t-divider-inner-text"
     >
       
-      TDesign
+       TDesign 
       
     </span>
   </div>
@@ -64,7 +64,7 @@ exports[`Divider text demo works fine 1`] = `
       class="t-divider-inner-text"
     >
       
-      TDesign
+       TDesign 
       
     </span>
   </div>

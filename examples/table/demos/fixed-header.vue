@@ -1,16 +1,16 @@
 <template>
   <t-table
-    rowKey="index"
+    row-key="index"
     :data="data"
     :columns="columns"
     :height="200"
-  ></t-table>
+  />
 </template>
 <script>
 import { defineComponent } from 'vue';
 
 const data = [];
-for (let i = 0; i < 20; i ++) {
+for (let i = 0; i < 20; i++) {
   data.push({
     index: i,
     platform: i % 2 === 0 ? '共有' : '私有',
@@ -58,13 +58,13 @@ const columns = [
     colKey: 'description',
     title: '说明',
   },
-]
+];
 export default defineComponent({
   setup() {
     return {
       data,
-      columns
-    }
-  }
+      columns,
+    };
+  },
 });
 </script>

@@ -54,7 +54,7 @@ const options = [{
 }, {
   label: '这是一个名字很长很长很长的城市名称',
   value: 'longest',
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -64,11 +64,11 @@ export default defineComponent({
 
     const handleChange = (value) => {
       console.log(value);
-    }
+    };
 
-    const visibleChange = (value) => {
+    const visibleChange = (val) => {
       console.log('visible', val);
-    }
+    };
 
     return {
       value,
@@ -81,8 +81,8 @@ export default defineComponent({
       },
       options,
       handleChange,
-      visibleChange
-    }
+      visibleChange,
+    };
   },
 });
 </script>

@@ -55,7 +55,7 @@ exports[`Checkbox base demo works fine 1`] = `
       class="t-checkbox__label"
     >
       
-      选中项
+       选中项 
       
     </span>
   </label>
@@ -75,7 +75,7 @@ exports[`Checkbox base demo works fine 1`] = `
       class="t-checkbox__label"
     >
       
-      未选禁用项
+       未选禁用项 
       
     </span>
   </label>
@@ -95,7 +95,7 @@ exports[`Checkbox base demo works fine 1`] = `
       class="t-checkbox__label"
     >
       
-      选中禁用项
+       选中禁用项 
       
     </span>
   </label>
@@ -125,7 +125,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        全选
+         全选 
         
       </span>
     </label>
@@ -144,7 +144,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        禁用全部
+         禁用全部 
         
       </span>
     </label>
@@ -329,7 +329,7 @@ exports[`Checkbox controlled demo works fine 1`] = `
       class="t-checkbox__label"
     >
       
-      语法糖（v-model）
+       语法糖（v-model） 
       
     </span>
   </label>
@@ -348,7 +348,7 @@ exports[`Checkbox controlled demo works fine 1`] = `
       class="t-checkbox__label"
     >
       
-      受控属性
+       受控属性 
       
     </span>
   </label>
@@ -367,7 +367,7 @@ exports[`Checkbox controlled demo works fine 1`] = `
       class="t-checkbox__label"
     >
       
-      非受控属性
+       非受控属性 
       
     </span>
   </label>
@@ -467,7 +467,7 @@ exports[`Checkbox link demo works fine 1`] = `
         class="t-button__text"
       >
         
-        重置
+         重置 
         
       </span>
     </button>

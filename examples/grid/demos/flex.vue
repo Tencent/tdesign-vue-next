@@ -29,7 +29,9 @@
 
     <t-row>
       <t-col flex="none">
-        <div style="padding: 0 16px">none</div>
+        <div style="padding: 0 16px">
+          none
+        </div>
       </t-col>
       <t-col flex="auto">
         <div>auto with no-wrap</div>

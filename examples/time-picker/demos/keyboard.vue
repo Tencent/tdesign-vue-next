@@ -1,14 +1,22 @@
 <template>
   <div class="tdesign-demo-block">
     <h1>允许输入</h1>
-    <t-time-picker v-model="time1" allowInput @blur="blur" @focus="focus" />
+    <t-time-picker
+      v-model="time1"
+      allow-input
+      @blur="blur"
+      @focus="focus"
+    />
     <h1>禁止输入</h1>
-    <t-time-picker v-model="time2" :allowInput="false" />
+    <t-time-picker
+      v-model="time2"
+      :allow-input="false"
+    />
   </div>
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -25,8 +33,8 @@ export default defineComponent({
         console.log('focus');
         console.log(v);
       },
-    }
-  }
+    };
+  },
 });
 </script>
 

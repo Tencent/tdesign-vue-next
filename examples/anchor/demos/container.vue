@@ -1,30 +1,71 @@
 <template>
-  <div :id="`${path}#container`" class="anchor-demo anchor-container-demo">
-    <t-anchor :id="`${path}#default`" container="#anchor-container">
-      <t-anchor-item :href="`#${path}#content-1`" title="content-1"> </t-anchor-item>
-      <t-anchor-item :href="`#${path}#content-2`" title="content-2"> </t-anchor-item>
-      <t-anchor-item :href="`#${path}#content-3`" title="content-3"></t-anchor-item>
-      <t-anchor-item :href="`#${path}#content-4`" title="content-4"></t-anchor-item>
+  <div
+    :id="`${path}#container`"
+    class="anchor-demo anchor-container-demo"
+  >
+    <t-anchor
+      :id="`${path}#default`"
+      container="#anchor-container"
+    >
+      <t-anchor-item
+        :href="`#${path}#content-1`"
+        title="content-1"
+      />
+      <t-anchor-item
+        :href="`#${path}#content-2`"
+        title="content-2"
+      />
+      <t-anchor-item
+        :href="`#${path}#content-3`"
+        title="content-3"
+      />
+      <t-anchor-item
+        :href="`#${path}#content-4`"
+        title="content-4"
+      />
     </t-anchor>
     <div id="anchor-container">
-      <div :id="`${path}#content-1`" class="anchor-content-1">anchor-content-1</div>
-      <div :id="`${path}#content-2`" class="anchor-content-2">anchor-content-2</div>
-      <div :id="`${path}#content-3`" class="anchor-content-3">anchor-content-3</div>
-      <div :id="`${path}#content-4`" class="anchor-content-4">anchor-content-4</div>
-      <div :id="`${path}#content-5`" class="anchor-content-5">anchor-content-5</div>
+      <div
+        :id="`${path}#content-1`"
+        class="anchor-content-1"
+      >
+        anchor-content-1
+      </div>
+      <div
+        :id="`${path}#content-2`"
+        class="anchor-content-2"
+      >
+        anchor-content-2
+      </div>
+      <div
+        :id="`${path}#content-3`"
+        class="anchor-content-3"
+      >
+        anchor-content-3
+      </div>
+      <div
+        :id="`${path}#content-4`"
+        class="anchor-content-4"
+      >
+        anchor-content-4
+      </div>
+      <div
+        :id="`${path}#content-5`"
+        class="anchor-content-5"
+      >
+        anchor-content-5
+      </div>
     </div>
   </div>
 </template>
 <script>
-import { defineComponent, computed, getCurrentInstance } from 'vue'
+import { defineComponent, computed, getCurrentInstance } from 'vue';
 import get from 'lodash/get';
 
 export default defineComponent({
   setup() {
     const { ctx } = getCurrentInstance();
-    const path = computed(() => {
-      return get(ctx, '$route.path', '');
-    })
+    const path = computed(() => get(ctx, '$route.path', ''));
     return { path };
   },
 });

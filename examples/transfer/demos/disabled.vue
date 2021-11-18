@@ -1,6 +1,10 @@
 <template>
   <div>
-    <t-transfer :data="list" :disabled="[false, true]" :default-value="defaultValue" />
+    <t-transfer
+      :data="list"
+      :disabled="[false, true]"
+      :default-value="defaultValue"
+    />
   </div>
 </template>
 <script>
@@ -17,11 +21,10 @@ for (let i = 0; i < 20; i++) {
 
 export default defineComponent({
   setup() {
-    
     return {
       list,
-      defaultValue: list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0)
-    }
+      defaultValue: list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0),
+    };
   },
 });
 </script>

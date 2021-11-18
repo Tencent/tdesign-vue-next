@@ -1,8 +1,8 @@
 <template>
   <div class="tdesign-tree-select-base">
     <t-tree-select
-      :data="options"
       v-model="value"
+      :data="options"
       clearable
       placeholder="请选择"
     />
@@ -31,16 +31,16 @@ const options = [{
     label: '苏州市',
     value: 'suzhou',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
     const value = ref('');
     return {
       value,
-      options
-    }
-  }
+      options,
+    };
+  },
 });
 </script>
 <style scoped>

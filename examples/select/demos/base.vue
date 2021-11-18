@@ -1,18 +1,18 @@
 <template>
   <div>
     <t-select
-      :defaultValue="defaultValue"
+      :default-value="defaultValue"
       clearable
       placeholder="-请选择-"
-      :onClear="handleClear"
+      :on-clear="handleClear"
       style="width: 200px;"
       @change="handleChange"
     >
       <t-option
         v-for="(item, index) in options"
+        :key="index"
         :value="item.value"
         :label="item.label"
-        :key="index"
       >
         {{ item.label }}
       </t-option>
@@ -36,7 +36,7 @@ const options = [
     label: '很长很长很很长很长很长的选项三',
     value: '3',
   },
-]
+];
 
 export default defineComponent({
   setup() {
@@ -44,17 +44,17 @@ export default defineComponent({
 
     const handleChange = (value) => {
       console.log('handleChange:', value);
-    }
+    };
     const handleClear = (e) => {
       console.log('handleClear:', e);
-    }
+    };
 
     return {
       defaultValue,
       options,
       handleChange,
-      handleClear
-    }
+      handleClear,
+    };
   },
 });
 </script>

@@ -1,6 +1,13 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="medium" placeholder='请选择'></t-cascader>
+    <t-cascader
+      v-model="value"
+      class="t-demo-cascader"
+      :options="options"
+      clearable
+      size="medium"
+      placeholder="请选择"
+    />
   </div>
 </template>
 
@@ -44,16 +51,16 @@ const options = [
 
 export default defineComponent({
   setup() {
-    const value = ref('1.1')
+    const value = ref('1.1');
 
     const handleValueChange = (e) => {
-      value.value = e
-    }
+      value.value = e;
+    };
     return {
       options,
-      value
-    }
-  }
+      value,
+    };
+  },
 });
 </script>
 <style scoped>

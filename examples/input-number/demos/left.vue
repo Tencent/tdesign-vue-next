@@ -5,7 +5,7 @@
       theme="column"
       :max="15"
       :min="-2"
-    ></t-input-number>
+    />
   </div>
 </template>
 
@@ -16,8 +16,8 @@ export default defineComponent({
   setup() {
     const value = ref(3);
     return {
-      value
-    }
-  }
+      value,
+    };
+  },
 });
 </script>

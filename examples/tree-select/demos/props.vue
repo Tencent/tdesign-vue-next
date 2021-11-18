@@ -1,12 +1,12 @@
 <template>
   <div class="tdesign-tree-select-base">
     <t-tree-select
-      :data="options"
       v-model="value"
+      :data="options"
       clearable
       placeholder="请选择"
-      :popupProps="popupProps"
-      :treeProps="treeProps"
+      :popup-props="popupProps"
+      :tree-props="treeProps"
     />
   </div>
 </template>
@@ -33,7 +33,7 @@ const options = [{
     name: '苏州市',
     pinyin: 'suzhou',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -54,8 +54,8 @@ export default defineComponent({
           children: 'children',
         },
       },
-    }
-  }
+    };
+  },
 });
 </script>
 <style scoped>

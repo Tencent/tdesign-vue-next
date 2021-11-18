@@ -1,45 +1,92 @@
 <template>
   <div>
     <t-form
+      ref="form"
       :data="formData"
       :rules="rules"
-      ref="form"
-      :labelWidth="100"
+      :label-width="100"
+      scroll-to-first-error="smooth"
       @reset="onReset"
       @submit="onSubmit"
-      scrollToFirstError="smooth"
     >
-      <t-form-item label="用户名" help="这里请填写用户名" name='account'>
-        <t-input v-model="formData.account"></t-input>
+      <t-form-item
+        label="用户名"
+        help="这里请填写用户名"
+        name="account"
+      >
+        <t-input v-model="formData.account" />
       </t-form-item>
-      <t-form-item label="密码" help="这里请填写密码" name='password'>
-        <t-input v-model="formData.password"></t-input>
+      <t-form-item
+        label="密码"
+        help="这里请填写密码"
+        name="password"
+      >
+        <t-input v-model="formData.password" />
       </t-form-item>
-      <t-form-item label="邮箱" name='email'>
-        <t-input v-model="formData.email"></t-input>
+      <t-form-item
+        label="邮箱"
+        name="email"
+      >
+        <t-input v-model="formData.email" />
       </t-form-item>
-      <t-form-item label="性别" name='gender'>
+      <t-form-item
+        label="性别"
+        name="gender"
+      >
         <t-radio-group v-model="formData.gender">
-          <t-radio value="male">男</t-radio>
-          <t-radio value="femal">女</t-radio>
+          <t-radio value="male">
+            男
+          </t-radio>
+          <t-radio value="femal">
+            女
+          </t-radio>
         </t-radio-group>
       </t-form-item>
-      <t-form-item label="课程" name='course'>
+      <t-form-item
+        label="课程"
+        name="course"
+      >
         <t-checkbox-group
           v-model="formData.course"
           :options="courseOptions"
-        ></t-checkbox-group>
+        />
       </t-form-item>
-      <t-form-item label="入学时间" name='date' :rules="[{ date: { delimiters: ['/', '-', '.'] }, message: '日期格式有误' }]">
-        <t-input v-model="formData.date"></t-input>
+      <t-form-item
+        label="入学时间"
+        name="date"
+        :rules="[{ date: { delimiters: ['/', '-', '.'] }, message: '日期格式有误' }]"
+      >
+        <t-input v-model="formData.date" />
       </t-form-item>
-      <t-form-item label="个人网站" name='content.url'>
-        <t-input v-model="formData.content.url"></t-input>
+      <t-form-item
+        label="个人网站"
+        name="content.url"
+      >
+        <t-input v-model="formData.content.url" />
       </t-form-item>
       <t-form-item>
-        <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
-        <t-button theme="default" variant="base" type="reset" style="margin-right: 10px">重置</t-button>
-        <t-button theme="default" variant="base" @click="handleClear">清除校验结果</t-button>
+        <t-button
+          theme="primary"
+          type="submit"
+          style="margin-right: 10px"
+        >
+          提交
+        </t-button>
+        <t-button
+          theme="default"
+          variant="base"
+          type="reset"
+          style="margin-right: 10px"
+        >
+          重置
+        </t-button>
+        <t-button
+          theme="default"
+          variant="base"
+          @click="handleClear"
+        >
+          清除校验结果
+        </t-button>
       </t-form-item>
     </t-form>
   </div>
@@ -70,13 +117,12 @@ const rules = {
     {
       url: {
         protocols: ['http', 'https', 'ftp'],
-        // eslint-disable-next-line @typescript-eslint/camelcase
         require_protocol: true,
       },
       message: '请输入正确的个人主页',
     },
   ],
-}
+};
 
 const INITIAL_DATA = {
   account: '',
@@ -98,11 +144,11 @@ export default defineComponent({
       { label: '数学', value: '2' },
       { label: '英语', value: '3' },
       { label: '体育', value: '4' },
-    ]
+    ];
 
     const onReset = () => {
       MessagePlugin.success('重置成功');
-    }
+    };
 
     const onSubmit = ({ validateResult, firstError, e }) => {
       e.preventDefault();
@@ -112,12 +158,12 @@ export default defineComponent({
         console.log('Validate Errors: ', firstError, validateResult);
         MessagePlugin.warning(firstError);
       }
-    }
+    };
 
     const handleClear = () => {
       form.value.clearValidate();
-    }
-    
+    };
+
     return {
       form,
       rules,
@@ -125,8 +171,8 @@ export default defineComponent({
       courseOptions,
       onReset,
       onSubmit,
-      handleClear
-    }
+      handleClear,
+    };
   },
 });
 </script>

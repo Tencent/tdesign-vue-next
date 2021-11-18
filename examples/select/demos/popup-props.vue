@@ -4,14 +4,14 @@
       v-model="value"
       placeholder="-请选择-"
       :options="options"
-      :popupProps="popupProps"
+      :popup-props="popupProps"
       style="width: 200px;display: inline-block;"
     />
     <t-select
       v-model="value"
       placeholder="-请选择-"
       :options="options"
-      :popupProps="popupProps2"
+      :popup-props="popupProps2"
       style="width: 200px;display: inline-block;margin-left: 20px;"
     />
   </div>
@@ -33,8 +33,7 @@ const options = [
     label: '很长很长很很长很长很长的选项三',
     value: '3',
   },
-]
-
+];
 
 export default defineComponent({
   setup() {
@@ -43,17 +42,17 @@ export default defineComponent({
       overlayStyle: {
         width: '300px',
       },
-    }
+    };
 
     const popupProps2 = {
       overlayStyle: (trigger) => ({ width: `${trigger.offsetWidth}px` }),
-    }
+    };
     return {
       value,
       options,
       popupProps,
       popupProps2,
-    }
+    };
   },
 });
 </script>

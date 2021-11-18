@@ -1,4 +1,3 @@
-
 <template>
   <div class="tdesign-demo-block-column-large">
     <div class="tdesign-demo-block-column">
@@ -12,12 +11,15 @@
 
     <div class="tdesign-demo-block-column">
       <h3>使用week属性 - Array</h3>
-      <t-calendar :week="week" :firstDayOfWeek="7"></t-calendar>
+      <t-calendar
+        :week="week"
+        :first-day-of-week="7"
+      />
     </div>
 
     <div class="tdesign-demo-block-column">
       <h3>使用week属性 - TNode</h3>
-      <t-calendar :week="renderWeek"></t-calendar>
+      <t-calendar :week="renderWeek" />
     </div>
   </div>
 </template>
@@ -34,7 +36,7 @@ export default defineComponent({
         if (params.day === 6 || params.day === 7) return <span style="color:#0052d9">放假啦</span>;
         return <span style="color:#000000e6">{ `星期${params.day}` }</span>;
       },
-    }
-  }
+    };
+  },
 });
 </script>

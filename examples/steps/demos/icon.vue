@@ -1,9 +1,25 @@
 <template>
   <t-steps :current="1">
-    <t-step-item title="登录" content="已完成状态" :icon="renderLoginIcon"></t-step-item>
-    <t-step-item title="购物" content="进行中状态" :icon="renderCartIcon"></t-step-item>
-    <t-step-item title="支付" content="未开始" :icon="renderWalletIcon"></t-step-item>
-    <t-step-item title="完成" content="未开始" :icon="renderSuccessIcon"></t-step-item>
+    <t-step-item
+      title="登录"
+      content="已完成状态"
+      :icon="renderLoginIcon"
+    />
+    <t-step-item
+      title="购物"
+      content="进行中状态"
+      :icon="renderCartIcon"
+    />
+    <t-step-item
+      title="支付"
+      content="未开始"
+      :icon="renderWalletIcon"
+    />
+    <t-step-item
+      title="完成"
+      content="未开始"
+      :icon="renderSuccessIcon"
+    />
   </t-steps>
 </template>
 
@@ -28,7 +44,7 @@ export default {
       renderSuccessIcon() {
         return <TIconSuccess />;
       },
-    }
-  }
+    };
+  },
 };
 </script>

@@ -1,20 +1,34 @@
 <template>
   <div class="demo-button-row">
     <div class="demo-button-col">
-      <t-button theme="primary">确定</t-button>
-      <t-button variant="outline">取消</t-button>
+      <t-button theme="primary">
+        确定
+      </t-button>
+      <t-button variant="outline">
+        取消
+      </t-button>
     </div>
     <div class="demo-button-col">
-      <t-button theme="primary">下一步</t-button>
-      <t-button variant="outline">上一步</t-button>
+      <t-button theme="primary">
+        下一步
+      </t-button>
+      <t-button variant="outline">
+        上一步
+      </t-button>
     </div>
     <div class="demo-button-col">
-      <t-button theme="primary">新建主机</t-button>
-      <t-button variant="outline">重装系统</t-button>
-      <t-button variant="outline">批量续费</t-button>
+      <t-button theme="primary">
+        新建主机
+      </t-button>
+      <t-button variant="outline">
+        重装系统
+      </t-button>
+      <t-button variant="outline">
+        批量续费
+      </t-button>
       <t-button variant="outline">
         <template #icon>
-          <t-icon-more/>
+          <t-icon-more />
         </template>
       </t-button>
     </div>

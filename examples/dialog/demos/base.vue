@@ -1,18 +1,22 @@
 <template>
   <div>
-    <t-button theme="primary" @click="visible = true">基础确认对话框</t-button>
+    <t-button
+      theme="primary"
+      @click="visible = true"
+    >
+      基础确认对话框
+    </t-button>
     <t-dialog
+      v-model:visible="visible"
       header="对话框标题"
       body="对话框内容"
-      v-model:visible="visible"
-      :onConfirm="onConfirmAnother"
-      :onCancel="onCancel"
-      :onEscKeydown="onEscKeydown"
-      :onCloseBtnClick="onCloseBtnClick"
-      :onOverlayClick="onOverlayClick"
-      :onClose="close"
-    >
-    </t-dialog>
+      :on-confirm="onConfirmAnother"
+      :on-cancel="onCancel"
+      :on-esc-keydown="onEscKeydown"
+      :on-close-btn-click="onCloseBtnClick"
+      :on-overlay-click="onOverlayClick"
+      :on-close="close"
+    />
   </div>
 </template>
 <script>
@@ -42,7 +46,7 @@ export default defineComponent({
       onOverlayClick(context) {
         console.log('点击了蒙层', context);
       },
-    }
+    };
   },
 });
 </script>

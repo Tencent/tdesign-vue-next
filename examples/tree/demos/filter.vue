@@ -1,7 +1,10 @@
 <template>
   <div class="tdesign-tree-base">
     <t-addon prepend="filter:">
-      <t-input v-model="filterText" @input="onInput"/>
+      <t-input
+        v-model="filterText"
+        @input="onInput"
+      />
     </t-addon>
     <t-tree
       :data="items"
@@ -79,7 +82,7 @@ const items = [{
     value: '2.2',
     label: '2.2',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -93,16 +96,16 @@ export default defineComponent({
         const rs = node.data.label.indexOf(filterText.value) >= 0;
         return rs;
       };
-    }
+    };
 
     return {
       items,
       filterText,
       filterByText,
       expanded,
-      onInput
-    }
-  }
+      onInput,
+    };
+  },
 });
 </script>
 <style scoped>

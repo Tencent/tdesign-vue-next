@@ -1,6 +1,12 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" multiple clearable/>
+    <t-cascader
+      v-model="value"
+      class="t-demo-cascader"
+      :options="options"
+      multiple
+      clearable
+    />
   </div>
 </template>
 
@@ -40,16 +46,16 @@ const options = [
       },
     ],
   },
-]
+];
 
 export default defineComponent({
   setup() {
-    const value = ref(['1.1'])
+    const value = ref(['1.1']);
 
     return {
       value,
       options,
-    }
+    };
   },
 });
 </script>

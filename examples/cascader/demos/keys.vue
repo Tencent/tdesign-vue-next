@@ -1,6 +1,13 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :keys="{ label: 'name', value: 'code', children: 'items' }" :options="options" v-model="value" clearable placeholder='请选择'></t-cascader>
+    <t-cascader
+      v-model="value"
+      class="t-demo-cascader"
+      :keys="{ label: 'name', value: 'code', children: 'items' }"
+      :options="options"
+      clearable
+      placeholder="请选择"
+    />
   </div>
 </template>
 
@@ -44,12 +51,12 @@ const options = [
 
 export default defineComponent({
   setup() {
-    const value = ref('')
+    const value = ref('');
     return {
       options,
       value,
-    }
-  }
+    };
+  },
 });
 </script>
 <style scoped>

@@ -1,7 +1,13 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-alert theme="success" message="这是一条成功的消息提示" />
-    <t-alert theme="info" :message="infoMessage" />
+    <t-alert
+      theme="success"
+      message="这是一条成功的消息提示"
+    />
+    <t-alert
+      theme="info"
+      :message="infoMessage"
+    />
     <t-alert theme="warning">
       <template #message>
         这是一条警示信息
@@ -13,7 +19,7 @@
   </div>
 </template>
 <script lang="jsx">
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -21,7 +27,7 @@ export default defineComponent({
       infoMessage: () => (
         <div>这是一条普通的消息提示</div>
       ),
-    }
-  }
+    };
+  },
 });
 </script>

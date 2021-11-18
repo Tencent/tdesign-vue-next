@@ -1,3 +1,7 @@
 <template>
-  <t-loading :loading="true" :fullscreen="true" :preventScrollThrough="true"></t-loading>
+  <t-loading
+    :loading="true"
+    :fullscreen="true"
+    :prevent-scroll-through="true"
+  />
 </template>

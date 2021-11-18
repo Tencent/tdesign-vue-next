@@ -128,7 +128,7 @@ exports[`Dropdown Demo CustomUsageExample wroks fine 1`] = `
         class="t-button__text"
       >
         
-        下拉菜单
+         下拉菜单 
         
       </span>
     </button>
@@ -399,7 +399,7 @@ exports[`Dropdown Demo EventUsageExample wroks fine 1`] = `
         class="t-button__text"
       >
         
-        下拉菜单
+         下拉菜单 
         
       </span>
     </button>
@@ -813,7 +813,7 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
         class="t-button__text"
       >
         
-        下拉菜单
+         下拉菜单 
         
       </span>
     </button>
@@ -1135,7 +1135,7 @@ exports[`Dropdown Demo SplitUsageExample wroks fine 1`] = `
       class="t-button__text"
     >
       
-      下拉菜单
+       下拉菜单 
       
     </span>
   </button>
@@ -1260,7 +1260,7 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
         class="t-button__text"
       >
         
-        下拉菜单
+         下拉菜单 
         
       </span>
     </button>

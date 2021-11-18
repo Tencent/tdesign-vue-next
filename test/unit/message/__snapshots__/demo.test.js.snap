@@ -20,7 +20,7 @@ exports[`Message close demo works fine 1`] = `
       />
     </svg>
     
-    点击关闭按钮触发事件 click-close-btn 
+     点击关闭按钮触发事件 click-close-btn 
     
     <span
       class="t-message-close"
@@ -53,7 +53,7 @@ exports[`Message close demo works fine 1`] = `
       />
     </svg>
     
-    自定义关闭按钮（文字）
+     自定义关闭按钮（文字） 
     
     <span
       class="t-message-close"
@@ -77,7 +77,7 @@ exports[`Message close demo works fine 1`] = `
       />
     </svg>
     
-    自定义关闭按钮（函数）
+     自定义关闭按钮（函数） 
     
     <span
       class="t-message-close"
@@ -136,7 +136,7 @@ exports[`Message closeAll demo works fine 1`] = `
       class="t-button__text"
     >
       
-      点击打开多个消息
+       点击打开多个消息 
       
     </span>
   </button>
@@ -149,7 +149,7 @@ exports[`Message closeAll demo works fine 1`] = `
       class="t-button__text"
     >
       
-      点击关闭所有消息
+       点击关闭所有消息 
       
     </span>
   </button>
@@ -170,7 +170,7 @@ exports[`Message offset demo works fine 1`] = `
       class="t-button__text"
     >
       
-      带 offset 信息位置
+       带 offset 信息位置 
       
     </span>
   </button>
@@ -220,7 +220,7 @@ exports[`Message placement demo works fine 1`] = `
         class="t-button__text"
       >
         
-        center
+         center 
         
       </span>
     </button>
@@ -232,7 +232,7 @@ exports[`Message placement demo works fine 1`] = `
         class="t-button__text"
       >
         
-        top
+         top 
         
       </span>
     </button>
@@ -244,7 +244,7 @@ exports[`Message placement demo works fine 1`] = `
         class="t-button__text"
       >
         
-        left
+         left 
         
       </span>
     </button>
@@ -256,7 +256,7 @@ exports[`Message placement demo works fine 1`] = `
         class="t-button__text"
       >
         
-        right
+         right 
         
       </span>
     </button>
@@ -268,7 +268,7 @@ exports[`Message placement demo works fine 1`] = `
         class="t-button__text"
       >
         
-        bottom
+         bottom 
         
       </span>
     </button>
@@ -280,7 +280,7 @@ exports[`Message placement demo works fine 1`] = `
         class="t-button__text"
       >
         
-        top-left
+         top-left 
         
       </span>
     </button>
@@ -292,7 +292,7 @@ exports[`Message placement demo works fine 1`] = `
         class="t-button__text"
       >
         
-        top-right
+         top-right 
         
       </span>
     </button>
@@ -304,7 +304,7 @@ exports[`Message placement demo works fine 1`] = `
         class="t-button__text"
       >
         
-        bottom-left
+         bottom-left 
         
       </span>
     </button>
@@ -316,7 +316,7 @@ exports[`Message placement demo works fine 1`] = `
         class="t-button__text"
       >
         
-        bottom-right
+         bottom-right 
         
       </span>
     </button>
@@ -341,7 +341,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        消息
+         消息 
         
       </span>
     </button>
@@ -365,7 +365,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        警示
+         警示 
         
       </span>
     </button>
@@ -389,7 +389,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        询问
+         询问 
         
       </span>
     </button>
@@ -402,7 +402,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        加载中
+         加载中 
         
       </span>
     </button>
@@ -414,7 +414,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        关闭所有
+         关闭所有 
         
       </span>
     </button>
@@ -436,7 +436,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        消息
+         消息 
         
       </span>
     </button>
@@ -448,7 +448,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        成功
+         成功 
         
       </span>
     </button>
@@ -472,7 +472,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        失败
+         失败 
         
       </span>
     </button>
@@ -484,7 +484,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        询问
+         询问 
         
       </span>
     </button>
@@ -496,7 +496,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        加载中
+         加载中 
         
       </span>
     </button>
@@ -508,7 +508,7 @@ exports[`Message plugin demo works fine 1`] = `
         class="t-button__text"
       >
         
-        关闭所有
+         关闭所有 
         
       </span>
     </button>
@@ -557,7 +557,7 @@ exports[`Message type demo works fine 1`] = `
       />
     </svg>
     
-    用户表示普通操作信息提示
+     用户表示普通操作信息提示 
     
     <span
       class="t-message-close"
@@ -581,7 +581,7 @@ exports[`Message type demo works fine 1`] = `
       />
     </svg>
     
-    用户表示操作顺利达成
+     用户表示操作顺利达成 
     
     <span
       class="t-message-close"
@@ -605,7 +605,7 @@ exports[`Message type demo works fine 1`] = `
       />
     </svg>
     
-    用户表示操作引起一定后果
+     用户表示操作引起一定后果 
     
     <span
       class="t-message-close"
@@ -629,7 +629,7 @@ exports[`Message type demo works fine 1`] = `
       />
     </svg>
     
-    用户表示操作引起严重的后果
+     用户表示操作引起严重的后果 
     
     <span
       class="t-message-close"
@@ -653,7 +653,7 @@ exports[`Message type demo works fine 1`] = `
       />
     </svg>
     
-    用于帮助用户操作的信息提示
+     用于帮助用户操作的信息提示 
     
     <span
       class="t-message-close"
@@ -677,7 +677,7 @@ exports[`Message type demo works fine 1`] = `
       />
     </svg>
     
-    用于表示操作正在生效的过程中
+     用于表示操作正在生效的过程中 
     
     <span
       class="t-message-close"

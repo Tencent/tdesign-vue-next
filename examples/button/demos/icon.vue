@@ -4,7 +4,7 @@
       <div class="demo-button-col">
         <t-button theme="primary">
           <template #icon>
-            <t-icon-add/>
+            <t-icon-add />
           </template>
           新建
         </t-button>
@@ -16,14 +16,20 @@
         </t-button>
       </div>
       <div class="demo-button-col">
-        <t-button shape="circle" theme="primary">
+        <t-button
+          shape="circle"
+          theme="primary"
+        >
           <template #icon>
-            <t-icon-discount/>
+            <t-icon-discount />
           </template>
         </t-button>
-        <t-button shape="circle" theme="primary">
+        <t-button
+          shape="circle"
+          theme="primary"
+        >
           <template #icon>
-            <t-icon-cloud-download/>
+            <t-icon-cloud-download />
           </template>
         </t-button>
       </div>
@@ -40,7 +46,7 @@
   </div>
 </template>
 <script lang="jsx">
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
 import TIconAdd from '@tencent/tdesign-vue-next/icon/add';
 import TIconCloudUpload from '@tencent/tdesign-vue-next/icon/cloud-upload';
@@ -56,11 +62,11 @@ export default defineComponent({
     TIconDiscount,
   },
   setup() {
-    return { 
+    return {
       renderIcon() {
         return <TIconSearch />;
       },
-    }
+    };
   },
 });
 </script>

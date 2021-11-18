@@ -4,19 +4,34 @@
       <div class="demo-item">
         <t-popconfirm theme="default">
           <template #content>
-            <p class="title">带描述的气泡确认框文字按钮</p>
-            <p class="describe">带描述的气泡确认框在主要说明之外增加了操作相关的详细描述</p>
+            <p class="title">
+              带描述的气泡确认框文字按钮
+            </p>
+            <p class="describe">
+              带描述的气泡确认框在主要说明之外增加了操作相关的详细描述
+            </p>
           </template>
-          <t-button theme="primary">自定义content</t-button>
+          <t-button theme="primary">
+            自定义content
+          </t-button>
         </t-popconfirm>
       </div>
       <div class="demo-item">
         <t-popconfirm theme="warning">
           <template #content>
-            <p class="title">带描述的气泡确认框文字按钮</p>
-            <p class="describe">带描述的气泡确认框在主要说明之外增加了操作相关的详细描述</p>
+            <p class="title">
+              带描述的气泡确认框文字按钮
+            </p>
+            <p class="describe">
+              带描述的气泡确认框在主要说明之外增加了操作相关的详细描述
+            </p>
           </template>
-          <t-button theme="danger" variant="outline">自定义content</t-button>
+          <t-button
+            theme="danger"
+            variant="outline"
+          >
+            自定义content
+          </t-button>
         </t-popconfirm>
       </div>
     </div>

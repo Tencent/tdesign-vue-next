@@ -1,10 +1,20 @@
 <template>
   <div>
-    <t-drawer v-model:visible="visible" @close="handleClose" :showOverlay="false" header="抽屉标题">
+    <t-drawer
+      v-model:visible="visible"
+      :show-overlay="false"
+      header="抽屉标题"
+      @close="handleClose"
+    >
       <p>抽屉的内容</p>
     </t-drawer>
 
-    <t-button variant="outline" @click="handleClick">打开抽屉</t-button>
+    <t-button
+      variant="outline"
+      @click="handleClick"
+    >
+      打开抽屉
+    </t-button>
   </div>
 </template>
 
@@ -22,8 +32,8 @@ export default defineComponent({
       },
       handleClose() {
         visible.value = false;
-      }
-    }
+      },
+    };
   },
 });
 </script>

@@ -1,12 +1,14 @@
 <template>
   <div class="tdesign-demo-block-column">
     <div class="tdesign-demo-block-row">
-      <t-tag :icon="renderDiscountIcon">默认标签</t-tag>
+      <t-tag :icon="renderDiscountIcon">
+        默认标签
+      </t-tag>
     </div>
     <div class="tdesign-demo-block-row">
       <t-tag>
         <template #icon>
-          <TIconDiscount />
+          <t-icon-discount />
         </template>
         Icon插槽
       </t-tag>
@@ -21,12 +23,12 @@ import TIconDiscount from '@tencent/tdesign-vue-next/icon/discount';
 export default defineComponent({
   components: { TIconDiscount },
   setup() {
-    return { 
+    return {
       renderDiscountIcon() {
         return <TIconDiscount />;
       },
-    }
-  }
+    };
+  },
 });
 </script>
 

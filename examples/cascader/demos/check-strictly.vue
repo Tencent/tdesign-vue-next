@@ -1,13 +1,19 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value1" placeholder='请选择' check-strictly></t-cascader>
     <t-cascader
+      v-model="value1"
       class="t-demo-cascader"
       :options="options"
+      placeholder="请选择"
+      check-strictly
+    />
+    <t-cascader
       v-model="value2"
+      class="t-demo-cascader"
+      :options="options"
       check-strictly
       multiple
-    ></t-cascader>
+    />
   </div>
 </template>
 
@@ -112,9 +118,9 @@ export default defineComponent({
     return {
       options,
       value1,
-      value2
-    }
-  }
+      value2,
+    };
+  },
 });
 </script>
 <style scoped>

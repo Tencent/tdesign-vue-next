@@ -8,7 +8,10 @@
       <t-input placeholder="请输入内容" />
     </t-addon>
 
-    <t-addon prepend="http://" append=".com">
+    <t-addon
+      prepend="http://"
+      append=".com"
+    >
       <t-input placeholder="请输入内容" />
     </t-addon>
   </div>

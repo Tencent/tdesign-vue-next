@@ -18,14 +18,16 @@
         :label="data.label"
         :removable="data.removable"
       >
-        <p style="padding: 25px;">{{ data.content }}</p>
+        <p style="padding: 25px;">
+          {{ data.content }}
+        </p>
       </t-tab-panel>
     </t-tabs>
   </div>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
 
 let id = 0;
 export default defineComponent({
@@ -41,7 +43,7 @@ export default defineComponent({
       label: '原有选项卡',
       removable: true,
       content: '原有选项卡内容',
-    }])
+    }]);
 
     const addTab = () => {
       panelData.value = [
@@ -55,22 +57,22 @@ export default defineComponent({
       ];
       value.value = `${id}`;
       id += 1;
-    }
+    };
 
-    const removeTab = ({ value }) => {
-      const index = panelData.value.findIndex(data => data.value === value);
+    const removeTab = ({ value: val }) => {
+      const index = panelData.value.findIndex((data) => data.value === val);
       if (index < 0) return false;
       panelData.value.splice(index, 1);
-      if (value.value === value) {
+      if (value.value === val) {
         value.value = panelData.value[index - 1].value;
       }
-    }
+    };
     return {
       value,
       panelData,
       addTab,
-      removeTab
-    }
+      removeTab,
+    };
   },
 });
 </script>

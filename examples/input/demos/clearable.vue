@@ -1,8 +1,8 @@
 <template>
   <div class="tdesign-demo-item--input__input-box">
     <t-input
-      clearable
       v-model="value"
+      clearable
       placeholder="请输入"
       @clear="onClear"
     />
@@ -17,11 +17,11 @@ export default defineComponent({
     const value = ref('Hello TDesign');
     const onClear = () => {
       console.log('clear');
-    }
+    };
     return {
       value,
-      onClear
-    }
+      onClear,
+    };
   },
 });
 </script>

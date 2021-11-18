@@ -1,8 +1,11 @@
 <template>
   <div class="switch-demo">
     <div class="tdesign-demo-block">
-      <t-switch></t-switch>
-      <t-switch v-model="checked" @change="onChange"></t-switch>
+      <t-switch />
+      <t-switch
+        v-model="checked"
+        @change="onChange"
+      />
     </div>
   </div>
 </template>
@@ -19,8 +22,8 @@ export default defineComponent({
       onChange(val) {
         console.log(val);
       },
-    }
-  }
+    };
+  },
 });
 </script>
 

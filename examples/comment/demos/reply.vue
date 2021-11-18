@@ -24,7 +24,11 @@
       >
         <template #author>
           <span>评论作者名B</span>
-          <t-icon name="caret-right-small" size="small" class="author-icon"/>
+          <t-icon
+            name="caret-right-small"
+            size="small"
+            class="author-icon"
+          />
           <span>评论作者名A</span>
         </template>
 

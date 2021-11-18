@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-calendar :isShowWeekendDefault="false"></t-calendar>
+    <t-calendar :is-show-weekend-default="false" />
   </div>
 </template>
 

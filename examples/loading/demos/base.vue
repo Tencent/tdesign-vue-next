@@ -1,6 +1,6 @@
 <template>
   <div class="t-loading-demo">
-    <t-loading></t-loading>
+    <t-loading />
 
     <!-- 自定义加载图标 -->
     <!-- <t-loading>

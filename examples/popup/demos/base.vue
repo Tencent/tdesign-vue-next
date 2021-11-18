@@ -2,13 +2,17 @@
   <div>
     <div class="t-popup-demo-base-item">
       <t-popup content="我的触发元素通过默认插槽渲染">
-        <t-button variant="outline">触发元素(默认插槽)</t-button>
+        <t-button variant="outline">
+          触发元素(默认插槽)
+        </t-button>
       </t-popup>
     </div>
     <div class="t-popup-demo-base-item">
       <t-popup content="我的触发元素通过插槽(triggerElement)渲染">
         <template #triggerElement>
-          <t-button variant="outline">触发元素(插槽)</t-button>
+          <t-button variant="outline">
+            触发元素(插槽)
+          </t-button>
         </template>
       </t-popup>
     </div>
@@ -16,13 +20,13 @@
       <t-popup
         content="我的触发元素通过属性 default 渲染"
         :default="renderTrigerElement1"
-      ></t-popup>
+      />
     </div>
     <div class="t-popup-demo-base-item">
       <t-popup
         content="我的触发元素通过属性 triggerElement 渲染"
-        :triggerElement="renderTrigerElement2"
-      ></t-popup>
+        :trigger-element="renderTrigerElement2"
+      />
     </div>
   </div>
 </template>
@@ -39,8 +43,8 @@ export default defineComponent({
       renderTrigerElement2() {
         return <t-button variant="outline">触发元素(属性2)</t-button>;
       },
-    }
-  }
+    };
+  },
 });
 </script>
 <style scoped>

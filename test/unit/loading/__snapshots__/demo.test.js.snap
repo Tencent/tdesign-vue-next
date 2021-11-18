@@ -8,13 +8,13 @@ exports[`Loading attach demo works fine 1`] = `
     class="loading-attach-demo__title"
     id="alice"
   >
-    Hello, I'm Alice.
+     Hello, I'm Alice. 
   </div>
   <div
     class="loading-attach-demo__title"
     id="bob"
   >
-    Hi, I'm Bob.
+     Hi, I'm Bob. 
   </div>
   <div
     class="t-loading t-size-m t-loading-mask t-loading-lock t-loading__wrapper v-transfer-dom"
@@ -119,7 +119,7 @@ exports[`Loading delay demo works fine 1`] = `
         class="t-button__text"
       >
         
-        快速重新加载数据（无loading）
+         快速重新加载数据（无loading） 
         
       </span>
     </button>
@@ -131,7 +131,7 @@ exports[`Loading delay demo works fine 1`] = `
         class="t-button__text"
       >
         
-        慢速重新加载数据
+         慢速重新加载数据 
         
       </span>
     </button>
@@ -211,7 +211,7 @@ exports[`Loading service demo works fine 1`] = `
     class="loading-service-demo"
     id="loading-service-demo"
   >
-    我是service的容器
+     我是service的容器 
   </div>
   <p>
     this.$loading(true)
@@ -230,7 +230,7 @@ exports[`Loading service demo works fine 1`] = `
         class="t-button__text"
       >
         
-        服务方式加载（全屏）
+         服务方式加载（全屏） 
         
       </span>
     </button>
@@ -242,7 +242,7 @@ exports[`Loading service demo works fine 1`] = `
         class="t-button__text"
       >
         
-        服务方式加载（局部）
+         服务方式加载（局部） 
         
       </span>
     </button>
@@ -264,7 +264,7 @@ exports[`Loading service demo works fine 1`] = `
         class="t-button__text"
       >
         
-        函数方式加载（全屏）
+         函数方式加载（全屏） 
         
       </span>
     </button>
@@ -276,7 +276,7 @@ exports[`Loading service demo works fine 1`] = `
         class="t-button__text"
       >
         
-        函数方式加载（局部）
+         函数方式加载（局部） 
         
       </span>
     </button>
@@ -420,7 +420,7 @@ exports[`Loading text demo works fine 1`] = `
       class="t-loading-text"
     >
       
-      插槽文字加载中...
+       插槽文字加载中... 
       
     </div>
   </div>
@@ -491,7 +491,7 @@ exports[`Loading wrap demo works fine 1`] = `
         class="t-button__text"
       >
         
-        加载中
+         加载中 
         
       </span>
     </button>
@@ -503,7 +503,7 @@ exports[`Loading wrap demo works fine 1`] = `
         class="t-button__text"
       >
         
-        加载完成
+         加载完成 
         
       </span>
     </button>

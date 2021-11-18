@@ -1,23 +1,35 @@
 <template>
   <div>
     <t-badge count="2">
-      <div class="badge-block"></div>
+      <div class="badge-block" />
     </t-badge>
 
-    <t-badge count="2" :offset="[10, 10]">
-      <div class="badge-block"></div>
+    <t-badge
+      count="2"
+      :offset="[10, 10]"
+    >
+      <div class="badge-block" />
     </t-badge>
 
-    <t-badge count="2" :offset="[-10, 10]">
-      <div class="badge-block"></div>
+    <t-badge
+      count="2"
+      :offset="[-10, 10]"
+    >
+      <div class="badge-block" />
     </t-badge>
 
-    <t-badge count="2" :offset="[-10, -10]">
-      <div class="badge-block"></div>
+    <t-badge
+      count="2"
+      :offset="[-10, -10]"
+    >
+      <div class="badge-block" />
     </t-badge>
 
-    <t-badge count="2" :offset="[10, -10]">
-      <div class="badge-block"></div>
+    <t-badge
+      count="2"
+      :offset="[10, -10]"
+    >
+      <div class="badge-block" />
     </t-badge>
   </div>
 </template>

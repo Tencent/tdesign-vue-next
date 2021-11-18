@@ -9,7 +9,7 @@ exports[`Tag base demo works fine 1`] = `
   >
     <!---->
     
-    默认
+     默认 
     
     
   </span>
@@ -42,7 +42,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签一
+       标签一 
       
       <svg
         class="t-icon t-icon-close"
@@ -60,7 +60,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签二
+       标签二 
       
       <svg
         class="t-icon t-icon-close"
@@ -78,7 +78,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签三
+       标签三 
       
       <svg
         class="t-icon t-icon-close"
@@ -96,7 +96,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签四
+       标签四 
       
       <svg
         class="t-icon t-icon-close"
@@ -118,7 +118,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签一
+       标签一 
       
       <svg
         class="t-icon t-icon-close"
@@ -136,7 +136,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签二
+       标签二 
       
       <svg
         class="t-icon t-icon-close"
@@ -154,7 +154,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签三
+       标签三 
       
       <svg
         class="t-icon t-icon-close"
@@ -172,7 +172,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签四
+       标签四 
       
       <svg
         class="t-icon t-icon-close"
@@ -194,7 +194,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签一
+       标签一 
       
       <svg
         class="t-icon t-icon-close"
@@ -212,7 +212,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签二
+       标签二 
       
       <svg
         class="t-icon t-icon-close"
@@ -230,7 +230,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签三
+       标签三 
       
       <svg
         class="t-icon t-icon-close"
@@ -248,7 +248,7 @@ exports[`Tag delete demo works fine 1`] = `
     >
       <!---->
       
-      标签四
+       标签四 
       
       <svg
         class="t-icon t-icon-close"
@@ -395,7 +395,7 @@ exports[`Tag icon demo works fine 1`] = `
         />
       </svg>
       
-      默认标签
+       默认标签 
       
       
     </span>
@@ -444,7 +444,7 @@ exports[`Tag long-text demo works fine 1`] = `
       style="max-width: 150px;"
     >
       
-      默认超八个字超长文本标签超长省略文本标签
+       默认超八个字超长文本标签超长省略文本标签 
       
     </span>
     
@@ -461,7 +461,7 @@ exports[`Tag plain demo works fine 1`] = `
   >
     <!---->
     
-    标签一
+     标签一 
     
     
   </span>
@@ -470,7 +470,7 @@ exports[`Tag plain demo works fine 1`] = `
   >
     <!---->
     
-    标签二
+     标签二 
     
     
   </span>
@@ -479,7 +479,7 @@ exports[`Tag plain demo works fine 1`] = `
   >
     <!---->
     
-    标签三
+     标签三 
     
     
   </span>
@@ -488,7 +488,7 @@ exports[`Tag plain demo works fine 1`] = `
   >
     <!---->
     
-    标签四
+     标签四 
     
     
   </span>
@@ -497,7 +497,7 @@ exports[`Tag plain demo works fine 1`] = `
   >
     <!---->
     
-    标签五
+     标签五 
     
     
   </span>
@@ -556,7 +556,7 @@ exports[`Tag shape demo works fine 1`] = `
     >
       <!---->
       
-      标签一
+       标签一 
       
       
     </span>
@@ -570,7 +570,7 @@ exports[`Tag shape demo works fine 1`] = `
     >
       <!---->
       
-      标签一
+       标签一 
       
       
     </span>
@@ -579,7 +579,7 @@ exports[`Tag shape demo works fine 1`] = `
     >
       <!---->
       
-      标签一
+       标签一 
       
       
     </span>
@@ -593,7 +593,7 @@ exports[`Tag shape demo works fine 1`] = `
     >
       <!---->
       
-      标签一
+       标签一 
       
       
     </span>
@@ -602,7 +602,7 @@ exports[`Tag shape demo works fine 1`] = `
     >
       <!---->
       
-      标签一
+       标签一 
       
       
     </span>
@@ -619,7 +619,7 @@ exports[`Tag size demo works fine 1`] = `
   >
     <!---->
     
-    小型标签
+     小型标签 
     
     
   </span>
@@ -637,7 +637,7 @@ exports[`Tag size demo works fine 1`] = `
   >
     <!---->
     
-    大型标签
+     大型标签 
     
     
   </span>

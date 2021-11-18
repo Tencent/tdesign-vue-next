@@ -1,11 +1,22 @@
 <template>
   <div class="demo-slider">
     <div class="block">
-      <t-slider v-model="value1" :show-tooltip="true" :marks="marks1" :inputNumberProps="false" />
+      <t-slider
+        v-model="value1"
+        :show-tooltip="true"
+        :marks="marks1"
+        :input-number-props="false"
+      />
     </div>
 
     <div class="block">
-      <t-slider v-model="value2" range :show-tooltip="true" :marks="marks2" :inputNumberProps="false" />
+      <t-slider
+        v-model="value2"
+        range
+        :show-tooltip="true"
+        :marks="marks2"
+        :input-number-props="false"
+      />
     </div>
   </div>
 </template>
@@ -36,7 +47,7 @@ export default {
         80: <span style="color: #0052d9">80°C</span>,
         100: '100°C',
       },
-    }
+    };
   },
 };
 </script>

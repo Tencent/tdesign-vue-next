@@ -1,22 +1,42 @@
 <template>
   <div>
     <div class="tdesign-demo-item--datepicker">
-      <t-date-picker theme="primary" mode="date" :disableDate="disableDate"></t-date-picker>
+      <t-date-picker
+        theme="primary"
+        mode="date"
+        :disable-date="disableDate"
+      />
     </div>
     <div class="tdesign-demo-item--datepicker">
-      <t-date-picker theme="primary" mode="date" :disableDate="disableDate2"></t-date-picker>
+      <t-date-picker
+        theme="primary"
+        mode="date"
+        :disable-date="disableDate2"
+      />
     </div>
     <div class="tdesign-demo-item--datepicker">
-      <t-date-picker theme="primary" mode="date" :disableDate="disableDate3"></t-date-picker>
+      <t-date-picker
+        theme="primary"
+        mode="date"
+        :disable-date="disableDate3"
+      />
     </div>
     <div class="tdesign-demo-item--datepicker">
-      <t-date-picker theme="primary" mode="date" range :disableDate="disableDate4"></t-date-picker>
+      <t-date-picker
+        theme="primary"
+        mode="date"
+        range
+        :disable-date="disableDate4"
+      />
     </div>
     <div class="tdesign-demo-item--datepicker">
-      <t-date-picker theme="primary" mode="date" :disableDate="getDisableDate" ></t-date-picker>
+      <t-date-picker
+        theme="primary"
+        mode="date"
+        :disable-date="getDisableDate"
+      />
     </div>
   </div>
-
 </template>
 <script>
 import { defineComponent } from 'vue';
@@ -36,7 +56,7 @@ export default defineComponent({
     const disableDate4 = {
       before: dayjs().subtract(2, 'day').format(),
       after: dayjs().add(10, 'day').format(),
-    }
+    };
     return {
       disableDate,
       disableDate2,
@@ -49,7 +69,7 @@ export default defineComponent({
       onChange(value) {
         console.log(value);
       },
-    }
+    };
   },
 });
 </script>

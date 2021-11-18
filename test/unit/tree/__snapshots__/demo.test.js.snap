@@ -4151,22 +4151,22 @@ exports[`Tree:demo lazy demo works fine 1`] = `
   <h3
     class="title"
   >
-    数据延迟加载
+     数据延迟加载 
   </h3>
   <p
     class="tips"
   >
-    默认为点击加载数据。
+     默认为点击加载数据。 
   </p>
   <p
     class="tips"
   >
-    valueMode 默认为 'onlyLeaf'。选中父节点时，子节点由于未加载，无法更新和获取选中状态，导致无法更新父节点的状态。
+     valueMode 默认为 'onlyLeaf'。选中父节点时，子节点由于未加载，无法更新和获取选中状态，导致无法更新父节点的状态。 
   </p>
   <p
     class="tips"
   >
-    所以使用延迟加载时，推荐 valueMode 设置为 'all' 或者 'parentFirst'。
+     所以使用延迟加载时，推荐 valueMode 设置为 'all' 或者 'parentFirst'。 
   </p>
   <div
     class="operations"
@@ -6619,7 +6619,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
   <h3
     class="title"
   >
-    Render:
+     Render: 
   </h3>
   <div
     class="t-tree t-tree--hoverable t-tree--fx"
@@ -6696,7 +6696,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
   <h3
     class="title"
   >
-    Scope Slot:
+     Scope Slot: 
   </h3>
   <div
     class="operations"
@@ -6870,7 +6870,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
               class="t-button__text"
             >
               
-              添加子节点
+               添加子节点 
               
             </span>
           </button>
@@ -6882,7 +6882,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
               class="t-button__text"
             >
               
-              前插节点
+               前插节点 
               
             </span>
           </button>
@@ -6894,7 +6894,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
               class="t-button__text"
             >
               
-              后插节点
+               后插节点 
               
             </span>
           </button>
@@ -6906,7 +6906,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
               class="t-button__text"
             >
               
-              删除
+               删除 
               
             </span>
           </button>
@@ -6962,7 +6962,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
               class="t-button__text"
             >
               
-              添加子节点
+               添加子节点 
               
             </span>
           </button>
@@ -6974,7 +6974,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
               class="t-button__text"
             >
               
-              前插节点
+               前插节点 
               
             </span>
           </button>
@@ -6986,7 +6986,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
               class="t-button__text"
             >
               
-              后插节点
+               后插节点 
               
             </span>
           </button>
@@ -6998,7 +6998,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
               class="t-button__text"
             >
               
-              删除
+               删除 
               
             </span>
           </button>
@@ -7013,7 +7013,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
   <h3
     class="title"
   >
-    API:
+     API: 
   </h3>
   <div
     class="operations"
@@ -7026,7 +7026,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取 value 为 'node1' 的单个节点
+         获取 value 为 'node1' 的单个节点 
         
       </span>
     </button>
@@ -7038,7 +7038,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取所有节点
+         获取所有节点 
         
       </span>
     </button>
@@ -7050,7 +7050,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点的所有子节点
+         获取高亮节点的所有子节点 
         
       </span>
     </button>
@@ -7062,7 +7062,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取所有高亮节点
+         获取所有高亮节点 
         
       </span>
     </button>
@@ -7074,7 +7074,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点下的选中节点
+         获取高亮节点下的选中节点 
         
       </span>
     </button>
@@ -7086,7 +7086,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        插入一个根节点
+         插入一个根节点 
         
       </span>
     </button>
@@ -7098,7 +7098,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点的父节点
+         获取高亮节点的父节点 
         
       </span>
     </button>
@@ -7110,7 +7110,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点的所有父节点
+         获取高亮节点的所有父节点 
         
       </span>
     </button>
@@ -7122,7 +7122,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点在子节点中的位置
+         获取高亮节点在子节点中的位置 
         
       </span>
     </button>
@@ -7134,7 +7134,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        选中高亮节点
+         选中高亮节点 
         
       </span>
     </button>
@@ -7146,7 +7146,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        展开高亮节点
+         展开高亮节点 
         
       </span>
     </button>
@@ -7158,7 +7158,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点与其子节点的数据
+         获取高亮节点与其子节点的数据 
         
       </span>
     </button>
@@ -7166,7 +7166,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
   <p
     class="tips"
   >
-    * 相关信息通过控制台输出
+     * 相关信息通过控制台输出 
   </p>
 </div>
 `;
@@ -7178,7 +7178,7 @@ exports[`Tree:demo state demo works fine 1`] = `
   <h3
     class="title"
   >
-    Render:
+     Render: 
   </h3>
   <div
     class="t-tree t-tree--hoverable t-tree--fx"
@@ -7255,7 +7255,7 @@ exports[`Tree:demo state demo works fine 1`] = `
   <h3
     class="title"
   >
-    Scope Slot:
+     Scope Slot: 
   </h3>
   <div
     class="operations"
@@ -7429,7 +7429,7 @@ exports[`Tree:demo state demo works fine 1`] = `
               class="t-button__text"
             >
               
-              添加子节点
+               添加子节点 
               
             </span>
           </button>
@@ -7441,7 +7441,7 @@ exports[`Tree:demo state demo works fine 1`] = `
               class="t-button__text"
             >
               
-              前插节点
+               前插节点 
               
             </span>
           </button>
@@ -7453,7 +7453,7 @@ exports[`Tree:demo state demo works fine 1`] = `
               class="t-button__text"
             >
               
-              后插节点
+               后插节点 
               
             </span>
           </button>
@@ -7465,7 +7465,7 @@ exports[`Tree:demo state demo works fine 1`] = `
               class="t-button__text"
             >
               
-              删除
+               删除 
               
             </span>
           </button>
@@ -7521,7 +7521,7 @@ exports[`Tree:demo state demo works fine 1`] = `
               class="t-button__text"
             >
               
-              添加子节点
+               添加子节点 
               
             </span>
           </button>
@@ -7533,7 +7533,7 @@ exports[`Tree:demo state demo works fine 1`] = `
               class="t-button__text"
             >
               
-              前插节点
+               前插节点 
               
             </span>
           </button>
@@ -7545,7 +7545,7 @@ exports[`Tree:demo state demo works fine 1`] = `
               class="t-button__text"
             >
               
-              后插节点
+               后插节点 
               
             </span>
           </button>
@@ -7557,7 +7557,7 @@ exports[`Tree:demo state demo works fine 1`] = `
               class="t-button__text"
             >
               
-              删除
+               删除 
               
             </span>
           </button>
@@ -7572,7 +7572,7 @@ exports[`Tree:demo state demo works fine 1`] = `
   <h3
     class="title"
   >
-    API:
+     API: 
   </h3>
   <div
     class="operations"
@@ -7585,7 +7585,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取 value 为 'node1' 的单个节点
+         获取 value 为 'node1' 的单个节点 
         
       </span>
     </button>
@@ -7597,7 +7597,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取所有节点
+         获取所有节点 
         
       </span>
     </button>
@@ -7609,7 +7609,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点的所有子节点
+         获取高亮节点的所有子节点 
         
       </span>
     </button>
@@ -7621,7 +7621,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取所有高亮节点
+         获取所有高亮节点 
         
       </span>
     </button>
@@ -7633,7 +7633,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点下的选中节点
+         获取高亮节点下的选中节点 
         
       </span>
     </button>
@@ -7645,7 +7645,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        插入一个根节点
+         插入一个根节点 
         
       </span>
     </button>
@@ -7657,7 +7657,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点的父节点
+         获取高亮节点的父节点 
         
       </span>
     </button>
@@ -7669,7 +7669,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点的所有父节点
+         获取高亮节点的所有父节点 
         
       </span>
     </button>
@@ -7681,7 +7681,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点在子节点中的位置
+         获取高亮节点在子节点中的位置 
         
       </span>
     </button>
@@ -7693,7 +7693,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        选中高亮节点
+         选中高亮节点 
         
       </span>
     </button>
@@ -7705,7 +7705,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        展开高亮节点
+         展开高亮节点 
         
       </span>
     </button>
@@ -7717,7 +7717,7 @@ exports[`Tree:demo state demo works fine 1`] = `
         class="t-button__text"
       >
         
-        获取高亮节点与其子节点的数据
+         获取高亮节点与其子节点的数据 
         
       </span>
     </button>
@@ -7725,7 +7725,7 @@ exports[`Tree:demo state demo works fine 1`] = `
   <p
     class="tips"
   >
-    * 相关信息通过控制台输出
+     * 相关信息通过控制台输出 
   </p>
 </div>
 `;

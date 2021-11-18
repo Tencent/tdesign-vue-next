@@ -3,7 +3,7 @@
     <t-input-number
       v-model="value"
       placeholder="输入"
-    ></t-input-number>
+    />
   </div>
 </template>
 
@@ -14,8 +14,8 @@ export default defineComponent({
   setup() {
     const value = ref(undefined);
     return {
-      value
-    }
-  }
+      value,
+    };
+  },
 });
 </script>

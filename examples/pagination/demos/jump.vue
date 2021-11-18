@@ -13,7 +13,8 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
+import { MessagePlugin } from '@tencent/tdesign-vue-next';
 
 export default defineComponent({
   setup() {
@@ -23,24 +24,24 @@ export default defineComponent({
     const onPageSizeChange = (size) => {
       console.log('page-size:', size);
       MessagePlugin.success(`pageSize变化为${size}`);
-    }
+    };
 
     const onCurrentChange = (index, pageInfo) => {
       MessagePlugin.success(`转到第${index}页`);
       console.log(pageInfo);
-    }
+    };
 
     const onChange = (pageInfo) => {
       console.log(pageInfo);
-    }
+    };
 
     return {
       current,
       pageSize,
       onPageSizeChange,
       onCurrentChange,
-      onChange
-    }
+      onChange,
+    };
   },
 });
 </script>

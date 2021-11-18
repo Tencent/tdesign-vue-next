@@ -5,42 +5,45 @@
       v-model="value"
       placeholder="-请选择-"
       multiple
-      :minCollapsedNum="1"
+      :min-collapsed-num="1"
       :options="options"
     />
-    <br/><br/>
+    <br><br>
 
     <!-- 自定义折叠项内容，collapsedItems 为 function (value, count, size) -->
     <t-select
       v-model="value"
       placeholder="-请选择-"
       multiple
-      :minCollapsedNum="1"
-      :collapsedItems="collapsedItems"
+      :min-collapsed-num="1"
+      :collapsed-items="collapsedItems"
       :options="options"
     />
-    <br/><br/>
+    <br><br>
 
     <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, size }-->
     <t-select
       v-model="value"
       placeholder="-请选择-"
       multiple
-      :minCollapsedNum="1"
+      :min-collapsed-num="1"
       :options="options"
     >
-      <template #collapsedItems="{ value, count }">
+      <template #collapsedItems="{ collapsedSelectedItems, count }">
         <t-popup>
           <template #content>
             <p
-              v-for="(item, index) in value"
+              v-for="(item, index) in collapsedSelectedItems"
               :key="index"
               style="padding: 10px;"
             >
-              {{item.label}}
+              {{ item.label }}
             </p>
           </template>
-          <span v-show="count > 0" style="color: #00A870;">+{{count}}</span>
+          <span
+            v-show="count > 0"
+            style="color: #00A870;"
+          >+{{ count }}</span>
         </t-popup>
       </template>
     </t-select>
@@ -59,7 +62,7 @@ const options = [{
 }, {
   label: '选项三',
   value: '3',
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -69,10 +72,10 @@ export default defineComponent({
       if (!(value instanceof Array) || !count) return;
       return (
         <t-popup v-slots={{
-          content: () =>  {
+          content: () => {
             value.map((item) => (
               <p style="padding: 10px;">{item.label}</p>
-            ))
+            ));
           },
         }}>
           <span v-show={count > 0} style="color: #ED7B2F;">
@@ -80,13 +83,13 @@ export default defineComponent({
           </span>
         </t-popup>
       );
-    }
+    };
 
     return {
       options,
       value,
       collapsedItems,
-    }
+    };
   },
 });
 </script>

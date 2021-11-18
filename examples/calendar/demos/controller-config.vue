@@ -1,15 +1,18 @@
 <template>
   <div class="controllerConfig-demo">
-    <div style="margin: 12px 0" v-if="controllerConfig">
+    <div
+      v-if="controllerConfig"
+      style="margin: 12px 0"
+    >
       <fieldset>
         <legend>控件全局</legend>
         <p>
           <label>是否显示（全部控件）：</label>
-          <t-switch v-model="controllerConfig.visible"></t-switch>
+          <t-switch v-model="controllerConfig.visible" />
         </p>
         <p>
           <label>是否禁用（全部控件）：</label>
-          <t-switch v-model="controllerConfig.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.disabled" />
         </p>
       </fieldset>
 
@@ -17,46 +20,46 @@
         <legend>控件局部</legend>
         <p>
           <label>是否显示“模式切换”控件：</label>
-          <t-switch v-model="controllerConfig.mode.visible"></t-switch>
+          <t-switch v-model="controllerConfig.mode.visible" />
           <label>是否禁用“模式切换”控件：</label>
-          <t-switch v-model="controllerConfig.mode.radioGroupProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.mode.radioGroupProps.disabled" />
         </p>
         <p>
           <label>是否显示“年份选择”控件：</label>
-          <t-switch v-model="controllerConfig.year.visible"></t-switch>
+          <t-switch v-model="controllerConfig.year.visible" />
           <label>是否禁用“年份选择”控件：</label>
-          <t-switch v-model="controllerConfig.year.selecteProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.year.selecteProps.disabled" />
         </p>
         <p>
           <label>是否显示“月份选择”控件：</label>
-          <t-switch v-model="controllerConfig.month.visible"></t-switch>
+          <t-switch v-model="controllerConfig.month.visible" />
           <label>是否禁用“月份选择”控件：</label>
-          <t-switch v-model="controllerConfig.month.selecteProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.month.selecteProps.disabled" />
         </p>
         <p>
           <label>是否禁用“隐藏周末”控件：</label>
-          <t-switch v-model="controllerConfig.weekend.hideWeekendButtonProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.weekend.hideWeekendButtonProps.disabled" />
           <label>是否禁用“显示周末”控件：</label>
-          <t-switch v-model="controllerConfig.weekend.showWeekendButtonProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.weekend.showWeekendButtonProps.disabled" />
           <label>是否显示“隐藏\显示周末”控件：</label>
-          <t-switch v-model="controllerConfig.weekend.visible"></t-switch>
+          <t-switch v-model="controllerConfig.weekend.visible" />
         </p>
         <p>
           <label>是否禁用“今天”按钮控件：</label>
-          <t-switch v-model="controllerConfig.current.currentDayButtonProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.current.currentDayButtonProps.disabled" />
           <label>是否禁用“本月”按钮控件：</label>
-          <t-switch v-model="controllerConfig.current.currentMonthButtonProps.disabled"></t-switch>
+          <t-switch v-model="controllerConfig.current.currentMonthButtonProps.disabled" />
           <label>是否显示“今天\本月”控件：</label>
-          <t-switch v-model="controllerConfig.current.visible"></t-switch>
+          <t-switch v-model="controllerConfig.current.visible" />
         </p>
       </fieldset>
     </div>
-    <t-calendar :controllerConfig="controllerConfig.visible ? controllerConfig : false"></t-calendar>
+    <t-calendar :controller-config="controllerConfig.visible ? controllerConfig : false" />
   </div>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -116,10 +119,10 @@ export default defineComponent({
           variant: 'base',
         },
       },
-    })
+    });
     return {
-      controllerConfig
-    }
+      controllerConfig,
+    };
   },
 });
 </script>

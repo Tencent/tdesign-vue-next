@@ -2,12 +2,29 @@
   <div>
     <div style="margin: 12px 0">
       <label>请选择风格：</label>
-      <t-select v-model="theme" class="demo-select-base">
-        <t-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label" />
+      <t-select
+        v-model="theme"
+        class="demo-select-base"
+      >
+        <t-option
+          v-for="item in options"
+          :key="item.value"
+          :value="item.value"
+          :label="item.label"
+        />
       </t-select>
-      <t-button theme="primary" @click="toCurrent()">今天（当前高亮日期）</t-button>
+      <t-button
+        theme="primary"
+        @click="toCurrent()"
+      >
+        今天（当前高亮日期）
+      </t-button>
     </div>
-    <t-calendar ref="myCalendar" :theme="theme" :isShowWeekendDefault="true"></t-calendar>
+    <t-calendar
+      ref="myCalendar"
+      :theme="theme"
+      :is-show-weekend-default="true"
+    />
   </div>
 </template>
 
@@ -17,24 +34,24 @@ import { defineComponent, ref } from 'vue';
 const options = [
   { value: 'full', label: '全屏风格' },
   { value: 'card', label: '卡片风格' },
-]
+];
 export default defineComponent({
   setup() {
-    const theme = ref('card')
-    const myCalendar = ref('')
+    const theme = ref('card');
+    const myCalendar = ref('');
 
     const toCurrent = () => {
-      if (myCalendar) {
+      if (myCalendar.value) {
         myCalendar.value.toCurrent();
       }
-    }
+    };
 
     return {
       theme,
       options,
       myCalendar,
-      toCurrent
-    }
+      toCurrent,
+    };
   },
 });
 </script>

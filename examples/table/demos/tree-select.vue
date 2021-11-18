@@ -1,8 +1,13 @@
 <template>
-  <div class='t-table-tree-select-demo'>
+  <div class="t-table-tree-select-demo">
     <div>
-      <t-radio-group v-model="checkStrictly" variant="default-filled">
-        <t-radio-button value="true">父子行选中独立</t-radio-button>
+      <t-radio-group
+        v-model="checkStrictly"
+        variant="default-filled"
+      >
+        <t-radio-button value="true">
+          父子行选中独立
+        </t-radio-button>
         <t-radio-button value="false">
           <t-popup content="「父子行选中关联」由于表格数据的特殊性，父节点选中或者取消选中，会影响子节点；但子节点选中或取消不影响父元素">
             父子行选中关联
@@ -15,9 +20,8 @@
     <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
     <t-enhanced-table
       row-key="key"
-      :expandedRow="expandedRowRender"
+      :expanded-row="expandedRowRender"
       :expanded-row-keys="expandedRowKeys"
-      @expand-change="onExpandChange"
       :columns="columns"
       :data="data"
       :tree="{
@@ -25,8 +29,9 @@
         checkStrictly: checkStrictly === 'true' ? true : false,
       }"
       :selected-row-keys="selectedRowKeys"
+      @expand-change="onExpandChange"
       @select-change="rehandleSelectChange"
-    ></t-enhanced-table>
+    />
   </div>
 </template>
 
@@ -92,7 +97,7 @@ const columns = [
   },
   { colKey: 'owner', title: '管理员' },
   { colKey: 'description', title: '描述' },
-]
+];
 export default defineComponent({
   components: { TEnhancedTable: EnhancedTable },
   setup() {
@@ -102,22 +107,20 @@ export default defineComponent({
 
     watch(() => checkStrictly.value, () => {
       selectedRowKeys.value = [];
-    })
+    });
 
     const rehandleSelectChange = (value, { selectedRowData }) => {
       selectedRowKeys.value = value;
       console.log(value, selectedRowData);
-    }
+    };
 
-    const expandedRowRender = (h, { row }) => {
-      return (
+    const expandedRowRender = (h, { row }) => (
         <div>这是展开项数据，{row.key}</div>
-      );
-    }
+    );
 
     const onExpandChange = (val) => {
       expandedRowKeys.value = val;
-    }
+    };
 
     return {
       checkStrictly,
@@ -127,8 +130,8 @@ export default defineComponent({
       columns,
       rehandleSelectChange,
       expandedRowRender,
-      onExpandChange
-    }
+      onExpandChange,
+    };
   },
 });
 </script>

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <t-transfer :data="list" v-model="targetValue" />
+    <t-transfer
+      v-model="targetValue"
+      :data="list"
+    />
   </div>
 </template>
 <script>
@@ -15,11 +18,11 @@ for (let i = 0; i < 20; i++) {
 }
 export default defineComponent({
   setup() {
-    const targetValue = ref(list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0))
+    const targetValue = ref(list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0));
     return {
       targetValue,
       list,
-    }
-  }
+    };
+  },
 });
 </script>

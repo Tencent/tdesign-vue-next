@@ -10,7 +10,7 @@ exports[`Dialog async demo works fine 1`] = `
       class="t-button__text"
     >
       
-      异步加载类按钮
+       异步加载类按钮 
       
     </span>
   </button>
@@ -115,7 +115,7 @@ exports[`Dialog attach demo works fine 1`] = `
       class="t-button__text"
     >
       
-      挂载在body
+       挂载在body 
       
     </span>
   </button>
@@ -127,7 +127,7 @@ exports[`Dialog attach demo works fine 1`] = `
       class="t-button__text"
     >
       
-      挂载特定元素
+       挂载特定元素 
       
     </span>
   </button>
@@ -327,7 +327,7 @@ exports[`Dialog base demo works fine 1`] = `
       class="t-button__text"
     >
       
-      基础确认对话框
+       基础确认对话框 
       
     </span>
   </button>
@@ -421,7 +421,7 @@ exports[`Dialog custom demo works fine 1`] = `
       class="t-button__text"
     >
       
-      自定义底部按钮（文字）
+       自定义底部按钮（文字） 
       
     </span>
   </button>
@@ -433,7 +433,7 @@ exports[`Dialog custom demo works fine 1`] = `
       class="t-button__text"
     >
       
-      自定义底部按钮（任何按钮属性）
+       自定义底部按钮（任何按钮属性） 
       
     </span>
   </button>
@@ -445,7 +445,7 @@ exports[`Dialog custom demo works fine 1`] = `
       class="t-button__text"
     >
       
-      自定义底部按钮（自定义组件）
+       自定义底部按钮（自定义组件） 
       
     </span>
   </button>
@@ -682,7 +682,7 @@ exports[`Dialog drag demo works fine 1`] = `
       class="t-button__text"
     >
       
-      非模态对话框-可拖拽
+       非模态对话框-可拖拽 
       
     </span>
   </button>
@@ -694,7 +694,7 @@ exports[`Dialog drag demo works fine 1`] = `
       class="t-button__text"
     >
       
-      非模态对话框-不可拖拽
+       非模态对话框-不可拖拽 
       
     </span>
   </button>
@@ -706,7 +706,7 @@ exports[`Dialog drag demo works fine 1`] = `
       class="t-button__text"
     >
       
-      模态对话框-不支持拖拽
+       模态对话框-不支持拖拽 
       
     </span>
   </button>
@@ -1295,7 +1295,7 @@ exports[`Dialog icon demo works fine 1`] = `
       class="t-button__text"
     >
       
-      theme: info
+       theme: info 
       
     </span>
   </button>
@@ -1307,7 +1307,7 @@ exports[`Dialog icon demo works fine 1`] = `
       class="t-button__text"
     >
       
-      theme: warning
+       theme: warning 
       
     </span>
   </button>
@@ -1319,7 +1319,7 @@ exports[`Dialog icon demo works fine 1`] = `
       class="t-button__text"
     >
       
-      theme: error
+       theme: error 
       
     </span>
   </button>
@@ -1331,7 +1331,7 @@ exports[`Dialog icon demo works fine 1`] = `
       class="t-button__text"
     >
       
-      theme: success
+       theme: success 
       
     </span>
   </button>
@@ -1348,7 +1348,7 @@ exports[`Dialog modal demo works fine 1`] = `
       class="t-button__text"
     >
       
-      模态对话框
+       模态对话框 
       
     </span>
   </button>
@@ -1360,7 +1360,7 @@ exports[`Dialog modal demo works fine 1`] = `
       class="t-button__text"
     >
       
-      非模态对话框
+       非模态对话框 
       
     </span>
   </button>
@@ -1530,42 +1530,6 @@ exports[`Dialog modal demo works fine 1`] = `
 
 exports[`Dialog plugin demo works fine 1`] = `
 <div>
-  <p>
-    插件调用方式一：this.$dialog(options)
-  </p>
-  <p>
-    插件调用方式二：this.$dialog.confirm(options)
-  </p>
-  <p>
-    插件调用方式三：this.$dialog.alert(options)
-  </p>
-  <br />
-  <p>
-    函数调用方式一：DialogPlugin(options)
-  </p>
-  <p>
-    函数调用方式二：DialogPlugin.confirm(options)
-  </p>
-  <p>
-    函数调用方式三：DialogPlugin.alert(options)
-  </p>
-  <br />
-  <p>
-    组件实例：DialogInstance = this.$dialog(options) 或者 组件实例：DialogInstance = DialogPlugin(options)
-  </p>
-  <p>
-    组件实例方法-销毁弹框：DialogInstance.destroy()
-  </p>
-  <p>
-    组件实例方法-隐藏弹框：DialogInstance.hide()
-  </p>
-  <p>
-    组件实例方法-显示弹窗：DialogInstance.show()
-  </p>
-  <p>
-    组件实例方法-更新弹框：DialogInstance.update()
-  </p>
-  <br />
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
     type="button"
@@ -1574,7 +1538,7 @@ exports[`Dialog plugin demo works fine 1`] = `
       class="t-button__text"
     >
       
-      dialog
+       dialog 
       
     </span>
   </button>
@@ -1586,7 +1550,7 @@ exports[`Dialog plugin demo works fine 1`] = `
       class="t-button__text"
     >
       
-      handleDialogNode
+       handleDialogNode 
       
     </span>
   </button>
@@ -1598,7 +1562,7 @@ exports[`Dialog plugin demo works fine 1`] = `
       class="t-button__text"
     >
       
-      confirm
+       confirm 
       
     </span>
   </button>
@@ -1610,7 +1574,7 @@ exports[`Dialog plugin demo works fine 1`] = `
       class="t-button__text"
     >
       
-      alert
+       alert 
       
     </span>
   </button>
@@ -1622,7 +1586,7 @@ exports[`Dialog plugin demo works fine 1`] = `
       class="t-button__text"
     >
       
-      DialogPlugin.confirm
+       DialogPlugin.confirm 
       
     </span>
   </button>
@@ -1639,7 +1603,7 @@ exports[`Dialog position demo works fine 1`] = `
       class="t-button__text"
     >
       
-      默认位置
+       默认位置 
       
     </span>
   </button>
@@ -1651,7 +1615,7 @@ exports[`Dialog position demo works fine 1`] = `
       class="t-button__text"
     >
       
-      垂直居中
+       垂直居中 
       
     </span>
   </button>
@@ -1663,7 +1627,7 @@ exports[`Dialog position demo works fine 1`] = `
       class="t-button__text"
     >
       
-      自定义top
+       自定义top 
       
     </span>
   </button>
@@ -1898,7 +1862,7 @@ exports[`Dialog warning demo works fine 1`] = `
       class="t-button__text"
     >
       
-      提示反馈
+       提示反馈 
       
     </span>
   </button>
@@ -1994,7 +1958,7 @@ exports[`Dialog warning demo works fine 1`] = `
       class="t-button__text"
     >
       
-      成功反馈
+       成功反馈 
       
     </span>
   </button>
@@ -2090,7 +2054,7 @@ exports[`Dialog warning demo works fine 1`] = `
       class="t-button__text"
     >
       
-      警示反馈
+       警示反馈 
       
     </span>
   </button>
@@ -2175,7 +2139,7 @@ exports[`Dialog warning demo works fine 1`] = `
       class="t-button__text"
     >
       
-      错误反馈
+       错误反馈 
       
     </span>
   </button>
@@ -2260,7 +2224,7 @@ exports[`Dialog warning demo works fine 1`] = `
       class="t-button__text"
     >
       
-      自定义icon
+       自定义icon 
       
     </span>
   </button>

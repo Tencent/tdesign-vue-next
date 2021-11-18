@@ -9,7 +9,11 @@
       </ul>
       <br>
     </div>
-    <t-table :data="data" :columns="columns" rowKey="property">
+    <t-table
+      :data="data"
+      :columns="columns"
+      row-key="property"
+    >
       <!-- 自定义表头，title值为插槽名称  -->
       <template #title-slot-name>
         <t-icon-app /> 类型
@@ -38,7 +42,7 @@ const data = [
     needed: 'N',
     description: '指定rowkey',
   },
-]
+];
 
 const columns = [
   {
@@ -61,7 +65,7 @@ const columns = [
       }[type];
     },
   },
-]
+];
 
 export default defineComponent({
   components: {
@@ -70,9 +74,9 @@ export default defineComponent({
   setup() {
     return {
       data,
-      columns
-    }
-  }
+      columns,
+    };
+  },
 });
 </script>
 <style scoped>

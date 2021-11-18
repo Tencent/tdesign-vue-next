@@ -1,6 +1,9 @@
 <template>
   <t-list :split="true">
-    <t-list-item v-for="(item, index) in commentsData" :key="index">
+    <t-list-item
+      v-for="(item, index) in commentsData"
+      :key="index"
+    >
       <template #content>
         <t-comment
           :avatar="item.avatar"
@@ -49,13 +52,13 @@ const commentsData = [
     datetime: '今天16:38',
     content: '评论作者名C写的评论内容。',
   },
-]
+];
 export default defineComponent({
   setup() {
     return {
-      commentsData
-    }
-  }
+      commentsData,
+    };
+  },
 });
 </script>
 

@@ -1,7 +1,10 @@
 <template>
   <div class="tdesign-tree-state">
-    <h3 class="title">state:</h3>
+    <h3 class="title">
+      state:
+    </h3>
     <t-tree
+      ref="tree"
       :data="items"
       hover
       expand-all
@@ -10,18 +13,49 @@
       :expand-on-click-node="false"
       line
       :icon="icon"
-      ref="tree"
     >
       <template #operations="{node}">
-        <t-button size="small" variant="base" @click="check(node)">检查节点信息</t-button>
-        <t-button size="small" variant="base" @click="changeIcon(node)">变更图标</t-button>
-        <t-button size="small" variant="base" @click="append(node)">添加子节点</t-button>
-        <t-button size="small" variant="base" theme="danger" @click="remove(node)">删除</t-button>
+        <t-button
+          size="small"
+          variant="base"
+          @click="check(node)"
+        >
+          检查节点信息
+        </t-button>
+        <t-button
+          size="small"
+          variant="base"
+          @click="changeIcon(node)"
+        >
+          变更图标
+        </t-button>
+        <t-button
+          size="small"
+          variant="base"
+          @click="append(node)"
+        >
+          添加子节点
+        </t-button>
+        <t-button
+          size="small"
+          variant="base"
+          theme="danger"
+          @click="remove(node)"
+        >
+          删除
+        </t-button>
       </template>
     </t-tree>
-    <h3 class="title">api:</h3>
+    <h3 class="title">
+      api:
+    </h3>
     <div class="operations">
-      <t-button theme="primary" @click="append()">插入一个根节点</t-button>
+      <t-button
+        theme="primary"
+        @click="append()"
+      >
+        插入一个根节点
+      </t-button>
     </div>
   </div>
 </template>
@@ -37,13 +71,13 @@ const items = [{
   icon: '',
   label: 'node2',
   value: 'node2',
-}]
+}];
 
 const changeIcon = (node) => {
   const { data } = node;
   // 需要自定义视图的数据，如果较多，可以存放到 data 里面
   data.icon = data.icon === 'folder' ? 'folder-open' : 'folder';
-}
+};
 
 const icon = (createElement, node) => {
   const { data } = node;
@@ -63,7 +97,7 @@ const icon = (createElement, node) => {
       name,
     },
   });
-}
+};
 
 export default defineComponent({
   setup() {
@@ -71,12 +105,12 @@ export default defineComponent({
 
     const check = (node) => {
       console.info('check:', node);
-    }
+    };
 
-    const tree = ref(null)
+    const tree = ref(null);
     const remove = (node) => {
       tree.value.remove(node.value);
-    }
+    };
 
     const getInsertItem = () => {
       let item = null;
@@ -88,7 +122,7 @@ export default defineComponent({
         value,
       };
       return item;
-    } 
+    };
     const append = (node) => {
       const item = getInsertItem();
       if (item) {
@@ -98,17 +132,17 @@ export default defineComponent({
           tree.value.appendTo(node.value, item);
         }
       }
-    }
-    
+    };
+
     return {
       items,
       icon,
       check,
       changeIcon,
       remove,
-      append
-    }
-  }
+      append,
+    };
+  },
 });
 </script>
 <style>

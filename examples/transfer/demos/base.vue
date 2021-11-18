@@ -1,8 +1,8 @@
 <template>
   <div>
     <t-transfer
-      :data="list"
       v-model="targetValue"
+      :data="list"
       :checked="checked"
       @change="onChange"
       @checkedChange="handleCheckedChange"
@@ -27,17 +27,17 @@ export default defineComponent({
     const checked = ref([]);
 
     const handleCheckedChange = ({
-      checked, sourceChecked, targetChecked, type,
+      checked: checkedVal, sourceChecked, targetChecked, type,
     }) => {
       console.log('handleCheckedChange', {
-        checked, sourceChecked, targetChecked, type,
+        checkedVal, sourceChecked, targetChecked, type,
       });
-      checked.value = checked
-    }
+      checked.value = checkedVal;
+    };
 
-    const onChange = () => {
+    const onChange = (newTargetValue) => {
       console.log('newTargetValue', newTargetValue);
-    }
+    };
 
     return {
       list,
@@ -45,7 +45,7 @@ export default defineComponent({
       checked,
       handleCheckedChange,
       onChange,
-    }
-  }
+    };
+  },
 });
 </script>

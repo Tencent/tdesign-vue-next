@@ -1,17 +1,24 @@
 <template>
   <div class="tdesign-demo-dropdown">
-    <t-dropdown :options="options" @click="clickHandler" :minColumnWidth="112">
-      <div class="tdesign-demo-dropdown-trigger" >
+    <t-dropdown
+      :options="options"
+      :min-column-width="112"
+      @click="clickHandler"
+    >
+      <div class="tdesign-demo-dropdown-trigger">
         <t-button variant="text">
-          下拉菜单 <t-icon name="chevron-down" size="14" />
+          下拉菜单 <t-icon
+            name="chevron-down"
+            size="14"
+          />
         </t-button>
       </div>
     </t-dropdown>
   </div>
 </template>
 <script>
-import { defineComponent } from 'vue'
-import { MessagePlugin } from '@tencent/tdesign-vue-next'
+import { defineComponent } from 'vue';
+import { MessagePlugin } from '@tencent/tdesign-vue-next';
 
 const options = [
   {
@@ -30,18 +37,18 @@ const options = [
     content: '操作四',
     value: 4,
   },
-]
+];
 
 export default defineComponent({
   setup() {
     const clickHandler = (data) => {
       MessagePlugin.success(`选中【${data.content}】`);
-    }
+    };
     return {
       clickHandler,
-      options
-    }
-  }
+      options,
+    };
+  },
 });
 </script>
 <style lang="less" scoped>

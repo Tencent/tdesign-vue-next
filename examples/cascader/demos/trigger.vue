@@ -1,7 +1,19 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" trigger="click" placeholder='请选择'></t-cascader>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" trigger="hover" placeholder='请选择'></t-cascader>
+    <t-cascader
+      v-model="value"
+      class="t-demo-cascader"
+      :options="options"
+      trigger="click"
+      placeholder="请选择"
+    />
+    <t-cascader
+      v-model="value"
+      class="t-demo-cascader"
+      :options="options"
+      trigger="hover"
+      placeholder="请选择"
+    />
   </div>
 </template>
 
@@ -41,15 +53,15 @@ const options = [
       },
     ],
   },
-]
+];
 export default defineComponent({
   setup() {
     const value = ref('');
     return {
       value,
-      options
-    }
-  }
+      options,
+    };
+  },
 });
 </script>
 <style scoped>

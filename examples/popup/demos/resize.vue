@@ -4,7 +4,7 @@
       content="这是popup内容"
       trigger="manual"
       placement="bottom-left"
-      showArrow
+      show-arrow
     >
       <textarea placeholder="拖动修改输入框尺寸" />
     </t-popup>

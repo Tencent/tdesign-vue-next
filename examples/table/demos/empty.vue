@@ -3,13 +3,13 @@
     <t-table
       :data="data"
       :columns="columns"
-      :rowKey="rowKey"
+      :row-key="rowKey"
     />
-    <br/><br/>
+    <br><br>
     <t-table
       :data="data"
       :columns="columns"
-      :rowKey="rowKey"
+      :row-key="rowKey"
     >
       <template #empty>
         <span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">
@@ -17,12 +17,12 @@
         </span>
       </template>
     </t-table>
-    <br/><br/>
+    <br><br>
     <t-table
       :data="data"
       :columns="columns"
       :empty="empty"
-      :rowKey="rowKey"
+      :row-key="rowKey"
     />
   </div>
 </template>
@@ -54,7 +54,7 @@ const columns = [
     colKey: 'description',
     title: '说明',
   },
-]
+];
 
 export default defineComponent({
   setup() {
@@ -62,14 +62,14 @@ export default defineComponent({
       <span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">
         😊 我是自定义的空内容 😊: empty function
       </span>
-    )
+    );
 
     return {
       data: [],
       rowKey: 'property',
       columns,
-      empty
-    }
-  }
+      empty,
+    };
+  },
 });
 </script>

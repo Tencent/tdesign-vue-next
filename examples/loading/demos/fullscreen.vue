@@ -1,19 +1,22 @@
 <template>
   <div>
-    <t-loading :loading="loading" fullscreen> </t-loading>
+    <t-loading
+      :loading="loading"
+      fullscreen
+    />
     <div class="switch-demo">
       全局加载开关（开启加载1秒后自动归位）：
-      <t-switch v-model="loading"></t-switch>
+      <t-switch v-model="loading" />
     </div>
   </div>
 </template>
 <script>
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent, ref, watch } from 'vue';
 
 export default defineComponent({
   setup() {
     const loading = ref(false);
-    
+
     watch(
       () => loading.value,
       (v) => {
@@ -22,12 +25,12 @@ export default defineComponent({
           loading.value = false;
           clearTimeout(timer);
         }, 1000);
-      }
-    )
+      },
+    );
 
     return {
-      loading
-    }
+      loading,
+    };
   },
 });
 </script>

@@ -1,11 +1,33 @@
 <template>
   <div>
     <!-- 非受控用法 -->
-    <t-cascader class="t-demo-cascader" :options="options" :defaultValue="value" clearable size="small" placeholder='请选择'></t-cascader>
+    <t-cascader
+      class="t-demo-cascader"
+      :options="options"
+      :default-value="value"
+      clearable
+      size="small"
+      placeholder="请选择"
+    />
     <!-- 受控+语法糖用法 -->
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" clearable size="medium" placeholder='请选择'></t-cascader>
+    <t-cascader
+      v-model="value"
+      class="t-demo-cascader"
+      :options="options"
+      clearable
+      size="medium"
+      placeholder="请选择"
+    />
     <!-- 受控用法 -->
-    <t-cascader class="t-demo-cascader" :options="options" :value="value" @change="handleValueChange" clearable size="large" placeholder='请选择'></t-cascader>
+    <t-cascader
+      class="t-demo-cascader"
+      :options="options"
+      :value="value"
+      clearable
+      size="large"
+      placeholder="请选择"
+      @change="handleValueChange"
+    />
   </div>
 </template>
 
@@ -51,15 +73,15 @@ export default defineComponent({
   setup() {
     const value = ref('1.1');
     const handleValueChange = (e) => {
-      value.value = e
-    }
+      value.value = e;
+    };
 
     return {
       value,
       options,
-      handleValueChange
-    }
-  }
+      handleValueChange,
+    };
+  },
 });
 </script>
 <style scoped>

@@ -1,24 +1,35 @@
 <template>
   <div class="t-demo-message">
-
     <t-message
       v-if="isShowMsg"
-      :closeBtn="true"
+      :close-btn="true"
       @click-close-btn="isShowMsg = false"
-    >点击关闭按钮触发事件 click-close-btn </t-message>
+    >
+      点击关闭按钮触发事件 click-close-btn
+    </t-message>
 
     <t-message
       v-if="closableMsg"
-      closeBtn="关闭"
+      close-btn="关闭"
       @click-close-btn="closableMsg = false"
-    >自定义关闭按钮（文字）</t-message>
+    >
+      自定义关闭按钮（文字）
+    </t-message>
 
-    <t-message :closeBtn="closeBtn" v-if="closableMsg1">自定义关闭按钮（函数）</t-message>
+    <t-message
+      v-if="closableMsg1"
+      :close-btn="closeBtn"
+    >
+      自定义关闭按钮（函数）
+    </t-message>
 
     <t-message v-if="closableMsg2">
       自定义关闭按钮（插槽）
       <template #closeBtn>
-        <div class='t-message-close' @click="closableMsg2 = false">
+        <div
+          class="t-message-close"
+          @click="closableMsg2 = false"
+        >
           <b>x</b>
         </div>
       </template>
@@ -27,7 +38,7 @@
 </template>
 
 <script lang="jsx">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -53,7 +64,7 @@ export default defineComponent({
           </div>
         );
       },
-    }
+    };
   },
 });
 </script>
@@ -65,4 +76,3 @@ export default defineComponent({
     }
   }
   </style>
-  

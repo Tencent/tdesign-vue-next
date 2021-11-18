@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
 const items = [{
   label: '1',
@@ -19,31 +19,29 @@ const items = [{
 }, {
   label: '2',
   children: true,
-}]
+}];
 export default defineComponent({
   setup() {
-    const load = (node) => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          let nodes = [];
-          if (node.level < 2) {
-            nodes = [{
-              label: `${node.label}.1`,
-              children: true,
-            }, {
-              label: `${node.label}.2`,
-              children: true,
-            }];
-          }
-          resolve(nodes);
-        }, 1000);
-      });
-    }
+    const load = (node) => new Promise((resolve) => {
+      setTimeout(() => {
+        let nodes = [];
+        if (node.level < 2) {
+          nodes = [{
+            label: `${node.label}.1`,
+            children: true,
+          }, {
+            label: `${node.label}.2`,
+            children: true,
+          }];
+        }
+        resolve(nodes);
+      }, 1000);
+    });
 
     return {
       items,
-      load
-    }
+      load,
+    };
   },
 });
 </script>

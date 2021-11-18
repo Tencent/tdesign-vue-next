@@ -1,6 +1,9 @@
 <template>
   <div class="tdesign-demo-dropdown">
-    <t-dropdown :options="options" :minColumnWidth="112">
+    <t-dropdown
+      :options="options"
+      :min-column-width="112"
+    >
       <t-button variant="text">
         <span class="tdesign-demo-dropdown__text">
           下拉菜单
@@ -11,7 +14,7 @@
   </div>
 </template>
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 import TIconChevronDown from '@tencent/tdesign-vue-next/icon/chevron-down';
 
 const options = [{
@@ -28,17 +31,17 @@ const options = [{
   content: '选项四',
   value: 4,
   disabled: true,
-}]
+}];
 
 export default defineComponent({
   components: {
-    TIconChevronDown
+    TIconChevronDown,
   },
   setup() {
     return {
-      options
-    }
-  }
+      options,
+    };
+  },
 });
 </script>
 <style scoped>

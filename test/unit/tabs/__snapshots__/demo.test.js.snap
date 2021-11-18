@@ -29,7 +29,7 @@ exports[`Tabs ban demo works fine 1`] = `
         >
           
           
-          常规型
+           常规型 
           
           
         </span>
@@ -51,7 +51,7 @@ exports[`Tabs ban demo works fine 1`] = `
         >
           
           
-          卡片型
+           卡片型 
           
           
         </span>
@@ -192,7 +192,7 @@ exports[`Tabs base demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-          选项卡1的内容，使用 t-tab-pannel 渲染
+           选项卡1的内容，使用 t-tab-pannel 渲染 
         </p>
         
       </div>
@@ -288,7 +288,7 @@ exports[`Tabs combination demo works fine 1`] = `
         >
           
           
-          常规型
+           常规型 
           
           
         </span>
@@ -310,7 +310,7 @@ exports[`Tabs combination demo works fine 1`] = `
         >
           
           
-          卡片型
+           卡片型 
           
           
         </span>
@@ -379,7 +379,7 @@ exports[`Tabs combination demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-          选项卡2
+           选项卡2
         </p>
         
       </div>
@@ -532,7 +532,7 @@ exports[`Tabs icon demo works fine 1`] = `
         >
           
           
-          常规型
+           常规型 
           
           
         </span>
@@ -554,7 +554,7 @@ exports[`Tabs icon demo works fine 1`] = `
         >
           
           
-          卡片型
+           卡片型 
           
           
         </span>
@@ -756,7 +756,7 @@ exports[`Tabs position demo works fine 1`] = `
         >
           
           
-          top
+           top 
           
           
         </span>
@@ -778,7 +778,7 @@ exports[`Tabs position demo works fine 1`] = `
         >
           
           
-          right
+           right 
           
           
         </span>
@@ -800,7 +800,7 @@ exports[`Tabs position demo works fine 1`] = `
         >
           
           
-          bottom
+           bottom 
           
           
         </span>
@@ -822,7 +822,7 @@ exports[`Tabs position demo works fine 1`] = `
         >
           
           
-          left
+           left 
           
           
         </span>
@@ -889,7 +889,7 @@ exports[`Tabs position demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-          选项卡1
+           选项卡1 
         </p>
         
       </div>
@@ -931,7 +931,7 @@ exports[`Tabs size demo works fine 1`] = `
         >
           
           
-          medium
+           medium 
           
           
         </span>
@@ -953,7 +953,7 @@ exports[`Tabs size demo works fine 1`] = `
         >
           
           
-          large
+           large 
           
           
         </span>
@@ -1021,7 +1021,7 @@ exports[`Tabs size demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-          选项卡1
+           选项卡1 
         </p>
         
       </div>
@@ -1086,7 +1086,7 @@ exports[`Tabs size demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-          选项卡1
+           选项卡1 
         </p>
         
       </div>

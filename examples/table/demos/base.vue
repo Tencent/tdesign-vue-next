@@ -2,21 +2,26 @@
   <div>
     <!-- 按钮操作区域 -->
     <div style="margin: 16px;">
-      <t-checkbox v-model="stripe">显示斑马纹</t-checkbox>
-      <t-checkbox v-model="bordered">显示表格边框</t-checkbox>
-      <t-checkbox v-model="hover">显示悬浮效果</t-checkbox>
+      <t-checkbox v-model="stripe">
+        显示斑马纹
+      </t-checkbox>
+      <t-checkbox v-model="bordered">
+        显示表格边框
+      </t-checkbox>
+      <t-checkbox v-model="hover">
+        显示悬浮效果
+      </t-checkbox>
     </div>
 
     <t-table
-      rowKey="index"
+      row-key="index"
       :data="data"
       :columns="columns"
       :stripe="stripe"
       :bordered="bordered"
       :hover="hover"
       @row-click="handleRowClick"
-    ></t-table>
-
+    />
   </div>
 </template>
 <script>
@@ -68,7 +73,7 @@ const columns = [
     width: 200,
     ellipsis: true,
   },
-]
+];
 export default defineComponent({
   setup() {
     const stripe = ref(true);
@@ -76,8 +81,8 @@ export default defineComponent({
     const hover = ref(false);
 
     const handleRowClick = (e) => {
-      console.log(e)
-    }
+      console.log(e);
+    };
 
     return {
       data,
@@ -86,7 +91,7 @@ export default defineComponent({
       bordered,
       hover,
       handleRowClick,
-    }
-  }
+    };
+  },
 });
 </script>

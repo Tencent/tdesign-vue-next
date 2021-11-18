@@ -8,8 +8,11 @@
         <li>3)【不推荐使用】使用 render 渲染函数，函数参数为：render(h, {col, colIndex, row, rowIndex, type})，单元格的 type 值为 cell，标题的 type 值为 title</li>
       </ul><br>
     </div>
-    <t-table :data="data" :columns="columns" rowKey="property">
-
+    <t-table
+      :data="data"
+      :columns="columns"
+      row-key="property"
+    >
       <!-- 插槽方式 自定义单元格：cell 的值为插槽名称，参数有：{col, colIndex, row, rowIndex}  -->
       <template #type-slot-name="{ col, row }">
         {{ row[col.colKey] }}
@@ -17,9 +20,11 @@
 
       <!-- 插槽方式 自定义单元格， colKey 的值默认为插槽名称  -->
       <template #platform="{ row }">
-        <t-icon-attach /><a href="#" class="link">{{ row.platform }}</a>（插槽自定义单元格）
+        <t-icon-attach /><a
+          href="#"
+          class="link"
+        >{{ row.platform }}</a>（插槽自定义单元格）
       </template>
-
     </t-table>
   </div>
 </template>
@@ -44,7 +49,7 @@ const data = [
     needed: 'N',
     description: '指定rowkey',
   },
-]
+];
 
 const columns = [
   {
@@ -75,8 +80,8 @@ const columns = [
       return `render 方法渲染单元格: ${rowIndex}-${colIndex}`;
     },
     width: 235,
-  }
-]
+  },
+];
 
 export default defineComponent({
   components: {
@@ -85,9 +90,9 @@ export default defineComponent({
   setup() {
     return {
       data,
-      columns
-    }
-  }
+      columns,
+    };
+  },
 });
 </script>
 <style scoped>

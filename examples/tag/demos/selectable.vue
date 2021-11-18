@@ -3,7 +3,7 @@
     <t-check-tag
       v-for="(tag, index) in tags"
       :key="index"
-      :defaultChecked="tag.defaultChecked"
+      :default-checked="tag.defaultChecked"
       :disabled="!!tag.disabled"
       @click="handleClick(tag, index)"
       @change="handleChange"
@@ -15,6 +15,7 @@
 
 <script>
 import { defineComponent } from 'vue';
+
 const tags = [
   {
     name: '选中',
@@ -27,7 +28,7 @@ const tags = [
     name: 'Disabled',
     disabled: true,
   },
-]
+];
 
 export default defineComponent({
   setup() {
@@ -39,8 +40,8 @@ export default defineComponent({
       handleChange(isChecked) {
         console.log(isChecked);
       },
-    }
-  }
+    };
+  },
 });
 </script>
 

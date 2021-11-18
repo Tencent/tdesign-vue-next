@@ -3,13 +3,22 @@
     <t-transfer
       :data="list"
     >
-      <template v-slot:title="props" :name="123">
-        <div>{{props.type === 'target' ? '目标' : '来源'}}</div>
+      <template
+        #title="props"
+        :name="123"
+      >
+        <div>{{ props.type === 'target' ? '目标' : '来源' }}</div>
       </template>
-      <template v-slot:operation="props" :name="123">
-        {{props.direction === 'left' ? '移除' : '加入'}}
+      <template
+        #operation="props"
+        :name="123"
+      >
+        {{ props.direction === 'left' ? '移除' : '加入' }}
       </template>
-      <template v-slot:footer="props" :name="123">
+      <template
+        #footer="props"
+        :name="123"
+      >
         <div style="padding:10px;border-top:1px solid #E7E7E7;">
           <span v-if="props.type === 'source'">选中并加入</span>
           <span v-else>选中并移除</span>
@@ -31,8 +40,8 @@ for (let i = 0; i < 20; i++) {
 export default defineComponent({
   setup() {
     return {
-      list
-    }
-  }
+      list,
+    };
+  },
 });
 </script>

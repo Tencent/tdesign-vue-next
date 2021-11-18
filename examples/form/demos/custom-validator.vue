@@ -1,26 +1,56 @@
 <template>
   <div>
     <t-form
+      ref="form"
       :data="formData"
       :rules="rules"
-      :labelWidth="100"
-      ref="form"
+      :label-width="100"
       @reset="onReset"
       @submit="onSubmit"
       @validate="onValidate"
     >
-      <t-form-item label="用户名"  name='account'>
-        <t-input v-model="formData.account" @blur="handleBlur()"></t-input>
+      <t-form-item
+        label="用户名"
+        name="account"
+      >
+        <t-input
+          v-model="formData.account"
+          @blur="handleBlur()"
+        />
       </t-form-item>
-      <t-form-item label="密码" name='password'>
-        <t-input type="password" v-model="formData.password"></t-input>
+      <t-form-item
+        label="密码"
+        name="password"
+      >
+        <t-input
+          v-model="formData.password"
+          type="password"
+        />
       </t-form-item>
-      <t-form-item label="确认密码" name='rePassword'>
-        <t-input type="password" v-model="formData.rePassword"></t-input>
+      <t-form-item
+        label="确认密码"
+        name="rePassword"
+      >
+        <t-input
+          v-model="formData.rePassword"
+          type="password"
+        />
       </t-form-item>
       <t-form-item style="padding-top: 8px">
-        <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
-        <t-button  theme="default" variant="base" type="reset">重置</t-button>
+        <t-button
+          theme="primary"
+          type="submit"
+          style="margin-right: 10px"
+        >
+          提交
+        </t-button>
+        <t-button
+          theme="default"
+          variant="base"
+          type="reset"
+        >
+          重置
+        </t-button>
       </t-form-item>
     </t-form>
   </div>
@@ -37,12 +67,12 @@ const INITIAL_DATA = {
 
 export default defineComponent({
   setup() {
-    const formData = ref({ ...INITIAL_DATA })
+    const formData = ref({ ...INITIAL_DATA });
     const form = ref(null);
 
     const onReset = () => {
       MessagePlugin.success('重置成功');
-    }
+    };
 
     const onSubmit = ({ validateResult, firstError, e }) => {
       e.preventDefault();
@@ -52,7 +82,7 @@ export default defineComponent({
         console.log('Validate Errors: ', firstError, validateResult);
         MessagePlugin.warning(firstError);
       }
-    }
+    };
 
     const onValidate = ({ validateResult, firstError }) => {
       if (validateResult === true) {
@@ -60,23 +90,21 @@ export default defineComponent({
       } else {
         console.log('Validate Errors: ', firstError, validateResult);
       }
-    }
+    };
 
     const handleBlur = () => {
       form.value.validate({
         fields: ['account'],
         trigger: 'blur',
       });
-    } 
-    
-    const rePassword = (val) => {
-      return new Promise((resolve) => {
-        const timer = setTimeout(() => {
-          resolve(formData.value.password === val);
-          clearTimeout(timer);
-        });
+    };
+
+    const rePassword = (val) => new Promise((resolve) => {
+      const timer = setTimeout(() => {
+        resolve(formData.value.password === val);
+        clearTimeout(timer);
       });
-    }
+    });
 
     const rules = {
       account: [
@@ -93,7 +121,7 @@ export default defineComponent({
         { required: true, message: '密码必填', type: 'error' },
         { validator: rePassword, message: '两次密码不一致' },
       ],
-    }
+    };
 
     return {
       form,
@@ -103,7 +131,7 @@ export default defineComponent({
       onSubmit,
       onValidate,
       handleBlur,
-    }
-  }
+    };
+  },
 });
 </script>

@@ -24,7 +24,7 @@ const options = [{
 }, {
   label: '深圳',
   value: 'shenzhen',
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -37,14 +37,14 @@ export default defineComponent({
         label: value,
       });
       console.log('create option:', value);
-    }
+    };
 
     return {
       value,
       value2,
       options,
-      createOptions
-    }
+      createOptions,
+    };
   },
 });
 </script>

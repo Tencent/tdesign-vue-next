@@ -43,7 +43,7 @@ exports[`Radio base demo works fine 1`] = `
         class="t-radio__label"
       >
         
-        选中项
+         选中项 
         
       </span>
     </label>
@@ -64,7 +64,7 @@ exports[`Radio base demo works fine 1`] = `
         class="t-radio__label"
       >
         
-        选中禁用态
+         选中禁用态 
         
       </span>
     </label>
@@ -85,7 +85,7 @@ exports[`Radio base demo works fine 1`] = `
         class="t-radio__label"
       >
         
-        未选中禁用态
+         未选中禁用态 
         
       </span>
     </label>
@@ -119,7 +119,7 @@ exports[`Radio radio button demo works fine 1`] = `
         >
           
           
-          选项一
+           选项一 
           
           
         </span>
@@ -141,7 +141,7 @@ exports[`Radio radio button demo works fine 1`] = `
         >
           
           
-          选项二
+           选项二 
           
           
         </span>
@@ -164,7 +164,7 @@ exports[`Radio radio button demo works fine 1`] = `
         >
           
           
-          选项三
+           选项三 
           
           
         </span>
@@ -187,7 +187,7 @@ exports[`Radio radio button demo works fine 1`] = `
         >
           
           
-          选项四
+           选项四 
           
           
         </span>
@@ -217,7 +217,7 @@ exports[`Radio radio button demo works fine 1`] = `
         >
           
           
-          选项一
+           选项一 
           
           
         </span>
@@ -239,7 +239,7 @@ exports[`Radio radio button demo works fine 1`] = `
         >
           
           
-          选项二
+           选项二 
           
           
         </span>
@@ -262,7 +262,7 @@ exports[`Radio radio button demo works fine 1`] = `
         >
           
           
-          选项三
+           选项三 
           
           
         </span>
@@ -285,7 +285,7 @@ exports[`Radio radio button demo works fine 1`] = `
         >
           
           
-          选项四
+           选项四 
           
           
         </span>
@@ -328,7 +328,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            北京
+             北京 
             
             
           </span>
@@ -350,7 +350,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            上海
+             上海 
             
             
           </span>
@@ -372,7 +372,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            广州
+             广州 
             
             
           </span>
@@ -394,7 +394,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            深圳
+             深圳 
             
             
           </span>
@@ -424,7 +424,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            北京
+             北京 
             
             
           </span>
@@ -446,7 +446,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            上海
+             上海 
             
             
           </span>
@@ -468,7 +468,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            广州
+             广州 
             
             
           </span>
@@ -490,7 +490,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            深圳
+             深圳 
             
             
           </span>
@@ -520,7 +520,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            北京
+             北京 
             
             
           </span>
@@ -542,7 +542,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            上海
+             上海 
             
             
           </span>
@@ -564,7 +564,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            广州
+             广州 
             
             
           </span>
@@ -586,7 +586,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            深圳
+             深圳 
             
             
           </span>
@@ -620,7 +620,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            北京
+             北京 
             
             
           </span>
@@ -642,7 +642,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            上海
+             上海 
             
             
           </span>
@@ -664,7 +664,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            广州
+             广州 
             
             
           </span>
@@ -686,7 +686,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            深圳
+             深圳 
             
             
           </span>
@@ -719,7 +719,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            北京
+             北京 
             
             
           </span>
@@ -741,7 +741,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            上海
+             上海 
             
             
           </span>
@@ -763,7 +763,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            广州
+             广州 
             
             
           </span>
@@ -785,7 +785,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            深圳
+             深圳 
             
             
           </span>
@@ -818,7 +818,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            北京
+             北京 
             
             
           </span>
@@ -840,7 +840,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            上海
+             上海 
             
             
           </span>
@@ -862,7 +862,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            广州
+             广州 
             
             
           </span>
@@ -884,7 +884,7 @@ exports[`Radio radio button size demo works fine 1`] = `
           >
             
             
-            深圳
+             深圳 
             
             
           </span>
@@ -1192,7 +1192,7 @@ exports[`Radio radio group demo works fine 1`] = `
           class="t-radio__label"
         >
           
-          北京
+           北京 
           
         </span>
       </label>
@@ -1213,7 +1213,7 @@ exports[`Radio radio group demo works fine 1`] = `
           class="t-radio__label"
         >
           
-          上海
+           上海 
           
         </span>
       </label>
@@ -1234,7 +1234,7 @@ exports[`Radio radio group demo works fine 1`] = `
           class="t-radio__label"
         >
           
-          广州
+           广州 
           
         </span>
       </label>
@@ -1256,7 +1256,7 @@ exports[`Radio radio group demo works fine 1`] = `
           class="t-radio__label"
         >
           
-          深圳
+           深圳 
           
         </span>
       </label>

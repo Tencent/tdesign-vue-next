@@ -1,22 +1,90 @@
 <template>
   <div class="tag-demo">
     <div class="tag-block">
-      <t-tag theme="primary" closable>标签一</t-tag>
-      <t-tag theme="success" closable>标签二</t-tag>
-      <t-tag theme="warning" closable>标签三</t-tag>
-      <t-tag theme="danger" closable>标签四</t-tag>
+      <t-tag
+        theme="primary"
+        closable
+      >
+        标签一
+      </t-tag>
+      <t-tag
+        theme="success"
+        closable
+      >
+        标签二
+      </t-tag>
+      <t-tag
+        theme="warning"
+        closable
+      >
+        标签三
+      </t-tag>
+      <t-tag
+        theme="danger"
+        closable
+      >
+        标签四
+      </t-tag>
     </div>
     <div class="tag-block light">
-      <t-tag theme="primary" variant="light" closable>标签一</t-tag>
-      <t-tag theme="success" variant="light" closable>标签二</t-tag>
-      <t-tag theme="warning" variant="light" closable>标签三</t-tag>
-      <t-tag theme="danger" variant="light" closable>标签四</t-tag>
+      <t-tag
+        theme="primary"
+        variant="light"
+        closable
+      >
+        标签一
+      </t-tag>
+      <t-tag
+        theme="success"
+        variant="light"
+        closable
+      >
+        标签二
+      </t-tag>
+      <t-tag
+        theme="warning"
+        variant="light"
+        closable
+      >
+        标签三
+      </t-tag>
+      <t-tag
+        theme="danger"
+        variant="light"
+        closable
+      >
+        标签四
+      </t-tag>
     </div>
     <div class="tag-block plain">
-      <t-tag variant="plain" theme="primary" closable>标签一</t-tag>
-      <t-tag variant="plain" theme="success" closable>标签二</t-tag>
-      <t-tag variant="plain" theme="warning" closable>标签三</t-tag>
-      <t-tag variant="plain" theme="danger" closable>标签四</t-tag>
+      <t-tag
+        variant="plain"
+        theme="primary"
+        closable
+      >
+        标签一
+      </t-tag>
+      <t-tag
+        variant="plain"
+        theme="success"
+        closable
+      >
+        标签二
+      </t-tag>
+      <t-tag
+        variant="plain"
+        theme="warning"
+        closable
+      >
+        标签三
+      </t-tag>
+      <t-tag
+        variant="plain"
+        theme="danger"
+        closable
+      >
+        标签四
+      </t-tag>
     </div>
     <div class="tag-block">
       <t-tag
@@ -26,7 +94,7 @@
         :closable="tag.showClose"
         :icon="tag.icon"
         :disabled="!!tag.disabled"
-        :maxWidth="tag.maxWidth"
+        :max-width="tag.maxWidth"
         @click="handleClick"
         @close="handleClose(index)"
       >
@@ -34,7 +102,10 @@
       </t-tag>
     </div>
     <div class="tag-block editable">
-      <t-tag v-if="!inputVisible" @click="handleClickAdd">
+      <t-tag
+        v-if="!inputVisible"
+        @click="handleClickAdd"
+      >
         <t-icon-add />
         添加标签
       </t-tag>
@@ -55,7 +126,7 @@ import { defineComponent, nextTick, ref } from 'vue';
 import TIconAdd from '@tencent/tdesign-vue-next/icon/add';
 import TIconDiscount from '@tencent/tdesign-vue-next/icon/discount';
 
-export default {
+export default defineComponent({
   components: {
     // eslint-disable-next-line vue/no-unused-components
     TIconAdd,
@@ -84,30 +155,30 @@ export default {
         showClose: true,
         disabled: true,
       },
-    ])
-    const input = ref('')
+    ]);
+    const input = ref('');
 
     const handleClose = (index) => {
       tags.value.splice(index, 1);
-    }
+    };
 
     const handleClick = (event) => {
       console.log(event);
-    }
+    };
 
     const handleInputEnter = (val) => {
       if (val && !this.tags.some((item) => item.name === val)) {
         tags.value.tags.push({ name: val, type: 'default', showClose: true });
       }
       inputVisible.value = false;
-    }
+    };
 
     const handleClickAdd = () => {
       inputVisible.value = true;
       nextTick(() => {
         input.value.focus();
       });
-    }
+    };
 
     return {
       inputVisible,
@@ -116,30 +187,10 @@ export default {
       handleClose,
       handleClick,
       handleInputEnter,
-      handleClickAdd
-    }
+      handleClickAdd,
+    };
   },
-  methods: {
-    handleClose(index) {
-      this.tags.splice(index, 1);
-    },
-    handleClick(event) {
-      console.log(event);
-    },
-    handleInputEnter(val) {
-      if (val && !this.tags.some((item) => item.name === val)) {
-        this.tags.push({ name: val, type: 'default', showClose: true });
-      }
-      this.inputVisible = false;
-    },
-    handleClickAdd() {
-      this.inputVisible = true;
-      nextTick(() => {
-        this.$refs.input.focus();
-      });
-    },
-  },
-};
+});
 </script>
 
 <style lang="less" scoped>

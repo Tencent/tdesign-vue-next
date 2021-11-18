@@ -44,7 +44,7 @@ const items = [{
   }, {
     label: '2.2',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -52,9 +52,9 @@ export default defineComponent({
 
     return {
       disabled,
-      items
-    }
-  }
+      items,
+    };
+  },
 });
 </script>
 <style scoped>

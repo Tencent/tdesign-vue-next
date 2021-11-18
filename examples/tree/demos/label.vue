@@ -5,7 +5,7 @@
       :data="items"
       expand-all
       :label="label"
-    ></t-tree>
+    />
     <h3>scope slot:</h3>
     <t-tree
       :data="items"
@@ -13,14 +13,14 @@
       checkable
     >
       <template #label="{node}">
-        <span style="color: blue">label: {{node.label}}, value: {{node.value}}</span>
+        <span style="color: blue">label: {{ node.label }}, value: {{ node.value }}</span>
       </template>
     </t-tree>
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
 const items = [{
   label: '1',
@@ -36,7 +36,7 @@ const items = [{
   }, {
     label: '2.2',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -47,8 +47,8 @@ export default defineComponent({
           innerHTML: `value: ${node.value}, label: ${node.label}`,
         });
       },
-    }
-  }
+    };
+  },
 });
 </script>
 <style>

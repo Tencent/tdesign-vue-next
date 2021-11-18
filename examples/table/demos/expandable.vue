@@ -3,10 +3,19 @@
     <!-- expanded-row-keys 为受控属性 -->
     <!-- default-expanded-row-keys 为非受控属性 -->
     <div>
-      <t-radio-group v-model="expandControl" variant="default-filled">
-        <t-radio-button value="true">显示展开图标</t-radio-button>
-        <t-radio-button value="false">隐藏展开图标</t-radio-button>
-        <t-radio-button value="custom">自由控制展开图标</t-radio-button>
+      <t-radio-group
+        v-model="expandControl"
+        variant="default-filled"
+      >
+        <t-radio-button value="true">
+          显示展开图标
+        </t-radio-button>
+        <t-radio-button value="false">
+          隐藏展开图标
+        </t-radio-button>
+        <t-radio-button value="custom">
+          自由控制展开图标
+        </t-radio-button>
       </t-radio-group>
     </div>
 
@@ -15,23 +24,41 @@
     </div>
 
     <t-table
-      row-key='id'
+      row-key="id"
       :columns="columns"
       :data="data"
       :expanded-row-keys="expandedRowKeys"
       :expanded-row="expandedRow"
+      :expand-icon="expandIcon"
+      :expand-on-row-click="expandOnRowClick"
       @expand-change="rehandleExpandChange"
-      :expandIcon="expandIcon"
-      :expandOnRowClick="expandOnRowClick"
-    > 
+    >
       <template #status="{ row }">
-        <p v-if="row.status === 0" class="status">健康</p>
-        <p v-if="row.status === 1" class="status unhealth">异常</p>
+        <p
+          v-if="row.status === 0"
+          class="status"
+        >
+          健康
+        </p>
+        <p
+          v-if="row.status === 1"
+          class="status unhealth"
+        >
+          异常
+        </p>
       </template>
-      <template #op-column><p>操作</p></template>
+      <template #op-column>
+        <p>操作</p>
+      </template>
       <template #op="slotProps">
-        <a class="link" @click="rehandleClickOp(slotProps)">管理</a>
-        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
+        <a
+          class="link"
+          @click="rehandleClickOp(slotProps)"
+        >管理</a>
+        <a
+          class="link"
+          @click="rehandleClickOp(slotProps)"
+        >删除</a>
       </template>
     </t-table>
   </div>
@@ -45,26 +72,34 @@ import TIconChevronDown from '@tencent/tdesign-vue-next/icon/chevron-down';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
-  { colKey: 'status', title: '状态', width: 100, cell: 'status' },
+  {
+    colKey: 'status', title: '状态', width: 100, cell: 'status',
+  },
   { colKey: 'owner', title: '管理员' },
   { colKey: 'description', title: '描述' },
-  { colKey: 'op', width: 200, title: 'op-column', cell: 'op' },
+  {
+    colKey: 'op', width: 200, title: 'op-column', cell: 'op',
+  },
 ];
 
 const data = [
-  { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', description: 'test' },
-  { id: '2', instance: 'JQTest2', status: 1, owner: 'jenny', description: 'test' },
-  { id: 3, instance: 'JQTest3', status: 0, owner: 'jenny', description: 'test' },
-  { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', description: 'test' },
+  {
+    id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', description: 'test',
+  },
+  {
+    id: '2', instance: 'JQTest2', status: 1, owner: 'jenny', description: 'test',
+  },
+  {
+    id: 3, instance: 'JQTest3', status: 0, owner: 'jenny', description: 'test',
+  },
+  {
+    id: 4, instance: 'JQTest4', status: 1, owner: 'peter', description: 'test',
+  },
 ];
 
-
 export default defineComponent({
-  components: {
-    TIconChevronDown
-  },
   setup() {
-    const expandControl = ref("true");
+    const expandControl = ref('true');
     const expandIcon = ref(true);
     const expandOnRowClick = ref(true);
     const expandedRowKeys = ref(['2']);
@@ -74,8 +109,8 @@ export default defineComponent({
         <p class="title"><b>集群名称:</b></p><p class="content">{row.instance}</p><br/>
         <p class="title"><b>管理员:</b></p><p class="content">{row.owner}</p><br/>
         <p class="title"><b>描述:</b></p><p class="content">{row.description}</p>
-      </div>
-    }
+      </div>;
+    };
 
     watch(() => expandControl.value, (val) => {
       if (val === 'true') {
@@ -95,16 +130,16 @@ export default defineComponent({
           return <TIconChevronDownCircle />;
         };
       }
-    })
+    });
 
     const rehandleClickOp = ({ text, row }) => {
       console.log(text, row);
-    }
-    
+    };
+
     const rehandleExpandChange = (value, { expandedRowData }) => {
       expandedRowKeys.value = value;
       console.log('rehandleExpandChange', value, expandedRowData);
-    }
+    };
 
     return {
       columns,
@@ -115,9 +150,9 @@ export default defineComponent({
       expandedRowKeys,
       expandedRow,
       rehandleClickOp,
-      rehandleExpandChange
-    }
-  }
+      rehandleExpandChange,
+    };
+  },
 });
 </script>
 

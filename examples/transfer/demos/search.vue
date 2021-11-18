@@ -1,6 +1,12 @@
 <template>
   <div>
-    <t-transfer theme="primary" :data="list" v-model="targetValue" :checked-value="checkedValue" :search="true" />
+    <t-transfer
+      v-model="targetValue"
+      theme="primary"
+      :data="list"
+      :checked-value="checkedValue"
+      :search="true"
+    />
   </div>
 </template>
 <script>
@@ -22,7 +28,7 @@ export default defineComponent({
       checkedValue,
       targetValue,
       list,
-    }
-  }
+    };
+  },
 });
 </script>

@@ -1,8 +1,29 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" :onRemove="handleBlur" multiple :minCollapsedNum="1" />
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" :onRemove="handleBlur" multiple :minCollapsedNum="2" />
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value" multiple clearable :minCollapsedNum="1">
+    <t-cascader
+      v-model="value"
+      class="t-demo-cascader"
+      :options="options"
+      :on-remove="handleBlur"
+      multiple
+      :min-collapsed-num="1"
+    />
+    <t-cascader
+      v-model="value"
+      class="t-demo-cascader"
+      :options="options"
+      :on-remove="handleBlur"
+      multiple
+      :min-collapsed-num="2"
+    />
+    <t-cascader
+      v-model="value"
+      class="t-demo-cascader"
+      :options="options"
+      multiple
+      clearable
+      :min-collapsed-num="1"
+    >
       <template #collapsedItems>
         自定义折叠内容
       </template>
@@ -52,15 +73,15 @@ export default defineComponent({
   setup() {
     const value = ref(['1.1', '1.2', '1.3']);
 
-    const handleBlur = () => {
+    const handleBlur = (e) => {
       console.log(e);
-    }
+    };
     return {
       value,
       options,
-      handleBlur
-    }
-  }
+      handleBlur,
+    };
+  },
 });
 </script>
 <style scoped>

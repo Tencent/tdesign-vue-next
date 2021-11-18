@@ -1,11 +1,16 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-time-picker v-model="value" @change="timechange" @open="open" @close="close" />
+    <t-time-picker
+      v-model="value"
+      @change="timechange"
+      @open="open"
+      @close="close"
+    />
   </div>
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -21,7 +26,7 @@ export default defineComponent({
       close() {
         console.log('close');
       },
-    }
-  }
+    };
+  },
 });
 </script>

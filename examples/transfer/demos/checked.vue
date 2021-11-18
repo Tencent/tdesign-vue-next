@@ -1,6 +1,9 @@
 <template>
   <div>
-    <t-transfer :data="list" v-model:checked="checked" />
+    <t-transfer
+      v-model:checked="checked"
+      :data="list"
+    />
   </div>
 </template>
 <script>
@@ -16,11 +19,11 @@ for (let i = 0; i < 20; i++) {
 }
 export default defineComponent({
   setup() {
-    const checked = ref(list.map((item) => item.value).filter((v) => v % 2 === 0))
+    const checked = ref(list.map((item) => item.value).filter((v) => v % 2 === 0));
     return {
       checked,
-      list
-    }
-  }
+      list,
+    };
+  },
 });
 </script>

@@ -23,15 +23,15 @@ const options = [{
 }, {
   label: '选项三',
   value: '3',
-}]
+}];
 
 export default defineComponent({
   setup() {
     const value = ref([]);
     return {
       value,
-      options
-    }
-  }
+      options,
+    };
+  },
 });
 </script>

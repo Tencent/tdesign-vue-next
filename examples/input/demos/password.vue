@@ -1,13 +1,19 @@
 <template>
   <div class="tdesign-demo-item--input__input-box">
-    <t-input type="password" default-value="520 TDesign">
-      <template v-slot:prefix-icon>
-        <t-icon-lock-on></t-icon-lock-on>
+    <t-input
+      type="password"
+      default-value="520 TDesign"
+    >
+      <template #prefix-icon>
+        <t-icon-lock-on />
       </template>
-
     </t-input>
     <!-- 使用 function 的形式定义 icon -->
-    <t-input type="password" default-value="520 TDesign" :prefix-icon="renderPrefixIcon" />
+    <t-input
+      type="password"
+      default-value="520 TDesign"
+      :prefix-icon="renderPrefixIcon"
+    />
   </div>
 </template>
 <script lang="jsx">
@@ -19,14 +25,12 @@ export default defineComponent({
     TIconLockOn,
   },
   setup() {
-    const renderPrefixIcon = () => {
-      return <TIconLockOn></TIconLockOn>;
-    }
+    const renderPrefixIcon = () => <TIconLockOn></TIconLockOn>;
 
     return {
-      renderPrefixIcon
-    }
-  }
+      renderPrefixIcon,
+    };
+  },
 });
 </script>
 

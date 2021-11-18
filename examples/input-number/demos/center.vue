@@ -14,7 +14,7 @@
       @keydown="handleKeydown"
       @keyup="handleKeyup"
       @keypress="handleKeypress"
-    ></t-input-number>
+    />
   </div>
 </template>
 
@@ -47,7 +47,7 @@ export default defineComponent({
       handleKeypress(v, ctx) {
         console.info('keypress', v, ctx);
       },
-    }
-  }
+    };
+  },
 });
 </script>

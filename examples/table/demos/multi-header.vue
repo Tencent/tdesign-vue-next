@@ -3,8 +3,8 @@
     row-key="property"
     :data="data"
     :columns="columns"
-    :bordered="true">
-  </t-table>
+    :bordered="true"
+  />
 </template>
 <script>
 import { defineComponent } from 'vue';
@@ -26,83 +26,83 @@ const data = [
     needed: 'Y',
     description: '指定rowkey',
   },
-]
+];
 const columns = [
-{
-  title: '汇总属性',
-  children: [
-    {
-      align: 'left',
-      width: '100',
-      minWidth: '100',
-      className: 'test',
-      ellipsis: true,
-      colKey: 'platform',
-      title: '平台',
-    },
-    {
-      title: '类型及默认值',
-      children: [
-        {
-          align: 'left',
-          width: '100',
-          minWidth: '100',
-          className: 'row',
-          ellipsis: true,
-          colKey: 'type',
-          title: '类型',
-        },
-        {
-          align: 'left',
-          width: '100',
-          minWidth: '100',
-          className: 'test4',
-          ellipsis: true,
-          colKey: 'default',
-          title: '默认值',
-        },
-        {
-          align: 'left',
-          width: '100',
-          minWidth: '100',
-          className: 'test3',
-          ellipsis: true,
-          colKey: 'needed',
-          title: '是否必传',
-        },
-      ],
-    },
-  ],
-},
-{
-  title: '属性及说明',
-  children: [
-    {
-      align: 'left',
-      width: '100',
-      minWidth: '100',
-      className: 'test2',
-      ellipsis: true,
-      colKey: 'property',
-      title: '属性',
-    },
-    {
-      align: 'left',
-      width: '100',
-      minWidth: '100',
-      className: 'row',
-      ellipsis: true,
-      colKey: 'description',
-      title: '说明',
-    },
-  ],
-}]
+  {
+    title: '汇总属性',
+    children: [
+      {
+        align: 'left',
+        width: '100',
+        minWidth: '100',
+        className: 'test',
+        ellipsis: true,
+        colKey: 'platform',
+        title: '平台',
+      },
+      {
+        title: '类型及默认值',
+        children: [
+          {
+            align: 'left',
+            width: '100',
+            minWidth: '100',
+            className: 'row',
+            ellipsis: true,
+            colKey: 'type',
+            title: '类型',
+          },
+          {
+            align: 'left',
+            width: '100',
+            minWidth: '100',
+            className: 'test4',
+            ellipsis: true,
+            colKey: 'default',
+            title: '默认值',
+          },
+          {
+            align: 'left',
+            width: '100',
+            minWidth: '100',
+            className: 'test3',
+            ellipsis: true,
+            colKey: 'needed',
+            title: '是否必传',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: '属性及说明',
+    children: [
+      {
+        align: 'left',
+        width: '100',
+        minWidth: '100',
+        className: 'test2',
+        ellipsis: true,
+        colKey: 'property',
+        title: '属性',
+      },
+      {
+        align: 'left',
+        width: '100',
+        minWidth: '100',
+        className: 'row',
+        ellipsis: true,
+        colKey: 'description',
+        title: '说明',
+      },
+    ],
+  }];
 export default defineComponent({
   setup() {
     return {
       data,
-      columns
-    }
-  }
+      columns,
+    };
+  },
 });
 </script>

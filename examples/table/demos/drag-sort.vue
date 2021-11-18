@@ -1,18 +1,20 @@
 <template>
   <div class="demo-container t-table-demo-sort">
     <div class="item">
-
       <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
 
       <t-table
-        rowKey="id"
+        row-key="id"
         :columns="columns"
         :data="data"
-        @drag-sort="onDragSort"
         sort-on-row-draggable
+        @drag-sort="onDragSort"
       >
         <template #status="{ row }">
-          <p class="status" :class="['', 'warning', 'unhealth'][row.status]">
+          <p
+            class="status"
+            :class="['', 'warning', 'unhealth'][row.status]"
+          >
             {{ ['健康', '警告', '异常'][row.status] }}
           </p>
         </template>
@@ -52,19 +54,19 @@ const initData = [
 
 export default defineComponent({
   setup() {
-    const data = ref([ ...initData]);
+    const data = ref([...initData]);
 
     const onDragSort = ({ currentIndex, targetIndex }) => {
       const temp = data.value[currentIndex];
-      data.value[currentIndex] = data.value[targetIndex]
-      data.value[targetIndex] = temp
-    }
+      data.value[currentIndex] = data.value[targetIndex];
+      data.value[targetIndex] = temp;
+    };
 
     return {
       data,
       columns,
-      onDragSort
-    }
+      onDragSort,
+    };
   },
 });
 </script>

@@ -1,12 +1,12 @@
 <template>
   <div>
     <t-table
-      rowKey="index"
+      row-key="index"
       :data="data"
       :columns="columns"
       :pagination="pagination"
       @change="onChange"
-    ></t-table>
+    />
   </div>
 </template>
 <script>
@@ -14,7 +14,7 @@ import { defineComponent } from 'vue';
 
 const data = [];
 const TOTAL = 60;
-for (let i = 0; i < TOTAL; i ++) {
+for (let i = 0; i < TOTAL; i++) {
   data.push({
     index: i,
     platform: i % 2 === 0 ? '共有' : '私有',
@@ -28,7 +28,7 @@ for (let i = 0; i < TOTAL; i ++) {
   });
 }
 
-const columns =[
+const columns = [
   {
     align: 'center',
     width: '100',
@@ -63,7 +63,7 @@ const columns =[
     colKey: 'description',
     title: '说明',
   },
-]
+];
 
 export default defineComponent({
   setup() {
@@ -71,18 +71,18 @@ export default defineComponent({
       defaultCurrent: 2,
       defaultPageSize: 5,
       total: TOTAL,
-    }
+    };
 
     const onChange = (params, context) => {
       console.log(params, context);
-    }
+    };
 
     return {
       data,
       columns,
       pagination,
-      onChange
-    }
-  }
+      onChange,
+    };
+  },
 });
 </script>

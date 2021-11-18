@@ -1,8 +1,8 @@
 <template>
   <div class="affix-container">
     <div
-      class="affix-container-demo1"
       ref="affixContainerRef"
+      class="affix-container-demo1"
     >
       <div class="background">
         <t-affix
@@ -19,28 +19,26 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
-    const fixedTop = ref(0)
+    const fixedTop = ref(0);
     const affixContainerRef = ref(null);
 
-    const getContainer = () => {
-      return affixContainerRef.value;
-    }
-    
+    const getContainer = () => affixContainerRef.value;
+
     const handleFixedChange = (affixed, { top }) => {
       fixedTop.value = top;
-    }
+    };
 
-    return { 
+    return {
       fixedTop,
       affixContainerRef,
       getContainer,
-      handleFixedChange
-    }
-  }
+      handleFixedChange,
+    };
+  },
 });
 </script>
 

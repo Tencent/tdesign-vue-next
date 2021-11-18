@@ -6,14 +6,35 @@
       </div>
 
       <!-- 受控用法，示例代码有效，勿删 -->
-      <t-table rowKey="id" :columns="columns" :data="data" :sort="sort" @sort-change="sortChange">
+      <t-table
+        row-key="id"
+        :columns="columns"
+        :data="data"
+        :sort="sort"
+        @sort-change="sortChange"
+      >
         <template #op-column>
-          <t-icon name="descending-order"/>
+          <t-icon name="descending-order" />
         </template>
         <template #status="{ row }">
-          <p v-if="row.status === 0" class="status">健康</p>
-          <p v-if="row.status === 1" class="status warning">警告</p>
-          <p v-if="row.status === 2" class="status unhealth">异常</p>
+          <p
+            v-if="row.status === 0"
+            class="status"
+          >
+            健康
+          </p>
+          <p
+            v-if="row.status === 1"
+            class="status warning"
+          >
+            警告
+          </p>
+          <p
+            v-if="row.status === 2"
+            class="status unhealth"
+          >
+            异常
+          </p>
         </template>
       </t-table>
     </div>
@@ -25,15 +46,27 @@ import { defineComponent, ref } from 'vue';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
-  { colKey: 'status', title: '状态', width: 100, sortType: 'all', sorter: true },
-  { colKey: 'survivalTime', title: '存活时间(s)', width: 200, sortType: 'all', sorter: true },
+  {
+    colKey: 'status', title: '状态', width: 100, sortType: 'all', sorter: true,
+  },
+  {
+    colKey: 'survivalTime', title: '存活时间(s)', width: 200, sortType: 'all', sorter: true,
+  },
   { colKey: 'owner', title: '管理员', width: 100 },
 ];
 const initData = [
-  { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', survivalTime: 1000 },
-  { id: 2, instance: 'JQTest2', status: 1, owner: 'jenny', survivalTime: 1000 },
-  { id: 3, instance: 'JQTest3', status: 2, owner: 'jenny', survivalTime: 500 },
-  { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', survivalTime: 1500 },
+  {
+    id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', survivalTime: 1000,
+  },
+  {
+    id: 2, instance: 'JQTest2', status: 1, owner: 'jenny', survivalTime: 1000,
+  },
+  {
+    id: 3, instance: 'JQTest3', status: 2, owner: 'jenny', survivalTime: 500,
+  },
+  {
+    id: 4, instance: 'JQTest4', status: 1, owner: 'peter', survivalTime: 1500,
+  },
 ];
 
 export default defineComponent({
@@ -41,10 +74,9 @@ export default defineComponent({
     const sort = ref({
       sortBy: 'status',
       descending: true,
-    })
+    });
 
-    const data = ref([...initData])
-    
+    const data = ref([...initData]);
 
     const request = (sort) => {
       // 模拟异步请求，进行数据排序
@@ -52,20 +84,20 @@ export default defineComponent({
         data.value = initData.concat().sort((a, b) => (sort.descending ? b[sort.sortBy] - a[sort.sortBy] : a[sort.sortBy] - b[sort.sortBy]));
         clearTimeout(timer);
       }, 100);
-    }
+    };
 
-    const sortChange = (sort) => {
-      sort.value = sort;
-      request(sort);
-    }
+    const sortChange = (val) => {
+      sort.value = val;
+      request(val);
+    };
 
     return {
       data,
       columns,
       sort,
       sortChange,
-    }
-  }
+    };
+  },
 });
 </script>
 <style lang="less">

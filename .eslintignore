@@ -11,7 +11,6 @@ _site
 temp*
 static/
 
-examples
 site/*
 !site/v3.js
 src/addon

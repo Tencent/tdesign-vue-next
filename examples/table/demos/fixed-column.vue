@@ -2,11 +2,14 @@
   <t-table
     :data="data"
     :columns="columns"
-    rowKey="index"
+    row-key="index"
     bordered
   >
     <template #operation="slotProps">
-      <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
+      <a
+        class="link"
+        @click="rehandleClickOp(slotProps)"
+      >删除</a>
     </template>
   </t-table>
 </template>
@@ -14,7 +17,7 @@
 import { defineComponent } from 'vue';
 
 const data = [];
-for (let i = 0; i < 5; i ++) {
+for (let i = 0; i < 5; i++) {
   data.push({
     index: i,
     platform: i % 2 === 0 ? '共有' : '私有',
@@ -74,15 +77,15 @@ const columns = [
     fixed: 'right',
     cell: 'operation',
   },
-]
+];
 
 export default defineComponent({
   setup() {
     return {
       data,
-      columns
-    }
-  }
+      columns,
+    };
+  },
 });
 </script>
 <style lang="less" scoped>

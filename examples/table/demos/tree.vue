@@ -1,9 +1,12 @@
 <template>
   <div>
-
     <!-- 第一列展开树结点，缩进为 24px -->
     <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
-    <t-enhanced-table rowKey="key" :data="data" :columns="columns"></t-enhanced-table>
+    <t-enhanced-table
+      row-key="key"
+      :data="data"
+      :columns="columns"
+    />
 
     <!-- 第二列展开树结点，缩进为 12px，示例代码有效，勿删 -->
     <!-- indent 定义缩进距离；treeNodeColumnIndex 定义第几列作为树结点展开列 -->
@@ -14,7 +17,6 @@
       :columns="columns"
       :tree="{ indent: 12, treeNodeColumnIndex: 1 }"
     ></t-table> -->
-
   </div>
 </template>
 <script lang="jsx">
@@ -73,15 +75,15 @@ const columns = [
     colKey: 'needed',
     title: '是否必传',
   },
-]
+];
 
 export default defineComponent({
   components: { TEnhancedTable: EnhancedTable },
   setup() {
     return {
       data,
-      columns
-    }
-  }
+      columns,
+    };
+  },
 });
 </script>

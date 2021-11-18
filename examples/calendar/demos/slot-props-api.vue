@@ -2,13 +2,12 @@
   <t-calendar
     :head="renderHead"
     :cell="renderCell"
-  >
-  </t-calendar>
+  />
 </template>
 
 <script lang="jsx">
 import dayjs from 'dayjs';
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -19,7 +18,7 @@ export default defineComponent({
       }
       title += ' 工作安排';
       return <div>{title}</div>;
-    }
+    };
 
     const renderCell = (h, params) => {
       const dataList = [{
@@ -46,13 +45,13 @@ export default defineComponent({
           {params.mode === 'year' ? dayjs(params.formattedDate).month() : dayjs(params.formattedDate).date()}
         </div>
       </div>;
-    }
+    };
 
     return {
       renderHead,
-      renderCell
-    }
-  }
+      renderCell,
+    };
+  },
 });
 </script>
 <style lang="less" scoped>

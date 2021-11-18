@@ -13,12 +13,21 @@
     <div class="tdesign-radio-button">
       抽屉弹出模式：
       <t-radio-group v-model="mode">
-        <t-radio-button value="overlay">overlay</t-radio-button>
-        <t-radio-button value="push">push</t-radio-button>
+        <t-radio-button value="overlay">
+          overlay
+        </t-radio-button>
+        <t-radio-button value="push">
+          push
+        </t-radio-button>
       </t-radio-group>
     </div>
     <br><br>
-    <t-button theme="primary" @click="visible = true">Open</t-button>
+    <t-button
+      theme="primary"
+      @click="visible = true"
+    >
+      Open
+    </t-button>
   </div>
 </template>
 

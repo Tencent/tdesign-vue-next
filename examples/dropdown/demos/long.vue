@@ -1,7 +1,13 @@
 <template>
   <div>
-    <t-dropdown :options="options" :maxHeight="400" :minColumnWidth="88" >
-      <t-button variant="text">下拉菜单</t-button>
+    <t-dropdown
+      :options="options"
+      :max-height="400"
+      :min-column-width="88"
+    >
+      <t-button variant="text">
+        下拉菜单
+      </t-button>
     </t-dropdown>
   </div>
 </template>
@@ -11,12 +17,12 @@ const options = Array.from({ length: 20 }).map((v, k) => ({
   value: k + 1,
 }));
 
-export default{
+export default {
   setup() {
     return {
-      options
-    }
-  }
+      options,
+    };
+  },
 };
 </script>
 <style scoped>

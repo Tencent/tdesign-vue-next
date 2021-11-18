@@ -6,7 +6,7 @@
       mode="date"
       range
       format="YYYY-MM-DD HH:mm:ss"
-    ></t-date-picker>
+    />
   </div>
 </template>
 
@@ -21,10 +21,10 @@ export default defineComponent({
       最近7天: [dayjs().subtract(7, 'day'), dayjs().subtract(1, 'day')],
       最近3天: [dayjs().subtract(3, 'day'), dayjs().subtract(1, 'day')],
       今天: [dayjs()],
-    }
+    };
     return {
       presets,
-    }
-  }
+    };
+  },
 });
 </script>

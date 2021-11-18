@@ -1,15 +1,25 @@
 <template>
   <div>
     <!-- attach挂载 -->
-    <t-button theme="primary" @click="visibleBody = true">挂载在body</t-button>
-    <t-button theme="primary" @click="visibleIdAttach = true">挂载特定元素</t-button>
+    <t-button
+      theme="primary"
+      @click="visibleBody = true"
+    >
+      挂载在body
+    </t-button>
+    <t-button
+      theme="primary"
+      @click="visibleIdAttach = true"
+    >
+      挂载特定元素
+    </t-button>
     <!-- <t-button theme="primary" @click="visibleFunctionAttach = true">挂载函数返回节点</t-button> -->
 
     <t-dialog
       v-model:visible="visibleBody"
       attach="body"
       header="挂载在body"
-      :onConfirm="() => visibleBody = false"
+      :on-confirm="() => visibleBody = false"
     >
       <template #body>
         <div>我是被挂载到body元素的对话框</div>
@@ -24,7 +34,7 @@
       v-model:visible="visibleIdAttach"
       attach="#app"
       header="挂载到id为app的元素"
-      :onConfirm="() => visibleIdAttach = false"
+      :on-confirm="() => visibleIdAttach = false"
     >
       <template #body>
         <div>通过querySelect指定元素挂载</div>
@@ -39,7 +49,7 @@
       v-model:visible="visibleFunctionAttach"
       :attach="getAttach"
       header="函数返回挂载节点"
-      :onConfirm="() => visibleFunctionAttach = false"
+      :on-confirm="() => visibleFunctionAttach = false"
     >
       <template #body>
         <div>指定函数返回的节点为挂载点</div>
@@ -49,7 +59,6 @@
         <div>我是内容</div>
       </template>
     </t-dialog>
-
   </div>
 </template>
 <script>
@@ -61,15 +70,13 @@ export default defineComponent({
     const visibleIdAttach = ref(false);
     const visibleFunctionAttach = ref(false);
     const { ctx } = getCurrentInstance();
-    const getAttach = () => {
-      return ctx.$root.$el;
-    }
+    const getAttach = () => ctx.$root.$el;
     return {
       visibleBody,
       visibleIdAttach,
       visibleFunctionAttach,
-      getAttach
-    }
+      getAttach,
+    };
   },
 });
 </script>

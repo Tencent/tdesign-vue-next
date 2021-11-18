@@ -1,7 +1,7 @@
 <template>
   <div>
     <t-input-number
-      :defaultValue="2021"
-    ></t-input-number>
+      :default-value="2021"
+    />
   </div>
 </template>

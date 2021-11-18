@@ -1,9 +1,16 @@
 <template>
   <div class="tdesign-tree-select-filterable">
     <div class="operation">
-      <t-radio-group v-model="type" variant="default-filled">
-        <t-radio-button value="default">默认</t-radio-button>
-        <t-radio-button value="function">自定义方法</t-radio-button>
+      <t-radio-group
+        v-model="type"
+        variant="default-filled"
+      >
+        <t-radio-button value="default">
+          默认
+        </t-radio-button>
+        <t-radio-button value="function">
+          自定义方法
+        </t-radio-button>
       </t-radio-group>
     </div>
     <t-tree-select
@@ -47,7 +54,7 @@ const options = [{
     label: '苏州市',
     value: 'suzhou',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -61,8 +68,8 @@ export default defineComponent({
       filterFunction(searchText, node) {
         return node.data.label.indexOf(searchText) >= 0;
       },
-    }
-  }
+    };
+  },
 });
 </script>
 <style scoped>

@@ -3,15 +3,27 @@
     <p>
       这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
     </p>
-    <t-divider align="left">TDesign</t-divider>
+    <t-divider align="left">
+      TDesign
+    </t-divider>
     <p>
       这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
     </p>
-    <t-divider align="center" dashed>TDesign</t-divider>
+    <t-divider
+      align="center"
+      dashed
+    >
+      TDesign
+    </t-divider>
     <p>
       这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
     </p>
-    <t-divider align="right" dashed>TDesign</t-divider>
+    <t-divider
+      align="right"
+      dashed
+    >
+      TDesign
+    </t-divider>
     <p>
       这是第四种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
     </p>

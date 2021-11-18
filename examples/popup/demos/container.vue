@@ -4,7 +4,7 @@
       id="myPopup"
       content="这是popup内容"
       trigger="click"
-      :getOverlayContainer="getContainer"
+      :get-overlay-container="getContainer"
     >
       <t-button>click我试试</t-button>
     </t-popup>
@@ -13,12 +13,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+
 export default defineComponent({
   setup() {
     return {
       getContainer: () => document.getElementById('myPopup'),
-    }
+    };
   },
 });
 </script>
-

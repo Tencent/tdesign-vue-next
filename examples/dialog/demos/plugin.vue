@@ -1,21 +1,35 @@
 <template>
   <div>
-    <p>插件调用方式一：this.$dialog(options)</p>
-    <p>插件调用方式二：this.$dialog.confirm(options)</p>
-    <p>插件调用方式三：this.$dialog.alert(options)</p><br>
-    <p>函数调用方式一：DialogPlugin(options)</p>
-    <p>函数调用方式二：DialogPlugin.confirm(options)</p>
-    <p>函数调用方式三：DialogPlugin.alert(options)</p><br>
-    <p>组件实例：DialogInstance = this.$dialog(options) 或者 组件实例：DialogInstance = DialogPlugin(options)</p>
-    <p>组件实例方法-销毁弹框：DialogInstance.destroy()</p>
-    <p>组件实例方法-隐藏弹框：DialogInstance.hide()</p>
-    <p>组件实例方法-显示弹窗：DialogInstance.show()</p>
-    <p>组件实例方法-更新弹框：DialogInstance.update()</p><br>
-    <t-button theme="primary" @click="showDialog">dialog</t-button>
-    <t-button theme="primary" @click="handleDN">handleDialogNode</t-button>
-    <t-button theme="primary" @click="onConfirm">confirm</t-button>
-    <t-button theme="primary" @click="onAlert">alert</t-button>
-    <t-button theme="primary" @click="onDialogPluginConfirm">DialogPlugin.confirm</t-button>
+    <t-button
+      theme="primary"
+      @click="showDialog"
+    >
+      dialog
+    </t-button>
+    <t-button
+      theme="primary"
+      @click="handleDN"
+    >
+      handleDialogNode
+    </t-button>
+    <t-button
+      theme="primary"
+      @click="onConfirm"
+    >
+      confirm
+    </t-button>
+    <t-button
+      theme="primary"
+      @click="onAlert"
+    >
+      alert
+    </t-button>
+    <t-button
+      theme="primary"
+      @click="onDialogPluginConfirm"
+    >
+      DialogPlugin.confirm
+    </t-button>
   </div>
 </template>
 <script>

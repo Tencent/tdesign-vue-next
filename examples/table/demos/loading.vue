@@ -1,35 +1,40 @@
 <template>
   <div>
-    <div style="margin-bottom: 10px;">默认加载状态</div>
+    <div style="margin-bottom: 10px;">
+      默认加载状态
+    </div>
     <t-table
       :data="data"
       :columns="columns"
-      :rowKey="rowKey"
+      :row-key="rowKey"
       :size="size"
       :loading="true"
       height="150"
-    >
-    </t-table>
-    <div style="margin-bottom: 10px;">插槽定义加载状态</div>
+    />
+    <div style="margin-bottom: 10px;">
+      插槽定义加载状态
+    </div>
     <t-table
       :data="[]"
       :columns="columns"
-      :rowKey="rowKey"
+      :row-key="rowKey"
       :size="size"
       :loading="true"
       height="150"
     >
       <template #loading>
-        <div class='t-table--loading-message'>
+        <div class="t-table--loading-message">
           这里使用插槽自定义加载状态
         </div>
       </template>
     </t-table>
-    <div style="margin-bottom: 10px;">渲染函数定义加载状态</div>
+    <div style="margin-bottom: 10px;">
+      渲染函数定义加载状态
+    </div>
     <t-table
       :data="[]"
       :columns="columns"
-      :rowKey="rowKey"
+      :row-key="rowKey"
       :size="size"
       :loading="renderLoading"
       height="150"
@@ -99,17 +104,15 @@ const columns = [
 
 export default defineComponent({
   setup() {
-    const renderLoading = () => {
-      return <div class='t-table--loading-message'>这里使用渲染函数定义加载状态</div>;
-    }
+    const renderLoading = () => <div class='t-table--loading-message'>这里使用渲染函数定义加载状态</div>;
 
     return {
       data,
       columns,
       rowKey: 'property',
       size: 'small',
-      renderLoading
-    }
+      renderLoading,
+    };
   },
 });
 </script>

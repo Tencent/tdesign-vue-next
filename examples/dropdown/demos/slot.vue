@@ -1,18 +1,28 @@
 <template>
   <div>
-    <t-dropdown :minColumnWidth="88" @click="handleClick" trigger="click">
-      <t-button variant="text">下拉菜单</t-button>
+    <t-dropdown
+      :min-column-width="88"
+      trigger="click"
+      @click="handleClick"
+    >
+      <t-button variant="text">
+        下拉菜单
+      </t-button>
       <template #dropdown>
         <t-dropdown-menu>
-          <t-dropdown-item :value="1">操作一</t-dropdown-item>
-          <t-dropdown-item :value="2">操作二</t-dropdown-item>
+          <t-dropdown-item :value="1">
+            操作一
+          </t-dropdown-item>
+          <t-dropdown-item :value="2">
+            操作二
+          </t-dropdown-item>
         </t-dropdown-menu>
       </template>
     </t-dropdown>
   </div>
 </template>
 <script>
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -21,7 +31,7 @@ export default defineComponent({
         console.log(data);
         e.preventDefault();
       },
-    }
-  }
+    };
+  },
 });
 </script>

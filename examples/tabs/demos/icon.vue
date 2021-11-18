@@ -1,9 +1,16 @@
 <template>
   <div class="t-demo-tabs">
     <div class="t-demo-tabs__desc">
-      <t-radio-group variant="default-filled" v-model="theme">
-        <t-radio-button value="normal">常规型</t-radio-button>
-        <t-radio-button value="card">卡片型</t-radio-button>
+      <t-radio-group
+        v-model="theme"
+        variant="default-filled"
+      >
+        <t-radio-button value="normal">
+          常规型
+        </t-radio-button>
+        <t-radio-button value="card">
+          卡片型
+        </t-radio-button>
       </t-radio-group>
     </div>
     <t-tabs
@@ -12,28 +19,34 @@
       @change="handlerChange"
     >
       <t-tab-panel value="first">
-        <template v-slot:label>
-          <t-icon name="home"/> 首页
+        <template #label>
+          <t-icon name="home" /> 首页
         </template>
-        <p style="padding: 25px;">{{ `${theme}选项卡1内容` }}</p>
+        <p style="padding: 25px;">
+          {{ `${theme}选项卡1内容` }}
+        </p>
       </t-tab-panel>
       <t-tab-panel value="second">
         <template #label>
-          <t-icon name="calendar"/> 日程
+          <t-icon name="calendar" /> 日程
         </template>
-        <p style="padding: 25px;">{{ `${theme}选项卡2内容` }}</p>
+        <p style="padding: 25px;">
+          {{ `${theme}选项卡2内容` }}
+        </p>
       </t-tab-panel>
       <t-tab-panel value="third">
         <template #label>
-          <t-icon name="layers"/> 事项
+          <t-icon name="layers" /> 事项
         </template>
-        <p style="padding: 25px;">{{ `${theme}选项卡3内容` }}</p>
+        <p style="padding: 25px;">
+          {{ `${theme}选项卡3内容` }}
+        </p>
       </t-tab-panel>
     </t-tabs>
   </div>
 </template>
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -42,14 +55,14 @@ export default defineComponent({
 
     const handlerChange = (newValue) => {
       value.value = newValue;
-    }
+    };
 
     return {
       handlerChange,
       theme,
-      value
+      value,
     };
-  }
+  },
 });
 </script>
 <style lang="less">
@@ -70,4 +83,3 @@ export default defineComponent({
     }
   }
 </style>
-

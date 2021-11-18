@@ -1,14 +1,24 @@
 <template>
   <div>
-    <t-button theme="primary" @click="visibleModal = true">模态对话框</t-button>
-    <t-button theme="primary" @click="visibleModelessDrag = true">非模态对话框</t-button>
+    <t-button
+      theme="primary"
+      @click="visibleModal = true"
+    >
+      模态对话框
+    </t-button>
+    <t-button
+      theme="primary"
+      @click="visibleModelessDrag = true"
+    >
+      非模态对话框
+    </t-button>
 
     <t-dialog
-      header="模态对话框"
       v-model:visible="visibleModal"
+      header="模态对话框"
       mode="modal"
       draggable
-      :onConfirm="() => visibleModal = false"
+      :on-confirm="() => visibleModal = false"
     >
       <template #body>
         <div>默认点击蒙层或按ESC可关闭</div>
@@ -18,11 +28,11 @@
     </t-dialog>
 
     <t-dialog
-      header="非模态对话框"
       v-model:visible="visibleModelessDrag"
+      header="非模态对话框"
       mode="modeless"
       draggable
-      :onConfirm="() => visibleModelessDrag = false"
+      :on-confirm="() => visibleModelessDrag = false"
     >
       <template #body>
         <div>我是内容</div>
@@ -39,11 +49,11 @@ export default defineComponent({
     const visibleModal = ref(false);
     const visibleModelessDrag = ref(false);
 
-    return { 
+    return {
       visibleModal,
-      visibleModelessDrag
-    }
-  }
+      visibleModelessDrag,
+    };
+  },
 });
 </script>
 <style scoped>

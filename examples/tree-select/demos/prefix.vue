@@ -34,7 +34,7 @@ const options = [{
     label: '小李',
     value: 'li',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -42,9 +42,9 @@ export default defineComponent({
 
     return {
       value,
-      options
-    }
-  }
+      options,
+    };
+  },
 });
 </script>
 <style scoped>

@@ -27,7 +27,7 @@ const options = [
     label: '很长很长很长的选项三',
     value: '3',
   },
-]
+];
 
 export default defineComponent({
   setup() {
@@ -36,7 +36,7 @@ export default defineComponent({
     return {
       value,
       options,
-    }
-  }
+    };
+  },
 });
 </script>

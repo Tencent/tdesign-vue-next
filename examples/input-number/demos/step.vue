@@ -7,7 +7,7 @@
       :step="1.2"
       :decimal-places="2"
       @change="onChange"
-    ></t-input-number>
+    />
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default defineComponent({
       onChange(ev) {
         console.info(ev);
       },
-    }
+    };
   },
 });
 </script>

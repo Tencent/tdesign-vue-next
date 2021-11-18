@@ -2,10 +2,10 @@
   <div>
     <t-pagination
       v-model="current"
-      :total="685"
-      @change="onChange"
       v-model:pageSize="pageSize"
-      :totalContent="true"
+      :total="685"
+      :total-content="true"
+      @change="onChange"
     />
   </div>
 </template>

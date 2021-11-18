@@ -1,11 +1,26 @@
 <template>
   <div class="demo-slider">
     <div class="block">
-      <t-slider v-model="value1" :show-tooltip="true" :max="max" :min="min" :marks="marks" :inputNumberProps="false"></t-slider>
+      <t-slider
+        v-model="value1"
+        :show-tooltip="true"
+        :max="max"
+        :min="min"
+        :marks="marks"
+        :input-number-props="false"
+      />
     </div>
-    
+
     <div class="block">
-      <t-slider v-model="value2" range :show-tooltip="true" :max="max" :min="min" :marks="marks" :inputNumberProps="false" />
+      <t-slider
+        v-model="value2"
+        range
+        :show-tooltip="true"
+        :max="max"
+        :min="min"
+        :marks="marks"
+        :input-number-props="false"
+      />
     </div>
   </div>
 </template>
@@ -25,8 +40,8 @@ export default defineComponent({
         10: 'min:10',
         30: 'max:30',
       },
-    }
-  }
+    };
+  },
 });
 </script>
 <style>

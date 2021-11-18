@@ -16,16 +16,25 @@
       :load="load"
     >
       <template #icon="{node}">
-        <t-icon v-if="node.getChildren() && !node.expanded" name="caret-right" />
-        <t-icon v-else-if="node.getChildren() && node.expanded" name="caret-down" />
-        <t-icon v-else name="attach" />
+        <t-icon
+          v-if="node.getChildren() && !node.expanded"
+          name="caret-right"
+        />
+        <t-icon
+          v-else-if="node.getChildren() && node.expanded"
+          name="caret-down"
+        />
+        <t-icon
+          v-else
+          name="attach"
+        />
       </template>
     </t-tree>
   </div>
 </template>
 
 <script>
-import { defineComponent, resolveComponent, ref } from 'vue'
+import { defineComponent, resolveComponent, ref } from 'vue';
 import TIcon from '@tencent/tdesign-vue-next/icon';
 
 export default defineComponent({
@@ -37,11 +46,11 @@ export default defineComponent({
     }, {
       label: '2',
       children: true,
-    }])
+    }]);
 
     const icon = (createElement, node) => {
       let name = 'file';
-      const TIcon = resolveComponent('t-icon')
+      const TIcon = resolveComponent('t-icon');
       if (node.getChildren()) {
         if (node.expanded) {
           name = 'folder-open';
@@ -53,7 +62,7 @@ export default defineComponent({
       return createElement(TIcon, {
         name,
       });
-    }
+    };
 
     const load = (node) => {
       const maxLevel = 2;
@@ -72,14 +81,14 @@ export default defineComponent({
           resolve(nodes);
         }, 100);
       });
-    }
+    };
 
     return {
       items,
       icon,
-      load
-    }
-  }
+      load,
+    };
+  },
 });
 </script>
 <style scoped>

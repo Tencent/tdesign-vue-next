@@ -4,10 +4,10 @@
       :bordered="true"
       :data="data"
       :columns="columns"
-      :rowKey="rowKey"
+      :row-key="rowKey"
       :size="size"
-      :rowspanAndColspan="rowspanAndColspan">
-    </t-table>
+      :rowspan-and-colspan="rowspanAndColspan"
+    />
   </div>
 </template>
 <script>
@@ -56,7 +56,7 @@ const data = [
     needed: 'N',
     description: 'Number 类型',
   },
-]
+];
 
 const columns = [{
   align: 'left',
@@ -102,7 +102,7 @@ const columns = [{
   ellipsis: true,
   colKey: 'description',
   title: '说明',
-}]
+}];
 
 const rowspanAndColspan = ({ col, rowIndex }) => {
   if (col.colKey === 'needed' && rowIndex === 0) {
@@ -122,7 +122,7 @@ const rowspanAndColspan = ({ col, rowIndex }) => {
       rowspan: 2,
     };
   }
-}
+};
 
 export default defineComponent({
   setup() {
@@ -132,7 +132,7 @@ export default defineComponent({
       rowspanAndColspan,
       rowKey: 'default',
       size: 'small',
-    }
+    };
   },
 });
 </script>

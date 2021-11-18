@@ -1,33 +1,37 @@
 <template>
   <div class="demo-container">
-    <t-locale-provider :globalLocale="globalLocale">
+    <t-locale-provider :global-locale="globalLocale">
       <div class="item">
         <div style="margin: 16px">
-          <t-checkbox v-model="allowMultipleSort">是否允许多字段排序</t-checkbox>
+          <t-checkbox v-model="allowMultipleSort">
+            是否允许多字段排序
+          </t-checkbox>
         </div>
         <!-- 本地数据排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
         <div style="margin: 16px">
           <span> 排序方式：{{ JSON.stringify(sort) }} </span>
         </div>
-        <t-table  
-          rowKey="id"
+        <t-table
+          row-key="id"
           :columns="columns"
           :data="data"
           :sort="sort"
+          :multiple-sort="allowMultipleSort"
           @sort-change="sortChange"
           @data-change="dataChange"
-          :multipleSort="allowMultipleSort"
         >
           <template #op-column>
-            <t-icon name="descending-order"/>
+            <t-icon name="descending-order" />
           </template>
           <template #status="{ row }">
-            <p class="status" :class="['', 'warning', 'unhealth'][row.status]">
+            <p
+              class="status"
+              :class="['', 'warning', 'unhealth'][row.status]"
+            >
               {{ ['健康', '警告', '异常'][row.status] }}
             </p>
           </template>
         </t-table>
-
       </div>
     </t-locale-provider>
   </div>
@@ -39,22 +43,34 @@ import TIconCarretDownSmall from '@tencent/tdesign-vue-next/icon/caret-down-smal
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
-  { colKey: 'status', title: '状态', width: 100, sortType: 'all', sorter: (a, b) => a.status - b.status },
-  { colKey: 'survivalTime', title: '存活时间(s)', width: 200, sortType: 'all', sorter: (a, b) => a.survivalTime - b.survivalTime },
+  {
+    colKey: 'status', title: '状态', width: 100, sortType: 'all', sorter: (a, b) => a.status - b.status,
+  },
+  {
+    colKey: 'survivalTime', title: '存活时间(s)', width: 200, sortType: 'all', sorter: (a, b) => a.survivalTime - b.survivalTime,
+  },
   { colKey: 'owner', title: '管理员', width: 100 },
 ];
 
 // 本地数据排序，表示组件内部会对参数 data 进行数据排序。如果 data 数据为 10 条，就仅对这 10 条数据进行排序。
 const initData = [
-  { id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', survivalTime: 1000 },
-  { id: 2, instance: 'JQTest2', status: 1, owner: 'jenny', survivalTime: 1000 },
-  { id: 3, instance: 'JQTest3', status: 2, owner: 'jenny', survivalTime: 500 },
-  { id: 4, instance: 'JQTest4', status: 1, owner: 'peter', survivalTime: 1500 },
+  {
+    id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', survivalTime: 1000,
+  },
+  {
+    id: 2, instance: 'JQTest2', status: 1, owner: 'jenny', survivalTime: 1000,
+  },
+  {
+    id: 3, instance: 'JQTest3', status: 2, owner: 'jenny', survivalTime: 500,
+  },
+  {
+    id: 4, instance: 'JQTest4', status: 1, owner: 'peter', survivalTime: 1500,
+  },
 ];
 
 export default defineComponent({
   setup() {
-    const data = ref([...initData])
+    const data = ref([...initData]);
     const sort = ref({});
     const singleSort = ref({
       sortBy: 'status',
@@ -70,21 +86,21 @@ export default defineComponent({
     const globalLocale = ref({
       table: {
         sortIcon: (h) => h && <TIconCarretDownSmall size='16px' />,
-      }
-    })
+      },
+    });
 
     watch(() => allowMultipleSort.value, (val) => {
       sort.value = val ? multipleSorts.value : singleSort.value;
-    })
+    });
 
-    const sortChange = (sort, options) => {
-      sort.value = sort;
-      console.log('#### sortChange:', sort, options);
-    }
+    const sortChange = (sortVal, options) => {
+      sort.value = sortVal;
+      console.log('#### sortChange:', sortVal, options);
+    };
 
-    const dataChange = (data) => {
-      data.value = data;
-    }
+    const dataChange = (dataVal) => {
+      data.value = dataVal;
+    };
 
     return {
       data,
@@ -93,8 +109,8 @@ export default defineComponent({
       sortChange,
       dataChange,
       globalLocale,
-      allowMultipleSort
-    }
+      allowMultipleSort,
+    };
   },
 });
 </script>

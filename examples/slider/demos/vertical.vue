@@ -1,11 +1,22 @@
 <template>
   <div class="demo-slider">
     <div class="vertical-block">
-      <t-slider v-model="value1" :layout="layout" :show-tooltip="true" :inputNumberProps="false" />
+      <t-slider
+        v-model="value1"
+        :layout="layout"
+        :show-tooltip="true"
+        :input-number-props="false"
+      />
     </div>
 
     <div class="vertical-block">
-      <t-slider v-model="value2" :layout="layout" range :show-tooltip="true" :inputNumberProps="false" />
+      <t-slider
+        v-model="value2"
+        :layout="layout"
+        range
+        :show-tooltip="true"
+        :input-number-props="false"
+      />
     </div>
   </div>
 </template>
@@ -21,8 +32,8 @@ export default defineComponent({
       value1,
       value2,
       layout: 'vertical',
-    }
-  }
+    };
+  },
 });
 </script>
 <style>

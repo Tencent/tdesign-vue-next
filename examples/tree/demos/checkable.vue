@@ -2,15 +2,34 @@
   <div class="tdesign-tree-base">
     <div class="operations">
       <t-form>
-        <t-form-item label="可选" style="margin-bottom: 16px">
+        <t-form-item
+          label="可选"
+          style="margin-bottom: 16px"
+        >
           <t-switch v-model="checkable" />
         </t-form-item>
-        <t-form-item label="严格模式" style="margin-bottom: 16px">
+        <t-form-item
+          label="严格模式"
+          style="margin-bottom: 16px"
+        >
           <t-switch v-model="checkStrictly" />
         </t-form-item>
-        <t-form-item label="选中值模式" style="margin-bottom: 16px">
-          <t-radio-group name="value-mode" variant="default-filled" v-model="valueMode">
-            <t-radio-button v-for="item in valueOptions" :key="item.value" :value="item.value">{{ item.label }}</t-radio-button>
+        <t-form-item
+          label="选中值模式"
+          style="margin-bottom: 16px"
+        >
+          <t-radio-group
+            v-model="valueMode"
+            name="value-mode"
+            variant="default-filled"
+          >
+            <t-radio-button
+              v-for="item in valueOptions"
+              :key="item.value"
+              :value="item.value"
+            >
+              {{ item.label }}
+            </t-radio-button>
           </t-radio-group>
         </t-form-item>
       </t-form>
@@ -43,8 +62,8 @@ const valueOptions = [
   {
     value: 'all',
     label: 'all',
-  }
-]
+  },
+];
 
 const items = [{
   value: '1',
@@ -108,7 +127,7 @@ const items = [{
     value: '2.2',
     label: '2.2',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -118,10 +137,10 @@ export default defineComponent({
 
     const onClick = (context) => {
       console.info('onClick:', context);
-    }
+    };
     const onChange = (checked, context) => {
       console.info('onChange:', checked, context);
-    }
+    };
 
     return {
       valueMode,
@@ -131,7 +150,7 @@ export default defineComponent({
       items,
       onClick,
       onChange,
-    }
-  }
+    };
+  },
 });
 </script>

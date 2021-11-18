@@ -8,7 +8,7 @@
       placeholder="-请选择-"
     >
       <template #prefixIcon>
-        <t-icon name="browse"/>
+        <t-icon name="browse" />
       </template>
     </t-select>
   </div>
@@ -27,7 +27,7 @@ const options = [{
 }, {
   label: '深圳',
   value: 'shenzhen',
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -36,7 +36,7 @@ export default defineComponent({
     return {
       value,
       options,
-    }
-  }
+    };
+  },
 });
 </script>

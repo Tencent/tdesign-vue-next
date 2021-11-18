@@ -5,7 +5,7 @@
       :data="options"
       clearable
       placeholder="请选择"
-      :treeProps="{
+      :tree-props="{
         load: loadFunc
       }"
     />
@@ -22,38 +22,36 @@ const options = [{
   label: '2',
   value: '2',
   children: true,
-}]
+}];
 
 export default defineComponent({
   setup() {
     const value = ref('');
-    
-    const loadFunc = (node) => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          let nodes = [];
-          if (node.level < 2) {
-            nodes = [{
-              label: `${node.label}.1`,
-              value: `${node.value}.1`,
-              children: true,
-            }, {
-              label: `${node.label}.2`,
-              value: `${node.value}.2`,
-              children: true,
-            }];
-          }
-          resolve(nodes);
-        }, 2000);
-      });
-    }
+
+    const loadFunc = (node) => new Promise((resolve) => {
+      setTimeout(() => {
+        let nodes = [];
+        if (node.level < 2) {
+          nodes = [{
+            label: `${node.label}.1`,
+            value: `${node.value}.1`,
+            children: true,
+          }, {
+            label: `${node.label}.2`,
+            value: `${node.value}.2`,
+            children: true,
+          }];
+        }
+        resolve(nodes);
+      }, 2000);
+    });
 
     return {
       value,
       options,
-      loadFunc
-    }
-  }
+      loadFunc,
+    };
+  },
 });
 </script>
 <style scoped>

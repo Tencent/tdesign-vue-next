@@ -1,7 +1,18 @@
 <template>
   <div>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value1" disabled></t-cascader>
-    <t-cascader class="t-demo-cascader" :options="options" v-model="value2" disabled multiple></t-cascader>
+    <t-cascader
+      v-model="value1"
+      class="t-demo-cascader"
+      :options="options"
+      disabled
+    />
+    <t-cascader
+      v-model="value2"
+      class="t-demo-cascader"
+      :options="options"
+      disabled
+      multiple
+    />
   </div>
 </template>
 
@@ -45,15 +56,15 @@ const options = [
 
 export default defineComponent({
   setup() {
-    const value1 = ref('1.1')
-    const value2 = ref(['1.1'])
+    const value1 = ref('1.1');
+    const value2 = ref(['1.1']);
 
     return {
       options,
       value1,
-      value2
-    }
-  }
+      value2,
+    };
+  },
 });
 </script>
 <style scoped>

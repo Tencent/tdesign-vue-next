@@ -1,12 +1,12 @@
 <template>
   <div>
     <t-transfer
+      v-model="targetValue"
       theme="primary"
       :data="list"
-      v-model="targetValue"
       :checked-value="checkedValue"
       :pagination="pagination"
-      :onPageChange="handlePageChange"
+      :on-page-change="handlePageChange"
     />
   </div>
 </template>
@@ -37,16 +37,15 @@ export default defineComponent({
 
     const handlePageChange = (...args) => {
       console.log('handlePageChange', args);
-    }
+    };
 
     return {
       list,
       targetValue,
       checkedValue,
       pagination,
-      handlePageChange
-    }
-
-  }
+      handlePageChange,
+    };
+  },
 });
 </script>

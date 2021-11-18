@@ -5,10 +5,12 @@
     <template #content>
       <div class="form-container">
         <t-textarea
-          placeholder="请输入内容"
           v-model="replyData"
+          placeholder="请输入内容"
         />
-        <t-button @click="submitReply">回复</t-button>
+        <t-button @click="submitReply">
+          回复
+        </t-button>
       </div>
     </template>
   </t-comment>
@@ -28,12 +30,12 @@ export default defineComponent({
         content: this.replyData,
         duration: 3000,
       });
-    }
-    
+    };
+
     return {
       replyData,
-      submitReply
-    }
+      submitReply,
+    };
   },
 });
 </script>

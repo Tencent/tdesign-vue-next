@@ -1,13 +1,13 @@
 <template>
   <div class="tdesign-tree-base">
     <t-addon prepend="checked:">
-      <t-input :value="allChecked"/>
+      <t-input :value="allChecked" />
     </t-addon>
     <t-addon prepend="expanded:">
-      <t-input :value="allExpanded"/>
+      <t-input :value="allExpanded" />
     </t-addon>
     <t-addon prepend="actived:">
-      <t-input :value="allActived"/>
+      <t-input :value="allActived" />
     </t-addon>
     <t-tree
       :data="items"
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, ref, computed } from 'vue';
 
 const items = [{
   value: '1',
@@ -95,7 +95,7 @@ const items = [{
     label: '2.2',
     checkable: false,
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
@@ -109,7 +109,7 @@ export default defineComponent({
         arr = checked.value;
       }
       return arr.join(', ');
-    })
+    });
 
     const allExpanded = computed(() => {
       let arr = [];
@@ -117,7 +117,7 @@ export default defineComponent({
         arr = expanded.value;
       }
       return arr.join(', ');
-    })
+    });
 
     const allActived = computed(() => {
       let arr = [];
@@ -125,32 +125,32 @@ export default defineComponent({
         arr = actived.value;
       }
       return arr.join(', ');
-    })
+    });
 
     const onClick = (context) => {
       console.info('onClick:', context);
-    }
+    };
 
     const onChange = (vals, context) => {
       console.info('onChange:', vals, context);
       const checked = vals.filter((val) => (val !== '2.1'));
       console.info('节点 2.1 不允许选中');
       checked.value = checked;
-    }
+    };
 
     const onExpand = (vals, context) => {
       console.info('onExpand:', vals, context);
       const expanded = vals.filter((val) => (val !== '2'));
       console.info('节点 2 不允许展开');
       expanded.value = expanded;
-    }
+    };
 
     const onActive = (vals, context) => {
       console.info('onActive:', vals, context);
       const actived = vals.filter((val) => (val !== '2'));
       console.info('节点 2 不允许激活');
       actived.value = actived;
-    }
+    };
 
     return {
       checked,
@@ -164,9 +164,9 @@ export default defineComponent({
       onClick,
       onChange,
       onExpand,
-      onActive
-    }
-  }
+      onActive,
+    };
+  },
 });
 </script>
 <style scoped>

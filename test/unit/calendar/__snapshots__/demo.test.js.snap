@@ -126,7 +126,7 @@ exports[`Calendar card demo works fine 1`] = `
         class="t-button__text"
       >
         
-        今天（当前高亮日期）
+         今天（当前高亮日期） 
         
       </span>
     </button>

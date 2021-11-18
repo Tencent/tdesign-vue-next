@@ -18,9 +18,9 @@
 
     <template #quote>
       <t-comment
-        author= "引用内容标题"
+        author="引用内容标题"
         content="引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容。"
-      ></t-comment>
+      />
     </template>
   </t-comment>
 </template>

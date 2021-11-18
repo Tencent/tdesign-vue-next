@@ -1,18 +1,20 @@
 <template>
   <div>
-    <t-dropdown 
+    <t-dropdown
       :options="options"
       placement="top-left"
       trigger="click"
-      :hideAfterItemClick="false"
-      :minColumnWidth="100"
+      :hide-after-item-click="false"
+      :min-column-width="100"
     >
-      <t-button variant="text">下拉菜单</t-button>
+      <t-button variant="text">
+        下拉菜单
+      </t-button>
     </t-dropdown>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
 const options = [{
   content: '选项一',
@@ -35,14 +37,14 @@ const options = [{
 }, {
   content: '选项四',
   value: 4,
-}]
+}];
 
 export default defineComponent({
   setup() {
     return {
-      options
-    }
-  }
+      options,
+    };
+  },
 });
 </script>
 <style scoped>

@@ -35,14 +35,14 @@ const items = [{
   }, {
     label: '2.2',
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
     return {
-      items
-    }
-  }
+      items,
+    };
+  },
 });
 </script>
 <style scoped>

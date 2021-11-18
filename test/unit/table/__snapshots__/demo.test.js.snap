@@ -21,7 +21,7 @@ exports[`Table base demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        显示斑马纹
+         显示斑马纹 
         
       </span>
     </label>
@@ -40,7 +40,7 @@ exports[`Table base demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        显示表格边框
+         显示表格边框 
         
       </span>
     </label>
@@ -59,7 +59,7 @@ exports[`Table base demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        显示悬浮效果
+         显示悬浮效果 
         
       </span>
     </label>
@@ -429,7 +429,7 @@ exports[`Table base demo works fine 2`] = `
         class="t-checkbox__label"
       >
         
-        显示斑马纹
+         显示斑马纹 
         
       </span>
     </label>
@@ -448,7 +448,7 @@ exports[`Table base demo works fine 2`] = `
         class="t-checkbox__label"
       >
         
-        显示表格边框
+         显示表格边框 
         
       </span>
     </label>
@@ -467,7 +467,7 @@ exports[`Table base demo works fine 2`] = `
         class="t-checkbox__label"
       >
         
-        显示悬浮效果
+         显示悬浮效果 
         
       </span>
     </label>
@@ -1427,7 +1427,7 @@ exports[`Table expandable demo works fine 1`] = `
         >
           
           
-          显示展开图标
+           显示展开图标 
           
           
         </span>
@@ -1449,7 +1449,7 @@ exports[`Table expandable demo works fine 1`] = `
         >
           
           
-          隐藏展开图标
+           隐藏展开图标 
           
           
         </span>
@@ -1471,7 +1471,7 @@ exports[`Table expandable demo works fine 1`] = `
         >
           
           
-          自由控制展开图标
+           自由控制展开图标 
           
           
         </span>
@@ -1654,7 +1654,7 @@ exports[`Table expandable demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                    健康
+                     健康 
                   </p>
                   <!--v-if-->
                   
@@ -1751,7 +1751,7 @@ exports[`Table expandable demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                    异常
+                     异常 
                   </p>
                   
                 </td>
@@ -1844,7 +1844,7 @@ exports[`Table expandable demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                    健康
+                     健康 
                   </p>
                   <!--v-if-->
                   
@@ -1941,7 +1941,7 @@ exports[`Table expandable demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                    异常
+                     异常 
                   </p>
                   
                 </td>
@@ -4097,7 +4097,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                    健康
+                     健康 
                   </p>
                   <!--v-if-->
                   
@@ -4184,7 +4184,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                    异常
+                     异常 
                   </p>
                   
                 </td>
@@ -4268,7 +4268,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                    健康
+                     健康 
                   </p>
                   <!--v-if-->
                   
@@ -4355,7 +4355,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                    异常
+                     异常 
                   </p>
                   
                 </td>
@@ -4567,7 +4567,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                    健康
+                     健康 
                   </p>
                   <!--v-if-->
                   
@@ -4656,7 +4656,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                    异常
+                     异常 
                   </p>
                   
                 </td>
@@ -4742,7 +4742,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                    健康
+                     健康 
                   </p>
                   <!--v-if-->
                   
@@ -4831,7 +4831,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                    异常
+                     异常 
                   </p>
                   
                 </td>

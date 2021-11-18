@@ -142,7 +142,7 @@ exports[`Button headerFooter demo works fine 1`] = `
       class="t-list__header"
     >
       
-      通过 Slot 插入的 Header
+       通过 Slot 插入的 Header 
       
     </div>
     <ul
@@ -254,7 +254,7 @@ exports[`Button headerFooter demo works fine 1`] = `
       class="t-list__footer"
     >
       
-      通过 Slot 插入的 Footer
+       通过 Slot 插入的 Footer 
       
     </div>
     

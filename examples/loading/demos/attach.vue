@@ -1,8 +1,21 @@
 <template>
   <div class="loading-attach-demo">
-    <div id="alice" class="loading-attach-demo__title">Hello, I'm Alice.</div>
-    <div id="bob" class="loading-attach-demo__title">Hi, I'm Bob.</div>
-    <t-loading attach="#alice" show-overlay></t-loading>
+    <div
+      id="alice"
+      class="loading-attach-demo__title"
+    >
+      Hello, I'm Alice.
+    </div>
+    <div
+      id="bob"
+      class="loading-attach-demo__title"
+    >
+      Hi, I'm Bob.
+    </div>
+    <t-loading
+      attach="#alice"
+      show-overlay
+    />
   </div>
 </template>
 <style scoped>

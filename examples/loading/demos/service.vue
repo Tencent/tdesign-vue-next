@@ -1,21 +1,50 @@
 <template>
   <div class="tdesign-demo-block-column">
-    <div id="loading-service-demo" ref='content' class="loading-service-demo">我是service的容器</div>
+    <div
+      id="loading-service-demo"
+      ref="content"
+      class="loading-service-demo"
+    >
+      我是service的容器
+    </div>
 
     <p>this.$loading(true)</p>
     <p>this.$loading({ attach: '#loading-service-demo', showOverlay: true })</p>
 
     <div class="tdesign-demo-block-row">
-      <t-button @click="showFullScreen1" size="small">服务方式加载（全屏）</t-button>
-      <t-button @click="showAttach1" size="small" :disabled="attachLoading">服务方式加载（局部）</t-button>
+      <t-button
+        size="small"
+        @click="showFullScreen1"
+      >
+        服务方式加载（全屏）
+      </t-button>
+      <t-button
+        size="small"
+        :disabled="attachLoading"
+        @click="showAttach1"
+      >
+        服务方式加载（局部）
+      </t-button>
     </div>
-    
+
     <p>LoadingPlugin(true)</p>
     <p>LoadingPlugin({ attach: '#loading-service-demo', showOverlay: true })</p>
 
     <div class="tdesign-demo-block-row">
-      <t-button @click="showFullScreen2" size="small">函数方式加载（全屏）</t-button>
-      <t-button @click="showAttach2" class="t-loading__btn" size="small" :disabled="attachLoading">函数方式加载（局部）</t-button>
+      <t-button
+        size="small"
+        @click="showFullScreen2"
+      >
+        函数方式加载（全屏）
+      </t-button>
+      <t-button
+        class="t-loading__btn"
+        size="small"
+        :disabled="attachLoading"
+        @click="showAttach2"
+      >
+        函数方式加载（局部）
+      </t-button>
     </div>
   </div>
 </template>

@@ -1,12 +1,12 @@
 <template>
   <div class="tdesign-tree-base">
     <div class="operations">
-      <t-form labelWidth="120">
+      <t-form label-width="120">
         <t-form-item label="互斥展开">
-          <t-switch v-model="mutex"/>
+          <t-switch v-model="mutex" />
         </t-form-item>
         <t-form-item label="整个节点可点击">
-          <t-switch v-model="expandOnClickNode"/>
+          <t-switch v-model="expandOnClickNode" />
         </t-form-item>
       </t-form>
     </div>
@@ -58,29 +58,29 @@ const items = [{
       label: '2.2.2',
     }],
   }],
-}]
+}];
 
 export default defineComponent({
   setup() {
     const mutex = ref(true);
     const expandOnClickNode = ref(true);
-    
+
     const onClick = (context) => {
       console.info('onClick', context);
-    }
+    };
 
     const handleExpand = (value, context) => {
       console.info('onExpand', value, context);
-    }
+    };
 
     return {
       mutex,
       expandOnClickNode,
       items,
       onClick,
-      handleExpand
-    }
-  }
+      handleExpand,
+    };
+  },
 });
 </script>
 <style scoped>
