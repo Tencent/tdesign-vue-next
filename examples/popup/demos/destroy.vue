@@ -8,3 +8,4 @@
     </t-popup>
   </div>
 </template>
+<script />

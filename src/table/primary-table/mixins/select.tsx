@@ -1,6 +1,6 @@
 import { defineComponent, VNode } from 'vue';
 import get from 'lodash/get';
-import { PrimaryTableCol, TdPrimaryTableProps } from '../../type';
+import { PrimaryTableCol } from '../../type';
 import primaryTableProps from '../../primary-table-props';
 import baseTableProps from '../../base-table-props';
 import { prefix } from '../../../config';

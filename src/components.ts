@@ -34,7 +34,7 @@ export * from './time-picker';
 export * from './tree-select';
 
 // 数据展示
-// export * from './avatar';
+export * from './avatar';
 export * from './badge';
 export * from './calendar';
 export * from './comment';

@@ -281,6 +281,15 @@ export default {
       type: 'component', // 组件文档
       children: [
         {
+          title: 'Avatar 头像',
+          name: 'avatar',
+          meta: {
+            docType: 'data',
+          },
+          path: '/vue-next/components/avatar',
+          component: () => import('@/examples/avatar/avatar.md'),
+        },
+        {
           title: 'Badge 徽标',
           name: 'badge',
           docType: 'data',
