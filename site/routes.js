@@ -58,17 +58,17 @@ const demoRoutes = getDemoRoutes();
 const routes = [
   {
     path: '/vue-next/components',
-    redirect: '/vue-next/components/divider',
+    redirect: '/vue-next/components/button',
     component: TdesignComponents,
     children: getDocsRoutes(docs),
   },
   {
     path: '/vue-next/',
-    redirect: '/vue-next/components/divider',
+    redirect: '/vue-next/components/button',
   },
   {
     path: '/',
-    redirect: '/vue-next/components/divider',
+    redirect: '/vue-next/components/button',
   },
   ...demoRoutes
 ];
