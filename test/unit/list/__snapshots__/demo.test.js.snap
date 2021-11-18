@@ -25,10 +25,15 @@ exports[`Button headerFooter demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -58,10 +63,15 @@ exports[`Button headerFooter demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -91,10 +101,15 @@ exports[`Button headerFooter demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -158,10 +173,15 @@ exports[`Button headerFooter demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -191,10 +211,15 @@ exports[`Button headerFooter demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -224,10 +249,15 @@ exports[`Button headerFooter demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -289,10 +319,15 @@ exports[`Button imageText demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -322,10 +357,15 @@ exports[`Button imageText demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -355,10 +395,15 @@ exports[`Button imageText demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -412,10 +457,15 @@ exports[`Button imageText demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -609,10 +659,15 @@ exports[`Button operation demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -668,10 +723,15 @@ exports[`Button operation demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -751,10 +811,15 @@ exports[`Button operation demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >
@@ -831,10 +896,15 @@ exports[`Button operation demo works fine 1`] = `
           
           <div
             class="t-list-item__meta"
-            image="https://tdesign.gtimg.com/list-icon.png"
           >
             
-            <!---->
+            <div
+              class="t-list-item__meta-avatar"
+            >
+              <img
+                src="https://tdesign.gtimg.com/list-icon.png"
+              />
+            </div>
             <div
               class="t-list-item__meta-content"
             >

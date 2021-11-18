@@ -66,12 +66,17 @@ export interface TdListItemProps {
 export interface TdListItemMetaProps {
   /**
    * 列表项图片
+   * @deprecated
    */
   avatar?: string | TNode;
   /**
    * 列表项内容
    */
   description?: string | TNode;
+  /**
+   * 列表项图片
+   */
+  image?: string | TNode;
   /**
    * 列表项标题
    */

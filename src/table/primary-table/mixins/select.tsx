@@ -9,8 +9,6 @@ import SelectBox from '../select-box';
 import { emitEvent } from '../../../utils/event';
 import { Checkbox } from '../../../checkbox';
 
-type SelectChangeParams = Parameters<TdPrimaryTableProps['onSelectChange']>;
-
 export default defineComponent({
   name: `${prefix}-primary-table-select`,
   components: { SelectBox, Checkbox },

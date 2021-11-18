@@ -51,7 +51,7 @@ function getDataValues(data: Array<TransferItemOption>, filterValues: Array<Tran
         }
 
         // 只找叶子节点
-        if (item.children && item.children?.length > 0) {
+        if (item.children && item.children.length > 0) {
           const childResult = getDataValues(item.children, filterValues, {
             isTreeMode,
             include,

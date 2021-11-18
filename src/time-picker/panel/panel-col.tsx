@@ -175,7 +175,7 @@ export default defineComponent({
         const index = this.timeArr.indexOf(col);
         const params = this.currentTimes;
         params[index] = Number(time);
-        return !(this.disableTime && this.disableTime?.apply(this, params));
+        return !(this.disableTime && this.disableTime.apply(this, params));
       }
       return true;
     },

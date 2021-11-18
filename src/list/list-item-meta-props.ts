@@ -15,6 +15,10 @@ export default {
   description: {
     type: [String, Function] as PropType<TdListItemMetaProps['description']>,
   },
+  /** 列表项图片 */
+  image: {
+    type: [String, Function] as PropType<TdListItemMetaProps['image']>,
+  },
   /** 列表项标题 */
   title: {
     type: [String, Function] as PropType<TdListItemMetaProps['title']>,

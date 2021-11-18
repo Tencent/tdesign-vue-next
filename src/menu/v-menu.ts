@@ -106,7 +106,7 @@ export default class VMenu {
       return [...this.expandValues];
     }
 
-    const sameParentNodes = getTreeSameParentNodes(this.data, val);
+    const sameParentNodes = getTreeSameParentNodes(this.data, val) || [];
     const sameLevelSubmenuValues = new Set(sameParentNodes
       .filter((node) => node.children?.length > 0 && node.value !== val)
       .map((child) => child.value));

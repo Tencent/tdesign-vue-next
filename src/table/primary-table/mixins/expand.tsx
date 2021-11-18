@@ -30,17 +30,15 @@ export default defineComponent({
   methods: {
     getExpandColumns(columns: Columns): Columns {
       if (!this.expandedRow || !this.expandIcon) return columns;
-      return this.expandedRow
-        ? [
-          {
-            colKey: expandedColKey,
-            width: 25,
-            attrs: { class: [`${prefix}-table-expandable-icon-cell`] },
-            cell: (h, { row, rowIndex }) => this.renderExpandIconCell({ row, rowIndex }),
-          },
-          ...columns,
-        ]
-        : columns;
+      return [
+        {
+          colKey: expandedColKey,
+          width: 25,
+          attrs: { class: [`${prefix}-table-expandable-icon-cell`] },
+          cell: (h, { row, rowIndex }) => this.renderExpandIconCell({ row, rowIndex }),
+        },
+        ...columns,
+      ];
     },
     // 渲染展开单元格内容
     renderExpandIconCell({ row = {}, rowIndex }: Record<string, any>): VNode {
