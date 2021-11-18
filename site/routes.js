@@ -90,10 +90,9 @@ const routerConfig = {
   },
 };
 
-// console.log(process.env.NODE_ENV)
-// if (process.env.NODE_ENV !== 'development') {
-//   routerConfig.history = createWebHistory();
-// }
+if (process.env.NODE_ENV === 'preview') {
+  routerConfig.history = createWebHashHistory();
+}
 
 const router = createRouter(routerConfig);
 
