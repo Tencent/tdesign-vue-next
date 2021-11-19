@@ -1,5 +1,5 @@
 import {
-  defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance,
+  defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance, watch,
 } from 'vue';
 import { prefix } from '../config';
 import props from './submenu-props';
@@ -90,6 +90,10 @@ export default defineComponent({
       open(props.value);
     };
 
+    watch(popupVisible, (visible) => {
+      menu.open(props.value, visible ? 'add' : 'remove');
+    });
+
     // provide
     provide<TdSubMenuInterface>('TdSubmenu', {
       value: props.value,
@@ -112,7 +116,7 @@ export default defineComponent({
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value });
       const instance = getCurrentInstance();
 
-      isNested.value = instance.parent.type.name === name;
+      isNested.value = /submenu/i.test(instance.parent.type.name);
 
       // adjust popup height
       const { refs } = instance;
@@ -171,7 +175,7 @@ export default defineComponent({
       const icon = renderTNodeJSX(this, 'icon');
       const child = renderContent(this, 'default', 'content');
       let paddingLeft = 44;
-      if (this.$parent.$vnode?.tag.indexOf('submenu') > -1) {
+      if (/submenu/i.test(this.$parent.$vnode?.tag)) {
         paddingLeft += 16;
       }
 

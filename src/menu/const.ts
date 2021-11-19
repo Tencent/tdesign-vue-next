@@ -7,6 +7,8 @@ export interface TdMenuItem {
   label: VNodeNormalizedChildren;
 }
 
+export type TdOpenType = 'add' | 'remove';
+
 export interface TdMenuInterface {
   activeValue: Ref<MenuValue>;
   activeValues: Ref<MenuValue[]>;
@@ -16,7 +18,7 @@ export interface TdMenuInterface {
   isHead: boolean;
   vMenu?: VMenu;
   select: (val: MenuValue) => void;
-  open?: (val: MenuValue) => boolean | void;
+  open?: (val: MenuValue, type?: TdOpenType) => boolean | void;
   selectSubMenu?: (items: TdMenuItem[]) => void;
 }
 

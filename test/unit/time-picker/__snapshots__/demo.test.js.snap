@@ -850,6 +850,7 @@ exports[`Time-picker base demo works fine 1`] = `
       <div
         class="t-time-picker__input"
         size="medium"
+        steps="1,1,1"
       >
         
         <span
@@ -1729,6 +1730,7 @@ exports[`Time-picker base demo works fine 1`] = `
       <div
         class="t-time-picker__input"
         size="medium"
+        steps="1,1,1"
       >
         
         <span

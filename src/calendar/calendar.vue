@@ -107,6 +107,7 @@
                 :theme="theme"
                 :t="t"
                 :locale="locale"
+                :fillWithZero="fillWithZero"
                 @click="clickCell($event, item)"
                 @dblclick="doubleClickCell($event, item)"
                 @rightClick="rightClickCell($event, item)"

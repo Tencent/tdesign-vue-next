@@ -3,10 +3,10 @@
 exports[`Calendar base demo works fine 1`] = ``;
 
 exports[`Calendar card demo works fine 1`] = `
-<div>
-  <div
-    style="margin: 12px 0px;"
-  >
+<div
+  class="tdesign-demo-block-column-large"
+>
+  <div>
     <label>
       请选择风格：
     </label>
@@ -130,6 +130,27 @@ exports[`Calendar card demo works fine 1`] = `
         
       </span>
     </button>
+  </div>
+  <div>
+    <label>
+      日期补零：
+    </label>
+    <div
+      class="t-switch t-size-l t-is-checked"
+      disabled="false"
+      modelvalue="true"
+    >
+      <span
+        class="t-switch__handle"
+      >
+        <!---->
+      </span>
+      <div
+        class="t-switch__content t-size-l"
+      >
+        <!---->
+      </div>
+    </div>
   </div>
   
   <!-- full模式：t-calendar--full 、 card模式：t-calendar--card -->

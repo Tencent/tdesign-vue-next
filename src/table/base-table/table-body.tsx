@@ -121,13 +121,15 @@ export default defineComponent({
         allRowspanAndColspanProps = this.getRowspanAndColspanProps();
       }
       data.forEach((row: any, index: number) => {
-        const defaultRowClass = typeof rowClassName === 'function' ? rowClassName({ row, rowIndex: index }) : rowClassName;
-        const rowClass: Array<string> = [];
-        if (Array.isArray(defaultRowClass)) {
-          rowClass.push(...defaultRowClass);
+        const defaultRowClass = typeof rowClassName === 'function'
+          ? rowClassName({ row, rowIndex: index })
+          : rowClassName;
+        let rowClass: Array<string> = [];
+        if (defaultRowClass) {
+          rowClass = rowClass.concat(defaultRowClass);
         }
         const rowspanAndColspanProps = allRowspanAndColspanProps ? allRowspanAndColspanProps[index] : undefined;
-        // let rowVnode: VNode;
+        let rowVnode: VNode;
         const key = rowKey ? get(row, rowKey) : index + this.current;
         const {
           columns, current, provider, onRowHover, onRowMouseup, onRowMousedown, onRowDbClick, onRowClick,
@@ -172,7 +174,7 @@ export default defineComponent({
             },
           },
         };
-        const rowVnode = <TableRow rowKey={this.rowKey} {...props}>{slots}</TableRow>;
+        rowVnode = <TableRow rowKey={this.rowKey} {...props}>{slots}</TableRow>;
         // 按行渲染
         body.push(rowVnode);
         provider.renderRows({

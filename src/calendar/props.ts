@@ -22,6 +22,11 @@ export default {
     type: [Boolean, Object] as PropType<TdCalendarProps['controllerConfig']>,
     default: true,
   },
+  /** 小于 10 的日期，是否使用 '0' 填充。默认表现为 `01` `02`，值为 false 表现为 `1` `2` `9` */
+  fillWithZero: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 用于设置第一列显示周几，仅在日历展示维度为月份时（mode = month）有效 */
   firstDayOfWeek: {
     type: Number,
@@ -68,7 +73,7 @@ export default {
   },
   /** 当前高亮的日期 */
   value: {
-    type: [String, Object] as PropType<TdCalendarProps['value']>,
+    type: [String, Date] as PropType<TdCalendarProps['value']>,
   },
   /** 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：({ day }) => '周' + day */
   week: {

@@ -30,6 +30,10 @@ export default defineComponent({
       type: Object,
       default: (): CalendarCell => null,
     },
+    fillWithZero: {
+      type: Boolean,
+      default: undefined,
+    },
     theme: {
       type: String,
       default: (): string => null,
@@ -48,7 +52,8 @@ export default defineComponent({
     valueDisplay(): string {
       if (this.item.mode === 'month') {
         const dateNum = this.item.date.getDate();
-        return (dateNum > 9 ? `${dateNum}` : `0${dateNum}`);
+        const fillZero = dateNum < 10 && (this.fillWithZero ?? this.locale.fillWithZero ?? true);
+        return (fillZero ? `0${dateNum}` : dateNum);
       }
       const map = this.t(this.locale.cellMonth).split(',');
       return map[(this.item.date.getMonth()).toString()];

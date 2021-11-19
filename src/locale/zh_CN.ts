@@ -13,6 +13,7 @@ export default {
     placeholderText: '请选择',
   },
   calendar: {
+    fillWithZero: true,
     yearSelection: '{year} 年',
     monthSelection: '{month} 月',
     yearRadio: '年',

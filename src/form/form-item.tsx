@@ -80,7 +80,11 @@ export default defineComponent({
       const parent = this.form as FormInstance;
       const { successBorder } = this.$props;
       if (!parent.showErrorMessage) return '';
-      if (this.verifyStatus === ValidateStatus.SUCCESS && successBorder) return CLASS_NAMES.success;
+      if (this.verifyStatus === ValidateStatus.SUCCESS) {
+        return this.successBorder
+          ? [CLASS_NAMES.success, CLASS_NAMES.successBorder].join(' ')
+          : CLASS_NAMES.success;
+      }
       if (!this.errorList.length) return;
       const type = this.errorList[0].type || 'error';
       return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
@@ -219,7 +223,7 @@ export default defineComponent({
     getDefaultIcon(): TNodeReturnValue {
       const resultIcon = (Icon: IconConstructor) => (
         <span class={CLASS_NAMES.status}>
-          <Icon size='25px'></Icon>
+          <Icon size='20px'></Icon>
         </span>
       );
       const list = this.errorList;

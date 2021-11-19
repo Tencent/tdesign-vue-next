@@ -4,7 +4,7 @@ import {
 import { prefix } from '../config';
 import props from './props';
 import { MenuValue } from './type';
-import { TdMenuInterface } from './const';
+import { TdMenuInterface, TdOpenType } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
 import { ClassName } from '../common';
@@ -70,8 +70,17 @@ export default defineComponent({
         activeValue.value = value;
         emitChange(value);
       },
-      open: (value: MenuValue) => {
-        expandValues.value = vMenu.expand(value);
+      open: (value: MenuValue, type: TdOpenType) => {
+        if (mode.value === 'normal') {
+          expandValues.value = vMenu.expand(value);
+        } else if (type === 'add') {
+          if (expandValues.value.indexOf(value) === -1) { // 可能初始expanded里包含了该value
+            expandValues.value.push(value);
+          }
+        } else if (type === 'remove') {
+          const index = expandValues.value.indexOf(value);
+          expandValues.value.splice(index, 1);
+        }
         emitExpand(expandValues.value);
       },
     });

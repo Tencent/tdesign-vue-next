@@ -20,6 +20,7 @@ export const CLASS_NAMES = {
   help: `${form}__help`,
   extra: `${input}__extra`,
   success: `${is}-success`,
+  successBorder: `${form}--success-border`,
   error: `${is}-error`,
   warning: `${is}-warning`,
 };

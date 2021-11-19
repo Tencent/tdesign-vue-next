@@ -25,6 +25,10 @@ export interface TdCalendarProps {
    */
   controllerConfig?: boolean | CalendarController;
   /**
+   * 小于 10 的日期，是否使用 '0' 填充。默认表现为 `01` `02`，值为 false 表现为 `1` `2` `9`
+   */
+  fillWithZero?: boolean;
+  /**
    * 用于设置第一列显示周几，仅在日历展示维度为月份时（mode = month）有效
    * @default 1
    */

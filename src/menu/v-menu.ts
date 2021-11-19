@@ -81,6 +81,8 @@ export default class VMenu {
       const pNode = DFS(this.data, parent);
       if (pNode) {
         pNode.children.push(node);
+      } else {
+        this.cache.add(node);
       }
     } else {
       this.cache.add(node);

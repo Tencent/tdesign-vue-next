@@ -237,9 +237,11 @@ export default defineComponent({
       this.triggerUpdateValue();
     },
     // 清除选中
-    clear() {
+    clear(context: {e: MouseEvent}) {
+      const { e } = context;
       this.time = TIME_PICKER_EMPTY;
       this.updateInputTime();
+      e.stopPropagation();
     },
     triggerUpdateValue() {
       const values: Array<string> = [];
@@ -282,6 +284,7 @@ export default defineComponent({
             onBlurDefault={this.onBlurDefault}
             onFocusDefault={this.onFocusDefault}
             onChange={(e: TimeInputEvent) => this.inputChange(e)}
+            steps={this.steps}
           />
         </div>
       );

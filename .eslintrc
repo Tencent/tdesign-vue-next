@@ -106,7 +106,12 @@
         "checkLoops": false
       }
     ],
-    "vue/require-default-prop": 0
+    "vue/require-default-prop": 0,
+    "vue/max-attributes-per-line": ["error", {
+      "singleline": {
+        "max": 4
+      }
+    }]
   },
   "overrides": [
     {

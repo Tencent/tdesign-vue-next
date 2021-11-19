@@ -15,117 +15,51 @@
       @reset="onReset"
       @submit="onSubmit"
     >
-      <t-form-item
-        label="失败"
-        help="校验不通过，请输入正确内容"
-        name="fail"
-      >
+      <t-form-item label="失败" help="这是校验通过后的提示信息" name="fail">
         <t-input v-model="formData.fail" />
       </t-form-item>
-      <t-form-item
-        label="警告"
-        name="warning"
-      >
+      <t-form-item label="警告" name="warning" success-border>
         <t-input v-model="formData.warning" />
       </t-form-item>
-      <t-form-item
-        label="成功"
-        name="success"
-      >
+      <t-form-item label="成功" name="success">
         <t-input v-model="formData.success" />
       </t-form-item>
-      <t-form-item
-        label="失败"
-        name="failB"
-        :status-icon="false"
-      >
-        <t-input
-          v-model="formData.failB"
-          placeholder="隐藏状态icon"
-        />
+      <t-form-item label="失败" name="failB" :status-icon="false">
+        <t-input v-model="formData.failB" placeholder="隐藏状态icon" />
       </t-form-item>
-      <t-form-item
-        label="警告"
-        name="warningB"
-      >
+      <t-form-item label="警告" name="warningB">
         <t-input v-model="formData.warningB" />
       </t-form-item>
-      <t-form-item
-        label="加载中"
-        name="loading"
-      >
-        <t-input
-          v-model="formData.loading"
-          placeholder="正在校验中，请稍等"
-        />
+      <t-form-item label="加载中" name="loading">
+        <t-input v-model="formData.loading" placeholder="正在校验中，请稍等" />
         <template #statusIcon>
           <div style="width:25px; display:flex; justify-content: center">
             <t-loading size="small" />
           </div>
         </template>
       </t-form-item>
-      <t-form-item
-        v-for="(item, index) in addlist"
-        :key="item.id"
-        label="新增"
-        :name="item.name"
-      >
+      <t-form-item v-for="(item, index) in addlist" :key="item.id" label="新增" :name="item.name">
         <t-input v-model="formData[item.name]" />
         <template #statusIcon>
-          <t-button
-            v-if="item.id === 0 || item.id === lastAddItem - 1"
-            variant="dashed"
-            @click="addItem"
-          >
-            <t-icon
-              name="add"
-              size="16px"
-              style="color: #0004"
-            />
+          <t-button v-if="item.id === 0 || item.id === lastAddItem - 1" variant="dashed" @click="addItem">
+            <t-icon name="add" size="16px" style="color: #0004" />
           </t-button>
-          <t-button
-            v-if="item.id > 0"
-            variant="dashed"
-            @click="removeItem(item, index)"
-          >
-            <t-icon
-              name="remove"
-              size="16px"
-              style="color: #0004"
-            />
+          <t-button v-if="item.id > 0" variant="dashed" @click="removeItem(item, index)">
+            <t-icon name="remove" size="16px" style="color: #0004" />
           </t-button>
         </template>
       </t-form-item>
-      <t-form-item
-        label="帮助"
-        name="help"
-        :status-icon="getStatusIcon"
-        help="自定义帮助icon"
-      >
+      <t-form-item label="帮助" name="help" :status-icon="getStatusIcon" help="自定义帮助icon">
         <t-input v-model="formData.help" />
         <template #statusIcon>
-          <t-icon
-            name="help-circle"
-            size="25px"
-          />
+          <t-icon name="help-circle" size="25px" />
         </template>
       </t-form-item>
-      <t-form-item
-        :status-icon="false"
-        style="padding-top: 8px"
-      >
-        <t-button
-          theme="primary"
-          type="submit"
-          style="margin-right: 10px"
-        >
+      <t-form-item :status-icon="false" style="padding-top: 8px">
+        <t-button theme="primary" type="submit" style="margin-right: 10px">
           提交
         </t-button>
-        <t-button
-          theme="default"
-          variant="base"
-          type="reset"
-        >
+        <t-button theme="default" variant="base" type="reset">
           重置
         </t-button>
       </t-form-item>

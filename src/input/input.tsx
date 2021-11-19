@@ -108,10 +108,10 @@ export default defineComponent({
       this.inputValueChangeHandle(e);
     },
 
-    handleKeydonw(e: KeyboardEvent) {
+    handleKeydown(e: KeyboardEvent) {
       if (this.disabled) return;
       const { code } = e;
-      if (code === 'Enter') {
+      if (code === 'Enter' || code === 'NumpadEnter') {
         this.$emit('enter', this.value, { e });
       } else {
         this.$emit('keydown', this.value, { e });
@@ -164,7 +164,7 @@ export default defineComponent({
     const inputEvents = getValidAttrs({
       onFocus: this.emitFocus,
       onBlur: this.emitBlur,
-      onKeydown: this.handleKeydonw,
+      onKeydown: this.handleKeydown,
       onKeyup: this.handleKeyUp,
       onKeypresss: this.handleKeypress,
       // input的change事件是失去焦点或者keydown的时候执行。这与api定义的change不符，所以不做任何变化。

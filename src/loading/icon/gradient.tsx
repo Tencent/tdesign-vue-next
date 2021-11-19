@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../../config';
+import setStyle from '../../utils/set-style';
 
 const name = `${prefix}-loading__gradient`;
 const classname = `${prefix}-icon-loading`;
@@ -7,25 +8,42 @@ const classname = `${prefix}-icon-loading`;
 export default defineComponent({
   name,
   mounted() {
-    this.updateColor();
+    this.$nextTick(() => {
+      this.updateColor();
+    });
   },
   updated() {
     this.updateColor();
   },
   methods: {
     updateColor() {
+      let basicStyle = {};
       const circleElem = this.$refs.circle as HTMLElement;
       if (!circleElem) {
         return;
       }
 
-      const { color } = window.getComputedStyle(circleElem);
+      const { color, fontSize } = window.getComputedStyle(circleElem);
+      const ua = window?.navigator?.userAgent;
+      const isSafari = /Safari/.test(ua) && !/Chrome/.test(ua);
+      if (isSafari) {
+        basicStyle = {
+          transformOrigin: '-1px -1px',
+          transform: `scale(${parseInt(fontSize, 10) / 14})`,
+        };
+      }
       if (color) {
         const matched = color.match(/[\d.]+/g);
         const endColor = `rgba(${matched[0]}, ${matched[1]}, ${matched[2]}, 0)`;
-        circleElem.style.background = `conic-gradient(from 90deg at 50% 50%,${endColor} 0deg, ${color} 360deg)`;
+        setStyle(circleElem, {
+          ...basicStyle,
+          background: `conic-gradient(from 90deg at 50% 50%,${endColor} 0deg, ${color} 360deg)`,
+        });
       } else {
-        circleElem.style.background = '';
+        setStyle(circleElem, {
+          ...basicStyle,
+          background: '',
+        });
       }
     },
   },

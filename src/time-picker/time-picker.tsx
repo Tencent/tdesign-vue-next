@@ -66,8 +66,11 @@ export default defineComponent({
       const {
         $data: { time },
       } = this;
-
-      return time ? [dayjs(time, this.format)] : [dayjs()];
+      if (time) {
+        return [dayjs(time, this.format)];
+      } if (this.steps.filter((step) => step !== 1).length < 1) {
+        return [dayjs()];
+      } return [dayjs().hour(0).minute(0).second(0)];
     },
     textClassName(): string {
       const isDefault = (this.inputTime as any).some((item: InputTime) => !!item.hour && !!item.minute && !!item.second);
@@ -215,9 +218,10 @@ export default defineComponent({
       if (this.needClear) {
         this.inputTime = this.setInputValue(undefined);
         this.needClear = false;
-      } else if (this.time) this.inputTime = this.setInputValue(this.time);
-      else this.inputTime = this.setInputValue(dayjs());
-      return this.time;
+      } else {
+        this.time = this.time ?? dayjs();
+        this.inputTime = this.setInputValue(this.time);
+      }
     },
     // 设置输入框展示
     setInputValue(val: dayjs.Dayjs | undefined): InputTime | undefined {
@@ -270,11 +274,13 @@ export default defineComponent({
       };
     },
     // 清除选中
-    clear() {
+    clear(context: {e: MouseEvent}) {
+      const { e } = context;
       this.time = undefined;
       this.needClear = true;
       this.inputTime = this.setInputValue(undefined);
       this.$emit('change', undefined);
+      e.stopPropagation();
     },
     renderInput() {
       const classes = [
@@ -305,6 +311,7 @@ export default defineComponent({
             dayjs={this.inputTime}
             disabled={this.disabled}
             format={this.format}
+            steps={this.steps}
             allowInput={this.allowInput}
             placeholder={this.placeholder || this.locale.placeholder}
             onToggleMeridiem={() => this.toggleInputMeridiem()}

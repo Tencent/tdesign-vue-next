@@ -89,6 +89,14 @@ export default defineComponent({
       return flag;
     },
   },
+  watch: {
+    value() {
+      this.tSelect && this.tSelect.getOptions(this);
+    },
+    label() {
+      this.tSelect && this.tSelect.getOptions(this);
+    },
+  },
   mounted() {
     this.tSelect && this.tSelect.getOptions(this);
   },

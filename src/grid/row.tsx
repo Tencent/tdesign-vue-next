@@ -56,31 +56,47 @@ export default defineComponent({
     }, 50),
 
     calcRowMargin(gutter: TdRowProps['gutter'], currentSize: string): object {
-      const marginObj = {};
+      const rowStyle = {};
       if (typeof gutter === 'number' && gutter > 0) {
-        Object.assign(marginObj, {
+        Object.assign(rowStyle, {
           marginLeft: `${gutter / -2}px`,
           marginRight: `${gutter / -2}px`,
-          marginTop: `${gutter / -2}px`,
-          marginBottom: `${gutter / -2}px`,
         });
       } else if (Array.isArray(gutter) && gutter.length) {
-        if (gutter[0] as any > 0) Object.assign(marginObj, { marginLeft: `${gutter[0] as any / -2}px`, marginRight: `${gutter[0] as any / -2}px` });
-        if (gutter[1] as any > 0) Object.assign(marginObj, { marginTop: `${gutter[1] as any / -2}px`, marginBottom: `${gutter[1] as any / -2}px` });
+        if (typeof gutter[0] === 'number') {
+          Object.assign(rowStyle, {
+            marginLeft: `${gutter[0] / -2}px`,
+            marginRight: `${gutter[0] / -2}px`,
+          });
+        }
+        if (typeof gutter[1] === 'number') {
+          Object.assign(rowStyle, { rowGap: `${gutter[1]}px` });
+        }
+
+        if (isObject(gutter[0]) && gutter[0][currentSize] !== undefined) {
+          Object.assign(rowStyle, {
+            marginLeft: `${gutter[0][currentSize] / -2}px`,
+            marginRight: `${gutter[0][currentSize] / -2}px`,
+          });
+        }
+        if (isObject(gutter[1]) && gutter[1][currentSize] !== undefined) {
+          Object.assign(rowStyle, { rowGap: `${gutter[1][currentSize]}px` });
+        }
       } else if (isObject(gutter) && gutter[currentSize]) {
-        if (Array.isArray(gutter[currentSize])) {
-          if (gutter[currentSize][0] > 0) Object.assign(marginObj, { marginLeft: `${gutter[currentSize][0] / -2}px`, marginRight: `${gutter[currentSize][0] / -2}px` });
-          if (gutter[currentSize][1] > 0) Object.assign(marginObj, { marginTop: `${gutter[currentSize][1] / -2}px`, marginBottom: `${gutter[currentSize][1] / -2}px` });
-        } else if (gutter[currentSize] > 0) {
-          Object.assign(marginObj, {
+        if (Array.isArray(gutter[currentSize]) && gutter[currentSize].length) {
+          Object.assign(rowStyle, {
+            marginLeft: `${gutter[currentSize][0] / -2}px`,
+            marginRight: `${gutter[currentSize][0] / -2}px`,
+          });
+          Object.assign(rowStyle, { rowGap: `${gutter[currentSize][1]}px` });
+        } else {
+          Object.assign(rowStyle, {
             marginLeft: `${gutter[currentSize] / -2}px`,
             marginRight: `${gutter[currentSize] / -2}px`,
-            marginTop: `${gutter[currentSize] / -2}px`,
-            marginBottom: `${gutter[currentSize] / -2}px`,
           });
         }
       }
-      return marginObj;
+      return rowStyle;
     },
   },
 
