@@ -13,8 +13,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '../'),
-      '@tencent/tdesign-vue-next': path.resolve(__dirname, '../src'),
       '@common': path.resolve(__dirname, '../src/_common'),
+      '@tencent/tdesign-vue-next': path.resolve(__dirname, '../src'),
     },
   },
   server: {

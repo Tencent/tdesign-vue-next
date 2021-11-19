@@ -10,8 +10,8 @@ import '@common/style/web/index.less';
 import '@common/style/web/docs.less';
 
 // import site webcomponents
-import '@common/site/lib/site.es.js';
-import '@common/site/src/styles/main.less';
+import 'tdesign-site-components';
+import 'tdesign-site-components/lib/styles/style.css';
 
 const app = createApp(App);
 
