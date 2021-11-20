@@ -133,7 +133,7 @@ export default function (props: (string | PropOption)[]): any {
       defineWatches[propName] = {
         handler(v: any): void {
           const { props } = this.$.vnode;
-          if (props && propName in props) {
+          if (props && (propName in props || kebabCase(propName) in props)) {
             this.$data[dataName] = v;
           }
         },

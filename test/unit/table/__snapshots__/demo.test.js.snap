@@ -1700,7 +1700,48 @@ exports[`Table expandable demo works fine 1`] = `
                   colspan="6"
                   length="1"
                 >
-                  <!---->
+                  <div
+                    class="more-detail"
+                  >
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        集群名称:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      JQTest1
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        管理员:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      jenny;peter
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        描述:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      test
+                    </p>
+                  </div>
                 </td>
                 
               </tr>
@@ -1794,7 +1835,48 @@ exports[`Table expandable demo works fine 1`] = `
                   colspan="6"
                   length="1"
                 >
-                  <!---->
+                  <div
+                    class="more-detail"
+                  >
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        集群名称:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      JQTest2
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        管理员:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      jenny
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        描述:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      test
+                    </p>
+                  </div>
                 </td>
                 
               </tr>
@@ -1890,7 +1972,48 @@ exports[`Table expandable demo works fine 1`] = `
                   colspan="6"
                   length="1"
                 >
-                  <!---->
+                  <div
+                    class="more-detail"
+                  >
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        集群名称:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      JQTest3
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        管理员:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      jenny
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        描述:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      test
+                    </p>
+                  </div>
                 </td>
                 
               </tr>
@@ -1986,7 +2109,48 @@ exports[`Table expandable demo works fine 1`] = `
                   colspan="6"
                   length="1"
                 >
-                  <!---->
+                  <div
+                    class="more-detail"
+                  >
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        集群名称:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      JQTest4
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        管理员:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      peter
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        描述:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      test
+                    </p>
+                  </div>
                 </td>
                 
               </tr>
@@ -2008,489 +2172,605 @@ exports[`Table expandable demo works fine 1`] = `
 
 exports[`Table fixedColumn demo works fine 1`] = `
 <div
-  style="width: 100%;"
+  class="tdesign-demo-block-column"
 >
-  <!---->
-  <div
-    class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed"
-    defaultexpandedrowkeys=""
-    expandedrowkeys=""
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    showcolumns="false"
-    sortonrowdraggable="false"
-  >
+  <div>
     <div
-      class="t-loading-parent__relative"
+      class="t-radio-group t-radio-group-medium t-radio-group-filled"
+      modelvalue="2"
     >
       
-      <div
-        class="t-table-content"
+      <label
+        class="t-radio-button"
       >
-        <table
-          style="table-layout: fixed;"
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="1"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
         >
           
-          <colgroup>
-            
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 150px;"
-            />
-            <col
-              style="width: 150px;"
-            />
-            <col
-              style="width: 250px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            <col
-              style="width: 150px;"
-            />
-            <col
-              style="width: 100px;"
-            />
-            
-          </colgroup>
-          <thead>
-            
-            <tr>
-              
-              <td
-                class="t-table__cell--fixed-left align-center"
-                colspan="1"
-                rowspan="1"
-                style="position: sticky; left: 0px;"
-              >
-                序号
-              </td>
-              <td
-                class="t-table__cell--fixed-left"
-                colspan="1"
-                rowspan="1"
-                style="position: sticky; left: 0px;"
-              >
-                平台
-              </td>
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-                style="overflow: hidden;"
-              >
-                类型
-              </td>
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-                style="overflow: hidden;"
-              >
-                默认值
-              </td>
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-                style="overflow: hidden;"
-              >
-                详情信息
-              </td>
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-                style="overflow: hidden;"
-              >
-                说明
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                colspan="1"
-                rowspan="1"
-                style="position: sticky; right: 0px;"
-              >
-                是否必传
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                colspan="1"
-                rowspan="1"
-                style="position: sticky; right: 0px;"
-              >
-                操作
-              </td>
-              
-            </tr>
-            
-          </thead>
-          <tbody
-            class="table-body"
+          
+           左侧固定一列 
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="2"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+           左侧固定两列 
+          
+          
+        </span>
+      </label>
+      <div
+        class="t-radio-group-filled-bg-block"
+      />
+      
+    </div>
+  </div>
+  <div>
+    <div
+      class="t-radio-group t-radio-group-medium t-radio-group-filled"
+      modelvalue="1"
+    >
+      
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="1"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+           右侧固定一列 
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="2"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+           右侧固定两列 
+          
+          
+        </span>
+      </label>
+      <div
+        class="t-radio-group-filled-bg-block"
+      />
+      
+    </div>
+  </div>
+  <div
+    style="width: 100%;"
+  >
+    <!---->
+    <div
+      class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed"
+      defaultexpandedrowkeys=""
+      expandedrowkeys=""
+      expandicon="true"
+      expandonrowclick="false"
+      multiplesort="false"
+      showcolumns="false"
+      sortonrowdraggable="false"
+    >
+      <div
+        class="t-loading-parent__relative"
+      >
+        
+        <div
+          class="t-table-content"
+        >
+          <table
+            style="table-layout: fixed;"
           >
             
-            <tr
-              class=""
-              draggable="false"
+            <colgroup>
+              
+              <col
+                style="width: 100px;"
+              />
+              <col
+                style="width: 100px;"
+              />
+              <col
+                style="width: 150px;"
+              />
+              <col
+                style="width: 150px;"
+              />
+              <col
+                style="width: 250px;"
+              />
+              <col
+                style="width: 100px;"
+              />
+              <col
+                style="width: 150px;"
+              />
+              <col
+                style="width: 100px;"
+              />
+              
+            </colgroup>
+            <thead>
+              
+              <tr>
+                
+                <td
+                  class="t-table__cell--fixed-left align-center"
+                  colspan="1"
+                  rowspan="1"
+                  style="position: sticky; left: 0px;"
+                >
+                  序号
+                </td>
+                <td
+                  class="t-table__cell--fixed-left"
+                  colspan="1"
+                  rowspan="1"
+                  style="position: sticky; left: 0px;"
+                >
+                  平台
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                  style="overflow: hidden;"
+                >
+                  类型
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                  style="overflow: hidden;"
+                >
+                  默认值
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                  style="overflow: hidden;"
+                >
+                  详情信息
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                  style="overflow: hidden;"
+                >
+                  说明
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  colspan="1"
+                  rowspan="1"
+                  style="position: sticky; right: 0px;"
+                >
+                  是否必传
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  colspan="1"
+                  rowspan="1"
+                  style="position: sticky; right: 0px;"
+                >
+                  操作
+                </td>
+                
+              </tr>
+              
+            </thead>
+            <tbody
+              class="table-body"
             >
               
-              <td
-                class="t-table__cell--fixed-left align-center"
-                length="8"
-                style="position: sticky; left: 0px;"
-              >
-                0
-              </td>
-              <td
-                class="t-table__cell--fixed-left"
-                length="8"
-                style="position: sticky; left: 0px;"
-              >
-                共有
-              </td>
-              <td
+              <tr
                 class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                String
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                -
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                读取 0 个数据的嵌套信息值
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                数据源
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                length="8"
-                style="position: sticky; right: 0px;"
-              >
-                是
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                length="8"
-                style="position: sticky; right: 0px;"
+                draggable="false"
               >
                 
-                <a
-                  class="link"
+                <td
+                  class="t-table__cell--fixed-left align-center"
+                  length="8"
+                  style="position: sticky; left: 0px;"
                 >
-                  删除
-                </a>
-                
-              </td>
-              
-            </tr>
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class="t-table__cell--fixed-left align-center"
-                length="8"
-                style="position: sticky; left: 0px;"
-              >
-                1
-              </td>
-              <td
-                class="t-table__cell--fixed-left"
-                length="8"
-                style="position: sticky; left: 0px;"
-              >
-                私有
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                Number
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                0
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                读取 1 个数据的嵌套信息值
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                数据源
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                length="8"
-                style="position: sticky; right: 0px;"
-              >
-                否
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                length="8"
-                style="position: sticky; right: 0px;"
-              >
-                
-                <a
-                  class="link"
+                  0
+                </td>
+                <td
+                  class="t-table__cell--fixed-left"
+                  length="8"
+                  style="position: sticky; left: 0px;"
                 >
-                  删除
-                </a>
-                
-              </td>
-              
-            </tr>
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class="t-table__cell--fixed-left align-center"
-                length="8"
-                style="position: sticky; left: 0px;"
-              >
-                2
-              </td>
-              <td
-                class="t-table__cell--fixed-left"
-                length="8"
-                style="position: sticky; left: 0px;"
-              >
-                共有
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                Array
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                []
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                读取 2 个数据的嵌套信息值
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                数据源
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                length="8"
-                style="position: sticky; right: 0px;"
-              >
-                否
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                length="8"
-                style="position: sticky; right: 0px;"
-              >
-                
-                <a
-                  class="link"
+                  共有
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
                 >
-                  删除
-                </a>
-                
-              </td>
-              
-            </tr>
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class="t-table__cell--fixed-left align-center"
-                length="8"
-                style="position: sticky; left: 0px;"
-              >
-                3
-              </td>
-              <td
-                class="t-table__cell--fixed-left"
-                length="8"
-                style="position: sticky; left: 0px;"
-              >
-                私有
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                Object
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                {}
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                读取 3 个数据的嵌套信息值
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                数据源
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                length="8"
-                style="position: sticky; right: 0px;"
-              >
-                否
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                length="8"
-                style="position: sticky; right: 0px;"
-              >
-                
-                <a
-                  class="link"
+                  String
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
                 >
-                  删除
-                </a>
-                
-              </td>
-              
-            </tr>
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class="t-table__cell--fixed-left align-center"
-                length="8"
-                style="position: sticky; left: 0px;"
-              >
-                4
-              </td>
-              <td
-                class="t-table__cell--fixed-left"
-                length="8"
-                style="position: sticky; left: 0px;"
-              >
-                共有
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                String
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                -
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                读取 4 个数据的嵌套信息值
-              </td>
-              <td
-                class=""
-                length="8"
-                style="overflow: hidden;"
-              >
-                数据源
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                length="8"
-                style="position: sticky; right: 0px;"
-              >
-                是
-              </td>
-              <td
-                class="t-table__cell--fixed-right"
-                length="8"
-                style="position: sticky; right: 0px;"
-              >
-                
-                <a
-                  class="link"
+                  -
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
                 >
-                  删除
-                </a>
+                  读取 0 个数据的嵌套信息值
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  数据源
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  length="8"
+                  style="position: sticky; right: 0px;"
+                >
+                  是
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  length="8"
+                  style="position: sticky; right: 0px;"
+                >
+                  
+                  <a
+                    class="link"
+                  >
+                    删除111
+                  </a>
+                  
+                </td>
                 
-              </td>
+              </tr>
+              <tr
+                class=""
+                draggable="false"
+              >
+                
+                <td
+                  class="t-table__cell--fixed-left align-center"
+                  length="8"
+                  style="position: sticky; left: 0px;"
+                >
+                  1
+                </td>
+                <td
+                  class="t-table__cell--fixed-left"
+                  length="8"
+                  style="position: sticky; left: 0px;"
+                >
+                  私有
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  Number
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  0
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  读取 1 个数据的嵌套信息值
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  数据源
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  length="8"
+                  style="position: sticky; right: 0px;"
+                >
+                  否
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  length="8"
+                  style="position: sticky; right: 0px;"
+                >
+                  
+                  <a
+                    class="link"
+                  >
+                    删除111
+                  </a>
+                  
+                </td>
+                
+              </tr>
+              <tr
+                class=""
+                draggable="false"
+              >
+                
+                <td
+                  class="t-table__cell--fixed-left align-center"
+                  length="8"
+                  style="position: sticky; left: 0px;"
+                >
+                  2
+                </td>
+                <td
+                  class="t-table__cell--fixed-left"
+                  length="8"
+                  style="position: sticky; left: 0px;"
+                >
+                  共有
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  Array
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  []
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  读取 2 个数据的嵌套信息值
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  数据源
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  length="8"
+                  style="position: sticky; right: 0px;"
+                >
+                  否
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  length="8"
+                  style="position: sticky; right: 0px;"
+                >
+                  
+                  <a
+                    class="link"
+                  >
+                    删除111
+                  </a>
+                  
+                </td>
+                
+              </tr>
+              <tr
+                class=""
+                draggable="false"
+              >
+                
+                <td
+                  class="t-table__cell--fixed-left align-center"
+                  length="8"
+                  style="position: sticky; left: 0px;"
+                >
+                  3
+                </td>
+                <td
+                  class="t-table__cell--fixed-left"
+                  length="8"
+                  style="position: sticky; left: 0px;"
+                >
+                  私有
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  Object
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  {}
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  读取 3 个数据的嵌套信息值
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  数据源
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  length="8"
+                  style="position: sticky; right: 0px;"
+                >
+                  否
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  length="8"
+                  style="position: sticky; right: 0px;"
+                >
+                  
+                  <a
+                    class="link"
+                  >
+                    删除111
+                  </a>
+                  
+                </td>
+                
+              </tr>
+              <tr
+                class=""
+                draggable="false"
+              >
+                
+                <td
+                  class="t-table__cell--fixed-left align-center"
+                  length="8"
+                  style="position: sticky; left: 0px;"
+                >
+                  4
+                </td>
+                <td
+                  class="t-table__cell--fixed-left"
+                  length="8"
+                  style="position: sticky; left: 0px;"
+                >
+                  共有
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  String
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  -
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  读取 4 个数据的嵌套信息值
+                </td>
+                <td
+                  class=""
+                  length="8"
+                  style="overflow: hidden;"
+                >
+                  数据源
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  length="8"
+                  style="position: sticky; right: 0px;"
+                >
+                  是
+                </td>
+                <td
+                  class="t-table__cell--fixed-right"
+                  length="8"
+                  style="position: sticky; right: 0px;"
+                >
+                  
+                  <a
+                    class="link"
+                  >
+                    删除111
+                  </a>
+                  
+                </td>
+                
+              </tr>
               
-            </tr>
+            </tbody>
+            <!---->
             
-          </tbody>
-          <!---->
-          
-        </table>
+          </table>
+        </div>
+        
+        
+        
+        <!---->
       </div>
-      
-      
-      
-      <!---->
     </div>
   </div>
 </div>
@@ -3938,7 +4218,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
-      selectedrowkeys="1,2"
+      selectedrowkeys="3,2"
       showcolumns="false"
       sortonrowdraggable="false"
     >
@@ -4060,7 +4340,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox undefined"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="0"
@@ -4231,7 +4511,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox undefined t-is-checked"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="2"

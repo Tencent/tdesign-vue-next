@@ -21,7 +21,7 @@ type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
 type ChangeContext = Parameters<TdPrimaryTableProps['onChange']>;
 
 export default defineComponent({
-  name: `${prefix}-primary-table`,
+  name: `${prefix}-table`,
   components: { SimpleTable },
   mixins: [expand, select, sort, rowDraggable, filter, showColumns, asyncLoadingMixin],
   props: {

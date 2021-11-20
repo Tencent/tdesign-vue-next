@@ -10,16 +10,10 @@
       @select-change="rehandleSelectChange"
     >
       <template #status="{ row }">
-        <p
-          v-if="row.status === 0"
-          class="status"
-        >
+        <p v-if="row.status === 0" class="status">
           健康
         </p>
-        <p
-          v-if="row.status === 1"
-          class="status unhealth"
-        >
+        <p v-if="row.status === 1" class="status unhealth">
           异常
         </p>
       </template>
@@ -27,14 +21,8 @@
         <p>操作</p>
       </template>
       <template #op="slotProps">
-        <a
-          class="link"
-          @click="rehandleClickOp(slotProps)"
-        >管理</a>
-        <a
-          class="link"
-          @click="rehandleClickOp(slotProps)"
-        >删除</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">管理</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
       </template>
     </t-table>
   </div>
@@ -77,7 +65,7 @@ const data = [
 ];
 export default defineComponent({
   setup() {
-    const selectedRowKeys = ref([1, '2']);
+    const selectedRowKeys = ref([3, '2']);
 
     const rehandleClickOp = ({ text, row }) => {
       console.log(text, row);

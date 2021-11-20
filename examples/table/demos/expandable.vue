@@ -3,10 +3,7 @@
     <!-- expanded-row-keys 为受控属性 -->
     <!-- default-expanded-row-keys 为非受控属性 -->
     <div>
-      <t-radio-group
-        v-model="expandControl"
-        variant="default-filled"
-      >
+      <t-radio-group v-model="expandControl" variant="default-filled">
         <t-radio-button value="true">
           显示展开图标
         </t-radio-button>
@@ -34,16 +31,10 @@
       @expand-change="rehandleExpandChange"
     >
       <template #status="{ row }">
-        <p
-          v-if="row.status === 0"
-          class="status"
-        >
+        <p v-if="row.status === 0" class="status">
           健康
         </p>
-        <p
-          v-if="row.status === 1"
-          class="status unhealth"
-        >
+        <p v-if="row.status === 1" class="status unhealth">
           异常
         </p>
       </template>
@@ -51,14 +42,8 @@
         <p>操作</p>
       </template>
       <template #op="slotProps">
-        <a
-          class="link"
-          @click="rehandleClickOp(slotProps)"
-        >管理</a>
-        <a
-          class="link"
-          @click="rehandleClickOp(slotProps)"
-        >删除</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">管理</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
       </template>
     </t-table>
   </div>
@@ -104,12 +89,21 @@ export default defineComponent({
     const expandOnRowClick = ref(true);
     const expandedRowKeys = ref(['2']);
 
-    const expandedRow = (h, { row }) => {
+    const expandedRow = (h, { row }) => (
       <div class="more-detail">
         <p class="title"><b>集群名称:</b></p><p class="content">{row.instance}</p><br/>
         <p class="title"><b>管理员:</b></p><p class="content">{row.owner}</p><br/>
         <p class="title"><b>描述:</b></p><p class="content">{row.description}</p>
-      </div>;
+      </div>
+    );
+
+    const rehandleExpandChange = (value, { expandedRowData }) => {
+      expandedRowKeys.value = value;
+      console.log('rehandleExpandChange', value, expandedRowData);
+    };
+
+    const rehandleClickOp = ({ text, row }) => {
+      console.log(text, row);
     };
 
     watch(() => expandControl.value, (val) => {
@@ -132,25 +126,16 @@ export default defineComponent({
       }
     });
 
-    const rehandleClickOp = ({ text, row }) => {
-      console.log(text, row);
-    };
-
-    const rehandleExpandChange = (value, { expandedRowData }) => {
-      expandedRowKeys.value = value;
-      console.log('rehandleExpandChange', value, expandedRowData);
-    };
-
     return {
+      expandIcon,
+      expandedRowKeys,
+      expandOnRowClick,
+      expandControl,
       columns,
       data,
-      expandControl,
-      expandIcon,
-      expandOnRowClick,
-      expandedRowKeys,
       expandedRow,
-      rehandleClickOp,
       rehandleExpandChange,
+      rehandleClickOp,
     };
   },
 });
