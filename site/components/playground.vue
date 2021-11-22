@@ -38,9 +38,9 @@
         }, {
           content: '操作二',
           value: 2,
-          onClick: this.handleClick
+          onClick: handleClick,
         }, {
-          content: this.renderContent,
+          content: renderContent,
           value: 4,
         }]" direction="left">
       <t-button type="submit">Dropdown</t-button>
@@ -77,7 +77,7 @@
     </t-steps>
   </div>
 </template>
-<script lang="jsx">
+<script lang="tsx">
 export default {
   data() {
     return {
@@ -87,23 +87,22 @@ export default {
     };
   },
   methods: {
-    handleClick(e) {
+    handleClick(e: any) {
       console.log(e)
     },
-    handleChange(e, b, c) {
+    handleChange(e: any, b: any, c: any) {
       console.log(e)
       console.log(b)
       console.log(c)
-      this.stepValue = e
       // console.log('handleChange')
       // console.log(pageInfo)
     },
-    handlePageSizeChange(current, pageInfo) {
+    handlePageSizeChange(current: any, pageInfo: any) {
       console.log('handlePageSizeChange')
       console.log(current)
       console.log(pageInfo)
     },
-    handleCurrentChange(current, pageInfo) {
+    handleCurrentChange(current: any, pageInfo: any) {
       console.log('handleCurrentChange')
       console.log(current)
       console.log(pageInfo)
