@@ -155,7 +155,7 @@ export default defineComponent({
     const { value, multiple } = this;
     if ((multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value))) {
       this.$emit('change', multiple ? [] : '');
-      console.warn('TDesign Warn:', 'cascader props value invalid, automatic calibration');
+      console.warn('TDesign Warn:', 'cascader props value invalid,  v-model automatic calibration');
     }
     if (!isEmpty(value)) {
       this.scopeVal = value;

@@ -258,7 +258,17 @@ export default defineComponent({
       },
     },
   },
+  mounted() {
+    this.checkVal();
+  },
   methods: {
+    checkVal() {
+      const { value, multiple } = this;
+      if ((multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value))) {
+        this.$emit('change', this.multiple ? [] : '');
+        console.warn('TDesign Warn:', 'select props value invalid, v-model automatic calibration');
+      }
+    },
     multiLimitDisabled(value: string | number) {
       if (this.multiple && this.max) {
         if (
