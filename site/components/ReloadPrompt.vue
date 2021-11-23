@@ -5,8 +5,8 @@
         <span v-if="offlineReady">App ready to work offline</span>
         <span v-else>New content available, click on reload button to update.</span>
       </div>
-      <t-button v-if="needRefresh" size="small" @click="updateServiceWorker(true)">Reload</t-button>
-      <t-button :style="{'margin-left': 12}" theme="default" size="small" @click="close">Close</t-button>
+      <t-button v-if="needRefresh" size="small" :style="{'margin-right': '8px'}" @click="updateServiceWorker(true)">Reload</t-button>
+      <t-button theme="default" size="small" @click="close">Close</t-button>
     </div>
     <div class="ReloadPrompt-date">{buildDate}</div>
   </div>
@@ -40,18 +40,17 @@ export default defineComponent({
 <style lang="less" scoped>
 .ReloadPrompt-container {
   position: fixed;
+  right: 24px;
+  bottom: 40px;
+  z-index: 400;
 }
 .ReloadPrompt-date {
   visibility: hidden;
 }
 .ReloadPrompt-toast {
-  position: fixed;
-  right: 24px;
-  bottom: 100px;
-  width: 270px;
+  width: 240px;
   padding: 12px;
   border-radius: 3px;
-  z-index: 1;
   box-shadow: var(--popup-box-shadow);
   background-color: var(--bg-color-container);
   color: var(--text-primary);
