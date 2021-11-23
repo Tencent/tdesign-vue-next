@@ -20,7 +20,7 @@
     >
       <t-tab-panel value="first">
         <template #label>
-          <t-icon name="home" /> 首页
+          <t-icon name="home" class="tabs-icon-margin" /> 首页
         </template>
         <p style="padding: 25px;">
           {{ `${theme}选项卡1内容` }}
@@ -28,7 +28,7 @@
       </t-tab-panel>
       <t-tab-panel value="second">
         <template #label>
-          <t-icon name="calendar" /> 日程
+          <t-icon name="calendar" class="tabs-icon-margin" /> 日程
         </template>
         <p style="padding: 25px;">
           {{ `${theme}选项卡2内容` }}
@@ -36,7 +36,7 @@
       </t-tab-panel>
       <t-tab-panel value="third">
         <template #label>
-          <t-icon name="layers" /> 事项
+          <t-icon name="layers" class="tabs-icon-margin" /> 事项
         </template>
         <p style="padding: 25px;">
           {{ `${theme}选项卡3内容` }}
@@ -66,20 +66,23 @@ export default defineComponent({
 });
 </script>
 <style lang="less">
-  .t-demo-tabs {
+.t-demo-tabs {
 
-    &__desc {
+  &__desc {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 14px;
+
+    &:not(:first-of-type) {
+      margin-top: 20px;
+    }
+
+    p {
       margin-bottom: 20px;
-      color: #333;
-      font-size: 14px;
-
-      &:not(:first-of-type) {
-        margin-top: 20px;
-      }
-
-      p {
-        margin-bottom: 20px;
-      }
     }
   }
+}
+.tabs-icon-margin {
+  margin-right: 4px;
+}
 </style>

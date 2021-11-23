@@ -45,10 +45,6 @@ export default defineComponent({
     const loading = ref(false);
     const loading2 = ref(false);
 
-    const handleChange = (value) => {
-      console.log(value);
-    };
-
     const remoteMethod = (search) => {
       console.log('search', search);
       if (search) {
@@ -70,7 +66,6 @@ export default defineComponent({
     };
 
     const remoteMethod2 = (search) => {
-      console.log('search2', search);
       if (search) {
         loading2.value = true;
         setTimeout(() => {
@@ -90,15 +85,14 @@ export default defineComponent({
     };
 
     return {
-      options,
-      options2,
       value,
       value2,
+      options,
+      options2,
       loading,
       loading2,
-      handleChange,
-      remoteMethod,
       remoteMethod2,
+      remoteMethod,
     };
   },
 });

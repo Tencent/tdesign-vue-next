@@ -203,9 +203,7 @@ export default defineComponent({
       };
 
       if (closeShow) {
-        return <Transition name={`${prefix}-cascader-close-icon-fade`} appear>
-          <CloseCircleFilledIcon class={closeIconClass} size={size} onClick={closeIconClick}/>
-        </Transition>;
+        return <CloseCircleFilledIcon class={closeIconClass} size={size} onClick={closeIconClick}/>;
       }
 
       return <FakeArrow overlayClassName={fakeArrowIconClass} isActive={visible} disabled={disabled} />;

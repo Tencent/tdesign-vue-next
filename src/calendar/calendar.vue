@@ -48,6 +48,7 @@
       <!-- 模式选择 -->
       <div v-if="isModeVisible" class="t-calendar__control-section-cell" style="height: auto">
         <TRadioGroup
+          variant="default-filled"
           v-model="curSelectedMode"
           :size="controlSize"
           :disabled="isModeDisabled"
@@ -61,7 +62,8 @@
       </div>
       <!-- 显示\隐藏周末 -->
       <div v-if="theme === 'full' && isWeekendToggleVisible" class="t-calendar__control-section-cell">
-        <TButton
+        <TCheckTag
+          class="t-calendar__control-tag"
           :theme="isShowWeekend ? 'default' : 'primary'"
           v-if="curSelectedMode === 'month'"
           :size="controlSize"
@@ -69,7 +71,7 @@
           v-bind="weekendBtnVBind"
           @click="onWeekendToggleClick()"
         >
-          {{ weekendBtnText }}</TButton
+          {{ weekendBtnText }}</TCheckTag
         >
       </div>
       <!-- 今天\本月 -->
@@ -184,6 +186,7 @@ import {
 import { Select as TSelect, Option as TOption } from '../select';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../radio';
 import { Button as TButton } from '../button';
+import { CheckTag as TCheckTag } from '../tag';
 import CalendarCellItem from './calendar-cell.vue';
 import { RenderTNodeTemplate } from '../utils/render-tnode';
 
@@ -242,6 +245,7 @@ const getDefaultControllerConfigData = (visible = true): Record<string, any> => 
 export default defineComponent({
   name: COMPONENT_NAME,
   components: {
+    TCheckTag,
     TSelect,
     TOption,
     TRadioGroup,

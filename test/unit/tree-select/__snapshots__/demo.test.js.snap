@@ -277,7 +277,7 @@ exports[`TreeSelect base demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon"
+          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon t-select-right-icon__clear"
           name="close"
           style="display: none;"
           version="1.1"
@@ -652,7 +652,7 @@ exports[`TreeSelect filterable demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon"
+          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon t-select-right-icon__clear"
           name="close"
           style="display: none;"
           version="1.1"
@@ -863,7 +863,7 @@ exports[`TreeSelect lazy demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon"
+          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon t-select-right-icon__clear"
           name="close"
           style="display: none;"
           version="1.1"
@@ -1282,7 +1282,7 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon"
+          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon t-select-right-icon__clear"
           name="close"
           style="display: none;"
           version="1.1"
@@ -1547,10 +1547,10 @@ exports[`TreeSelect prefix demo works fine 1`] = `
           class="t-select-left-icon"
         >
           <svg
-            class="t-icon t-icon-user"
+            class="t-icon t-icon-browse"
           >
             <use
-              href="#t-icon-user"
+              href="#t-icon-browse"
             />
           </svg>
         </span>
@@ -1603,7 +1603,7 @@ exports[`TreeSelect prefix demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon"
+          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon t-select-right-icon__clear"
           name="close"
           style="display: none;"
           version="1.1"

@@ -15,6 +15,11 @@ export default defineComponent({
   props: {
     ...props,
   },
+  provide() {
+    return {
+      dropdown: this,
+    };
+  },
   emits: ['click', 'visibleChange'],
   methods: {
     handleMenuClick(data: DropdownOption, context: { e: MouseEvent }) {

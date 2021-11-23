@@ -33,18 +33,23 @@ export default {
   setup() {
     return {
       renderLoginIcon() {
-        return <TIconLogin />;
+        return <TIconLogin size="24" class="icon-margin"/>;
       },
       renderCartIcon() {
-        return <TIconCart />;
+        return <TIconCart size="24" class="icon-margin"/>;
       },
       renderWalletIcon() {
-        return <TIconWallet />;
+        return <TIconWallet size="24" class="icon-margin"/>;
       },
       renderSuccessIcon() {
-        return <TIconSuccess />;
+        return <TIconSuccess size="24" class="icon-margin"/>;
       },
     };
   },
 };
 </script>
+<style lang="less">
+.icon-margin {
+  margin-top: 3px
+}
+</style>

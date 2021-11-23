@@ -22,93 +22,89 @@ exports[`Dropdown Demo CustomUsageExample wroks fine 1`] = `
             
             <div
               class="t-dropdown__menu__column narrow-scrollbar"
-              style="max-height: 300px;"
+              style="max-height: 300px; max-width: 100px; min-width: 100px;"
             >
               
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 100px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项一
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项一
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item has-suffix"
-                style="max-width: 100px; min-width: 100px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item has-suffix"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项二
-                  </span>
-                </div>
-                <svg
-                  class="t-icon t-icon-chevron-right children-suffix"
-                  version="1.1"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                    fill-opacity=".9"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 100px;"
-              >
-                <div
-                  class="t-dropdown__item__content"
-                >
-                  <span
-                    class="t-dropdown__item__content__text"
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项二
+                    </span>
+                  </div>
+                  <svg
+                    class="t-icon t-icon-chevron-right children-suffix"
+                    version="1.1"
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    选项三
-                  </span>
+                    <path
+                      clip-rule="evenodd"
+                      d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+                      fill-opacity=".9"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 100px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项四
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项三
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item__content"
+                  >
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项四
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
               
             </div>
             
@@ -162,81 +158,77 @@ exports[`Dropdown Demo DisableUsageExample wroks fine 1`] = `
             
             <div
               class="t-dropdown__menu__column narrow-scrollbar"
-              style="max-height: 300px;"
+              style="max-height: 300px; max-width: 100px; min-width: 112px;"
             >
               
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 112px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项一
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项一
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 112px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项二
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项二
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item t-is-disabled"
-                style="max-width: 100px; min-width: 112px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item t-is-disabled"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项三
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项三
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item t-is-disabled"
-                style="max-width: 100px; min-width: 112px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item t-is-disabled"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项四
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项四
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
               
             </div>
             
@@ -305,81 +297,77 @@ exports[`Dropdown Demo EventUsageExample wroks fine 1`] = `
             
             <div
               class="t-dropdown__menu__column narrow-scrollbar"
-              style="max-height: 300px;"
+              style="max-height: 300px; max-width: 100px; min-width: 88px;"
             >
               
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项一
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项一
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项二
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项二
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项三
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项三
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项四
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项四
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
               
             </div>
             
@@ -431,369 +419,349 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
             
             <div
               class="t-dropdown__menu__column narrow-scrollbar"
-              style="max-height: 400px;"
+              style="max-height: 400px; max-width: 100px; min-width: 88px;"
             >
               
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项1
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项1
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项2
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项2
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项3
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项3
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项4
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项4
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项5
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项5
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项6
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项6
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项7
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项7
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项8
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项8
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项9
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项9
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项10
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项10
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项11
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项11
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项12
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项12
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项13
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项13
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项14
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项14
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项15
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项15
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项16
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项16
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项17
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项17
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项18
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项18
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项19
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项19
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 88px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项20
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项20
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
               
             </div>
             
@@ -847,129 +815,125 @@ exports[`Dropdown Demo MultipleUsageExample wroks fine 1`] = `
             
             <div
               class="t-dropdown__menu__column narrow-scrollbar"
-              style="max-height: 300px;"
+              style="max-height: 300px; max-width: 120px; min-width: 10px;"
             >
               
-              
-              <div
-                class="t-dropdown__item has-suffix"
-                style="max-width: 120px; min-width: 10px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item has-suffix"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项一
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项一
+                    </span>
+                  </div>
+                  <svg
+                    class="t-icon t-icon-chevron-right children-suffix"
+                    version="1.1"
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+                      fill-opacity=".9"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
-                <svg
-                  class="t-icon t-icon-chevron-right children-suffix"
-                  version="1.1"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                    fill-opacity=".9"
-                    fill-rule="evenodd"
-                  />
-                </svg>
+                <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item has-suffix"
-                style="max-width: 120px; min-width: 10px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item has-suffix"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项二选项二选项二选项二
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项二选项二选项二选项二
+                    </span>
+                  </div>
+                  <svg
+                    class="t-icon t-icon-chevron-right children-suffix"
+                    version="1.1"
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+                      fill-opacity=".9"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
-                <svg
-                  class="t-icon t-icon-chevron-right children-suffix"
-                  version="1.1"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                    fill-opacity=".9"
-                    fill-rule="evenodd"
-                  />
-                </svg>
+                <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item has-suffix"
-                style="max-width: 120px; min-width: 10px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item has-suffix"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项三
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项三
+                    </span>
+                  </div>
+                  <svg
+                    class="t-icon t-icon-chevron-right children-suffix"
+                    version="1.1"
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+                      fill-opacity=".9"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
-                <svg
-                  class="t-icon t-icon-chevron-right children-suffix"
-                  version="1.1"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                    fill-opacity=".9"
-                    fill-rule="evenodd"
-                  />
-                </svg>
+                <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item has-suffix"
-                style="max-width: 120px; min-width: 10px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item has-suffix"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    选项四
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      选项四
+                    </span>
+                  </div>
+                  <svg
+                    class="t-icon t-icon-chevron-right children-suffix"
+                    version="1.1"
+                    viewBox="0 0 1024 1024"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+                      fill-opacity=".9"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
-                <svg
-                  class="t-icon t-icon-chevron-right children-suffix"
-                  version="1.1"
-                  viewBox="0 0 1024 1024"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                    fill-opacity=".9"
-                    fill-rule="evenodd"
-                  />
-                </svg>
+                <!---->
               </div>
-              <!---->
-              
               
             </div>
             
@@ -1037,85 +1001,81 @@ exports[`Dropdown Demo SplitUsageExample wroks fine 1`] = `
           
           <div
             class="t-dropdown__menu__column narrow-scrollbar"
-            style="max-height: 300px;"
+            style="max-height: 300px; max-width: 100px; min-width: 88px;"
           >
             
-            
-            <div
-              class="t-dropdown__item"
-              style="max-width: 100px; min-width: 88px;"
-            >
+            <div>
               <div
-                class="t-dropdown__item__content"
+                class="t-dropdown__item"
               >
-                <span
-                  class="t-dropdown__item__content__text"
+                <div
+                  class="t-dropdown__item__content"
                 >
-                  操作一
-                </span>
+                  <span
+                    class="t-dropdown__item__content__text"
+                  >
+                    操作一
+                  </span>
+                </div>
+                <!---->
               </div>
               <!---->
             </div>
-            <!---->
-            
-            
-            <div
-              class="t-dropdown__item"
-              style="max-width: 100px; min-width: 88px;"
-            >
+            <div>
               <div
-                class="t-dropdown__item__content"
+                class="t-dropdown__item"
               >
-                <span
-                  class="t-dropdown__item__content__text"
+                <div
+                  class="t-dropdown__item__content"
                 >
-                  操作二
-                </span>
+                  <span
+                    class="t-dropdown__item__content__text"
+                  >
+                    操作二
+                  </span>
+                </div>
+                <!---->
               </div>
               <!---->
             </div>
-            <!---->
-            
-            
-            <div
-              class="t-dropdown__item t-dropdown__item_is_divided"
-              style="max-width: 100px; min-width: 88px;"
-            >
+            <div>
               <div
-                class="t-dropdown__item__content"
+                class="t-dropdown__item t-dropdown__item_is_divided"
               >
-                <span
-                  class="t-dropdown__item__content__text"
+                <div
+                  class="t-dropdown__item__content"
                 >
-                  操作三
-                </span>
+                  <span
+                    class="t-dropdown__item__content__text"
+                  >
+                    操作三
+                  </span>
+                </div>
+                <!---->
+              </div>
+              <div
+                class="t-divider t-divider--horizontal"
+              >
+                <!---->
+              </div>
+            </div>
+            <div>
+              <div
+                class="t-dropdown__item"
+              >
+                <div
+                  class="t-dropdown__item__content"
+                >
+                  <span
+                    class="t-dropdown__item__content__text"
+                  >
+                    操作四
+                  </span>
+                </div>
+                <!---->
               </div>
               <!---->
             </div>
-            <div
-              class="t-divider t-divider--horizontal"
-            >
-              <!---->
-            </div>
-            
-            
-            <div
-              class="t-dropdown__item"
-              style="max-width: 100px; min-width: 88px;"
-            >
-              <div
-                class="t-dropdown__item__content"
-              >
-                <span
-                  class="t-dropdown__item__content__text"
-                >
-                  操作四
-                </span>
-              </div>
-              <!---->
-            </div>
-            <!---->
-            
             
           </div>
           
@@ -1166,81 +1126,77 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
             
             <div
               class="t-dropdown__menu__column narrow-scrollbar"
-              style="max-height: 300px;"
+              style="max-height: 300px; max-width: 100px; min-width: 10px;"
             >
               
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 10px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    操作一
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      操作一
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 10px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    操作二
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      操作二
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 10px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    操作三
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      操作三
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 10px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    操作四
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      操作四
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
               
             </div>
             
@@ -1294,81 +1250,77 @@ exports[`Dropdown base demo works fine 1`] = `
             
             <div
               class="t-dropdown__menu__column narrow-scrollbar"
-              style="max-height: 300px;"
+              style="max-height: 300px; max-width: 100px; min-width: 112px;"
             >
               
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 112px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    操作一
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      操作一
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 112px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    操作二
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      操作二
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 112px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    操作三
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      操作三
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
-              
-              <div
-                class="t-dropdown__item"
-                style="max-width: 100px; min-width: 112px;"
-              >
+              <div>
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item"
                 >
-                  <span
-                    class="t-dropdown__item__content__text"
+                  <div
+                    class="t-dropdown__item__content"
                   >
-                    操作四
-                  </span>
+                    <span
+                      class="t-dropdown__item__content__text"
+                    >
+                      操作四
+                    </span>
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
-              <!---->
-              
               
             </div>
             
@@ -1391,14 +1343,18 @@ exports[`Dropdown base demo works fine 1`] = `
           class="t-button__text"
         >
           
-           下拉菜单 
-          <svg
-            class="t-icon t-icon-chevron-down"
+          <span
+            class="tdesign-demo-dropdown__text"
           >
-            <use
-              href="#t-icon-chevron-down"
-            />
-          </svg>
+             下拉菜单 
+            <svg
+              class="t-icon t-icon-chevron-down"
+            >
+              <use
+                href="#t-icon-chevron-down"
+              />
+            </svg>
+          </span>
           
         </span>
       </button>

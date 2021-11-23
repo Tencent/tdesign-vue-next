@@ -11,6 +11,11 @@ export default defineComponent({
   components: {
     DropdownItem
   },
+  inject: {
+    dropdown: {
+      default: undefined,
+    },
+  },
   props: {
     options: {
       type: Array,
@@ -56,6 +61,8 @@ export default defineComponent({
           class={menuClass}
           style={{
             maxHeight: `${this.maxHeight}px`,
+            maxWidth: `${this.dropdown.maxColumnWidth}px`,
+            minWidth: `${this.dropdown.minColumnWidth}px`,
           }}
         >
           {children.map((item, idx) => (

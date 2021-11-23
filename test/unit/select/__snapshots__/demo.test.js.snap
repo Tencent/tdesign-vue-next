@@ -61,10 +61,10 @@ exports[`Select base demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
-                  title="很长很长很很长很长很长的选项三"
+                  title="选项内容过长的选择器选项"
                 >
                   
-                  很长很长很很长很长很长的选项三
+                  选项内容过长的选择器选项
                   
                 </li>
                 

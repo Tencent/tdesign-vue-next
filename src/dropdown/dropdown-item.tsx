@@ -68,15 +68,12 @@ export default defineComponent({
     ];
 
     return (
-      <>
-        <div class={classes}
+      <div>
+        <div
+          v-ripple
+          class={classes}
           onClick={this.handleItemClick}
           onMouseover={this.handleMouseover}
-          style={{
-            maxWidth: `${this.maxColumnWidth}px`,
-            minWidth: `${this.minColumnWidth}px`,
-          }}
-          v-ripple
         >
           <div class={`${name}__content`}>
             <span class={`${name}__content__text`}>{renderTNodeJSX(this, 'content')}</span>
@@ -84,7 +81,7 @@ export default defineComponent({
           { this.renderSuffix()}
         </div>
         {this.divider ? <TDivider/> : null}
-      </>
+      </div>
     );
   },
 });

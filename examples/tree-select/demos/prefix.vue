@@ -6,7 +6,7 @@
       placeholder="请输入"
     >
       <template #prefixIcon>
-        <t-icon name="user" />
+        <t-icon name="browse" size="16" />
       </template>
     </t-tree-select>
   </div>

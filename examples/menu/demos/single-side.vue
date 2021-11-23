@@ -48,7 +48,7 @@
     </t-menu>
 
     <t-menu
-      theme="dark"
+      theme="light"
       default-value="dashboard"
       style="margin-right: 50px"
       height="550px"

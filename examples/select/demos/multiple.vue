@@ -32,7 +32,6 @@
           :key="index"
           :closable="true"
           :on-close="() => onClose(index)"
-          theme="success"
           variant="light"
         >
           {{ item.label }}（{{ item.value }}）
@@ -66,7 +65,6 @@ export default defineComponent({
       return val.map((item, index) => (
         <t-tag
           key={index}
-          theme="warning"
           variant="light"
           closable={true}
           onClose={() => onClose(index)}

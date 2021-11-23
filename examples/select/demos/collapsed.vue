@@ -16,7 +16,6 @@
       placeholder="-请选择-"
       multiple
       :min-collapsed-num="1"
-      :collapsed-items="collapsedItems"
       :options="options"
     />
     <br><br>
@@ -40,10 +39,7 @@
               {{ item.label }}
             </p>
           </template>
-          <span
-            v-show="count > 0"
-            style="color: #00A870;"
-          >+{{ count }}</span>
+          <span v-show="count > 0" style="color: #00A870;">+{{ count }}</span>
         </t-popup>
       </template>
     </t-select>

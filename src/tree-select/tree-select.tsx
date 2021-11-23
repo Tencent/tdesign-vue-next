@@ -462,7 +462,7 @@ export default defineComponent({
                 <FakeArrow overlayClassName={`${prefix}-select-right-icon`} overlayStyle={iconStyle} isActive={this.visible && !this.disabled}/>
               )
             }
-            <IconCloseCircleFilled v-show={this.showClose && !this.showLoading} name="close" class={`${prefix}-select-right-icon`} size={this.size} onClick={(e: PointerEvent) => this.clear(e)} />
+            <IconCloseCircleFilled v-show={this.showClose && !this.showLoading} name="close" class={`${prefix}-select-right-icon ${prefix}-select-right-icon__clear`} size={this.size} onClick={(e: PointerEvent) => this.clear(e)} />
             <IconLoading v-show={this.showLoading} name="loading" class={`${prefix}-select-right-icon ${prefix}-select-active-icon`} size={this.size} />
           </div>
         </Popup>

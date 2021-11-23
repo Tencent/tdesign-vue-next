@@ -274,18 +274,31 @@ exports[`Button loading demo works fine 1`] = `
     type="button"
   >
     
-    <svg
-      class="t-icon t-icon-loading"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="t-loading t-size-m t-loading-lock t-loading--inherit-color v-transfer-dom"
     >
-      <path
-        d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
-      />
-    </svg>
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <!---->
+    </div>
     <span
       class="t-button__text"
     >
@@ -300,18 +313,31 @@ exports[`Button loading demo works fine 1`] = `
     type="button"
   >
     
-    <svg
-      class="t-icon t-icon-loading"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="t-loading t-size-m t-loading-lock t-loading--inherit-color v-transfer-dom"
     >
-      <path
-        d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
-      />
-    </svg>
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <!---->
+    </div>
     <span
       class="t-button__text"
     >
