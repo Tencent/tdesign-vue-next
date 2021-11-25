@@ -20,7 +20,7 @@ type FooterButtonType = 'confirm' | 'cancel';
 const name = `${prefix}-dialog`;
 
 function GetCSSValue(v: string | number) {
-  return isNaN(Number(v)) ? v : `${Number(v)}px`;
+  return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
 }
 
 // 注册元素的拖拽事件
@@ -55,7 +55,6 @@ function InitDragEvent(dragBox: HTMLElement) {
 export default defineComponent({
   ...mixins(getLocalReceiverMixins('dialog')),
   name,
-
   components: {
     TIconClose,
     TIconInfoCircleFilled,
@@ -78,7 +77,23 @@ export default defineComponent({
 
   props: { ...props },
 
-  emits: ['esc-keydown', 'update:visible', 'overlay-click', 'close-btn-click', 'cancel', 'confirm', 'opened', 'closed', 'close'],
+  emits: [
+    'esc-keydown',
+    'update:visible',
+    'overlay-click',
+    'close-btn-click',
+    'cancel',
+    'confirm',
+    'opened',
+    'closed',
+    'close',
+  ],
+
+  data() {
+    return {
+      scrollWidth: 0,
+    };
+  },
 
   computed: {
     // 是否模态形式的对话框
@@ -126,11 +141,23 @@ export default defineComponent({
 
   watch: {
     visible(value) {
+      const { scrollWidth } = this;
+      let bodyCssText = 'overflow: hidden;';
+      if (value) {
+        if (scrollWidth > 0) {
+          bodyCssText += `position: relative;width: calc(100% - ${scrollWidth}px);`;
+        }
+      } else {
+        document.body.style.cssText = '';
+      }
+      document.body.style.cssText = bodyCssText;
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
     },
   },
-
+  mounted() {
+    this.scrollWidth = window.innerWidth - document.body.offsetWidth;
+  },
   beforeUnmount() {
     this.disPreventScrollThrough(false);
     this.addKeyboardEvent(false);
@@ -233,10 +260,10 @@ export default defineComponent({
           variant="base"
           theme={theme}
           onClick={clickAction}
-          {...isApiObject ? btnApi : {}}
+          {...(isApiObject ? btnApi : {})}
           class={`${name}-${btnType}`}
         >
-          { (btnApi && typeof btnApi === 'object') ? btnApi.content : btnApi }
+          {btnApi && typeof btnApi === 'object' ? btnApi.content : btnApi}
         </t-button>
       );
     },
@@ -280,8 +307,13 @@ export default defineComponent({
           style={this.dialogStyle}
           v-draggable={this.isModeless && this.draggable}
         >
-          <div class={`${name}__header`}>{this.getIcon()}{renderTNodeJSX(this, 'header', defaultHeader)}</div>
-          <span class={`${name}__close`} onClick={this.closeBtnAcion}>{renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}</span>
+          <div class={`${name}__header`}>
+            {this.getIcon()}
+            {renderTNodeJSX(this, 'header', defaultHeader)}
+          </div>
+          <span class={`${name}__close`} onClick={this.closeBtnAcion}>
+            {renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}
+          </span>
           <div class={bodyClassName}>{body}</div>
           <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div>
         </div>

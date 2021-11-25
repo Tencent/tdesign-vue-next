@@ -29,8 +29,8 @@ export type DatePickerLocale = {
   direction: string;
   format: string;
   yearAriaLabel: string;
-  monthAriaLabel: string,
-  confirm: string,
+  monthAriaLabel: string;
+  confirm: string;
   applyLabel: string;
   cancelLabel: string;
   weekLabel: string;
@@ -106,14 +106,14 @@ export interface DatePickerComputed {
   pickerStyles: any;
 }
 
-export type DisableDate = Array<DateValue> | DisableDateObj | ((date: Date | string) => boolean);
-
 export interface DisableDateObj {
   from?: string;
   to?: string;
   before?: string;
   after?: string;
 }
+
+export type DisableDate = Array<DateValue> | DisableDateObj | ((date: Date | string) => boolean);
 
 export interface PresetDate {
   [name: string]: DateValue | (() => DateValue);
@@ -274,7 +274,12 @@ export interface DateHeaderProps {
 }
 export interface DateRangeMethods {
   initialPicker(): void;
-  getLeftAndRightDataFromValue(value: Array<Date>): { leftYear: number; leftMonth: number; rightYear: number; rightMonth: number };
+  getLeftAndRightDataFromValue(value: Array<Date>): {
+    leftYear: number;
+    leftMonth: number;
+    rightYear: number;
+    rightMonth: number;
+  };
   getData(value: { year: number; month: number; type: string }): object;
   getClickHandler(direction: string): object;
   clickHeader(flag: number, direction: string): void;
@@ -331,4 +336,4 @@ export interface Cell {
   value: Date;
 }
 
-export interface DatePickerInstance extends VNode, DatePickerData, DatePickerMethods, DatePickerComputed { }
+export interface DatePickerInstance extends VNode, DatePickerData, DatePickerMethods, DatePickerComputed {}

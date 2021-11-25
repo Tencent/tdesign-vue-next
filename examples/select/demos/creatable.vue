@@ -6,7 +6,7 @@
       filterable
       placeholder="请选择，支持自定义创建"
       :options="options"
-      style="width: 200px;"
+      style="width: 200px"
       @create="createOptions"
     />
   </div>
@@ -15,16 +15,20 @@
 <script>
 import { defineComponent, ref } from 'vue';
 
-const options = [{
-  label: '上海',
-  value: 'shanghai',
-}, {
-  label: '北京',
-  value: 'beijing',
-}, {
-  label: '深圳',
-  value: 'shenzhen',
-}];
+const options = [
+  {
+    label: '上海',
+    value: 'shanghai',
+  },
+  {
+    label: '北京',
+    value: 'beijing',
+  },
+  {
+    label: '深圳',
+    value: 'shenzhen',
+  },
+];
 
 export default defineComponent({
   setup() {

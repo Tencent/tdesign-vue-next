@@ -31,15 +31,15 @@ export default defineComponent({
     },
     isSelectedAll(): boolean {
       return !!(
-        this.canSelectedRows.length
-        && this.canSelectedRows.every((record) => this.selectedRowKeys.includes(get(record, this.reRowKey)))
+        this.canSelectedRows.length &&
+        this.canSelectedRows.every((record) => this.selectedRowKeys.includes(get(record, this.reRowKey)))
       );
     },
     // 判断 indeterminate
     isSelectedSome(): boolean {
       return (
-        !this.isSelectedAll
-        && this.canSelectedRows.some((record) => this.selectedRowKeys.includes(get(record, this.reRowKey)))
+        !this.isSelectedAll &&
+        this.canSelectedRows.some((record) => this.selectedRowKeys.includes(get(record, this.reRowKey)))
       );
     },
   },
@@ -57,13 +57,14 @@ export default defineComponent({
           ...c,
           ...(isSelection
             ? {
-              render: (h, slotProps: Record<string, any>): VNode => this.renderSelectCell({
-                column: c,
-                ...slotProps,
-              }),
-            }
+                render: (h, slotProps: Record<string, any>): VNode =>
+                  this.renderSelectCell({
+                    column: c,
+                    ...slotProps,
+                  }),
+              }
             : {}),
-          ...(isSelection ? ({ title }) : {}),
+          ...(isSelection ? { title } : {}),
         };
       });
     },
@@ -74,7 +75,8 @@ export default defineComponent({
           indeterminate={this.isSelectedSome}
           disabled={!this.canSelectedRows.length}
           onChange={this.handleSelectAll}
-        />);
+        />
+      );
     },
 
     // render
@@ -121,9 +123,9 @@ export default defineComponent({
       const { selectedRowKeys, canSelectedRows, reRowKey } = this;
       const canSelectedRowKeys = canSelectedRows.map((record) => get(record, reRowKey));
       const disabledSelectedRowKeys = selectedRowKeys.filter((id) => !canSelectedRowKeys.includes(id));
-      const allIds = (this.isSelectedAll
-        ? [...disabledSelectedRowKeys]
-        : [...disabledSelectedRowKeys, ...canSelectedRowKeys]) as Array<string | number>;
+      const allIds = (
+        this.isSelectedAll ? [...disabledSelectedRowKeys] : [...disabledSelectedRowKeys, ...canSelectedRowKeys]
+      ) as Array<string | number>;
       const params = {
         selectedRowData: filterDataByIds(this.data, allIds, reRowKey),
         type: this.isSelectedAll ? 'uncheck' : 'check',

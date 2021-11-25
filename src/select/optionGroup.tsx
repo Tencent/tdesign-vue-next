@@ -29,10 +29,8 @@ export default defineComponent({
     const children = renderTNodeJSX(this, 'default');
     return (
       <li class={this.classes}>
-        <ul class={`${name}-header`}>{ this.label }</ul>
-        <ul>
-          {children}
-        </ul>
+        <ul class={`${name}-header`}>{this.label}</ul>
+        <ul>{children}</ul>
       </li>
     );
   },

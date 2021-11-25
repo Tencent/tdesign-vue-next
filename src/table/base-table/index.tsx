@@ -1,15 +1,11 @@
-import {
-  defineComponent, VNode,
-} from 'vue';
+import { defineComponent, VNode } from 'vue';
 import throttle from 'lodash/throttle';
 import mixins from '../../utils/mixins';
 import getLocalReceiverMixins from '../../locale/local-receiver';
 import { prefix } from '../../config';
 import { flatColumns } from '../util/props-util';
 import baseTableProps from '../base-table-props';
-import {
-  DataType, BaseTableCol, TdBaseTableProps, RowEventContext,
-} from '../type';
+import { DataType, BaseTableCol, TdBaseTableProps, RowEventContext } from '../type';
 import TableBody from './table-body';
 import TableHeader from './table-header';
 import TableColGroup from './col-group';
@@ -28,7 +24,11 @@ export default defineComponent({
   ...mixins(getLocalReceiverMixins('table')),
   name: `${prefix}-base-table`,
   components: {
-    TableBody, TableHeader, TableColGroup, Pagination, TLoading,
+    TableBody,
+    TableHeader,
+    TableColGroup,
+    Pagination,
+    TLoading,
   },
   props: {
     ...baseTableProps,
@@ -36,9 +36,7 @@ export default defineComponent({
       type: Object,
       default() {
         return {
-          renderRows(): void {
-
-          },
+          renderRows(): void {},
         };
       },
     },
@@ -90,9 +88,7 @@ export default defineComponent({
       return !!this.loading;
     },
     tableHeight(): number | string {
-      const {
-        height, maxHeight, useFixedHeader, isEmpty,
-      } = this;
+      const { height, maxHeight, useFixedHeader, isEmpty } = this;
       if (isEmpty) {
         return 'auto';
       }
@@ -111,9 +107,7 @@ export default defineComponent({
     },
     // common class
     commonClass(): Array<string> {
-      const {
-        bordered, stripe, hover, size, verticalAlign, hasFixedColumns, fixedHeader,
-      } = this;
+      const { bordered, stripe, hover, size, verticalAlign, hasFixedColumns, fixedHeader } = this;
       const commonClass: Array<string> = ['t-table'];
       if (bordered) {
         commonClass.push(`${prefix}-table--bordered`);
@@ -197,18 +191,15 @@ export default defineComponent({
       window.addEventListener('resize', debounce(this.checkScrollableToLeftOrRight));
     },
     renderHeader(): VNode {
-      const {
-        columns, $slots, bordered,
-      } = this;
-      return <TableHeader
-              columns={columns}
-              bordered={bordered}
-            >{$slots}</TableHeader>;
+      const { columns, $slots, bordered } = this;
+      return (
+        <TableHeader columns={columns} bordered={bordered}>
+          {$slots}
+        </TableHeader>
+      );
     },
     renderBody(): VNode {
-      const {
-        $slots,
-      } = this;
+      const { $slots } = this;
       const rowEvents = {};
       EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
         rowEvents[getPropsApiByEvent(eventName)] = (params: RowEventContext<any>) => {
@@ -225,16 +216,14 @@ export default defineComponent({
         rowspanAndColspan: this.rowspanAndColspan,
       };
       return (
-        <TableBody { ...props } {...rowEvents}>{$slots}</TableBody>
+        <TableBody {...props} {...rowEvents}>
+          {$slots}
+        </TableBody>
       );
     },
     renderEmptyTable(): VNode {
       const useLocale = !this.empty && !this.$slots.empty;
-      return (
-        <div class="t-table--empty">
-          {useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty')}
-        </div>
-      );
+      return <div class="t-table--empty">{useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty')}</div>;
     },
     renderPagination(): VNode {
       const paginationProps = this.pagination;
@@ -280,19 +269,22 @@ export default defineComponent({
       }, 10);
       //  fixed table header
       const paddingRight = `${scrollBarWidth}px`;
-      fixedTable.push(<div class={`${prefix}-table__header`} style={{ paddingRight }} ref="scrollHeader">
+      fixedTable.push(
+        <div class={`${prefix}-table__header`} style={{ paddingRight }} ref="scrollHeader">
           <table style={{ tableLayout, paddingRight }}>
             <TableColGroup columns={columns} />
             {this.renderHeader()}
           </table>
-        </div>);
+        </div>,
+      );
       const containerStyle = {
         height: isNaN(Number(tableHeight)) ? tableHeight : `${Number(tableHeight)}px`,
         width: hasFixedColumns ? '100%' : undefined,
       };
       // fixed table body
-      fixedTable.push(<div
-        class={`${prefix}-table__body`}
+      fixedTable.push(
+        <div
+          class={`${prefix}-table__body`}
           style={containerStyle}
           {...asyncLoadingProps}
           ref="scrollBody"
@@ -303,7 +295,8 @@ export default defineComponent({
             {this.renderBody()}
             {this.renderFooter()}
           </table>
-        </div>);
+        </div>,
+      );
       return fixedTable;
     },
     renderLoadingContent(): VNode {
@@ -311,18 +304,16 @@ export default defineComponent({
     },
     renderFooter() {
       const {
-        flattedColumns: {
-          length: colspan,
-        },
+        flattedColumns: { length: colspan },
       } = this;
       const footerContent: VNode = renderTNodeJSX(this, 'footer');
-      return footerContent ? <tfoot>
-                <tr>
-                  <td colspan={colspan}>
-                    {footerContent}
-                  </td>
-                </tr>
-              </tfoot> : null;
+      return footerContent ? (
+        <tfoot>
+          <tr>
+            <td colspan={colspan}>{footerContent}</td>
+          </tr>
+        </tfoot>
+      ) : null;
     },
     handleScroll(e: WheelEvent) {
       this.checkScrollableToLeftOrRight();
@@ -337,16 +328,7 @@ export default defineComponent({
     },
   },
   render() {
-    const {
-      hasPagination,
-      commonClass,
-      fixedHeader,
-      columns,
-      tableLayout,
-      isLoading,
-      isEmpty,
-      useFixedHeader,
-    } = this;
+    const { hasPagination, commonClass, fixedHeader, columns, tableLayout, isLoading, isEmpty, useFixedHeader } = this;
     const body: Array<VNode> = [];
     // colgroup
     const tableColGroup = <TableColGroup columns={columns} />;
@@ -372,14 +354,17 @@ export default defineComponent({
       body.push(this.renderPagination());
     }
     const handleScroll = throttle(this.handleScroll, 100);
-    const tableContentClass = [`${prefix}-table-content`, {
-      [`${prefix}-table-content--scrollable-to-right`]: this.scrollableToRight,
-      [`${prefix}-table-content--scrollable-to-left`]: this.scrollableToLeft,
-    }];
+    const tableContentClass = [
+      `${prefix}-table-content`,
+      {
+        [`${prefix}-table-content--scrollable-to-right`]: this.scrollableToRight,
+        [`${prefix}-table-content--scrollable-to-left`]: this.scrollableToLeft,
+      },
+    ];
     return (
       <div class={commonClass}>
         <TLoading loading={isLoading} showOverlay text={this.renderLoadingContent}>
-          <div ref='tableContent' class={tableContentClass} onScroll={handleScroll}>
+          <div ref="tableContent" class={tableContentClass} onScroll={handleScroll}>
             {fixedTableContent || <table style={{ tableLayout }}>{tableContent}</table>}
           </div>
           {body}

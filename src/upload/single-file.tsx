@@ -19,10 +19,6 @@ export default defineComponent({
     TIconLoading,
   },
 
-  data() {
-    return {};
-  },
-  
   props: {
     showUploadProgress: props.showUploadProgress,
     file: Object as PropType<UploadFile>,
@@ -65,16 +61,10 @@ export default defineComponent({
       return this.inputName || this.placeholder;
     },
     inputTextClass(): ClassName {
-      return [
-        `${prefix}-input__inner`,
-        { [`${UPLOAD_NAME}__placeholder`]: !this.inputName },
-      ];
+      return [`${prefix}-input__inner`, { [`${UPLOAD_NAME}__placeholder`]: !this.inputName }];
     },
     classes(): ClassName {
-      return [
-        `${UPLOAD_NAME}__single`,
-        `${UPLOAD_NAME}__single-${this.display}`,
-      ];
+      return [`${UPLOAD_NAME}__single`, `${UPLOAD_NAME}__single-${this.display}`];
     },
   },
 
@@ -97,7 +87,8 @@ export default defineComponent({
     renderResult() {
       if (!!this.loadingFile && this.loadingFile.status === 'fail') {
         return <TIconErrorCircleFilled />;
-      } if (this.file && this.file.name && !this.loadingFile) {
+      }
+      if (this.file && this.file.name && !this.loadingFile) {
         return <TIconCheckCircleFilled />;
       }
       return '';
@@ -109,9 +100,14 @@ export default defineComponent({
       return (
         <div class={`${UPLOAD_NAME}__single-display-text t-display-text--margin`}>
           <span class={`${UPLOAD_NAME}__single-name`}>{this.inputName}</span>
-          {this.showProgress
-            ? this.renderProgress()
-            : <TIconClearCircleFilled class={`${UPLOAD_NAME}-icon-delete`} nativeOnClick={(e: MouseEvent) => this.remove(e)}/>}
+          {this.showProgress ? (
+            this.renderProgress()
+          ) : (
+            <TIconClearCircleFilled
+              class={`${UPLOAD_NAME}-icon-delete`}
+              nativeOnClick={(e: MouseEvent) => this.remove(e)}
+            />
+          )}
         </div>
       );
     },
@@ -135,7 +131,11 @@ export default defineComponent({
         {this.showInput && this.renderFilePreviewAsInput()}
         {this.$slots.default && this.$slots.default(null)}
         {this.showTextPreview && this.renderFilePreviewAsText()}
-        {this.showInput && this.showDelete && <span class={`${UPLOAD_NAME}__single-input-delete`} onClick={(e: MouseEvent) => this.remove(e)}>删除</span>}
+        {this.showInput && this.showDelete && (
+          <span class={`${UPLOAD_NAME}__single-input-delete`} onClick={(e: MouseEvent) => this.remove(e)}>
+            删除
+          </span>
+        )}
       </div>
     );
   },

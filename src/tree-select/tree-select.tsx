@@ -35,7 +35,9 @@ export default defineComponent({
   components: {
     Tree,
   },
-  props,
+  props: {
+    ...props,
+  },
   emits: ['change', 'clear', 'focus', 'blur', 'remove', 'search'],
   data() {
     return {
@@ -89,11 +91,11 @@ export default defineComponent({
     },
     showArrow(): boolean {
       return (
-        !this.clearable
-        || !this.isHover
-        || this.disabled
-        || (!this.multiple && !this.value && this.value !== 0)
-        || (this.multiple && isArray(this.value) && isEmpty(this.value))
+        !this.clearable ||
+        !this.isHover ||
+        this.disabled ||
+        (!this.multiple && !this.value && this.value !== 0) ||
+        (this.multiple && isArray(this.value) && isEmpty(this.value))
       );
     },
     showLoading(): boolean {
@@ -101,18 +103,19 @@ export default defineComponent({
     },
     showClose(): boolean {
       return (
-        this.clearable
-        && this.isHover
-        && !this.disabled
-        && ((!this.multiple && (!!this.value || this.value === 0)) || (this.multiple && !isEmpty(this.value as Array<TreeSelectValue>)))
+        this.clearable &&
+        this.isHover &&
+        !this.disabled &&
+        ((!this.multiple && (!!this.value || this.value === 0)) ||
+          (this.multiple && !isEmpty(this.value as Array<TreeSelectValue>)))
       );
     },
     showPlaceholder(): boolean {
       if (
-        !this.showFilter
-        && ((isString(this.value) && this.value === '' && !this.selectedSingle)
-        || (isArray(this.value) && isEmpty(this.value))
-        || this.value === null)
+        !this.showFilter &&
+        ((isString(this.value) && this.value === '' && !this.selectedSingle) ||
+          (isArray(this.value) && isEmpty(this.value)) ||
+          this.value === null)
       ) {
         return true;
       }
@@ -131,7 +134,7 @@ export default defineComponent({
       return !this.loading;
     },
     popupObject(): PopupProps {
-      const propsObject = this.popupProps ? ({ ...this.defaultProps, ...(this.popupProps as any) }) : this.defaultProps;
+      const propsObject = this.popupProps ? { ...this.defaultProps, ...(this.popupProps as any) } : this.defaultProps;
       return propsObject;
     },
     selectedSingle(): string {
@@ -166,15 +169,19 @@ export default defineComponent({
     },
     loadingTextSlot(): VNode {
       const useLocale = !this.loadingText && !this.$slots.loadingText;
-      return useLocale
-        ? <div class={`${prefix}-select-empty`}>{ this.t(this.locale.loadingText) }</div>
-        : renderTNodeJSX(this, 'loadingText');
+      return useLocale ? (
+        <div class={`${prefix}-select-empty`}>{this.t(this.locale.loadingText)}</div>
+      ) : (
+        renderTNodeJSX(this, 'loadingText')
+      );
     },
     emptySlot(): VNode {
       const useLocale = !this.empty && !this.$slots.empty;
-      return useLocale
-        ? <div class={`${prefix}-select-empty`}>{ this.t(this.locale.empty) }</div>
-        : renderTNodeJSX(this, 'empty');
+      return useLocale ? (
+        <div class={`${prefix}-select-empty`}>{this.t(this.locale.empty)}</div>
+      ) : (
+        renderTNodeJSX(this, 'empty')
+      );
     },
     prefixIconSlot(): VNode {
       return renderTNodeJSX(this, 'prefixIcon');
@@ -213,7 +220,9 @@ export default defineComponent({
       await this.change(this.defaultValue, null);
     }
     if (this.isObjectValue) {
-      this.actived = isArray(this.value) ? this.value.map((item) => item.value) : [(this.value as {label: string; value: string|number}).value];
+      this.actived = isArray(this.value)
+        ? this.value.map((item) => item.value)
+        : [(this.value as { label: string; value: string | number }).value];
     } else {
       this.actived = isArray(this.value) ? this.value : [this.value];
     }
@@ -322,12 +331,14 @@ export default defineComponent({
       await this.value;
 
       if (tree && !this.multiple && this.value) {
-        const nodeValue = this.isObjectValue ? (this.value as {label: string; value: string|number}).value : this.value;
+        const nodeValue = this.isObjectValue
+          ? (this.value as { label: string; value: string | number }).value
+          : this.value;
         const node = (tree as any).getItem(nodeValue);
         this.nodeInfo = { label: node.data[this.realLabel], value: node.data[this.realValue] };
       } else if (tree && this.multiple && isArray(this.value)) {
         this.nodeInfo = this.value.map((value) => {
-          const nodeValue = this.isObjectValue ? (value as {label: string; value: string|number}).value : value;
+          const nodeValue = this.isObjectValue ? (value as { label: string; value: string | number }).value : value;
           const node = (tree as any).getItem(nodeValue);
           return { label: node.data[this.realLabel], value: node.data[this.realValue] };
         });
@@ -337,16 +348,10 @@ export default defineComponent({
     },
   },
   render(): VNode {
-    const {
-      treeProps, popupObject, classes, popupClass,
-    } = this;
+    const { treeProps, popupObject, classes, popupClass } = this;
     const iconStyle = { 'font-size': this.size };
     const treeSlots = {
-      empty: () => (
-        <>
-          {this.emptySlot}
-        </>
-      ),
+      empty: () => <>{this.emptySlot}</>,
     };
     const treeItem = (
       <tree
@@ -387,34 +392,33 @@ export default defineComponent({
         onFocus={(value: InputValue, context: { e: FocusEvent }) => this.focus(context.e)}
       />
     );
-    const tagItem = (
-      this.tagList.map((label, index) => (
-        <Tag
-          key={index}
-          size={this.size}
-          closable={!this.disabled}
-          disabled={this.disabled}
-          onClose={(context: { e: MouseEvent }) => this.removeTag(index, null, context.e)}
-        >
-          {label}
-        </Tag>
-      ))
-    );
-    const collapsedItem = (this.collapsedItems || this.$slots.collapsedItems) && this.minCollapsedNum > 0 && this.tagList.length > this.minCollapsedNum
-      ? renderTNodeJSX(this, 'collapsedItems',
-        {
+    const tagItem = this.tagList.map((label, index) => (
+      <Tag
+        key={index}
+        size={this.size}
+        closable={!this.disabled}
+        disabled={this.disabled}
+        onClose={(context: { e: MouseEvent }) => this.removeTag(index, null, context.e)}
+      >
+        {label}
+      </Tag>
+    ));
+    const collapsedItem =
+      (this.collapsedItems || this.$slots.collapsedItems) &&
+      this.minCollapsedNum > 0 &&
+      this.tagList.length > this.minCollapsedNum ? (
+        renderTNodeJSX(this, 'collapsedItems', {
           params: {
             count: this.tagList.length - this.minCollapsedNum,
             value: this.selectedMultiple,
             collapsedSelectedItems: this.selectedMultiple.slice(this.minCollapsedNum),
           },
         })
-      : (<Tag
-      v-show={this.minCollapsedNum > 0 && this.tagList.length > this.minCollapsedNum}
-      size={this.size}
-    >
-      { `+${this.tagList.length - this.minCollapsedNum}` }
-    </Tag>);
+      ) : (
+        <Tag v-show={this.minCollapsedNum > 0 && this.tagList.length > this.minCollapsedNum} size={this.size}>
+          {`+${this.tagList.length - this.minCollapsedNum}`}
+        </Tag>
+      );
     const slots = {
       content: () => (
         <>
@@ -426,7 +430,7 @@ export default defineComponent({
       ),
     };
     return (
-      <div ref='treeSelect'>
+      <div ref="treeSelect">
         <Popup
           ref="popup"
           class={`${prefix}-select-popup-reference`}
@@ -440,30 +444,39 @@ export default defineComponent({
           expandAnimation={true}
           v-slots={slots}
         >
-          <div
-            class={classes}
-            onmouseenter={() => this.isHover = true}
-            onmouseleave={() => this.isHover = false}
-          >
-            {
-              this.prefixIconSlot && (<span class={`${prefix}-select-left-icon`}>{this.prefixIconSlot[0]}</span>)
-            }
-            <span v-show={this.showPlaceholder} class={`${prefix}-select-placeholder`}>{this.placeholder}</span>
+          <div class={classes} onmouseenter={() => (this.isHover = true)} onmouseleave={() => (this.isHover = false)}>
+            {this.prefixIconSlot && <span class={`${prefix}-select-left-icon`}>{this.prefixIconSlot[0]}</span>}
+            <span v-show={this.showPlaceholder} class={`${prefix}-select-placeholder`}>
+              {this.placeholder}
+            </span>
             {tagItem}
             {collapsedItem}
-            {
-              !this.multiple && !this.showPlaceholder && !this.showFilter && (
-                <span title={this.selectedSingle} class={`${prefix}-select-selectedSingle`}>{this.selectedSingle}</span>
-              )
-            }
+            {!this.multiple && !this.showPlaceholder && !this.showFilter && (
+              <span title={this.selectedSingle} class={`${prefix}-select-selectedSingle`}>
+                {this.selectedSingle}
+              </span>
+            )}
             {searchInput}
-            {
-              this.showArrow && !this.showLoading && (
-                <FakeArrow overlayClassName={`${prefix}-select-right-icon`} overlayStyle={iconStyle} isActive={this.visible && !this.disabled}/>
-              )
-            }
-            <IconCloseCircleFilled v-show={this.showClose && !this.showLoading} name="close" class={`${prefix}-select-right-icon`} size={this.size} onClick={(e: PointerEvent) => this.clear(e)} />
-            <IconLoading v-show={this.showLoading} name="loading" class={`${prefix}-select-right-icon ${prefix}-select-active-icon`} size={this.size} />
+            {this.showArrow && !this.showLoading && (
+              <FakeArrow
+                overlayClassName={`${prefix}-select-right-icon`}
+                overlayStyle={iconStyle}
+                isActive={this.visible && !this.disabled}
+              />
+            )}
+            <IconCloseCircleFilled
+              v-show={this.showClose && !this.showLoading}
+              name="close"
+              class={`${prefix}-select-right-icon ${prefix}-select-right-icon__clear`}
+              size={this.size}
+              onClick={(e: PointerEvent) => this.clear(e)}
+            />
+            <IconLoading
+              v-show={this.showLoading}
+              name="loading"
+              class={`${prefix}-select-right-icon ${prefix}-select-active-icon`}
+              size={this.size}
+            />
           </div>
         </Popup>
       </div>

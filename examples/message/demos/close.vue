@@ -1,35 +1,19 @@
 <template>
   <div class="t-demo-message">
-    <t-message
-      v-if="isShowMsg"
-      :close-btn="true"
-      @click-close-btn="isShowMsg = false"
-    >
+    <t-message v-if="isShowMsg" :close-btn="true" @click-close-btn="isShowMsg = false">
       点击关闭按钮触发事件 click-close-btn
     </t-message>
 
-    <t-message
-      v-if="closableMsg"
-      close-btn="关闭"
-      @click-close-btn="closableMsg = false"
-    >
+    <t-message v-if="closableMsg" close-btn="关闭" @click-close-btn="closableMsg = false">
       自定义关闭按钮（文字）
     </t-message>
 
-    <t-message
-      v-if="closableMsg1"
-      :close-btn="closeBtn"
-    >
-      自定义关闭按钮（函数）
-    </t-message>
+    <t-message v-if="closableMsg1" :close-btn="closeBtn"> 自定义关闭按钮（函数） </t-message>
 
     <t-message v-if="closableMsg2">
       自定义关闭按钮（插槽）
       <template #closeBtn>
-        <div
-          class="t-message-close"
-          @click="closableMsg2 = false"
-        >
+        <div class="t-message-close" @click="closableMsg2 = false">
           <b>x</b>
         </div>
       </template>
@@ -55,7 +39,7 @@ export default defineComponent({
       closeBtn() {
         return (
           <div
-            class='t-message-close'
+            class="t-message-close"
             onClick={() => {
               closableMsg1.value = false;
             }}
@@ -69,10 +53,10 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
-  .t-demo-message {
-    .t-message,
-    .t-button {
-      margin-bottom: 16px;
-    }
+.t-demo-message {
+  .t-message,
+  .t-button {
+    margin-bottom: 16px;
   }
-  </style>
+}
+</style>

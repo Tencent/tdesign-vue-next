@@ -62,7 +62,7 @@ describe('List', () => {
     it(':asyncLoading is load-more', () => {
       const wrapper = mount({
         render() {
-          return <List asyncLoading='load-more'>text</List>;
+          return <List asyncLoading="load-more">text</List>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -273,7 +273,7 @@ describe('ListItem', () => {
         render() {
           return (
             <ListItem
-              v-slots={ {
+              v-slots={{
                 action: () => <span>This is a action</span>,
               }}
             ></ListItem>

@@ -3,9 +3,7 @@ import * as components from './components';
 
 function install(app: App, config?: Record<string, unknown>): void {
   Object.keys(components).forEach((key) => {
-    /plugin/i.test(key)
-      ? app.use(components[key])
-      : app.use(components[key], config);
+    /plugin/i.test(key) ? app.use(components[key]) : app.use(components[key], config);
   });
 }
 

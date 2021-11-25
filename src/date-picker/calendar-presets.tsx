@@ -37,11 +37,12 @@ export default defineComponent({
     return (
       <div class={`${prefix}-date-picker-presets`}>
         <ul>
-        {presets && Object.keys(presets).map((key: string) => (
-          <li key={key}>
-            <a onClick={() => this.clickPreset(presets[key])}>{ key }</a>
-          </li>
-        ))}
+          {presets &&
+            Object.keys(presets).map((key: string) => (
+              <li key={key}>
+                <a onClick={() => this.clickPreset(presets[key])}>{key}</a>
+              </li>
+            ))}
         </ul>
       </div>
     );

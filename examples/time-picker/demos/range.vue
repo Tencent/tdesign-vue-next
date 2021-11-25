@@ -1,12 +1,6 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-time-range-picker
-      v-model="time"
-      class="demos"
-      clearable
-      format="HH:mm:ss"
-      allow-input
-    />
+    <t-time-range-picker v-model="time" class="demos" clearable format="HH:mm:ss" allow-input />
   </div>
 </template>
 

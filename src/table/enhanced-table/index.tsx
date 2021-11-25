@@ -44,8 +44,6 @@ export default defineComponent({
       columns: this.columnsSource,
       ...listeners,
     };
-    return (
-      <PrimaryTable {...primaryTableProps}>{$slots}</PrimaryTable>
-    );
+    return <PrimaryTable {...primaryTableProps}>{$slots}</PrimaryTable>;
   },
 });

@@ -1,12 +1,7 @@
 <template>
   <div>
-    <div
-      class="table-operations"
-      style="margin: 16px"
-    >
-      <t-button @click="setFilters">
-        清除筛选条件
-      </t-button>
+    <div class="table-operations" style="margin: 16px">
+      <t-button @click="setFilters"> 清除筛选条件 </t-button>
       <span style="padding-left: 36px">已选筛选条件：{{ filterValue }}</span>
     </div>
 
@@ -104,13 +99,7 @@ const columns = [
     // 日期过滤配置
     filter: {
       type: 'custom',
-      component: () => (
-        <t-date-picker
-          theme="primary"
-          range
-          mode="month"
-        />
-      ),
+      component: () => <t-date-picker theme="primary" range mode="month" />,
     },
   },
 ];

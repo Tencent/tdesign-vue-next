@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import TIconLoading from '../icon/loading';
+import TLoading from '../loading';
 import props from './props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import ripple from '../utils/ripple';
@@ -15,7 +15,7 @@ export default defineComponent({
   props,
   render() {
     let buttonContent = renderContent(this, 'default', 'content');
-    const icon = this.loading ? <TIconLoading/> : renderTNodeJSX(this, 'icon');
+    const icon = this.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX(this, 'icon');
     const disabled = this.disabled || this.loading;
     const iconOnly = icon && !buttonContent;
 

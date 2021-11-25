@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
 import config from './site.config';
-import TdesignComponents from './components/components.vue';
+import TdesignComponents from './components/components.jsx';
 import TdesignDemoPage from './components/demo-page.vue';
-import TdesignPlayground from './components/playground.vue';
+import TdesignPlayground from './pages/playground/index.vue';
 
 const { docs } = config;
 
@@ -70,20 +70,20 @@ const routes = [
     path: '/',
     redirect: '/vue-next/components/button',
   },
-  ...demoRoutes
+  ...demoRoutes,
 ];
 
-if(process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   routes.push({
     path: '/vue-next/playground',
     component: TdesignPlayground,
-  })
+  });
 }
 
 const routerConfig = {
   history: createWebHistory(),
   routes,
-  scrollBehavior: function(to, from) {
+  scrollBehavior(to, from) {
     if (to.path !== from.path) {
       return { top: 0 };
     }

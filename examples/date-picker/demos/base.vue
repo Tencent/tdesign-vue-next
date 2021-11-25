@@ -1,11 +1,6 @@
 <template>
   <div class="tdesign-demo-item--datepicker">
-    <t-date-picker
-      v-model="date"
-      theme="primary"
-      mode="date"
-      clearable
-    />
+    <t-date-picker v-model="date" theme="primary" mode="date" clearable />
   </div>
 </template>
 <script>

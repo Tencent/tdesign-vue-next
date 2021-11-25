@@ -23,10 +23,6 @@ export default defineComponent({
   },
   render() {
     const { CLASS } = this;
-    return (
-      <div class={CLASS}>
-        {this.$slots.default && this.$slots.default(null)}
-      </div>
-    );
+    return <div class={CLASS}>{this.$slots.default && this.$slots.default(null)}</div>;
   },
 });

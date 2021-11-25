@@ -1,15 +1,7 @@
-import {
-  App, createApp, ref, defineComponent, h,
-} from 'vue';
+import { App, createApp, ref, defineComponent, h } from 'vue';
 import DialogComponent from './dialog';
 import { getAttach } from '../utils/dom';
-import {
-  DialogOptions,
-  DialogMethod,
-  DialogConfirmMethod,
-  DialogAlertMethod,
-  DialogInstance,
-} from './type';
+import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from './type';
 
 const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };
@@ -22,9 +14,11 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
       };
     },
     render() {
-      const onClose = options.onClose || function () {
-        visible.value = false;
-      };
+      const onClose =
+        options.onClose ||
+        function () {
+          visible.value = false;
+        };
       return h(DialogComponent, {
         onClose,
         visible: visible.value,

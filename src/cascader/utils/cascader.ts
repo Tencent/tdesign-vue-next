@@ -1,7 +1,5 @@
 import { getFullPathLabel, getTreeValue } from './helper';
-import {
-  TreeNode, TreeNodeValue, CascaderContextType,
-} from '../interface';
+import { TreeNode, TreeNodeValue, CascaderContextType } from '../interface';
 
 /**
  * input和treeStore变化的副作用

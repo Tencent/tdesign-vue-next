@@ -159,7 +159,7 @@ exports[`Message closeAll demo works fine 1`] = `
 exports[`Message offset demo works fine 1`] = `
 <div>
   <p>
-     偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。 
+    偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。
   </p>
   <br />
   <button

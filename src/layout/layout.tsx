@@ -41,10 +41,6 @@ export default defineComponent({
   },
 
   render() {
-    return (
-      <section class={this.classes}>
-        {this.renderContent()}
-      </section>
-    );
+    return <section class={this.classes}>{this.renderContent()}</section>;
   },
 });

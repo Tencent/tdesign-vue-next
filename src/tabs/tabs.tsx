@@ -1,5 +1,13 @@
 import {
-  Component, defineComponent, getCurrentInstance, onMounted, onUpdated, ref, Fragment, ComponentInternalInstance, VNode,
+  Component,
+  defineComponent,
+  getCurrentInstance,
+  onMounted,
+  onUpdated,
+  ref,
+  Fragment,
+  ComponentInternalInstance,
+  VNode,
 } from 'vue';
 import { prefix } from '../config';
 import TTabNav from './tab-nav.vue';
@@ -43,10 +51,15 @@ export default defineComponent({
       if (slots.default) {
         // eslint-disable-next-line prefer-destructuring
         const { children } = instance.subTree.children[0];
-        const content = Array.from(children as ArrayLike<VNode>).find(({ props }) => props.class === `${prefix}-tabs__content`);
+        const content = Array.from(children as ArrayLike<VNode>).find(
+          ({ props }) => props.class === `${prefix}-tabs__content`,
+        );
         if (!content) return;
         const panelInstanceList = getPaneInstanceFromSlot(content);
-        const isChanged = !(panelInstanceList.length === panels.value.length && panelInstanceList.every((panel, index) => panel.uid === panels.value[index].uid));
+        const isChanged = !(
+          panelInstanceList.length === panels.value.length &&
+          panelInstanceList.every((panel, index) => panel.uid === panels.value[index].uid)
+        );
         if (isChanged) {
           panels.value = panelInstanceList;
         }
@@ -107,18 +120,7 @@ export default defineComponent({
     },
 
     genTabNav() {
-      const {
-        theme,
-        panels,
-        value,
-        size,
-        disabled,
-        placement,
-        addable,
-        tabChange,
-        tabAdd,
-        tabRemove,
-      } = this;
+      const { theme, panels, value, size, disabled, placement, addable, tabChange, tabAdd, tabRemove } = this;
       const data = {
         props: {
           theme,
@@ -134,9 +136,7 @@ export default defineComponent({
         },
         ref: 'nav',
       };
-      return (
-        <t-tab-nav {...data.props} ref="nav" />
-      );
+      return <t-tab-nav {...data.props} ref="nav" />;
     },
 
     genTabHeader() {
@@ -148,7 +148,7 @@ export default defineComponent({
             [`${prefix}-is-${this.placement}`]: true,
           }}
         >
-          { this.genTabNav() }
+          {this.genTabNav()}
         </div>
       );
     },
@@ -156,7 +156,7 @@ export default defineComponent({
     genTabContent() {
       return (
         <div key="tab-content" class={{ [`${prefix}-tabs__content`]: true }}>
-          { this.$slots.default?.() }
+          {this.$slots.default?.()}
         </div>
       );
     },
@@ -166,11 +166,6 @@ export default defineComponent({
     // 性能优化: 在tab和content加一个key, 在上下左右切换选项卡时, 可以快速让content和content diff, header和header diff
     const header = this.genTabHeader();
     const content = this.genTabContent();
-    return (
-      <div class="t-tabs">
-        { this.placement !== 'bottom' ? [header, content] : [content, header] }
-      </div>
-    );
+    return <div class="t-tabs">{this.placement !== 'bottom' ? [header, content] : [content, header]}</div>;
   },
-
 });

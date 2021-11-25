@@ -2,10 +2,7 @@
   <div class="switch-demo">
     <div class="tdesign-demo-block">
       <t-switch v-model="checked1" />
-      <t-switch
-        v-model="checked2"
-        loading
-      />
+      <t-switch v-model="checked2" loading />
       <t-switch disabled />
     </div>
   </div>

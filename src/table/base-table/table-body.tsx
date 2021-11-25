@@ -26,9 +26,7 @@ export default defineComponent({
       type: Object,
       default() {
         return {
-          renderRows(): void {
-
-          },
+          renderRows(): void {},
         };
       },
     },
@@ -53,12 +51,13 @@ export default defineComponent({
         }
         columns.forEach((col, colIndex) => {
           const { colKey } = col;
-          let { rowspan, colspan } = rowspanAndColspan({
-            col,
-            colIndex,
-            row: rowData,
-            rowIndex,
-          }) || {};
+          let { rowspan, colspan } =
+            rowspanAndColspan({
+              col,
+              colIndex,
+              row: rowData,
+              rowIndex,
+            }) || {};
           rowspan = rowspan || 1;
           colspan = colspan || 1;
           // 剩余要跨的行
@@ -112,18 +111,15 @@ export default defineComponent({
       return props;
     },
     renderBody(): Array<VNode> {
-      const {
-        data, rowClassName, rowKey, $slots: slots, rowspanAndColspan, selectedRowKeys, selectColumn,
-      } = this;
+      const { data, rowClassName, rowKey, $slots: slots, rowspanAndColspan, selectedRowKeys, selectColumn } = this;
       const body: Array<VNode> = [];
       let allRowspanAndColspanProps: any;
       if (typeof rowspanAndColspan === 'function') {
         allRowspanAndColspanProps = this.getRowspanAndColspanProps();
       }
       data.forEach((row: any, index: number) => {
-        const defaultRowClass = typeof rowClassName === 'function'
-          ? rowClassName({ row, rowIndex: index })
-          : rowClassName;
+        const defaultRowClass =
+          typeof rowClassName === 'function' ? rowClassName({ row, rowIndex: index }) : rowClassName;
         let rowClass: Array<string> = [];
         if (defaultRowClass) {
           rowClass = rowClass.concat(defaultRowClass);
@@ -131,12 +127,12 @@ export default defineComponent({
         const rowspanAndColspanProps = allRowspanAndColspanProps ? allRowspanAndColspanProps[index] : undefined;
         let rowVnode: VNode;
         const key = rowKey ? get(row, rowKey) : index + this.current;
-        const {
-          columns, current, provider, onRowHover, onRowMouseup, onRowMousedown, onRowDbClick, onRowClick,
-        } = this.$props;
-        const disabled = typeof selectColumn.disabled === 'function'
-          ? selectColumn.disabled({ row, rowIndex: index })
-          : selectColumn.disabled;
+        const { columns, current, provider, onRowHover, onRowMouseup, onRowMousedown, onRowDbClick, onRowClick } =
+          this.$props;
+        const disabled =
+          typeof selectColumn.disabled === 'function'
+            ? selectColumn.disabled({ row, rowIndex: index })
+            : selectColumn.disabled;
         if (disabled) {
           rowClass.push(`${prefix}-table__row--disabled`);
         }
@@ -163,22 +159,32 @@ export default defineComponent({
             onRowClick,
             onRowDragstart: () => {
               emitEvent(this, 'row-dragstart', {
-                index, data: row,
+                index,
+                data: row,
               });
             },
             onRowDragover: ({ e }: { e: MouseEvent }) => {
               e.preventDefault();
               emitEvent(this, 'row-dragover', {
-                index, data: row, vNode: rowVnode,
+                index,
+                data: row,
+                vNode: rowVnode,
               });
             },
           },
         };
-        rowVnode = <TableRow rowKey={this.rowKey} {...props}>{slots}</TableRow>;
+        rowVnode = (
+          <TableRow rowKey={this.rowKey} {...props}>
+            {slots}
+          </TableRow>
+        );
         // 按行渲染
         body.push(rowVnode);
         provider.renderRows({
-          rows: body, row, rowIndex: index, columns: this.columns,
+          rows: body,
+          row,
+          rowIndex: index,
+          columns: this.columns,
         });
       });
       return body;
@@ -187,9 +193,11 @@ export default defineComponent({
   render() {
     if (this.provider.sortOnRowDraggable) {
       const className = `table-body ${this.provider.dragging ? 'dragging' : ''}`;
-      return <transition-group class={className} tag='tbody'>
-        {this.renderBody()}
-      </transition-group>;
+      return (
+        <transition-group class={className} tag="tbody">
+          {this.renderBody()}
+        </transition-group>
+      );
     }
     return <tbody class="table-body">{this.renderBody()}</tbody>;
   },

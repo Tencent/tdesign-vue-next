@@ -25,7 +25,7 @@
     </div>
   </div>
 </template>
-<script lang='jsx'>
+<script lang="jsx">
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({

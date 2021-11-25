@@ -1,6 +1,4 @@
-import {
-  defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance, watch,
-} from 'vue';
+import { defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance, watch } from 'vue';
 import { prefix } from '../config';
 import props from './submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
@@ -22,15 +20,13 @@ export default defineComponent({
   props,
   setup(props, ctx) {
     const menu = inject<TdMenuInterface>('TdMenu');
-    const {
-      theme, activeValues, expandValues, mode, isHead, selectSubMenu, open,
-    } = menu;
+    const { theme, activeValues, expandValues, mode, isHead, selectSubMenu, open } = menu;
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', null);
 
     const menuItems = ref([]); // 因composition-api的缺陷，不用reactive， 详见：https://github.com/vuejs/composition-api/issues/637
     const isActive = computed(() => activeValues.value.indexOf(props.value) > -1);
     const popupVisible = ref(false);
-    const rippleColor = computed(() => theme.value === 'light' ? '#E7E7E7' : '#383838');
+    const rippleColor = computed(() => (theme.value === 'light' ? '#E7E7E7' : '#383838'));
     const isOpen = computed(() => {
       if (mode.value === 'popup') {
         return popupVisible.value;
@@ -152,15 +148,16 @@ export default defineComponent({
         <div v-ripple={this.rippleColor} class={this.submenuClass} onClick={this.handleHeadmenuItemClick}>
           {renderTNodeJSX(this, 'title')}
         </div>,
-        <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">
-        {renderContent(this, 'default', 'content')}
-        </ul>,
+        <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">{renderContent(this, 'default', 'content')}</ul>,
       ];
 
       const popupSubmenu = [
         <div class={this.submenuClass}>
           {renderTNodeJSX(this, 'title')}
-          <FakeArrow overlayClassName={this.arrowClass} overlayStyle={{ transform: `rotate(${this.isNested ? -90 : 0}deg)` }} />
+          <FakeArrow
+            overlayClassName={this.arrowClass}
+            overlayStyle={{ transform: `rotate(${this.isNested ? -90 : 0}deg)` }}
+          />
         </div>,
         <div ref="popup" class={this.popupClass}>
           <ul ref="popupInner" class={`${prefix}-menu__popup-wrapper`}>
@@ -185,7 +182,12 @@ export default defineComponent({
         <div v-ripple={this.rippleColor} class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
           {icon}
           <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title')}</span>
-          {hasContent && <FakeArrow overlayClassName={this.arrowClass} overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }} />}
+          {hasContent && (
+            <FakeArrow
+              overlayClassName={this.arrowClass}
+              overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
+            />
+          )}
         </div>,
         <ul class={this.subClass} style={{ '--padding-left': `${paddingLeft}px` }}>
           {child}
@@ -196,7 +198,10 @@ export default defineComponent({
         <div class={this.submenuClass}>
           {icon}
           <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title')}</span>
-          <FakeArrow overlayClassName={this.arrowClass} overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }} />
+          <FakeArrow
+            overlayClassName={this.arrowClass}
+            overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
+          />
         </div>,
         <div ref="popup" class={this.popupClass}>
           <ul ref="popupInner" class={`${prefix}-menu__popup-wrapper`}>
@@ -222,7 +227,7 @@ export default defineComponent({
       child = this.isHead ? this.renderHeadSubmenu() : this.renderSubmenu();
     }
     return (
-      <li class={this.classes} { ...events }>
+      <li class={this.classes} {...events}>
         {child}
       </li>
     );

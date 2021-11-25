@@ -6,11 +6,13 @@ import { prefix } from '../../config';
 
 export default defineComponent({
   name: `${prefix}-table-header`,
+  components: {
+    TableCell,
+  },
   props: {
     columns: baseTableProps.columns,
     bordered: baseTableProps.bordered,
   },
-
   methods: {
     renderHeader(): Array<VNode> {
       const trContentList: Array<any> = [];
@@ -44,7 +46,11 @@ export default defineComponent({
         const { children } = column;
         if (!children || children?.length === 0) {
           // 上一行有跨行到当前行且单元格是当前行的第一列，要带上边框。
-          const withBorder = currentRowIndex > 0 && this.bordered && thContent.length === 0 && trContentList[currentRowIndex].length === 0;
+          const withBorder =
+            currentRowIndex > 0 &&
+            this.bordered &&
+            thContent.length === 0 &&
+            trContentList[currentRowIndex].length === 0;
           thContent[colIndex] = this.renderCell(column, rowspan, 1, colIndex, currentRowIndex, withBorder);
           currentColSpan += 1;
         }
@@ -53,7 +59,14 @@ export default defineComponent({
       return currentColSpan;
     },
 
-    renderCell(column: BaseTableCol, rowspan: number, colspan: number, colIndex: number, currentRowIndex: number, withBorder?: boolean): VNode {
+    renderCell(
+      column: BaseTableCol,
+      rowspan: number,
+      colspan: number,
+      colIndex: number,
+      currentRowIndex: number,
+      withBorder?: boolean,
+    ): VNode {
       const { title, render } = column;
       const customData = {
         type: 'title',
@@ -67,10 +80,11 @@ export default defineComponent({
           customRender = () => title;
         }
       } else if (typeof title === 'function') {
-        customRender = (h: any, params: CellData<any>) => (title(h, {
-          colIndex: params.colIndex,
-          col: params.col,
-        }));
+        customRender = (h: any, params: CellData<any>) =>
+          title(h, {
+            colIndex: params.colIndex,
+            col: params.col,
+          });
       } else if (typeof render === 'function') {
         customRender = render;
         customData.func = 'render';
@@ -87,8 +101,9 @@ export default defineComponent({
         withBorder,
       };
 
-      // @ts-ignore: TODO
-      return <TableCell ref={`${currentRowIndex}_${colIndex}`} cellData={cellData} colspan={colspan} rowspan={rowspan} />;
+      return (
+        <table-cell ref={`${currentRowIndex}_${colIndex}`} cellData={cellData} colspan={colspan} rowspan={rowspan} />
+      );
     },
   },
   render() {

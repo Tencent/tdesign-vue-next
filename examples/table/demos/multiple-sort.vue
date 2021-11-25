@@ -1,37 +1,13 @@
 <template>
   <div class="demo-container">
     <div class="item">
-      <div style="margin: 16px">
-        排序方式：{{ JSON.stringify(sort) }}
-      </div>
+      <div style="margin: 16px">排序方式：{{ JSON.stringify(sort) }}</div>
       <!-- 支持受控用法 ，也支持非受控用法 -->
-      <t-table
-        row-key="id"
-        :columns="columns"
-        :data="data"
-        :sort="sort"
-        multiple-sort
-        @sort-change="sortChange"
-      >
+      <t-table row-key="id" :columns="columns" :data="data" :sort="sort" multiple-sort @sort-change="sortChange">
         <template #status="{ row }">
-          <p
-            v-if="row.status === 0"
-            class="status"
-          >
-            健康
-          </p>
-          <p
-            v-if="row.status === 1"
-            class="status warning"
-          >
-            警告
-          </p>
-          <p
-            v-if="row.status === 2"
-            class="status unhealth"
-          >
-            异常
-          </p>
+          <p v-if="row.status === 0" class="status">健康</p>
+          <p v-if="row.status === 1" class="status warning">警告</p>
+          <p v-if="row.status === 2" class="status unhealth">异常</p>
         </template>
       </t-table>
     </div>
@@ -44,37 +20,64 @@ import { defineComponent, ref } from 'vue';
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
   {
-    colKey: 'status', title: '状态', width: 100, sortType: 'all', sorter: true,
+    colKey: 'status',
+    title: '状态',
+    width: 100,
+    sortType: 'all',
+    sorter: true,
   },
   {
-    colKey: 'survivalTime', title: '存活时间(s)', width: 200, sortType: 'all', sorter: true,
+    colKey: 'survivalTime',
+    title: '存活时间(s)',
+    width: 200,
+    sortType: 'all',
+    sorter: true,
   },
   { colKey: 'owner', title: '管理员', width: 100 },
 ];
 const data = [
   {
-    id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', survivalTime: 1000,
+    id: 1,
+    instance: 'JQTest1',
+    status: 0,
+    owner: 'jenny;peter',
+    survivalTime: 1000,
   },
   {
-    id: 2, instance: 'JQTest2', status: 1, owner: 'jenny', survivalTime: 1000,
+    id: 2,
+    instance: 'JQTest2',
+    status: 1,
+    owner: 'jenny',
+    survivalTime: 1000,
   },
   {
-    id: 3, instance: 'JQTest3', status: 2, owner: 'jenny', survivalTime: 500,
+    id: 3,
+    instance: 'JQTest3',
+    status: 2,
+    owner: 'jenny',
+    survivalTime: 500,
   },
   {
-    id: 4, instance: 'JQTest4', status: 1, owner: 'peter', survivalTime: 1500,
+    id: 4,
+    instance: 'JQTest4',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
   },
 ];
 
 export default defineComponent({
   setup() {
-    const sort = ref([{
-      sortBy: 'status',
-      descending: true,
-    }, {
-      sortBy: 'survivalTime',
-      descending: false,
-    }]);
+    const sort = ref([
+      {
+        sortBy: 'status',
+        descending: true,
+      },
+      {
+        sortBy: 'survivalTime',
+        descending: false,
+      },
+    ]);
 
     const sortChange = (val) => {
       sort.value = val;

@@ -69,7 +69,7 @@ export default defineComponent({
             }
             return (
               <div class={this.classes} onClick={this.onLoadClick}>
-                {asyncLoading === 'loading' && <GradientIcon size='small' />}
+                {asyncLoading === 'loading' && <GradientIcon size="small" />}
                 {loadingText}
               </div>
             );

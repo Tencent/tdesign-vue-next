@@ -275,12 +275,7 @@ interface OptionsType {
 
 export function getWeeks(
   { year, month }: { year: number; month: number },
-  {
-    firstDayOfWeek,
-    disableDate = () => false,
-    minDate,
-    maxDate,
-  }: OptionsType,
+  { firstDayOfWeek, disableDate = () => false, minDate, maxDate }: OptionsType,
 ) {
   const prependDay = getFirstDayOfMonth({ year, month });
 
@@ -310,7 +305,7 @@ export function getWeeks(
   if (prependDay.getDay() !== firstDayOfWeek) {
     prependDay.setDate(0); // 上一月
 
-    while (true) {
+    while (prependDay.getDay() !== Math.abs(firstDayOfWeek + 6) % 7) {
       daysArr.unshift({
         text: prependDay.getDate().toString(),
         active: false,
@@ -320,7 +315,6 @@ export function getWeeks(
         type: 'prev-month',
       });
       prependDay.setDate(prependDay.getDate() - 1);
-      if (prependDay.getDay() === Math.abs(firstDayOfWeek + 6) % 7) break;
     }
   }
 
@@ -341,14 +335,7 @@ export function getWeeks(
   return chunk(daysArr, 7);
 }
 
-export function getYears(
-  year: number,
-  {
-    disableDate = () => false,
-    minDate,
-    maxDate,
-  }: OptionsType,
-) {
+export function getYears(year: number, { disableDate = () => false, minDate, maxDate }: OptionsType) {
   const startYear = parseInt((year / 10).toString(), 10) * 10;
   const endYear = startYear + 9;
 
@@ -423,24 +410,28 @@ export function flagActive(data: any[], { ...args }: any) {
   const { start, end, type = 'date' } = args;
 
   if (!end) {
-    return data.map((row: any[]) => row.map((item: DateTime) => {
-      const ITEM = item;
-      ITEM.active = isSame(item.value, start, type);
-      return ITEM;
-    }));
+    return data.map((row: any[]) =>
+      row.map((item: DateTime) => {
+        const ITEM = item;
+        ITEM.active = isSame(item.value, start, type);
+        return ITEM;
+      }),
+    );
   }
 
-  return data.map((row: any[]) => row.map((item: DateTime) => {
-    const ITEM = item;
-    const date = item.value;
-    const isStart = isSame(start, date, type);
-    const isEnd = isSame(end, date, type);
-    ITEM.active = isStart || isEnd;
-    ITEM.highlight = isBetween(date, { start, end });
-    ITEM.startOfRange = isStart;
-    ITEM.endOfRange = isEnd;
-    return ITEM;
-  }));
+  return data.map((row: any[]) =>
+    row.map((item: DateTime) => {
+      const ITEM = item;
+      const date = item.value;
+      const isStart = isSame(start, date, type);
+      const isEnd = isSame(end, date, type);
+      ITEM.active = isStart || isEnd;
+      ITEM.highlight = isBetween(date, { start, end });
+      ITEM.startOfRange = isStart;
+      ITEM.endOfRange = isEnd;
+      return ITEM;
+    }),
+  );
 }
 
 // extract time format from a completed date format 'YYYY-MM-DD HH:mm' -> 'HH:mm'

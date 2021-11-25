@@ -1,10 +1,6 @@
 <template>
   <div>
-    <t-drawer
-      v-model:visible="visible"
-      header="标题名称"
-      @close="handleClose"
-    >
+    <t-drawer v-model:visible="visible" header="标题名称" @close="handleClose">
       <div class="t-drawer-demo-div">
         <span>标签 A</span>
         <t-input />
@@ -18,12 +14,7 @@
         <t-input />
       </div>
     </t-drawer>
-    <t-button
-      variant="outline"
-      @click="handleClick"
-    >
-      打开抽屉
-    </t-button>
+    <t-button variant="outline" @click="handleClick"> 打开抽屉 </t-button>
   </div>
 </template>
 

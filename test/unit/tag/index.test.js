@@ -64,7 +64,7 @@ describe('Tag or CheckTag', () => {
     it(':size:small', () => {
       const wrapper = mount({
         render() {
-          <Tag size='small'></Tag>;
+          <Tag size="small"></Tag>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -360,7 +360,11 @@ describe('Tag or CheckTag', () => {
       const fn = jest.fn();
       const wrapper = mount({
         render() {
-          return <CheckTag checked onClick={fn}>text</CheckTag>;
+          return (
+            <CheckTag checked onClick={fn}>
+              text
+            </CheckTag>
+          );
         },
       });
       wrapper.findComponent(CheckTag).trigger('click');

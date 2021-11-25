@@ -105,6 +105,10 @@ export default defineComponent({
 
     const rowStyle = this.calcRowMargin(this.gutter, this.size);
 
-    return <TAG class={classes} style={rowStyle}>{this.$slots.default && this.$slots.default()}</TAG>;
+    return (
+      <TAG class={classes} style={rowStyle}>
+        {this.$slots.default && this.$slots.default()}
+      </TAG>
+    );
   },
 });

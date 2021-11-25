@@ -17,14 +17,14 @@ describe('Tree:init', () => {
       const wrapper = mount({
         render() {
           return (
-            <Tree data={null} v-slots={{
-              empty: () => {
-                <div class="tree-empty">
-                  暂无数据
-                </div>;
-              },
-            }}>
-            </Tree>
+            <Tree
+              data={null}
+              v-slots={{
+                empty: () => {
+                  <div class="tree-empty">暂无数据</div>;
+                },
+              }}
+            ></Tree>
           );
         },
       });
@@ -60,9 +60,11 @@ describe('Tree:init', () => {
       const data = [
         {
           value: 't1',
-          children: [{
-            value: 't1.1',
-          }],
+          children: [
+            {
+              value: 't1.1',
+            },
+          ],
         },
         {
           value: 't2',

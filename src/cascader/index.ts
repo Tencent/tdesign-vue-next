@@ -5,7 +5,13 @@ import { TdCascaderProps } from './type';
 
 export type CascaderProps = TdCascaderProps;
 
-export const Cascader: WithInstallType<typeof _Cascader> = withInstall(mapProps([{
-  name: 'value', event: 'change', alias: ['modelValue'],
-}])(_Cascader));
+export const Cascader: WithInstallType<typeof _Cascader> = withInstall(
+  mapProps([
+    {
+      name: 'value',
+      event: 'change',
+      alias: ['modelValue'],
+    },
+  ])(_Cascader),
+);
 export default Cascader;

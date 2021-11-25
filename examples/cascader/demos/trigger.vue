@@ -1,19 +1,7 @@
 <template>
   <div>
-    <t-cascader
-      v-model="value"
-      class="t-demo-cascader"
-      :options="options"
-      trigger="click"
-      placeholder="请选择"
-    />
-    <t-cascader
-      v-model="value"
-      class="t-demo-cascader"
-      :options="options"
-      trigger="hover"
-      placeholder="请选择"
-    />
+    <t-cascader v-model="value" class="t-demo-cascader" :options="options" trigger="click" placeholder="请选择" />
+    <t-cascader v-model="value" class="t-demo-cascader" :options="options" trigger="hover" placeholder="请选择" />
   </div>
 </template>
 

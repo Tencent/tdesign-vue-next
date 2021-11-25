@@ -267,7 +267,7 @@ exports[`Tag delete demo works fine 1`] = `
   >
     
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close t-is-disabled t-tag--disabled"
       style="max-width: 100px;"
     >
       <!---->

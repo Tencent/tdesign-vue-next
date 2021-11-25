@@ -1,6 +1,4 @@
-import {
-  defineComponent, ComponentPublicInstance, VNode,
-} from 'vue';
+import { defineComponent, ComponentPublicInstance, VNode } from 'vue';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import TIconClose from '../icon/close';
@@ -59,14 +57,22 @@ export default defineComponent({
   render() {
     const closeIcon: VNode | string = this.closable ? <TIconClose onClick={this.handleClose} /> : '';
     // 标签内容
-    const tagContent: TNodeReturnValue = renderTNodeJSX(this as ComponentPublicInstance, 'default') || renderTNodeJSX(this as ComponentPublicInstance, 'content');
+    const tagContent: TNodeReturnValue =
+      renderTNodeJSX(this as ComponentPublicInstance, 'default') ||
+      renderTNodeJSX(this as ComponentPublicInstance, 'content');
     // 图标
     const icon = renderTNodeJSX(this, 'icon');
 
     return (
       <span class={this.tagClass} style={this.tagStyle} onClick={this.handleClick}>
         {icon}
-        {this.maxWidth ? <span style={this.tagStyle} class={`${name}--text`}>{tagContent}</span> : tagContent}
+        {this.maxWidth ? (
+          <span style={this.tagStyle} class={`${name}--text`}>
+            {tagContent}
+          </span>
+        ) : (
+          tagContent
+        )}
         {closeIcon}
       </span>
     );

@@ -6,7 +6,7 @@ export enum EPickerCols {
   hour = 'hour',
   minute = 'minute',
   second = 'second',
-  meridiem = 'meridiem'
+  meridiem = 'meridiem',
 }
 
 export const AM = 'AM';
@@ -25,7 +25,7 @@ export enum KeyboardDirection {
   left = 37,
   up = 38,
   right = 39,
-  down = 40
+  down = 40,
 }
 
 export const EMPTY_VALUE = -1;

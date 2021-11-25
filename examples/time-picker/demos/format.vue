@@ -1,10 +1,6 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-time-picker
-      v-model="time"
-      class="demos"
-      format="h:m:s a"
-    />
+    <t-time-picker v-model="time" class="demos" format="h:m:s a" />
   </div>
 </template>
 

@@ -30,17 +30,21 @@ export default defineComponent({
   },
   computed: {
     customAvatarSize(): Styles {
-      return this.isCustomSize() ? {
-        width: this.sizeValue,
-        height: this.sizeValue,
-        'font-size': `${Number.parseInt(this.sizeValue, 10) / 2}px`,
-      } : {};
+      return this.isCustomSize()
+        ? {
+            width: this.sizeValue,
+            height: this.sizeValue,
+            'font-size': `${Number.parseInt(this.sizeValue, 10) / 2}px`,
+          }
+        : {};
     },
     customImageSize(): Styles {
-      return this.isCustomSize() ? {
-        height: this.sizeValue,
-        width: this.sizeValue,
-      } : {};
+      return this.isCustomSize()
+        ? {
+            height: this.sizeValue,
+            width: this.sizeValue,
+          }
+        : {};
     },
     customCharaSize(): Styles {
       return {
@@ -75,7 +79,10 @@ export default defineComponent({
       const avaterWidth = avater?.offsetWidth;
       const avaterChildWidth = avaterChild?.offsetWidth;
       if (this.gap * 2 < avaterWidth) {
-        this.scale = avaterChildWidth > avaterWidth - this.gap * 2 ? `scale(${(avaterWidth - this.gap * 2) / avaterChildWidth})` : 'scale(1)';
+        this.scale =
+          avaterChildWidth > avaterWidth - this.gap * 2
+            ? `scale(${(avaterWidth - this.gap * 2) / avaterChildWidth})`
+            : 'scale(1)';
       }
     },
     isCustomSize() {
@@ -96,20 +103,22 @@ export default defineComponent({
         [`${name}__icon`]: !!isIconOnly,
       },
     ];
-    content = <span ref='avatarChild' style={{ ...this.customCharaSize }}>{ content }</span>;
+    content = (
+      <span ref="avatarChild" style={{ ...this.customCharaSize }}>
+        {content}
+      </span>
+    );
     if (icon) {
-      content = [
-        icon,
-        !isIconOnly ? content : '',
-      ];
+      content = [icon, !isIconOnly ? content : ''];
     }
 
     if (image && this.isImgExist) {
       content = <img style={{ ...this.customImageSize }} src={image} alt={alt} onError={this.handleImgLoadError}></img>;
     }
-    return (<div ref='avatar' class={avatarClass} style={{ ...this.customAvatarSize }}>
-      {content}
-    </div>);
+    return (
+      <div ref="avatar" class={avatarClass} style={{ ...this.customAvatarSize }}>
+        {content}
+      </div>
+    );
   },
-
 });

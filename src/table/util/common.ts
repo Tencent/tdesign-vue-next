@@ -4,10 +4,7 @@ import { ComponentPublicInstance, VNodeChild } from 'vue';
 import { PrimaryTableCol } from '../type';
 
 export function toString<T>(obj: T): string {
-  return Object.prototype.toString
-    .call(obj)
-    .slice(8, -1)
-    .toLowerCase();
+  return Object.prototype.toString.call(obj).slice(8, -1).toLowerCase();
 }
 
 export function debounce<T = any>(fn: Function, delay = 200): () => void {
@@ -22,11 +19,7 @@ export function debounce<T = any>(fn: Function, delay = 200): () => void {
   };
 }
 
-export function filterDataByIds<T>(
-  data: Array<T> = [],
-  ids: Array<string | number> = [],
-  byId = 'id',
-): Array<T> {
+export function filterDataByIds<T>(data: Array<T> = [], ids: Array<string | number> = [], byId = 'id'): Array<T> {
   return data.filter((d: Record<string, any> = {}) => ids.includes(d[byId]));
 }
 
@@ -41,10 +34,7 @@ export enum ScrollDirection {
 let preScrollLeft: any;
 let preScrollTop: any;
 
-export const getScrollDirection = (
-  scrollLeft: number,
-  scrollTop: number,
-): ScrollDirection => {
+export const getScrollDirection = (scrollLeft: number, scrollTop: number): ScrollDirection => {
   let direction = ScrollDirection.UNKNOWN;
   if (preScrollTop !== scrollTop) {
     direction = ScrollDirection.Y;
@@ -63,15 +53,16 @@ export const getRecord = (record: Record<any, any>) => {
   const result = {};
   Object.keys(record).forEach((key) => {
     const descriptor = Object.getOwnPropertyDescriptor(record, key);
-    descriptor && Reflect.defineProperty(result, key, {
-      set(val) {
-        descriptor.set(val);
-      },
-      get() {
-        console.warn('The parameter `record` will be deprecated, please use `row` instead');
-        return descriptor.get();
-      },
-    });
+    descriptor &&
+      Reflect.defineProperty(result, key, {
+        set(val) {
+          descriptor.set(val);
+        },
+        get() {
+          console.warn('The parameter `record` will be deprecated, please use `row` instead');
+          return descriptor.get();
+        },
+      });
   });
   return result;
 };
@@ -82,9 +73,7 @@ export function getTitle(vm: ComponentPublicInstance, column: PrimaryTableCol, c
   if (isFunction(column.title)) {
     result = column.title(vm.$createElement, { col: column, colIndex });
   } else if (isString(column.title)) {
-    result = vm.$slots[column.title]
-      ? vm.$slots[column.title](null)
-      : column.title;
+    result = vm.$slots[column.title] ? vm.$slots[column.title](null) : column.title;
   } else if (isFunction(column.render)) {
     result = column.render(vm.$createElement, {
       type: 'title',
@@ -111,9 +100,7 @@ export function getCell(vm: ComponentPublicInstance, p: GetCellParams) {
   if (isFunction(col.cell)) {
     result = col.cell(vm.$createElement, { ...p });
   } else if (isString(col.cell)) {
-    result = vm.$slots[col.cell]
-      ? vm.$slots[col.cell](p)
-      : row[col.colKey];
+    result = vm.$slots[col.cell] ? vm.$slots[col.cell](p) : row[col.colKey];
   } else if (isFunction(col.render)) {
     result = col.render(vm.$createElement, {
       type: 'cell',
@@ -123,10 +110,12 @@ export function getCell(vm: ComponentPublicInstance, p: GetCellParams) {
   return result || row[col.colKey];
 }
 
-export function isRowSelectedDisabled(selectColumn: PrimaryTableCol, row: Record<string, any>, rowIndex: number): boolean {
-  let disabled = isFunction(selectColumn.disabled)
-    ? selectColumn.disabled({ row, rowIndex })
-    : selectColumn.disabled;
+export function isRowSelectedDisabled(
+  selectColumn: PrimaryTableCol,
+  row: Record<string, any>,
+  rowIndex: number,
+): boolean {
+  let disabled = isFunction(selectColumn.disabled) ? selectColumn.disabled({ row, rowIndex }) : selectColumn.disabled;
   if (selectColumn.checkProps) {
     if (isFunction(selectColumn.checkProps)) {
       disabled = disabled || selectColumn.checkProps({ row, rowIndex }).disabled;

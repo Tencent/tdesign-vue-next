@@ -14,7 +14,7 @@ interface MarkItem {
   position: number;
   mark: string | number | TNode<{ value: number }>;
 }
-interface SliderButtonType{
+interface SliderButtonType {
   setPosition: (param: number) => {};
 }
 export default defineComponent({
@@ -77,9 +77,7 @@ export default defineComponent({
       return this.max - this.min;
     },
     steps(): number[] {
-      const {
-        min, max, rangeDiff, step,
-      } = this;
+      const { min, max, rangeDiff, step } = this;
       if (!this.showSteps || min > max) return [];
       if (this.step === 0) {
         console.warn('[Element Warn][Slider]step should not be 0.');
@@ -92,7 +90,10 @@ export default defineComponent({
         result.push(i * stepWidth);
       }
       if (this.range) {
-        return result.filter((step) => step < (100 * (this.minValue - min)) / rangeDiff || step > (100 * (this.maxValue - min)) / rangeDiff);
+        return result.filter(
+          (step) =>
+            step < (100 * (this.minValue - min)) / rangeDiff || step > (100 * (this.maxValue - min)) / rangeDiff,
+        );
       }
       return result.filter((step) => step > (100 * (this.firstValue - min)) / rangeDiff);
     },
@@ -141,13 +142,13 @@ export default defineComponent({
     barStyle(): object {
       return this.vertical
         ? {
-          height: this.barSize,
-          bottom: this.barStart,
-        }
+            height: this.barSize,
+            bottom: this.barStart,
+          }
         : {
-          width: this.barSize,
-          left: this.barStart,
-        };
+            width: this.barSize,
+            left: this.barStart,
+          };
     },
   },
   watch: {
@@ -260,7 +261,7 @@ export default defineComponent({
           placeholder: inputPlaceholder,
           theme: inputTheme,
         } = this.inputNumberProps as TdSliderProps['inputNumberProps'];
-        if (typeof inputDecimalPlaces === 'number' && !isNaN(inputDecimalPlaces)) {
+        if (typeof inputDecimalPlaces === 'number' && !Number.isNaN(inputDecimalPlaces)) {
           this.inputDecimalPlaces = inputDecimalPlaces;
         }
         if (inputPlaceholder) {
@@ -345,11 +346,7 @@ export default defineComponent({
           <div>
             <div>
               {this.markList.map((item, index) => (
-                <div
-                  class={`${name}__stop ${name}__mark-stop`}
-                  style={this.getStopStyle(item.position)}
-                  key={index}
-                />
+                <div class={`${name}__stop ${name}__mark-stop`} style={this.getStopStyle(item.position)} key={index} />
               ))}
             </div>
             <div class={`${name}__mark`}>
@@ -368,13 +365,16 @@ export default defineComponent({
       }
     },
     renderInputButton(): VNode {
-      const {
-        max, min, sliderNumberClass, range,
-      } = this;
+      const { max, min, sliderNumberClass, range } = this;
       return (
-        <div class={[`${name}-input-container`, {
-          'is-vertical': this.vertical,
-        }]}>
+        <div
+          class={[
+            `${name}-input-container`,
+            {
+              'is-vertical': this.vertical,
+            },
+          ]}
+        >
           {this.inputNumberProps && (
             <t-input-number
               class={sliderNumberClass}
@@ -418,9 +418,7 @@ export default defineComponent({
     },
   },
   render(): VNode {
-    const {
-      min, max, layout, disabled, vertical,
-    } = this;
+    const { min, max, layout, disabled, vertical } = this;
     const BUTTON_GROUP = this.renderInputButton();
     const MASKS = this.renderMask();
     return (
@@ -435,7 +433,7 @@ export default defineComponent({
           tooltip-props={this.tooltipProps}
         >
           <div class={this.sliderRailClass} style={this.runwayStyle} onClick={this.onSliderClick} ref="slider">
-            <div class={`${name}__track`} style={this.barStyle}/>
+            <div class={`${name}__track`} style={this.barStyle} />
             <t-slider-button
               vertical={vertical}
               value={this.firstValue}
@@ -462,7 +460,7 @@ export default defineComponent({
             {this.showSteps && (
               <div>
                 {this.steps.map((item, key) => (
-                  <div class={`${name}__stop`} key={key} style={this.getStopStyle(item)}/>
+                  <div class={`${name}__stop`} key={key} style={this.getStopStyle(item)} />
                 ))}
               </div>
             )}

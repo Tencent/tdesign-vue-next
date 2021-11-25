@@ -1,16 +1,7 @@
 <template>
-  <t-table
-    row-key="index"
-    :data="data"
-    :columns="columns"
-    height="200"
-    bordered
-  >
+  <t-table row-key="index" :data="data" :columns="columns" height="200" bordered>
     <template #operation="slotProps">
-      <a
-        class="link"
-        @click="rehandleClickOp(slotProps)"
-      >删除</a>
+      <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
     </template>
   </t-table>
 </template>

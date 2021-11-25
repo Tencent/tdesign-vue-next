@@ -1,22 +1,13 @@
 <template>
   <div class="tdesign-tree-base">
     <t-addon prepend="checked:">
-      <t-input
-        :value="allChecked"
-        @input="onAllCheckedInput"
-      />
+      <t-input :value="allChecked" @input="onAllCheckedInput" />
     </t-addon>
     <t-addon prepend="expanded:">
-      <t-input
-        :value="allExpanded"
-        @input="onAllExpandedInput"
-      />
+      <t-input :value="allExpanded" @input="onAllExpandedInput" />
     </t-addon>
     <t-addon prepend="actived:">
-      <t-input
-        :value="allActived"
-        @input="onAllActivedInput"
-      />
+      <t-input :value="allActived" @input="onAllActivedInput" />
     </t-addon>
     <t-tree
       :data="items"
@@ -35,72 +26,99 @@
 <script>
 import { defineComponent, ref, computed } from 'vue';
 
-const items = [{
-  value: '1',
-  label: '1',
-  children: [{
-    value: '1.1',
-    label: '1.1',
-    children: [{
-      value: '1.1.1',
-      label: '1.1.1',
-      children: [{
-        value: '1.1.1.1',
-        label: '1.1.1.1',
-      }, {
-        value: '1.1.1.2',
-        label: '1.1.1.2',
-      }],
-    }, {
-      value: '1.1.2',
-      label: '1.1.2',
-      children: [{
-        value: '1.1.2.1',
-        label: '1.1.2.1',
-      }, {
-        value: '1.1.2.2',
-        label: '1.1.2.2',
-      }],
-    }],
-  }, {
-    value: '1.2',
-    label: '1.2',
-    children: [{
-      value: '1.2.1',
-      label: '1.2.1',
-      children: [{
-        value: '1.2.1.1',
-        label: '1.2.1.1',
-      }, {
-        value: '1.2.1.2',
-        label: '1.2.1.2',
-      }],
-    }, {
-      value: '1.2.2',
-      label: '1.2.2',
-      children: [{
-        value: '1.2.2.1',
-        label: '1.2.2.1',
-      }, {
-        value: '1.2.2.2',
-        label: '1.2.2.2',
-      }],
-    }],
-  }],
-}, {
-  value: '2',
-  label: '2',
-  checkable: false,
-  children: [{
-    value: '2.1',
-    label: '2.1',
+const items = [
+  {
+    value: '1',
+    label: '1',
+    children: [
+      {
+        value: '1.1',
+        label: '1.1',
+        children: [
+          {
+            value: '1.1.1',
+            label: '1.1.1',
+            children: [
+              {
+                value: '1.1.1.1',
+                label: '1.1.1.1',
+              },
+              {
+                value: '1.1.1.2',
+                label: '1.1.1.2',
+              },
+            ],
+          },
+          {
+            value: '1.1.2',
+            label: '1.1.2',
+            children: [
+              {
+                value: '1.1.2.1',
+                label: '1.1.2.1',
+              },
+              {
+                value: '1.1.2.2',
+                label: '1.1.2.2',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        value: '1.2',
+        label: '1.2',
+        children: [
+          {
+            value: '1.2.1',
+            label: '1.2.1',
+            children: [
+              {
+                value: '1.2.1.1',
+                label: '1.2.1.1',
+              },
+              {
+                value: '1.2.1.2',
+                label: '1.2.1.2',
+              },
+            ],
+          },
+          {
+            value: '1.2.2',
+            label: '1.2.2',
+            children: [
+              {
+                value: '1.2.2.1',
+                label: '1.2.2.1',
+              },
+              {
+                value: '1.2.2.2',
+                label: '1.2.2.2',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    value: '2',
+    label: '2',
     checkable: false,
-  }, {
-    value: '2.2',
-    label: '2.2',
-    checkable: false,
-  }],
-}];
+    children: [
+      {
+        value: '2.1',
+        label: '2.1',
+        checkable: false,
+      },
+      {
+        value: '2.2',
+        label: '2.2',
+        checkable: false,
+      },
+    ],
+  },
+];
 export default defineComponent({
   setup() {
     const checked = ref(['1.1.1.1', '1.1.1.2']);
@@ -134,12 +152,14 @@ export default defineComponent({
     const getValueFromString = (val) => {
       const arr = val.split(',');
       const vals = [];
-      arr.map((str) => str.trim()).forEach((tag) => {
-        const match = (/^\{([^{}]+)\}$/).exec(tag);
-        if (match && match[1]) {
-          vals.push(match[1]);
-        }
-      });
+      arr
+        .map((str) => str.trim())
+        .forEach((tag) => {
+          const match = /^\{([^{}]+)\}$/.exec(tag);
+          if (match && match[1]) {
+            vals.push(match[1]);
+          }
+        });
       return vals;
     };
 
@@ -178,7 +198,7 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-  .demo-tree-base {
-    display: block;
-  }
+.demo-tree-base {
+  display: block;
+}
 </style>

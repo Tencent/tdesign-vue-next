@@ -1,11 +1,7 @@
 <template>
   <div>
-    <t-button @click="showInOffset">
-      偏移的信息
-    </t-button>
-    <t-button @click="showInOffset2">
-      偏移的信息
-    </t-button>
+    <t-button @click="showInOffset"> 偏移的信息 </t-button>
+    <t-button @click="showInOffset2"> 偏移的信息 </t-button>
   </div>
 </template>
 
@@ -40,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.t-button + .t-button{
+.t-button + .t-button {
   margin-left: 10px;
 }
 </style>

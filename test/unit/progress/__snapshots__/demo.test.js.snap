@@ -5,6 +5,7 @@ exports[`Progress circle demo works fine 1`] = `
   <div>
     默认
   </div>
+  <!-- 重要：strokeWidth 大小不能超过 size 的一半，否则无法渲染出环形 -->
   <div
     class="t-progress-demo-box"
   >
@@ -14,16 +15,16 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-         默认样式 
+        默认样式
       </div>
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--undefined"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
             class="t-progress--info"
@@ -40,7 +41,7 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -49,10 +50,10 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="94.2477796076938  219.9114857512855"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
@@ -65,18 +66,22 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-         不显示数字 
+        不显示数字
       </div>
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--success"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
-          <!--v-if-->
+          <div
+            class="t-progress--info"
+          >
+            <!---->
+          </div>
           <svg
             height="112"
             viewBox="0 0 112 112"
@@ -87,7 +92,7 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -96,10 +101,10 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="314.1592653589793  0"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
@@ -112,16 +117,16 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-         自定义内容 
+        自定义内容
       </div>
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--success"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
             class="t-progress--info"
@@ -138,7 +143,7 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -147,10 +152,10 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="157.07963267948966  157.07963267948966"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
@@ -167,16 +172,16 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-         进度完成 
+        进度完成
       </div>
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--success"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
             class="t-progress--info"
@@ -204,7 +209,7 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -213,10 +218,10 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="314.1592653589793  0"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
@@ -229,16 +234,16 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-         进度状态发生重大错误 
+        进度状态发生重大错误
       </div>
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--error"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
             class="t-progress--info"
@@ -264,7 +269,7 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -273,10 +278,10 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="235.61944901923448  78.53981633974483"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
@@ -289,16 +294,16 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-         进度被中断 
+        进度被中断
       </div>
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--warning"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
             class="t-progress--info"
@@ -327,7 +332,7 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -336,10 +341,10 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="157.07963267948966  157.07963267948966"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
@@ -359,17 +364,16 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-         小尺寸 
+        小尺寸
       </div>
       <div
         class="t-progress"
-        style="margin-top: 20px;"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--undefined"
-          style="width: 72px; height: 72px; font-size: 12.64px;"
+          style="width: 72px; height: 72px; font-size: 14px;"
         >
           <div
             class="t-progress--info"
@@ -386,7 +390,7 @@ exports[`Progress circle demo works fine 1`] = `
               cx="36"
               cy="36"
               fill="none"
-              r="32"
+              r="34"
               stroke=""
               stroke-width="4"
             />
@@ -395,10 +399,10 @@ exports[`Progress circle demo works fine 1`] = `
               cx="36"
               cy="36"
               fill="none"
-              r="32"
+              r="34"
               stroke-dasharray="60.31857894892403  140.74335088082273"
+              stroke-linecap="round"
               stroke-width="4"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,72)"
             />
           </svg>
@@ -411,16 +415,16 @@ exports[`Progress circle demo works fine 1`] = `
       <div
         class="t-progress-demo-margin"
       >
-         默认尺寸 
+        默认尺寸
       </div>
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--undefined"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
             class="t-progress--info"
@@ -437,7 +441,7 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -446,37 +450,33 @@ exports[`Progress circle demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="94.2477796076938  219.9114857512855"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="t-progress-demo-box"
-  >
     <div
       class="t-progress-demo-inner"
+      style="margin-left: 60px;"
     >
       <div
         class="t-progress-demo-margin"
       >
-         大尺寸 
+        大尺寸
       </div>
       <div
         class="t-progress"
-        style="margin-top: 40px;"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--undefined"
-          style="width: 160px; height: 160px; font-size: 23.98px;"
+          style="width: 160px; height: 160px; font-size: 36px;"
         >
           <div
             class="t-progress--info"
@@ -493,7 +493,7 @@ exports[`Progress circle demo works fine 1`] = `
               cx="80"
               cy="80"
               fill="none"
-              r="74"
+              r="77"
               stroke=""
               stroke-width="6"
             />
@@ -502,62 +502,11 @@ exports[`Progress circle demo works fine 1`] = `
               cx="80"
               cy="80"
               fill="none"
-              r="74"
+              r="77"
               stroke-dasharray="348.71678454846705  116.23892818282235"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,160)"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="t-progress-demo-inner"
-    >
-      <div
-        class="t-progress-demo-margin"
-      >
-         自定义尺寸与颜色 
-      </div>
-      <div
-        class="t-progress"
-      >
-        <!--v-if-->
-        <!--v-if-->
-        <div
-          class="t-progress--circle t-progress--status--undefined"
-          style="width: 240px; height: 240px; font-size: 28.3px;"
-        >
-          <div
-            class="t-progress--info"
-          >
-            75%
-          </div>
-          <svg
-            height="240"
-            viewBox="0 0 240 240"
-            width="240"
-          >
-            <circle
-              class="t-circle--outer"
-              cx="120"
-              cy="120"
-              fill="none"
-              r="90"
-              stroke="#0f0"
-              stroke-width="30"
-            />
-            <circle
-              class="t-circle--inner"
-              cx="120"
-              cy="120"
-              fill="none"
-              r="90"
-              stroke-dasharray="424.1150082346221  141.3716694115407"
-              stroke-width="30"
-              style="stroke: #00f; stroke-linecap: buff;"
-              transform="matrix(0,-1,1,0,0,240)"
             />
           </svg>
         </div>
@@ -576,13 +525,17 @@ exports[`Progress custom demo works fine 1`] = `
     <div
       class="t-progress"
     >
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
       <div
         class="t-progress--circle t-progress--status--undefined"
-        style="width: 112px; height: 112px; font-size: 17.5px;"
+        style="width: 112px; height: 112px; font-size: 20px;"
       >
-        <!--v-if-->
+        <div
+          class="t-progress--info"
+        >
+          <!---->
+        </div>
         <svg
           height="112"
           viewBox="0 0 112 112"
@@ -593,7 +546,7 @@ exports[`Progress custom demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke=""
             stroke-width="6"
           />
@@ -602,10 +555,10 @@ exports[`Progress custom demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke-dasharray="263.89378290154264  50.265482457436704"
+            stroke-linecap="round"
             stroke-width="6"
-            style="stroke-linecap: buff;"
             transform="matrix(0,-1,1,0,0,112)"
           />
         </svg>
@@ -626,10 +579,14 @@ exports[`Progress custom demo works fine 1`] = `
             style="width: 84%;"
           />
         </div>
-        <!--v-if-->
+        <div
+          class="t-progress--info"
+        >
+          <!---->
+        </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
   </div>
   <div
@@ -659,8 +616,8 @@ exports[`Progress custom demo works fine 1`] = `
           30%
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div>
       自定义尺寸
@@ -668,11 +625,11 @@ exports[`Progress custom demo works fine 1`] = `
     <div
       class="t-progress"
     >
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
       <div
         class="t-progress--circle t-progress--status--undefined"
-        style="width: 200px; height: 200px; font-size: 25.6px;"
+        style="width: 200px; height: 200px; font-size: 45px;"
       >
         <div
           class="t-progress--info"
@@ -689,7 +646,7 @@ exports[`Progress custom demo works fine 1`] = `
             cx="100"
             cy="100"
             fill="none"
-            r="80"
+            r="90"
             stroke=""
             stroke-width="20"
           />
@@ -698,10 +655,10 @@ exports[`Progress custom demo works fine 1`] = `
             cx="100"
             cy="100"
             fill="none"
-            r="80"
+            r="90"
             stroke-dasharray="150.79644737231007  351.85837720205683"
+            stroke-linecap="round"
             stroke-width="20"
-            style="stroke-linecap: round;"
             transform="matrix(0,-1,1,0,0,200)"
           />
         </svg>
@@ -717,9 +674,9 @@ exports[`Progress custom demo works fine 1`] = `
     <div
       class="t-progress"
     >
-      <!--v-if-->
+      <!---->
       <div
-        class="t-progress--bar t-progress--plump t-progress--status--undefined"
+        class="t-progress--bar t-progress--plump t-progress--over-ten"
         style="border-radius: undefinedpx;"
       >
         <div
@@ -728,22 +685,22 @@ exports[`Progress custom demo works fine 1`] = `
         >
           <div
             class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
           >
             30%
           </div>
         </div>
+        <!---->
       </div>
-      <!--v-if-->
+      <!---->
     </div>
     <div
       class="t-progress"
     >
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
       <div
         class="t-progress--circle t-progress--status--undefined"
-        style="width: 112px; height: 112px; font-size: 17.5px;"
+        style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
           class="t-progress--info"
@@ -760,7 +717,7 @@ exports[`Progress custom demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke="#aaa"
             stroke-width="6"
           />
@@ -769,10 +726,11 @@ exports[`Progress custom demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke-dasharray="138.2300767579509  175.92918860102844"
+            stroke-linecap="round"
             stroke-width="6"
-            style="stroke: #52CC8D; stroke-linecap: buff;"
+            style="stroke: #52CC8D;"
             transform="matrix(0,-1,1,0,0,112)"
           />
         </svg>
@@ -806,17 +764,17 @@ exports[`Progress custom demo works fine 1`] = `
           &lt;div&gt;45days&lt;/div&gt;
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div
       class="t-progress"
     >
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
       <div
         class="t-progress--circle t-progress--status--undefined"
-        style="width: 112px; height: 112px; font-size: 17.5px;"
+        style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
           class="t-progress--info"
@@ -833,7 +791,7 @@ exports[`Progress custom demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke=""
             stroke-width="6"
           />
@@ -842,10 +800,10 @@ exports[`Progress custom demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke-dasharray="138.2300767579509  175.92918860102844"
+            stroke-linecap="round"
             stroke-width="6"
-            style="stroke-linecap: buff;"
             transform="matrix(0,-1,1,0,0,112)"
           />
         </svg>
@@ -857,11 +815,14 @@ exports[`Progress custom demo works fine 1`] = `
 
 exports[`Progress line demo works fine 1`] = `
 <div>
+  <h3>
+    默认在线形外展示进度和状态
+  </h3>
   <div>
     <div
       class="t-progress-domo-margin"
     >
-       默认样式 
+      默认样式
     </div>
     <div
       class="t-progress"
@@ -884,13 +845,13 @@ exports[`Progress line demo works fine 1`] = `
           30%
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div
       class="t-progress-domo-margin"
     >
-       100% 
+      100%
     </div>
     <div
       class="t-progress"
@@ -913,13 +874,13 @@ exports[`Progress line demo works fine 1`] = `
           100%
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div
       class="t-progress-domo-margin"
     >
-       进度完成 
+      进度完成
     </div>
     <div
       class="t-progress"
@@ -933,7 +894,7 @@ exports[`Progress line demo works fine 1`] = `
         >
           <div
             class="t-progress--inner"
-            style="width: 30%;"
+            style="width: 60%;"
           />
         </div>
         <div
@@ -953,13 +914,13 @@ exports[`Progress line demo works fine 1`] = `
           </svg>
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div
       class="t-progress-domo-margin"
     >
-       进度状态发生重大错误 
+      进度状态发生重大错误
     </div>
     <div
       class="t-progress"
@@ -973,7 +934,7 @@ exports[`Progress line demo works fine 1`] = `
         >
           <div
             class="t-progress--inner"
-            style="width: 30%;"
+            style="width: 60%;"
           />
         </div>
         <div
@@ -993,13 +954,13 @@ exports[`Progress line demo works fine 1`] = `
           </svg>
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div
       class="t-progress-domo-margin"
     >
-       进度被中断 
+      进度被中断
     </div>
     <div
       class="t-progress"
@@ -1013,7 +974,7 @@ exports[`Progress line demo works fine 1`] = `
         >
           <div
             class="t-progress--inner"
-            style="width: 30%;"
+            style="width: 60%;"
           />
         </div>
         <div
@@ -1033,13 +994,13 @@ exports[`Progress line demo works fine 1`] = `
           </svg>
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div
       class="t-progress-domo-margin"
     >
-       active 
+      渐变色
     </div>
     <div
       class="t-progress"
@@ -1053,532 +1014,276 @@ exports[`Progress line demo works fine 1`] = `
         >
           <div
             class="t-progress--inner"
-            style="width: 30%;"
+            style="width: 60%;"
           />
         </div>
         <div
           class="t-progress--info"
         >
-          30%
+          60%
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <h3>
+    可以在线形内展示进度信息
+  </h3>
+  <div>
+    <div
+      class="t-progress-domo-margin"
+    >
+      默认样式
+    </div>
+    <div
+      class="t-progress"
+    >
+      <!---->
+      <div
+        class="t-progress--bar t-progress--plump t-progress--over-ten"
+        style="border-radius: undefinedpx;"
+      >
+        <div
+          class="t-progress--inner"
+          style="width: 30%;"
+        >
+          <div
+            class="t-progress--info"
+          >
+            30%
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
     </div>
     <div
       class="t-progress-domo-margin"
     >
-       不显示数字 
+      进度0-10%时数字数字位置出现在目前进度的右边区域
     </div>
     <div
       class="t-progress"
     >
+      <!---->
       <div
-        class="t-progress--thin t-progress--status--active"
+        class="t-progress--bar t-progress--plump t-progress--under-ten"
+        style="border-radius: undefinedpx;"
       >
         <div
-          class="t-progress--bar"
-          style="border-radius: undefinedpx;"
+          class="t-progress--inner"
+          style="width: 5%;"
         >
-          <div
-            class="t-progress--inner"
-            style="width: 30%;"
-          />
-        </div>
-        <!--v-if-->
-      </div>
-      <!--v-if-->
-      <!--v-if-->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       自定义内容 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <div
-        class="t-progress--thin t-progress--status--active"
-      >
-        <div
-          class="t-progress--bar"
-          style="border-radius: undefinedpx;"
-        >
-          <div
-            class="t-progress--inner"
-            style="width: 30%;"
-          />
+          <!---->
         </div>
         <div
           class="t-progress--info"
         >
-          75day
+          5%
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       自定义颜色与高度 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <div
-        class="t-progress--thin t-progress--status--active"
-      >
-        <div
-          class="t-progress--bar"
-          style="height: 30px; background-color: rgb(0, 255, 0); border-radius: 30px;"
-        >
-          <div
-            class="t-progress--inner"
-            style="width: 30%; background: rgb(0, 0, 255);"
-          />
-        </div>
-        <div
-          class="t-progress--info"
-        >
-          30%
-        </div>
-      </div>
-      <!--v-if-->
-      <!--v-if-->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       渐变色 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <div
-        class="t-progress--thin t-progress--status--active"
-      >
-        <div
-          class="t-progress--bar"
-          style="border-radius: undefinedpx;"
-        >
-          <div
-            class="t-progress--inner"
-            style="width: 30%;"
-          />
-        </div>
-        <div
-          class="t-progress--info"
-        >
-          30%
-        </div>
-      </div>
-      <!--v-if-->
-      <!--v-if-->
-    </div>
-    <br />
-    <div
-      class="t-progress"
-    >
-      <div
-        class="t-progress--thin t-progress--status--active"
-      >
-        <div
-          class="t-progress--bar"
-          style="border-radius: undefinedpx;"
-        >
-          <div
-            class="t-progress--inner"
-            style="width: 30%;"
-          />
-        </div>
-        <div
-          class="t-progress--info"
-        >
-          30%
-        </div>
-      </div>
-      <!--v-if-->
-      <!--v-if-->
-    </div>
-    <br />
-    <div
-      class="t-progress"
-    >
-      <div
-        class="t-progress--thin t-progress--status--active"
-      >
-        <div
-          class="t-progress--bar"
-          style="border-radius: undefinedpx;"
-        >
-          <div
-            class="t-progress--inner"
-            style="width: 30%;"
-          />
-        </div>
-        <div
-          class="t-progress--info"
-        >
-          30%
-        </div>
-      </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
     </div>
   </div>
 </div>
 `;
 
 exports[`Progress plump demo works fine 1`] = `
-<div>
-  <div>
-    <div>
-      <div
-        class="t-progress-domo-margin"
-      >
-         默认样式 
-      </div>
-      <div
-        class="t-progress"
-      >
-        <!--v-if-->
-        <div
-          class="t-progress--bar t-progress--plump t-progress--status--undefined"
-          style="border-radius: undefinedpx;"
-        >
-          <div
-            class="t-progress--inner"
-            style="width: 30%;"
-          >
-            <div
-              class="t-progress--info"
-              style="color: rgb(255, 255, 255);"
-            >
-              30%
-            </div>
-          </div>
-        </div>
-        <!--v-if-->
-      </div>
-    </div>
-    <div>
-      <div
-        class="t-progress-domo-margin"
-      >
-         进度0-10%时数字数字位置出现在目前进度的右边区域 
-      </div>
-      <div
-        class="t-progress"
-      >
-        <!--v-if-->
-        <div
-          class="t-progress--bar t-progress--plump t-progress--status--undefined"
-          style="border-radius: undefinedpx;"
-        >
-          <div
-            class="t-progress--inner"
-            style="width: 5%;"
-          >
-            <div
-              class="t-progress--info"
-              style="right: -2.5rem;"
-            >
-              5%
-            </div>
-          </div>
-        </div>
-        <!--v-if-->
-      </div>
-    </div>
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="t-progress-domo-margin"
+  >
+    默认样式
+  </div>
+  <div
+    class="t-progress"
+  >
+    <!---->
     <div
-      class="t-progress-domo-margin"
-    >
-       100% 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <!--v-if-->
-      <div
-        class="t-progress--bar t-progress--plump t-progress--status--success"
-        style="border-radius: undefinedpx;"
-      >
-        <div
-          class="t-progress--inner"
-          style="width: 100%;"
-        >
-          <div
-            class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
-          >
-            100%
-          </div>
-        </div>
-      </div>
-      <!--v-if-->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       进度完成 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <!--v-if-->
-      <div
-        class="t-progress--bar t-progress--plump t-progress--status--success"
-        style="border-radius: undefinedpx;"
-      >
-        <div
-          class="t-progress--inner"
-          style="width: 30%;"
-        >
-          <div
-            class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
-          >
-            30%
-          </div>
-        </div>
-      </div>
-      <!--v-if-->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       进度状态发生重大错误 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <!--v-if-->
-      <div
-        class="t-progress--bar t-progress--plump t-progress--status--error"
-        style="border-radius: undefinedpx;"
-      >
-        <div
-          class="t-progress--inner"
-          style="width: 30%;"
-        >
-          <div
-            class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
-          >
-            30%
-          </div>
-        </div>
-      </div>
-      <!--v-if-->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       进度被中断 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <!--v-if-->
-      <div
-        class="t-progress--bar t-progress--plump t-progress--status--warning"
-        style="border-radius: undefinedpx;"
-      >
-        <div
-          class="t-progress--inner"
-          style="width: 30%;"
-        >
-          <div
-            class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
-          >
-            30%
-          </div>
-        </div>
-      </div>
-      <!--v-if-->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       active 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <!--v-if-->
-      <div
-        class="t-progress--bar t-progress--plump t-progress--status--active"
-        style="border-radius: undefinedpx;"
-      >
-        <div
-          class="t-progress--inner"
-          style="width: 30%;"
-        >
-          <div
-            class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
-          >
-            30%
-          </div>
-        </div>
-      </div>
-      <!--v-if-->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       不显示数字 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <!--v-if-->
-      <div
-        class="t-progress--bar t-progress--plump t-progress--status--undefined"
-        style="border-radius: undefinedpx;"
-      >
-        <div
-          class="t-progress--inner"
-          style="width: 30%;"
-        >
-          <!--v-if-->
-        </div>
-      </div>
-      <!--v-if-->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       自定义内容 
-    </div>
-    <div
-      class="t-progress"
+      class="t-progress--bar t-progress--plump t-progress--over-ten"
+      style="border-radius: undefinedpx;"
     >
       <div
-        class="t-progress--thin t-progress--status--active"
+        class="t-progress--inner"
+        style="width: 30%;"
       >
-        <div
-          class="t-progress--bar"
-          style="border-radius: undefinedpx;"
-        >
-          <div
-            class="t-progress--inner"
-            style="width: 30%;"
-          />
-        </div>
         <div
           class="t-progress--info"
         >
-          75day
+          30%
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
     </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       自定义颜色与高度 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <!--v-if-->
-      <div
-        class="t-progress--bar t-progress--plump t-progress--status--active"
-        style="height: 30px; background-color: rgb(0, 255, 0); border-radius: 30px;"
-      >
-        <div
-          class="t-progress--inner"
-          style="width: 30%; background: rgb(0, 0, 255);"
-        >
-          <div
-            class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
-          >
-            30%
-          </div>
-        </div>
-      </div>
-      <!--v-if-->
-    </div>
-    <div
-      class="t-progress-domo-margin"
-    >
-       渐变色 
-    </div>
-    <div
-      class="t-progress"
-    >
-      <!--v-if-->
-      <div
-        class="t-progress--bar t-progress--plump t-progress--status--active"
-        style="border-radius: undefinedpx;"
-      >
-        <div
-          class="t-progress--inner"
-          style="width: 30%;"
-        >
-          <div
-            class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
-          >
-            30%
-          </div>
-        </div>
-      </div>
-      <!--v-if-->
-    </div>
-    <br />
-    <div
-      class="t-progress"
-    >
-      <!--v-if-->
-      <div
-        class="t-progress--bar t-progress--plump t-progress--status--active"
-        style="border-radius: undefinedpx;"
-      >
-        <div
-          class="t-progress--inner"
-          style="width: 30%;"
-        >
-          <div
-            class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
-          >
-            30%
-          </div>
-        </div>
-      </div>
-      <!--v-if-->
-    </div>
-    <br />
-    <div
-      class="t-progress"
-    >
-      <!--v-if-->
-      <div
-        class="t-progress--bar t-progress--plump t-progress--status--active"
-        style="border-radius: undefinedpx;"
-      >
-        <div
-          class="t-progress--inner"
-          style="width: 30%;"
-        >
-          <div
-            class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
-          >
-            30%
-          </div>
-        </div>
-      </div>
-      <!--v-if-->
-    </div>
+    <!---->
   </div>
+  <div
+    class="t-progress-domo-margin"
+  >
+    进度0-10%时数字数字位置出现在目前进度的右边区域
+  </div>
+  <div
+    class="t-progress"
+  >
+    <!---->
+    <div
+      class="t-progress--bar t-progress--plump t-progress--under-ten"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress--inner"
+        style="width: 5%;"
+      >
+        <!---->
+      </div>
+      <div
+        class="t-progress--info"
+      >
+        5%
+      </div>
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-progress-domo-margin"
+  >
+    100%
+  </div>
+  <div
+    class="t-progress"
+  >
+    <!---->
+    <div
+      class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--success"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress--inner"
+        style="width: 100%;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          100%
+        </div>
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-progress-domo-margin"
+  >
+    进度完成
+  </div>
+  <div
+    class="t-progress"
+  >
+    <!---->
+    <div
+      class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--success"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress--inner"
+        style="width: 30%;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-progress-domo-margin"
+  >
+    进度状态发生重大错误
+  </div>
+  <div
+    class="t-progress"
+  >
+    <!---->
+    <div
+      class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--error"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress--inner"
+        style="width: 30%;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-progress-domo-margin"
+  >
+    进度被中断
+  </div>
+  <div
+    class="t-progress"
+  >
+    <!---->
+    <div
+      class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--warning"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress--inner"
+        style="width: 30%;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-progress-domo-margin"
+  >
+    渐变色
+  </div>
+  <div
+    class="t-progress"
+  >
+    <!---->
+    <div
+      class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--active"
+      style="border-radius: undefinedpx;"
+    >
+      <div
+        class="t-progress--inner"
+        style="width: 30%;"
+      >
+        <div
+          class="t-progress--info"
+        >
+          30%
+        </div>
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  
 </div>
 `;
 
@@ -1596,11 +1301,11 @@ exports[`Progress size demo works fine 1`] = `
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--undefined"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
             class="t-progress--info"
@@ -1617,7 +1322,7 @@ exports[`Progress size demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -1626,10 +1331,10 @@ exports[`Progress size demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="94.2477796076938  219.9114857512855"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
@@ -1642,11 +1347,11 @@ exports[`Progress size demo works fine 1`] = `
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--error"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
             class="t-progress--info"
@@ -1672,7 +1377,7 @@ exports[`Progress size demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -1681,10 +1386,10 @@ exports[`Progress size demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="235.61944901923448  78.53981633974483"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
@@ -1697,11 +1402,11 @@ exports[`Progress size demo works fine 1`] = `
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--warning"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
             class="t-progress--info"
@@ -1730,7 +1435,7 @@ exports[`Progress size demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -1739,10 +1444,10 @@ exports[`Progress size demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="157.07963267948966  157.07963267948966"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
@@ -1755,11 +1460,11 @@ exports[`Progress size demo works fine 1`] = `
       <div
         class="t-progress"
       >
-        <!--v-if-->
-        <!--v-if-->
+        <!---->
+        <!---->
         <div
           class="t-progress--circle t-progress--status--success"
-          style="width: 112px; height: 112px; font-size: 17.5px;"
+          style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
             class="t-progress--info"
@@ -1787,7 +1492,7 @@ exports[`Progress size demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke=""
               stroke-width="6"
             />
@@ -1796,10 +1501,10 @@ exports[`Progress size demo works fine 1`] = `
               cx="56"
               cy="56"
               fill="none"
-              r="50"
+              r="53"
               stroke-dasharray="314.1592653589793  0"
+              stroke-linecap="round"
               stroke-width="6"
-              style="stroke-linecap: buff;"
               transform="matrix(0,-1,1,0,0,112)"
             />
           </svg>
@@ -1819,11 +1524,11 @@ exports[`Progress size demo works fine 1`] = `
     <div
       class="t-progress"
     >
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
       <div
         class="t-progress--circle t-progress--status--undefined"
-        style="width: 72px; height: 72px; font-size: 12.64px;"
+        style="width: 72px; height: 72px; font-size: 14px;"
       >
         <div
           class="t-progress--info"
@@ -1840,7 +1545,7 @@ exports[`Progress size demo works fine 1`] = `
             cx="36"
             cy="36"
             fill="none"
-            r="32"
+            r="34"
             stroke=""
             stroke-width="4"
           />
@@ -1849,10 +1554,10 @@ exports[`Progress size demo works fine 1`] = `
             cx="36"
             cy="36"
             fill="none"
-            r="32"
+            r="34"
             stroke-dasharray="60.31857894892403  140.74335088082273"
+            stroke-linecap="round"
             stroke-width="4"
-            style="stroke-linecap: buff;"
             transform="matrix(0,-1,1,0,0,72)"
           />
         </svg>
@@ -1864,11 +1569,11 @@ exports[`Progress size demo works fine 1`] = `
     <div
       class="t-progress"
     >
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
       <div
         class="t-progress--circle t-progress--status--undefined"
-        style="width: 160px; height: 160px; font-size: 23.98px;"
+        style="width: 160px; height: 160px; font-size: 36px;"
       >
         <div
           class="t-progress--info"
@@ -1885,7 +1590,7 @@ exports[`Progress size demo works fine 1`] = `
             cx="80"
             cy="80"
             fill="none"
-            r="74"
+            r="77"
             stroke=""
             stroke-width="6"
           />
@@ -1894,10 +1599,10 @@ exports[`Progress size demo works fine 1`] = `
             cx="80"
             cy="80"
             fill="none"
-            r="74"
+            r="77"
             stroke-dasharray="348.71678454846705  116.23892818282235"
+            stroke-linecap="round"
             stroke-width="6"
-            style="stroke-linecap: buff;"
             transform="matrix(0,-1,1,0,0,160)"
           />
         </svg>
@@ -1945,15 +1650,15 @@ exports[`Progress status demo works fine 1`] = `
           </svg>
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div
       class="t-progress t-progress-domo-margin"
     >
-      <!--v-if-->
+      <!---->
       <div
-        class="t-progress--bar t-progress--plump t-progress--status--success"
+        class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--success"
         style="border-radius: undefinedpx;"
       >
         <div
@@ -1962,22 +1667,22 @@ exports[`Progress status demo works fine 1`] = `
         >
           <div
             class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
           >
             80%
           </div>
         </div>
+        <!---->
       </div>
-      <!--v-if-->
+      <!---->
     </div>
     <div
       class="t-progress t-progress-domo-margin"
     >
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
       <div
         class="t-progress--circle t-progress--status--warning"
-        style="width: 112px; height: 112px; font-size: 17.5px;"
+        style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
           class="t-progress--info"
@@ -2006,7 +1711,7 @@ exports[`Progress status demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke=""
             stroke-width="6"
           />
@@ -2015,10 +1720,10 @@ exports[`Progress status demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke-dasharray="251.32741228718348  62.83185307179585"
+            stroke-linecap="round"
             stroke-width="6"
-            style="stroke-linecap: buff;"
             transform="matrix(0,-1,1,0,0,112)"
           />
         </svg>
@@ -2061,15 +1766,15 @@ exports[`Progress status demo works fine 1`] = `
           </svg>
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div
       class="t-progress t-progress-domo-margin"
     >
-      <!--v-if-->
+      <!---->
       <div
-        class="t-progress--bar t-progress--plump t-progress--status--error"
+        class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--error"
         style="border-radius: undefinedpx;"
       >
         <div
@@ -2078,22 +1783,22 @@ exports[`Progress status demo works fine 1`] = `
         >
           <div
             class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
           >
             80%
           </div>
         </div>
+        <!---->
       </div>
-      <!--v-if-->
+      <!---->
     </div>
     <div
       class="t-progress t-progress-domo-margin"
     >
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
       <div
         class="t-progress--circle t-progress--status--error"
-        style="width: 112px; height: 112px; font-size: 17.5px;"
+        style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
           class="t-progress--info"
@@ -2119,7 +1824,7 @@ exports[`Progress status demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke=""
             stroke-width="6"
           />
@@ -2128,10 +1833,10 @@ exports[`Progress status demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke-dasharray="251.32741228718348  62.83185307179585"
+            stroke-linecap="round"
             stroke-width="6"
-            style="stroke-linecap: buff;"
             transform="matrix(0,-1,1,0,0,112)"
           />
         </svg>
@@ -2174,15 +1879,15 @@ exports[`Progress status demo works fine 1`] = `
           </svg>
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div
       class="t-progress t-progress-domo-margin"
     >
-      <!--v-if-->
+      <!---->
       <div
-        class="t-progress--bar t-progress--plump t-progress--status--warning"
+        class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--warning"
         style="border-radius: undefinedpx;"
       >
         <div
@@ -2191,13 +1896,13 @@ exports[`Progress status demo works fine 1`] = `
         >
           <div
             class="t-progress--info"
-            style="color: rgb(255, 255, 255);"
           >
             80%
           </div>
         </div>
+        <!---->
       </div>
-      <!--v-if-->
+      <!---->
     </div>
     <div
       class="t-progress t-progress-domo-margin"
@@ -2231,17 +1936,17 @@ exports[`Progress status demo works fine 1`] = `
           </svg>
         </div>
       </div>
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
     </div>
     <div
       class="t-progress t-progress-domo-margin"
     >
-      <!--v-if-->
-      <!--v-if-->
+      <!---->
+      <!---->
       <div
         class="t-progress--circle t-progress--status--warning"
-        style="width: 112px; height: 112px; font-size: 17.5px;"
+        style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
           class="t-progress--info"
@@ -2270,7 +1975,7 @@ exports[`Progress status demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke=""
             stroke-width="6"
           />
@@ -2279,10 +1984,10 @@ exports[`Progress status demo works fine 1`] = `
             cx="56"
             cy="56"
             fill="none"
-            r="50"
+            r="53"
             stroke-dasharray="251.32741228718348  62.83185307179585"
+            stroke-linecap="round"
             stroke-width="6"
-            style="stroke-linecap: buff;"
             transform="matrix(0,-1,1,0,0,112)"
           />
         </svg>

@@ -16,18 +16,12 @@
         </t-button>
       </div>
       <div class="demo-button-col">
-        <t-button
-          shape="circle"
-          theme="primary"
-        >
+        <t-button shape="circle" theme="primary">
           <template #icon>
             <t-icon-discount />
           </template>
         </t-button>
-        <t-button
-          shape="circle"
-          theme="primary"
-        >
+        <t-button shape="circle" theme="primary">
           <template #icon>
             <t-icon-cloud-download />
           </template>
@@ -35,12 +29,7 @@
       </div>
       <!-- 使用 function 的形式定义 icon -->
       <div class="demo-button-col">
-        <t-button
-          variant="outline"
-          :icon="renderIcon"
-        >
-          Function Icon
-        </t-button>
+        <t-button variant="outline" :icon="renderIcon"> Function Icon </t-button>
       </div>
     </div>
   </div>

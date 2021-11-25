@@ -31,12 +31,12 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
-  .demo-avatar{
-    .demo-avatar-block:not(:last-child){
-      margin-bottom: 40px;
-    }
-    .t-avatar {
-      margin-right: 40px;
-    }
+.demo-avatar {
+  .demo-avatar-block:not(:last-child) {
+    margin-bottom: 40px;
   }
+  .t-avatar {
+    margin-right: 40px;
+  }
+}
 </style>

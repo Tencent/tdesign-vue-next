@@ -70,7 +70,7 @@ describe('Input', () => {
     it(':prefix-icon', () => {
       const wrapper = mount({
         render() {
-          return <Input prefix-icon={(h) => <i class='icon'></i>} />;
+          return <Input prefix-icon={(h) => <i class="icon"></i>} />;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -79,7 +79,7 @@ describe('Input', () => {
     it(':suffix-icon', () => {
       const wrapper = mount({
         render() {
-          return <Input suffix-icon={(h) => <i class='icon'></i>} />;
+          return <Input suffix-icon={(h) => <i class="icon"></i>} />;
         },
       });
       expect(wrapper.element).toMatchSnapshot();

@@ -1,16 +1,9 @@
 <template>
   <div class="tdesign-demo-dropdown">
-    <t-dropdown
-      :options="options"
-      :min-column-width="112"
-      @click="clickHandler"
-    >
+    <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
       <div class="tdesign-demo-dropdown-trigger">
         <t-button variant="text">
-          下拉菜单 <t-icon
-            name="chevron-down"
-            size="14"
-          />
+          <span class="tdesign-demo-dropdown__text"> 下拉菜单 <t-icon name="chevron-down" size="16" /> </span>
         </t-button>
       </div>
     </t-dropdown>
@@ -53,8 +46,11 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .tdesign-demo-dropdown {
-  .t-button__text {
-    display: flex;
+  &__text {
+    display: inline-flex;
+    .t-icon {
+      margin-left: 8px;
+    }
   }
 }
 </style>

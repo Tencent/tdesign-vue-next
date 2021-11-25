@@ -33,11 +33,13 @@ export default defineComponent({
       const author = renderTNodeJSX(this, 'author');
       const datetime = renderTNodeJSX(this, 'datetime');
 
-      return (author || datetime) && (
-        <div class={`${preName}__author`}>
-          {author && <span class={`${preName}__name`}>{author}</span>}
-          {datetime && <span class={`${preName}__time`}>{datetime}</span>}
-        </div>
+      return (
+        (author || datetime) && (
+          <div class={`${preName}__author`}>
+            {author && <span class={`${preName}__name`}>{author}</span>}
+            {datetime && <span class={`${preName}__time`}>{datetime}</span>}
+          </div>
+        )
       );
     },
 
@@ -46,21 +48,21 @@ export default defineComponent({
         <div class={`${preName}__content`}>
           {this.renderAuthorDatetime()}
           <div class={`${preName}__detail`}>{renderTNodeJSX(this, 'content')}</div>
-            {this.renderQuote()}
-            {this.renderActions()}
-          </div>
+          {this.renderQuote()}
+          {this.renderActions()}
+        </div>
       );
     },
 
     renderAvatar() {
       return this.avatar ? (
-      <div class={`${preName}__avatar`}>
-        {typeof this.avatar === 'string' ? (
-          <img src={this.avatar} alt="" class={`${preName}__avatar-image`} />
-        ) : (
-          renderTNodeJSX(this, 'avatar')
-        )}
-      </div>
+        <div class={`${preName}__avatar`}>
+          {typeof this.avatar === 'string' ? (
+            <img src={this.avatar} alt="" class={`${preName}__avatar-image`} />
+          ) : (
+            renderTNodeJSX(this, 'avatar')
+          )}
+        </div>
       ) : null;
     },
   },
@@ -72,8 +74,8 @@ export default defineComponent({
           {this.renderAvatar()}
           {this.renderContent()}
         </div>
-          {this.renderReply()}
-        </div>
+        {this.renderReply()}
+      </div>
     );
   },
 });

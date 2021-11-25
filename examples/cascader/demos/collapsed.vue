@@ -16,17 +16,8 @@
       multiple
       :min-collapsed-num="2"
     />
-    <t-cascader
-      v-model="value"
-      class="t-demo-cascader"
-      :options="options"
-      multiple
-      clearable
-      :min-collapsed-num="1"
-    >
-      <template #collapsedItems>
-        自定义折叠内容
-      </template>
+    <t-cascader v-model="value" class="t-demo-cascader" :options="options" multiple clearable :min-collapsed-num="1">
+      <template #collapsedItems> 自定义折叠内容 </template>
     </t-cascader>
   </div>
 </template>

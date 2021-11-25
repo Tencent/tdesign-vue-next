@@ -47,42 +47,48 @@ describe('MenuItem', () => {
 
   describe('slot', () => {
     it('<icon>', () => {
-      const wrapper = mount({
-        provide: {
-          TdMenu: Menu,
+      const wrapper = mount(
+        {
+          provide: {
+            TdMenu: Menu,
+          },
+          render() {
+            return (
+              <Menu>
+                <MenuItem />
+              </Menu>
+            );
+          },
         },
-        render() {
-          return (
-            <Menu>
-              <MenuItem />
-            </Menu>
-          );
+        {
+          slots: {
+            icon: '<div></div>',
+          },
         },
-      }, {
-        slots: {
-          icon: '<div></div>',
-        },
-      });
+      );
       expect(wrapper.element).toMatchSnapshot();
     });
 
     it('<default>', () => {
-      const wrapper = mount({
-        provide: {
-          TdMenu: Menu,
+      const wrapper = mount(
+        {
+          provide: {
+            TdMenu: Menu,
+          },
+          render() {
+            return (
+              <Menu>
+                <MenuItem />
+              </Menu>
+            );
+          },
         },
-        render() {
-          return (
-            <Menu>
-              <MenuItem />
-            </Menu>
-          );
+        {
+          slots: {
+            default: '<div></div>',
+          },
         },
-      }, {
-        slots: {
-          default: '<div></div>',
-        },
-      });
+      );
       expect(wrapper.element).toMatchSnapshot();
     });
   });

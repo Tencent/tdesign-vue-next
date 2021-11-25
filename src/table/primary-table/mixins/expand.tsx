@@ -55,13 +55,13 @@ export default defineComponent({
             this.expandOnRowClick && e.stopPropagation();
             this.handleExpandChange(row);
           }}
-        >{{ expandIcon: this.$slots.expandIcon }}</ExpandBox>
+        >
+          {{ expandIcon: this.$slots.expandIcon }}
+        </ExpandBox>
       );
     },
     // 渲染被展开的TableRow内容
-    renderExpandedRow({
-      rows, row, columns: defaultColumns, rowIndex,
-    }: RenderExpandRow): VNode {
+    renderExpandedRow({ rows, row, columns: defaultColumns, rowIndex }: RenderExpandRow): VNode {
       const columnCounts = defaultColumns.length;
       if (!this.expandedRow) return; // 若无展开渲染函数，则无需处理行数据
 
@@ -84,12 +84,14 @@ export default defineComponent({
         },
       ];
 
-      rows.push(<TableRow
-        key={`ExpandTableRowBox${rowIndex}`}
-        rowKey={this.rowKey}
-        style={{ ...(!isShowExpanded ? { display: 'none' } : {}) }}
-        columns={columns}
-      />);
+      rows.push(
+        <TableRow
+          key={`ExpandTableRowBox${rowIndex}`}
+          rowKey={this.rowKey}
+          style={{ ...(!isShowExpanded ? { display: 'none' } : {}) }}
+          columns={columns}
+        />,
+      );
     },
     // handle
     handleExpandChange(record: Record<string, any> = {}): void {

@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import props from './props';
 import popupProps from '../popup/props';
-import Popup, { PopupProps } from '../popup';
+import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup';
 import { ClassName } from '../common';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 
@@ -24,57 +24,47 @@ export default defineComponent({
   },
   computed: {
     tooltipOverlayClassName(): ClassName {
-      const tmp = [
-        `${prefix}-tooltip`,
-        { [`${prefix}-tooltip-${this.theme}`]: this.theme },
-      ];
-      const oClassName = this.$attrs.overlayClassName as PopupProps['overlayClassName'];
-      if (oClassName instanceof Array) return oClassName.concat(tmp);
-      return oClassName ? tmp.concat(oClassName) : tmp;
-    },
-    innerPopupProps(): PopupProps {
-      const r: PopupProps = {
-        showArrow: true,
-        ...this.$props,
-        content: () => renderTNodeJSX(this, 'content'),
-        default: () => renderContent(this, 'default', 'triggerElement'),
-        overlayClassName: this.tooltipOverlayClassName,
-        onVisibleChange: this.onTipVisibleChange,
-      };
-      delete r.visible;
-      return r;
+      return [`${prefix}-tooltip`, { [`${prefix}-tooltip-${this.theme}`]: this.theme }, this.overlayClassName];
     },
   },
   watch: {
-    visible: {
-      handler(val) {
-        this.tooltipVisible = val;
-      },
-      immediate: true,
+    visible(visible) {
+      if (this.timer && !visible) {
+        clearTimeout(this.timer);
+        this.timer = null;
+      }
     },
   },
   created() {
-    if (this.duration) {
+    if (this.duration && this.visible) {
       this.timer = setTimeout(() => {
-        this.tooltipVisible = false;
+        this.$emit('visible-change', false);
         clearTimeout(this.timer);
         this.timer = null;
       }, this.duration);
     }
   },
   methods: {
-    onTipVisibleChange(val: boolean) {
-      this.tooltipVisible = val;
-      this.$emit('visible-change', this.tooltipVisible);
+    onTipVisibleChange(val: boolean, ctx?: PopupVisibleChangeContext) {
+      // 因 props={this.getPopupProps()} 已经透传 onVisibleChange props，此处不再需要使用 emitEvent
+      if (this.timer && ctx?.trigger !== 'document') return;
+      this.$emit('visible-change', val);
+    },
+
+    getPopupProps(): PopupProps {
+      const r: PopupProps = {
+        showArrow: true,
+        ...this.$props,
+        trigger: 'click',
+        content: () => renderTNodeJSX(this, 'content'),
+        default: () => renderContent(this, 'default', 'triggerElement'),
+        overlayClassName: this.tooltipOverlayClassName,
+        onVisibleChange: this.onTipVisibleChange,
+      };
+      return r;
     },
   },
   render() {
-    return (
-      <Popup
-        visible={this.tooltipVisible}
-        showArrow={this.showArrow}
-        {...this.innerPopupProps}
-      ></Popup>
-    );
+    return <Popup visible={this.visible} showArrow={this.showArrow} {...this.getPopupProps()} />;
   },
 });

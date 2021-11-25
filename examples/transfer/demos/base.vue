@@ -26,11 +26,12 @@ export default defineComponent({
     const targetValue = ref([]);
     const checked = ref([]);
 
-    const handleCheckedChange = ({
-      checked: checkedVal, sourceChecked, targetChecked, type,
-    }) => {
+    const handleCheckedChange = ({ checked: checkedVal, sourceChecked, targetChecked, type }) => {
       console.log('handleCheckedChange', {
-        checkedVal, sourceChecked, targetChecked, type,
+        checkedVal,
+        sourceChecked,
+        targetChecked,
+        type,
       });
       checked.value = checkedVal;
     };

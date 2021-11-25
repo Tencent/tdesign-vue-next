@@ -5,14 +5,14 @@
       placeholder="-请选择-"
       :options="options"
       :popup-props="popupProps"
-      style="width: 200px;display: inline-block;"
+      style="width: 200px; display: inline-block"
     />
     <t-select
       v-model="value"
       placeholder="-请选择-"
       :options="options"
       :popup-props="popupProps2"
-      style="width: 200px;display: inline-block;margin-left: 20px;"
+      style="width: 200px; display: inline-block; margin-left: 20px"
     />
   </div>
 </template>

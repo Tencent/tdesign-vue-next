@@ -11,9 +11,10 @@ import { getCell, GetCellParams } from '../util/common';
 function updateRowExpandLength(row: Record<string, any>, childrenLength: number, type: 'add' | 'minus') {
   let tmp = row;
   while (tmp) {
-    tmp.__expand_children_length__ = type === 'add'
-      ? (tmp.__expand_children_length__ || 0) + childrenLength
-      : (tmp.__expand_children_length__ || 0) - childrenLength;
+    tmp.__expand_children_length__ =
+      type === 'add'
+        ? (tmp.__expand_children_length__ || 0) + childrenLength
+        : (tmp.__expand_children_length__ || 0) - childrenLength;
     tmp = tmp.__t_table_inner_data__?.parent;
   }
 }
@@ -48,7 +49,7 @@ export default defineComponent({
         const cellInfo = getCell(this, { ...p, col: this.columns[treeNodeColumnIndex] });
         const colStyle = this.getTreeNodeStyle(p.row.__t_table_inner_data__?.level);
         const childrenNodes = get(p.row, this.childrenKey);
-        if (childrenNodes && (childrenNodes instanceof Array)) {
+        if (childrenNodes && childrenNodes instanceof Array) {
           const ICON_NODE = p.row.__tree_expand_children__ ? MinusRectangleIcon : AddRectangleIcon;
           return (
             <div style={colStyle}>
@@ -81,7 +82,7 @@ export default defineComponent({
         const children = childrenNodes.map((item: Record<string, any>) => {
           const innerData = row.__t_table_inner_data__;
           const path = innerData?.path ? innerData.path.concat(row) : [row];
-          return ({
+          return {
             ...item,
             __t_table_inner_data__: {
               parent: row,
@@ -89,7 +90,7 @@ export default defineComponent({
               level: (innerData?.level || 0) + 1,
               path,
             },
-          });
+          };
         });
         this.dataSource.splice.apply(this.dataSource, [index + 1, 0].concat(children));
       }

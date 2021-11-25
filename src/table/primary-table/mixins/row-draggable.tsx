@@ -4,9 +4,9 @@ import { prefix } from '../../../config';
 import { emitEvent } from '../../../utils/event';
 
 export interface RowDragEventArgs {
-  index: number,
-  data: any,
-  vNode?: VNode,
+  index: number;
+  data: any;
+  vNode?: VNode;
 }
 
 export default defineComponent({
@@ -45,7 +45,10 @@ export default defineComponent({
     },
     emitChange(current: DataType, target: DataType, currentIndex: number, targetIndex: number) {
       emitEvent<Parameters<TdPrimaryTableProps['onDragSort']>>(this, 'drag-sort', {
-        current, target, currentIndex, targetIndex,
+        current,
+        target,
+        currentIndex,
+        targetIndex,
       });
     },
   },

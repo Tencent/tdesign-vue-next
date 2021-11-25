@@ -20,9 +20,7 @@ export default defineComponent({
 
   computed: {
     classes(): ClassName {
-      const {
-        span, order, offset, push, pull,
-      } = this;
+      const { span, order, offset, push, pull } = this;
 
       const allSizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
       const sizeClasses = allSizes.reduce((acc, currSize) => {
@@ -78,12 +76,28 @@ export default defineComponent({
           paddingBottom: `${gutter / 2}px`,
         });
       } else if (Array.isArray(gutter) && gutter.length) {
-        if (gutter[0] as any > 0) Object.assign(paddingObj, { paddingLeft: `${gutter[0] as any / 2}px`, paddingRight: `${gutter[0] as any / 2}px` });
-        if (gutter[1] as any > 0) Object.assign(paddingObj, { paddingTop: `${gutter[1] as any / 2}px`, paddingBottom: `${gutter[1] as any / 2}px` });
+        if ((gutter[0] as any) > 0)
+          Object.assign(paddingObj, {
+            paddingLeft: `${(gutter[0] as any) / 2}px`,
+            paddingRight: `${(gutter[0] as any) / 2}px`,
+          });
+        if ((gutter[1] as any) > 0)
+          Object.assign(paddingObj, {
+            paddingTop: `${(gutter[1] as any) / 2}px`,
+            paddingBottom: `${(gutter[1] as any) / 2}px`,
+          });
       } else if (isObject(gutter) && gutter[currentSize]) {
         if (Array.isArray(gutter[currentSize])) {
-          if (gutter[currentSize][0] > 0) Object.assign(paddingObj, { paddingLeft: `${gutter[currentSize][0] / 2}px`, paddingRight: `${gutter[currentSize][0] / 2}px` });
-          if (gutter[currentSize][1] > 0) Object.assign(paddingObj, { paddingTop: `${gutter[currentSize][1] / 2}px`, paddingBottom: `${gutter[currentSize][1] / 2}px` });
+          if (gutter[currentSize][0] > 0)
+            Object.assign(paddingObj, {
+              paddingLeft: `${gutter[currentSize][0] / 2}px`,
+              paddingRight: `${gutter[currentSize][0] / 2}px`,
+            });
+          if (gutter[currentSize][1] > 0)
+            Object.assign(paddingObj, {
+              paddingTop: `${gutter[currentSize][1] / 2}px`,
+              paddingBottom: `${gutter[currentSize][1] / 2}px`,
+            });
         } else if (gutter[currentSize] > 0) {
           Object.assign(paddingObj, {
             paddingLeft: `${gutter[currentSize] / 2}px`,
@@ -110,6 +124,10 @@ export default defineComponent({
     }
     const colStyle = { ...styles };
 
-    return <TAG class={classes} style={colStyle}>{ this.$slots.default && this.$slots.default()}</TAG>;
+    return (
+      <TAG class={classes} style={colStyle}>
+        {this.$slots.default && this.$slots.default()}
+      </TAG>
+    );
   },
 });

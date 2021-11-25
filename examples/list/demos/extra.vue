@@ -13,9 +13,7 @@
           <li><a href="">操作3</a></li>
         </template>
         <template #extra>
-          <div
-            style="height:100px;line-height:100px;width:160px;text-align:center;background: #f0f0f0;"
-          >
+          <div style="height: 100px; line-height: 100px; width: 160px; text-align: center; background: #f0f0f0">
             额外内容
           </div>
         </template>

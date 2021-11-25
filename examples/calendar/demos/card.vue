@@ -5,20 +5,13 @@
       <t-select v-model="theme" class="demo-select-base">
         <t-option v-for="item in options" :key="item.value" :value="item.value" :label="item.label" />
       </t-select>
-      <t-button theme="primary" @click="toCurrent()">
-        今天（当前高亮日期）
-      </t-button>
+      <t-button theme="primary" @click="toCurrent()"> 今天（当前高亮日期） </t-button>
     </div>
     <div>
       <label>日期补零：</label>
       <t-switch v-model="fillWithZero" size="large" />
     </div>
-    <t-calendar
-      ref="myCalendar"
-      :theme="theme"
-      :is-show-weekend-default="true"
-      :fill-with-zero="fillWithZero"
-    />
+    <t-calendar ref="myCalendar" :theme="theme" :is-show-weekend-default="true" :fill-with-zero="fillWithZero" />
   </div>
 </template>
 

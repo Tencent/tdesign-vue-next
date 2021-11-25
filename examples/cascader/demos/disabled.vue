@@ -1,18 +1,7 @@
 <template>
   <div>
-    <t-cascader
-      v-model="value1"
-      class="t-demo-cascader"
-      :options="options"
-      disabled
-    />
-    <t-cascader
-      v-model="value2"
-      class="t-demo-cascader"
-      :options="options"
-      disabled
-      multiple
-    />
+    <t-cascader v-model="value1" class="t-demo-cascader" :options="options" disabled />
+    <t-cascader v-model="value2" class="t-demo-cascader" :options="options" disabled multiple />
   </div>
 </template>
 

@@ -71,19 +71,19 @@ const TransferDom = {
       parentNode.replaceChild(home, el);
       // append to target
       getAttach(value)?.appendChild?.(el);
-      el.__transferDomData = Object.assign(
-        {},
-        el.__transferDomData,
-        { hasMovedOut: true, target: getAttach(value) }
-      );
+      el.__transferDomData = {
+        ...el.__transferDomData,
+        hasMovedOut: true,
+        target: getAttach(value),
+      };
     } else if (hasMovedOut && !value) {
       // previously moved, coming back home
       parentNode.replaceChild(el, home);
-      el.__transferDomData = Object.assign(
-        {},
-        el.__transferDomData,
-        { hasMovedOut: false, target: getAttach(value) }
-      );
+      el.__transferDomData = {
+        ...el.__transferDomData,
+        hasMovedOut: false,
+        target: getAttach(value),
+      };
     } else if (value) {
       // already moved, going somewhere else
       getAttach(value)?.appendChild?.(el);

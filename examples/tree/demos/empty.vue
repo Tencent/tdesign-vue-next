@@ -1,16 +1,10 @@
 <template>
   <div class="tdesign-tree-base">
-    <t-tree :data="[]" /><br>
-    <t-tree
-      :data="[]"
-      empty="😊 空数据（string）"
-    /><br>
-    <t-tree
-      :data="[]"
-      :empty="empty"
-    /><br>
+    <t-tree :data="[]" /><br />
+    <t-tree :data="[]" empty="😊 空数据（string）" /><br />
+    <t-tree :data="[]" :empty="empty" /><br />
     <t-tree :data="[]">
-      <br>
+      <br />
       <template #empty>
         <div>😊 空数据（slot）</div>
       </template>
@@ -32,7 +26,7 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-  .demo-tree-base {
-    display: block;
-  }
+.demo-tree-base {
+  display: block;
+}
 </style>

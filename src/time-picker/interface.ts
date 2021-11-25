@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import { Instance } from '@popperjs/core';
 import dayjs from 'dayjs';
 import { TdTimePickerProps, TdTimeRangePickerProps } from './type';

@@ -271,7 +271,7 @@ exports[`Badge size demo works fine 1`] = `
   <h3
     class="demo-t-badge-title"
   >
-     1.默认大小 
+    1.默认大小
   </h3>
   <div
     class="t-badge"
@@ -318,7 +318,7 @@ exports[`Badge size demo works fine 1`] = `
   <h3
     class="demo-t-badge-title"
   >
-     2.小 
+    2.小
   </h3>
   <div
     class="t-badge"

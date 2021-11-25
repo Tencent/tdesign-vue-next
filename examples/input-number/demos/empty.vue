@@ -1,9 +1,6 @@
 <template>
   <div>
-    <t-input-number
-      v-model="value"
-      placeholder="输入"
-    />
+    <t-input-number v-model="value" placeholder="输入" />
   </div>
 </template>
 

@@ -1,16 +1,8 @@
 <template>
   <t-list :split="true">
-    <t-list-item
-      v-for="(item, index) in commentsData"
-      :key="index"
-    >
+    <t-list-item v-for="(item, index) in commentsData" :key="index">
       <template #content>
-        <t-comment
-          :avatar="item.avatar"
-          :author="item.author"
-          :datetime="item.datetime"
-          :content="item.content"
-        >
+        <t-comment :avatar="item.avatar" :author="item.author" :datetime="item.datetime" :content="item.content">
           <template #actions>
             <span key="thumbUp">
               <t-icon name="thumb-up" />
@@ -63,9 +55,9 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-  .action-text {
-    display: inline-block;
-    margin-left: 6px;
-    line-height: 15px;
-  }
+.action-text {
+  display: inline-block;
+  margin-left: 6px;
+  line-height: 15px;
+}
 </style>

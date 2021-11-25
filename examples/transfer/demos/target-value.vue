@@ -1,9 +1,6 @@
 <template>
   <div>
-    <t-transfer
-      v-model="targetValue"
-      :data="list"
-    />
+    <t-transfer v-model="targetValue" :data="list" />
   </div>
 </template>
 <script>

@@ -20,9 +20,11 @@ export default defineComponent({
   },
 
   render() {
-    const styles = this.height ? {
-      height: this.height,
-    } : {};
+    const styles = this.height
+      ? {
+          height: this.height,
+        }
+      : {};
     return (
       <header class="t-layout--header" style={styles}>
         {this.renderContent()}

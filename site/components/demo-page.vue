@@ -1,11 +1,20 @@
 <template>
   <div :class="_class">
-    <component :is="demo"></component>
+    <component :is="demo" />
   </div>
 </template>
 <script>
 export default {
-  props: ['demo', 'componentName'],
+  props: {
+    demo: {
+      type: Object,
+      default: () => {},
+    },
+    componentName: {
+      type: String,
+      default: '',
+    },
+  },
   computed: {
     _class() {
       return `demo-${this.componentName}`;

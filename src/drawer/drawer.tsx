@@ -30,7 +30,18 @@ export default defineComponent({
 
   props: { ...props },
 
-  emits: ['open', 'close', 'opened', 'closed', 'update:visible', 'click-overlay', 'click-close-btn', 'keydown-esc', 'click-confirm', 'click-cancel'],
+  emits: [
+    'open',
+    'close',
+    'opened',
+    'closed',
+    'update:visible',
+    'click-overlay',
+    'click-close-btn',
+    'keydown-esc',
+    'click-confirm',
+    'click-cancel',
+  ],
 
   computed: {
     drawerClasses(): ClassName {
@@ -46,11 +57,13 @@ export default defineComponent({
     },
     sizeValue(): string {
       const defaultSize = isNaN(Number(this.size)) ? this.size : `${this.size}px`;
-      return {
-        small: '300px',
-        medium: '500px',
-        large: '760px',
-      }[this.size] || defaultSize;
+      return (
+        {
+          small: '300px',
+          medium: '500px',
+          large: '760px',
+        }[this.size] || defaultSize
+      );
     },
     wraperStyles(): Styles {
       return {
@@ -64,7 +77,7 @@ export default defineComponent({
       return ['t-drawer__content-wrapper', `t-drawer__content-wrapper-${this.placement}`];
     },
     parentNode(): HTMLElement {
-      return this.$el && this.$el.parentNode as HTMLElement;
+      return this.$el && (this.$el.parentNode as HTMLElement);
     },
     modeAndPlacement(): string {
       return [this.mode, this.placement].join();
@@ -120,13 +133,8 @@ export default defineComponent({
       const theme = isCancel ? 'default' : 'primary';
       const isApiObject = typeof btnApi === 'object';
       return (
-        <t-button
-          theme={theme}
-          onClick={clickAction}
-          props={isApiObject ? btnApi : {}}
-          class={`${name}-${btnType}`}
-        >
-          { (btnApi && typeof btnApi === 'object') ? btnApi.content : btnApi }
+        <t-button theme={theme} onClick={clickAction} props={isApiObject ? btnApi : {}} class={`${name}-${btnType}`}>
+          {btnApi && typeof btnApi === 'object' ? btnApi.content : btnApi}
         </t-button>
       );
     },
@@ -198,12 +206,16 @@ export default defineComponent({
         v-transfer-dom={this.attach}
         {...this.$attrs}
       >
-        {this.showOverlay && <div class={`${name}__mask`} onClick={this.handleWrapperClick}/>}
+        {this.showOverlay && <div class={`${name}__mask`} onClick={this.handleWrapperClick} />}
         <div class={this.wraperClasses} style={this.wraperStyles}>
           {this.header && <div class={`${name}__header`}>{renderTNodeJSX(this, 'header')}</div>}
-          {this.closeBtn && <div class={`${name}__close-btn`} onClick={this.handleCloseBtnClick}>{renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}</div>}
+          {this.closeBtn && (
+            <div class={`${name}__close-btn`} onClick={this.handleCloseBtnClick}>
+              {renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}
+            </div>
+          )}
           <div class={`${name}__body`}>{body}</div>
-          {this.footer && <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div> }
+          {this.footer && <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div>}
         </div>
       </div>
     );

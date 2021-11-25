@@ -7,7 +7,7 @@
       :on-search="remoteMethod"
       :loading="loading"
       :options="options"
-      style="width: 200px;display: inline-block;margin: 0 20px 20px 0;"
+      style="width: 200px; display: inline-block; margin: 0 20px 20px 0"
     />
     <t-select
       v-model="value2"
@@ -17,7 +17,7 @@
       :options="options2"
       :loading="loading2"
       reserve-keyword
-      style="width: 400px;display: inline-block;"
+      style="width: 400px; display: inline-block"
       @search="remoteMethod2"
     />
   </div>
@@ -28,26 +28,26 @@ import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
-    const options = ref([{
-      label: '上海',
-      value: 'shanghai',
-    }, {
-      label: '北京',
-      value: 'beijing',
-      disabled: true,
-    }, {
-      label: '深圳',
-      value: 'shenzhen',
-    }]);
+    const options = ref([
+      {
+        label: '上海',
+        value: 'shanghai',
+      },
+      {
+        label: '北京',
+        value: 'beijing',
+        disabled: true,
+      },
+      {
+        label: '深圳',
+        value: 'shenzhen',
+      },
+    ]);
     const options2 = ref([]);
     const value = ref('');
     const value2 = ref([]);
     const loading = ref(false);
     const loading2 = ref(false);
-
-    const handleChange = (value) => {
-      console.log(value);
-    };
 
     const remoteMethod = (search) => {
       console.log('search', search);
@@ -55,50 +55,56 @@ export default defineComponent({
         loading.value = true;
         setTimeout(() => {
           loading.value = false;
-          options.value = [{
-            value: `${search}_test1`,
-            label: `${search}_test1`,
-          }, {
-            value: `${search}_test2`,
-            label: `${search}_test2`,
-          }, {
-            value: `${search}_test3`,
-            label: `${search}_test3`,
-          }];
+          options.value = [
+            {
+              value: `${search}_test1`,
+              label: `${search}_test1`,
+            },
+            {
+              value: `${search}_test2`,
+              label: `${search}_test2`,
+            },
+            {
+              value: `${search}_test3`,
+              label: `${search}_test3`,
+            },
+          ];
         }, 500);
       }
     };
 
     const remoteMethod2 = (search) => {
-      console.log('search2', search);
       if (search) {
         loading2.value = true;
         setTimeout(() => {
           loading2.value = false;
-          options2.value = [{
-            value: `${search}_test1`,
-            label: `${search}_test1`,
-          }, {
-            value: `${search}_test2`,
-            label: `${search}_test2`,
-          }, {
-            value: `${search}_test3`,
-            label: `${search}_test3`,
-          }];
+          options2.value = [
+            {
+              value: `${search}_test1`,
+              label: `${search}_test1`,
+            },
+            {
+              value: `${search}_test2`,
+              label: `${search}_test2`,
+            },
+            {
+              value: `${search}_test3`,
+              label: `${search}_test3`,
+            },
+          ];
         }, 500);
       }
     };
 
     return {
-      options,
-      options2,
       value,
       value2,
+      options,
+      options2,
       loading,
       loading2,
-      handleChange,
-      remoteMethod,
       remoteMethod2,
+      remoteMethod,
     };
   },
 });

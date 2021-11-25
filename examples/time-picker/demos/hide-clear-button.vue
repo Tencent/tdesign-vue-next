@@ -1,10 +1,7 @@
 <template>
   <div class="tdesign-demo-block">
     <h1>具备清空按钮</h1>
-    <t-time-picker
-      v-model="time1"
-      clearable
-    />
+    <t-time-picker v-model="time1" clearable />
     <h1>禁止清空按钮</h1>
     <t-time-picker :clearable="false" />
   </div>
@@ -28,7 +25,7 @@ export default defineComponent({
   h1 {
     margin-bottom: 20px;
     font-weight: bold;
-    color: rgba(0,0,0,.5)
+    color: rgba(0, 0, 0, 0.5);
   }
   h1:nth-child(3) {
     margin-top: 30px;

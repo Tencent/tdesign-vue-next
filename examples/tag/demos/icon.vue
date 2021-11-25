@@ -1,9 +1,7 @@
 <template>
   <div class="tdesign-demo-block-column">
     <div class="tdesign-demo-block-row">
-      <t-tag :icon="renderDiscountIcon">
-        默认标签
-      </t-tag>
+      <t-tag :icon="renderDiscountIcon"> 默认标签 </t-tag>
     </div>
     <div class="tdesign-demo-block-row">
       <t-tag>
@@ -32,5 +30,4 @@ export default defineComponent({
 });
 </script>
 
-<style lang="less">
-</style>
+<style lang="less"></style>

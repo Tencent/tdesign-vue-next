@@ -1,12 +1,6 @@
 <template>
   <div>
-    <t-cascader
-      v-model="value"
-      class="t-demo-cascader"
-      :options="options"
-      multiple
-      clearable
-    />
+    <t-cascader v-model="value" class="t-demo-cascader" :options="options" multiple clearable />
   </div>
 </template>
 

@@ -81,7 +81,7 @@ export default defineComponent({
     value: {
       handler(val: SwitchValue): void {
         if (this.customValue && this.customValue.length && !this.customValue.includes(val)) {
-          throw `value is not in ${JSON.stringify(this.customValue)}`;
+          throw new Error(`value is not in ${JSON.stringify(this.customValue)}`);
         }
       },
       immediate: true,
@@ -89,8 +89,7 @@ export default defineComponent({
   },
   methods: {
     handleToggle(): void {
-      const checked = this.value === this.activeValue
-        ? this.inactiveValue : this.activeValue;
+      const checked = this.value === this.activeValue ? this.inactiveValue : this.activeValue;
       this.$emit('change', checked);
     },
     toggle(): void {
@@ -101,15 +100,7 @@ export default defineComponent({
     },
   },
   render() {
-    const {
-      loading,
-      disabled,
-      content,
-      nodeClasses,
-      classes,
-      toggle,
-      contentClasses,
-    } = this;
+    const { loading, disabled, content, nodeClasses, classes, toggle, contentClasses } = this;
 
     let switchContent: VNodeChild;
     let loadingContent: TNodeReturnValue;
@@ -121,13 +112,9 @@ export default defineComponent({
     }
 
     return (
-      <div
-        class={classes}
-        disabled={disabled}
-        onClick={toggle}
-        >
-          <span class={nodeClasses}>{loadingContent}</span>
-          <div class={contentClasses}>{switchContent}</div>
+      <div class={classes} disabled={disabled} onClick={toggle}>
+        <span class={nodeClasses}>{loadingContent}</span>
+        <div class={contentClasses}>{switchContent}</div>
       </div>
     );
   },

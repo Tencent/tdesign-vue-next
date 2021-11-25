@@ -1,4 +1,4 @@
-import _Progress from './progress.vue';
+import _Progress from './progress';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdProgressProps } from './type';
 

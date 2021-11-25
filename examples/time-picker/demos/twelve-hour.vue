@@ -1,10 +1,6 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-time-picker
-      v-model="value"
-      format="hh:mm:ss a"
-      :hide-disabled-time="false"
-    />
+    <t-time-picker v-model="value" format="hh:mm:ss a" :hide-disabled-time="false" />
   </div>
 </template>
 

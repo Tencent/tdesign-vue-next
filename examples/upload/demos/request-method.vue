@@ -1,25 +1,15 @@
 <template>
   <div>
     <t-radio-group v-model="uploadMethod">
-      <t-radio-button value="requestSuccessMethod">
-        上传成功示例
-      </t-radio-button>
-      <t-radio-button value="requestFailMethod">
-        上传失败示例
-      </t-radio-button>
+      <t-radio-button value="requestSuccessMethod"> 上传成功示例 </t-radio-button>
+      <t-radio-button value="requestFailMethod"> 上传失败示例 </t-radio-button>
     </t-radio-group>
-    <br><br>
-    <t-upload
-      v-model="files"
-      :request-method="requestMethod"
-      tips="自定义上传方法需要返回成功或失败信息"
-    />
+    <br /><br />
+    <t-upload v-model="files" :request-method="requestMethod" tips="自定义上传方法需要返回成功或失败信息" />
   </div>
 </template>
 <script>
-import {
-  defineComponent, ref, watch, computed,
-} from 'vue';
+import { defineComponent, ref, watch, computed } from 'vue';
 
 export default defineComponent({
   setup() {
@@ -49,7 +39,9 @@ export default defineComponent({
       });
     };
 
-    const requestMethod = computed(() => uploadMethod.value === 'requestSuccessMethod' ? requestSuccessMethod : requestFailMethod);
+    const requestMethod = computed(() =>
+      uploadMethod.value === 'requestSuccessMethod' ? requestSuccessMethod : requestFailMethod,
+    );
 
     return {
       files,

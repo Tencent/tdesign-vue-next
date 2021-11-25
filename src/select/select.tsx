@@ -1,6 +1,4 @@
-import {
-  defineComponent, nextTick, VNode, ComponentPublicInstance,
-} from 'vue';
+import { defineComponent, nextTick, VNode, ComponentPublicInstance } from 'vue';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
@@ -24,7 +22,7 @@ import FakeArrow from '../common-components/fake-arrow';
 
 interface KeysType {
   value?: string;
-  label?: string
+  label?: string;
 }
 
 // import { SelectInstance } from './instance';
@@ -98,7 +96,8 @@ export default defineComponent({
         `${prefix}-fake-arrow`,
         {
           [`${prefix}-fake-arrow--active`]: visible,
-        }];
+        },
+      ];
     },
     tipsClass(): ClassName {
       return [
@@ -118,13 +117,13 @@ export default defineComponent({
     },
     showPlaceholder(): boolean {
       if (
-        !this.showFilter
-          && ((typeof this.value === 'string' && this.value === '' && !this.selectedSingle)
-          || (!this.multiple && typeof this.value === 'object' && !this.selectedSingle)
-          || (Array.isArray(this.value) && !this.value.length)
-          || this.value === null
-          || this.value === undefined
-          || this.value === '')
+        !this.showFilter &&
+        ((typeof this.value === 'string' && this.value === '' && !this.selectedSingle) ||
+          (!this.multiple && typeof this.value === 'object' && !this.selectedSingle) ||
+          (Array.isArray(this.value) && !this.value.length) ||
+          this.value === null ||
+          this.value === undefined ||
+          this.value === '')
       ) {
         return true;
       }
@@ -140,18 +139,21 @@ export default defineComponent({
       return this.placeholder;
     },
     showClose(): boolean {
-      return Boolean(this.clearable
-        && this.isHover
-        && !this.disabled
-        && ((!this.multiple && (this.value || this.value === 0)) || (this.multiple && this.value instanceof Array && this.value.length)));
+      return Boolean(
+        this.clearable &&
+          this.isHover &&
+          !this.disabled &&
+          ((!this.multiple && (this.value || this.value === 0)) ||
+            (this.multiple && this.value instanceof Array && this.value.length)),
+      );
     },
     showArrow(): boolean {
       return (
-        !this.clearable
-        || !this.isHover
-        || this.disabled
-        || (!this.multiple && !this.value && this.value !== 0)
-        || (this.multiple && this.value instanceof Array && !this.value.length)
+        !this.clearable ||
+        !this.isHover ||
+        this.disabled ||
+        (!this.multiple && !this.value && this.value !== 0) ||
+        (this.multiple && this.value instanceof Array && !this.value.length)
       );
     },
     canFilter(): boolean {
@@ -190,7 +192,7 @@ export default defineComponent({
     },
     selectedMultiple(): Array<Options> {
       if (this.multiple && Array.isArray(this.value) && this.value.length) {
-        return this.value.map((item: string|number|Options) => {
+        return this.value.map((item: string | number | Options) => {
           if (typeof item === 'object') {
             return item;
           }
@@ -204,17 +206,20 @@ export default defineComponent({
       return [];
     },
     popupObject(): PopupProps {
-      const propsObject = this.popupProps ? ({ ...this.defaultProps, ...this.popupProps as any }) : this.defaultProps;
+      const propsObject = this.popupProps ? { ...this.defaultProps, ...(this.popupProps as any) } : this.defaultProps;
       return propsObject;
     },
     filterOptions(): Array<Options> {
       // filter优先级 filter方法>仅filterable
       if (isFunction(this.filter)) {
         return this.realOptions.filter((option) => this.filter(this.searchInput, option));
-      } if (this.filterable) {
+      }
+      if (this.filterable) {
         // 仅有filterable属性时，默认不区分大小写过滤label
-        return this.realOptions.filter((option) => option[this.realLabel].toString().toLowerCase()
-          .indexOf(this.searchInput.toString().toLowerCase()) !== -1);
+        return this.realOptions.filter(
+          (option) =>
+            option[this.realLabel].toString().toLowerCase().indexOf(this.searchInput.toString().toLowerCase()) !== -1,
+        );
       }
       return [];
     },
@@ -222,7 +227,8 @@ export default defineComponent({
       // 展示优先级，用户远程搜索传入>组件通过filter过滤>getOptions后的完整数据
       if (isFunction(this.onSearch) || this.$attrs.search) {
         return this.realOptions;
-      } if (this.canFilter && !this.creatable) {
+      }
+      if (this.canFilter && !this.creatable) {
         if (this.searchInput === '') {
           return this.realOptions;
         }
@@ -258,14 +264,20 @@ export default defineComponent({
       },
     },
   },
+  mounted() {
+    this.checkVal();
+  },
   methods: {
+    checkVal() {
+      const { value, multiple } = this;
+      if ((multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value))) {
+        this.$emit('change', this.multiple ? [] : '');
+        console.warn('TDesign Warn:', 'select props value invalid, v-model automatic calibration');
+      }
+    },
     multiLimitDisabled(value: string | number) {
       if (this.multiple && this.max) {
-        if (
-          this.value instanceof Array
-          && this.value.indexOf(value) === -1
-          && this.max <= this.value.length
-        ) {
+        if (this.value instanceof Array && this.value.indexOf(value) === -1 && this.max <= this.value.length) {
           return true;
         }
       }
@@ -419,7 +431,10 @@ export default defineComponent({
         if (typeof styles === 'object' && !styles.width) {
           const elWidth = (this.$refs.select as HTMLElement).getBoundingClientRect().width;
           const popupWidth = this.getOverlayElm().getBoundingClientRect().width;
-          const width = elWidth > DEFAULT_MAX_OVERLAY_WIDTH ? elWidth : Math.min(DEFAULT_MAX_OVERLAY_WIDTH, Math.max(elWidth, popupWidth));
+          const width =
+            elWidth > DEFAULT_MAX_OVERLAY_WIDTH
+              ? elWidth
+              : Math.min(DEFAULT_MAX_OVERLAY_WIDTH, Math.max(elWidth, popupWidth));
           (this.defaultProps.overlayStyle as any).width = `${Math.ceil(width)}px`;
         }
       });
@@ -430,7 +445,9 @@ export default defineComponent({
     },
     getLoadingText() {
       const useLocale = !this.loadingText && !this.$slots.loadingText;
-      return useLocale ? this.t(this.locale.loadingText) : renderTNodeJSX(this as ComponentPublicInstance, 'loadingText');
+      return useLocale
+        ? this.t(this.locale.loadingText)
+        : renderTNodeJSX(this as ComponentPublicInstance, 'loadingText');
     },
     getPlaceholderText() {
       return this.placeholder || this.t(this.locale.placeholderText);
@@ -444,13 +461,7 @@ export default defineComponent({
           </span>
         );
       }
-      return (
-        <t-icon-close
-          class={closeIconClass}
-          size={this.size}
-          onClick={this.clearSelect}
-        />
-      );
+      return <t-icon-close class={closeIconClass} size={this.size} onClick={this.clearSelect} />;
     },
     doFocus() {
       const input = this.$refs.input as HTMLElement;
@@ -492,43 +503,35 @@ export default defineComponent({
           <ul v-show={showCreateOption} class={`${name}-create-option`}>
             <t-option value={this.searchInput} label={this.searchInput} class={`${name}-create-option-special`} />
           </ul>
-          {
-            loading && (
-              <li class={tipsClass}>{ loadingTextSlot || loadingText }</li>
-            )
-          }
-          {
-            !loading && !displayOptions.length && !showCreateOption && (
-              <li class={emptyClass}>{ emptySlot }</li>
-            )
-          }
+          {loading && <li class={tipsClass}>{loadingTextSlot || loadingText}</li>}
+          {!loading && !displayOptions.length && !showCreateOption && <li class={emptyClass}>{emptySlot}</li>}
           {
             // options直传时
-            !hasOptions && displayOptions.length && !loading
-              ? <ul>
-              {
-                displayOptions.map((item: Options, index: number) => (
-                    <t-option
-                      value={get(item, realValue)}
-                      label={get(item, realLabel)}
-                      disabled={item.disabled || this.multiLimitDisabled(get(item, realValue))}
-                      key={index}
-                    >
-                      { get(item, realLabel) }
-                    </t-option>
-                ))
-              }
-            </ul>
-              : <span v-show={!loading && displayOptions.length}>{children}</span>
+            !hasOptions && displayOptions.length && !loading ? (
+              <ul>
+                {displayOptions.map((item: Options, index: number) => (
+                  <t-option
+                    value={get(item, realValue)}
+                    label={get(item, realLabel)}
+                    disabled={item.disabled || this.multiLimitDisabled(get(item, realValue))}
+                    key={index}
+                  >
+                    {get(item, realLabel)}
+                  </t-option>
+                ))}
+              </ul>
+            ) : (
+              <span v-show={!loading && displayOptions.length}>{children}</span>
+            )
           }
         </div>
       ),
     };
 
     return (
-      <div ref='select' class={`${name}-wrap`}>
+      <div ref="select" class={`${name}-wrap`}>
         <Popup
-          ref='popup'
+          ref="popup"
           class={`${name}-popup-reference`}
           visible={this.visible}
           placement={popupObject.placement}
@@ -536,25 +539,22 @@ export default defineComponent({
           disabled={disabled}
           overlayClassName={popClass}
           overlayStyle={popupObject.overlayStyle}
-          onVisibleChange={ this.visibleChange }
+          onVisibleChange={this.visibleChange}
           expandAnimation={true}
           v-slots={slots}
         >
-          <div class={classes} onMouseenter={ this.hoverEvent.bind(null, true) } onMouseleave={ this.hoverEvent.bind(null, false) }>
-            {
-              prefixIconSlot && (<span class="t-select-left-icon">{ prefixIconSlot[0] }</span>)
-            }
-            {
-              showPlaceholder && (
-                <span class={`${name}-placeholder`}> { placeholderText }</span>
-              )
-            }
+          <div
+            class={classes}
+            onMouseenter={this.hoverEvent.bind(null, true)}
+            onMouseleave={this.hoverEvent.bind(null, false)}
+          >
+            {prefixIconSlot && <span class="t-select-left-icon">{prefixIconSlot[0]}</span>}
+            {showPlaceholder && <span class={`${name}-placeholder`}> {placeholderText}</span>}
             {this.valueDisplay || this.$slots.valueDisplay
               ? renderTNodeJSX(this, 'valueDisplay', {
-                params: { value: selectedMultiple, onClose: (index: number) => this.removeTag(index) },
-              })
-              : (
-                selectedMultiple.map((item: Options, index: number) => (
+                  params: { value: selectedMultiple, onClose: (index: number) => this.removeTag(index) },
+                })
+              : selectedMultiple.map((item: Options, index: number) => (
                   <tag
                     v-show={this.minCollapsedNum <= 0 || index < this.minCollapsedNum}
                     key={index}
@@ -566,57 +566,45 @@ export default defineComponent({
                     title={get(item, realLabel)}
                     onClose={this.removeTag.bind(null, index)}
                   >
-                    { get(item, realLabel) }
+                    {get(item, realLabel)}
                   </tag>
-                ))
-              )
-            }
-            {this.collapsedItems || this.$slots.collapsedItems
-              ? renderTNodeJSX(this, 'collapsedItems', {
+                ))}
+            {this.collapsedItems || this.$slots.collapsedItems ? (
+              renderTNodeJSX(this, 'collapsedItems', {
                 params: {
                   value: selectedMultiple,
                   collapsedSelectedItems: selectedMultiple.slice(this.minCollapsedNum),
                   count: selectedMultiple.length - this.minCollapsedNum,
                 },
               })
-              : <tag
-                  v-show={this.minCollapsedNum > 0 && selectedMultiple.length > this.minCollapsedNum}
-                  size={size}
-                >
-                  { `+${selectedMultiple.length - this.minCollapsedNum}` }
-                </tag>
-            }
-            {!multiple && !showPlaceholder && !showFilter && (
-              <span title={selectedSingle} class={`${name}-selectedSingle`}>{ selectedSingle }</span>
+            ) : (
+              <tag v-show={this.minCollapsedNum > 0 && selectedMultiple.length > this.minCollapsedNum} size={size}>
+                {`+${selectedMultiple.length - this.minCollapsedNum}`}
+              </tag>
             )}
-            {
-              showFilter && (
-                <t-input
-                  ref='input'
-                  v-model={this.searchInput}
-                  size={size}
-                  placeholder={ filterPlaceholder }
-                  disabled={disabled}
-                  class={`${name}-input`}
-                  onFocus={this.focus}
-                  onBlur={this.blur}
-                  onEnter={this.enter}
-                />
-              )
-            }
-            {
-              this.showArrow && !this.showLoading && (
-                <FakeArrow overlayClassName={`${name}-right-icon`} isActive={ this.visible && !this.disabled}/>
-              )
-            }
-            {
-              this.showClose && !this.showLoading && this.getCloseIcon()
-            }
-            {
-              this.showLoading && (
-                <t-icon-loading class={`${name}-right-icon ${name}-active-icon`} size={size} />
-              )
-            }
+            {!multiple && !showPlaceholder && !showFilter && (
+              <span title={selectedSingle} class={`${name}-selectedSingle`}>
+                {selectedSingle}
+              </span>
+            )}
+            {showFilter && (
+              <t-input
+                ref="input"
+                v-model={this.searchInput}
+                size={size}
+                placeholder={filterPlaceholder}
+                disabled={disabled}
+                class={`${name}-input`}
+                onFocus={this.focus}
+                onBlur={this.blur}
+                onEnter={this.enter}
+              />
+            )}
+            {this.showArrow && !this.showLoading && (
+              <FakeArrow overlayClassName={`${name}-right-icon`} isActive={this.visible && !this.disabled} />
+            )}
+            {this.showClose && !this.showLoading && this.getCloseIcon()}
+            {this.showLoading && <t-icon-loading class={`${name}-right-icon ${name}-active-icon`} size={size} />}
           </div>
         </Popup>
       </div>

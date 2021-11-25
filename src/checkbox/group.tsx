@@ -82,9 +82,11 @@ export default defineComponent({
           checked={this.isCheckAll}
           indeterminate={this.indeterminate}
           onChange={this.onCheckAllChange}
-          data-name='TDESIGN_CHECK_ALL'
-          { ...option }
-        >{this.renderLabel(option)}</Checkbox>
+          data-name="TDESIGN_CHECK_ALL"
+          {...option}
+        >
+          {this.renderLabel(option)}
+        </Checkbox>
       );
     },
     renderLabel(option: CheckboxOptionObj) {
@@ -128,16 +130,15 @@ export default defineComponent({
   render() {
     return (
       <div class={name} {...this.$attrs}>
-        {!!this.optionList.length && this.optionList.map((option, index) => {
-          if (option.checkAll) return this.renderCheckAll(option);
-          return (
-            <Checkbox
-              key={index}
-              { ...option }
-              checked={this.checkedMap[option.value]}
-            >{this.renderLabel(option)}</Checkbox>
-          );
-        })}
+        {!!this.optionList.length &&
+          this.optionList.map((option, index) => {
+            if (option.checkAll) return this.renderCheckAll(option);
+            return (
+              <Checkbox key={index} {...option} checked={this.checkedMap[option.value]}>
+                {this.renderLabel(option)}
+              </Checkbox>
+            );
+          })}
         {this.$slots.default && this.$slots.default(null)}
       </div>
     );

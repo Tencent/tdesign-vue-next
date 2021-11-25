@@ -1,11 +1,6 @@
 <template>
   <div>
-    <t-input-number
-      v-model="value"
-      theme="column"
-      :max="15"
-      :min="-2"
-    />
+    <t-input-number v-model="value" theme="column" :max="15" :min="-2" />
   </div>
 </template>
 

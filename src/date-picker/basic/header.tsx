@@ -20,12 +20,19 @@ export default defineComponent({
   },
   props,
   render() {
-    const {
-      type, year, month, onBtnClick, onTypeChange,
-    } = this;
+    const { type, year, month, onBtnClick, onTypeChange } = this;
     const startYear = parseInt((this.year / 10).toString(), 10) * 10;
     const {
-      rangeSeparator, yearAriaLabel, monthAriaLabel, now, preMonth, preYear, nextMonth, nextYear, preDecade, nextDecade,
+      rangeSeparator,
+      yearAriaLabel,
+      monthAriaLabel,
+      now,
+      preMonth,
+      preYear,
+      nextMonth,
+      nextYear,
+      preDecade,
+      nextDecade,
     } = this.locale;
     let preLabel;
     let nextLabel;
@@ -42,55 +49,50 @@ export default defineComponent({
     return (
       <div class={`${prefix}-date-picker-header`}>
         <span class={`${prefix}-date-picker-header-title`}>
-          {
-            type === 'year' && (
-              <span>
-                <span>
-                  {startYear}
-                </span>
-                  {rangeSeparator}
-                <span>
-                  {startYear + 9}
-                </span>
-              </span>
-            )
-          }
-          {
-            type !== 'year' && (
-              <t-button
-                class={`${prefix}-date-header__btn`}
-                variant="text"
-                size="small"
-                onClick={() => onTypeChange('year')}
-              >
-                { `${year} ${yearAriaLabel}`}
-              </t-button>
-            )
-          }
-          {
-            type === 'date' && (
-              <t-button
-                class={`${prefix}-date-header__btn`}
-                variant="text"
-                size="small"
-                onClick={() => onTypeChange('month')}
-              >
-                { `${month === 12 ? 1 : month + 1} ${monthAriaLabel}`}
-              </t-button>
-            )
-          }
+          {type === 'year' && (
+            <span>
+              <span>{startYear}</span>
+              {rangeSeparator}
+              <span>{startYear + 9}</span>
+            </span>
+          )}
+          {type !== 'year' && (
+            <t-button
+              class={`${prefix}-date-header__btn`}
+              variant="text"
+              size="small"
+              onClick={() => onTypeChange('year')}
+            >
+              {`${year} ${yearAriaLabel}`}
+            </t-button>
+          )}
+          {type === 'date' && (
+            <t-button
+              class={`${prefix}-date-header__btn`}
+              variant="text"
+              size="small"
+              onClick={() => onTypeChange('month')}
+            >
+              {`${month === 12 ? 1 : month + 1} ${monthAriaLabel}`}
+            </t-button>
+          )}
         </span>
 
         <span class={`${prefix}-date-picker-header-controller`}>
           <t-button
             class={`${prefix}-date-picker-header-controller__btn`}
-            variant="text" onClick={() => onBtnClick(-1)}
+            variant="text"
+            onClick={() => onBtnClick(-1)}
             title={preLabel}
             v-slots={{
               icon: () => <t-icon-chevron-left />,
-            }} />
+            }}
+          />
           <t-button
-            class={[`${prefix}-date-picker-header-controller__btn`, `${prefix}-date-picker-header-controller__btn--now`]}
+            class={[
+              `${prefix}-date-picker-header-controller__btn`,
+              `${prefix}-date-picker-header-controller__btn--now`,
+            ]}
             variant="text"
             onClick={() => onBtnClick(0)}
             title={now}

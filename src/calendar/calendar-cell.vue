@@ -2,9 +2,11 @@
   <!-- 高亮：t-is-checked; 灰度：t-is-disabled-->
   <td v-if="item" :class="cellCls" @click="clickCell" @dblclick="dblclick" @contextmenu="contextmenuClick">
     <slot name="cell" :data="item">
-      <div class="t-calendar__table-body-cell-value">{{ valueDisplay }}</div>
+      <div class="t-calendar__table-body-cell-value">
+        {{ valueDisplay }}
+      </div>
       <div class="t-calendar__table-body-cell-content">
-        <slot v-if="allowSlot" name="cellAppend" :data="item"></slot>
+        <slot v-if="allowSlot" name="cellAppend" :data="item" />
       </div>
     </slot>
   </td>
@@ -53,23 +55,23 @@ export default defineComponent({
       if (this.item.mode === 'month') {
         const dateNum = this.item.date.getDate();
         const fillZero = dateNum < 10 && (this.fillWithZero ?? this.locale.fillWithZero ?? true);
-        return (fillZero ? `0${dateNum}` : dateNum);
+        return fillZero ? `0${dateNum}` : dateNum;
       }
       const map = this.t(this.locale.cellMonth).split(',');
-      return map[(this.item.date.getMonth()).toString()];
+      return map[this.item.date.getMonth().toString()];
     },
     cellCls(): Record<string, any> {
-      const {
-        mode, date, formattedDate, isCurrent,
-      } = this.item;
-      const isNow = mode === 'year' ? new Date().getMonth() === date.getMonth() : formattedDate === dayjs().format('YYYY-MM-DD');
+      const { mode, date, formattedDate, isCurrent } = this.item;
+      const isNow =
+        mode === 'year' ? new Date().getMonth() === date.getMonth() : formattedDate === dayjs().format('YYYY-MM-DD');
       return [
         't-calendar__table-body-cell',
         {
           't-is-disabled': this.disabled,
           't-is-checked': isCurrent,
           't-is-now': isNow,
-        }];
+        },
+      ];
     },
   },
   methods: {

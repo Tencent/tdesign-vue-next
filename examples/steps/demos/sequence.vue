@@ -7,12 +7,9 @@
       <t-step-item title="未进行的步骤" />
       <t-step-item title="未进行的步骤" />
     </t-steps>
-    <br>
+    <br />
     <!-- 使用 options 渲染步骤条 -->
-    <t-steps
-      v-model="current"
-      :options="steps"
-    />
+    <t-steps v-model="current" :options="steps" />
   </div>
 </template>
 

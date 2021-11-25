@@ -19,69 +19,96 @@ describe('Transfer', () => {
       });
 
       it('isTreeMode:true', async () => {
-        const list = [{
-          value: '1',
-          label: '1',
-          children: [{
-            value: '1.1',
-            label: '1.1',
-            children: [{
-              value: '1.1.1',
-              label: '1.1.1',
-              children: [{
-                value: '1.1.1.1',
-                label: '1.1.1.1',
-              }, {
-                value: '1.1.1.2',
-                label: '1.1.1.2',
-              }],
-            }, {
-              value: '1.1.2',
-              label: '1.1.2',
-              children: [{
-                value: '1.1.2.1',
-                label: '1.1.2.1',
-              }, {
-                value: '1.1.2.2',
-                label: '1.1.2.2',
-              }],
-            }],
-          }, {
-            value: '1.2',
-            label: '1.2',
-            children: [{
-              value: '1.2.1',
-              label: '1.2.1',
-              children: [{
-                value: '1.2.1.1',
-                label: '1.2.1.1',
-              }, {
-                value: '1.2.1.2',
-                label: '1.2.1.2',
-              }],
-            }, {
-              value: '1.2.2',
-              label: '1.2.2',
-              children: [{
-                value: '1.2.2.1',
-                label: '1.2.2.1',
-              }, {
-                value: '1.2.2.2',
-                label: '1.2.2.2',
-              }],
-            }],
-          }],
-        }, {
-          value: '2',
-          label: '2',
-          children: [{
-            value: '2.1',
-            label: '2.1',
-          }, {
-            value: '2.2',
-            label: '2.2',
-          }],
-        }];
+        const list = [
+          {
+            value: '1',
+            label: '1',
+            children: [
+              {
+                value: '1.1',
+                label: '1.1',
+                children: [
+                  {
+                    value: '1.1.1',
+                    label: '1.1.1',
+                    children: [
+                      {
+                        value: '1.1.1.1',
+                        label: '1.1.1.1',
+                      },
+                      {
+                        value: '1.1.1.2',
+                        label: '1.1.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.1.2',
+                    label: '1.1.2',
+                    children: [
+                      {
+                        value: '1.1.2.1',
+                        label: '1.1.2.1',
+                      },
+                      {
+                        value: '1.1.2.2',
+                        label: '1.1.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: '1.2',
+                label: '1.2',
+                children: [
+                  {
+                    value: '1.2.1',
+                    label: '1.2.1',
+                    children: [
+                      {
+                        value: '1.2.1.1',
+                        label: '1.2.1.1',
+                      },
+                      {
+                        value: '1.2.1.2',
+                        label: '1.2.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.2.2',
+                    label: '1.2.2',
+                    children: [
+                      {
+                        value: '1.2.2.1',
+                        label: '1.2.2.1',
+                      },
+                      {
+                        value: '1.2.2.2',
+                        label: '1.2.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: '2',
+            label: '2',
+            children: [
+              {
+                value: '2.1',
+                label: '2.1',
+              },
+              {
+                value: '2.2',
+                label: '2.2',
+              },
+            ],
+          },
+        ];
 
         const checked = ['1', '100', '200', '3', '5', '2.1', '1.2.2.2'];
         const result = getDataValues(list, checked, { isTreeMode: true });
@@ -89,69 +116,96 @@ describe('Transfer', () => {
       });
 
       it('isTreeMode:true keep:false', async () => {
-        const list = [{
-          value: '1',
-          label: '1',
-          children: [{
-            value: '1.1',
-            label: '1.1',
-            children: [{
-              value: '1.1.1',
-              label: '1.1.1',
-              children: [{
-                value: '1.1.1.1',
-                label: '1.1.1.1',
-              }, {
-                value: '1.1.1.2',
-                label: '1.1.1.2',
-              }],
-            }, {
-              value: '1.1.2',
-              label: '1.1.2',
-              children: [{
-                value: '1.1.2.1',
-                label: '1.1.2.1',
-              }, {
-                value: '1.1.2.2',
-                label: '1.1.2.2',
-              }],
-            }],
-          }, {
-            value: '1.2',
-            label: '1.2',
-            children: [{
-              value: '1.2.1',
-              label: '1.2.1',
-              children: [{
-                value: '1.2.1.1',
-                label: '1.2.1.1',
-              }, {
-                value: '1.2.1.2',
-                label: '1.2.1.2',
-              }],
-            }, {
-              value: '1.2.2',
-              label: '1.2.2',
-              children: [{
-                value: '1.2.2.1',
-                label: '1.2.2.1',
-              }, {
-                value: '1.2.2.2',
-                label: '1.2.2.2',
-              }],
-            }],
-          }],
-        }, {
-          value: '2',
-          label: '2',
-          children: [{
-            value: '2.1',
-            label: '2.1',
-          }, {
-            value: '2.2',
-            label: '2.2',
-          }],
-        }];
+        const list = [
+          {
+            value: '1',
+            label: '1',
+            children: [
+              {
+                value: '1.1',
+                label: '1.1',
+                children: [
+                  {
+                    value: '1.1.1',
+                    label: '1.1.1',
+                    children: [
+                      {
+                        value: '1.1.1.1',
+                        label: '1.1.1.1',
+                      },
+                      {
+                        value: '1.1.1.2',
+                        label: '1.1.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.1.2',
+                    label: '1.1.2',
+                    children: [
+                      {
+                        value: '1.1.2.1',
+                        label: '1.1.2.1',
+                      },
+                      {
+                        value: '1.1.2.2',
+                        label: '1.1.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: '1.2',
+                label: '1.2',
+                children: [
+                  {
+                    value: '1.2.1',
+                    label: '1.2.1',
+                    children: [
+                      {
+                        value: '1.2.1.1',
+                        label: '1.2.1.1',
+                      },
+                      {
+                        value: '1.2.1.2',
+                        label: '1.2.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.2.2',
+                    label: '1.2.2',
+                    children: [
+                      {
+                        value: '1.2.2.1',
+                        label: '1.2.2.1',
+                      },
+                      {
+                        value: '1.2.2.2',
+                        label: '1.2.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: '2',
+            label: '2',
+            children: [
+              {
+                value: '2.1',
+                label: '2.1',
+              },
+              {
+                value: '2.2',
+                label: '2.2',
+              },
+            ],
+          },
+        ];
 
         const checked = ['1.1', '1.1.2', '100', '200', '3', '5', '2.1', '1.2.2.2'];
         const result = getDataValues(list, checked, { isTreeMode: true, include: false });
@@ -162,473 +216,648 @@ describe('Transfer', () => {
     // cloneTreeWithFilter result test1
     describe('cloneTreeWithFilter', () => {
       it('needMatch:true result test1', () => {
-        const sourceTree = [{
-          value: '1',
-          label: '1',
-          children: [{
-            value: '1.1',
-            label: '1.1',
-            children: [{
-              value: '1.1.1',
-              label: '1.1.1',
-              children: [{
-                value: '1.1.1.1',
-                label: '1.1.1.1',
-              }, {
-                value: '1.1.1.2',
-                label: '1.1.1.2',
-              }],
-            }, {
-              value: '1.1.2',
-              label: '1.1.2',
-              children: [{
-                value: '1.1.2.1',
-                label: '1.1.2.1',
-              }, {
-                value: '1.1.2.2',
-                label: '1.1.2.2',
-              }],
-            }],
-          }, {
-            value: '1.2',
-            label: '1.2',
-            children: [{
-              value: '1.2.1',
-              label: '1.2.1',
-              children: [{
-                value: '1.2.1.1',
-                label: '1.2.1.1',
-              }, {
-                value: '1.2.1.2',
-                label: '1.2.1.2',
-              }],
-            }, {
-              value: '1.2.2',
-              label: '1.2.2',
-              children: [{
-                value: '1.2.2.1',
-                label: '1.2.2.1',
-              }, {
-                value: '1.2.2.2',
-                label: '1.2.2.2',
-              }],
-            }],
-          }],
-        }, {
-          value: '2',
-          label: '2',
-          children: [{
-            value: '2.1',
-            label: '2.1',
-          }, {
-            value: '2.2',
-            label: '2.2',
-          }],
-        }];
-
-        const filterValues = ['1.2.1.1', '1.2.2.1', '2.1'];
-
-        const result = [];
-        cloneTreeWithFilter(sourceTree, result, filterValues, true);
-
-        expect(result).toEqual(
-          [{
-            value: '1',
-            label: '1',
-            children: [{
-              value: '1.2',
-              label: '1.2',
-              children: [{
-                value: '1.2.1',
-                label: '1.2.1',
-                children: [{
-                  value: '1.2.1.1',
-                  label: '1.2.1.1',
-                }],
-              }, {
-                value: '1.2.2',
-                label: '1.2.2',
-                children: [{
-                  value: '1.2.2.1',
-                  label: '1.2.2.1',
-                }],
-              }],
-            }],
-          }, {
-            value: '2',
-            label: '2',
-            children: [{
-              value: '2.1',
-              label: '2.1',
-            }],
-          }],
-        );
-      });
-
-      // result test 2
-      it('needMatch:true result test2', () => {
-        const sourceTree = [{
-          value: '1',
-          label: '1',
-          children: [{
-            value: '1.1',
-            label: '1.1',
-            children: [{
-              value: '1.1.1',
-              label: '1.1.1',
-              children: [{
-                value: '1.1.1.1',
-                label: '1.1.1.1',
-              }, {
-                value: '1.1.1.2',
-                label: '1.1.1.2',
-              }],
-            }, {
-              value: '1.1.2',
-              label: '1.1.2',
-              children: [{
-                value: '1.1.2.1',
-                label: '1.1.2.1',
-              }, {
-                value: '1.1.2.2',
-                label: '1.1.2.2',
-              }],
-            }],
-          }, {
-            value: '1.2',
-            label: '1.2',
-            children: [{
-              value: '1.2.1',
-              label: '1.2.1',
-              children: [{
-                value: '1.2.1.1',
-                label: '1.2.1.1',
-              }, {
-                value: '1.2.1.2',
-                label: '1.2.1.2',
-              }],
-            }, {
-              value: '1.2.2',
-              label: '1.2.2',
-              children: [{
-                value: '1.2.2.1',
-                label: '1.2.2.1',
-              }, {
-                value: '1.2.2.2',
-                label: '1.2.2.2',
-              }],
-            }],
-          }],
-        }, {
-          value: '2',
-          label: '2',
-          children: [{
-            value: '2.1',
-            label: '2.1',
-          }, {
-            value: '2.2',
-            label: '2.2',
-          }],
-        }];
-
-        const filterValues = ['1.1', '1.2.2.1', '2.1'];
-
-        const result = [];
-        cloneTreeWithFilter(sourceTree, result, filterValues, true);
-
-        expect(result).toEqual(
-          [{
+        const sourceTree = [
+          {
             value: '1',
             label: '1',
             children: [
               {
                 value: '1.1',
                 label: '1.1',
-                children: [{
-                  value: '1.1.1',
-                  label: '1.1.1',
-                  children: [{
-                    value: '1.1.1.1',
-                    label: '1.1.1.1',
-                  }, {
-                    value: '1.1.1.2',
-                    label: '1.1.1.2',
-                  }],
-                }, {
-                  value: '1.1.2',
-                  label: '1.1.2',
-                  children: [{
-                    value: '1.1.2.1',
-                    label: '1.1.2.1',
-                  }, {
-                    value: '1.1.2.2',
-                    label: '1.1.2.2',
-                  }],
-                }],
+                children: [
+                  {
+                    value: '1.1.1',
+                    label: '1.1.1',
+                    children: [
+                      {
+                        value: '1.1.1.1',
+                        label: '1.1.1.1',
+                      },
+                      {
+                        value: '1.1.1.2',
+                        label: '1.1.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.1.2',
+                    label: '1.1.2',
+                    children: [
+                      {
+                        value: '1.1.2.1',
+                        label: '1.1.2.1',
+                      },
+                      {
+                        value: '1.1.2.2',
+                        label: '1.1.2.2',
+                      },
+                    ],
+                  },
+                ],
               },
               {
                 value: '1.2',
                 label: '1.2',
-                children: [{
-                  value: '1.2.2',
-                  label: '1.2.2',
-                  children: [{
-                    value: '1.2.2.1',
-                    label: '1.2.2.1',
-                  }],
-                }],
-              }],
-          }, {
+                children: [
+                  {
+                    value: '1.2.1',
+                    label: '1.2.1',
+                    children: [
+                      {
+                        value: '1.2.1.1',
+                        label: '1.2.1.1',
+                      },
+                      {
+                        value: '1.2.1.2',
+                        label: '1.2.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.2.2',
+                    label: '1.2.2',
+                    children: [
+                      {
+                        value: '1.2.2.1',
+                        label: '1.2.2.1',
+                      },
+                      {
+                        value: '1.2.2.2',
+                        label: '1.2.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
             value: '2',
             label: '2',
-            children: [{
-              value: '2.1',
-              label: '2.1',
-            }],
-          }],
-        );
+            children: [
+              {
+                value: '2.1',
+                label: '2.1',
+              },
+              {
+                value: '2.2',
+                label: '2.2',
+              },
+            ],
+          },
+        ];
+
+        const filterValues = ['1.2.1.1', '1.2.2.1', '2.1'];
+
+        const result = [];
+        cloneTreeWithFilter(sourceTree, result, filterValues, true);
+
+        expect(result).toEqual([
+          {
+            value: '1',
+            label: '1',
+            children: [
+              {
+                value: '1.2',
+                label: '1.2',
+                children: [
+                  {
+                    value: '1.2.1',
+                    label: '1.2.1',
+                    children: [
+                      {
+                        value: '1.2.1.1',
+                        label: '1.2.1.1',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.2.2',
+                    label: '1.2.2',
+                    children: [
+                      {
+                        value: '1.2.2.1',
+                        label: '1.2.2.1',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: '2',
+            label: '2',
+            children: [
+              {
+                value: '2.1',
+                label: '2.1',
+              },
+            ],
+          },
+        ]);
+      });
+
+      // result test 2
+      it('needMatch:true result test2', () => {
+        const sourceTree = [
+          {
+            value: '1',
+            label: '1',
+            children: [
+              {
+                value: '1.1',
+                label: '1.1',
+                children: [
+                  {
+                    value: '1.1.1',
+                    label: '1.1.1',
+                    children: [
+                      {
+                        value: '1.1.1.1',
+                        label: '1.1.1.1',
+                      },
+                      {
+                        value: '1.1.1.2',
+                        label: '1.1.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.1.2',
+                    label: '1.1.2',
+                    children: [
+                      {
+                        value: '1.1.2.1',
+                        label: '1.1.2.1',
+                      },
+                      {
+                        value: '1.1.2.2',
+                        label: '1.1.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: '1.2',
+                label: '1.2',
+                children: [
+                  {
+                    value: '1.2.1',
+                    label: '1.2.1',
+                    children: [
+                      {
+                        value: '1.2.1.1',
+                        label: '1.2.1.1',
+                      },
+                      {
+                        value: '1.2.1.2',
+                        label: '1.2.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.2.2',
+                    label: '1.2.2',
+                    children: [
+                      {
+                        value: '1.2.2.1',
+                        label: '1.2.2.1',
+                      },
+                      {
+                        value: '1.2.2.2',
+                        label: '1.2.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: '2',
+            label: '2',
+            children: [
+              {
+                value: '2.1',
+                label: '2.1',
+              },
+              {
+                value: '2.2',
+                label: '2.2',
+              },
+            ],
+          },
+        ];
+
+        const filterValues = ['1.1', '1.2.2.1', '2.1'];
+
+        const result = [];
+        cloneTreeWithFilter(sourceTree, result, filterValues, true);
+
+        expect(result).toEqual([
+          {
+            value: '1',
+            label: '1',
+            children: [
+              {
+                value: '1.1',
+                label: '1.1',
+                children: [
+                  {
+                    value: '1.1.1',
+                    label: '1.1.1',
+                    children: [
+                      {
+                        value: '1.1.1.1',
+                        label: '1.1.1.1',
+                      },
+                      {
+                        value: '1.1.1.2',
+                        label: '1.1.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.1.2',
+                    label: '1.1.2',
+                    children: [
+                      {
+                        value: '1.1.2.1',
+                        label: '1.1.2.1',
+                      },
+                      {
+                        value: '1.1.2.2',
+                        label: '1.1.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: '1.2',
+                label: '1.2',
+                children: [
+                  {
+                    value: '1.2.2',
+                    label: '1.2.2',
+                    children: [
+                      {
+                        value: '1.2.2.1',
+                        label: '1.2.2.1',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: '2',
+            label: '2',
+            children: [
+              {
+                value: '2.1',
+                label: '2.1',
+              },
+            ],
+          },
+        ]);
       });
 
       it('needMatch:false result test1', () => {
-        const sourceTree = [{
-          value: '1',
-          label: '1',
-          children: [{
-            value: '1.1',
-            label: '1.1',
-            children: [{
-              value: '1.1.1',
-              label: '1.1.1',
-              children: [{
-                value: '1.1.1.1',
-                label: '1.1.1.1',
-              }, {
-                value: '1.1.1.2',
-                label: '1.1.1.2',
-              }],
-            }, {
-              value: '1.1.2',
-              label: '1.1.2',
-              children: [{
-                value: '1.1.2.1',
-                label: '1.1.2.1',
-              }, {
-                value: '1.1.2.2',
-                label: '1.1.2.2',
-              }],
-            }],
-          }, {
-            value: '1.2',
-            label: '1.2',
-            children: [{
-              value: '1.2.1',
-              label: '1.2.1',
-              children: [{
-                value: '1.2.1.1',
-                label: '1.2.1.1',
-              }, {
-                value: '1.2.1.2',
-                label: '1.2.1.2',
-              }],
-            }, {
-              value: '1.2.2',
-              label: '1.2.2',
-              children: [{
-                value: '1.2.2.1',
-                label: '1.2.2.1',
-              }, {
-                value: '1.2.2.2',
-                label: '1.2.2.2',
-              }],
-            }],
-          }],
-        }, {
-          value: '2',
-          label: '2',
-          children: [{
-            value: '2.1',
-            label: '2.1',
-          }, {
-            value: '2.2',
-            label: '2.2',
-          }],
-        }];
+        const sourceTree = [
+          {
+            value: '1',
+            label: '1',
+            children: [
+              {
+                value: '1.1',
+                label: '1.1',
+                children: [
+                  {
+                    value: '1.1.1',
+                    label: '1.1.1',
+                    children: [
+                      {
+                        value: '1.1.1.1',
+                        label: '1.1.1.1',
+                      },
+                      {
+                        value: '1.1.1.2',
+                        label: '1.1.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.1.2',
+                    label: '1.1.2',
+                    children: [
+                      {
+                        value: '1.1.2.1',
+                        label: '1.1.2.1',
+                      },
+                      {
+                        value: '1.1.2.2',
+                        label: '1.1.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: '1.2',
+                label: '1.2',
+                children: [
+                  {
+                    value: '1.2.1',
+                    label: '1.2.1',
+                    children: [
+                      {
+                        value: '1.2.1.1',
+                        label: '1.2.1.1',
+                      },
+                      {
+                        value: '1.2.1.2',
+                        label: '1.2.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.2.2',
+                    label: '1.2.2',
+                    children: [
+                      {
+                        value: '1.2.2.1',
+                        label: '1.2.2.1',
+                      },
+                      {
+                        value: '1.2.2.2',
+                        label: '1.2.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: '2',
+            label: '2',
+            children: [
+              {
+                value: '2.1',
+                label: '2.1',
+              },
+              {
+                value: '2.2',
+                label: '2.2',
+              },
+            ],
+          },
+        ];
 
         const filterValues = ['1.2.1.1', '1.2.2.1', '2.1'];
 
         const result = [];
         cloneTreeWithFilter(sourceTree, result, filterValues, false);
 
-        expect(result).toEqual(
-          [{
+        expect(result).toEqual([
+          {
             value: '1',
             label: '1',
-            children: [{
-              value: '1.1',
-              label: '1.1',
-              children: [{
-                value: '1.1.1',
-                label: '1.1.1',
-                children: [{
-                  value: '1.1.1.1',
-                  label: '1.1.1.1',
-                }, {
-                  value: '1.1.1.2',
-                  label: '1.1.1.2',
-                }],
-              }, {
-                value: '1.1.2',
-                label: '1.1.2',
-                children: [{
-                  value: '1.1.2.1',
-                  label: '1.1.2.1',
-                }, {
-                  value: '1.1.2.2',
-                  label: '1.1.2.2',
-                }],
-              }],
-            }, {
-              value: '1.2',
-              label: '1.2',
-              children: [{
-                value: '1.2.1',
-                label: '1.2.1',
-                children: [{
-                  value: '1.2.1.2',
-                  label: '1.2.1.2',
-                }],
-              }, {
-                value: '1.2.2',
-                label: '1.2.2',
-                children: [{
-                  value: '1.2.2.2',
-                  label: '1.2.2.2',
-                }],
-              }],
-            }],
-          }, {
+            children: [
+              {
+                value: '1.1',
+                label: '1.1',
+                children: [
+                  {
+                    value: '1.1.1',
+                    label: '1.1.1',
+                    children: [
+                      {
+                        value: '1.1.1.1',
+                        label: '1.1.1.1',
+                      },
+                      {
+                        value: '1.1.1.2',
+                        label: '1.1.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.1.2',
+                    label: '1.1.2',
+                    children: [
+                      {
+                        value: '1.1.2.1',
+                        label: '1.1.2.1',
+                      },
+                      {
+                        value: '1.1.2.2',
+                        label: '1.1.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: '1.2',
+                label: '1.2',
+                children: [
+                  {
+                    value: '1.2.1',
+                    label: '1.2.1',
+                    children: [
+                      {
+                        value: '1.2.1.2',
+                        label: '1.2.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.2.2',
+                    label: '1.2.2',
+                    children: [
+                      {
+                        value: '1.2.2.2',
+                        label: '1.2.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
             value: '2',
             label: '2',
-            children: [{
-              value: '2.2',
-              label: '2.2',
-            }],
-          }],
-        );
+            children: [
+              {
+                value: '2.2',
+                label: '2.2',
+              },
+            ],
+          },
+        ]);
       });
 
       it('needMatch:false result test2', () => {
-        const sourceTree = [{
-          value: '1',
-          label: '1',
-          children: [{
-            value: '1.1',
-            label: '1.1',
-            children: [{
-              value: '1.1.1',
-              label: '1.1.1',
-              children: [{
-                value: '1.1.1.1',
-                label: '1.1.1.1',
-              }, {
-                value: '1.1.1.2',
-                label: '1.1.1.2',
-              }],
-            }, {
-              value: '1.1.2',
-              label: '1.1.2',
-              children: [{
-                value: '1.1.2.1',
-                label: '1.1.2.1',
-              }, {
-                value: '1.1.2.2',
-                label: '1.1.2.2',
-              }],
-            }],
-          }, {
-            value: '1.2',
-            label: '1.2',
-            children: [{
-              value: '1.2.1',
-              label: '1.2.1',
-              children: [{
-                value: '1.2.1.1',
-                label: '1.2.1.1',
-              }, {
-                value: '1.2.1.2',
-                label: '1.2.1.2',
-              }],
-            }, {
-              value: '1.2.2',
-              label: '1.2.2',
-              children: [{
-                value: '1.2.2.1',
-                label: '1.2.2.1',
-              }, {
-                value: '1.2.2.2',
-                label: '1.2.2.2',
-              }],
-            }],
-          }],
-        }, {
-          value: '2',
-          label: '2',
-          children: [{
-            value: '2.1',
-            label: '2.1',
-          }, {
-            value: '2.2',
-            label: '2.2',
-          }],
-        }];
+        const sourceTree = [
+          {
+            value: '1',
+            label: '1',
+            children: [
+              {
+                value: '1.1',
+                label: '1.1',
+                children: [
+                  {
+                    value: '1.1.1',
+                    label: '1.1.1',
+                    children: [
+                      {
+                        value: '1.1.1.1',
+                        label: '1.1.1.1',
+                      },
+                      {
+                        value: '1.1.1.2',
+                        label: '1.1.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.1.2',
+                    label: '1.1.2',
+                    children: [
+                      {
+                        value: '1.1.2.1',
+                        label: '1.1.2.1',
+                      },
+                      {
+                        value: '1.1.2.2',
+                        label: '1.1.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: '1.2',
+                label: '1.2',
+                children: [
+                  {
+                    value: '1.2.1',
+                    label: '1.2.1',
+                    children: [
+                      {
+                        value: '1.2.1.1',
+                        label: '1.2.1.1',
+                      },
+                      {
+                        value: '1.2.1.2',
+                        label: '1.2.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.2.2',
+                    label: '1.2.2',
+                    children: [
+                      {
+                        value: '1.2.2.1',
+                        label: '1.2.2.1',
+                      },
+                      {
+                        value: '1.2.2.2',
+                        label: '1.2.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: '2',
+            label: '2',
+            children: [
+              {
+                value: '2.1',
+                label: '2.1',
+              },
+              {
+                value: '2.2',
+                label: '2.2',
+              },
+            ],
+          },
+        ];
 
         const filterValues = ['1.1.1.1', '1.2.2', '2'];
 
         const result = [];
         cloneTreeWithFilter(sourceTree, result, filterValues, false);
 
-        expect(result).toEqual(
-          [{
+        expect(result).toEqual([
+          {
             value: '1',
             label: '1',
-            children: [{
-              value: '1.1',
-              label: '1.1',
-              children: [{
-                value: '1.1.1',
-                label: '1.1.1',
-                children: [{
-                  value: '1.1.1.2',
-                  label: '1.1.1.2',
-                }],
-              }, {
-                value: '1.1.2',
-                label: '1.1.2',
-                children: [{
-                  value: '1.1.2.1',
-                  label: '1.1.2.1',
-                }, {
-                  value: '1.1.2.2',
-                  label: '1.1.2.2',
-                }],
-              }],
-            }, {
-              value: '1.2',
-              label: '1.2',
-              children: [{
-                value: '1.2.1',
-                label: '1.2.1',
-                children: [{
-                  value: '1.2.1.1',
-                  label: '1.2.1.1',
-                }, {
-                  value: '1.2.1.2',
-                  label: '1.2.1.2',
-                }],
-              }],
-            }],
-          }],
-        );
+            children: [
+              {
+                value: '1.1',
+                label: '1.1',
+                children: [
+                  {
+                    value: '1.1.1',
+                    label: '1.1.1',
+                    children: [
+                      {
+                        value: '1.1.1.2',
+                        label: '1.1.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.1.2',
+                    label: '1.1.2',
+                    children: [
+                      {
+                        value: '1.1.2.1',
+                        label: '1.1.2.1',
+                      },
+                      {
+                        value: '1.1.2.2',
+                        label: '1.1.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: '1.2',
+                label: '1.2',
+                children: [
+                  {
+                    value: '1.2.1',
+                    label: '1.2.1',
+                    children: [
+                      {
+                        value: '1.2.1.1',
+                        label: '1.2.1.1',
+                      },
+                      {
+                        value: '1.2.1.2',
+                        label: '1.2.1.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ]);
       });
     });
 
@@ -637,19 +866,18 @@ describe('Transfer', () => {
         const data = [
           {
             value: '1',
-            children: [
-              { value: '1.1' },
-              { value: '1.2' },
-              { value: '1.3' },
-            ],
-          }, {
+            children: [{ value: '1.1' }, { value: '1.2' }, { value: '1.3' }],
+          },
+          {
             value: '2',
             children: [
               {
                 value: '2.1',
-                children: [{
-                  value: '2.1.1',
-                }],
+                children: [
+                  {
+                    value: '2.1.1',
+                  },
+                ],
               },
             ],
           },
@@ -658,69 +886,96 @@ describe('Transfer', () => {
       });
 
       it('result test 2', () => {
-        const sourceTree = [{
-          value: '1',
-          label: '1',
-          children: [{
-            value: '1.1',
-            label: '1.1',
-            children: [{
-              value: '1.1.1',
-              label: '1.1.1',
-              children: [{
-                value: '1.1.1.1',
-                label: '1.1.1.1',
-              }, {
-                value: '1.1.1.2',
-                label: '1.1.1.2',
-              }],
-            }, {
-              value: '1.1.2',
-              label: '1.1.2',
-              children: [{
-                value: '1.1.2.1',
-                label: '1.1.2.1',
-              }, {
-                value: '1.1.2.2',
-                label: '1.1.2.2',
-              }],
-            }],
-          }, {
-            value: '1.2',
-            label: '1.2',
-            children: [{
-              value: '1.2.1',
-              label: '1.2.1',
-              children: [{
-                value: '1.2.1.1',
-                label: '1.2.1.1',
-              }, {
-                value: '1.2.1.2',
-                label: '1.2.1.2',
-              }],
-            }, {
-              value: '1.2.2',
-              label: '1.2.2',
-              children: [{
-                value: '1.2.2.1',
-                label: '1.2.2.1',
-              }, {
-                value: '1.2.2.2',
-                label: '1.2.2.2',
-              }],
-            }],
-          }],
-        }, {
-          value: '2',
-          label: '2',
-          children: [{
-            value: '2.1',
-            label: '2.1',
-          }, {
-            value: '2.2',
-            label: '2.2',
-          }],
-        }];
+        const sourceTree = [
+          {
+            value: '1',
+            label: '1',
+            children: [
+              {
+                value: '1.1',
+                label: '1.1',
+                children: [
+                  {
+                    value: '1.1.1',
+                    label: '1.1.1',
+                    children: [
+                      {
+                        value: '1.1.1.1',
+                        label: '1.1.1.1',
+                      },
+                      {
+                        value: '1.1.1.2',
+                        label: '1.1.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.1.2',
+                    label: '1.1.2',
+                    children: [
+                      {
+                        value: '1.1.2.1',
+                        label: '1.1.2.1',
+                      },
+                      {
+                        value: '1.1.2.2',
+                        label: '1.1.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: '1.2',
+                label: '1.2',
+                children: [
+                  {
+                    value: '1.2.1',
+                    label: '1.2.1',
+                    children: [
+                      {
+                        value: '1.2.1.1',
+                        label: '1.2.1.1',
+                      },
+                      {
+                        value: '1.2.1.2',
+                        label: '1.2.1.2',
+                      },
+                    ],
+                  },
+                  {
+                    value: '1.2.2',
+                    label: '1.2.2',
+                    children: [
+                      {
+                        value: '1.2.2.1',
+                        label: '1.2.2.1',
+                      },
+                      {
+                        value: '1.2.2.2',
+                        label: '1.2.2.2',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: '2',
+            label: '2',
+            children: [
+              {
+                value: '2.1',
+                label: '2.1',
+              },
+              {
+                value: '2.2',
+                label: '2.2',
+              },
+            ],
+          },
+        ];
 
         expect(getLeefCount(sourceTree)).toEqual(10);
       });

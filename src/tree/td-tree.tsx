@@ -18,16 +18,8 @@ import {
   TypeTreeNodeModel,
   TypeTargetNode,
 } from './interface';
-import {
-  TREE_NAME,
-  CLASS_NAMES,
-  FX,
-} from './constants';
-import {
-  getMark,
-  getNode,
-  emitEvent,
-} from './util';
+import { TREE_NAME, CLASS_NAMES, FX } from './constants';
+import { getMark, getNode, emitEvent } from './util';
 
 export default defineComponent({
   ...mixins(getLocalReceiverMixins('tree')),
@@ -35,14 +27,7 @@ export default defineComponent({
   components: { TransitionGroup },
   props,
   data() {
-    const {
-      checkProps,
-      empty,
-      icon,
-      label,
-      line,
-      operations,
-    } = this;
+    const { checkProps, empty, icon, label, line, operations } = this;
 
     return {
       store: null,
@@ -64,13 +49,7 @@ export default defineComponent({
   computed: {
     classList(): ClassName {
       const list: Array<string> = [CLASS_NAMES.tree];
-      const {
-        disabled,
-        hover,
-        transition,
-        checkable,
-        expandOnClickNode,
-      } = this;
+      const { disabled, hover, transition, checkable, expandOnClickNode } = this;
       if (disabled) {
         list.push(CLASS_NAMES.disabled);
       }
@@ -245,11 +224,7 @@ export default defineComponent({
     },
     // 刷新树的视图状态
     refresh() {
-      const {
-        store,
-        treeNodes,
-        treeScope,
-      } = this;
+      const { store, treeNodes, treeScope } = this;
 
       treeScope.scopedSlots = this.$slots;
 
@@ -444,11 +419,7 @@ export default defineComponent({
     },
     handleClick(state: TypeEventState): void {
       const { expandOnClickNode } = this;
-      const {
-        mouseEvent,
-        event,
-        node,
-      } = state;
+      const { mouseEvent, event, node } = state;
 
       if (!node || this.disabled || node.disabled) {
         return;
@@ -459,11 +430,7 @@ export default defineComponent({
       let shouldExpand = expandOnClickNode;
       let shouldActive = true;
       ['trigger', 'ignore'].forEach((markName) => {
-        const mark = getMark(
-          markName,
-          event.target as HTMLElement,
-          event.currentTarget as HTMLElement,
-        );
+        const mark = getMark(markName, event.target as HTMLElement, event.currentTarget as HTMLElement);
         const markValue = mark?.value || '';
         if (markValue.indexOf('expand') >= 0) {
           if (markName === 'trigger') {
@@ -574,18 +541,14 @@ export default defineComponent({
       const node = this.store.getNode(value);
       let pathNodes = [];
       if (node) {
-        pathNodes = node.getPath()
-          .map((node: TreeNode) => node.getModel());
+        pathNodes = node.getPath().map((node: TreeNode) => node.getModel());
       }
       return pathNodes;
     },
     // -------- 公共方法 end --------
   },
   render() {
-    const {
-      classList,
-      treeNodes,
-    } = this;
+    const { classList, treeNodes } = this;
 
     let emptyNode: TNodeReturnValue = null;
     let treeNodeList = null;
@@ -593,17 +556,13 @@ export default defineComponent({
     if (treeNodes.length <= 0) {
       const useLocale = !this.empty && !this.$slots.empty;
       emptyNode = (
-        <div class={CLASS_NAMES.treeEmpty}>
-          {useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty')}
-        </div>
+        <div class={CLASS_NAMES.treeEmpty}>{useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty')}</div>
       );
     }
     treeNodeList = (
-        <transition-group
-          name={FX.treeNode}
-          tag="div"
-          class={CLASS_NAMES.treeList}
-        >{treeNodes}</transition-group>
+      <transition-group name={FX.treeNode} tag="div" class={CLASS_NAMES.treeList}>
+        {treeNodes}
+      </transition-group>
     );
 
     return (

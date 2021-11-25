@@ -144,10 +144,8 @@ export default defineComponent({
         rightYear,
       };
     },
-    getData({ year, month, type }: { year: number; month: number, type: string }) {
-      const {
-        disableDate, minDate, maxDate, startValue, endValue,
-      } = this;
+    getData({ year, month, type }: { year: number; month: number; type: string }) {
+      const { disableDate, minDate, maxDate, startValue, endValue } = this;
       const { firstDayOfWeek } = this.$props;
       let data;
 

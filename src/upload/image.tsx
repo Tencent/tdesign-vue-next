@@ -15,7 +15,11 @@ export default defineComponent({
   name: 'TImageUpload',
 
   components: {
-    TIconAdd, IIconDelete, IIconUpload, TIconBrowse, TIconLoading,
+    TIconAdd,
+    IIconDelete,
+    IIconUpload,
+    TIconBrowse,
+    TIconLoading,
   },
   props: {
     showUploadProgress: props.showUploadProgress,
@@ -41,7 +45,7 @@ export default defineComponent({
   computed: {
     showTrigger(): boolean {
       if (this.multiple) {
-        return !this.max || this.files && this.files.length < this.max;
+        return !this.max || (this.files && this.files.length < this.max);
       }
       return !(this.files && this.files[0]);
     },
@@ -59,27 +63,34 @@ export default defineComponent({
   render() {
     return (
       <ul class={`${UPLOAD_NAME}-card`}>
-        {this.files && this.files.map((file, index) => (
-          <li class={`${UPLOAD_NAME}-card__item ${prefix}-is--background`}>
-            <div class={`${UPLOAD_NAME}-card__content ${UPLOAD_NAME}-card__box`}>
-              <img class={`${UPLOAD_NAME}-card__image`} src={file.url} />
-              <div class={`${UPLOAD_NAME}-card__mask`} onClick={this.onMaskClick}>
-                <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
-                  <TIconBrowse onClick={(e: MouseEvent) => this.onViewClick(e, file)}/>
-                </span>
-                <span class={`${UPLOAD_NAME}-card__mask__item-divider`}></span>
+        {this.files &&
+          this.files.map((file, index) => (
+            <li class={`${UPLOAD_NAME}-card__item ${prefix}-is--background`}>
+              <div class={`${UPLOAD_NAME}-card__content ${UPLOAD_NAME}-card__box`}>
+                <img class={`${UPLOAD_NAME}-card__image`} src={file.url} />
+                <div class={`${UPLOAD_NAME}-card__mask`} onClick={this.onMaskClick}>
+                  <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
+                    <TIconBrowse onClick={(e: MouseEvent) => this.onViewClick(e, file)} />
+                  </span>
+                  <span class={`${UPLOAD_NAME}-card__mask__item-divider`}></span>
 
-                <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
-                  <IIconDelete onClick={(e: MouseEvent) => this.remove({ e, file, index })} />
-                </span>
+                  <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
+                    <IIconDelete onClick={(e: MouseEvent) => this.remove({ e, file, index })} />
+                  </span>
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          ))}
         {this.showTrigger && (
-          <li class={[`${UPLOAD_NAME}-card__item ${prefix}-is--background`, {
-            [CLASSNAMES.STATUS.disabled]: this.disabled
-          }]} onClick={this.trigger}>
+          <li
+            class={[
+              `${UPLOAD_NAME}-card__item ${prefix}-is--background`,
+              {
+                [CLASSNAMES.STATUS.disabled]: this.disabled,
+              },
+            ]}
+            onClick={this.trigger}
+          >
             {this.showUploadProgress && this.loadingFile && this.loadingFile.status === 'progress' ? (
               <div class={`${UPLOAD_NAME}-card-container ${UPLOAD_NAME}-card__box`}>
                 <TIconLoading></TIconLoading>

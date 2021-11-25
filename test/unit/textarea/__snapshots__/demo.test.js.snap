@@ -1,77 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Textarea base demo works fine 1`] = `
-<div>
-  <div>
-    <div
-      class="t-textarea"
-    >
-      <textarea
-        class="t-textarea__inner"
-        modelvalue=""
-        name="description"
-        placeholder="请输入描述文案"
-      />
-      <!---->
-    </div>
-    <div
-      class="t-textarea"
-    >
-      <textarea
-        class="t-textarea__inner"
-        modelvalue=""
-        name="description"
-        placeholder="请输入文案，高度可自适应；autosize=true"
-      />
-      <!---->
-    </div>
-    <div
-      class="t-textarea"
-    >
-      <textarea
-        class="t-textarea__inner"
-        modelvalue=""
-        name="description"
-        placeholder="请输入文案，高度可自适应，最小3行，最大5行；autosize={minRows: 3, maxRows: 5}"
-      />
-      <!---->
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Textarea blur demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-column"
+>
   <div
     class="t-textarea"
   >
     <textarea
       class="t-textarea__inner"
       modelvalue=""
-      placeholder="请输入"
+      name="description"
+      placeholder="请输入描述文案"
     />
     <!---->
   </div>
-</div>
-`;
-
-exports[`Textarea disabled demo works fine 1`] = `
-<div>
   <div
     class="t-textarea"
   >
     <textarea
-      class="t-textarea__inner t-is-disabled"
-      disabled=""
-      placeholder=""
+      class="t-textarea__inner"
+      modelvalue=""
+      name="description"
+      placeholder="请输入文案，高度可自适应；autosize=true"
+    />
+    <!---->
+  </div>
+  <div
+    class="t-textarea"
+  >
+    <textarea
+      class="t-textarea__inner"
+      modelvalue=""
+      name="description"
+      placeholder="请输入文案，高度可自适应，最小3行，最大5行；autosize={minRows: 3, maxRows: 5}"
     />
     <!---->
   </div>
 </div>
 `;
 
-exports[`Textarea keypress demo works fine 1`] = `
-<div>
+exports[`Textarea events demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-column"
+>
   <div
     class="t-textarea"
   >
@@ -105,8 +77,20 @@ exports[`Textarea maxlength demo works fine 1`] = `
 </div>
 `;
 
-exports[`Textarea readonly demo works fine 1`] = `
-<div>
+exports[`Textarea type demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-column"
+>
+  <div
+    class="t-textarea"
+  >
+    <textarea
+      class="t-textarea__inner t-is-disabled"
+      disabled=""
+      placeholder=""
+    />
+    <!---->
+  </div>
   <div
     class="t-textarea"
   >

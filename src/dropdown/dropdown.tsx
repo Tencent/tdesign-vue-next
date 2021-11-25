@@ -10,7 +10,12 @@ const name = `${prefix}-dropdown`;
 export default defineComponent({
   name,
   components: {
-    DropdownMenu
+    DropdownMenu,
+  },
+  provide() {
+    return {
+      dropdown: this,
+    };
   },
   props: {
     ...props,
@@ -19,17 +24,14 @@ export default defineComponent({
   methods: {
     handleMenuClick(data: DropdownOption, context: { e: MouseEvent }) {
       if (this.hideAfterItemClick) {
-        const {
-          popupElem,
-        }: any = this.$refs;
+        const { popupElem }: any = this.$refs;
         popupElem.handleClose();
       }
       this.$emit('click', data, context);
     },
   },
   render() {
-    const trigger: VNode[] | VNode | string = this.$slots.default
-      ? this.$slots.default(null) : '';
+    const trigger: VNode[] | VNode | string = this.$slots.default ? this.$slots.default(null) : '';
 
     const POPUP_PROPS = this.popupProps as TdDropdownProps['popupProps'];
 
@@ -40,19 +42,27 @@ export default defineComponent({
       placement: this.placement,
       trigger: this.trigger,
       overlayClassName,
-      ref: 'popup'
+      ref: 'popup',
     };
 
     return (
-      <Popup {...popupProps}  destroyOnClose ref="popupElem" expandAnimation v-slots={{
-        content: () => <dropdown-menu
-          options={this.options}
-          maxHeight={this.maxHeight}
-          maxColumnWidth={this.maxColumnWidth}
-          minColumnWidth={this.minColumnWidth}
-          onClick={this.handleMenuClick}
-        />,
-      }}>
+      <Popup
+        {...popupProps}
+        destroyOnClose
+        ref="popupElem"
+        expandAnimation
+        v-slots={{
+          content: () => (
+            <dropdown-menu
+              options={this.options}
+              maxHeight={this.maxHeight}
+              maxColumnWidth={this.maxColumnWidth}
+              minColumnWidth={this.minColumnWidth}
+              onClick={this.handleMenuClick}
+            />
+          ),
+        }}
+      >
         {trigger}
       </Popup>
     );

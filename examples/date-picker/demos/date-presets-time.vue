@@ -1,12 +1,6 @@
 <template>
   <div class="tdesign-demo-item--datepicker">
-    <t-date-picker
-      :presets="presets"
-      theme="primary"
-      mode="date"
-      range
-      format="YYYY-MM-DD HH:mm:ss"
-    />
+    <t-date-picker :presets="presets" theme="primary" mode="date" range format="YYYY-MM-DD HH:mm:ss" />
   </div>
 </template>
 

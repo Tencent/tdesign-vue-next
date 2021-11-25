@@ -3,9 +3,7 @@ import { TimeInputType, InputEvent, InputTime } from './interface';
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
 
-import {
-  COMPONENT_NAME, amFormat, KeyboardDirection, EMPTY_VALUE, MERIDIEM_LIST,
-} from './constant';
+import { COMPONENT_NAME, amFormat, KeyboardDirection, EMPTY_VALUE, MERIDIEM_LIST } from './constant';
 
 import { prefix } from '../config';
 
@@ -19,6 +17,7 @@ export default defineComponent({
     // 格式化标准
     format: {
       type: String,
+      default: '',
     },
     // 时间
     dayjs: {
@@ -28,6 +27,7 @@ export default defineComponent({
     // placeholder
     placeholder: {
       type: String,
+      default: '',
     },
     allowInput: {
       type: Boolean,
@@ -41,13 +41,13 @@ export default defineComponent({
     },
   },
 
+  emits: ['change', 'blurDefault', 'focusDefault', 'toggleMeridiem'],
+
   computed: {
     displayTimeList(): Array<InputTime | undefined> | Record<string, any> {
       return this.isRangePicker ? this.dayjs : [this.dayjs];
     },
   },
-
-  emits: ['change', 'blurDefault', 'focusDefault', 'toggleMeridiem'],
 
   methods: {
     // 输入事件
@@ -180,9 +180,7 @@ export default defineComponent({
     // 渲染输入组件
     switchRenderComponent() {
       const {
-        $props: {
-          format, placeholder, allowInput, disabled,
-        },
+        $props: { format, placeholder, allowInput, disabled },
       } = this;
 
       // 判定placeholder展示
@@ -203,7 +201,8 @@ export default defineComponent({
         if (index > 0) render.push('-');
         const { hour, minute, second } = inputTime;
         // 渲染组件 - 默认有小时输入
-        render.push(<span class={itemClasses}>
+        render.push(
+          <span class={itemClasses}>
             <input
               class={inputClass}
               value={hour}
@@ -213,11 +212,13 @@ export default defineComponent({
               onBlur={(e: FocusEvent) => this.onBlur(e, 'hour', index, Number(hour))}
               onFocus={(e: FocusEvent) => this.onFocus(e, 'hour', index, Number(hour))}
             />
-          </span>);
+          </span>,
+        );
         // 判断分秒输入
         if (/[hH]{1,2}:m{1,2}/.test(format)) {
           // 需要分钟输入器
-          render.push(<span class={itemClasses}>
+          render.push(
+            <span class={itemClasses}>
               &#58;
               <input
                 class={inputClass}
@@ -228,10 +229,12 @@ export default defineComponent({
                 onBlur={(e: FocusEvent) => this.onBlur(e, 'minute', index, Number(minute))}
                 onFocus={(e: FocusEvent) => this.onFocus(e, 'minute', index, Number(minute))}
               />
-            </span>);
+            </span>,
+          );
           // 需要秒输入器
           if (/[hH]{1,2}:m{1,2}:s{1,2}/.test(format)) {
-            render.push(<span class={itemClasses}>
+            render.push(
+              <span class={itemClasses}>
                 &#58;
                 <input
                   class={inputClass}
@@ -242,7 +245,8 @@ export default defineComponent({
                   onBlur={(e: FocusEvent) => this.onBlur(e, 'second', index, Number(second))}
                   onFocus={(e: FocusEvent) => this.onFocus(e, 'second', index, Number(second))}
                 />
-              </span>);
+              </span>,
+            );
           }
         }
         // 判断上下午位置
@@ -250,7 +254,8 @@ export default defineComponent({
           const localeMeridiemList = [this.locale.anteMeridiem, this.locale.postMeridiem];
           const text = localeMeridiemList[MERIDIEM_LIST.indexOf(inputTime.meridiem.toUpperCase())];
           // 放在前面or后面
-          render[amFormat.test(format) ? 'unshift' : 'push'](<span class={itemClasses} onClick={() => allowInput && this.onToggleMeridiem(index)}>
+          render[amFormat.test(format) ? 'unshift' : 'push'](
+            <span class={itemClasses} onClick={() => allowInput && this.onToggleMeridiem(index)}>
               <input
                 readonly
                 class={[inputClass, `${inputClass}-meridiem`]}
@@ -258,7 +263,8 @@ export default defineComponent({
                 onKeydown={(e: Event) => this.onKeydown(e, 'meridiem', index)}
                 disabled={!allowInput}
               />
-            </span>);
+            </span>,
+          );
         }
       });
       return render;

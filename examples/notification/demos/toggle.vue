@@ -1,9 +1,6 @@
 <template>
   <div>
-    <t-button
-      variant="outline"
-      @click="toggle"
-    >
+    <t-button variant="outline" @click="toggle">
       自由控制关闭时机（{{ notificationFlag ? '关闭' : '打开' }}）
     </t-button>
   </div>
@@ -37,7 +34,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-  .t-button + .t-button {
-    margin-left: 16px;
-  }
+.t-button + .t-button {
+  margin-left: 16px;
+}
 </style>

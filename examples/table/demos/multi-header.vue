@@ -1,10 +1,5 @@
 <template>
-  <t-table
-    row-key="property"
-    :data="data"
-    :columns="columns"
-    :bordered="true"
-  />
+  <t-table row-key="property" :data="data" :columns="columns" :bordered="true" />
 </template>
 <script>
 import { defineComponent } from 'vue';
@@ -96,7 +91,8 @@ const columns = [
         title: '说明',
       },
     ],
-  }];
+  },
+];
 export default defineComponent({
   setup() {
     return {

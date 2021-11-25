@@ -1,5 +1,5 @@
-import { prefix } from '../config';
 import { defineComponent } from 'vue';
+import { prefix } from '../config';
 import props from './props';
 import CLASSNAMES from '../utils/classnames';
 import calcTextareaHeight from './calcTextareaHeight';
@@ -20,8 +20,8 @@ function getValidAttrs(obj: object): object {
 
 export default defineComponent({
   name,
-  props: {...props},
   inheritAttrs: false,
+  props: { ...props },
   emits: ['input', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
   data() {
     return {
@@ -43,14 +43,14 @@ export default defineComponent({
     },
   },
 
-  mounted() {
-    this.adjustTextareaHeight();
-  },
-
   watch: {
     value() {
       this.adjustTextareaHeight();
-    }
+    },
+  },
+
+  mounted() {
+    this.adjustTextareaHeight();
   },
 
   methods: {

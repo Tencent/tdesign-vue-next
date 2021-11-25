@@ -16,7 +16,7 @@ export default defineComponent({
       if (typeof this.count === 'function') {
         return renderTNodeJSX(this as ComponentPublicInstance, 'count');
       }
-      if (isNaN(Number(this.count))) {
+      if (Number.isNaN(Number(this.count))) {
         return this.count;
       }
       const count = Number(this.count);
@@ -35,8 +35,8 @@ export default defineComponent({
     getOffset() {
       if (!this.offset) return {};
       let [xOffset, yOffset]: Array<string | number> = this.offset;
-      xOffset = isNaN(Number(xOffset)) ? xOffset : `${xOffset}px`;
-      yOffset = isNaN(Number(yOffset)) ? yOffset : `${yOffset}px`;
+      xOffset = Number.isNaN(Number(xOffset)) ? xOffset : `${xOffset}px`;
+      yOffset = Number.isNaN(Number(yOffset)) ? yOffset : `${yOffset}px`;
       return { xOffset, yOffset };
     },
   },

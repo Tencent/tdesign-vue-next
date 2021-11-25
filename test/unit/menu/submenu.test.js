@@ -19,7 +19,7 @@ describe('Submenu', () => {
           TdMenu: Menu,
         },
         render() {
-          return <Submenu name='1'></Submenu>;
+          return <Submenu name="1"></Submenu>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();

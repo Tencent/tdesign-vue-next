@@ -12,14 +12,7 @@ export default defineComponent({
       type: String,
       default: 'top-right',
       validator(v: string): boolean {
-        return (
-          [
-            'top-left',
-            'top-right',
-            'bottom-left',
-            'bottom-right',
-          ].indexOf(v) > -1
-        );
+        return ['top-left', 'top-right', 'bottom-left', 'bottom-right'].indexOf(v) > -1;
       },
     },
   },
@@ -66,17 +59,15 @@ export default defineComponent({
     if (!this.list.length) return;
     return (
       <div class={`t-notification__show--${this.placement}`} style={`z-index: ${this.zIndex}`}>
-        {this.list
-          .map((item, index) => (
-            <Notification
-              ref={`notification${index}`}
-              key={item.id}
-              style={this.notificationStyles(item)}
-              {...item}
-              {...this.getListeners(index)}
-            />
-          ))
-        }
+        {this.list.map((item, index) => (
+          <Notification
+            ref={`notification${index}`}
+            key={item.id}
+            style={this.notificationStyles(item)}
+            {...item}
+            {...this.getListeners(index)}
+          />
+        ))}
       </div>
     );
   },

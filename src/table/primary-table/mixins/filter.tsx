@@ -40,25 +40,22 @@ export default defineComponent({
         console.error(`column.type must be the following: ${JSON.stringify(types)}`);
         return;
       }
-      const component = column?.filter?.component || {
-        single: RadioGroup,
-        multiple: CheckboxGroup,
-        input: Input,
-      }[column.filter.type];
+      const component =
+        column?.filter?.component ||
+        {
+          single: RadioGroup,
+          multiple: CheckboxGroup,
+          input: Input,
+        }[column.filter.type];
       if (!component) return;
       const props = {
-        options: ['single', 'multiple'].includes(column.filter.type)
-          ? column.filter.list
-          : undefined,
+        options: ['single', 'multiple'].includes(column.filter.type) ? column.filter.list : undefined,
         ...(column.filter.props || {}),
         onChange: (val: string | number) => this.onInnerFilterChange(val, column),
       };
       return (
         <div class={`${prefix}-table-filter-pop-content__inner`}>
-          <component
-            value={this.filterValue[column.colKey]}
-            { ...props }
-          ></component>
+          <component value={this.filterValue[column.colKey]} {...props}></component>
         </div>
       );
     },
@@ -72,18 +69,26 @@ export default defineComponent({
             <div class={`${prefix}-table__cell--title`}>
               <div>{title}</div>
               <div class={`${prefix}-table__cell--filter`}>
-                <Popup trigger='click' placement='bottom' showArrow overlayClassName={`${prefix}-table-filter-pop`} v-slots={
-                  {
-                    content: () => <div class={`${prefix}-table-filter-pop-content`}>{this.getFilterContent(column)}</div>,
-                  }
-                }>
-                  {isFunction(this.filterIcon)
-                    ? this.filterIcon(this.$createElement)
-                    : <TIconFilter name="filter" class={`${prefix}-table-filter-icon`} />
-                  }
+                <Popup
+                  trigger="click"
+                  placement="bottom"
+                  showArrow
+                  overlayClassName={`${prefix}-table-filter-pop`}
+                  v-slots={{
+                    content: () => (
+                      <div class={`${prefix}-table-filter-pop-content`}>{this.getFilterContent(column)}</div>
+                    ),
+                  }}
+                >
+                  {isFunction(this.filterIcon) ? (
+                    this.filterIcon(this.$createElement)
+                  ) : (
+                    <TIconFilter name="filter" class={`${prefix}-table-filter-icon`} />
+                  )}
                 </Popup>
               </div>
-            </div>);
+            </div>
+          );
         }
         const { children } = item;
         if (children && children.length) {

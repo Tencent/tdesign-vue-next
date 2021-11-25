@@ -16,15 +16,15 @@ const BooleanType = {
 export const panelProps = () => ({
   disabled: {
     ...BooleanType,
-    ...({
+    ...{
       default: false,
-    }),
+    },
   },
   isFocus: {
     ...BooleanType,
-    ...({
+    ...{
       default: false,
-    }),
+    },
   },
   value: {
     type: Array as PropType<Array<dayjs.Dayjs | undefined>>,
@@ -36,15 +36,15 @@ export const panelProps = () => ({
   },
   steps: {
     type: Array as PropType<Array<string | number>>,
-    ...({
+    ...{
       default: [1, 1, 1],
-    }),
+    },
   },
   isShowPanel: {
     ...BooleanType,
-    ...({
+    ...{
       default: false,
-    }),
+    },
   },
   hideDisabledTime: {
     ...Props.default.hideDisabledTime,
@@ -68,9 +68,9 @@ export const panelColProps = () => ({
   },
   value: {
     type: Object as PropType<dayjs.Dayjs>,
-    ...({
-      default: () => (dayjs()),
-    }),
+    ...{
+      default: () => dayjs(),
+    },
   },
   range: {
     type: Array as PropType<Array<dayjs.Dayjs>>,
@@ -78,9 +78,9 @@ export const panelColProps = () => ({
   },
   steps: {
     type: Array as PropType<Array<string | number>>,
-    ...({
+    ...{
       default: [1, 1, 1],
-    }),
+    },
   },
   hideDisabledTime: {
     ...Props.default.hideDisabledTime,

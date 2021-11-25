@@ -23,9 +23,7 @@
  * msg.then(instance => instance.close())
  *
  */
-import {
-  App, createApp, nextTick, Plugin, ComponentPublicInstance,
-} from 'vue';
+import { App, createApp, nextTick, Plugin, ComponentPublicInstance } from 'vue';
 import MessageList, { DEFAULT_Z_INDEX } from './messageList';
 import { getAttach } from '../utils/dom';
 import {

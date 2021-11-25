@@ -28,21 +28,30 @@
 <script>
 import { defineComponent, ref } from 'vue';
 
-const items = [{
-  label: '1',
-  children: [{
-    label: '1.1',
-  }, {
-    label: '1.2',
-  }],
-}, {
-  label: '2',
-  children: [{
-    label: '2.1',
-  }, {
-    label: '2.2',
-  }],
-}];
+const items = [
+  {
+    label: '1',
+    children: [
+      {
+        label: '1.1',
+      },
+      {
+        label: '1.2',
+      },
+    ],
+  },
+  {
+    label: '2',
+    children: [
+      {
+        label: '2.1',
+      },
+      {
+        label: '2.2',
+      },
+    ],
+  },
+];
 
 export default defineComponent({
   setup() {
@@ -70,11 +79,11 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-  .tdesign-tree-base .t-button{
-    margin: 0 10px 10px 0;
-  }
+.tdesign-tree-base .t-button {
+  margin: 0 10px 10px 0;
+}
 
-  .operations {
-    margin-bottom: 32px;
-  }
+.operations {
+  margin-bottom: 32px;
+}
 </style>

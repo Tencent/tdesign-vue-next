@@ -1,6 +1,4 @@
-import {
-  App, Plugin, createApp, defineComponent, h,
-} from 'vue';
+import { App, Plugin, createApp, defineComponent, h } from 'vue';
 import LoadingComponent from './loading';
 import { prefix } from '../config';
 import { getAttach, removeClass } from '../utils/dom';

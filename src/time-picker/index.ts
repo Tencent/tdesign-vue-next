@@ -10,11 +10,23 @@ export * from './type';
 export type TimePickerProps = TdTimePickerProps;
 export type TimeRangePickerProps = TdTimeRangePickerProps;
 
-export const TimePicker: WithInstallType<typeof _TimePicker> = withInstall(mapProps([{
-  name: 'value', event: 'change', alias: ['modelValue'],
-}])(_TimePicker));
-export const TimeRangePicker: WithInstallType<typeof _TimeRangePicker> = withInstall(mapProps([{
-  name: 'value', event: 'change', alias: ['modelValue'],
-}])(_TimeRangePicker));
+export const TimePicker: WithInstallType<typeof _TimePicker> = withInstall(
+  mapProps([
+    {
+      name: 'value',
+      event: 'change',
+      alias: ['modelValue'],
+    },
+  ])(_TimePicker),
+);
+export const TimeRangePicker: WithInstallType<typeof _TimeRangePicker> = withInstall(
+  mapProps([
+    {
+      name: 'value',
+      event: 'change',
+      alias: ['modelValue'],
+    },
+  ])(_TimeRangePicker),
+);
 
 export default TimePicker;

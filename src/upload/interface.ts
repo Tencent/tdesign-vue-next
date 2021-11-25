@@ -1,9 +1,7 @@
-import { UploadFile, TdUploadProps } from './type';
+import { UploadFile, TdUploadProps, SuccessContext, ProgressContext } from './type';
 
 export type UploadProps = TdUploadProps;
 export * from './type';
-
-import { SuccessContext, ProgressContext } from './type';
 
 export interface XhrOptions {
   action: string;
@@ -26,7 +24,7 @@ export type { SuccessContext, ProgressContext } from './type';
 export interface UploadRemoveOptions {
   e: MouseEvent;
   file?: UploadFile;
-  index: number
+  index: number;
 }
 
 export interface FlowRemoveContext {
@@ -39,8 +37,3 @@ export interface URL {
   createObjectURL(object: any, options?: any): string;
   revokeObjectURL(url: string): void;
 }
-
-export declare const URL: {
-  prototype: URL;
-  new(): URL;
-};

@@ -1,8 +1,6 @@
 <template>
   <div class="tdesign-tree-state">
-    <h3 class="title">
-      state:
-    </h3>
+    <h3 class="title">state:</h3>
     <t-tree
       ref="tree"
       :data="items"
@@ -14,48 +12,16 @@
       line
       :icon="icon"
     >
-      <template #operations="{node}">
-        <t-button
-          size="small"
-          variant="base"
-          @click="check(node)"
-        >
-          检查节点信息
-        </t-button>
-        <t-button
-          size="small"
-          variant="base"
-          @click="changeIcon(node)"
-        >
-          变更图标
-        </t-button>
-        <t-button
-          size="small"
-          variant="base"
-          @click="append(node)"
-        >
-          添加子节点
-        </t-button>
-        <t-button
-          size="small"
-          variant="base"
-          theme="danger"
-          @click="remove(node)"
-        >
-          删除
-        </t-button>
+      <template #operations="{ node }">
+        <t-button size="small" variant="base" @click="check(node)"> 检查节点信息 </t-button>
+        <t-button size="small" variant="base" @click="changeIcon(node)"> 变更图标 </t-button>
+        <t-button size="small" variant="base" @click="append(node)"> 添加子节点 </t-button>
+        <t-button size="small" variant="base" theme="danger" @click="remove(node)"> 删除 </t-button>
       </template>
     </t-tree>
-    <h3 class="title">
-      api:
-    </h3>
+    <h3 class="title">api:</h3>
     <div class="operations">
-      <t-button
-        theme="primary"
-        @click="append()"
-      >
-        插入一个根节点
-      </t-button>
+      <t-button theme="primary" @click="append()"> 插入一个根节点 </t-button>
     </div>
   </div>
 </template>
@@ -63,15 +29,18 @@
 <script>
 import { defineComponent, ref } from 'vue';
 
-const items = [{
-  icon: '',
-  label: 'node1',
-  value: 'node1',
-}, {
-  icon: '',
-  label: 'node2',
-  value: 'node2',
-}];
+const items = [
+  {
+    icon: '',
+    label: 'node1',
+    value: 'node1',
+  },
+  {
+    icon: '',
+    label: 'node2',
+    value: 'node2',
+  },
+];
 
 const changeIcon = (node) => {
   const { data } = node;
@@ -146,14 +115,14 @@ export default defineComponent({
 });
 </script>
 <style>
-  .tdesign-tree-state .title{
-    margin-top: 10px;
-    font-weight: bold;
-  }
-  .tdesign-tree-state .operations .t-button{
-    margin: 0 10px 10px 0;
-  }
-  .tdesign-tree-state .t-tree__operations .t-button{
-    margin-left: 10px;
-  }
+.tdesign-tree-state .title {
+  margin-top: 10px;
+  font-weight: bold;
+}
+.tdesign-tree-state .operations .t-button {
+  margin: 0 10px 10px 0;
+}
+.tdesign-tree-state .t-tree__operations .t-button {
+  margin-left: 10px;
+}
 </style>

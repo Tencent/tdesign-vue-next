@@ -1,6 +1,4 @@
-import {
-  defineComponent, computed, provide, ref, reactive, watch, onMounted,
-} from 'vue';
+import { defineComponent, computed, provide, ref, reactive, watch, onMounted } from 'vue';
 import { prefix } from '../config';
 import props from './head-menu-props';
 import { MenuValue } from './type';
@@ -111,7 +109,7 @@ export default defineComponent({
         <ul class={[`${prefix}-head-menu__submenu`, `${prefix}-submenu`]}>
           {
             <t-tabs value={this.activeValue} onChange={this.handleTabChange}>
-              { this.submenu.map((item) => (
+              {this.submenu.map((item) => (
                 <t-tab-panel value={item.value} label={item.label[0].text} />
               ))}
             </t-tabs>
@@ -130,9 +128,7 @@ export default defineComponent({
       <div class={this.menuClass}>
         <div class={`${prefix}-head-menu__inner`}>
           {logo && <div class={`${prefix}-menu__logo`}>{logo}</div>}
-          <ul class={`${prefix}-menu`}>
-            {renderContent(this, 'default', 'content')}
-          </ul>
+          <ul class={`${prefix}-menu`}>{renderContent(this, 'default', 'content')}</ul>
           {operations && <div class={`${prefix}-menu__operations`}>{operations}</div>}
         </div>
         {this.mode === 'normal' && this.renderNormalSubmenu()}

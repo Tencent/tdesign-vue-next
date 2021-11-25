@@ -9,7 +9,12 @@ const name = `${prefix}-dropdown__menu`;
 export default defineComponent({
   name: `${prefix}-dropdown-menu`,
   components: {
-    DropdownItem
+    DropdownItem,
+  },
+  inject: {
+    dropdown: {
+      default: undefined,
+    },
   },
   props: {
     options: {
@@ -29,6 +34,7 @@ export default defineComponent({
       default: 10,
     },
   },
+  emits: ['click'],
   data() {
     return {
       path: '', // 当前选中路径，形如{/id1/id2/id3}
@@ -52,10 +58,12 @@ export default defineComponent({
     renderMenuColumn(children: Array<DropdownOption>, showSubmenu: boolean, pathPrefix: string): VNode {
       const menuClass = [`${name}__column`, 'narrow-scrollbar', { submenu__visible: showSubmenu }];
       return (
-        <div 
+        <div
           class={menuClass}
           style={{
             maxHeight: `${this.maxHeight}px`,
+            maxWidth: `${this.dropdown.maxColumnWidth}px`,
+            minWidth: `${this.dropdown.minColumnWidth}px`,
           }}
         >
           {children.map((item, idx) => (
@@ -84,8 +92,8 @@ export default defineComponent({
     let pathPrefix = '';
     // 根据path渲染
     while (menuItems && menuItems.length) {
-
-      const activeItem = menuItems.find(item => this.isActive(item, pathPrefix, false));
+      // eslint-disable-next-line no-loop-func
+      const activeItem = menuItems.find((item) => this.isActive(item, pathPrefix, false));
 
       columns.push(this.renderMenuColumn(menuItems, !!activeItem, pathPrefix));
 
@@ -96,10 +104,6 @@ export default defineComponent({
         menuItems = [];
       }
     }
-    return (
-      <div class={name}>
-        { columns }
-      </div>
-    );
+    return <div class={name}>{columns}</div>;
   },
 });

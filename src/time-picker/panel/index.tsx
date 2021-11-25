@@ -17,18 +17,19 @@ dayjs.extend(customParseFormat);
 export default defineComponent({
   ...mixins(getLocalReceiverMixins('timePicker')),
   name,
+  components: {
+    PanelCol,
+    TButton,
+  },
+  props: panelProps(),
+
+  emits: ['sure', 'now-action', 'time-pick'],
   data() {
     return {
       panel: null,
       isSetup: false,
     };
   },
-  components: {
-    PanelCol,
-    TButton,
-  },
-  props: panelProps(),
-  emits: ['sure', 'now-action', 'time-pick'],
   computed: {
     sectionComponentName() {
       return `${name}-section`;
@@ -56,10 +57,8 @@ export default defineComponent({
     cols() {
       if (!this.formatField) {
         return [EPickerCols.hour, EPickerCols.minute, EPickerCols.second];
-      };
-      const {
-        startAChart, hour, minute, second, endAChart,
-      } = this.formatField;
+      }
+      const { startAChart, hour, minute, second, endAChart } = this.formatField;
       const res = [];
       startAChart && res.push(EPickerCols.meridiem);
       hour && res.push(EPickerCols.hour);
@@ -91,6 +90,7 @@ export default defineComponent({
         panelCol1 && panelCol1.updateTimeScrollPos();
       });
     },
+    // eslint-disable-next-line no-undef
     scrollToTime(colIndex: number, col: EPickerCols, time: number | string, behavior: ScrollBehavior) {
       const scroller = this.$refs[`panelCol_${colIndex}`] as TimePickerPanelColInstance;
       scroller && scroller.scrollToTime(col, time, behavior);

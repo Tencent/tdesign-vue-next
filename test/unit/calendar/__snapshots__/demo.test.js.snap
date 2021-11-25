@@ -637,7 +637,7 @@ exports[`Calendar card demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-outline"
+          class="t-radio-group t-radio-group-medium t-radio-group-filled"
           modelvalue="month"
         >
           
@@ -687,6 +687,9 @@ exports[`Calendar card demo works fine 1`] = `
             </span>
           </label>
           
+          <div
+            class="t-radio-group-filled-bg-block"
+          />
           
         </div>
       </div>
@@ -2163,7 +2166,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-outline"
+          class="t-radio-group t-radio-group-medium t-radio-group-filled"
           modelvalue="month"
         >
           
@@ -2213,6 +2216,9 @@ exports[`Calendar cardCell demo works fine 1`] = `
             </span>
           </label>
           
+          <div
+            class="t-radio-group-filled-bg-block"
+          />
           
         </div>
       </div>
@@ -3968,18 +3974,16 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
       <div
         class="t-calendar__control-section-cell"
       >
-        <button
-          class="t-button t-size-m t-button--variant-base t-button--theme-danger"
-          type="button"
+        <span
+          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
+          size="medium"
+          theme="danger"
+          variant="base"
         >
-          <span
-            class="t-button__text"
-          >
-            
-            隐藏周末
-            
-          </span>
-        </button>
+          
+          隐藏周末
+          
+        </span>
       </div>
       <!-- 今天\\本月 -->
       <div
@@ -5409,7 +5413,7 @@ exports[`Calendar events demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-outline"
+          class="t-radio-group t-radio-group-medium t-radio-group-filled"
           modelvalue="month"
         >
           
@@ -5459,6 +5463,9 @@ exports[`Calendar events demo works fine 1`] = `
             </span>
           </label>
           
+          <div
+            class="t-radio-group-filled-bg-block"
+          />
           
         </div>
       </div>
@@ -5466,18 +5473,15 @@ exports[`Calendar events demo works fine 1`] = `
       <div
         class="t-calendar__control-section-cell"
       >
-        <button
-          class="t-button t-size-m t-button--variant-base t-button--theme-default"
-          type="button"
+        <span
+          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
+          size="medium"
+          theme="default"
         >
-          <span
-            class="t-button__text"
-          >
-            
-            隐藏周末
-            
-          </span>
-        </button>
+          
+          隐藏周末
+          
+        </span>
       </div>
       <!-- 今天\\本月 -->
       <div
@@ -6944,7 +6948,7 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-outline"
+          class="t-radio-group t-radio-group-medium t-radio-group-filled"
           modelvalue="month"
         >
           
@@ -6994,6 +6998,9 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
             </span>
           </label>
           
+          <div
+            class="t-radio-group-filled-bg-block"
+          />
           
         </div>
       </div>
@@ -7001,18 +7008,15 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
       <div
         class="t-calendar__control-section-cell"
       >
-        <button
-          class="t-button t-size-m t-button--variant-base t-button--theme-default"
-          type="button"
+        <span
+          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
+          size="medium"
+          theme="default"
         >
-          <span
-            class="t-button__text"
-          >
-            
-            隐藏周末
-            
-          </span>
-        </button>
+          
+          隐藏周末
+          
+        </span>
       </div>
       <!-- 今天\\本月 -->
       <div
@@ -8456,7 +8460,7 @@ exports[`Calendar filter demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-outline"
+          class="t-radio-group t-radio-group-medium t-radio-group-filled"
           modelvalue="month"
         >
           
@@ -8506,6 +8510,9 @@ exports[`Calendar filter demo works fine 1`] = `
             </span>
           </label>
           
+          <div
+            class="t-radio-group-filled-bg-block"
+          />
           
         </div>
       </div>
@@ -8513,18 +8520,15 @@ exports[`Calendar filter demo works fine 1`] = `
       <div
         class="t-calendar__control-section-cell"
       >
-        <button
-          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-          type="button"
+        <span
+          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
+          size="medium"
+          theme="primary"
         >
-          <span
-            class="t-button__text"
-          >
-            
-            显示周末
-            
-          </span>
-        </button>
+          
+          显示周末
+          
+        </span>
       </div>
       <!-- 今天\\本月 -->
       <div
@@ -9874,7 +9878,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-outline"
+          class="t-radio-group t-radio-group-medium t-radio-group-filled"
           modelvalue="month"
         >
           
@@ -9924,6 +9928,9 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
             </span>
           </label>
           
+          <div
+            class="t-radio-group-filled-bg-block"
+          />
           
         </div>
       </div>
@@ -9931,18 +9938,15 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
       <div
         class="t-calendar__control-section-cell"
       >
-        <button
-          class="t-button t-size-m t-button--variant-base t-button--theme-default"
-          type="button"
+        <span
+          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
+          size="medium"
+          theme="default"
         >
-          <span
-            class="t-button__text"
-          >
-            
-            隐藏周末
-            
-          </span>
-        </button>
+          
+          隐藏周末
+          
+        </span>
       </div>
       <!-- 今天\\本月 -->
       <div
@@ -11431,7 +11435,7 @@ exports[`Calendar mode demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-outline"
+          class="t-radio-group t-radio-group-medium t-radio-group-filled"
           modelvalue="year"
         >
           
@@ -11481,6 +11485,9 @@ exports[`Calendar mode demo works fine 1`] = `
             </span>
           </label>
           
+          <div
+            class="t-radio-group-filled-bg-block"
+          />
           
         </div>
       </div>
@@ -12297,7 +12304,7 @@ exports[`Calendar week demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-outline"
+            class="t-radio-group t-radio-group-medium t-radio-group-filled"
             modelvalue="month"
           >
             
@@ -12347,6 +12354,9 @@ exports[`Calendar week demo works fine 1`] = `
               </span>
             </label>
             
+            <div
+              class="t-radio-group-filled-bg-block"
+            />
             
           </div>
         </div>
@@ -12354,18 +12364,15 @@ exports[`Calendar week demo works fine 1`] = `
         <div
           class="t-calendar__control-section-cell"
         >
-          <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default"
-            type="button"
+          <span
+            class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
+            size="medium"
+            theme="default"
           >
-            <span
-              class="t-button__text"
-            >
-              
-              隐藏周末
-              
-            </span>
-          </button>
+            
+            隐藏周末
+            
+          </span>
         </div>
         <!-- 今天\\本月 -->
         <div
@@ -13774,7 +13781,7 @@ exports[`Calendar week demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-outline"
+            class="t-radio-group t-radio-group-medium t-radio-group-filled"
             modelvalue="month"
           >
             
@@ -13824,6 +13831,9 @@ exports[`Calendar week demo works fine 1`] = `
               </span>
             </label>
             
+            <div
+              class="t-radio-group-filled-bg-block"
+            />
             
           </div>
         </div>
@@ -13831,18 +13841,15 @@ exports[`Calendar week demo works fine 1`] = `
         <div
           class="t-calendar__control-section-cell"
         >
-          <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default"
-            type="button"
+          <span
+            class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
+            size="medium"
+            theme="default"
           >
-            <span
-              class="t-button__text"
-            >
-              
-              隐藏周末
-              
-            </span>
-          </button>
+            
+            隐藏周末
+            
+          </span>
         </div>
         <!-- 今天\\本月 -->
         <div
@@ -15251,7 +15258,7 @@ exports[`Calendar week demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-outline"
+            class="t-radio-group t-radio-group-medium t-radio-group-filled"
             modelvalue="month"
           >
             
@@ -15301,6 +15308,9 @@ exports[`Calendar week demo works fine 1`] = `
               </span>
             </label>
             
+            <div
+              class="t-radio-group-filled-bg-block"
+            />
             
           </div>
         </div>
@@ -15308,18 +15318,15 @@ exports[`Calendar week demo works fine 1`] = `
         <div
           class="t-calendar__control-section-cell"
         >
-          <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default"
-            type="button"
+          <span
+            class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
+            size="medium"
+            theme="default"
           >
-            <span
-              class="t-button__text"
-            >
-              
-              隐藏周末
-              
-            </span>
-          </button>
+            
+            隐藏周末
+            
+          </span>
         </div>
         <!-- 今天\\本月 -->
         <div

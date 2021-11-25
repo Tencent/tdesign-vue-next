@@ -1,8 +1,8 @@
-import clipboard from 'clipboard';
+import Clipboard from 'clipboard';
 
 export function copyText(text: string) {
   const div = document.createElement('div');
-  const clip = new clipboard(div, {
+  const clip = new Clipboard(div, {
     text() {
       return text;
     },
@@ -11,6 +11,5 @@ export function copyText(text: string) {
   clip.destroy();
   div.remove();
 }
-
 
 export default copyText;

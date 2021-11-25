@@ -2,11 +2,7 @@
   <div>
     <!-- 第一列展开树结点，缩进为 24px -->
     <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
-    <t-enhanced-table
-      row-key="key"
-      :data="data"
-      :columns="columns"
-    />
+    <t-enhanced-table row-key="key" :data="data" :columns="columns" />
 
     <!-- 第二列展开树结点，缩进为 12px，示例代码有效，勿删 -->
     <!-- indent 定义缩进距离；treeNodeColumnIndex 定义第几列作为树结点展开列 -->
@@ -37,14 +33,14 @@ for (let i = 0; i < 5; i++) {
     description: '数据源',
   };
   obj.children = new Array(10).fill(null).map((t, j) => {
-    const secondIndex = (100 * j) + ((i + 1) * 10);
-    const secondObj = ({
+    const secondIndex = 100 * j + (i + 1) * 10;
+    const secondObj = {
       ...obj,
       key: `我是 ${secondIndex} 号`,
-    });
+    };
     secondObj.children = new Array(30).fill(null).map((m, n) => ({
       ...obj,
-      key: `我是 ${secondIndex * 1000 + (100 * m) + ((n + 1) * 10)} 号`,
+      key: `我是 ${secondIndex * 1000 + 100 * m + (n + 1) * 10} 号`,
     }));
     return secondObj;
   });

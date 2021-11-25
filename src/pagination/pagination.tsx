@@ -139,7 +139,7 @@ export default defineComponent({
       const c: number = Math.ceil(this.total / this.pageSize);
       return c > 0 ? c : 1;
     },
-    pageCountOption(): Array<{label: string; value: number}> {
+    pageCountOption(): Array<{ label: string; value: number }> {
       const ans = [];
       for (let i = 1; i <= this.pageCount; i++) {
         ans.push({ value: i, label: `${i}/${this.pageCount}` });
@@ -148,12 +148,14 @@ export default defineComponent({
     },
     sizeOptions(): Array<{ label: string; value: number }> {
       const pageSizeOptions = this.pageSizeOptions as TdPaginationProps['pageSizeOptions'];
-      const options = pageSizeOptions.map((option) => typeof option === 'object'
-        ? option
-        : {
-          label: this.t(this.locale.itemsPerPage, { size: option }),
-          value: Number(option),
-        });
+      const options = pageSizeOptions.map((option) =>
+        typeof option === 'object'
+          ? option
+          : {
+              label: this.t(this.locale.itemsPerPage, { size: option }),
+              value: Number(option),
+            },
+      );
       return options.sort((a, b) => a.value - b.value);
     },
 
@@ -285,11 +287,7 @@ export default defineComponent({
       }
     },
     renderTotalContent() {
-      const {
-        locale,
-        total,
-        t,
-      } = this;
+      const { locale, total, t } = this;
       if (this.$slots.totalContent) {
         return this.$slots.totalContent(null);
       }
@@ -338,79 +336,69 @@ export default defineComponent({
         showJumper,
       } = this;
       const inputEvent = {
-        'onUpdate:value': (v: number) => this.jumpIndex = v,
+        'onUpdate:value': (v: number) => (this.jumpIndex = v),
       };
 
       return (
         <div class={paginationClass}>
           {/* 数据统计区 */}
-          {
-            totalContent && <div class={totalClass}>
-              {this.renderTotalContent()}
-            </div>
-          }
+          {totalContent && <div class={totalClass}>{this.renderTotalContent()}</div>}
 
           {/* select */}
-          {
-            pageSizeOptions.length > 0 && <t-select size={size} value={pageSize} disabled={disabled} class={sizerClass} onChange={onSelectorChange}>
-              {
-                sizeOptions.map((item, index) => (
-                    <t-option
-                      value={item.value}
-                      label={item.label}
-                      key={index}
-                    />
-                ))
-              }
+          {pageSizeOptions.length > 0 && (
+            <t-select size={size} value={pageSize} disabled={disabled} class={sizerClass} onChange={onSelectorChange}>
+              {sizeOptions.map((item, index) => (
+                <t-option value={item.value} label={item.label} key={index} />
+              ))}
             </t-select>
-          }
+          )}
 
           {/* 向前按钮 */}
           <div class={preBtnClass} onClick={prevPage} disabled={disabled || current === 1}>
             <t-icon-chevron-left />
           </div>
           {/* 页数 */}
-          {
-            !isSimple ? <ul class={btnWrapClass}>
-              {
-                isFolded && <li class={getButtonClass(1)} onClick={() => toPage(1)}>1</li>
-              }
-              {
-                (isFolded && isPrevMoreShow) && <li
+          {!isSimple ? (
+            <ul class={btnWrapClass}>
+              {isFolded && (
+                <li class={getButtonClass(1)} onClick={() => toPage(1)}>
+                  1
+                </li>
+              )}
+              {isFolded && isPrevMoreShow && (
+                <li
                   class={btnMoreClass}
                   onClick={prevMorePage}
-                  onMouseover={() => this.prevMore = true}
-                  onMouseout={() => this.prevMore = false}
+                  onMouseover={() => (this.prevMore = true)}
+                  onMouseout={() => (this.prevMore = false)}
                 >
-                  {
-                    this.prevMore ? <t-icon-chevron-left-double /> : <t-icon-ellipsis/>
-                  }
+                  {this.prevMore ? <t-icon-chevron-left-double /> : <t-icon-ellipsis />}
                 </li>
-              }
-              {
-                pages.map((item) => (
-                  <li class={getButtonClass(item)} key={item} onClick={() => toPage(item)}>
-                    { item }
-                  </li>
-                ))
-              }
+              )}
+              {pages.map((item) => (
+                <li class={getButtonClass(item)} key={item} onClick={() => toPage(item)}>
+                  {item}
+                </li>
+              ))}
 
-              {
-                (isFolded && isNextMoreShow) && <li
+              {isFolded && isNextMoreShow && (
+                <li
                   class={btnMoreClass}
                   onClick={nextMorePage}
-                  onMouseover={() => this.nextMore = true}
-                  onMouseout={() => this.nextMore = false}
+                  onMouseover={() => (this.nextMore = true)}
+                  onMouseout={() => (this.nextMore = false)}
                 >
-                  {
-                    this.nextMore ? <t-icon-chevron-right-double /> : <t-icon-ellipsis />
-                  }
+                  {this.nextMore ? <t-icon-chevron-right-double /> : <t-icon-ellipsis />}
                 </li>
-              }
-              {
-                isFolded && <li class={getButtonClass(pageCount)} onClick={() => toPage(pageCount)}>{ pageCount }</li>
-              }
-            </ul> : <t-select
+              )}
+              {isFolded && (
+                <li class={getButtonClass(pageCount)} onClick={() => toPage(pageCount)}>
+                  {pageCount}
+                </li>
+              )}
+            </ul>
+          ) : (
+            <t-select
               size={size}
               value={current}
               disabled={disabled}
@@ -418,19 +406,25 @@ export default defineComponent({
               onChange={toPage}
               options={pageCountOption}
             />
-          }
+          )}
           {/* 向后按钮 */}
           <div class={nextBtnClass} onClick={nextPage} disabled={disabled || current === pageCount}>
             <t-icon-chevron-right />
           </div>
           {/* 跳转 */}
-          {
-            showJumper && <div class={jumperClass}>
-              { t(locale.jumpTo) }
-              <t-input class={jumperInputClass} value={jumpIndex} {...inputEvent} onKeydownEnter={jumpToPage} onBlur={jumpToPage} />
-              { t(locale.page) }
+          {showJumper && (
+            <div class={jumperClass}>
+              {t(locale.jumpTo)}
+              <t-input
+                class={jumperInputClass}
+                value={jumpIndex}
+                {...inputEvent}
+                onKeydownEnter={jumpToPage}
+                onBlur={jumpToPage}
+              />
+              {t(locale.page)}
             </div>
-          }
+          )}
         </div>
       );
     },

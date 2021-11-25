@@ -62,7 +62,9 @@ describe('Radio RadioGroup', () => {
           return (
             <RadioGroup defaultValue={'sz'}>
               <Radio value="gz">广州</Radio>
-              <Radio value="sz" disabled>深圳</Radio>
+              <Radio value="sz" disabled>
+                深圳
+              </Radio>
             </RadioGroup>
           );
         },
@@ -75,7 +77,9 @@ describe('Radio RadioGroup', () => {
           return (
             <RadioGroup value={'sz'}>
               <Radio value="gz">广州</Radio>
-              <Radio value="sz" disabled>深圳</Radio>
+              <Radio value="sz" disabled>
+                深圳
+              </Radio>
             </RadioGroup>
           );
         },
@@ -89,7 +93,9 @@ describe('Radio RadioGroup', () => {
             <RadioGroup disabled={true}>
               <Radio value="bj">北京</Radio>
               <Radio value="gz">广州</Radio>
-              <Radio value="sz" disabled={false}>深圳</Radio>
+              <Radio value="sz" disabled={false}>
+                深圳
+              </Radio>
             </RadioGroup>
           );
         },
@@ -114,7 +120,9 @@ describe('Radio RadioGroup', () => {
           return (
             <RadioGroup name={'radio-name'}>
               <Radio value="gz">广州</Radio>
-              <Radio value="sz" disabled>深圳</Radio>
+              <Radio value="sz" disabled>
+                深圳
+              </Radio>
             </RadioGroup>
           );
         },
@@ -127,7 +135,9 @@ describe('Radio RadioGroup', () => {
           return (
             <RadioGroup variant={'default-filled'}>
               <RadioButton value="gz">广州</RadioButton>
-              <RadioButton value="sz" disabled>深圳</RadioButton>
+              <RadioButton value="sz" disabled>
+                深圳
+              </RadioButton>
             </RadioGroup>
           );
         },
@@ -140,7 +150,9 @@ describe('Radio RadioGroup', () => {
           return (
             <RadioGroup size={'small'}>
               <RadioButton value="gz">广州</RadioButton>
-              <RadioButton value="sz" disabled>深圳</RadioButton>
+              <RadioButton value="sz" disabled>
+                深圳
+              </RadioButton>
             </RadioGroup>
           );
         },

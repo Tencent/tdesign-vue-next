@@ -1,14 +1,7 @@
 // docs: https://docs.cypress.io/api/commands/and.html#Syntax
 
 describe('Test Message', () => {
-  const THEME_LIST = [
-    'info',
-    'success',
-    'warning',
-    'error',
-    'question',
-    'loading',
-  ];
+  const THEME_LIST = ['info', 'success', 'warning', 'error', 'question', 'loading'];
 
   const msgText = '提示信息';
 
@@ -22,12 +15,10 @@ describe('Test Message', () => {
       .click({ multiple: true })
       .then(() => {
         THEME_LIST.forEach((theme) => {
-          cy.get(`body>.t-message-list>.t-is-${theme}`)
-            .should('exist');
+          cy.get(`body>.t-message-list>.t-is-${theme}`).should('exist');
         });
       });
-    cy.get('#t-demo-msg-close-all')
-      .click();
+    cy.get('#t-demo-msg-close-all').click();
   });
 
   // 方式一：时间控制
@@ -40,8 +31,7 @@ describe('Test Message', () => {
           .should('exist')
           .wait(1000)
           .then(($el) => {
-            cy.wrap($el)
-              .should('not.exist');
+            cy.wrap($el).should('not.exist');
           });
       });
   });
@@ -56,8 +46,7 @@ describe('Test Message', () => {
           .should('exist')
           .wait(3000)
           .then(($el) => {
-            cy.wrap($el)
-              .should('not.exist');
+            cy.wrap($el).should('not.exist');
           });
       });
   });
@@ -72,8 +61,7 @@ describe('Test Message', () => {
           .should('exist')
           .wait(1000)
           .then(($el) => {
-            cy.wrap($el)
-              .should('not.exist');
+            cy.wrap($el).should('not.exist');
           });
       });
   });

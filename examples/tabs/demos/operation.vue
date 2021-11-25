@@ -4,13 +4,7 @@
       <p>可以动态增加选项卡，仅支持卡片型</p>
     </div>
 
-    <t-tabs
-      v-model="value"
-      theme="card"
-      :addable="true"
-      @add="addTab"
-      @remove="removeTab"
-    >
+    <t-tabs v-model="value" theme="card" :addable="true" @add="addTab" @remove="removeTab">
       <t-tab-panel
         v-for="data in panelData"
         :key="data.value"
@@ -18,7 +12,7 @@
         :label="data.label"
         :removable="data.removable"
       >
-        <p style="padding: 25px;">
+        <p style="padding: 25px">
           {{ data.content }}
         </p>
       </t-tab-panel>
@@ -33,17 +27,20 @@ let id = 0;
 export default defineComponent({
   setup() {
     const value = ref('first');
-    const panelData = ref([{
-      value: 'first',
-      label: '原有选项卡',
-      removable: false,
-      content: '原有选项卡内容',
-    }, {
-      value: 'second',
-      label: '原有选项卡',
-      removable: true,
-      content: '原有选项卡内容',
-    }]);
+    const panelData = ref([
+      {
+        value: 'first',
+        label: '原有选项卡',
+        removable: false,
+        content: '原有选项卡内容',
+      },
+      {
+        value: 'second',
+        label: '原有选项卡',
+        removable: true,
+        content: '原有选项卡内容',
+      },
+    ]);
 
     const addTab = () => {
       panelData.value = [
@@ -78,20 +75,19 @@ export default defineComponent({
 </script>
 
 <style lang="less">
-  .t-demo-tabs {
+.t-demo-tabs {
+  &__desc {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 14px;
 
-    &__desc {
+    &:not(:first-of-type) {
+      margin-top: 20px;
+    }
+
+    p {
       margin-bottom: 20px;
-      color: #333;
-      font-size: 14px;
-
-      &:not(:first-of-type) {
-        margin-top: 20px;
-      }
-
-      p {
-        margin-bottom: 20px;
-      }
     }
   }
+}
 </style>

@@ -4,7 +4,7 @@
       v-model="current"
       v-model:pageSize="pageSize"
       :total="645"
-      :page-size-options="[10,20,30,100,200]"
+      :page-size-options="[10, 20, 30, 100, 200]"
       show-sizer
       @change="onChange"
       @pageSizeChange="onPageSizeChange"

@@ -1,6 +1,4 @@
-import {
-  defineComponent, h, VNodeChild, nextTick,
-} from 'vue';
+import { defineComponent, h, VNodeChild, nextTick } from 'vue';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
 
@@ -71,10 +69,7 @@ export default defineComponent({
     mouseEvent(v: boolean) {
       this.isHover = v;
     },
-    renderIcon(
-      icon: string | Function | undefined,
-      iconType: 'prefix-icon' | 'suffix-icon',
-    ) {
+    renderIcon(icon: string | Function | undefined, iconType: 'prefix-icon' | 'suffix-icon') {
       if (typeof icon === 'function') {
         return icon(h);
       }
@@ -169,7 +164,7 @@ export default defineComponent({
       onKeypresss: this.handleKeypress,
       // input的change事件是失去焦点或者keydown的时候执行。这与api定义的change不符，所以不做任何变化。
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      onChange: () => { },
+      onChange: () => {},
     });
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
@@ -206,21 +201,23 @@ export default defineComponent({
     return (
       <div
         class={classes}
-        onMouseenter={() => this.mouseEvent(true) }
-        onMouseleave={() => this.mouseEvent(false) }
-        {...{ ...wrapperAttrs } }
+        onMouseenter={() => this.mouseEvent(true)}
+        onMouseleave={() => this.mouseEvent(false)}
+        {...{ ...wrapperAttrs }}
       >
         {prefixIcon ? <span class={`${name}__prefix`}>{prefixIcon}</span> : null}
         <input
-          {...{ ...this.inputAttrs } }
-          {...inputEvents }
+          {...{ ...this.inputAttrs }}
+          {...inputEvents}
           ref="refInputElem"
           value={this.value}
           class={`${name}__inner`}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
           onCompositionend={this.onCompositionend}
         />
-        {suffixIcon ? <span class={[`${name}__suffix`, { [`${name}__clear`]: this.showClear }]}>{suffixIcon}</span> : null}
+        {suffixIcon ? (
+          <span class={[`${name}__suffix`, { [`${name}__clear`]: this.showClear }]}>{suffixIcon}</span>
+        ) : null}
       </div>
     );
   },

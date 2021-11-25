@@ -5,15 +5,10 @@
       clearable
       placeholder="-请选择-"
       :on-clear="handleClear"
-      style="width: 200px;"
+      style="width: 200px"
       @change="handleChange"
     >
-      <t-option
-        v-for="(item, index) in options"
-        :key="index"
-        :value="item.value"
-        :label="item.label"
-      >
+      <t-option v-for="(item, index) in options" :key="index" :value="item.value" :label="item.label">
         {{ item.label }}
       </t-option>
     </t-select>
@@ -33,7 +28,7 @@ const options = [
     value: '2',
   },
   {
-    label: '很长很长很很长很长很长的选项三',
+    label: '选项内容过长的选择器选项',
     value: '3',
   },
 ];

@@ -127,7 +127,6 @@ describe('Select', () => {
     //   await nextTick();
     //   expect(selectWrapper.emitted().blur).toBeTruthy();
     // });
-
     // it('focus', async () => {
     //   const fn = jest.fn();
     //   const wrapper = mount({
@@ -146,7 +145,6 @@ describe('Select', () => {
     //   await nextTick();
     //   expect(selectWrapper.emitted().focus).toBeTruthy();
     // });
-
     // it('clear', async () => {
     //   const value = 'apple';
     //   const wrapper = mount({
@@ -161,7 +159,6 @@ describe('Select', () => {
     //   await nextTick();
     //   expect(selectWrapper.emitted().clear).toBeTruthy();
     // });
-
     // it('remove', async () => {
     //   const value = ['apple'];
     //   const wrapper = mount({

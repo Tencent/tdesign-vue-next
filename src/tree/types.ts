@@ -1,27 +1,17 @@
 import { ComponentPublicInstance } from 'vue';
-import {
-  TypeTreeEventState,
-} from '../_common/js/tree/types';
+import { TypeTreeEventState } from '../_common/js/tree/types';
 import TreeNode from '../_common/js/tree/tree-node';
 import { TNode, TreeOptionData } from '../common';
 
-import {
-  TdTreeProps,
-  TreeNodeValue as TdTreeNodeValue,
-  TreeNodeModel,
-  TreeInstanceFunctions,
-} from './type';
+import { TdTreeProps, TreeNodeValue as TdTreeNodeValue, TreeNodeModel, TreeInstanceFunctions } from './type';
 
-export type {
-  TreeNodeValue,
-  TreeNodeState,
-} from './type';
+export type { TreeNodeValue, TreeNodeState } from './type';
 
 export type TypeValueMode = TdTreeProps['valueMode'];
 
-export type TypeTNodeProp = string | TNode<TypeTreeNodeModel>;
-
 export type TypeTreeNodeModel = TreeNodeModel<TreeOptionData>;
+
+export type TypeTNodeProp = string | TNode<TypeTreeNodeModel>;
 
 export type TypeTargetNode = TdTreeNodeValue | TreeNode | TypeTreeNodeModel;
 

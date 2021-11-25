@@ -1,9 +1,6 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-time-picker
-      v-model="time1"
-      :disabled="true"
-    />
+    <t-time-picker v-model="time1" :disabled="true" />
   </div>
 </template>
 

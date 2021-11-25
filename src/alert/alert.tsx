@@ -1,6 +1,4 @@
-import {
-  defineComponent, h, VNode, ComponentPublicInstance,
-} from 'vue';
+import { defineComponent, h, VNode, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import IconPromptFill from '../icon/info-circle-filled';
@@ -39,12 +37,12 @@ export default defineComponent({
       } else if (this.$slots.icon) {
         iconContent = this.$slots.icon && this.$slots.icon(null)[0];
       } else {
-        const component = ({
+        const component = {
           info: IconPromptFill,
           success: IconSuccessFill,
           warning: IconWarningFill,
           error: IconWarningFill,
-        })[this.theme as string];
+        }[this.theme as string];
         iconContent = <component></component>;
       }
       return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
@@ -62,14 +60,18 @@ export default defineComponent({
       } else {
         closeContent = this.$slots.close && this.$slots.close(null)[0];
       }
-      return closeContent ? <div class={`${name}__close`} onClick={this.handleClose}>{closeContent}</div> : null;
+      return closeContent ? (
+        <div class={`${name}__close`} onClick={this.handleClose}>
+          {closeContent}
+        </div>
+      ) : null;
     },
 
     renderContent() {
       return (
         <div class={`${name}__content`}>
-          { this.renderTitle()}
-          { this.renderMessage()}
+          {this.renderTitle()}
+          {this.renderMessage()}
         </div>
       );
     },
@@ -83,12 +85,8 @@ export default defineComponent({
       const operationContent = renderTNodeJSX(this as ComponentPublicInstance, 'operation');
       return (
         <div class={`${name}__message`}>
-          { this.renderDescription()}
-          { operationContent ? (
-            <div class={`${name}__operation`}>
-              { operationContent }
-            </div>
-          ) : null}
+          {this.renderDescription()}
+          {operationContent ? <div class={`${name}__operation`}>{operationContent}</div> : null}
         </div>
       );
     },
@@ -110,16 +108,17 @@ export default defineComponent({
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
         <div class={`${name}__description`}>
-          { hasCollapse ? (messageContent as Array<string | VNode>).map((content) => (
-            <div>
-              { content}
-            </div>
-          )) : messageContent}
-          { hasCollapse ? (
-            <div class="t-alert__collapse" onClick={() => {
-              this.collapsed = !this.collapsed;
-            }} >
-              { this.collapsed ? '展开全部' : '收起'}
+          {hasCollapse
+            ? (messageContent as Array<string | VNode>).map((content) => <div>{content}</div>)
+            : messageContent}
+          {hasCollapse ? (
+            <div
+              class="t-alert__collapse"
+              onClick={() => {
+                this.collapsed = !this.collapsed;
+              }}
+            >
+              {this.collapsed ? '展开全部' : '收起'}
             </div>
           ) : null}
         </div>
@@ -148,9 +147,9 @@ export default defineComponent({
     ];
     return (
       <div class={CLASS} {...this.$attrs}>
-        { this.renderIcon()}
-        { this.renderContent()}
-        { this.renderClose()}
+        {this.renderIcon()}
+        {this.renderContent()}
+        {this.renderClose()}
       </div>
     );
   },

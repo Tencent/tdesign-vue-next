@@ -1,6 +1,6 @@
 export default {
   strategies: 'injectManifest',
-  includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'],  
+  includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'],
   manifest: {
     name: 'TDesign for Vue-next',
     short_name: 'TDesign',
@@ -16,7 +16,7 @@ export default {
         src: 'pwa-512x512.png',
         sizes: '512x512',
         type: 'image/png',
-      }
-    ]
-  }
+      },
+    ],
+  },
 };

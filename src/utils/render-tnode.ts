@@ -1,19 +1,19 @@
+/* eslint-disable no-undef */
 import { h, isVNode, createTextVNode, VNode, ComponentPublicInstance, Slots } from 'vue';
 import { TNode } from '../common';
 
 // 组件render属性的ts类型
 type RenderTsTypesSimple = string | number | boolean;
 type RenderTsTypesObject = Record<string, any> | Array<any>;
-type RenderTsTypes  = VNode | TNode | RenderTsTypesSimple | RenderTsTypesObject;
+type RenderTsTypes = VNode | TNode | RenderTsTypesSimple | RenderTsTypesObject;
 
 // 定义组件内容的渲染方式
 enum RenderWay {
   Text = 'text',
   JsonString = 'jsonstring',
   VNode = 'vnode',
-  Unknown = 'unknown'
+  Unknown = 'unknown',
 }
-
 
 /**
  * 根据传入的值（对象），判断渲染该值（对象）的方式
@@ -38,11 +38,10 @@ const getValueRenderWay = (value: RenderTsTypes): RenderWay => {
 // 通过template的方式渲染TNode
 export const RenderTNodeTemplate = (props: { render: Function; params: Record<string, any> }) => {
   const { render, params } = props;
-  const renderResult = (typeof render === 'function') ? render(h, params) : render;
+  const renderResult = typeof render === 'function' ? render(h, params) : render;
   const renderWay = getValueRenderWay(renderResult);
 
-  // @ts-ignore
-  const renderText = (c: RenderTsTypesSimple | RenderTsTypesObject) => createTextVNode(c);
+  const renderText = (c: RenderTsTypesSimple | RenderTsTypesObject) => createTextVNode(`${c}`);
   const renderMap = {
     [RenderWay.Text]: (c: RenderTsTypesSimple) => renderText(c),
     [RenderWay.JsonString]: (c: RenderTsTypesObject) => renderText(JSON.stringify(c, null, 2)),
@@ -51,7 +50,6 @@ export const RenderTNodeTemplate = (props: { render: Function; params: Record<st
 
   return renderMap[renderWay] ? renderMap[renderWay](renderResult) : h(null);
 };
-
 
 interface JSXRenderContext {
   defaultNode?: VNode;
@@ -68,15 +66,19 @@ interface JSXRenderContext {
  * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <t-icon-close />, params })。 params 为渲染节点时所需的参数
  */
 
-export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, options?: Slots | JSXRenderContext | JSX.Element) => {
-  const params = typeof options === 'object' && ('params' in options) ? options.params : null;
-  const defaultNode = typeof options === 'object' && ('defaultNode' in options) ? options.defaultNode : options;
+export const renderTNodeJSX = (
+  instance: ComponentPublicInstance,
+  name: string,
+  options?: Slots | JSXRenderContext | JSX.Element,
+) => {
+  const params = typeof options === 'object' && 'params' in options ? options.params : null;
+  const defaultNode = typeof options === 'object' && 'defaultNode' in options ? options.defaultNode : options;
   let propsNode;
   if (name in instance) {
     propsNode = instance[name];
   }
   if (propsNode === false) return;
-  
+
   // 同名优先处理插槽
   if (instance.$slots[name]) {
     return instance.$slots[name](params);
@@ -98,7 +100,11 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
  * @example renderTNodeJSX(this, 'closeBtn', <t-icon-close />)。this.closeBtn 为空时，则兜底渲染 <t-icon-close />
  * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <t-icon-close />, params }) 。params 为渲染节点时所需的参数
  */
-export const renderTNodeJSXDefault = (vm: ComponentPublicInstance, name: string, options?: Slots | JSXRenderContext | JSX.Element) => {
+export const renderTNodeJSXDefault = (
+  vm: ComponentPublicInstance,
+  name: string,
+  options?: Slots | JSXRenderContext | JSX.Element,
+) => {
   const defaultNode = typeof options === 'object' && 'defaultNode' in options ? options.defaultNode : options;
   return renderTNodeJSX(vm, name, options) || defaultNode;
 };
@@ -113,7 +119,12 @@ export const renderTNodeJSXDefault = (vm: ComponentPublicInstance, name: string,
  * @example renderContent(this, 'default', 'content', '我是默认内容')
  * @example renderContent(this, 'default', 'content', { defaultNode: '我是默认内容', params })
  */
-export const renderContent = (vm: ComponentPublicInstance, name1: string, name2: string, options?: VNode | JSXRenderContext | JSX.Element) => {
+export const renderContent = (
+  vm: ComponentPublicInstance,
+  name1: string,
+  name2: string,
+  options?: VNode | JSXRenderContext | JSX.Element,
+) => {
   const params = typeof options === 'object' && 'params' in options ? options.params : null;
   const defaultNode = typeof options === 'object' && 'defaultNode' in options ? options.defaultNode : options;
   const toParams = params ? { params } : undefined;

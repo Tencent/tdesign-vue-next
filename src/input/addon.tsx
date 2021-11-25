@@ -32,11 +32,7 @@ export default defineComponent({
       } else {
         addonNode = null;
       }
-      return addonNode ? (
-        <span class={`${name}__${type}`}>
-          { addonNode }
-        </span>
-      ) : addonNode;
+      return addonNode ? <span class={`${name}__${type}`}>{addonNode}</span> : addonNode;
     },
   },
   render() {
@@ -57,9 +53,9 @@ export default defineComponent({
 
     return (
       <div class={className}>
-        { prepend }
-        { defaultSlot[0] }
-        { append }
+        {prepend}
+        {defaultSlot[0]}
+        {append}
       </div>
     );
   },

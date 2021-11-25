@@ -62,7 +62,7 @@ export default defineComponent({
     let children: TNodeReturnValue = $slots.default && $slots.default(null);
 
     if (this.options && this.options.length) {
-      children = (this.options).map((option: RadioOption) => {
+      children = this.options.map((option: RadioOption) => {
         let opt = option as RadioOptionObj;
         if (isNumber(option) || isString(option)) {
           opt = { value: option, label: option.toString() };
@@ -84,18 +84,18 @@ export default defineComponent({
     if (this.buttonStyle === 'solid') {
       console.warn('TDesign Radio Warn: buttonStyle will be deprecated, please use `variant` instead.');
     }
-    const groupClass = [`${name}`, `${name}-${this.size}`, {
-      [`${name}-outline`]: this.variant === 'outline',
-      [`${name}-filled`]: this.buttonStyle === 'solid' || this.variant.includes('filled'),
-      [`${name}-primary-filled`]: this.variant === 'primary-filled',
-    }];
+    const groupClass = [
+      `${name}`,
+      `${name}-${this.size}`,
+      {
+        [`${name}-outline`]: this.variant === 'outline',
+        [`${name}-filled`]: this.buttonStyle === 'solid' || this.variant.includes('filled'),
+        [`${name}-primary-filled`]: this.variant === 'primary-filled',
+      },
+    ];
     if (this.buttonStyle === 'solid' || this.variant.includes('filled')) {
       children && children.push(<div style={this.barStyle} class={`${name}-filled-bg-block`}></div>);
     }
-    return (
-      <div class={groupClass}>
-        {children}
-      </div>
-    );
+    return <div class={groupClass}>{children}</div>;
   },
 });

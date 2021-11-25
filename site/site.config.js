@@ -5,7 +5,7 @@ export default {
       type: 'doc', // 普通文档
       children: [
         {
-          title: '说明',
+          title: '快速上手',
           name: 'explain',
           docType: 'explain',
           path: '/vue-next/components/explain',

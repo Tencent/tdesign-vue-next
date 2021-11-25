@@ -1,19 +1,9 @@
 <template>
   <div>
-    <t-drawer
-      v-model:visible="visible"
-      header="header"
-      :on-click-confirm="onClickConfirm"
-      :close-btn="true"
-    >
+    <t-drawer v-model:visible="visible" header="header" :on-click-confirm="onClickConfirm" :close-btn="true">
       <p>This is a controlled drawer</p>
     </t-drawer>
-    <t-button
-      variant="outline"
-      @click="handleClick"
-    >
-      打开抽屉
-    </t-button>
+    <t-button variant="outline" @click="handleClick"> 打开抽屉 </t-button>
   </div>
 </template>
 

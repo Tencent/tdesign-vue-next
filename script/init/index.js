@@ -88,29 +88,25 @@ function addComponent(toBeCreatedFiles, component) {
   // At first, we need to create directories for components.
   Object.keys(toBeCreatedFiles).forEach((dir) => {
     const _d = path.resolve(cwdPath, dir);
-    fs.mkdir(
-      _d,
-      { recursive: true },
-      (err) => {
-        if (err) {
-          utils.log(err, 'error');
-          return;
-        }
-        console.log(`${_d} directory has been created successfully！`);
-        // Then, we create files for components.
-        const contents = toBeCreatedFiles[dir];
-        contents.files.forEach((item) => {
-          if (typeof item === 'object') {
-            if (item.template) {
-              outputFileWithTemplate(item, component, contents.desc, _d);
-            }
-          } else {
-            const _f = path.resolve(_d, item);
-            createFile(_f, '', contents.desc);
+    fs.mkdir(_d, { recursive: true }, (err) => {
+      if (err) {
+        utils.log(err, 'error');
+        return;
+      }
+      console.log(`${_d} directory has been created successfully！`);
+      // Then, we create files for components.
+      const contents = toBeCreatedFiles[dir];
+      contents.files.forEach((item) => {
+        if (typeof item === 'object') {
+          if (item.template) {
+            outputFileWithTemplate(item, component, contents.desc, _d);
           }
-        });
-      },
-    );
+        } else {
+          const _f = path.resolve(_d, item);
+          createFile(_f, '', contents.desc);
+        }
+      });
+    });
   });
 }
 
@@ -122,9 +118,7 @@ function deleteComponentFromIndex(component, indexPath) {
   const upper = getFirstLetterUpper(component);
   const importStr = `${getImportStr(upper, component)}\n`;
   let data = fs.readFileSync(indexPath).toString();
-  data = data
-    .replace(new RegExp(importStr), () => '')
-    .replace(new RegExp(`  ${upper},\n`), '');
+  data = data.replace(new RegExp(importStr), () => '').replace(new RegExp(`  ${upper},\n`), '');
   fs.writeFile(indexPath, data, (err) => {
     if (err) {
       utils.log(err, 'error');
@@ -148,9 +142,7 @@ function insertComponentToIndex(component, indexPath) {
     return;
   }
   // insert component at last import and component lines.
-  data = data
-    .replace(importPattern, (a) => (`${a}\n${importPath}`))
-    .replace(cmpPattern, (a) => (`${a}  ${upper},\n`));
+  data = data.replace(importPattern, (a) => `${a}\n${importPath}`).replace(cmpPattern, (a) => `${a}  ${upper},\n`);
   fs.writeFile(indexPath, data, (err) => {
     if (err) {
       utils.log(err, 'error');

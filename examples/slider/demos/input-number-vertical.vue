@@ -1,22 +1,11 @@
 <template>
   <div class="demo-slider">
     <div class="number-vertical-block">
-      <t-slider
-        v-model="value1"
-        :layout="layout"
-        :show-tooltip="true"
-        :input-number-props="inputNumberProps"
-      />
+      <t-slider v-model="value1" :layout="layout" :show-tooltip="true" :input-number-props="inputNumberProps" />
     </div>
 
     <div class="number-vertical-block">
-      <t-slider
-        v-model="value2"
-        :layout="layout"
-        range
-        :show-tooltip="true"
-        :input-number-props="inputNumberProps"
-      />
+      <t-slider v-model="value2" :layout="layout" range :show-tooltip="true" :input-number-props="inputNumberProps" />
     </div>
   </div>
 </template>

@@ -52,10 +52,7 @@ describe('test tag component', () => {
         expect(elem).to.have.class('t-icon-close');
       });
 
-    cy.get('.tdesign-tag-closable')
-      .find('.t-icon-close')
-      .first()
-      .click();
+    cy.get('.tdesign-tag-closable').find('.t-icon-close').first().click();
   });
 
   it('tag:icon', () => {
@@ -122,9 +119,6 @@ describe('test tag component', () => {
         expect(elem).to.have.class('t-tag--default');
       });
 
-    cy.get('.tdesign-tag-checkable')
-      .find('span')
-      .first()
-      .click();
+    cy.get('.tdesign-tag-checkable').find('span').first().click();
   });
 });

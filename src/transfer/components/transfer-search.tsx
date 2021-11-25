@@ -15,8 +15,12 @@ export default defineComponent({
     },
     search: {
       type: [Boolean, Object] as PropType<SearchOption>,
+      default: false,
     },
-    placeholder: String,
+    placeholder: {
+      type: String,
+      default: '',
+    },
   },
   emits: ['change'],
   methods: {
@@ -29,18 +33,16 @@ export default defineComponent({
   },
   render(): VNode {
     const { value, search, placeholder } = this;
-    const inputProps = typeof search === 'object' ? search : {
-      clearable: true,
-    };
+    const inputProps =
+      typeof search === 'object'
+        ? search
+        : {
+            clearable: true,
+          };
 
     return (
-      <div class="t-transfer-list-search-wrapper" >
-        <TInput
-          { ...inputProps }
-          defaultValue={value}
-          onChange={this.handleChange}
-          placeholder={placeholder}
-        >
+      <div class="t-transfer-list-search-wrapper">
+        <TInput {...inputProps} defaultValue={value} onChange={this.handleChange} placeholder={placeholder}>
           <TIconSearch slot="suffix-icon" />
         </TInput>
       </div>

@@ -7,9 +7,9 @@
 </template>
 <script></script>
 <style lang="less" scoped>
-  .demo-avatar{
-    .t-avatar {
-      margin-right: 40px;
-    }
+.demo-avatar {
+  .t-avatar {
+    margin-right: 40px;
   }
+}
 </style>

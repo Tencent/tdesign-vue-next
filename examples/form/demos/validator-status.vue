@@ -33,7 +33,7 @@
       <t-form-item label="加载中" name="loading">
         <t-input v-model="formData.loading" placeholder="正在校验中，请稍等" />
         <template #statusIcon>
-          <div style="width:25px; display:flex; justify-content: center">
+          <div style="width: 25px; display: flex; justify-content: center">
             <t-loading size="small" />
           </div>
         </template>
@@ -56,12 +56,8 @@
         </template>
       </t-form-item>
       <t-form-item :status-icon="false" style="padding-top: 8px">
-        <t-button theme="primary" type="submit" style="margin-right: 10px">
-          提交
-        </t-button>
-        <t-button theme="default" variant="base" type="reset">
-          重置
-        </t-button>
+        <t-button theme="primary" type="submit" style="margin-right: 10px"> 提交 </t-button>
+        <t-button theme="default" variant="base" type="reset"> 重置 </t-button>
       </t-form-item>
     </t-form>
   </div>
@@ -83,21 +79,11 @@ const INITIAL_DATA = {
 };
 
 const rules = {
-  fail: [
-    { required: true, message: '必填', type: 'error' },
-  ],
-  warning: [
-    { required: true, message: '必填', type: 'warning' },
-  ],
-  success: [
-    { validator: () => true },
-  ],
-  failB: [
-    { required: true, message: '必填', type: 'error' },
-  ],
-  warningB: [
-    { required: true, message: '必填', type: 'warning' },
-  ],
+  fail: [{ required: true, message: '必填', type: 'error' }],
+  warning: [{ required: true, message: '必填', type: 'warning' }],
+  success: [{ validator: () => true }],
+  failB: [{ required: true, message: '必填', type: 'error' }],
+  warningB: [{ required: true, message: '必填', type: 'warning' }],
 };
 
 export default defineComponent({
@@ -105,9 +91,7 @@ export default defineComponent({
     const formData = ref({ ...INITIAL_DATA });
     const formValidatorStatus = ref(null);
 
-    const addlist = ref([
-      { id: 0, name: 'add0' },
-    ]);
+    const addlist = ref([{ id: 0, name: 'add0' }]);
     const lastAddItem = ref(1);
 
     const addItem = () => {
@@ -138,7 +122,7 @@ export default defineComponent({
       formValidatorStatus.value.validate();
     });
 
-    const getStatusIcon = () => <t-icon name='help-circle' size="25px" style="color: #0006"/>;
+    const getStatusIcon = () => <t-icon name="help-circle" size="25px" style="color: #0006" />;
 
     return {
       formValidatorStatus,

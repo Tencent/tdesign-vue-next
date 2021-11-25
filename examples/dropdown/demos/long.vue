@@ -1,13 +1,7 @@
 <template>
   <div>
-    <t-dropdown
-      :options="options"
-      :max-height="400"
-      :min-column-width="88"
-    >
-      <t-button variant="text">
-        下拉菜单
-      </t-button>
+    <t-dropdown :options="options" :max-height="400" :min-column-width="88">
+      <t-button variant="text"> 下拉菜单 </t-button>
     </t-dropdown>
   </div>
 </template>

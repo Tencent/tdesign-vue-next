@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, ref } from 'vue';
 import pgk from './package.json';
 import orgPkg from '../../../package.json';
 

@@ -7,44 +7,53 @@
         </t-form-item>
       </t-form>
     </div>
-    <t-tree
-      :data="items"
-      hover
-      checkable
-      expand-all
-      :disabled="disabled"
-    />
+    <t-tree :data="items" hover checkable expand-all :disabled="disabled" />
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 
-const items = [{
-  label: '1',
-  children: [{
-    label: '1.1',
-    children: [{
-      label: '1.1.1',
-    }, {
-      label: '1.1.2',
-    }],
-  }, {
-    label: '1.2',
-    children: [{
-      label: '1.2.1',
-    }, {
-      label: '1.2.2',
-    }],
-  }],
-}, {
-  label: '2',
-  children: [{
-    label: '2.1',
-  }, {
-    label: '2.2',
-  }],
-}];
+const items = [
+  {
+    label: '1',
+    children: [
+      {
+        label: '1.1',
+        children: [
+          {
+            label: '1.1.1',
+          },
+          {
+            label: '1.1.2',
+          },
+        ],
+      },
+      {
+        label: '1.2',
+        children: [
+          {
+            label: '1.2.1',
+          },
+          {
+            label: '1.2.2',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: '2',
+    children: [
+      {
+        label: '2.1',
+      },
+      {
+        label: '2.2',
+      },
+    ],
+  },
+];
 
 export default defineComponent({
   setup() {
@@ -58,7 +67,7 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-  .demo-tree-base {
-    display: block;
-  }
+.demo-tree-base {
+  display: block;
+}
 </style>

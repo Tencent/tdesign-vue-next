@@ -37,9 +37,7 @@ export default defineComponent({
     },
   },
   render(): VNode {
-    const {
-      $attrs, $slots, radioGroup, radioButton,
-    } = this;
+    const { $attrs, $slots, radioGroup, radioButton } = this;
     const children: VNode[] | VNode | string = $slots.default && $slots.default(null);
 
     const inputProps = {
@@ -57,7 +55,9 @@ export default defineComponent({
       keypresss: $attrs.onKeypresss,
     });
 
-    const events = [...Object.keys(inputEvents), 'input', 'change'].map((str) => `on${str[0].toUpperCase()}${str.slice(1)}`);
+    const events = [...Object.keys(inputEvents), 'input', 'change'].map(
+      (str) => `on${str[0].toUpperCase()}${str.slice(1)}`,
+    );
     const wrapperAttrs = omit($attrs, events);
 
     if (radioGroup) {
@@ -77,12 +77,12 @@ export default defineComponent({
     ];
 
     return (
-      <label class={inputClass} { ...wrapperAttrs }>
+      <label class={inputClass} {...wrapperAttrs}>
         <input
           type="radio"
           class={`${prefixCls}__former`}
-          { ...inputEvents }
-          { ...inputProps }
+          {...inputEvents}
+          {...inputProps}
           onChange={this.handleChange}
         />
         <span class={`${prefixCls}__input`}></span>

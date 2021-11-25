@@ -5,4 +5,4 @@ export interface ComponentLocale<T = any> {
 }
 export interface Locale {
   [componentName: string]: ComponentLocale;
-};
+}

@@ -1,6 +1,4 @@
-import {
-  TreeNode, CascaderContextType, TreeNodeValue, TreeOptionData,
-} from '../interface';
+import { TreeNode, CascaderContextType, TreeNodeValue, TreeOptionData } from '../interface';
 
 /**
  * 获取node的全部路径

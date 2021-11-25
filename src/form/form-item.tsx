@@ -1,6 +1,4 @@
-import {
-  defineComponent, VNode, nextTick, h,
-} from 'vue';
+import { defineComponent, VNode, nextTick, h } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
@@ -8,14 +6,18 @@ import isNil from 'lodash/isNil';
 import { prefix } from '../config';
 import { validate } from './form-model';
 import {
-  Data, FormRule, TdFormItemProps, TdFormProps, ValueType, ValidateTriggerType, AllValidateResult,
+  Data,
+  FormRule,
+  TdFormItemProps,
+  TdFormProps,
+  ValueType,
+  ValidateTriggerType,
+  AllValidateResult,
 } from './type';
 import props from './form-item-props';
 import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
 import Form, { FormItemInstance } from './form';
-import {
-  ClassName, ScopedSlot, TNodeReturnValue, Styles,
-} from '../common';
+import { ClassName, ScopedSlot, TNodeReturnValue, Styles } from '../common';
 import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import TIconErrorCircleFilled from '../icon/error-circle-filled';
 import TIconCloseCircleFilled from '../icon/close-circle-filled';
@@ -55,10 +57,14 @@ export default defineComponent({
 
   computed: {
     classes(): ClassName {
-      return [CLASS_NAMES.formItem, FORM_ITEM_CLASS_PREFIX + this.name, {
-        [CLASS_NAMES.formItemWithHelp]: this.help,
-        [CLASS_NAMES.formItemWithExtra]: this.renderTipsInfo(),
-      }];
+      return [
+        CLASS_NAMES.formItem,
+        FORM_ITEM_CLASS_PREFIX + this.name,
+        {
+          [CLASS_NAMES.formItemWithHelp]: this.help,
+          [CLASS_NAMES.formItemWithExtra]: this.renderTipsInfo(),
+        },
+      ];
     },
     labelClasses() {
       const parent = this.form;
@@ -81,9 +87,7 @@ export default defineComponent({
       const { successBorder } = this.$props;
       if (!parent.showErrorMessage) return '';
       if (this.verifyStatus === ValidateStatus.SUCCESS) {
-        return this.successBorder
-          ? [CLASS_NAMES.success, CLASS_NAMES.successBorder].join(' ')
-          : CLASS_NAMES.success;
+        return this.successBorder ? [CLASS_NAMES.success, CLASS_NAMES.successBorder].join(' ') : CLASS_NAMES.success;
       }
       if (!this.errorList.length) return;
       const type = this.errorList[0].type || 'error';
@@ -125,7 +129,7 @@ export default defineComponent({
     },
     innerRules(): FormRule[] {
       const parent = this.form;
-      return lodashGet(parent?.rules, this.name) || (this.rules || []);
+      return lodashGet(parent?.rules, this.name) || this.rules || [];
     },
   },
 
@@ -149,7 +153,8 @@ export default defineComponent({
   methods: {
     async validate<T>(trigger: ValidateTriggerType): Promise<FormItemValidateResult<T>> {
       this.resetValidating = true;
-      const rules = trigger === 'all' ? this.innerRules : this.innerRules.filter((item) => (item.trigger || 'change') === trigger);
+      const rules =
+        trigger === 'all' ? this.innerRules : this.innerRules.filter((item) => (item.trigger || 'change') === trigger);
       const r = await validate(this.value, rules);
       const errorList = r.filter((item) => item.result !== true);
       this.errorList = errorList;
@@ -166,9 +171,9 @@ export default defineComponent({
         this.resetHandler();
       }
       this.resetValidating = false;
-      return ({
+      return {
         [this.name]: errorList.length === 0 ? true : r,
-      } as FormItemValidateResult<T>);
+      } as FormItemValidateResult<T>;
     },
     getLabelContent(): TNodeReturnValue {
       if (typeof this.label === 'function') {
@@ -197,9 +202,7 @@ export default defineComponent({
 
       return (
         <div class={this.labelClasses} style={labelStyle}>
-          <label for={this.for}>
-            {this.getLabelContent()}
-          </label>
+          <label for={this.for}>{this.getLabelContent()}</label>
         </div>
       );
     },
@@ -223,7 +226,7 @@ export default defineComponent({
     getDefaultIcon(): TNodeReturnValue {
       const resultIcon = (Icon: IconConstructor) => (
         <span class={CLASS_NAMES.status}>
-          <Icon size='20px'></Icon>
+          <Icon size="20px"></Icon>
         </span>
       );
       const list = this.errorList;
@@ -232,10 +235,11 @@ export default defineComponent({
       }
       if (list && list[0]) {
         const type = this.errorList[0].type || 'error';
-        const icon = {
-          error: TIconCloseCircleFilled,
-          warning: TIconErrorCircleFilled,
-        }[type] || TIconCheckCircleFilled;
+        const icon =
+          {
+            error: TIconCloseCircleFilled,
+            warning: TIconErrorCircleFilled,
+          }[type] || TIconCheckCircleFilled;
         return resultIcon(icon as IconConstructor);
       }
       return null;
@@ -244,13 +248,8 @@ export default defineComponent({
       statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'],
       slotStatusIcon: ScopedSlot,
     ): TNodeReturnValue {
-      const resultIcon = (otherContent?: TNodeReturnValue) => (
-        <span class={CLASS_NAMES.status}>{otherContent}</span>
-      );
-      const withoutIcon = () => (
-        <span class={[CLASS_NAMES.status, `${CLASS_NAMES.status}-without-icon`]}>
-        </span>
-      );
+      const resultIcon = (otherContent?: TNodeReturnValue) => <span class={CLASS_NAMES.status}>{otherContent}</span>;
+      const withoutIcon = () => <span class={[CLASS_NAMES.status, `${CLASS_NAMES.status}-without-icon`]}></span>;
       if (statusIcon === true) {
         return this.getDefaultIcon();
       }

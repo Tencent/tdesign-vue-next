@@ -9,47 +9,23 @@
       @reset="onReset"
       @submit="onSubmit"
     >
-      <t-form-item
-        label="用户名"
-        help="这里请填写用户名"
-        name="account"
-      >
+      <t-form-item label="用户名" help="这里请填写用户名" name="account">
         <t-input v-model="formData.account" />
       </t-form-item>
-      <t-form-item
-        label="密码"
-        help="这里请填写密码"
-        name="password"
-      >
+      <t-form-item label="密码" help="这里请填写密码" name="password">
         <t-input v-model="formData.password" />
       </t-form-item>
-      <t-form-item
-        label="邮箱"
-        name="email"
-      >
+      <t-form-item label="邮箱" name="email">
         <t-input v-model="formData.email" />
       </t-form-item>
-      <t-form-item
-        label="性别"
-        name="gender"
-      >
+      <t-form-item label="性别" name="gender">
         <t-radio-group v-model="formData.gender">
-          <t-radio value="male">
-            男
-          </t-radio>
-          <t-radio value="femal">
-            女
-          </t-radio>
+          <t-radio value="male"> 男 </t-radio>
+          <t-radio value="femal"> 女 </t-radio>
         </t-radio-group>
       </t-form-item>
-      <t-form-item
-        label="课程"
-        name="course"
-      >
-        <t-checkbox-group
-          v-model="formData.course"
-          :options="courseOptions"
-        />
+      <t-form-item label="课程" name="course">
+        <t-checkbox-group v-model="formData.course" :options="courseOptions" />
       </t-form-item>
       <t-form-item
         label="入学时间"
@@ -58,35 +34,13 @@
       >
         <t-input v-model="formData.date" />
       </t-form-item>
-      <t-form-item
-        label="个人网站"
-        name="content.url"
-      >
+      <t-form-item label="个人网站" name="content.url">
         <t-input v-model="formData.content.url" />
       </t-form-item>
       <t-form-item>
-        <t-button
-          theme="primary"
-          type="submit"
-          style="margin-right: 10px"
-        >
-          提交
-        </t-button>
-        <t-button
-          theme="default"
-          variant="base"
-          type="reset"
-          style="margin-right: 10px"
-        >
-          重置
-        </t-button>
-        <t-button
-          theme="default"
-          variant="base"
-          @click="handleClear"
-        >
-          清除校验结果
-        </t-button>
+        <t-button theme="primary" type="submit" style="margin-right: 10px"> 提交 </t-button>
+        <t-button theme="default" variant="base" type="reset" style="margin-right: 10px"> 重置 </t-button>
+        <t-button theme="default" variant="base" @click="handleClear"> 清除校验结果 </t-button>
       </t-form-item>
     </t-form>
   </div>
@@ -100,18 +54,10 @@ const rules = {
     { required: true, message: '姓名必填', type: 'error' },
     { min: 2, message: '至少需要两个字', type: 'error' },
   ],
-  password: [
-    { required: true, message: '密码必填', type: 'error' },
-  ],
-  email: [
-    { required: true, message: '格式必须为邮箱', type: 'warning' },
-  ],
-  gender: [
-    { required: true, message: '性别必填', type: 'warning' },
-  ],
-  course: [
-    { required: true, message: '课程必填', type: 'warning' },
-  ],
+  password: [{ required: true, message: '密码必填', type: 'error' }],
+  email: [{ required: true, message: '格式必须为邮箱', type: 'warning' }],
+  gender: [{ required: true, message: '性别必填', type: 'warning' }],
+  course: [{ required: true, message: '课程必填', type: 'warning' }],
   'content.url': [
     { required: true, message: '个人网站必填', type: 'warning' },
     {
