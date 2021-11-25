@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
-import App from './app.vue';
-import router from './routes';
 import TDesign from '@tencent/tdesign-vue-next';
+import App from './pages/app.vue';
+import router from './routes';
 
 import codesandbox from './components/codesandbox/index.vue';
 
@@ -15,6 +15,6 @@ import 'tdesign-site-components/lib/styles/style.css';
 
 const app = createApp(App);
 
-app.component('codesandbox', codesandbox);
+app.component('Codesandbox', codesandbox);
 
 app.use(TDesign).use(router).mount('#app');

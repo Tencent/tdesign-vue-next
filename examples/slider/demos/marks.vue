@@ -1,26 +1,15 @@
 <template>
   <div class="demo-slider">
     <div class="block">
-      <t-slider
-        v-model="value1"
-        :show-tooltip="true"
-        :marks="marks1"
-        :input-number-props="false"
-      />
+      <t-slider v-model="value1" :show-tooltip="true" :marks="marks1" :input-number-props="false" />
     </div>
 
     <div class="block">
-      <t-slider
-        v-model="value2"
-        range
-        :show-tooltip="true"
-        :marks="marks2"
-        :input-number-props="false"
-      />
+      <t-slider v-model="value2" range :show-tooltip="true" :marks="marks2" :input-number-props="false" />
     </div>
   </div>
 </template>
-<script lang='jsx'>
+<script lang="jsx">
 import { defineComponent, ref } from 'vue';
 
 export default {

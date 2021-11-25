@@ -8,15 +8,17 @@ import './style';
 export * from './type';
 export type PaginationProps = TdPaginationProps;
 
-export const Pagination: WithInstallType<typeof _Pagination> = withInstall(mapProps([
-  {
-    name: 'current',
-    alias: ['modelValue'],
-    event: 'current-change',
-  },
-  {
-    name: 'pageSize',
-    event: 'page-size-change',
-  },
-])(_Pagination));
+export const Pagination: WithInstallType<typeof _Pagination> = withInstall(
+  mapProps([
+    {
+      name: 'current',
+      alias: ['modelValue'],
+      event: 'current-change',
+    },
+    {
+      name: 'pageSize',
+      event: 'page-size-change',
+    },
+  ])(_Pagination),
+);
 export default Pagination;

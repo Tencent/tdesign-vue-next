@@ -112,7 +112,7 @@ describe('Transfer', () => {
       it('left', async () => {
         const wrapper = await mount({
           render() {
-            return <Transfer data={data} checked={checkedValue} direction='left'></Transfer>;
+            return <Transfer data={data} checked={checkedValue} direction="left"></Transfer>;
           },
         });
 
@@ -123,7 +123,7 @@ describe('Transfer', () => {
       it('right', async () => {
         const wrapper = await mount({
           render() {
-            return <Transfer data={data} checked={checkedValue} value={targetValue} direction='right'></Transfer>;
+            return <Transfer data={data} checked={checkedValue} value={targetValue} direction="right"></Transfer>;
           },
         });
 
@@ -134,7 +134,7 @@ describe('Transfer', () => {
       it('both', async () => {
         const wrapper = await mount({
           render() {
-            return <Transfer data={data} checked={checkedValue} value={targetValue} direction='both'></Transfer>;
+            return <Transfer data={data} checked={checkedValue} value={targetValue} direction="both"></Transfer>;
           },
         });
 
@@ -185,7 +185,9 @@ describe('Transfer', () => {
             return <Transfer empty={empty}></Transfer>;
           },
         });
-        expect(wrapper.vm.$el.querySelector('.t-transfer-empty').outerHTML).toEqual('<div class="t-transfer-empty"><div><button>数据为空</button></div></div>');
+        expect(wrapper.vm.$el.querySelector('.t-transfer-empty').outerHTML).toEqual(
+          '<div class="t-transfer-empty"><div><button>数据为空</button></div></div>',
+        );
       });
     });
 
@@ -198,7 +200,9 @@ describe('Transfer', () => {
           },
         });
 
-        expect(wrapper.vm.$el.querySelector('.t-transfer-list-source > div:last-child').innerHTML).toEqual('render footer: source');
+        expect(wrapper.vm.$el.querySelector('.t-transfer-list-source > div:last-child').innerHTML).toEqual(
+          'render footer: source',
+        );
       });
 
       // it('slot', async () => {
@@ -257,7 +261,9 @@ describe('Transfer', () => {
           },
         });
 
-        expect(wrapper.vm.$el.querySelectorAll('.t-transfer-operations .t-button__text')[0].innerHTML).toEqual('to right');
+        expect(wrapper.vm.$el.querySelectorAll('.t-transfer-operations .t-button__text')[0].innerHTML).toEqual(
+          'to right',
+        );
       });
 
       // it('function', async () => {
@@ -401,7 +407,9 @@ describe('Transfer', () => {
     describe('transferItem', () => {
       it('function', async () => {
         const transferItem = (h, { data }) => (
-          <div class="transfer-item">{data.value}:{data.label}</div>
+          <div class="transfer-item">
+            {data.value}:{data.label}
+          </div>
         );
         const wrapper = await mount({
           render() {
@@ -409,7 +417,9 @@ describe('Transfer', () => {
           },
         });
 
-        const allTransferItem = wrapper.vm.$el.querySelectorAll('.t-transfer-list-source .t-transfer-list__item .transfer-item');
+        const allTransferItem = wrapper.vm.$el.querySelectorAll(
+          '.t-transfer-list-source .t-transfer-list__item .transfer-item',
+        );
 
         allTransferItem.forEach((item, index) => {
           expect(item.innerHTML).toEqual(`${data[index].value}:${data[index].label}`);
@@ -435,7 +445,9 @@ describe('Transfer', () => {
           },
         });
 
-        const allTransferItem = wrapper.vm.$el.querySelectorAll('.t-transfer-list-source .t-transfer-list__item .transfer-item');
+        const allTransferItem = wrapper.vm.$el.querySelectorAll(
+          '.t-transfer-list-source .t-transfer-list__item .transfer-item',
+        );
 
         allTransferItem.forEach((item, index) => {
           expect(item.innerHTML).toEqual(`${data[index].value}:${data[index].label}`);
@@ -452,7 +464,9 @@ describe('Transfer', () => {
         });
 
         let count = 0;
-        const domLabels = wrapper.vm.$el.querySelectorAll('.t-transfer-list-target .t-transfer-list__content')[0].querySelectorAll('.t-checkbox__label');
+        const domLabels = wrapper.vm.$el
+          .querySelectorAll('.t-transfer-list-target .t-transfer-list__content')[0]
+          .querySelectorAll('.t-checkbox__label');
 
         targetValue.forEach((item) => {
           const i = Number(item);
@@ -491,14 +505,7 @@ describe('Transfer', () => {
       const fn = jest.fn();
       const wrapper = await mount({
         render() {
-          return (
-            <Transfer
-              data={data}
-              pagination={pagination}
-              checked={checkedValue}
-              onChange={fn}
-            />
-          );
+          return <Transfer data={data} pagination={pagination} checked={checkedValue} onChange={fn} />;
         },
       });
 

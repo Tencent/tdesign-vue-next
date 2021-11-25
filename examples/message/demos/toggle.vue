@@ -1,11 +1,6 @@
 <template>
   <div id="t-demo-message-toggle">
-    <t-button
-      variant="outline"
-      @click="closeFunc"
-    >
-      自由控制关闭时机（{{ msg ? '关闭' : '打开' }}）
-    </t-button>
+    <t-button variant="outline" @click="closeFunc"> 自由控制关闭时机（{{ msg ? '关闭' : '打开' }}） </t-button>
   </div>
 </template>
 

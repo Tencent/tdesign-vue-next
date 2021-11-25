@@ -28,9 +28,7 @@ import {
 
 // type
 import { ClassName } from '../../common';
-import {
-  TreeNode, InputContentProps,
-} from '../interface';
+import { TreeNode, InputContentProps } from '../interface';
 import CascaderProps from '../props';
 
 const name = `${prefix}-cascader`;
@@ -76,7 +74,7 @@ export default defineComponent({
       return getSingleContent(this.cascaderContext);
     },
     multipleContent() {
-      return getMultipleContent((this.cascaderContext));
+      return getMultipleContent(this.cascaderContext);
     },
     showPlaceholder() {
       return getPlaceholderShow(this.cascaderContext, this.singleContent, this.multipleContent);
@@ -97,9 +95,7 @@ export default defineComponent({
       return outerClickListenerEffect(this.$refs.inputContent as HTMLElement, this.cascaderContext, event);
     },
     renderContent() {
-      const {
-        placeholder, showPlaceholder,
-      } = this;
+      const { placeholder, showPlaceholder } = this;
       const content = !showPlaceholder ? (
         this.InnerContent()
       ) : (
@@ -110,28 +106,20 @@ export default defineComponent({
     InnerContent() {
       const {
         cascaderContext,
-        placeholder, singleContent, multipleContent,
+        placeholder,
+        singleContent,
+        multipleContent,
         listeners,
-        $slots: {
-          collapsedItems,
-        },
+        $slots: { collapsedItems },
       } = this;
 
-      const {
-        multiple,
-        size,
-        disabled,
-        filterable,
-        setFilterActive,
-        visible,
-        inputVal,
-        setInputVal,
-        minCollapsedNum,
-      } = cascaderContext;
+      const { multiple, size, disabled, filterable, setFilterActive, visible, inputVal, setInputVal, minCollapsedNum } =
+        cascaderContext;
 
       const { onFocus, onBlur, onRemove } = listeners as InputContentProps['listeners'];
 
-      const renderSelfTag = (node: TreeNode, index: number) => <Tag
+      const renderSelfTag = (node: TreeNode, index: number) => (
+        <Tag
           closable
           key={index}
           disabled={disabled}
@@ -142,7 +130,8 @@ export default defineComponent({
           size={size}
         >
           {node.label}
-        </Tag>;
+        </Tag>
+      );
 
       const generalContent = !multiple ? (
         <span className={`${prefix}-cascader-content`}>{singleContent}</span>
@@ -150,34 +139,42 @@ export default defineComponent({
         <>
           {minCollapsedNum > 0 && multipleContent.length > minCollapsedNum ? (
             <>
-              {multipleContent.slice(0, minCollapsedNum).map((node: TreeNode, index: number) => (
-                renderSelfTag(node, index)
-              ))}
-              {!collapsedItems ? <Tag size={size} disabled={disabled}>
-                +{multipleContent.length - minCollapsedNum}
-              </Tag> : collapsedItems(null)}
+              {multipleContent
+                .slice(0, minCollapsedNum)
+                .map((node: TreeNode, index: number) => renderSelfTag(node, index))}
+              {!collapsedItems ? (
+                <Tag size={size} disabled={disabled}>
+                  +{multipleContent.length - minCollapsedNum}
+                </Tag>
+              ) : (
+                collapsedItems(null)
+              )}
             </>
           ) : (
-            multipleContent.map((node: TreeNode, index: number) => (
-              renderSelfTag(node, index)
-            ))
+            multipleContent.map((node: TreeNode, index: number) => renderSelfTag(node, index))
           )}
         </>
       );
 
-      const inputPlaceholder = multiple ? multipleContent.map((node: TreeNode) => node.label).join('、') : singleContent;
+      const inputPlaceholder = multiple
+        ? multipleContent.map((node: TreeNode) => node.label).join('、')
+        : singleContent;
 
       const filterContent = () => (
         <Input
           size={size}
-          placeholder={ inputPlaceholder || placeholder || this.t(this.locale.placeholderText)}
+          placeholder={inputPlaceholder || placeholder || this.t(this.locale.placeholderText)}
           value={inputVal}
           onChange={(value: string) => {
             setInputVal(value);
             setFilterActive(!!value);
           }}
-          onFocus={(v: InputValue, context: { e: FocusEvent }) => isFunction(onFocus) && onFocus({ inputVal, e: context?.e })}
-          onBlur={(v: InputValue, context: { e: FocusEvent }) => isFunction(onBlur) && onBlur({ inputVal, e: context?.e })}
+          onFocus={(v: InputValue, context: { e: FocusEvent }) =>
+            isFunction(onFocus) && onFocus({ inputVal, e: context?.e })
+          }
+          onBlur={(v: InputValue, context: { e: FocusEvent }) =>
+            isFunction(onBlur) && onBlur({ inputVal, e: context?.e })
+          }
           autofocus={visible}
         />
       );
@@ -189,9 +186,7 @@ export default defineComponent({
         closeShow,
         closeIconClass,
         fakeArrowIconClass,
-        cascaderContext: {
-          size, visible, disabled,
-        },
+        cascaderContext: { size, visible, disabled },
         listeners,
       } = this;
       const { onChange } = listeners as InputContentProps['listeners'];
@@ -203,34 +198,34 @@ export default defineComponent({
       };
 
       if (closeShow) {
-        return <CloseCircleFilledIcon class={closeIconClass} size={size} onClick={closeIconClick}/>;
+        return <CloseCircleFilledIcon class={closeIconClass} size={size} onClick={closeIconClick} />;
       }
 
       return <FakeArrow overlayClassName={fakeArrowIconClass} isActive={visible} disabled={disabled} />;
     },
   },
   render() {
-    const {
-      $attrs, cascaderContext,
-    } = this;
+    const { $attrs, cascaderContext } = this;
 
-    return <div
-      ref='inputContent'
-      class={this.cascaderInnerClasses}
-      {...$attrs}
-      onMouseenter={() => {
-        this.isHover = true;
-      }}
-      onMouseleave={() => {
-        this.isHover = false;
-      }}
-      onClick={(e: MouseEvent) => {
-        e.preventDefault();
-        innerContentClickEffect(cascaderContext);
-      }}
-    >
-      {this.renderContent()}
-      {this.renderSuffixIcon()}
-    </div>;
+    return (
+      <div
+        ref="inputContent"
+        class={this.cascaderInnerClasses}
+        {...$attrs}
+        onMouseenter={() => {
+          this.isHover = true;
+        }}
+        onMouseleave={() => {
+          this.isHover = false;
+        }}
+        onClick={(e: MouseEvent) => {
+          e.preventDefault();
+          innerContentClickEffect(cascaderContext);
+        }}
+      >
+        {this.renderContent()}
+        {this.renderSuffixIcon()}
+      </div>
+    );
   },
 });

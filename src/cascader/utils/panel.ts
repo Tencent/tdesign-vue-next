@@ -1,8 +1,6 @@
 import isFunction from 'lodash/isFunction';
 import isNumber from 'lodash/isNumber';
-import {
-  TreeNode, CascaderContextType, CascaderProps, ContextType, TreeNodeValue,
-} from '../interface';
+import { TreeNode, CascaderContextType, CascaderProps, ContextType, TreeNodeValue } from '../interface';
 
 /**
  * 面板数据计算方法
@@ -107,9 +105,8 @@ export function valueChangeEffect(
   onChange: CascaderProps['onChange'],
   ctx: ContextType,
 ) {
-  const {
-    disabled, max, multiple, setVisible, setValue, filterActive, setFilterActive, treeNodes, treeStore,
-  } = cascaderContext;
+  const { disabled, max, multiple, setVisible, setValue, filterActive, setFilterActive, treeNodes, treeStore } =
+    cascaderContext;
 
   if (!node || disabled || node.disabled) {
     return;

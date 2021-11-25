@@ -78,7 +78,6 @@ export const MONTH_CN_MAP: Record<string, string> = {
   12: '十二月',
 };
 
-
 export default {
   COMPONENT_NAME,
   INVALID_DATE,

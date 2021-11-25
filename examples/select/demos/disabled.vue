@@ -5,7 +5,7 @@
       placeholder="-请选择-"
       disabled
       filterable
-      style="width: 200px;display: inline-block;margin-right: 20px;"
+      style="width: 200px; display: inline-block; margin-right: 20px"
       :options="options"
     />
     <t-select
@@ -13,7 +13,7 @@
       placeholder="-请选择-"
       multiple
       disabled
-      style="width: 200px;display: inline-block;"
+      style="width: 200px; display: inline-block"
       :options="options"
     />
   </div>
@@ -22,16 +22,20 @@
 <script>
 import { defineComponent, ref } from 'vue';
 
-const options = [{
-  label: '上海',
-  value: 'shanghai',
-}, {
-  label: '北京',
-  value: 'beijing',
-}, {
-  label: '深圳',
-  value: 'shenzhen',
-}];
+const options = [
+  {
+    label: '上海',
+    value: 'shanghai',
+  },
+  {
+    label: '北京',
+    value: 'beijing',
+  },
+  {
+    label: '深圳',
+    value: 'shenzhen',
+  },
+];
 
 export default defineComponent({
   setup() {

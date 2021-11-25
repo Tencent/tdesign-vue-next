@@ -72,9 +72,7 @@ export interface GetKeyDataParams {
 }
 
 export function getKeyDataMap(p: GetKeyDataParams, r?: Record<string, any>) {
-  const {
-    data, column, rowKey, childrenKey,
-  } = p;
+  const { data, column, rowKey, childrenKey } = p;
   if (!data) return r;
   const result = r || {};
   for (let i = 0, len = data.length; i < len; i++) {

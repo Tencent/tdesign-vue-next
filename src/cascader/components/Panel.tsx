@@ -40,10 +40,7 @@ export default defineComponent({
 
   render() {
     const {
-      cascaderContext: {
-        filterActive,
-        treeNodes,
-      },
+      cascaderContext: { filterActive, treeNodes },
       cascaderContext,
       panels,
       $slots,
@@ -52,30 +49,28 @@ export default defineComponent({
     const empty = useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty');
     const handleExpand = (ctx: ContextType, trigger: 'hover' | 'click') => {
       const { node } = ctx;
-      const {
-        trigger: propsTrigger,
-        cascaderContext,
-        onChange,
-      } = this;
+      const { trigger: propsTrigger, cascaderContext, onChange } = this;
 
       expendClickEffect(propsTrigger, trigger, node, cascaderContext, onChange, ctx);
     };
 
     const handleChange = (ctx: ContextType) => {
       const { node } = ctx;
-      const {
-        cascaderContext,
-        onChange,
-      } = this;
+      const { cascaderContext, onChange } = this;
 
       valueChangeEffect(node, cascaderContext, onChange, ctx);
     };
 
     // innerComponents
     const renderEmpty = (
-      <ul class={[`${name}-menu`, {
-        [`${name}-menu__filter`]: filterActive,
-      }]}>
+      <ul
+        class={[
+          `${name}-menu`,
+          {
+            [`${name}-menu__filter`]: filterActive,
+          },
+        ]}
+      >
         {!$slots.empty ? <li class={[`${name}-item`, `${name}-item__is-empty`]}>{empty}</li> : empty}
       </ul>
     );
@@ -96,26 +91,21 @@ export default defineComponent({
     );
 
     const panelsContainer = panels.map((panel: TreeNode[], index: number) => (
-      <ul class={
-        [`${name}-menu`,
-          { [`${name}-menu__seperator`]: index !== panels.length - 1 }]
-      } key={index}>
+      <ul class={[`${name}-menu`, { [`${name}-menu__seperator`]: index !== panels.length - 1 }]} key={index}>
         {panel.map((node: TreeNode) => renderItem(node))}
       </ul>
     ));
 
     const filterPanelsContainer = (
-      <ul class={
-        [`${name}-menu`, `${name}-menu__seperator`, `${name}-menu__filter`]
-      }>
+      <ul class={[`${name}-menu`, `${name}-menu__seperator`, `${name}-menu__filter`]}>
         {treeNodes.map((node: TreeNode) => renderItem(node))}
       </ul>
     );
 
     const renderPanels = filterActive ? filterPanelsContainer : panelsContainer;
 
-    return (<div class={[`${name}-panel`, `${name}--normal`]}>
-      {panels && panels.length ? renderPanels : renderEmpty}
-    </div>);
+    return (
+      <div class={[`${name}-panel`, `${name}--normal`]}>{panels && panels.length ? renderPanels : renderEmpty}</div>
+    );
   },
 });

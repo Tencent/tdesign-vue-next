@@ -15,21 +15,15 @@ export function getLabelIsEllipsis(node: TreeNode, size: CascaderContextType['si
   return sizeMap[size] < node.label.length;
 }
 
-export function getNodeStatusClass(
-  node: TreeNode,
-  CLASSNAMES: any,
-  cascaderContext: CascaderContextType,
-) {
-  const {
-    checkStrictly, multiple, value, max,
-  } = cascaderContext;
+export function getNodeStatusClass(node: TreeNode, CLASSNAMES: any, cascaderContext: CascaderContextType) {
+  const { checkStrictly, multiple, value, max } = cascaderContext;
   const expandedActive = !checkStrictly && node.expanded && (multiple ? !node.isLeaf() : true);
 
   const isLeaf = node.isLeaf();
 
   const isDisabled = node.disabled || (multiple && (value as TreeNodeValue[]).length >= max && max !== 0);
 
-  const isSelected = node.checked || (multiple && !checkStrictly && ((node.expanded && !isLeaf)));
+  const isSelected = node.checked || (multiple && !checkStrictly && node.expanded && !isLeaf);
 
   return [
     {
@@ -64,8 +58,5 @@ export function getCascaderItemIconClass(
   CLASSNAMES: any,
   cascaderContext: CascaderContextType,
 ) {
-  return [
-    `${prefix}-cascader-item-icon`,
-    ...getNodeStatusClass(node, CLASSNAMES, cascaderContext),
-  ];
+  return [`${prefix}-cascader-item-icon`, ...getNodeStatusClass(node, CLASSNAMES, cascaderContext)];
 }

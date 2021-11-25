@@ -2,7 +2,8 @@
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "eslint-config-airbnb-base",
-    "plugin:vue/vue3-recommended"
+    "plugin:vue/vue3-recommended",
+    "plugin:prettier/recommended"
   ],
   "env": {
     "browser": true,
@@ -10,14 +11,14 @@
     "jest": true,
     "es6": true
   },
-  "globals": {
-    "cy": "readonly",
-    "PKG_VERSION": true
-  },
   "plugins": [
     "vue",
     "@typescript-eslint"
   ],
+  "globals": {
+    "cy": "readonly",
+    "PKG_VERSION": true
+  },
   "parserOptions": {
     "parser": "@typescript-eslint/parser",
     "sourceType": "module",
@@ -35,92 +36,49 @@
     ]
   },
   "rules": {
-    "camelcase": 0,
-    "no-new": 1,
-    "new-cap": 0,
-    "no-underscore-dangle": 0,
-    "no-confusing-arrow": 0,
-    "func-style": 0,
+    // code style config
+    "no-continue": "off",
+    "no-console": "off",
+    "no-restricted-syntax": "off",
+    "no-plusplus": "off",
+    "no-param-reassign":  "off",
+    "no-shadow":  "off",
+    "no-underscore-dangle": "off",
     "no-unused-vars": "off",
-    "no-console": [
-      "error",
-      { "allow": 
-        ["warn", "error"]
-      }
-    ],
-    "@typescript-eslint/no-explicit-any": 0,
+    "no-unused-expressions": "off",
+    "no-return-assign": "off",
+    "no-use-before-define": "off",
+    "func-names": "off",
+    "guard-for-in": "off",
+    "consistent-return": "off",
+    "no-restricted-globals": "off",
+    "default-param-last": "off",
+    "default-case": "off",
+    "prefer-spread": "off",
+
+    // import config
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "import/no-relative-packages": "off",
+    
+    // typescript config
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-require-imports": 0,
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/prefer-for-of": 0,
-    "prefer-default-export": 0,
-    "max-len": 0,
-    "@typescript-eslint/ban-ts-ignore": 0,
-    "no-useless-constructor": "off",
-    "no-plusplus": [
-      "error",
-      {
-        "allowForLoopAfterthoughts": true
-      }
-    ],
-    "import/no-unresolved": 0,
-    "import/no-named-as-default": 0,
-    "treatUndefinedAsUnspecified": 0,
-    "no-use-before-define": [
-      0,
-      {
-        "functions": false,
-        "classes": false
-      }
-    ],
-    "no-shadow": 0,
-    "no-unused-expressions": 0,
     "@typescript-eslint/ban-types": 0,
-    "no-proto": 0,
-    "consistent-return": 0,
-    "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/explicit-module-boundary-types": 0,
-    "import/export": 0,
-    "no-restricted-globals": 0,
     "@typescript-eslint/no-unused-vars": 0,
-    "import/no-cycle": 0,
-    "default-case": 0,
-    "import/extensions": 0,
-    "no-throw-literal": 0,
-    "no-return-assign": 0,
-    "no-continue": 0,
-    "func-names": 0,
-    "prefer-spread": 0,
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/ban-ts-comment": 0,
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ],
-    "import/no-dynamic-require": 0,
-    "global-require": 0,
-    "no-constant-condition": [
-      "error",
-      {
-        "checkLoops": false
-      }
-    ],
-    "vue/require-default-prop": 0,
-    "vue/max-attributes-per-line": ["error", {
-      "singleline": {
-        "max": 4
-      }
-    }]
+    "vue/require-default-prop": 0
   },
   "overrides": [
     {
       "files": ["*.vue"],
       "rules": {
-        "indent": 2,
-        "vue/html-indent": [2, 2],
-        "vue/return-in-computed-property": 1,
-        "vue/order-in-components": 2,
         "vue/component-name-in-template-casing": [2, "kebab-case"],
         "vue/require-default-prop": 0
       }
@@ -142,13 +100,21 @@
       }
     },
     {
-      // enable the rule specifically for TypeScript files
       "files": [
         "*.ts",
         "*.tsx"
       ],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": 0
+      }
+    },
+    {
+      "files": [
+        "*.test.js"
+      ],
+      "rules": {
+        "import/no-dynamic-require": "off",
+        "global-require": "off"
       }
     }
   ]

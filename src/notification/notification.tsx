@@ -31,12 +31,13 @@ export default defineComponent({
     renderIcon() {
       let icon;
       if (this.theme) {
-        const iconType = this.theme === 'success'
-          ? (<t-icon-check-circle-filled class={`t-is-${this.theme}`} />)
-          : (<t-icon-info-circle-filled class={`t-is-${this.theme}`} />);
-        icon = (<div class='t-notification__icon'>
-          {iconType}
-        </div>);
+        const iconType =
+          this.theme === 'success' ? (
+            <t-icon-check-circle-filled class={`t-is-${this.theme}`} />
+          ) : (
+            <t-icon-info-circle-filled class={`t-is-${this.theme}`} />
+          );
+        icon = <div class="t-notification__icon">{iconType}</div>;
       } else if (this.icon) {
         icon = this.icon(h);
       } else if (this.$slots.icon) {
@@ -47,7 +48,7 @@ export default defineComponent({
     renderClose() {
       const { closeBtn } = this;
       if (typeof closeBtn === 'boolean') {
-        return closeBtn && <t-icon-close onClick={this.close} class='t-message-close' />;
+        return closeBtn && <t-icon-close onClick={this.close} class="t-message-close" />;
       }
       let close: VNodeChild = null;
       if (typeof closeBtn === 'function') {
@@ -58,7 +59,12 @@ export default defineComponent({
         close = this.$slots.closeBtn(null);
       }
       if (close) {
-        return (<div class='t-icon-close' onClick={this.close}> { close } </div>);
+        return (
+          <div class="t-icon-close" onClick={this.close}>
+            {' '}
+            {close}{' '}
+          </div>
+        );
       }
     },
     renderContent() {
@@ -70,7 +76,7 @@ export default defineComponent({
           break;
         }
         case 'string': {
-          content = this.content ? (<div class={`${name}__content`}>{this.content}</div>) : '';
+          content = this.content ? <div class={`${name}__content`}>{this.content}</div> : '';
           break;
         }
       }

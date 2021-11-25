@@ -2,36 +2,20 @@
   <div class="tdesign-demo-block-column">
     <div>
       <t-radio-group v-model="leftFixedColumn" variant="default-filled">
-        <t-radio-button :value="1">
-          左侧固定一列
-        </t-radio-button>
-        <t-radio-button :value="2">
-          左侧固定两列
-        </t-radio-button>
+        <t-radio-button :value="1"> 左侧固定一列 </t-radio-button>
+        <t-radio-button :value="2"> 左侧固定两列 </t-radio-button>
       </t-radio-group>
     </div>
 
     <div>
       <t-radio-group v-model="rightFixedColumn" variant="default-filled">
-        <t-radio-button :value="1">
-          右侧固定一列
-        </t-radio-button>
-        <t-radio-button :value="2">
-          右侧固定两列
-        </t-radio-button>
+        <t-radio-button :value="1"> 右侧固定一列 </t-radio-button>
+        <t-radio-button :value="2"> 右侧固定两列 </t-radio-button>
       </t-radio-group>
     </div>
-    <t-table
-      :data="data"
-      :columns="columns"
-      row-key="index"
-      bordered
-    >
+    <t-table :data="data" :columns="columns" row-key="index" bordered>
       <template #operation="slotProps">
-        <a
-          class="link"
-          @click="rehandleClickOp(slotProps)"
-        >删除111</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">删除111</a>
       </template>
     </t-table>
   </div>

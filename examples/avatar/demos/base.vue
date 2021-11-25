@@ -1,9 +1,6 @@
 <template>
   <div class="demo-avatar">
-    <t-avatar
-      :image="image"
-      :hide-on-load-failed="false"
-    />
+    <t-avatar :image="image" :hide-on-load-failed="false" />
     <t-avatar>W</t-avatar>
     <t-avatar :icon="icon" />
     <t-avatar>
@@ -31,9 +28,9 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
-  .demo-avatar{
-    .t-avatar {
-      margin-right: 40px;
-    }
+.demo-avatar {
+  .t-avatar {
+    margin-right: 40px;
   }
+}
 </style>

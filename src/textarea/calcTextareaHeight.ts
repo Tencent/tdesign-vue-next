@@ -1,8 +1,8 @@
 type RowsType = number | null;
 
 type ResultType = {
-  height?: string,
-  minHeight?: string
+  height?: string;
+  minHeight?: string;
 };
 
 let hiddenTextarea: HTMLTextAreaElement;
@@ -41,26 +41,24 @@ const SIZING_PROPS = [
 function calculateNodeStyling(targetElement: HTMLTextAreaElement) {
   const style = window.getComputedStyle(targetElement);
 
-  const boxSizing = style.getPropertyValue('box-sizing')
-  || style.getPropertyValue('-moz-box-sizing')
-  || style.getPropertyValue('-webkit-box-sizing');
+  const boxSizing =
+    style.getPropertyValue('box-sizing') ||
+    style.getPropertyValue('-moz-box-sizing') ||
+    style.getPropertyValue('-webkit-box-sizing');
 
-  const paddingSize = (
-    parseFloat(style.getPropertyValue('padding-bottom'))
-    + parseFloat(style.getPropertyValue('padding-top'))
-  );
+  const paddingSize =
+    parseFloat(style.getPropertyValue('padding-bottom')) + parseFloat(style.getPropertyValue('padding-top'));
 
-  const borderSize = (
-    parseFloat(style.getPropertyValue('border-bottom-width'))
-    + parseFloat(style.getPropertyValue('border-top-width'))
-  );
+  const borderSize =
+    parseFloat(style.getPropertyValue('border-bottom-width')) + parseFloat(style.getPropertyValue('border-top-width'));
 
-  const sizingStyle = SIZING_PROPS
-    .map((name) => `${name}:${style.getPropertyValue(name)}`)
-    .join(';');
+  const sizingStyle = SIZING_PROPS.map((name) => `${name}:${style.getPropertyValue(name)}`).join(';');
 
   return {
-    sizingStyle, paddingSize, borderSize, boxSizing,
+    sizingStyle,
+    paddingSize,
+    borderSize,
+    boxSizing,
   };
 }
 
@@ -74,12 +72,7 @@ export default function calcTextareaHeight(
     document.body.appendChild(hiddenTextarea);
   }
 
-  const {
-    paddingSize,
-    borderSize,
-    boxSizing,
-    sizingStyle,
-  } = calculateNodeStyling(targetElement);
+  const { paddingSize, borderSize, boxSizing, sizingStyle } = calculateNodeStyling(targetElement);
 
   hiddenTextarea.setAttribute('style', `${sizingStyle};${HIDDEN_TEXTAREA_STYLE}`);
   hiddenTextarea.value = targetElement.value || targetElement.placeholder || '';

@@ -11,7 +11,7 @@ export function omit(obj: object, fields: string[]): object {
   return shallowCopy;
 }
 
-export function removeEmptyAttrs<T>(obj: T): Partial<T>  {
+export function removeEmptyAttrs<T>(obj: T): Partial<T> {
   const newObj = {};
 
   Object.keys(obj).forEach((key) => {

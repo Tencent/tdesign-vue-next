@@ -7,9 +7,11 @@ describe('Tree:expand', () => {
       const data = [
         {
           value: 't1',
-          children: [{
-            value: 't1.1',
-          }],
+          children: [
+            {
+              value: 't1.1',
+            },
+          ],
         },
         {
           value: 't2',
@@ -17,9 +19,7 @@ describe('Tree:expand', () => {
       ];
       const wrapper = mount({
         render() {
-          return (
-            <Tree data={data} expandAll></Tree>
-          );
+          return <Tree data={data} expandAll></Tree>;
         },
       });
       expect(wrapper.find('[data-value="t1.1"]').exists()).toBe(true);

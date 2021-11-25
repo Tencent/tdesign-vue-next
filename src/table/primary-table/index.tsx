@@ -1,8 +1,6 @@
 import { defineComponent } from 'vue';
 import baseTableProps from '../base-table-props';
-import {
-  DataType, TdBaseTableProps, TdPrimaryTableProps, PrimaryTableCol,
-} from '../type';
+import { DataType, TdBaseTableProps, TdPrimaryTableProps, PrimaryTableCol } from '../type';
 import primaryTableProps from '../primary-table-props';
 import SimpleTable from '../base-table';
 import { prefix } from '../../config';
@@ -60,14 +58,13 @@ export default defineComponent({
     },
   },
   render() {
-    const {
-      $props, $slots, rehandleColumns, showColumns,
-    } = this;
+    const { $props, $slots, rehandleColumns, showColumns } = this;
     const listeners = {
       onPageChange: (pageInfo: PageInfo, newDataSource: Array<DataType>) => {
         emitEvent<PageChangeContext>(this, 'page-change', pageInfo, newDataSource);
         emitEvent<ChangeContext>(
-          this, 'change',
+          this,
+          'change',
           { pagination: pageInfo },
           { trigger: 'pagination', currentData: newDataSource },
         );
@@ -77,7 +74,7 @@ export default defineComponent({
       onRowClick: this.onRowClick,
     };
     if (this.expandOnRowClick) {
-      listeners.onRowClick = (params: { row: Record<string, any>, index: number }) => {
+      listeners.onRowClick = (params: { row: Record<string, any>; index: number }) => {
         this.handleExpandChange(params.row);
       };
     }

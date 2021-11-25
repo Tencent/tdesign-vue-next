@@ -7,11 +7,7 @@
         </div>
         <template v-if="isShow(data)">
           <div class="slotWarrper">
-            <div
-              v-for="(item, index) in dataList"
-              :key="index"
-              class="item"
-            >
+            <div v-for="(item, index) in dataList" :key="index" class="item">
               <span :class="item.value" />
               {{ item.label }}
             </div>
@@ -27,20 +23,24 @@
 import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
 
-const dataList = [{
-  value: 'error',
-  label: '错误事件',
-}, {
-  value: 'waring',
-  label: '警告事件',
-}, {
-  value: 'success',
-  label: '正常事件',
-}];
+const dataList = [
+  {
+    value: 'error',
+    label: '错误事件',
+  },
+  {
+    value: 'waring',
+    label: '警告事件',
+  },
+  {
+    value: 'success',
+    label: '正常事件',
+  },
+];
 
 export default defineComponent({
   setup() {
-    const isShow = (data) => data.mode === 'month' ? data.day === 15 : dayjs(data.formattedDate).month() === 7;
+    const isShow = (data) => (data.mode === 'month' ? data.day === 15 : dayjs(data.formattedDate).month() === 7);
 
     const diaplayNum = (cellData) => {
       if (cellData.mode === 'month') {
@@ -69,7 +69,7 @@ export default defineComponent({
     width: 100%;
     height: 12px;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
   }
   .number {
     font-weight: bold;
@@ -92,14 +92,14 @@ export default defineComponent({
       margin-right: 4px;
     }
   }
-  .error  {
-    background: #E34D59;
+  .error {
+    background: #e34d59;
   }
   .waring {
-    background: #ED7B2F;
+    background: #ed7b2f;
   }
   .success {
-    background: #00A870;
+    background: #00a870;
   }
 
   .slotWarrper {

@@ -1,6 +1,4 @@
-import {
-  defineComponent, h, VNodeChild,
-} from 'vue';
+import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP } from './utils';
@@ -73,9 +71,7 @@ export default defineComponent({
     },
   },
   render() {
-    const {
-      href, target, $slots, tAnchor,
-    } = this;
+    const { href, target, $slots, tAnchor } = this;
     const { default: children, title: titleSlot } = $slots;
     const title = this.renderTitle();
     const titleAttr = typeof title === 'string' ? title : null;

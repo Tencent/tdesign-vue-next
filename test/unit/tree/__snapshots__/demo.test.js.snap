@@ -4151,12 +4151,12 @@ exports[`Tree:demo lazy demo works fine 1`] = `
   <h3
     class="title"
   >
-     数据延迟加载 
+    数据延迟加载
   </h3>
   <p
     class="tips"
   >
-     默认为点击加载数据。 
+    默认为点击加载数据。
   </p>
   <p
     class="tips"
@@ -4166,7 +4166,7 @@ exports[`Tree:demo lazy demo works fine 1`] = `
   <p
     class="tips"
   >
-     所以使用延迟加载时，推荐 valueMode 设置为 'all' 或者 'parentFirst'。 
+    所以使用延迟加载时，推荐 valueMode 设置为 'all' 或者 'parentFirst'。
   </p>
   <div
     class="operations"
@@ -6619,7 +6619,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
   <h3
     class="title"
   >
-     Render: 
+    Render:
   </h3>
   <div
     class="t-tree t-tree--hoverable t-tree--fx"
@@ -6696,7 +6696,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
   <h3
     class="title"
   >
-     Scope Slot: 
+    Scope Slot:
   </h3>
   <div
     class="operations"
@@ -7013,7 +7013,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
   <h3
     class="title"
   >
-     API: 
+    API:
   </h3>
   <div
     class="operations"
@@ -7166,7 +7166,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
   <p
     class="tips"
   >
-     * 相关信息通过控制台输出 
+    * 相关信息通过控制台输出
   </p>
 </div>
 `;
@@ -7178,7 +7178,7 @@ exports[`Tree:demo state demo works fine 1`] = `
   <h3
     class="title"
   >
-     Render: 
+    Render:
   </h3>
   <div
     class="t-tree t-tree--hoverable t-tree--fx"
@@ -7255,7 +7255,7 @@ exports[`Tree:demo state demo works fine 1`] = `
   <h3
     class="title"
   >
-     Scope Slot: 
+    Scope Slot:
   </h3>
   <div
     class="operations"
@@ -7572,7 +7572,7 @@ exports[`Tree:demo state demo works fine 1`] = `
   <h3
     class="title"
   >
-     API: 
+    API:
   </h3>
   <div
     class="operations"
@@ -7725,7 +7725,7 @@ exports[`Tree:demo state demo works fine 1`] = `
   <p
     class="tips"
   >
-     * 相关信息通过控制台输出 
+    * 相关信息通过控制台输出
   </p>
 </div>
 `;

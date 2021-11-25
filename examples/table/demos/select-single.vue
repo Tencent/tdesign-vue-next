@@ -10,31 +10,15 @@
       @select-change="rehandleSelectChange"
     >
       <template #status="{ row }">
-        <p
-          v-if="row.status === 0"
-          class="status"
-        >
-          健康
-        </p>
-        <p
-          v-if="row.status === 1"
-          class="status unhealth"
-        >
-          异常
-        </p>
+        <p v-if="row.status === 0" class="status">健康</p>
+        <p v-if="row.status === 1" class="status unhealth">异常</p>
       </template>
       <template #op-column>
         <p>操作</p>
       </template>
       <template #op="slotProps">
-        <a
-          class="link"
-          @click="rehandleClickOp(slotProps)"
-        >管理</a>
-        <a
-          class="link"
-          @click="rehandleClickOp(slotProps)"
-        >删除</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">管理</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
       </template>
     </t-table>
   </div>
@@ -45,30 +29,55 @@ import { defineComponent, ref } from 'vue';
 
 const columns = [
   {
-    colKey: 'row-select', type: 'single', checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }), width: 50,
+    colKey: 'row-select',
+    type: 'single',
+    checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }),
+    width: 50,
   },
   { colKey: 'instance', title: '集群名称', width: 150 },
   {
-    colKey: 'status', title: '状态', width: 100, cell: 'status',
+    colKey: 'status',
+    title: '状态',
+    width: 100,
+    cell: 'status',
   },
   { colKey: 'owner', title: '管理员' },
   { colKey: 'description', title: '描述' },
   {
-    colKey: 'op', width: 200, title: 'op-column', cell: 'op',
+    colKey: 'op',
+    width: 200,
+    title: 'op-column',
+    cell: 'op',
   },
 ];
 const data = [
   {
-    id: 1, instance: 'JQTest1', status: 0, owner: 'jenny;peter', description: 'test',
+    id: 1,
+    instance: 'JQTest1',
+    status: 0,
+    owner: 'jenny;peter',
+    description: 'test',
   },
   {
-    id: '2', instance: 'JQTest2', status: 1, owner: 'jenny', description: 'test',
+    id: '2',
+    instance: 'JQTest2',
+    status: 1,
+    owner: 'jenny',
+    description: 'test',
   },
   {
-    id: 3, instance: 'JQTest3', status: 0, owner: 'jenny', description: 'test',
+    id: 3,
+    instance: 'JQTest3',
+    status: 0,
+    owner: 'jenny',
+    description: 'test',
   },
   {
-    id: 4, instance: 'JQTest4', status: 1, owner: 'peter', description: 'test',
+    id: 4,
+    instance: 'JQTest4',
+    status: 1,
+    owner: 'peter',
+    description: 'test',
   },
 ];
 export default defineComponent({
@@ -110,7 +119,7 @@ export default defineComponent({
     top: 50%;
     left: 0px;
     transform: translateY(-50%);
-    content: "";
+    content: '';
     background-color: @success-color;
     width: 6px;
     height: 6px;

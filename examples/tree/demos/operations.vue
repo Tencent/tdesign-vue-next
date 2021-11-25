@@ -1,18 +1,8 @@
 <template>
   <div class="tdesign-tree-demo">
-    <h3 class="title">
-      Render:
-    </h3>
-    <t-tree
-      :data="items"
-      hover
-      expand-all
-      :label="getLabel"
-      :operations="renderOperations"
-    />
-    <h3 class="title">
-      Scope Slot:
-    </h3>
+    <h3 class="title">Render:</h3>
+    <t-tree :data="items" hover expand-all :label="getLabel" :operations="renderOperations" />
+    <h3 class="title">Scope Slot:</h3>
     <div class="operations">
       <t-form label-width="200">
         <t-form-item label="插入节点使用高亮节点">
@@ -25,10 +15,7 @@
     </div>
     <div class="operations">
       <t-addon prepend="filter:">
-        <t-input
-          v-model="filterText"
-          @change="onInputChange"
-        />
+        <t-input v-model="filterText" @change="onInputChange" />
       </t-addon>
     </div>
     <t-tree
@@ -47,135 +34,47 @@
       @change="onChange"
       @active="onActive"
     >
-      <template #operations="{node}">
-        <t-button
-          size="small"
-          variant="base"
-          @click="append(node)"
-        >
-          添加子节点
-        </t-button>
-        <t-button
-          size="small"
-          variant="outline"
-          @click="insertBefore(node)"
-        >
-          前插节点
-        </t-button>
-        <t-button
-          size="small"
-          variant="outline"
-          @click="insertAfter(node)"
-        >
-          后插节点
-        </t-button>
-        <t-button
-          size="small"
-          variant="base"
-          theme="danger"
-          @click="remove(node)"
-        >
-          删除
-        </t-button>
+      <template #operations="{ node }">
+        <t-button size="small" variant="base" @click="append(node)"> 添加子节点 </t-button>
+        <t-button size="small" variant="outline" @click="insertBefore(node)"> 前插节点 </t-button>
+        <t-button size="small" variant="outline" @click="insertAfter(node)"> 后插节点 </t-button>
+        <t-button size="small" variant="base" theme="danger" @click="remove(node)"> 删除 </t-button>
       </template>
     </t-tree>
-    <h3 class="title">
-      API:
-    </h3>
+    <h3 class="title">API:</h3>
     <div class="operations">
-      <t-button
-        theme="primary"
-        @click="getItem"
-      >
-        获取 value 为 'node1' 的单个节点
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="getAllItems"
-      >
-        获取所有节点
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="getActiveChildren"
-      >
-        获取高亮节点的所有子节点
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="getAllActived"
-      >
-        获取所有高亮节点
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="getActiveChecked"
-      >
-        获取高亮节点下的选中节点
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="append()"
-      >
-        插入一个根节点
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="getActiveParent"
-      >
-        获取高亮节点的父节点
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="getActiveParents"
-      >
-        获取高亮节点的所有父节点
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="getActiveIndex"
-      >
-        获取高亮节点在子节点中的位置
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="setActiveChecked"
-      >
-        选中高亮节点
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="setActiveExpanded"
-      >
-        展开高亮节点
-      </t-button>
-      <t-button
-        theme="primary"
-        @click="getActivePlainData"
-      >
-        获取高亮节点与其子节点的数据
-      </t-button>
+      <t-button theme="primary" @click="getItem"> 获取 value 为 'node1' 的单个节点 </t-button>
+      <t-button theme="primary" @click="getAllItems"> 获取所有节点 </t-button>
+      <t-button theme="primary" @click="getActiveChildren"> 获取高亮节点的所有子节点 </t-button>
+      <t-button theme="primary" @click="getAllActived"> 获取所有高亮节点 </t-button>
+      <t-button theme="primary" @click="getActiveChecked"> 获取高亮节点下的选中节点 </t-button>
+      <t-button theme="primary" @click="append()"> 插入一个根节点 </t-button>
+      <t-button theme="primary" @click="getActiveParent"> 获取高亮节点的父节点 </t-button>
+      <t-button theme="primary" @click="getActiveParents"> 获取高亮节点的所有父节点 </t-button>
+      <t-button theme="primary" @click="getActiveIndex"> 获取高亮节点在子节点中的位置 </t-button>
+      <t-button theme="primary" @click="setActiveChecked"> 选中高亮节点 </t-button>
+      <t-button theme="primary" @click="setActiveExpanded"> 展开高亮节点 </t-button>
+      <t-button theme="primary" @click="getActivePlainData"> 获取高亮节点与其子节点的数据 </t-button>
     </div>
-    <p class="tips">
-      * 相关信息通过控制台输出
-    </p>
+    <p class="tips">* 相关信息通过控制台输出</p>
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 
-const items = [{
-  value: 'node1',
-}, {
-  value: 'node2',
-}];
+const items = [
+  {
+    value: 'node1',
+  },
+  {
+    value: 'node2',
+  },
+];
 
 const getLabelContent = (node) => {
   const pathNodes = node.getPath();
-  let label = pathNodes
-    .map((itemNode) => (itemNode.getIndex() + 1))
-    .join('.');
+  let label = pathNodes.map((itemNode) => itemNode.getIndex() + 1).join('.');
   label = `${label} | value: ${node.value}`;
   return label;
 };
@@ -221,7 +120,10 @@ export default defineComponent({
 
     const getAllItems = () => {
       const nodes = tree.value.getItems();
-      console.info('getAllItems:', nodes.map((node) => node.value));
+      console.info(
+        'getAllItems:',
+        nodes.map((node) => node.value),
+      );
     };
 
     const getAllActived = () => {
@@ -235,7 +137,10 @@ export default defineComponent({
       if (node) {
         nodes = node.getChildren(true) || [];
       }
-      console.info('getActiveChildren:', nodes.map((node) => node.value));
+      console.info(
+        'getActiveChildren:',
+        nodes.map((node) => node.value),
+      );
     };
 
     const getActiveChecked = () => {
@@ -244,9 +149,7 @@ export default defineComponent({
       const nodes = tree.value.getItems(node.value);
       console.info(
         'getChecked:',
-        nodes
-          .filter((node) => node.checked)
-          .map((node) => node.value),
+        nodes.filter((node) => node.checked).map((node) => node.value),
       );
     };
 
@@ -336,7 +239,10 @@ export default defineComponent({
       const node = getActivedNode();
       if (!node) return;
       const parents = tree.value.getParents(node.value);
-      console.info('getParents', parents.map((node) => node.value));
+      console.info(
+        'getParents',
+        parents.map((node) => node.value),
+      );
     };
 
     const setActiveChecked = () => {

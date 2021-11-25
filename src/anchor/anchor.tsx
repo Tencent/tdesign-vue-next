@@ -2,9 +2,7 @@ import { defineComponent, nextTick, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
-import {
-  on, off, getScroll, scrollTo, getScrollContainer,
-} from '../utils/dom';
+import { on, off, getScroll, scrollTo, getScrollContainer } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
@@ -19,7 +17,6 @@ export interface Anchor extends ComponentPublicInstance {
 }
 
 export default defineComponent({
-
   name,
 
   provide(): any {
@@ -37,7 +34,7 @@ export default defineComponent({
       links: [] as string[],
       active: '',
       scrollContainer: null as ANCHOR_CONTAINER,
-      activeLineStyle: {} as { top: string; height: string; opacity: number; },
+      activeLineStyle: {} as { top: string; height: string; opacity: number },
     };
   },
 
@@ -158,7 +155,7 @@ export default defineComponent({
      * 监听AnchorLink点击事件
      * @param {{ href: string; title: string }} link
      */
-    handleLinkClick(link: { href: string; title: string}): void {
+    handleLinkClick(link: { href: string; title: string }): void {
       this.$emit('click', link);
     },
     /**

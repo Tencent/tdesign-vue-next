@@ -1,30 +1,21 @@
 <template>
   <div class="switch-demo">
     <div class="tdesign-demo-block">
-      <t-switch
-        v-model="checked"
-        :label="['开', '关']"
-      />
+      <t-switch v-model="checked" :label="['开', '关']" />
       <t-switch :label="['开', '关']" />
     </div>
     <div class="tdesign-demo-block">
-      <t-switch
-        v-model="renderChecked"
-        :label="[renderActiveContent, renderInactiveContent]"
-      />
+      <t-switch v-model="renderChecked" :label="[renderActiveContent, renderInactiveContent]" />
       <t-switch :label="[renderActiveContent, renderInactiveContent]" />
     </div>
     <div class="tdesign-demo-block">
-      <t-switch
-        v-model="renderChecked2"
-        :label="renderContent"
-      />
+      <t-switch v-model="renderChecked2" :label="renderContent" />
       <t-switch :label="renderContent" />
     </div>
     <div class="tdesign-demo-block">
       <t-switch v-model="slotChecked">
         <template #label="slotProps">
-          {{ slotProps.value?'开':'关' }}
+          {{ slotProps.value ? '开' : '关' }}
         </template>
       </t-switch>
       <t-switch>
@@ -62,13 +53,13 @@ export default defineComponent({
         console.log(val);
       },
       renderActiveContent() {
-        return (<TIconCheck />);
+        return <TIconCheck />;
       },
       renderInactiveContent() {
-        return (<TIconClose />);
+        return <TIconClose />;
       },
       renderContent(h, data) {
-        return data.value ? (<TIconCheck />) : (<TIconClose />);
+        return data.value ? <TIconCheck /> : <TIconClose />;
       },
     };
   },

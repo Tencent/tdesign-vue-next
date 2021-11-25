@@ -99,32 +99,30 @@ export default defineComponent({
       confirmBtn = renderTNodeJSX(this, 'confirmBtn');
     } else if (![undefined, null].includes(this.confirmBtn)) {
       const mBtn = this.confirmBtn || this.t(this.locale.confirm);
-      confirmBtn = baseTypes.includes(typeof mBtn)
-        ? this.renderConfirm(mBtn)
-        : renderTNodeJSX(this, 'confirmBtn');
+      confirmBtn = baseTypes.includes(typeof mBtn) ? this.renderConfirm(mBtn) : renderTNodeJSX(this, 'confirmBtn');
     }
     let cancelBtn: any = null;
     if (this.$slots.cancelBtn) {
       cancelBtn = renderTNodeJSX(this, 'cancelBtn');
     } else if (![undefined, null].includes(this.cancelBtn)) {
       const cBtn = this.cancelBtn || this.t(this.locale.cancel);
-      cancelBtn = baseTypes.includes(typeof cBtn)
-        ? this.renderCancel(cBtn)
-        : renderTNodeJSX(this, 'cancelBtn');
+      cancelBtn = baseTypes.includes(typeof cBtn) ? this.renderCancel(cBtn) : renderTNodeJSX(this, 'cancelBtn');
     }
     const slots = {
       content: () => (
         <div class={`${name}__content`}>
           <div class={`${name}__body`}>
             {this.renderIcon()}
-            <div class={`${name}__inner`}>
-              {renderTNodeJSX(this, 'content')}
-            </div>
+            <div class={`${name}__inner`}>{renderTNodeJSX(this, 'content')}</div>
           </div>
           {Boolean(cancelBtn || confirmBtn) && (
             <div class="t-popconfirm__buttons">
-              <span class="t-popconfirm__cancel" onClick={this.handleCancel}>{cancelBtn}</span>
-              <span class="t-popconfirm__confirm" onClick={this.handleConfirm}>{confirmBtn}</span>
+              <span class="t-popconfirm__cancel" onClick={this.handleCancel}>
+                {cancelBtn}
+              </span>
+              <span class="t-popconfirm__confirm" onClick={this.handleConfirm}>
+                {confirmBtn}
+              </span>
             </div>
           )}
         </div>

@@ -59,10 +59,12 @@ export default defineComponent({
       if (!this.duration) {
         return;
       }
-      this.timer = Number(setTimeout(() => {
-        this.clearTimer();
-        this.$emit('duration-end');
-      }, this.duration));
+      this.timer = Number(
+        setTimeout(() => {
+          this.clearTimer();
+          this.$emit('duration-end');
+        }, this.duration),
+      );
     },
     clearTimer() {
       this.duration && clearTimeout(this.timer);
@@ -99,12 +101,11 @@ export default defineComponent({
 
   render() {
     return (
-      <div class={ this.classes } onMouseenter={ this.clearTimer } onMouseleave={ this.setTimer }>
-        { this.renderIcon() }
-        { renderContent(this as ComponentPublicInstance, 'default', 'content') }
-        { this.renderClose() }
+      <div class={this.classes} onMouseenter={this.clearTimer} onMouseleave={this.setTimer}>
+        {this.renderIcon()}
+        {renderContent(this as ComponentPublicInstance, 'default', 'content')}
+        {this.renderClose()}
       </div>
     );
   },
-
 });

@@ -1,32 +1,19 @@
 <template>
   <div>
     <!-- 使用插槽自定义 -->
-    <t-drawer
-      v-model:visible="visible"
-      close-btn
-    >
+    <t-drawer v-model:visible="visible" close-btn>
       <p>This is the body of drawer</p>
       <template #header>
         <div>自定义头部</div>
       </template>
       <template #footer>
         <t-button>确定</t-button>
-        <t-button
-          variant="outline"
-          @click="visible = false"
-        >
-          取消
-        </t-button>
+        <t-button variant="outline" @click="visible = false"> 取消 </t-button>
       </template>
     </t-drawer>
 
     <!-- 使用 props 自定义 -->
-    <t-drawer
-      v-model:visible="visible2"
-      :header="() => '抽屉标题'"
-      :footer="renderFooter"
-      close-btn
-    >
+    <t-drawer v-model:visible="visible2" :header="() => '抽屉标题'" :footer="renderFooter" close-btn>
       <p>This is the body of drawer</p>
     </t-drawer>
 
@@ -44,17 +31,11 @@
       <p>This is the body of drawer</p>
     </t-drawer>
 
-    <t-button @click="visible = true">
-      Open(插槽定义)
-    </t-button>
+    <t-button @click="visible = true"> Open(插槽定义) </t-button>
     &nbsp;&nbsp;
-    <t-button @click="visible2 = true">
-      Open(属性定义)
-    </t-button>
+    <t-button @click="visible2 = true"> Open(属性定义) </t-button>
     &nbsp;&nbsp;
-    <t-button @click="visible3 = true">
-      Open(单独设置确认/取消按钮)
-    </t-button>
+    <t-button @click="visible3 = true"> Open(单独设置确认/取消按钮) </t-button>
   </div>
 </template>
 
@@ -74,7 +55,9 @@ export default defineComponent({
         return (
           <div>
             <t-button>confrim</t-button>
-            <t-button variant='outline' onClick={() => this.visible2 = false}>cancel</t-button>
+            <t-button variant="outline" onClick={() => (this.visible2 = false)}>
+              cancel
+            </t-button>
           </div>
         );
       },

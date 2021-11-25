@@ -1,12 +1,6 @@
 <template>
   <div>
-    <t-table
-      row-key="index"
-      :data="data"
-      :columns="columns"
-      :pagination="pagination"
-      @change="onChange"
-    />
+    <t-table row-key="index" :data="data" :columns="columns" :pagination="pagination" @change="onChange" />
   </div>
 </template>
 <script>

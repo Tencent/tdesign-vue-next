@@ -1,6 +1,4 @@
-import {
-  defineComponent, h, VNodeChild, getCurrentInstance,
-} from 'vue';
+import { defineComponent, h, VNodeChild, getCurrentInstance } from 'vue';
 import { prefix } from '../config';
 import props from './tab-panel-props';
 
@@ -45,8 +43,7 @@ export default defineComponent({
       <div
         class="t-tab-panel"
         // TODO: use v-show to replace display:none. , in the production env, v-show is performance for v-if.
-        style={!active && { display: 'none' }
-        }
+        style={!active && { display: 'none' }}
       >
         {this.getContent()}
       </div>

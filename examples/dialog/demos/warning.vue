@@ -1,11 +1,6 @@
 <template>
   <div>
-    <t-button
-      theme="primary"
-      @click="visible1 = true"
-    >
-      提示反馈
-    </t-button>
+    <t-button theme="primary" @click="visible1 = true"> 提示反馈 </t-button>
 
     <t-dialog
       v-model:visible="visible1"
@@ -16,12 +11,7 @@
       @confirm="onClickConfirm"
     />
 
-    <t-button
-      theme="primary"
-      @click="visible2 = true"
-    >
-      成功反馈
-    </t-button>
+    <t-button theme="primary" @click="visible2 = true"> 成功反馈 </t-button>
     <t-dialog
       v-model:visible="visible2"
       theme="success"
@@ -31,12 +21,7 @@
       @confirm="onClickConfirm"
     />
 
-    <t-button
-      theme="primary"
-      @click="visible3 = true"
-    >
-      警示反馈
-    </t-button>
+    <t-button theme="primary" @click="visible3 = true"> 警示反馈 </t-button>
     <t-dialog
       v-model:visible="visible3"
       theme="warning"
@@ -47,12 +32,7 @@
       @confirm="onClickConfirm"
     />
 
-    <t-button
-      theme="primary"
-      @click="visible4 = true"
-    >
-      错误反馈
-    </t-button>
+    <t-button theme="primary" @click="visible4 = true"> 错误反馈 </t-button>
     <t-dialog
       v-model:visible="visible4"
       theme="danger"
@@ -63,12 +43,7 @@
       @confirm="onClickConfirm"
     />
 
-    <t-button
-      theme="primary"
-      @click="visible5 = true"
-    >
-      自定义icon
-    </t-button>
+    <t-button theme="primary" @click="visible5 = true"> 自定义icon </t-button>
     <t-dialog
       v-model:visible="visible5"
       body="对话框内容"
@@ -78,11 +53,8 @@
     >
       <template #header>
         <div>
-          <t-icon
-            name="check-circle-filled"
-            color="orange"
-          />
-          <span style="vertical-align: middle;">对话框标题</span>
+          <t-icon name="check-circle-filled" color="orange" />
+          <span style="vertical-align: middle">对话框标题</span>
         </div>
       </template>
     </t-dialog>

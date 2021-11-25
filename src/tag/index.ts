@@ -10,7 +10,12 @@ export * from './type';
 export type TagProps = TdTagProps;
 
 export const Tag: WithInstallType<typeof _Tag> = withInstall(_Tag);
-export const CheckTag: WithInstallType<typeof _CheckTag> = withInstall(mapProps([{
-  name: 'checked', event: 'change',
-}])(_CheckTag));
+export const CheckTag: WithInstallType<typeof _CheckTag> = withInstall(
+  mapProps([
+    {
+      name: 'checked',
+      event: 'change',
+    },
+  ])(_CheckTag),
+);
 export default Tag;

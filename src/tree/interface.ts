@@ -10,9 +10,7 @@ import {
   TreeNodeState as TdTreeNodeState,
 } from './type';
 
-import {
-  TypeTreeEventState,
-} from '../_common/js/tree/types';
+import { TypeTreeEventState } from '../_common/js/tree/types';
 
 export type TreeProps = TdTreeProps;
 export * from './type';
@@ -25,9 +23,9 @@ export type TreeNodeValue = TdTreeNodeValue;
 
 export type TypeValueMode = TdTreeProps['valueMode'];
 
-export type TypeTNodeProp = string | TNode<TypeTreeNodeModel>;
-
 export type TypeTreeNodeModel = TreeNodeModel<TreeOptionData>;
+
+export type TypeTNodeProp = string | TNode<TypeTreeNodeModel>;
 
 export type TypeTargetNode = TdTreeNodeValue | TreeNode | TypeTreeNodeModel;
 

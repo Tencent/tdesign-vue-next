@@ -9,52 +9,41 @@
       :popup-props="popupProps"
       @change="handleChange"
     >
-      <t-option
-        v-for="(item, index) in options"
-        :key="index"
-        :value="item.value"
-        :label="item.label"
-      >
+      <t-option v-for="(item, index) in options" :key="index" :value="item.value" :label="item.label">
         {{ item.label }}
       </t-option>
     </t-select>
-    <t-select
-      v-model="value1"
-      placeholder="-请选择-"
-      :options="options"
-      size="medium"
-      class="demo-select-base"
-    />
-    <t-select
-      v-model="value2"
-      placeholder="-请选择-"
-      :options="options"
-      size="large"
-      class="demo-select-base"
-    />
+    <t-select v-model="value1" placeholder="-请选择-" :options="options" size="medium" class="demo-select-base" />
+    <t-select v-model="value2" placeholder="-请选择-" :options="options" size="large" class="demo-select-base" />
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 
-const options = [{
-  label: '上海',
-  value: 'shanghai',
-}, {
-  label: '北京',
-  value: 'beijing',
-  disabled: true,
-}, {
-  label: '深圳',
-  value: 'shenzhen',
-}, {
-  label: '这是一个名字很长的城市名称',
-  value: 'long',
-}, {
-  label: '这是一个名字很长很长很长的城市名称',
-  value: 'longest',
-}];
+const options = [
+  {
+    label: '上海',
+    value: 'shanghai',
+  },
+  {
+    label: '北京',
+    value: 'beijing',
+    disabled: true,
+  },
+  {
+    label: '深圳',
+    value: 'shenzhen',
+  },
+  {
+    label: '这是一个名字很长的城市名称',
+    value: 'long',
+  },
+  {
+    label: '这是一个名字很长很长很长的城市名称',
+    value: 'longest',
+  },
+];
 
 export default defineComponent({
   setup() {
@@ -87,9 +76,9 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-  .demo-select-base {
-    width: 200px;
-    display: inline-block;
-    margin: 0 20px;
-  }
+.demo-select-base {
+  width: 200px;
+  display: inline-block;
+  margin: 0 20px;
+}
 </style>

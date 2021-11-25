@@ -1,14 +1,7 @@
 <template>
   <div class="tdesign-demo-item--grid">
-    <t-row
-      v-for="(i, idx) in demoCols"
-      :key="idx"
-    >
-      <t-col
-        v-for="(j, jdx) in i"
-        :key="jdx"
-        :span="j"
-      >
+    <t-row v-for="(i, idx) in demoCols" :key="idx">
+      <t-col v-for="(j, jdx) in i" :key="jdx" :span="j">
         <div>{{ j }}</div>
       </t-col>
     </t-row>

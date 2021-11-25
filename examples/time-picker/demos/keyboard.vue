@@ -1,17 +1,9 @@
 <template>
   <div class="tdesign-demo-block">
     <h1>允许输入</h1>
-    <t-time-picker
-      v-model="time1"
-      allow-input
-      @blur="blur"
-      @focus="focus"
-    />
+    <t-time-picker v-model="time1" allow-input @blur="blur" @focus="focus" />
     <h1>禁止输入</h1>
-    <t-time-picker
-      v-model="time2"
-      :allow-input="false"
-    />
+    <t-time-picker v-model="time2" :allow-input="false" />
   </div>
 </template>
 

@@ -25,7 +25,13 @@ import {
   URL,
 } from './interface';
 import {
-  TdUploadProps, UploadChangeContext, UploadFile, UploadRemoveContext, RequestMethodResponse, SizeUnit, SizeLimitObj,
+  TdUploadProps,
+  UploadChangeContext,
+  UploadFile,
+  UploadRemoveContext,
+  RequestMethodResponse,
+  SizeUnit,
+  SizeLimitObj,
 } from './type';
 
 const name = `${prefix}-upload`;
@@ -70,14 +76,14 @@ function isOverSizeLimit(fileSize: number, sizeLimit: number, unit: SizeUnit) {
     index = KB_INDEX;
   }
   const num = SIZE_MAP[unit];
-  const limit = index < KB_INDEX ? (sizeLimit / num) : (sizeLimit * num);
+  const limit = index < KB_INDEX ? sizeLimit / num : sizeLimit * num;
   return fileSize <= limit;
 }
 
 export default defineComponent({
   ...mixins(getLocalReceiverMixins('upload')),
   name,
-  
+
   components: {
     TButton,
     Dragger,
@@ -108,7 +114,7 @@ export default defineComponent({
     // 默认文件上传风格：文件进行上传和上传成功后不显示 tips
     showTips(): boolean {
       if (this.theme === 'file') {
-        const hasNoFile = (!this.files || !this.files.length) && (!this.loadingFile);
+        const hasNoFile = (!this.files || !this.files.length) && !this.loadingFile;
         return this.tips && hasNoFile;
       }
       return Boolean(this.tips);
@@ -119,7 +125,7 @@ export default defineComponent({
     },
     // 单文件非拖拽类文件上传
     showSingleDisplay(): boolean {
-      return (!this.draggable) && ['file', 'file-input'].includes(this.theme);
+      return !this.draggable && ['file', 'file-input'].includes(this.theme);
     },
     // 单文件非拖拽勒图片上传
     showImgCard(): boolean {
@@ -144,6 +150,10 @@ export default defineComponent({
     errorClasses(): ClassName {
       return this.tipsClasses.concat(`${name}__tips-error`);
     },
+  },
+  mounted() {
+    // webkitURL is for chrome/webkit, while URL is for mozilla/firefox
+    window && (this.URL = window.webkitURL || window.URL);
   },
 
   methods: {
@@ -192,11 +202,11 @@ export default defineComponent({
 
     handleListRemove(context: FlowRemoveContext) {
       const { file } = context;
-      const index = findIndex(this.toUploadFiles, (o) => o.name === file.name);
+      const index = findIndex(this.toUploadFiles, (o: any) => o.name === file.name);
       if (index >= 0) {
         this.toUploadFiles.splice(index, 1);
       } else {
-        const index = findIndex(this.files, (o) => o.name === file.name);
+        const index = findIndex(this.files, (o: any) => o.name === file.name);
         this.handleMultipleRemove({ e: context.e, index });
       }
     },
@@ -300,10 +310,15 @@ export default defineComponent({
         if (!this.handleRequestMethodResponse(res)) return;
         const files = this.multiple ? this.files.concat(file) : [file];
         if (res.status === 'success') {
-          this.handleSuccess({e: null, file, fileList:files, response: res.response });
+          this.handleSuccess({
+            e: null,
+            file,
+            fileList: files,
+            response: res.response,
+          });
         } else if (res.status === 'fail') {
           const r = res.response || {};
-          this.onError({event: null, file, response: { ...r, error: res.error } });
+          this.onError({ event: null, file, response: { ...r, error: res.error } });
         }
       });
     },
@@ -314,7 +329,9 @@ export default defineComponent({
         return false;
       }
       if (!res.status) {
-        console.error('TDesign Upoad Error: `requestMethodResponse.status` is missing, which value is `success` or `fail`');
+        console.error(
+          'TDesign Upoad Error: `requestMethodResponse.status` is missing, which value is `success` or `fail`',
+        );
         return false;
       }
       if (!['success', 'fail'].includes(res.status)) {
@@ -322,11 +339,13 @@ export default defineComponent({
         return false;
       }
       if (res.status === 'success' && (!res.response || !res.response.url)) {
-        console.warn('TDesign Upoad Warn: `requestMethodResponse.response.url` is required, when `status` is `success`');
+        console.warn(
+          'TDesign Upoad Warn: `requestMethodResponse.response.url` is required, when `status` is `success`',
+        );
       }
       return true;
     },
-    
+
     multipleUpload(files: Array<UploadFile>) {
       files.forEach((file) => {
         this.upload(file);
@@ -357,7 +376,7 @@ export default defineComponent({
       file.status = 'success';
       file.url = response.url || file.url;
       // 从待上传文件队列中移除上传成功的文件
-      const index = findIndex(this.toUploadFiles, (o) => o.name === file.name);
+      const index = findIndex(this.toUploadFiles, (o: any) => o.name === file.name);
       this.toUploadFiles.splice(index, 1);
       // 上传成功的文件发送到 files
       const newFile: UploadFile = { ...file, response };
@@ -365,7 +384,10 @@ export default defineComponent({
       const context = { e, response, trigger: 'upload-success' };
       this.emitChangeEvent(files, context);
       let sContext: SuccessContext = {
-        file, fileList: files, e, response,
+        file,
+        fileList: files,
+        e,
+        response,
       };
       if (typeof this.formatResponse === 'function') {
         sContext = this.formatResponse(sContext) as SuccessContext;
@@ -376,7 +398,7 @@ export default defineComponent({
       this.loadingFile = null;
     },
 
-    handlePreview({ file, event }: {file: UploadFile; event: ProgressEvent}) {
+    handlePreview({ file, event }: { file: UploadFile; event: ProgressEvent }) {
       return { file, event };
     },
 
@@ -401,6 +423,7 @@ export default defineComponent({
       if (typeof this.beforeUpload === 'function') {
         const r = this.beforeUpload(file);
         if (r instanceof Promise) return r;
+        // eslint-disable-next-line no-promise-executor-return
         return new Promise((resolve) => resolve(r));
       }
       return new Promise((resolve) => {
@@ -412,9 +435,8 @@ export default defineComponent({
     },
 
     handleSizeLimit(fileSize: number) {
-      const sizeLimit: SizeLimitObj = typeof this.sizeLimit === 'number'
-        ? { size: this.sizeLimit, unit: 'KB' }
-        : this.sizeLimit;
+      const sizeLimit: SizeLimitObj =
+        typeof this.sizeLimit === 'number' ? { size: this.sizeLimit, unit: 'KB' } : this.sizeLimit;
       const rSize = isOverSizeLimit(fileSize, sizeLimit.size, sizeLimit.unit);
       if (!rSize) {
         // 有参数 message 则使用，没有就使用全局 locale 配置
@@ -448,11 +470,12 @@ export default defineComponent({
 
     getDefaultTrigger() {
       if (this.theme === 'file-input' || this.showUploadList) {
-        return <t-button variant='outline'>选择文件</t-button>;
+        return <t-button variant="outline">选择文件</t-button>;
       }
-      const iconSlot = {icon: () => <TIconUpload slot='icon'/>};
+      const iconSlot = { icon: () => <TIconUpload slot="icon" /> };
       return (
-        <t-button variant='outline' v-slots={iconSlot}>点击上传
+        <t-button variant="outline" v-slots={iconSlot}>
+          点击上传
         </t-button>
       );
     },
@@ -464,8 +487,8 @@ export default defineComponent({
     renderInput() {
       return (
         <input
-          ref='input'
-          type='file'
+          ref="input"
+          type="file"
           disabled={this.disabled}
           onChange={this.handleChange}
           multiple={this.multiple}
@@ -485,7 +508,9 @@ export default defineComponent({
           showUploadProgress={this.showUploadProgress}
           placeholder={this.placeholder}
         >
-          <div class='t-upload__trigger' onclick={this.triggerUpload}>{triggerElement}</div>
+          <div class="t-upload__trigger" onclick={this.triggerUpload}>
+            {triggerElement}
+          </div>
         </single-file>
       );
     },
@@ -521,14 +546,14 @@ export default defineComponent({
       return renderContent(this, 'default', 'trigger', defaultNode);
     },
     renderCustom(triggerElement: VNode) {
-      return this.draggable
-        ? this.renderDraggerTrigger()
-        : <div class={`${name}__trigger`} onclick={this.triggerUpload}>{triggerElement}</div>;
+      return this.draggable ? (
+        this.renderDraggerTrigger()
+      ) : (
+        <div class={`${name}__trigger`} onclick={this.triggerUpload}>
+          {triggerElement}
+        </div>
+      );
     },
-  },
-  mounted() {
-    // webkitURL is for chrome/webkit, while URL is for mozilla/firefox
-    window && (this.URL = window.webkitURL || window.URL);
   },
 
   render(): VNode {
@@ -568,22 +593,25 @@ export default defineComponent({
             showUploadProgress={this.showUploadProgress}
             onDragleave={this.handleDragleave}
           >
-            <div class={`${name}__trigger`} onclick={this.triggerUpload}>{triggerElement}</div>
+            <div class={`${name}__trigger`} onclick={this.triggerUpload}>
+              {triggerElement}
+            </div>
           </flow-list>
         )}
         {this.showImgDialog && (
           <TDialog
             visible={this.showImageViewDialog}
             showOverlay
-            width='auto'
-            top='10%'
+            width="auto"
+            top="10%"
             class={`${name}-dialog`}
             footer={false}
             header={false}
-            onClose={this.cancelPreviewImgDialog}>
-              <p class={`${prefix}-dialog__body-img-box`}>
-                <img class='' src={this.showImageViewUrl} alt='' />
-              </p>
+            onClose={this.cancelPreviewImgDialog}
+          >
+            <p class={`${prefix}-dialog__body-img-box`}>
+              <img class="" src={this.showImageViewUrl} alt="" />
+            </p>
           </TDialog>
         )}
         {!this.errorMsg && this.showTips && <small class={this.tipsClasses}>{this.tips}</small>}

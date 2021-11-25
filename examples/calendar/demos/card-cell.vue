@@ -3,30 +3,15 @@
     <!-- 外部控制 -->
     <div style="margin: 12px 0">
       <label>请选择风格：</label>
-      <t-select
-        v-model="theme"
-        class="demo-select-base"
-      >
-        <t-option
-          v-for="item in themeOptions"
-          :key="item.value"
-          :value="item.value"
-          :label="item.label"
-        />
+      <t-select v-model="theme" class="demo-select-base">
+        <t-option v-for="item in themeOptions" :key="item.value" :value="item.value" :label="item.label" />
       </t-select>
     </div>
 
-    <t-calendar
-      ref="myCalendar"
-      :theme="theme"
-      @cell-right-click="handleClick"
-    >
+    <t-calendar ref="myCalendar" :theme="theme" @cell-right-click="handleClick">
       <template #cell="scope">
         <div class="demo-cell">
-          <div
-            class="cellAppend"
-            :class="getCellAppendCls(scope.data)"
-          >
+          <div class="cellAppend" :class="getCellAppendCls(scope.data)">
             {{ getDateStr(scope.data) }}
           </div>
         </div>

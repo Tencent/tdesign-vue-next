@@ -29,15 +29,12 @@
       :overlay-class-name="overlayClassName"
       :attach="attach"
     >
-      <div
-        class="t-slider__button"
-        :class="{ hover: hovering, dragging: dragging }"
-      />
+      <div class="t-slider__button" :class="{ hover: hovering, dragging: dragging }" />
     </t-popup>
   </div>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { getCurrentInstance, defineComponent, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import TPopup from '../popup/index';
@@ -96,9 +93,7 @@ export default defineComponent({
   computed: {
     placement() {
       if (this.tooltipProps instanceof Object) {
-        const {
-          placement,
-        } = this.tooltipProps;
+        const { placement } = this.tooltipProps;
         if (placement) return placement;
       }
 
@@ -147,14 +142,7 @@ export default defineComponent({
   methods: {
     setTooltipProps() {
       if (this.tooltipProps instanceof Object) {
-        const {
-          trigger,
-          destroyOnHide,
-          showArrow,
-          overlayStyle,
-          overlayClassName,
-          attach,
-        } = this.tooltipProps;
+        const { trigger, destroyOnHide, showArrow, overlayStyle, overlayClassName, attach } = this.tooltipProps;
         if (!this.empty(trigger)) {
           this.trigger = trigger;
         }
@@ -285,7 +273,7 @@ export default defineComponent({
     },
     setPosition(pos: number) {
       let newPos = pos;
-      if (newPos === null || isNaN(newPos)) {
+      if (newPos === null || Number.isNaN(newPos)) {
         return;
       }
 

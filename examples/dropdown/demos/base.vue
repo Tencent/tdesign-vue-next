@@ -1,15 +1,9 @@
 <template>
   <div class="tdesign-demo-dropdown">
-    <t-dropdown
-      :options="options"
-      :min-column-width="112"
-      @click="clickHandler"
-    >
+    <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
       <div class="tdesign-demo-dropdown-trigger">
         <t-button variant="text">
-          <span class="tdesign-demo-dropdown__text">
-            下拉菜单 <t-icon name="chevron-down" size="16" />
-          </span>
+          <span class="tdesign-demo-dropdown__text"> 下拉菜单 <t-icon name="chevron-down" size="16" /> </span>
         </t-button>
       </div>
     </t-dropdown>

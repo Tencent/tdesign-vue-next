@@ -1,12 +1,6 @@
 <template>
   <div class="tdesign-demo-item--datepicker">
-    <t-date-picker
-      v-model="selectedDates"
-      :presets="presets"
-      theme="primary"
-      mode="date"
-      range
-    >
+    <t-date-picker v-model="selectedDates" :presets="presets" theme="primary" mode="date" range>
       <template #default="{ trigger }">
         <t-button
           v-for="(value, key) in presets"

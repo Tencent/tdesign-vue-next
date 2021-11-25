@@ -28,14 +28,13 @@
 <script></script>
 
 <style scoped>
-.t-progress-domo-margin{
-  margin: 20px 0 10px
+.t-progress-domo-margin {
+  margin: 20px 0 10px;
 }
-.t-progress-domo-flex{
+.t-progress-domo-flex {
   display: flex;
-
 }
-.t-progress-domo-inner{
-    margin: 20px;
+.t-progress-domo-inner {
+  margin: 20px;
 }
 </style>

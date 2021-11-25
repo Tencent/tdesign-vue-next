@@ -8,8 +8,12 @@ import './style';
 export * from './type';
 export type SwitchProps = TdSwitchProps;
 
-const LocalSwitch = mapProps([{
-  name: 'value', event: 'change', alias: ['modelValue'],
-}])(_Switch);
+const LocalSwitch = mapProps([
+  {
+    name: 'value',
+    event: 'change',
+    alias: ['modelValue'],
+  },
+])(_Switch);
 export const Switch: WithInstallType<typeof LocalSwitch> = withInstall(LocalSwitch);
 export default Switch;

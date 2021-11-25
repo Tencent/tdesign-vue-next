@@ -2,10 +2,7 @@
   <div class="switch-demo">
     <div class="tdesign-demo-block">
       <t-switch />
-      <t-switch
-        v-model="checked"
-        @change="onChange"
-      />
+      <t-switch v-model="checked" @change="onChange" />
     </div>
   </div>
 </template>

@@ -1,41 +1,39 @@
 <template>
   <div class="ReloadPrompt-container">
-    <div class="ReloadPrompt-toast" v-if="offlineReady || needRefresh">
+    <div v-if="offlineReady || needRefresh" class="ReloadPrompt-toast">
       <div class="ReloadPrompt-toast-message">
         <span v-if="offlineReady">App ready to work offline</span>
         <span v-else>New content available, click on reload button to update.</span>
       </div>
-      <t-button v-if="needRefresh" size="small" :style="{'margin-right': '8px'}" @click="updateServiceWorker(true)">Reload</t-button>
-      <t-button theme="default" size="small" @click="close">Close</t-button>
+      <t-button v-if="needRefresh" size="small" :style="{ 'margin-right': '8px' }" @click="updateServiceWorker(true)">
+        Reload
+      </t-button>
+      <t-button theme="default" size="small" @click="close"> Close </t-button>
     </div>
     <div class="ReloadPrompt-date">{buildDate}</div>
   </div>
 </template>
 <script>
 import { defineComponent } from 'vue';
-import { useRegisterSW } from 'virtual:pwa-register/vue'
+import { useRegisterSW } from 'virtual:pwa-register/vue';
 
 export default defineComponent({
   setup() {
-    const {
-      offlineReady: offlineReady,
-      needRefresh: needRefresh,
-      updateServiceWorker,
-    } = useRegisterSW()
+    const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW();
 
     const close = () => {
-      offlineReady.value = false
-      needRefresh.value = false
-    }
+      offlineReady.value = false;
+      needRefresh.value = false;
+    };
 
     return {
       offlineReady,
       needRefresh,
       updateServiceWorker,
-      close
-    }
-  }
-})
+      close,
+    };
+  },
+});
 </script>
 <style lang="less" scoped>
 .ReloadPrompt-container {
@@ -58,5 +56,4 @@ export default defineComponent({
 .ReloadPrompt-toast-message {
   margin-bottom: 12px;
 }
-
 </style>

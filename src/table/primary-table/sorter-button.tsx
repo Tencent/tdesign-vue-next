@@ -37,16 +37,12 @@ export default defineComponent({
   emits: ['change'],
   computed: {
     allowSortTypes(): SortTypeEnums {
-      return this.sortType === 'all'
-        ? ['asc', 'desc']
-        : [this.sortType];
+      return this.sortType === 'all' ? ['asc', 'desc'] : [this.sortType];
     },
   },
   methods: {
     getSortIcon(direction: string, className: string) {
-      const icon = isFunction(this.locale.sortIcon)
-        ? this.locale.sortIcon(h)
-        : <TIconChevronDown size='16px' />;
+      const icon = isFunction(this.locale.sortIcon) ? this.locale.sortIcon(h) : <TIconChevronDown size="16px" />;
       let style: Styles = {
         left: '0px',
       };
@@ -60,22 +56,31 @@ export default defineComponent({
         style.bottom = '-1px';
       }
       const sortClassName = [`${prefix}-table-sort-icon`, className, `${prefix}-table-sort-${direction}`];
-      return <span style={style} class={sortClassName}>{icon}</span>;
+      return (
+        <span style={style} class={sortClassName}>
+          {icon}
+        </span>
+      );
     },
   },
   render() {
-    const {
-      allowSortTypes, sortOrder, nextSortOrder,
-    } = this;
+    const { allowSortTypes, sortOrder, nextSortOrder } = this;
     const buttonProps = { class: allowSortTypes.length > 1 ? `${prefix}-table-double-icons` : '' };
     const tips = tooltips[nextSortOrder];
-    const sortButton = allowSortTypes
-      .map((direction: string) => {
-        const className = direction === sortOrder ? `${prefix}-table-sort-icon-active` : `${prefix}-icon-sort-default`;
-        return this.getSortIcon(direction, className);
-      });
-    return <div class={`${prefix}-table__cell--sort-trigger`} {...buttonProps}>
-      {tips ? <Tooltip style="line-height: 0px;position:relative;" content={tips} showArrow={false}>{sortButton}</Tooltip> : sortButton}
-    </div>;
+    const sortButton = allowSortTypes.map((direction: string) => {
+      const className = direction === sortOrder ? `${prefix}-table-sort-icon-active` : `${prefix}-icon-sort-default`;
+      return this.getSortIcon(direction, className);
+    });
+    return (
+      <div class={`${prefix}-table__cell--sort-trigger`} {...buttonProps}>
+        {tips ? (
+          <Tooltip style="line-height: 0px;position:relative;" content={tips} showArrow={false}>
+            {sortButton}
+          </Tooltip>
+        ) : (
+          sortButton
+        )}
+      </div>
+    );
   },
 });

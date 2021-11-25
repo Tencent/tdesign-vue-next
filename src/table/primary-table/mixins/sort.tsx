@@ -3,9 +3,7 @@ import isFunction from 'lodash/isFunction';
 import { PrimaryTableProps } from '@src/table';
 import SorterButton from '../sorter-button';
 import { prefix } from '../../../config';
-import {
-  SortInfo, PrimaryTableCol, TdPrimaryTableProps, SortType, DataType,
-} from '../../type';
+import { SortInfo, PrimaryTableCol, TdPrimaryTableProps, SortType, DataType } from '../../type';
 import primaryTableProps from '../../primary-table-props';
 import baseTableProps from '../../base-table-props';
 import { emitEvent } from '../../../utils/event';
@@ -52,7 +50,7 @@ export default defineComponent({
       return sortMap;
     },
     localDataSort(): boolean {
-      return (!!Object.keys(this.sorterFuncMap).length);
+      return !!Object.keys(this.sorterFuncMap).length;
     },
   },
   methods: {
@@ -89,7 +87,7 @@ export default defineComponent({
       return sorter && (!sortType || (Array.isArray(sortType) && sortType.length > 0) || typeof sortType === 'string');
     },
     getNextSortOrder(currentSortOrder: SortType, sortType: SortType) {
-      const sorterTypes: Array<SortType> = (!sortType || sortType === 'all') ? ['desc', 'asc'] : [sortType];
+      const sorterTypes: Array<SortType> = !sortType || sortType === 'all' ? ['desc', 'asc'] : [sortType];
       const idx: number = (sorterTypes.indexOf(currentSortOrder) + 1) % (sorterTypes.length + 1);
       return sorterTypes[idx];
     },
@@ -107,7 +105,8 @@ export default defineComponent({
         col,
       });
       emitEvent<ChangeContext>(
-        this, 'change',
+        this,
+        'change',
         { sorter: sortInfo },
         { trigger: 'sorter', currentData: newData || this.data },
       );

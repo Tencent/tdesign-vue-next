@@ -1,13 +1,13 @@
 import * as path from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import codeRaw from './plugin-tdoc/code-raw';
-import createTDesignPlugin from './plugin-tdoc';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { VitePWA } from 'vite-plugin-pwa';
+
+import codeRaw from './plugin-tdoc/code-raw';
+import { createTDesignPlugin } from './plugin-tdoc';
 import pwaConfig from './pwaConfig';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/vue-next/' : './',
   resolve: {
@@ -23,7 +23,7 @@ export default defineConfig({
     open: '/',
     https: false,
     fs: {
-      allow: ['..']
+      allow: ['..'],
     },
   },
   build: {
@@ -33,15 +33,17 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          isCustomElement: tag => tag.startsWith('td-')
-        }
-      }
+          isCustomElement: (tag) => tag.startsWith('td-'),
+        },
+      },
     }),
-    vueJsx(),
+    vueJsx({
+      isCustomElement: (tag) => tag.startsWith('td-'),
+    }),
     codeRaw({
-      fileRegex: /\.code$/
+      fileRegex: /\.code$/,
     }),
     createTDesignPlugin(),
     VitePWA(pwaConfig),
-  ]
+  ],
 });

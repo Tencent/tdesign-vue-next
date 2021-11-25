@@ -1,6 +1,4 @@
-import {
-  defineComponent, VNode
-} from 'vue';
+import { defineComponent, VNode } from 'vue';
 import pick from 'lodash/pick';
 import { prefix } from '../config';
 import TransferList from './components/transfer-list';
@@ -18,10 +16,7 @@ import {
   TdTransferProps,
 } from './interface';
 
-import {
-  getTransferListOption, emitEvent, getDataValues, getTransferData,
-  filterTransferData,
-} from './utils';
+import { getTransferListOption, emitEvent, getDataValues, getTransferData, filterTransferData } from './utils';
 import { PageInfo, TdPaginationProps } from '../pagination/type';
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
@@ -46,9 +41,18 @@ export default defineComponent({
     TransferOperations,
   },
   props: {
-    ...props
+    ...props,
   },
-  emits: ['checkChange', 'change', 'scroll', 'search', 'page-change', 'update:checked', 'checked-change', 'update:value'],
+  emits: [
+    'checkChange',
+    'change',
+    'scroll',
+    'search',
+    'page-change',
+    'update:checked',
+    'checked-change',
+    'update:value',
+  ],
   data(): DataType {
     return {
       name,
@@ -128,7 +132,9 @@ export default defineComponent({
         newTargetValue = oldTargetValue.filter((v) => !checkedValue.includes(v));
       } else if (this.targetSort === 'original') {
         // 按照原始顺序
-        newTargetValue = getDataValues(this.transferData, oldTargetValue.concat(checkedValue), { isTreeMode: this.isTreeMode });
+        newTargetValue = getDataValues(this.transferData, oldTargetValue.concat(checkedValue), {
+          isTreeMode: this.isTreeMode,
+        });
       } else if (this.targetSort === 'unshift') {
         newTargetValue = checkedValue.concat(oldTargetValue);
       } else {
@@ -139,7 +145,8 @@ export default defineComponent({
       this.handleCheckedChange([], toDirection === SOURCE ? TARGET : SOURCE);
 
       const params: TargetParams = {
-        type: toDirection, movedValue: checkedValue,
+        type: toDirection,
+        movedValue: checkedValue,
       };
       emitEvent<Parameters<TdTransferProps['onChange']>>(this, 'change', newTargetValue, params);
     },
@@ -165,7 +172,11 @@ export default defineComponent({
       this.$emit('update:checked', checked);
       emitEvent<Parameters<TdTransferProps['onCheckedChange']>>(this, 'checked-change', event);
     },
-    filterMethod(transferList: Array<TransferItemOption>, targetValueList: Array<TransferValue>, needMatch: boolean): Array<TransferItemOption> {
+    filterMethod(
+      transferList: Array<TransferItemOption>,
+      targetValueList: Array<TransferValue>,
+      needMatch: boolean,
+    ): Array<TransferItemOption> {
       return transferList.filter((item) => {
         const isMatch = targetValueList.indexOf(item.value) > -1;
         return needMatch ? isMatch : !isMatch;
@@ -188,7 +199,15 @@ export default defineComponent({
       emitEvent<Parameters<TdTransferProps['onPageChange']>>(this, 'page-change', pageInfo, { type: listType });
     },
     renderTransferList(listType: TransferListType) {
-      const scopedSlots = pick(this.$slots, ['title', 'empty', 'footer', 'operation', 'transferItem', 'default', 'tree']);
+      const scopedSlots = pick(this.$slots, [
+        'title',
+        'empty',
+        'footer',
+        'operation',
+        'transferItem',
+        'default',
+        'tree',
+      ]);
       return (
         <transfer-list
           checkboxProps={this.checkboxProps}
@@ -210,7 +229,9 @@ export default defineComponent({
           t={this.t}
           locale={this.locale}
           isTreeMode={this.isTreeMode}
-        >{scopedSlots}</transfer-list>
+        >
+          {scopedSlots}
+        </transfer-list>
       );
     },
   },
@@ -227,8 +248,12 @@ export default defineComponent({
       >
         {this.renderTransferList(SOURCE)}
         <transfer-operations
-          left-disabled={this.disabledOption[TARGET] || this.leftButtonDisabled || this.checkedValue[TARGET].length === 0}
-          right-disabled={this.disabledOption[SOURCE] || this.rightButtonDisabled || this.checkedValue[SOURCE].length === 0}
+          left-disabled={
+            this.disabledOption[TARGET] || this.leftButtonDisabled || this.checkedValue[TARGET].length === 0
+          }
+          right-disabled={
+            this.disabledOption[SOURCE] || this.rightButtonDisabled || this.checkedValue[SOURCE].length === 0
+          }
           operation={this.operation}
           onMoveToRight={this.transferToRight}
           onMoveToLeft={this.transferToLeft}

@@ -34,7 +34,9 @@ export default defineComponent({
   },
   render() {
     // 标签内容
-    const tagContent: TNodeReturnValue = renderTNodeJSX(this as ComponentPublicInstance, 'default') || renderTNodeJSX(this as ComponentPublicInstance, 'content');
+    const tagContent: TNodeReturnValue =
+      renderTNodeJSX(this as ComponentPublicInstance, 'default') ||
+      renderTNodeJSX(this as ComponentPublicInstance, 'content');
 
     return (
       <span class={this.tagClass} onClick={this.handleClick}>

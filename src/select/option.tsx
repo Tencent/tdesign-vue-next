@@ -33,9 +33,9 @@ export default defineComponent({
     multiLimitDisabled(): boolean {
       if (this.tSelect && this.tSelect.multiple && this.tSelect.max) {
         if (
-          this.tSelect.value instanceof Array
-          && this.tSelect.value.indexOf(this.value) === -1
-          && this.tSelect.max <= this.tSelect.value.length
+          this.tSelect.value instanceof Array &&
+          this.tSelect.value.indexOf(this.value) === -1 &&
+          this.tSelect.max <= this.tSelect.value.length
         ) {
           return true;
         }
@@ -77,7 +77,10 @@ export default defineComponent({
       if (!this.tSelect) return false;
       if (this.tSelect.value instanceof Array) {
         if (this.tSelect.labelInValue) {
-          flag = this.tSelect.value.map((item: string|number|Options) => get(item, this.tSelect.realValue)).indexOf(this.value) !== -1;
+          flag =
+            this.tSelect.value
+              .map((item: string | number | Options) => get(item, this.tSelect.realValue))
+              .indexOf(this.value) !== -1;
         } else {
           flag = this.tSelect.value.indexOf(this.value) !== -1;
         }
@@ -117,9 +120,7 @@ export default defineComponent({
     },
   },
   render(): VNode {
-    const {
-      classes, labelText, selected, disabled, multiLimitDisabled, show,
-    } = this;
+    const { classes, labelText, selected, disabled, multiLimitDisabled, show } = this;
     const children = renderTNodeJSX(this, 'default');
     const optionChild = children || labelText;
     return (
@@ -127,24 +128,21 @@ export default defineComponent({
         v-show={show}
         class={classes}
         title={labelText}
-        onMouseenter={ () => this.mouseEvent(true) }
-        onMouseleave={ () => this.mouseEvent(false) }
-        onClick={ (e: MouseEvent) => {
+        onMouseenter={() => this.mouseEvent(true)}
+        onMouseleave={() => this.mouseEvent(false)}
+        onClick={(e: MouseEvent) => {
           e.preventDefault();
           this.select(e);
         }}
         v-ripple
       >
-        {
-          this.tSelect && this.tSelect.multiple
-            ? <t-checkbox
-                checked={selected}
-                disabled={disabled || multiLimitDisabled}
-              >
-                {optionChild}
-              </t-checkbox>
-            : optionChild
-        }
+        {this.tSelect && this.tSelect.multiple ? (
+          <t-checkbox checked={selected} disabled={disabled || multiLimitDisabled}>
+            {optionChild}
+          </t-checkbox>
+        ) : (
+          optionChild
+        )}
       </li>
     );
   },

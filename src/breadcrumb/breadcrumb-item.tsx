@@ -87,11 +87,10 @@ export default defineComponent({
     const { localTBreadcrumb, maxWithStyle } = this;
     const { separator: separatorPropContent } = localTBreadcrumb;
     const separatorSlot = localTBreadcrumb.$slots.separator;
-    const separatorContent = separatorPropContent || separatorSlot || (<IconChevronRight {...{ color: 'rgba(0,0,0,.3)' }} />);
-    const itemClass = [
-      `${prefix}-breadcrumb__item`,
-      this.themeClassName,
-    ];
+    const separatorContent = separatorPropContent || separatorSlot || (
+      <IconChevronRight {...{ color: 'rgba(0,0,0,.3)' }} />
+    );
+    const itemClass = [`${prefix}-breadcrumb__item`, this.themeClassName];
     const textClass = [textFlowClass];
 
     if (this.disabled) {
@@ -110,23 +109,23 @@ export default defineComponent({
     }
 
     const textContent = <span {...{ class: maxLengthClass, style: maxWithStyle }}>{this.$slots.default()}</span>;
-    let itemContent = (
-      <span {...{ class: textClass, ...listeners } }>
-        {textContent}
-      </span>);
+    let itemContent = <span {...{ class: textClass, ...listeners }}>{textContent}</span>;
 
     if ((this.href || this.to) && !this.disabled) {
       textClass.push(linkClass);
       itemContent = (
-        <a class={textClass} href={this.href}target={this.target} {...listeners} onClick={this.bindEvent}>
+        <a class={textClass} href={this.href} target={this.target} {...listeners} onClick={this.bindEvent}>
           {textContent}
-        </a>);
+        </a>
+      );
     }
 
     return (
       <div class={itemClass} {...this.$attrs}>
         {itemContent}
-        <span class={separatorClass}>{typeof separatorContent === 'function' ? separatorContent() : separatorContent}</span>
+        <span class={separatorClass}>
+          {typeof separatorContent === 'function' ? separatorContent() : separatorContent}
+        </span>
       </div>
     );
   },

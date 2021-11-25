@@ -24,11 +24,7 @@
       >
         <template #author>
           <span>评论作者名B</span>
-          <t-icon
-            name="caret-right-small"
-            size="small"
-            class="author-icon"
-          />
+          <t-icon name="caret-right-small" size="small" class="author-icon" />
           <span>评论作者名A</span>
         </template>
 
@@ -48,14 +44,14 @@
 </template>
 <script />
 <style lang="less" scoped>
-  .action-text {
-    display: inline-block;
-    margin-left: 6px;
-    line-height: 15px;
-  }
+.action-text {
+  display: inline-block;
+  margin-left: 6px;
+  line-height: 15px;
+}
 
-  .author-icon {
-    display: inline-block;
-    margin: 0 4px;
-  }
+.author-icon {
+  display: inline-block;
+  margin: 0 4px;
+}
 </style>

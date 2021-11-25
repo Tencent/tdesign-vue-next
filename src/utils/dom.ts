@@ -1,14 +1,15 @@
 /* eslint-disable no-param-reassign */
+/* eslint-disable no-undef */
 import { ComponentPublicInstance, VNode } from 'vue';
 import raf from 'raf';
-import { easeInOutCubic, EasingFunction } from './easing';
 import isString from 'lodash/isString';
+import { easeInOutCubic, EasingFunction } from './easing';
 import { ScrollContainer, ScrollContainerElement } from '../common';
 
 const isServer = typeof window === 'undefined';
 const trim = (str: string): string => (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 
-export const on = (((): any => {
+export const on = ((): any => {
   if (!isServer && document.addEventListener) {
     return (element: Node, event: string, handler: EventListenerOrEventListenerObject): any => {
       if (element && event && handler) {
@@ -21,10 +22,9 @@ export const on = (((): any => {
       (element as any).attachEvent(`on${event}`, handler);
     }
   };
-})());
+})();
 
-
-export const off = (((): any => {
+export const off = ((): any => {
   if (!isServer && document.removeEventListener) {
     return (element: Node, event: string, handler: EventListenerOrEventListenerObject): any => {
       if (element && event) {
@@ -37,7 +37,7 @@ export const off = (((): any => {
       (element as any).detachEvent(`on${event}`, handler);
     }
   };
-})());
+})();
 
 export function once(element: Node, event: string, handler: EventListenerOrEventListenerObject) {
   const handlerFn = typeof handler === 'function' ? handler : handler.handleEvent;
@@ -55,8 +55,8 @@ export function hasClass(el: Element, cls: string): any {
   if (el.classList) {
     return el.classList.contains(cls);
   }
-  return (` ${el.className} `).indexOf(` ${cls} `) > -1;
-};
+  return ` ${el.className} `.indexOf(` ${cls} `) > -1;
+}
 
 export function addClass(el: Element, cls: string): any {
   if (!el) return;
@@ -76,7 +76,7 @@ export function addClass(el: Element, cls: string): any {
   if (!el.classList) {
     el.className = curClass;
   }
-};
+}
 
 export function removeClass(el: Element, cls: string): any {
   if (!el || !cls) return;
@@ -96,7 +96,7 @@ export function removeClass(el: Element, cls: string): any {
   if (!el.classList) {
     el.className = trim(curClass);
   }
-};
+}
 
 export const getAttach = (node: any): HTMLElement => {
   const attachNode = typeof node === 'function' ? node() : node;
@@ -150,10 +150,7 @@ type ScrollTarget = HTMLElement | Window | Document;
  * @param {boolean} isLeft true为获取scrollLeft, false为获取scrollTop
  * @returns {number}
  */
-export function getScroll(
-  target: ScrollTarget,
-  isLeft?: boolean,
-): number {
+export function getScroll(target: ScrollTarget, isLeft?: boolean): number {
   // node环境或者target为空
   if (typeof window === 'undefined' || !target) {
     return 0;
@@ -175,9 +172,11 @@ interface ScrollTopOptions {
   easing?: EasingFunction;
 }
 
-declare type ScrollToResult<T = any> = T | {
-  default: T;
-};
+declare type ScrollToResult<T = any> =
+  | T
+  | {
+      default: T;
+    };
 
 export function scrollTo(target: number, opt: ScrollTopOptions): Promise<ScrollToResult> {
   const { container = window, duration = 450, easing = easeInOutCubic } = opt;
@@ -220,25 +219,24 @@ function containerDom(parent: VNode | Element | Iterable<any> | ArrayLike<any>, 
   }
   return false;
 }
-export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, cb: (() => void)): void => {
+export const clickOut = (els: VNode | Element | Iterable<any> | ArrayLike<any>, cb: () => void): void => {
   on(document, 'click', (event: { target: Element }) => {
     if (Array.isArray(els)) {
       const isFlag = Array.from(els).every((item) => containerDom(item, event.target) === false);
-      isFlag && cb && cb();
-    } else {
-      if (containerDom(els, event.target)) {
-        return false;
-      }
-      cb && cb();
+      return isFlag && cb && cb();
     }
+    if (containerDom(els, event.target)) {
+      return false;
+    }
+    return cb && cb();
   });
 };
 
 // 用于判断节点内容是否溢出
-export const isNodeOverflow = (ele: ComponentPublicInstance | Element | ComponentPublicInstance[] | Element[]): boolean => {
-  const { clientWidth = 0, scrollWidth = 0 } = (
-    ele as Element & { clientWidth: number; scrollWidth: number }
-  );
+export const isNodeOverflow = (
+  ele: ComponentPublicInstance | Element | ComponentPublicInstance[] | Element[],
+): boolean => {
+  const { clientWidth = 0, scrollWidth = 0 } = ele as Element & { clientWidth: number; scrollWidth: number };
 
   if (scrollWidth > clientWidth) {
     return true;

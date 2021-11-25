@@ -1,36 +1,19 @@
 <template>
   <div class="t-demo-tabs">
     <t-tabs v-model="value">
-      <t-tab-panel
-        value="first"
-        label="选项卡1"
-      >
-        <p style="padding: 25px;">
-          选项卡1的内容，使用 t-tab-pannel 渲染
-        </p>
+      <t-tab-panel value="first" label="选项卡1">
+        <p style="padding: 25px">选项卡1的内容，使用 t-tab-pannel 渲染</p>
       </t-tab-panel>
-      <t-tab-panel
-        value="second"
-        label="选项卡2"
-      >
+      <t-tab-panel value="second" label="选项卡2">
         <template #panel>
-          <p style="padding: 25px;">
-            选项卡2的内容，使用 t-tab-pannel 渲染
-          </p>
+          <p style="padding: 25px">选项卡2的内容，使用 t-tab-pannel 渲染</p>
         </template>
       </t-tab-panel>
-      <t-tab-panel
-        value="third"
-        label="选项卡3"
-        :panel="panelRender"
-      />
+      <t-tab-panel value="third" label="选项卡3" :panel="panelRender" />
     </t-tabs>
 
     <!-- 方式二：使用 list 定义 Tab -->
-    <t-tabs
-      v-model="tab"
-      :list="tabList"
-    />
+    <t-tabs v-model="tab" :list="tabList" />
   </div>
 </template>
 
@@ -62,16 +45,15 @@ export default defineComponent({
 </script>
 
 <style lang="less">
-  .t-demo-tabs {
+.t-demo-tabs {
+  &__desc {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 14px;
 
-    &__desc {
-      margin-bottom: 20px;
-      color: #333;
-      font-size: 14px;
-
-      &:not(:first-of-type) {
-        margin-top: 20px;
-      }
+    &:not(:first-of-type) {
+      margin-top: 20px;
     }
   }
+}
 </style>

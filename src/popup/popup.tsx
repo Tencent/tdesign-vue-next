@@ -3,9 +3,7 @@ import { createPopper, Placement } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
 import config from '../config';
 import CLASSNAMES from '../utils/classnames';
-import {
-  on, off, once, getAttach,
-} from '../utils/dom';
+import { on, off, once, getAttach } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { PopupVisibleChangeContext } from './type';
@@ -77,10 +75,13 @@ export default defineComponent({
       return base.concat(this.overlayClassName);
     },
     hasTrigger(): Record<typeof triggers[number], boolean> {
-      return triggers.reduce((map, trigger) => ({
-        ...map,
-        [trigger]: this.trigger.includes(trigger),
-      }), {} as any);
+      return triggers.reduce(
+        (map, trigger) => ({
+          ...map,
+          [trigger]: this.trigger.includes(trigger),
+        }),
+        {} as any,
+      );
     },
   },
   watch: {
@@ -270,20 +271,26 @@ export default defineComponent({
 
     handleOpen(context: Pick<PopupVisibleChangeContext, 'trigger'>): void {
       clearTimeout(this.timeout);
-      this.timeout = setTimeout(() => {
-        this.emitPopVisible(true, context);
-      }, this.clickTrigger ? 0 : showTimeout);
+      this.timeout = setTimeout(
+        () => {
+          this.emitPopVisible(true, context);
+        },
+        this.clickTrigger ? 0 : showTimeout,
+      );
     },
     handleClose(context: Pick<PopupVisibleChangeContext, 'trigger'>): void {
       clearTimeout(this.timeout);
-      this.timeout = setTimeout(() => {
-        this.emitPopVisible(false, context);
-      }, this.clickTrigger ? 0 : hideTimeout);
+      this.timeout = setTimeout(
+        () => {
+          this.emitPopVisible(false, context);
+        },
+        this.clickTrigger ? 0 : hideTimeout,
+      );
     },
     handleDocumentClick(e: Event): void {
       const popperElm = this.$refs.popper as HTMLElement;
-      if (!this.$el || this.$el.contains(e.target as Element)
-        || !popperElm || popperElm.contains(e.target as Node)) return;
+      if (!this.$el || this.$el.contains(e.target as Element) || !popperElm || popperElm.contains(e.target as Node))
+        return;
       this.emitPopVisible(false, { trigger: 'document' });
     },
     emitPopVisible(val: boolean, context: PopupVisibleChangeContext) {
@@ -344,7 +351,9 @@ export default defineComponent({
   render() {
     return (
       <div class={`${name}-reference`}>
-        <transition name={`${name}_animation`} appear
+        <transition
+          name={`${name}_animation`}
+          appear
           onBeforeEnter={this.beforeEnter}
           onEnter={this.enter}
           onAfterEnter={this.resetExpandStyles}
@@ -354,10 +363,10 @@ export default defineComponent({
         >
           <div
             class={name}
-            ref='popper'
+            ref="popper"
             v-show={!this.disabled && this.visible}
-            role='tooltip'
-            aria-hidden={(this.disabled || !this.visible) ? 'true' : 'false'}
+            role="tooltip"
+            aria-hidden={this.disabled || !this.visible ? 'true' : 'false'}
             style={{ zIndex: this.zIndex }}
           >
             <div class={this.overlayClasses} ref="overlay">

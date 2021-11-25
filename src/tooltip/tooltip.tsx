@@ -24,11 +24,7 @@ export default defineComponent({
   },
   computed: {
     tooltipOverlayClassName(): ClassName {
-      return [
-        `${prefix}-tooltip`,
-        { [`${prefix}-tooltip-${this.theme}`]: this.theme },
-        this.overlayClassName,
-      ];
+      return [`${prefix}-tooltip`, { [`${prefix}-tooltip-${this.theme}`]: this.theme }, this.overlayClassName];
     },
   },
   watch: {
@@ -69,12 +65,6 @@ export default defineComponent({
     },
   },
   render() {
-    return (
-      <Popup
-        visible={this.visible}
-        showArrow={this.showArrow}
-        {...this.getPopupProps()}
-      />
-    );
+    return <Popup visible={this.visible} showArrow={this.showArrow} {...this.getPopupProps()} />;
   },
 });

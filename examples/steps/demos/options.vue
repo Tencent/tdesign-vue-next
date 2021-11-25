@@ -1,8 +1,5 @@
 <template>
-  <t-steps
-    :current="current"
-    :options="options"
-  />
+  <t-steps :current="current" :options="options" />
 </template>
 
 <script>

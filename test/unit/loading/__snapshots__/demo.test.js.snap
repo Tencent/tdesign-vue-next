@@ -8,13 +8,13 @@ exports[`Loading attach demo works fine 1`] = `
     class="loading-attach-demo__title"
     id="alice"
   >
-     Hello, I'm Alice. 
+    Hello, I'm Alice.
   </div>
   <div
     class="loading-attach-demo__title"
     id="bob"
   >
-     Hi, I'm Bob. 
+    Hi, I'm Bob.
   </div>
   <div
     class="t-loading t-size-m t-loading-mask t-loading-lock t-loading__wrapper v-transfer-dom"
@@ -211,7 +211,7 @@ exports[`Loading service demo works fine 1`] = `
     class="loading-service-demo"
     id="loading-service-demo"
   >
-     我是service的容器 
+    我是service的容器
   </div>
   <p>
     this.$loading(true)

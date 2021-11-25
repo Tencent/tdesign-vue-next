@@ -1,60 +1,17 @@
 <template>
-  <div
-    :id="`${path}#container`"
-    class="anchor-demo anchor-container-demo"
-  >
-    <t-anchor
-      :id="`${path}#default`"
-      container="#anchor-container"
-    >
-      <t-anchor-item
-        :href="`#${path}#content-1`"
-        title="content-1"
-      />
-      <t-anchor-item
-        :href="`#${path}#content-2`"
-        title="content-2"
-      />
-      <t-anchor-item
-        :href="`#${path}#content-3`"
-        title="content-3"
-      />
-      <t-anchor-item
-        :href="`#${path}#content-4`"
-        title="content-4"
-      />
+  <div :id="`${path}#container`" class="anchor-demo anchor-container-demo">
+    <t-anchor :id="`${path}#default`" container="#anchor-container">
+      <t-anchor-item :href="`#${path}#content-1`" title="content-1" />
+      <t-anchor-item :href="`#${path}#content-2`" title="content-2" />
+      <t-anchor-item :href="`#${path}#content-3`" title="content-3" />
+      <t-anchor-item :href="`#${path}#content-4`" title="content-4" />
     </t-anchor>
     <div id="anchor-container">
-      <div
-        :id="`${path}#content-1`"
-        class="anchor-content-1"
-      >
-        anchor-content-1
-      </div>
-      <div
-        :id="`${path}#content-2`"
-        class="anchor-content-2"
-      >
-        anchor-content-2
-      </div>
-      <div
-        :id="`${path}#content-3`"
-        class="anchor-content-3"
-      >
-        anchor-content-3
-      </div>
-      <div
-        :id="`${path}#content-4`"
-        class="anchor-content-4"
-      >
-        anchor-content-4
-      </div>
-      <div
-        :id="`${path}#content-5`"
-        class="anchor-content-5"
-      >
-        anchor-content-5
-      </div>
+      <div :id="`${path}#content-1`" class="anchor-content-1">anchor-content-1</div>
+      <div :id="`${path}#content-2`" class="anchor-content-2">anchor-content-2</div>
+      <div :id="`${path}#content-3`" class="anchor-content-3">anchor-content-3</div>
+      <div :id="`${path}#content-4`" class="anchor-content-4">anchor-content-4</div>
+      <div :id="`${path}#content-5`" class="anchor-content-5">anchor-content-5</div>
     </div>
   </div>
 </template>
@@ -70,7 +27,7 @@ export default defineComponent({
   },
 });
 </script>
-<style lang='less' scoped>
+<style lang="less" scoped>
 .anchor-container-demo {
   display: flex;
 }
@@ -84,19 +41,19 @@ export default defineComponent({
     line-height: 100px;
   }
   .anchor-content-1 {
-    background: #ECF2FE;
+    background: #ecf2fe;
   }
   .anchor-content-2 {
-    background: #D4E3FC;
+    background: #d4e3fc;
   }
   .anchor-content-3 {
-    background: #BBD3FB;
+    background: #bbd3fb;
   }
   .anchor-content-4 {
-    background: #96BBF8;
+    background: #96bbf8;
   }
   .anchor-content-5 {
-    background: #699EF5;
+    background: #699ef5;
   }
 }
 </style>

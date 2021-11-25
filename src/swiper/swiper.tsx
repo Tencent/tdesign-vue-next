@@ -7,8 +7,7 @@ const name = `${prefix}-swiper`;
 
 export default defineComponent({
   name,
-  components: {
-  },
+  components: {},
 
   props: { ...props },
 
@@ -61,7 +60,7 @@ export default defineComponent({
       return (
         <div class={`${name}__content`}>
           <div class={`${name}__swiper-wrap--${this.direction}`} style={wraperStyles}>
-            { this.items }
+            {this.items}
           </div>
         </div>
       );
@@ -71,14 +70,9 @@ export default defineComponent({
       const index = this.index % this.items.length;
       return (
         <ul class="t-swiper__trigger-wrap">
-          {
-            this.items.map((_: VNode, i: number) => (
-              <li
-                class={i === index ? 't-swiper__trigger--active' : ''}
-                onclick={() => this.swiperTo(i)}
-              ></li>
-            ))
-          }
+          {this.items.map((_: VNode, i: number) => (
+            <li class={i === index ? 't-swiper__trigger--active' : ''} onclick={() => this.swiperTo(i)}></li>
+          ))}
         </ul>
       );
     },
@@ -102,10 +96,12 @@ export default defineComponent({
 
     setTimer() {
       if (this.interval > 0) {
-        this.timeoutHandler = Number(setTimeout(() => {
-          this.clearTimer();
-          this.swiperToNext();
-        }, this.interval));
+        this.timeoutHandler = Number(
+          setTimeout(() => {
+            this.clearTimer();
+            this.swiperToNext();
+          }, this.interval),
+        );
       }
     },
 
@@ -122,11 +118,10 @@ export default defineComponent({
       },
     ];
     return (
-      <div class={ swiperClass } onMouseenter={ this.clearTimer } onMouseleave={ this.setTimer }>
-        { this.renderContent() }
-        { this.renderTrigger() }
+      <div class={swiperClass} onMouseenter={this.clearTimer} onMouseleave={this.setTimer}>
+        {this.renderContent()}
+        {this.renderTrigger()}
       </div>
     );
   },
-
 });

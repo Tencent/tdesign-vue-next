@@ -34,7 +34,7 @@ export const MessageList = defineComponent({
     };
   },
   computed: {
-    styles(): Record<string, string|number> {
+    styles(): Record<string, string | number> {
       return {
         ...PLACEMENT_OFFSET[this.placement],
         zIndex: this.zIndex !== DEFAULT_Z_INDEX ? this.zIndex : DEFAULT_Z_INDEX,
@@ -60,12 +60,14 @@ export const MessageList = defineComponent({
       if (!val) return;
       return isNaN(Number(val)) ? val : `${val}px`;
     },
-    msgStyles(item: { offset: Array<string|number> }) {
-      return item.offset && {
-        position: 'relative',
-        left: this.getOffset(item.offset[0]),
-        top: this.getOffset(item.offset[1]),
-      };
+    msgStyles(item: { offset: Array<string | number> }) {
+      return (
+        item.offset && {
+          position: 'relative',
+          left: this.getOffset(item.offset[0]),
+          top: this.getOffset(item.offset[1]),
+        }
+      );
     },
     getListeners(index: number) {
       return {
@@ -82,18 +84,16 @@ export const MessageList = defineComponent({
   render() {
     if (!this.list.length) return;
     return (
-      <div class='t-message-list' style={this.styles}>
-        {this.list
-          .map((item, index) => (
-            <t-message
-              key={item.key}
-              style={this.msgStyles(item)}
-              ref={this.addChild}
-              { ...item }
-              { ...this.getListeners(index) }
-            />
-          ))
-        }
+      <div class="t-message-list" style={this.styles}>
+        {this.list.map((item, index) => (
+          <t-message
+            key={item.key}
+            style={this.msgStyles(item)}
+            ref={this.addChild}
+            {...item}
+            {...this.getListeners(index)}
+          />
+        ))}
       </div>
     );
   },

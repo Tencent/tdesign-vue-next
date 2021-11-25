@@ -16,17 +16,9 @@ export default defineComponent({
   },
   props,
   render() {
+    const { type, data, onCellClick, onCellMouseEnter, firstDayOfWeek } = this.$props;
     const {
-      type,
-      data,
-      onCellClick,
-      onCellMouseEnter,
-      firstDayOfWeek,
-    } = this.$props;
-    const {
-      weekdays: {
-        shorthand,
-      },
+      weekdays: { shorthand },
     } = this.locale as unknown as DatePickerLocale;
 
     const weekArr = [];

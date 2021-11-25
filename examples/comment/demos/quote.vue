@@ -26,9 +26,9 @@
 </template>
 <script />
 <style lang="less" scoped>
-  .action-text {
-    display: inline-block;
-    margin-left: 6px;
-    line-height: 15px;
-  }
+.action-text {
+  display: inline-block;
+  margin-left: 6px;
+  line-height: 15px;
+}
 </style>

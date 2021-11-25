@@ -5,9 +5,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
-import {
-  TimePickerPanelInstance, TimeInputEvent, InputTime, TimeInputType,
-} from './interface';
+import { TimePickerPanelInstance, TimeInputEvent, InputTime, TimeInputType } from './interface';
 import TPopup, { PopupVisibleChangeContext } from '../popup';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
@@ -19,9 +17,7 @@ import InputItems from './input-items';
 
 import props from './props';
 
-import {
-  EPickerCols, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM,
-} from './constant';
+import { EPickerCols, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM } from './constant';
 
 const name = `${prefix}-time-picker`;
 
@@ -68,12 +64,16 @@ export default defineComponent({
       } = this;
       if (time) {
         return [dayjs(time, this.format)];
-      } if (this.steps.filter((step) => step !== 1).length < 1) {
+      }
+      if (this.steps.filter((step) => step !== 1).length < 1) {
         return [dayjs()];
-      } return [dayjs().hour(0).minute(0).second(0)];
+      }
+      return [dayjs().hour(0).minute(0).second(0)];
     },
     textClassName(): string {
-      const isDefault = (this.inputTime as any).some((item: InputTime) => !!item.hour && !!item.minute && !!item.second);
+      const isDefault = (this.inputTime as any).some(
+        (item: InputTime) => !!item.hour && !!item.minute && !!item.second,
+      );
       return isDefault ? '' : `${name}__group-text`;
     },
   },
@@ -130,13 +130,19 @@ export default defineComponent({
     // @blur
     onBlurDefault(e: Event, trigger: TimeInputType, index: number, input: number) {
       this.$emit('blur', {
-        trigger, input, value: this.time.format(this.format), e,
+        trigger,
+        input,
+        value: this.time.format(this.format),
+        e,
       });
     },
     // @focus
     onFocusDefault(e: Event, trigger: TimeInputType, index: number, input: number) {
       this.$emit('focus', {
-        trigger, input, value: this.time.format(this.format), e,
+        trigger,
+        input,
+        value: this.time.format(this.format),
+        e,
       });
     },
     // 面板展示隐藏
@@ -204,8 +210,8 @@ export default defineComponent({
       const currentTime = dayjs();
       // 如果此刻在不可选的时间上, 直接return
       if (
-        isFunction(this.disableTime)
-        && this.disableTime(currentTime.get('hour'), currentTime.get('minute'), currentTime.get('second'))
+        isFunction(this.disableTime) &&
+        this.disableTime(currentTime.get('hour'), currentTime.get('minute'), currentTime.get('second'))
       ) {
         return;
       }
@@ -274,7 +280,7 @@ export default defineComponent({
       };
     },
     // 清除选中
-    clear(context: {e: MouseEvent}) {
+    clear(context: { e: MouseEvent }) {
       const { e } = context;
       this.time = undefined;
       this.needClear = true;
@@ -291,7 +297,7 @@ export default defineComponent({
       ];
 
       const slots = {
-        'suffix-icon': () => (<t-icon-time></t-icon-time>),
+        'suffix-icon': () => <t-icon-time></t-icon-time>,
       };
       return (
         <div class={classes} onClick={() => (this.isShowPanel = true)}>
@@ -304,8 +310,7 @@ export default defineComponent({
             value={this.time ? ' ' : undefined}
             class={this.isShowPanel ? `${prefix}-is-focused` : ''}
             v-slots={slots}
-          >
-          </t-input>
+          ></t-input>
           <input-items
             size={this.size}
             dayjs={this.inputTime}
@@ -326,9 +331,7 @@ export default defineComponent({
 
   render() {
     // 初始化数据
-    const {
-      $props: { size, disabled },
-    } = this;
+    const { size, disabled } = this;
     // 样式类名
     const classes = [name, CLASSNAMES.SIZE[size] || ''];
     // TODO: 需要透传外部传入的class

@@ -67,7 +67,11 @@ describe('Loading', () => {
     it(':wrap', () => {
       const wrapper = mount({
         render() {
-          return <Loading loading={true}><div>this is loading component</div></Loading>;
+          return (
+            <Loading loading={true}>
+              <div>this is loading component</div>
+            </Loading>
+          );
         },
       });
       expect(wrapper.exists()).toBe(true);

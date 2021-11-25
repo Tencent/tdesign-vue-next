@@ -7,7 +7,12 @@ describe('Breadcrumb', () => {
     it(':size', () => {
       const wrapper = mount({
         render() {
-          return <Breadcrumb size={'large'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
+          return (
+            <Breadcrumb size={'large'}>
+              <BreadcrumbItem>面包屑1</BreadcrumbItem>
+              <BreadcrumbItem>面包屑2</BreadcrumbItem>
+            </Breadcrumb>
+          );
         },
       });
       expect(wrapper.exists()).toBe(true);
@@ -15,7 +20,12 @@ describe('Breadcrumb', () => {
     it(':theme', () => {
       const wrapper = mount({
         render() {
-          return <Breadcrumb theme={'light'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
+          return (
+            <Breadcrumb theme={'light'}>
+              <BreadcrumbItem>面包屑1</BreadcrumbItem>
+              <BreadcrumbItem>面包屑2</BreadcrumbItem>
+            </Breadcrumb>
+          );
         },
       });
       expect(wrapper.exists()).toBe(true);
@@ -23,7 +33,12 @@ describe('Breadcrumb', () => {
     it(':separator:string', () => {
       const wrapper = mount({
         render() {
-          return <Breadcrumb separator={'>'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
+          return (
+            <Breadcrumb separator={'>'}>
+              <BreadcrumbItem>面包屑1</BreadcrumbItem>
+              <BreadcrumbItem>面包屑2</BreadcrumbItem>
+            </Breadcrumb>
+          );
         },
       });
       expect(wrapper.exists()).toBe(true);
@@ -31,7 +46,12 @@ describe('Breadcrumb', () => {
     it(':to', () => {
       const wrapper = mount({
         render() {
-          return <Breadcrumb><BreadcrumbItem to={{ path: '/' }}>首页</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
+          return (
+            <Breadcrumb>
+              <BreadcrumbItem to={{ path: '/' }}>首页</BreadcrumbItem>
+              <BreadcrumbItem>面包屑2</BreadcrumbItem>
+            </Breadcrumb>
+          );
         },
       });
       expect(wrapper.exists()).toBe(true);
@@ -39,7 +59,14 @@ describe('Breadcrumb', () => {
     it(':replace', () => {
       const wrapper = mount({
         render() {
-          return <Breadcrumb><BreadcrumbItem to={{ path: '/' }} replace={true}>首页</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
+          return (
+            <Breadcrumb>
+              <BreadcrumbItem to={{ path: '/' }} replace={true}>
+                首页
+              </BreadcrumbItem>
+              <BreadcrumbItem>面包屑2</BreadcrumbItem>
+            </Breadcrumb>
+          );
         },
       });
       expect(wrapper.exists()).toBe(true);
@@ -51,7 +78,11 @@ describe('Breadcrumb', () => {
       const fn = jest.fn();
       const wrapper = mount({
         render() {
-          return <Breadcrumb><BreadcrumbItem onClick={fn}>面包屑</BreadcrumbItem></Breadcrumb>;
+          return (
+            <Breadcrumb>
+              <BreadcrumbItem onClick={fn}>面包屑</BreadcrumbItem>
+            </Breadcrumb>
+          );
         },
       });
       wrapper.findComponent(BreadcrumbItem).trigger('click');
@@ -64,7 +95,12 @@ describe('Breadcrumb', () => {
     it('<separator>', () => {
       const wrapper = mount(Breadcrumb, {
         render() {
-          return <Breadcrumb size={'large'}><BreadcrumbItem>面包屑1</BreadcrumbItem><BreadcrumbItem>面包屑2</BreadcrumbItem></Breadcrumb>;
+          return (
+            <Breadcrumb size={'large'}>
+              <BreadcrumbItem>面包屑1</BreadcrumbItem>
+              <BreadcrumbItem>面包屑2</BreadcrumbItem>
+            </Breadcrumb>
+          );
         },
         slots: {
           separator: '<i>-</i>',

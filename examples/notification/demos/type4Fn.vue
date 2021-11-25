@@ -1,17 +1,9 @@
 <template>
   <div>
-    <t-button @click="info">
-      信息
-    </t-button>
-    <t-button @click="success">
-      成功
-    </t-button>
-    <t-button @click="warning">
-      警告
-    </t-button>
-    <t-button @click="error">
-      错误
-    </t-button>
+    <t-button @click="info"> 信息 </t-button>
+    <t-button @click="success"> 成功 </t-button>
+    <t-button @click="warning"> 警告 </t-button>
+    <t-button @click="error"> 错误 </t-button>
   </div>
 </template>
 
@@ -51,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-.t-button + .t-button{
+.t-button + .t-button {
   margin-left: 10px;
 }
 </style>

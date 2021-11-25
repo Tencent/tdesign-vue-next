@@ -1,6 +1,4 @@
-import {
-  App, Plugin, createApp, nextTick, ComponentPublicInstance,
-} from 'vue';
+import { App, Plugin, createApp, nextTick, ComponentPublicInstance } from 'vue';
 import NotificationList from './notificationList';
 import { getAttach } from '../utils/dom';
 import {

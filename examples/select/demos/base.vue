@@ -5,15 +5,10 @@
       clearable
       placeholder="-请选择-"
       :on-clear="handleClear"
-      style="width: 200px;"
+      style="width: 200px"
       @change="handleChange"
     >
-      <t-option
-        v-for="(item, index) in options"
-        :key="index"
-        :value="item.value"
-        :label="item.label"
-      >
+      <t-option v-for="(item, index) in options" :key="index" :value="item.value" :label="item.label">
         {{ item.label }}
       </t-option>
     </t-select>

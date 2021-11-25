@@ -2,7 +2,7 @@ import { ComponentOptions, defineComponent, ComponentPublicInstance, h } from 'v
 import kebabCase from 'lodash/kebabCase';
 
 function toCamel(str: string): string {
-  return str.replace(/-([a-z])/ig, (m, letter) => letter.toUpperCase());
+  return str.replace(/-([a-z])/gi, (m, letter) => letter.toUpperCase());
 }
 
 type PropOption = {
@@ -10,7 +10,6 @@ type PropOption = {
   event?: string | string[];
   alias?: string[];
 };
-
 
 type ParsedPropOption = {
   defaultName: string;
@@ -20,16 +19,11 @@ type ParsedPropOption = {
   [propName: string]: any;
 };
 
-
-function getPropOptionMap(props: (string | PropOption)[]):
-{ [name: string]: ParsedPropOption } {
+function getPropOptionMap(props: (string | PropOption)[]): { [name: string]: ParsedPropOption } {
   const propOptionMap = {};
 
   function parseProp(propOption: PropOption): ParsedPropOption {
-    const {
-      name: propName,
-      alias,
-      ...others } = propOption;
+    const { name: propName, alias, ...others } = propOption;
     const camelName = propName.replace(/^[a-z]/, (letter: string) => letter.toUpperCase());
     const defaultName = `default${camelName}`;
     const dataName = `data${camelName}`;
@@ -40,7 +34,7 @@ function getPropOptionMap(props: (string | PropOption)[]):
     }
     events.push(`update:${propName}`);
     if (alias) {
-      events = events.concat(alias.map(item => `update:${item}`));
+      events = events.concat(alias.map((item) => `update:${item}`));
     }
 
     return {
@@ -58,9 +52,9 @@ function getPropOptionMap(props: (string | PropOption)[]):
     };
     let propOption: PropOption;
     if (typeof prop === 'string') {
-      propOption = Object.assign({}, defaultOption, { name: prop });
+      propOption = { ...defaultOption, name: prop };
     } else {
-      propOption = Object.assign({}, defaultOption, prop);
+      propOption = { ...defaultOption, ...prop };
     }
 
     propOptionMap[propOption.name] = parseProp(propOption);
@@ -79,7 +73,7 @@ export default function (props: (string | PropOption)[]): any {
     let defineEvents: string[] = [];
     const defineMethods = {};
 
-    const camelPropsKeys = Object.keys(component.props).map(key => toCamel(key));
+    const camelPropsKeys = Object.keys(component.props).map((key) => toCamel(key));
 
     Object.keys(propOptionMap).forEach((propName) => {
       const { events, alias, defaultName, dataName } = propOptionMap[propName];
@@ -102,10 +96,7 @@ export default function (props: (string | PropOption)[]): any {
           if (defaultList.indexOf(defaultName + this.$.uid) > -1) return;
           const { props } = this.$.vnode;
           const hasDefault = props && (defaultName in props || kebabCase(defaultName) in props);
-          if (
-            hasDefault
-            && !(propName in props)
-          ) {
+          if (hasDefault && !(propName in props)) {
             this.$data[dataName] = v;
           }
           defaultList.push(defaultName + this.$.uid);
@@ -118,10 +109,7 @@ export default function (props: (string | PropOption)[]): any {
         defineWatches[aliasItem] = {
           handler(v: any): void {
             const { props } = this.$.vnode;
-            if (
-              props && aliasItem in props
-              && !(propName in props)
-            ) {
+            if (props && aliasItem in props && !(propName in props)) {
               this.$data[dataName] = v;
             }
           },
@@ -169,9 +157,7 @@ export default function (props: (string | PropOption)[]): any {
         _listeners(): Record<string, any> {
           const others = {};
           Object.keys(this.$attrs).forEach((attr: string): void => {
-            const event = attr.startsWith('on')
-              ? attr[2].toLowerCase() + attr.substr(2)
-              : null;
+            const event = attr.startsWith('on') ? attr[2].toLowerCase() + attr.substr(2) : null;
             if (event && defineEvents.indexOf(event) === -1) {
               others[attr] = (...args: any[]): void => {
                 // (this.$listeners[event] as Function)(...args);
@@ -204,10 +190,7 @@ export default function (props: (string | PropOption)[]): any {
           const { dataName, events } = propOptionMap[propName];
           const eventName = `on${events[0].charAt(0).toUpperCase()}${events[0].substr(1)}`;
           const { props } = this.$.vnode;
-          if (
-            (props && propName in props)
-            || typeof this[dataName] !== 'undefined'
-          ) {
+          if ((props && propName in props) || typeof this[dataName] !== 'undefined') {
             propMap[propName] = this[dataName];
           }
           // 只监听第一个定义的事件，参数取第一个事件参数
@@ -222,20 +205,24 @@ export default function (props: (string | PropOption)[]): any {
           }
         });
 
-        return h(componentConstructor, {
-          // props
-          ...this.$props,
-          ...propMap,
+        return h(
+          componentConstructor,
+          {
+            // props
+            ...this.$props,
+            ...propMap,
 
-          // attrs
-          ...attrs,
+            // attrs
+            ...attrs,
 
-          // events
-          ...this._listeners as Record<string, any>,
-          ...handlerMap,
+            // events
+            ...(this._listeners as Record<string, any>),
+            ...handlerMap,
 
-          ref: 'component',
-        }, this.$slots);
+            ref: 'component',
+          },
+          this.$slots,
+        );
       },
     });
   }

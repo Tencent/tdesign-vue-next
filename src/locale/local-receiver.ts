@@ -7,7 +7,7 @@ const name = `${config.prefix}-locale-receiver`;
 
 export interface Placement {
   [propName: string]: string | number;
-};
+}
 
 // export interface LocalComponent extends Vue {
 //   globalLocale: Locale;
@@ -56,7 +56,7 @@ export default function getLocalRecevierMixins(componentName: string) { // eslin
 
 export const useLocalRecevier = (componentName: string) => {
   const globalLocale = inject('globalLocale', {
-    default: undefined
+    default: undefined,
   });
   const locale = computed<ComponentLocale>(() => {
     const defaultData = defaultLocale[componentName];
@@ -86,6 +86,6 @@ export const useLocalRecevier = (componentName: string) => {
   return {
     globalLocale,
     locale,
-    t
+    t,
   };
 };

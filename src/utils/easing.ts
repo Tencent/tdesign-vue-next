@@ -16,7 +16,7 @@ export interface EasingFunction {
  * @param {number} duration 持续时间
  * @returns
  */
-export const linear: EasingFunction = function (current, start, end, duration) {
+export const linear: EasingFunction = (current, start, end, duration) => {
   const change = end - start;
   const offset = (change * current) / duration;
   return offset + start;
@@ -30,13 +30,13 @@ export const linear: EasingFunction = function (current, start, end, duration) {
  * @param {number} duration 持续时间
  * @returns
  */
-export const easeInOutCubic: EasingFunction = function (current, start, end, duration) {
+export const easeInOutCubic: EasingFunction = (current, start, end, duration) => {
   const change = (end - start) / 2;
   let time = current / (duration / 2);
   if (time < 1) {
-    return (change * time * time * time) + start;
+    return change * time * time * time + start;
   }
   time -= 2;
   // eslint-disable-next-line no-return-assign
-  return (change * ((time * time * time) + 2)) + start;
+  return change * (time * time * time + 2) + start;
 };

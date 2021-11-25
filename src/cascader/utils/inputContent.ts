@@ -1,7 +1,5 @@
 import isFunction from 'lodash/isFunction';
-import {
-  TreeNode, CascaderContextType, TreeNodeValue, CascaderProps,
-} from '../interface';
+import { TreeNode, CascaderContextType, TreeNodeValue, CascaderProps } from '../interface';
 
 /**
  * icon Class
@@ -46,9 +44,7 @@ export function getFakeArrowIconClass(prefix: string, CLASSNAMES: any, cascaderC
  * @returns
  */
 export function getCascaderInnerClasses(prefix: string, CLASSNAMES: any, cascaderContext: CascaderContextType) {
-  const {
-    disabled, visible, size, multiple,
-  } = cascaderContext;
+  const { disabled, visible, size, multiple } = cascaderContext;
   return [
     `${prefix}-cascader`,
     {
@@ -67,15 +63,13 @@ export function getCascaderInnerClasses(prefix: string, CLASSNAMES: any, cascade
  * @returns
  */
 export function getCloseShow(isHover: boolean, cascaderContext: CascaderContextType) {
-  const {
-    multiple, value, disabled, clearable, visible,
-  } = cascaderContext;
+  const { multiple, value, disabled, clearable, visible } = cascaderContext;
   return !!(
-    !visible
-    && clearable
-    && isHover
-    && !disabled
-    && ((!multiple && value) || (multiple && (value as TreeNodeValue[]).length))
+    !visible &&
+    clearable &&
+    isHover &&
+    !disabled &&
+    ((!multiple && value) || (multiple && (value as TreeNodeValue[]).length))
   );
 }
 
@@ -105,9 +99,7 @@ export function getPlaceholderShow(
  * @returns
  */
 export function getSingleContent(cascaderContext: CascaderContextType) {
-  const {
-    value, multiple, treeStore, showAllLevels,
-  } = cascaderContext;
+  const { value, multiple, treeStore, showAllLevels } = cascaderContext;
   if (multiple || !value) return '';
   if (Array.isArray(value)) return '';
   const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
@@ -173,9 +165,7 @@ export function outerClickListenerEffect(
  * @param cascaderContext
  */
 export function closeIconClickEffect(cascaderContext: CascaderContextType, onChange: CascaderProps['onChange']) {
-  const {
-    setVisible, multiple, setExpend, setValue,
-  } = cascaderContext;
+  const { setVisible, multiple, setExpend, setValue } = cascaderContext;
 
   setVisible(false);
 
@@ -215,9 +205,7 @@ export function handleRemoveTagEffect(
  * @param cascaderContext
  */
 export function innerContentClickEffect(cascaderContext: CascaderContextType) {
-  const {
-    setVisible, visible, filterActive, disabled,
-  } = cascaderContext;
+  const { setVisible, visible, filterActive, disabled } = cascaderContext;
 
   if (!disabled) {
     if (visible && filterActive) return; // input filter is active

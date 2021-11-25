@@ -1,8 +1,6 @@
 import { ComponentPublicInstance } from 'vue';
 import primaryTableProps from '../primary-table-props';
-import {
-  BaseTableCol, RenderType, TdPrimaryTableProps,
-} from '../type';
+import { BaseTableCol, RenderType, TdPrimaryTableProps } from '../type';
 
 export type CustomRenderName = 'title' | 'cell' | 'render';
 

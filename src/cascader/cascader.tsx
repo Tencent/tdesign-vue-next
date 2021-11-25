@@ -19,11 +19,7 @@ import InputContent from './components/InputContent';
 
 // types
 import TreeNode from '../_common/js/tree/tree-node';
-import {
-  ListenersType, TreeNodeValue, EVENT_NAME_WITH_KEBAB,
-  CascaderContextType,
-  TdCascaderProps,
-} from './interface';
+import { ListenersType, TreeNodeValue, EVENT_NAME_WITH_KEBAB, CascaderContextType, TdCascaderProps } from './interface';
 import props from './props';
 
 const name = `${prefix}-cascader`;
@@ -95,13 +91,7 @@ export default defineComponent({
         minCollapsedNum = 0,
       } = this;
 
-      const {
-        visible,
-        treeStore,
-        treeNodes,
-        filterActive,
-        inputVal,
-      } = this;
+      const { visible, treeStore, treeNodes, filterActive, inputVal } = this;
 
       return {
         size,
@@ -137,14 +127,18 @@ export default defineComponent({
       },
     },
     inputVal() {
-      const { cascaderContext: { value, setExpend } } = this;
+      const {
+        cascaderContext: { value, setExpend },
+      } = this;
       if (!getTreeValue(value).length) {
         setExpend([]);
       }
       this.updatedTreeNodes();
     },
     filterActive() {
-      const { cascaderContext: { filterActive } } = this;
+      const {
+        cascaderContext: { filterActive },
+      } = this;
       if (!filterActive) {
         this.inputVal = '';
       }
@@ -172,15 +166,7 @@ export default defineComponent({
   methods: {
     // 创建单个 cascader 节点
     init() {
-      const {
-        disabled,
-        keys,
-        checkStrictly = false,
-        lazy = true,
-        load,
-        options,
-        valueMode = 'onlyLeaf',
-      } = this;
+      const { disabled, keys, checkStrictly = false, lazy = true, load, options, valueMode = 'onlyLeaf' } = this;
       if (!options || (Array.isArray(options) && !options.length)) return;
 
       this.treeStore = new TreeStore({
@@ -227,15 +213,7 @@ export default defineComponent({
     },
   },
   render(): VNode {
-    const {
-      visible,
-      trigger,
-      empty,
-      $attrs,
-      cascaderContext,
-      $slots,
-      placeholder,
-    } = this;
+    const { visible, trigger, empty, $attrs, cascaderContext, $slots, placeholder } = this;
 
     const popupProps = this.popupProps as PopupProps;
 
@@ -247,21 +225,29 @@ export default defineComponent({
       };
     });
 
-    return (<div ref="cascader" >
-      <Popup
-        ref="popup"
-        overlayClassName={`${name}-dropdown`}
-        placement="bottom-left"
-        visible={visible}
-        trigger={popupProps?.trigger || 'click'}
-        expandAnimation={true}
-        v-slots={{
-          content: () => <panel empty={empty} trigger={trigger} cascaderContext={cascaderContext} onChange={listeners.onChange}>{$slots}</panel>,
-        }}
-        {...popupProps}
-      >
-        <InputContent {...$attrs} cascaderContext={cascaderContext} placeholder={placeholder} listeners={listeners}>{$slots}</InputContent>
-      </Popup>
-    </div >);
+    return (
+      <div ref="cascader">
+        <Popup
+          ref="popup"
+          overlayClassName={`${name}-dropdown`}
+          placement="bottom-left"
+          visible={visible}
+          trigger={popupProps?.trigger || 'click'}
+          expandAnimation={true}
+          v-slots={{
+            content: () => (
+              <panel empty={empty} trigger={trigger} cascaderContext={cascaderContext} onChange={listeners.onChange}>
+                {$slots}
+              </panel>
+            ),
+          }}
+          {...popupProps}
+        >
+          <InputContent {...$attrs} cascaderContext={cascaderContext} placeholder={placeholder} listeners={listeners}>
+            {$slots}
+          </InputContent>
+        </Popup>
+      </div>
+    );
   },
 });

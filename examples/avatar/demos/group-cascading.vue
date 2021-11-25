@@ -32,8 +32,8 @@ export default defineComponent({
 });
 </script>
 <style lang="less" scoped>
-.demo-avatar{
-  .demo-avatar-block:first-child{
+.demo-avatar {
+  .demo-avatar-block:first-child {
     margin-bottom: 40px;
   }
 }

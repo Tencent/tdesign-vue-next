@@ -7,9 +7,7 @@ import IconSuccessLine from '../icon/check';
 import IconWarningLine from '../icon/error';
 import { prefix } from '../config';
 import { getBackgroundColor } from '../utils/helper';
-import {
-  PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO,
-} from './constants';
+import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
 import props from './props';
 // import { RenderTNodeTemplate } from '../utils/render-tnode';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -92,7 +90,7 @@ export default defineComponent({
       return this.diameter / 2;
     },
     radius(): number {
-      return this.rPoints - (this.circleStrokeWidth / 2);
+      return this.rPoints - this.circleStrokeWidth / 2;
     },
     circleStyle(): Styles {
       if (this.theme !== PRO_THEME.CIRCLE) {
@@ -159,7 +157,7 @@ export default defineComponent({
 
   render() {
     const labelContent = (
-      (<div class={`${name}--info`}>{renderTNodeJSX(this, 'label', this.getLabelContent() as any)}</div>)
+      <div class={`${name}--info`}>{renderTNodeJSX(this, 'label', this.getLabelContent() as any)}</div>
     );
     // 进度大于 10 ，进度百分比显示在内部；进度百分比小于 10 进度显示在外部
     const PLUMP_SEPERATE = 10;
@@ -200,7 +198,7 @@ export default defineComponent({
                 r={this.radius}
                 stroke-width={this.circleStrokeWidth}
                 stroke={this.trackColor}
-                fill='none'
+                fill="none"
                 class={['t-circle--outer']}
               />
               <circle
@@ -208,8 +206,8 @@ export default defineComponent({
                 cy={this.rPoints}
                 r={this.radius}
                 stroke-width={this.circleStrokeWidth}
-                fill='none'
-                stroke-linecap='round'
+                fill="none"
+                stroke-linecap="round"
                 class={['t-circle--inner']}
                 transform={`matrix(0,-1,1,0,0,${this.diameter})`}
                 stroke-dasharray={this.strokeDashArr}

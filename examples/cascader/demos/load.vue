@@ -1,12 +1,6 @@
 <template>
   <div>
-    <t-cascader
-      v-model="value"
-      class="t-demo-cascader"
-      :options="options"
-      clearable
-      :load="load"
-    />
+    <t-cascader v-model="value" class="t-demo-cascader" :options="options" clearable :load="load" />
   </div>
 </template>
 
@@ -30,24 +24,25 @@ export default defineComponent({
 
     const value = ref('');
 
-    const load = (node) => new Promise((resolve) => {
-      setTimeout(() => {
-        let nodes = [];
-        if (node.level < 2) {
-          nodes = [
-            {
-              label: `${node.label}.1`,
-              children: node.level < 2,
-            },
-            {
-              label: `${node.label}.2`,
-              children: node.level < 2,
-            },
-          ];
-        }
-        resolve(nodes);
-      }, 1000);
-    });
+    const load = (node) =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          let nodes = [];
+          if (node.level < 2) {
+            nodes = [
+              {
+                label: `${node.label}.1`,
+                children: node.level < 2,
+              },
+              {
+                label: `${node.label}.2`,
+                children: node.level < 2,
+              },
+            ];
+          }
+          resolve(nodes);
+        }, 1000);
+      });
     return {
       options,
       value,

@@ -2,32 +2,15 @@
   <div class="tdesign-tree-base">
     <div class="operations">
       <t-form>
-        <t-form-item
-          label="可选"
-          style="margin-bottom: 16px"
-        >
+        <t-form-item label="可选" style="margin-bottom: 16px">
           <t-switch v-model="checkable" />
         </t-form-item>
-        <t-form-item
-          label="严格模式"
-          style="margin-bottom: 16px"
-        >
+        <t-form-item label="严格模式" style="margin-bottom: 16px">
           <t-switch v-model="checkStrictly" />
         </t-form-item>
-        <t-form-item
-          label="选中值模式"
-          style="margin-bottom: 16px"
-        >
-          <t-radio-group
-            v-model="valueMode"
-            name="value-mode"
-            variant="default-filled"
-          >
-            <t-radio-button
-              v-for="item in valueOptions"
-              :key="item.value"
-              :value="item.value"
-            >
+        <t-form-item label="选中值模式" style="margin-bottom: 16px">
+          <t-radio-group v-model="valueMode" name="value-mode" variant="default-filled">
+            <t-radio-button v-for="item in valueOptions" :key="item.value" :value="item.value">
               {{ item.label }}
             </t-radio-button>
           </t-radio-group>
@@ -65,69 +48,96 @@ const valueOptions = [
   },
 ];
 
-const items = [{
-  value: '1',
-  label: '1',
-  children: [{
-    value: '1.1',
-    label: '1.1',
-    children: [{
-      value: '1.1.1',
-      label: '1.1.1',
-      children: [{
-        value: '1.1.1.1',
-        label: '1.1.1.1',
-      }, {
-        value: '1.1.1.2',
-        label: '1.1.1.2',
-      }],
-    }, {
-      value: '1.1.2',
-      label: '1.1.2',
-      children: [{
-        value: '1.1.2.1',
-        label: '1.1.2.1',
-      }, {
-        value: '1.1.2.2',
-        label: '1.1.2.2',
-      }],
-    }],
-  }, {
-    value: '1.2',
-    label: '1.2',
-    children: [{
-      value: '1.2.1',
-      label: '1.2.1',
-      children: [{
-        value: '1.2.1.1',
-        label: '1.2.1.1',
-      }, {
-        value: '1.2.1.2',
-        label: '1.2.1.2',
-      }],
-    }, {
-      value: '1.2.2',
-      label: '1.2.2',
-      children: [{
-        value: '1.2.2.1',
-        label: '1.2.2.1',
-      }, {
-        value: '1.2.2.2',
-        label: '1.2.2.2',
-      }],
-    }],
-  }],
-}, {
-  value: '2',
-  label: '2',
-  children: [{
-    value: '2.1',
-    label: '2.1',
-  }, {
-    value: '2.2',
-    label: '2.2',
-  }],
-}];
+const items = [
+  {
+    value: '1',
+    label: '1',
+    children: [
+      {
+        value: '1.1',
+        label: '1.1',
+        children: [
+          {
+            value: '1.1.1',
+            label: '1.1.1',
+            children: [
+              {
+                value: '1.1.1.1',
+                label: '1.1.1.1',
+              },
+              {
+                value: '1.1.1.2',
+                label: '1.1.1.2',
+              },
+            ],
+          },
+          {
+            value: '1.1.2',
+            label: '1.1.2',
+            children: [
+              {
+                value: '1.1.2.1',
+                label: '1.1.2.1',
+              },
+              {
+                value: '1.1.2.2',
+                label: '1.1.2.2',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        value: '1.2',
+        label: '1.2',
+        children: [
+          {
+            value: '1.2.1',
+            label: '1.2.1',
+            children: [
+              {
+                value: '1.2.1.1',
+                label: '1.2.1.1',
+              },
+              {
+                value: '1.2.1.2',
+                label: '1.2.1.2',
+              },
+            ],
+          },
+          {
+            value: '1.2.2',
+            label: '1.2.2',
+            children: [
+              {
+                value: '1.2.2.1',
+                label: '1.2.2.1',
+              },
+              {
+                value: '1.2.2.2',
+                label: '1.2.2.2',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    value: '2',
+    label: '2',
+    children: [
+      {
+        value: '2.1',
+        label: '2.1',
+      },
+      {
+        value: '2.2',
+        label: '2.2',
+      },
+    ],
+  },
+];
 
 export default defineComponent({
   setup() {

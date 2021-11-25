@@ -9,8 +9,14 @@ export * from './type';
 export type DatePickerProps = TdDatePickerProps;
 export type DateRangePickerProps = TdDateRangePickerProps;
 
-export const DatePicker: WithInstallType<typeof _DatePicker> = withInstall(mapProps([{
-  name: 'value', event: 'change', alias: ['modelValue'],
-}])(_DatePicker));
+export const DatePicker: WithInstallType<typeof _DatePicker> = withInstall(
+  mapProps([
+    {
+      name: 'value',
+      event: 'change',
+      alias: ['modelValue'],
+    },
+  ])(_DatePicker),
+);
 
 export default DatePicker;

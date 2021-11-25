@@ -192,7 +192,7 @@ exports[`Tabs base demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-           选项卡1的内容，使用 t-tab-pannel 渲染 
+          选项卡1的内容，使用 t-tab-pannel 渲染
         </p>
         
       </div>
@@ -379,7 +379,7 @@ exports[`Tabs combination demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-           选项卡2
+          选项卡2
         </p>
         
       </div>
@@ -889,7 +889,7 @@ exports[`Tabs position demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-           选项卡1 
+          选项卡1
         </p>
         
       </div>
@@ -1021,7 +1021,7 @@ exports[`Tabs size demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-           选项卡1 
+          选项卡1
         </p>
         
       </div>
@@ -1086,7 +1086,7 @@ exports[`Tabs size demo works fine 1`] = `
         <p
           style="padding: 25px;"
         >
-           选项卡1 
+          选项卡1
         </p>
         
       </div>

@@ -6,9 +6,7 @@ import isEqual from 'lodash/isEqual';
 
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
-import {
-  TimeInputEvent, InputTime, TimePickerPanelInstance,
-} from './interface';
+import { TimeInputEvent, InputTime, TimePickerPanelInstance } from './interface';
 import TPopup, { PopupVisibleChangeContext } from '../popup';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
@@ -18,9 +16,7 @@ import TIconTime from '../icon/time';
 import InputItems from './input-items';
 import props from './time-range-picker-props';
 
-import {
-  EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM,
-} from './constant';
+import { EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM } from './constant';
 
 const name = `${prefix}-time-picker`;
 
@@ -40,6 +36,7 @@ export default defineComponent({
 
   props: { ...props },
 
+  emits: ['input', 'click', 'blur', 'focus', 'change', 'close', 'open'],
   data() {
     // 初始化数据
     return {
@@ -60,7 +57,9 @@ export default defineComponent({
       return time.map((val: dayjs.Dayjs) => (val ? dayjs(val) : dayjs()));
     },
     textClassName(): string {
-      const isDefault = (this.inputTime as any).some((item: InputTime) => !!item.hour && !!item.minute && !!item.second);
+      const isDefault = (this.inputTime as any).some(
+        (item: InputTime) => !!item.hour && !!item.minute && !!item.second,
+      );
       return isDefault ? '' : `${name}__group-text`;
     },
   },
@@ -180,10 +179,7 @@ export default defineComponent({
         this.time[1] = setTime;
         shouldUpdatePanel = true;
       } else if (index === 1 && !this.time[0]) {
-        this.time[0] = dayjs()
-          .hour(0)
-          .minute(0)
-          .second(0);
+        this.time[0] = dayjs().hour(0).minute(0).second(0);
         shouldUpdatePanel = true;
       }
       this.updateInputTime();
@@ -237,7 +233,7 @@ export default defineComponent({
       this.triggerUpdateValue();
     },
     // 清除选中
-    clear(context: {e: MouseEvent}) {
+    clear(context: { e: MouseEvent }) {
       const { e } = context;
       this.time = TIME_PICKER_EMPTY;
       this.updateInputTime();

@@ -3,10 +3,7 @@
     <h1>具备清空按钮</h1>
     <t-time-picker v-model="time1" />
     <h1>禁止清空按钮</h1>
-    <t-time-picker
-      v-model="time2"
-      :clearable="false"
-    />
+    <t-time-picker v-model="time2" :clearable="false" />
   </div>
 </template>
 

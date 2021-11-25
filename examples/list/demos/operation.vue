@@ -2,11 +2,7 @@
   <div>
     <t-list :split="true">
       <t-list-item>
-        <t-list-item-meta
-          :image="avatarUrl"
-          title="列表主内容"
-          description="列表内容列表内容"
-        />
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容" />
         <template #action>
           <span>
             <t-button variant="text">操作1</t-button>
@@ -16,11 +12,7 @@
         </template>
       </t-list-item>
       <t-list-item>
-        <t-list-item-meta
-          :image="avatarUrl"
-          title="列表主内容"
-          description="列表内容列表内容"
-        />
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容" />
         <template #action>
           <span>
             <t-button variant="text">操作1</t-button>
@@ -35,11 +27,7 @@
 
     <t-list :split="true">
       <t-list-item>
-        <t-list-item-meta
-          :image="avatarUrl"
-          title="列表主内容"
-          description="列表内容列表内容"
-        />
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容" />
         <template #action>
           <t-button variant="text" shape="square">
             <edit-icon />
@@ -50,11 +38,7 @@
         </template>
       </t-list-item>
       <t-list-item>
-        <t-list-item-meta
-          :image="avatarUrl"
-          title="列表主内容"
-          description="列表内容列表内容"
-        />
+        <t-list-item-meta :image="avatarUrl" title="列表主内容" description="列表内容列表内容" />
         <template #action>
           <t-button variant="text" shape="square">
             <edit-icon />

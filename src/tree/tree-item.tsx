@@ -39,9 +39,7 @@ export default defineComponent({
       return styles;
     },
     getClassList(): ClassName {
-      const {
-        node,
-      } = this;
+      const { node } = this;
       const list = [];
       list.push(CLASS_NAMES.treeNode);
       list.push({
@@ -63,11 +61,7 @@ export default defineComponent({
             node: node?.getModel(),
           });
         } else if (node.parent && node.tree) {
-          const {
-            vmIsLeaf,
-            vmIsFirst,
-            level,
-          } = node;
+          const { vmIsLeaf, vmIsFirst, level } = node;
 
           const lineClasses = [];
 
@@ -102,12 +96,7 @@ export default defineComponent({
             'box-shadow': shadowStyles.join(','),
           };
 
-          lineNode = (
-            <span
-              class={lineClasses}
-              style={styles}
-            ></span>
-          );
+          lineNode = <span class={lineClasses} style={styles}></span>;
         }
       } else {
         lineNode = getTNode(line, {
@@ -120,7 +109,7 @@ export default defineComponent({
       if (isFunction(this.locale.folderIcon)) {
         return this.locale.folderIcon(h);
       }
-      return <TIconCaretRightSmall/>;
+      return <TIconCaretRightSmall />;
     },
     renderIcon() {
       const { node, treeScope } = this;
@@ -137,7 +126,7 @@ export default defineComponent({
           isDefaultIcon = true;
           iconNode = this.getFolderIcon();
           if (node.loading && node.expanded) {
-            iconNode = (<TIconLoading/>);
+            iconNode = <TIconLoading />;
           }
         } else {
           iconNode = '';
@@ -152,7 +141,9 @@ export default defineComponent({
           class={[CLASS_NAMES.treeIcon, CLASS_NAMES.folderIcon, isDefaultIcon ? CLASS_NAMES.treeIconDefault : '']}
           trigger="expand"
           ignore="active"
-        >{iconNode}</span>
+        >
+          {iconNode}
+        </span>
       );
 
       return iconNode;
@@ -197,13 +188,21 @@ export default defineComponent({
             onChange={() => this.handleChange()}
             ignore="expand,active"
             {...checkProps}
-          >{labelNode}</TCheckBox>
+          >
+            {labelNode}
+          </TCheckBox>
         );
       } else {
         const inner = <span style="position: relative">{labelNode}</span>;
-        labelNode = node.isActivable() // 使用key是为了避免元素复用，从而顺利移除ripple指令
-          ? <span key="1" v-ripple class={labelClasses}>{inner}</span>
-          : <span key="2" class={labelClasses}>{inner}</span>;
+        labelNode = node.isActivable() ? ( // 使用key是为了避免元素复用，从而顺利移除ripple指令
+          <span key="1" v-ripple class={labelClasses}>
+            {inner}
+          </span>
+        ) : (
+          <span key="2" class={labelClasses}>
+            {inner}
+          </span>
+        );
       }
 
       return labelNode;
@@ -224,10 +223,9 @@ export default defineComponent({
       }
       if (opNode) {
         opNode = (
-          <span
-            class={CLASS_NAMES.treeOperations}
-            ignore="active,expand"
-          >{opNode}</span>
+          <span class={CLASS_NAMES.treeOperations} ignore="active,expand">
+            {opNode}
+          </span>
         );
       }
       return opNode;
@@ -283,9 +281,7 @@ export default defineComponent({
     },
   },
   render() {
-    const {
-      node,
-    } = this;
+    const { node } = this;
 
     const {
       // tree,
@@ -308,7 +304,9 @@ export default defineComponent({
         data-level={level}
         style={styles}
         onClick={(evt: MouseEvent) => this.handleClick(evt)}
-      >{this.renderItem()}</div>
+      >
+        {this.renderItem()}
+      </div>
     );
   },
 });

@@ -1,6 +1,4 @@
-import {
-  VNode, PropType, defineComponent, h,
-} from 'vue';
+import { VNode, PropType, defineComponent, h } from 'vue';
 import get from 'lodash/get';
 import { prefix } from '../../config';
 import { RowspanColspan } from '../type';
@@ -57,9 +55,7 @@ export default defineComponent({
       type: Object,
       default() {
         return {
-          renderRows(): void {
-
-          },
+          renderRows(): void {},
         };
       },
     },
@@ -68,9 +64,7 @@ export default defineComponent({
   methods: {
     // 渲染行
     renderRow(): Array<VNode> {
-      const {
-        rowData, columns, index: rowIndex, rowspanAndColspanProps,
-      } = this;
+      const { rowData, columns, index: rowIndex, rowspanAndColspanProps } = this;
       const rowBody: Array<VNode> = [];
 
       columns.forEach((column, index) => {
@@ -129,9 +123,7 @@ export default defineComponent({
     },
   },
   render() {
-    const {
-      rowClass, $attrs, rowData, index, rowKey, current, provider,
-    } = this;
+    const { rowClass, $attrs, rowData, index, rowKey, current, provider } = this;
     const params = {
       row: rowData,
       index,
@@ -154,6 +146,10 @@ export default defineComponent({
       ...on,
     };
 
-    return <tr {...trProps} draggable={provider.sortOnRowDraggable}>{this.renderRow()}</tr>;
+    return (
+      <tr {...trProps} draggable={provider.sortOnRowDraggable}>
+        {this.renderRow()}
+      </tr>
+    );
   },
 });

@@ -53,17 +53,18 @@ export default defineComponent({
   },
   computed: {
     disabledReduce(): boolean {
-      return this.disabled || this.isError || (Number(this.value) - this.step < this.min);
+      return this.disabled || this.isError || Number(this.value) - this.step < this.min;
     },
     disabledAdd(): boolean {
-      return this.disabled || this.isError || (Number(this.value) + this.step > this.max);
+      return this.disabled || this.isError || Number(this.value) + this.step > this.max;
     },
     valueDecimalPlaces(): number {
-      const tempVal = this.filterValue !== null
-        && !isNaN(Number(this.filterValue))
-        && !isNaN(parseFloat(this.filterValue))
-        ? this.filterValue
-        : String(this.value);
+      const tempVal =
+        this.filterValue !== null &&
+        !Number.isNaN(Number(this.filterValue)) &&
+        !Number.isNaN(parseFloat(this.filterValue))
+          ? this.filterValue
+          : String(this.value);
       const tempIndex = tempVal.indexOf('.') + 1;
       return tempIndex > 0 ? tempVal.length - tempIndex : 0;
     },
@@ -184,15 +185,21 @@ export default defineComponent({
       if (this.disabledAdd) return;
       const value = this.value || 0;
       const factor = 10 ** this.digitsNum;
-      this.handleAction(Number(this.toDecimalPlaces(((value * factor)
-        + (this.step * factor)) / factor).toFixed(this.digitsNum)), 'add', e);
+      this.handleAction(
+        Number(this.toDecimalPlaces((value * factor + this.step * factor) / factor).toFixed(this.digitsNum)),
+        'add',
+        e,
+      );
     },
     handleReduce(e: MouseEvent) {
       if (this.disabledReduce) return;
       const value = this.value || 0;
       const factor = 10 ** this.digitsNum;
-      this.handleAction(Number(this.toDecimalPlaces(((value * factor)
-        - (this.step * factor)) / factor).toFixed(this.digitsNum)), 'reduce', e);
+      this.handleAction(
+        Number(this.toDecimalPlaces((value * factor - this.step * factor) / factor).toFixed(this.digitsNum)),
+        'reduce',
+        e,
+      );
     },
     handleInput(e: InputEvent) {
       // get
@@ -222,13 +229,12 @@ export default defineComponent({
     },
     toValidNumber(s: string) {
       const val = Number(s);
-      if (isNaN(val) || isNaN(parseFloat(s))) return this.value;
+      if (Number.isNaN(val) || Number.isNaN(parseFloat(s))) return this.value;
       if (val > this.max) return this.max;
       if (val < this.min) return this.min;
       return parseFloat(s);
     },
-    handleChange(value: number, ctx: { type: ChangeSource;
-      e: ChangeContextEvent; }) {
+    handleChange(value: number, ctx: { type: ChangeSource; e: ChangeContextEvent }) {
       this.updateValue(value);
       this.$emit('change', value, { type: ctx.type, e: ctx.e });
     },
@@ -276,7 +282,7 @@ export default defineComponent({
     },
     isValid(v: string) {
       const numV = Number(v);
-      if (this.empty(v) || isNaN(numV)) {
+      if (this.empty(v) || Number.isNaN(numV)) {
         this.handleInputError(true);
         return false;
       }
@@ -321,24 +327,31 @@ export default defineComponent({
   render() {
     return (
       <div class={this.cmptWrapClasses}>
-        {this.theme !== 'normal' && <t-button class={this.reduceClasses} {...this.reduceEvents} variant="outline" shape="square" v-slots={{
-          icon: () => (
-            this.decreaseIcon
-          ),
-        }} />}
-        <div class={this.inputWrapProps}>
-          <input
-            value={this.displayValue}
-            class={this.inputClasses}
-            {...this.inputAttrs}
-            {...this.inputEvents}
+        {this.theme !== 'normal' && (
+          <t-button
+            class={this.reduceClasses}
+            {...this.reduceEvents}
+            variant="outline"
+            shape="square"
+            v-slots={{
+              icon: () => this.decreaseIcon,
+            }}
           />
+        )}
+        <div class={this.inputWrapProps}>
+          <input value={this.displayValue} class={this.inputClasses} {...this.inputAttrs} {...this.inputEvents} />
         </div>
-        {this.theme !== 'normal' && <t-button class={this.addClasses} {...this.addEvents} variant="outline" shape="square" v-slots={{
-          icon: () => (
-            this.increaseIcon
-          ),
-        }} />}
+        {this.theme !== 'normal' && (
+          <t-button
+            class={this.addClasses}
+            {...this.addEvents}
+            variant="outline"
+            shape="square"
+            v-slots={{
+              icon: () => this.increaseIcon,
+            }}
+          />
+        )}
       </div>
     );
   },

@@ -68,7 +68,7 @@ export default defineComponent({
     },
     // 对外方法，该方法会触发表单组件错误信息显示
     async validate(param?: FormValidateParams): Promise<Result> {
-      const { fields, trigger = 'all' } = (param || {});
+      const { fields, trigger = 'all' } = param || {};
       const list = this.children
         .filter((child) => this.isFunction(child.validate) && this.needValidate(child.name, fields))
         .map((child) => child.validate(trigger));
@@ -104,9 +104,7 @@ export default defineComponent({
         e && e.preventDefault();
         e && e.stopPropagation();
       }
-      this.children
-        .filter((child: any) => this.isFunction(child.resetField))
-        .map((child: any) => child.resetField());
+      this.children.filter((child: any) => this.isFunction(child.resetField)).map((child: any) => child.resetField());
       this.$emit('reset', { e });
     },
     clearValidate(fields?: Array<string>) {
@@ -128,10 +126,15 @@ export default defineComponent({
 
   render(): VNode {
     return (
-      <form ref="form" class={this.formClass} onSubmit={(e) => this.submitHandler(e as MouseEvent)} onReset={(e) => this.resetHandler(e as MouseEvent)} {...this.$attrs}>
+      <form
+        ref="form"
+        class={this.formClass}
+        onSubmit={(e) => this.submitHandler(e as MouseEvent)}
+        onReset={(e) => this.resetHandler(e as MouseEvent)}
+        {...this.$attrs}
+      >
         {this.$slots.default ? this.$slots.default() : []}
       </form>
     );
   },
-
 });

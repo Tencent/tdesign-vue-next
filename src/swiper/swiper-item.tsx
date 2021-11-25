@@ -7,10 +7,6 @@ export default defineComponent({
   name,
   render() {
     const { default: defaultSlot } = this.$slots;
-    return (
-      <div>
-        { defaultSlot && defaultSlot() }
-      </div>
-    );
+    return <div>{defaultSlot && defaultSlot()}</div>;
   },
 });

@@ -1,23 +1,12 @@
 <template>
   <div>
-    <div class="demo-checkbox-row-desc">
-      选中值: {{ checked }}
-    </div>
+    <div class="demo-checkbox-row-desc">选中值: {{ checked }}</div>
     <div class="demo-checkbox-row">
       <!-- name 非必需 -->
-      <t-checkbox-group
-        v-model="checked"
-        :options="['北京', '上海', '深圳']"
-        name="city"
-      />
+      <t-checkbox-group v-model="checked" :options="['北京', '上海', '深圳']" name="city" />
     </div>
     <div class="demo-checkbox-row">
-      <t-button
-        size="small"
-        @click="checked = ['上海']"
-      >
-        重置
-      </t-button>
+      <t-button size="small" @click="checked = ['上海']"> 重置 </t-button>
     </div>
   </div>
 </template>
@@ -40,7 +29,7 @@ export default defineComponent({
   margin-top: 16px;
 }
 .demo-checkbox-row-desc {
-  color:rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.6);
   margin-bottom: 24px;
 }
 .t-checkbox + .t-checkbox,

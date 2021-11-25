@@ -26,7 +26,11 @@ describe('Badge', () => {
     it(':dot', () => {
       const wrapper = mount({
         render() {
-          return <Badge dot={true} count={2}>Tdesign</Badge>;
+          return (
+            <Badge dot={true} count={2}>
+              Tdesign
+            </Badge>
+          );
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -35,7 +39,11 @@ describe('Badge', () => {
     it(':maxCount', () => {
       const wrapper = mount({
         render() {
-          return <Badge maxCount={33} count={2}>Tdesign</Badge>;
+          return (
+            <Badge maxCount={33} count={2}>
+              Tdesign
+            </Badge>
+          );
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -44,7 +52,11 @@ describe('Badge', () => {
     it(':count', () => {
       const wrapper = mount({
         render() {
-          return <Badge count="new" count={2}>Tdesign</Badge>;
+          return (
+            <Badge count="new" count={2}>
+              Tdesign
+            </Badge>
+          );
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -53,7 +65,11 @@ describe('Badge', () => {
     it(':size', () => {
       const wrapper = mount({
         render() {
-          return <Badge size = "small" count={2}>Tdesign</Badge>;
+          return (
+            <Badge size="small" count={2}>
+              Tdesign
+            </Badge>
+          );
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -62,7 +78,11 @@ describe('Badge', () => {
     it(':shape', () => {
       const wrapper = mount({
         render() {
-          return <Badge shape = "round" count={2}>Tdesign</Badge>;
+          return (
+            <Badge shape="round" count={2}>
+              Tdesign
+            </Badge>
+          );
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -71,7 +91,11 @@ describe('Badge', () => {
     it(':showZero', () => {
       const wrapper = mount({
         render() {
-          return <Badge showZero={true} count={2}>Tdesign</Badge>;
+          return (
+            <Badge showZero={true} count={2}>
+              Tdesign
+            </Badge>
+          );
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -80,7 +104,11 @@ describe('Badge', () => {
     it(':offset', () => {
       const wrapper = mount({
         render() {
-          return <Badge offset={[10, 10]} count={2}>Tdesign</Badge>;
+          return (
+            <Badge offset={[10, 10]} count={2}>
+              Tdesign
+            </Badge>
+          );
         },
       });
       expect(wrapper.element).toMatchSnapshot();

@@ -1,32 +1,31 @@
 <template>
   <div>
+    <!-- 共三种方式自定义浮层内容 -->
+
+    <!-- 使用 content 属性渲染浮层内容 -->
     <div class="t-popup-demo-base-item">
-      <t-popup content="我的触发元素通过默认插槽渲染">
-        <t-button variant="outline">
-          触发元素(默认插槽)
-        </t-button>
+      <t-popup content="可以在浮层内容中描述禁用原因">
+        <t-button variant="outline" disabled>禁用状态</t-button>
       </t-popup>
     </div>
+
+    <!-- 使用 content 插槽渲染浮层内容 -->
+    <!-- slot="content" 写法不建议使用，请使用 #content 写法 -->
     <div class="t-popup-demo-base-item">
-      <t-popup content="我的触发元素通过插槽(triggerElement)渲染">
-        <template #triggerElement>
-          <t-button variant="outline">
-            触发元素(插槽)
-          </t-button>
+      <t-popup>
+        <t-button variant="outline">触发元素</t-button>
+        <!-- <div slot="content">触发元素是指触发浮层内容显示的元素</div> -->
+        <template #content>
+          <div>触发元素是指触发浮层内容显示的元素</div>
         </template>
       </t-popup>
     </div>
+
+    <!-- 使用 content 渲染函数输出浮层内容 -->
     <div class="t-popup-demo-base-item">
-      <t-popup
-        content="我的触发元素通过属性 default 渲染"
-        :default="renderTrigerElement1"
-      />
-    </div>
-    <div class="t-popup-demo-base-item">
-      <t-popup
-        content="我的触发元素通过属性 triggerElement 渲染"
-        :trigger-element="renderTrigerElement2"
-      />
+      <t-popup :content="renderPopupContent">
+        <t-button variant="outline">浮层内容</t-button>
+      </t-popup>
     </div>
   </div>
 </template>
@@ -37,11 +36,8 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   setup() {
     return {
-      renderTrigerElement1() {
-        return <t-button variant="outline">触发元素(属性1)</t-button>;
-      },
-      renderTrigerElement2() {
-        return <t-button variant="outline">触发元素(属性2)</t-button>;
+      renderPopupContent() {
+        return <div>浮层内容是指浮层里面显示的全部内容，这里的浮层内容使用渲染函数定义</div>;
       },
     };
   },

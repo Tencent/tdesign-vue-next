@@ -18,15 +18,9 @@
       theme="warning"
       message="暂无数据，您可以点击一下日历的单元格看看（双击会改变当前选中日期）😀"
     />
-    <div
-      v-else
-      class="demo-list"
-    >
+    <div v-else class="demo-list">
       <t-list>
-        <t-list-item
-          v-for="(item, index) in histories"
-          :key="index"
-        >
+        <t-list-item v-for="(item, index) in histories" :key="index">
           【{{ histories.length - index }}】{{ item }}，并得到组件传出的参数（您看控制台）...
         </t-list-item>
       </t-list>

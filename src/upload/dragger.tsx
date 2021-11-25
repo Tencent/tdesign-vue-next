@@ -14,7 +14,10 @@ export default defineComponent({
   name,
 
   components: {
-    TIconLoading, TIconCheckCircleFilled, TButton, TIconErrorCircleFilled,
+    TIconLoading,
+    TIconCheckCircleFilled,
+    TButton,
+    TIconErrorCircleFilled,
   },
 
   props: {
@@ -35,6 +38,7 @@ export default defineComponent({
     remove: Function as PropType<(e: MouseEvent) => void>,
     upload: Function as PropType<(file: UploadFile, e: MouseEvent) => void>,
   },
+  emits: ['change', 'dragleave', 'dragenter'],
 
   data() {
     return {
@@ -42,7 +46,6 @@ export default defineComponent({
       dragActive: false,
     };
   },
-  emits: ['change', 'dragleave', 'dragenter'],
   computed: {
     isImage(): boolean {
       return this.display === 'image';
@@ -68,8 +71,8 @@ export default defineComponent({
     },
     // 上传失败或者上传成功会显示
     showResultOperate(): boolean {
-      const isFail = (!!this.loadingFile && this.loadingFile.status === 'fail');
-      const isSuccess = (this.file && this.file.name && !this.loadingFile);
+      const isFail = !!this.loadingFile && this.loadingFile.status === 'fail';
+      const isSuccess = this.file && this.file.name && !this.loadingFile;
       return isFail || isSuccess;
     },
   },
@@ -112,21 +115,18 @@ export default defineComponent({
     },
 
     renderImage() {
-      return (
-        <div class='t-upload__dragger-img-wrap'>
-          {this.imageUrl && <img src={this.imageUrl}></img>}
-        </div>
-      );
+      return <div class="t-upload__dragger-img-wrap">{this.imageUrl && <img src={this.imageUrl}></img>}</div>;
     },
 
     renderUploading() {
       if (this.loadingFile.status === 'fail') {
         return <TIconErrorCircleFilled />;
-      } if (this.loadingFile.status === 'progress') {
+      }
+      if (this.loadingFile.status === 'progress') {
         return (
-          <div class='t-upload__single-progress'>
+          <div class="t-upload__single-progress">
             <TIconLoading />
-            <span class='t-upload__single-percent'>{Math.min(this.loadingFile.percent, 99)}%</span>
+            <span class="t-upload__single-percent">{Math.min(this.loadingFile.percent, 99)}%</span>
           </div>
         );
       }
@@ -139,26 +139,48 @@ export default defineComponent({
 
     renderProgress() {
       return (
-        <div class='t-upload__dragger-progress'>
+        <div class="t-upload__dragger-progress">
           {this.isImage && this.renderImage()}
-          <div class='t-upload__dragger-progress-info'>
-            <div class='t-upload__dragger-text'>
-              <span class='t-upload__single-name'>{abridgeName(this.inputName)}</span>
+          <div class="t-upload__dragger-progress-info">
+            <div class="t-upload__dragger-text">
+              <span class="t-upload__single-name">{abridgeName(this.inputName)}</span>
               {this.loadingFile && this.renderUploading()}
-              {(!this.loadingFile && !!this.file) && <TIconCheckCircleFilled/>}
+              {!this.loadingFile && !!this.file && <TIconCheckCircleFilled />}
             </div>
-            <small class='t-upload__small'>文件大小：{returnFileSize(this.size)}</small>
-            <small class='t-upload__small'>上传日期：{getCurrentDate()}</small>
+            <small class="t-upload__small">文件大小：{returnFileSize(this.size)}</small>
+            <small class="t-upload__small">上传日期：{getCurrentDate()}</small>
             {!!this.loadingFile && this.loadingFile.status !== 'fail' && (
-              <div class='t-upload__dragger-btns'>
-                <t-button theme="primary" variant='text' class='t-upload__dragger-progress-cancel' onClick={this.cancel}>取消上传</t-button>
-                <t-button theme="primary" variant='text' onClick={(e: MouseEvent) => this.upload({ ...this.loadingFile }, e)}>点击上传</t-button>
+              <div class="t-upload__dragger-btns">
+                <t-button
+                  theme="primary"
+                  variant="text"
+                  class="t-upload__dragger-progress-cancel"
+                  onClick={this.cancel}
+                >
+                  取消上传
+                </t-button>
+                <t-button
+                  theme="primary"
+                  variant="text"
+                  onClick={(e: MouseEvent) => this.upload({ ...this.loadingFile }, e)}
+                >
+                  点击上传
+                </t-button>
               </div>
             )}
             {this.showResultOperate && (
-              <div class='t-upload__dragger-btns'>
-                <t-button theme="primary" variant="text" class='t-upload__dragger-progress-cancel' onClick={this.reupload}>重新上传</t-button>
-                <t-button theme="primary" variant='text' onClick={this.remove}>删除</t-button>
+              <div class="t-upload__dragger-btns">
+                <t-button
+                  theme="primary"
+                  variant="text"
+                  class="t-upload__dragger-progress-cancel"
+                  onClick={this.reupload}
+                >
+                  重新上传
+                </t-button>
+                <t-button theme="primary" variant="text" onClick={this.remove}>
+                  删除
+                </t-button>
               </div>
             )}
           </div>
@@ -173,7 +195,7 @@ export default defineComponent({
       content = this.renderProgress();
     } else {
       content = (
-        <div class='t-upload__trigger' onClick={this.trigger}>
+        <div class="t-upload__trigger" onClick={this.trigger}>
           {(this.$slots.default && this.$slots.default(null)) || this.renderDefaultDragElement()}
         </div>
       );

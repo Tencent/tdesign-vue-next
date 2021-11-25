@@ -2,10 +2,7 @@
   <div class="popconfirm-demo">
     <div class="tdesign-demo-block">
       <div class="demo-item">
-        <t-popconfirm
-          theme="default"
-          content="确认删除订单吗"
-        >
+        <t-popconfirm theme="default" content="确认删除订单吗">
           <t-button>删除订单</t-button>
         </t-popconfirm>
       </div>
@@ -33,7 +30,7 @@ import { MessagePlugin } from '@tencent/tdesign-vue-next';
 
 export default defineComponent({
   setup() {
-    const visible = ref(true);
+    const visible = ref(false);
 
     const onVisibleChange = (val, context = {}) => {
       if (context && context.trigger === 'confirm') {
@@ -60,7 +57,11 @@ export default defineComponent({
         );
       },
       cancelBtn() {
-        return <t-button size="small" variant="dashed">取消</t-button>;
+        return (
+          <t-button size="small" variant="dashed">
+            取消
+          </t-button>
+        );
       },
     };
   },

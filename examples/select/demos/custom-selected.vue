@@ -9,23 +9,12 @@
       multiple
       clearable
     />
-    <br><br>
+    <br /><br />
 
     <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
-    <t-select
-      v-model="value2"
-      :options="options"
-      placeholder="请选择古代名人"
-      multiple
-      clearable
-    >
+    <t-select v-model="value2" :options="options" placeholder="请选择古代名人" multiple clearable>
       <template #valueDisplay="{ value, onClose }">
-        <t-tag
-          v-for="(item, index) in value"
-          :key="index"
-          :closable="true"
-          :on-close="() => onClose(index)"
-        >
+        <t-tag v-for="(item, index) in value" :key="index" :closable="true" :on-close="() => onClose(index)">
           {{ item.label }}({{ item.value[0].toUpperCase() }})
         </t-tag>
       </template>
@@ -56,11 +45,7 @@ export default defineComponent({
     const valueDisplay = (h, { value, onClose }) => {
       if (!(value instanceof Array)) return;
       return value.map((item, index) => (
-        <t-tag
-          key={index}
-          closable={true}
-          onClose={() => onClose(index)}
-        >
+        <t-tag key={index} closable={true} onClose={() => onClose(index)}>
           {item.label}({item.value[0].toUpperCase()})
         </t-tag>
       ));
@@ -73,8 +58,6 @@ export default defineComponent({
       valueDisplay,
     };
   },
-  methods: {
-
-  },
+  methods: {},
 });
 </script>

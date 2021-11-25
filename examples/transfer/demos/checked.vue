@@ -1,9 +1,6 @@
 <template>
   <div>
-    <t-transfer
-      v-model:checked="checked"
-      :data="list"
-    />
+    <t-transfer v-model:checked="checked" :data="list" />
   </div>
 </template>
 <script>

@@ -1,12 +1,6 @@
 <template>
   <div>
-    <t-transfer
-      v-model="targetValue"
-      theme="primary"
-      :data="list"
-      :checked-value="checkedValue"
-      :search="true"
-    />
+    <t-transfer v-model="targetValue" theme="primary" :data="list" :checked-value="checkedValue" :search="true" />
   </div>
 </template>
 <script>

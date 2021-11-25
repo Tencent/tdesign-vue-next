@@ -35,9 +35,9 @@ export function abridgeName(inputName: string, leftCount = 5, rightcount = 7): s
     const w = name[i];
     const isCn = escape(w).indexOf('%u') === 0;
     if (i < leftCount * 2 && leftLength < leftCount) {
-      isCn ? leftLength += 1 : (leftLength += 2);
+      isCn ? (leftLength += 1) : (leftLength += 2);
     } else if (i > i - rightcount && rightLength < rightcount) {
-      isCn ? rightLength += 1 : (rightLength += 2);
+      isCn ? (rightLength += 1) : (rightLength += 2);
     }
   }
   return name.replace(new RegExp(`^(.{${leftLength}})(.+)(.{${rightLength}})$`), '$1…$3');

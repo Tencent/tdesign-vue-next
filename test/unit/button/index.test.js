@@ -57,7 +57,11 @@ describe('Button', () => {
       const fn = jest.fn();
       const wrapper = mount({
         render() {
-          return <Button disabled={true} onClick={fn}>text</Button>;
+          return (
+            <Button disabled={true} onClick={fn}>
+              text
+            </Button>
+          );
         },
       });
       wrapper.trigger('click');

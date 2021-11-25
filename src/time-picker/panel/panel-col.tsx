@@ -14,14 +14,16 @@ dayjs.extend(customParseFormat);
 
 export default defineComponent({
   name,
+  props: panelColProps(),
+
+  emits: ['time-pick'],
   data() {
     return {
       splitValue: Object.create(null),
       timeArr: [EPickerCols.hour, EPickerCols.minute, EPickerCols.second],
     };
   },
-  props: panelColProps(),
-  emits: ['time-pick'],
+
   computed: {
     valStr() {
       // 这里的操作会修改数据，所以不能使用value直接格式化，否则出现loop update的问题
@@ -74,16 +76,18 @@ export default defineComponent({
       return res;
     },
     disableFilter(preIdx: number, col: EPickerCols) {
-    // 如果有hideDisableTime 需要进行filter计算它的time(index)
+      // 如果有hideDisableTime 需要进行filter计算它的time(index)
       let filteredIdx = preIdx;
       if (this.hideDisabledTime && this.disableTime) {
         const timeList = this.generateColTime(col);
         const index = this.timeArr.indexOf(col);
-        filteredIdx = timeList.filter((t) => {
-          const params = this.currentTimes;
-          params[index] = Number(t);
-          return this.disableTime && !this.disableTime.apply(this, params);
-        }).indexOf(preIdx);
+        filteredIdx = timeList
+          .filter((t) => {
+            const params = this.currentTimes;
+            params[index] = Number(t);
+            return this.disableTime && !this.disableTime.apply(this, params);
+          })
+          .indexOf(preIdx);
       }
       return filteredIdx;
     },
@@ -105,10 +109,11 @@ export default defineComponent({
         timeIndex = this.localeMeridiems.indexOf((time as string).toUpperCase());
       }
       const timeItemTotalHeight = this.getTimeItemHeight(col) + this.timeItemMargin;
-      const distance = (timeIndex * timeItemTotalHeight) + (timeItemTotalHeight / 2);
+      const distance = timeIndex * timeItemTotalHeight + timeItemTotalHeight / 2;
       return distance;
     },
     // 处理直接点击时间时的滚动
+    // eslint-disable-next-line no-undef
     scrollToTime(col: EPickerCols, time: number | string, behavior: ScrollBehavior = 'auto') {
       const distance = this.getScrollDistance(col, time);
       const scroller = this.$refs[`${col}_scroller`] as Element;
@@ -122,15 +127,14 @@ export default defineComponent({
     },
     updateTimeScrollPos() {
       const { hour, minute, second } = EPickerCols;
-      const isNormalScroll = this.steps.filter((step) => step !== 1).length < 1
-        || (Number(this.splitValue[hour]) !== Number(this.steps[0]) - 1
-        || Number(this.splitValue[minute]) !== Number(this.steps[1]) - 1
-        || Number(this.splitValue[second]) !== Number(this.steps[2]) - 1);
+      const isNormalScroll =
+        this.steps.filter((step) => step !== 1).length < 1 ||
+        Number(this.splitValue[hour]) !== Number(this.steps[0]) - 1 ||
+        Number(this.splitValue[minute]) !== Number(this.steps[1]) - 1 ||
+        Number(this.splitValue[second]) !== Number(this.steps[2]) - 1;
 
       this.cols.forEach((col: EPickerCols) => {
-        isNormalScroll
-          ? this.scrollToTime(col, this.splitValue[col])
-          : this.scrollToTime(col, 0);
+        isNormalScroll ? this.scrollToTime(col, this.splitValue[col]) : this.scrollToTime(col, 0);
       });
     },
     generateColRows(col: EPickerCols) {
@@ -222,7 +226,14 @@ export default defineComponent({
         if (col === EPickerCols.hour) {
           max = /[h]{1}/.test(this.format) ? 11 : 23;
         }
-        scrollVal = Math.min(Math.abs(Math.round(((scrollTop - (itemHeight / 2)) / (itemHeight + this.timeItemMargin)) * Number(this.steps[colIdx]))), max);
+        scrollVal = Math.min(
+          Math.abs(
+            Math.round(
+              ((scrollTop - itemHeight / 2) / (itemHeight + this.timeItemMargin)) * Number(this.steps[colIdx]),
+            ),
+          ),
+          max,
+        );
         scrollVal = this.closestLookup(availableList, scrollVal, Number(this.steps[colIdx]));
 
         if (this.disableTime && this.hideDisabledTime) {
@@ -234,7 +245,10 @@ export default defineComponent({
         }
       } else {
         // 处理非时间col的相关的滚动
-        scrollVal = Math.min(Math.abs(Math.round((scrollTop - (itemHeight / 2)) / (itemHeight + this.timeItemMargin))), 1);
+        scrollVal = Math.min(
+          Math.abs(Math.round((scrollTop - itemHeight / 2) / (itemHeight + this.timeItemMargin))),
+          1,
+        );
         scrollVal = this.localeMeridiems[scrollVal];
       }
       // 矫正滚动距离 吸附效果

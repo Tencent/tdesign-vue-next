@@ -6,7 +6,7 @@
       clearable
       placeholder="请选择"
       :tree-props="{
-        load: loadFunc
+        load: loadFunc,
       }"
     />
   </div>
@@ -14,37 +14,44 @@
 <script>
 import { defineComponent, ref } from 'vue';
 
-const options = [{
-  label: '1',
-  value: '1',
-  children: true,
-}, {
-  label: '2',
-  value: '2',
-  children: true,
-}];
+const options = [
+  {
+    label: '1',
+    value: '1',
+    children: true,
+  },
+  {
+    label: '2',
+    value: '2',
+    children: true,
+  },
+];
 
 export default defineComponent({
   setup() {
     const value = ref('');
 
-    const loadFunc = (node) => new Promise((resolve) => {
-      setTimeout(() => {
-        let nodes = [];
-        if (node.level < 2) {
-          nodes = [{
-            label: `${node.label}.1`,
-            value: `${node.value}.1`,
-            children: true,
-          }, {
-            label: `${node.label}.2`,
-            value: `${node.value}.2`,
-            children: true,
-          }];
-        }
-        resolve(nodes);
-      }, 2000);
-    });
+    const loadFunc = (node) =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          let nodes = [];
+          if (node.level < 2) {
+            nodes = [
+              {
+                label: `${node.label}.1`,
+                value: `${node.value}.1`,
+                children: true,
+              },
+              {
+                label: `${node.label}.2`,
+                value: `${node.value}.2`,
+                children: true,
+              },
+            ];
+          }
+          resolve(nodes);
+        }, 2000);
+      });
 
     return {
       value,

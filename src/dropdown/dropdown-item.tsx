@@ -13,7 +13,8 @@ const name = `${prefix}-dropdown__item`;
 export default defineComponent({
   name: `${prefix}-dropdown-item`,
   components: {
-    TIconChevronRight, TDivider
+    TIconChevronRight,
+    TDivider,
   },
   directives: { ripple },
   props: {
@@ -69,18 +70,13 @@ export default defineComponent({
 
     return (
       <div>
-        <div
-          v-ripple
-          class={classes}
-          onClick={this.handleItemClick}
-          onMouseover={this.handleMouseover}
-        >
+        <div v-ripple class={classes} onClick={this.handleItemClick} onMouseover={this.handleMouseover}>
           <div class={`${name}__content`}>
             <span class={`${name}__content__text`}>{renderTNodeJSX(this, 'content')}</span>
           </div>
-          { this.renderSuffix()}
+          {this.renderSuffix()}
         </div>
-        {this.divider ? <TDivider/> : null}
+        {this.divider ? <TDivider /> : null}
       </div>
     );
   },

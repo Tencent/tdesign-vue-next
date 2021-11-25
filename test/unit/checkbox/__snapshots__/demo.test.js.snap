@@ -379,7 +379,7 @@ exports[`Checkbox link demo works fine 1`] = `
   <div
     class="demo-checkbox-row-desc"
   >
-     选中值: [
+    选中值: [
   "上海"
 ]
   </div>

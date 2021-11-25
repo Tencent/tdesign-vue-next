@@ -19,10 +19,6 @@ export default defineComponent({
   },
 
   render() {
-    return (
-      <main class="t-layout--content">
-        {this.renderContent()}
-      </main>
-    );
+    return <main class="t-layout--content">{this.renderContent()}</main>;
   },
 });

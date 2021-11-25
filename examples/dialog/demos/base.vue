@@ -1,11 +1,6 @@
 <template>
   <div>
-    <t-button
-      theme="primary"
-      @click="visible = true"
-    >
-      基础确认对话框
-    </t-button>
+    <t-button theme="primary" @click="visible = true"> 基础确认对话框 </t-button>
     <t-dialog
       v-model:visible="visible"
       header="对话框标题"

@@ -16,10 +16,7 @@ describe('Avatar', () => {
     it(':icon', () => {
       const wrapper = mount({
         render() {
-          return (
-            <div>
-            </div>
-          );
+          return <div></div>;
         },
       });
       expect(wrapper.element).toMatchSnapshot();
@@ -42,10 +39,10 @@ describe('Avatar', () => {
         render() {
           return (
             <div>
-              <Avatar size='small'>Avatar</Avatar>
-              <Avatar size='medium'>W</Avatar>
-              <Avatar size='large'>W</Avatar>
-              <Avatar size='80px'>Avatar</Avatar>
+              <Avatar size="small">Avatar</Avatar>
+              <Avatar size="medium">W</Avatar>
+              <Avatar size="large">W</Avatar>
+              <Avatar size="80px">Avatar</Avatar>
             </div>
           );
         },
@@ -73,11 +70,11 @@ describe('AvatarGroup', () => {
         render() {
           return (
             <div>
-              <AvatarGroup cascading='right-up'>
+              <AvatarGroup cascading="right-up">
                 <Avatar>W</Avatar>
                 <Avatar>W</Avatar>
               </AvatarGroup>
-              <AvatarGroup cascading='left-up'>
+              <AvatarGroup cascading="left-up">
                 <Avatar>W</Avatar>
                 <Avatar>W</Avatar>
               </AvatarGroup>
@@ -92,11 +89,11 @@ describe('AvatarGroup', () => {
         render() {
           return (
             <div>
-              <AvatarGroup cascading='right-up'>
+              <AvatarGroup cascading="right-up">
                 <Avatar>W</Avatar>
                 <Avatar>W</Avatar>
               </AvatarGroup>
-              <AvatarGroup cascading='left-up'>
+              <AvatarGroup cascading="left-up">
                 <Avatar>W</Avatar>
                 <Avatar>W</Avatar>
               </AvatarGroup>
@@ -127,7 +124,7 @@ describe('AvatarGroup', () => {
         render() {
           return (
             <div>
-              <AvatarGroup max={2} placement='bottom'>
+              <AvatarGroup max={2} placement="bottom">
                 <Avatar>W</Avatar>
                 <Avatar>W</Avatar>
                 <Avatar>W</Avatar>
@@ -159,7 +156,7 @@ describe('AvatarGroup', () => {
         render() {
           return (
             <div>
-              <AvatarGroup size='small'>
+              <AvatarGroup size="small">
                 <Avatar>W</Avatar>
                 <Avatar>W</Avatar>
                 <Avatar>W</Avatar>

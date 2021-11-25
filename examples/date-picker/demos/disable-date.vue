@@ -1,40 +1,19 @@
 <template>
   <div>
     <div class="tdesign-demo-item--datepicker">
-      <t-date-picker
-        theme="primary"
-        mode="date"
-        :disable-date="disableDate"
-      />
+      <t-date-picker theme="primary" mode="date" :disable-date="disableDate" />
     </div>
     <div class="tdesign-demo-item--datepicker">
-      <t-date-picker
-        theme="primary"
-        mode="date"
-        :disable-date="disableDate2"
-      />
+      <t-date-picker theme="primary" mode="date" :disable-date="disableDate2" />
     </div>
     <div class="tdesign-demo-item--datepicker">
-      <t-date-picker
-        theme="primary"
-        mode="date"
-        :disable-date="disableDate3"
-      />
+      <t-date-picker theme="primary" mode="date" :disable-date="disableDate3" />
     </div>
     <div class="tdesign-demo-item--datepicker">
-      <t-date-picker
-        theme="primary"
-        mode="date"
-        range
-        :disable-date="disableDate4"
-      />
+      <t-date-picker theme="primary" mode="date" range :disable-date="disableDate4" />
     </div>
     <div class="tdesign-demo-item--datepicker">
-      <t-date-picker
-        theme="primary"
-        mode="date"
-        :disable-date="getDisableDate"
-      />
+      <t-date-picker theme="primary" mode="date" :disable-date="getDisableDate" />
     </div>
   </div>
 </template>

@@ -72,9 +72,7 @@ export default defineComponent({
     },
     formattedValue: {
       get() {
-        const {
-          tempValue, range, mode, isOpen, startText, endText, locales, value: outValue,
-        } = this;
+        const { tempValue, range, mode, isOpen, startText, endText, locales, value: outValue } = this;
         const selectedDates = this.getDates(outValue);
         const selectedFmtDates: string[] = selectedDates.map((d: Date) => this.formatDate(d));
 
@@ -98,6 +96,8 @@ export default defineComponent({
             } else if (selectedFmtDates.length > 1) {
               value = [selectedFmtDates[0], selectedFmtDates[1]].join(locales.rangeSeparator);
             }
+            break;
+          default:
             break;
         }
 
@@ -312,6 +312,8 @@ export default defineComponent({
           // 有时间选择时，点击日期不关闭弹窗
           this.clickedApply(!this.enableTimePicker);
           break;
+        default:
+          break;
       }
     },
     toggle() {
@@ -424,6 +426,8 @@ export default defineComponent({
             this.$emit('change', selectedDates);
           }
           break;
+        default:
+          break;
       }
     },
     parseDate(value: any = '', format = ''): Date | boolean {
@@ -445,9 +449,7 @@ export default defineComponent({
       return false;
     },
     isEnabled(value: Date): boolean {
-      const {
-        min, max, disableDate, dateFormat,
-      } = this;
+      const { min, max, disableDate, dateFormat } = this;
       if (!disableDate) {
         return true;
       }
@@ -567,23 +569,11 @@ export default defineComponent({
   },
   render() {
     // props
-    const {
-      popupProps,
-      disabled,
-      clearable,
-      allowInput,
-      size,
-      inputProps,
-      enableTimePicker,
-      presets,
-      mode,
-      range,
-    } = this;
+    const { popupProps, disabled, clearable, allowInput, size, inputProps, enableTimePicker, presets, mode, range } =
+      this;
 
     // data
-    const {
-      start, end, showTime, startTimeValue, locales, isOpen, endTimeValue,
-    } = this;
+    const { start, end, showTime, startTimeValue, locales, isOpen, endTimeValue } = this;
 
     const panelProps = {
       value: range ? [start, end] : start,
@@ -593,11 +583,7 @@ export default defineComponent({
       onChange: this.dateClick,
     };
 
-    const panelComponent = range ? (
-      <t-date-range {...panelProps} />
-    ) : (
-      <t-date {...panelProps} />
-    );
+    const panelComponent = range ? <t-date-range {...panelProps} /> : <t-date {...panelProps} />;
 
     const popupContent = () => (
       <div ref="dropdownPopup" class={this.pickerStyles}>
@@ -613,47 +599,39 @@ export default defineComponent({
               isShowPanel={showTime}
               isFooterDisplay={false}
             />
-            {range && (<TTimePickerPanel
-              format="HH:mm:ss"
-              cols={[EPickerCols.hour, EPickerCols.minute, EPickerCols.second]}
-              steps={[1, 1, 1]}
-              value={[endTimeValue]}
-              onTimePick={this.handleEndTimePick}
-              isShowPanel={showTime}
-              isFooterDisplay={false}
-            />)}
-          </div>)
-        }
-        {!showTime && panelComponent}
-        {
-          (!!presets || enableTimePicker) && (
-            <div class={`${prefix}-date-picker__footer`}>
-              <TCalendarPresets
-                presets={presets}
-                locales={locales}
-                onClickRange={this.clickRange}
+            {range && (
+              <TTimePickerPanel
+                format="HH:mm:ss"
+                cols={[EPickerCols.hour, EPickerCols.minute, EPickerCols.second]}
+                steps={[1, 1, 1]}
+                value={[endTimeValue]}
+                onTimePick={this.handleEndTimePick}
+                isShowPanel={showTime}
+                isFooterDisplay={false}
               />
-              {
-                enableTimePicker && (
-                  <div class={`${name}--apply`}>
-                    {
-                      enableTimePicker && (
-                        <t-button theme="primary" variant="text" onClick={this.toggleTime}>
-                          {showTime ? locales.selectDate : locales.selectTime}
-                        </t-button>
-                      )
-                    }
-                    {
-                      <t-button theme="primary" onClick={this.clickedApply}>
-                        {locales.confirm}
-                      </t-button>
-                    }
-                  </div>
-                )
-              }
-            </div>
-          )
-        }
+            )}
+          </div>
+        )}
+        {!showTime && panelComponent}
+        {(!!presets || enableTimePicker) && (
+          <div class={`${prefix}-date-picker__footer`}>
+            <TCalendarPresets presets={presets} locales={locales} onClickRange={this.clickRange} />
+            {enableTimePicker && (
+              <div class={`${name}--apply`}>
+                {enableTimePicker && (
+                  <t-button theme="primary" variant="text" onClick={this.toggleTime}>
+                    {showTime ? locales.selectDate : locales.selectTime}
+                  </t-button>
+                )}
+                {
+                  <t-button theme="primary" onClick={this.clickedApply}>
+                    {locales.confirm}
+                  </t-button>
+                }
+              </div>
+            )}
+          </div>
+        )}
       </div>
     );
     const inputClassNames = [
@@ -676,9 +654,12 @@ export default defineComponent({
           overlayClassName={name}
           content={popupContent}
           expandAnimation={true}
-          onVisibleChange={(visible: boolean, context: {
-            trigger: string,
-          }) => {
+          onVisibleChange={(
+            visible: boolean,
+            context: {
+              trigger: string;
+            },
+          ) => {
             if (context.trigger === 'document') {
               this.toggle();
             }
@@ -699,9 +680,8 @@ export default defineComponent({
               focus={this.onNativeFocus}
               input={this.onNativeInput}
               click={this.onClick}
-              suffixIcon={() => enableTimePicker ? <TIconTime /> : <TIconCalendar />}
-            >
-            </t-input>
+              suffixIcon={() => (enableTimePicker ? <TIconTime /> : <TIconCalendar />)}
+            ></t-input>
           </div>
         </t-popup>
       </div>

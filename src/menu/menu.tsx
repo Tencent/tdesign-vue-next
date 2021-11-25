@@ -1,6 +1,4 @@
-import {
-  defineComponent, ref, computed, provide, watchEffect, watch, onMounted,
-} from 'vue';
+import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted } from 'vue';
 import { prefix } from '../config';
 import props from './props';
 import { MenuValue } from './type';
@@ -26,10 +24,7 @@ export default defineComponent({
         [`${prefix}-is-collapsed`]: props.collapsed,
       },
     ]);
-    const innerClasses = computed(() => [
-      `${prefix}-menu`,
-      { [`${prefix}-menu--scroll`]: mode.value !== 'popup' },
-    ]);
+    const innerClasses = computed(() => [`${prefix}-menu`, { [`${prefix}-menu--scroll`]: mode.value !== 'popup' }]);
     const expandWidth = typeof props.width === 'number' ? `${props.width}px` : props.width;
     const styles: ClassName = computed(() => ({
       height: '100%',
@@ -74,7 +69,8 @@ export default defineComponent({
         if (mode.value === 'normal') {
           expandValues.value = vMenu.expand(value);
         } else if (type === 'add') {
-          if (expandValues.value.indexOf(value) === -1) { // 可能初始expanded里包含了该value
+          if (expandValues.value.indexOf(value) === -1) {
+            // 可能初始expanded里包含了该value
             expandValues.value.push(value);
           }
         } else if (type === 'remove') {
@@ -123,11 +119,9 @@ export default defineComponent({
     return (
       <div class={this.menuClass} style={this.styles}>
         <div class={`${prefix}-default-menu__inner`}>
-          {logo && (<div class={`${prefix}-menu__logo`}>{logo}</div>)}
-          <ul class={this.innerClasses}>
-            {renderContent(this, 'default', 'content')}
-          </ul>
-          {operations && (<div class={`${prefix}-menu__operations`}>{operations}</div>)}
+          {logo && <div class={`${prefix}-menu__logo`}>{logo}</div>}
+          <ul class={this.innerClasses}>{renderContent(this, 'default', 'content')}</ul>
+          {operations && <div class={`${prefix}-menu__operations`}>{operations}</div>}
         </div>
       </div>
     );

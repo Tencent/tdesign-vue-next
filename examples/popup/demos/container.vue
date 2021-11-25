@@ -1,13 +1,15 @@
 <template>
   <div>
-    <t-popup
-      id="myPopup"
-      content="这是popup内容"
-      trigger="click"
-      :get-overlay-container="getContainer"
-    >
-      <t-button>click我试试</t-button>
-    </t-popup>
+    <div class="t-popup-demo-block">
+      <t-popup id="myPopup" content="触发元素的父元素是组件根元素，通过 CSSSelector 定义" attach="#myPopup">
+        <t-button variant="outline">父元素为组件本身</t-button>
+      </t-popup>
+    </div>
+    <div id="second-popup" class="t-popup-demo-block">
+      <t-popup content="触发元素的父元素是组件跟元素，通过 Funnction 定义" :attach="getAttach">
+        <t-button variant="outline">父元素为其他元素</t-button>
+      </t-popup>
+    </div>
   </div>
 </template>
 
@@ -17,7 +19,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   setup() {
     return {
-      getContainer: () => document.getElementById('myPopup'),
+      getAttach: () => document.querySelector('#second-popup'),
     };
   },
 });

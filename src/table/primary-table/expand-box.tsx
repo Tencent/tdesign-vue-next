@@ -31,12 +31,13 @@ export default defineComponent({
   emits: ['click'],
   methods: {
     getDefaultIcon() {
-      return isFunction(this.locale.expandIcon)
-        ? this.locale.expandIcon(this.$createElement)
-        : <TIconChevronDown />;
+      return isFunction(this.locale.expandIcon) ? this.locale.expandIcon(this.$createElement) : <TIconChevronDown />;
     },
     getExpandIcon(expanded: boolean) {
-      const icon = renderTNodeJSX(this, 'expandIcon', { params: { row: this.row, index: this.rowIndex }, defaultNode: this.getDefaultIcon() });
+      const icon = renderTNodeJSX(this, 'expandIcon', {
+        params: { row: this.row, index: this.rowIndex },
+        defaultNode: this.getDefaultIcon(),
+      });
       const style: Styles = {
         transition: 'all .2s',
         display: 'flex',
@@ -57,7 +58,7 @@ export default defineComponent({
     const icon = this.getExpandIcon(expanded);
     if (!icon) return null;
     return (
-      <span class={`${prefix}-table-expand-box`}onClick={this.handleClick}>
+      <span class={`${prefix}-table-expand-box`} onClick={this.handleClick}>
         {icon}
       </span>
     );

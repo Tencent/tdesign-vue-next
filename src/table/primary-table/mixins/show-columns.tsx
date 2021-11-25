@@ -12,7 +12,11 @@ const content = '自定义列';
 export default defineComponent({
   name: `${prefix}-primary-show-columns`,
   components: {
-    Button, BulletpointIcon, Dialog, Checkbox, CheckboxGroup,
+    Button,
+    BulletpointIcon,
+    Dialog,
+    Checkbox,
+    CheckboxGroup,
   },
   props: {
     columns: primaryTableProps.columns,
@@ -38,14 +42,16 @@ export default defineComponent({
         }));
     },
     isAllShowColumns(): boolean {
-      return this.showColumnCheckboxOpts
-        .every(({ value }: Record<string, any>) => this.showColumnCheckboxKeys.includes(value));
+      return this.showColumnCheckboxOpts.every(({ value }: Record<string, any>) =>
+        this.showColumnCheckboxKeys.includes(value),
+      );
     },
     isSomeShowColumns(): boolean {
       return (
-        !this.isAllShowColumns
-        && this.showColumnCheckboxOpts
-          .some(({ value }: Record<string, any>) => this.showColumnCheckboxKeys.includes(value))
+        !this.isAllShowColumns &&
+        this.showColumnCheckboxOpts.some(({ value }: Record<string, any>) =>
+          this.showColumnCheckboxKeys.includes(value),
+        )
       );
     },
   },
@@ -59,15 +65,17 @@ export default defineComponent({
   },
   methods: {
     getShowColumns(columns: TdPrimaryTableProps['columns']): TdPrimaryTableProps['columns'] {
-      return columns.filter(({ colKey }) => this.showColumnKeys.includes(colKey)
-        || !this.showColumnCheckboxOpts
-          .map(({ value }: Record<string, any>) => value).includes(colKey));
+      return columns.filter(
+        ({ colKey }) =>
+          this.showColumnKeys.includes(colKey) ||
+          !this.showColumnCheckboxOpts.map(({ value }: Record<string, any>) => value).includes(colKey),
+      );
     },
 
     renderShowColumnsDlgFooter(): VNode {
       return (
         <div>
-          <Button variant="base" theme="primary" onClick={this.handleConfirmShowColumnsDlg} >
+          <Button variant="base" theme="primary" onClick={this.handleConfirmShowColumnsDlg}>
             确定
           </Button>
           <Button onClick={this.handleConfirmShowColumnsDlg}>取消</Button>
@@ -76,8 +84,7 @@ export default defineComponent({
     },
     renderShowColumnsDlg(): VNode {
       return (
-        <Dialog header={content} footer={this.renderShowColumnsDlgFooter}
-          visible={this.isShowColumnsDlg}>
+        <Dialog header={content} footer={this.renderShowColumnsDlgFooter} visible={this.isShowColumnsDlg}>
           <div slot="body">
             <div>
               <Checkbox
@@ -88,8 +95,7 @@ export default defineComponent({
                 全选
               </Checkbox>
             </div>
-            <CheckboxGroup options={this.showColumnCheckboxOpts}
-              vModel={this.showColumnCheckboxKeys} />
+            <CheckboxGroup options={this.showColumnCheckboxOpts} vModel={this.showColumnCheckboxKeys} />
           </div>
         </Dialog>
       );
@@ -98,8 +104,9 @@ export default defineComponent({
       return (
         <div>
           <div>
-            <Button icon={() => <BulletpointIcon/> }
-              onClick={() => (this.isShowColumnsDlg = true)}>{content}</Button>
+            <Button icon={() => <BulletpointIcon />} onClick={() => (this.isShowColumnsDlg = true)}>
+              {content}
+            </Button>
           </div>
           {this.renderShowColumnsDlg()}
         </div>

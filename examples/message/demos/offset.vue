@@ -1,12 +1,8 @@
 <template>
   <div>
-    <p>
-      偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。
-    </p>
-    <br>
-    <t-button @click="showOffsetMsg">
-      带 offset 信息位置
-    </t-button>
+    <p>偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。</p>
+    <br />
+    <t-button @click="showOffsetMsg"> 带 offset 信息位置 </t-button>
   </div>
 </template>
 
@@ -34,15 +30,15 @@ export default defineComponent({
 </script>
 
 <style scoped>
-  .t-button {
-    margin-right: 16px;
-    margin-bottom: 16px;
-  }
+.t-button {
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
 </style>
 
 <style scoped>
-  .t-button {
-    margin-right: 16px;
-    margin-bottom: 16px;
-  }
+.t-button {
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
 </style>

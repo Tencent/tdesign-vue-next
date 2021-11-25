@@ -1,14 +1,12 @@
 import { ComponentPublicInstance } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 
-import {
-  TransferListOptionBase, TransferItemOption, TdTransferProps, TransferValue, DataOption,
-} from './interface';
+import { TransferListOptionBase, TransferItemOption, TdTransferProps, TransferValue, DataOption } from './interface';
 
 export { emitEvent } from '../utils/event';
 
 interface TreeNode {
-  children?: Array<TreeNode>
+  children?: Array<TreeNode>;
 }
 
 function findTopNode(vm: ComponentPublicInstance): ComponentPublicInstance {
@@ -35,10 +33,14 @@ function getTransferListOption<T>(prop: T | Array<T>): TransferListOptionBase<T>
   };
 }
 
-function getDataValues(data: Array<TransferItemOption>, filterValues: Array<TransferValue>, {
-  isTreeMode = false,
-  include = true, // true=保留filterValues，false=删除filterValues中元素
-} = {}): Array<TransferValue> {
+function getDataValues(
+  data: Array<TransferItemOption>,
+  filterValues: Array<TransferValue>,
+  {
+    isTreeMode = false,
+    include = true, // true=保留filterValues，false=删除filterValues中元素
+  } = {},
+): Array<TransferValue> {
   // 用于处理 tree 组件这种数据结构是树形的
   if (isTreeMode) {
     let result: Array<TransferValue> = [];
@@ -64,29 +66,35 @@ function getDataValues(data: Array<TransferItemOption>, filterValues: Array<Tran
     }
     return result;
   }
-  return data.filter((item) => {
-    const isInclude = filterValues.includes(item.value);
-    return ((include && isInclude) || (!include && !isInclude)) && !item.disabled;
-  }).map((item) => item.value);
+  return data
+    .filter((item) => {
+      const isInclude = filterValues.includes(item.value);
+      return ((include && isInclude) || (!include && !isInclude)) && !item.disabled;
+    })
+    .map((item) => item.value);
 }
 
-function getTransferData(data: Array<DataOption>, keys: TdTransferProps['keys'], isTreeMode = false): Array<TransferItemOption> {
+function getTransferData(
+  data: Array<DataOption>,
+  keys: TdTransferProps['keys'],
+  isTreeMode = false,
+): Array<TransferItemOption> {
   const list: Array<TransferItemOption> = data.map((transferDataItem, index): TransferItemOption => {
     const labelKey = keys?.label || 'label';
     const valueKey = keys?.value || 'value';
     if (transferDataItem[labelKey] === undefined) {
-      throw `${labelKey} is not in DataOption ${JSON.stringify(transferDataItem)}`;
+      throw new Error(`${labelKey} is not in DataOption ${JSON.stringify(transferDataItem)}`);
     }
     if (transferDataItem[valueKey] === undefined) {
-      throw `${valueKey} is not in DataOption ${JSON.stringify(transferDataItem)}`;
+      throw new Error(`${valueKey} is not in DataOption ${JSON.stringify(transferDataItem)}`);
     }
-    const result: TransferItemOption = ({
+    const result: TransferItemOption = {
       label: transferDataItem[labelKey] as string,
       value: transferDataItem[valueKey],
       key: `key__value_${transferDataItem[valueKey]}_index_${index}`,
       disabled: transferDataItem.disabled ?? false,
       data: transferDataItem,
-    });
+    };
     if (isTreeMode && transferDataItem.children) {
       result.children = getTransferData(transferDataItem.children, keys, true);
     }
@@ -116,7 +124,12 @@ function isTreeNodeValid(data: TransferItemOption, filterValues: Array<TransferV
 }
 
 // 复制树并过滤节点
-function cloneTreeWithFilter(sourceTree: TransferItemOption[], targetTree: TransferItemOption[], filterValues: Array<TransferValue>, needMatch: boolean) {
+function cloneTreeWithFilter(
+  sourceTree: TransferItemOption[],
+  targetTree: TransferItemOption[],
+  filterValues: Array<TransferValue>,
+  needMatch: boolean,
+) {
   sourceTree.forEach((item) => {
     let newNode: TransferItemOption;
     if (isAllNodeValid(item, filterValues, needMatch)) {
@@ -142,7 +155,12 @@ function cloneTreeWithFilter(sourceTree: TransferItemOption[], targetTree: Trans
 }
 
 // 过滤列表，如果是树的话需要保持树的结构
-function filterTransferData(data: Array<TransferItemOption>, filterValues: Array<TransferValue>, needMatch = true, isTreeMode = false) {
+function filterTransferData(
+  data: Array<TransferItemOption>,
+  filterValues: Array<TransferValue>,
+  needMatch = true,
+  isTreeMode = false,
+) {
   if (!isTreeMode) {
     return data.filter((item) => {
       const isMatch = filterValues.includes(item.value);
@@ -169,6 +187,11 @@ function getLeefCount(nodes: Array<TreeNode>): number {
 }
 
 export {
-  findTopNode, getTransferListOption, getDataValues, getTransferData, cloneTreeWithFilter,
-  filterTransferData, getLeefCount,
+  findTopNode,
+  getTransferListOption,
+  getDataValues,
+  getTransferData,
+  cloneTreeWithFilter,
+  filterTransferData,
+  getLeefCount,
 };

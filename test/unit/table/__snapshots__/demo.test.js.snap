@@ -832,7 +832,7 @@ exports[`Table customCell demo works fine 1`] = `
         2) 插槽，使用 cell 的值作为插槽名称；如果 cell 值为空，则默认取 colKey 作为插槽名称
       </li>
       <li>
-        3)【不推荐使用】使用 render 渲染函数，函数参数为：render(h, {col, colIndex, row, rowIndex, type})，单元格的 type 值为 cell，标题的 type 值为 title
+         3)【不推荐使用】使用 render 渲染函数，函数参数为：render(h, {col, colIndex, row, rowIndex, type})，单元格的 type 值为 cell，标题的 type 值为 title 
       </li>
     </ul>
     <br />
@@ -1483,7 +1483,7 @@ exports[`Table expandable demo works fine 1`] = `
     </div>
   </div>
   <div>
-     允许点击行之后展开/收起: 
+    允许点击行之后展开/收起: 
     <div
       class="t-switch t-size-m t-is-checked"
       disabled="false"
@@ -1654,7 +1654,7 @@ exports[`Table expandable demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                     健康 
+                    健康
                   </p>
                   <!--v-if-->
                   
@@ -1792,7 +1792,7 @@ exports[`Table expandable demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                     异常 
+                    异常
                   </p>
                   
                 </td>
@@ -1926,7 +1926,7 @@ exports[`Table expandable demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                     健康 
+                    健康
                   </p>
                   <!--v-if-->
                   
@@ -2064,7 +2064,7 @@ exports[`Table expandable demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                     异常 
+                    异常
                   </p>
                   
                 </td>
@@ -4377,7 +4377,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                     健康 
+                    健康
                   </p>
                   <!--v-if-->
                   
@@ -4464,7 +4464,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                     异常 
+                    异常
                   </p>
                   
                 </td>
@@ -4548,7 +4548,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                     健康 
+                    健康
                   </p>
                   <!--v-if-->
                   
@@ -4635,7 +4635,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                     异常 
+                    异常
                   </p>
                   
                 </td>
@@ -4847,7 +4847,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                     健康 
+                    健康
                   </p>
                   <!--v-if-->
                   
@@ -4936,7 +4936,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                     异常 
+                    异常
                   </p>
                   
                 </td>
@@ -5022,7 +5022,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                   <p
                     class="status"
                   >
-                     健康 
+                    健康
                   </p>
                   <!--v-if-->
                   
@@ -5111,7 +5111,7 @@ exports[`Table selectSingle demo works fine 1`] = `
                   <p
                     class="status unhealth"
                   >
-                     异常 
+                    异常
                   </p>
                   
                 </td>

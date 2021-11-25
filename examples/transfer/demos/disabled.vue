@@ -1,10 +1,6 @@
 <template>
   <div>
-    <t-transfer
-      :data="list"
-      :disabled="[false, true]"
-      :default-value="defaultValue"
-    />
+    <t-transfer :data="list" :disabled="[false, true]" :default-value="defaultValue" />
   </div>
 </template>
 <script>

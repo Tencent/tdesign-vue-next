@@ -30,72 +30,99 @@
 <script>
 import { defineComponent, ref, computed } from 'vue';
 
-const items = [{
-  value: '1',
-  label: '1',
-  children: [{
-    value: '1.1',
-    label: '1.1',
-    children: [{
-      value: '1.1.1',
-      label: '1.1.1',
-      children: [{
-        value: '1.1.1.1',
-        label: '1.1.1.1',
-      }, {
-        value: '1.1.1.2',
-        label: '1.1.1.2',
-      }],
-    }, {
-      value: '1.1.2',
-      label: '1.1.2',
-      children: [{
-        value: '1.1.2.1',
-        label: '1.1.2.1',
-      }, {
-        value: '1.1.2.2',
-        label: '1.1.2.2',
-      }],
-    }],
-  }, {
-    value: '1.2',
-    label: '1.2',
-    children: [{
-      value: '1.2.1',
-      label: '1.2.1',
-      children: [{
-        value: '1.2.1.1',
-        label: '1.2.1.1',
-      }, {
-        value: '1.2.1.2',
-        label: '1.2.1.2',
-      }],
-    }, {
-      value: '1.2.2',
-      label: '1.2.2',
-      children: [{
-        value: '1.2.2.1',
-        label: '1.2.2.1',
-      }, {
-        value: '1.2.2.2',
-        label: '1.2.2.2',
-      }],
-    }],
-  }],
-}, {
-  value: '2',
-  label: '2 这个节点不允许展开, 不允许激活',
-  checkable: false,
-  children: [{
-    value: '2.1',
-    label: '2.1 这个节点不允许选中',
+const items = [
+  {
+    value: '1',
+    label: '1',
+    children: [
+      {
+        value: '1.1',
+        label: '1.1',
+        children: [
+          {
+            value: '1.1.1',
+            label: '1.1.1',
+            children: [
+              {
+                value: '1.1.1.1',
+                label: '1.1.1.1',
+              },
+              {
+                value: '1.1.1.2',
+                label: '1.1.1.2',
+              },
+            ],
+          },
+          {
+            value: '1.1.2',
+            label: '1.1.2',
+            children: [
+              {
+                value: '1.1.2.1',
+                label: '1.1.2.1',
+              },
+              {
+                value: '1.1.2.2',
+                label: '1.1.2.2',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        value: '1.2',
+        label: '1.2',
+        children: [
+          {
+            value: '1.2.1',
+            label: '1.2.1',
+            children: [
+              {
+                value: '1.2.1.1',
+                label: '1.2.1.1',
+              },
+              {
+                value: '1.2.1.2',
+                label: '1.2.1.2',
+              },
+            ],
+          },
+          {
+            value: '1.2.2',
+            label: '1.2.2',
+            children: [
+              {
+                value: '1.2.2.1',
+                label: '1.2.2.1',
+              },
+              {
+                value: '1.2.2.2',
+                label: '1.2.2.2',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    value: '2',
+    label: '2 这个节点不允许展开, 不允许激活',
     checkable: false,
-  }, {
-    value: '2.2',
-    label: '2.2',
-    checkable: false,
-  }],
-}];
+    children: [
+      {
+        value: '2.1',
+        label: '2.1 这个节点不允许选中',
+        checkable: false,
+      },
+      {
+        value: '2.2',
+        label: '2.2',
+        checkable: false,
+      },
+    ],
+  },
+];
 
 export default defineComponent({
   setup() {
@@ -133,21 +160,21 @@ export default defineComponent({
 
     const onChange = (vals, context) => {
       console.info('onChange:', vals, context);
-      const checked = vals.filter((val) => (val !== '2.1'));
+      const checked = vals.filter((val) => val !== '2.1');
       console.info('节点 2.1 不允许选中');
       checked.value = checked;
     };
 
     const handleExpand = (vals, context) => {
       console.info('onExpand:', vals, context);
-      const expanded = vals.filter((val) => (val !== '2'));
+      const expanded = vals.filter((val) => val !== '2');
       console.info('节点 2 不允许展开');
       expanded.value = expanded;
     };
 
     const onActive = (vals, context) => {
       console.info('onActive:', vals, context);
-      const actived = vals.filter((val) => (val !== '2'));
+      const actived = vals.filter((val) => val !== '2');
       console.info('节点 2 不允许激活');
       actived.value = actived;
     };
@@ -170,7 +197,7 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-  .demo-tree-base {
-    display: block;
-  }
+.demo-tree-base {
+  display: block;
+}
 </style>

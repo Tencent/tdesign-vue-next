@@ -24,7 +24,9 @@ export default defineComponent({
       required: true,
     },
     operation: {
-      type: [String, Array, Function, Boolean] as PropType<Array<string | TNode> | TNode<{ direction: 'left' | 'right' }>>,
+      type: [String, Array, Function, Boolean] as PropType<
+        Array<string | TNode> | TNode<{ direction: 'left' | 'right' }>
+      >,
     },
   },
   emits: ['moveToRight', 'moveToLeft'],

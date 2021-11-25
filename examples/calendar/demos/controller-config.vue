@@ -1,9 +1,6 @@
 <template>
   <div class="controllerConfig-demo">
-    <div
-      v-if="controllerConfig"
-      style="margin: 12px 0"
-    >
+    <div v-if="controllerConfig" style="margin: 12px 0">
       <fieldset>
         <legend>控件全局</legend>
         <p>

@@ -53,7 +53,9 @@ export default class VMenu {
 
   constructor(options: Record<string, any>) {
     const root: VMenuData = {
-      value: null, parent: null, children: [],
+      value: null,
+      parent: null,
+      children: [],
     };
     this.data = root;
     this.isMutex = options?.isMutex;
@@ -109,9 +111,9 @@ export default class VMenu {
     }
 
     const sameParentNodes = getTreeSameParentNodes(this.data, val) || [];
-    const sameLevelSubmenuValues = new Set(sameParentNodes
-      .filter((node) => node.children?.length > 0 && node.value !== val)
-      .map((child) => child.value));
+    const sameLevelSubmenuValues = new Set(
+      sameParentNodes.filter((node) => node.children?.length > 0 && node.value !== val).map((child) => child.value),
+    );
 
     this.expandValues.forEach((val) => {
       const isHit = sameLevelSubmenuValues.has(val);

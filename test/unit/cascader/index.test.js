@@ -68,12 +68,7 @@ describe('Cascader', () => {
       const value = ['2.1', '2.2'];
       const wrapper = mount({
         render() {
-          return <Cascader
-            options={options}
-            v-model={value}
-            multiple
-            disabled
-            size="medium"></Cascader>;
+          return <Cascader options={options} v-model={value} multiple disabled size="medium"></Cascader>;
         },
       });
       expect(wrapper.find('.t-is-disabled').exists()).toBe(true);

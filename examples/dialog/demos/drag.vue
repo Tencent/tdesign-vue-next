@@ -1,31 +1,16 @@
 <template>
   <div>
-    <t-button
-      theme="primary"
-      @click="visibleModelessDrag = true"
-    >
-      非模态对话框-可拖拽
-    </t-button>
-    <t-button
-      theme="primary"
-      @click="visibleModeless = true"
-    >
-      非模态对话框-不可拖拽
-    </t-button>
-    <t-button
-      theme="primary"
-      @click="visibleModal = true"
-    >
-      模态对话框-不支持拖拽
-    </t-button>
-    <br>
+    <t-button theme="primary" @click="visibleModelessDrag = true"> 非模态对话框-可拖拽 </t-button>
+    <t-button theme="primary" @click="visibleModeless = true"> 非模态对话框-不可拖拽 </t-button>
+    <t-button theme="primary" @click="visibleModal = true"> 模态对话框-不支持拖拽 </t-button>
+    <br />
 
     <t-dialog
       v-model:visible="visibleModal"
       header="模态对话框"
       mode="modal"
       draggable
-      :on-confirm="() => visibleModal = false"
+      :on-confirm="() => (visibleModal = false)"
     >
       <template #body>
         <div>默认点击蒙层或按ESC可关闭</div>
@@ -39,7 +24,7 @@
       header="非模态对话框-可拖拽"
       mode="modeless"
       draggable
-      :on-confirm="() => visibleModelessDrag = false"
+      :on-confirm="() => (visibleModelessDrag = false)"
     >
       <template #body>
         <div>我是内容</div>
@@ -51,7 +36,7 @@
       v-model:visible="visibleModeless"
       header="非模态对话框-不可拖拽"
       mode="modeless"
-      :on-confirm="() => visibleModeless = false"
+      :on-confirm="() => (visibleModeless = false)"
     >
       <template #body>
         <div>我是内容</div>
@@ -60,7 +45,7 @@
     </t-dialog>
   </div>
 </template>
-<script >
+<script>
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({

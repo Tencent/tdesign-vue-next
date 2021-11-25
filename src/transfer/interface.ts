@@ -1,6 +1,4 @@
-import {
-  DataOption, TransferValue, TransferListType, SearchContext, TdTransferProps,
-} from './type';
+import { DataOption, TransferValue, TransferListType, SearchContext, TdTransferProps } from './type';
 
 export * from './type';
 

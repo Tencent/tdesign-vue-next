@@ -1,16 +1,8 @@
 <template>
   <div class="affix-container">
-    <div
-      ref="affixContainerRef"
-      class="affix-container-demo1"
-    >
+    <div ref="affixContainerRef" class="affix-container-demo1">
       <div class="background">
-        <t-affix
-          :offset-top="50"
-          :offset-bottom="50"
-          :container="getContainer"
-          @fixedChange="handleFixedChange"
-        >
+        <t-affix :offset-top="50" :offset-bottom="50" :container="getContainer" @fixedChange="handleFixedChange">
           <t-button>FixedTop top:{{ fixedTop }}</t-button>
         </t-affix>
       </div>

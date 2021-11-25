@@ -4,9 +4,7 @@
       <t-badge dot>
         <div class="badge-block" />
       </t-badge>
-      <t-badge dot>
-        解锁新徽章
-      </t-badge>
+      <t-badge dot> 解锁新徽章 </t-badge>
       <t-badge dot>
         <svg
           class="t-icon"
@@ -26,7 +24,7 @@
 </template>
 <script></script>
 <style>
-.demo-t-badge-title{
+.demo-t-badge-title {
   margin: 20px 0;
 }
 
@@ -37,8 +35,8 @@
 .badge-block {
   width: 40px;
   height: 40px;
-  background: #EEEEEE;
-  border: 1px solid #DCDCDC;
+  background: #eeeeee;
+  border: 1px solid #dcdcdc;
   box-sizing: border-box;
   border-radius: 3px;
 }

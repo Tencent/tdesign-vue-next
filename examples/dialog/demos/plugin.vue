@@ -1,35 +1,10 @@
 <template>
   <div>
-    <t-button
-      theme="primary"
-      @click="showDialog"
-    >
-      dialog
-    </t-button>
-    <t-button
-      theme="primary"
-      @click="handleDN"
-    >
-      handleDialogNode
-    </t-button>
-    <t-button
-      theme="primary"
-      @click="onConfirm"
-    >
-      confirm
-    </t-button>
-    <t-button
-      theme="primary"
-      @click="onAlert"
-    >
-      alert
-    </t-button>
-    <t-button
-      theme="primary"
-      @click="onDialogPluginConfirm"
-    >
-      DialogPlugin.confirm
-    </t-button>
+    <t-button theme="primary" @click="showDialog"> dialog </t-button>
+    <t-button theme="primary" @click="handleDN"> handleDialogNode </t-button>
+    <t-button theme="primary" @click="onConfirm"> confirm </t-button>
+    <t-button theme="primary" @click="onAlert"> alert </t-button>
+    <t-button theme="primary" @click="onDialogPluginConfirm"> DialogPlugin.confirm </t-button>
   </div>
 </template>
 <script>
@@ -63,7 +38,6 @@ export default defineComponent({
       const dialogNode = this.$dialog({
         header: 'Dialog-Plugin',
         body: 'Hi, darling! Do you want to be my lover?',
-
       });
       // 更新弹框内容
       dialogNode.update({
