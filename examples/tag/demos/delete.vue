@@ -128,10 +128,7 @@ import TIconDiscount from '@tencent/tdesign-vue-next/icon/discount';
 
 export default defineComponent({
   components: {
-    // eslint-disable-next-line vue/no-unused-components
     TIconAdd,
-    // eslint-disable-next-line vue/no-unused-components
-    TIconDiscount,
   },
   setup() {
     const inputVisible = ref(false);
@@ -141,11 +138,12 @@ export default defineComponent({
         type: 'default',
         showClose: true,
         maxWidth: 100,
+        disabled: true,
       },
       {
         name: '可删除标签可删除标签',
         type: 'default',
-        icon: () => <TIconDiscount />,
+        icon: () => <TIconDiscount size="16"/>,
         showClose: true,
         maxWidth: 100,
       },

@@ -22,7 +22,7 @@
     </t-list>
   </div>
 </template>
-<script />
+<script></script>
 <style scoped>
 .t-list {
   overflow: hidden;

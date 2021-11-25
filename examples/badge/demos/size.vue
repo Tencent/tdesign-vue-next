@@ -36,7 +36,7 @@
     </t-badge>
   </div>
 </template>
-<script />
+<script></script>
 
 <style scoped>
   .demo-t-badge-title {
@@ -49,6 +49,6 @@
   background: #EEEEEE;
   border: 1px solid #DCDCDC;
   box-sizing: border-box;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 </style>

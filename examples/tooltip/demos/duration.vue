@@ -1,24 +1,26 @@
 <template>
-  <t-tooltip
-    :key="reset"
-    :visible="true"
-    :content="`提示在 ${count} 秒后消失`"
-    :duration="5000"
-  >
-    <t-button
-      variant="text"
-      disabled
+  <div>
+    <t-tooltip
+      :key="reset"
+      default-visible
+      :content="`提示在 ${count} 秒后消失`"
+      :duration="5000"
     >
-      定时消失
+      <t-button
+        variant="text"
+        disabled
+      >
+        定时消失
+      </t-button>
+    </t-tooltip>
+    <t-button
+      v-if="!count"
+      variant="outline"
+      @click="setTimer"
+    >
+      点击再次查看
     </t-button>
-  </t-tooltip>
-  <t-button
-    v-if="!count"
-    variant="outline"
-    @click="setTimer"
-  >
-    点击再次查看
-  </t-button>
+  </div>
 </template>
 <script>
 import {

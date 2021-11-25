@@ -3,23 +3,23 @@
     <t-list :split="true">
       <t-list-item>
         <t-list-item-meta
-          :image="avatarUrl"
-          title="列表主内容"
-          description="列表内容列表内容"
+          :image="imageUrl"
+          title="列表标题"
+          description="列表内容的描述性文字"
         />
       </t-list-item>
       <t-list-item>
         <t-list-item-meta
-          :image="avatarUrl"
-          title="列表主内容"
-          description="列表内容列表内容"
+          :image="imageUrl"
+          title="列表标题"
+          description="列表内容的描述性文字"
         />
       </t-list-item>
       <t-list-item>
         <t-list-item-meta
-          :image="avatarUrl"
-          title="列表主内容"
-          description="列表内容列表内容"
+          :image="imageUrl"
+          title="列表标题"
+          description="列表内容的描述性文字"
         />
       </t-list-item>
     </t-list>
@@ -29,15 +29,11 @@
     <t-list :split="true">
       <t-list-item>
         <t-list-item-meta
-          :image="avatarUrl"
-          title="列表主内容"
+          :image="imageUrl"
+          title="列表标题"
         >
           <template #description>
-            <p>列表内容列表内容列表内容</p>
-            <p>列表内容列表内容列表内容</p>
-            <p>列表内容列表内容列表内容</p>
-            <p>列表内容列表内容列表内容</p>
-            <p>列表内容列表内容列表内容</p>
+            <p>列表内容的描述性文字</p>
           </template>
         </t-list-item-meta>
       </t-list-item>
@@ -50,7 +46,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   setup() {
     return {
-      avatarUrl: 'https://tdesign.gtimg.com/list-icon.png',
+      imageUrl: 'https://tdesign.gtimg.com/list-icon.png',
     };
   },
 });

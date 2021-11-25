@@ -8,9 +8,11 @@
           description="列表内容列表内容"
         />
         <template #action>
-          <li><a href="">操作1</a></li>
-          <li><a href="">操作2</a></li>
-          <li><a href="">操作3</a></li>
+          <span>
+            <t-button variant="text">操作1</t-button>
+            <t-button variant="text">操作2</t-button>
+            <t-button variant="text">操作3</t-button>
+          </span>
         </template>
       </t-list-item>
       <t-list-item>
@@ -20,9 +22,11 @@
           description="列表内容列表内容"
         />
         <template #action>
-          <li><a href="">操作1</a></li>
-          <li><a href="">操作2</a></li>
-          <li><a href="">操作3</a></li>
+          <span>
+            <t-button variant="text">操作1</t-button>
+            <t-button variant="text">操作2</t-button>
+            <t-button variant="text">操作3</t-button>
+          </span>
         </template>
       </t-list-item>
     </t-list>
@@ -37,9 +41,12 @@
           description="列表内容列表内容"
         />
         <template #action>
-          <li><t-icon-check-circle-filled /></li>
-          <li><t-icon-check-circle-filled /></li>
-          <li><t-icon-check-circle-filled /></li>
+          <t-button variant="text" shape="square">
+            <edit-icon />
+          </t-button>
+          <t-button variant="text" shape="square">
+            <download-icon />
+          </t-button>
         </template>
       </t-list-item>
       <t-list-item>
@@ -49,9 +56,12 @@
           description="列表内容列表内容"
         />
         <template #action>
-          <li><t-icon-check-circle-filled /></li>
-          <li><t-icon-check-circle-filled /></li>
-          <li><t-icon-check-circle-filled /></li>
+          <t-button variant="text" shape="square">
+            <edit-icon />
+          </t-button>
+          <t-button variant="text" shape="square">
+            <download-icon />
+          </t-button>
         </template>
       </t-list-item>
     </t-list>
@@ -60,10 +70,11 @@
 
 <script>
 import { defineComponent } from 'vue';
-import TIconCheckCircleFilled from '@tencent/tdesign-vue-next/icon/check-circle-filled';
+import EditIcon from '@tencent/tdesign-vue-next/icon/edit';
+import DownloadIcon from '@tencent/tdesign-vue-next/icon/download';
 
 export default defineComponent({
-  components: { TIconCheckCircleFilled },
+  components: { EditIcon, DownloadIcon },
   setup() {
     return {
       avatarUrl: 'https://tdesign.gtimg.com/list-icon.png',

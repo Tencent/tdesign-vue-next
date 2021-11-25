@@ -14,7 +14,7 @@
     </t-badge>
   </div>
 </template>
-<script />
+<script></script>
 
 <style>
 .badge-block {
@@ -23,7 +23,7 @@
   background: #EEEEEE;
   border: 1px solid #DCDCDC;
   box-sizing: border-box;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .badge-block + .badge-block {

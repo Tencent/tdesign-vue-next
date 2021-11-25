@@ -13,6 +13,11 @@ export const CIRCLE_SIZE_PX = {
   MEDIUM: 112,
   LARGE: 160,
 };
+export const CIRCLE_FONT_SIZE_RATIO = {
+  SMALL: 14 / CIRCLE_SIZE_PX.SMALL,
+  MEDIUM: 20 / CIRCLE_SIZE_PX.MEDIUM,
+  LARGE: 36 / CIRCLE_SIZE_PX.LARGE,
+};
 export const STATUS_TEXT = ['success', 'error', 'warning', 'active', 'normal'];
 export const STATUS_ICON = ['success', 'error', 'warning'];
 

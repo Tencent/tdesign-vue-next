@@ -29,7 +29,7 @@ export default {
     type: String as PropType<TdTooltipProps['theme']>,
     default: 'default' as TdTooltipProps['theme'],
     validator(val: TdTooltipProps['theme']): boolean {
-      return ['default', 'primary', 'success', 'danger', 'warning'].includes(val);
+      return ['default', 'primary', 'success', 'danger', 'warning', 'light'].includes(val);
     },
   },
 };

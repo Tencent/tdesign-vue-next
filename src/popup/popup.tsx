@@ -305,7 +305,9 @@ export default defineComponent({
       const content = this.getContentElm(el);
       if (content) {
         content.style.overflow = '';
-        content.style.maxHeight = '';
+        if (this.presetMaxHeight !== Infinity) {
+          content.style.maxHeight = '';
+        }
       }
     },
     // 设置展开动画初始条件
@@ -335,7 +337,6 @@ export default defineComponent({
       const content = this.getContentElm(el);
       if (content) {
         content.style.overflow = 'hidden';
-        content.style.maxHeight = `${content.scrollHeight}px`;
       }
     },
   },
