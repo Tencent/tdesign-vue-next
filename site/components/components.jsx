@@ -1,6 +1,8 @@
 import { defineComponent } from 'vue';
 import siteConfig from '../site.config.js';
 import packageJson from '@/package.json';
+import 'tdesign-site-components/lib/styles/prism-theme.less';
+import 'tdesign-site-components/lib/styles/prism-theme-dark.less';
 
 const { docs: routerList } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 

@@ -12,7 +12,6 @@
   />
 </template>
 <script>
-import axios from 'axios';
 import { defineComponent, ref, onMounted } from 'vue';
 
 const columns = [
@@ -58,14 +57,9 @@ export default defineComponent({
         isLoading.value = true;
         const { current, pageSize } = pagination;
         // 请求可能存在跨域问题
-        const response = await axios.get('https://randomuser.me/api', {
-          params: {
-            page: current,
-            results: pageSize,
-          },
-          responseType: 'json',
-        });
-        data.value = response.data.results;
+        const response = await fetch(`https://randomuser.me/api?page=${current}&results=${pageSize}`);
+        const { data: results } = await response.json();
+        data.value = results;
         pagination.value = {
           ...paginationVal,
           total: 120,

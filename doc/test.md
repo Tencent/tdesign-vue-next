@@ -40,14 +40,17 @@ npm run test:unit
 - demo.test.js 用于测试组件 demo 是否正常工作
 
 ### 2.1 单元测试规范
+
 - 每个组件至少有两个单元测试文件，一个是测试源代码的单元测试文件 index.test.js，另一个则是测试组件示例代码的单元测试文件 demo.test.js
 - 用例书写请使用：[vue-test-utils](https://vue-test-utils.vuejs.org/zh/)
 - 断言库请使用：[https://jestjs.io/docs/en/expect](https://jestjs.io/docs/en/expect)
 
 #### 单元测试文件
+
 需要对组件的 props/event/slot/methods 分别覆盖测试。具体组织方式可以参考 button，简单的渲染测试可以直接使用 snapshot
 
 #### 测试调试
+
 可以指定 --testPathPattern 以跑特定的测试文件，例如只想看 button 的测试结果：
 
 ```
@@ -65,12 +68,12 @@ npx jest --testPathPattern test/unit/button/* --config script/test/jest.unit.con
 ## 4. 服务端渲染测试
 
 服务端渲染测试主要利用node环境下的测试快照，与已有jsdom环境快照进行对比
+
 ```
 npm run test:node
 ```
 
 ## 注意事项
-
 
 # E2E 测试
 
@@ -96,6 +99,7 @@ npm run cypress
 ```
 
 ### GUI界面运行
+
 ```
 npm run cypress-gui
 ```
@@ -148,7 +152,6 @@ describe('测试按钮组件', () => {
 });
 
 ```
-
 
 ## 注意事项
 
