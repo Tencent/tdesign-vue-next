@@ -35,7 +35,7 @@ import styleContent from './index.css';
  * @param {string}} demoPath demo 路径
  */
 function getDemoContent(demoContent) {
-  return demoContent.replace(/@tencent\//g, '');
+  return demoContent.replace(/@tencent\//g, '').replace(/tdesign-vue-next\/icon\//g, 'tdesign-vue-next/lib/icon/');
 }
 
 export default defineComponent({
