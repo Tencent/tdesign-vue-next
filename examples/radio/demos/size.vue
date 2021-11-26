@@ -1,61 +1,26 @@
 <template>
-  <div class="tdesign-demo-block-row">
-    <div class="tdesign-demo-block-column">
-      <div>
-        <t-radio-group size="small" default-value="bj">
-          <t-radio-button value="bj"> 北京 </t-radio-button>
-          <t-radio-button value="sh"> 上海 </t-radio-button>
-          <t-radio-button value="gz"> 广州 </t-radio-button>
-          <t-radio-button value="sz"> 深圳 </t-radio-button>
-        </t-radio-group>
-      </div>
+  <div class="tdesign-demo-block-column">
+    <t-radio-group size="small" default-value="1">
+      <t-radio-button value="1">选项一</t-radio-button>
+      <t-radio-button value="2">选项二</t-radio-button>
+      <t-radio-button value="3">选项三</t-radio-button>
+      <t-radio-button value="4">选项四</t-radio-button>
+    </t-radio-group>
 
-      <div>
-        <t-radio-group default-value="sh">
-          <t-radio-button value="bj"> 北京 </t-radio-button>
-          <t-radio-button value="sh"> 上海 </t-radio-button>
-          <t-radio-button value="gz"> 广州 </t-radio-button>
-          <t-radio-button value="sz"> 深圳 </t-radio-button>
-        </t-radio-group>
-      </div>
+    <t-radio-group default-value="2">
+      <t-radio-button value="1">选项一</t-radio-button>
+      <t-radio-button value="2">选项二</t-radio-button>
+      <t-radio-button value="3">选项三</t-radio-button>
+      <t-radio-button value="4">选项四</t-radio-button>
+    </t-radio-group>
 
-      <div>
-        <t-radio-group size="large" default-value="gz">
-          <t-radio-button value="bj"> 北京 </t-radio-button>
-          <t-radio-button value="sh"> 上海 </t-radio-button>
-          <t-radio-button value="gz"> 广州 </t-radio-button>
-          <t-radio-button value="sz"> 深圳 </t-radio-button>
-        </t-radio-group>
-      </div>
-    </div>
-    <div class="tdesign-demo-block-column">
-      <div>
-        <t-radio-group size="small" variant="default-filled" default-value="bj">
-          <t-radio-button value="bj"> 北京 </t-radio-button>
-          <t-radio-button value="sh"> 上海 </t-radio-button>
-          <t-radio-button value="gz"> 广州 </t-radio-button>
-          <t-radio-button value="sz"> 深圳 </t-radio-button>
-        </t-radio-group>
-      </div>
-
-      <div>
-        <t-radio-group variant="default-filled" default-value="sh">
-          <t-radio-button value="bj"> 北京 </t-radio-button>
-          <t-radio-button value="sh"> 上海 </t-radio-button>
-          <t-radio-button value="gz"> 广州 </t-radio-button>
-          <t-radio-button value="sz"> 深圳 </t-radio-button>
-        </t-radio-group>
-      </div>
-
-      <div>
-        <t-radio-group size="large" variant="default-filled" default-value="gz">
-          <t-radio-button value="bj"> 北京 </t-radio-button>
-          <t-radio-button value="sh"> 上海 </t-radio-button>
-          <t-radio-button value="gz"> 广州 </t-radio-button>
-          <t-radio-button value="sz"> 深圳 </t-radio-button>
-        </t-radio-group>
-      </div>
-    </div>
+    <t-radio-group size="large" default-value="3">
+      <t-radio-button value="1">选项一</t-radio-button>
+      <t-radio-button value="2">选项二</t-radio-button>
+      <t-radio-button value="3">选项三</t-radio-button>
+      <t-radio-button value="4">选项四</t-radio-button>
+    </t-radio-group>
   </div>
 </template>
+
 <script></script>

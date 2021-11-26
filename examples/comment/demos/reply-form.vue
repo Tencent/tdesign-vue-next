@@ -20,7 +20,7 @@ export default defineComponent({
     const submitReply = () => {
       NotifyPlugin.info({
         title: '回复内容',
-        content: this.replyData,
+        content: replyData.value,
         duration: 3000,
       });
     };

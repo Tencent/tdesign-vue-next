@@ -1,15 +1,23 @@
 <template>
   <div>
     <!-- 选项过多时，可折叠 -->
-    <t-select v-model="value" placeholder="-请选择-" multiple :min-collapsed-num="1" :options="options" />
+    <t-select v-model="value" placeholder="请选择" multiple :min-collapsed-num="minCollapsedNum" :options="options" />
     <br /><br />
 
     <!-- 自定义折叠项内容，collapsedItems 为 function (value, count, size) -->
-    <t-select v-model="value" placeholder="-请选择-" multiple :min-collapsed-num="1" :options="options" />
+    <t-select
+      v-model="value"
+      placeholder="请选择"
+      multiple
+      :min-collapsed-num="minCollapsedNum"
+      :collapsed-items="collapsedItems"
+      :options="options"
+    />
     <br /><br />
 
     <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, size }-->
-    <t-select v-model="value" placeholder="-请选择-" multiple :min-collapsed-num="1" :options="options">
+    <t-select v-model="value" placeholder="请选择" multiple :min-collapsed-num="minCollapsedNum" :options="options">
+      <!-- hover展示折叠部分的已选项 -->
       <template #collapsedItems="{ collapsedSelectedItems, count }">
         <t-popup>
           <template #content>
@@ -67,6 +75,7 @@ export default defineComponent({
       options,
       value,
       collapsedItems,
+      minCollapsedNum: 1,
     };
   },
 });

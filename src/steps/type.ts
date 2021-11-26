@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-11-24 22:11:55
  * */
 
 import { TNode } from '../common';
@@ -13,16 +13,26 @@ export interface TdStepsProps {
    */
   current?: string | number;
   /**
+   * 当前步骤，非受控属性
+   */
+  defaultCurrent?: string | number;
+  /**
+   * 步骤条方向，有两种：横向和纵向
+   * @default horizontal
+   * @deprecated
+   */
+  direction?: 'horizontal' | 'vertical';
+  /**
    * 步骤条方向，有两种：横向和纵向
    * @default horizontal
    */
-  direction?: 'horizontal' | 'vertical';
+  layout?: 'horizontal' | 'vertical';
   /**
    * 步骤条数据列表（作用和 StepItem 效果一样）
    */
   options?: Array<TdStepItemProps>;
   /**
-   * 步骤条顺序
+   * 步骤条顺序，纵向步骤有效（direction = horizontal）
    * @default positive
    */
   sequence?: 'positive' | 'reverse';
@@ -40,6 +50,7 @@ export interface TdStepsProps {
 export interface TdStepItemProps {
   /**
    * 步骤描述
+   * @default ''
    */
   content?: string | TNode;
   /**
@@ -62,6 +73,7 @@ export interface TdStepItemProps {
   status?: StepStatus;
   /**
    * 标题
+   * @default ''
    */
   title?: string | TNode;
   /**

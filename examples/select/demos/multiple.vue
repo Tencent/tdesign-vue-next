@@ -1,64 +1,57 @@
 <template>
-  <div>
-    <t-select v-model="value" placeholder="-请选择-" multiple :min-collapsed-num="1" :options="options" />
+  <div class="tdesign-demo-select-base">
+    <t-select v-model="value1" placeholder="-请选择-" multiple :min-collapsed-num="1" :options="options1" />
     <br /><br />
 
     <!-- 自定义选中项内容，valueDisplay 为 function -->
-    <t-select v-model="value" placeholder="-请选择-" multiple :value-display="valueDisplay" :options="options" />
+    <t-select v-model="value2" placeholder="请选择云产品" multiple>
+      <t-option v-for="item in options2" :key="item.value" :value="item.value" :label="item.label"></t-option>
+    </t-select>
     <br /><br />
 
     <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
-    <t-select v-model="value" placeholder="-请选择-" multiple :options="options">
-      <template #valueDisplay="{ value: val, onClose }">
-        <t-tag
-          v-for="(item, index) in val"
-          :key="index"
-          :closable="true"
-          :on-close="() => onClose(index)"
-          variant="light"
-        >
-          {{ item.label }}（{{ item.value }}）
-        </t-tag>
-      </template>
-    </t-select>
+    <t-select v-model="value3" :options="options1" :min-collapsed-num="2" placeholder="请选择云解决方案" multiple />
   </div>
 </template>
 
 <script lang="jsx">
 import { defineComponent, ref } from 'vue';
 
-const options = [
+const options1 = [
+  { label: '架构云', value: '1' },
+  { label: '大数据', value: '2' },
+  { label: '区块链', value: '3' },
+  { label: '物联网', value: '4', disabled: true },
+  { label: '人工智能', value: '5' },
+  // 可以使用渲染函数自定义下拉选项内容和样式
   {
-    label: '选项一',
-    value: '1',
+    label: '计算场景',
+    value: '6',
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    content: (h) => <span>计算场景（高性能计算）</span>,
   },
-  {
-    label: '选项二',
-    value: '2',
-  },
-  {
-    label: '选项三',
-    value: '3',
-  },
+];
+const options2 = [
+  { label: '云服务器', value: '1' },
+  { label: '云数据库', value: '2' },
+  { label: '域名注册', value: '3' },
+  { label: '网站备案', value: '4' },
+  { label: '对象存储', value: '5' },
+  { label: '低代码平台', value: '6' },
 ];
 
 export default defineComponent({
   setup() {
-    const value = ref(['1', '3']);
-
-    const valueDisplay = (h, { value: val, onClose }) => {
-      if (!(val instanceof Array)) return;
-      return val.map((item, index) => (
-        <t-tag key={index} variant="light" closable={true} onClose={() => onClose(index)}>
-          {item.label}（{item.value}）
-        </t-tag>
-      ));
-    };
+    const value1 = ref(['1', '3']);
+    const value2 = ref(['1', '3']);
+    const value3 = ref(['1', '3']);
 
     return {
-      value,
-      options,
-      valueDisplay,
+      value1,
+      value2,
+      value3,
+      options1,
+      options2,
     };
   },
 });

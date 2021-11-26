@@ -46,7 +46,8 @@ exports[`Calendar card demo works fine 1`] = `
                 >
                   暂无数据
                 </li>
-                <span
+                <ul
+                  class="t-select__groups"
                   style="display: none;"
                 >
                   
@@ -65,7 +66,7 @@ exports[`Calendar card demo works fine 1`] = `
                   </li>
                   
                   
-                </span>
+                </ul>
               </div>
               
               <!---->
@@ -204,7 +205,8 @@ exports[`Calendar card demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -379,7 +381,7 @@ exports[`Calendar card demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -473,7 +475,8 @@ exports[`Calendar card demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -576,7 +579,7 @@ exports[`Calendar card demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -1608,7 +1611,8 @@ exports[`Calendar cardCell demo works fine 1`] = `
                 >
                   暂无数据
                 </li>
-                <span
+                <ul
+                  class="t-select__groups"
                   style="display: none;"
                 >
                   
@@ -1627,7 +1631,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
                   </li>
                   
                   
-                </span>
+                </ul>
               </div>
               
               <!---->
@@ -1733,7 +1737,8 @@ exports[`Calendar cardCell demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -1908,7 +1913,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -2002,7 +2007,8 @@ exports[`Calendar cardCell demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -2105,7 +2111,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -3481,7 +3487,8 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -3656,7 +3663,7 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -3750,7 +3757,8 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -3853,7 +3861,7 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -4980,7 +4988,8 @@ exports[`Calendar events demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -5155,7 +5164,7 @@ exports[`Calendar events demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -5249,7 +5258,8 @@ exports[`Calendar events demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -5352,7 +5362,7 @@ exports[`Calendar events demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -6515,7 +6525,8 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -6690,7 +6701,7 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -6784,7 +6795,8 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -6887,7 +6899,7 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -8027,7 +8039,8 @@ exports[`Calendar filter demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -8202,7 +8215,7 @@ exports[`Calendar filter demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -8296,7 +8309,8 @@ exports[`Calendar filter demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -8399,7 +8413,7 @@ exports[`Calendar filter demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -9290,7 +9304,8 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                 >
                   暂无数据
                 </li>
-                <span
+                <ul
+                  class="t-select__groups"
                   style="display: none;"
                 >
                   
@@ -9339,7 +9354,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                   </li>
                   
                   
-                </span>
+                </ul>
               </div>
               
               <!---->
@@ -9445,7 +9460,8 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -9620,7 +9636,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -9714,7 +9730,8 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -9817,7 +9834,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -11072,7 +11089,8 @@ exports[`Calendar mode demo works fine 1`] = `
                 >
                   暂无数据
                 </li>
-                <span
+                <ul
+                  class="t-select__groups"
                   style="display: none;"
                 >
                   
@@ -11091,7 +11109,7 @@ exports[`Calendar mode demo works fine 1`] = `
                   </li>
                   
                   
-                </span>
+                </ul>
               </div>
               
               <!---->
@@ -11197,7 +11215,8 @@ exports[`Calendar mode demo works fine 1`] = `
                       >
                         暂无数据
                       </li>
-                      <span
+                      <ul
+                        class="t-select__groups"
                         style="display: none;"
                       >
                         
@@ -11372,7 +11391,7 @@ exports[`Calendar mode demo works fine 1`] = `
                         </li>
                         
                         
-                      </span>
+                      </ul>
                     </div>
                     
                     <!---->
@@ -11871,7 +11890,8 @@ exports[`Calendar week demo works fine 1`] = `
                         >
                           暂无数据
                         </li>
-                        <span
+                        <ul
+                          class="t-select__groups"
                           style="display: none;"
                         >
                           
@@ -12046,7 +12066,7 @@ exports[`Calendar week demo works fine 1`] = `
                           </li>
                           
                           
-                        </span>
+                        </ul>
                       </div>
                       
                       <!---->
@@ -12140,7 +12160,8 @@ exports[`Calendar week demo works fine 1`] = `
                         >
                           暂无数据
                         </li>
-                        <span
+                        <ul
+                          class="t-select__groups"
                           style="display: none;"
                         >
                           
@@ -12243,7 +12264,7 @@ exports[`Calendar week demo works fine 1`] = `
                           </li>
                           
                           
-                        </span>
+                        </ul>
                       </div>
                       
                       <!---->
@@ -13348,7 +13369,8 @@ exports[`Calendar week demo works fine 1`] = `
                         >
                           暂无数据
                         </li>
-                        <span
+                        <ul
+                          class="t-select__groups"
                           style="display: none;"
                         >
                           
@@ -13523,7 +13545,7 @@ exports[`Calendar week demo works fine 1`] = `
                           </li>
                           
                           
-                        </span>
+                        </ul>
                       </div>
                       
                       <!---->
@@ -13617,7 +13639,8 @@ exports[`Calendar week demo works fine 1`] = `
                         >
                           暂无数据
                         </li>
-                        <span
+                        <ul
+                          class="t-select__groups"
                           style="display: none;"
                         >
                           
@@ -13720,7 +13743,7 @@ exports[`Calendar week demo works fine 1`] = `
                           </li>
                           
                           
-                        </span>
+                        </ul>
                       </div>
                       
                       <!---->
@@ -14825,7 +14848,8 @@ exports[`Calendar week demo works fine 1`] = `
                         >
                           暂无数据
                         </li>
-                        <span
+                        <ul
+                          class="t-select__groups"
                           style="display: none;"
                         >
                           
@@ -15000,7 +15024,7 @@ exports[`Calendar week demo works fine 1`] = `
                           </li>
                           
                           
-                        </span>
+                        </ul>
                       </div>
                       
                       <!---->
@@ -15094,7 +15118,8 @@ exports[`Calendar week demo works fine 1`] = `
                         >
                           暂无数据
                         </li>
-                        <span
+                        <ul
+                          class="t-select__groups"
                           style="display: none;"
                         >
                           
@@ -15197,7 +15222,7 @@ exports[`Calendar week demo works fine 1`] = `
                           </li>
                           
                           
-                        </span>
+                        </ul>
                       </div>
                       
                       <!---->

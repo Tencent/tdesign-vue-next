@@ -1,9 +1,10 @@
-import { defineComponent, Transition, PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { prefix } from '../../config';
 import CLASSNAMES from '../../utils/classnames';
 import getLocalRecevierMixins from '../../locale/local-receiver';
 import mixins from '../../utils/mixins';
+import { renderTNodeJSX } from '../../utils/render-tnode';
 
 // component
 import Tag from '../../tag';
@@ -50,6 +51,7 @@ export default defineComponent({
     listeners: {
       type: Object as PropType<InputContentProps['listeners']>,
     },
+    collapsedItems: CascaderProps.collapsedItems,
   },
   emits: ['change'],
   data() {
@@ -132,28 +134,41 @@ export default defineComponent({
           {node.label}
         </Tag>
       );
+      const renderCollItems = () => {
+        const tempList: object[] = [];
+        multipleContent.forEach((node: TreeNode) => {
+          tempList.push(node.data);
+        });
+        return tempList;
+      };
 
       const generalContent = !multiple ? (
         <span className={`${prefix}-cascader-content`}>{singleContent}</span>
       ) : (
-        <>
+        <span>
           {minCollapsedNum > 0 && multipleContent.length > minCollapsedNum ? (
-            <>
+            <span>
               {multipleContent
                 .slice(0, minCollapsedNum)
                 .map((node: TreeNode, index: number) => renderSelfTag(node, index))}
-              {!collapsedItems ? (
+              {collapsedItems || this.$slots.collapsedItems ? (
+                renderTNodeJSX(this.tCascader, 'collapsedItems', {
+                  params: {
+                    value: renderCollItems(),
+                    collapsedSelectedItems: renderCollItems().slice(minCollapsedNum),
+                    count: renderCollItems().length - minCollapsedNum,
+                  },
+                })
+              ) : (
                 <Tag size={size} disabled={disabled}>
                   +{multipleContent.length - minCollapsedNum}
                 </Tag>
-              ) : (
-                collapsedItems(null)
               )}
-            </>
+            </span>
           ) : (
             multipleContent.map((node: TreeNode, index: number) => renderSelfTag(node, index))
           )}
-        </>
+        </span>
       );
 
       const inputPlaceholder = multiple

@@ -8,6 +8,7 @@ import TreeItem from './tree-item';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { ClassName, TNodeReturnValue, TreeOptionData } from '../common';
+import { TdTreeProps } from './type';
 
 import {
   TypeTdTreeProps,
@@ -69,8 +70,8 @@ export default defineComponent({
     },
   },
   watch: {
-    data() {
-      this.rebuild();
+    data(list) {
+      this.rebuild(list);
     },
     keys(nKeys) {
       this.store.setConfig({
@@ -271,12 +272,41 @@ export default defineComponent({
     },
 
     // 树结构变化后，重新
-    rebuild() {
-      this.store = null;
-      this.nodesMap = null;
-      this.mouseEvent = null;
-      this.treeNodes = [];
-      this.build();
+    rebuild(list: TdTreeProps['data']) {
+      this.getNodesMap().clear();
+      this.treeNodes.length = 0;
+      const { store, value, actived } = this;
+      store.reload(list);
+      // 初始化选中状态
+      if (Array.isArray(value)) {
+        store.setChecked(value);
+      }
+      this.updateExpanded();
+      // 初始化激活状态
+      if (Array.isArray(actived)) {
+        store.setActived(actived);
+      }
+      store.refreshState();
+    },
+
+    updateExpanded() {
+      const { store, expanded, expandParent } = this;
+      // 初始化展开状态
+      // 校验是否自动展开父节点
+      if (Array.isArray(expanded)) {
+        const expandedMap = new Map();
+        expanded.forEach((val) => {
+          expandedMap.set(val, true);
+          if (expandParent) {
+            const node = store.getNode(val);
+            node.getParents().forEach((tn: TypeTreeNodeModel) => {
+              expandedMap.set(tn.value, true);
+            });
+          }
+        });
+        const expandedArr = Array.from(expandedMap.keys());
+        store.setExpanded(expandedArr);
+      }
     },
 
     // 初始化树结构
@@ -342,20 +372,7 @@ export default defineComponent({
       }
 
       // 初始化展开状态
-      if (Array.isArray(expanded)) {
-        const expandedMap = new Map();
-        expanded.forEach((val) => {
-          expandedMap.set(val, true);
-          if (expandParent) {
-            const node = store.getNode(val);
-            node.getParents().forEach((tn) => {
-              expandedMap.set(tn.value, true);
-            });
-          }
-        });
-        const expandedArr = Array.from(expandedMap.keys());
-        store.setExpanded(expandedArr);
-      }
+      this.updateExpanded();
 
       // 初始化激活状态
       if (Array.isArray(actived)) {

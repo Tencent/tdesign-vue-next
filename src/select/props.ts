@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-10 14:56:14
+ * updated at 2021-11-23 10:46:16
  * */
 
 import { TdSelectProps } from './type';
@@ -39,7 +39,7 @@ export default {
   keys: {
     type: Object as PropType<TdSelectProps['keys']>,
   },
-  /** 是否正在加载数据 */
+  /** 是否为加载状态 */
   loading: Boolean,
   /** 远程加载时显示的文字，支持自定义。如加上超链接 */
   loadingText: {

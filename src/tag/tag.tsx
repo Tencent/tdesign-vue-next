@@ -3,22 +3,12 @@ import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import TIconClose from '../icon/close';
 import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { ClassName, TNodeReturnValue } from '../common';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;
 
-const initVariantList = {
-  dark: `${name}--dark`,
-  light: `${name}--light`,
-  plain: `${name}--plain`,
-};
-const initShapeList = {
-  square: `${name}--square`,
-  round: `${name}--round`,
-  mark: `${name}--mark`,
-};
 const defaultShape = 'square';
 
 export default defineComponent({
@@ -31,8 +21,8 @@ export default defineComponent({
         `${name}`,
         `${name}--${this.theme}`,
         CLASSNAMES.SIZE[this.size],
-        initVariantList[this.variant],
-        this.shape !== defaultShape && initShapeList[this.shape],
+        `${name}--${this.variant}`,
+        this.shape !== 'square' && `${name}--${this.shape}`,
         {
           [`${name}--ellipsis`]: this.maxWidth,
           [`${name}--close`]: this.closable,
@@ -57,9 +47,7 @@ export default defineComponent({
   render() {
     const closeIcon: VNode | string = this.closable ? <TIconClose onClick={this.handleClose} /> : '';
     // 标签内容
-    const tagContent: TNodeReturnValue =
-      renderTNodeJSX(this as ComponentPublicInstance, 'default') ||
-      renderTNodeJSX(this as ComponentPublicInstance, 'content');
+    const tagContent: TNodeReturnValue = renderContent(this, 'default', 'content');
     // 图标
     const icon = renderTNodeJSX(this, 'icon');
 

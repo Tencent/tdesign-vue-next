@@ -5,7 +5,7 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import ripple from '../utils/ripple';
 import props from './option-props';
-import { Options } from './type';
+import { SelectOption } from './type';
 import Checkbox from '../checkbox/index';
 import { ClassName } from '../common';
 
@@ -65,7 +65,9 @@ export default defineComponent({
       if (!this.tSelect) return false;
       if (this.isCreatedOption) return true;
       if (this.tSelect.canFilter && this.tSelect.searchInput !== '') {
-        return this.tSelect.filterOptions.some((option: Options) => get(option, this.tSelect.realValue) === this.value);
+        return this.tSelect.filterOptions.some(
+          (option: SelectOption) => get(option, this.tSelect.realValue) === this.value,
+        );
       }
       return true;
     },
@@ -79,7 +81,7 @@ export default defineComponent({
         if (this.tSelect.labelInValue) {
           flag =
             this.tSelect.value
-              .map((item: string | number | Options) => get(item, this.tSelect.realValue))
+              .map((item: string | number | SelectOption) => get(item, this.tSelect.realValue))
               .indexOf(this.value) !== -1;
         } else {
           flag = this.tSelect.value.indexOf(this.value) !== -1;

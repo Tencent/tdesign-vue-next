@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-11-24 22:11:55
  * */
 
 import { TdStepsProps } from './type';
@@ -13,11 +13,18 @@ export default {
   current: {
     type: [String, Number] as PropType<TdStepsProps['current']>,
   },
-  /** 步骤条方向，有两种：横向和纵向 */
+  /** 当前步骤，非受控属性 */
+  defaultCurrent: {
+    type: [String, Number] as PropType<TdStepsProps['defaultCurrent']>,
+  },
+  /** 已废弃。步骤条方向，有两种：横向和纵向 */
   direction: {
     type: String as PropType<TdStepsProps['direction']>,
-    default: 'horizontal' as TdStepsProps['direction'],
-    validator(val: TdStepsProps['direction']): boolean {
+  },
+  /** 步骤条方向，有两种：横向和纵向 */
+  layout: {
+    type: String as PropType<TdStepsProps['layout']>,
+    validator(val: TdStepsProps['layout']): boolean {
       return ['horizontal', 'vertical'].includes(val);
     },
   },
@@ -25,7 +32,7 @@ export default {
   options: {
     type: Array as PropType<TdStepsProps['options']>,
   },
-  /** 步骤条顺序 */
+  /** 步骤条顺序，纵向步骤有效（direction = horizontal） */
   sequence: {
     type: String as PropType<TdStepsProps['sequence']>,
     default: 'positive' as TdStepsProps['sequence'],

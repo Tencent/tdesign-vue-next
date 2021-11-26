@@ -40,6 +40,13 @@ export default {
   dialog: {
     confirm: '确认',
     cancel: '取消',
+    confirmBtnTheme: {
+      default: 'primary',
+      info: 'primary',
+      warning: 'primary',
+      danger: 'primary',
+      success: 'primary',
+    },
   },
   drawer: {
     confirm: '确认',
@@ -48,6 +55,11 @@ export default {
   popconfirm: {
     confirm: '确定',
     cancel: '取消',
+    confirmBtnTheme: {
+      default: 'primary',
+      warning: 'primary',
+      danger: 'primary',
+    },
   },
   table: {
     empty: '暂无数据',
@@ -108,5 +120,11 @@ export default {
   steps: {},
   upload: {
     sizeLimitMessage: '图片大小不能超过 {sizeLimit}',
+  },
+  tag: {
+    closeIcon: undefined,
+  },
+  form: {
+    requiredMark: true,
   },
 };
