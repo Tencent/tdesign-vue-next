@@ -20,7 +20,7 @@
 </template>
 <script lang="jsx">
 import { defineComponent } from 'vue';
-import TIconApp from '@tencent/tdesign-vue-next/lib/icon/app';
+import TIconApp from '@tencent/tdesign-vue-next/icon/app';
 
 const data = [
   {

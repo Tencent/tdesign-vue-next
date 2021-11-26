@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router
 import config from './site.config';
 import TdesignComponents from './components/components.jsx';
 import TdesignDemoPage from './components/demo-page.vue';
-import TdesignPlayground from './pages/playground/index.vue';
+import TdesignPlayground from '../examples/playground/index.vue';
 
 const { docs } = config;
 

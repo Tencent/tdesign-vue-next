@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import TDesign from '@tencent/tdesign-vue-next';
-import App from './pages/app.vue';
+import App from './app.vue';
 import router from './routes';
 
 import codeSandbox from './components/code-sandbox/index.vue';

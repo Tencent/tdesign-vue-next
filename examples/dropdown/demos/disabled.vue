@@ -12,7 +12,7 @@
 </template>
 <script>
 import { defineComponent } from 'vue';
-import TIconChevronDown from '@tencent/tdesign-vue-next/lib/icon/chevron-down';
+import TIconChevronDown from '@tencent/tdesign-vue-next/icon/chevron-down';
 
 const options = [
   {

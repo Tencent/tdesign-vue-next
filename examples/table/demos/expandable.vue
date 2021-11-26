@@ -40,8 +40,8 @@
 <script lang="jsx">
 import { defineComponent, ref, watch } from 'vue';
 
-import TIconChevronDownCircle from '@tencent/tdesign-vue-next/lib/icon/chevron-down-circle';
-import TIconChevronDown from '@tencent/tdesign-vue-next/lib/icon/chevron-down';
+import TIconChevronDownCircle from '@tencent/tdesign-vue-next/icon/chevron-down-circle';
+import TIconChevronDown from '@tencent/tdesign-vue-next/icon/chevron-down';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },

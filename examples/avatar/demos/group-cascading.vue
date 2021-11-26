@@ -19,7 +19,7 @@
 </template>
 <script lang="jsx">
 import { defineComponent, computed } from 'vue';
-import UserIcon from '@tencent/tdesign-vue-next/lib/icon/user';
+import UserIcon from '@tencent/tdesign-vue-next/icon/user';
 
 export default defineComponent({
   setup() {

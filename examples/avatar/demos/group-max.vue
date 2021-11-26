@@ -25,8 +25,8 @@
 </template>
 <script lang="jsx">
 import { defineComponent, computed } from 'vue';
-import UserIcon from '@tencent/tdesign-vue-next/lib/icon/user';
-import EllipsisIcon from '@tencent/tdesign-vue-next/lib/icon/ellipsis';
+import UserIcon from '@tencent/tdesign-vue-next/icon/user';
+import EllipsisIcon from '@tencent/tdesign-vue-next/icon/ellipsis';
 
 export default defineComponent({
   setup() {
