@@ -152,7 +152,7 @@ export default defineComponent({
                 .slice(0, minCollapsedNum)
                 .map((node: TreeNode, index: number) => renderSelfTag(node, index))}
               {collapsedItems || this.$slots.collapsedItems ? (
-                renderTNodeJSX(this.tCascader, 'collapsedItems', {
+                renderTNodeJSX(this, 'collapsedItems', {
                   params: {
                     value: renderCollItems(),
                     collapsedSelectedItems: renderCollItems().slice(minCollapsedNum),

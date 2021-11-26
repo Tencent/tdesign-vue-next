@@ -15,7 +15,7 @@
 
 <script>
 import { defineComponent, resolveComponent, ref } from 'vue';
-import TIcon from '@tencent/tdesign-vue-next/icon';
+import TIcon from '@tencent/tdesign-vue-next/lib/icon';
 
 export default defineComponent({
   components: { TIcon },

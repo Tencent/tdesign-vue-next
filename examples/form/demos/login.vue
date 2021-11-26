@@ -32,8 +32,8 @@
 import { defineComponent, ref } from 'vue';
 import { MessagePlugin } from '@tencent/tdesign-vue-next';
 
-import TIconDesktop from '@tencent/tdesign-vue-next/icon/desktop';
-import TIconLockOn from '@tencent/tdesign-vue-next/icon/lock-on';
+import TIconDesktop from '@tencent/tdesign-vue-next/lib/icon/desktop';
+import TIconLockOn from '@tencent/tdesign-vue-next/lib/icon/lock-on';
 
 const INITIAL_DATA = {
   account: '',
