@@ -27,20 +27,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.cellAppend {
-  margin: 10px;
-  background-color: #ebf2ff;
-  color: #888;
-  border-radius: 3px;
-  padding: 2px 4px;
-}
-.cellAppend.belongCurrent {
-  color: #0052d9;
-}
-.cellAppend.actived {
-  background-color: #0052d9;
-  color: #ebf2ff;
-}
-</style>
