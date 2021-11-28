@@ -1,6 +1,7 @@
 import { defineComponent, h, VNodeChild, getCurrentInstance } from 'vue';
 import { prefix } from '../config';
 import props from './tab-panel-props';
+import { renderContent } from '../utils/render-tnode';
 
 const name = `${prefix}-tab-panel`;
 
@@ -8,30 +9,11 @@ export default defineComponent({
   name,
 
   props: { ...props },
-  emits: ['remove'],
 
   computed: {
     active(): boolean {
       const { value } = this.$parent as any;
       return this.value === value;
-    },
-  },
-
-  methods: {
-    getContent(): VNodeChild {
-      if (typeof this.default === 'function') {
-        return this.default(h);
-      }
-      if (typeof this.$slots.default === 'function') {
-        return this.$slots.default(null);
-      }
-      if (typeof this.panel === 'function') {
-        return this.panel(h);
-      }
-      if (typeof this.$slots.panel === 'function') {
-        return this.$slots.panel(null);
-      }
-      return null;
     },
   },
 
@@ -43,9 +25,9 @@ export default defineComponent({
       <div
         class="t-tab-panel"
         // TODO: use v-show to replace display:none. , in the production env, v-show is performance for v-if.
-        style={!active && { display: 'none' }}
+        v-show={active}
       >
-        {this.getContent()}
+        {renderContent(this, 'default', 'panel')}
       </div>
     );
   },

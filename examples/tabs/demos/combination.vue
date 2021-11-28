@@ -1,6 +1,6 @@
 <template>
-  <div class="t-demo-tabs">
-    <div class="t-demo-tabs__desc">
+  <div class="tdesign-demo-block-column-large" style="width: 100%">
+    <div>
       <t-radio-group v-model="theme" variant="default-filled">
         <t-radio-button value="normal"> 常规型 </t-radio-button>
         <t-radio-button value="card"> 卡片型 </t-radio-button>
@@ -29,21 +29,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="less">
-.t-demo-tabs {
-  &__desc {
-    margin-bottom: 20px;
-    color: #333;
-    font-size: 14px;
-
-    &:not(:first-of-type) {
-      margin-top: 20px;
-    }
-
-    p {
-      margin-bottom: 20px;
-    }
-  }
-}
-</style>
