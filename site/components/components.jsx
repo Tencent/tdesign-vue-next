@@ -6,7 +6,7 @@ import 'tdesign-site-components/lib/styles/prism-theme-dark.less';
 
 const { docs: routerList } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 
-const historyVersion = [];
+const historyVersion = ['0.4.3'];
 
 export default defineComponent({
   data() {
