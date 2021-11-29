@@ -16,7 +16,7 @@ import Tag from '../tag/index';
 import Popup, { PopupProps } from '../popup/index';
 import Option from './option';
 import props from './props';
-import { SelectOption, TdOptionProps, SelectValue, TdSelectProps, SelectOptionGroup } from './type';
+import { SelectOption, TdOptionProps, SelectValue, SelectOptionGroup } from './type';
 import { ClassName } from '../common';
 import FakeArrow from '../common-components/fake-arrow';
 
@@ -554,7 +554,6 @@ export default defineComponent({
       emptyClass,
       hasOptions,
       realLabel,
-      realValue,
       showCreateOption,
       displayOptions,
     } = this;

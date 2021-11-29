@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-25 15:53:00
+ * updated at 2021-11-19 10:44:26
  * */
 
 import { TdUploadProps } from './type';
@@ -52,7 +52,7 @@ export default {
   format: {
     type: Function as PropType<TdUploadProps['format']>,
   },
-  /** 用于格式化文件上传后的响应数据。error 用于显示错误提示；url 用于上传文件/图片地址 */
+  /** 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址。 */
   formatResponse: {
     type: Function as PropType<TdUploadProps['formatResponse']>,
   },
@@ -129,7 +129,7 @@ export default {
   onFail: Function as PropType<TdUploadProps['onFail']>,
   /** 点击预览时触发 */
   onPreview: Function as PropType<TdUploadProps['onPreview']>,
-  /** 上传进度变化时触发 */
+  /** 上传进度变化时触发，真实进度和模拟进度都会触发。type 值为 real 表示真实上传进度，type 值为 mock 表示模拟上传进度 */
   onProgress: Function as PropType<TdUploadProps['onProgress']>,
   /** 移除文件时触发 */
   onRemove: Function as PropType<TdUploadProps['onRemove']>,

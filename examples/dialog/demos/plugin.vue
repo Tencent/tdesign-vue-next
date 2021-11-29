@@ -11,7 +11,6 @@
 import { defineComponent } from 'vue';
 import { DialogPlugin } from '@tencent/tdesign-vue-next';
 
-console.log(DialogPlugin);
 export default defineComponent({
   data() {
     return {

@@ -19,7 +19,7 @@ import { emitEvent } from '../utils/event';
 import {
   HTMLInputEvent,
   SuccessContext,
-  ProgressContext,
+  InnerProgressContext,
   UploadRemoveOptions,
   FlowRemoveContext,
   URL,
@@ -234,7 +234,12 @@ export default defineComponent({
           status: 'waiting',
           ...file,
         };
-        uploadFile.url = this.getLocalFileURL(fileRaw);
+        // uploadFile.url = this.getLocalFileURL(fileRaw);
+        const reader = new FileReader();
+        reader.readAsDataURL(fileRaw);
+        reader.onload = (event: ProgressEvent<FileReader>) => {
+          uploadFile.url = event.target.result as string;
+        };
         this.handleBeforeUpload(file).then((canUpload) => {
           if (!canUpload) return;
           const newFiles = this.toUploadFiles.concat();
@@ -286,17 +291,9 @@ export default defineComponent({
           clearInterval(timer);
         }
         this.handleProgress({
-          e: {
-            ...new Event('progress'),
-            ...{
-              lengthComputable: false,
-              loaded: file.percent,
-              target: null,
-              total: 1,
-            },
-          },
           file,
           percent: file.percent,
+          type: 'mock',
         });
       }, 10);
     },
@@ -310,12 +307,7 @@ export default defineComponent({
         if (!this.handleRequestMethodResponse(res)) return;
         const files = this.multiple ? this.files.concat(file) : [file];
         if (res.status === 'success') {
-          this.handleSuccess({
-            e: null,
-            file,
-            fileList: files,
-            response: res.response,
-          });
+          this.handleSuccess({ file, response: res.response });
         } else if (res.status === 'fail') {
           const r = res.response || {};
           this.onError({ event: null, file, response: { ...r, error: res.error } });
@@ -352,46 +344,62 @@ export default defineComponent({
       });
     },
 
-    onError(options: { event: ProgressEvent; file: UploadFile; response?: any }) {
-      const { event, file, response } = options;
+    onError(options: { event?: ProgressEvent; file: UploadFile; response?: any; resFormatted?: boolean }) {
+      const { event, file, response, resFormatted } = options;
       file.status = 'fail';
       this.loadingFile = file;
       let res = response;
-      if (typeof this.formatResponse === 'function') {
-        res = this.formatResponse(response);
+      if (!resFormatted && typeof this.formatResponse === 'function') {
+        res = this.formatResponse(response, { file });
       }
       this.errorMsg = res?.error;
       const context = { e: event, file };
       emitEvent<Parameters<TdUploadProps['onFail']>>(this, 'fail', context);
     },
 
-    handleProgress({ e, file, percent }: ProgressContext) {
-      file.percent = percent;
+    handleProgress({ event, file, percent, type = 'real' }: InnerProgressContext) {
+      file.percent = Math.min(percent, 100);
       this.loadingFile = file;
-      const progressCtx = { percent, e, file };
+      const progressCtx = {
+        percent,
+        e: event,
+        file,
+        type,
+      };
       emitEvent<Parameters<TdUploadProps['onProgress']>>(this, 'progress', progressCtx);
     },
 
-    handleSuccess({ e, file, response }: SuccessContext) {
+    handleSuccess({ event, file, response }: SuccessContext) {
       file.status = 'success';
-      file.url = response.url || file.url;
+      let res = response;
+      if (typeof this.formatResponse === 'function') {
+        res = this.formatResponse(response, { file });
+      }
+      // 如果返回值存在 error，则认为当前接口上传失败
+      if (res?.error) {
+        this.onError({
+          event,
+          file,
+          response: res,
+          resFormatted: true,
+        });
+        return;
+      }
+      file.url = res.url || file.url;
       // 从待上传文件队列中移除上传成功的文件
       const index = findIndex(this.toUploadFiles, (o: any) => o.name === file.name);
       this.toUploadFiles.splice(index, 1);
       // 上传成功的文件发送到 files
-      const newFile: UploadFile = { ...file, response };
+      const newFile: UploadFile = { ...file, response: res };
       const files = this.multiple ? this.files.concat(newFile) : [newFile];
-      const context = { e, response, trigger: 'upload-success' };
+      const context = { e: event, response: res, trigger: 'upload-success' };
       this.emitChangeEvent(files, context);
-      let sContext: SuccessContext = {
+      const sContext = {
         file,
         fileList: files,
-        e,
-        response,
+        e: event,
+        response: res,
       };
-      if (typeof this.formatResponse === 'function') {
-        sContext = this.formatResponse(sContext) as SuccessContext;
-      }
       emitEvent<Parameters<TdUploadProps['onSuccess']>>(this, 'success', sContext);
       // https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL
       this.URL && this.URL.revokeObjectURL(this.loadingFile.url);
@@ -465,7 +473,12 @@ export default defineComponent({
     // close image view dialog
     cancelPreviewImgDialog() {
       this.showImageViewDialog = false;
-      this.showImageViewUrl = '';
+      // Dialog 动画结束后，再清理图片
+      let timer = setTimeout(() => {
+        this.showImageViewUrl = '';
+        clearTimeout(timer);
+        timer = null;
+      }, 500);
     },
 
     getDefaultTrigger() {
@@ -609,9 +622,9 @@ export default defineComponent({
             header={false}
             onClose={this.cancelPreviewImgDialog}
           >
-            <p class={`${prefix}-dialog__body-img-box`}>
-              <img class="" src={this.showImageViewUrl} alt="" />
-            </p>
+            <div class={`${prefix}-dialog__body-img-box`}>
+              <img src={this.showImageViewUrl} alt="" />
+            </div>
           </TDialog>
         )}
         {!this.errorMsg && this.showTips && <small class={this.tipsClasses}>{this.tips}</small>}

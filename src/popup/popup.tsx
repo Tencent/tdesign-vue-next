@@ -12,7 +12,7 @@ import setStyle from '../utils/set-style';
 
 const { prefix } = config;
 
-const stop = (e: MouseEvent): void => e.stopPropagation();
+const stop = (e: MouseEvent) => e.stopPropagation();
 const name = `${prefix}-popup`;
 const placementMap = {
   top: 'top',
@@ -38,6 +38,18 @@ export default defineComponent({
 
   components: {
     Transition,
+  },
+
+  provide(this: any) {
+    return {
+      popup: this,
+    };
+  },
+
+  inject: {
+    popup: {
+      default: undefined,
+    },
   },
 
   props: {
@@ -141,10 +153,26 @@ export default defineComponent({
     if (this.hasTrigger.hover) {
       const open = () => this.handleOpen({ trigger: 'trigger-element-hover' });
       const close = () => this.handleClose({ trigger: 'trigger-element-hover' });
-      offEvents.push(on(reference, 'mouseenter', open));
-      offEvents.push(on(reference, 'mouseleave', close));
-      offEvents.push(on(popperElm, 'mouseenter', open));
-      offEvents.push(on(popperElm, 'mouseleave', close));
+      offEvents.push(on(reference, 'mouseenter', () => this.handleOpen({ trigger: 'trigger-element-hover' })));
+      offEvents.push(on(reference, 'mouseleave', () => this.handleClose({ trigger: 'trigger-element-hover' })));
+      offEvents.push(on(popperElm, 'mouseenter', () => this.handleOpen({ trigger: 'trigger-element-hover' }, true)));
+      offEvents.push(
+        on(popperElm, 'mouseleave', (ev: MouseEvent) => {
+          const parent = (this as any).popup;
+          let closeParent: boolean;
+          if (parent?.visible) {
+            const parentRect = parent.$refs.popper.getBoundingClientRect();
+            // close parent if mouse isn't inside
+            closeParent = !(
+              ev.x > parentRect.left &&
+              ev.x < parentRect.right &&
+              ev.y > parentRect.top &&
+              ev.y < parentRect.bottom
+            );
+          }
+          this.handleClose({ trigger: 'trigger-element-hover' }, closeParent);
+        }),
+      );
     }
 
     if (this.hasTrigger.focus) {
@@ -168,7 +196,7 @@ export default defineComponent({
     }
     this.offEvents = offEvents;
   },
-  beforeUnmount(): void {
+  beforeUnmount() {
     if (this.popper && !this.visible) {
       this.popper.destroy();
       this.popper = null;
@@ -182,7 +210,7 @@ export default defineComponent({
     this.offEvents.forEach((handler) => handler && handler());
   },
   methods: {
-    createPopper(): void {
+    createPopper() {
       const currentPlacement = this.placement;
       const popperElm = this.$refs.popper as HTMLElement;
 
@@ -219,7 +247,7 @@ export default defineComponent({
       });
     },
 
-    updatePopper(): void {
+    updatePopper() {
       if (this.popperJS) {
         this.popperJS.update();
       } else {
@@ -247,13 +275,13 @@ export default defineComponent({
       }
     },
 
-    doDestroy(forceDestroy: boolean): void {
+    doDestroy(forceDestroy: boolean) {
       if (!this.popperJS || (this.visible && !forceDestroy)) return;
       this.popperJS.destroy();
       this.popperJS = null;
     },
 
-    destroyPopper(el: HTMLElement): void {
+    destroyPopper(el: HTMLElement) {
       this.resetExpandStyles(el);
       if (this.popper) {
         this.popper.destroy();
@@ -265,11 +293,11 @@ export default defineComponent({
       }
     },
 
-    handleToggle(context: PopupVisibleChangeContext): void {
+    handleToggle(context: PopupVisibleChangeContext) {
       this.emitPopVisible(!this.visible, context);
     },
 
-    handleOpen(context: Pick<PopupVisibleChangeContext, 'trigger'>): void {
+    handleOpen(context: Pick<PopupVisibleChangeContext, 'trigger'>, openParent?: boolean) {
       clearTimeout(this.timeout);
       this.timeout = setTimeout(
         () => {
@@ -277,8 +305,12 @@ export default defineComponent({
         },
         this.clickTrigger ? 0 : showTimeout,
       );
+      // keep parent open (recursively)
+      if (openParent) {
+        (this as any).popup?.handleOpen(context, true);
+      }
     },
-    handleClose(context: Pick<PopupVisibleChangeContext, 'trigger'>): void {
+    handleClose(context: Pick<PopupVisibleChangeContext, 'trigger'>, closeParent?: boolean) {
       clearTimeout(this.timeout);
       this.timeout = setTimeout(
         () => {
@@ -286,8 +318,12 @@ export default defineComponent({
         },
         this.clickTrigger ? 0 : hideTimeout,
       );
+      // close parent (recursively)
+      if (closeParent) {
+        (this as any).popup?.handleClose({ trigger: 'trigger-element-hover' }, true);
+      }
     },
-    handleDocumentClick(e: Event): void {
+    handleDocumentClick(e: Event) {
       const popperElm = this.$refs.popper as HTMLElement;
       if (!this.$el || this.$el.contains(e.target as Element) || !popperElm || popperElm.contains(e.target as Node))
         return;
@@ -308,7 +344,7 @@ export default defineComponent({
       return null;
     },
     // 动画结束后 清除展开收起动画相关属性 避免造成不必要的影响
-    resetExpandStyles(el: HTMLElement): void {
+    resetExpandStyles(el: HTMLElement) {
       const content = this.getContentElm(el);
       if (content) {
         content.style.overflow = '';
@@ -318,7 +354,7 @@ export default defineComponent({
       }
     },
     // 设置展开动画初始条件
-    beforeEnter(el: HTMLElement): void {
+    beforeEnter(el: HTMLElement) {
       const content = this.getContentElm(el);
       if (content) {
         content.style.overflow = 'hidden';
@@ -326,7 +362,7 @@ export default defineComponent({
       }
     },
     // 设置max-height,触发展开动画
-    enter(el: HTMLElement): void {
+    enter(el: HTMLElement) {
       const content = this.getContentElm(el);
       if (content) {
         // 对比scrollHeight和组件自身设置的maxHeight 选择小的做展开动画
@@ -335,12 +371,12 @@ export default defineComponent({
       }
     },
     // 设置max-height为0,触发收起动画
-    leave(el: HTMLElement): void {
+    leave(el: HTMLElement) {
       const content = this.getContentElm(el);
       if (content) content.style.maxHeight = '0';
     },
     // 设置收起动画初始条件
-    beforeLeave(el: HTMLElement): void {
+    beforeLeave(el: HTMLElement) {
       const content = this.getContentElm(el);
       if (content) {
         content.style.overflow = 'hidden';
