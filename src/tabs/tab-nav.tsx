@@ -9,10 +9,8 @@ import TTabPanel from './tab-panel';
 import TTabNavItem from './tab-nav-item';
 import { emitEvent } from '../utils/event';
 import { firstUpperCase } from '../utils/helper';
-import { TdTabsProps, TdTabPanelProps } from './type';
+import { TdTabsProps, TdTabPanelProps as TabPanelProps } from './type';
 import tabProps from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
-import { TabPanelProps } from '.';
 
 const getDomWidth = (dom: HTMLElement): number => dom?.offsetWidth || 0;
 
@@ -79,22 +77,30 @@ export default defineComponent({
   },
   computed: {
     navs() {
-      return this.panels.map((panel, index) => (
-        <TTabNavItem
-          key={panel.value}
-          index={index}
-          theme={this.theme}
-          size={this.size}
-          placement={this.placement}
-          label={panel?.children?.label ? panel.children.label() : `选项卡${index + 1}`}
-          active={panel.value === this.value}
-          disabled={this.disabled || panel.disabled}
-          removable={panel.removable}
-          value={panel.value}
-          onClick={(e: MouseEvent) => this.tabClick(e, panel)}
-          onRemove={this.removeBtnClick}
-        ></TTabNavItem>
-      ));
+      return this.panels.map((panel, index) => {
+        let label;
+        if (panel?.children?.label) {
+          label = panel.children.label();
+        } else {
+          label = panel.label || `选项卡${index + 1}`;
+        }
+        return (
+          <TTabNavItem
+            key={panel.value}
+            index={index}
+            theme={this.theme}
+            size={this.size}
+            placement={this.placement}
+            label={label}
+            active={panel.value === this.value}
+            disabled={this.disabled || panel.disabled}
+            removable={panel.removable}
+            value={panel.value}
+            onClick={(e: MouseEvent) => this.tabClick(e, panel)}
+            onRemove={this.removeBtnClick}
+          ></TTabNavItem>
+        );
+      });
     },
     wrapTransformStyle(): { [key: string]: string } {
       if (['left', 'right'].includes(this.placement.toLowerCase())) return {};

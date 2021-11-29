@@ -9,8 +9,9 @@
 </template>
 <script>
 import { defineComponent } from 'vue';
-import { DialogPlugin } from '@/src/dialog';
+import { DialogPlugin } from '@tencent/tdesign-vue-next';
 
+console.log(DialogPlugin);
 export default defineComponent({
   data() {
     return {
@@ -25,7 +26,7 @@ export default defineComponent({
       }
       this.mydialog = this.$dialog({
         header: 'Dialog-Plugin',
-        body: 'Hi, darling! Do you want to be my lover?',
+        body: 'Plugin 方式创建新弹窗',
         className: 't-dialog-new-class1 t-dialog-new-class2',
         style: 'color: rgba(0, 0, 0, 0.6)',
         onConfirm: ({ e }) => {

@@ -1,10 +1,12 @@
 <template>
-  <div :class="_class">
+  <div :class="selfClass">
     <component :is="demo" />
   </div>
 </template>
 <script>
-export default {
+import { defineComponent, computed } from 'vue';
+
+export default defineComponent({
   props: {
     demo: {
       type: Object,
@@ -15,10 +17,14 @@ export default {
       default: '',
     },
   },
-  computed: {
-    _class() {
-      return `demo-${this.componentName}`;
-    },
+  setup(props) {
+    const selfClass = computed(() => {
+      const { componentName } = props;
+      return `demo-${componentName}`;
+    });
+    return {
+      selfClass,
+    };
   },
-};
+});
 </script>
