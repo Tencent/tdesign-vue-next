@@ -44,8 +44,8 @@ export default defineComponent({
     return {
       value1,
       value2,
-      options2,
       options1,
+      options2,
     };
   },
 });

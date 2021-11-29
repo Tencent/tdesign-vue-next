@@ -1,7 +1,22 @@
-import { UploadFile, TdUploadProps, SuccessContext, ProgressContext } from './type';
+import { UploadFile, ProgressContext, TdUploadProps, RequestMethodResponse } from './type';
 
 export type UploadProps = TdUploadProps;
 export * from './type';
+
+export interface InnerProgressContext {
+  event?: ProgressEvent;
+  file: UploadFile;
+  percent: number;
+  type?: ProgressContext['type'];
+}
+export interface SuccessContext {
+  event?: ProgressEvent;
+  file: UploadFile;
+  response: RequestMethodResponse['response'];
+}
+export interface HTMLInputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
+}
 
 export interface XhrOptions {
   action: string;
@@ -11,16 +26,11 @@ export interface XhrOptions {
   method: TdUploadProps['method'];
   file: UploadFile;
   name: string;
-  onError: ({ event, file, response }: { event: ProgressEvent; file?: UploadFile; response?: any }) => void;
+  onError: ({ event, file, response }: { event?: ProgressEvent; file?: UploadFile; response?: any }) => void;
   onSuccess: (context: SuccessContext) => void;
-  onProgress: (context: ProgressContext) => void;
+  onProgress: (context: InnerProgressContext) => void;
 }
 
-export interface HTMLInputEvent extends Event {
-  target: HTMLInputElement & EventTarget;
-}
-
-export type { SuccessContext, ProgressContext } from './type';
 export interface UploadRemoveOptions {
   e: MouseEvent;
   file?: UploadFile;

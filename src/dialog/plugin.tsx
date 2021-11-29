@@ -1,4 +1,4 @@
-import { App, createApp, ref, defineComponent, h } from 'vue';
+import { App, createApp, ref, Plugin, defineComponent, h } from 'vue';
 import DialogComponent from './dialog';
 import { getAttach } from '../utils/dom';
 import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from './type';
@@ -7,6 +7,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };
   const wrapper = document.createElement('div');
   const visible = ref(true);
+  const { className } = options;
   const component = defineComponent({
     data() {
       return {
@@ -19,6 +20,7 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
         function () {
           visible.value = false;
         };
+      delete options.className;
       return h(DialogComponent, {
         onClose,
         visible: visible.value,
@@ -28,8 +30,8 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
   });
   const dialog = createApp(component).mount(wrapper);
 
-  if (options.className) {
-    options.className.split(' ').forEach((name) => {
+  if (className) {
+    className.split(' ').forEach((name) => {
       dialog.$el.classList.add(name.trim());
     });
   }
@@ -78,14 +80,15 @@ const extraApi: ExtraApi = {
   alert,
 };
 
-const DialogPlugin = {
-  /* eslint-disable no-param-reassign */
-  install: (app: App): void => {
-    app.config.globalProperties.$dialog = createDialog;
-    Object.keys(extraApi).forEach((funcName) => {
-      app.config.globalProperties.$dialog[funcName] = extraApi[funcName];
-    });
-  },
+export type DialogPluginType = Plugin & ExtraApi & DialogAlertMethod;
+
+const DialogPlugin: DialogPluginType = createDialog as DialogPluginType;
+
+DialogPlugin.install = (app: App): void => {
+  app.config.globalProperties.$dialog = createDialog;
+  Object.keys(extraApi).forEach((funcName) => {
+    app.config.globalProperties.$dialog[funcName] = extraApi[funcName];
+  });
 };
 
 Object.keys(extraApi).forEach((funcName) => {

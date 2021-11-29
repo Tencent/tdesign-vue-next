@@ -2,7 +2,8 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-25 15:53:00
+ * updated at 2021-11-19 10:44:26
+
  * */
 
 import { TNode } from '../common';
@@ -58,9 +59,9 @@ export interface TdUploadProps {
    */
   format?: (file: File) => UploadFile;
   /**
-   * 用于格式化文件上传后的响应数据。error 用于显示错误提示；url 用于上传文件/图片地址
+   * 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址。
    */
-  formatResponse?: (response: any) => ResponseType ;
+  formatResponse?: (response: any, context: FormatResponseContext) => ResponseType ;
   /**
    * 设置上传的请求头部
    */
@@ -147,7 +148,7 @@ export interface TdUploadProps {
    */
   onPreview?: (options: { file: UploadFile; e: MouseEvent }) => void;
   /**
-   * 上传进度变化时触发
+   * 上传进度变化时触发，真实进度和模拟进度都会触发。type 值为 real 表示真实上传进度，type 值为 mock 表示模拟上传进度
    */
   onProgress?: (options: ProgressContext) => void;
   /**
@@ -205,6 +206,8 @@ export interface UploadFile extends File {
 
 export type ResponseType = { error?: string; url?: string } & Record<string, any>;
 
+export interface FormatResponseContext { file: UploadFile };
+
 export interface RequestMethodResponse { status: 'success' | 'fail'; error?: string; response: { url?: string; [key: string]: any } };
 
 export interface SizeLimitObj { size: number; unit: SizeUnit ; message?: string };
@@ -215,7 +218,9 @@ export interface TriggerContext { dragActive?: boolean; uploadingFile?: UploadFi
 
 export interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: string; index?: number; file?: UploadFile };
 
-export interface ProgressContext { e: ProgressEvent; file: UploadFile; percent: number };
+export interface ProgressContext { e?: ProgressEvent; file: UploadFile; percent: number; type: UploadProgressType };
+
+export type UploadProgressType = 'real' | 'mock';
 
 export interface UploadRemoveContext { index?: number; file?: UploadFile; e: MouseEvent };
 

@@ -27,7 +27,7 @@ export default defineComponent({
     Message,
   },
   setup() {
-    const value = ref('1');
+    const value = ref('3');
     return {
       value,
     };

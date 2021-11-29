@@ -8,7 +8,7 @@
   <div class="playground-demo-container">
     <h2 class="title">
       Dialog
-      <div class="todo">TODO</div>
+      <t-button @click="conDialogPluginConfirm"></t-button>
     </h2>
   </div>
   <div class="playground-demo-container">
@@ -48,8 +48,23 @@
     </h2>
   </div>
 </template>
-<script lang="tsx">
+<script>
 import { defineComponent } from 'vue';
+import { DialogPlugin } from '@tencent/tdesign-vue-next';
 
-export default defineComponent({});
+export default defineComponent({
+  setup() {
+    const conDialogPluginConfirm = () => {
+      const d = DialogPlugin({
+        body: 'CMDB接口异常，无法使用，请联系 微信资源管理平台助手',
+        onConfirm() {
+          console.log('onConfirm...', d);
+        },
+      });
+    };
+    return {
+      conDialogPluginConfirm,
+    };
+  },
+});
 </script>
