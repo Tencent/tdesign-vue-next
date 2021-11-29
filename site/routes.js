@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router
 import config from './site.config';
 import TdesignComponents from './components/components.jsx';
 import TdesignDemoPage from './components/demo-page.vue';
-import TdesignPlayground from './pages/playground/index.vue';
+import TdesignPlayground from '../examples/playground/index.vue';
 
 const { docs } = config;
 
@@ -58,17 +58,17 @@ const demoRoutes = getDemoRoutes();
 const routes = [
   {
     path: '/vue-next/components',
-    redirect: '/vue-next/components/button',
+    redirect: '/vue-next/components/overview',
     component: TdesignComponents,
     children: getDocsRoutes(docs),
   },
   {
     path: '/vue-next/',
-    redirect: '/vue-next/components/button',
+    redirect: '/vue-next/components/overview',
   },
   {
     path: '/',
-    redirect: '/vue-next/components/button',
+    redirect: '/vue-next/components/overview',
   },
   ...demoRoutes,
 ];

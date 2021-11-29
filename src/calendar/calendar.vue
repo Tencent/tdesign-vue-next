@@ -3,6 +3,10 @@
   <div class="t-calendar" :class="calendarCls">
     <!-- 控件部分 -->
     <div v-if="isControllerVisible" class="t-calendar__control">
+      <div class="t-calendar__title">
+        <render-t-node-template v-if="head" :render="head" :params="controllerOptions" />
+        <slot v-else name="head" :data="controllerOptions" />
+      </div>
       <div class="t-calendar__control-section">
         <!-- 年份选择 -->
         <div v-if="isYearVisible" class="t-calendar__control-section-cell">
@@ -83,10 +87,6 @@
     </div>
     <!-- 主体部分 -->
     <div class="t-calendar__panel" :class="calendarPanelCls">
-      <div class="t-calendar__panel-title">
-        <render-t-node-template v-if="head" :render="head" :params="controllerOptions" />
-        <slot v-else name="head" :data="controllerOptions" />
-      </div>
       <!-- “月”模式：日历 -->
       <table v-if="curSelectedMode === 'month'" class="t-calendar__table">
         <thead class="t-calendar__table-head">

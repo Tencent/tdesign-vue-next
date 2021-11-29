@@ -1,5 +1,5 @@
-import _Steps from './steps.vue';
-import _StepItem from './step-item.vue';
+import _Steps from './steps';
+import _StepItem from './step-item';
 import mapProps from '../utils/map-props';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdStepsProps, TdStepItemProps } from './type';

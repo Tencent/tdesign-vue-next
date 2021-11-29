@@ -82,7 +82,7 @@ export function expendClickEffect(
     }
 
     // 非过滤状态下，关闭
-    if (!filterActive) {
+    if (!filterActive && !checkStrictly) {
       setVisible(false);
     }
 

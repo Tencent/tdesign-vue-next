@@ -16,9 +16,11 @@ import Tag from '../tag/index';
 import Popup, { PopupProps } from '../popup/index';
 import Option from './option';
 import props from './props';
-import { Options, SelectValue } from './type';
+import { SelectOption, TdOptionProps, SelectValue, SelectOptionGroup } from './type';
 import { ClassName } from '../common';
 import FakeArrow from '../common-components/fake-arrow';
+
+export type OptionInstance = InstanceType<typeof Option>;
 
 interface KeysType {
   value?: string;
@@ -69,7 +71,7 @@ export default defineComponent({
       labelInValue: this.valueType === 'object',
       realValue: this.keys && (this.keys as KeysType).value ? (this.keys as KeysType).value : 'value',
       realLabel: this.keys && (this.keys as KeysType).label ? (this.keys as KeysType).label : 'label',
-      realOptions: [] as Array<Options>,
+      realOptions: [] as Array<TdOptionProps>,
     };
   },
   computed: {
@@ -129,6 +131,11 @@ export default defineComponent({
       }
       return false;
     },
+    // 是否为分组选择器
+    isGroupOption(): boolean {
+      const firstOption = this.options?.[0];
+      return !!(firstOption && 'group' in firstOption && 'children' in firstOption);
+    },
     filterPlaceholder(): string {
       if (this.multiple && Array.isArray(this.value) && this.value.length) {
         return '';
@@ -160,7 +167,7 @@ export default defineComponent({
       return this.filterable || isFunction(this.filter);
     },
     showLoading(): boolean {
-      return this.canFilter && this.loading && !this.disabled;
+      return this.loading && !this.disabled;
     },
     showFilter(): boolean {
       if (this.disabled) return false;
@@ -171,7 +178,7 @@ export default defineComponent({
     },
     selectedSingle(): string {
       if (!this.multiple && (typeof this.value === 'string' || typeof this.value === 'number')) {
-        let target: Array<Options> = [];
+        let target: Array<TdOptionProps> = [];
         if (this.realOptions && this.realOptions.length) {
           target = this.realOptions.filter((item) => get(item, this.realValue) === this.value);
         }
@@ -190,9 +197,9 @@ export default defineComponent({
       }
       return '';
     },
-    selectedMultiple(): Array<Options> {
+    selectedMultiple(): Array<TdOptionProps> {
       if (this.multiple && Array.isArray(this.value) && this.value.length) {
-        return this.value.map((item: string | number | Options) => {
+        return this.value.map((item: string | number | TdOptionProps) => {
           if (typeof item === 'object') {
             return item;
           }
@@ -209,7 +216,7 @@ export default defineComponent({
       const propsObject = this.popupProps ? { ...this.defaultProps, ...(this.popupProps as any) } : this.defaultProps;
       return propsObject;
     },
-    filterOptions(): Array<Options> {
+    filterOptions(): Array<TdOptionProps> {
       // filter优先级 filter方法>仅filterable
       if (isFunction(this.filter)) {
         return this.realOptions.filter((option) => this.filter(this.searchInput, option));
@@ -223,7 +230,7 @@ export default defineComponent({
       }
       return [];
     },
-    displayOptions(): Array<Options> {
+    displayOptions(): Array<TdOptionProps> {
       // 展示优先级，用户远程搜索传入>组件通过filter过滤>getOptions后的完整数据
       if (isFunction(this.onSearch) || this.$attrs.search) {
         return this.realOptions;
@@ -235,6 +242,13 @@ export default defineComponent({
         return this.filterOptions;
       }
       return this.realOptions;
+    },
+    displayOptionsMap(): Map<TdOptionProps, boolean> {
+      const map = new Map();
+      this.displayOptions.forEach((item) => {
+        map.set(item, true);
+      });
+      return map;
     },
   },
   watch: {
@@ -259,8 +273,12 @@ export default defineComponent({
     options: {
       immediate: true,
       deep: true,
-      handler(options: Array<Options>) {
-        this.realOptions = [...options];
+      handler(options: SelectOption[]) {
+        if (Array.isArray(options)) {
+          this.realOptions = this.getRealOptions(options);
+        } else {
+          console.error('TDesign Select: options must be an array.');
+        }
       },
     },
   },
@@ -268,6 +286,18 @@ export default defineComponent({
     this.checkVal();
   },
   methods: {
+    getRealOptions(options: SelectOption[]): Array<TdOptionProps> {
+      if (this.isGroupOption) {
+        let arr: TdOptionProps[] = [];
+        options.forEach((item) => {
+          if ('children' in item) {
+            arr = arr.concat(item.children);
+          }
+        });
+        return arr;
+      }
+      return [...options];
+    },
     checkVal() {
       const { value, multiple } = this;
       if ((multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value))) {
@@ -358,7 +388,7 @@ export default defineComponent({
       this.visible = false;
       this.$emit('clear', { e });
     },
-    getOptions(option: Options) {
+    getOptions(option: OptionInstance) {
       // create option值不push到options里
       if (option.$el && option.$el.className.indexOf(`${name}-create-option-special`) !== -1) return;
       const tmp = this.realOptions.filter((item) => get(item, this.realValue) === option.value);
@@ -375,7 +405,7 @@ export default defineComponent({
       this.realOptions.splice(index, 1);
     },
     emitChange(val: SelectValue | Array<SelectValue>) {
-      let value: SelectValue | Array<SelectValue> | Array<Options> | Options;
+      let value: SelectValue | Array<SelectValue> | Array<TdOptionProps> | TdOptionProps;
       if (this.labelInValue) {
         if (Array.isArray(val)) {
           if (!val.length) {
@@ -468,6 +498,42 @@ export default defineComponent({
       input?.focus();
       this.focusing = true;
     },
+    renderGroupOptions(options: SelectOptionGroup[]) {
+      return (
+        <ul>
+          {options.map((groupList: SelectOptionGroup) => {
+            const children = groupList.children.filter((item) => this.displayOptionsMap.get(item));
+            return (
+              <t-option-group label={groupList.group} divider={groupList.divider}>
+                {this.renderOptions(children)}
+              </t-option-group>
+            );
+          })}
+        </ul>
+      );
+    },
+    // options 直传时
+    renderOptions(options: SelectOption[]) {
+      return (
+        <ul>
+          {options.map((item: TdOptionProps, index: number) => (
+            <t-option
+              value={get(item, this.realValue)}
+              label={get(item, this.realLabel)}
+              content={item.content}
+              disabled={item.disabled || this.multiLimitDisabled(get(item, this.realValue))}
+              key={index}
+            ></t-option>
+          ))}
+        </ul>
+      );
+    },
+    // 两类：普通选择器和分组选择器
+    renderDataWithOptions() {
+      return this.isGroupOption
+        ? this.renderGroupOptions(this.options as SelectOptionGroup[])
+        : this.renderOptions(this.displayOptions);
+    },
   },
   render(): VNode {
     const {
@@ -487,7 +553,6 @@ export default defineComponent({
       loadingText,
       emptyClass,
       hasOptions,
-      realValue,
       realLabel,
       showCreateOption,
       displayOptions,
@@ -505,25 +570,13 @@ export default defineComponent({
           </ul>
           {loading && <li class={tipsClass}>{loadingTextSlot || loadingText}</li>}
           {!loading && !displayOptions.length && !showCreateOption && <li class={emptyClass}>{emptySlot}</li>}
-          {
-            // options直传时
-            !hasOptions && displayOptions.length && !loading ? (
-              <ul>
-                {displayOptions.map((item: Options, index: number) => (
-                  <t-option
-                    value={get(item, realValue)}
-                    label={get(item, realLabel)}
-                    disabled={item.disabled || this.multiLimitDisabled(get(item, realValue))}
-                    key={index}
-                  >
-                    {get(item, realLabel)}
-                  </t-option>
-                ))}
-              </ul>
-            ) : (
-              <span v-show={!loading && displayOptions.length}>{children}</span>
-            )
-          }
+          {!hasOptions && displayOptions.length && !loading ? (
+            this.renderDataWithOptions()
+          ) : (
+            <ul v-show={!loading && displayOptions.length} class={`${prefix}-select__groups`}>
+              {children}
+            </ul>
+          )}
         </div>
       ),
     };
@@ -554,7 +607,7 @@ export default defineComponent({
               ? renderTNodeJSX(this, 'valueDisplay', {
                   params: { value: selectedMultiple, onClose: (index: number) => this.removeTag(index) },
                 })
-              : selectedMultiple.map((item: Options, index: number) => (
+              : selectedMultiple.map((item: TdOptionProps, index: number) => (
                   <tag
                     v-show={this.minCollapsedNum <= 0 || index < this.minCollapsedNum}
                     key={index}

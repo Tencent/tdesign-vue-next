@@ -55,7 +55,6 @@ export default defineComponent({
       const r: PopupProps = {
         showArrow: true,
         ...this.$props,
-        trigger: 'click',
         content: () => renderTNodeJSX(this, 'content'),
         default: () => renderContent(this, 'default', 'triggerElement'),
         overlayClassName: this.tooltipOverlayClassName,

@@ -34,11 +34,7 @@ export default defineComponent({
   },
 
   render() {
-    const styles = this.width
-      ? {
-          width: this.width,
-        }
-      : {};
+    const styles = this.width ? { width: this.width } : {};
     return (
       <aside class="t-layout--sider" style={styles}>
         {this.renderContent()}

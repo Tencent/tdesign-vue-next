@@ -110,9 +110,7 @@ interface ExtraApi {
   closeAll: MessageCloseAllMethod;
 }
 
-interface TdMessagePlugin extends ExtraApi {
-  install: Plugin;
-}
+export type MessagePluginType = Plugin & ExtraApi & MessageMethod;
 
 const extraApi: ExtraApi = {
   info: (params, duration) => showThemeMessage('info', params, duration),
@@ -136,16 +134,15 @@ const extraApi: ExtraApi = {
   },
 };
 
-const MessagePlugin = {
-  /* eslint-disable no-param-reassign */
-  install: (app: App) => {
-    app.config.globalProperties.$message = showThemeMessage;
-    // 这样定义后，可以通过 this.$message 调用插件
-    Object.keys(extraApi).forEach((funcName) => {
-      app.config.globalProperties.$message[funcName] = extraApi[funcName];
-    });
-  },
-} as TdMessagePlugin;
+const MessagePlugin: MessagePluginType = showThemeMessage as MessagePluginType;
+
+MessagePlugin.install = (app: App): void => {
+  app.config.globalProperties.$message = showThemeMessage;
+  // 这样定义后，可以通过 this.$message 调用插件
+  Object.keys(extraApi).forEach((funcName) => {
+    app.config.globalProperties.$message[funcName] = extraApi[funcName];
+  });
+};
 
 /**
  * 这样定义后，用户可以直接引入方法然后调用，示例如下：

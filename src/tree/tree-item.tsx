@@ -113,7 +113,7 @@ export default defineComponent({
     },
     renderIcon() {
       const { node, treeScope } = this;
-      const { icon, scopedSlots } = treeScope;
+      const { icon, scopedSlots, disableCheck } = treeScope;
       let isDefaultIcon = false;
 
       let iconNode = null;
@@ -150,7 +150,7 @@ export default defineComponent({
     },
     renderLabel() {
       const { node, treeScope } = this;
-      const { label, scopedSlots } = treeScope;
+      const { label, scopedSlots, disableCheck } = treeScope;
       const checkProps = treeScope.checkProps || {};
 
       let labelNode = null;
@@ -177,6 +177,20 @@ export default defineComponent({
       ];
 
       if (node.vmCheckable) {
+        let checkboxDisabled = false;
+        if (typeof disableCheck === 'function') {
+          checkboxDisabled = disableCheck(node);
+        } else {
+          checkboxDisabled = !!disableCheck;
+        }
+        if (node.isDisabled()) {
+          checkboxDisabled = true;
+        }
+        const itemCheckProps = {
+          ...checkProps,
+          disabled: checkboxDisabled,
+        };
+
         labelNode = (
           <TCheckBox
             v-ripple
@@ -187,7 +201,7 @@ export default defineComponent({
             name={node.value}
             onChange={() => this.handleChange()}
             ignore="expand,active"
-            {...checkProps}
+            {...itemCheckProps}
           >
             {labelNode}
           </TCheckBox>

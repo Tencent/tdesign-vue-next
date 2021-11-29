@@ -270,7 +270,11 @@ export default defineComponent({
       //  fixed table header
       const paddingRight = `${scrollBarWidth}px`;
       fixedTable.push(
-        <div class={`${prefix}-table__header`} style={{ paddingRight }} ref="scrollHeader">
+        <div
+          class={`${prefix}-table__header`}
+          style={{ paddingRight: columns.length > 1 ? paddingRight : '' }}
+          ref="scrollHeader"
+        >
           <table style={{ tableLayout, paddingRight }}>
             <TableColGroup columns={columns} />
             {this.renderHeader()}
@@ -290,7 +294,7 @@ export default defineComponent({
           ref="scrollBody"
           onScroll={handleScroll}
         >
-          <table style={{ tableLayout }}>
+          <table ref="table" style={{ tableLayout }}>
             <TableColGroup columns={columns} />
             {this.renderBody()}
             {this.renderFooter()}
@@ -328,7 +332,17 @@ export default defineComponent({
     },
   },
   render() {
-    const { hasPagination, commonClass, fixedHeader, columns, tableLayout, isLoading, isEmpty, useFixedHeader } = this;
+    const {
+      hasPagination,
+      commonClass,
+      fixedHeader,
+      columns,
+      tableLayout,
+      isLoading,
+      isEmpty,
+      useFixedHeader,
+      hasFixedColumns,
+    } = this;
     const body: Array<VNode> = [];
     // colgroup
     const tableColGroup = <TableColGroup columns={columns} />;
@@ -361,11 +375,20 @@ export default defineComponent({
         [`${prefix}-table-content--scrollable-to-left`]: this.scrollableToLeft,
       },
     ];
+    let width;
+    const { tableContent: tableContentEl, table: tableEl } = this.$refs as Record<string, HTMLElement>;
+    if (!hasFixedColumns && tableContentEl && tableContentEl.clientWidth < tableEl.clientWidth) {
+      width = `${tableEl.clientWidth}px`;
+    }
     return (
-      <div class={commonClass}>
+      <div class={commonClass} style={{ width }}>
         <TLoading loading={isLoading} showOverlay text={this.renderLoadingContent}>
           <div ref="tableContent" class={tableContentClass} onScroll={handleScroll}>
-            {fixedTableContent || <table style={{ tableLayout }}>{tableContent}</table>}
+            {fixedTableContent || (
+              <table ref="table" style={{ tableLayout }}>
+                {tableContent}
+              </table>
+            )}
           </div>
           {body}
         </TLoading>

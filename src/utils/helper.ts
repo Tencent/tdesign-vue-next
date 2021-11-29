@@ -24,9 +24,13 @@ export function removeEmptyAttrs<T>(obj: T): Partial<T> {
 }
 
 export function getTabElementByValue(tabs: [] = [], value: string): object {
+  console.log(tabs);
   const [result] = tabs.filter((item) => {
-    const { id } = item as any;
-    return id === value;
+    const { id } = item;
+    console.log(id);
+    console.log(value);
+    console.log(`${id}` === `${value}`);
+    return `${id}` === `${value}`;
   });
   return result || null;
 }

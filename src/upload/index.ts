@@ -5,7 +5,6 @@ import mapProps from '../utils/map-props';
 
 import './style';
 
-export * from './type';
 export * from './interface';
 export type UploadProps = TdUploadProps;
 

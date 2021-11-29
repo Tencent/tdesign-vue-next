@@ -8,41 +8,49 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref, computed, onMounted } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const status1 = ref('loading');
+    const status2 = ref('loading');
+
+    const isDisabled = computed(() => {
+      return status1.value === 'loading' && status2.value === 'loading';
+    });
+
+    const fn1 = () => {
+      setTimeout(() => {
+        status1.value = 'success';
+      }, 10000);
+    };
+
+    const fn2 = () => {
+      setTimeout(() => {
+        status2.value = 'warning';
+      }, 10000);
+    };
+
+    const reset = () => {
+      status1.value = 'loading';
+      status2.value = 'loading';
+      fn1();
+      fn2();
+    };
+
+    onMounted(() => {
+      fn1();
+      fn2();
+    });
+
     return {
-      status1: 'loading',
-      status2: 'loading',
+      isDisabled,
+      status1,
+      status2,
+      reset,
     };
   },
-  computed: {
-    isDisabled() {
-      return this.status1 === 'loading' && this.status2 === 'loading';
-    },
-  },
-  mounted() {
-    this.fn1();
-    this.fn2();
-  },
-  methods: {
-    fn1() {
-      setTimeout(() => {
-        this.status1 = 'success';
-      }, 10000);
-    },
-    fn2() {
-      setTimeout(() => {
-        this.status2 = 'warning';
-      }, 10000);
-    },
-    reset() {
-      this.status1 = 'loading';
-      this.status2 = 'loading';
-      this.fn1();
-      this.fn2();
-    },
-  },
-};
+});
 </script>
 
 <style lang="less" scoped>

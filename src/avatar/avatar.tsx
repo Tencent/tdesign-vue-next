@@ -31,11 +31,7 @@ export default defineComponent({
   computed: {
     customAvatarSize(): Styles {
       return this.isCustomSize()
-        ? {
-            width: this.sizeValue,
-            height: this.sizeValue,
-            'font-size': `${Number.parseInt(this.sizeValue, 10) / 2}px`,
-          }
+        ? { width: this.sizeValue, height: this.sizeValue, 'font-size': `${Number.parseInt(this.sizeValue, 10) / 2}px` }
         : {};
     },
     customImageSize(): Styles {

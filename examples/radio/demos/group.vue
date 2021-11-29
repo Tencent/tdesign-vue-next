@@ -71,7 +71,7 @@ export default defineComponent({
     const value = ref('');
     const onChange = (checkedValues) => {
       console.log('checkedValues:', checkedValues);
-      console.log('value:', this.value);
+      console.log('value:', value.value);
     };
 
     return {

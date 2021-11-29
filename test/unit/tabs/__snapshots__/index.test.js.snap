@@ -11,21 +11,23 @@ exports[`Tabs :props :addable 1`] = `
     <div
       class="t-tabs__nav"
     >
+      
       <div
         class="t-tabs__operations t-tabs__operations--left"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
       </div>
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
-        <!--v-if-->
+        <!---->
       </div>
+      
       <div
         class="t-tabs__nav-container t-is-top"
       >
@@ -33,12 +35,12 @@ exports[`Tabs :props :addable 1`] = `
           class="t-tabs__nav-scroll"
         >
           <div
-            class="t-tabs__nav-wrap"
-            style="transform: translateX(-0px);"
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate3d(0px, 0, 0);"
           >
-            
-            <!--v-if-->
-            
+            <div
+              class="t-tabs__bar t-is-top"
+            />
             
             
           </div>
@@ -49,7 +51,8 @@ exports[`Tabs :props :addable 1`] = `
   <div
     class="t-tabs__content"
   >
-    <!---->
+    
+    
   </div>
   
 </div>
@@ -66,21 +69,23 @@ exports[`Tabs :props :defaultValue 1`] = `
     <div
       class="t-tabs__nav"
     >
+      
       <div
         class="t-tabs__operations t-tabs__operations--left"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
       </div>
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
-        <!--v-if-->
+        <!---->
       </div>
+      
       <div
         class="t-tabs__nav-container t-is-top"
       >
@@ -88,12 +93,12 @@ exports[`Tabs :props :defaultValue 1`] = `
           class="t-tabs__nav-scroll"
         >
           <div
-            class="t-tabs__nav-wrap"
-            style="transform: translateX(-0px);"
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate3d(0px, 0, 0);"
           >
-            
-            <!--v-if-->
-            
+            <div
+              class="t-tabs__bar t-is-top"
+            />
             
             
           </div>
@@ -104,7 +109,8 @@ exports[`Tabs :props :defaultValue 1`] = `
   <div
     class="t-tabs__content"
   >
-    <!---->
+    
+    
   </div>
   
 </div>
@@ -121,21 +127,23 @@ exports[`Tabs :props :disabled 1`] = `
     <div
       class="t-tabs__nav"
     >
+      
       <div
         class="t-tabs__operations t-tabs__operations--left"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
       </div>
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
-        <!--v-if-->
+        <!---->
       </div>
+      
       <div
         class="t-tabs__nav-container t-is-top"
       >
@@ -143,12 +151,12 @@ exports[`Tabs :props :disabled 1`] = `
           class="t-tabs__nav-scroll"
         >
           <div
-            class="t-tabs__nav-wrap"
-            style="transform: translateX(-0px);"
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate3d(0px, 0, 0);"
           >
-            
-            <!--v-if-->
-            
+            <div
+              class="t-tabs__bar t-is-top"
+            />
             
             
           </div>
@@ -159,7 +167,8 @@ exports[`Tabs :props :disabled 1`] = `
   <div
     class="t-tabs__content"
   >
-    <!---->
+    
+    
   </div>
   
 </div>
@@ -176,21 +185,23 @@ exports[`Tabs :props :placement 1`] = `
     <div
       class="t-tabs__nav"
     >
+      
       <div
         class="t-tabs__operations t-tabs__operations--left"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
       </div>
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
-        <!--v-if-->
+        <!---->
       </div>
+      
       <div
         class="t-tabs__nav-container t-is-left"
       >
@@ -198,12 +209,11 @@ exports[`Tabs :props :placement 1`] = `
           class="t-tabs__nav-scroll"
         >
           <div
-            class="t-tabs__nav-wrap t-is-vertical"
-            style="transform: translateX(-0px);"
+            class="t-tabs__nav-wrap t-is-smooth t-is-vertical"
           >
-            
-            <!--v-if-->
-            
+            <div
+              class="t-tabs__bar t-is-left"
+            />
             
             
           </div>
@@ -214,7 +224,8 @@ exports[`Tabs :props :placement 1`] = `
   <div
     class="t-tabs__content"
   >
-    <!---->
+    
+    
   </div>
   
 </div>
@@ -231,21 +242,23 @@ exports[`Tabs :props :size 1`] = `
     <div
       class="t-tabs__nav"
     >
+      
       <div
         class="t-tabs__operations t-tabs__operations--left"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
       </div>
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
-        <!--v-if-->
+        <!---->
       </div>
+      
       <div
         class="t-tabs__nav-container t-is-top"
       >
@@ -253,12 +266,12 @@ exports[`Tabs :props :size 1`] = `
           class="t-tabs__nav-scroll"
         >
           <div
-            class="t-tabs__nav-wrap"
-            style="transform: translateX(-0px);"
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate3d(0px, 0, 0);"
           >
-            
-            <!--v-if-->
-            
+            <div
+              class="t-tabs__bar t-is-top"
+            />
             
             
           </div>
@@ -269,7 +282,8 @@ exports[`Tabs :props :size 1`] = `
   <div
     class="t-tabs__content"
   >
-    <!---->
+    
+    
   </div>
   
 </div>
@@ -286,21 +300,23 @@ exports[`Tabs :props :theme 1`] = `
     <div
       class="t-tabs__nav"
     >
+      
       <div
         class="t-tabs__operations t-tabs__operations--left"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
       </div>
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
-        <!--v-if-->
+        <!---->
       </div>
+      
       <div
         class="t-tabs__nav-container t-tabs__nav--card t-is-top"
       >
@@ -308,9 +324,10 @@ exports[`Tabs :props :theme 1`] = `
           class="t-tabs__nav-scroll"
         >
           <div
-            class="t-tabs__nav-wrap"
-            style="transform: translateX(-0px);"
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate3d(0px, 0, 0);"
           >
+            <!---->
             
             
           </div>
@@ -321,7 +338,8 @@ exports[`Tabs :props :theme 1`] = `
   <div
     class="t-tabs__content"
   >
-    <!---->
+    
+    
   </div>
   
 </div>
@@ -338,21 +356,23 @@ exports[`Tabs :props :value 1`] = `
     <div
       class="t-tabs__nav"
     >
+      
       <div
         class="t-tabs__operations t-tabs__operations--left"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
       </div>
       <div
         class="t-tabs__operations t-tabs__operations--right"
       >
         <transition-stub>
-          <!--v-if-->
+          <!---->
         </transition-stub>
-        <!--v-if-->
+        <!---->
       </div>
+      
       <div
         class="t-tabs__nav-container t-is-top"
       >
@@ -360,12 +380,12 @@ exports[`Tabs :props :value 1`] = `
           class="t-tabs__nav-scroll"
         >
           <div
-            class="t-tabs__nav-wrap"
-            style="transform: translateX(-0px);"
+            class="t-tabs__nav-wrap t-is-smooth"
+            style="transform: translate3d(0px, 0, 0);"
           >
-            
-            <!--v-if-->
-            
+            <div
+              class="t-tabs__bar t-is-top"
+            />
             
             
           </div>
@@ -376,7 +396,8 @@ exports[`Tabs :props :value 1`] = `
   <div
     class="t-tabs__content"
   >
-    <!---->
+    
+    
   </div>
   
 </div>

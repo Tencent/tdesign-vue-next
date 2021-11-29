@@ -60,8 +60,8 @@ export default defineComponent({
     const iconUrl = ref('https://www.tencent.com/img/index/menu_logo_hover.png');
 
     const changeCollapsed = () => {
-      this.collapsed = !this.collapsed;
-      this.iconUrl = this.collapsed
+      collapsed.value = !collapsed.value;
+      iconUrl.value = collapsed.value
         ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png'
         : 'https://www.tencent.com/img/index/menu_logo_hover.png';
     };

@@ -18,7 +18,7 @@
       :loading="loading2"
       reserve-keyword
       style="width: 400px; display: inline-block"
-      @search="remoteMethod2"
+      :on-search="remoteMethod2"
     />
   </div>
 </template>
@@ -74,6 +74,7 @@ export default defineComponent({
     };
 
     const remoteMethod2 = (search) => {
+      console.log(search);
       if (search) {
         loading2.value = true;
         setTimeout(() => {

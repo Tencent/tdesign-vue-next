@@ -14,6 +14,7 @@ const LocalTabs = mapProps([
   {
     name: 'value',
     alias: ['modelValue'],
+    event: 'change',
   },
 ])(_Tabs);
 

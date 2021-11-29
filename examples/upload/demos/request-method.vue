@@ -16,16 +16,16 @@ export default defineComponent({
     const files = ref([]);
     const uploadMethod = ref('requestSuccessMethod');
 
-    const requestSuccessMethod = (val) => {
-      const item = val;
+    // file 为等待上传的文件信息，用于提供给上传接口。file.raw 表示原始文件
+    const requestSuccessMethod = (file) => {
       return new Promise((resolve) => {
         // file.percent 用于控制上传进度，如果不希望显示上传进度，则不对 file.percent 设置值即可。
         // 如果代码规范不能设置 file.percent，也可以设置 this.files
-        item.percent = 0;
+        file.percent = 0;
         const timer = setTimeout(() => {
           // resolve 参数为关键代码
           resolve({ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } });
-          item.percent = 100;
+          file.percent = 100;
           clearTimeout(timer);
         }, 500);
       });

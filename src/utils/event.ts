@@ -1,11 +1,6 @@
 import { ComponentPublicInstance } from 'vue';
 
-export type EmitEventName =
-  | {
-      event: string;
-      method: string;
-    }
-  | string;
+export type EmitEventName = { event: string; method: string } | string;
 
 /**
  * 组件对外传递事件

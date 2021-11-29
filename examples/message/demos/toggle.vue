@@ -23,7 +23,6 @@ export default defineComponent({
         });
       } else {
         // 关键代码
-        // 另一种关闭方法：this.msg.then(ins => ins.close());
         MessagePlugin.close(msg.value);
         msg.value = null;
       }

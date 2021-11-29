@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-11-19 10:44:26
  * */
 
 import { TNode } from '../common';
@@ -65,7 +65,7 @@ export interface TdTabPanelProps {
    */
   default?: TNode;
   /**
-   * 选项卡内容隐藏时是否仍然渲染
+   * 选项卡内容隐藏时是否销毁
    * @default true
    */
   destroyOnHide?: boolean;

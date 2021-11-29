@@ -88,16 +88,15 @@ const extraApi: ExtraApi = {
     });
   },
 };
+export type NotificationPluginType = Plugin & ExtraApi & NotificationMethod;
 
-const NotificationPlugin: Plugin = {
-  install: (app: App) => {
-    // eslint-disable-next-line no-param-reassign
-    app.config.globalProperties.$notify = showThemeNotification;
-    Object.keys(extraApi).forEach((funcName) => {
-      // eslint-disable-next-line no-param-reassign
-      app.config.globalProperties.$notify[funcName] = extraApi[funcName];
-    });
-  },
+const NotificationPlugin: NotificationPluginType = showThemeNotification as NotificationPluginType;
+
+NotificationPlugin.install = (app: App) => {
+  app.config.globalProperties.$notify = showThemeNotification;
+  Object.keys(extraApi).forEach((funcName) => {
+    app.config.globalProperties.$notify[funcName] = extraApi[funcName];
+  });
 };
 
 Object.keys(extraApi).forEach((funcName) => {

@@ -1,10 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select base demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-select-base"
+>
+  <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
   <div
     class="t-select-wrap"
-    style="width: 200px;"
+    modelvalue=""
   >
     <div
       class="t-popup-reference t-select-popup-reference"
@@ -26,50 +29,54 @@ exports[`Select base demo works fine 1`] = `
                 style="display: none;"
               >
                 <li
-                  class="t-select-option t-size-m t-select-create-option-special"
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
                   title=""
                 >
                   
                 </li>
               </ul>
               <!---->
-              <li
-                class="t-select-empty t-size-m"
-              >
-                暂无数据
-              </li>
-              <span
-                style="display: none;"
-              >
-                
+              <!---->
+              <ul>
                 
                 <li
-                  class="t-select-option t-is-selected t-size-m"
-                  title="已选择的选项"
+                  class="t-select-option t-size-m"
+                  title="架构云"
                 >
-                  
-                  已选择的选项
-                  
+                  架构云
                 </li>
                 <li
                   class="t-select-option t-size-m"
-                  title="短的选项二"
+                  title="大数据"
                 >
-                  
-                  短的选项二
-                  
+                  大数据
                 </li>
                 <li
                   class="t-select-option t-size-m"
-                  title="选项内容过长的选择器选项"
+                  title="区块链"
                 >
-                  
-                  选项内容过长的选择器选项
-                  
+                  区块链
+                </li>
+                <li
+                  class="t-select-option t-is-disabled t-size-m"
+                  title="物联网"
+                >
+                  物联网
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="人工智能"
+                >
+                  人工智能
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="计算场景"
+                >
+                  计算场景
                 </li>
                 
-                
-              </span>
+              </ul>
             </div>
             
             <!---->
@@ -81,7 +88,12 @@ exports[`Select base demo works fine 1`] = `
         class="t-select t-size-m"
       >
         <!---->
-        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          请选择云解决方案
+        </span>
         
         
         <span
@@ -94,12 +106,141 @@ exports[`Select base demo works fine 1`] = `
           
           
         </span>
-        <span
-          class="t-select-selectedSingle"
-          title="1"
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          1
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <li
+                class="t-select-empty t-size-m"
+              >
+                暂无数据
+              </li>
+              <ul
+                class="t-select__groups"
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="云服务器"
+                >
+                  云服务器
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="云数据库"
+                >
+                  云数据库
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="域名注册"
+                >
+                  域名注册
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="网站备案"
+                >
+                  网站备案
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="对象存储"
+                >
+                  对象存储
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="低代码平台"
+                >
+                  低代码平台
+                </li>
+                
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          请选择云产品
         </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          
+        </span>
+        <!---->
         <!---->
         <svg
           class="t-fake-arrow t-select-right-icon"

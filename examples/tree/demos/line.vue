@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column-large">
+  <div class="tdesign-demo-block-column-large tdesign-tree-demo tdesign-tree-line">
     <t-form>
       <t-form-item label="显示连线" style="margin-bottom: 16px">
         <t-switch v-model="showLine" />

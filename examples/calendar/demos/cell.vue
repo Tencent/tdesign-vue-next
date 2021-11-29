@@ -1,12 +1,12 @@
 <template>
   <t-calendar>
     <template #cell="{ data }">
-      <div class="outerWarrper">
+      <div class="outerWarper">
         <div class="number">
-          {{ diaplayNum(data) }}
+          {{ displayNum(data) }}
         </div>
         <template v-if="isShow(data)">
-          <div class="slotWarrper">
+          <div class="slotWarper">
             <div v-for="(item, index) in dataList" :key="index" class="item">
               <span :class="item.value" />
               {{ item.label }}
@@ -40,9 +40,10 @@ const dataList = [
 
 export default defineComponent({
   setup() {
-    const isShow = (data) => (data.mode === 'month' ? data.day === 15 : dayjs(data.formattedDate).month() === 7);
+    const isShow = (data) =>
+      data.mode === 'month' ? dayjs(data.formattedDate).date() === 15 : dayjs(data.formattedDate).month() === 7;
 
-    const diaplayNum = (cellData) => {
+    const displayNum = (cellData) => {
       if (cellData.mode === 'month') {
         return cellData.date.getDate();
       }
@@ -51,7 +52,7 @@ export default defineComponent({
 
     return {
       dataList,
-      diaplayNum,
+      displayNum,
       isShow,
     };
   },
@@ -59,7 +60,7 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-.outerWarrper {
+.outerWarper {
   width: 100%;
   height: 100%;
   position: relative;
@@ -102,7 +103,7 @@ export default defineComponent({
     background: #00a870;
   }
 
-  .slotWarrper {
+  .slotWarper {
     position: absolute;
     bottom: 2px;
     left: 5px;

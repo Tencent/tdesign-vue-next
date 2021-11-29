@@ -39,12 +39,13 @@ export default function xhr({
     if (event.total > 0) {
       percent = Math.round((event.loaded / event.total) * 100);
     }
-    onProgress({ e: event, percent, file });
+    onProgress({ event, percent, file });
   };
 
   xhr.onload = (event: ProgressEvent) => {
     let response;
-    if (xhr.status < 200 || xhr.status >= 300) {
+    const isFail = xhr.status < 200 || xhr.status >= 300;
+    if (isFail) {
       return onError({ event, file, response });
     }
     const text = xhr.responseText || xhr.response;
@@ -54,8 +55,7 @@ export default function xhr({
       response = text;
     }
     onSuccess({
-      e: event,
-      fileList: [],
+      event,
       file,
       response,
     });

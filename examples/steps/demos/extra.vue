@@ -1,5 +1,5 @@
 <template>
-  <t-steps direction="vertical" :current="current" status="process">
+  <t-steps layout="vertical" :current="current" status="process">
     <t-step-item title="步骤1" content="这里是提示文字">
       <template v-if="current === 0" #extra>
         <t-button size="small" variant="base" @click="current++"> 下一步 </t-button>
