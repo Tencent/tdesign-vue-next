@@ -84,7 +84,6 @@ export default defineComponent({
     },
     errorClasses(): string {
       const parent = this.form as FormInstance;
-      const { successBorder } = this.$props;
       if (!parent.showErrorMessage) return '';
       if (this.verifyStatus === ValidateStatus.SUCCESS) {
         return this.successBorder ? [CLASS_NAMES.success, CLASS_NAMES.successBorder].join(' ') : CLASS_NAMES.success;

@@ -172,11 +172,7 @@ interface ScrollTopOptions {
   easing?: EasingFunction;
 }
 
-declare type ScrollToResult<T = any> =
-  | T
-  | {
-      default: T;
-    };
+declare type ScrollToResult<T = any> = T | { default: T };
 
 export function scrollTo(target: number, opt: ScrollTopOptions): Promise<ScrollToResult> {
   const { container = window, duration = 450, easing = easeInOutCubic } = opt;
