@@ -15,7 +15,7 @@
     </div>
     <t-table :data="data" :columns="columns" row-key="index" bordered>
       <template #operation="slotProps">
-        <a class="link" @click="rehandleClickOp(slotProps)">删除111</a>
+        <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
       </template>
     </t-table>
   </div>

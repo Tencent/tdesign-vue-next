@@ -1,6 +1,6 @@
 import { defineComponent, VNode } from 'vue';
 import get from 'lodash/get';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import { renderContent } from '../utils/render-tnode';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import ripple from '../utils/ripple';
@@ -123,7 +123,7 @@ export default defineComponent({
   },
   render(): VNode {
     const { classes, labelText, selected, disabled, multiLimitDisabled, show } = this;
-    const children = renderTNodeJSX(this, 'default');
+    const children = renderContent(this, 'default', 'content');
     const optionChild = children || labelText;
     return (
       <li

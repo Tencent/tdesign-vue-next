@@ -1,5 +1,5 @@
 <template>
-  <t-table row-key="index" :data="data" :columns="columns" :height="200" />
+  <t-table row-key="index" :data="data" :columns="columns" :max-height="200" />
 </template>
 <script>
 import { defineComponent } from 'vue';
