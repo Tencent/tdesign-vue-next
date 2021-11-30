@@ -91,7 +91,7 @@
   </div>
 </template>
 <script>
-import TIconCalendar from '@tencent/tdesign-vue-next/icon/calendar';
+import TIconCalendar from 'tdesign-vue-next/icon/calendar';
 
 export default {
   components: {

@@ -1,0 +1,13 @@
+name: MAIN_PULL_REQUEST
+
+on:
+  pull_request: 
+    branches: [develop, main]
+
+jobs:
+  MAIN_PULL_REQUEST:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/install-dep@main
+      - run: npm run lint
+      - run: npm run test

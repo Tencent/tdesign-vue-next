@@ -8,10 +8,10 @@
 </template>
 
 <script lang="jsx">
-import TIconLogin from '@tencent/tdesign-vue-next/icon/login';
-import TIconCart from '@tencent/tdesign-vue-next/icon/cart';
-import TIconWallet from '@tencent/tdesign-vue-next/icon/wallet';
-import TIconSuccess from '@tencent/tdesign-vue-next/icon/check-circle';
+import TIconLogin from 'tdesign-vue-next/icon/login';
+import TIconCart from 'tdesign-vue-next/icon/cart';
+import TIconWallet from 'tdesign-vue-next/icon/wallet';
+import TIconSuccess from 'tdesign-vue-next/icon/check-circle';
 
 export default {
   setup() {

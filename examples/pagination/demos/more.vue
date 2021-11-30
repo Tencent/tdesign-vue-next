@@ -13,7 +13,7 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { MessagePlugin } from '@tencent/tdesign-vue-next';
+import { MessagePlugin } from 'tdesign-vue-next';
 
 export default defineComponent({
   setup() {

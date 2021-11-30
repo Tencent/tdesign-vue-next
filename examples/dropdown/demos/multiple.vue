@@ -11,8 +11,8 @@
   </div>
 </template>
 <script>
-import TIconChevronDown from '@tencent/tdesign-vue-next/icon/chevron-down';
-import { MessagePlugin } from '@tencent/tdesign-vue-next';
+import TIconChevronDown from 'tdesign-vue-next/icon/chevron-down';
+import { MessagePlugin } from 'tdesign-vue-next';
 
 const options = [
   {

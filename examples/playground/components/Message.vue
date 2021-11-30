@@ -50,7 +50,7 @@
 </template>
 <script>
 import { defineComponent } from 'vue';
-import { DialogPlugin } from '@tencent/tdesign-vue-next';
+import { DialogPlugin } from 'tdesign-vue-next';
 
 export default defineComponent({
   setup() {

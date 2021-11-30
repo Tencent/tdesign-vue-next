@@ -35,7 +35,7 @@
 
 <script lang="jsx">
 import { defineComponent, ref, watch } from 'vue';
-import { EnhancedTable } from '@tencent/tdesign-vue-next';
+import { EnhancedTable } from 'tdesign-vue-next';
 
 const data = [];
 for (let i = 0; i < 5; i++) {

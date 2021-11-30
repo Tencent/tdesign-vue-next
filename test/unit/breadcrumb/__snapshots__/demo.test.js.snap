@@ -1,0 +1,576 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb base demo works fine 1`] = `
+<div
+  class="t-breadcrumb"
+>
+  
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <a
+      class="t-breadcrumb--text-oveflow t-link"
+      href=""
+      target="_self"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 150px;"
+      >
+        
+         页面1 
+        
+      </span>
+    </a>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <span
+      class="t-breadcrumb--text-oveflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 150px;"
+      >
+        
+        页面2面包屑文案超长时悬浮显示文案全部信息
+        
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <span
+      class="t-breadcrumb--text-oveflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 160px;"
+      >
+        
+         面包屑中文案过长时可缩略显示，鼠标hover时显示全部 
+        
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  
+</div>
+`;
+
+exports[`Breadcrumb custom demo works fine 1`] = `
+<div
+  class="t-breadcrumb"
+>
+  
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <span
+      class="t-breadcrumb--text-oveflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        
+        页面1
+        
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      
+       &gt; 
+      
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <span
+      class="t-breadcrumb--text-oveflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        
+        页面2
+        
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      
+       &gt; 
+      
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <span
+      class="t-breadcrumb--text-oveflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        
+        页面3
+        
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      
+       &gt; 
+      
+    </span>
+  </div>
+  
+</div>
+`;
+
+exports[`Breadcrumb href demo works fine 1`] = `
+<div>
+  <div
+    class="t-breadcrumb"
+  >
+    
+    <div
+      class="t-breadcrumb__item light"
+    >
+      <a
+        class="t-breadcrumb--text-oveflow t-link"
+        href=""
+        target="_self"
+      >
+        <span
+          class="t-breadcrumb__inner"
+          style="max-width: 120px;"
+        >
+          
+           首页 
+          
+        </span>
+      </a>
+      <span
+        class="t-breadcrumb__separator"
+      >
+        <svg
+          class="t-icon t-icon-chevron-right"
+          color="rgba(0,0,0,.3)"
+          version="1.1"
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+            fill-opacity=".9"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="t-breadcrumb__item light"
+    >
+      <a
+        class="t-breadcrumb--text-oveflow t-link"
+        href=""
+        target="_self"
+      >
+        <span
+          class="t-breadcrumb__inner"
+          style="max-width: 120px;"
+        >
+          
+           页面1(覆盖路由) 
+          
+        </span>
+      </a>
+      <span
+        class="t-breadcrumb__separator"
+      >
+        <svg
+          class="t-icon t-icon-chevron-right"
+          color="rgba(0,0,0,.3)"
+          version="1.1"
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+            fill-opacity=".9"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="t-breadcrumb__item light"
+    >
+      <a
+        class="t-breadcrumb--text-oveflow t-link"
+        href="https://www.tencent.com"
+        target="_blank"
+      >
+        <span
+          class="t-breadcrumb__inner"
+          style="max-width: 120px;"
+        >
+          
+           页面2 
+          
+        </span>
+      </a>
+      <span
+        class="t-breadcrumb__separator"
+      >
+        <svg
+          class="t-icon t-icon-chevron-right"
+          color="rgba(0,0,0,.3)"
+          version="1.1"
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+            fill-opacity=".9"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="t-breadcrumb__item light"
+    >
+      <span
+        class="t-breadcrumb--text-oveflow t-disabled"
+      >
+        <span
+          class="t-breadcrumb__inner"
+          style="max-width: 120px;"
+        >
+          
+           页面3(disabled) 
+          
+        </span>
+      </span>
+      <span
+        class="t-breadcrumb__separator"
+      >
+        <svg
+          class="t-icon t-icon-chevron-right"
+          color="rgba(0,0,0,.3)"
+          version="1.1"
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+            fill-opacity=".9"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="t-breadcrumb__item light"
+    >
+      <span
+        class="t-breadcrumb--text-oveflow t-gestureClass"
+      >
+        <span
+          class="t-breadcrumb__inner"
+          style="max-width: 120px;"
+        >
+          
+           页面4自定义点击 
+          
+        </span>
+      </span>
+      <span
+        class="t-breadcrumb__separator"
+      >
+        <svg
+          class="t-icon t-icon-chevron-right"
+          color="rgba(0,0,0,.3)"
+          version="1.1"
+          viewBox="0 0 1024 1024"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+            fill-opacity=".9"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </span>
+    </div>
+    
+  </div>
+  <div
+    style="margin-top: 20px;"
+  >
+    点击计数器：0
+  </div>
+</div>
+`;
+
+exports[`Breadcrumb option demo works fine 1`] = `
+<div
+  class="t-breadcrumb"
+>
+  
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <span
+      class="t-breadcrumb--text-oveflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        
+        页面1
+        
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <span
+      class="t-breadcrumb--text-oveflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        
+        页面2
+        
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <a
+      class="t-breadcrumb--text-oveflow t-link"
+      href="https://www.tencent.com"
+      target="_self"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        
+        页面3
+        
+      </span>
+    </a>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  
+</div>
+`;
+
+exports[`Breadcrumb to demo works fine 1`] = `
+<div
+  class="t-breadcrumb"
+>
+  
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <a
+      class="t-breadcrumb--text-oveflow t-link"
+      href=""
+      target="_self"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        
+         首页 
+        
+      </span>
+    </a>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="t-breadcrumb__item light"
+  >
+    <span
+      class="t-breadcrumb--text-oveflow"
+    >
+      <span
+        class="t-breadcrumb__inner"
+        style="max-width: 120px;"
+      >
+        
+        页面1
+        
+      </span>
+    </span>
+    <span
+      class="t-breadcrumb__separator"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        color="rgba(0,0,0,.3)"
+        version="1.1"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
+          fill-opacity=".9"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </div>
+  
+</div>
+`;

@@ -45,8 +45,8 @@
 
 <script lang="jsx">
 import { defineComponent, nextTick, ref } from 'vue';
-import TIconAdd from '@tencent/tdesign-vue-next/icon/add';
-import TIconDiscount from '@tencent/tdesign-vue-next/icon/discount';
+import TIconAdd from 'tdesign-vue-next/icon/add';
+import TIconDiscount from 'tdesign-vue-next/icon/discount';
 
 export default defineComponent({
   components: {

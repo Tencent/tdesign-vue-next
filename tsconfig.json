@@ -23,7 +23,7 @@
     "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"],
-      "@tencent/tdesign-vue-next": ["src/*"],
+      "tdesign-vue-next": ["src/*"],
       "@common/*": ["src/_common/*"],
     }
   },

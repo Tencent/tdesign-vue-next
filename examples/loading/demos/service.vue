@@ -22,7 +22,7 @@
   </div>
 </template>
 <script>
-import { LoadingPlugin } from '@tencent/tdesign-vue-next';
+import { LoadingPlugin } from 'tdesign-vue-next';
 
 export default {
   name: 'LoadingPlugin',

@@ -1,0 +1,32 @@
+# tag_push
+# todo: before npm publish , delete oa woa , edit packagename
+name: All_ON_PUSH
+
+on: create
+
+jobs:
+  All_ON_PUSH:
+    runs-on: ubuntu-latest
+    if: github.event.ref_type == 'tag'
+    steps:
+      - uses: actions/install-dep@main
+      - name: site
+        run: npm run site:preview
+      - name: upload surge service
+        id: deploy
+        run: |
+          export DEPLOY_DOMAIN=https://preview-${{ github.ref }}-tdesign-vue.surge.sh
+          npx surge --project _site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+      - run: echo 'https://preview-${{ github.ref }}-tdesign-vue.surge.sh'
+        if: ${{ success() }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: build
+        run: npm run build
+      - name: publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+      - if: steps.publish.outputs.type != 'none'
+        run: |
+          echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+      

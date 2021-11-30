@@ -34,7 +34,7 @@
 
 <script lang="jsx">
 import { defineComponent, watch, ref } from 'vue';
-import TIconCarretDownSmall from '@tencent/tdesign-vue-next/icon/caret-down-small';
+import TIconCarretDownSmall from 'tdesign-vue-next/icon/caret-down-small';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },

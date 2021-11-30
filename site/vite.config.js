@@ -14,7 +14,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, '../'),
       '@common': path.resolve(__dirname, '../src/_common'),
-      '@tencent/tdesign-vue-next': path.resolve(__dirname, '../src'),
+      'tdesign-vue-next': path.resolve(__dirname, '../src'),
     },
   },
   server: {

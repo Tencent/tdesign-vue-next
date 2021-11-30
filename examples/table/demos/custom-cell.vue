@@ -28,7 +28,7 @@
 </template>
 <script lang="jsx">
 import { defineComponent } from 'vue';
-import TIconAttach from '@tencent/tdesign-vue-next/icon/attach';
+import TIconAttach from 'tdesign-vue-next/icon/attach';
 
 const data = [
   {

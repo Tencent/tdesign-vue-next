@@ -1,0 +1,19 @@
+name: All_ON_PUSH
+
+on: push
+jobs:
+  All_ON_PUSH:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/install-dep@main
+      - run: echo '${{ github.ref }} ...  ${{ github.sha }}''
+      - name: build
+        run: npm run site:preview
+      - name: upload surge service
+        id: deploy
+        run: |
+          export DEPLOY_DOMAIN=https://preview-${{ github.ref }}-tdesign-vue.surge.sh
+          npx surge --project _site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+      - run: echo 'https://preview-${{ github.ref }}-tdesign-vue.surge.sh'
+        if: ${{ success() }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."

@@ -34,8 +34,8 @@
 <script lang="jsx">
 import { defineComponent, ref } from 'vue';
 
-import TIconClose from '@tencent/tdesign-vue-next/icon/close';
-import TIconCheck from '@tencent/tdesign-vue-next/icon/check';
+import TIconClose from 'tdesign-vue-next/icon/close';
+import TIconCheck from 'tdesign-vue-next/icon/check';
 
 export default defineComponent({
   components: { TIconClose, TIconCheck },

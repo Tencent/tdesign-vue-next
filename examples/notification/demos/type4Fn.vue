@@ -9,7 +9,7 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { NotifyPlugin } from '@tencent/tdesign-vue-next';
+import { NotifyPlugin } from 'tdesign-vue-next';
 
 export default defineComponent({
   setup() {

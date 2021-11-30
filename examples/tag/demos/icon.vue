@@ -16,7 +16,7 @@
 
 <script lang="jsx">
 import { defineComponent } from 'vue';
-import TIconDiscount from '@tencent/tdesign-vue-next/icon/discount';
+import TIconDiscount from 'tdesign-vue-next/icon/discount';
 
 export default defineComponent({
   components: { TIconDiscount },
