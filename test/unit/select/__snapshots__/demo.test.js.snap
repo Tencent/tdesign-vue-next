@@ -73,7 +73,9 @@ exports[`Select base demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="计算场景"
                 >
-                  计算场景
+                  <span>
+                    计算场景（高性能计算）
+                  </span>
                 </li>
                 
               </ul>
