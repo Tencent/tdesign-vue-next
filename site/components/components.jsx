@@ -72,7 +72,7 @@ export default defineComponent({
         <td-header ref="tdHeader" slot="header">
           <td-doc-search slot="search" ref="tdDocSearch" />
         </td-header>
-        <td-doc-aside ref="tdDocAside" title="Vue3 for Web">
+        <td-doc-aside ref="tdDocAside" title="Vue Next for Web">
           <t-select
             id="historyVersion"
             slot="extra"

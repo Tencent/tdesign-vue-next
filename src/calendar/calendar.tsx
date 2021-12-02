@@ -1,170 +1,3 @@
-<template>
-  <!-- full模式：t-calendar--full 、 card模式：t-calendar--card -->
-  <div class="t-calendar" :class="calendarCls">
-    <!-- 控件部分 -->
-    <div v-if="isControllerVisible" class="t-calendar__control">
-      <div class="t-calendar__title">
-        <render-t-node-template v-if="head" :render="head" :params="controllerOptions" />
-        <slot v-else name="head" :data="controllerOptions" />
-      </div>
-      <div class="t-calendar__control-section">
-        <!-- 年份选择 -->
-        <div v-if="isYearVisible" class="t-calendar__control-section-cell">
-          <t-select
-            v-model="curSelectedYear"
-            :size="controlSize"
-            :disabled="isYearDisabled"
-            v-bind="controllerConfigData.year.selecteProps"
-            @change="controllerChange"
-          >
-            <t-option
-              v-for="item in yearSelectOptionList"
-              :key="item.value"
-              :value="item.value"
-              :label="item.label"
-              :disabled="item.disabled"
-            >
-              {{ item.label }}
-            </t-option>
-          </t-select>
-        </div>
-        <!-- 月份选择 -->
-        <div v-if="curSelectedMode === 'month' && isMonthVisible" class="t-calendar__control-section-cell">
-          <t-select
-            v-model="curSelectedMonth"
-            :size="controlSize"
-            :disabled="isMonthDisabled"
-            v-bind="controllerConfigData.month.selecteProps"
-            @change="controllerChange"
-          >
-            <t-option
-              v-for="item in monthSelectOptionList"
-              :key="item.value"
-              :value="item.value"
-              :label="item.label"
-              :disabled="item.disabled"
-            >
-              {{ item.label }}
-            </t-option>
-          </t-select>
-        </div>
-      </div>
-      <!-- 模式选择 -->
-      <div v-if="isModeVisible" class="t-calendar__control-section-cell" style="height: auto">
-        <t-radio-group
-          v-model="curSelectedMode"
-          variant="default-filled"
-          :size="controlSize"
-          :disabled="isModeDisabled"
-          v-bind="controllerConfigData.mode.radioGroupProps"
-          @change="controllerChange"
-        >
-          <t-radio-button v-for="item in modeSelectOptionList" :key="item.value" :value="item.value">
-            {{ item.label }}
-          </t-radio-button>
-        </t-radio-group>
-      </div>
-      <!-- 显示\隐藏周末 -->
-      <div v-if="theme === 'full' && isWeekendToggleVisible" class="t-calendar__control-section-cell">
-        <t-check-tag
-          v-if="curSelectedMode === 'month'"
-          class="t-calendar__control-tag"
-          :theme="isShowWeekend ? 'default' : 'primary'"
-          :size="controlSize"
-          :disabled="isWeekendToggleDisabled"
-          v-bind="weekendBtnVBind"
-          @click="onWeekendToggleClick()"
-        >
-          {{ weekendBtnText }}
-        </t-check-tag>
-      </div>
-      <!-- 今天\本月 -->
-      <div v-if="theme === 'full' && isCurrentBtnVisible" class="t-calendar__control-section-cell">
-        <t-button :size="controlSize" :disabled="isCurrentBtnDisabled" v-bind="currentBtnVBind" @click="toCurrent()">
-          {{ currentBtnText }}
-        </t-button>
-      </div>
-    </div>
-    <!-- 主体部分 -->
-    <div class="t-calendar__panel" :class="calendarPanelCls">
-      <!-- “月”模式：日历 -->
-      <table v-if="curSelectedMode === 'month'" class="t-calendar__table">
-        <thead class="t-calendar__table-head">
-          <tr class="t-calendar__table-head-row">
-            <template v-for="item in cellColHeaders">
-              <th v-if="checkMonthCellColHeaderVisibled(item)" :key="item.num" class="t-calendar__table-head-cell">
-                <render-t-node-template v-if="isWeekRender" :render="week" :params="getCalendarWeekSlotData(item)" />
-                <slot v-else name="week" :data="getCalendarWeekSlotData(item)">
-                  {{ item.display }}
-                </slot>
-              </th>
-            </template>
-          </tr>
-        </thead>
-        <tbody class="t-calendar__table-body">
-          <tr v-for="(week, weekIndex) in monthCellsData" :key="weekIndex" class="t-calendar__table-body-row">
-            <template v-for="item in week">
-              <calendar-cell-item
-                v-if="checkMonthCellItemShowed(item)"
-                :key="`${weekIndex}-${item.day}`"
-                :item="item"
-                :theme="theme"
-                :t="t"
-                :locale="locale"
-                :fill-with-zero="fillWithZero"
-                @click="clickCell($event, item)"
-                @dblclick="doubleClickCell($event, item)"
-                @rightClick="rightClickCell($event, item)"
-              >
-                <!-- cell slot for month mode -->
-                <template #cell>
-                  <render-t-node-template v-if="cell" :render="cell" :params="createCalendarCell(item)" />
-                  <slot v-else name="cell" :data="createCalendarCell(item)" />
-                </template>
-                <!-- cellAppend slot for month mode -->
-                <template #cellAppend>
-                  <render-t-node-template v-if="cellAppend" :render="cellAppend" :params="createCalendarCell(item)" />
-                  <slot v-else name="cellAppend" :data="createCalendarCell(item)" />
-                </template>
-              </calendar-cell-item>
-            </template>
-          </tr>
-        </tbody>
-      </table>
-      <!-- “年”模式：月历 -->
-      <table v-else-if="curSelectedMode === 'year'" class="t-calendar__table">
-        <tbody class="t-calendar__table-body">
-          <tr v-for="(row, rowIndex) in yearCellsData" :key="rowIndex" class="t-calendar__table-body-row">
-            <calendar-cell-item
-              v-for="(item, itemIndex) in row"
-              :key="`${rowIndex}-${itemIndex}`"
-              :item="item"
-              :theme="theme"
-              :t="t"
-              :locale="locale"
-              @click="clickCell($event, item)"
-              @dblclick="doubleClickCell($event, item)"
-              @rightClick="rightClickCell($event, item)"
-            >
-              <!-- cell slot for year mode -->
-              <template #cell>
-                <render-t-node-template v-if="cell" :render="cell" :params="createCalendarCell(item)" />
-                <slot v-else name="cell" :data="createCalendarCell(item)" />
-              </template>
-              <!-- cellAppend slot for year mode -->
-              <template #cellAppend>
-                <render-t-node-template v-if="cellAppend" :render="cellAppend" :params="createCalendarCell(item)" />
-                <slot v-else name="cellAppend" :data="createCalendarCell(item)" />
-              </template>
-            </calendar-cell-item>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</template>
-
-<script lang="ts">
 import { ref, defineComponent } from 'vue';
 // 通用库
 import dayjs from 'dayjs';
@@ -183,8 +16,8 @@ import { Select as TSelect, Option as TOption } from '../select';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../radio';
 import { Button as TButton } from '../button';
 import { CheckTag as TCheckTag } from '../tag';
-import CalendarCellItem from './calendar-cell.vue';
-import { RenderTNodeTemplate } from '../utils/render-tnode';
+import CalendarCellItem from './calendar-cell';
+import { RenderTNodeTemplate, renderTNodeJSX, renderTNodeJSXDefault } from '../utils/render-tnode';
 
 // 组件相关的自定义类型
 import {
@@ -285,11 +118,11 @@ export default defineComponent({
     },
     // 组件最外层的class名（除去前缀，class名和theme参数一致）
     calendarCls(): Record<string, any> {
-      return [`${COMPONENT_NAME}--${this.theme}`];
+      return [`${COMPONENT_NAME}`, `${COMPONENT_NAME}--${this.theme}`];
     },
 
     calendarPanelCls(): Record<string, any> {
-      return [`${COMPONENT_NAME}__panel--${this.curSelectedMode}`];
+      return ['t-calendar__panel', `${COMPONENT_NAME}__panel--${this.curSelectedMode}`];
     },
 
     isWeekRender(): boolean {
@@ -608,6 +441,192 @@ export default defineComponent({
       }
       return disabled;
     },
+    renderControl() {
+      const { controllerOptions } = this;
+      return (
+        <div class="t-calendar__control">
+          <div class="t-calendar__title">
+            {renderTNodeJSX(this, 'head', {
+              params: controllerOptions,
+            })}
+          </div>
+          <div class="t-calendar__control-section">
+            {this.isYearVisible && (
+              <div class="t-calendar__control-section-cell">
+                <t-select
+                  v-model={this.curSelectedYear}
+                  size={this.controlSize}
+                  disabled={this.isYearDisabled}
+                  {...this.controllerConfigData.year.selecteProps}
+                  onChange={this.controllerChange}
+                >
+                  {this.yearSelectOptionList.map((item) => (
+                    <t-option key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
+                      {item.label}
+                    </t-option>
+                  ))}
+                </t-select>
+              </div>
+            )}
+            {this.curSelectedMode === 'month' && this.isMonthVisible && (
+              <div class="t-calendar__control-section-cell">
+                <t-select
+                  v-model={this.curSelectedMonth}
+                  size={this.controlSize}
+                  disabled={this.isMonthDisabled}
+                  {...this.controllerConfigData.year.selecteProps}
+                  onChange={this.controllerChange}
+                >
+                  {this.monthSelectOptionList.map((item) => (
+                    <t-option key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
+                      {item.label}
+                    </t-option>
+                  ))}
+                </t-select>
+              </div>
+            )}
+            {this.isModeVisible && (
+              <div class="t-calendar__control-section-cell" style="height: auto">
+                <t-radio-group
+                  v-model={this.curSelectedMode}
+                  variant="default-filled"
+                  size={this.controlSize}
+                  disabled={this.isModeDisabled}
+                  {...this.controllerConfigData.mode.radioGroupProps}
+                  onChange={this.controllerChange}
+                >
+                  {this.modeSelectOptionList.map((item) => (
+                    <t-radio-button key={item.value} value={item.value}>
+                      {item.label}
+                    </t-radio-button>
+                  ))}
+                </t-radio-group>
+              </div>
+            )}
+            {this.theme === 'full' && this.curSelectedMode && this.isWeekendToggleVisible && (
+              <div class="t-calendar__control-section-cell">
+                <t-check-tag
+                  class="t-calendar__control-tag"
+                  theme={this.isShowWeekend ? 'default' : 'primary'}
+                  size={this.controlSize}
+                  disabled={this.isWeekendToggleDisabled}
+                  {...this.weekendBtnVBind}
+                  onClick={this.onWeekendToggleClick}
+                >
+                  {this.weekendBtnText}
+                </t-check-tag>
+              </div>
+            )}
+            {this.theme === 'full' && this.isCurrentBtnVisible && (
+              <div class="t-calendar__control-section-cell">
+                <t-button
+                  size={this.controlSize}
+                  disabled={this.isCurrentBtnDisabled}
+                  onClick={() => {
+                    this.toCurrent();
+                  }}
+                  {...this.currentBtnVBind}
+                >
+                  {this.currentBtnText}
+                </t-button>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    },
+  },
+  render() {
+    const { calendarCls, calendarPanelCls, isControllerVisible, cellColHeaders, checkMonthCellColHeaderVisibled } =
+      this;
+
+    const monthBody = () => {
+      return (
+        <table class="t-calendar__table">
+          <thead class="t-calendar__table-head">
+            <tr class="t-calendar__table-head-row">
+              {cellColHeaders.map(
+                (item, index) =>
+                  checkMonthCellColHeaderVisibled(item) && (
+                    <th class="t-calendar__table-head-cell">
+                      {Array.isArray(this.week)
+                        ? this.week[index]
+                        : renderTNodeJSXDefault(this, 'week', {
+                            defaultNode: (() => <>{item.display}</>)(),
+                            params: this.getCalendarWeekSlotData(item),
+                          })}
+                    </th>
+                  ),
+              )}
+            </tr>
+          </thead>
+
+          <tbody class="t-calendar__table-body">
+            {this.monthCellsData.map((week, weekIndex) => (
+              <tr class="t-calendar__table-body-row">
+                {week.map(
+                  (item, itemIndex) =>
+                    this.checkMonthCellItemShowed(item) && (
+                      <calendar-cell-item
+                        key={`${weekIndex}-${itemIndex}`}
+                        item={item}
+                        theme={this.theme}
+                        t={this.t}
+                        locale={this.locale}
+                        cell={this.cell}
+                        fillWithZero={this.fillWithZero}
+                        onClick={(e: MouseEvent) => this.clickCell(e, item)}
+                        ondblclick={(e: MouseEvent) => this.doubleClickCell(e, item)}
+                        onRightClickCell={(e: MouseEvent) => this.rightClickCell(e, item)}
+                      >
+                        {{ ...this.$slots }}
+                      </calendar-cell-item>
+                    ),
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    };
+
+    const yearBody = () => {
+      return (
+        <table class="t-calendar__table">
+          <tbody class="t-calendar__table-body">
+            {this.yearCellsData.map((cell, cellIndex) => (
+              <tr class="t-calendar__table-body-row">
+                {cell.map(
+                  (item, itemIndex) =>
+                    this.checkMonthCellItemShowed(item) && (
+                      <calendar-cell-item
+                        key={`${cellIndex}-${itemIndex}`}
+                        item={item}
+                        theme={this.theme}
+                        t={this.t}
+                        locale={this.locale}
+                        cell={this.cell}
+                        fillWithZero={this.fillWithZero}
+                        onClick={(e: MouseEvent) => this.clickCell(e, item)}
+                        ondblclick={(e: MouseEvent) => this.doubleClickCell(e, item)}
+                        onRightClickCell={(e: MouseEvent) => this.rightClickCell(e, item)}
+                      >
+                        {{ ...this.$slots }}
+                      </calendar-cell-item>
+                    ),
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    };
+
+    return (
+      <div class={calendarCls}>
+        {isControllerVisible && this.renderControl()}
+        <div class={calendarPanelCls}>{this.curSelectedMode === 'month' ? monthBody() : yearBody()}</div>
+      </div>
+    );
   },
 });
-</script>

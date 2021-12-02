@@ -1,6 +1,6 @@
 <template>
   <t-calendar>
-    <template #cell="{ data }">
+    <template #cell="data">
       <div class="outerWarper">
         <div class="number">
           {{ displayNum(data) }}

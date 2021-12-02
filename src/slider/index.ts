@@ -1,6 +1,6 @@
 import mapProps from '../utils/map-props';
 import _Slider from './slider';
-import _SliderButton from './slider-button.vue';
+import _SliderButton from './slider-button';
 import withInstall, { WithInstallType } from '../utils/withInstall';
 
 export * from './type';

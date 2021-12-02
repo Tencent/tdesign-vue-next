@@ -1,3 +1,3 @@
 [submodule "src/_common"]
 	path = src/_common
-	url = https://github.com/TDesignOteam/tdesign-common.git
+	url = git@github.com:TDesignOteam/tdesign-common.git

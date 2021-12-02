@@ -4,7 +4,7 @@
 
 ### 1.1 主要script命令
 
-```
+```shell
 # 运行全部测试
 npm run test
 
@@ -31,7 +31,7 @@ npm run test:coverage
 
 ## 2. 单元测试
 
-```
+```shell
 npm run test:unit
 ```
 
@@ -53,13 +53,13 @@ npm run test:unit
 
 可以指定 --testPathPattern 以跑特定的测试文件，例如只想看 button 的测试结果：
 
-```
+```shell
 npx jest --testPathPattern test/unit/button/* --config script/test/jest.unit.conf.js
 ```
 
 如果确认是预期的修改造成的 snapshot 变化，可以加上 -u 参数更新 snapshot:
 
-```
+```shell
 npx jest --testPathPattern test/unit/button/* --config script/test/jest.unit.conf.js -u
 ```
 
@@ -69,13 +69,13 @@ npx jest --testPathPattern test/unit/button/* --config script/test/jest.unit.con
 
 服务端渲染测试主要利用node环境下的测试快照，与已有jsdom环境快照进行对比
 
-```
+```shell
 npm run test:node
 ```
 
 ## 注意事项
 
-# E2E 测试
+## E2E 测试
 
 调研后发现cypress可以覆盖Puppeteer的E2E测试场景，优先选择了cypress 作为测试框架，它能实现以下功能：
 
@@ -94,13 +94,13 @@ npm run test:node
 
 ### cli运行
 
-```
+```shell
 npm run cypress
 ```
 
 ### GUI界面运行
 
-```
+```shell
 npm run cypress-gui
 ```
 
@@ -108,7 +108,7 @@ npm run cypress-gui
 
 使用BDD模式进行开发，必须在流水线里面通过单元测试。
 
-```
+```shell
 describe('测试按钮组件', () => {
   beforeEach(() => {
     // 打开某个页面
@@ -129,7 +129,7 @@ describe('测试按钮组件', () => {
 
 ## 测试示例
 
-```
+```shell
 describe('测试按钮组件', () => {
   beforeEach(() => {
     // 打开某个页面

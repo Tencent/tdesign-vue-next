@@ -1,6 +1,6 @@
 # tdesign-web-vue-next 开发指南
 
-tdesign-web-vue-next 包含 web-vue 代码和一个子仓库，子仓库指向 tdesign-common 仓库
+tdesign-web-vue-next 包含 web-vue-next 代码和一个子仓库，子仓库指向 tdesign-common 仓库
 
 ## 公共子仓库 tdesign-common
 
@@ -24,7 +24,7 @@ tdesign-web-vue-next 包含 web-vue 代码和一个子仓库，子仓库指向 t
 
 ### 关于组件库 UI
 
-UI 开发（html & css）是多个框架共用的，比如 React-web/Vue-web。各个框架组件实现应该要复用 UI 开发的 html 结构，引用其组件 css 与 demo css（本仓库已在入口处引用了），UI 开发一般可由单独的 UI 开发同学认领完成或各框架组件开发同学的其中一名同学完成
+UI 开发（html & css）是多个框架共用的，比如 React-web/Vue-web/Vue-next web。各个框架组件实现应该要复用 UI 开发的 html 结构，引用其组件 css 与 demo css（本仓库已在入口处引用了），UI 开发一般可由单独的 UI 开发同学认领完成或各框架组件开发同学的其中一名同学完成
 
 * 如果开发前已有某个组件的 UI 开发内容，直接在主仓库使用即可
 * 如果没有，且你也负责 UI 开发：参考 UI 开发规范完成 UI 开发内容、然后再开发主仓库组件
@@ -47,7 +47,7 @@ import './button.less';
 
 ## 开发规范
 
-UI 开发规范参考子仓库 README [子仓库 README]()
+UI 开发规范参考子仓库 README [子仓库 README](https://github.com/TDesignOteam/tdesign-common/blob/main/style/web/README.md)
 
 ## API 规范
 
@@ -59,7 +59,7 @@ UI 开发规范参考子仓库 README [子仓库 README]()
 
 ### css
 
-组件样式在 common 子仓库开发，遵循 [tdesign-common 仓库 UI 开发规范]()
+组件样式在 common 子仓库开发，遵循 [tdesign-common 仓库 UI 开发规范](https://github.com/TDesignOteam/tdesign-common/blob/main/style/web/README.md)
 
 ### git
 
@@ -119,7 +119,7 @@ npm run init button
 
 每一个组件页，都是一个 md 文件，参考 /site/config/index.js 已有定义，直接按照模板添加即可
 
-```
+```js
 {
   title: '基础组件',
   type: 'component', // 组件文档
@@ -143,7 +143,7 @@ npm run init button
 
 文档 demo 排列与 common 仓库中的 UI demo 展示一致
 
-```
+```text
 ::: demo <demo 路径如：demos/base> [demo标题] [--dev 是否只在开发环境插入]
 [demo 描述（可不填）]
 :::

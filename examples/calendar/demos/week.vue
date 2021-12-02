@@ -3,15 +3,15 @@
     <div class="tdesign-demo-block-column">
       <h3>使用插槽</h3>
       <t-calendar>
-        <template #week="scope">
-          {{ scope.data.day === 7 ? '星期天' : `星期${scope.data.day}` }}
+        <template #week="data">
+          {{ data.day === 7 ? '星期天' : `星期${data.day}` }}
         </template>
       </t-calendar>
     </div>
 
     <div class="tdesign-demo-block-column">
       <h3>使用week属性 - Array</h3>
-      <t-calendar :week="week" :first-day-of-week="7" />
+      <t-calendar :week="week" />
     </div>
 
     <div class="tdesign-demo-block-column">

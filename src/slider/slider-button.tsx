@@ -1,41 +1,4 @@
-<template>
-  <div
-    ref="button"
-    :class="[{ hover: hovering, dragging: dragging }, 't-slider__button-wrapper']"
-    :style="wrapperStyle"
-    tabindex="0"
-    :show-tooltip="showTooltip"
-    :disabled="disabled"
-    @mouseenter="handleMouseEnter"
-    @mouseleave="handleMouseLeave"
-    @mousedown="onButtonDown"
-    @touchstart="onButtonDown"
-    @focus="handleMouseEnter"
-    @blur="handleMouseLeave"
-    @keydown.left="onLeftKeyDown"
-    @keydown.right="onRightKeyDown"
-    @keydown.down.prevent="onLeftKeyDown"
-    @keydown.up.prevent="onRightKeyDown"
-  >
-    <t-popup
-      ref="popup"
-      :popper-class="popupClass"
-      :disabled="!showTooltip"
-      :content="String(formatValue)"
-      :placement="placement"
-      :trigger="trigger"
-      :show-arrow="showArrow"
-      :overlay-style="overlayStyle"
-      :overlay-class-name="overlayClassName"
-      :attach="attach"
-    >
-      <div class="t-slider__button" :class="{ hover: hovering, dragging: dragging }" />
-    </t-popup>
-  </div>
-</template>
-
-<script lang="ts">
-import { getCurrentInstance, defineComponent, ComponentPublicInstance } from 'vue';
+import { defineComponent, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import TPopup from '../popup/index';
 
@@ -55,10 +18,6 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    // showTooltip: {
-    //   type: Boolean,
-    //   default: true,
-    // },
     popupClass: {
       type: String,
       default: '',
@@ -191,11 +150,15 @@ export default defineComponent({
       window.addEventListener('touchend', this.onDragEnd);
       window.addEventListener('contextmenu', this.onDragEnd);
     },
-    onLeftKeyDown() {
-      this.onKeyDown('sub');
-    },
-    onRightKeyDown() {
-      this.onKeyDown('add');
+    onNativeKeyDown(e: KeyboardEvent) {
+      const { code } = e;
+      e.preventDefault();
+      if (code === 'ArrowDown' || code === 'ArrowLeft') {
+        this.onKeyDown('sub');
+      }
+      if (code === 'ArrowUp' || code === 'ArrowRight') {
+        this.onKeyDown('add');
+      }
     },
     onKeyDown(state: 'sub' | 'add') {
       if (this.disabled) {
@@ -300,5 +263,38 @@ export default defineComponent({
       return str === undefined || str === null;
     },
   },
+  render() {
+    return (
+      <div
+        ref="button"
+        class={[{ hover: this.hovering, dragging: this.dragging }, 't-slider__button-wrapper']}
+        style={this.wrapperStyle}
+        tabindex="0"
+        show-tooltip={this.showTooltip}
+        disabled={this.disabled}
+        onmouseenter={this.handleMouseEnter}
+        onmouseleave={this.handleMouseLeave}
+        onmousedown={this.onButtonDown}
+        ontouchstart={this.onButtonDown}
+        onfocus={this.handleMouseEnter}
+        onblur={this.handleMouseLeave}
+        onKeydown={this.onNativeKeyDown}
+      >
+        <t-popup
+          ref="popup"
+          popper-class={this.popupClass}
+          disabled={!this.showTooltip}
+          content={String(this.formatValue)}
+          placement={this.placement}
+          trigger={this.trigger}
+          showArrow={this.showArrow}
+          overlayStyle={this.overlayStyle}
+          overlayClassName={this.overlayClassName}
+          attach={this.attach}
+        >
+          <div class={['t-slider__button', { hover: this.hovering, dragging: this.dragging }]} />
+        </t-popup>
+      </div>
+    );
+  },
 });
-</script>

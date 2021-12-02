@@ -1,4 +1,4 @@
-import _Calendar from './calendar.vue';
+import _Calendar from './calendar';
 import withInstall from '../utils/withInstall';
 import { TdCalendarProps } from './type';
 

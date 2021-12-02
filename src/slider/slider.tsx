@@ -5,7 +5,7 @@ import props from './props';
 import { prefix } from '../config';
 import InputNumber from '../input-number/index';
 import TSliderMark from './slider-mark';
-import TSliderButton from './slider-button.vue';
+import TSliderButton from './slider-button';
 import { SliderValue, TdSliderProps } from './type';
 
 const name = `${prefix}-slider`;

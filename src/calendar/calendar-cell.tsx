@@ -1,18 +1,3 @@
-<template>
-  <!-- 高亮：t-is-checked; 灰度：t-is-disabled-->
-  <td v-if="item" :class="cellCls" @click="clickCell" @dblclick="dblclick" @contextmenu="contextmenuClick">
-    <slot name="cell" :data="item">
-      <div class="t-calendar__table-body-cell-value">
-        {{ valueDisplay }}
-      </div>
-      <div class="t-calendar__table-body-cell-content">
-        <slot v-if="allowSlot" name="cellAppend" :data="item" />
-      </div>
-    </slot>
-  </td>
-</template>
-
-<script lang="ts">
 import dayjs from 'dayjs';
 
 // 通用库
@@ -23,6 +8,7 @@ import { COMPONENT_NAME } from './const';
 
 // 组件相关的自定义类型
 import { CalendarCell } from './type';
+import { renderTNodeJSXDefault, renderTNodeJSX } from '../utils/render-tnode';
 
 export default defineComponent({
   name: `${COMPONENT_NAME}-cell`,
@@ -42,6 +28,7 @@ export default defineComponent({
     },
     t: Function,
     locale: Object,
+    cell: Function,
   },
   emits: ['click', 'dblclick', 'rightClick'],
   computed: {
@@ -76,6 +63,7 @@ export default defineComponent({
   },
   methods: {
     clickCell(e: MouseEvent) {
+      if (this.disabled) return;
       this.$emit('click', e);
     },
     dblclick(e: MouseEvent) {
@@ -85,5 +73,30 @@ export default defineComponent({
       this.$emit('rightClick', e);
     },
   },
+  render() {
+    const { item, cellCls, clickCell, dblclick, contextmenuClick, valueDisplay, allowSlot } = this;
+    const defaultNode = (
+      <>
+        <div class="t-calendar__table-body-cell-value">{valueDisplay}</div>
+        <div class="t-calendar__table-body-cell-content">
+          {allowSlot &&
+            renderTNodeJSX(this, 'cellAppend', {
+              params: item,
+            })}
+        </div>
+      </>
+    );
+    return (
+      item && (
+        <div class={cellCls} onClick={clickCell} ondblclick={dblclick} oncontextmenu={contextmenuClick}>
+          {typeof this.cell === 'function'
+            ? this.cell(item)
+            : renderTNodeJSXDefault(this, 'cell', {
+                defaultNode,
+                params: item,
+              })}
+        </div>
+      )
+    );
+  },
 });
-</script>

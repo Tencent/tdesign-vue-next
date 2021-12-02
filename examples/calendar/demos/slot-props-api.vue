@@ -17,7 +17,7 @@ export default defineComponent({
       return <div>{title}</div>;
     };
 
-    const renderCell = (h, params) => {
+    const renderCell = (params) => {
       const dataList = [
         {
           value: 'error',
@@ -34,7 +34,9 @@ export default defineComponent({
       ];
       return (
         <div class="calendar-slot-props-api-demo">
-          {(params.mode === 'month' ? params.day === 15 : dayjs(params.formattedDate).month() === 7) && (
+          {(params.mode === 'month'
+            ? dayjs(params.formattedDate).date() === 15
+            : dayjs(params.formattedDate).month() === 7) && (
             <span>
               <div class="calendar-slot-props-api-demo-slot-warrper">
                 {dataList.map((item) => (
@@ -61,7 +63,7 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="less" scoped>
+<style lang="less">
 .calendar-slot-props-api-demo {
   width: 100%;
   height: 100%;

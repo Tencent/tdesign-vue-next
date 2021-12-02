@@ -1,6 +1,6 @@
 <template>
   <t-calendar>
-    <template #cellAppend="{ data }">
+    <template #cellAppend="data">
       <div v-if="getShow(data)" class="cell-append-demo-outer">
         <t-tag theme="primary" size="small" class="activeTag">
           {{ data.mode == 'month' ? '今天' : '本月' }}
