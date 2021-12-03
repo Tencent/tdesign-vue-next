@@ -22909,7 +22909,7 @@ exports[`ssr snapshot test renders ./examples/locale-provider/demos/base.vue cor
   </div>
   <!--]-->
 </div><br><br><br>
-<div class="t-steps t-steps--undefined t-steps--default-anchor">
+<div class="t-steps t-steps--horizontal t-steps--default-anchor">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish">
     <div class="t-steps-item__inner t-steps-item-canclick">
@@ -26124,7 +26124,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/destroy.vue correctly 
         <!---->
       </div>
     </div>
-    <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->hover我试试<!--]--></span></button>
+    <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->隐藏即销毁<!--]--></span></button>
     <!--]-->
   </div>
 </div>
@@ -26138,7 +26138,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/disabled.vue correctly
         <!---->
       </div>
     </div>
-    <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[--> 禁用popup <!--]--></span></button>
+    <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->禁用浮层显示<!--]--></span></button>
     <!--]-->
   </div>
 </div>
@@ -26260,23 +26260,49 @@ exports[`ssr snapshot test renders ./examples/popup/demos/resize.vue correctly 1
 
 exports[`ssr snapshot test renders ./examples/popup/demos/style.vue correctly 1`] = `
 <div>
-  <div class="t-popup-reference">
-    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-      <div class="t-popup-content custom-popup">这是popup内容
-        <!---->
+  <div class="t-popup-demo-base-item">
+    <div class="t-popup-reference">
+      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+        <div class="t-popup-content tdesign-demo__custom-popup">浮层拥有自定义类名，可以自定义浮层样式
+          <!---->
+        </div>
       </div>
+      <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->自定义浮层类名<!--]--></span></button>
+      <!--]-->
     </div>
-    <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> click我试试 <!--]--></span></button>
-    <!--]-->
   </div>
-  <div class="t-popup-reference" style="margin-left:10px;">
-    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-      <div class="t-popup-content">与 trigger 等宽
-        <!---->
+  <div class="t-popup-demo-base-item">
+    <div class="t-popup-reference">
+      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+        <div class="t-popup-content">浮层宽度是固定的，不会随内容变化而变化
+          <!---->
+        </div>
       </div>
+      <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->固定浮层宽度<!--]--></span></button>
+      <!--]-->
     </div>
-    <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 根据 trigger 元素定制 overlayStyle <!--]--></span></button>
-    <!--]-->
+  </div>
+  <div class="t-popup-demo-base-item">
+    <div class="t-popup-reference">
+      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+        <div class="t-popup-content">可以设置浮层最大宽度，当内容超出最大宽度时，文本内容才会换行
+          <!---->
+        </div>
+      </div>
+      <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->浮层最大宽度<!--]--></span></button>
+      <!--]-->
+    </div>
+  </div>
+  <div class="t-popup-demo-base-item">
+    <div class="t-popup-reference">
+      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+        <div class="t-popup-content">overlayStyle 作为函数使用，可以让浮层内容和触发元素同宽
+          <!---->
+        </div>
+      </div>
+      <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->浮层和触发元素同宽<!--]--></span></button>
+      <!--]-->
+    </div>
   </div>
 </div>
 `;
@@ -26298,11 +26324,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/trigger.vue correctly 
         <!---->
       </div>
     </div>
-    <!--[-->
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="获得焦点时触发" type="text" class="t-input__inner">
-      <!---->
-    </div>
+    <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 点击时触发 <!--]--></span></button>
     <!--]-->
   </div>
   <div class="t-popup-reference">
@@ -26311,7 +26333,11 @@ exports[`ssr snapshot test renders ./examples/popup/demos/trigger.vue correctly 
         <!---->
       </div>
     </div>
-    <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 点击时触发 <!--]--></span></button>
+    <!--[-->
+    <div class="t-input t-size-m">
+      <!----><input autocomplete="false" placeholder="获得焦点时触发" type="text" class="t-input__inner">
+      <!---->
+    </div>
     <!--]-->
   </div>
   <div class="t-popup-reference">
@@ -29934,7 +29960,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/extra.vue correctly 1`
 `;
 
 exports[`ssr snapshot test renders ./examples/steps/demos/icon.vue correctly 1`] = `
-<div class="t-steps t-steps--undefined t-steps--default-anchor">
+<div class="t-steps t-steps--horizontal t-steps--default-anchor">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish">
     <div class="t-steps-item__inner t-steps-item-canclick">
@@ -29997,7 +30023,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/icon.vue correctly 1`]
 `;
 
 exports[`ssr snapshot test renders ./examples/steps/demos/no-sequence.vue correctly 1`] = `
-<div class="t-steps t-steps--undefined t-steps--dot-anchor">
+<div class="t-steps t-steps--horizontal t-steps--dot-anchor">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish">
     <div class="t-steps-item__inner t-steps-item-canclick">
@@ -30060,7 +30086,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/no-sequence.vue correc
 `;
 
 exports[`ssr snapshot test renders ./examples/steps/demos/options.vue correctly 1`] = `
-<div class="t-steps t-steps--undefined t-steps--default-anchor">
+<div class="t-steps t-steps--horizontal t-steps--default-anchor">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish" current="1">
     <div class="t-steps-item__inner t-steps-item-canclick">
@@ -30117,7 +30143,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/options.vue correctly 
 exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly 1`] = `
 <div>
   <!-- 如果 t-step-item 没有传入 value，则使用 index 作为唯一标识 -->
-  <div class="t-steps t-steps--undefined t-steps--default-anchor">
+  <div class="t-steps t-steps--horizontal t-steps--default-anchor">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
       <div class="t-steps-item__inner t-steps-item-canclick">
@@ -30177,7 +30203,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly
     </div>
     <!--]-->
   </div><br><!-- 使用 options 渲染步骤条 -->
-  <div class="t-steps t-steps--undefined t-steps--default-anchor" modelvalue="third">
+  <div class="t-steps t-steps--horizontal t-steps--default-anchor" modelvalue="third">
     <!--[-->
     <div class="t-steps-item t-steps-item--wait" current="third">
       <div class="t-steps-item__inner t-steps-item-canclick">
@@ -30234,7 +30260,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/sequence.vue correctly
 
 exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1`] = `
 <div>
-  <div class="t-steps t-steps--undefined t-steps--default-anchor">
+  <div class="t-steps t-steps--horizontal t-steps--default-anchor">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
       <div class="t-steps-item__inner t-steps-item-canclick">
@@ -30287,7 +30313,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
     <!--]-->
   </div>
   <div style="margin:16px 0;"></div>
-  <div class="t-steps t-steps--undefined t-steps--default-anchor">
+  <div class="t-steps t-steps--horizontal t-steps--default-anchor">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
       <div class="t-steps-item__inner t-steps-item-canclick">
