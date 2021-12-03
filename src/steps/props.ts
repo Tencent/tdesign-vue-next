@@ -27,6 +27,7 @@ export default {
     validator(val: TdStepsProps['layout']): boolean {
       return ['horizontal', 'vertical'].includes(val);
     },
+    default: 'horizontal' as TdStepsProps['layout'],
   },
   /** 步骤条数据列表（作用和 StepItem 效果一样） */
   options: {

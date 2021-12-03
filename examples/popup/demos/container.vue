@@ -24,3 +24,10 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped>
+.t-popup-demo-block {
+  width: 300px;
+  margin-right: 30px;
+  display: inline-block;
+}
+</style>
