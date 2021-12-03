@@ -99,7 +99,7 @@
     "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/server-renderer": "^3.2.4",
     "@vue/test-utils": "^2.0.0-rc.12",
-    "autoprefixer": "^9.8.5",
+    "autoprefixer": "^10.4.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.0",
     "camelcase": "^6.2.0",
