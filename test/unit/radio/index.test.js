@@ -38,19 +38,6 @@ describe('Radio', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
   });
-  // test events
-  // describe('@event', () => {
-  //   it('Event passthrough ', () => {
-  //     const fn = jest.fn();
-  //     const wrapper = mount({
-  //       render() {
-  //         return <Radio onChange={fn}>Radio</Radio>;
-  //       },
-  //     });
-  //     wrapper.findComponent(Radio).trigger('click');
-  //     expect(fn).toHaveBeenCalled();
-  //   });
-  // });
 });
 
 describe('Radio RadioGroup', () => {
@@ -160,23 +147,4 @@ describe('Radio RadioGroup', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
   });
-
-  // test events
-  // describe('@event', () => {
-  //   it('Event passthrough ', () => {
-  //     const fn = jest.fn();
-  //     const wrapper = mount({
-  //       render() {
-  //         return (
-  //           <RadioGroup onChange={fn}>
-  //             <Radio value="gz">广州</Radio>
-  //             <Radio value="sz" disabled>深圳</Radio>
-  //           </RadioGroup>
-  //         );
-  //       },
-  //     });
-  //     wrapper.findComponent(Radio).trigger('click');
-  //     expect(fn).toHaveBeenCalled();
-  //   });
-  // });
 });

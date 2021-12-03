@@ -370,19 +370,5 @@ describe('Tag or CheckTag', () => {
       wrapper.findComponent(CheckTag).trigger('click');
       expect(fn).toBeCalled();
     });
-    // it('Event passthrough: trigger onClick props', () => {
-    //   const fn = jest.fn();
-    //   const wrapper = mount({
-    //     render(h) {
-    //       return h(CheckTag, {
-    //         props: {
-    //           onClick: fn,
-    //         },
-    //       });
-    //     },
-    //   }).findComponent(CheckTag);
-    //   wrapper.findComponent(CheckTag).trigger('click');
-    //   expect(fn).toBeCalled();
-    // });
   });
 });

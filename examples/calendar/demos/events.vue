@@ -1,12 +1,7 @@
 <template>
   <div>
-    <div style="margin: 12px 0">
-      <label>禁用单元格右键菜单：</label>
-      <t-switch v-model="preventCellContextmenu" />
-    </div>
     <t-calendar
       :value="value"
-      :prevent-cell-contextmenu="preventCellContextmenu"
       @click-cell="cellClick"
       @double-click-cell="cellDoubleClick"
       @right-click-cell="cellRightClick"
@@ -18,14 +13,8 @@
 <script>
 import { defineComponent, ref } from 'vue';
 
-const options = [
-  { value: true, label: '禁用' },
-  { value: false, label: '不禁用' },
-];
-
 export default defineComponent({
   setup() {
-    const preventCellContextmenu = ref(false);
     const value = null;
 
     const cellClick = (options) => {
@@ -45,7 +34,6 @@ export default defineComponent({
     };
 
     return {
-      preventCellContextmenu,
       value,
       cellClick,
       cellDoubleClick,

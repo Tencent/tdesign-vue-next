@@ -17,7 +17,7 @@ import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../radio
 import { Button as TButton } from '../button';
 import { CheckTag as TCheckTag } from '../tag';
 import CalendarCellItem from './calendar-cell';
-import { RenderTNodeTemplate, renderTNodeJSX, renderTNodeJSXDefault } from '../utils/render-tnode';
+import { renderTNodeJSX, renderTNodeJSXDefault } from '../utils/render-tnode';
 
 // 组件相关的自定义类型
 import {
@@ -81,7 +81,6 @@ export default defineComponent({
     TRadioButton,
     TButton,
     CalendarCellItem,
-    RenderTNodeTemplate,
   },
   props: { ...props },
   emits: ['cell-click', 'cell-double-click', 'cell-right-click', 'controller-change'],
@@ -552,7 +551,7 @@ export default defineComponent({
                       {Array.isArray(this.week)
                         ? this.week[index]
                         : renderTNodeJSXDefault(this, 'week', {
-                            defaultNode: (() => <>{item.display}</>)(),
+                            defaultNode: <span>{item.display}</span>,
                             params: this.getCalendarWeekSlotData(item),
                           })}
                     </th>

@@ -75,7 +75,8 @@ export default defineComponent({
   },
   render() {
     const { item, cellCls, clickCell, dblclick, contextmenuClick, valueDisplay, allowSlot } = this;
-    const defaultNode = (
+
+    const defaultNode = () => (
       <>
         <div class="t-calendar__table-body-cell-value">{valueDisplay}</div>
         <div class="t-calendar__table-body-cell-content">
@@ -86,13 +87,14 @@ export default defineComponent({
         </div>
       </>
     );
+
     return (
       item && (
         <div class={cellCls} onClick={clickCell} ondblclick={dblclick} oncontextmenu={contextmenuClick}>
           {typeof this.cell === 'function'
             ? this.cell(item)
             : renderTNodeJSXDefault(this, 'cell', {
-                defaultNode,
+                defaultNode: defaultNode(),
                 params: item,
               })}
         </div>

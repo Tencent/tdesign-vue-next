@@ -37,42 +37,4 @@ describe('Submenu', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
   });
-
-  // describe('slot', () => {
-  //   it('<icon>', () => {
-  //     const wrapper = mount(Submenu, {
-  //       slots: {
-  //         icon: '<div></div>',
-  //       },
-  //       provide: {
-  //         TdMenu: Menu,
-  //       },
-  //     });
-  //     expect(wrapper.element).toMatchSnapshot();
-  //   });
-
-  //   it('<default>', () => {
-  //     const wrapper = mount(Submenu, {
-  //       slots: {
-  //         default: '<div></div>',
-  //       },
-  //       provide: {
-  //         TdMenu: Menu,
-  //       },
-  //     });
-  //     expect(wrapper.element).toMatchSnapshot();
-  //   });
-
-  //   it('<title>', () => {
-  //     const wrapper = mount(Submenu, {
-  //       slots: {
-  //         title: '<div></div>',
-  //       },
-  //       provide: {
-  //         TdMenu: Menu,
-  //       },
-  //     });
-  //     expect(wrapper.element).toMatchSnapshot();
-  //   });
-  // });
 });

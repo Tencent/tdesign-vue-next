@@ -46,20 +46,6 @@ describe('Checkbox', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
   });
-
-  // test events
-  // describe('@event', () => {
-  //   it('Event passthrough ', () => {
-  //     const fn = jest.fn();
-  //     const wrapper = mount({
-  //       render() {
-  //         return <Checkbox onChange={fn}>Checkbox</Checkbox>;
-  //       },
-  //     });
-  //     wrapper.findComponent(Checkbox).trigger('click');
-  //     expect(fn).toHaveBeenCalled();
-  //   });
-  // });
 });
 
 describe('Checkbox CheckboxGroup', () => {
@@ -152,23 +138,4 @@ describe('Checkbox CheckboxGroup', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
   });
-
-  // test events
-  // describe('@event', () => {
-  //   it('Event passthrough ', () => {
-  //     const fn = jest.fn();
-  //     const wrapper = mount({
-  //       render() {
-  //         return (
-  //           <CheckboxGroup onChange={fn}>
-  //             <Checkbox value="gz">广州</Checkbox>
-  //             <Checkbox value="sz" disabled>深圳</Checkbox>
-  //           </CheckboxGroup>
-  //         );
-  //       },
-  //     });
-  //     wrapper.findComponent(Checkbox).trigger('click');
-  //     expect(fn).toHaveBeenCalled();
-  //   });
-  // });
 });

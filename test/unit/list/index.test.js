@@ -223,17 +223,6 @@ describe('ListItem', () => {
       expect(content.exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
-    // it(':action is a function, () => VNode.', () => {
-    //   const wrapper = mount({
-    //     render() {
-    //       return <ListItem action={() => <p>This is a action</p>}></ListItem>;
-    //     },
-    //   });
-    //   const listItem = wrapper.findComponent(ListItem);
-    //   const action = listItem.find('.t-list-item__action');
-    //   expect(action.exists()).toBe(true);
-    //   expect(wrapper.element).toMatchSnapshot();
-    // });
   });
   describe('<slot>', () => {
     it('<default>', () => {
@@ -312,17 +301,6 @@ describe('ListItemMeta', () => {
       });
       expect(wrapper.element).toMatchSnapshot();
     });
-    // it(':image is a function, () => VNode.', () => {
-    //   const wrapper = mount({
-    //     render() {
-    //       return <ListItemMeta image={() => <p>image</p>}></ListItemMeta>;
-    //     },
-    //   });
-    //   const listItemMeta = wrapper.findComponent(ListItemMeta);
-    //   const avatar = listItemMeta.find('.t-list-item__meta-avatar');
-    //   expect(avatar.exists()).toBe(true);
-    //   expect(wrapper.element).toMatchSnapshot();
-    // });
     it(':title is a function, () => VNode.', () => {
       const wrapper = mount({
         render() {

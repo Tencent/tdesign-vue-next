@@ -38,26 +38,6 @@ describe('Transfer', () => {
           expect(dom.className.indexOf('t-is-checked') > -1).toBe(true);
         });
       });
-
-      // it('v-mode:checked', async () => {
-      //   const wrapper = await mount({
-      //     components: {
-      //       Transfer,
-      //     },
-      //     template: `
-      //     <Transfer :data="data" :checked.sync="checkedValue" />
-      //     `,
-      //     data() {
-      //       return {
-      //         data,
-      //         checkedValue: ['1', '2', '5'],
-      //       };
-      //     },
-      //   });
-
-      //   wrapper.vm.$el.querySelectorAll('.t-transfer-list__item.t-checkbox')[2].click();
-      //   expect(wrapper.vm.$data.checkedValue).toEqual(['1', '5']);
-      // });
     });
 
     describe('defaultChecked', () => {
@@ -265,17 +245,6 @@ describe('Transfer', () => {
           'to right',
         );
       });
-
-      // it('function', async () => {
-      //   const operation = (h, { direction }) => h('div', `go to ${direction}`);
-      //   const wrapper = await mount({
-      //     render() {
-      //       return <Transfer operation={operation}></Transfer>;
-      //     },
-      //   });
-      //   expect(wrapper.vm.$el.querySelector('.t-transfer-operations button').innerHTML)
-      //     .toEqual('<span class="t-button__text"><div>go to right</div></span>');
-      // });
     });
 
     describe('pagination', () => {
@@ -519,40 +488,5 @@ describe('Transfer', () => {
         movedValue: checkedValue,
       });
     });
-
-    // describe('checked-change', () => {
-    //   it('onCheckedChange', async () => {
-    //     const fn = jest.fn();
-    //     const wrapper = await mount({
-    //       render() {
-    //         return <Transfer data={data} value={targetValue} pagination={pagination} on-checked-change={fn} />;
-    //       },
-    //     });
-
-    //     wrapper.findAll('.t-transfer-list-source .t-transfer-list__item.t-checkbox').at(3)
-    //       .trigger('click');
-
-    //     await wrapper.vm.$nextTick();
-
-    //     wrapper.findAll('.t-transfer-list-target .t-transfer-list__item.t-checkbox').at(0)
-    //       .trigger('click');
-
-    //     await wrapper.vm.$nextTick();
-
-    //     expect(fn).toHaveBeenCalledTimes(2);
-    //     expect(fn.mock.calls[0][0]).toEqual({
-    //       checked: ['4'],
-    //       sourceChecked: ['4'],
-    //       targetChecked: [],
-    //       type: 'source',
-    //     });
-    //     expect(fn.mock.calls[1][0]).toEqual({
-    //       checked: ['4', '1'],
-    //       sourceChecked: ['4'],
-    //       targetChecked: ['1'],
-    //       type: 'target',
-    //     });
-    //   });
-    // });
   });
 });

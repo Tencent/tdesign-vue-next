@@ -10,18 +10,18 @@ jobs:
     if: github.event.ref_type == 'tag'
     steps:
       - uses: actions/install-dep@main
-      - name: site
-        run: npm run site:preview
+      - run: npm run site:preview
       - name: upload surge service
         id: deploy
         run: |
-          export DEPLOY_DOMAIN=https://preview-${{ github.ref }}-tdesign-vue.surge.sh
+          export DEPLOY_DOMAIN=https://preview-${{ github.ref }}-tdesign-vue-next.surge.sh
           npx surge --project _site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
-      - run: echo 'https://preview-${{ github.ref }}-tdesign-vue.surge.sh'
+      - run: echo 'https://preview-${{ github.ref }}-tdesign-vue-next.surge.sh'
         if: ${{ success() }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - name: build
-        run: npm run build
+      - run: npm run build
+      - name: npm publish prepare
+        run: rm README.md CHANGELOG.md
       - name: publish
         uses: JS-DevTools/npm-publish@v1
         with:

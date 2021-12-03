@@ -11,8 +11,8 @@
     <t-calendar ref="myCalendar" :theme="theme" @cell-right-click="handleClick">
       <template #cell="scope">
         <div class="demo-cell">
-          <div class="cellAppend" :class="getCellAppendCls(scope.data)">
-            {{ getDateStr(scope.data) }}
+          <div class="cellAppend" :class="getCellAppendCls(scope)">
+            {{ getDateStr(scope) }}
           </div>
         </div>
       </template>

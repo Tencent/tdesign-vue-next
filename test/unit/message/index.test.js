@@ -126,17 +126,6 @@ describe('Message', () => {
 
   // test events
   describe('@event', () => {
-    // it('@close-btn-click', async () => {
-    //   const wrapper = mount({
-    //     render() {
-    //       return <Message closeBtn={true}></Message>;
-    //     },
-    //   });
-    //   const msg = wrapper.findComponent(Message);
-    //   await msg.find('.t-icon-close').trigger('click');
-    //   expect(msg.emitted()['close-btn-click']).toBeTruthy();
-    // });
-
     it('@duration-end', (done) => {
       const wrapper = mount({
         render() {

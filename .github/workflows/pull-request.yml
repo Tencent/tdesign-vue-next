@@ -1,13 +1,24 @@
 name: MAIN_PULL_REQUEST
 
 on:
-  pull_request: 
+  pull_request:
     branches: [develop, main]
 
 jobs:
   MAIN_PULL_REQUEST:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/install-dep@main
+      - name: Fix up git URLs
+        run: echo -e '[url "https://github.com/"]\n  insteadOf = "git@github.com:"' >> ~/.gitmodules
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.TEMP_REPO_TOKEN }}
+          submodules: recursive
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install
+        shell: bash
       - run: npm run lint
       - run: npm run test

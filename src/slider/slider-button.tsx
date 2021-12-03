@@ -209,8 +209,10 @@ export default defineComponent({
       }
 
       if (event.type === 'touchmove') {
-        this.clientY = (event as TouchEvent).touches[0].clientY;
-        this.clientX = (event as TouchEvent).touches[0].clientX;
+        const touch = (event as TouchEvent).touches;
+        const [clientY, clientX] = [touch[0].clientY, touch[0].clientX];
+        this.clientY = clientY;
+        this.clientX = clientX;
       }
 
       diff = (diff / parentSliderSize) * 100;

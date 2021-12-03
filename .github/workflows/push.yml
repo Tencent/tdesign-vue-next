@@ -1,19 +1,37 @@
 name: All_ON_PUSH
 
 on: push
+
 jobs:
   All_ON_PUSH:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/install-dep@main
-      - run: echo '${{ github.ref }} ...  ${{ github.sha }}''
-      - name: build
+      - name: Fix up git URLs
+        run: echo -e '[url "https://github.com/"]\n  insteadOf = "git@github.com:"' >> ~/.gitmodules
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.TEMP_REPO_TOKEN }}
+          submodules: recursive
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Init submodule
+        run: |
+          git submodule init
+          git submodule update
+      - name: Install dependencies
+        run: npm install
+        shell: bash
+      - run: echo '${{ github.ref }} ...  ${{ github.sha }}'
+      - name: Build site
         run: npm run site:preview
-      - name: upload surge service
+      - name: Upload surge service and generate preview URL
         id: deploy
         run: |
-          export DEPLOY_DOMAIN=https://preview-${{ github.ref }}-tdesign-vue.surge.sh
-          npx surge --project _site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
-      - run: echo 'https://preview-${{ github.ref }}-tdesign-vue.surge.sh'
+          export GITHUB_SHA=${{ github.sha }}
+          export GITHUB_SHA_SUB=${GITHUB_SHA: 0: 7 }
+          export DEPLOY_DOMAIN=https://preview-$GITHUB_SHA_SUB-tdesign-vue-next.surge.sh
+          npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          echo the preview URL is $DEPLOY_DOMAIN
         if: ${{ success() }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "🚀 This job's status is ${{ job.status }}."

@@ -35,8 +35,6 @@ describe('Calendar', () => {
     const wrapper = mount(filter);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it.todo('下滑翻阅月份浏览 （建设中）');
-  // 组件类型(end)
 
   // 功能示例(begin)
   it('value demo works fine', () => {
