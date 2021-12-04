@@ -11,14 +11,14 @@
       <t-form-item name="account">
         <t-input v-model="formData.account" clearable placeholder="请输入账户名">
           <template #prefix-icon>
-            <t-icon-desktop />
+            <desktop-icon />
           </template>
         </t-input>
       </t-form-item>
       <t-form-item name="password">
         <t-input v-model="formData.password" type="password" clearablec placeholder="请输入密码">
           <template #prefix-icon>
-            <t-icon-lock-on />
+            <lock-on-icon />
           </template>
         </t-input>
       </t-form-item>
@@ -31,9 +31,7 @@
 <script>
 import { defineComponent, ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
-
-import TIconDesktop from 'tdesign-vue-next/icon/desktop';
-import TIconLockOn from 'tdesign-vue-next/icon/lock-on';
+import { DesktopIcon, LockOnIcon } from 'tdesign-icons-vue-next';
 
 const INITIAL_DATA = {
   account: '',
@@ -42,8 +40,8 @@ const INITIAL_DATA = {
 
 export default defineComponent({
   components: {
-    TIconDesktop,
-    TIconLockOn,
+    DesktopIcon,
+    LockOnIcon,
   },
   setup() {
     const formData = ref({ ...INITIAL_DATA });

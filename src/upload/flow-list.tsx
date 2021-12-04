@@ -1,14 +1,16 @@
 import { defineComponent, VNode, PropType } from 'vue';
+import {
+  LoadingIcon,
+  TimeFilledIcon,
+  CheckCircleFilledIcon,
+  ErrorCircleFilledIcon,
+  DeleteIcon,
+  BrowseIcon,
+} from 'tdesign-icons-vue-next';
 import { UploadFile } from './type';
 import TButton from '../button';
 import { returnFileSize, abridgeName, UPLOAD_NAME } from './util';
 import { FlowRemoveContext } from './interface';
-import TIconLoading from '../icon/loading';
-import TIconTimeFilled from '../icon/time-filled';
-import TIconCheckCircleFilled from '../icon/check-circle-filled';
-import TIconErrorCircleFilled from '../icon/error-circle-filled';
-import TIconDelete from '../icon/delete';
-import TIconBrowse from '../icon/browse';
 import props from './props';
 
 export default defineComponent({
@@ -16,12 +18,12 @@ export default defineComponent({
 
   components: {
     TButton,
-    TIconLoading,
-    TIconCheckCircleFilled,
-    TIconTimeFilled,
-    TIconErrorCircleFilled,
-    TIconBrowse,
-    TIconDelete,
+    LoadingIcon,
+    TimeFilledIcon,
+    CheckCircleFilledIcon,
+    ErrorCircleFilledIcon,
+    DeleteIcon,
+    BrowseIcon,
   },
 
   props: {
@@ -94,7 +96,7 @@ export default defineComponent({
         case 'success':
           status = (
             <div class={`${UPLOAD_NAME}__flow-status`}>
-              <TIconCheckCircleFilled />
+              <CheckCircleFilledIcon />
               <span>上传成功</span>
             </div>
           );
@@ -102,7 +104,7 @@ export default defineComponent({
         case 'fail':
           status = (
             <div class={`${UPLOAD_NAME}__flow-status`}>
-              <TIconErrorCircleFilled />
+              <ErrorCircleFilledIcon />
               <span>上传失败</span>
             </div>
           );
@@ -111,7 +113,7 @@ export default defineComponent({
           this.showUploadProgress &&
             (status = (
               <div class={`${UPLOAD_NAME}__flow-status`}>
-                <TIconLoading />
+                <LoadingIcon />
                 <span>上传中 {Math.min(file.percent, 99)}%</span>
               </div>
             ));
@@ -119,7 +121,7 @@ export default defineComponent({
         case 'waiting':
           status = (
             <div class={`${UPLOAD_NAME}__flow-status`}>
-              <TIconTimeFilled />
+              <TimeFilledIcon />
               <span>待上传</span>
             </div>
           );
@@ -221,13 +223,13 @@ export default defineComponent({
                   >
                     {file.status === 'fail' && (
                       <div class={`${UPLOAD_NAME}-card__status-wrap`}>
-                        <TIconErrorCircleFilled size="20px" />
+                        <ErrorCircleFilledIcon size="20px" />
                         <p>上传失败</p>
                       </div>
                     )}
                     {file.status === 'progress' && (
                       <div class={`${UPLOAD_NAME}-card__status-wrap`}>
-                        <TIconLoading size="20px" />
+                        <LoadingIcon size="20px" />
                         <p>上传中 {Math.min(file.percent, 99)}</p>
                       </div>
                     )}
@@ -240,7 +242,7 @@ export default defineComponent({
                     <div class={`${UPLOAD_NAME}-card__mask`}>
                       {file.url && (
                         <span class={`${UPLOAD_NAME}-card__mask__item`}>
-                          <TIconBrowse onClick={(e: MouseEvent) => this.onViewClick(e, file)} />
+                          <BrowseIcon onClick={({ e }: { e: MouseEvent }) => this.onViewClick(e, file)} />
                           <span class={`${UPLOAD_NAME}-card__mask__item-divider`}></span>
                         </span>
                       )}
@@ -248,7 +250,7 @@ export default defineComponent({
                         class={`${UPLOAD_NAME}-card__mask__item`}
                         onClick={(e: MouseEvent) => this.remove({ e, index, file })}
                       >
-                        <TIconDelete />
+                        <DeleteIcon />
                       </span>
                     </div>
                   </div>

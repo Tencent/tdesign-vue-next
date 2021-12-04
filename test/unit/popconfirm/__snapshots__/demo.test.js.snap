@@ -34,15 +34,16 @@ exports[`Popconfirm base demo works fine 1`] = `
                     class="t-popconfirm__body"
                   >
                     <svg
-                      class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                     <div
@@ -142,15 +143,16 @@ exports[`Popconfirm base demo works fine 1`] = `
                     class="t-popconfirm__body"
                   >
                     <svg
-                      class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM544 416L416 416 416 480 480 480 480 736 608 736 608 672 544 672 544 416ZM544 288L480 288 480 352 544 352 544 288Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                     <div

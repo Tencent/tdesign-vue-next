@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import TIconClose from '../icon/close';
+import { CloseIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import { TdTabsProps } from './type';
 import { emitEvent } from '../utils/event';
@@ -10,7 +10,7 @@ import tabPanelProps from './tab-panel-props';
 export default defineComponent({
   name: 'TTabNavItem',
   components: {
-    TIconClose,
+    CloseIcon,
   },
 
   directives: { ripple },
@@ -45,7 +45,7 @@ export default defineComponent({
     },
   },
   methods: {
-    removeBtnClick(e: MouseEvent): void {
+    removeBtnClick({ e }: { e: MouseEvent }): void {
       e.stopPropagation();
       emitEvent<Parameters<TdTabsProps['onRemove']>>(this, 'remove', { e, value: this.value, index: this.index });
     },
@@ -57,9 +57,7 @@ export default defineComponent({
       return (
         <div class={this.navItemClass} onClick={this.onClickNav} v-ripple>
           <span class={`${prefix}-tabs__nav-item-text-wrapper`}>{this.label}</span>
-          {this.removable && !this.disabled ? (
-            <TIconClose class="remove-btn" nativeOnClick={this.removeBtnClick} />
-          ) : null}
+          {this.removable && !this.disabled ? <CloseIcon class="remove-btn" onClick={this.removeBtnClick} /> : null}
         </div>
       );
     },

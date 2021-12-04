@@ -1,8 +1,8 @@
 import { defineComponent, VNodeChild } from 'vue';
+import { LoadingIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import TIconLoading from '../icon/loading';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
 import { ClassName } from '../common';
@@ -12,7 +12,7 @@ const name = `${prefix}-list`;
 export default defineComponent({
   name,
   components: {
-    TIconLoading,
+    LoadingIcon,
   },
   props: {
     ...props,
@@ -42,7 +42,7 @@ export default defineComponent({
         if (this.asyncLoading === LOADING) {
           return (
             <div>
-              <TIconLoading />
+              <LoadingIcon />
               <span>正在加载中，请稍等</span>
             </div>
           );

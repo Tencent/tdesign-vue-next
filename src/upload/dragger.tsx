@@ -1,9 +1,7 @@
 import { defineComponent, PropType, VNode } from 'vue';
+import { LoadingIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import { UploadFile } from './type';
-import TIconLoading from '../icon/loading';
-import TIconCheckCircleFilled from '../icon/check-circle-filled';
-import TIconErrorCircleFilled from '../icon/error-circle-filled';
 import TButton from '../button';
 import { returnFileSize, getCurrentDate, abridgeName } from './util';
 import { ClassName } from '../common';
@@ -14,10 +12,10 @@ export default defineComponent({
   name,
 
   components: {
-    TIconLoading,
-    TIconCheckCircleFilled,
     TButton,
-    TIconErrorCircleFilled,
+    LoadingIcon,
+    CheckCircleFilledIcon,
+    ErrorCircleFilledIcon,
   },
 
   props: {
@@ -120,12 +118,12 @@ export default defineComponent({
 
     renderUploading() {
       if (this.loadingFile.status === 'fail') {
-        return <TIconErrorCircleFilled />;
+        return <ErrorCircleFilledIcon />;
       }
       if (this.loadingFile.status === 'progress') {
         return (
           <div class="t-upload__single-progress">
-            <TIconLoading />
+            <LoadingIcon />
             <span class="t-upload__single-percent">{Math.min(this.loadingFile.percent, 99)}%</span>
           </div>
         );
@@ -145,7 +143,7 @@ export default defineComponent({
             <div class="t-upload__dragger-text">
               <span class="t-upload__single-name">{abridgeName(this.inputName)}</span>
               {this.loadingFile && this.renderUploading()}
-              {!this.loadingFile && !!this.file && <TIconCheckCircleFilled />}
+              {!this.loadingFile && !!this.file && <CheckCircleFilledIcon />}
             </div>
             <small class="t-upload__small">文件大小：{returnFileSize(this.size)}</small>
             <small class="t-upload__small">上传日期：{getCurrentDate()}</small>

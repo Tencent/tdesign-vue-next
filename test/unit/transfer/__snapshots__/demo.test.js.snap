@@ -561,15 +561,15 @@ exports[`Transfer base demo works fine 1`] = `
         
         <svg
           class="t-icon t-icon-chevron-right"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            clip-rule="evenodd"
-            d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         <span
@@ -589,14 +589,15 @@ exports[`Transfer base demo works fine 1`] = `
         
         <svg
           class="t-icon t-icon-chevron-left"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M266.45122048 489.6415328C253.98241280000002 502.1382944 254.00507328000003 522.37688704 266.50183488 534.84569536L266.50183488 534.84569536 641.5903552 909.0951936 686.8451904 863.8403584 334.4904192 512.2516633600001 686.8451904 160.83449728 641.5903552 115.57966336000001 267.2264192 488.89166336 266.50183488 489.59088959999997 266.47651392 489.6162112Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         <span

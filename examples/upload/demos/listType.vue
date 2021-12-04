@@ -12,7 +12,7 @@
       >
         <template #trigger>
           <t-button variant="outline">
-            <template #icon> <t-icon-upload />选择文件 </template>
+            <template #icon> <upload-icon />选择文件 </template>
           </t-button>
           <p class="describe">请上传txt文件，大小在60M以内</p>
         </template>
@@ -23,11 +23,11 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import TIconUpload from 'tdesign-vue-next/icon/upload';
+import { UploadIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
   components: {
-    TIconUpload,
+    UploadIcon,
   },
   setup() {
     const files = ref([]);

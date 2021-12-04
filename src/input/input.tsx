@@ -1,11 +1,9 @@
 import { defineComponent, h, VNodeChild, nextTick } from 'vue';
+import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
 
-import BrowseIcon from '../icon/browse';
-import BrowseOffIcon from '../icon/browse-off';
 import CLASSNAMES from '../utils/classnames';
-import ClearIcon from '../icon/close-circle-filled';
 import { prefix } from '../config';
 import props from './props';
 
@@ -125,7 +123,7 @@ export default defineComponent({
       const toggleType = renderType === 'password' ? 'text' : 'password';
       this.renderType = toggleType;
     },
-    emitClear(e: MouseEvent) {
+    emitClear({ e }: { e: MouseEvent }) {
       this.$emit('clear', e);
       this.$emit('change', '', e);
       this.$emit('input', '', e);
@@ -176,7 +174,7 @@ export default defineComponent({
     let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
 
     if (this.showClear) {
-      suffixIcon = <ClearIcon class={`${name}__suffix-clear`} onClick={this.emitClear} />;
+      suffixIcon = <CloseCircleFilledIcon class={`${name}__suffix-clear`} onClick={this.emitClear} />;
     }
 
     if (this.type === 'password') {

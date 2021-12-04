@@ -1,8 +1,7 @@
 import { defineComponent } from 'vue';
+import { RoundIcon, ChevronLeftIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
+
 import TButton from '../../button/button';
-import TIconRound from '../../icon/round';
-import TIconChevronLeft from '../../icon/chevron-left';
-import TIconChevronRight from '../../icon/chevron-right';
 import mixins from '../../utils/mixins';
 import getLocalReceiverMixins from '../../locale/local-receiver';
 import props from './header-props';
@@ -14,9 +13,9 @@ export default defineComponent({
   ...mixins(getLocalReceiverMixins('datePicker')),
   components: {
     TButton,
-    TIconChevronLeft,
-    TIconChevronRight,
-    TIconRound,
+    RoundIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
   },
   props,
   render() {
@@ -85,7 +84,7 @@ export default defineComponent({
             onClick={() => onBtnClick(-1)}
             title={preLabel}
             v-slots={{
-              icon: () => <t-icon-chevron-left />,
+              icon: () => <chevron-left-icon />,
             }}
           />
           <t-button
@@ -97,7 +96,7 @@ export default defineComponent({
             onClick={() => onBtnClick(0)}
             title={now}
             v-slots={{
-              icon: () => <t-icon-round />,
+              icon: () => <round-icon />,
             }}
           />
           <t-button
@@ -106,7 +105,7 @@ export default defineComponent({
             onClick={() => onBtnClick(1)}
             title={nextLabel}
             v-slots={{
-              icon: () => <t-icon-chevron-right />,
+              icon: () => <chevron-right-icon />,
             }}
           />
         </span>

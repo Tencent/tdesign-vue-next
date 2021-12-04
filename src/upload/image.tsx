@@ -1,11 +1,7 @@
 import { defineComponent, PropType } from 'vue';
+import { AddIcon, DeleteIcon, UploadIcon, BrowseIcon, LoadingIcon } from 'tdesign-icons-vue-next';
 import { UploadFile } from './type';
 import { UploadRemoveOptions } from './interface';
-import TIconAdd from '../icon/add';
-import IIconDelete from '../icon/delete';
-import IIconUpload from '../icon/upload';
-import TIconBrowse from '../icon/browse';
-import TIconLoading from '../icon/loading';
 import { UPLOAD_NAME } from './util';
 import props from './props';
 import CLASSNAMES from '../utils/classnames';
@@ -15,11 +11,11 @@ export default defineComponent({
   name: 'TImageUpload',
 
   components: {
-    TIconAdd,
-    IIconDelete,
-    IIconUpload,
-    TIconBrowse,
-    TIconLoading,
+    AddIcon,
+    DeleteIcon,
+    UploadIcon,
+    BrowseIcon,
+    LoadingIcon,
   },
   props: {
     showUploadProgress: props.showUploadProgress,
@@ -70,12 +66,12 @@ export default defineComponent({
                 <img class={`${UPLOAD_NAME}-card__image`} src={file.url} />
                 <div class={`${UPLOAD_NAME}-card__mask`} onClick={this.onMaskClick}>
                   <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
-                    <TIconBrowse onClick={(e: MouseEvent) => this.onViewClick(e, file)} />
+                    <BrowseIcon onClick={({ e }: { e: MouseEvent }) => this.onViewClick(e, file)} />
                   </span>
                   <span class={`${UPLOAD_NAME}-card__mask__item-divider`}></span>
 
                   <span class={`${UPLOAD_NAME}-card__mask__item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
-                    <IIconDelete onClick={(e: MouseEvent) => this.remove({ e, file, index })} />
+                    <DeleteIcon onClick={({ e }: { e: MouseEvent }) => this.remove({ e, file, index })} />
                   </span>
                 </div>
               </div>
@@ -93,12 +89,12 @@ export default defineComponent({
           >
             {this.showUploadProgress && this.loadingFile && this.loadingFile.status === 'progress' ? (
               <div class={`${UPLOAD_NAME}-card-container ${UPLOAD_NAME}-card__box`}>
-                <TIconLoading></TIconLoading>
+                <LoadingIcon></LoadingIcon>
                 <p>上传中 {Math.min(this.loadingFile.percent, 99)}%</p>
               </div>
             ) : (
               <div class={`${UPLOAD_NAME}-card-container ${UPLOAD_NAME}-card__box`}>
-                <TIconAdd></TIconAdd>
+                <AddIcon></AddIcon>
                 <p class={`${UPLOAD_NAME}__small`}>点击上传图片</p>
               </div>
             )}

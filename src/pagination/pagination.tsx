@@ -1,12 +1,14 @@
 import { defineComponent } from 'vue';
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronLeftDoubleIcon,
+  ChevronRightDoubleIcon,
+  EllipsisIcon,
+} from 'tdesign-icons-vue-next';
 import config from '../config';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
-import TIconChevronLeft from '../icon/chevron-left';
-import TIconChevronRight from '../icon/chevron-right';
-import TIconChevronLeftDouble from '../icon/chevron-left-double';
-import TIconChevronRightDouble from '../icon/chevron-right-double';
-import TIconEllipsis from '../icon/ellipsis';
 import TInput from '../input';
 import { Select, Option } from '../select';
 import CLASSNAMES from '../utils/classnames';
@@ -23,11 +25,11 @@ const PaginationLocalReceiver = getLocalRecevierMixins('pagination');
 export default defineComponent({
   name,
   components: {
-    TIconChevronLeft,
-    TIconChevronRight,
-    TIconChevronLeftDouble,
-    TIconChevronRightDouble,
-    TIconEllipsis,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    ChevronLeftDoubleIcon,
+    ChevronRightDoubleIcon,
+    EllipsisIcon,
     TInput,
     TSelect: Select,
     TOption: Option,
@@ -355,7 +357,7 @@ export default defineComponent({
 
           {/* 向前按钮 */}
           <div class={preBtnClass} onClick={prevPage} disabled={disabled || current === 1}>
-            <t-icon-chevron-left />
+            <chevron-left-icon />
           </div>
           {/* 页数 */}
           {!isSimple ? (
@@ -372,7 +374,7 @@ export default defineComponent({
                   onMouseover={() => (this.prevMore = true)}
                   onMouseout={() => (this.prevMore = false)}
                 >
-                  {this.prevMore ? <t-icon-chevron-left-double /> : <t-icon-ellipsis />}
+                  {this.prevMore ? <chevron-left-double-icon /> : <ellipsis-icon />}
                 </li>
               )}
               {pages.map((item) => (
@@ -388,7 +390,7 @@ export default defineComponent({
                   onMouseover={() => (this.nextMore = true)}
                   onMouseout={() => (this.nextMore = false)}
                 >
-                  {this.nextMore ? <t-icon-chevron-right-double /> : <t-icon-ellipsis />}
+                  {this.nextMore ? <chevron-right-double-icon /> : <ellipsis-icon />}
                 </li>
               )}
               {isFolded && (
@@ -409,7 +411,7 @@ export default defineComponent({
           )}
           {/* 向后按钮 */}
           <div class={nextBtnClass} onClick={nextPage} disabled={disabled || current === pageCount}>
-            <t-icon-chevron-right />
+            <chevron-right-icon />
           </div>
           {/* 跳转 */}
           {showJumper && (

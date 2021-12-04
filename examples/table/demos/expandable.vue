@@ -40,8 +40,7 @@
 <script lang="jsx">
 import { defineComponent, ref, watch } from 'vue';
 
-import TIconChevronDownCircle from 'tdesign-vue-next/icon/chevron-down-circle';
-import TIconChevronDown from 'tdesign-vue-next/icon/chevron-down';
+import { ChevronDownCircleIcon, ChevronDownIcon } from 'tdesign-icons-vue-next';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
@@ -142,9 +141,9 @@ export default defineComponent({
             // 第一行不显示展开图标
             if (index === 0) return false;
             // 第三行，使用自定义展开图标
-            if (row.id === 3) return <TIconChevronDown />;
+            if (row.id === 3) return <ChevronDownIcon />;
             // 其他行，使用表格同款展开图标
-            return <TIconChevronDownCircle />;
+            return <ChevronDownCircleIcon />;
           };
         }
       },

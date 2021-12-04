@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue';
 import isFunction from 'lodash/isFunction';
+import { FilterIcon } from 'tdesign-icons-vue-next';
 import { PrimaryTableCol, TdPrimaryTableProps } from '../../type';
 import primaryTableProps from '../../primary-table-props';
 import baseTableProps from '../../base-table-props';
@@ -9,7 +10,6 @@ import { RadioGroup } from '../../../radio';
 import Input from '../../../input';
 import Popup from '../../../popup';
 import { getTitle } from '../../util/common';
-import TIconFilter from '../../../icon/filter';
 import { emitEvent } from '../../../utils/event';
 
 type FilterChangeContext = Parameters<TdPrimaryTableProps['onFilterChange']>;
@@ -83,7 +83,7 @@ export default defineComponent({
                   {isFunction(this.filterIcon) ? (
                     this.filterIcon(this.$createElement)
                   ) : (
-                    <TIconFilter name="filter" class={`${prefix}-table-filter-icon`} />
+                    <FilterIcon name="filter" class={`${prefix}-table-filter-icon`} />
                   )}
                 </Popup>
               </div>

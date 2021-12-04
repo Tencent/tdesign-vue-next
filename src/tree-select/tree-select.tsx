@@ -6,13 +6,12 @@ import isString from 'lodash/isString';
 import isBoolean from 'lodash/isBoolean';
 import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
+import { CloseCircleFilledIcon, LoadingIcon } from 'tdesign-icons-vue-next';
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 import Popup, { PopupProps } from '../popup';
-import IconCloseCircleFilled from '../icon/close-circle-filled';
-import IconLoading from '../icon/loading';
 import Tag from '../tag';
 import Tree, { TreeNodeModel, TreeNodeValue } from '../tree';
 import Input, { InputValue } from '../input';
@@ -34,6 +33,8 @@ export default defineComponent({
   name,
   components: {
     Tree,
+    CloseCircleFilledIcon,
+    LoadingIcon,
   },
   props: {
     ...props,
@@ -464,14 +465,14 @@ export default defineComponent({
                 isActive={this.visible && !this.disabled}
               />
             )}
-            <IconCloseCircleFilled
+            <CloseCircleFilledIcon
               v-show={this.showClose && !this.showLoading}
               name="close"
               class={`${prefix}-select-right-icon ${prefix}-select-right-icon__clear`}
               size={this.size}
-              onClick={(e: PointerEvent) => this.clear(e)}
+              onClick={({ e }) => this.clear(e)}
             />
-            <IconLoading
+            <LoadingIcon
               v-show={this.showLoading}
               name="loading"
               class={`${prefix}-select-right-icon ${prefix}-select-active-icon`}

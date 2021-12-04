@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue';
+import { InfoCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { renderTNodeJSX, renderContent, renderTNodeJSXDefault } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
@@ -6,13 +7,13 @@ import Popup, { PopupProps } from '../popup/index';
 import { prefix } from '../config';
 import props from './props';
 import { TdPopconfirmProps, PopconfirmVisibleChangeContext } from './type';
-import TIconInfoCircleFilled from '../icon/info-circle-filled';
-import TIconErrorCircleFilled from '../icon/error-circle-filled';
 
 const name = `${prefix}-popconfirm`;
 const popupName = `${prefix}-popup`;
+
 const PopconfirmLocalReceiver = getLocalRecevierMixins('popconfirm');
-type IconConstructor = typeof TIconInfoCircleFilled;
+type IconConstructor = typeof InfoCircleFilledIcon;
+
 export default defineComponent({
   ...mixins(PopconfirmLocalReceiver),
   name,
@@ -29,9 +30,9 @@ export default defineComponent({
   computed: {
     themeIcon(): IconConstructor {
       const iconMap = {
-        default: TIconInfoCircleFilled,
-        warning: TIconErrorCircleFilled,
-        danger: TIconErrorCircleFilled,
+        default: InfoCircleFilledIcon,
+        warning: ErrorCircleFilledIcon,
+        danger: ErrorCircleFilledIcon,
       };
       return iconMap[this.theme];
     },

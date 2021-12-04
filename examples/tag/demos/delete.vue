@@ -35,7 +35,7 @@
     </div>
     <div class="tag-block editable">
       <t-tag v-if="!inputVisible" @click="handleClickAdd">
-        <t-icon-add />
+        <add-icon />
         添加标签
       </t-tag>
       <t-input v-else ref="input" size="small" style="width: 94px" @blur="handleInputEnter" @enter="handleInputEnter" />
@@ -45,12 +45,11 @@
 
 <script lang="jsx">
 import { defineComponent, nextTick, ref } from 'vue';
-import TIconAdd from 'tdesign-vue-next/icon/add';
-import TIconDiscount from 'tdesign-vue-next/icon/discount';
+import { AddIcon, DiscountIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
   components: {
-    TIconAdd,
+    AddIcon,
   },
   setup() {
     const inputVisible = ref(false);
@@ -65,7 +64,7 @@ export default defineComponent({
       {
         name: '可删除标签可删除标签',
         type: 'default',
-        icon: () => <TIconDiscount size="16" />,
+        icon: () => <DiscountIcon size="16" />,
         showClose: true,
         maxWidth: 100,
       },

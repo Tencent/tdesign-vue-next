@@ -54,14 +54,15 @@ exports[`DatePicker :mode 1`] = `
                     
                     <svg
                       class="t-icon t-icon-chevron-left"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        d="M266.45122048 489.6415328C253.98241280000002 502.1382944 254.00507328000003 522.37688704 266.50183488 534.84569536L266.50183488 534.84569536 641.5903552 909.0951936 686.8451904 863.8403584 334.4904192 512.2516633600001 686.8451904 160.83449728 641.5903552 115.57966336000001 267.2264192 488.89166336 266.50183488 489.59088959999997 266.47651392 489.6162112Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                     
@@ -77,15 +78,15 @@ exports[`DatePicker :mode 1`] = `
                     
                     <svg
                       class="t-icon t-icon-round"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M512 736C635.712 736 736 635.712 736 512 736 388.288 635.712 288 512 288 388.288 288 288 388.288 288 512 288 635.712 388.288 736 512 736ZM512 832C688.7296 832 832 688.7296 832 512 832 335.26912 688.7296 192 512 192 335.26912 192 192 335.26912 192 512 192 688.7296 335.26912 832 512 832Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                     
@@ -101,15 +102,15 @@ exports[`DatePicker :mode 1`] = `
                     
                     <svg
                       class="t-icon t-icon-chevron-right"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                     
@@ -299,14 +300,15 @@ exports[`DatePicker :mode 1`] = `
         >
           <svg
             class="t-icon t-icon-calendar"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
           >
             <path
-              d="M384 128L384 192 640 192 640 128 704 128 704 192 832 192C867.3462208 192 896 220.653776 896 256L896 832C896 867.3462208 867.3462208 896 832 896L192 896C156.653776 896 128 867.3462208 128 832L128 256C128 220.653776 156.653776 192 192 192L320 192 320 128 384 128ZM320 256L192 256 192 832 832 832 832 256 704 256 704 320 640 320 640 256 384 256 384 320 320 320 320 256ZM192 384L832 384 832 448 192 448 192 384Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
+              d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+              fill="currentColor"
+              fillOpacity="0.9"
             />
           </svg>
         </span>
@@ -377,14 +379,15 @@ exports[`DatePicker :range 1`] = `
                       
                       <svg
                         class="t-icon t-icon-chevron-left"
-                        version="1.1"
-                        viewBox="0 0 1024 1024"
-                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
                       >
                         <path
-                          d="M266.45122048 489.6415328C253.98241280000002 502.1382944 254.00507328000003 522.37688704 266.50183488 534.84569536L266.50183488 534.84569536 641.5903552 909.0951936 686.8451904 863.8403584 334.4904192 512.2516633600001 686.8451904 160.83449728 641.5903552 115.57966336000001 267.2264192 488.89166336 266.50183488 489.59088959999997 266.47651392 489.6162112Z"
-                          fill-opacity=".9"
-                          fill-rule="evenodd"
+                          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
                         />
                       </svg>
                       
@@ -400,15 +403,15 @@ exports[`DatePicker :range 1`] = `
                       
                       <svg
                         class="t-icon t-icon-round"
-                        version="1.1"
-                        viewBox="0 0 1024 1024"
-                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
                       >
                         <path
-                          clip-rule="evenodd"
-                          d="M512 736C635.712 736 736 635.712 736 512 736 388.288 635.712 288 512 288 388.288 288 288 388.288 288 512 288 635.712 388.288 736 512 736ZM512 832C688.7296 832 832 688.7296 832 512 832 335.26912 688.7296 192 512 192 335.26912 192 192 335.26912 192 512 192 688.7296 335.26912 832 512 832Z"
-                          fill-opacity=".9"
-                          fill-rule="evenodd"
+                          d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
                         />
                       </svg>
                       
@@ -424,15 +427,15 @@ exports[`DatePicker :range 1`] = `
                       
                       <svg
                         class="t-icon t-icon-chevron-right"
-                        version="1.1"
-                        viewBox="0 0 1024 1024"
-                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
                       >
                         <path
-                          clip-rule="evenodd"
-                          d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                          fill-opacity=".9"
-                          fill-rule="evenodd"
+                          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
                         />
                       </svg>
                       
@@ -657,14 +660,15 @@ exports[`DatePicker :range 1`] = `
                       
                       <svg
                         class="t-icon t-icon-chevron-left"
-                        version="1.1"
-                        viewBox="0 0 1024 1024"
-                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
                       >
                         <path
-                          d="M266.45122048 489.6415328C253.98241280000002 502.1382944 254.00507328000003 522.37688704 266.50183488 534.84569536L266.50183488 534.84569536 641.5903552 909.0951936 686.8451904 863.8403584 334.4904192 512.2516633600001 686.8451904 160.83449728 641.5903552 115.57966336000001 267.2264192 488.89166336 266.50183488 489.59088959999997 266.47651392 489.6162112Z"
-                          fill-opacity=".9"
-                          fill-rule="evenodd"
+                          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
                         />
                       </svg>
                       
@@ -680,15 +684,15 @@ exports[`DatePicker :range 1`] = `
                       
                       <svg
                         class="t-icon t-icon-round"
-                        version="1.1"
-                        viewBox="0 0 1024 1024"
-                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
                       >
                         <path
-                          clip-rule="evenodd"
-                          d="M512 736C635.712 736 736 635.712 736 512 736 388.288 635.712 288 512 288 388.288 288 288 388.288 288 512 288 635.712 388.288 736 512 736ZM512 832C688.7296 832 832 688.7296 832 512 832 335.26912 688.7296 192 512 192 335.26912 192 192 335.26912 192 512 192 688.7296 335.26912 832 512 832Z"
-                          fill-opacity=".9"
-                          fill-rule="evenodd"
+                          d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
                         />
                       </svg>
                       
@@ -704,15 +708,15 @@ exports[`DatePicker :range 1`] = `
                       
                       <svg
                         class="t-icon t-icon-chevron-right"
-                        version="1.1"
-                        viewBox="0 0 1024 1024"
-                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
                       >
                         <path
-                          clip-rule="evenodd"
-                          d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                          fill-opacity=".9"
-                          fill-rule="evenodd"
+                          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
                         />
                       </svg>
                       
@@ -929,14 +933,15 @@ exports[`DatePicker :range 1`] = `
         >
           <svg
             class="t-icon t-icon-calendar"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
           >
             <path
-              d="M384 128L384 192 640 192 640 128 704 128 704 192 832 192C867.3462208 192 896 220.653776 896 256L896 832C896 867.3462208 867.3462208 896 832 896L192 896C156.653776 896 128 867.3462208 128 832L128 256C128 220.653776 156.653776 192 192 192L320 192 320 128 384 128ZM320 256L192 256 192 832 832 832 832 256 704 256 704 320 640 320 640 256 384 256 384 320 320 320 320 256ZM192 384L832 384 832 448 192 448 192 384Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
+              d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+              fill="currentColor"
+              fillOpacity="0.9"
             />
           </svg>
         </span>
@@ -1004,14 +1009,15 @@ exports[`DatePicker :value 1`] = `
                     
                     <svg
                       class="t-icon t-icon-chevron-left"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        d="M266.45122048 489.6415328C253.98241280000002 502.1382944 254.00507328000003 522.37688704 266.50183488 534.84569536L266.50183488 534.84569536 641.5903552 909.0951936 686.8451904 863.8403584 334.4904192 512.2516633600001 686.8451904 160.83449728 641.5903552 115.57966336000001 267.2264192 488.89166336 266.50183488 489.59088959999997 266.47651392 489.6162112Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                     
@@ -1027,15 +1033,15 @@ exports[`DatePicker :value 1`] = `
                     
                     <svg
                       class="t-icon t-icon-round"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M512 736C635.712 736 736 635.712 736 512 736 388.288 635.712 288 512 288 388.288 288 288 388.288 288 512 288 635.712 388.288 736 512 736ZM512 832C688.7296 832 832 688.7296 832 512 832 335.26912 688.7296 192 512 192 335.26912 192 192 335.26912 192 512 192 688.7296 335.26912 832 512 832Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                     
@@ -1051,15 +1057,15 @@ exports[`DatePicker :value 1`] = `
                     
                     <svg
                       class="t-icon t-icon-chevron-right"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M413.4592 797.3888L354.62784 738.56 581.21216 511.97568 354.62784 285.39136 413.4592 226.56 698.8736 511.97568 413.4592 797.3888Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                     
@@ -1275,14 +1281,15 @@ exports[`DatePicker :value 1`] = `
         >
           <svg
             class="t-icon t-icon-calendar"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
           >
             <path
-              d="M384 128L384 192 640 192 640 128 704 128 704 192 832 192C867.3462208 192 896 220.653776 896 256L896 832C896 867.3462208 867.3462208 896 832 896L192 896C156.653776 896 128 867.3462208 128 832L128 256C128 220.653776 156.653776 192 192 192L320 192 320 128 384 128ZM320 256L192 256 192 832 832 832 832 256 704 256 704 320 640 320 640 256 384 256 384 320 320 320 320 256ZM192 384L832 384 832 448 192 448 192 384Z"
-              fill-opacity=".9"
-              fill-rule="evenodd"
+              d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
+              fill="currentColor"
+              fillOpacity="0.9"
             />
           </svg>
         </span>

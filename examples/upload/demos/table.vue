@@ -12,7 +12,7 @@
       >
         <template #trigger>
           <t-button variant="outline">
-            <template #icon> <t-icon-upload />选择文件 </template>
+            <template #icon> <upload-icon />选择文件 </template>
           </t-button>
         </template>
       </t-upload>
@@ -53,11 +53,11 @@
 </template>
 <script>
 import { defineComponent, ref } from 'vue';
-import TIconUpload from 'tdesign-vue-next/icon/upload';
+import { UploadIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
   components: {
-    TIconUpload,
+    UploadIcon,
   },
   setup() {
     const files = ref([]);

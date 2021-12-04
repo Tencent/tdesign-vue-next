@@ -1,4 +1,5 @@
 import { defineComponent, PropType } from 'vue';
+import { ChevronRightCircleIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../../config';
 
 // utils
@@ -12,7 +13,6 @@ import { getCascaderItemClass, getCascaderItemIconClass, getLabelIsEllipsis } fr
 // component
 import Checkbox, { CheckboxProps } from '../../checkbox/index';
 import Tooltip from '../../tooltip/index';
-import ChevronRightCircleIcon from '../../icon/chevron-right';
 import LoadingIcon from '../../loading/icon/gradient';
 
 // type

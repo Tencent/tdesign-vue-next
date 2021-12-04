@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import isFunction from 'lodash/isFunction';
 import isEqual from 'lodash/isEqual';
+import { TimeIcon } from 'tdesign-icons-vue-next';
 
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
@@ -12,7 +13,6 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import PickerPanel from './panel';
 import TInput from '../input';
-import TIconTime from '../icon/time';
 import InputItems from './input-items';
 import props from './time-range-picker-props';
 
@@ -28,7 +28,7 @@ export default defineComponent({
 
   components: {
     PickerPanel,
-    TIconTime,
+    TimeIcon,
     InputItems,
     TPopup,
     TInput,
@@ -266,7 +266,7 @@ export default defineComponent({
             readonly
             value={!isEqual(this.time, TIME_PICKER_EMPTY) ? ' ' : undefined}
           >
-            <t-icon-time slot="suffix-icon"></t-icon-time>
+            <time-icon slot="suffix-icon"></time-icon>
           </t-input>
           <input-items
             size={this.size}

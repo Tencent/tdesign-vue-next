@@ -1,790 +1,929 @@
 <template>
   <!--
-    该文件由脚本 tdesign/tdesign-web-vue/src/icon/generate/index.js 自动生成。
-    若需要编辑，请编辑源文件：tdesign/tdesign-web-vue/src/icon/generate/demo.tpl 。
+    该文件由脚本 TDesignOteam/tdesign-vue/script/icon-generate/index.js 自动生成。
+    若需要编辑，请编辑源文件：TDesignOteam/tdesign-vue/script/icon-generate/demo.tpl 。
   -->
   <div class="t-demo-iconfont">
-    <p>目前设计师给到的全部图标</p>
-    <br />
     <div class="t-demo-icon">
-      <t-icon name="add-circle" />
+      <icon name="add-circle" />
       <div class="t-demo-icon-name">add-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="add-rectangle" />
+      <icon name="add-rectangle" />
       <div class="t-demo-icon-name">add-rectangle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="add" />
+      <icon name="add" />
       <div class="t-demo-icon-name">add</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="app" />
+      <icon name="app" />
       <div class="t-demo-icon-name">app</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="arrow-down-rectangle" />
+      <icon name="arrow-down-rectangle" />
       <div class="t-demo-icon-name">arrow-down-rectangle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="arrow-down" />
+      <icon name="arrow-down" />
       <div class="t-demo-icon-name">arrow-down</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="arrow-left" />
+      <icon name="arrow-left" />
       <div class="t-demo-icon-name">arrow-left</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="arrow-right" />
+      <icon name="arrow-right" />
       <div class="t-demo-icon-name">arrow-right</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="arrow-up" />
+      <icon name="arrow-up" />
       <div class="t-demo-icon-name">arrow-up</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="attach" />
+      <icon name="attach" />
       <div class="t-demo-icon-name">attach</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="backtop-rectangle" />
+      <icon name="backtop-rectangle" />
       <div class="t-demo-icon-name">backtop-rectangle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="backtop" />
+      <icon name="backtop" />
       <div class="t-demo-icon-name">backtop</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="backward" />
+      <icon name="backward" />
       <div class="t-demo-icon-name">backward</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="barcode" />
+      <icon name="barcode" />
       <div class="t-demo-icon-name">barcode</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="books" />
+      <icon name="books" />
       <div class="t-demo-icon-name">books</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="browse-off" />
+      <icon name="browse-off" />
       <div class="t-demo-icon-name">browse-off</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="browse" />
+      <icon name="browse" />
       <div class="t-demo-icon-name">browse</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="bulletpoint" />
+      <icon name="bulletpoint" />
       <div class="t-demo-icon-name">bulletpoint</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="calendar" />
+      <icon name="calendar" />
       <div class="t-demo-icon-name">calendar</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="call" />
+      <icon name="call" />
       <div class="t-demo-icon-name">call</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="caret-down" />
+      <icon name="caret-down-small" />
+      <div class="t-demo-icon-name">caret-down-small</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="caret-down" />
       <div class="t-demo-icon-name">caret-down</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="caret-left" />
+      <icon name="caret-left-small" />
+      <div class="t-demo-icon-name">caret-left-small</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="caret-left" />
       <div class="t-demo-icon-name">caret-left</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="caret-right" />
+      <icon name="caret-right-small" />
+      <div class="t-demo-icon-name">caret-right-small</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="caret-right" />
       <div class="t-demo-icon-name">caret-right</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="caret-up" />
+      <icon name="caret-up-small" />
+      <div class="t-demo-icon-name">caret-up-small</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="caret-up" />
       <div class="t-demo-icon-name">caret-up</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="cart" />
+      <icon name="cart" />
       <div class="t-demo-icon-name">cart</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chart-bar" />
+      <icon name="chart-bar" />
       <div class="t-demo-icon-name">chart-bar</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chart-bubble" />
+      <icon name="chart-bubble" />
       <div class="t-demo-icon-name">chart-bubble</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chart-pie" />
+      <icon name="chart-pie" />
       <div class="t-demo-icon-name">chart-pie</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chart" />
+      <icon name="chart" />
       <div class="t-demo-icon-name">chart</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chat" />
+      <icon name="chat" />
       <div class="t-demo-icon-name">chat</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="check-circle-filled" />
+      <icon name="check-circle-filled" />
       <div class="t-demo-icon-name">check-circle-filled</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="check-circle" />
+      <icon name="check-circle" />
       <div class="t-demo-icon-name">check-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="check-rectangle" />
+      <icon name="check-rectangle-filled" />
+      <div class="t-demo-icon-name">check-rectangle-filled</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="check-rectangle" />
       <div class="t-demo-icon-name">check-rectangle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="check" />
+      <icon name="check" />
       <div class="t-demo-icon-name">check</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-down-circle" />
+      <icon name="chevron-down-circle" />
       <div class="t-demo-icon-name">chevron-down-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-down-rectangle" />
+      <icon name="chevron-down-rectangle" />
       <div class="t-demo-icon-name">chevron-down-rectangle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-down" />
+      <icon name="chevron-down" />
       <div class="t-demo-icon-name">chevron-down</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-left-circle" />
+      <icon name="chevron-left-circle" />
       <div class="t-demo-icon-name">chevron-left-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-left-rectangle" />
-      <div class="t-demo-icon-name">chevron-left-rectangle</div>
-    </div>
-    <div class="t-demo-icon">
-      <t-icon name="chevron-left-double" />
+      <icon name="chevron-left-double" />
       <div class="t-demo-icon-name">chevron-left-double</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-left" />
+      <icon name="chevron-left-rectangle" />
+      <div class="t-demo-icon-name">chevron-left-rectangle</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="chevron-left" />
       <div class="t-demo-icon-name">chevron-left</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-right-circle" />
+      <icon name="chevron-right-circle" />
       <div class="t-demo-icon-name">chevron-right-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-right-rectangle" />
-      <div class="t-demo-icon-name">chevron-right-rectangle</div>
-    </div>
-    <div class="t-demo-icon">
-      <t-icon name="chevron-right-double" />
+      <icon name="chevron-right-double" />
       <div class="t-demo-icon-name">chevron-right-double</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-right" />
+      <icon name="chevron-right-rectangle" />
+      <div class="t-demo-icon-name">chevron-right-rectangle</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="chevron-right" />
       <div class="t-demo-icon-name">chevron-right</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-up-circle" />
+      <icon name="chevron-up-circle" />
       <div class="t-demo-icon-name">chevron-up-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-up-rectangle" />
+      <icon name="chevron-up-rectangle" />
       <div class="t-demo-icon-name">chevron-up-rectangle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="chevron-up" />
+      <icon name="chevron-up" />
       <div class="t-demo-icon-name">chevron-up</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="clear-circle-filled" />
-      <div class="t-demo-icon-name">clear-circle-filled</div>
+      <icon name="circle" />
+      <div class="t-demo-icon-name">circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="clear-circle" />
-      <div class="t-demo-icon-name">clear-circle</div>
+      <icon name="clear" />
+      <div class="t-demo-icon-name">clear</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="clear-rectangle" />
-      <div class="t-demo-icon-name">clear-rectangle</div>
+      <icon name="close-circle-filled" />
+      <div class="t-demo-icon-name">close-circle-filled</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="close" />
+      <icon name="close-circle" />
+      <div class="t-demo-icon-name">close-circle</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="close-rectangle" />
+      <div class="t-demo-icon-name">close-rectangle</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="close" />
       <div class="t-demo-icon-name">close</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="cloud-download" />
+      <icon name="cloud-download" />
       <div class="t-demo-icon-name">cloud-download</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="cloud-upload" />
+      <icon name="cloud-upload" />
       <div class="t-demo-icon-name">cloud-upload</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="cloud" />
+      <icon name="cloud" />
       <div class="t-demo-icon-name">cloud</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="code" />
+      <icon name="code" />
       <div class="t-demo-icon-name">code</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="creditcard" />
+      <icon name="control-platform" />
+      <div class="t-demo-icon-name">control-platform</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="creditcard" />
       <div class="t-demo-icon-name">creditcard</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="delete" />
+      <icon name="dashboard" />
+      <div class="t-demo-icon-name">dashboard</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="delete" />
       <div class="t-demo-icon-name">delete</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="desktop" />
+      <icon name="desktop" />
       <div class="t-demo-icon-name">desktop</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="discount-filled" />
+      <icon name="discount-filled" />
       <div class="t-demo-icon-name">discount-filled</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="discount" />
+      <icon name="discount" />
       <div class="t-demo-icon-name">discount</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="download" />
+      <icon name="download" />
       <div class="t-demo-icon-name">download</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="edit" />
+      <icon name="edit-1" />
+      <div class="t-demo-icon-name">edit-1</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="edit" />
       <div class="t-demo-icon-name">edit</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="ellipsis" />
+      <icon name="ellipsis" />
       <div class="t-demo-icon-name">ellipsis</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="enter" />
+      <icon name="enter" />
       <div class="t-demo-icon-name">enter</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="error-circle-filled" />
+      <icon name="error-circle-filled" />
       <div class="t-demo-icon-name">error-circle-filled</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="error-circle" />
+      <icon name="error-circle" />
       <div class="t-demo-icon-name">error-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file-add" />
+      <icon name="error" />
+      <div class="t-demo-icon-name">error</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="file-add" />
       <div class="t-demo-icon-name">file-add</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file-copy" />
+      <icon name="file-copy" />
       <div class="t-demo-icon-name">file-copy</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file-excel" />
+      <icon name="file-excel" />
       <div class="t-demo-icon-name">file-excel</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file-image" />
+      <icon name="file-image" />
       <div class="t-demo-icon-name">file-image</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file-paste" />
+      <icon name="file-paste" />
       <div class="t-demo-icon-name">file-paste</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file-pdf" />
+      <icon name="file-pdf" />
       <div class="t-demo-icon-name">file-pdf</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file-powerpoint" />
+      <icon name="file-powerpoint" />
       <div class="t-demo-icon-name">file-powerpoint</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file-unknown" />
+      <icon name="file-unknown" />
       <div class="t-demo-icon-name">file-unknown</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file-word" />
+      <icon name="file-word" />
       <div class="t-demo-icon-name">file-word</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="file" />
+      <icon name="file" />
       <div class="t-demo-icon-name">file</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="filter" />
+      <icon name="filter-clear" />
+      <div class="t-demo-icon-name">filter-clear</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="filter" />
       <div class="t-demo-icon-name">filter</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="flag" />
+      <icon name="flag" />
       <div class="t-demo-icon-name">flag</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="folder-add" />
+      <icon name="folder-add" />
       <div class="t-demo-icon-name">folder-add</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="folder-open" />
+      <icon name="folder-open" />
       <div class="t-demo-icon-name">folder-open</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="folder" />
+      <icon name="folder" />
       <div class="t-demo-icon-name">folder</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="fork" />
+      <icon name="fork" />
       <div class="t-demo-icon-name">fork</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="format-horizontal-align-bottom" />
+      <icon name="format-horizontal-align-bottom" />
       <div class="t-demo-icon-name">format-horizontal-align-bottom</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="format-horizontal-align-center" />
+      <icon name="format-horizontal-align-center" />
       <div class="t-demo-icon-name">format-horizontal-align-center</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="format-horizontal-align-top" />
+      <icon name="format-horizontal-align-top" />
       <div class="t-demo-icon-name">format-horizontal-align-top</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="format-vertical-align-center" />
+      <icon name="format-vertical-align-center" />
       <div class="t-demo-icon-name">format-vertical-align-center</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="format-vertical-align-left" />
+      <icon name="format-vertical-align-left" />
       <div class="t-demo-icon-name">format-vertical-align-left</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="format-vertical-align-right" />
+      <icon name="format-vertical-align-right" />
       <div class="t-demo-icon-name">format-vertical-align-right</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="forward" />
+      <icon name="forward" />
       <div class="t-demo-icon-name">forward</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="fullsreen-exit" />
-      <div class="t-demo-icon-name">fullsreen-exit</div>
+      <icon name="fullscreen-exit" />
+      <div class="t-demo-icon-name">fullscreen-exit</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="fullsreen" />
-      <div class="t-demo-icon-name">fullsreen</div>
+      <icon name="fullscreen" />
+      <div class="t-demo-icon-name">fullscreen</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="gender-female" />
+      <icon name="gender-female" />
       <div class="t-demo-icon-name">gender-female</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="gender-male" />
+      <icon name="gender-male" />
       <div class="t-demo-icon-name">gender-male</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="gift" />
+      <icon name="gift" />
       <div class="t-demo-icon-name">gift</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="heart-filled" />
+      <icon name="heart-filled" />
       <div class="t-demo-icon-name">heart-filled</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="heart" />
+      <icon name="heart" />
       <div class="t-demo-icon-name">heart</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="help-circle-filled" />
+      <icon name="help-circle-filled" />
       <div class="t-demo-icon-name">help-circle-filled</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="help-circle" />
+      <icon name="help-circle" />
       <div class="t-demo-icon-name">help-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="help" />
+      <icon name="help" />
       <div class="t-demo-icon-name">help</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="history" />
+      <icon name="history" />
       <div class="t-demo-icon-name">history</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="home" />
+      <icon name="home" />
       <div class="t-demo-icon-name">home</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="hourglass" />
+      <icon name="hourglass" />
       <div class="t-demo-icon-name">hourglass</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="image" />
+      <icon name="image" />
       <div class="t-demo-icon-name">image</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="info-circle-filled" />
+      <icon name="info-circle-filled" />
       <div class="t-demo-icon-name">info-circle-filled</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="info-circle" />
+      <icon name="info-circle" />
       <div class="t-demo-icon-name">info-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="internet" />
+      <icon name="internet" />
       <div class="t-demo-icon-name">internet</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="jump" />
+      <icon name="jump" />
       <div class="t-demo-icon-name">jump</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="laptop" />
+      <icon name="laptop" />
       <div class="t-demo-icon-name">laptop</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="layers" />
+      <icon name="layers" />
       <div class="t-demo-icon-name">layers</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="link-unlink" />
+      <icon name="link-unlink" />
       <div class="t-demo-icon-name">link-unlink</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="link" />
+      <icon name="link" />
       <div class="t-demo-icon-name">link</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="loading" />
+      <icon name="loading" />
       <div class="t-demo-icon-name">loading</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="location" />
+      <icon name="location" />
       <div class="t-demo-icon-name">location</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="lock-off" />
+      <icon name="lock-off" />
       <div class="t-demo-icon-name">lock-off</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="lock-on" />
+      <icon name="lock-on" />
       <div class="t-demo-icon-name">lock-on</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="login" />
+      <icon name="login" />
       <div class="t-demo-icon-name">login</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="logo-android" />
+      <icon name="logo-android" />
       <div class="t-demo-icon-name">logo-android</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="logo-apple" />
+      <icon name="logo-apple-filled" />
+      <div class="t-demo-icon-name">logo-apple-filled</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="logo-apple" />
       <div class="t-demo-icon-name">logo-apple</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="logo-chrome" />
+      <icon name="logo-chrome-filled" />
+      <div class="t-demo-icon-name">logo-chrome-filled</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="logo-chrome" />
       <div class="t-demo-icon-name">logo-chrome</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="logo-github" />
+      <icon name="logo-codepen" />
+      <div class="t-demo-icon-name">logo-codepen</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="logo-github-filled" />
+      <div class="t-demo-icon-name">logo-github-filled</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="logo-github" />
       <div class="t-demo-icon-name">logo-github</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="logo-ie" />
+      <icon name="logo-ie-filled" />
+      <div class="t-demo-icon-name">logo-ie-filled</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="logo-ie" />
       <div class="t-demo-icon-name">logo-ie</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="logo-windows" />
+      <icon name="logo-windows-filled" />
+      <div class="t-demo-icon-name">logo-windows-filled</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="logo-windows" />
       <div class="t-demo-icon-name">logo-windows</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="mail" />
+      <icon name="logout" />
+      <div class="t-demo-icon-name">logout</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="mail" />
       <div class="t-demo-icon-name">mail</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="menu-fold" />
+      <icon name="menu-fold" />
       <div class="t-demo-icon-name">menu-fold</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="menu-unfold" />
+      <icon name="menu-unfold" />
       <div class="t-demo-icon-name">menu-unfold</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="minus-circle" />
+      <icon name="minus-circle-filled" />
+      <div class="t-demo-icon-name">minus-circle-filled</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="minus-circle" />
       <div class="t-demo-icon-name">minus-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="minus-rectangle" />
+      <icon name="minus-rectangle" />
       <div class="t-demo-icon-name">minus-rectangle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="mobile-vibrate" />
+      <icon name="mobile-vibrate" />
       <div class="t-demo-icon-name">mobile-vibrate</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="mobile" />
+      <icon name="mobile" />
       <div class="t-demo-icon-name">mobile</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="money-circle" />
+      <icon name="money-circle" />
       <div class="t-demo-icon-name">money-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="more" />
+      <icon name="more" />
       <div class="t-demo-icon-name">more</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="next" />
+      <icon name="move" />
+      <div class="t-demo-icon-name">move</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="next" />
       <div class="t-demo-icon-name">next</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="notification-filled" />
+      <icon name="notification-filled" />
       <div class="t-demo-icon-name">notification-filled</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="notification" />
+      <icon name="notification" />
       <div class="t-demo-icon-name">notification</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="order-adjustment-column" />
+      <icon name="order-adjustment-column" />
       <div class="t-demo-icon-name">order-adjustment-column</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="order-ascending" />
+      <icon name="order-ascending" />
       <div class="t-demo-icon-name">order-ascending</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="order-descending" />
+      <icon name="order-descending" />
       <div class="t-demo-icon-name">order-descending</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="page-first" />
+      <icon name="page-first" />
       <div class="t-demo-icon-name">page-first</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="page-last" />
+      <icon name="page-last" />
       <div class="t-demo-icon-name">page-last</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="photo" />
+      <icon name="pause-circle-filled" />
+      <div class="t-demo-icon-name">pause-circle-filled</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="photo" />
       <div class="t-demo-icon-name">photo</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="pin" />
+      <icon name="pin" />
       <div class="t-demo-icon-name">pin</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="play-circle" />
+      <icon name="play-circle-filled" />
+      <div class="t-demo-icon-name">play-circle-filled</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="play-circle-stroke" />
+      <div class="t-demo-icon-name">play-circle-stroke</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="play-circle" />
       <div class="t-demo-icon-name">play-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="poweroff" />
+      <icon name="play" />
+      <div class="t-demo-icon-name">play</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="poweroff" />
       <div class="t-demo-icon-name">poweroff</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="previous" />
+      <icon name="precise-monitor" />
+      <div class="t-demo-icon-name">precise-monitor</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="previous" />
       <div class="t-demo-icon-name">previous</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="print" />
+      <icon name="print" />
       <div class="t-demo-icon-name">print</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="qrcode" />
+      <icon name="qrcode" />
       <div class="t-demo-icon-name">qrcode</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="queue" />
+      <icon name="queue" />
       <div class="t-demo-icon-name">queue</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="refresh" />
+      <icon name="rectangle" />
+      <div class="t-demo-icon-name">rectangle</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="refresh" />
       <div class="t-demo-icon-name">refresh</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="remove" />
+      <icon name="remove" />
       <div class="t-demo-icon-name">remove</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="rollback" />
+      <icon name="rollback" />
       <div class="t-demo-icon-name">rollback</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="save" />
+      <icon name="root-list" />
+      <div class="t-demo-icon-name">root-list</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="round" />
+      <div class="t-demo-icon-name">round</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="save" />
       <div class="t-demo-icon-name">save</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="scan" />
+      <icon name="scan" />
       <div class="t-demo-icon-name">scan</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="search" />
+      <icon name="search" />
       <div class="t-demo-icon-name">search</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="secured" />
+      <icon name="secured" />
       <div class="t-demo-icon-name">secured</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="server" />
+      <icon name="server" />
       <div class="t-demo-icon-name">server</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="service" />
+      <icon name="service" />
       <div class="t-demo-icon-name">service</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="setting" />
+      <icon name="setting" />
       <div class="t-demo-icon-name">setting</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="share" />
+      <icon name="share" />
       <div class="t-demo-icon-name">share</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="shop" />
+      <icon name="shop" />
       <div class="t-demo-icon-name">shop</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="slash" />
+      <icon name="slash" />
       <div class="t-demo-icon-name">slash</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="sound" />
+      <icon name="sound" />
       <div class="t-demo-icon-name">sound</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="star-filled" />
+      <icon name="star-filled" />
       <div class="t-demo-icon-name">star-filled</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="star" />
+      <icon name="star" />
       <div class="t-demo-icon-name">star</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="stop-circle" />
+      <icon name="stop-circle-1" />
+      <div class="t-demo-icon-name">stop-circle-1</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="stop-circle-filled" />
+      <div class="t-demo-icon-name">stop-circle-filled</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="stop-circle" />
       <div class="t-demo-icon-name">stop-circle</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="stop" />
+      <icon name="stop" />
       <div class="t-demo-icon-name">stop</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="swap-left" />
+      <icon name="swap-left" />
       <div class="t-demo-icon-name">swap-left</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="swap-right" />
+      <icon name="swap-right" />
       <div class="t-demo-icon-name">swap-right</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="swap" />
+      <icon name="swap" />
       <div class="t-demo-icon-name">swap</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="thumb-down" />
+      <icon name="thumb-down" />
       <div class="t-demo-icon-name">thumb-down</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="thumb-up" />
+      <icon name="thumb-up" />
       <div class="t-demo-icon-name">thumb-up</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="time-filled" />
+      <icon name="time-filled" />
       <div class="t-demo-icon-name">time-filled</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="time" />
+      <icon name="time" />
       <div class="t-demo-icon-name">time</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="tips" />
+      <icon name="tips" />
       <div class="t-demo-icon-name">tips</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="tools" />
+      <icon name="tools" />
       <div class="t-demo-icon-name">tools</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="unfold-less" />
+      <icon name="unfold-less" />
       <div class="t-demo-icon-name">unfold-less</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="unfold-more" />
+      <icon name="unfold-more" />
       <div class="t-demo-icon-name">unfold-more</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="upload" />
+      <icon name="upload" />
       <div class="t-demo-icon-name">upload</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="usb" />
+      <icon name="usb" />
       <div class="t-demo-icon-name">usb</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="user-add" />
+      <icon name="user-add" />
       <div class="t-demo-icon-name">user-add</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="user-avatar" />
+      <icon name="user-avatar" />
       <div class="t-demo-icon-name">user-avatar</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="user-clear" />
+      <icon name="user-circle" />
+      <div class="t-demo-icon-name">user-circle</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="user-clear" />
       <div class="t-demo-icon-name">user-clear</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="user" />
+      <icon name="user-talk" />
+      <div class="t-demo-icon-name">user-talk</div>
+    </div>
+    <div class="t-demo-icon">
+      <icon name="user" />
       <div class="t-demo-icon-name">user</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="usergroup-add" />
+      <icon name="usergroup-add" />
       <div class="t-demo-icon-name">usergroup-add</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="usergroup-clear" />
+      <icon name="usergroup-clear" />
       <div class="t-demo-icon-name">usergroup-clear</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="usergroup" />
+      <icon name="usergroup" />
       <div class="t-demo-icon-name">usergroup</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="video" />
+      <icon name="video" />
       <div class="t-demo-icon-name">video</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="view-column" />
+      <icon name="view-column" />
       <div class="t-demo-icon-name">view-column</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="view-list" />
+      <icon name="view-list" />
       <div class="t-demo-icon-name">view-list</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="view-module" />
+      <icon name="view-module" />
       <div class="t-demo-icon-name">view-module</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="wallet" />
+      <icon name="wallet" />
       <div class="t-demo-icon-name">wallet</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="wifi" />
+      <icon name="wifi" />
       <div class="t-demo-icon-name">wifi</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="zoom-in" />
+      <icon name="zoom-in" />
       <div class="t-demo-icon-name">zoom-in</div>
     </div>
     <div class="t-demo-icon">
-      <t-icon name="zoom-out" />
+      <icon name="zoom-out" />
       <div class="t-demo-icon-name">zoom-out</div>
     </div>
   </div>
 </template>
 
+<script>
+import { Icon } from 'tdesign-icons-vue-next';
+
+export default {
+  components: {
+    Icon,
+  },
+};
+</script>
 <style lang="less">
 .t-demo-iconfont {
   .t-demo-icon {
@@ -797,7 +936,6 @@
     .t-icon {
       font-size: 25px;
       margin-right: 0;
-      color: #999999;
       transition: all 0.2s;
     }
     .t-icon:hover {

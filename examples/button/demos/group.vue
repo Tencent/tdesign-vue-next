@@ -14,18 +14,18 @@
       <t-button variant="outline"> 批量续费 </t-button>
       <t-button variant="outline">
         <template #icon>
-          <t-icon-more />
+          <more-icon />
         </template>
       </t-button>
     </div>
   </div>
 </template>
 <script>
-import TIconMore from 'tdesign-vue-next/icon/more';
+import { MoreIcon } from 'tdesign-icons-vue-next';
 
 export default {
   components: {
-    TIconMore,
+    MoreIcon,
   },
 };
 </script>

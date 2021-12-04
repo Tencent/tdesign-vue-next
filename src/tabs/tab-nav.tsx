@@ -1,9 +1,6 @@
 import { defineComponent, Transition } from 'vue';
 import debounce from 'lodash/debounce';
-import TIconChevronLeft from '../icon/chevron-left';
-import TIconChevronRight from '../icon/chevron-right';
-import TIconClose from '../icon/close';
-import TIconAdd from '../icon/add';
+import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import TTabPanel from './tab-panel';
 import TTabNavItem from './tab-nav-item';
@@ -48,10 +45,10 @@ export default defineComponent({
   name: 'TTabNav',
   components: {
     TTabNavItem,
-    TIconChevronLeft,
-    TIconChevronRight,
-    TIconClose,
-    TIconAdd,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    CloseIcon,
+    AddIcon,
     Transition,
   },
   ...{ resizeObserver: null },
@@ -408,7 +405,7 @@ export default defineComponent({
           <transition name="fade" mode="out-in" appear>
             {this.canToLeft ? (
               <div ref="leftIcon" class={this.leftIconClass} onClick={this.handleScrollToLeft}>
-                <TIconChevronLeft />
+                <ChevronLeftIcon />
               </div>
             ) : null}
           </transition>
@@ -417,13 +414,13 @@ export default defineComponent({
           <transition name="fade" mode="out-in" appear>
             {this.canToRight ? (
               <div ref="rightIcon" class={this.rightIconClass} onClick={this.handleScrollToRight}>
-                <TIconChevronRight></TIconChevronRight>
+                <ChevronRightIcon></ChevronRightIcon>
               </div>
             ) : null}
           </transition>
           {this.theme === 'card' && this.addable ? (
             <div class={this.addIconClass} onClick={this.handleAddTab}>
-              <TIconAdd></TIconAdd>
+              <AddIcon></AddIcon>
             </div>
           ) : null}
         </div>,

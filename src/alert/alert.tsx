@@ -1,10 +1,8 @@
 import { defineComponent, h, VNode, ComponentPublicInstance } from 'vue';
+import { InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
+
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
-import IconPromptFill from '../icon/info-circle-filled';
-import IconSuccessFill from '../icon/check-circle-filled';
-import IconWarningFill from '../icon/error-circle-filled';
-import IconClose from '../icon/close';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
@@ -38,10 +36,10 @@ export default defineComponent({
         iconContent = this.$slots.icon && this.$slots.icon(null)[0];
       } else {
         const component = {
-          info: IconPromptFill,
-          success: IconSuccessFill,
-          warning: IconWarningFill,
-          error: IconWarningFill,
+          info: InfoCircleFilledIcon,
+          success: CheckCircleFilledIcon,
+          warning: ErrorCircleFilledIcon,
+          error: ErrorCircleFilledIcon,
         }[this.theme as string];
         iconContent = <component></component>;
       }
@@ -56,7 +54,7 @@ export default defineComponent({
         // @ts-ignore: TODO
         closeContent = this.close(h);
       } else if (this.close === true) {
-        closeContent = <IconClose></IconClose>;
+        closeContent = <CloseIcon></CloseIcon>;
       } else {
         closeContent = this.$slots.close && this.$slots.close(null)[0];
       }

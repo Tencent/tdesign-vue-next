@@ -14,13 +14,13 @@
     </div>
     <t-table :data="data" :columns="columns" row-key="property">
       <!-- 自定义表头，title值为插槽名称  -->
-      <template #title-slot-name> <t-icon-app /> 类型 </template>
+      <template #title-slot-name> <app-icon /> 类型 </template>
     </t-table>
   </div>
 </template>
 <script lang="jsx">
 import { defineComponent } from 'vue';
-import TIconApp from 'tdesign-vue-next/icon/app';
+import { AppIcon } from 'tdesign-icons-vue-next';
 
 const data = [
   {
@@ -66,7 +66,7 @@ const columns = [
 
 export default defineComponent({
   components: {
-    TIconApp,
+    AppIcon,
   },
   setup() {
     return {

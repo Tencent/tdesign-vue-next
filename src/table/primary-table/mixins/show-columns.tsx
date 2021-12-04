@@ -1,6 +1,6 @@
 import { defineComponent, VNode } from 'vue';
+import { BulletpointIcon } from 'tdesign-icons-vue-next';
 import Button from '../../../button';
-import BulletpointIcon from '../../../icon/bulletpoint';
 import Dialog from '../../../dialog';
 import Checkbox from '../../../checkbox';
 import CheckboxGroup from '../../../checkbox/group';

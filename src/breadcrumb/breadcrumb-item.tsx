@@ -1,6 +1,7 @@
 import { defineComponent, VNode } from 'vue';
+import { ChevronRightIcon } from 'tdesign-icons-vue-next';
+
 import { prefix } from '../config';
-import IconChevronRight from '../icon/chevron-right';
 import props from './breadcrumb-item-props';
 
 const name = `${prefix}-breadcrumbItem`;
@@ -88,7 +89,7 @@ export default defineComponent({
     const { separator: separatorPropContent } = localTBreadcrumb;
     const separatorSlot = localTBreadcrumb.$slots.separator;
     const separatorContent = separatorPropContent || separatorSlot || (
-      <IconChevronRight {...{ color: 'rgba(0,0,0,.3)' }} />
+      <ChevronRightIcon {...{ color: 'rgba(0,0,0,.3)' }} />
     );
     const itemClass = [`${prefix}-breadcrumb__item`, this.themeClassName];
     const textClass = [textFlowClass];

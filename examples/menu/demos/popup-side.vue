@@ -41,7 +41,7 @@
     </t-submenu>
     <t-menu-item value="item4" :disabled="disabled">
       <template #icon>
-        <t-icon name="resources-list" />
+        <t-icon name="server" />
       </template>
       资源列表
     </t-menu-item>

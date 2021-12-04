@@ -399,13 +399,15 @@ exports[`Tabs custom demo works fine 1`] = `
           >
             <svg
               class="t-icon t-icon-add"
-              version="1.1"
-              viewBox="0 0 1024 1024"
-              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
             >
               <path
-                d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-                fill-rule="evenodd"
+                d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                fill="currentColor"
+                fillOpacity="0.9"
               />
             </svg>
           </div>
@@ -601,13 +603,15 @@ exports[`Tabs operation demo works fine 1`] = `
           >
             <svg
               class="t-icon t-icon-add"
-              version="1.1"
-              viewBox="0 0 1024 1024"
-              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
             >
               <path
-                d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-                fill-rule="evenodd"
+                d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                fill="currentColor"
+                fillOpacity="0.9"
               />
             </svg>
           </div>

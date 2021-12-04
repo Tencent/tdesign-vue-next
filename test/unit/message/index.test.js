@@ -1,25 +1,27 @@
 import { mount } from '@vue/test-utils';
+import {
+  CloseIcon,
+  MoreIcon,
+  InfoCircleFilledIcon,
+  CheckCircleFilledIcon,
+  ErrorCircleFilledIcon,
+  HelpCircleFilledIcon,
+  LoadingIcon,
+} from 'tdesign-icons-vue-next';
 import { Message } from '@/src/message/index.ts';
 import Button from '@/src/button/index.ts';
-import TIconClose from '@/src/icon/close';
-import TIconMore from '@/src/icon/more';
-import TIconInfoCircleFilled from '@/src/icon/info-circle-filled';
-import TIconCheckCircleFilled from '@/src/icon/check-circle-filled';
-import TIconErrorCircleFilled from '@/src/icon/error-circle-filled';
-import TIconHelpFill from '@/src/icon/help-circle-filled';
-import TIconLoadingFill from '@/src/icon/loading';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Message', () => {
   // test props api
   describe(':props', () => {
     const THEME_MAP = {
-      info: TIconInfoCircleFilled,
-      success: TIconCheckCircleFilled,
-      warning: TIconErrorCircleFilled,
-      error: TIconErrorCircleFilled,
-      question: TIconHelpFill,
-      loading: TIconLoadingFill,
+      info: InfoCircleFilledIcon,
+      success: CheckCircleFilledIcon,
+      warning: ErrorCircleFilledIcon,
+      error: ErrorCircleFilledIcon,
+      question: HelpCircleFilledIcon,
+      loading: LoadingIcon,
     };
     const THEME_LIST = Object.keys(THEME_MAP);
 
@@ -28,7 +30,7 @@ describe('Message', () => {
       const classes = wrapper.classes();
       expect(classes).toContain('t-message');
       expect(classes).toContain('t-is-info');
-      expect(wrapper.findComponent(TIconClose).exists()).toBe(false);
+      expect(wrapper.findComponent(CloseIcon).exists()).toBe(false);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -54,7 +56,7 @@ describe('Message', () => {
       });
       const msg = wrapper.findComponent(Message);
       expect(msg.find('.t-message-close').exists()).toBe(true);
-      expect(msg.findComponent(TIconClose).exists()).toBe(true);
+      expect(msg.findComponent(CloseIcon).exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -95,13 +97,13 @@ describe('Message', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':icon is a funtion, () => TIconMore', () => {
+    it(':icon is a funtion, () => MoreIcon', () => {
       const wrapper = mount({
         render() {
-          return <Message icon={() => <TIconMore></TIconMore>}></Message>;
+          return <Message icon={() => <MoreIcon></MoreIcon>}></Message>;
         },
       });
-      expect(wrapper.findComponent(TIconMore).exists()).toBe(true);
+      expect(wrapper.findComponent(MoreIcon).exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 
@@ -167,13 +169,13 @@ describe('Message', () => {
           return (
             <Message
               v-slots={{
-                icon: () => <TIconMore></TIconMore>,
+                icon: () => <MoreIcon></MoreIcon>,
               }}
             ></Message>
           );
         },
       });
-      expect(wrapper.findComponent(TIconMore).exists()).toBe(true);
+      expect(wrapper.findComponent(MoreIcon).exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
 

@@ -4,14 +4,14 @@
       <t-button variant="text">
         <span class="tdesign-demo-dropdown__text">
           下拉菜单
-          <t-icon-chevron-down size="16" />
+          <chevron-down-icon size="16" />
         </span>
       </t-button>
     </t-dropdown>
   </div>
 </template>
 <script>
-import TIconChevronDown from 'tdesign-vue-next/icon/chevron-down';
+import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const options = [
@@ -73,7 +73,7 @@ const options = [
 
 export default {
   components: {
-    TIconChevronDown,
+    ChevronDownIcon,
   },
   setup() {
     const clickHandler = (data) => {

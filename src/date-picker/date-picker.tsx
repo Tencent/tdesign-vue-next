@@ -1,9 +1,7 @@
 import { defineComponent, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
-import TIconCalendar from '../icon/calendar';
-import TIconTime from '../icon/time';
-import TIconClose from '../icon/close';
+import { CalendarIcon, TimeIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
 import { prefix } from '../config';
 import props from './props';
@@ -31,9 +29,8 @@ export default defineComponent({
   ...mixins(getLocalReceiverMixins('datePicker')),
   name,
   components: {
-    TIconTime,
-    TIconCalendar,
-    TIconClose,
+    CalendarIcon,
+    TimeIcon,
     TPopup,
     TButton,
     TInput,
@@ -680,7 +677,7 @@ export default defineComponent({
               focus={this.onNativeFocus}
               input={this.onNativeInput}
               click={this.onClick}
-              suffixIcon={() => (enableTimePicker ? <TIconTime /> : <TIconCalendar />)}
+              suffixIcon={() => (enableTimePicker ? <TimeIcon /> : <CalendarIcon />)}
             ></t-input>
           </div>
         </t-popup>

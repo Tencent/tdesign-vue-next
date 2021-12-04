@@ -8,25 +8,22 @@
 </template>
 
 <script lang="jsx">
-import TIconLogin from 'tdesign-vue-next/icon/login';
-import TIconCart from 'tdesign-vue-next/icon/cart';
-import TIconWallet from 'tdesign-vue-next/icon/wallet';
-import TIconSuccess from 'tdesign-vue-next/icon/check-circle';
+import { LoginIcon, CartIcon, WalletIcon, CheckCircleIcon } from 'tdesign-icons-vue-next';
 
 export default {
   setup() {
     return {
       renderLoginIcon() {
-        return <TIconLogin size="24" class="icon-margin" />;
+        return <LoginIcon size="24" class="icon-margin" />;
       },
       renderCartIcon() {
-        return <TIconCart size="24" class="icon-margin" />;
+        return <CartIcon size="24" class="icon-margin" />;
       },
       renderWalletIcon() {
-        return <TIconWallet size="24" class="icon-margin" />;
+        return <WalletIcon size="24" class="icon-margin" />;
       },
       renderSuccessIcon() {
-        return <TIconSuccess size="24" class="icon-margin" />;
+        return <CheckCircleIcon size="24" class="icon-margin" />;
       },
     };
   },

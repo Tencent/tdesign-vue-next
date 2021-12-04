@@ -1,7 +1,6 @@
-import _Icon from './svg/icon';
+import { Icon as _Icon } from 'tdesign-icons-vue-next';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 
-import './style';
+export const Icon: WithInstallType<typeof _Icon> = withInstall(_Icon, 'TIcon');
 
-export const Icon: WithInstallType<typeof _Icon> = withInstall(_Icon);
 export default Icon;

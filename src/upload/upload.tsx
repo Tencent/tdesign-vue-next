@@ -1,6 +1,7 @@
 import { VNode, defineComponent } from 'vue';
 import findIndex from 'lodash/findIndex';
 import isFunction from 'lodash/isFunction';
+import { UploadIcon } from 'tdesign-icons-vue-next';
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
 import { prefix } from '../config';
@@ -8,7 +9,6 @@ import Dragger from './dragger';
 import ImageCard from './image';
 import FlowList from './flow-list';
 import xhr from './xhr';
-import TIconUpload from '../icon/upload';
 import TButton from '../button';
 import TDialog from '../dialog';
 import SingleFile from './single-file';
@@ -485,7 +485,7 @@ export default defineComponent({
       if (this.theme === 'file-input' || this.showUploadList) {
         return <t-button variant="outline">选择文件</t-button>;
       }
-      const iconSlot = { icon: () => <TIconUpload slot="icon" /> };
+      const iconSlot = { icon: () => <UploadIcon slot="icon" /> };
       return (
         <t-button variant="outline" v-slots={iconSlot}>
           点击上传

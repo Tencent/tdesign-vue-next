@@ -21,10 +21,10 @@
       <t-switch>
         <template #label="slotProps">
           <template v-if="slotProps.value">
-            <t-icon-check />
+            <check-icon />
           </template>
           <template v-else>
-            <t-icon-close />
+            <close-icon />
           </template>
         </template>
       </t-switch>
@@ -34,11 +34,10 @@
 <script lang="jsx">
 import { defineComponent, ref } from 'vue';
 
-import TIconClose from 'tdesign-vue-next/icon/close';
-import TIconCheck from 'tdesign-vue-next/icon/check';
+import { CloseIcon, CheckIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
-  components: { TIconClose, TIconCheck },
+  components: { CloseIcon, CheckIcon },
   setup() {
     const checked = ref(true);
     const renderChecked = ref(true);
@@ -53,13 +52,13 @@ export default defineComponent({
         console.log(val);
       },
       renderActiveContent() {
-        return <TIconCheck />;
+        return <CheckIcon />;
       },
       renderInactiveContent() {
-        return <TIconClose />;
+        return <CloseIcon />;
       },
       renderContent(h, data) {
-        return data.value ? <TIconCheck /> : <TIconClose />;
+        return data.value ? <CheckIcon /> : <CloseIcon />;
       },
     };
   },

@@ -3,14 +3,12 @@ import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
 import set from 'lodash/set';
+import { CloseCircleFilledIcon, LoadingIcon } from 'tdesign-icons-vue-next';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
 import getLocalRecevierMixins from '../locale/local-receiver';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import TIconChevronDown from '../icon/chevron-down';
-import TIconClose from '../icon/close-circle-filled';
-import TIconLoading from '../icon/loading';
 import TInput from '../input/index';
 import Tag from '../tag/index';
 import Popup, { PopupProps } from '../popup/index';
@@ -39,9 +37,8 @@ export default defineComponent({
   ...mixins(SelectLocalReceiver),
   name,
   components: {
-    TIconChevronDown,
-    TIconClose,
-    TIconLoading,
+    CloseCircleFilledIcon,
+    LoadingIcon,
     TInput,
     Tag,
     Popup,
@@ -491,7 +488,7 @@ export default defineComponent({
           </span>
         );
       }
-      return <t-icon-close class={closeIconClass} size={this.size} onClick={this.clearSelect} />;
+      return <close-circle-filled-icon class={closeIconClass} size={this.size} onClick={this.clearSelect} />;
     },
     doFocus() {
       const input = this.$refs.input as HTMLElement;
@@ -657,7 +654,7 @@ export default defineComponent({
               <FakeArrow overlayClassName={`${name}-right-icon`} isActive={this.visible && !this.disabled} />
             )}
             {this.showClose && !this.showLoading && this.getCloseIcon()}
-            {this.showLoading && <t-icon-loading class={`${name}-right-icon ${name}-active-icon`} size={size} />}
+            {this.showLoading && <loading-icon class={`${name}-right-icon ${name}-active-icon`} size={size} />}
           </div>
         </Popup>
       </div>

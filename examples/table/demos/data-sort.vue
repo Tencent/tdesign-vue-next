@@ -34,7 +34,7 @@
 
 <script lang="jsx">
 import { defineComponent, watch, ref } from 'vue';
-import TIconCarretDownSmall from 'tdesign-vue-next/icon/caret-down-small';
+import { CaretDownSmallIcon } from 'tdesign-icons-vue-next';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
@@ -106,7 +106,7 @@ export default defineComponent({
     const allowMultipleSort = ref(false);
     const globalLocale = ref({
       table: {
-        sortIcon: (h) => h && <TIconCarretDownSmall size="16px" />,
+        sortIcon: (h) => h && <CaretDownSmallIcon size="16px" />,
       },
     });
 

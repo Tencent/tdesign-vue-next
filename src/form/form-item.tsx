@@ -1,4 +1,5 @@
 import { defineComponent, VNode, nextTick, h } from 'vue';
+import { CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
@@ -18,11 +19,8 @@ import props from './form-item-props';
 import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
 import Form, { FormItemInstance } from './form';
 import { ClassName, ScopedSlot, TNodeReturnValue, Styles } from '../common';
-import TIconCheckCircleFilled from '../icon/check-circle-filled';
-import TIconErrorCircleFilled from '../icon/error-circle-filled';
-import TIconCloseCircleFilled from '../icon/close-circle-filled';
 
-type IconConstructor = typeof TIconErrorCircleFilled;
+type IconConstructor = typeof ErrorCircleFilledIcon;
 
 type FormInstance = InstanceType<typeof Form>;
 export type FormItemValidateResult<T extends Data = Data> = { [key in keyof T]: boolean | AllValidateResult[] };
@@ -230,15 +228,15 @@ export default defineComponent({
       );
       const list = this.errorList;
       if (this.verifyStatus === ValidateStatus.SUCCESS) {
-        return resultIcon(TIconCheckCircleFilled);
+        return resultIcon(CheckCircleFilledIcon);
       }
       if (list && list[0]) {
         const type = this.errorList[0].type || 'error';
         const icon =
           {
-            error: TIconCloseCircleFilled,
-            warning: TIconErrorCircleFilled,
-          }[type] || TIconCheckCircleFilled;
+            error: CloseCircleFilledIcon,
+            warning: ErrorCircleFilledIcon,
+          }[type] || CheckCircleFilledIcon;
         return resultIcon(icon as IconConstructor);
       }
       return null;

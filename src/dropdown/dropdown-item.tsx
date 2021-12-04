@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import TIconChevronRight from '../icon/chevron-right';
+import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 import TDivider from '../divider';
 import { prefix } from '../config';
 import { STATUS_CLASSNAMES } from '../utils/classnames';
@@ -13,7 +13,7 @@ const name = `${prefix}-dropdown__item`;
 export default defineComponent({
   name: `${prefix}-dropdown-item`,
   components: {
-    TIconChevronRight,
+    ChevronRightIcon,
     TDivider,
   },
   directives: { ripple },
@@ -39,7 +39,7 @@ export default defineComponent({
   emits: ['click', 'item-hover', 'hover'],
   methods: {
     renderSuffix(): TNodeReturnValue {
-      return this.hasChildren ? <t-icon-chevron-right class="children-suffix" /> : null;
+      return this.hasChildren ? <chevron-right-icon class="children-suffix" /> : null;
     },
     handleItemClick(e: MouseEvent): void {
       e.stopPropagation();

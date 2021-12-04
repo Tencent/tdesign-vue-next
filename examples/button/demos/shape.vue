@@ -7,7 +7,7 @@
       <div class="item">
         <t-button theme="primary" shape="square" variant="base">
           <template #icon>
-            <t-icon-calendar />
+            <calendar-icon />
           </template>
         </t-button>
       </div>
@@ -17,7 +17,7 @@
       <div class="item">
         <t-button theme="primary" shape="circle" variant="base">
           <template #icon>
-            <t-icon-calendar />
+            <calendar-icon />
           </template>
         </t-button>
       </div>
@@ -29,7 +29,7 @@
       <div class="item">
         <t-button shape="square" variant="outline">
           <template #icon>
-            <t-icon-calendar />
+            <calendar-icon />
           </template>
         </t-button>
       </div>
@@ -39,7 +39,7 @@
       <div class="item">
         <t-button shape="circle" variant="outline">
           <template #icon>
-            <t-icon-calendar />
+            <calendar-icon />
           </template>
         </t-button>
       </div>
@@ -51,7 +51,7 @@
       <div class="item">
         <t-button shape="square" variant="dashed">
           <template #icon>
-            <t-icon-calendar />
+            <calendar-icon />
           </template>
         </t-button>
       </div>
@@ -61,7 +61,7 @@
       <div class="item">
         <t-button shape="circle" variant="dashed">
           <template #icon>
-            <t-icon-calendar />
+            <calendar-icon />
           </template>
         </t-button>
       </div>
@@ -73,7 +73,7 @@
       <div class="item">
         <t-button shape="square" variant="text">
           <template #icon>
-            <t-icon-calendar />
+            <calendar-icon />
           </template>
         </t-button>
       </div>
@@ -83,7 +83,7 @@
       <div class="item">
         <t-button shape="circle" variant="text">
           <template #icon>
-            <t-icon-calendar />
+            <calendar-icon />
           </template>
         </t-button>
       </div>
@@ -91,11 +91,11 @@
   </div>
 </template>
 <script>
-import TIconCalendar from 'tdesign-vue-next/icon/calendar';
+import { CalendarIcon } from 'tdesign-icons-vue-next';
 
 export default {
   components: {
-    TIconCalendar,
+    CalendarIcon,
   },
 };
 </script>

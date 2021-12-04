@@ -2,7 +2,7 @@
   <div class="tdesign-demo-item--input__input-box">
     <t-input type="password" default-value="520 TDesign">
       <template #prefix-icon>
-        <t-icon-lock-on />
+        <lock-on-icon />
       </template>
     </t-input>
     <!-- 使用 function 的形式定义 icon -->
@@ -11,14 +11,14 @@
 </template>
 <script lang="jsx">
 import { defineComponent } from 'vue';
-import TIconLockOn from 'tdesign-vue-next/icon/lock-on';
+import { LockOnIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
   components: {
-    TIconLockOn,
+    LockOnIcon,
   },
   setup() {
-    const renderPrefixIcon = () => <TIconLockOn></TIconLockOn>;
+    const renderPrefixIcon = () => <LockOnIcon />;
 
     return {
       renderPrefixIcon,

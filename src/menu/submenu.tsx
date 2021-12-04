@@ -2,18 +2,15 @@ import { defineComponent, computed, inject, ref, provide, onMounted, getCurrentI
 import { prefix } from '../config';
 import props from './submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import TIconChevronDown from '../icon/chevron-down';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
 import FakeArrow from '../common-components/fake-arrow';
 import Ripple from '../utils/ripple';
 import { ClassName } from '../common';
 
 const name = `${prefix}-submenu`;
+
 export default defineComponent({
   name,
-  components: {
-    TIconChevronDown,
-  },
   directives: {
     ripple: Ripple,
   },

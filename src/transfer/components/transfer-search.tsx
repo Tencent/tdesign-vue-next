@@ -1,7 +1,7 @@
 import { defineComponent, VNode, PropType } from 'vue';
+import { SearchIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../../config';
 import { SearchOption } from '../interface';
-import TIconSearch from '../../icon/search';
 import TInput from '../../input';
 
 const name = `${prefix}-transfer-search`;
@@ -43,7 +43,7 @@ export default defineComponent({
     return (
       <div class="t-transfer-list-search-wrapper">
         <TInput {...inputProps} defaultValue={value} onChange={this.handleChange} placeholder={placeholder}>
-          <TIconSearch slot="suffix-icon" />
+          <SearchIcon slot="suffix-icon" />
         </TInput>
       </div>
     );

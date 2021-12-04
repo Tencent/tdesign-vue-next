@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import isFunction from 'lodash/isFunction';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
+import { TimeIcon } from 'tdesign-icons-vue-next';
 import mixins from '../utils/mixins';
 import getLocalReceiverMixins from '../locale/local-receiver';
 import { TimePickerPanelInstance, TimeInputEvent, InputTime, TimeInputType } from './interface';
@@ -11,7 +12,6 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import PickerPanel from './panel';
 import TInput from '../input';
-import TIconTime from '../icon/time';
 
 import InputItems from './input-items';
 
@@ -29,7 +29,7 @@ export default defineComponent({
 
   components: {
     PickerPanel,
-    TIconTime,
+    TimeIcon,
     TPopup,
     TInput,
     InputItems,
@@ -297,7 +297,7 @@ export default defineComponent({
       ];
 
       const slots = {
-        'suffix-icon': () => <t-icon-time></t-icon-time>,
+        'suffix-icon': () => <time-icon />,
       };
       return (
         <div class={classes} onClick={() => (this.isShowPanel = true)}>

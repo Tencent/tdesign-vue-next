@@ -1,7 +1,7 @@
 import { defineComponent, nextTick } from 'vue';
+import { CloseIcon } from 'tdesign-icons-vue-next';
 import { ClassName, Styles } from '../common';
 import { prefix } from '../config';
-import TIconClose from '../icon/close';
 import { Button as TButton } from '../button';
 import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
@@ -20,7 +20,7 @@ export default defineComponent({
   name,
 
   components: {
-    TIconClose,
+    CloseIcon,
     TButton,
   },
 
@@ -195,7 +195,7 @@ export default defineComponent({
 
   render() {
     if (this.destroyOnClose && !this.visible) return;
-    const defaultCloseBtn = <t-icon-close class="t-submenu-icon"></t-icon-close>;
+    const defaultCloseBtn = <close-icon class="t-submenu-icon"></close-icon>;
     const body = renderContent(this, 'default', 'body');
     const defaultFooter = this.getDefaultFooter();
     return (

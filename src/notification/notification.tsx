@@ -1,8 +1,6 @@
 import { defineComponent, h, VNodeChild } from 'vue';
+import { InfoCircleFilledIcon, CheckCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
-import TIconInfoCircleFilled from '../icon/info-circle-filled';
-import TIconCheckCircleFilled from '../icon/check-circle-filled';
-import TIconClose from '../icon/close';
 import props from './props';
 
 const name = `${prefix}-notification`;
@@ -10,9 +8,9 @@ const name = `${prefix}-notification`;
 export default defineComponent({
   name,
   components: {
-    TIconInfoCircleFilled,
-    TIconCheckCircleFilled,
-    TIconClose,
+    InfoCircleFilledIcon,
+    CheckCircleFilledIcon,
+    CloseIcon,
   },
   props: { ...props },
   emits: ['duration-end', 'click-close-btn'],
@@ -33,9 +31,9 @@ export default defineComponent({
       if (this.theme) {
         const iconType =
           this.theme === 'success' ? (
-            <t-icon-check-circle-filled class={`t-is-${this.theme}`} />
+            <check-circle-filled-icon class={`t-is-${this.theme}`} />
           ) : (
-            <t-icon-info-circle-filled class={`t-is-${this.theme}`} />
+            <info-circle-filled-icon class={`t-is-${this.theme}`} />
           );
         icon = <div class="t-notification__icon">{iconType}</div>;
       } else if (this.icon) {
@@ -48,7 +46,7 @@ export default defineComponent({
     renderClose() {
       const { closeBtn } = this;
       if (typeof closeBtn === 'boolean') {
-        return closeBtn && <t-icon-close onClick={this.close} class="t-message-close" />;
+        return closeBtn && <close-icon onClick={this.close} class="t-message-close" />;
       }
       let close: VNodeChild = null;
       if (typeof closeBtn === 'function') {

@@ -1,8 +1,9 @@
 import { defineComponent } from 'vue';
+import { FileCopyIcon } from 'tdesign-icons-vue-next';
+
 import { prefix } from '../config';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
-import TIconFileCopy from '../icon/file-copy';
 import props from './anchor-target-props';
 import TPopup from '../popup';
 
@@ -12,7 +13,7 @@ export default defineComponent({
 
   components: {
     TPopup,
-    TIconFileCopy,
+    FileCopyIcon,
   },
 
   props: { ...props },
@@ -42,7 +43,7 @@ export default defineComponent({
       <TAG id={id} class={className}>
         {children && children(null)}
         <t-popup content="复制链接" placement="top" showArrow class={iconClassName}>
-          <TIconFileCopy name="file-copy" onClick={this.copyText} />
+          <FileCopyIcon onClick={this.copyText} />
         </t-popup>
       </TAG>
     );

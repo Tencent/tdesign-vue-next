@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue';
 import isFunction from 'lodash/isFunction';
-import TIconCheck from '../icon/check';
-import TIconClose from '../icon/close';
+import { CheckIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import props from './step-item-props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
@@ -16,8 +15,8 @@ export default defineComponent({
   ...mixins(getLocalRecevierMixins('steps')),
   name: `${prefix}-step-item`,
   components: {
-    TIconCheck,
-    TIconClose,
+    CheckIcon,
+    CloseIcon,
   },
   inject: {
     steps: { default: undefined },
@@ -66,13 +65,13 @@ export default defineComponent({
         let icon: SlotReturnValue = '';
         switch (this.status$) {
           case 'finish':
-            icon = <t-icon-check />;
+            icon = <check-icon />;
             break;
           case 'error':
             if (isFunction(this.t.errorIcon)) {
               icon = this.t.errorIcon(this.$createElement);
             } else {
-              icon = <t-icon-close />;
+              icon = <close-icon />;
             }
             break;
           // default 包含 case 'process' 的情况

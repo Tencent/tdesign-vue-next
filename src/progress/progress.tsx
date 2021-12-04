@@ -1,10 +1,12 @@
 import { defineComponent, VNode } from 'vue';
-import IconClearCircleFilled from '../icon/close-circle-filled';
-import IconSuccessFill from '../icon/check-circle-filled';
-import IconWarningFill from '../icon/error-circle-filled';
-import IconsClearLine from '../icon/close';
-import IconSuccessLine from '../icon/check';
-import IconWarningLine from '../icon/error';
+import {
+  CloseCircleFilledIcon,
+  CheckCircleFilledIcon,
+  ErrorCircleFilledIcon,
+  CloseIcon,
+  CheckIcon,
+  ErrorIcon,
+} from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import { getBackgroundColor } from '../utils/helper';
 import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
@@ -130,14 +132,14 @@ export default defineComponent({
   methods: {
     getIconMap() {
       const CIRCLE_ICONS = {
-        success: IconSuccessLine,
-        warning: IconWarningLine,
-        error: IconsClearLine,
+        success: CheckIcon,
+        warning: ErrorIcon,
+        error: CloseIcon,
       };
       const NORMAL_ICONS = {
-        success: IconSuccessFill,
-        warning: IconWarningFill,
-        error: IconClearCircleFilled,
+        success: CheckCircleFilledIcon,
+        warning: ErrorCircleFilledIcon,
+        error: CloseCircleFilledIcon,
       };
       return this.theme === PRO_THEME.CIRCLE ? CIRCLE_ICONS : NORMAL_ICONS;
     },

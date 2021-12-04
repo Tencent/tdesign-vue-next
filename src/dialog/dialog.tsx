@@ -1,10 +1,8 @@
 import { defineComponent, Transition } from 'vue';
+import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+
 import { prefix } from '../config';
-import TIconClose from '../icon/close';
 import TButton, { ButtonProps } from '../button';
-import TIconInfoCircleFilled from '../icon/info-circle-filled';
-import TIconCheckCircleFilled from '../icon/check-circle-filled';
-import TIconErrorCircleFilled from '../icon/error-circle-filled';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
@@ -56,10 +54,10 @@ export default defineComponent({
   ...mixins(getLocalReceiverMixins('dialog')),
   name,
   components: {
-    TIconClose,
-    TIconInfoCircleFilled,
-    TIconCheckCircleFilled,
-    TIconErrorCircleFilled,
+    CloseIcon,
+    InfoCircleFilledIcon,
+    CheckCircleFilledIcon,
+    ErrorCircleFilledIcon,
     TButton,
     Transition,
   },
@@ -243,10 +241,10 @@ export default defineComponent({
     },
     getIcon() {
       const icon = {
-        info: <TIconInfoCircleFilled class="t-is-info" />,
-        warning: <TIconErrorCircleFilled class="t-is-warning" />,
-        danger: <TIconErrorCircleFilled class="t-is-error" />,
-        success: <TIconCheckCircleFilled class="t-is-success" />,
+        info: <InfoCircleFilledIcon class="t-is-info" />,
+        warning: <ErrorCircleFilledIcon class="t-is-warning" />,
+        danger: <ErrorCircleFilledIcon class="t-is-error" />,
+        success: <CheckCircleFilledIcon class="t-is-success" />,
       };
       return icon[this.theme];
     },
@@ -295,7 +293,7 @@ export default defineComponent({
     renderDialog() {
       // header 值为 true 显示空白头部
       const defaultHeader = <h5 class="title"></h5>;
-      const defaultCloseBtn = <t-icon-close name="close"></t-icon-close>;
+      const defaultCloseBtn = <close-icon />;
       const body = renderContent(this, 'default', 'body');
       const defaultFooter = this.getDefaultFooter();
       const bodyClassName = this.theme === 'default' ? `${name}__body` : `${name}__body__icon`;

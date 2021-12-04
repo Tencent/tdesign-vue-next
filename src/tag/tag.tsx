@@ -1,7 +1,7 @@
 import { defineComponent, ComponentPublicInstance, VNode } from 'vue';
+import { CloseIcon } from 'tdesign-icons-vue-next';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
-import TIconClose from '../icon/close';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { ClassName, TNodeReturnValue } from '../common';
@@ -37,15 +37,15 @@ export default defineComponent({
     },
   },
   methods: {
-    handleClose(event: MouseEvent): void {
-      this.$emit('close', event);
+    handleClose({ e }: { e: MouseEvent }): void {
+      this.$emit('close', e);
     },
     handleClick(event: MouseEvent): void {
       this.$emit('click', event);
     },
   },
   render() {
-    const closeIcon: VNode | string = this.closable ? <TIconClose onClick={this.handleClose} /> : '';
+    const closeIcon: VNode | string = this.closable ? <CloseIcon onClick={this.handleClose} /> : '';
     // 标签内容
     const tagContent: TNodeReturnValue = renderContent(this, 'default', 'content');
     // 图标

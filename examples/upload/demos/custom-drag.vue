@@ -2,7 +2,7 @@
   <div class="tdesign-demo-upload t-upload">
     <t-button variant="outline" @click="upload">
       <template #icon>
-        <t-icon-cloud-upload />
+        <cloud-upload-icon />
       </template>
       点击上传
     </t-button>
@@ -35,11 +35,11 @@
 </template>
 <script>
 import { defineComponent, ref } from 'vue';
-import TIconCloudUpload from 'tdesign-vue-next/icon/cloud-upload';
+import { CloudUploadIcon } from 'tdesign-icons-vue-next';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 export default defineComponent({
-  components: { TIconCloudUpload },
+  components: { CloudUploadIcon },
   setup() {
     const files = ref([]);
     const uploadRef = ref();

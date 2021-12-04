@@ -1,5 +1,6 @@
 import { defineComponent, PropType } from 'vue';
 import isFunction from 'lodash/isFunction';
+import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../../config';
 import CLASSNAMES from '../../utils/classnames';
 import getLocalRecevierMixins from '../../locale/local-receiver';
@@ -9,7 +10,6 @@ import { renderTNodeJSX } from '../../utils/render-tnode';
 // component
 import Tag from '../../tag';
 import Input, { InputValue } from '../../input';
-import CloseCircleFilledIcon from '../../icon/close-circle-filled';
 import FakeArrow from '../../common-components/fake-arrow';
 
 // common logic

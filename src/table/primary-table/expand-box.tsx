@@ -1,9 +1,9 @@
 import { defineComponent } from 'vue';
 import isFunction from 'lodash/isFunction';
+import { ChevronDownCircleIcon } from 'tdesign-icons-vue-next';
 import mixins from '../../utils/mixins';
 import getLocalReceiverMixins from '../../locale/local-receiver';
 
-import TIconChevronDown from '../../icon/chevron-down-circle';
 import { prefix } from '../../config';
 import { Styles } from '../../common';
 import primaryTableProps from '../primary-table-props';
@@ -13,7 +13,7 @@ export default defineComponent({
   ...mixins(getLocalReceiverMixins('table')),
   name: `${prefix}-expand-box`,
   components: {
-    TIconChevronDown,
+    ChevronDownCircleIcon,
   },
   props: {
     expanded: {
@@ -31,7 +31,11 @@ export default defineComponent({
   emits: ['click'],
   methods: {
     getDefaultIcon() {
-      return isFunction(this.locale.expandIcon) ? this.locale.expandIcon(this.$createElement) : <TIconChevronDown />;
+      return isFunction(this.locale.expandIcon) ? (
+        this.locale.expandIcon(this.$createElement)
+      ) : (
+        <ChevronDownCircleIcon />
+      );
     },
     getExpandIcon(expanded: boolean) {
       const icon = renderTNodeJSX(this, 'expandIcon', {

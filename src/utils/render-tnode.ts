@@ -62,8 +62,8 @@ interface JSXRenderContext {
  * @param name 插槽和属性名称
  * @param options 值可能为默认渲染节点，也可能是默认渲染节点和参数的集合
  * @example renderTNodeJSX(this, 'closeBtn')  优先级 props function 大于 插槽
- * @example renderTNodeJSX(this, 'closeBtn', <t-icon-close />)。 当属性值为 true 时则渲染 <t-icon-close />
- * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <t-icon-close />, params })。 params 为渲染节点时所需的参数
+ * @example renderTNodeJSX(this, 'closeBtn', <close-icon />)。 当属性值为 true 时则渲染 <close-icon />
+ * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <close-icon />, params })。 params 为渲染节点时所需的参数
  */
 
 export const renderTNodeJSX = (
@@ -97,8 +97,8 @@ export const renderTNodeJSX = (
  * @param vm 组件实例
  * @param name 插槽和属性名称
  * @example renderTNodeJSX(this, 'closeBtn')
- * @example renderTNodeJSX(this, 'closeBtn', <t-icon-close />)。this.closeBtn 为空时，则兜底渲染 <t-icon-close />
- * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <t-icon-close />, params }) 。params 为渲染节点时所需的参数
+ * @example renderTNodeJSX(this, 'closeBtn', <close-icon />)。this.closeBtn 为空时，则兜底渲染 <close-icon />
+ * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <close-icon />, params }) 。params 为渲染节点时所需的参数
  */
 export const renderTNodeJSXDefault = (
   vm: ComponentPublicInstance,

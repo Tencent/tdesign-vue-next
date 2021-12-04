@@ -54,8 +54,7 @@
 
 <script>
 import { defineComponent } from 'vue';
-import EditIcon from 'tdesign-vue-next/icon/edit';
-import DownloadIcon from 'tdesign-vue-next/icon/download';
+import { EditIcon, DownloadIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
   components: { EditIcon, DownloadIcon },

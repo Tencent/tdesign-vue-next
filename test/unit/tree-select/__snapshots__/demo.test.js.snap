@@ -53,15 +53,15 @@ exports[`TreeSelect base demo works fine 1`] = `
                   >
                     <svg
                       class="t-icon t-icon-caret-right-small"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M384 320L384 704 672 512 384 320Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                   </span>
@@ -140,15 +140,15 @@ exports[`TreeSelect base demo works fine 1`] = `
                   >
                     <svg
                       class="t-icon t-icon-caret-right-small"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M384 320L384 704 672 512 384 320Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                   </span>
@@ -277,31 +277,33 @@ exports[`TreeSelect base demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon t-select-right-icon__clear"
+          class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear"
+          fill="none"
+          height="1em"
           name="close"
-          style="display: none;"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          style="font-size: medium; display: none;"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM647.7644992 330.98066432L511.97266432 466.72466432 376.23549824 330.98066432 330.98066432 376.23549824 466.72466432 511.97266432 330.98066432 647.7644992 376.23549824 693.0193344 511.97266432 557.22066432 647.7644992 693.0193344 693.0193344 647.7644992 557.22066432 511.97266432 693.0193344 376.23549824 647.7644992 330.98066432Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         <svg
-          class="t-icon t-icon-loading t-size-m t-select-right-icon t-select-active-icon"
+          class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
+          fill="none"
+          height="1em"
           name="loading"
-          style="display: none;"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          style="font-size: medium; display: none;"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
       </div>
@@ -422,15 +424,15 @@ exports[`TreeSelect filterable demo works fine 1`] = `
                   >
                     <svg
                       class="t-icon t-icon-caret-right-small"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M384 320L384 704 672 512 384 320Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                   </span>
@@ -509,15 +511,15 @@ exports[`TreeSelect filterable demo works fine 1`] = `
                   >
                     <svg
                       class="t-icon t-icon-caret-right-small"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M384 320L384 704 672 512 384 320Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                   </span>
@@ -652,31 +654,33 @@ exports[`TreeSelect filterable demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon t-select-right-icon__clear"
+          class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear"
+          fill="none"
+          height="1em"
           name="close"
-          style="display: none;"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          style="font-size: medium; display: none;"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM647.7644992 330.98066432L511.97266432 466.72466432 376.23549824 330.98066432 330.98066432 376.23549824 466.72466432 511.97266432 330.98066432 647.7644992 376.23549824 693.0193344 511.97266432 557.22066432 647.7644992 693.0193344 693.0193344 647.7644992 557.22066432 511.97266432 693.0193344 376.23549824 647.7644992 330.98066432Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         <svg
-          class="t-icon t-icon-loading t-size-m t-select-right-icon t-select-active-icon"
+          class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
+          fill="none"
+          height="1em"
           name="loading"
-          style="display: none;"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          style="font-size: medium; display: none;"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
       </div>
@@ -739,15 +743,15 @@ exports[`TreeSelect lazy demo works fine 1`] = `
                   >
                     <svg
                       class="t-icon t-icon-caret-right-small"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M384 320L384 704 672 512 384 320Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                   </span>
@@ -776,15 +780,15 @@ exports[`TreeSelect lazy demo works fine 1`] = `
                   >
                     <svg
                       class="t-icon t-icon-caret-right-small"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M384 320L384 704 672 512 384 320Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                   </span>
@@ -863,31 +867,33 @@ exports[`TreeSelect lazy demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon t-select-right-icon__clear"
+          class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear"
+          fill="none"
+          height="1em"
           name="close"
-          style="display: none;"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          style="font-size: medium; display: none;"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM647.7644992 330.98066432L511.97266432 466.72466432 376.23549824 330.98066432 330.98066432 376.23549824 466.72466432 511.97266432 330.98066432 647.7644992 376.23549824 693.0193344 511.97266432 557.22066432 647.7644992 693.0193344 693.0193344 647.7644992 557.22066432 511.97266432 693.0193344 376.23549824 647.7644992 330.98066432Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         <svg
-          class="t-icon t-icon-loading t-size-m t-select-right-icon t-select-active-icon"
+          class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
+          fill="none"
+          height="1em"
           name="loading"
-          style="display: none;"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          style="font-size: medium; display: none;"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
       </div>
@@ -950,15 +956,15 @@ exports[`TreeSelect multiple demo works fine 1`] = `
                   >
                     <svg
                       class="t-icon t-icon-caret-right-small"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M384 320L384 704 672 512 384 320Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                   </span>
@@ -1073,15 +1079,15 @@ exports[`TreeSelect multiple demo works fine 1`] = `
                   >
                     <svg
                       class="t-icon t-icon-caret-right-small"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M384 320L384 704 672 512 384 320Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                   </span>
@@ -1213,12 +1219,15 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           
           <svg
             class="t-icon t-icon-close"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
           >
             <path
-              d="M512.0032 570.83072L708.864 767.6864 767.6928 708.8576 570.83456 511.99936 767.6928 315.14176 708.864 256.3104 512.0032 453.168 315.14368 256.30848 256.31232 315.13984 453.17184 511.99936 256.31232 708.8576 315.14368 767.6928 512.0032 570.83072Z"
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
             />
           </svg>
         </span>
@@ -1231,12 +1240,15 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           
           <svg
             class="t-icon t-icon-close"
-            version="1.1"
-            viewBox="0 0 1024 1024"
-            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
           >
             <path
-              d="M512.0032 570.83072L708.864 767.6864 767.6928 708.8576 570.83456 511.99936 767.6928 315.14176 708.864 256.3104 512.0032 453.168 315.14368 256.30848 256.31232 315.13984 453.17184 511.99936 256.31232 708.8576 315.14368 767.6928 512.0032 570.83072Z"
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
             />
           </svg>
         </span>
@@ -1282,31 +1294,33 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon t-select-right-icon__clear"
+          class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear"
+          fill="none"
+          height="1em"
           name="close"
-          style="display: none;"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          style="font-size: medium; display: none;"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM647.7644992 330.98066432L511.97266432 466.72466432 376.23549824 330.98066432 330.98066432 376.23549824 466.72466432 511.97266432 330.98066432 647.7644992 376.23549824 693.0193344 511.97266432 557.22066432 647.7644992 693.0193344 693.0193344 647.7644992 557.22066432 511.97266432 693.0193344 376.23549824 647.7644992 330.98066432Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         <svg
-          class="t-icon t-icon-loading t-size-m t-select-right-icon t-select-active-icon"
+          class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
+          fill="none"
+          height="1em"
           name="loading"
-          style="display: none;"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          style="font-size: medium; display: none;"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
       </div>
@@ -1369,15 +1383,15 @@ exports[`TreeSelect prefix demo works fine 1`] = `
                   >
                     <svg
                       class="t-icon t-icon-caret-right-small"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M384 320L384 704 672 512 384 320Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                   </span>
@@ -1456,15 +1470,15 @@ exports[`TreeSelect prefix demo works fine 1`] = `
                   >
                     <svg
                       class="t-icon t-icon-caret-right-small"
-                      version="1.1"
-                      viewBox="0 0 1024 1024"
-                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
                     >
                       <path
-                        clip-rule="evenodd"
-                        d="M384 320L384 704 672 512 384 320Z"
-                        fill-opacity=".9"
-                        fill-rule="evenodd"
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fillOpacity="0.9"
                       />
                     </svg>
                   </span>
@@ -1603,31 +1617,33 @@ exports[`TreeSelect prefix demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-clear-circle-filled t-size-m t-select-right-icon t-select-right-icon__clear"
+          class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear"
+          fill="none"
+          height="1em"
           name="close"
-          style="display: none;"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          style="font-size: medium; display: none;"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M512 96C741.7504576 96 928 282.24954432 928 512 928 741.7504576 741.7504576 928 512 928 282.24954432 928 96 741.7504576 96 512 96 282.24954432 282.24954432 96 512 96ZM647.7644992 330.98066432L511.97266432 466.72466432 376.23549824 330.98066432 330.98066432 376.23549824 466.72466432 511.97266432 330.98066432 647.7644992 376.23549824 693.0193344 511.97266432 557.22066432 647.7644992 693.0193344 693.0193344 647.7644992 557.22066432 511.97266432 693.0193344 376.23549824 647.7644992 330.98066432Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         <svg
-          class="t-icon t-icon-loading t-size-m t-select-right-icon t-select-active-icon"
+          class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
+          fill="none"
+          height="1em"
           name="loading"
-          style="display: none;"
-          version="1.1"
-          viewBox="0 0 1024 1024"
-          xmlns="http://www.w3.org/2000/svg"
+          style="font-size: medium; display: none;"
+          viewBox="0 0 16 16"
+          width="1em"
         >
           <path
-            d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-            fill-opacity=".9"
-            fill-rule="evenodd"
+            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
       </div>

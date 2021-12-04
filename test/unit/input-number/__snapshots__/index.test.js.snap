@@ -11,15 +11,17 @@ exports[`InputNumber :props :defaultValue, default value 6 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -42,14 +44,17 @@ exports[`InputNumber :props :defaultValue, default value 6 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -70,15 +75,17 @@ exports[`InputNumber :props :disabled, function can not be call 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -102,14 +109,17 @@ exports[`InputNumber :props :disabled, function can not be call 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -130,15 +140,17 @@ exports[`InputNumber :props :format, with 6% 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -161,14 +173,17 @@ exports[`InputNumber :props :format, with 6% 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -189,15 +204,17 @@ exports[`InputNumber :props :max, value 6 < max 10 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -220,14 +237,17 @@ exports[`InputNumber :props :max, value 6 < max 10 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -248,15 +268,17 @@ exports[`InputNumber :props :max, value 16 > max 10 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -279,14 +301,17 @@ exports[`InputNumber :props :max, value 16 > max 10 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -307,15 +332,17 @@ exports[`InputNumber :props :min, value -1 < min 1 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -338,14 +365,17 @@ exports[`InputNumber :props :min, value -1 < min 1 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -366,15 +396,17 @@ exports[`InputNumber :props :min, value 6 > min 1 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -397,14 +429,17 @@ exports[`InputNumber :props :min, value 6 > min 1 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -425,15 +460,17 @@ exports[`InputNumber :props :mode, without class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -456,14 +493,17 @@ exports[`InputNumber :props :mode, without class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -484,16 +524,17 @@ exports[`InputNumber :props :mode:column, with class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-chevron-down t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-chevron-down"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        clip-rule="evenodd"
-        d="M226.57792 413.41696L285.40928 354.58624 511.9936 581.17056 738.5792 354.58624 797.408 413.41696 511.9936 698.8352 226.57792 413.41696Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -516,15 +557,17 @@ exports[`InputNumber :props :mode:column, with class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-chevron-up t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-chevron-up"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M509.24008704 256.163392L514.71568448 256.13496384C521.97472 256.74779712 529.06494656 259.82337344 534.628192 265.36222272L534.628192 265.36222272 910.3463808 640.4937536 865.091552 685.7485888 511.99872896 333.24849216 160.00556288 685.7485888 114.75072896 640.4937536 466.75072896 288.06449216 466.72826816 288.00732608 489.35568512 265.37990912C493.52487168 261.22251328 498.55406784 258.45003712 503.87029504 257.06270464L509.24008704 256.163392 509.24008704 256.163392Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -545,15 +588,17 @@ exports[`InputNumber :props :mode:row, without class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -576,14 +621,17 @@ exports[`InputNumber :props :mode:row, without class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -605,14 +653,15 @@ exports[`InputNumber :props :size:large, with class t-size-l 1`] = `
     
     <svg
       class="t-icon t-icon-remove t-size-l"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -636,13 +685,15 @@ exports[`InputNumber :props :size:large, with class t-size-l 1`] = `
     
     <svg
       class="t-icon t-icon-add t-size-l"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -663,15 +714,17 @@ exports[`InputNumber :props :size:medium, with class t-size-m 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -694,14 +747,17 @@ exports[`InputNumber :props :size:medium, with class t-size-m 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -723,14 +779,15 @@ exports[`InputNumber :props :size:small, with class t-size-s 1`] = `
     
     <svg
       class="t-icon t-icon-remove t-size-s"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -754,13 +811,15 @@ exports[`InputNumber :props :size:small, with class t-size-s 1`] = `
     
     <svg
       class="t-icon t-icon-add t-size-s"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -781,15 +840,17 @@ exports[`InputNumber :props :step, 2 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -812,14 +873,17 @@ exports[`InputNumber :props :step, 2 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -840,15 +904,17 @@ exports[`InputNumber :props :value, 6 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -871,14 +937,17 @@ exports[`InputNumber :props :value, 6 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -899,15 +968,17 @@ exports[`InputNumber :props class, with class t-input-number 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-remove"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M128 480L896 480 896 544 128 544Z"
-        fill-opacity=".9"
-        fill-rule="evenodd"
+        d="M3.5 7.35h9v1.3h-9v-1.3z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     
@@ -930,14 +1001,17 @@ exports[`InputNumber :props class, with class t-input-number 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
-      version="1.1"
-      viewBox="0 0 1024 1024"
-      xmlns="http://www.w3.org/2000/svg"
+      class="t-icon t-icon-add"
+      fill="none"
+      height="1em"
+      style="font-size: medium;"
+      viewBox="0 0 16 16"
+      width="1em"
     >
       <path
-        d="M544 160L544 480 864 480 864 544 544 544 544 864 480 864 480 544 160 544 160 480 480 480 480 160 544 160Z"
-        fill-rule="evenodd"
+        d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+        fill="currentColor"
+        fillOpacity="0.9"
       />
     </svg>
     

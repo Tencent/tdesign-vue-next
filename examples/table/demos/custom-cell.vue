@@ -20,7 +20,7 @@
 
       <!-- 插槽方式 自定义单元格， colKey 的值默认为插槽名称  -->
       <template #platform="{ row }">
-        <t-icon-attach /><a href="#" class="link">{{ row.platform }}</a
+        <attach-icon /><a href="#" class="link">{{ row.platform }}</a
         >（插槽自定义单元格）
       </template>
     </t-table>
@@ -28,7 +28,7 @@
 </template>
 <script lang="jsx">
 import { defineComponent } from 'vue';
-import TIconAttach from 'tdesign-vue-next/icon/attach';
+import { AttachIcon } from 'tdesign-icons-vue-next';
 
 const data = [
   {
@@ -83,7 +83,7 @@ const columns = [
 
 export default defineComponent({
   components: {
-    TIconAttach,
+    AttachIcon,
   },
   setup() {
     return {

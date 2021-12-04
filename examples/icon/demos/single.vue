@@ -1,35 +1,33 @@
 <template>
   <div class="t-demo-iconfont">
     <div class="t-demo-row">
-      <t-icon-loading />
-      <t-icon-close @click="onIconClose" />
-      <t-icon-check-circle-filled />
+      <loading-icon />
+      <close-icon @click="onIconClose" />
+      <check-circle-filled-icon />
     </div>
     <br />
     <div class="t-demo-row">
-      <t-icon-check-circle-filled size="small" />
-      <t-icon-check-circle-filled />
-      <t-icon-check-circle-filled size="medium" />
-      <t-icon-check-circle-filled size="large" />
-      <t-icon-check-circle-filled size="25px" />
-      <t-icon-check-circle-filled size="2em" />
+      <check-circle-filled-icon size="small" />
+      <check-circle-filled-icon />
+      <check-circle-filled-icon size="medium" />
+      <check-circle-filled-icon size="large" />
+      <check-circle-filled-icon size="25px" />
+      <check-circle-filled-icon size="2em" />
     </div>
     <br />
     <div class="t-demo-row">
-      <t-icon-check-circle-filled style="color: red" />
-      <t-icon-check-circle-filled style="color: green" />
-      <t-icon-check-circle-filled style="color: orange" />
+      <check-circle-filled-icon style="color: red" />
+      <check-circle-filled-icon style="color: green" />
+      <check-circle-filled-icon style="color: orange" />
     </div>
   </div>
 </template>
 
 <script>
-import TIconLoading from 'tdesign-vue-next/icon/loading.tsx';
-import TIconClose from 'tdesign-vue-next/icon/close.tsx';
-import TIconCheckCircleFilled from 'tdesign-vue-next/icon/check-circle-filled.tsx';
+import { LoadingIcon, CloseIcon, CheckCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 export default {
-  components: { TIconLoading, TIconClose, TIconCheckCircleFilled },
+  components: { LoadingIcon, CloseIcon, CheckCircleFilledIcon },
   methods: {
     onIconClose() {
       console.log('icon was clicked.');

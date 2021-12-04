@@ -1,8 +1,7 @@
 import { defineComponent, createElementVNode, PropType } from 'vue';
+import { ChevronRightIcon, ChevronLeftIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../../config';
 import TButton from '../../button';
-import TIconChevronRight from '../../icon/chevron-right';
-import TIconChevronLeft from '../../icon/chevron-left';
 import { TNode } from '../../common';
 
 const name = `${prefix}-transfer-operations`;
@@ -38,10 +37,10 @@ export default defineComponent({
       this.$emit('moveToLeft');
     },
     getIconRight() {
-      return <TIconChevronRight />;
+      return <ChevronRightIcon />;
     },
     getIconLeft() {
-      return <TIconChevronLeft />;
+      return <ChevronLeftIcon />;
     },
     getIcon(direction: 'left' | 'right') {
       if (typeof this.operation === 'function') {

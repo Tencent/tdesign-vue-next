@@ -1,9 +1,11 @@
 import { defineComponent, PropType } from 'vue';
+import {
+  CloseCircleFilledIcon,
+  LoadingIcon,
+  ErrorCircleFilledIcon,
+  CheckCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
-import TIconClearCircleFilled from '../icon/close-circle-filled';
-import TIconLoading from '../icon/loading';
-import TIconErrorCircleFilled from '../icon/error-circle-filled';
-import TIconCheckCircleFilled from '../icon/check-circle-filled';
 import { UploadFile } from './type';
 import { ClassName } from '../common';
 import { abridgeName, UPLOAD_NAME } from './util';
@@ -13,10 +15,10 @@ export default defineComponent({
   name: 'TUploadSingleFile',
 
   components: {
-    TIconClearCircleFilled,
-    TIconCheckCircleFilled,
-    TIconErrorCircleFilled,
-    TIconLoading,
+    CloseCircleFilledIcon,
+    LoadingIcon,
+    ErrorCircleFilledIcon,
+    CheckCircleFilledIcon,
   },
 
   props: {
@@ -71,13 +73,13 @@ export default defineComponent({
   methods: {
     renderProgress() {
       if (this.loadingFile.status === 'fail') {
-        return <TIconErrorCircleFilled />;
+        return <ErrorCircleFilledIcon />;
       }
 
       if (this.showUploadProgress) {
         return (
           <div class={`${UPLOAD_NAME}__single-progress`}>
-            <TIconLoading></TIconLoading>
+            <LoadingIcon></LoadingIcon>
             <span class={`${UPLOAD_NAME}__single-percent`}>{Math.min(this.loadingFile.percent, 99)}%</span>
           </div>
         );
@@ -86,10 +88,10 @@ export default defineComponent({
 
     renderResult() {
       if (!!this.loadingFile && this.loadingFile.status === 'fail') {
-        return <TIconErrorCircleFilled />;
+        return <ErrorCircleFilledIcon />;
       }
       if (this.file && this.file.name && !this.loadingFile) {
-        return <TIconCheckCircleFilled />;
+        return <CheckCircleFilledIcon />;
       }
       return '';
     },
@@ -103,9 +105,9 @@ export default defineComponent({
           {this.showProgress ? (
             this.renderProgress()
           ) : (
-            <TIconClearCircleFilled
+            <CloseCircleFilledIcon
               class={`${UPLOAD_NAME}-icon-delete`}
-              nativeOnClick={(e: MouseEvent) => this.remove(e)}
+              onClick={({ e }: { e: MouseEvent }) => this.remove(e)}
             />
           )}
         </div>

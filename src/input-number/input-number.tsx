@@ -1,10 +1,7 @@
 import { defineComponent, VNode } from 'vue';
+import { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import TButton from '../button';
-import Add from '../icon/add';
-import Remove from '../icon/remove';
-import ChevronDown from '../icon/chevron-down';
-import ChevronUp from '../icon/chevron-up';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { ChangeSource } from './type';
@@ -35,10 +32,10 @@ type InputNumberAttr = {
 export default defineComponent({
   name,
   components: {
-    Add,
-    Remove,
-    ChevronDown,
-    ChevronUp,
+    AddIcon,
+    RemoveIcon,
+    ChevronDownIcon,
+    ChevronUpIcon,
     TButton,
   },
   props: { ...props },
@@ -155,10 +152,10 @@ export default defineComponent({
       };
     },
     decreaseIcon(): VNode {
-      return this.theme === 'column' ? <chevron-down size={this.size} /> : <remove size={this.size} />;
+      return this.theme === 'column' ? <chevron-down-icon size={this.size} /> : <remove-icon size={this.size} />;
     },
     increaseIcon(): VNode {
-      return this.theme === 'column' ? <chevron-up size={this.size} /> : <add size={this.size} />;
+      return this.theme === 'column' ? <chevron-up-icon size={this.size} /> : <add-icon size={this.size} />;
     },
     displayValue(): number | string {
       // inputing

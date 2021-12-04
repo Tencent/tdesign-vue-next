@@ -557,15 +557,17 @@ exports[`Select :props :loading 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-icon t-icon-loading t-size-m t-select-right-icon t-select-active-icon"
-        version="1.1"
-        viewBox="0 0 1024 1024"
-        xmlns="http://www.w3.org/2000/svg"
+        class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
+        fill="none"
+        height="1em"
+        style="font-size: medium;"
+        viewBox="0 0 16 16"
+        width="1em"
       >
         <path
-          d="M96 512C96 282.264 282.264 96 512 96 741.736 96 928 282.264 928 512L824 512 824 512C824 339.68715776 684.3128448 200 512 200 339.68715776 200 200 339.68715776 200 512 200 684.3128448 339.68715776 824 512 824L512 928C282.264 928 96 741.736 96 512Z"
-          fill-opacity=".9"
-          fill-rule="evenodd"
+          d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
+          fill="currentColor"
+          fillOpacity="0.9"
         />
       </svg>
     </div>

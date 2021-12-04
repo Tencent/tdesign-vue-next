@@ -1,11 +1,13 @@
 import { defineComponent, h, ComponentPublicInstance } from 'vue';
+import {
+  InfoCircleFilledIcon,
+  CheckCircleFilledIcon,
+  ErrorCircleFilledIcon,
+  HelpCircleFilledIcon,
+  LoadingIcon,
+  CloseIcon,
+} from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
-import TIconInfoCircleFilled from '../icon/info-circle-filled';
-import TIconCheckCircleFilled from '../icon/check-circle-filled';
-import TIconErrorCircleFilled from '../icon/error-circle-filled';
-import TIconHelpFill from '../icon/help-circle-filled';
-import TIconLoadingFill from '../icon/loading';
-import TIconClose from '../icon/close';
 import { THEME_LIST } from './const';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
@@ -16,12 +18,12 @@ export default defineComponent({
   name,
 
   components: {
-    TIconInfoCircleFilled,
-    TIconCheckCircleFilled,
-    TIconErrorCircleFilled,
-    TIconHelpFill,
-    TIconLoadingFill,
-    TIconClose,
+    InfoCircleFilledIcon,
+    CheckCircleFilledIcon,
+    ErrorCircleFilledIcon,
+    HelpCircleFilledIcon,
+    LoadingIcon,
+    CloseIcon,
   },
 
   props: { ...props },
@@ -73,7 +75,7 @@ export default defineComponent({
       this.$emit('click-close-btn', e);
     },
     renderClose() {
-      const defaultClose = <t-icon-close />;
+      const defaultClose = <close-icon />;
       return (
         <span class={`${name}-close`} onClick={this.close}>
           {renderTNodeJSX(this as ComponentPublicInstance, 'closeBtn', defaultClose)}
@@ -88,12 +90,12 @@ export default defineComponent({
       }
       // eslint-disable-next-line no-unused-vars
       const component = {
-        info: TIconInfoCircleFilled,
-        success: TIconCheckCircleFilled,
-        warning: TIconErrorCircleFilled,
-        error: TIconErrorCircleFilled,
-        question: TIconHelpFill,
-        loading: TIconLoadingFill,
+        info: InfoCircleFilledIcon,
+        success: CheckCircleFilledIcon,
+        warning: ErrorCircleFilledIcon,
+        error: ErrorCircleFilledIcon,
+        question: HelpCircleFilledIcon,
+        loading: LoadingIcon,
       }[this.theme];
       return <component></component>;
     },
