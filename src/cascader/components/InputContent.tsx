@@ -9,6 +9,7 @@ import { renderTNodeJSX } from '../../utils/render-tnode';
 
 // component
 import Tag from '../../tag';
+import TLoading from '../../loading';
 import Input, { InputValue } from '../../input';
 import FakeArrow from '../../common-components/fake-arrow';
 
@@ -86,6 +87,7 @@ export default defineComponent({
     document.addEventListener('click', (event) => {
       this.outerClickListenerFn(event);
     });
+    this.getInputWidth();
   },
   unmounted() {
     document.removeEventListener('click', (event) => {
@@ -93,6 +95,13 @@ export default defineComponent({
     });
   },
   methods: {
+    getInputWidth() {
+      const { width } = (this.$refs.inputContent as HTMLElement).getBoundingClientRect();
+      const {
+        cascaderContext: { setInputWidth },
+      } = this;
+      setInputWidth(width);
+    },
     outerClickListenerFn(event: MouseEvent | TouchEvent) {
       return outerClickListenerEffect(this.$refs.inputContent as HTMLElement, this.cascaderContext, event);
     },
@@ -106,14 +115,7 @@ export default defineComponent({
       return content;
     },
     InnerContent() {
-      const {
-        cascaderContext,
-        placeholder,
-        singleContent,
-        multipleContent,
-        listeners,
-        $slots: { collapsedItems },
-      } = this;
+      const { cascaderContext, placeholder, singleContent, multipleContent, listeners, collapsedItems } = this;
 
       const { multiple, size, disabled, filterable, setFilterActive, visible, inputVal, setInputVal, minCollapsedNum } =
         cascaderContext;
@@ -151,6 +153,7 @@ export default defineComponent({
               {multipleContent
                 .slice(0, minCollapsedNum)
                 .map((node: TreeNode, index: number) => renderSelfTag(node, index))}
+
               {collapsedItems || this.$slots.collapsedItems ? (
                 renderTNodeJSX(this, 'collapsedItems', {
                   params: {
@@ -201,17 +204,22 @@ export default defineComponent({
         closeShow,
         closeIconClass,
         fakeArrowIconClass,
-        cascaderContext: { size, visible, disabled },
-        listeners,
+        cascaderContext: { size, visible, disabled, loading },
       } = this;
-      const { onChange } = listeners as InputContentProps['listeners'];
 
       const closeIconClick = (context: { e: MouseEvent }) => {
         context.e.stopPropagation();
 
-        closeIconClickEffect(this.cascaderContext, onChange);
+        closeIconClickEffect(this.cascaderContext);
       };
 
+      if (loading) {
+        return (
+          <span class={`${prefix}-cascader-icon`}>
+            <TLoading size="small" />
+          </span>
+        );
+      }
       if (closeShow) {
         return <CloseCircleFilledIcon class={closeIconClass} size={size} onClick={closeIconClick} />;
       }

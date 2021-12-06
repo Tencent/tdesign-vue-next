@@ -33,8 +33,6 @@ export function expendClickEffect(
   trigger: CascaderProps['trigger'],
   node: TreeNode,
   cascaderContext: CascaderContextType,
-  onChange: CascaderProps['onChange'],
-  ctx: any,
 ) {
   const {
     checkStrictly,
@@ -72,10 +70,6 @@ export function expendClickEffect(
     const checked = node.setChecked(!node.isChecked());
     const [value] = checked;
 
-    if (onChange && isFunction(onChange)) {
-      onChange(value, ctx);
-    }
-
     // 过滤状态下，点击后清除过滤状态
     if (filterActive) {
       setFilterActive(false);
@@ -87,7 +81,7 @@ export function expendClickEffect(
     }
 
     // 非受控状态下更新状态
-    setValue(value);
+    setValue(value, 'checked', node.getModel());
   }
 }
 
@@ -95,16 +89,9 @@ export function expendClickEffect(
  * 多选状态下选中状态数据变化的副作用
  * @param node
  * @param cascaderContext
- * @param onChange
- * @param ctx
  * @returns
  */
-export function valueChangeEffect(
-  node: TreeNode,
-  cascaderContext: CascaderContextType,
-  onChange: CascaderProps['onChange'],
-  ctx: ContextType,
-) {
+export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderContextType) {
   const { disabled, max, multiple, setVisible, setValue, filterActive, setFilterActive, treeNodes, treeStore } =
     cascaderContext;
 
@@ -140,9 +127,5 @@ export function valueChangeEffect(
     setFilterActive(false);
   }
 
-  setValue(checked);
-
-  if (onChange && isFunction(onChange)) {
-    onChange(checked, ctx);
-  }
+  setValue(checked, 'checked', node.getModel());
 }

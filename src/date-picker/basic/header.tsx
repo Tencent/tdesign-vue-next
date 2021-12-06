@@ -59,8 +59,7 @@ export default defineComponent({
               class={`${prefix}-date-header__btn`}
               variant="text"
               size="small"
-              onClick={() => console.log(123)}
-              // onClick={() => onTypeChange('year')}
+              onClick={() => onTypeChange('year')}
             >
               {`${year} ${yearAriaLabel}`}
             </t-button>
@@ -70,8 +69,7 @@ export default defineComponent({
               class={`${prefix}-date-header__btn`}
               variant="text"
               size="small"
-              onClick={() => console.log(123)}
-              // onClick={() => onTypeChange('month')}
+              onClick={() => onTypeChange('month')}
             >
               {this.global.months[month]}
             </t-button>

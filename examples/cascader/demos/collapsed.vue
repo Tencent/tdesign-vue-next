@@ -12,17 +12,26 @@
       v-model="value"
       class="t-demo-cascader"
       :options="options"
-      :on-remove="handleBlur"
+      :collapsed-items="collapsedItems"
       multiple
-      :min-collapsed-num="2"
+      :min-collapsed-num="1"
     />
     <t-cascader v-model="value" class="t-demo-cascader" :options="options" multiple clearable :min-collapsed-num="1">
-      <template #collapsedItems> 自定义折叠内容 </template>
+      <template #collapsedItems="{ collapsedSelectedItems, count }">
+        <t-popup>
+          <template #content>
+            <p v-for="(item, index) in collapsedSelectedItems" :key="index" style="padding: 10px">
+              {{ item.label }}
+            </p>
+          </template>
+          <span v-show="count > 0" style="color: #00a870">+{{ count }}</span>
+        </t-popup>
+      </template>
     </t-cascader>
   </div>
 </template>
 
-<script>
+<script lang="jsx">
 import { defineComponent, ref } from 'vue';
 
 const options = [
@@ -67,10 +76,33 @@ export default defineComponent({
     const handleBlur = (e) => {
       console.log(e);
     };
+
+    const collapsedItems = (h, { value, count }) => {
+      if (!(value instanceof Array) || !count) return;
+      return (
+        <t-popup
+          v-slots={{
+            content: () => (
+              <div>
+                {value.map((item) => (
+                  <p style="padding: 10px;">{item.label}</p>
+                ))}
+              </div>
+            ),
+          }}
+        >
+          <span v-show={count > 0} style="color: #ED7B2F;">
+            +{count}
+          </span>
+        </t-popup>
+      );
+    };
+
     return {
       value,
       options,
       handleBlur,
+      collapsedItems,
     };
   },
 });

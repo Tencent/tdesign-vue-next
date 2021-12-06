@@ -11305,22 +11305,20 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/cascader/demos/base.vue correctly 1`] = `
 <div>
-  <div modelvalue="1.1" class="t-demo-cascader">
+  <div modelvalue="1.1">
     <div class="t-popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
         </div>
       </div>
       <!--[-->
-      <div class="t-cascader t-size-m t-demo-cascader t-demo-cascader" modelvalue="1.1"><span class="t-cascader-placeholder">请选择</span><svg class="t-fake-arrow t-cascader-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+      <div class="t-cascader t-size-m" modelvalue="1.1"><span class="t-cascader-placeholder">请选择</span><svg class="t-fake-arrow t-cascader-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg></div>
       <!--]-->
@@ -11336,10 +11334,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/check-strictly.vue 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11357,10 +11353,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/check-strictly.vue 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11383,10 +11377,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/collapsed.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11404,10 +11396,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/collapsed.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11425,10 +11415,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/collapsed.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11451,10 +11439,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/disabled.vue correc
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11472,10 +11458,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/disabled.vue correc
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11498,10 +11482,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/ellipsis.vue correc
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11524,10 +11506,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/filterable.vue corr
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11545,10 +11525,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/filterable.vue corr
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11571,10 +11549,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/keys.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11597,10 +11573,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/load.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11623,10 +11597,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/max.vue correctly 1
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11649,10 +11621,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/multiple.vue correc
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11675,10 +11645,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/show-all-levels.vue
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11702,10 +11670,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11723,10 +11689,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11744,10 +11708,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11770,10 +11732,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/trigger.vue correct
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11791,10 +11751,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/trigger.vue correct
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11817,10 +11775,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/value-mode.vue corr
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11838,10 +11794,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/value-mode.vue corr
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11859,10 +11813,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/value-mode.vue corr
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -14056,10 +14008,8 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">empty data</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">empty data</div>
           </div>
           <!--]-->
           <!---->
@@ -14077,10 +14027,8 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">empty data</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">empty data</div>
           </div>
           <!--]-->
           <!---->

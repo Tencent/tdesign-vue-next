@@ -1,5 +1,5 @@
 import { defineComponent, PropType } from 'vue';
-import { ChevronRightCircleIcon } from 'tdesign-icons-vue-next';
+import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../../config';
 
 // utils
@@ -83,16 +83,16 @@ export default defineComponent({
       const { filterActive, inputVal } = cascaderContext;
       const labelText = filterActive ? getFullPathLabel(node) : node.label;
       if (filterActive) {
-        const ctx = labelText.split(inputVal);
-        return (() => (
-          <span>
-            {ctx[0]}
-            <span class={`${name}__label--filter`}>{inputVal}</span>
-            {ctx[1]}
-          </span>
-        ))();
+        const texts = labelText.split(inputVal);
+        const doms = [];
+        for (let index = 0; index < texts.length; index++) {
+          doms.push(<span>{texts[index]}</span>);
+          if (index === texts.length - 1) break;
+          doms.push(<span class={`${name}__label--filter`}>{inputVal}</span>);
+        }
+        return doms;
       }
-      return (() => <>{labelText}</>)();
+      return labelText;
     }
 
     function RenderLabelContent(node: TreeNode, cascaderContext: CascaderContextType) {
@@ -145,7 +145,7 @@ export default defineComponent({
           ? RenderCheckBox(node, cascaderContext, handleChange)
           : RenderLabelContent(node, cascaderContext)}
         {node.children &&
-          (node.loading ? <TLoading class={iconClass} /> : <ChevronRightCircleIcon class={iconClass} />)}
+          (node.loading ? <TLoading class={iconClass} size="small" /> : <ChevronRightIcon class={iconClass} />)}
       </li>
     );
   },

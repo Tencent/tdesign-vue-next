@@ -2,7 +2,7 @@ import { defineComponent, PropType } from 'vue';
 import { prefix } from '../../config';
 
 // utils
-import { renderTNodeJSX } from '../../utils/render-tnode';
+import { renderTNodeJSXDefault } from '../../utils/render-tnode';
 import getConfigReceiverMixins, { CascaderConfig } from '../../config-provider/config-receiver';
 import mixins from '../../utils/mixins';
 
@@ -40,39 +40,30 @@ export default defineComponent({
 
   render() {
     const {
-      cascaderContext: { filterActive, treeNodes },
+      cascaderContext: { filterActive, treeNodes, inputWidth },
       cascaderContext,
       panels,
-      $slots,
     } = this;
-    const useLocale = !this.empty && !$slots.empty;
-    const empty = useLocale ? this.t(this.global.empty) : renderTNodeJSX(this, 'empty');
     const handleExpand = (ctx: ContextType, trigger: 'hover' | 'click') => {
       const { node } = ctx;
-      const { trigger: propsTrigger, cascaderContext, onChange } = this;
+      const { trigger: propsTrigger, cascaderContext } = this;
 
-      expendClickEffect(propsTrigger, trigger, node, cascaderContext, onChange, ctx);
+      expendClickEffect(propsTrigger, trigger, node, cascaderContext);
     };
 
     const handleChange = (ctx: ContextType) => {
       const { node } = ctx;
-      const { cascaderContext, onChange } = this;
+      const { cascaderContext } = this;
 
-      valueChangeEffect(node, cascaderContext, onChange, ctx);
+      valueChangeEffect(node, cascaderContext);
     };
 
     // innerComponents
-    const renderEmpty = (
-      <ul
-        class={[
-          `${name}-menu`,
-          {
-            [`${name}-menu__filter`]: filterActive,
-          },
-        ]}
-      >
-        {!$slots.empty ? <li class={[`${name}-item`, `${name}-item__is-empty`]}>{empty}</li> : empty}
-      </ul>
+
+    const renderEmpty = renderTNodeJSXDefault(
+      this,
+      'empty',
+      <div class={`${name}-panel__is-empty`}>{this.t(this.global.empty)}</div>,
     );
 
     const renderItem = (node: TreeNode) => (
@@ -91,13 +82,16 @@ export default defineComponent({
     );
 
     const panelsContainer = panels.map((panel: TreeNode[], index: number) => (
-      <ul class={[`${name}-menu`, { [`${name}-menu__seperator`]: index !== panels.length - 1 }]} key={index}>
+      <ul
+        class={[`${name}-menu`, 'narrow-scrollbar', { [`${name}-menu__seperator`]: index !== panels.length - 1 }]}
+        key={index}
+      >
         {panel.map((node: TreeNode) => renderItem(node))}
       </ul>
     ));
 
     const filterPanelsContainer = (
-      <ul class={[`${name}-menu`, `${name}-menu__seperator`, `${name}-menu__filter`]}>
+      <ul class={[`${name}-menu`, 'narrow-scrollbar', `${name}-menu__seperator`, `${name}-menu__filter`]}>
         {treeNodes.map((node: TreeNode) => renderItem(node))}
       </ul>
     );
@@ -105,7 +99,19 @@ export default defineComponent({
     const renderPanels = filterActive ? filterPanelsContainer : panelsContainer;
 
     return (
-      <div class={[`${name}-panel`, `${name}--normal`]}>{panels && panels.length ? renderPanels : renderEmpty}</div>
+      <div
+        class={[
+          `${name}-panel`,
+          {
+            [`${name}--normal`]: panels.length,
+          },
+        ]}
+        style={{
+          width: panels.length === 0 ? `${inputWidth}px` : null,
+        }}
+      >
+        {panels && panels.length ? renderPanels : renderEmpty}
+      </div>
     );
   },
 });

@@ -1,7 +1,7 @@
-import { TdCascaderProps, CascaderValue } from './type';
+import { TdCascaderProps, CascaderValue, CascaderChangeSource } from './type';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
-import { TreeNodeValue } from '../_common/js/tree/types';
+import { TreeNodeModel, TreeNodeValue } from '../_common/js/tree/types';
 
 export type CascaderProps = TdCascaderProps;
 
@@ -21,9 +21,12 @@ export interface CascaderContextType
     | 'max'
     | 'value'
     | 'minCollapsedNum'
+    | 'loading'
   > {
   treeStore: TreeStore;
-  setValue: (val: CascaderValue) => void;
+  inputWidth: number;
+  setInputWidth: (val: number) => void;
+  setValue: (val: CascaderValue, source: CascaderChangeSource, node?: TreeNodeModel) => void;
   visible: boolean;
   setVisible: (val: boolean) => void;
   treeNodes: TreeNode[];
@@ -72,4 +75,4 @@ export { TreeNode } from '../_common/js/tree/tree-node';
 export type { TreeNodeValue } from '../_common/js/tree/types';
 export type { TreeOptionData } from '../_common/js/common';
 
-export const EVENT_NAME_WITH_KEBAB = ['change', 'remove', 'blur', 'focus'];
+export const EVENT_NAME_WITH_KEBAB = ['remove', 'blur', 'focus'];

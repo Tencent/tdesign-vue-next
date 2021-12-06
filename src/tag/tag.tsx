@@ -42,7 +42,7 @@ export default defineComponent({
   },
   methods: {
     handleClose({ e }: { e: MouseEvent }): void {
-      this.$emit('close', e);
+      this.$emit('close', { e });
     },
     handleClick(event: MouseEvent): void {
       this.$emit('click', event);
