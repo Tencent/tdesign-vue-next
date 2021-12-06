@@ -36082,7 +36082,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
 <div>
   <!-- 第一列展开树结点，缩进为 24px -->
   <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
-  <div style="width: 100%">
+  <div style="width:100%;">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading-parent__relative" style="">
