@@ -9,7 +9,7 @@ export default {
           name: 'explain',
           docType: 'explain',
           path: '/vue-next/components/explain',
-          component: () => import('@/README.md'),
+          component: () => import('@/site/docs/getting-started.md'),
         },
         {
           title: '更新日志',

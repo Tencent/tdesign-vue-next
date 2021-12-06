@@ -17,14 +17,14 @@
 ### Features
 
 * Steps: 组件部分逻辑重构，`direction` 即将在下个版本废弃，请改用 `layout` API，可选项类型不变。
-* Tree: 支持 disableCheck 方法。
+* Tree: 支持 `disableCheck` 方法。
 * Menu: 支持子菜单 `disabled` 配置
 * Cascader: `checkStrictly=true` 时，点击选项，级联选择器不会收起；`collapsedItems` 支持 `function/slot` 自定义配置用法，
 * Upload:
   * 补充上传失败判定条件，`formatResponse` 返回值 `error` 为真，则表示上传失败
-  * progress 事件参数新增 `type: 'real' | 'mock'`，分别表示真实进度和模拟进度
-  * 如果接口和 `formatResponse` 都没有返回 url，组件会默认填充一个图片预览地址
-  * progress 事件返回的进度不会超过 100
+  * `progress` 事件参数新增 `type: 'real' | 'mock'`，分别表示真实进度和模拟进度
+  * 如果接口和 `formatResponse` 都没有返回 `url`，组件会默认填充一个图片预览地址
+  * `progress` 事件返回的进度不会超过 100
   * 上传成功后执行 `formatResponse`
 
 ## 0.4.3 (2021-11-22)
@@ -49,7 +49,7 @@
 
 ### Features
 
-* Avatar: 新增 avatar 组件。
+* Avatar: 新增 `avatar` 组件。
 * Calendar：新增属性 `fillWithZero`，`ConfigProvider` 新增配置项 `fillWithZero`。
 
 ## 0.4.2 (2021-11-15)
@@ -87,9 +87,9 @@
   * 修复 `v-model` 使用场景下 `value` 未同步的问题。
   * 修复 `placeholder` 属性传入数组类型报错的问题。
 * Table:
-  * 修复 `size=small` 时展开按钮被隐藏的问题;内容超maxHeight时固定表头。
+  * 修复 `size=small` 时展开按钮被隐藏的问题;内容超 `maxHeight` 时固定表头。
   * 修复固定列样式。
-  * 修复expandIcon关闭后无法展开。
+  * 修复 `expandIcon` 关闭后无法展开。
 * Tag:修复 `icon api` 无法使用 `slot` 的问题。
 * Tabs:修复生产环境和测试环境表现不一致。
 * Popup:修复组件更新时定位的问题。
@@ -106,7 +106,7 @@
 
 ### BREAKING CHANGES
 
-* Button: `shape` 默认值由 `square` 调整为 rectangle，支持正方形按钮展示，手动设置 shape = square 的小伙伴请删除设置，没有设置过 shape 属性的可以忽略。
+* Button: `shape` 默认值由 `square` 调整为 `rectangle`，支持正方形按钮展示，手动设置 `shape = square` 的小伙伴请删除设置，没有设置过 `shape` 属性的可以忽略。
 
 ### Bug Fixes
 
@@ -135,9 +135,9 @@
 ### Features
 
 * 新增 `Comment` 组件。
-* Select: 增加 `collapsedItems` 和 `minCollapsedNum`。
-* Cascader: 增加 `collapsedItems` 和 `minCollapsedNum` API。
-* TreeSelect: 增加 `collapsedItems` 和 `minCollapsedNum` API。
+* Select: 增加 `collapsedItems` && `minCollapsedNum` `API`。
+* Cascader: 增加 `collapsedItems` && `minCollapsedNum` `API`。
+* TreeSelect: 增加 `collapsedItems` && `minCollapsedNum` `API`。
 
 ## 0.3.4 (2021-10-14)
 
@@ -308,11 +308,16 @@
 
 ### Bug Fixes
 
-* 同步 `Loading`，`Tabs`，`Steps`，`Breadcrumb`，`Menu` 组件，同步组件demo, 修复导致vite无法热更新的问题
+* 修复导致vite无法热更新的问题
 
 ### Features
 
-* `vue` 仓库开发及站点从 `webpack` 迁移至 `vite`。
+* 仓库开发环境及站点从 `webpack` 迁移至 `vite`。
+* Loading: 重构组件，`UI` 与 `API` 特性同步。
+* Tabs: 重构组件，`UI` 与 `API` 特性同步。
+* Steps: 重构组件，`UI` 与 `API` 特性同步。
+* Breadcrumb: 重构组件，`UI` 与 `API` 特性同步。
+* Menu: 重构组件，`UI` 与 `API` 特性同步。
 
 ## 0.1.10 (2021-08-13)
 
@@ -355,4 +360,4 @@
 
 ### Features
 
-* 首个测试版发布，`Upload`、`Calendar`、`Menu`、`DatePicker`、`TimePicker`、`TextArea`、`Pagination`、`Transfer` 组件除外。
+* 首个测试版发布。`Upload`、`Calendar`、`Menu`、`DatePicker`、`TimePicker`、`TextArea`、`Pagination`、`Transfer` 组件除外。
