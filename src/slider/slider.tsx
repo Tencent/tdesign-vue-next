@@ -375,7 +375,7 @@ export default defineComponent({
             },
           ]}
         >
-          {this.inputNumberProps && (
+          {
             <t-input-number
               class={sliderNumberClass}
               value={range ? this.firstValue : this.prevValue}
@@ -393,9 +393,9 @@ export default defineComponent({
               placeholder={this.inputPlaceholder}
               theme={this.inputTheme}
             />
-          )}
-          {this.inputNumberProps && range && <div class="center-line" />}
-          {this.inputNumberProps && range && (
+          }
+          {range && <div class="center-line" />}
+          {range && (
             <t-input-number
               class={this.sliderNumberClass}
               value={this.secondValue}
@@ -419,7 +419,7 @@ export default defineComponent({
   },
   render(): VNode {
     const { min, max, layout, disabled, vertical } = this;
-    const BUTTON_GROUP = this.renderInputButton();
+    const BUTTON_GROUP = this.inputNumberProps && this.renderInputButton();
     const MASKS = this.renderMask();
     return (
       <div class={this.containerClass}>

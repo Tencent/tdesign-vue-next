@@ -30705,11 +30705,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/base.vue correctly 1`
           <!---->
         </div>
       </div>
-      <div class="t-slider-input-container">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
   <div class="block">
@@ -30743,11 +30739,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/base.vue correctly 1`
           <!---->
         </div>
       </div>
-      <div class="t-slider-input-container">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
 </div>
@@ -30776,11 +30768,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/disabled.vue correctl
           <!---->
         </div>
       </div>
-      <div class="t-slider-input-container">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
   <div class="block">
@@ -30814,11 +30802,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/disabled.vue correctl
           <!---->
         </div>
       </div>
-      <div class="t-slider-input-container">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
 </div>
@@ -31106,11 +31090,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1
           </div>
         </div>
       </div>
-      <div class="t-slider-input-container">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
   <div class="block">
@@ -31165,11 +31145,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1
           </div>
         </div>
       </div>
-      <div class="t-slider-input-container">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
 </div>
@@ -31211,11 +31187,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/min-and-max.vue corre
           </div>
         </div>
       </div>
-      <div class="t-slider-input-container">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
   <div class="block">
@@ -31262,11 +31234,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/min-and-max.vue corre
           </div>
         </div>
       </div>
-      <div class="t-slider-input-container">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
 </div>
@@ -31295,11 +31263,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/step.vue correctly 1`
           <!---->
         </div>
       </div>
-      <div class="t-slider-input-container">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
   <div class="block">
@@ -31333,11 +31297,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/step.vue correctly 1`
           <!---->
         </div>
       </div>
-      <div class="t-slider-input-container">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
 </div>
@@ -31366,11 +31326,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical.vue correctl
           <!---->
         </div>
       </div>
-      <div class="t-slider-input-container is-vertical">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
   <div class="vertical-block">
@@ -31404,11 +31360,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical.vue correctl
           <!---->
         </div>
       </div>
-      <div class="t-slider-input-container is-vertical">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
 </div>
@@ -31458,11 +31410,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical-marks.vue co
           </div>
         </div>
       </div>
-      <div class="t-slider-input-container is-vertical">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
   <div class="vertical-marks-block">
@@ -31517,11 +31465,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical-marks.vue co
           </div>
         </div>
       </div>
-      <div class="t-slider-input-container is-vertical">
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
     </div>
   </div>
 </div>
