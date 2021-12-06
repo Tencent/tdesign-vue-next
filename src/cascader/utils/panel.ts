@@ -1,6 +1,5 @@
-import isFunction from 'lodash/isFunction';
 import isNumber from 'lodash/isNumber';
-import { TreeNode, CascaderContextType, CascaderProps, ContextType, TreeNodeValue } from '../interface';
+import { TreeNode, CascaderContextType, CascaderProps, TreeNodeValue } from '../interface';
 
 /**
  * 面板数据计算方法
