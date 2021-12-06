@@ -3,5 +3,3 @@
     <t-time-picker format="HH:mm" />
   </div>
 </template>
-
-<script />

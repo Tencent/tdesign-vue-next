@@ -243,7 +243,7 @@ exports[`TreeSelect base demo works fine 1`] = `
           
           +0
           
-          
+          <!---->
         </span>
         <!---->
         <div
@@ -291,21 +291,33 @@ exports[`TreeSelect base demo works fine 1`] = `
             fillOpacity="0.9"
           />
         </svg>
-        <svg
-          class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
-          fill="none"
-          height="1em"
+        <div
+          class="t-loading t-size-s t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
           name="loading"
-          style="font-size: medium; display: none;"
-          viewBox="0 0 16 16"
-          width="1em"
+          style="display: none;"
         >
-          <path
-            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
-            fill="currentColor"
-            fillOpacity="0.9"
-          />
-        </svg>
+          <svg
+            class="t-loading__gradient t-icon-loading"
+            height="1em"
+            size="small"
+            version="1.1"
+            viewBox="0 0 14 14"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <foreignobject
+              height="12"
+              width="12"
+              x="1"
+              y="1"
+            >
+              <div
+                class="t-loading__gradient-conic"
+              />
+            </foreignobject>
+          </svg>
+          <!---->
+        </div>
       </div>
       
     </div>
@@ -615,7 +627,7 @@ exports[`TreeSelect filterable demo works fine 1`] = `
           
           +0
           
-          
+          <!---->
         </span>
         <span
           class="t-select-selectedSingle"
@@ -668,21 +680,33 @@ exports[`TreeSelect filterable demo works fine 1`] = `
             fillOpacity="0.9"
           />
         </svg>
-        <svg
-          class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
-          fill="none"
-          height="1em"
+        <div
+          class="t-loading t-size-s t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
           name="loading"
-          style="font-size: medium; display: none;"
-          viewBox="0 0 16 16"
-          width="1em"
+          style="display: none;"
         >
-          <path
-            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
-            fill="currentColor"
-            fillOpacity="0.9"
-          />
-        </svg>
+          <svg
+            class="t-loading__gradient t-icon-loading"
+            height="1em"
+            size="small"
+            version="1.1"
+            viewBox="0 0 14 14"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <foreignobject
+              height="12"
+              width="12"
+              x="1"
+              y="1"
+            >
+              <div
+                class="t-loading__gradient-conic"
+              />
+            </foreignobject>
+          </svg>
+          <!---->
+        </div>
       </div>
       
     </div>
@@ -833,7 +857,7 @@ exports[`TreeSelect lazy demo works fine 1`] = `
           
           +0
           
-          
+          <!---->
         </span>
         <!---->
         <div
@@ -881,21 +905,33 @@ exports[`TreeSelect lazy demo works fine 1`] = `
             fillOpacity="0.9"
           />
         </svg>
-        <svg
-          class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
-          fill="none"
-          height="1em"
+        <div
+          class="t-loading t-size-s t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
           name="loading"
-          style="font-size: medium; display: none;"
-          viewBox="0 0 16 16"
-          width="1em"
+          style="display: none;"
         >
-          <path
-            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
-            fill="currentColor"
-            fillOpacity="0.9"
-          />
-        </svg>
+          <svg
+            class="t-loading__gradient t-icon-loading"
+            height="1em"
+            size="small"
+            version="1.1"
+            viewBox="0 0 14 14"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <foreignobject
+              height="12"
+              width="12"
+              x="1"
+              y="1"
+            >
+              <div
+                class="t-loading__gradient-conic"
+              />
+            </foreignobject>
+          </svg>
+          <!---->
+        </div>
       </div>
       
     </div>
@@ -1218,7 +1254,7 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           guangzhou
           
           <svg
-            class="t-icon t-icon-close"
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1239,7 +1275,7 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           shenzhen
           
           <svg
-            class="t-icon t-icon-close"
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1261,7 +1297,7 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           
           +2
           
-          
+          <!---->
         </span>
         <!---->
         <div
@@ -1308,21 +1344,33 @@ exports[`TreeSelect multiple demo works fine 1`] = `
             fillOpacity="0.9"
           />
         </svg>
-        <svg
-          class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
-          fill="none"
-          height="1em"
+        <div
+          class="t-loading t-size-s t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
           name="loading"
-          style="font-size: medium; display: none;"
-          viewBox="0 0 16 16"
-          width="1em"
+          style="display: none;"
         >
-          <path
-            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
-            fill="currentColor"
-            fillOpacity="0.9"
-          />
-        </svg>
+          <svg
+            class="t-loading__gradient t-icon-loading"
+            height="1em"
+            size="small"
+            version="1.1"
+            viewBox="0 0 14 14"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <foreignobject
+              height="12"
+              width="12"
+              x="1"
+              y="1"
+            >
+              <div
+                class="t-loading__gradient-conic"
+              />
+            </foreignobject>
+          </svg>
+          <!---->
+        </div>
       </div>
       
     </div>
@@ -1583,7 +1631,7 @@ exports[`TreeSelect prefix demo works fine 1`] = `
           
           +0
           
-          
+          <!---->
         </span>
         <!---->
         <div
@@ -1631,21 +1679,33 @@ exports[`TreeSelect prefix demo works fine 1`] = `
             fillOpacity="0.9"
           />
         </svg>
-        <svg
-          class="t-icon t-icon-loading t-select-right-icon t-select-active-icon t-select-right-icon t-select-active-icon"
-          fill="none"
-          height="1em"
+        <div
+          class="t-loading t-size-s t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
           name="loading"
-          style="font-size: medium; display: none;"
-          viewBox="0 0 16 16"
-          width="1em"
+          style="display: none;"
         >
-          <path
-            d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
-            fill="currentColor"
-            fillOpacity="0.9"
-          />
-        </svg>
+          <svg
+            class="t-loading__gradient t-icon-loading"
+            height="1em"
+            size="small"
+            version="1.1"
+            viewBox="0 0 14 14"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <foreignobject
+              height="12"
+              width="12"
+              x="1"
+              y="1"
+            >
+              <div
+                class="t-loading__gradient-conic"
+              />
+            </foreignobject>
+          </svg>
+          <!---->
+        </div>
       </div>
       
     </div>

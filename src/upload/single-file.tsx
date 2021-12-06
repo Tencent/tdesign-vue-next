@@ -1,10 +1,7 @@
 import { defineComponent, PropType } from 'vue';
-import {
-  CloseCircleFilledIcon,
-  LoadingIcon,
-  ErrorCircleFilledIcon,
-  CheckCircleFilledIcon,
-} from 'tdesign-icons-vue-next';
+import { CloseCircleFilledIcon, ErrorCircleFilledIcon, CheckCircleFilledIcon } from 'tdesign-icons-vue-next';
+import TLoading from '../loading';
+
 import { prefix } from '../config';
 import { UploadFile } from './type';
 import { ClassName } from '../common';
@@ -16,7 +13,7 @@ export default defineComponent({
 
   components: {
     CloseCircleFilledIcon,
-    LoadingIcon,
+    TLoading,
     ErrorCircleFilledIcon,
     CheckCircleFilledIcon,
   },
@@ -79,7 +76,7 @@ export default defineComponent({
       if (this.showUploadProgress) {
         return (
           <div class={`${UPLOAD_NAME}__single-progress`}>
-            <LoadingIcon></LoadingIcon>
+            <TLoading />
             <span class={`${UPLOAD_NAME}__single-percent`}>{Math.min(this.loadingFile.percent, 99)}%</span>
           </div>
         );

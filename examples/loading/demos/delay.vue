@@ -26,12 +26,12 @@ import { defineComponent, ref, onMounted } from 'vue';
 
 export default defineComponent({
   setup() {
-    const loading = ref(false);
-    const delay = ref(500);
+    const loading = ref(true);
     const data = ref('');
-
+    const delay = ref(500);
     const loadingData = (time) => {
       loading.value = true;
+      data.value = '';
       const timer = setTimeout(() => {
         loading.value = false;
         data.value = '数据加载完成，短时间的数据加载并未出现 loading';
@@ -45,8 +45,8 @@ export default defineComponent({
 
     return {
       loading,
-      delay,
       data,
+      delay,
       loadingData,
     };
   },

@@ -3,36 +3,35 @@ import { RoundIcon, ChevronLeftIcon, ChevronRightIcon } from 'tdesign-icons-vue-
 
 import TButton from '../../button/button';
 import mixins from '../../utils/mixins';
-import getLocalReceiverMixins from '../../locale/local-receiver';
-import props from './header-props';
+import getConfigReceiverMixins, { DatePickerConfig } from '../../config-provider/config-receiver';
 import { prefix } from '../../config';
 
 const name = `${prefix}-date-picker-header`;
 export default defineComponent({
   name,
-  ...mixins(getLocalReceiverMixins('datePicker')),
+  ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
   components: {
     TButton,
     RoundIcon,
     ChevronLeftIcon,
     ChevronRightIcon,
   },
-  props,
+  props: {
+    year: Number,
+    month: Number,
+    type: {
+      type: String,
+      default: 'date',
+      validator: (v: string) => ['year', 'month', 'date'].indexOf(v) > -1,
+    },
+    onBtnClick: Function,
+    onTypeChange: Function,
+  },
   render() {
-    const { type, year, month, onBtnClick, onTypeChange } = this;
+    const { type, year, month, onBtnClick, onTypeChange } = this.$props;
     const startYear = parseInt((this.year / 10).toString(), 10) * 10;
-    const {
-      rangeSeparator,
-      yearAriaLabel,
-      monthAriaLabel,
-      now,
-      preMonth,
-      preYear,
-      nextMonth,
-      nextYear,
-      preDecade,
-      nextDecade,
-    } = this.locale;
+    const { rangeSeparator, yearAriaLabel, now, preMonth, preYear, nextMonth, nextYear, preDecade, nextDecade } =
+      this.global;
     let preLabel;
     let nextLabel;
     if (type === 'year') {
@@ -60,7 +59,8 @@ export default defineComponent({
               class={`${prefix}-date-header__btn`}
               variant="text"
               size="small"
-              onClick={() => onTypeChange('year')}
+              onClick={() => console.log(123)}
+              // onClick={() => onTypeChange('year')}
             >
               {`${year} ${yearAriaLabel}`}
             </t-button>
@@ -70,9 +70,10 @@ export default defineComponent({
               class={`${prefix}-date-header__btn`}
               variant="text"
               size="small"
-              onClick={() => onTypeChange('month')}
+              onClick={() => console.log(123)}
+              // onClick={() => onTypeChange('month')}
             >
-              {`${month === 12 ? 1 : month + 1} ${monthAriaLabel}`}
+              {this.global.months[month]}
             </t-button>
           )}
         </span>

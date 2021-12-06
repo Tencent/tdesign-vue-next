@@ -6,7 +6,7 @@
     <t-date-picker theme="primary" mode="date" enable-time-picker range />
   </div>
 </template>
-<script></script>
+
 <style scoped>
 .tdesign-demo-item--datepicker {
   margin-bottom: 12px;

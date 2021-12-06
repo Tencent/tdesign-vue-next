@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { ButtonProps } from '../button';
@@ -19,7 +19,7 @@ export interface TdDrawerProps {
    */
   body?: string | TNode;
   /**
-   * 取消按钮，可自定义。值为 undefined 或 null 则不显示取消按钮。值类型为 Object 则表示透传 Button 组件属性
+   * 取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件
    * @default ''
    */
   cancelBtn?: FooterButton;
@@ -38,7 +38,7 @@ export interface TdDrawerProps {
    */
   closeOnOverlayClick?: boolean;
   /**
-   * 确认按钮，可自定义。值为 undefined 或 null 则不显示确认按钮
+   * 确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件
    * @default ''
    */
   confirmBtn?: FooterButton;
@@ -57,7 +57,7 @@ export interface TdDrawerProps {
    */
   footer?: boolean | TNode;
   /**
-   * 头部内容。值为 true 显示空白头部，值为 false 不显示任何内容，值类型为 string 则直接显示值，值类型为 TNode 表示自定义头部内容
+   * 头部内容。值为 true 显示空白头部，值为 false 不显示头部，值类型为 string 则直接显示值，值类型为 TNode 表示自定义头部内容
    */
   header?: string | boolean | TNode;
   /**
@@ -85,6 +85,11 @@ export interface TdDrawerProps {
    * @default small
    */
   size?: string;
+  /**
+   * 抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度
+   * @default false
+   */
+  sizeDraggable?: boolean;
   /**
    * 组件是否可见
    * @default false

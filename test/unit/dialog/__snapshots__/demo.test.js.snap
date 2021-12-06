@@ -24,7 +24,7 @@ exports[`Dialog async demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -60,19 +60,17 @@ exports[`Dialog async demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading t-dialog__confirm"
               type="button"
             >
               
@@ -104,9 +102,7 @@ exports[`Dialog async demo works fine 1`] = `
               <span
                 class="t-button__text"
               >
-                
                 保存中...
-                
               </span>
               
             </button>
@@ -160,7 +156,7 @@ exports[`Dialog attach demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -212,27 +208,23 @@ exports[`Dialog attach demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -253,7 +245,7 @@ exports[`Dialog attach demo works fine 1`] = `
       class="t-dialog-mask"
     />
     <div
-      class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+      class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
       style="max-height: calc(100% - 20%);"
     >
       <div
@@ -305,27 +297,23 @@ exports[`Dialog attach demo works fine 1`] = `
       >
         <div>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               取消
-              
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               确认
-              
             </span>
           </button>
         </div>
@@ -360,7 +348,7 @@ exports[`Dialog base demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -396,27 +384,23 @@ exports[`Dialog base demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -480,7 +464,7 @@ exports[`Dialog custom demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -516,27 +500,23 @@ exports[`Dialog custom demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 关闭
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 前往支付
-                
               </span>
             </button>
           </div>
@@ -555,7 +535,7 @@ exports[`Dialog custom demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -591,27 +571,23 @@ exports[`Dialog custom demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 我知道了
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 前往购物车
-                
               </span>
             </button>
           </div>
@@ -630,7 +606,7 @@ exports[`Dialog custom demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -666,15 +642,13 @@ exports[`Dialog custom demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
@@ -748,7 +722,7 @@ exports[`Dialog drag demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -794,27 +768,23 @@ exports[`Dialog drag demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -831,7 +801,7 @@ exports[`Dialog drag demo works fine 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -874,27 +844,23 @@ exports[`Dialog drag demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -911,7 +877,7 @@ exports[`Dialog drag demo works fine 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -954,27 +920,23 @@ exports[`Dialog drag demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -996,7 +958,7 @@ exports[`Dialog icon demo works fine 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -1044,27 +1006,23 @@ exports[`Dialog icon demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -1082,7 +1040,7 @@ exports[`Dialog icon demo works fine 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -1130,27 +1088,23 @@ exports[`Dialog icon demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -1168,7 +1122,7 @@ exports[`Dialog icon demo works fine 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -1216,27 +1170,23 @@ exports[`Dialog icon demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -1254,7 +1204,7 @@ exports[`Dialog icon demo works fine 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -1302,27 +1252,23 @@ exports[`Dialog icon demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -1419,7 +1365,7 @@ exports[`Dialog modal demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -1465,27 +1411,23 @@ exports[`Dialog modal demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -1502,7 +1444,7 @@ exports[`Dialog modal demo works fine 1`] = `
       
       <!---->
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -1545,27 +1487,23 @@ exports[`Dialog modal demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -1690,7 +1628,7 @@ exports[`Dialog position demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -1726,27 +1664,23 @@ exports[`Dialog position demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -1765,7 +1699,7 @@ exports[`Dialog position demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--center t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default t-dialog--fixed"
       >
         <div
           class="t-dialog__header"
@@ -1800,27 +1734,23 @@ exports[`Dialog position demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -1839,7 +1769,7 @@ exports[`Dialog position demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="top: 50px; transform: translate(-50%, 0); transform-origin: 25% 25%; max-height: calc(100% - 50px);"
       >
         <div
@@ -1875,27 +1805,23 @@ exports[`Dialog position demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -1931,7 +1857,7 @@ exports[`Dialog warning demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -1979,27 +1905,23 @@ exports[`Dialog warning demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -2030,7 +1952,7 @@ exports[`Dialog warning demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -2078,27 +2000,23 @@ exports[`Dialog warning demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -2129,7 +2047,7 @@ exports[`Dialog warning demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -2178,15 +2096,13 @@ exports[`Dialog warning demo works fine 1`] = `
           <div>
             <!---->
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -2217,7 +2133,7 @@ exports[`Dialog warning demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -2266,15 +2182,13 @@ exports[`Dialog warning demo works fine 1`] = `
           <div>
             <!---->
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>
@@ -2305,7 +2219,7 @@ exports[`Dialog warning demo works fine 1`] = `
         class="t-dialog-mask"
       />
       <div
-        class="t-dialog t-dialog--default t-dialog--top t-dialog--fixed"
+        class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
         style="max-height: calc(100% - 20%);"
       >
         <div
@@ -2345,27 +2259,23 @@ exports[`Dialog warning demo works fine 1`] = `
         >
           <div>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog-cancel"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog-confirm"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
           </div>

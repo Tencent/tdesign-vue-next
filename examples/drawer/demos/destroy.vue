@@ -5,7 +5,7 @@
       <p>抽屉的内容</p>
     </t-drawer>
 
-    <t-button @click="visible = true"> 打开抽屉 </t-button>
+    <t-button variant="outline" @click="visible = true">打开抽屉</t-button>
   </div>
 </template>
 

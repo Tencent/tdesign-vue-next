@@ -8,10 +8,9 @@
         alt="logo"
       />
     </template>
-    <t-menu-item value="item1"> 仪表盘 </t-menu-item>
-    <t-menu-item value="item2"> 资源区 </t-menu-item>
-    <t-menu-item value="item3"> 视频区 </t-menu-item>
-    <t-menu-item value="item4" :disabled="true"> 资源编辑 </t-menu-item>
+    <t-menu-item value="item1">菜单内容</t-menu-item>
+    <t-menu-item value="item2">菜单内容</t-menu-item>
+    <t-menu-item value="item3">菜单内容</t-menu-item>
+    <t-menu-item value="item4">菜单内容</t-menu-item>
   </t-menu>
 </template>
-<script />

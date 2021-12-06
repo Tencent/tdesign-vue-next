@@ -1,9 +1,9 @@
 <template>
   <t-comment
-    avatar="https://tdesign.gtimg.com/list-icon.png"
+    avatar="https://tdesign.gtimg.com/site/avatar.jpg"
     author="评论作者名"
     datetime="今天16:38"
-    content="评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容。"
+    content="这里是评论者写的评论内容。"
   >
     <template #actions>
       <span key="thumbUp">
@@ -17,14 +17,11 @@
     </template>
 
     <template #quote>
-      <t-comment
-        author="引用内容标题"
-        content="引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容引用内容。"
-      />
+      <t-comment author="引用内容标题" content="引用评论内容。" />
     </template>
   </t-comment>
 </template>
-<script />
+
 <style lang="less" scoped>
 .action-text {
   display: inline-block;

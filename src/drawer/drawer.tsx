@@ -7,15 +7,17 @@ import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
+import ActionMixin from '../dialog/actions';
+
 import mixins from '../utils/mixins';
-import getLocalReceiverMixins from '../locale/local-receiver';
+import getConfigReceiverMixins, { DrawerConfig } from '../config-provider/config-receiver';
 
 type FooterButtonType = 'confirm' | 'cancel';
 
 const name = `${prefix}-drawer`;
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('drawer')),
+  ...mixins(ActionMixin, getConfigReceiverMixins<DrawerConfig>('drawer')),
 
   name,
 
@@ -144,18 +146,18 @@ export default defineComponent({
     },
     // locale 全局配置，插槽，props，默认值，决定了按钮最终呈现
     getDefaultFooter() {
-      let cancelBtn = null;
-      if (![undefined, null].includes(this.cancelBtn)) {
-        cancelBtn = this.cancelBtn || this.t(this.locale.cancel);
-        const defaultCancel = this.getDefaultBtn('cancel', cancelBtn);
-        cancelBtn = this.isUseDefault(cancelBtn) ? defaultCancel : renderTNodeJSX(this, 'cancelBtn');
-      }
-      let confirmBtn = null;
-      if (![undefined, null].includes(this.confirmBtn)) {
-        confirmBtn = this.confirmBtn || this.t(this.locale.confirm);
-        const defaultConfirm = this.getDefaultBtn('confirm', confirmBtn);
-        confirmBtn = this.isUseDefault(confirmBtn) ? defaultConfirm : renderTNodeJSX(this, 'confirmBtn');
-      }
+      // this.getConfirmBtn is a function of ActionMixin
+      const confirmBtn = this.getConfirmBtn({
+        confirmBtn: this.confirmBtn,
+        globalConfirm: this.global.confirm,
+        className: `${prefix}-drawer__confirm`,
+      });
+      // this.getCancelBtn is a function of ActionMixin
+      const cancelBtn = this.getCancelBtn({
+        cancelBtn: this.cancelBtn,
+        globalCancel: this.global.cancel,
+        className: `${prefix}-drawer__cancel`,
+      });
       return (
         <div style={this.footerStyle}>
           {this.placement === 'right' ? confirmBtn : null}

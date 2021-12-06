@@ -56,7 +56,7 @@ exports[`Form base demo works fine 1`] = `
         <label
           for=""
         >
-          手机号
+          手机号码
         </label>
       </div>
       <div
@@ -79,6 +79,49 @@ exports[`Form base demo works fine 1`] = `
               type="text"
             />
             <!---->
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__status"
+    >
+      <div
+        class="t-form__label t-form__label--colon t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          接收短信
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls--content"
+        >
+          
+          <div
+            class="t-switch t-size-m"
+            disabled="false"
+            modelvalue="false"
+          >
+            <span
+              class="t-switch__handle"
+            >
+              <!---->
+            </span>
+            <div
+              class="t-switch__content t-size-m"
+            >
+              <!---->
+            </div>
           </div>
           
           <!---->
@@ -129,7 +172,7 @@ exports[`Form base demo works fine 1`] = `
                 class="t-radio__label"
               >
                 
-                 男 
+                男
                 
               </span>
             </label>
@@ -150,7 +193,7 @@ exports[`Form base demo works fine 1`] = `
                 class="t-radio__label"
               >
                 
-                 女 
+                女
                 
               </span>
             </label>
@@ -250,49 +293,6 @@ exports[`Form base demo works fine 1`] = `
             </label>
             
             <!---->
-          </div>
-          
-          <!---->
-        </div>
-        <!---->
-      </div>
-    </div>
-    <div
-      class="t-form__item t-form-item__status"
-    >
-      <div
-        class="t-form__label t-form__label--colon t-form__label--right"
-        style="width: 100px;"
-      >
-        <label
-          for=""
-        >
-          状态
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 100px;"
-      >
-        <div
-          class="t-form__controls--content"
-        >
-          
-          <div
-            class="t-switch t-size-m"
-            disabled="false"
-            modelvalue="false"
-          >
-            <span
-              class="t-switch__handle"
-            >
-              <!---->
-            </span>
-            <div
-              class="t-switch__content t-size-m"
-            >
-              <!---->
-            </div>
           </div>
           
           <!---->

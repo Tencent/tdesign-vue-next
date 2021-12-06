@@ -1,4 +1,4 @@
-import { defineComponent, ComponentPublicInstance, VNode } from 'vue';
+import { defineComponent, h } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
@@ -6,12 +6,16 @@ import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { ClassName, TNodeReturnValue } from '../common';
 
+import mixins from '../utils/mixins';
+import getConfigReceiverMixins, { TagConfig } from '../config-provider/config-receiver';
+
 const { prefix } = config;
 const name = `${prefix}-tag`;
 
 const defaultShape = 'square';
 
 export default defineComponent({
+  ...mixins(getConfigReceiverMixins<TagConfig>('tag')),
   name,
   props: { ...props },
   emits: ['close', 'click'],
@@ -43,9 +47,24 @@ export default defineComponent({
     handleClick(event: MouseEvent): void {
       this.$emit('click', event);
     },
+    getCloseIcon() {
+      if (!this.closable) return null;
+      const iconClassName = `${prefix}-tag__icon-close`;
+      if (this.global.closeIcon) {
+        return this.global.closeIcon((component: any, b: any) => {
+          const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
+          return h(component, {
+            props: { ...tProps },
+            class: iconClassName,
+          });
+        });
+      }
+      return <CloseIcon onClick={this.handleClose} class={iconClassName} />;
+    },
   },
   render() {
-    const closeIcon: VNode | string = this.closable ? <CloseIcon onClick={this.handleClose} /> : '';
+    // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
+    const closeIcon = this.getCloseIcon();
     // 标签内容
     const tagContent: TNodeReturnValue = renderContent(this, 'default', 'content');
     // 图标

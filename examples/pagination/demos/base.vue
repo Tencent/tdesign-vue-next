@@ -8,6 +8,17 @@
       @pageSizeChange="onPageSizeChange"
       @currentChange="onCurrentChange"
     />
+    <br /><br />
+    <!-- :pageSizeOptions="[]" 表示隐藏分页器选项 -->
+    <!-- 非受控用法，代码有效，勿删。 -->
+    <t-pagination
+      :total="36"
+      :default-current="2"
+      :default-page-size="10"
+      @current-change="onCurrentChange"
+      @page-size-change="onPageSizeChange"
+      @change="onChange"
+    />
   </div>
 </template>
 

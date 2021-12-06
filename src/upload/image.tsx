@@ -1,6 +1,7 @@
 import { defineComponent, PropType } from 'vue';
-import { AddIcon, DeleteIcon, UploadIcon, BrowseIcon, LoadingIcon } from 'tdesign-icons-vue-next';
+import { AddIcon, DeleteIcon, UploadIcon, BrowseIcon } from 'tdesign-icons-vue-next';
 import { UploadFile } from './type';
+import TLoading from '../loading';
 import { UploadRemoveOptions } from './interface';
 import { UPLOAD_NAME } from './util';
 import props from './props';
@@ -15,7 +16,7 @@ export default defineComponent({
     DeleteIcon,
     UploadIcon,
     BrowseIcon,
-    LoadingIcon,
+    TLoading,
   },
   props: {
     showUploadProgress: props.showUploadProgress,
@@ -89,7 +90,7 @@ export default defineComponent({
           >
             {this.showUploadProgress && this.loadingFile && this.loadingFile.status === 'progress' ? (
               <div class={`${UPLOAD_NAME}-card-container ${UPLOAD_NAME}-card__box`}>
-                <LoadingIcon></LoadingIcon>
+                <TLoading />
                 <p>上传中 {Math.min(this.loadingFile.percent, 99)}%</p>
               </div>
             ) : (

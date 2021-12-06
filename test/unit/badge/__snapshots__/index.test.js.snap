@@ -7,12 +7,7 @@ exports[`Badge :props :color 1`] = `
   
   Tdesign
   
-  <sup
-    class="t-badge--circle"
-    style="background: green;"
-  >
-    <!---->
-  </sup>
+  <!---->
 </div>
 `;
 

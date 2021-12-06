@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, h } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { FilterIcon } from 'tdesign-icons-vue-next';
 import { PrimaryTableCol, TdPrimaryTableProps } from '../../type';
@@ -81,7 +81,7 @@ export default defineComponent({
                   }}
                 >
                   {isFunction(this.filterIcon) ? (
-                    this.filterIcon(this.$createElement)
+                    this.filterIcon(h)
                   ) : (
                     <FilterIcon name="filter" class={`${prefix}-table-filter-icon`} />
                   )}

@@ -2,12 +2,12 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 export interface TdTextareaProps {
   /**
-   * 自动聚焦
+   * 自动聚焦，拉起键盘
    * @default false
    */
   autofocus?: boolean;
@@ -21,6 +21,10 @@ export interface TdTextareaProps {
    * @default false
    */
   disabled?: boolean;
+  /**
+   * 用户最多可以输入的字符个数，一个中文汉字表示两个字符长度
+   */
+  maxcharacter?: number;
   /**
    * 用户最多可以输入的字符个数
    */

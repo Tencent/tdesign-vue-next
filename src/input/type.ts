@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TNode, SizeEnum } from '../common';
@@ -33,7 +33,7 @@ export interface TdInputProps {
    */
   maxcharacter?: number;
   /**
-   * 用户最多可以输入的文本长度
+   * 用户最多可以输入的文本长度。值小于等于 0 的时候，则不限制输入长度
    */
   maxlength?: number;
   /**
@@ -67,7 +67,7 @@ export interface TdInputProps {
   /**
    * 组件后置图标
    */
-  suffixIcon?: TNode;
+  suffixIcon?: string | TNode;
   /**
    * 输入框类型
    * @default text

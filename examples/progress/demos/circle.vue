@@ -47,7 +47,7 @@
     </div>
   </div>
 </template>
-<script></script>
+
 <style lang="less" scoped>
 .t-progress-demo-margin {
   margin-bottom: 10px;

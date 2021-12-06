@@ -2,11 +2,11 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
-import { PropType } from 'vue';
 import { TdTransferProps } from './type';
+import { PropType } from 'vue';
 
 export default {
   /** 用于控制复选框属性 */
@@ -50,7 +50,7 @@ export default {
   footer: {
     type: [Array, Function] as PropType<TdTransferProps['footer']>,
   },
-  /** 用来定义 value / label 在 `data` 中对应的字段别名 */
+  /** 用来定义选项文本和选项值字段，示例：{ label: 'text', value: 'id' }，表示选项文本取 `text` 字段，选项值取 `id` 字段 */
   keys: {
     type: Object as PropType<TdTransferProps['keys']>,
   },

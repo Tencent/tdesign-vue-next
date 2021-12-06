@@ -12,9 +12,9 @@
 import { defineComponent, ref } from 'vue';
 
 const options = [
-  { label: '上海', value: 'shanghai' },
-  { label: '北京', value: 'beijing' },
-  { label: '深圳', value: 'shenzhen' },
+  { label: '选项一', value: '1' },
+  { label: '选项二', value: '2' },
+  { label: '选项三', value: '3' },
 ];
 
 export default defineComponent({

@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-11 17:18:20
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TdTreeSelectProps } from './type';
@@ -65,6 +65,8 @@ export default {
   prefixIcon: {
     type: Function as PropType<TdTreeSelectProps['prefixIcon']>,
   },
+  /** 【讨论中】是否显示全选 */
+  showCheckAlll: Boolean,
   /** 尺寸 */
   size: {
     type: String as PropType<TdTreeSelectProps['size']>,

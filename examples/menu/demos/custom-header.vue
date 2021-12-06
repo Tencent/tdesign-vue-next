@@ -9,8 +9,8 @@
     </template>
   </t-head-menu>
 </template>
-<script />
-<style lang="less">
+
+<style lang="less" scoped>
 .demo-box {
   width: 200px;
   height: 40px;

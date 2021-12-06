@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-17 15:51:08
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { ButtonProps } from '../button';
@@ -20,7 +20,7 @@ export interface TdDialogProps {
    */
   body?: string | TNode;
   /**
-   * 取消按钮，可自定义。值为 undefined 或 null 则不显示取消按钮。值类型为 Object 则表示透传 Button 组件属性
+   * 取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件
    * @default ''
    */
   cancelBtn?: string | ButtonProps | TNode;
@@ -40,7 +40,7 @@ export interface TdDialogProps {
    */
   closeOnOverlayClick?: boolean;
   /**
-   * 确认按钮，可自定义。值为 undefined 或 null 则不显示确认按钮
+   * 确认按钮。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件
    * @default ''
    */
   confirmBtn?: string | ButtonProps | TNode;
@@ -132,7 +132,7 @@ export interface TdDialogProps {
    */
   onClosed?: () => void;
   /**
-   * 如果“确认”按钮存在，则点击“确认”按钮时触发，同时触发关闭事件
+   * 如果“确认”按钮存在，则点击“确认”按钮时触发
    */
   onConfirm?: (context: { e: MouseEvent }) => void;
   /**

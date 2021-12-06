@@ -1,6 +1,5 @@
 import { defineComponent, VNode, PropType } from 'vue';
 import {
-  LoadingIcon,
   TimeFilledIcon,
   CheckCircleFilledIcon,
   ErrorCircleFilledIcon,
@@ -9,6 +8,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import { UploadFile } from './type';
 import TButton from '../button';
+import TLoading from '../loading';
 import { returnFileSize, abridgeName, UPLOAD_NAME } from './util';
 import { FlowRemoveContext } from './interface';
 import props from './props';
@@ -18,7 +18,7 @@ export default defineComponent({
 
   components: {
     TButton,
-    LoadingIcon,
+    TLoading,
     TimeFilledIcon,
     CheckCircleFilledIcon,
     ErrorCircleFilledIcon,
@@ -113,7 +113,7 @@ export default defineComponent({
           this.showUploadProgress &&
             (status = (
               <div class={`${UPLOAD_NAME}__flow-status`}>
-                <LoadingIcon />
+                <TLoading />
                 <span>上传中 {Math.min(file.percent, 99)}%</span>
               </div>
             ));
@@ -223,13 +223,13 @@ export default defineComponent({
                   >
                     {file.status === 'fail' && (
                       <div class={`${UPLOAD_NAME}-card__status-wrap`}>
-                        <ErrorCircleFilledIcon size="20px" />
+                        <ErrorCircleFilledIcon />
                         <p>上传失败</p>
                       </div>
                     )}
                     {file.status === 'progress' && (
                       <div class={`${UPLOAD_NAME}-card__status-wrap`}>
-                        <LoadingIcon size="20px" />
+                        <TLoading />
                         <p>上传中 {Math.min(file.percent, 99)}</p>
                       </div>
                     )}

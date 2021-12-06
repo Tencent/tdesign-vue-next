@@ -1,44 +1,30 @@
 :: BASE_DOC ::
 
-### 默认有目标元素
+### 带分页的穿梭框
 
-::: demo demos/target-value
-:::
-
-### 默认有选中值
-
-::: demo demos/checked
-:::
-
-### 空数据
-
-::: demo demos/empty
-:::
-
-### 禁用状态
-
-::: demo demos/disabled
-:::
-
-### 带分页
+针对数据量较多的场景，可以通过 `pagination` 将选项分页展示。
 
 ::: demo demos/pagination
 :::
 
-### 自定义标题、底部、操作按钮
+### 支持自定义标题、底部、操作按钮及数据渲染
+
+穿梭框的标题、底部、操作按钮和数据渲染都可以自定义渲染。
 
 ::: demo demos/custom
 :::
 
-### 自定义渲染数据
+### 空数据的穿梭框
 
-::: demo demos/custom-render
+当数据为空时会展示暂无数据，也可以根据需求配置空数据展示。
+
+::: demo demos/empty
 :::
 
-### 与Tree结合使用
+### 与 Tree 结合使用
+
+还支持配合 Tree 组件使用。适用于复杂选项的场景。
 
 ::: demo demos/tree
 :::
-
-
 :: BASE_PROPS ::

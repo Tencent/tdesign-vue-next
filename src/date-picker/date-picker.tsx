@@ -1,7 +1,8 @@
-import { defineComponent, nextTick } from 'vue';
+import { ComponentPublicInstance, defineComponent, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
-import { CalendarIcon, TimeIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { CalendarIcon, TimeIcon } from 'tdesign-icons-vue-next';
+import debounce from 'lodash/debounce';
 
 import { prefix } from '../config';
 import props from './props';
@@ -11,22 +12,26 @@ import { Button as TButton } from '../button';
 import { Input as TInput } from '../input';
 import TPopup from '../popup';
 import mixins from '../utils/mixins';
-import getLocalReceiverMixins from '../locale/local-receiver';
+import getConfigReceiverMixins, { DatePickerConfig } from '../config-provider/config-receiver';
 
-import { CustomLocale, DateValue } from './interface';
 import TCalendarPresets from './calendar-presets';
 import TDate from './panel/date';
 import TDateRange from './panel/date-range';
 import TTimePickerPanel from '../time-picker/panel';
 import { EPickerCols } from '../time-picker/constant';
 import { firstUpperCase, extractTimeFormat } from './utils';
+import { DateValue, PickContext } from './interface';
 
 dayjs.extend(isBetween);
+
+const onOpenDebounce = debounce((vm?: any) => {
+  vm.createPopover();
+}, 250);
 
 const name = `${prefix}-date-picker`;
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('datePicker')),
+  ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
   name,
   components: {
     CalendarIcon,
@@ -40,11 +45,10 @@ export default defineComponent({
     TTimePickerPanel,
   },
   props,
-  emits: ['input', 'open', 'close', 'focus', 'click', 'change'],
+  emits: ['input', 'open', 'close', 'focus', 'click', 'change', 'pick'],
   data() {
     return {
       tempValue: '' as string | number | dayjs.Dayjs | Date,
-      locales: {} as CustomLocale,
       monthDate: new Date(),
       start: new Date(),
       end: new Date(),
@@ -69,7 +73,7 @@ export default defineComponent({
     },
     formattedValue: {
       get() {
-        const { tempValue, range, mode, isOpen, startText, endText, locales, value: outValue } = this;
+        const { tempValue, range, mode, isOpen, startText, endText, global, value: outValue } = this;
         const selectedDates = this.getDates(outValue);
         const selectedFmtDates: string[] = selectedDates.map((d: Date) => this.formatDate(d));
 
@@ -89,9 +93,9 @@ export default defineComponent({
             break;
           case 'range':
             if (isOpen) {
-              value = [startText, endText].join(locales.rangeSeparator);
+              value = [startText, endText].join(global.rangeSeparator);
             } else if (selectedFmtDates.length > 1) {
-              value = [selectedFmtDates[0], selectedFmtDates[1]].join(locales.rangeSeparator);
+              value = [selectedFmtDates[0], selectedFmtDates[1]].join(global.rangeSeparator);
             }
             break;
           default:
@@ -116,7 +120,7 @@ export default defineComponent({
       get() {
         let range = this.startText;
         if (this.range) {
-          range += ` ${this.locales.rangeSeparator} ${this.endText}`;
+          range += ` ${this.global.rangeSeparator} ${this.endText}`;
         }
         return range;
       },
@@ -178,53 +182,22 @@ export default defineComponent({
       }
     },
     attachDatePicker(): any {
-      // language init
-      this.setLocales();
-
       const startDate: Date = new Date();
       const endDate: Date = new Date();
-
       this.dateFormat = this.format;
-
       const start = new Date(startDate);
       let end = new Date(endDate);
-
       if (!this.range) {
         // ignore endDate for not range DatePicker
         end = new Date(startDate);
       }
-
       this.start = start;
       this.end = end;
-
       const val = this.value || this.defaultValue || '';
       this.setDate(val, false);
       if (this.inlineView) {
         this.open();
       }
-    },
-    getLocales(): CustomLocale {
-      const locales = this.locale as Record<string, any>;
-      locales.daysOfWeek = locales.weekdays.shorthand;
-      locales.monthNames = locales.months.shorthand;
-
-      if (this.mode === 'month') {
-        locales.monthNames = locales.months.longhand;
-      }
-
-      // update day names order to firstDay
-      if (locales.firstDayOfWeek !== 0) {
-        let iterator = locales.firstDayOfWeek;
-        while (iterator > 0) {
-          locales.daysOfWeek.push(locales.daysOfWeek.shift());
-          iterator -= 1;
-        }
-      }
-      return locales;
-    },
-    setLocales() {
-      const locales = this.getLocales();
-      this.locales = locales;
     },
     /**
      * Watch for value changed by date-picker itself and notify parent component
@@ -333,6 +306,7 @@ export default defineComponent({
         // open
         this.isOpen = true;
         nextTick().then(() => {
+          onOpenDebounce(this);
           this.$emit('open', this.selectedDates);
         });
       }
@@ -528,7 +502,7 @@ export default defineComponent({
             break;
 
           case 'range':
-            dates = inputDate.split(this.locales.rangeSeparator || '-').map((d) => {
+            dates = inputDate.split(this.global.rangeSeparator || '-').map((d) => {
               const d1 = this.parseDate(d, format);
               return d1;
             });
@@ -548,7 +522,7 @@ export default defineComponent({
       return selectedDates;
     },
     formatDate(date: Date, format = ''): string {
-      let dateFormat = format || this.dateFormat || this.locales.format;
+      let dateFormat = format || this.dateFormat || this.global.format;
       const arrTime = ['H', 'h', 'm', 's'];
       const hasTime = arrTime.some((f) => String(dateFormat).includes(f));
       if (this.enableTimePicker && !hasTime) {
@@ -557,30 +531,63 @@ export default defineComponent({
       const d1 = new Date(date);
       return dayjs(d1).format(dateFormat);
     },
+    createPopover() {
+      if (this.inlineView) {
+        return;
+      }
+      const nativeInput = this.$refs.native as ComponentPublicInstance;
 
+      const tip: HTMLElement = this.$refs.dropdownPopup as HTMLElement;
+      const refEl: Element = ((nativeInput && nativeInput.$el) || this.$el) as Element;
+
+      if (!tip || !refEl) {
+        return;
+      }
+
+      this.initClickAway(tip);
+    },
     getPlaceholderText() {
-      const { placeholder, mode } = this.$props;
-
-      return placeholder || (this.locales.placeholder && this.locales.placeholder[mode]);
+      const { placeholder, mode } = this;
+      let placeholderStr = placeholder || this.global?.placeholder?.[mode];
+      if (placeholder && Array.isArray(placeholder)) {
+        placeholderStr = placeholder.join(this.global.rangeSeparator);
+      }
+      return placeholderStr;
     },
   },
   render() {
     // props
-    const { popupProps, disabled, clearable, allowInput, size, inputProps, enableTimePicker, presets, mode, range } =
-      this;
+    const {
+      popupProps,
+      disabled,
+      clearable,
+      allowInput,
+      size,
+      inputProps,
+      enableTimePicker,
+      mode,
+      range,
+      presets,
+      firstDayOfWeek,
+    } = this;
 
     // data
-    const { start, end, showTime, startTimeValue, locales, isOpen, endTimeValue } = this;
+    const { start, end, showTime, startTimeValue, global, isOpen, endTimeValue } = this;
 
     const panelProps = {
       value: range ? [start, end] : start,
       mode,
-      firstDayOfWeek: 0,
+      firstDayOfWeek: firstDayOfWeek === undefined ? 1 : firstDayOfWeek,
       disableDate: (d: Date) => !this.isEnabled(d),
       onChange: this.dateClick,
+      global: this.global,
     };
 
-    const panelComponent = range ? <t-date-range {...panelProps} /> : <t-date {...panelProps} />;
+    const onPick = (date: DateValue, context: PickContext) => {
+      this.$emit('pick', date, context);
+    };
+
+    const panelComponent = range ? <t-date-range {...{ ...panelProps, onPick }} /> : <t-date {...panelProps} />;
 
     const popupContent = () => (
       <div ref="dropdownPopup" class={this.pickerStyles}>
@@ -612,17 +619,17 @@ export default defineComponent({
         {!showTime && panelComponent}
         {(!!presets || enableTimePicker) && (
           <div class={`${prefix}-date-picker__footer`}>
-            <TCalendarPresets presets={presets} locales={locales} onClickRange={this.clickRange} />
+            <TCalendarPresets presets={presets} global={global} onClickRange={this.clickRange} />
             {enableTimePicker && (
               <div class={`${name}--apply`}>
                 {enableTimePicker && (
                   <t-button theme="primary" variant="text" onClick={this.toggleTime}>
-                    {showTime ? locales.selectDate : locales.selectTime}
+                    {showTime ? global.selectDate : global.selectTime}
                   </t-button>
                 )}
                 {
                   <t-button theme="primary" onClick={this.clickedApply}>
-                    {locales.confirm}
+                    {global.confirm}
                   </t-button>
                 }
               </div>

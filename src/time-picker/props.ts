@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TdTimePickerProps } from './type';
@@ -49,11 +49,13 @@ export default {
   },
   /** 选中值 */
   value: {
-    type: [String, Object] as PropType<TdTimePickerProps['value']>,
+    type: String,
+    default: '',
   },
   /** 选中值，非受控属性 */
   defaultValue: {
-    type: [String, Object] as PropType<TdTimePickerProps['defaultValue']>,
+    type: String,
+    default: '',
   },
   /** 当输入框失去焦点时触发，参数 input 表示输入框内容，value 表示组件当前有效值，trigger 表示触发源头 */
   onBlur: Function as PropType<TdTimePickerProps['onBlur']>,

@@ -3,6 +3,7 @@ import DropdownItem from './dropdown-item';
 import { prefix } from '../config';
 import { DropdownOption } from './type';
 import { TNodeReturnValue } from '../common';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-dropdown__menu`;
 
@@ -90,6 +91,22 @@ export default defineComponent({
     const columns: TNodeReturnValue[] = [];
     let menuItems = this.options as DropdownOption[];
     let pathPrefix = '';
+    if (this.$slots.default) {
+      return (
+        <div class={name}>
+          <div
+            class={[`${name}__column`, 'narrow-scrollbar']}
+            style={{
+              maxHeight: `${this.dropdown.maxHeight}px`,
+              maxWidth: `${this.dropdown.maxColumnWidth}px`,
+              minWidth: `${this.dropdown.minColumnWidth}px`,
+            }}
+          >
+            {renderTNodeJSX(this, 'default')}
+          </div>
+        </div>
+      );
+    }
     // 根据path渲染
     while (menuItems && menuItems.length) {
       // eslint-disable-next-line no-loop-func

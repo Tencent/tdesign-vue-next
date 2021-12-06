@@ -5,4 +5,3 @@
     <t-breadcrumbItem><t-icon name="books" />页面3</t-breadcrumbItem>
   </t-breadcrumb>
 </template>
-<script />

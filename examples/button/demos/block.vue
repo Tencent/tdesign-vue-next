@@ -8,4 +8,3 @@
     </div>
   </div>
 </template>
-<script />

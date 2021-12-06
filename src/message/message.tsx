@@ -4,9 +4,10 @@ import {
   CheckCircleFilledIcon,
   ErrorCircleFilledIcon,
   HelpCircleFilledIcon,
-  LoadingIcon,
   CloseIcon,
 } from 'tdesign-icons-vue-next';
+import TLoading from '../loading';
+
 import { prefix } from '../config';
 import { THEME_LIST } from './const';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
@@ -16,15 +17,6 @@ const name = `${prefix}-message`;
 
 export default defineComponent({
   name,
-
-  components: {
-    InfoCircleFilledIcon,
-    CheckCircleFilledIcon,
-    ErrorCircleFilledIcon,
-    HelpCircleFilledIcon,
-    LoadingIcon,
-    CloseIcon,
-  },
 
   props: { ...props },
 
@@ -75,7 +67,7 @@ export default defineComponent({
       this.$emit('click-close-btn', e);
     },
     renderClose() {
-      const defaultClose = <close-icon />;
+      const defaultClose = <CloseIcon />;
       return (
         <span class={`${name}-close`} onClick={this.close}>
           {renderTNodeJSX(this as ComponentPublicInstance, 'closeBtn', defaultClose)}
@@ -88,16 +80,15 @@ export default defineComponent({
       if (this.$slots.icon) {
         return this.$slots.icon(null);
       }
-      // eslint-disable-next-line no-unused-vars
-      const component = {
+      const Icon = {
         info: InfoCircleFilledIcon,
         success: CheckCircleFilledIcon,
         warning: ErrorCircleFilledIcon,
         error: ErrorCircleFilledIcon,
         question: HelpCircleFilledIcon,
-        loading: LoadingIcon,
+        loading: TLoading,
       }[this.theme];
-      return <component></component>;
+      return <Icon />;
     },
   },
 

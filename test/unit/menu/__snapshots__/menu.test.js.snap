@@ -181,7 +181,7 @@ exports[`Menu slot <logo> 1`] = `
 </div>
 `;
 
-exports[`Menu slot <options> 1`] = `
+exports[`Menu slot <operations> 1`] = `
 <div
   class="t-default-menu t-menu-mode__normal t-menu--light"
   style="height: 100%; width: 232px;"

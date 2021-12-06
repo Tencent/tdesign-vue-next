@@ -14,7 +14,7 @@
     </t-popup>
   </div>
 </template>
-<script></script>
+
 <style lang="less">
 .popup-demo-container {
   display: flex;

@@ -1,9 +1,11 @@
 import { VNode, h, defineComponent } from 'vue';
 import isFunction from 'lodash/isFunction';
-import { CaretRightSmallIcon, LoadingIcon } from 'tdesign-icons-vue-next';
+import { CaretRightSmallIcon } from 'tdesign-icons-vue-next';
 import mixins from '../utils/mixins';
-import getLocalReceiverMixins from '../locale/local-receiver';
+import getConfigReceiverMixins, { TreeConfig } from '../config-provider/config-receiver';
 import TCheckBox from '../checkbox';
+import TLoading from '../loading';
+
 import TreeNode from '../_common/js/tree/tree-node';
 import { getTNode } from './util';
 import { TypeEventState } from './interface';
@@ -21,7 +23,7 @@ export const TreeItemProps = {
 };
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('tree')),
+  ...mixins(getConfigReceiverMixins<TreeConfig>('tree')),
   name: TREE_NODE_NAME,
   directives: { ripple },
   props: TreeItemProps,
@@ -105,8 +107,8 @@ export default defineComponent({
       return lineNode;
     },
     getFolderIcon() {
-      if (isFunction(this.locale.folderIcon)) {
-        return this.locale.folderIcon(h);
+      if (isFunction(this.global.folderIcon)) {
+        return this.global.folderIcon(h);
       }
       return <CaretRightSmallIcon />;
     },
@@ -125,7 +127,7 @@ export default defineComponent({
           isDefaultIcon = true;
           iconNode = this.getFolderIcon();
           if (node.loading && node.expanded) {
-            iconNode = <LoadingIcon />;
+            iconNode = <TLoading />;
           }
         } else {
           iconNode = '';

@@ -13,7 +13,7 @@
     </t-list>
   </div>
 </template>
-<script></script>
+
 <style scoped>
 .t-list {
   overflow: hidden;

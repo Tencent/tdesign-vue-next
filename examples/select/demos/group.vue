@@ -4,7 +4,7 @@
     <t-select v-model="value1" :options="options" placeholder="请选择城市" />
 
     <!-- 方式二：使用插槽节点 -->
-    <t-select v-model="value2" placeholder="-请选择-" style="width: 200px">
+    <t-select v-model="value2" placeholder="请选择城市">
       <t-option-group
         v-for="(list, index) in options"
         :key="index"
@@ -24,27 +24,27 @@ import { defineComponent, ref } from 'vue';
 
 const options = [
   {
-    group: '热门城市',
+    group: '分组一',
     children: [
-      { label: '北京市', value: 1 },
-      { label: '上海市', value: 2 },
+      { label: '选项一', value: 1 },
+      { label: '选项二', value: 2 },
     ],
   },
   {
-    group: '广东省',
+    group: '分组二',
     children: [
-      { label: '广州市', value: 4 },
-      { label: '深圳市', value: 5 },
-      { label: '东莞市', value: 6 },
+      { label: '选项三', value: 4 },
+      { label: '选项四', value: 5 },
+      { label: '选项五', value: 6 },
     ],
   },
   {
-    group: '江苏省',
+    group: '分组三',
     divider: true,
     children: [
-      { label: '南京市', value: 7 },
-      { label: '苏州市', value: 8 },
-      { label: '无锡市', value: 9 },
+      { label: '选项六', value: 7 },
+      { label: '选项七', value: 8 },
+      { label: '选项八', value: 9 },
     ],
   },
 ];

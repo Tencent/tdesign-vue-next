@@ -3,7 +3,7 @@
     <t-pagination
       v-model="current"
       v-model:pageSize="pageSize"
-      :total="645"
+      :total="101"
       show-jumper
       @change="onChange"
       @pageSizeChange="onPageSizeChange"

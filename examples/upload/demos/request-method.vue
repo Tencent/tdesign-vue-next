@@ -20,7 +20,7 @@ export default defineComponent({
     const requestSuccessMethod = (file) => {
       return new Promise((resolve) => {
         // file.percent 用于控制上传进度，如果不希望显示上传进度，则不对 file.percent 设置值即可。
-        // 如果代码规范不能设置 file.percent，也可以设置 this.files
+        // 如果代码规范不能设置 file.percent，也可以设置 files
         file.percent = 0;
         const timer = setTimeout(() => {
           // resolve 参数为关键代码

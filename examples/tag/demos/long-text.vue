@@ -5,4 +5,3 @@
     </t-tag>
   </div>
 </template>
-<script />

@@ -2,8 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-19 10:44:26
-
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TNode } from '../common';
@@ -118,6 +117,11 @@ export interface TdUploadProps {
    * 触发上传的内容
    */
   trigger?: string | TNode<TriggerContext>;
+  /**
+   * 是否显示为模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传
+   * @default false
+   */
+  useMockProgress?: boolean;
   /**
    * 上传请求时是否携带 cookie
    * @default false

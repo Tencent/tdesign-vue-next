@@ -19,6 +19,8 @@ import props from './form-item-props';
 import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
 import Form, { FormItemInstance } from './form';
 import { ClassName, ScopedSlot, TNodeReturnValue, Styles } from '../common';
+import mixins from '../utils/mixins';
+import getConfigReceiverMixins, { FormConfig } from '../config-provider/config-receiver';
 
 type IconConstructor = typeof ErrorCircleFilledIcon;
 
@@ -34,6 +36,7 @@ export const enum ValidateStatus {
 const name = `${prefix}-form-item`;
 
 export default defineComponent({
+  ...mixins(getConfigReceiverMixins<FormConfig>('form')),
   name,
 
   inject: {
@@ -44,7 +47,10 @@ export default defineComponent({
 
   data() {
     return {
+      // 校验不通过信息列表
       errorList: [],
+      // 校验通过显示的内容
+      successList: [],
       // 当前校验状态 未校验、校验通过、校验不通过
       verifyStatus: ValidateStatus.TO_BE_VALIDATED,
       resetValidating: false as boolean,
@@ -121,8 +127,9 @@ export default defineComponent({
       const { requiredMark } = this.$props;
       if (typeof requiredMark === 'boolean') return requiredMark;
       const parent = this.form;
+      const parentRequiredMark = parent?.requiredMark === undefined ? this.global.requiredMark : parent.requiredMark;
       const isRequired = this.innerRules.filter((rule) => rule.required).length > 0;
-      return Boolean(parent?.requiredMark && isRequired);
+      return Boolean(parentRequiredMark && isRequired);
     },
     innerRules(): FormRule[] {
       const parent = this.form;
@@ -211,12 +218,10 @@ export default defineComponent({
       }
       const list = this.errorList;
       if (parent.showErrorMessage && list && list[0] && list[0].message) {
-        return (
-          <div>
-            <span class={CLASS_NAMES.extra}>{list[0].message}</span>
-            {helpVNode}
-          </div>
-        );
+        return <p class={CLASS_NAMES.extra}>{list[0].message}</p>;
+      }
+      if (this.successList.length) {
+        return <p class={CLASS_NAMES.extra}>{this.successList[0].message}</p>;
       }
       return helpVNode;
     },

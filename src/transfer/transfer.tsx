@@ -19,7 +19,7 @@ import {
 import { getTransferListOption, emitEvent, getDataValues, getTransferData, filterTransferData } from './utils';
 import { PageInfo, TdPaginationProps } from '../pagination/type';
 import mixins from '../utils/mixins';
-import getLocalReceiverMixins from '../locale/local-receiver';
+import getConfigReceiverMixins from '../config-provider/config-receiver';
 import props from './props';
 import { TNode } from '../common';
 
@@ -34,7 +34,7 @@ type DataType = {
 };
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('transfer')),
+  ...mixins(getConfigReceiverMixins('transfer')),
   name,
   components: {
     TransferList,
@@ -227,7 +227,7 @@ export default defineComponent({
           onSearch={this.handleSearch}
           onPageChange={($event: any) => this.handlePageChange($event, listType)}
           t={this.t}
-          locale={this.locale}
+          global={this.global}
           isTreeMode={this.isTreeMode}
         >
           {scopedSlots}

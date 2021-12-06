@@ -1,8 +1,9 @@
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import dayjs from 'dayjs';
 import TDateHeader from '../basic/header';
 import TDateTable from '../basic/table';
 import { prefix } from '../../config';
+import { DatePickerConfig } from '../../config-provider/config-receiver';
 
 import { DateValue } from '../type';
 
@@ -18,6 +19,7 @@ import {
   firstUpperCase,
   setDateTime,
 } from '../utils';
+import props from '../props';
 
 const TODAY = getToday();
 const LEFT = 'left';
@@ -32,6 +34,12 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
+    global: {
+      type: Object as PropType<DatePickerConfig>,
+      default: () => {
+        return {} as DatePickerConfig;
+      },
+    },
     mode: {
       type: String,
       default: 'date',
@@ -43,9 +51,9 @@ export default defineComponent({
     },
     minDate: Date,
     maxDate: Date,
-    firstDayOfWeek: Number,
-    disableDate: Function,
-    onChange: Function,
+    firstDayOfWeek: props.firstDayOfWeek,
+    disableDate: props.disableDate,
+    onChange: props.onChange,
     onPick: Function,
   },
   emits: ['change'],
@@ -125,7 +133,7 @@ export default defineComponent({
 
       if (this.mode === 'date' && isSame(startValue, endValue, 'month')) {
         const next = addMonth(endValue, 1);
-        rightMonth = new Date(endValue).getMonth() + 1;
+        rightMonth = addMonth(endValue, 1).getMonth();
         rightYear = next.getFullYear();
       }
 
@@ -145,8 +153,7 @@ export default defineComponent({
       };
     },
     getData({ year, month, type }: { year: number; month: number; type: string }) {
-      const { disableDate, minDate, maxDate, startValue, endValue } = this;
-      const { firstDayOfWeek } = this.$props;
+      const { disableDate, minDate, maxDate, startValue, endValue, firstDayOfWeek } = this;
       let data;
 
       const start = startValue;
@@ -157,6 +164,7 @@ export default defineComponent({
         minDate,
         maxDate,
         firstDayOfWeek,
+        monthLocal: this.global.months,
       };
 
       switch (type) {
@@ -210,7 +218,8 @@ export default defineComponent({
       this[`${direction}Year`] = next.getFullYear();
       this[`${direction}Month`] = next.getMonth();
     },
-    clickDate(date: Date) {
+    clickDate(date: Date, e: MouseEvent) {
+      let partial = 'start';
       if (this.isFirstClick) {
         this.startValue = date;
         this.endValue = date;
@@ -223,18 +232,20 @@ export default defineComponent({
           this.endValue = this.firstClickValue;
           this.startValue = date;
         }
-        this.$emit('change', [setDateTime(this.startValue, 23, 59, 59), setDateTime(this.endValue, 23, 59, 59)]);
+        this.$props.onChange([setDateTime(this.startValue, 0, 0, 0), setDateTime(this.endValue, 23, 59, 59)]);
         this.isFirstClick = true;
+        partial = 'end';
       }
+      this.$props.onPick && this.$props.onPick(date, { e, partial });
     },
-    clickYear(date: Date, type: string) {
+    clickYear(date: Date, e: MouseEvent, type: string) {
       if (this.mode === 'year') {
         if (this.isFirstClick) {
           this.startValue = date;
           this.isFirstClick = false;
           this.firstClickValue = date;
         } else {
-          this.$emit('change', [this.startValue, this.endValue]);
+          this.$props.onChange([this.startValue, this.endValue]);
           this.isFirstClick = true;
         }
       } else {
@@ -242,7 +253,7 @@ export default defineComponent({
         this[`${type}Year`] = date.getFullYear();
       }
     },
-    clickMonth(date: Date, type: string) {
+    clickMonth(date: Date, e: MouseEvent, type: string) {
       if (this.mode === 'month') {
         if (this.isFirstClick) {
           this.startValue = date;
@@ -252,7 +263,7 @@ export default defineComponent({
           if (this.endValue < this.startValue) {
             this.endValue = this.startValue;
           }
-          this.$emit('change', [this.startValue, this.endValue]);
+          this.$props.onChange([this.startValue, this.endValue]);
           this.isFirstClick = true;
         }
       } else {

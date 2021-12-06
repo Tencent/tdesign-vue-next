@@ -7,7 +7,7 @@ exports[`Tag or CheckTag :Tag:props :checked 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -18,7 +18,7 @@ exports[`Tag or CheckTag :Tag:props :closable 1`] = `
   <!---->
   <!---->
   <svg
-    class="t-icon t-icon-close"
+    class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
     fill="none"
     height="1em"
     viewBox="0 0 16 16"
@@ -39,7 +39,7 @@ exports[`Tag or CheckTag :Tag:props :disabled 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -55,7 +55,7 @@ exports[`Tag or CheckTag :Tag:props :maxWidth 1`] = `
   >
     <!---->
   </span>
-  
+  <!---->
 </span>
 `;
 
@@ -65,7 +65,7 @@ exports[`Tag or CheckTag :Tag:props :shape:mark 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -75,7 +75,7 @@ exports[`Tag or CheckTag :Tag:props :shape:round 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -85,7 +85,7 @@ exports[`Tag or CheckTag :Tag:props :shape:square 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -95,7 +95,7 @@ exports[`Tag or CheckTag :Tag:props :size:large 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -109,7 +109,7 @@ exports[`Tag or CheckTag :Tag:props :theme: 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -119,7 +119,7 @@ exports[`Tag or CheckTag :Tag:props :theme:danger 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -129,7 +129,7 @@ exports[`Tag or CheckTag :Tag:props :theme:default 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -139,7 +139,7 @@ exports[`Tag or CheckTag :Tag:props :theme:info 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -149,7 +149,7 @@ exports[`Tag or CheckTag :Tag:props :theme:primary 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -159,7 +159,7 @@ exports[`Tag or CheckTag :Tag:props :theme:success 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -169,7 +169,7 @@ exports[`Tag or CheckTag :Tag:props :theme:warning 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -179,7 +179,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:danger 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -189,7 +189,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:default 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -199,7 +199,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:info 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -209,7 +209,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:primary 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -219,7 +219,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:success 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -229,7 +229,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:warning 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -239,7 +239,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:danger 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -249,7 +249,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:default 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -259,7 +259,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:info 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -269,7 +269,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:primary 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -279,7 +279,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:success 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -289,7 +289,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:warning 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -299,7 +299,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:danger 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -309,7 +309,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:default 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -319,7 +319,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:info 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -329,7 +329,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:primary 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -339,7 +339,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:success 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -349,7 +349,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:warning 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;
 
@@ -360,7 +360,7 @@ exports[`Tag or CheckTag @event: Tag Event passthrough: close 1`] = `
   <!---->
   <!---->
   <svg
-    class="t-icon t-icon-close"
+    class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
     fill="none"
     height="1em"
     viewBox="0 0 16 16"
@@ -397,6 +397,6 @@ exports[`Tag or CheckTag Tag:slot <icon> 1`] = `
 >
   <!---->
   <!---->
-  
+  <!---->
 </span>
 `;

@@ -812,176 +812,121 @@ exports[`Tabs position demo works fine 1`] = `
 
 exports[`Tabs size demo works fine 1`] = `
 <div
-  class="t-demo-tabs"
+  class="tdesign-demo-block-column-large"
 >
   <div
-    class="t-demo-tabs__desc"
+    class="tdesign-demo-block-column"
   >
     <div
-      class="t-radio-group t-radio-group-medium t-radio-group-filled"
-      modelvalue="medium"
+      class="t-tabs"
     >
       
-      <label
-        class="t-radio-button t-is-checked"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="medium"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-           medium 
-          
-          
-        </span>
-      </label>
-      <label
-        class="t-radio-button"
-      >
-        <input
-          class="t-radio-button__former"
-          name=""
-          type="radio"
-          value="large"
-        />
-        <span
-          class="t-radio-button__input"
-        />
-        <span
-          class="t-radio-button__label"
-        >
-          
-          
-           large 
-          
-          
-        </span>
-      </label>
       <div
-        class="t-radio-group-filled-bg-block"
-      />
-      
-    </div>
-  </div>
-  <div
-    class="t-tabs"
-    modelvalue="first"
-  >
-    
-    <div
-      class="t-tabs__header t-is-top"
-    >
-      <div
-        class="t-tabs__nav"
+        class="t-tabs__header t-is-top"
       >
-        
         <div
-          class="t-tabs__operations t-tabs__operations--left"
+          class="t-tabs__nav"
         >
-          <transition-stub>
-            <!---->
-          </transition-stub>
-        </div>
-        <div
-          class="t-tabs__operations t-tabs__operations--right"
-        >
-          <transition-stub>
-            <!---->
-          </transition-stub>
-          <!---->
-        </div>
-        
-        <div
-          class="t-tabs__nav-container t-is-top"
-        >
+          
           <div
-            class="t-tabs__nav-scroll"
+            class="t-tabs__operations t-tabs__operations--left"
+          >
+            <transition-stub>
+              <!---->
+            </transition-stub>
+          </div>
+          <div
+            class="t-tabs__operations t-tabs__operations--right"
+          >
+            <transition-stub>
+              <!---->
+            </transition-stub>
+            <!---->
+          </div>
+          
+          <div
+            class="t-tabs__nav-container t-is-top"
           >
             <div
-              class="t-tabs__nav-wrap t-is-smooth"
-              style="transform: translate3d(0px, 0, 0);"
+              class="t-tabs__nav-scroll"
             >
               <div
-                class="t-tabs__bar t-is-top"
-              />
-              
-              
+                class="t-tabs__nav-wrap t-is-smooth"
+                style="transform: translate3d(0px, 0, 0);"
+              >
+                <div
+                  class="t-tabs__bar t-is-top"
+                />
+                
+                
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="t-tabs__content"
-    >
-      
-      
-    </div>
-    
-  </div>
-  <br />
-  <div
-    class="t-tabs"
-    modelvalue="first"
-  >
-    
-    <div
-      class="t-tabs__header t-is-top"
-    >
       <div
-        class="t-tabs__nav"
+        class="t-tabs__content"
       >
         
-        <div
-          class="t-tabs__operations t-tabs__operations--left"
-        >
-          <transition-stub>
-            <!---->
-          </transition-stub>
-        </div>
-        <div
-          class="t-tabs__operations t-tabs__operations--right"
-        >
-          <transition-stub>
-            <!---->
-          </transition-stub>
-          <!---->
-        </div>
         
+      </div>
+      
+    </div>
+    <div
+      class="t-tabs"
+    >
+      
+      <div
+        class="t-tabs__header t-is-top"
+      >
         <div
-          class="t-tabs__nav-container t-tabs__nav--card t-is-top"
+          class="t-tabs__nav"
         >
+          
           <div
-            class="t-tabs__nav-scroll"
+            class="t-tabs__operations t-tabs__operations--left"
+          >
+            <transition-stub>
+              <!---->
+            </transition-stub>
+          </div>
+          <div
+            class="t-tabs__operations t-tabs__operations--right"
+          >
+            <transition-stub>
+              <!---->
+            </transition-stub>
+            <!---->
+          </div>
+          
+          <div
+            class="t-tabs__nav-container t-is-top"
           >
             <div
-              class="t-tabs__nav-wrap t-is-smooth"
-              style="transform: translate3d(0px, 0, 0);"
+              class="t-tabs__nav-scroll"
             >
-              <!---->
-              
-              
+              <div
+                class="t-tabs__nav-wrap t-is-smooth"
+                style="transform: translate3d(0px, 0, 0);"
+              >
+                <div
+                  class="t-tabs__bar t-is-top"
+                />
+                
+                
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="t-tabs__content"
-    >
+      <div
+        class="t-tabs__content"
+      >
+        
+        
+      </div>
       
-      
     </div>
-    
   </div>
 </div>
 `;

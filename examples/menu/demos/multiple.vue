@@ -64,4 +64,3 @@
     </t-head-menu>
   </div>
 </template>
-<script />

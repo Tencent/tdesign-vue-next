@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TdDatePickerProps } from './type';
@@ -21,6 +21,13 @@ export default {
   },
   /** 是否显示时间选择 */
   enableTimePicker: Boolean,
+  /** 第一天从星期几开始 */
+  firstDayOfWeek: {
+    type: Number,
+    validator(val: TdDatePickerProps['firstDayOfWeek']): boolean {
+      return [1, 2, 3, 4, 5, 6, 7].includes(val);
+    },
+  },
   /** 用于格式化日期，[详细文档](https://day.js.org/docs/en/display/format) */
   format: {
     type: String,
@@ -40,8 +47,7 @@ export default {
   },
   /** 占位符 */
   placeholder: {
-    type: String,
-    default: '',
+    type: [String, Array] as PropType<TdDatePickerProps['placeholder']>,
   },
   /** 透传给 popup 组件的参数 */
   popupProps: {
@@ -71,11 +77,11 @@ export default {
   },
   /** 选中值 */
   value: {
-    type: [String, Object, Array] as PropType<TdDatePickerProps['value']>,
+    type: [String, Array, Date] as PropType<TdDatePickerProps['value']>,
   },
   /** 选中值，非受控属性 */
   defaultValue: {
-    type: [String, Object, Array] as PropType<TdDatePickerProps['defaultValue']>,
+    type: [String, Array, Date] as PropType<TdDatePickerProps['defaultValue']>,
   },
   /** 当输入框失去焦点时触发 */
   onBlur: Function as PropType<TdDatePickerProps['onBlur']>,

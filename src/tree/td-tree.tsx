@@ -1,7 +1,7 @@
 import { defineComponent, TransitionGroup } from 'vue';
 import upperFirst from 'lodash/upperFirst';
 import mixins from '../utils/mixins';
-import getLocalReceiverMixins from '../locale/local-receiver';
+import getConfigReceiverMixins, { TreeConfig } from '../config-provider/config-receiver';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
 import TreeItem from './tree-item';
@@ -23,7 +23,7 @@ import { TREE_NAME, CLASS_NAMES, FX } from './constants';
 import { getMark, getNode, emitEvent } from './util';
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('tree')),
+  ...mixins(getConfigReceiverMixins<TreeConfig>('tree')),
   name: TREE_NAME,
   components: { TransitionGroup },
   props,
@@ -573,7 +573,7 @@ export default defineComponent({
     if (treeNodes.length <= 0) {
       const useLocale = !this.empty && !this.$slots.empty;
       emptyNode = (
-        <div class={CLASS_NAMES.treeEmpty}>{useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty')}</div>
+        <div class={CLASS_NAMES.treeEmpty}>{useLocale ? this.t(this.global.empty) : renderTNodeJSX(this, 'empty')}</div>
       );
     }
     treeNodeList = (

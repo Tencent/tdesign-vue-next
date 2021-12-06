@@ -1,53 +1,18 @@
-import { VNode } from 'vue';
 import { Instance as popperInstance } from '@popperjs/core/lib/types';
 import dayjs from 'dayjs';
-
-import { EPickerCols } from '../time-picker/constant';
+import { DatePickerConfig } from '../config-provider/config-receiver';
+import { EPickerCols } from '../time-picker/interface';
 import { DateValue, TdDatePickerProps, TdDateRangePickerProps } from './type';
 
 export * from './type';
 export type DatePickerProps = TdDatePickerProps;
 export type DateRangePickerProps = TdDateRangePickerProps;
 
-export type DatePickerLocale = {
-  placeholder: object;
-  daysOfWeek: string[];
-  monthNames: string[];
-  weekdays: {
-    shorthand: [string, string, string, string, string, string, string];
-    longhand: [string, string, string, string, string, string, string];
-  };
-  months: {
-    shorthand: [string, string, string, string, string, string, string, string, string, string, string, string];
-    longhand: [string, string, string, string, string, string, string, string, string, string, string, string];
-  };
-  firstDayOfWeek: number;
-  rangeSeparator: string;
-  dayAriaLabel: string;
-  weekAbbreviation: string;
-  scrollTitle: string;
-  direction: string;
-  format: string;
-  yearAriaLabel: string;
-  monthAriaLabel: string;
-  confirm: string;
-  applyLabel: string;
-  cancelLabel: string;
-  weekLabel: string;
-  clearLabel: string;
-  selectTime: string;
-  selectDate: string;
-  presets: { [key: string]: string };
-};
-
-export type CustomLocale = Partial<DatePickerLocale>;
-
 export type TdCSSProperties = Partial<CSSStyleDeclaration>;
 
 export interface DatePickerData {
   tempValue: string | Date;
-  locale: CustomLocale | string;
-  locales: CustomLocale;
+  global: DatePickerConfig;
   monthDate: Date;
   start: Date;
   end: Date;
@@ -61,13 +26,13 @@ export interface DatePickerData {
   inlineView: boolean;
   els: Element[];
   isOpen: boolean;
-  timeValue: dayjs.Dayjs;
+  startTimeValue: dayjs.Dayjs;
+  endTimeValue: dayjs.Dayjs;
 }
 
 export interface DatePickerMethods {
   initClickAway: (el: Element) => void;
   attachDatePicker: () => void;
-  getLocales: () => CustomLocale;
   setLocales: () => void;
   onNativeInput(event?: any): void;
   onNativeFocus(event?: any): void;
@@ -91,7 +56,7 @@ export interface DatePickerMethods {
   createPopover: () => void;
   getPlaceholderText(): string;
   handleTimePick(col: EPickerCols, time: number): any;
-  getDisabledDate(): Function;
+  getDates(inputDate: any): Date[];
 }
 
 export interface DatePickerComputed {
@@ -106,6 +71,8 @@ export interface DatePickerComputed {
   pickerStyles: any;
 }
 
+export type DisableDate = Array<DateValue> | DisableDateObj | ((date: Date | string) => boolean);
+
 export interface DisableDateObj {
   from?: string;
   to?: string;
@@ -113,15 +80,13 @@ export interface DisableDateObj {
   after?: string;
 }
 
-export type DisableDate = Array<DateValue> | DisableDateObj | ((date: Date | string) => boolean);
-
 export interface PresetDate {
   [name: string]: DateValue | (() => DateValue);
 }
 
 export interface CalendarComponentProps {
   monthDate: Date;
-  locales: CustomLocale;
+  global: DatePickerConfig;
   selectedDates: Date[];
   start: Date;
   end: Date;
@@ -168,7 +133,7 @@ export interface CalendarMonthComputed {
 export interface CalendarMonthProps {
   mode: string;
   monthDate: Date;
-  locales: CustomLocale;
+  global: DatePickerConfig;
   currentMonth: Date;
 }
 
@@ -244,8 +209,9 @@ export interface CalendarPresetsMethods {
 }
 
 export interface CalendarPresetsProps {
-  locales: CustomLocale;
-  onClickRange: Function;
+  presets: TdDatePickerProps['presets'];
+  global: DatePickerConfig;
+  onClick: Function;
 }
 
 export interface DateRangeProps {
@@ -254,17 +220,21 @@ export interface DateRangeProps {
   minDate: Date;
   maxDate: Date;
   firstDayOfWeek: number;
-  disableDate: Function;
-  onChange: Function;
+  disableDate: TdDatePickerProps['disableDate'];
+  global: DatePickerConfig;
+  onChange: TdDatePickerProps['onChange'];
+  onPick: TdDateRangePickerProps['onPick'];
 }
+
 export interface DateProps {
   mode: string;
   value: Date;
   minDate: Date;
   maxDate: Date;
   firstDayOfWeek: number;
-  disableDate: Function;
-  onChange: Function;
+  disableDate: TdDatePickerProps['disableDate'];
+  global: DatePickerConfig;
+  onChange: TdDatePickerProps['onChange'];
 }
 
 export interface DateHeaderProps {
@@ -281,11 +251,11 @@ export interface DateRangeMethods {
     rightMonth: number;
   };
   getData(value: { year: number; month: number; type: string }): object;
-  getClickHandler(direction: string): object;
+  getClickHandler(direction: string, date: DateValue, e: MouseEvent): object;
   clickHeader(flag: number, direction: string): void;
-  clickDate(date: Date): void;
-  clickYear(date: Date, type: string): void;
-  clickMonth(date: Date, type: string): void;
+  clickDate(date: Date, e: MouseEvent): void;
+  clickYear(date: Date, e: MouseEvent, type: string): void;
+  clickMonth(date: Date, e: MouseEvent, type: string): void;
   onMouseEnter(date: Date): void;
   onTypeChange(): void;
   handleTypeChange(direction: string, type: string): void;
@@ -327,13 +297,9 @@ export interface DateData {
 export interface Cell {
   active: boolean;
   disabled: boolean;
-  additional: boolean;
-  highlight: boolean;
-  startOfRange: boolean;
-  endOfRange: boolean;
   now: boolean;
   text: string;
   value: Date;
 }
 
-export interface DatePickerInstance extends VNode, DatePickerData, DatePickerMethods, DatePickerComputed {}
+export interface DatePickerInstance extends DatePickerData, DatePickerMethods, DatePickerComputed {}

@@ -12,9 +12,7 @@
         <t-popconfirm
           :visible="visible"
           theme="default"
-          content="是否提交审核？（自定义按钮内容）"
-          :confirm-btn="confirmBtn"
-          :cancel-btn="cancelBtn"
+          content="是否提交审核？（自由控制浮层显示或隐藏）"
           @visible-change="onVisibleChange"
         >
           <t-button>提交审核</t-button>
@@ -68,7 +66,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .popconfirm-demo .tdesign-demo-block {
   display: flex;
   justify-content: flex-start;

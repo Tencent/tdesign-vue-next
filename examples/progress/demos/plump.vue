@@ -14,7 +14,6 @@
   <div class="t-progress-domo-margin">渐变色</div>
   <t-progress theme="plump" :color="{ from: '#0052D9', to: '#00A870' }" :percentage="30" :status="'active'" />
 </template>
-<script></script>
 
 <style scoped>
 div > .t-progress-domo-margin:first-child {

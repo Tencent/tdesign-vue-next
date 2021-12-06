@@ -4,13 +4,13 @@
       <div class="demo-button-col">
         <t-button theme="primary">
           <template #icon>
-            <t-icon name="add" />
+            <add-icon />
           </template>
           新建
         </t-button>
         <t-button variant="outline">
           <template #icon>
-            <t-icon name="cloud-upload" />
+            <cloud-upload-icon />
           </template>
           上传文件
         </t-button>
@@ -18,12 +18,12 @@
       <div class="demo-button-col">
         <t-button shape="circle" theme="primary">
           <template #icon>
-            <t-icon name="discount" />
+            <discount-icon />
           </template>
         </t-button>
         <t-button shape="circle" theme="primary">
           <template #icon>
-            <t-icon name="cloud-download" />
+            <cloud-download-icon />
           </template>
         </t-button>
       </div>
@@ -36,12 +36,19 @@
 </template>
 <script lang="jsx">
 import { defineComponent } from 'vue';
+import { AddIcon, CloudUploadIcon, SearchIcon, DiscountIcon, CloudDownloadIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
+  components: {
+    AddIcon,
+    CloudUploadIcon,
+    DiscountIcon,
+    CloudDownloadIcon,
+  },
   setup() {
     return {
       renderIcon() {
-        return <t-icon name="search" />;
+        return <SearchIcon />;
       },
     };
   },

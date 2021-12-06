@@ -1,23 +1,15 @@
 <template>
-  <div class="tdesign-radio-group">
+  <div class="tdesign-demo-block-column">
     <div>
-      <t-radio-group v-model="value" name="city" :options="options" @change="onChange" />
+      <t-radio-group v-model="value" name="city" :options="options" @change="onChange"></t-radio-group>
     </div>
 
     <div>
-      <t-radio-group default-value="sz" :options="options" @change="onChange" />
-    </div>
-
-    <div>
-      <t-radio-group disabled default-value="gz" :options="optionsWithDisabled" @change="onChange" />
-    </div>
-
-    <div>
-      <t-radio-group default-value="gz" @change="onChange">
-        <t-radio value="bj"> 北京 </t-radio>
-        <t-radio value="sh"> 上海 </t-radio>
-        <t-radio value="gz"> 广州 </t-radio>
-        <t-radio value="sz" disabled> 深圳 </t-radio>
+      <t-radio-group default-value="1" @change="onChange">
+        <t-radio value="1">选项一</t-radio>
+        <t-radio value="2">选项二</t-radio>
+        <t-radio value="3">选项三</t-radio>
+        <t-radio value="4" disabled>选项四</t-radio>
       </t-radio-group>
     </div>
   </div>
@@ -28,41 +20,20 @@ import { defineComponent, ref } from 'vue';
 
 const options = [
   {
-    value: 'bj',
-    label: '北京',
+    value: '1',
+    label: '选项一',
   },
   {
-    value: 'sh',
-    label: '上海',
+    value: '2',
+    label: '选项二',
   },
   {
-    value: 'gz',
-    label: '广州',
+    value: '3',
+    label: '选项三',
   },
   {
-    value: 'sz',
-    label: () => '深圳',
-  },
-];
-
-const optionsWithDisabled = [
-  {
-    value: 'bj',
-    label: '北京',
-  },
-  {
-    value: 'sh',
-    label: '上海',
-  },
-  {
-    value: 'gz',
-    label: '广州',
-    disabled: false,
-  },
-  {
-    value: 'sz',
-    label: () => '深圳',
-    disabled: false,
+    value: '4',
+    label: () => '选项四',
   },
 ];
 
@@ -70,15 +41,13 @@ export default defineComponent({
   setup() {
     const value = ref('');
     const onChange = (checkedValues) => {
-      console.log('checkedValues:', checkedValues);
-      console.log('value:', value.value);
+      console.log('checkedValues:', value.value, checkedValues);
     };
 
     return {
       value,
       options,
       onChange,
-      optionsWithDisabled,
     };
   },
 });

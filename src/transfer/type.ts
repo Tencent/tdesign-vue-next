@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { CheckboxProps } from '../checkbox';
@@ -50,7 +50,7 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    */
   footer?: Array<string | TNode> | TNode<{ type: TransferListType }>;
   /**
-   * 用来定义 value / label 在 `data` 中对应的字段别名
+   * 用来定义选项文本和选项值字段，示例：{ label: 'text', value: 'id' }，表示选项文本取 `text` 字段，选项值取 `id` 字段
    */
   keys?: KeysType;
   /**
@@ -115,14 +115,11 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    * 搜索时触发，options.query 表示用户输入的内容
    */
   onSearch?: (options: SearchContext) => void;
-}
+};
 
 export type EmptyType = string | TNode;
 
-export interface KeysType {
-  value?: string;
-  label?: string
-}
+export interface KeysType { value?: string; label?: string };
 
 export type SearchOption = boolean | InputProps;
 
@@ -130,30 +127,13 @@ export type TitleType = string | TNode;
 
 export type TransferListType = 'source' | 'target';
 
-export interface TransferItem<T extends DataOption = DataOption> {
-  data: T;
-  index: number;
-  type: TransferListType
-}
+export interface TransferItem<T extends DataOption = DataOption> { data: T; index: number; type: TransferListType};
 
-export interface TargetParams {
-  type: TransferListType;
-  movedValue: Array<TransferValue>
-}
+export interface TargetParams { type: TransferListType; movedValue: Array<TransferValue> };
 
-export interface CheckedOptions {
-  checked: Array<TransferValue>;
-  sourceChecked: Array<TransferValue>;
-  targetChecked: Array<TransferValue>;
-  type: TransferListType
-}
+export interface CheckedOptions { checked: Array<TransferValue>; sourceChecked: Array<TransferValue>; targetChecked: Array<TransferValue>; type: TransferListType };
 
-export interface SearchContext {
-  query: string;
-  type: TransferListType;
-  trigger: 'input' | 'enter';
-  e: InputEvent | KeyboardEvent
-}
+export interface SearchContext { query: string; type: TransferListType; trigger: 'input' | 'enter';  e: InputEvent | KeyboardEvent };
 
 export type DataOption = { label?: string; value?: TransferValue; disabled?: boolean } & Record<string, any>;
 

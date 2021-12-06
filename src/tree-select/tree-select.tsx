@@ -6,9 +6,10 @@ import isString from 'lodash/isString';
 import isBoolean from 'lodash/isBoolean';
 import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
-import { CloseCircleFilledIcon, LoadingIcon } from 'tdesign-icons-vue-next';
+import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import TLoading from '../loading';
 import mixins from '../utils/mixins';
-import getLocalReceiverMixins from '../locale/local-receiver';
+import getConfigReceiverMixins, { TreeSelectConfig } from '../config-provider/config-receiver';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 import Popup, { PopupProps } from '../popup';
@@ -24,17 +25,15 @@ import { TreeSelectValue } from './type';
 import { ClassName, TreeOptionData } from '../common';
 import { prefix } from '../config';
 
-import { RemoveOptions } from './interface';
+import { RemoveOptions, NodeOptions } from './interface';
 
 const name = `${prefix}-tree-select`;
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('treeSelect')),
+  ...mixins(getConfigReceiverMixins<TreeSelectConfig>('treeSelect')),
   name,
   components: {
     Tree,
-    CloseCircleFilledIcon,
-    LoadingIcon,
   },
   props: {
     ...props,
@@ -81,10 +80,10 @@ export default defineComponent({
     isObjectValue(): boolean {
       return this.valueType === 'object';
     },
-    checked(): Array<TreeNodeValue> {
+    checked(): Array<TreeSelectValue> {
       if (this.multiple) {
         if (this.isObjectValue) {
-          return isArray(this.value) ? this.value.map((item) => item.value) : [];
+          return isArray(this.value) ? this.value.map((item) => (item as NodeOptions).value) : [];
         }
         return isArray(this.value) ? this.value : [];
       }
@@ -171,7 +170,7 @@ export default defineComponent({
     loadingTextSlot(): VNode {
       const useLocale = !this.loadingText && !this.$slots.loadingText;
       return useLocale ? (
-        <div class={`${prefix}-select-empty`}>{this.t(this.locale.loadingText)}</div>
+        <div class={`${prefix}-select-empty`}>{this.t(this.global.loadingText)}</div>
       ) : (
         renderTNodeJSX(this, 'loadingText')
       );
@@ -179,7 +178,7 @@ export default defineComponent({
     emptySlot(): VNode {
       const useLocale = !this.empty && !this.$slots.empty;
       return useLocale ? (
-        <div class={`${prefix}-select-empty`}>{this.t(this.locale.empty)}</div>
+        <div class={`${prefix}-select-empty`}>{this.t(this.global.empty)}</div>
       ) : (
         renderTNodeJSX(this, 'empty')
       );
@@ -222,8 +221,8 @@ export default defineComponent({
     }
     if (this.isObjectValue) {
       this.actived = isArray(this.value)
-        ? this.value.map((item) => item.value)
-        : [(this.value as { label: string; value: string | number }).value];
+        ? this.value.map((item) => (item as NodeOptions).value)
+        : [(this.value as NodeOptions).value];
     } else {
       this.actived = isArray(this.value) ? this.value : [this.value];
     }
@@ -472,11 +471,11 @@ export default defineComponent({
               size={this.size}
               onClick={({ e }) => this.clear(e)}
             />
-            <LoadingIcon
+            <TLoading
               v-show={this.showLoading}
               name="loading"
               class={`${prefix}-select-right-icon ${prefix}-select-active-icon`}
-              size={this.size}
+              size="small"
             />
           </div>
         </Popup>

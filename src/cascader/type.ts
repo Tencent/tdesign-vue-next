@@ -2,12 +2,12 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-10-19 19:02:20
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { CheckboxProps } from '../checkbox';
 import { PopupProps } from '../popup';
-import { TreeNodeModel } from '../tree/type';
+import { TreeNodeModel } from '../tree';
 import { TNode, TreeOptionData, SizeEnum } from '../common';
 
 export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOptionData> {
@@ -28,15 +28,14 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   /**
    * 多选情况下，用于设置折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义
    */
-  collapsedItems?: TNode;
+  collapsedItems?: TNode<{ value: CascaderOption[]; collapsedSelectedItems: CascaderOption[]; count: number }>;
   /**
    * 是否禁用组件
    * @default false
    */
   disabled?: boolean;
   /**
-   * 无匹配选项时的内容
-   * @default '暂无数据'
+   * 无匹配选项时的内容，默认全局配置为 '暂无数据'
    */
   empty?: string | TNode;
   /**
@@ -57,6 +56,16 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 加载子树数据的方法（仅当节点 children 为 true 时生效）
    */
   load?: (node: TreeNodeModel<CascaderOption>) => Promise<Array<CascaderOption>>;
+  /**
+   * 是否为加载状态
+   * @default false
+   */
+  loading?: boolean;
+  /**
+   * 远程加载时显示的文字，支持自定义。如加上超链接
+   * @default ''
+   */
+  loadingText?: string | TNode;
   /**
    * 用于控制多选数量，值为 0 则不限制
    * @default 0
@@ -121,9 +130,9 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   onBlur?: (context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => void;
   /**
-   * 选中值发生变化时触发。TreeNodeModel 从树组件中导出
+   * 选中值发生变化时触发。TreeNodeModel 从树组件中导出。`context.node` 表示触发事件的节点，`context.source` 表示触发事件的来源
    */
-  onChange?: (value: CascaderValue<CascaderOption>, context: { node: TreeNodeModel<CascaderOption> }) => void;
+  onChange?: (value: CascaderValue<CascaderOption>, context: CascaderChangeContext<CascaderOption>) => void;
   /**
    * 获得焦点时触发
    */
@@ -137,5 +146,9 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
 export interface KeysType { value?: string; label?: string; children?: string };
 
 export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
+
+export interface CascaderChangeContext<CascaderOption> { node?: TreeNodeModel<CascaderOption>; source: CascaderChangeSource };
+
+export type CascaderChangeSource = 'invalid-value' | 'checked' | 'clear' | 'unchecked';
 
 export interface RemoveContext<T> { value: CascaderValue<T>; node: TreeNodeModel<T> };

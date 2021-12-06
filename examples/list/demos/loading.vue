@@ -40,7 +40,7 @@ export default defineComponent({
       asyncLoadingRadio,
       asyncLoading,
       loadMore,
-      imageUrl: 'https://tdesign.gtimg.com/list-icon.png',
+      imageUrl: 'https://tdesign.gtimg.com/site/avatar.jpg',
     };
   },
 });

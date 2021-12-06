@@ -133,10 +133,16 @@ exports[`Button icon demo works fine 1`] = `
         
         
         <svg
-          class="t-icon t-icon-add t-size-m"
+          class="t-icon t-icon-add"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <use
-            href="#t-icon-add"
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         
@@ -156,10 +162,21 @@ exports[`Button icon demo works fine 1`] = `
         
         
         <svg
-          class="t-icon t-icon-cloud-upload t-size-m"
+          class="t-icon t-icon-cloud-upload"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <use
-            href="#t-icon-cloud-upload"
+          <path
+            d="M4.73 6.26l-.71.09A2.32 2.32 0 002 8.67c0 1.2.89 2.18 2 2.31v1a3.31 3.31 0 01-3-3.31 3.32 3.32 0 012.9-3.32A4.2 4.2 0 018 2c2 0 3.69 1.43 4.1 3.35 1.63.2 2.9 1.6 2.9 3.32a3.31 3.31 0 01-3 3.32v-1c1.11-.14 2-1.11 2-2.32 0-1.22-.9-2.2-2.02-2.32l-.71-.09-.15-.7A3.2 3.2 0 008 3a3.2 3.2 0 00-3.12 2.56l-.15.7z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+          <path
+            d="M6.14 10.72L7.5 9.39l.03 5.12 1.01-.01-.03-5.1 1.37 1.34.72-.7-2.26-2.2a.5.5 0 00-.7 0l-2.22 2.18.72.7z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         
@@ -183,10 +200,23 @@ exports[`Button icon demo works fine 1`] = `
         
         
         <svg
-          class="t-icon t-icon-discount t-size-m"
+          class="t-icon t-icon-discount"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <use
-            href="#t-icon-discount"
+          <path
+            d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+          <path
+            clipRule="evenodd"
+            d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z"
+            fill="currentColor"
+            fillOpacity="0.9"
+            fillRule="evenodd"
           />
         </svg>
         
@@ -200,10 +230,21 @@ exports[`Button icon demo works fine 1`] = `
         
         
         <svg
-          class="t-icon t-icon-cloud-download t-size-m"
+          class="t-icon t-icon-cloud-download"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <use
-            href="#t-icon-cloud-download"
+          <path
+            d="M4.73 6.26l-.71.09A2.32 2.32 0 002 8.67c0 1.2.89 2.18 2 2.31v1a3.31 3.31 0 01-3-3.31 3.32 3.32 0 012.9-3.32A4.2 4.2 0 018 2c2 0 3.69 1.43 4.1 3.35 1.63.2 2.9 1.6 2.9 3.32a3.31 3.31 0 01-3 3.32v-1c1.11-.14 2-1.11 2-2.32 0-1.22-.9-2.2-2.02-2.32l-.71-.09-.15-.7A3.2 3.2 0 008 3a3.2 3.2 0 00-3.12 2.56l-.15.7z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+          <path
+            d="M9.8 11.3l-1.3 1.29v-4.6h-1v4.6L6.2 11.3l-.7.7 2.15 2.15c.2.2.51.2.7 0L10.5 12l-.7-.71z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         
@@ -221,10 +262,16 @@ exports[`Button icon demo works fine 1`] = `
       >
         
         <svg
-          class="t-icon t-icon-search t-size-m"
+          class="t-icon t-icon-search"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <use
-            href="#t-icon-search"
+          <path
+            d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.71-3.54-3.53zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z"
+            fill="currentColor"
+            fillOpacity="0.9"
           />
         </svg>
         <span

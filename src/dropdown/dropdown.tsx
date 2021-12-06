@@ -4,6 +4,7 @@ import Popup from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
 import props from './props';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-dropdown`;
 
@@ -33,8 +34,8 @@ export default defineComponent({
   render() {
     const trigger: VNode[] | VNode | string = this.$slots.default ? this.$slots.default(null) : '';
 
+    const contentSlot: VNode[] | VNode | string = renderTNodeJSX(this, 'dropdown');
     const POPUP_PROPS = this.popupProps as TdDropdownProps['popupProps'];
-
     const overlayClassName = POPUP_PROPS && POPUP_PROPS.overlayClassName ? [name, POPUP_PROPS.overlayClassName] : name;
     const popupProps = {
       ...this.$attrs,
@@ -52,15 +53,16 @@ export default defineComponent({
         ref="popupElem"
         expandAnimation
         v-slots={{
-          content: () => (
-            <dropdown-menu
-              options={this.options}
-              maxHeight={this.maxHeight}
-              maxColumnWidth={this.maxColumnWidth}
-              minColumnWidth={this.minColumnWidth}
-              onClick={this.handleMenuClick}
-            />
-          ),
+          content: () =>
+            contentSlot || (
+              <dropdown-menu
+                options={this.options}
+                maxHeight={this.maxHeight}
+                maxColumnWidth={this.maxColumnWidth}
+                minColumnWidth={this.minColumnWidth}
+                onClick={this.handleMenuClick}
+              />
+            ),
         }}
       >
         {trigger}

@@ -22,5 +22,3 @@
     </t-radio-group>
   </div>
 </template>
-
-<script></script>

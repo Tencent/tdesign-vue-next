@@ -1,24 +1,10 @@
 <template>
-  <div class="switch-demo">
-    <div class="tdesign-demo-block">
-      <t-switch v-model="checked" :label="['开', '关']" />
-      <t-switch :label="['开', '关']" />
-    </div>
-    <div class="tdesign-demo-block">
-      <t-switch v-model="renderChecked" :label="[renderActiveContent, renderInactiveContent]" />
-      <t-switch :label="[renderActiveContent, renderInactiveContent]" />
-    </div>
-    <div class="tdesign-demo-block">
-      <t-switch v-model="renderChecked2" :label="renderContent" />
-      <t-switch :label="renderContent" />
-    </div>
-    <div class="tdesign-demo-block">
-      <t-switch v-model="slotChecked">
-        <template #label="slotProps">
-          {{ slotProps.value ? '开' : '关' }}
-        </template>
+  <div class="tdesign-demo-block-column">
+    <div class="tdesign-demo-block-row">
+      <t-switch v-model="slotChecked" size="large">
+        <template #label="slotProps">{{ slotProps.value ? '开' : '关' }}</template>
       </t-switch>
-      <t-switch>
+      <t-switch size="large">
         <template #label="slotProps">
           <template v-if="slotProps.value">
             <check-icon />
@@ -28,6 +14,21 @@
           </template>
         </template>
       </t-switch>
+    </div>
+
+    <div class="tdesign-demo-block-row">
+      <t-switch v-model="checked" size="large" :label="['开', '关']"></t-switch>
+      <t-switch size="large" :label="['开', '关']"></t-switch>
+    </div>
+
+    <div class="tdesign-demo-block-row">
+      <t-switch v-model="renderChecked" size="large" :label="[renderActiveContent, renderInactiveContent]"></t-switch>
+      <t-switch size="large" :label="[renderActiveContent, renderInactiveContent]"></t-switch>
+    </div>
+
+    <div class="tdesign-demo-block-row">
+      <t-switch v-model="renderChecked2" size="large" :label="renderContent"></t-switch>
+      <t-switch size="large" :label="renderContent"></t-switch>
     </div>
   </div>
 </template>

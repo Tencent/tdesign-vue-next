@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TdAnchorProps } from './type';
@@ -22,6 +22,10 @@ export default {
   container: {
     type: [String, Function] as PropType<TdAnchorProps['container']>,
     default: () => (() => window),
+  },
+  /** 用于自定义选中项左侧游标 */
+  cursor: {
+    type: Function as PropType<TdAnchorProps['cursor']>,
   },
   /** 组件尺寸，small(120px)，medium(200px)，large(320px) */
   size: {

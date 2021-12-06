@@ -18,4 +18,3 @@
     </t-list-item>
   </t-list>
 </template>
-<script></script>

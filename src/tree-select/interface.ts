@@ -8,3 +8,8 @@ export interface RemoveOptions<DataOption> {
   data: DataOption;
   e: MouseEvent;
 }
+
+export interface NodeOptions {
+  label: string;
+  value: string | number;
+}

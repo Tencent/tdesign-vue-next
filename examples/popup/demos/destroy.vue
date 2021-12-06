@@ -5,4 +5,3 @@
     </t-popup>
   </div>
 </template>
-<script></script>

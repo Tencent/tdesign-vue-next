@@ -24,6 +24,9 @@ export default defineComponent({
       }
 
       const { color, fontSize } = window.getComputedStyle(circleElem);
+
+      // to fix the browser compat of foreignObject in Safari,
+      // https://bugs.webkit.org/show_bug.cgi?id=23113
       const ua = window?.navigator?.userAgent;
       const isSafari = /Safari/.test(ua) && !/Chrome/.test(ua);
       if (isSafari) {

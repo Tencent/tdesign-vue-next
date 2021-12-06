@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-10-19 19:02:20
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TdCascaderProps } from './type';
@@ -23,10 +23,9 @@ export default {
   },
   /** 是否禁用组件 */
   disabled: Boolean,
-  /** 无匹配选项时的内容 */
+  /** 无匹配选项时的内容，默认全局配置为 '暂无数据' */
   empty: {
     type: [String, Function] as PropType<TdCascaderProps['empty']>,
-    default: '暂无数据',
   },
   /** 是否可搜索 */
   filterable: Boolean,
@@ -42,6 +41,13 @@ export default {
   /** 加载子树数据的方法（仅当节点 children 为 true 时生效） */
   load: {
     type: Function as PropType<TdCascaderProps['load']>,
+  },
+  /** 是否为加载状态 */
+  loading: Boolean,
+  /** 远程加载时显示的文字，支持自定义。如加上超链接 */
+  loadingText: {
+    type: [String, Function] as PropType<TdCascaderProps['loadingText']>,
+    default: '',
   },
   /** 用于控制多选数量，值为 0 则不限制 */
   max: {
@@ -110,7 +116,7 @@ export default {
   },
   /** 当输入框失去焦点时触发 */
   onBlur: Function as PropType<TdCascaderProps['onBlur']>,
-  /** 选中值发生变化时触发。TreeNodeModel 从树组件中导出 */
+  /** 选中值发生变化时触发。TreeNodeModel 从树组件中导出。`context.node` 表示触发事件的节点，`context.source` 表示触发事件的来源 */
   onChange: Function as PropType<TdCascaderProps['onChange']>,
   /** 获得焦点时触发 */
   onFocus: Function as PropType<TdCascaderProps['onFocus']>,

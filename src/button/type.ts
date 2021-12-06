@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TNode, SizeEnum } from '../common';
@@ -42,7 +42,7 @@ export interface TdButtonProps {
   loading?: boolean;
   /**
    * 按钮形状，有 4 种：长方形、正方形、圆角长方形、圆形
-   * @default square
+   * @default rectangle
    */
   shape?: 'rectangle' | 'square' | 'round' | 'circle';
   /**
@@ -64,4 +64,8 @@ export interface TdButtonProps {
    * @default base
    */
   variant?: 'base' | 'outline' | 'dashed' | 'text';
+  /**
+   * 点击时触发
+   */
+  onClick?: (e: MouseEvent) => void;
 };

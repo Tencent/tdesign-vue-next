@@ -3,7 +3,7 @@ import findIndex from 'lodash/findIndex';
 import isFunction from 'lodash/isFunction';
 import { UploadIcon } from 'tdesign-icons-vue-next';
 import mixins from '../utils/mixins';
-import getLocalReceiverMixins from '../locale/local-receiver';
+import getConfigReceiverMixins, { UploadConfig } from '../config-provider/config-receiver';
 import { prefix } from '../config';
 import Dragger from './dragger';
 import ImageCard from './image';
@@ -81,7 +81,7 @@ function isOverSizeLimit(fileSize: number, sizeLimit: number, unit: SizeUnit) {
 }
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('upload')),
+  ...mixins(getConfigReceiverMixins<UploadConfig>('upload')),
   name,
 
   components: {
@@ -192,6 +192,12 @@ export default defineComponent({
       this.emitRemoveEvent({ e });
     },
 
+    handleFileInputRemove(e: MouseEvent) {
+      // prevent trigger upload
+      e?.stopPropagation();
+      this.handleSingleRemove(e);
+    },
+
     handleMultipleRemove(options: UploadRemoveOptions) {
       const changeCtx = { trigger: 'remove', ...options };
       const files = this.files.concat();
@@ -266,7 +272,9 @@ export default defineComponent({
         this.handleRequestMethod(file);
       } else {
         // 模拟进度条
-        this.handleMockProgress(file);
+        if (this.useMockProgress) {
+          this.handleMockProgress(file);
+        }
         const request = xhr;
         this.xhrReq = request({
           action: this.action,
@@ -450,7 +458,7 @@ export default defineComponent({
         // 有参数 message 则使用，没有就使用全局 locale 配置
         this.errorMsg = sizeLimit.message
           ? this.t(sizeLimit.message, { sizeLimit: sizeLimit.size })
-          : `${this.t(this.locale.sizeLimitMessage, { sizeLimit: sizeLimit.size })} ${sizeLimit.unit}`;
+          : `${this.t(this.global.sizeLimitMessage, { sizeLimit: sizeLimit.size })} ${sizeLimit.unit}`;
       }
       return rSize;
     },
@@ -487,9 +495,9 @@ export default defineComponent({
       }
       const iconSlot = { icon: () => <UploadIcon slot="icon" /> };
       return (
-        <t-button variant="outline" v-slots={iconSlot}>
-          点击上传
-        </t-button>
+        <TButton variant="outline" v-slots={iconSlot}>
+          {this.files?.length ? '重新上传' : '点击上传'}
+        </TButton>
       );
     },
 
@@ -510,7 +518,7 @@ export default defineComponent({
         />
       );
     },
-    // 渲染单文件预览：设计稿有两种单文件预览方式，文本型和输入框型
+    // 渲染单文件预览：设计稿有两种单文件预览方式，文本型和输入框型。输入框型的需要在右侧显示「删除」按钮
     renderSingleDisplay(triggerElement: SlotReturnValue) {
       return (
         <single-file
@@ -523,6 +531,11 @@ export default defineComponent({
         >
           <div class="t-upload__trigger" onclick={this.triggerUpload}>
             {triggerElement}
+            {!!(this.theme === 'file-input' && this.files?.length) && (
+              <TButton theme="primary" variant="text" onClick={this.handleFileInputRemove}>
+                删除
+              </TButton>
+            )}
           </div>
         </single-file>
       );
@@ -549,6 +562,7 @@ export default defineComponent({
           trigger={this.triggerUpload}
           remove={this.handleSingleRemove}
           upload={this.upload}
+          autoUpload={this.autoUpload}
         >
           {triggerElement}
         </dragger>

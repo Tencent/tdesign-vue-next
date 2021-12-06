@@ -39,29 +39,23 @@ exports[`Drawer Demo CurrentDOMModeUsageExample wroks fine 1`] = `
             style="display: flex; justify-content: flex-start;"
           >
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
-              props="[object Object]"
+              class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 确认
-                
               </span>
             </button>
             <button
-              class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
-              props="[object Object]"
+              class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
               type="button"
             >
               <span
                 class="t-button__text"
               >
-                
                 取消
-                
               </span>
             </button>
             <!---->
@@ -229,14 +223,14 @@ exports[`Drawer Demo CurrentDOMModeUsageExample wroks fine 1`] = `
     <br />
     <br />
     <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
       type="button"
     >
       <span
         class="t-button__text"
       >
         
-         Open 
+        打开抽屉
         
       </span>
     </button>
@@ -391,29 +385,24 @@ exports[`Drawer Demo CustomUsageExample wroks fine 1`] = `
           style="display: flex; justify-content: flex-start;"
         >
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-drawer__confirm"
+            disabled=""
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               OK
-              
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               cancel
-              
             </span>
           </button>
           <!---->
@@ -422,7 +411,7 @@ exports[`Drawer Demo CustomUsageExample wroks fine 1`] = `
     </div>
   </div>
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     type="button"
   >
     <span
@@ -435,7 +424,7 @@ exports[`Drawer Demo CustomUsageExample wroks fine 1`] = `
   </button>
       
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     type="button"
   >
     <span
@@ -448,7 +437,7 @@ exports[`Drawer Demo CustomUsageExample wroks fine 1`] = `
   </button>
       
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     type="button"
   >
     <span
@@ -494,29 +483,23 @@ exports[`Drawer Demo NoMaskUsageExample wroks fine 1`] = `
           style="display: flex; justify-content: flex-start;"
         >
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               确认
-              
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               取消
-              
             </span>
           </button>
           <!---->
@@ -574,29 +557,23 @@ exports[`Drawer Demo PlacementUsageExample wroks fine 1`] = `
           style="display: flex; justify-content: flex-start;"
         >
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               确认
-              
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               取消
-              
             </span>
           </button>
           <!---->
@@ -780,14 +757,14 @@ exports[`Drawer Demo PopupUsageExample wroks fine 1`] = `
   <br />
   <br />
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     type="button"
   >
     <span
       class="t-button__text"
     >
       
-       Open 
+      打开抽屉
       
     </span>
   </button>
@@ -828,29 +805,23 @@ exports[`Drawer Demo SizeUsageExample wroks fine 1`] = `
           style="display: flex; justify-content: flex-start;"
         >
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               确认
-              
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               取消
-              
             </span>
           </button>
           <!---->
@@ -1021,14 +992,14 @@ exports[`Drawer Demo destroy wroks fine 1`] = `
   <!-- 动画效果待开发 -->
   <!---->
   <button
-    class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     type="button"
   >
     <span
       class="t-button__text"
     >
       
-       打开抽屉 
+      打开抽屉
       
     </span>
   </button>
@@ -1120,29 +1091,23 @@ exports[`Drawer Demo operation wroks fine 1`] = `
           style="display: flex; justify-content: flex-start;"
         >
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               确认
-              
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               取消
-              
             </span>
           </button>
           <!---->
@@ -1215,29 +1180,23 @@ exports[`Drawer base demo works fine 1`] = `
           style="display: flex; justify-content: flex-start;"
         >
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer-confirm"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               确认
-              
             </span>
           </button>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer-cancel"
-            props="[object Object]"
+            class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
             type="button"
           >
             <span
               class="t-button__text"
             >
-              
               取消
-              
             </span>
           </button>
           <!---->

@@ -45,19 +45,31 @@ exports[`List :props :asyncLoading is a string 1`] = `
     class="t-list__load t-list__load--loading"
   >
     <div>
-      <svg
-        class="t-icon t-icon-loading"
-        fill="none"
-        height="1em"
-        viewBox="0 0 16 16"
-        width="1em"
+      <div
+        class="t-loading t-size-m t-loading-lock v-transfer-dom"
       >
-        <path
-          d="M8 1.5a6.5 6.5 0 000 13v-1.63A4.87 4.87 0 1112.88 8h1.62A6.5 6.5 0 008 1.5z"
-          fill="currentColor"
-          fillOpacity="0.9"
-        />
-      </svg>
+        <svg
+          class="t-loading__gradient t-icon-loading"
+          height="1em"
+          size="medium"
+          version="1.1"
+          viewBox="0 0 14 14"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <foreignobject
+            height="12"
+            width="12"
+            x="1"
+            y="1"
+          >
+            <div
+              class="t-loading__gradient-conic"
+            />
+          </foreignobject>
+        </svg>
+        <!---->
+      </div>
       <span>
         正在加载中，请稍等
       </span>

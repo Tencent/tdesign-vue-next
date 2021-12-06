@@ -7,7 +7,6 @@
     <t-checkbox disabled :default-checked="true"> 选中禁用项 </t-checkbox>
   </div>
 </template>
-<script />
 
 <style scoped>
 .t-checkbox + .t-checkbox {

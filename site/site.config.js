@@ -18,15 +18,6 @@ export default {
           path: '/vue-next/components/changelog',
           component: () => import('@/CHANGELOG.md'),
         },
-        {
-          title: '组件概览',
-          name: 'overview',
-          meta: {
-            docType: 'explain',
-          },
-          path: '/vue-next/components/overview',
-          component: () => import('@common/docs/web/overview.md'),
-        },
       ],
     },
     {
@@ -34,13 +25,13 @@ export default {
       name: 'configs',
       children: [
         {
-          title: '文本语言配置',
+          title: '全局特性配置',
           name: 'config',
           meta: {
             docType: 'explain',
           },
           path: '/vue-next/components/config',
-          component: () => import('@/examples/locale-provider/locale-provider.md'),
+          component: () => import('@/examples/config-provider/config-provider.md'),
         },
         {
           title: '自定义主题',
@@ -50,6 +41,24 @@ export default {
           },
           path: '/vue-next/components/custom-theme',
           component: () => import('@common/theme.md'),
+        },
+        {
+          title: '暗黑模式',
+          name: 'dark-mode',
+          meta: {
+            docType: 'explain',
+          },
+          path: '/vue-next/components/dark-mode',
+          component: () => import('@common/dark-mode.md'),
+        },
+        {
+          title: '组件概览',
+          name: 'overview',
+          meta: {
+            docType: 'explain',
+          },
+          path: '/vue-next/components/overview',
+          component: () => import('@common/docs/web/overview.md'),
         },
       ],
     },

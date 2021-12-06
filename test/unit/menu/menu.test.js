@@ -88,10 +88,10 @@ describe('Menu', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('<options>', () => {
+    it('<operations>', () => {
       const wrapper = mount(Menu, {
         slots: {
-          options: '<div></div>',
+          operations: '<div></div>',
         },
       });
       expect(wrapper.element).toMatchSnapshot();

@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-09 20:28:26
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TdPrimaryTableProps } from '../table/type';
@@ -61,6 +61,10 @@ export default {
   defaultSelectedRowKeys: {
     type: Array as PropType<TdPrimaryTableProps['defaultSelectedRowKeys']>,
   },
+  /** 【开发中】是否显示 自定义显示列控制器 */
+  showColumnController: Boolean,
+  /** 【开发中】是否显示为通过拖拽图标进行排序 */
+  showDragCol: Boolean,
   /** 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序 */
   sort: {
     type: [Object, Array] as PropType<TdPrimaryTableProps['sort']>,

@@ -2,7 +2,7 @@ import { defineComponent, PropType, h } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 import mixins from '../../utils/mixins';
-import getLocalReceiverMixins from '../../locale/local-receiver';
+import getConfigReceiverMixins, { TableConfig } from '../../config-provider/config-receiver';
 import { SortType } from '../type';
 import { prefix } from '../../config';
 import Tooltip from '../../tooltip';
@@ -17,7 +17,7 @@ const tooltips = {
 type SortTypeEnums = Array<'desc' | 'asc'>;
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('table')),
+  ...mixins(getConfigReceiverMixins<TableConfig>('table')),
   name: `${prefix}-sorter-button`,
   props: {
     sortType: {
@@ -42,7 +42,7 @@ export default defineComponent({
   },
   methods: {
     getSortIcon(direction: string, className: string) {
-      const icon = isFunction(this.locale.sortIcon) ? this.locale.sortIcon(h) : <ChevronDownIcon size="16px" />;
+      const icon = isFunction(this.global.sortIcon) ? this.global.sortIcon(h) : <ChevronDownIcon size="16px" />;
       let style: Styles = {
         left: '0px',
       };

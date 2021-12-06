@@ -1,9 +1,10 @@
 import { defineComponent, PropType, VNode } from 'vue';
-import { LoadingIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import { UploadFile } from './type';
+import TLoading from '../loading';
 import TButton from '../button';
-import { returnFileSize, getCurrentDate, abridgeName } from './util';
+import { returnFileSize, getCurrentDate, abridgeName, UPLOAD_NAME } from './util';
 import { ClassName } from '../common';
 
 const name = `${prefix}-upload-dragger`;
@@ -13,7 +14,7 @@ export default defineComponent({
 
   components: {
     TButton,
-    LoadingIcon,
+    TLoading,
     CheckCircleFilledIcon,
     ErrorCircleFilledIcon,
   },
@@ -35,6 +36,7 @@ export default defineComponent({
     trigger: Function as PropType<(e: MouseEvent) => void>,
     remove: Function as PropType<(e: MouseEvent) => void>,
     upload: Function as PropType<(file: UploadFile, e: MouseEvent) => void>,
+    autoUpload: Boolean,
   },
   emits: ['change', 'dragleave', 'dragenter'],
 
@@ -59,9 +61,9 @@ export default defineComponent({
     },
     classes(): ClassName {
       return [
-        't-upload__dragger',
-        { 't-upload__dragger-center': !this.loadingFile && !this.file },
-        { 't-upload__dragger-error': this.loadingFile && this.loadingFile.status === 'fail' },
+        `${UPLOAD_NAME}__dragger`,
+        { [`${UPLOAD_NAME}__dragger-center`]: !this.loadingFile && !this.file },
+        { [`${UPLOAD_NAME}__dragger-error`]: this.loadingFile && this.loadingFile.status === 'fail' },
       ];
     },
     size(): number {
@@ -69,9 +71,7 @@ export default defineComponent({
     },
     // 上传失败或者上传成功会显示
     showResultOperate(): boolean {
-      const isFail = !!this.loadingFile && this.loadingFile.status === 'fail';
-      const isSuccess = this.file && this.file.name && !this.loadingFile;
-      return isFail || isSuccess;
+      return ['success', 'fail'].includes(this.loadingFile?.status);
     },
   },
 
@@ -104,7 +104,7 @@ export default defineComponent({
     renderDefaultDragElement(): VNode {
       const unActiveElement = (
         <div>
-          <span className={`${prefix}-upload__highlight`}>点击上传</span>
+          <span class={`${prefix}-upload__highlight`}>点击上传</span>
           <span>&nbsp;&nbsp;/&nbsp;&nbsp;拖拽到此区域</span>
         </div>
       );
@@ -113,7 +113,7 @@ export default defineComponent({
     },
 
     renderImage() {
-      return <div class="t-upload__dragger-img-wrap">{this.imageUrl && <img src={this.imageUrl}></img>}</div>;
+      return <div class={`${UPLOAD_NAME}__dragger-img-wrap`}>{this.imageUrl && <img src={this.imageUrl}></img>}</div>;
     },
 
     renderUploading() {
@@ -122,9 +122,9 @@ export default defineComponent({
       }
       if (this.loadingFile.status === 'progress') {
         return (
-          <div class="t-upload__single-progress">
-            <LoadingIcon />
-            <span class="t-upload__single-percent">{Math.min(this.loadingFile.percent, 99)}%</span>
+          <div class={`${UPLOAD_NAME}__single-progress`}>
+            <TLoading />
+            <span class={`${UPLOAD_NAME}__single-percent`}>{Math.min(this.loadingFile.percent, 99)}%</span>
           </div>
         );
       }
@@ -137,41 +137,43 @@ export default defineComponent({
 
     renderProgress() {
       return (
-        <div class="t-upload__dragger-progress">
+        <div class={`${UPLOAD_NAME}__dragger-progress`}>
           {this.isImage && this.renderImage()}
-          <div class="t-upload__dragger-progress-info">
-            <div class="t-upload__dragger-text">
-              <span class="t-upload__single-name">{abridgeName(this.inputName)}</span>
+          <div class={`${UPLOAD_NAME}__dragger-progress-info`}>
+            <div class={`${UPLOAD_NAME}__dragger-text`}>
+              <span class={`${UPLOAD_NAME}__single-name`}>{abridgeName(this.inputName)}</span>
               {this.loadingFile && this.renderUploading()}
               {!this.loadingFile && !!this.file && <CheckCircleFilledIcon />}
             </div>
-            <small class="t-upload__small">文件大小：{returnFileSize(this.size)}</small>
-            <small class="t-upload__small">上传日期：{getCurrentDate()}</small>
-            {!!this.loadingFile && this.loadingFile.status !== 'fail' && (
-              <div class="t-upload__dragger-btns">
-                <t-button
+            <small class={`${UPLOAD_NAME}__small`}>文件大小：{returnFileSize(this.size)}</small>
+            <small class={`${UPLOAD_NAME}__small`}>上传日期：{getCurrentDate()}</small>
+            <div class={`${UPLOAD_NAME}__dragger-btns`}>
+              {['progress', 'waiting'].includes(this.loadingFile?.status) && (
+                <TButton
                   theme="primary"
                   variant="text"
-                  class="t-upload__dragger-progress-cancel"
+                  class={`${UPLOAD_NAME}__dragger-progress-cancel`}
                   onClick={this.cancel}
                 >
                   取消上传
-                </t-button>
-                <t-button
+                </TButton>
+              )}
+              {!this.autoUpload && this.loadingFile?.status === 'waiting' && (
+                <TButton
                   theme="primary"
                   variant="text"
                   onClick={(e: MouseEvent) => this.upload({ ...this.loadingFile }, e)}
                 >
-                  点击上传
-                </t-button>
-              </div>
-            )}
+                  开始上传
+                </TButton>
+              )}
+            </div>
             {this.showResultOperate && (
-              <div class="t-upload__dragger-btns">
+              <div class={`${UPLOAD_NAME}__dragger-btns`}>
                 <t-button
                   theme="primary"
                   variant="text"
-                  class="t-upload__dragger-progress-cancel"
+                  class={`${UPLOAD_NAME}__dragger-progress-cancel`}
                   onClick={this.reupload}
                 >
                   重新上传
@@ -193,7 +195,7 @@ export default defineComponent({
       content = this.renderProgress();
     } else {
       content = (
-        <div class="t-upload__trigger" onClick={this.trigger}>
+        <div class={`${UPLOAD_NAME}__trigger`} onClick={this.trigger}>
           {(this.$slots.default && this.$slots.default(null)) || this.renderDefaultDragElement()}
         </div>
       );

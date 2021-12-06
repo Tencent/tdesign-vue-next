@@ -12,7 +12,7 @@
       </t-radio-group>
     </div>
     <br /><br />
-    <t-button theme="primary" @click="visible = true"> Open </t-button>
+    <t-button variant="outline" @click="visible = true">打开抽屉</t-button>
   </div>
 </template>
 

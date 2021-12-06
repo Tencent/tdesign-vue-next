@@ -4,4 +4,3 @@
     <t-button loading> 加载中 </t-button>
   </div>
 </template>
-<script />

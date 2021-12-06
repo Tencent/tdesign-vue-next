@@ -1,7 +1,7 @@
 import isFunction from 'lodash/isFunction';
 import { PropType, defineComponent } from 'vue';
-import { TdDatePickerProps } from './type';
-import { CalendarPresetsProps, DateValue } from './interface';
+import { DatePickerConfig } from '../config-provider/config-receiver';
+import { CalendarPresetsProps, DateValue, TdDatePickerProps } from './interface';
 import { prefix } from '../config';
 
 import { Button as TButton } from '../button';
@@ -12,14 +12,11 @@ export default defineComponent({
     TButton,
   },
   props: {
-    locales: {
-      type: Object as PropType<CalendarPresetsProps['locales']>,
-      default() {
-        return {};
-      },
+    global: {
+      type: Object as PropType<DatePickerConfig>,
     },
     presets: {
-      type: Object as PropType<TdDatePickerProps['presets']>,
+      type: Object as PropType<CalendarPresetsProps['presets']>,
     },
   },
   emits: ['click-range'],

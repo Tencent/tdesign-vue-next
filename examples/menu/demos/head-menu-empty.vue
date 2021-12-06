@@ -6,4 +6,3 @@
     <t-menu-item value="item4" :disabled="true"> 菜单内容三 </t-menu-item>
   </t-head-menu>
 </template>
-<script />

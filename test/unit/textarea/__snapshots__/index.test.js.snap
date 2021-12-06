@@ -11,6 +11,7 @@ exports[`Textarea $attrs textarea attrs should pass to textarea element 1`] = `
     placeholder="please text"
   />
   <!---->
+  <!---->
 </div>
 `;
 
@@ -24,6 +25,7 @@ exports[`Textarea :props :disabled 1`] = `
     placeholder=""
   />
   <!---->
+  <!---->
 </div>
 `;
 
@@ -36,6 +38,7 @@ exports[`Textarea :props :maxlength 1`] = `
     maxlength="10"
     placeholder=""
   />
+  <!---->
   <span
     class="t-textarea__limit"
   >
@@ -53,6 +56,7 @@ exports[`Textarea :props :readonly 1`] = `
     placeholder=""
     readonly=""
   />
+  <!---->
   <!---->
 </div>
 `;

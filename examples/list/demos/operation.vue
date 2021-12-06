@@ -60,7 +60,7 @@ export default defineComponent({
   components: { EditIcon, DownloadIcon },
   setup() {
     return {
-      avatarUrl: 'https://tdesign.gtimg.com/list-icon.png',
+      avatarUrl: 'https://tdesign.gtimg.com/site/avatar.jpg',
     };
   },
 });

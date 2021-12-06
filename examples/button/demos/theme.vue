@@ -32,4 +32,3 @@
     </div>
   </div>
 </template>
-<script />

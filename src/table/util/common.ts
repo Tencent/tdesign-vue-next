@@ -1,6 +1,6 @@
+import { h, ComponentPublicInstance, VNodeChild } from 'vue';
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
-import { ComponentPublicInstance, VNodeChild } from 'vue';
 import { PrimaryTableCol } from '../type';
 
 export function toString<T>(obj: T): string {
@@ -71,11 +71,11 @@ export const getRecord = (record: Record<any, any>) => {
 export function getTitle(vm: ComponentPublicInstance, column: PrimaryTableCol, colIndex: number): VNodeChild | number {
   let result = null;
   if (isFunction(column.title)) {
-    result = column.title(vm.$createElement, { col: column, colIndex });
+    result = column.title(h, { col: column, colIndex });
   } else if (isString(column.title)) {
     result = vm.$slots[column.title] ? vm.$slots[column.title](null) : column.title;
   } else if (isFunction(column.render)) {
-    result = column.render(vm.$createElement, {
+    result = column.render(h, {
       type: 'title',
       col: column,
       colIndex,
@@ -98,11 +98,11 @@ export function getCell(vm: ComponentPublicInstance, p: GetCellParams) {
   const { col, row } = p;
   let result = null;
   if (isFunction(col.cell)) {
-    result = col.cell(vm.$createElement, { ...p });
+    result = col.cell(h, { ...p });
   } else if (isString(col.cell)) {
     result = vm.$slots[col.cell] ? vm.$slots[col.cell](p) : row[col.colKey];
   } else if (isFunction(col.render)) {
-    result = col.render(vm.$createElement, {
+    result = col.render(h, {
       type: 'cell',
       ...p,
     });

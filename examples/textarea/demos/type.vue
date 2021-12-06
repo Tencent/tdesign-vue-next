@@ -5,4 +5,3 @@
     <t-textarea readonly default-value="只读状态" />
   </div>
 </template>
-<script />

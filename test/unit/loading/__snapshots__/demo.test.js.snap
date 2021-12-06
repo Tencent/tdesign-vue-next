@@ -2,7 +2,7 @@
 
 exports[`Loading attach demo works fine 1`] = `
 <div
-  class="loading-attach-demo"
+  class="tdesign-demo-block-column"
 >
   <div
     class="loading-attach-demo__title"
@@ -87,7 +87,12 @@ exports[`Loading delay demo works fine 1`] = `
   class="tdesign-demo-block-column"
 >
   <div>
-    <!--v-if-->
+    <div
+      class="t-loading t-size-s t-loading-lock v-transfer-dom"
+    >
+      <!---->
+      <!---->
+    </div>
     <div
       class="switch-demo"
     >

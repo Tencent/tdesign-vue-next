@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TNode, ClassName, Styles, AttachNode } from '../common';
@@ -53,7 +53,7 @@ export interface TdPopupProps {
    * 触发浮层出现的方式
    * @default hover
    */
-  trigger?: 'hover' | 'click' | 'focus' | 'context-menu' | 'manual';
+  trigger?: 'hover' | 'click' | 'focus' | 'context-menu';
   /**
    * 触发元素
    */

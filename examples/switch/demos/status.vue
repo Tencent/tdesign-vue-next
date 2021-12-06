@@ -1,10 +1,8 @@
 <template>
-  <div class="switch-demo">
-    <div class="tdesign-demo-block">
-      <t-switch v-model="checked1" />
-      <t-switch v-model="checked2" loading />
-      <t-switch disabled />
-    </div>
+  <div class="tdesign-demo-block-row">
+    <t-switch v-model="checked1" size="large"></t-switch>
+    <t-switch v-model="checked2" size="large" loading></t-switch>
+    <t-switch size="large" disabled></t-switch>
   </div>
 </template>
 

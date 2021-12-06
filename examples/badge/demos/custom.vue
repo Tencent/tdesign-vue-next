@@ -1,18 +1,20 @@
 <template>
   <div>
     <t-badge count="2" dot>
-      <div class="badge-block" />
+      <div class="badge-block"></div>
     </t-badge>
-    <t-badge count="99" color="#52c41a">
-      <div class="badge-block" />
+    <t-badge count="new">
+      <div class="badge-block"></div>
     </t-badge>
-    <t-badge count="100" color="#2db7f5" shape="round">
-      <div class="badge-block" />
+    <t-badge count="99" color="#00A870">
+      <div class="badge-block"></div>
+    </t-badge>
+    <t-badge count="100" color="#0052D9" shape="round">
+      <div class="badge-block"></div>
     </t-badge>
   </div>
 </template>
-<script></script>
-<style>
+<style scoped>
 .badge-block {
   width: 40px;
   height: 40px;
@@ -22,7 +24,7 @@
   border-radius: 3px;
 }
 
-.badge-block + .badge-block {
-  margin-left: 16px;
+.t-badge + .t-badge {
+  margin-left: 32px;
 }
 </style>

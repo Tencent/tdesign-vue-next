@@ -24,7 +24,7 @@ for (let i = 0; i < 20; i++) {
 export default defineComponent({
   setup() {
     const targetValue = ref([]);
-    const checked = ref([]);
+    const checked = ref(['2']);
 
     const handleCheckedChange = ({ checked: checkedVal, sourceChecked, targetChecked, type }) => {
       console.log('handleCheckedChange', {

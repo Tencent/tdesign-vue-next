@@ -38,7 +38,7 @@
     </t-popup>
   </div>
 </template>
-<script></script>
+
 <style>
 .container {
   margin: 0 auto;

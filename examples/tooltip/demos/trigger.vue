@@ -14,7 +14,6 @@
     </t-tooltip>
   </div>
 </template>
-<script></script>
 
 <style lang="less" scoped>
 .tdesign-tooltip-demo {

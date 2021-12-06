@@ -27,6 +27,13 @@
       <t-form-item label="课程" name="course">
         <t-checkbox-group v-model="formData.course" :options="courseOptions" />
       </t-form-item>
+      <t-form-item label="学院" name="college">
+        <t-select v-model="formData.college" class="demo-select-base" clearable>
+          <t-option v-for="(item, index) in collegeOptions" :key="index" :value="item.value" :label="item.label">
+            {{ item.label }}
+          </t-option>
+        </t-select>
+      </t-form-item>
       <t-form-item
         label="入学时间"
         name="date"
@@ -81,16 +88,24 @@ const INITIAL_DATA = {
   },
   course: [],
 };
+
+const courseOptions = [
+  { label: '语文', value: '1' },
+  { label: '数学', value: '2' },
+  { label: '英语', value: '3' },
+  { label: '体育', value: '4' },
+];
+
+const collegeOptions = [
+  { label: '计算机学院', value: '1' },
+  { label: '软件学院', value: '2' },
+  { label: '物联网学院', value: '3' },
+];
+
 export default defineComponent({
   setup() {
     const formData = ref({ ...INITIAL_DATA });
     const form = ref(null);
-    const courseOptions = [
-      { label: '语文', value: '1' },
-      { label: '数学', value: '2' },
-      { label: '英语', value: '3' },
-      { label: '体育', value: '4' },
-    ];
 
     const onReset = () => {
       MessagePlugin.success('重置成功');
@@ -115,6 +130,7 @@ export default defineComponent({
       rules,
       formData,
       courseOptions,
+      collegeOptions,
       onReset,
       onSubmit,
       handleClear,

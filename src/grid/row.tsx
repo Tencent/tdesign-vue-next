@@ -6,6 +6,7 @@ import props from './row-props';
 import { ClassName } from '../common';
 import { calcSize } from '../utils/responsive';
 import { TdRowProps } from './type';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-row`;
 
@@ -16,7 +17,6 @@ export default defineComponent({
     return {
       rowContext: {
         gutter: this.gutter,
-        size: this.size,
       },
     };
   },
@@ -51,13 +51,13 @@ export default defineComponent({
   },
 
   methods: {
-    updateSize: debounce(function (this: any) {
+    updateSize() {
       this.size = calcSize(window.innerWidth);
-    }, 50),
+    },
 
-    calcRowMargin(gutter: TdRowProps['gutter'], currentSize: string): object {
+    calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string): object {
       const rowStyle = {};
-      if (typeof gutter === 'number' && gutter > 0) {
+      if (typeof gutter === 'number') {
         Object.assign(rowStyle, {
           marginLeft: `${gutter / -2}px`,
           marginRight: `${gutter / -2}px`,
@@ -103,11 +103,11 @@ export default defineComponent({
   render(): VNode {
     const { tag: TAG, classes } = this;
 
-    const rowStyle = this.calcRowMargin(this.gutter, this.size);
+    const rowStyle = this.calcRowStyle(this.gutter, this.size);
 
     return (
       <TAG class={classes} style={rowStyle}>
-        {this.$slots.default && this.$slots.default()}
+        {renderTNodeJSX(this, 'default')}
       </TAG>
     );
   },

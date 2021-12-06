@@ -15,4 +15,3 @@
     </t-steps>
   </div>
 </template>
-<script />

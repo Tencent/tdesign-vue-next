@@ -3,10 +3,12 @@ import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
 import set from 'lodash/set';
-import { CloseCircleFilledIcon, LoadingIcon } from 'tdesign-icons-vue-next';
+import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import TLoading from '../loading';
+
 import { renderTNodeJSX } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
-import getLocalRecevierMixins from '../locale/local-receiver';
+import getConfigReceiverMixins, { SelectConfig } from '../config-provider/config-receiver';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TInput from '../input/index';
@@ -31,14 +33,11 @@ const name = `${prefix}-select`;
 // 用户设置overStyle width时，以设置的为准
 const DEFAULT_MAX_OVERLAY_WIDTH = 500;
 
-const SelectLocalReceiver = getLocalRecevierMixins('select');
-
 export default defineComponent({
-  ...mixins(SelectLocalReceiver),
+  ...mixins(getConfigReceiverMixins<SelectConfig>('select')),
   name,
   components: {
     CloseCircleFilledIcon,
-    LoadingIcon,
     TInput,
     Tag,
     Popup,
@@ -468,23 +467,23 @@ export default defineComponent({
     },
     getEmpty() {
       const useLocale = !this.empty && !this.$slots.empty;
-      return useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this as ComponentPublicInstance, 'empty');
+      return useLocale ? this.t(this.global.empty) : renderTNodeJSX(this as ComponentPublicInstance, 'empty');
     },
     getLoadingText() {
       const useLocale = !this.loadingText && !this.$slots.loadingText;
       return useLocale
-        ? this.t(this.locale.loadingText)
+        ? this.t(this.global.loadingText)
         : renderTNodeJSX(this as ComponentPublicInstance, 'loadingText');
     },
     getPlaceholderText() {
-      return this.placeholder || this.t(this.locale.placeholderText);
+      return this.placeholder || this.t(this.global.placeholderText);
     },
     getCloseIcon() {
       const closeIconClass = [`${name}-right-icon`, `${name}-right-icon__clear`];
-      if (isFunction(this.locale.clearIcon)) {
+      if (isFunction(this.global.clearIcon)) {
         return (
           <span class={closeIconClass} onClick={this.clearSelect}>
-            {this.locale.clearIcon(this.$createElement)}
+            {this.global.clearIcon()}
           </span>
         );
       }
@@ -654,7 +653,7 @@ export default defineComponent({
               <FakeArrow overlayClassName={`${name}-right-icon`} isActive={this.visible && !this.disabled} />
             )}
             {this.showClose && !this.showLoading && this.getCloseIcon()}
-            {this.showLoading && <loading-icon class={`${name}-right-icon ${name}-active-icon`} size={size} />}
+            {this.showLoading && <TLoading class={`${name}-right-icon ${name}-active-icon`} size="small" />}
           </div>
         </Popup>
       </div>

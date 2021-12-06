@@ -1,11 +1,25 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../../config';
-import props from './cell-props';
 
 const name = `${prefix}-date-picker-cell`;
 
 export default defineComponent({
-  props,
+  name,
+  props: {
+    text: [String, Number],
+    value: Date,
+    active: Boolean,
+    highlight: Boolean,
+    disabled: Boolean,
+    startOfRange: Boolean,
+    endOfRange: Boolean,
+    additional: Boolean,
+    now: Boolean,
+    firstDayOfMonth: Boolean,
+    lastDayOfMonth: Boolean,
+    onClick: Function,
+    onMouseEnter: { type: Function },
+  },
   render() {
     const {
       text,

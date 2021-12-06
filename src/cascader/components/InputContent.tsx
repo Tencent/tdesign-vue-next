@@ -3,7 +3,7 @@ import isFunction from 'lodash/isFunction';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../../config';
 import CLASSNAMES from '../../utils/classnames';
-import getLocalRecevierMixins from '../../locale/local-receiver';
+import getConfigReceiverMixins, { CascaderConfig } from '../../config-provider/config-receiver';
 import mixins from '../../utils/mixins';
 import { renderTNodeJSX } from '../../utils/render-tnode';
 
@@ -35,7 +35,7 @@ import CascaderProps from '../props';
 const name = `${prefix}-cascader`;
 
 export default defineComponent({
-  ...mixins(getLocalRecevierMixins('cascader')),
+  ...mixins(getConfigReceiverMixins<CascaderConfig>('cascader')),
 
   name: `${name}-input-content`,
   components: {
@@ -101,7 +101,7 @@ export default defineComponent({
       const content = !showPlaceholder ? (
         this.InnerContent()
       ) : (
-        <span className={`${prefix}-cascader-placeholder`}>{placeholder || this.t(this.locale.placeholderText)}</span>
+        <span className={`${prefix}-cascader-placeholder`}>{placeholder || this.t(this.global.placeholder)}</span>
       );
       return content;
     },

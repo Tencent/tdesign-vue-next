@@ -3,7 +3,7 @@ import { prefix } from '../../config';
 
 // utils
 import { renderTNodeJSX } from '../../utils/render-tnode';
-import getLocalRecevierMixins from '../../locale/local-receiver';
+import getConfigReceiverMixins, { CascaderConfig } from '../../config-provider/config-receiver';
 import mixins from '../../utils/mixins';
 
 // common logic
@@ -19,7 +19,7 @@ import CascaderProps from '../props';
 const name = `${prefix}-cascader`;
 
 export default defineComponent({
-  ...mixins(getLocalRecevierMixins('cascader')),
+  ...mixins(getConfigReceiverMixins<CascaderConfig>('cascader')),
 
   name: `${name}-panel`,
   props: {
@@ -46,7 +46,7 @@ export default defineComponent({
       $slots,
     } = this;
     const useLocale = !this.empty && !$slots.empty;
-    const empty = useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty');
+    const empty = useLocale ? this.t(this.global.empty) : renderTNodeJSX(this, 'empty');
     const handleExpand = (ctx: ContextType, trigger: 'hover' | 'click') => {
       const { node } = ctx;
       const { trigger: propsTrigger, cascaderContext, onChange } = this;

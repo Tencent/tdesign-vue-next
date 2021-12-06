@@ -23,4 +23,3 @@
     </t-list>
   </div>
 </template>
-<script></script>

@@ -24,20 +24,6 @@ npm i tdesign-vue-next
 
 ## 使用
 
-使用之前，先来了解下构建产物中的目录文件，这可以帮助我们更好地理解为什么会有这些不同的导入方式。
-
-- dist/tdesign.js 全量组件 JS 文件（未压缩，UMD）
-- dist/tdesign.css 全量组件 CSS 文件（未压缩）
-- dist/tdesign.min.js 全量组件 JS 文件（已压缩，UMD）
-- dist/tdesign.min.css 全量组件 CSS 文件（已压缩）
-- lib/index-lib.js 全量 JS 文件（CommonJS，不包含 CSS）
-- lib/index.js 全量 JS 文件（CommonJS，不包含 CSS，不包含告警信息）
-- lib/button 按需引入组件所需（CommonJS 用法，不包含 CSS）
-- es/index.js 引入全量组件（ESM，包含 CSS 样式，纯 CSS 代码）
-- es/button 按需引入组件（ESM，包含 CSS 样式，纯 CSS 代码）
-- esm/index.js 引入全量组件（ESM，包含 CSS 样式，less 文件，业务侧需解析 less，可定义主题）
-- esm/button 按需引入组件（ESM，包含 CSS 样式，less 文件，业务侧需解析 less，可定义主题）
-
 ### 按需引入方式一
 
 `import { Button } from 'tdesign-vue-next';` 本质和 `import { Button } from 'tdesign-vue-next/es'` 一样。

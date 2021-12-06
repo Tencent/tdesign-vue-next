@@ -2,14 +2,14 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TNode, AttachNode } from '../common';
 
 export interface TdLoadingProps {
   /**
-   * 挂载元素，默认挂载到组件本身所在的位置。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
+   * 挂载元素，默认挂载到组件本身所在的位置。仅全屏加载模式下有效。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body
    * @default ''
    */
   attach?: AttachNode;
@@ -27,7 +27,7 @@ export interface TdLoadingProps {
    */
   delay?: number;
   /**
-   * 是否全屏遮罩，遮罩会挂载到 body
+   * 是否显示为全屏加载
    * @default false
    */
   fullscreen?: boolean;
@@ -37,25 +37,30 @@ export interface TdLoadingProps {
    */
   indicator?: boolean | TNode;
   /**
+   * 是否继承父元素颜色
+   * @default false
+   */
+  inheritColor?: boolean;
+  /**
    * 是否处于加载状态
    * @default true
    */
   loading?: boolean;
   /**
-   * 防止滚动穿透
+   * 防止滚动穿透，全屏加载模式有效
    * @default true
    */
   preventScrollThrough?: boolean;
   /**
    * 是否需要遮罩层，遮罩层对包裹元素才有效
-   * @default false
+   * @default true
    */
   showOverlay?: boolean;
   /**
-   * 尺寸
+   * 尺寸，示例：small/medium/large/12px/56px/0.3em
    * @default medium
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: string;
   /**
    * 加载提示文案
    */
@@ -64,10 +69,8 @@ export interface TdLoadingProps {
    * 消息通知层级，样式默认为 3500
    */
   zIndex?: number;
-}
+};
 
-export interface LoadingInstance {
-  hide: () => void;
-}
+export interface LoadingInstance { hide: () => void };
 
 export type LoadingMethod = (options: boolean | TdLoadingProps) => LoadingInstance;

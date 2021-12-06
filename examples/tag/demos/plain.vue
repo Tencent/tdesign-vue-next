@@ -7,4 +7,3 @@
     <t-tag variant="plain" theme="danger"> 标签五 </t-tag>
   </div>
 </template>
-<script></script>

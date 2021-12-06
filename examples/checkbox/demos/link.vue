@@ -3,10 +3,10 @@
     <div class="demo-checkbox-row-desc">选中值: {{ checked }}</div>
     <div class="demo-checkbox-row">
       <!-- name 非必需 -->
-      <t-checkbox-group v-model="checked" :options="['北京', '上海', '深圳']" name="city" />
+      <t-checkbox-group v-model="checked" :options="['选项一', '选项二', '选项三']" name="city"></t-checkbox-group>
     </div>
     <div class="demo-checkbox-row">
-      <t-button size="small" @click="checked = ['上海']"> 重置 </t-button>
+      <t-button size="small" @click="checked = ['选项二']">重置</t-button>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@ import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
-    const checked = ref(['上海']);
+    const checked = ref(['选项二']);
     return {
       checked,
     };
@@ -29,7 +29,6 @@ export default defineComponent({
   margin-top: 16px;
 }
 .demo-checkbox-row-desc {
-  color: rgba(0, 0, 0, 0.6);
   margin-bottom: 24px;
 }
 .t-checkbox + .t-checkbox,

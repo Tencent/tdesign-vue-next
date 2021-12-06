@@ -59,12 +59,11 @@ export default defineComponent({
         type: 'default',
         showClose: true,
         maxWidth: 100,
-        disabled: true,
       },
       {
         name: '可删除标签可删除标签',
         type: 'default',
-        icon: () => <DiscountIcon size="16" />,
+        icon: () => <DiscountIcon />,
         showClose: true,
         maxWidth: 100,
       },
@@ -78,6 +77,7 @@ export default defineComponent({
     const input = ref('');
 
     const handleClose = (index) => {
+      console.log(index);
       tags.value.splice(index, 1);
     };
 

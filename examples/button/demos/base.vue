@@ -6,4 +6,3 @@
     <t-button theme="default" variant="text"> 文字按钮 </t-button>
   </div>
 </template>
-<script />

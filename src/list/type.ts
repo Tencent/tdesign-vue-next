@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-07-17 18:09:07
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TNode } from '../common';
@@ -46,7 +48,7 @@ export interface TdListProps {
    * 列表滚动时触发，scrollTop 表示顶部滚动距离，scrollBottom 表示底部滚动距离
    */
   onScroll?: (options: { e: Event | WheelEvent; scrollTop: number; scrollBottom: number }) => void;
-}
+};
 
 export interface TdListItemProps {
   /**
@@ -61,7 +63,7 @@ export interface TdListItemProps {
    * 内容，同 content
    */
   default?: string | TNode;
-}
+};
 
 export interface TdListItemMetaProps {
   /**
@@ -81,4 +83,4 @@ export interface TdListItemMetaProps {
    * 列表项标题
    */
   title?: string | TNode;
-}
+};

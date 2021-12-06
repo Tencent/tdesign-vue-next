@@ -1,25 +1,24 @@
-import { defineComponent } from 'vue';
+import { defineComponent, h } from 'vue';
 import { InfoCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { renderTNodeJSX, renderContent, renderTNodeJSXDefault } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
-import getLocalRecevierMixins from '../locale/local-receiver';
-import Popup, { PopupProps } from '../popup/index';
+import getConfigReceiverMixins, { PopconfirmConfig } from '../config-provider/config-receiver';
 import { prefix } from '../config';
+import Popup, { PopupProps } from '../popup/index';
 import props from './props';
-import { TdPopconfirmProps, PopconfirmVisibleChangeContext } from './type';
+import { renderTNodeJSX, renderContent, renderTNodeJSXDefault } from '../utils/render-tnode';
+import { PopconfirmVisibleChangeContext, TdPopconfirmProps } from './type';
+import { emitEvent } from '../utils/event';
+import ActionMixin from '../dialog/actions';
 
 const name = `${prefix}-popconfirm`;
 const popupName = `${prefix}-popup`;
 
-const PopconfirmLocalReceiver = getLocalRecevierMixins('popconfirm');
 type IconConstructor = typeof InfoCircleFilledIcon;
 
 export default defineComponent({
-  ...mixins(PopconfirmLocalReceiver),
+  ...mixins(ActionMixin, getConfigReceiverMixins<PopconfirmConfig>('popconfirm')),
   name,
-  props: {
-    ...props,
-  },
+  props,
   emits: ['close', 'cancel', 'confirm', 'visible-change'],
   data() {
     return {
@@ -54,81 +53,42 @@ export default defineComponent({
     },
   },
   methods: {
-    handleCancel(e: MouseEvent) {
-      this.$emit('cancel', { e });
+    cancelBtnAction(e: MouseEvent) {
+      emitEvent<Parameters<TdPopconfirmProps['onCancel']>>(this, 'cancel', { e });
       const cancelContext: PopconfirmVisibleChangeContext = { e, trigger: 'cancel' };
-      this.$emit('visible-change', false, cancelContext);
+      emitEvent<Parameters<TdPopconfirmProps['onVisibleChange']>>(this, 'visible-change', false, cancelContext);
     },
-    handleConfirm(e: MouseEvent) {
-      this.$emit('confirm', { e });
+    // used in ActionMixin, do not Delete
+    confirmBtnAction(e: MouseEvent) {
+      emitEvent<Parameters<TdPopconfirmProps['onConfirm']>>(this, 'confirm', { e });
       const confirmContext: PopconfirmVisibleChangeContext = { e, trigger: 'confirm' };
-      this.$emit('visible-change', false, confirmContext);
+      emitEvent<Parameters<TdPopconfirmProps['onVisibleChange']>>(this, 'visible-change', false, confirmContext);
     },
     renderIcon() {
-      const ICON = this.themeIcon;
-      return renderTNodeJSXDefault(this, 'icon', <ICON class={this.iconCls} />);
-    },
-    getBtnText(api: TdPopconfirmProps['cancelBtn']) {
-      return typeof api === 'object' ? api.content : api;
-    },
-    getBtnProps(api: TdPopconfirmProps['confirmBtn']) {
-      return typeof api === 'object' ? api : {};
-    },
-    renderCancel(cancelBtn: TdPopconfirmProps['cancelBtn']) {
-      return (
-        <t-button theme="default" size="small" {...this.getBtnProps(cancelBtn)}>
-          {this.getBtnText(cancelBtn)}
-        </t-button>
-      );
-    },
-    renderConfirm(confirmBtn: TdPopconfirmProps['confirmBtn']) {
-      return (
-        <t-button theme="primary" size="small" {...this.getBtnProps(confirmBtn)}>
-          {this.getBtnText(confirmBtn)}
-        </t-button>
-      );
+      const Icon = this.themeIcon;
+      return renderTNodeJSXDefault(this, 'icon', <Icon class={this.iconCls} />);
     },
     onPopupVisibleChange(val: boolean, context: PopconfirmVisibleChangeContext) {
       this.$emit('visible-change', val, context);
+      this.onVisibleChange && this.onVisibleChange(val, context);
     },
   },
   render() {
     const triggerElement = renderContent(this, 'default', 'triggerElement');
-    const baseTypes = ['string', 'object'];
-    let confirmBtn: any = null;
-    if (this.$slots.confirmBtn) {
-      confirmBtn = renderTNodeJSX(this, 'confirmBtn');
-    } else if (![undefined, null].includes(this.confirmBtn)) {
-      const mBtn = this.confirmBtn || this.t(this.locale.confirm);
-      confirmBtn = baseTypes.includes(typeof mBtn) ? this.renderConfirm(mBtn) : renderTNodeJSX(this, 'confirmBtn');
-    }
-    let cancelBtn: any = null;
-    if (this.$slots.cancelBtn) {
-      cancelBtn = renderTNodeJSX(this, 'cancelBtn');
-    } else if (![undefined, null].includes(this.cancelBtn)) {
-      const cBtn = this.cancelBtn || this.t(this.locale.cancel);
-      cancelBtn = baseTypes.includes(typeof cBtn) ? this.renderCancel(cBtn) : renderTNodeJSX(this, 'cancelBtn');
-    }
-    const slots = {
-      content: () => (
-        <div class={`${name}__content`}>
-          <div class={`${name}__body`}>
-            {this.renderIcon()}
-            <div class={`${name}__inner`}>{renderTNodeJSX(this, 'content')}</div>
-          </div>
-          {Boolean(cancelBtn || confirmBtn) && (
-            <div class="t-popconfirm__buttons">
-              <span class="t-popconfirm__cancel" onClick={this.handleCancel}>
-                {cancelBtn}
-              </span>
-              <span class="t-popconfirm__confirm" onClick={this.handleConfirm}>
-                {confirmBtn}
-              </span>
-            </div>
-          )}
-        </div>
-      ),
-    };
+    // this.getCancelBtn is a function of ActionMixin
+    const cancelBtn = this.getCancelBtn({
+      cancelBtn: this.cancelBtn,
+      globalCancel: this.global.cancel,
+      className: `${name}__cancel`,
+    });
+    // this.getConfirmBtn is a function of ActionMixin
+    const confirmBtn = this.getConfirmBtn({
+      theme: this.theme,
+      confirmBtn: this.confirmBtn,
+      globalConfirm: this.global.confirm,
+      globalConfirmBtnTheme: this.global.confirmBtnTheme,
+      className: `${name}__confirm`,
+    });
     return (
       <div>
         <Popup
@@ -136,7 +96,22 @@ export default defineComponent({
           visible={this.visible}
           {...this.innerPopupProps}
           onVisibleChange={this.onPopupVisibleChange}
-          v-slots={slots}
+          v-slots={{
+            content: () => (
+              <div class={`${name}__content`}>
+                <div class={`${name}__body`}>
+                  {this.renderIcon()}
+                  <div class={`${name}__inner`}>{renderTNodeJSX(this, 'content')}</div>
+                </div>
+                {Boolean(cancelBtn || confirmBtn) && (
+                  <div class={`${name}__buttons`}>
+                    {cancelBtn}
+                    {confirmBtn}
+                  </div>
+                )}
+              </div>
+            ),
+          }}
         >
           {triggerElement}
         </Popup>

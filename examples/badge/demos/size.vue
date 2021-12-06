@@ -23,7 +23,6 @@
     </t-badge>
   </div>
 </template>
-<script></script>
 
 <style scoped>
 .demo-t-badge-title {

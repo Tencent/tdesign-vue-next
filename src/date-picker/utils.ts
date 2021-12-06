@@ -1,5 +1,6 @@
 import chunk from 'lodash/chunk';
 import { TdCSSProperties } from './interface';
+import { TdDatePickerProps } from '.';
 
 /**
  * next Month
@@ -266,11 +267,12 @@ export function addMonth(date: Date, num: number): Date {
   return newDate;
 }
 
-interface OptionsType {
+export interface OptionsType {
   firstDayOfWeek: number;
-  disableDate: Function;
+  disableDate: TdDatePickerProps['disableDate'];
   minDate: Date;
   maxDate: Date;
+  monthLocal?: string[];
 }
 
 export function getWeeks(
@@ -294,7 +296,8 @@ export function getWeeks(
       text: i,
       active: false,
       value: currentDay,
-      disabled: disableDate(currentDay) || outOfRanges(currentDay, minDate, maxDate),
+      disabled:
+        (typeof disableDate === 'function' && disableDate(currentDay)) || outOfRanges(currentDay, minDate, maxDate),
       now: isSame(today, currentDay),
       firstDayOfMonth: i === 1,
       lastDayOfMonth: i === maxDays,
@@ -310,7 +313,8 @@ export function getWeeks(
         text: prependDay.getDate().toString(),
         active: false,
         value: new Date(prependDay),
-        disabled: disableDate(prependDay) || outOfRanges(prependDay, minDate, maxDate),
+        disabled:
+          (typeof disableDate === 'function' && disableDate(prependDay)) || outOfRanges(prependDay, minDate, maxDate),
         additional: true, // 非当前月
         type: 'prev-month',
       });
@@ -326,7 +330,8 @@ export function getWeeks(
       text: appendDay.getDate(),
       active: false,
       value: new Date(appendDay),
-      disabled: disableDate(appendDay) || outOfRanges(appendDay, minDate, maxDate),
+      disabled:
+        (typeof disableDate === 'function' && disableDate(appendDay)) || outOfRanges(appendDay, minDate, maxDate),
       additional: true, // 非当前月
       type: 'next-month',
     });
@@ -351,7 +356,7 @@ export function getYears(year: number, { disableDate = () => false, minDate, max
 
     for (let j = 0; j < 12; j++) {
       const d = new Date(i, j);
-      if (disableDate(d)) disabledMonth += 1;
+      if (typeof disableDate === 'function' && disableDate(d)) disabledMonth += 1;
       if (outOfRanges(d, minDate, maxDate)) outOfRangeMonth += 1;
     }
 
@@ -382,7 +387,7 @@ export function getMonths(year: number, { disableDate = () => false, minDate, ma
 
     for (let j = 1; j <= daysInMonth; j++) {
       const d = new Date(year, i, j);
-      if (disableDate(d)) disabledDay += 1;
+      if (typeof disableDate === 'function' && disableDate(d)) disabledDay += 1;
       if (outOfRanges(d, minDate, maxDate)) outOfRangeDay += 1;
     }
 

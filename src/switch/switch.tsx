@@ -1,7 +1,7 @@
 import { defineComponent, h, VNodeChild } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import Loading from '../loading';
+import TLoading from '../loading';
 import { SwitchValue } from './type';
 import props from './props';
 import { ClassName, TNodeReturnValue } from '../common';
@@ -106,7 +106,7 @@ export default defineComponent({
     let loadingContent: TNodeReturnValue;
 
     if (loading) {
-      loadingContent = <Loading size="small" />;
+      loadingContent = <TLoading size="small" />;
     } else if (content) {
       switchContent = content;
     }

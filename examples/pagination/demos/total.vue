@@ -1,22 +1,25 @@
 <template>
   <div>
-    <t-pagination v-model="current" v-model:pageSize="pageSize" :total="685" :total-content="true" @change="onChange" />
+    <t-pagination v-model="current" v-model:page-size="pageSize" :total="total" :total-content="renderTotalContent" />
   </div>
 </template>
 
-<script>
-export default {
-  data() {
+<script lang="jsx">
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const current = ref(12);
+    const pageSize = ref(10);
+    const total = ref(685);
     return {
-      current: 12,
-      pageSize: 15,
+      current,
+      pageSize,
+      total,
+      renderTotalContent() {
+        return <div class="t-pagination__total">{`共 ${total.value.value} 项数据`}</div>;
+      },
     };
   },
-  methods: {
-    onChange(index, event) {
-      console.log(`转到第${index}页`);
-      console.log(event);
-    },
-  },
-};
+});
 </script>

@@ -14,6 +14,7 @@ exports[`Textarea base demo works fine 1`] = `
       placeholder="请输入描述文案"
     />
     <!---->
+    <!---->
   </div>
   <div
     class="t-textarea"
@@ -25,6 +26,7 @@ exports[`Textarea base demo works fine 1`] = `
       placeholder="请输入文案，高度可自适应；autosize=true"
     />
     <!---->
+    <!---->
   </div>
   <div
     class="t-textarea"
@@ -35,6 +37,7 @@ exports[`Textarea base demo works fine 1`] = `
       name="description"
       placeholder="请输入文案，高度可自适应，最小3行，最大5行；autosize={minRows: 3, maxRows: 5}"
     />
+    <!---->
     <!---->
   </div>
 </div>
@@ -53,6 +56,7 @@ exports[`Textarea events demo works fine 1`] = `
       placeholder="请输入"
     />
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -66,13 +70,29 @@ exports[`Textarea maxlength demo works fine 1`] = `
       class="t-textarea__inner t-resize-none"
       maxlength="20"
       modelvalue=""
-      placeholder="请输入描述文案，最多20字符"
+      placeholder="请输入描述文案，文本长度最多20，maxlength=20"
+    />
+    <!---->
+    <span
+      class="t-textarea__limit"
+    >
+      0/20
+    </span>
+  </div>
+  <div
+    class="t-textarea"
+  >
+    <textarea
+      class="t-textarea__inner"
+      modelvalue=""
+      placeholder="请输入描述文案，最多20字符（一个汉字占两个字符长度），maxcharacter=20"
     />
     <span
       class="t-textarea__limit"
     >
       0/20
     </span>
+    <!---->
   </div>
 </div>
 `;
@@ -90,6 +110,7 @@ exports[`Textarea type demo works fine 1`] = `
       placeholder=""
     />
     <!---->
+    <!---->
   </div>
   <div
     class="t-textarea"
@@ -99,6 +120,7 @@ exports[`Textarea type demo works fine 1`] = `
       placeholder=""
       readonly=""
     />
+    <!---->
     <!---->
   </div>
 </div>

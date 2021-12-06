@@ -1,29 +1,24 @@
 :: BASE_DOC ::
 
-### 尺寸
+### 超长省略文本标签
+
+通过 `maxWidth` 设置最大宽度，超出部分自动省略。
+
+::: demo demos/long-text
+:::
+
+### 不同尺寸的标签
+
+提供大、中（默认）、小三种尺寸。
 
 ::: demo demos/size
 :::
 
+### 不同形状的标签
 
-### 形状
+提供方形、圆角方形、标记型三种形状。
 
 ::: demo demos/shape
-:::
-
-### 主题
-
-::: demo demos/theme
-:::
-
-### 失效标签
-
-::: demo demos/disabled
-:::
-
-### 超长省略文本标签
-
-::: demo demos/long-text
 :::
 
 :: BASE_PROPS ::

@@ -19,7 +19,7 @@ import { MessagePlugin } from 'tdesign-vue-next';
 export default defineComponent({
   setup() {
     const current = ref(1);
-    const pageSize = ref(20);
+    const pageSize = ref(5);
 
     const onPageSizeChange = (size) => {
       console.log('page-size:', size);

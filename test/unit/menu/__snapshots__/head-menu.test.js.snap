@@ -104,7 +104,7 @@ exports[`HeadMenu slot <logo> 1`] = `
 </div>
 `;
 
-exports[`HeadMenu slot <options> 1`] = `
+exports[`HeadMenu slot <operations> 1`] = `
 <div
   class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
 >

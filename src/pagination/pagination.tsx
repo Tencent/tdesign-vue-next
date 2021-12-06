@@ -8,19 +8,25 @@ import {
 } from 'tdesign-icons-vue-next';
 import config from '../config';
 import mixins from '../utils/mixins';
-import getLocalRecevierMixins from '../locale/local-receiver';
-import TInput from '../input';
+import getConfigReceiverMixins, { PaginationConfig } from '../config-provider/config-receiver';
+import TInput, { InputValue } from '../input';
 import { Select, Option } from '../select';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { TdPaginationProps } from './type';
 import { ClassName } from '../common';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const { prefix } = config;
 
 const name = `${prefix}-pagination`;
+const min = 1;
 
-const PaginationLocalReceiver = getLocalRecevierMixins('pagination');
+enum KeyCode {
+  ENTER = 'Enter',
+}
+
+const PaginationLocalReceiver = getConfigReceiverMixins<PaginationConfig>('pagination');
 
 export default defineComponent({
   name,
@@ -154,7 +160,7 @@ export default defineComponent({
         typeof option === 'object'
           ? option
           : {
-              label: this.t(this.locale.itemsPerPage, { size: option }),
+              label: this.t(this.global.itemsPerPage, { size: option }),
               value: Number(option),
             },
       );
@@ -298,135 +304,111 @@ export default defineComponent({
       }
       return t(locale.total, { total });
     },
+    onKeydownJumpInput(_: InputValue, { e }: { e: KeyboardEvent }): void {
+      if (e.key === KeyCode.ENTER) {
+        this.jumpToPage();
+      }
+    },
     renderPagination() {
-      const {
-        paginationClass,
-        pageCount,
-        totalContent,
-        totalClass,
-        locale,
-        size,
-        pageSize,
-        disabled,
-        sizerClass,
-        onSelectorChange,
-        pageSizeOptions,
-        sizeOptions,
-        preBtnClass,
-        prevPage,
-        current,
-        btnWrapClass,
-        getButtonClass,
-        toPage,
-        isFolded,
-        isNextMoreShow,
-        isPrevMoreShow,
-        btnMoreClass,
-        prevMorePage,
-        nextMorePage,
-        simpleClass,
-        pages,
-        pageCountOption,
-        nextBtnClass,
-        nextPage,
-        jumperClass,
-        jumperInputClass,
-        jumpIndex,
-        jumpToPage,
-        t,
-        isSimple,
-        showJumper,
-      } = this;
-      const inputEvent = {
-        'onUpdate:value': (v: number) => (this.jumpIndex = v),
-      };
-
       return (
-        <div class={paginationClass}>
+        <div class={this.paginationClass}>
           {/* 数据统计区 */}
-          {totalContent && <div class={totalClass}>{this.renderTotalContent()}</div>}
+          {renderTNodeJSX(
+            this,
+            'totalContent',
+            <div class={this.totalClass}>{this.t(this.global.total, { total: this.total })}</div>,
+          )}
 
           {/* select */}
-          {pageSizeOptions.length > 0 && (
-            <t-select size={size} value={pageSize} disabled={disabled} class={sizerClass} onChange={onSelectorChange}>
-              {sizeOptions.map((item, index) => (
+          {this.pageSizeOptions.length > 0 && (
+            <t-select
+              size={this.size}
+              value={this.pageSize}
+              disabled={this.disabled}
+              class={this.sizerClass}
+              onChange={this.onSelectorChange}
+            >
+              {this.sizeOptions.map((item, index) => (
                 <t-option value={item.value} label={item.label} key={index} />
               ))}
             </t-select>
           )}
 
           {/* 向前按钮 */}
-          <div class={preBtnClass} onClick={prevPage} disabled={disabled || current === 1}>
+          <div class={this.preBtnClass} onClick={this.prevPage} disabled={this.disabled || this.current === min}>
             <chevron-left-icon />
           </div>
           {/* 页数 */}
-          {!isSimple ? (
-            <ul class={btnWrapClass}>
-              {isFolded && (
-                <li class={getButtonClass(1)} onClick={() => toPage(1)}>
-                  1
+          {!this.isSimple ? (
+            <ul class={this.btnWrapClass}>
+              {this.isFolded && (
+                <li class={this.getButtonClass(1)} onClick={() => this.toPage(min)}>
+                  {min}
                 </li>
               )}
-              {isFolded && isPrevMoreShow && (
+              {this.isFolded && this.isPrevMoreShow ? (
                 <li
-                  class={btnMoreClass}
-                  onClick={prevMorePage}
+                  class={this.btnMoreClass}
+                  onClick={this.prevMorePage}
                   onMouseover={() => (this.prevMore = true)}
                   onMouseout={() => (this.prevMore = false)}
                 >
                   {this.prevMore ? <chevron-left-double-icon /> : <ellipsis-icon />}
                 </li>
-              )}
-              {pages.map((item) => (
-                <li class={getButtonClass(item)} key={item} onClick={() => toPage(item)}>
-                  {item}
+              ) : null}
+              {this.pages.map((i) => (
+                <li class={this.getButtonClass(i)} key={i} onClick={() => this.toPage(i)}>
+                  {i}
                 </li>
               ))}
-
-              {isFolded && isNextMoreShow && (
+              {this.isFolded && this.isNextMoreShow ? (
                 <li
-                  class={btnMoreClass}
-                  onClick={nextMorePage}
+                  class={this.btnMoreClass}
+                  onClick={this.nextMorePage}
                   onMouseover={() => (this.nextMore = true)}
                   onMouseout={() => (this.nextMore = false)}
                 >
                   {this.nextMore ? <chevron-right-double-icon /> : <ellipsis-icon />}
                 </li>
-              )}
-              {isFolded && (
-                <li class={getButtonClass(pageCount)} onClick={() => toPage(pageCount)}>
-                  {pageCount}
+              ) : null}
+              {this.isFolded ? (
+                <li class={this.getButtonClass(this.pageCount)} onClick={() => this.toPage(this.pageCount)}>
+                  {this.pageCount}
                 </li>
-              )}
+              ) : null}
             </ul>
           ) : (
             <t-select
-              size={size}
-              value={current}
-              disabled={disabled}
-              class={simpleClass}
-              onChange={toPage}
-              options={pageCountOption}
+              size={this.size}
+              value={this.current}
+              disabled={this.disabled}
+              class={this.simpleClass}
+              onChange={this.toPage}
+              options={this.pageCountOption}
             />
           )}
           {/* 向后按钮 */}
-          <div class={nextBtnClass} onClick={nextPage} disabled={disabled || current === pageCount}>
+          <div
+            class={this.nextBtnClass}
+            onClick={this.nextPage}
+            disabled={this.disabled || this.current === this.pageCount}
+          >
             <chevron-right-icon />
           </div>
           {/* 跳转 */}
-          {showJumper && (
-            <div class={jumperClass}>
-              {t(locale.jumpTo)}
+          {/* 跳转 */}
+          {this.showJumper ? (
+            <div class={this.jumperClass}>
+              {this.t(this.global.jumpTo)}
               <t-input
-                class={jumperInputClass}
-                value={jumpIndex}
-                {...inputEvent}
-                onKeydownEnter={jumpToPage}
-                onBlur={jumpToPage}
+                class={this.jumperInputClass}
+                v-model={this.jumpIndex}
+                onBlur={this.jumpToPage}
+                onKeyup={this.onKeydownJumpInput}
               />
-              {t(locale.page)}
+              {this.t(this.global.page)}
             </div>
-          )}
+          ) : null}
         </div>
       );
     },

@@ -24,4 +24,3 @@
     </t-layout>
   </div>
 </template>
-<script />

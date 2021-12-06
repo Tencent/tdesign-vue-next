@@ -2,18 +2,18 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-24 22:11:55
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TNode } from '../common';
 
 export interface TdStepsProps {
   /**
-   * 当前步骤
+   * 当前步骤。如果值为数字，可自动实现每个步骤的完成状态。如果值为非数字，需自行传入 `status` 控制步骤完成状态
    */
   current?: string | number;
   /**
-   * 当前步骤，非受控属性
+   * 当前步骤。如果值为数字，可自动实现每个步骤的完成状态。如果值为非数字，需自行传入 `status` 控制步骤完成状态，非受控属性
    */
   defaultCurrent?: string | number;
   /**
@@ -62,7 +62,7 @@ export interface TdStepItemProps {
    */
   extra?: string | TNode;
   /**
-   * 图标，默认显示内置图标，也可以自定义图标
+   * 图标，默认显示内置图标，也可以自定义图标，值为 false 则不显示图标。优先级大于 `status` 定义的图标
    * @default true
    */
   icon?: boolean | TNode;

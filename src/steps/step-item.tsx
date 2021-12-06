@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, h } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CheckIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
@@ -7,12 +7,12 @@ import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { ClassName, SlotReturnValue } from '../common';
 
 import mixins from '../utils/mixins';
-import getLocalRecevierMixins from '../locale/local-receiver';
+import getConfigReceiverMixins, { StepsConfig } from '../config-provider/config-receiver';
 
 const name = `${prefix}-steps-item`;
 
 export default defineComponent({
-  ...mixins(getLocalRecevierMixins('steps')),
+  ...mixins(getConfigReceiverMixins<StepsConfig>('steps')),
   name: `${prefix}-step-item`,
   components: {
     CheckIcon,
@@ -68,13 +68,12 @@ export default defineComponent({
             icon = <check-icon />;
             break;
           case 'error':
-            if (isFunction(this.t.errorIcon)) {
-              icon = this.t.errorIcon(this.$createElement);
+            if (isFunction(this.global.errorIcon)) {
+              icon = this.global.errorIcon(h);
             } else {
               icon = <close-icon />;
             }
             break;
-          // default 包含 case 'process' 的情况
           default:
             icon = String(this.index + 1);
             break;

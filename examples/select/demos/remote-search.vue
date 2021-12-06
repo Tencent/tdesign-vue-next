@@ -29,19 +29,9 @@ import { defineComponent, ref } from 'vue';
 export default defineComponent({
   setup() {
     const options = ref([
-      {
-        label: '上海',
-        value: 'shanghai',
-      },
-      {
-        label: '北京',
-        value: 'beijing',
-        disabled: true,
-      },
-      {
-        label: '深圳',
-        value: 'shenzhen',
-      },
+      { label: '选项一', value: '1' },
+      { label: '选项二', value: '2' },
+      { label: '选项三', value: '3' },
     ]);
     const options2 = ref([]);
     const value = ref('');

@@ -1,11 +1,25 @@
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import TDateHeader from '../basic/header';
 import TDateTable from '../basic/table';
 import { prefix } from '../../config';
+import props from '../props';
+import { TdDatePickerProps } from '../type';
+import { DatePickerConfig } from '../../config-provider/config-receiver';
 
-import { getWeeks, getYears, getMonths, flagActive, subtractMonth, addMonth, getToday, firstUpperCase } from '../utils';
+import {
+  getWeeks,
+  getYears,
+  getMonths,
+  flagActive,
+  subtractMonth,
+  addMonth,
+  getToday,
+  firstUpperCase,
+  OptionsType,
+} from '../utils';
 
 const name = `${prefix}-date-picker-panel`;
+
 export default defineComponent({
   name,
   components: {
@@ -14,25 +28,22 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
+    global: {
+      type: Object as PropType<DatePickerConfig>,
+      default: () => {
+        return {} as DatePickerConfig;
+      },
+    },
     value: {
       type: Date,
       default: () => getToday(),
     },
-    mode: {
-      type: String,
-      default: 'date',
-      validator: (v: string) => ['year', 'month', 'date'].indexOf(v) > -1,
-    },
+    mode: props.mode,
     minDate: Date,
     maxDate: Date,
-    firstDayOfWeek: Number,
-    disableDate: {
-      type: Function,
-      default() {
-        return () => {};
-      },
-    },
-    onChange: Function,
+    firstDayOfWeek: props.firstDayOfWeek,
+    disableDate: props.disableDate,
+    onChange: props.onChange,
   },
   emits: ['change'],
   data() {
@@ -44,13 +55,14 @@ export default defineComponent({
   },
   computed: {
     tableData() {
-      const { year, month, type, value, mode, disableDate, minDate, maxDate, firstDayOfWeek } = this;
+      const { year, month, type, value, mode, disableDate, minDate, maxDate, firstDayOfWeek, global } = this;
       let data;
-      const options = {
+      const options: OptionsType = {
         disableDate,
         minDate,
         maxDate,
         firstDayOfWeek,
+        monthLocal: global.months,
       };
 
       switch (type) {
@@ -134,7 +146,7 @@ export default defineComponent({
       this.year = next.getFullYear();
       this.month = next.getMonth();
     },
-    onTypeChange(type: string) {
+    onTypeChange(type: TdDatePickerProps['mode']) {
       this.type = type;
     },
   },

@@ -10,7 +10,7 @@ import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
-    const input = ref('Welcome to TDesign');
+    const input = ref('有默认值');
     const onEnter = () => {
       console.log('trigger enter');
     };

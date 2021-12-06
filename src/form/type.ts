@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-23 19:46:09
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -41,8 +41,7 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   preventSubmitDefault?: boolean;
   /**
-   * 是否显示必填符号
-   * @default true
+   * 是否显示必填符号，默认显示
    */
   requiredMark?: boolean;
   /**
@@ -240,6 +239,10 @@ export type ValidateResultList = Array<AllValidateResult>;
 export type AllValidateResult = CustomValidateObj | ValidateResultType;
 
 export interface ValidateResultType extends FormRule { result: boolean };
+
+export type ValidateResult<T> = { [key in keyof T]: boolean | ErrorList };
+
+export type ErrorList = Array<FormRule>;
 
 export type ValidateResultContext<T> = Omit<SubmitContext<T>, 'e'>;
 

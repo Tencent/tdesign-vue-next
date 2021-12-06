@@ -47,8 +47,16 @@ export default defineComponent({
     if (icon) {
       buttonContent = [icon, buttonContent];
     }
+
     return (
-      <button v-ripple class={buttonClass} type={this.type} disabled={this.disabled} {...this.$attrs}>
+      <button
+        v-ripple
+        class={buttonClass}
+        type={this.type}
+        disabled={this.disabled}
+        {...this.$attrs}
+        onClick={this.onClick}
+      >
         {buttonContent}
       </button>
     );

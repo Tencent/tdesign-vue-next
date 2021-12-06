@@ -2,10 +2,10 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-29 10:16:14
+ * updated at 2021-12-05 14:42:17
  * */
 
-// import { AvatarProps } from '../avatar';
+import { AvatarProps } from '../avatar';
 import { TNode } from '../common';
 
 export interface TdCommentProps {
@@ -20,8 +20,7 @@ export interface TdCommentProps {
   /**
    * 头像
    */
-  avatar?: string | TNode;
-  // avatar?: string | AvatarProps | TNode;
+  avatar?: string | AvatarProps | TNode;
   /**
    * 内容
    */

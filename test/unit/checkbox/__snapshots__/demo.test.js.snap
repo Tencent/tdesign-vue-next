@@ -107,7 +107,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
   class="tdesign-demo-block-column"
 >
   <div>
-    选中值: 北京（业务侧自定义全选功能）
+    方式一：业务侧自定义全选功能。选中值: 选项一
   </div>
   <div>
     <label
@@ -125,33 +125,14 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-         全选 
-        
-      </span>
-    </label>
-    <label
-      class="t-checkbox undefined"
-      modelvalue="false"
-    >
-      <input
-        class="t-checkbox__former"
-        type="checkbox"
-      />
-      <span
-        class="t-checkbox__input"
-      />
-      <span
-        class="t-checkbox__label"
-      >
-        
-         禁用全部 
+        全选
         
       </span>
     </label>
   </div>
   <div
     class="t-checkbox-group"
-    modelvalue="北京"
+    modelvalue="选项一"
   >
     
     <label
@@ -161,7 +142,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__former"
         name=""
         type="checkbox"
-        value="北京"
+        value="选项一"
       />
       <span
         class="t-checkbox__input"
@@ -170,7 +151,9 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        北京
+        <div>
+          选项一
+        </div>
         
       </span>
     </label>
@@ -181,7 +164,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__former"
         name=""
         type="checkbox"
-        value="上海"
+        value="选项二"
       />
       <span
         class="t-checkbox__input"
@@ -190,7 +173,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        上海
+        选项二
         
       </span>
     </label>
@@ -201,7 +184,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__former"
         name=""
         type="checkbox"
-        value="广州"
+        value="选项三"
       />
       <span
         class="t-checkbox__input"
@@ -210,23 +193,206 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        广州
+        选项三
         
       </span>
     </label>
     
     <!---->
   </div>
+  <br />
   <div>
-    选中值: 深圳
+    方式二：组件内置全选功能，使用插槽定义选项。选中值: 选项一
   </div>
   <div
     class="t-checkbox-group"
-    modelvalue="深圳"
+    modelvalue="选项一"
+  >
+    <!---->
+    
+    <label
+      class="t-checkbox undefined"
+      modelvalue="false"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        <!---->
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined t-is-checked"
+      modelvalue="false"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="选项一"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        选项一
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined"
+      modelvalue="false"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="选项二"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        <!---->
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined"
+      modelvalue="false"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="选项三"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        <!---->
+      </span>
+    </label>
+    
+  </div>
+  <br />
+  <div>
+    方式三：组件内置全选功能，使用 \`options\` 定义选项。选中值: 选项一, 选项二, 选项三
+  </div>
+  <div
+    class="t-checkbox-group"
+    modelvalue="选项一,选项二,选项三"
   >
     
     <label
-      checkall="true"
+      class="t-checkbox undefined t-is-checked"
+      data-name="TDESIGN_CHECK_ALL"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        全选
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined t-is-checked"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="选项一"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        选项一
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined t-is-checked"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="选项二"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        <div>
+          选项二
+        </div>
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined t-is-checked"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="选项三"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        选项三
+        
+      </span>
+    </label>
+    
+    <!---->
+  </div>
+  <br />
+  <div>
+    方式四：组件内置全选功能，非受控用法
+  </div>
+  <div
+    class="t-checkbox-group"
+    modelvalue=""
+  >
+    
+    <label
       class="t-checkbox undefined t-is-indeterminate"
       data-name="TDESIGN_CHECK_ALL"
     >
@@ -253,7 +419,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__former"
         name=""
         type="checkbox"
-        value="深圳"
+        value="选项一"
       />
       <span
         class="t-checkbox__input"
@@ -262,7 +428,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        深圳
+        选项一
         
       </span>
     </label>
@@ -273,7 +439,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__former"
         name=""
         type="checkbox"
-        value="杭州"
+        value="选项二"
       />
       <span
         class="t-checkbox__input"
@@ -282,7 +448,9 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        杭州
+        <div>
+          选项二
+        </div>
         
       </span>
     </label>
@@ -293,7 +461,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__former"
         name=""
         type="checkbox"
-        value="厦门"
+        value="选项三"
       />
       <span
         class="t-checkbox__input"
@@ -302,7 +470,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
         class="t-checkbox__label"
       >
         
-        厦门
+        选项三
         
       </span>
     </label>
@@ -314,6 +482,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
 
 exports[`Checkbox controlled demo works fine 1`] = `
 <div>
+  <!-- 单个 Checkbox 受控模式 -->
   <label
     class="t-checkbox undefined t-is-checked"
     modelvalue="true"
@@ -329,7 +498,7 @@ exports[`Checkbox controlled demo works fine 1`] = `
       class="t-checkbox__label"
     >
       
-       语法糖（v-model） 
+      语法糖（v-model）
       
     </span>
   </label>
@@ -348,7 +517,7 @@ exports[`Checkbox controlled demo works fine 1`] = `
       class="t-checkbox__label"
     >
       
-       受控属性 
+      受控属性
       
     </span>
   </label>
@@ -367,10 +536,102 @@ exports[`Checkbox controlled demo works fine 1`] = `
       class="t-checkbox__label"
     >
       
-       非受控属性 
+      非受控属性
       
     </span>
   </label>
+  <br />
+  <br />
+  <br />
+  <!-- 复选框框组受控模式 -->
+  <div
+    class="t-checkbox-group"
+    modelvalue=""
+  >
+    
+    <label
+      class="t-checkbox undefined t-is-indeterminate"
+      data-name="TDESIGN_CHECK_ALL"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        全选
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined t-is-checked"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="1"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        受控模式选项一
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="2"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        受控模式选项二
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="3"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        受控模式选项三
+        
+      </span>
+    </label>
+    
+    <!---->
+  </div>
 </div>
 `;
 
@@ -380,7 +641,7 @@ exports[`Checkbox link demo works fine 1`] = `
     class="demo-checkbox-row-desc"
   >
     选中值: [
-  "上海"
+  "选项二"
 ]
   </div>
   <div
@@ -389,7 +650,7 @@ exports[`Checkbox link demo works fine 1`] = `
     <!-- name 非必需 -->
     <div
       class="t-checkbox-group"
-      modelvalue="上海"
+      modelvalue="选项二"
     >
       
       <label
@@ -399,7 +660,7 @@ exports[`Checkbox link demo works fine 1`] = `
           class="t-checkbox__former"
           name="city"
           type="checkbox"
-          value="北京"
+          value="选项一"
         />
         <span
           class="t-checkbox__input"
@@ -408,7 +669,7 @@ exports[`Checkbox link demo works fine 1`] = `
           class="t-checkbox__label"
         >
           
-          北京
+          选项一
           
         </span>
       </label>
@@ -419,7 +680,7 @@ exports[`Checkbox link demo works fine 1`] = `
           class="t-checkbox__former"
           name="city"
           type="checkbox"
-          value="上海"
+          value="选项二"
         />
         <span
           class="t-checkbox__input"
@@ -428,7 +689,7 @@ exports[`Checkbox link demo works fine 1`] = `
           class="t-checkbox__label"
         >
           
-          上海
+          选项二
           
         </span>
       </label>
@@ -439,7 +700,7 @@ exports[`Checkbox link demo works fine 1`] = `
           class="t-checkbox__former"
           name="city"
           type="checkbox"
-          value="深圳"
+          value="选项三"
         />
         <span
           class="t-checkbox__input"
@@ -448,7 +709,7 @@ exports[`Checkbox link demo works fine 1`] = `
           class="t-checkbox__label"
         >
           
-          深圳
+          选项三
           
         </span>
       </label>
@@ -467,7 +728,7 @@ exports[`Checkbox link demo works fine 1`] = `
         class="t-button__text"
       >
         
-         重置 
+        重置
         
       </span>
     </button>

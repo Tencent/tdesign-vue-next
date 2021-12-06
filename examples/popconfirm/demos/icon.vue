@@ -9,13 +9,13 @@
 
       <div class="demo-item">
         <t-popconfirm v-model="visible2" theme="warning" content="事件通知类型偏向于提示">
-          <t-button theme="warning"> 警告 </t-button>
+          <t-button theme="warning">警告</t-button>
         </t-popconfirm>
       </div>
 
       <div class="demo-item">
         <t-popconfirm v-model="visible3" theme="danger" content="事件通知类型偏向于高危提醒">
-          <t-button theme="danger"> 危险 </t-button>
+          <t-button theme="danger">危险</t-button>
         </t-popconfirm>
       </div>
     </div>
@@ -27,25 +27,15 @@
           <template #icon>
             <t-icon name="browse" style="color: #0052d9" />
           </template>
-          <t-button variant="outline"> 自定义图标（插槽） </t-button>
-        </t-popconfirm>
-      </div>
-
-      <div class="demo-item">
-        <t-popconfirm
-          content="基础气泡确认框文案示意文字按钮"
-          :icon="customIcon"
-          :popup-props="{ placement: 'bottom' }"
-        >
-          <t-button variant="outline"> 自定义图标（属性） </t-button>
+          <t-button variant="outline">自定义图标（插槽）</t-button>
         </t-popconfirm>
       </div>
     </div>
   </div>
 </template>
-
 <script lang="jsx">
 import { defineComponent, ref } from 'vue';
+import { BrowseIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
   setup() {
@@ -57,9 +47,6 @@ export default defineComponent({
       visible1,
       visible2,
       visible3,
-      customIcon() {
-        return <t-icon name="browse" style="margin-right: 8px" />;
-      },
     };
   },
 });

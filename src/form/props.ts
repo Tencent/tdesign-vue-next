@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-09-22 10:58:18
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TdFormProps } from './type';
@@ -42,10 +42,10 @@ export default {
     type: Boolean,
     default: true,
   },
-  /** 是否显示必填符号 */
+  /** 是否显示必填符号，默认显示 */
   requiredMark: {
     type: Boolean,
-    default: true,
+    default: undefined,
   },
   /** 重置表单的方式，值为 empty 表示重置表单为空，值为 initial 表示重置表单数据为初始值 */
   resetType: {

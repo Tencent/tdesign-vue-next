@@ -6,10 +6,10 @@ import {
   CheckCircleFilledIcon,
   ErrorCircleFilledIcon,
   HelpCircleFilledIcon,
-  LoadingIcon,
 } from 'tdesign-icons-vue-next';
 import { Message } from '@/src/message/index.ts';
 import Button from '@/src/button/index.ts';
+import Loading from '@/src/loading';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Message', () => {
@@ -21,7 +21,7 @@ describe('Message', () => {
       warning: ErrorCircleFilledIcon,
       error: ErrorCircleFilledIcon,
       question: HelpCircleFilledIcon,
-      loading: LoadingIcon,
+      loading: Loading,
     };
     const THEME_LIST = Object.keys(THEME_MAP);
 

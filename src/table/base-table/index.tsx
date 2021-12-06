@@ -1,7 +1,7 @@
 import { defineComponent, VNode } from 'vue';
 import throttle from 'lodash/throttle';
 import mixins from '../../utils/mixins';
-import getLocalReceiverMixins from '../../locale/local-receiver';
+import getConfigReceiverMixins, { TableConfig } from '../../config-provider/config-receiver';
 import { prefix } from '../../config';
 import { flatColumns } from '../util/props-util';
 import baseTableProps from '../base-table-props';
@@ -21,14 +21,13 @@ import { getPropsApiByEvent } from '../../utils/helper';
 type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
 
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('table')),
+  ...mixins(getConfigReceiverMixins<TableConfig>('table')),
   name: `${prefix}-base-table`,
   components: {
     TableBody,
     TableHeader,
     TableColGroup,
     Pagination,
-    TLoading,
   },
   props: {
     ...baseTableProps,
@@ -223,7 +222,9 @@ export default defineComponent({
     },
     renderEmptyTable(): VNode {
       const useLocale = !this.empty && !this.$slots.empty;
-      return <div class="t-table--empty">{useLocale ? this.t(this.locale.empty) : renderTNodeJSX(this, 'empty')}</div>;
+      return (
+        <div class={`${prefix}-table--empty`}>{useLocale ? this.global.empty : renderTNodeJSX(this, 'empty')}</div>
+      );
     },
     renderPagination(): VNode {
       const paginationProps = this.pagination;

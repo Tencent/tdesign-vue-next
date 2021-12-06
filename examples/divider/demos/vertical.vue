@@ -9,4 +9,3 @@
     <span>创新</span>
   </div>
 </template>
-<script />

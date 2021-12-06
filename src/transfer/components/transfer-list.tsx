@@ -69,7 +69,7 @@ export default defineComponent({
     footer: [Function, String],
     checkAll: Boolean,
     t: Function,
-    locale: Object,
+    global: Object,
     isTreeMode: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -139,7 +139,7 @@ export default defineComponent({
     isAllChecked(): boolean {
       return (
         this.checkedValue.length > 0 &&
-        this.dataSource.every((item: TransferItemOption) => this.checkedValue.includes(item.value))
+        this.dataSource.every((item: TransferItemOption) => item.disabled || this.checkedValue.includes(item.value))
       );
     },
     totalCount(): number {
@@ -221,7 +221,7 @@ export default defineComponent({
       );
     },
     renderEmpty() {
-      const empty = this.empty || this.t(this.locale.empty);
+      const empty = this.empty || this.t(this.global.empty);
       const defaultNode: VNode = typeof empty === 'string' ? <span>{empty}</span> : null;
       return (
         <div class="t-transfer-empty">
@@ -259,7 +259,7 @@ export default defineComponent({
               />
             )}
             <span>
-              {this.t(this.locale.title, {
+              {this.t(this.global.title, {
                 checked: this.checkedValue.length,
                 total: this.totalCount,
               })}
@@ -271,7 +271,7 @@ export default defineComponent({
           {this.search && (
             <search
               searchValue={this.filterValue}
-              placeholder={this.t(this.locale.placeholder)}
+              placeholder={this.t(this.global.placeholder)}
               onChange={this.handleSearch}
               disabled={this.disabled}
               search={this.search}

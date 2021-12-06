@@ -52,10 +52,10 @@ describe('HeadMenu', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it('<options>', () => {
+    it('<operations>', () => {
       const wrapper = mount(HeadMenu, {
         slots: {
-          options: '<div></div>',
+          operations: '<div></div>',
         },
       });
       expect(wrapper.element).toMatchSnapshot();

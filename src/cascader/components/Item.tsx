@@ -13,7 +13,7 @@ import { getCascaderItemClass, getCascaderItemIconClass, getLabelIsEllipsis } fr
 // component
 import Checkbox, { CheckboxProps } from '../../checkbox/index';
 import Tooltip from '../../tooltip/index';
-import LoadingIcon from '../../loading/icon/gradient';
+import TLoading from '../../loading';
 
 // type
 import TreeNode from '../../_common/js/tree/tree-node';
@@ -145,7 +145,7 @@ export default defineComponent({
           ? RenderCheckBox(node, cascaderContext, handleChange)
           : RenderLabelContent(node, cascaderContext)}
         {node.children &&
-          (node.loading ? <LoadingIcon class={iconClass} /> : <ChevronRightCircleIcon class={iconClass} />)}
+          (node.loading ? <TLoading class={iconClass} /> : <ChevronRightCircleIcon class={iconClass} />)}
       </li>
     );
   },

@@ -1,5 +1,6 @@
 <template>
   <div class="tdesign-demo-select-base">
+    <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
     <t-select v-model="value1" placeholder="-请选择-" multiple :min-collapsed-num="1" :options="options1" />
     <br /><br />
 
@@ -43,8 +44,8 @@ const options2 = [
 export default defineComponent({
   setup() {
     const value1 = ref(['1', '3']);
-    const value2 = ref(['1', '3']);
-    const value3 = ref(['1', '3']);
+    const value2 = ref(['1', '2', '3', '4', '5', '6']);
+    const value3 = ref(['3', '5', '6', '2']);
 
     return {
       value1,

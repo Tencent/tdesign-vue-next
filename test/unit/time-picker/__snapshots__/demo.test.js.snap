@@ -803,7 +803,7 @@ exports[`Time-picker base demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  此刻
+                  
                   
                 </span>
               </button>
@@ -1689,7 +1689,7 @@ exports[`Time-picker base demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  此刻
+                  
                   
                 </span>
               </button>

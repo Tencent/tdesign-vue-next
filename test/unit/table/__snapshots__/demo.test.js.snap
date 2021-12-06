@@ -75,7 +75,9 @@ exports[`Table base demo works fine 1`] = `
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
+      showcolumncontroller="false"
       showcolumns="false"
+      showdragcol="false"
       sortonrowdraggable="false"
     >
       <div
@@ -483,7 +485,9 @@ exports[`Table base demo works fine 2`] = `
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
+      showcolumncontroller="false"
       showcolumns="false"
+      showdragcol="false"
       sortonrowdraggable="false"
     >
       <div
@@ -848,7 +852,9 @@ exports[`Table customCell demo works fine 1`] = `
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
+      showcolumncontroller="false"
       showcolumns="false"
+      showdragcol="false"
       sortonrowdraggable="false"
     >
       <div
@@ -1073,7 +1079,9 @@ exports[`Table empty demo works fine 1`] = `
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
+      showcolumncontroller="false"
       showcolumns="false"
+      showdragcol="false"
       sortonrowdraggable="false"
     >
       <div
@@ -1182,7 +1190,9 @@ exports[`Table empty demo works fine 1`] = `
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
+      showcolumncontroller="false"
       showcolumns="false"
+      showdragcol="false"
       sortonrowdraggable="false"
     >
       <div
@@ -1297,7 +1307,9 @@ exports[`Table empty demo works fine 1`] = `
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
+      showcolumncontroller="false"
       showcolumns="false"
+      showdragcol="false"
       sortonrowdraggable="false"
     >
       <div
@@ -1516,7 +1528,9 @@ exports[`Table expandable demo works fine 1`] = `
       expandicon="true"
       expandonrowclick="true"
       multiplesort="false"
+      showcolumncontroller="false"
       showcolumns="false"
+      showdragcol="false"
       sortonrowdraggable="false"
     >
       <div
@@ -2327,7 +2341,9 @@ exports[`Table fixedColumn demo works fine 1`] = `
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
+      showcolumncontroller="false"
       showcolumns="false"
+      showdragcol="false"
       sortonrowdraggable="false"
     >
       <div
@@ -2818,7 +2834,9 @@ exports[`Table fixedHeader demo works fine 1`] = `
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
+    showcolumncontroller="false"
     showcolumns="false"
+    showdragcol="false"
     sortonrowdraggable="false"
   >
     <div
@@ -3980,7 +3998,9 @@ exports[`Table multiHeader demo works fine 1`] = `
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
+    showcolumncontroller="false"
     showcolumns="false"
+    showdragcol="false"
     sortonrowdraggable="false"
   >
     <div
@@ -4218,7 +4238,9 @@ exports[`Table selectMultiple demo works fine 1`] = `
       expandonrowclick="false"
       multiplesort="false"
       selectedrowkeys="3,2"
+      showcolumncontroller="false"
       showcolumns="false"
+      showdragcol="false"
       sortonrowdraggable="false"
     >
       <div
@@ -4702,7 +4724,9 @@ exports[`Table selectSingle demo works fine 1`] = `
       expandonrowclick="false"
       multiplesort="false"
       selectedrowkeys=""
+      showcolumncontroller="false"
       showcolumns="false"
+      showdragcol="false"
       sortonrowdraggable="false"
     >
       <div

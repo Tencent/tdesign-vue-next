@@ -22,7 +22,7 @@
     </div>
   </div>
 </template>
-<script></script>
+
 <style>
 .demo-t-badge-title {
   margin: 20px 0;

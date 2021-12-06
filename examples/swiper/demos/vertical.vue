@@ -15,4 +15,3 @@
     <div>这是要被忽略的</div>
   </t-swiper>
 </template>
-<script></script>

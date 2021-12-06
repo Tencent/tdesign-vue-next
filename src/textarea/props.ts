@@ -2,14 +2,14 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-08-10 17:18:59
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TdTextareaProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 自动聚焦 */
+  /** 自动聚焦，拉起键盘 */
   autofocus: Boolean,
   /** 高度自动撑开。 autosize = true 表示组件高度自动撑开，同时，依旧允许手动拖高度。如果设置了 autosize.maxRows 或者 autosize.minRows 则不允许手动调整高度 */
   autosize: {
@@ -18,10 +18,13 @@ export default {
   },
   /** 是否禁用文本框 */
   disabled: Boolean,
+  /** 用户最多可以输入的字符个数，一个中文汉字表示两个字符长度 */
+  maxcharacter: {
+    type: Number,
+  },
   /** 用户最多可以输入的字符个数 */
   maxlength: {
     type: Number,
-    default: undefined,
   },
   /** 名称 */
   name: {

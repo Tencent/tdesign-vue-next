@@ -1,10 +1,9 @@
 :: BASE_DOC ::
 
-### 只有MENU
-::: demo demos/head-menu-empty menu
-:::
+### 可设置宽度的侧边导航
 
-### 设置宽度
+通过 `width` 设置侧边导航的宽度。
+
 ::: demo demos/side-menu-width menu
 :::
 

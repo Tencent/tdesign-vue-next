@@ -5,7 +5,7 @@
     <t-avatar>王亿亿</t-avatar>
   </div>
 </template>
-<script></script>
+
 <style lang="less" scoped>
 .demo-avatar {
   .t-avatar {

@@ -3,6 +3,7 @@ import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFill
 
 import { prefix } from '../config';
 import TButton, { ButtonProps } from '../button';
+import ActionMixin from './actions';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
@@ -10,10 +11,7 @@ import TransferDom from '../utils/transfer-dom';
 import { ClassName, Styles, TNode } from '../common';
 import { emitEvent } from '../utils/event';
 import mixins from '../utils/mixins';
-import getLocalReceiverMixins from '../locale/local-receiver';
-
-type FooterButton = string | ButtonProps | TNode;
-type FooterButtonType = 'confirm' | 'cancel';
+import getConfigReceiverMixins, { DialogConfig } from '../config-provider/config-receiver';
 
 const name = `${prefix}-dialog`;
 
@@ -51,7 +49,7 @@ function InitDragEvent(dragBox: HTMLElement) {
   });
 }
 export default defineComponent({
-  ...mixins(getLocalReceiverMixins('dialog')),
+  ...mixins(ActionMixin, getConfigReceiverMixins<DialogConfig>('dialog')),
   name,
   components: {
     CloseIcon,
@@ -108,7 +106,7 @@ export default defineComponent({
     },
 
     dialogClass(): ClassName {
-      const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`];
+      const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`, `${name}__modal-${this.theme}`];
       if (['modeless', 'modal'].includes(this.mode)) {
         dialogClass.push(`${name}--fixed`);
       }
@@ -139,23 +137,11 @@ export default defineComponent({
 
   watch: {
     visible(value) {
-      const { scrollWidth } = this;
-      let bodyCssText = 'overflow: hidden;';
-      if (value) {
-        if (scrollWidth > 0) {
-          bodyCssText += `position: relative;width: calc(100% - ${scrollWidth}px);`;
-        }
-      } else {
-        document.body.style.cssText = '';
-      }
-      document.body.style.cssText = bodyCssText;
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
     },
   },
-  mounted() {
-    this.scrollWidth = window.innerWidth - document.body.offsetWidth;
-  },
+
   beforeUnmount() {
     this.disPreventScrollThrough(false);
     this.addKeyboardEvent(false);
@@ -248,54 +234,27 @@ export default defineComponent({
       };
       return icon[this.theme];
     },
-    getDefaultBtn(btnType: FooterButtonType, btnApi: FooterButton) {
-      const isCancel = btnType === 'cancel';
-      const clickAction = isCancel ? this.cancelBtnAction : this.confirmBtnAction;
-      const theme = isCancel ? 'default' : 'primary';
-      const isApiObject = typeof btnApi === 'object';
-      return (
-        <t-button
-          variant="base"
-          theme={theme}
-          onClick={clickAction}
-          {...(isApiObject ? btnApi : {})}
-          class={`${name}-${btnType}`}
-        >
-          {btnApi && typeof btnApi === 'object' ? btnApi.content : btnApi}
-        </t-button>
-      );
-    },
-    isUseDefault(btnApi: FooterButton) {
-      const baseTypes = ['string', 'object'];
-      return Boolean(btnApi && baseTypes.includes(typeof btnApi));
-    },
-    // locale 全局配置，插槽，props，默认值，决定了按钮最终呈现
-    getDefaultFooter() {
-      let cancelBtn = null;
-      if (![undefined, null].includes(this.cancelBtn)) {
-        cancelBtn = this.cancelBtn || this.t(this.locale.cancel);
-        const defaultCancel = this.getDefaultBtn('cancel', cancelBtn);
-        cancelBtn = this.isUseDefault(cancelBtn) ? defaultCancel : renderTNodeJSX(this, 'cancelBtn');
-      }
-      let confirmBtn = null;
-      if (![undefined, null].includes(this.confirmBtn)) {
-        confirmBtn = this.confirmBtn || this.t(this.locale.confirm);
-        const defaultConfirm = this.getDefaultBtn('confirm', confirmBtn);
-        confirmBtn = this.isUseDefault(confirmBtn) ? defaultConfirm : renderTNodeJSX(this, 'confirmBtn');
-      }
-      return (
-        <div>
-          {cancelBtn}
-          {confirmBtn}
-        </div>
-      );
-    },
     renderDialog() {
       // header 值为 true 显示空白头部
       const defaultHeader = <h5 class="title"></h5>;
-      const defaultCloseBtn = <close-icon />;
+      const defaultCloseBtn = <CloseIcon />;
       const body = renderContent(this, 'default', 'body');
-      const defaultFooter = this.getDefaultFooter();
+      const defaultFooter = (
+        <div>
+          {this.getCancelBtn({
+            cancelBtn: this.cancelBtn,
+            globalCancel: this.global.cancel,
+            className: `${prefix}-dialog__cancel`,
+          })}
+          {this.getConfirmBtn({
+            theme: this.theme,
+            confirmBtn: this.confirmBtn,
+            globalConfirm: this.global.confirm,
+            globalConfirmBtnTheme: this.global.confirmBtnTheme,
+            className: `${prefix}-dialog__confirm`,
+          })}
+        </div>
+      );
       const bodyClassName = this.theme === 'default' ? `${name}__body` : `${name}__body__icon`;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */

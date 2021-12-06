@@ -25,7 +25,7 @@
     </div>
   </div>
 </template>
-<script></script>
+
 <style scoped>
 h3 {
   margin: 24px 0;

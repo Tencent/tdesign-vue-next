@@ -1,7 +1,10 @@
 import { defineComponent } from 'vue';
+import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
-import props from './props';
 import CLASSNAMES from '../utils/classnames';
+import props from './props';
+import { TextareaValue } from './type';
+import { getPropsApiByEvent, getCharacterLength } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 
 const name = `${prefix}-textarea`;
@@ -41,6 +44,13 @@ export default defineComponent({
         name: this.name || undefined,
       });
     },
+    characterNumber(): number {
+      const characterInfo = getCharacterLength(String(this.value));
+      if (typeof characterInfo === 'object') {
+        return characterInfo.length;
+      }
+      return characterInfo;
+    },
   },
 
   watch: {
@@ -79,10 +89,34 @@ export default defineComponent({
     },
 
     handleInput(e: any): void {
+      if (e.isComposing || e.inputType === 'insertCompositionText') return;
+      this.inputValueChangeHandle(e);
+    },
+    onCompositionend(e: InputEvent | CompositionEvent) {
+      this.inputValueChangeHandle(e as InputEvent);
+    },
+    inputValueChangeHandle(e: InputEvent) {
       const { target } = e;
-      const val = (target as HTMLInputElement).value;
-      this.$emit('update:value', val);
+      let val = (target as HTMLInputElement).value;
+      if (this.maxcharacter && this.maxcharacter >= 0) {
+        const stringInfo = getCharacterLength(val, this.maxcharacter);
+        val = typeof stringInfo === 'object' && stringInfo.characters;
+      }
+      this.$emit('input', val);
       this.emitEvent('change', val, { e: InputEvent });
+
+      this.$nextTick(() => this.setInputValue(val));
+      this.adjustTextareaHeight();
+    },
+    setInputValue(v: TextareaValue = ''): void {
+      const textareaElem = this.$refs.refTextareaElem as HTMLInputElement;
+      const sV = String(v);
+      if (!textareaElem) {
+        return;
+      }
+      if (textareaElem.value !== sV) {
+        textareaElem.value = sV;
+      }
     },
     emitKeyDown(e: KeyboardEvent) {
       if (this.disabled) return;
@@ -128,6 +162,7 @@ export default defineComponent({
       <div class={`${name}`}>
         <textarea
           onInput={this.handleInput}
+          onCompositionend={this.onCompositionend}
           {...inputEvents}
           {...this.$attrs}
           {...this.inputAttrs}
@@ -136,7 +171,8 @@ export default defineComponent({
           style={this.textareaStyle}
           class={classes}
         ></textarea>
-        {this.maxlength ? (
+        {this.maxcharacter && <span class={`${name}__limit`}>{`${this.characterNumber}/${this.maxcharacter}`}</span>}
+        {!this.maxcharacter && this.maxlength ? (
           <span class={`${name}__limit`}>{`${this.value ? String(this.value)?.length : 0}/${this.maxlength}`}</span>
         ) : null}
       </div>

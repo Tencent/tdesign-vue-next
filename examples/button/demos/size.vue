@@ -44,4 +44,3 @@
     </div>
   </div>
 </template>
-<script />

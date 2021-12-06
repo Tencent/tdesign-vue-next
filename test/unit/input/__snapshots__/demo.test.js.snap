@@ -97,7 +97,7 @@ exports[`Input base demo works fine 1`] = `
   <br />
   <div
     class="t-input t-size-m"
-    modelvalue="Welcome to TDesign"
+    modelvalue="有默认值"
   >
     <!---->
     <input

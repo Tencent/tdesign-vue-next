@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-11-23 10:46:16
+ * updated at 2021-12-05 14:42:17
  * */
 
 import { TdSelectProps } from './type';
@@ -78,6 +78,8 @@ export default {
   },
   /** 多选且可搜索时，是否在选中一个选项后保留当前的搜索关键词 */
   reserveKeyword: Boolean,
+  /** 【讨论中】是否显示全选 */
+  showCheckAlll: Boolean,
   /** 组件尺寸 */
   size: {
     type: String as PropType<TdSelectProps['size']>,

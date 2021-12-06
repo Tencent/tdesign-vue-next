@@ -8,12 +8,10 @@ import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 import mixins from '../utils/mixins';
-import getLocalRecevierMixins from '../locale/local-receiver';
 
 const name = `${prefix}-steps`;
 
 export default defineComponent({
-  ...mixins(getLocalRecevierMixins('steps')),
   name,
   components: {
     TStepItem,

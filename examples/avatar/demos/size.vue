@@ -14,7 +14,7 @@
     </div>
   </div>
 </template>
-<script></script>
+
 <style lang="less" scoped>
 .demo-avatar {
   .demo-avatar-block:first-child {
