@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import get from 'lodash/get';
-import { AddRectangleIcon, ChevronDownRectangleIcon } from 'tdesign-icons-vue-next';
+import { AddRectangleIcon, MinusRectangleIcon } from 'tdesign-icons-vue-next';
 import baseTableProps from '../base-table-props';
 import primaryTableProps from '../primary-table-props';
 import enhancedTableProps from '../enhanced-table-props';
@@ -49,7 +49,7 @@ export default defineComponent({
         const colStyle = this.getTreeNodeStyle(p.row.__t_table_inner_data__?.level);
         const childrenNodes = get(p.row, this.childrenKey);
         if (childrenNodes && childrenNodes instanceof Array) {
-          const ICON_NODE = p.row.__tree_expand_children__ ? ChevronDownRectangleIcon : AddRectangleIcon;
+          const ICON_NODE = p.row.__tree_expand_children__ ? MinusRectangleIcon : AddRectangleIcon;
           return (
             <div style={colStyle}>
               <ICON_NODE style={{ marginRight: '8px' }} onClick={() => this.toggleExpandData(p)} />

@@ -1,6 +1,6 @@
-import { defineComponent } from 'vue';
+import { defineComponent, h } from 'vue';
 import isFunction from 'lodash/isFunction';
-import { ChevronDownCircleIcon } from 'tdesign-icons-vue-next';
+import { ChevronRightCircleIcon } from 'tdesign-icons-vue-next';
 import mixins from '../../utils/mixins';
 import getConfigReceiverMixins, { TableConfig } from '../../config-provider/config-receiver';
 
@@ -13,7 +13,7 @@ export default defineComponent({
   ...mixins(getConfigReceiverMixins<TableConfig>('table')),
   name: `${prefix}-expand-box`,
   components: {
-    ChevronDownCircleIcon,
+    ChevronRightCircleIcon,
   },
   props: {
     expanded: {
@@ -31,7 +31,7 @@ export default defineComponent({
   emits: ['click'],
   methods: {
     getDefaultIcon() {
-      return isFunction(this.global.expandIcon) ? this.global.expandIcon() : <ChevronDownCircleIcon />;
+      return isFunction(this.global.expandIcon) ? this.global.expandIcon(h) : <ChevronRightCircleIcon />;
     },
     getExpandIcon(expanded: boolean) {
       const icon = renderTNodeJSX(this, 'expandIcon', {
@@ -43,8 +43,8 @@ export default defineComponent({
         display: 'flex',
         'align-items': 'center',
       };
-      if (!expanded) {
-        style.transform = 'rotate(-180deg)';
+      if (expanded) {
+        style.transform = 'rotate(90deg)';
       }
       if (!icon) return false;
       return <span style={style}>{icon}</span>;
