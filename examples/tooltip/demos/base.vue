@@ -2,11 +2,10 @@
   <div class="tdesign-tooltip-placement">
     <t-tooltip
       class="placement top center"
-      content="文字提示仅展示文本内容文字提示仅展示文本内容"
+      content="文字提示仅展示文本内容"
       placement="top"
       :overlay-style="{ width: '200px' }"
       show-arrow
-      trigger="click"
     >
       <t-button variant="outline"> top </t-button>
     </t-tooltip>
@@ -28,13 +27,7 @@
     >
       <t-button variant="outline"> top-right </t-button>
     </t-tooltip>
-    <t-tooltip
-      class="placement bottom center"
-      content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      :overlay-style="{ width: '200px' }"
-      placement="bottom"
-      show-arrow
-    >
+    <t-tooltip class="placement bottom center" content="文字提示仅展示文本内容" placement="bottom" show-arrow>
       <t-button variant="outline"> bottom </t-button>
     </t-tooltip>
     <t-tooltip

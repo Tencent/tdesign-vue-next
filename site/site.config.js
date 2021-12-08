@@ -5,11 +5,11 @@ export default {
       type: 'doc', // 普通文档
       children: [
         {
-          title: '快速上手',
+          title: '快速开始',
           name: 'explain',
           docType: 'explain',
           path: '/vue-next/components/explain',
-          component: () => import('@/README.md'),
+          component: () => import('@/site/docs/getting-started.md'),
         },
         {
           title: '更新日志',

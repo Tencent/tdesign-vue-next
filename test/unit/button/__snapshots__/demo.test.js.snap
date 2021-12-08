@@ -200,23 +200,10 @@ exports[`Button icon demo works fine 1`] = `
         
         
         <svg
-          class="t-icon t-icon-discount"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+          class="t-icon t-icon-discount t-size-m"
         >
-          <path
-            d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z"
-            fill="currentColor"
-            fillOpacity="0.9"
-          />
-          <path
-            clipRule="evenodd"
-            d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z"
-            fill="currentColor"
-            fillOpacity="0.9"
-            fillRule="evenodd"
+          <use
+            href="#t-icon-discount"
           />
         </svg>
         

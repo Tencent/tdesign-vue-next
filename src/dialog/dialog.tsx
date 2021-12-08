@@ -143,10 +143,10 @@ export default defineComponent({
         if (scrollWidth > 0) {
           bodyCssText += `position: relative;width: calc(100% - ${scrollWidth}px);`;
         }
+        document.body.style.cssText = bodyCssText;
       } else {
         document.body.style.cssText = '';
       }
-      document.body.style.cssText = bodyCssText;
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
     },
