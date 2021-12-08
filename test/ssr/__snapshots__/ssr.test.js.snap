@@ -33858,17 +33858,17 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
 `;
 
 exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue correctly 1`] = `
-<div class="tdesign-demo-block-column">
+<div class="tdesign-demo-block-column" style="width:500px;">
   <div>
-    <div class="t-radio-group t-radio-group-medium t-radio-group-filled" modelvalue="2">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定两列 <!--]--><!--]--></span></label>
+    <div class="t-radio-group t-radio-group-medium t-radio-group-filled" modelvalue="1">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定两列 <!--]--><!--]--></span></label>
       <div style="" class="t-radio-group-filled-bg-block"></div>
       <!--]-->
     </div>
   </div>
   <div>
-    <div class="t-radio-group t-radio-group-medium t-radio-group-filled" modelvalue="1">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定两列 <!--]--><!--]--></span></label>
+    <div class="t-radio-group t-radio-group-medium t-radio-group-filled" modelvalue="2">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定两列 <!--]--><!--]--></span></label>
       <div style="" class="t-radio-group-filled-bg-block"></div>
       <!--]-->
     </div>
@@ -33898,7 +33898,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
               <tr>
                 <!--[-->
                 <td class="t-table__cell--fixed-left align-center" style="position:sticky;left:0px;" colspan="1" rowspan="1">序号</td>
-                <td class="t-table__cell--fixed-left" style="position:sticky;left:0px;" colspan="1" rowspan="1">平台</td>
+                <td class="" style="overflow:hidden;" colspan="1" rowspan="1">平台</td>
                 <td class="" style="overflow:hidden;" colspan="1" rowspan="1">类型</td>
                 <td class="" style="overflow:hidden;" colspan="1" rowspan="1">默认值</td>
                 <td class="" style="overflow:hidden;" colspan="1" rowspan="1">详情信息</td>
@@ -33914,7 +33914,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__cell--fixed-left align-center" style="position:sticky;left:0px;" length="8">0</td>
-                <td class="t-table__cell--fixed-left" style="position:sticky;left:0px;" length="8">共有</td>
+                <td class="" style="overflow:hidden;" length="8">共有</td>
                 <td class="" style="overflow:hidden;" length="8">String</td>
                 <td class="" style="overflow:hidden;" length="8">-</td>
                 <td class="" style="overflow:hidden;" length="8">读取 0 个数据的嵌套信息值</td>
@@ -33929,7 +33929,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__cell--fixed-left align-center" style="position:sticky;left:0px;" length="8">1</td>
-                <td class="t-table__cell--fixed-left" style="position:sticky;left:0px;" length="8">私有</td>
+                <td class="" style="overflow:hidden;" length="8">私有</td>
                 <td class="" style="overflow:hidden;" length="8">Number</td>
                 <td class="" style="overflow:hidden;" length="8">0</td>
                 <td class="" style="overflow:hidden;" length="8">读取 1 个数据的嵌套信息值</td>
@@ -33944,7 +33944,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__cell--fixed-left align-center" style="position:sticky;left:0px;" length="8">2</td>
-                <td class="t-table__cell--fixed-left" style="position:sticky;left:0px;" length="8">共有</td>
+                <td class="" style="overflow:hidden;" length="8">共有</td>
                 <td class="" style="overflow:hidden;" length="8">Array</td>
                 <td class="" style="overflow:hidden;" length="8">[]</td>
                 <td class="" style="overflow:hidden;" length="8">读取 2 个数据的嵌套信息值</td>
@@ -33959,7 +33959,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__cell--fixed-left align-center" style="position:sticky;left:0px;" length="8">3</td>
-                <td class="t-table__cell--fixed-left" style="position:sticky;left:0px;" length="8">私有</td>
+                <td class="" style="overflow:hidden;" length="8">私有</td>
                 <td class="" style="overflow:hidden;" length="8">Object</td>
                 <td class="" style="overflow:hidden;" length="8">{}</td>
                 <td class="" style="overflow:hidden;" length="8">读取 3 个数据的嵌套信息值</td>
@@ -33974,7 +33974,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__cell--fixed-left align-center" style="position:sticky;left:0px;" length="8">4</td>
-                <td class="t-table__cell--fixed-left" style="position:sticky;left:0px;" length="8">共有</td>
+                <td class="" style="overflow:hidden;" length="8">共有</td>
                 <td class="" style="overflow:hidden;" length="8">String</td>
                 <td class="" style="overflow:hidden;" length="8">-</td>
                 <td class="" style="overflow:hidden;" length="8">读取 4 个数据的嵌套信息值</td>
@@ -36849,7 +36849,7 @@ exports[`ssr snapshot test renders ./examples/tag/demos/delete.vue correctly 1`]
   <div class="tag-block">
     <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close" style="max-width:100px;"><!----><span style="max-width:100px;" class="t-tag--text"><!--[-->可删除标签可删除标签<!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style="">
       <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
-    </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close" style="max-width:100px;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-discount" style=""><path fill="currentColor" d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z" fillopacity="0.9"></path><path fill="currentColor" d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z" fillopacity="0.9" fillrule="evenodd" cliprule="evenodd"></path></svg><span style="max-width:100px;" class="t-tag--text"><!--[-->可删除标签可删除标签<!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style="">
+    </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close" style="max-width:100px;"><svg class="t-icon t-icon-discount t-size-m" style=""><use href="#t-icon-discount"></use></svg><span style="max-width:100px;" class="t-tag--text"><!--[-->可删除标签可删除标签<!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style="">
       <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
     </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close t-is-disabled t-tag--disabled" style=""><!----><!--[-->可删除标签<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
     <!--]-->
@@ -36862,8 +36862,8 @@ exports[`ssr snapshot test renders ./examples/tag/demos/disabled.vue correctly 1
 
 exports[`ssr snapshot test renders ./examples/tag/demos/icon.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
-  <div class="tdesign-demo-block-row"><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-discount" style=""><path fill="currentColor" d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z" fillopacity="0.9"></path><path fill="currentColor" d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z" fillopacity="0.9" fillrule="evenodd" cliprule="evenodd"></path></svg><!--[--> 默认标签 <!--]--><!----></span></div>
-  <div class="tdesign-demo-block-row"><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-discount" style=""><path fill="currentColor" d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z" fillopacity="0.9"></path><path fill="currentColor" d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z" fillopacity="0.9" fillrule="evenodd" cliprule="evenodd"></path></svg><!--]--><!--[--> Icon插槽 <!--]--><!----></span></div>
+  <div class="tdesign-demo-block-row"><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><svg class="t-icon t-icon-discount t-size-m" style=""><use href="#t-icon-discount"></use></svg><!--[--> 默认标签 <!--]--><!----></span></div>
+  <div class="tdesign-demo-block-row"><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!--[--><svg class="t-icon t-icon-discount t-size-m" style=""><use href="#t-icon-discount"></use></svg><!--]--><!--[--> Icon插槽 <!--]--><!----></span></div>
 </div>
 `;
 
