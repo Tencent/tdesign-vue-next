@@ -137,9 +137,22 @@ export default defineComponent({
 
   watch: {
     visible(value) {
+      const { scrollWidth } = this;
+      let bodyCssText = 'overflow: hidden;';
+      if (value) {
+        if (scrollWidth > 0) {
+          bodyCssText += `position: relative;width: calc(100% - ${scrollWidth}px);`;
+        }
+      } else {
+        document.body.style.cssText = '';
+      }
+      document.body.style.cssText = bodyCssText;
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
     },
+  },
+  mounted() {
+    this.scrollWidth = window.innerWidth - document.body.offsetWidth;
   },
 
   beforeUnmount() {

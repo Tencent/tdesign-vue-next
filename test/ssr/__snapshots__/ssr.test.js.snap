@@ -27835,7 +27835,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/disabled.vue correctly
 
 exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctly 1`] = `
 <div class="container">
-  <div class="t-popup-reference placement top center" destroy-on-hide>
+  <div class="t-popup-reference placement top center">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27843,7 +27843,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement top left" destroy-on-hide>
+  <div class="t-popup-reference placement top left">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27851,7 +27851,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top-left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement top right" destroy-on-hide>
+  <div class="t-popup-reference placement top right">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27859,7 +27859,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top-right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement bottom center" destroy-on-hide>
+  <div class="t-popup-reference placement bottom center">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27867,7 +27867,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement bottom left" destroy-on-hide>
+  <div class="t-popup-reference placement bottom left">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27875,7 +27875,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom-left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement bottom right" destroy-on-hide>
+  <div class="t-popup-reference placement bottom right">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27883,7 +27883,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom-right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement align" destroy-on-hide>
+  <div class="t-popup-reference placement align">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27891,7 +27891,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement top-align" destroy-on-hide>
+  <div class="t-popup-reference placement top-align">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27899,7 +27899,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left-top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement bottom-align" destroy-on-hide>
+  <div class="t-popup-reference placement bottom-align">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27907,7 +27907,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left-bottom <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement right-full align" destroy-on-hide>
+  <div class="t-popup-reference placement right-full align">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
