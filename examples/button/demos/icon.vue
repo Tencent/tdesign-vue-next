@@ -18,7 +18,7 @@
       <div class="demo-button-col">
         <t-button shape="circle" theme="primary">
           <template #icon>
-            <discount-icon />
+            <t-icon name="discount" />
           </template>
         </t-button>
         <t-button shape="circle" theme="primary">
@@ -36,13 +36,12 @@
 </template>
 <script lang="jsx">
 import { defineComponent } from 'vue';
-import { AddIcon, CloudUploadIcon, SearchIcon, DiscountIcon, CloudDownloadIcon } from 'tdesign-icons-vue-next';
+import { AddIcon, CloudUploadIcon, SearchIcon, CloudDownloadIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
   components: {
     AddIcon,
     CloudUploadIcon,
-    DiscountIcon,
     CloudDownloadIcon,
   },
   setup() {
