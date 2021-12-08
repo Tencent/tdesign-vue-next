@@ -12,8 +12,6 @@ import getConfigReceiverMixins, { TagConfig } from '../config-provider/config-re
 const { prefix } = config;
 const name = `${prefix}-tag`;
 
-const defaultShape = 'square';
-
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TagConfig>('tag')),
   name,

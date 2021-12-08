@@ -184,7 +184,7 @@ export default defineComponent({
     },
   },
   updated() {
-    this.moveActiveTabIntoView({ needCheckUpdate: false });
+    this.moveActiveTabIntoView();
   },
   mounted() {
     this.$nextTick(() => {
@@ -342,7 +342,7 @@ export default defineComponent({
       return false;
     },
 
-    moveActiveTabIntoView({ needCheckUpdate } = { needCheckUpdate: true }) {
+    moveActiveTabIntoView() {
       if (['left', 'right'].includes(this.placement)) {
         return false;
       }

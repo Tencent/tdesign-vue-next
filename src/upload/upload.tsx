@@ -313,7 +313,6 @@ export default defineComponent({
       }
       this.requestMethod(file).then((res: RequestMethodResponse) => {
         if (!this.handleRequestMethodResponse(res)) return;
-        const files = this.multiple ? this.files.concat(file) : [file];
         if (res.status === 'success') {
           this.handleSuccess({ file, response: res.response });
         } else if (res.status === 'fail') {
@@ -393,7 +392,7 @@ export default defineComponent({
         });
         return;
       }
-      file.url = res.url || file.url;
+      file.url = res?.url || file.url;
       // 从待上传文件队列中移除上传成功的文件
       const index = findIndex(this.toUploadFiles, (o: any) => o.name === file.name);
       this.toUploadFiles.splice(index, 1);
