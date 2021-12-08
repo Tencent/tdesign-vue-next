@@ -1,12 +1,6 @@
 <template>
   <div class="box">
-    <t-menu
-      theme="light"
-      value="item1"
-      style="margin-right: 40px; height: 300px"
-      height="300px"
-      @change="changeHandler"
-    >
+    <t-menu theme="light" value="item1" style="margin-right: 40px" height="550px" @change="changeHandler">
       <template #logo>
         <img
           width="136"
@@ -24,7 +18,6 @@
       <t-menu-item value="item7"> 个人中心 </t-menu-item>
       <t-menu-item value="item8"> 视频区 </t-menu-item>
       <t-menu-item value="item9"> 资源编辑 </t-menu-item>
-      <template #operations> 操作区 </template>
     </t-menu>
 
     <t-menu theme="light" default-value="dashboard" style="margin-right: 40px" height="550px">

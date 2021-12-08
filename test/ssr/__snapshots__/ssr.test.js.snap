@@ -25857,7 +25857,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/single.vue correctly 1`
 
 exports[`ssr snapshot test renders ./examples/menu/demos/single-side.vue correctly 1`] = `
 <div class="box">
-  <div class="t-default-menu t-menu-mode__normal t-menu--light" style="height:300px;width:232px;margin-right:40px;" height="300px">
+  <div class="t-default-menu t-menu-mode__normal t-menu--light" style="height:100%;width:232px;margin-right:40px;" height="550px">
     <div class="t-default-menu__inner">
       <div class="t-menu__logo">
         <!--[--><img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
@@ -25894,10 +25894,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/single-side.vue correct
         </li>
         <!--]-->
       </ul>
-      <div class="t-menu__operations">
-        <!--[--> 操作区
-        <!--]-->
-      </div>
+      <!---->
     </div>
   </div>
   <div class="t-default-menu t-menu-mode__normal t-menu--light" style="height:100%;width:232px;margin-right:40px;" height="550px">
