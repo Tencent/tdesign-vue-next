@@ -58,7 +58,8 @@
     "test:e2e": "cypress run --config-file script/test/cypress.json",
     "test:e2e-gui": "cypress open --config-file script/test/cypress.json",
     "changelog": "publish-cli changelog",
-    "robot": "publish-cli robot-msg"
+    "robot": "publish-cli robot-msg",
+    "prepare": "husky install"
   },
   "author": "tdesign",
   "license": "MIT",
@@ -128,7 +129,7 @@
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^0.6.0",
     "less": "4.1.1",
-    "lint-staged": "^10.5.4",
+    "lint-staged": "^12.1.2",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^8.4.1",
     "markdown-it-container": "^3.0.0",
@@ -178,7 +179,9 @@
   },
   "lint-staged": {
     "*.{vue,js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "prettier --write",
+      "eslint --fix",
+      "git add"
     ]
   }
 }
