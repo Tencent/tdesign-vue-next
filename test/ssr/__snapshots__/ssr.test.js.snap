@@ -23285,7 +23285,7 @@ exports[`ssr snapshot test renders ./examples/layout/demos/aside.vue correctly 1
             <!--[--><img width="136" class="logo" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
             <!--]-->
           </div>
-          <ul class="t-menu t-menu--scroll">
+          <ul class="t-menu t-menu--scroll narrow-scrollbar">
             <!--[-->
             <li class="t-menu__item t-is-active">
               <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -23517,7 +23517,7 @@ exports[`ssr snapshot test renders ./examples/layout/demos/combine.vue correctly
         <div class="t-default-menu t-menu-mode__normal t-menu--light" style="height:100%;width:232px;margin-right:50px;" height="550px">
           <div class="t-default-menu__inner">
             <!---->
-            <ul class="t-menu t-menu--scroll">
+            <ul class="t-menu t-menu--scroll narrow-scrollbar">
               <!--[-->
               <li class="t-menu__item t-is-active">
                 <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -24724,7 +24724,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/closable-side.vue corre
       <!--[--><span>LOGO</span>
       <!--]-->
     </div>
-    <ul class="t-menu">
+    <ul class="t-menu narrow-scrollbar">
       <!--[-->
       <li class="t-menu__item">
         <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -24821,7 +24821,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/custom-side.vue correct
       <!--[--><img width="136" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
       <!--]-->
     </div>
-    <ul class="t-menu t-menu--scroll">
+    <ul class="t-menu t-menu--scroll narrow-scrollbar">
       <!--[-->
       <li class="t-menu__item t-menu__item--plain">
         <!----><span class="t-menu__content"><!--[-->菜单内容<!--]--></span>
@@ -24988,7 +24988,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/group-side.vue correctl
       <!--[--><img width="35" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
       <!--]-->
     </div>
-    <ul class="t-menu">
+    <ul class="t-menu narrow-scrollbar">
       <!--[-->
       <div class="t-menu-group">
         <div class="t-menu-group-title">Classification A</div>
@@ -25221,7 +25221,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
   <div class="t-default-menu t-menu-mode__normal t-menu--light" style="height:100%;width:232px;" height="550px">
     <div class="t-default-menu__inner">
       <!---->
-      <ul class="t-menu t-menu--scroll">
+      <ul class="t-menu t-menu--scroll narrow-scrollbar">
         <!--[-->
         <li class="t-submenu t-is-opened">
           <!--[-->
@@ -25344,7 +25344,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
   <div class="t-default-menu t-menu-mode__normal t-menu--dark" style="height:100%;width:232px;margin-left:50px;" height="550px">
     <div class="t-default-menu__inner">
       <!---->
-      <ul class="t-menu t-menu--scroll">
+      <ul class="t-menu t-menu--scroll narrow-scrollbar">
         <!--[-->
         <li class="t-menu__item">
           <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -25676,7 +25676,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/popup-side.vue correctl
       <!--[--><img width="136" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
       <!--]-->
     </div>
-    <ul class="t-menu t-menu--scroll">
+    <ul class="t-menu t-menu--scroll narrow-scrollbar">
       <!--[-->
       <li class="t-menu__item">
         <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -25761,7 +25761,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/side-menu-width.vue cor
       <!--[--><img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
       <!--]-->
     </div>
-    <ul class="t-menu t-menu--scroll">
+    <ul class="t-menu t-menu--scroll narrow-scrollbar">
       <!--[-->
       <li class="t-menu__item t-menu__item--plain">
         <!----><span class="t-menu__content"><!--[-->菜单内容<!--]--></span>
@@ -25857,13 +25857,13 @@ exports[`ssr snapshot test renders ./examples/menu/demos/single.vue correctly 1`
 
 exports[`ssr snapshot test renders ./examples/menu/demos/single-side.vue correctly 1`] = `
 <div class="box">
-  <div class="t-default-menu t-menu-mode__normal t-menu--light" style="height:100%;width:232px;margin-right:40px;" height="550px">
+  <div class="t-default-menu t-menu-mode__normal t-menu--light" style="height:300px;width:232px;margin-right:40px;" height="300px">
     <div class="t-default-menu__inner">
       <div class="t-menu__logo">
         <!--[--><img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
         <!--]-->
       </div>
-      <ul class="t-menu t-menu--scroll">
+      <ul class="t-menu t-menu--scroll narrow-scrollbar">
         <!--[-->
         <li class="t-menu__item t-is-active t-menu__item--plain">
           <!----><span class="t-menu__content"><!--[--> 仪表盘 <!--]--></span>
@@ -25894,7 +25894,10 @@ exports[`ssr snapshot test renders ./examples/menu/demos/single-side.vue correct
         </li>
         <!--]-->
       </ul>
-      <!---->
+      <div class="t-menu__operations">
+        <!--[--> 操作区
+        <!--]-->
+      </div>
     </div>
   </div>
   <div class="t-default-menu t-menu-mode__normal t-menu--light" style="height:100%;width:232px;margin-right:40px;" height="550px">
@@ -25903,7 +25906,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/single-side.vue correct
         <!--[--><img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
         <!--]-->
       </div>
-      <ul class="t-menu t-menu--scroll">
+      <ul class="t-menu t-menu--scroll narrow-scrollbar">
         <!--[-->
         <li class="t-menu__item t-is-active">
           <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -25970,7 +25973,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/single-side.vue correct
         <!--[--><img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo.png" alt="logo">
         <!--]-->
       </div>
-      <ul class="t-menu t-menu--scroll">
+      <ul class="t-menu t-menu--scroll narrow-scrollbar">
         <!--[-->
         <li class="t-menu__item t-is-active">
           <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">

@@ -18,7 +18,7 @@ const options = [
   {
     name: '选项一',
     code: '1',
-    children: [
+    items: [
       {
         name: '子选项一',
         code: '1.1',
@@ -36,7 +36,7 @@ const options = [
   {
     name: '选项二',
     code: '2',
-    children: [
+    items: [
       {
         name: '子选项一',
         code: '2.1',

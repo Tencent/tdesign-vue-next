@@ -10,7 +10,7 @@ exports[`Menu props :active 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       <!---->
     </ul>
@@ -29,7 +29,7 @@ exports[`Menu props :collapsed 1`] = `
   >
     <!---->
     <ul
-      class="t-menu"
+      class="t-menu narrow-scrollbar"
     >
       <!---->
     </ul>
@@ -49,7 +49,7 @@ exports[`Menu props :collapsedWidth 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       <!---->
     </ul>
@@ -69,7 +69,7 @@ exports[`Menu props :height 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       <!---->
     </ul>
@@ -88,7 +88,7 @@ exports[`Menu props :theme 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       <!---->
     </ul>
@@ -107,7 +107,7 @@ exports[`Menu props :theme 2`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       <!---->
     </ul>
@@ -126,7 +126,7 @@ exports[`Menu props :width 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       <!---->
     </ul>
@@ -145,7 +145,7 @@ exports[`Menu slot <default> 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       
       <div />
@@ -172,7 +172,7 @@ exports[`Menu slot <logo> 1`] = `
       
     </div>
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       <!---->
     </ul>
@@ -191,7 +191,7 @@ exports[`Menu slot <operations> 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       <!---->
     </ul>

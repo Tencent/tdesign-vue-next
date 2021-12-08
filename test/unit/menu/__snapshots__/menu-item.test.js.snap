@@ -10,7 +10,7 @@ exports[`MenuItem props :disabled 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       
       <li
@@ -40,7 +40,7 @@ exports[`MenuItem props :name 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       
       <li
@@ -71,7 +71,7 @@ exports[`MenuItem props :route 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       
       <li
@@ -102,7 +102,7 @@ exports[`MenuItem slot <default> 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       
       <li
@@ -132,7 +132,7 @@ exports[`MenuItem slot <icon> 1`] = `
   >
     <!---->
     <ul
-      class="t-menu t-menu--scroll"
+      class="t-menu t-menu--scroll narrow-scrollbar"
     >
       
       <li
