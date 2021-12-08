@@ -378,7 +378,7 @@ export default defineComponent({
     ];
     let width;
     const { tableContent: tableContentEl, table: tableEl } = this.$refs as Record<string, HTMLElement>;
-    if (!hasFixedColumns && tableContentEl && tableContentEl.clientWidth < tableEl.clientWidth) {
+    if (!hasFixedColumns && tableContentEl?.clientWidth < tableEl?.clientWidth) {
       width = `${tableEl.clientWidth}px`;
     }
     return (

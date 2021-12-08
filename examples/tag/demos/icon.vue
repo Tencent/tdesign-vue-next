@@ -6,7 +6,7 @@
     <div class="tdesign-demo-block-row">
       <t-tag>
         <template #icon>
-          <discount-icon />
+          <t-icon name="discount" />
         </template>
         Icon插槽
       </t-tag>
@@ -16,14 +16,12 @@
 
 <script lang="jsx">
 import { defineComponent } from 'vue';
-import { DiscountIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
-  components: { DiscountIcon },
   setup() {
     return {
       renderDiscountIcon() {
-        return <DiscountIcon />;
+        return <t-icon name="discount" />;
       },
     };
   },

@@ -45,7 +45,7 @@
 
 <script lang="jsx">
 import { defineComponent, nextTick, ref } from 'vue';
-import { AddIcon, DiscountIcon } from 'tdesign-icons-vue-next';
+import { AddIcon } from 'tdesign-icons-vue-next';
 
 export default defineComponent({
   components: {
@@ -63,7 +63,7 @@ export default defineComponent({
       {
         name: '可删除标签可删除标签',
         type: 'default',
-        icon: () => <DiscountIcon />,
+        icon: () => <t-icon name="discount" />,
         showClose: true,
         maxWidth: 100,
       },
