@@ -14797,7 +14797,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
               <!--[-->
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="4"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><!----></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="4"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="" length="4">Array</td>
                 <td class="" style="" length="4">Vue(PC)</td>
                 <td class="" style="" length="4">A</td>
@@ -14812,7 +14812,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="4"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><!----></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="4"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="" length="4">String</td>
                 <td class="" style="" length="4">React(PC)</td>
                 <td class="" style="" length="4">B</td>
@@ -14827,7 +14827,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="4"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><!----></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="4"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="" length="4">Object</td>
                 <td class="" style="" length="4">Miniprogram</td>
                 <td class="" style="" length="4">C</td>
@@ -33375,7 +33375,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
               <!--[-->
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down-circle" style=""><path fill="currentColor" d="M10.8 6.2L8 9 5.2 6.2l-.7.71 3.5 3.5 3.5-3.5-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M1 8a7 7 0 1114 0A7 7 0 011 8zm1 0a6 6 0 1012 0A6 6 0 002 8z" fillopacity="0.9"></path></svg></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="overflow:hidden;" length="6">JQTest1</td>
                 <td class="" style="overflow:hidden;" length="6">
                   <!--[-->
@@ -33407,7 +33407,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down-circle" style=""><path fill="currentColor" d="M10.8 6.2L8 9 5.2 6.2l-.7.71 3.5 3.5 3.5-3.5-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M1 8a7 7 0 1114 0A7 7 0 011 8zm1 0a6 6 0 1012 0A6 6 0 002 8z" fillopacity="0.9"></path></svg></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(90deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="overflow:hidden;" length="6">JQTest2</td>
                 <td class="" style="overflow:hidden;" length="6">
                   <!--[-->
@@ -33439,7 +33439,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down-circle" style=""><path fill="currentColor" d="M10.8 6.2L8 9 5.2 6.2l-.7.71 3.5 3.5 3.5-3.5-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M1 8a7 7 0 1114 0A7 7 0 011 8zm1 0a6 6 0 1012 0A6 6 0 002 8z" fillopacity="0.9"></path></svg></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="overflow:hidden;" length="6">JQTest3</td>
                 <td class="" style="overflow:hidden;" length="6">
                   <!--[-->
@@ -33471,7 +33471,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down-circle" style=""><path fill="currentColor" d="M10.8 6.2L8 9 5.2 6.2l-.7.71 3.5 3.5 3.5-3.5-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M1 8a7 7 0 1114 0A7 7 0 011 8zm1 0a6 6 0 1012 0A6 6 0 002 8z" fillopacity="0.9"></path></svg></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="overflow:hidden;" length="6">JQTest4</td>
                 <td class="" style="overflow:hidden;" length="6">
                   <!--[-->
@@ -36251,7 +36251,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
               <!--[-->
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down-circle" style=""><path fill="currentColor" d="M10.8 6.2L8 9 5.2 6.2l-.7.71 3.5 3.5 3.5-3.5-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M1 8a7 7 0 1114 0A7 7 0 011 8zm1 0a6 6 0 1012 0A6 6 0 002 8z" fillopacity="0.9"></path></svg></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="overflow:hidden;" length="6"><label class="t-checkbox undefined" modelvalue="false" colkey="row-select" width="50" rowindex="0" style="display:inline-block;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
                 <td class="" style="overflow:hidden;" length="6">
                   <div style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style="margin-right:8px;">
@@ -36275,7 +36275,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down-circle" style=""><path fill="currentColor" d="M10.8 6.2L8 9 5.2 6.2l-.7.71 3.5 3.5 3.5-3.5-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M1 8a7 7 0 1114 0A7 7 0 011 8zm1 0a6 6 0 1012 0A6 6 0 002 8z" fillopacity="0.9"></path></svg></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="overflow:hidden;" length="6"><label class="t-checkbox undefined t-is-disabled" modelvalue="false" colkey="row-select" width="50" rowindex="1" style="display:inline-block;"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
                 <td class="" style="overflow:hidden;" length="6">
                   <div style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style="margin-right:8px;">
@@ -36299,7 +36299,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down-circle" style=""><path fill="currentColor" d="M10.8 6.2L8 9 5.2 6.2l-.7.71 3.5 3.5 3.5-3.5-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M1 8a7 7 0 1114 0A7 7 0 011 8zm1 0a6 6 0 1012 0A6 6 0 002 8z" fillopacity="0.9"></path></svg></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="overflow:hidden;" length="6"><label class="t-checkbox undefined" modelvalue="false" colkey="row-select" width="50" rowindex="2" style="display:inline-block;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
                 <td class="" style="overflow:hidden;" length="6">
                   <div style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style="margin-right:8px;">
@@ -36323,7 +36323,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down-circle" style=""><path fill="currentColor" d="M10.8 6.2L8 9 5.2 6.2l-.7.71 3.5 3.5 3.5-3.5-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M1 8a7 7 0 1114 0A7 7 0 011 8zm1 0a6 6 0 1012 0A6 6 0 002 8z" fillopacity="0.9"></path></svg></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="overflow:hidden;" length="6"><label class="t-checkbox undefined t-is-disabled" modelvalue="false" colkey="row-select" width="50" rowindex="3" style="display:inline-block;"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
                 <td class="" style="overflow:hidden;" length="6">
                   <div style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style="margin-right:8px;">
@@ -36347,7 +36347,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
-                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;transform:rotate(-180deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down-circle" style=""><path fill="currentColor" d="M10.8 6.2L8 9 5.2 6.2l-.7.71 3.5 3.5 3.5-3.5-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M1 8a7 7 0 1114 0A7 7 0 011 8zm1 0a6 6 0 1012 0A6 6 0 002 8z" fillopacity="0.9"></path></svg></span></span></td>
+                <td class="t-table-expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table-expand-box"><span style="transition:all .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="overflow:hidden;" length="6"><label class="t-checkbox undefined" modelvalue="false" colkey="row-select" width="50" rowindex="4" style="display:inline-block;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label></td>
                 <td class="" style="overflow:hidden;" length="6">
                   <div style=""><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add-rectangle" style="margin-right:8px;">
