@@ -2217,7 +2217,6 @@ exports[`Table expandable demo works fine 1`] = `
 exports[`Table fixedColumn demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
-  style="width: 500px;"
 >
   <div>
     <div

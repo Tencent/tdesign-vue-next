@@ -1119,9 +1119,8 @@ exports[`ssr snapshot test renders ./examples/button/demos/icon.vue correctly 1`
       </button></div>
     <div class="demo-button-col"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only t-button--shape-circle" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-discount" style="">
-          <path fill="currentColor" d="M7.84 5.01A2 2 0 115 7.84 2 2 0 017.84 5zm-.7.7a1 1 0 10-1.42 1.42 1 1 0 001.41-1.41z" fillopacity="0.9"></path>
-          <path fill="currentColor" d="M2 7.95V2h5.95a1 1 0 01.7.3l6.14 6.13a1 1 0 010 1.41L9.84 14.8a1 1 0 01-1.41 0L2.29 8.66A1 1 0 012 7.95zM7.95 3l6.13 6.13-4.95 4.95L3 7.95V3h4.95z" fillopacity="0.9" fillrule="evenodd" cliprule="evenodd"></path>
+        <!--[--><svg class="t-icon t-icon-discount t-size-m" style="">
+          <use href="#t-icon-discount"></use>
         </svg>
         <!--]-->
         <!--]-->
@@ -33858,7 +33857,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
 `;
 
 exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue correctly 1`] = `
-<div class="tdesign-demo-block-column" style="width:500px;">
+<div class="tdesign-demo-block-column">
   <div>
     <div class="t-radio-group t-radio-group-medium t-radio-group-filled" modelvalue="1">
       <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定两列 <!--]--><!--]--></span></label>
