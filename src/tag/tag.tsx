@@ -48,13 +48,12 @@ export default defineComponent({
     getCloseIcon() {
       if (!this.closable) return null;
       const iconClassName = `${prefix}-tag__icon-close`;
+      // console.log(this.global.closeIcon);
+
       if (this.global.closeIcon) {
-        return this.global.closeIcon((component: any, b: any) => {
-          const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
-          return h(component, {
-            props: { ...tProps },
-            class: iconClassName,
-          });
+        const component = this.global.closeIcon();
+        return h(component, {
+          class: iconClassName,
         });
       }
       return <CloseIcon onClick={this.handleClose} class={iconClassName} />;

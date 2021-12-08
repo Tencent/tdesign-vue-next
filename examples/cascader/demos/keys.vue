@@ -51,7 +51,7 @@ const options = [
 
 export default defineComponent({
   setup() {
-    const value = ref('');
+    const value = ref('1.1');
     return {
       options,
       value,

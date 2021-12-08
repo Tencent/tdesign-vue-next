@@ -22,7 +22,7 @@ export default defineComponent({
       },
     ]);
 
-    const value = ref('');
+    const value = ref('1');
 
     const load = (node) =>
       new Promise((resolve) => {

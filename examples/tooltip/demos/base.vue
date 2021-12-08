@@ -1,12 +1,6 @@
 <template>
   <div class="tdesign-tooltip-placement">
-    <t-tooltip
-      class="placement top center"
-      content="文字提示仅展示文本内容"
-      placement="top"
-      :overlay-style="{ width: '200px' }"
-      show-arrow
-    >
+    <t-tooltip class="placement top center" content="文字提示仅展示文本内容" placement="top" show-arrow>
       <t-button variant="outline"> top </t-button>
     </t-tooltip>
     <t-tooltip

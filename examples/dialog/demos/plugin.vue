@@ -92,7 +92,7 @@ export default defineComponent({
     },
 
     onDialogPluginConfirm() {
-      const confirmDia = DialogPlugin.confirm({
+      const confirmDia = DialogPlugin({
         header: 'Dialog-Confirm-Plugin',
         body: 'Are you sure to delete it?',
         confirmBtn: 'ok',

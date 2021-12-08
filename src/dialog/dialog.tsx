@@ -2,7 +2,7 @@ import { defineComponent, Transition } from 'vue';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 import { prefix } from '../config';
-import TButton, { ButtonProps } from '../button';
+import TButton from '../button';
 import ActionMixin from './actions';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';

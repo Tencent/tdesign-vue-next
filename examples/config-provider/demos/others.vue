@@ -76,7 +76,7 @@
     <t-tree :data="treeData" transition />
     <br /><br />
     <br />
-    <t-steps :current="2" layout="vertical">
+    <t-steps :current="2" layout="vertical" style="width: 100%">
       <t-step-item title="Fisrt Step" content="You need to click the blue button"></t-step-item>
       <t-step-item title="Second Step" content="Fill your base information into the form"></t-step-item>
       <t-step-item title="Error Step" status="error" content="Something Wrong! Custom Error Icon!"></t-step-item>
@@ -170,7 +170,7 @@ export default defineComponent({
           placeholder: 'select time',
         },
         tag: {
-          closeIcon: (h) => h && <CloseCircleIcon />,
+          closeIcon: () => <CloseCircleIcon />,
         },
         cascader: {
           empty: 'empty data',
@@ -202,5 +202,13 @@ export default defineComponent({
 <style scoped>
 .tdesign-demo-item--locale-provider-base {
   margin: 24px -120px 0 0;
+}
+
+:deep() .tdesign-demo-item--locale-provider-base .t-transfer-list {
+  width: 280px;
+}
+
+.tdesign-demo-item--locale-provider-base .t-tag + .t-tag {
+  margin-left: 36px;
 }
 </style>
