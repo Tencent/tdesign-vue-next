@@ -164,7 +164,7 @@ export function outerClickListenerEffect(
  * closeIcon点击副作用
  * @param cascaderContext
  */
-export function closeIconClickEffect(cascaderContext: CascaderContextType, onChange: CascaderProps['onChange']) {
+export function closeIconClickEffect(cascaderContext: CascaderContextType) {
   const { setVisible, multiple, setExpend, setValue } = cascaderContext;
 
   setVisible(false);
@@ -174,11 +174,7 @@ export function closeIconClickEffect(cascaderContext: CascaderContextType, onCha
     setExpend([]);
   }
 
-  setValue(multiple ? [] : '');
-
-  if (onChange && isFunction(onChange)) {
-    onChange(multiple ? [] : '', { e: MouseEvent });
-  }
+  setValue(multiple ? [] : '', 'clear');
 }
 
 /**
@@ -194,7 +190,7 @@ export function handleRemoveTagEffect(
 
   if (disabled) return;
   const checked = node.setChecked(!node.isChecked());
-  setValue(checked);
+  setValue(checked, 'unchecked', node.getModel());
   if (isFunction(onRemove)) {
     onRemove({ value: checked, node });
   }

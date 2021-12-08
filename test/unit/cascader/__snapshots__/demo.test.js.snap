@@ -3,7 +3,6 @@
 exports[`Cascader base demo works fine 1`] = `
 <div>
   <div
-    class="t-demo-cascader"
     modelvalue="1.1"
   >
     <div
@@ -21,17 +20,14 @@ exports[`Cascader base demo works fine 1`] = `
           >
             
             <div
-              class="t-cascader-panel t-cascader--normal"
+              class="t-cascader-panel"
+              style="width: 0px;"
             >
-              <ul
-                class="t-cascader-menu"
+              <div
+                class="t-cascader-panel__is-empty"
               >
-                <li
-                  class="t-cascader-item t-cascader-item__is-empty"
-                >
-                  暂无数据
-                </li>
-              </ul>
+                暂无数据
+              </div>
             </div>
             
             <!---->
@@ -40,7 +36,7 @@ exports[`Cascader base demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-cascader t-size-m t-demo-cascader t-demo-cascader"
+        class="t-cascader t-size-m"
         modelvalue="1.1"
       >
         <span

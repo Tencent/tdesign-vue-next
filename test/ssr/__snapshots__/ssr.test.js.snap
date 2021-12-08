@@ -11304,22 +11304,20 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/cascader/demos/base.vue correctly 1`] = `
 <div>
-  <div modelvalue="1.1" class="t-demo-cascader">
+  <div modelvalue="1.1">
     <div class="t-popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
         </div>
       </div>
       <!--[-->
-      <div class="t-cascader t-size-m t-demo-cascader t-demo-cascader" modelvalue="1.1"><span class="t-cascader-placeholder">请选择</span><svg class="t-fake-arrow t-cascader-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+      <div class="t-cascader t-size-m" modelvalue="1.1"><span class="t-cascader-placeholder">请选择</span><svg class="t-fake-arrow t-cascader-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg></div>
       <!--]-->
@@ -11335,10 +11333,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/check-strictly.vue 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11356,10 +11352,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/check-strictly.vue 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11382,10 +11376,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/collapsed.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11403,10 +11395,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/collapsed.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11424,10 +11414,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/collapsed.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11450,10 +11438,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/disabled.vue correc
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11471,10 +11457,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/disabled.vue correc
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11497,10 +11481,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/ellipsis.vue correc
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11523,10 +11505,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/filterable.vue corr
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11544,10 +11524,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/filterable.vue corr
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11565,22 +11543,20 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/filterable.vue corr
 
 exports[`ssr snapshot test renders ./examples/cascader/demos/keys.vue correctly 1`] = `
 <div>
-  <div modelvalue class="t-demo-cascader">
+  <div modelvalue="1.1" class="t-demo-cascader">
     <div class="t-popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
         </div>
       </div>
       <!--[-->
-      <div class="t-cascader t-size-m t-demo-cascader t-demo-cascader" modelvalue><span class="t-cascader-placeholder">请选择</span><svg class="t-fake-arrow t-cascader-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+      <div class="t-cascader t-size-m t-demo-cascader t-demo-cascader" modelvalue="1.1"><span class="t-cascader-placeholder">请选择</span><svg class="t-fake-arrow t-cascader-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg></div>
       <!--]-->
@@ -11591,22 +11567,20 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/keys.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/cascader/demos/load.vue correctly 1`] = `
 <div>
-  <div modelvalue class="t-demo-cascader">
+  <div modelvalue="1" class="t-demo-cascader">
     <div class="t-popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
         </div>
       </div>
       <!--[-->
-      <div class="t-cascader t-size-m t-demo-cascader t-demo-cascader" modelvalue><span class="t-cascader-placeholder">请选择</span><svg class="t-fake-arrow t-cascader-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+      <div class="t-cascader t-size-m t-demo-cascader t-demo-cascader" modelvalue="1"><span class="t-cascader-placeholder">请选择</span><svg class="t-fake-arrow t-cascader-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg></div>
       <!--]-->
@@ -11622,10 +11596,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/max.vue correctly 1
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11648,10 +11620,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/multiple.vue correc
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11674,10 +11644,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/show-all-levels.vue
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11701,10 +11669,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11722,10 +11688,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11743,10 +11707,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/size.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11769,10 +11731,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/trigger.vue correct
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11790,10 +11750,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/trigger.vue correct
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11816,10 +11774,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/value-mode.vue corr
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11837,10 +11793,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/value-mode.vue corr
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -11858,10 +11812,8 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/value-mode.vue corr
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">暂无数据</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">暂无数据</div>
           </div>
           <!--]-->
           <!---->
@@ -14055,10 +14007,8 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">empty data</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">empty data</div>
           </div>
           <!--]-->
           <!---->
@@ -14076,10 +14026,8 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup-content t-cascader-dropdown">
           <!--[-->
-          <div class="t-cascader-panel t-cascader--normal">
-            <ul class="t-cascader-menu">
-              <li class="t-cascader-item t-cascader-item__is-empty">empty data</li>
-            </ul>
+          <div class="t-cascader-panel" style="width:0px;">
+            <div class="t-cascader-panel__is-empty">empty data</div>
           </div>
           <!--]-->
           <!---->
@@ -14443,7 +14391,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">select time</span></div>
     </div>
     <!--]-->
-  </div><br><br><br><!-- 自定义关闭按钮示例 --><span class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Fearure Tag<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle" style=""><path fill="currentColor" d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Fearure Tag<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle" style=""><path fill="currentColor" d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Fearure Tag<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle" style=""><path fill="currentColor" d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Fearure Tag<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle" style=""><path fill="currentColor" d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z" fillopacity="0.9"></path></svg></span><br><br><!-- 数组件空数据 -->
+  </div><br><br><br><!-- 自定义关闭按钮示例 --><span class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Fearure Tag<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Fearure Tag<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Fearure Tag<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Fearure Tag<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z" fillopacity="0.9"></path></svg></span><br><br><!-- 数组件空数据 -->
   <div class="t-tree t-tree--fx">
     <div class="t-tree__list"></div>
     <div class="t-tree__empty">Tree Empty Data</div>
@@ -14461,7 +14409,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     </div>
     <!---->
   </div><br><br><br>
-  <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive">
+  <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive" style="width:100%;">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
       <div class="t-steps-item__inner t-steps-item-canclick">
@@ -23336,7 +23284,7 @@ exports[`ssr snapshot test renders ./examples/layout/demos/aside.vue correctly 1
             <!--[--><img width="136" class="logo" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
             <!--]-->
           </div>
-          <ul class="t-menu t-menu--scroll">
+          <ul class="t-menu t-menu--scroll narrow-scrollbar">
             <!--[-->
             <li class="t-menu__item t-is-active">
               <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -23568,7 +23516,7 @@ exports[`ssr snapshot test renders ./examples/layout/demos/combine.vue correctly
         <div class="t-default-menu t-menu-mode__normal t-menu--light" style="height:100%;width:232px;margin-right:50px;" height="550px">
           <div class="t-default-menu__inner">
             <!---->
-            <ul class="t-menu t-menu--scroll">
+            <ul class="t-menu t-menu--scroll narrow-scrollbar">
               <!--[-->
               <li class="t-menu__item t-is-active">
                 <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -24775,7 +24723,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/closable-side.vue corre
       <!--[--><span>LOGO</span>
       <!--]-->
     </div>
-    <ul class="t-menu">
+    <ul class="t-menu narrow-scrollbar">
       <!--[-->
       <li class="t-menu__item">
         <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -24872,7 +24820,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/custom-side.vue correct
       <!--[--><img width="136" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
       <!--]-->
     </div>
-    <ul class="t-menu t-menu--scroll">
+    <ul class="t-menu t-menu--scroll narrow-scrollbar">
       <!--[-->
       <li class="t-menu__item t-menu__item--plain">
         <!----><span class="t-menu__content"><!--[-->菜单内容<!--]--></span>
@@ -25039,7 +24987,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/group-side.vue correctl
       <!--[--><img width="35" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
       <!--]-->
     </div>
-    <ul class="t-menu">
+    <ul class="t-menu narrow-scrollbar">
       <!--[-->
       <div class="t-menu-group">
         <div class="t-menu-group-title">Classification A</div>
@@ -25272,7 +25220,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
   <div class="t-default-menu t-menu-mode__normal t-menu--light" style="height:100%;width:232px;" height="550px">
     <div class="t-default-menu__inner">
       <!---->
-      <ul class="t-menu t-menu--scroll">
+      <ul class="t-menu t-menu--scroll narrow-scrollbar">
         <!--[-->
         <li class="t-submenu t-is-opened">
           <!--[-->
@@ -25395,7 +25343,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
   <div class="t-default-menu t-menu-mode__normal t-menu--dark" style="height:100%;width:232px;margin-left:50px;" height="550px">
     <div class="t-default-menu__inner">
       <!---->
-      <ul class="t-menu t-menu--scroll">
+      <ul class="t-menu t-menu--scroll narrow-scrollbar">
         <!--[-->
         <li class="t-menu__item">
           <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -25727,7 +25675,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/popup-side.vue correctl
       <!--[--><img width="136" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
       <!--]-->
     </div>
-    <ul class="t-menu t-menu--scroll">
+    <ul class="t-menu t-menu--scroll narrow-scrollbar">
       <!--[-->
       <li class="t-menu__item">
         <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -25812,7 +25760,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/side-menu-width.vue cor
       <!--[--><img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
       <!--]-->
     </div>
-    <ul class="t-menu t-menu--scroll">
+    <ul class="t-menu t-menu--scroll narrow-scrollbar">
       <!--[-->
       <li class="t-menu__item t-menu__item--plain">
         <!----><span class="t-menu__content"><!--[-->菜单内容<!--]--></span>
@@ -25914,7 +25862,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/single-side.vue correct
         <!--[--><img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
         <!--]-->
       </div>
-      <ul class="t-menu t-menu--scroll">
+      <ul class="t-menu t-menu--scroll narrow-scrollbar">
         <!--[-->
         <li class="t-menu__item t-is-active t-menu__item--plain">
           <!----><span class="t-menu__content"><!--[--> 仪表盘 <!--]--></span>
@@ -25954,7 +25902,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/single-side.vue correct
         <!--[--><img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo">
         <!--]-->
       </div>
-      <ul class="t-menu t-menu--scroll">
+      <ul class="t-menu t-menu--scroll narrow-scrollbar">
         <!--[-->
         <li class="t-menu__item t-is-active">
           <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -26021,7 +25969,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/single-side.vue correct
         <!--[--><img width="136" class="t-menu__logo--center" src="https://www.tencent.com/img/index/menu_logo.png" alt="logo">
         <!--]-->
       </div>
-      <ul class="t-menu t-menu--scroll">
+      <ul class="t-menu t-menu--scroll narrow-scrollbar">
         <!--[-->
         <li class="t-menu__item t-is-active">
           <!--[--><svg class="t-icon t-icon-dashboard t-size-m" style="">
@@ -27886,7 +27834,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/disabled.vue correctly
 
 exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctly 1`] = `
 <div class="container">
-  <div class="t-popup-reference placement-top" destroy-on-hide>
+  <div class="t-popup-reference placement top center">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27894,7 +27842,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-top-left" destroy-on-hide>
+  <div class="t-popup-reference placement top left">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27902,7 +27850,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top-left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-top-right" destroy-on-hide>
+  <div class="t-popup-reference placement top right">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27910,7 +27858,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top-right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-bottom" destroy-on-hide>
+  <div class="t-popup-reference placement bottom center">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27918,7 +27866,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-bottom-left" destroy-on-hide>
+  <div class="t-popup-reference placement bottom left">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27926,7 +27874,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom-left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-bottom-right" destroy-on-hide>
+  <div class="t-popup-reference placement bottom right">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27934,7 +27882,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom-right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-left" destroy-on-hide>
+  <div class="t-popup-reference placement align">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27942,7 +27890,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-left-top" destroy-on-hide>
+  <div class="t-popup-reference placement top-align">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27950,7 +27898,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left-top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-left-bottom" destroy-on-hide>
+  <div class="t-popup-reference placement bottom-align">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27958,7 +27906,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left-bottom <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-right" destroy-on-hide>
+  <div class="t-popup-reference placement right-full align">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27966,7 +27914,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-right-top" destroy-on-hide>
+  <div class="t-popup-reference placement right-full top-align" destroy-on-hide>
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -27974,7 +27922,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> right-top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-right-bottom" destroy-on-hide>
+  <div class="t-popup-reference placement right-full bottom-align" destroy-on-hide>
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow">这是popup内容<div class="t-popup__arrow"></div>
       </div>
@@ -40256,15 +40204,15 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/arrow.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1`] = `
 <div class="tdesign-tooltip-placement">
-  <div class="t-popup-reference placement-top" duration="3000" theme="default">
+  <div class="t-popup-reference placement top center" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-      <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
+      <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
     </div>
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-top-left" duration="3000" theme="default">
+  <div class="t-popup-reference placement top left" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -40272,7 +40220,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top-left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-top-right" duration="3000" theme="default">
+  <div class="t-popup-reference placement top right" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -40280,15 +40228,15 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top-right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-bottom" duration="3000" theme="default">
+  <div class="t-popup-reference placement bottom center" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-      <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
+      <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
     </div>
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-bottom-left" duration="3000" theme="default">
+  <div class="t-popup-reference placement bottom left" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -40296,7 +40244,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom-left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-bottom-right" duration="3000" theme="default">
+  <div class="t-popup-reference placement bottom right" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -40304,7 +40252,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom-right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-left" duration="3000" theme="default">
+  <div class="t-popup-reference placement align" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -40312,7 +40260,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-left-top" duration="3000" theme="default">
+  <div class="t-popup-reference placement top-align" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -40320,7 +40268,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left-top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-left-bottom" duration="3000" theme="default">
+  <div class="t-popup-reference placement bottom-align" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -40328,7 +40276,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left-bottom <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-right" duration="3000" theme="default">
+  <div class="t-popup-reference placement right-full align" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -40336,7 +40284,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-right-top" duration="3000" theme="default">
+  <div class="t-popup-reference placement right-full top-align" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -40344,7 +40292,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> right-top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup-reference placement-right-bottom" duration="3000" theme="default">
+  <div class="t-popup-reference placement right-full bottom-align" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>

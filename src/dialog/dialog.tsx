@@ -2,7 +2,7 @@ import { defineComponent, Transition } from 'vue';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 
 import { prefix } from '../config';
-import TButton, { ButtonProps } from '../button';
+import TButton from '../button';
 import ActionMixin from './actions';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
@@ -137,9 +137,22 @@ export default defineComponent({
 
   watch: {
     visible(value) {
+      const { scrollWidth } = this;
+      let bodyCssText = 'overflow: hidden;';
+      if (value) {
+        if (scrollWidth > 0) {
+          bodyCssText += `position: relative;width: calc(100% - ${scrollWidth}px);`;
+        }
+        document.body.style.cssText = bodyCssText;
+      } else {
+        document.body.style.cssText = '';
+      }
       this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
     },
+  },
+  mounted() {
+    this.scrollWidth = window.innerWidth - document.body.offsetWidth;
   },
 
   beforeUnmount() {

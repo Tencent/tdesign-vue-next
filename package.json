@@ -1,12 +1,13 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.4.4",
+  "version": "0.5.0",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
     "vue",
     "vue3",
+    "vue-next",
     "tdesign",
     "typescript"
   ],
@@ -57,7 +58,8 @@
     "test:e2e": "cypress run --config-file script/test/cypress.json",
     "test:e2e-gui": "cypress open --config-file script/test/cypress.json",
     "changelog": "publish-cli changelog",
-    "robot": "publish-cli robot-msg"
+    "robot": "publish-cli robot-msg",
+    "prepare": "husky install"
   },
   "author": "tdesign",
   "license": "MIT",
@@ -127,7 +129,7 @@
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^0.6.0",
     "less": "4.1.1",
-    "lint-staged": "^10.5.4",
+    "lint-staged": "^12.1.2",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^8.4.1",
     "markdown-it-container": "^3.0.0",
@@ -153,7 +155,7 @@
     "tdesign-publish-cli": "^0.0.8",
     "tdesign-site-components": "^0.1.8",
     "ts-jest": "^26.0.0",
-    "typescript": "^4.4.4",
+    "typescript": "^4.5.2",
     "uslug": "^1.0.4",
     "vite": "^2.5.0",
     "vite-plugin-pwa": "^0.11.3",
@@ -168,16 +170,11 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "lint-staged": {
     "*.{vue,js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "prettier --write",
+      "eslint --fix",
+      "git add"
     ]
   }
 }

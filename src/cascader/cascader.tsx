@@ -1,8 +1,8 @@
 import { defineComponent, VNode, Transition } from 'vue';
-import isEqual from 'lodash/isEqual';
 
 // utils
 import isEmpty from 'lodash/isEmpty';
+import isEqual from 'lodash/isEqual';
 import { prefix } from '../config';
 import TreeStore from '../_common/js/tree/tree-store';
 import { emitEvent } from '../utils/event';
@@ -21,6 +21,8 @@ import InputContent from './components/InputContent';
 import TreeNode from '../_common/js/tree/tree-node';
 import { ListenersType, TreeNodeValue, EVENT_NAME_WITH_KEBAB, CascaderContextType, TdCascaderProps } from './interface';
 import props from './props';
+import { CascaderChangeSource, CascaderValue } from './type';
+import { TreeNodeModel } from '../tree';
 
 const name = `${prefix}-cascader`;
 
@@ -42,6 +44,7 @@ export default defineComponent({
 
   data() {
     return {
+      inputWidth: 0,
       visible: false,
       treeStore: null,
       inputVal: '',
@@ -58,8 +61,9 @@ export default defineComponent({
         setTreeNodes: (nodes: TreeNode[]) => {
           this.treeNodes = nodes;
         },
-        setValue: (val: TreeNodeValue | TreeNodeValue[]) => {
-          this.$emit('change', val);
+        setValue: (val: CascaderValue, source: CascaderChangeSource, node: TreeNodeModel) => {
+          if (isEqual(val, this.scopeVal)) return;
+          emitEvent<Parameters<TdCascaderProps['onChange']>>(this, 'change', val, { source, node });
         },
         setVisible: (val: boolean) => {
           this.visible = val;
@@ -72,6 +76,9 @@ export default defineComponent({
         },
         setExpend: (val: TreeNodeValue[]) => {
           this.expend = val;
+        },
+        setInputWidth: (val: number) => {
+          this.inputWidth = val;
         },
       };
     },
@@ -89,11 +96,13 @@ export default defineComponent({
         disabled,
         showAllLevels = true,
         minCollapsedNum = 0,
+        loading,
       } = this;
 
-      const { visible, treeStore, treeNodes, filterActive, inputVal } = this;
+      const { visible, treeStore, treeNodes, filterActive, inputVal, inputWidth } = this;
 
       return {
+        loading,
         size,
         disabled,
         checkStrictly,
@@ -110,6 +119,7 @@ export default defineComponent({
         treeNodes,
         filterActive,
         inputVal,
+        inputWidth,
         minCollapsedNum,
         ...this.stateFns,
       };
@@ -146,10 +156,15 @@ export default defineComponent({
   },
 
   mounted() {
-    const { value, multiple } = this;
+    const {
+      value,
+      multiple,
+      cascaderContext: { setValue },
+    } = this;
     if ((multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value))) {
-      this.$emit('change', multiple ? [] : '');
-      console.warn('TDesign Warn:', 'cascader props value invalid,  v-model automatic calibration');
+      const val: CascaderValue = multiple ? [] : '';
+      setValue(val, 'invalid-value');
+      console.warn('TDesign Cascader Warn:', 'cascader props value invalid, v-model automatic calibration');
     }
     if (!isEmpty(value)) {
       this.scopeVal = value;
@@ -213,15 +228,15 @@ export default defineComponent({
     },
   },
   render(): VNode {
-    const { visible, trigger, empty, $attrs, cascaderContext, $slots, placeholder } = this;
+    const { visible, trigger, empty, $attrs, cascaderContext, $slots, placeholder, collapsedItems } = this;
 
     const popupProps = this.popupProps as PopupProps;
 
     const listeners: ListenersType = {};
 
     EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
-      listeners[getPropsApiByEvent(eventName)] = (params: any) => {
-        emitEvent(this, eventName, params);
+      listeners[getPropsApiByEvent(eventName)] = (...args: any[]) => {
+        emitEvent(this, eventName, ...args);
       };
     });
 
@@ -236,15 +251,21 @@ export default defineComponent({
           expandAnimation={true}
           v-slots={{
             content: () => (
-              <panel empty={empty} trigger={trigger} cascaderContext={cascaderContext} onChange={listeners.onChange}>
-                {$slots}
+              <panel empty={empty} trigger={trigger} cascaderContext={cascaderContext}>
+                {{ empty: $slots.empty }}
               </panel>
             ),
           }}
           {...popupProps}
         >
-          <InputContent {...$attrs} cascaderContext={cascaderContext} placeholder={placeholder} listeners={listeners}>
-            {$slots}
+          <InputContent
+            {...$attrs}
+            cascaderContext={cascaderContext}
+            placeholder={placeholder}
+            collapsedItems={collapsedItems}
+            listeners={listeners}
+          >
+            {{ collapsedItems: $slots.collapsedItems }}
           </InputContent>
         </Popup>
       </div>

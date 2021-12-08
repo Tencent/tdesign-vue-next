@@ -114,7 +114,7 @@ export default defineComponent({
     },
     renderIcon() {
       const { node, treeScope } = this;
-      const { icon, scopedSlots, disableCheck } = treeScope;
+      const { icon, scopedSlots } = treeScope;
       let isDefaultIcon = false;
 
       let iconNode = null;

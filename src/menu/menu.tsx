@@ -24,7 +24,11 @@ export default defineComponent({
         [`${prefix}-is-collapsed`]: props.collapsed,
       },
     ]);
-    const innerClasses = computed(() => [`${prefix}-menu`, { [`${prefix}-menu--scroll`]: mode.value !== 'popup' }]);
+    const innerClasses = computed(() => [
+      `${prefix}-menu`,
+      { [`${prefix}-menu--scroll`]: mode.value !== 'popup' },
+      'narrow-scrollbar',
+    ]);
     const expandWidth = typeof props.width === 'number' ? `${props.width}px` : props.width;
     const styles: ClassName = computed(() => ({
       height: '100%',

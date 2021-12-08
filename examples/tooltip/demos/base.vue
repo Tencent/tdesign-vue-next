@@ -1,10 +1,10 @@
 <template>
   <div class="tdesign-tooltip-placement">
-    <t-tooltip class="placement-top" content="文字提示仅展示文本内容文字提示仅展示文本内容" placement="top" show-arrow>
+    <t-tooltip class="placement top center" content="文字提示仅展示文本内容" placement="top" show-arrow>
       <t-button variant="outline"> top </t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-top-left"
+      class="placement top left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="top-left"
       :overlay-style="{ width: '200px' }"
@@ -13,7 +13,7 @@
       <t-button variant="outline"> top-left </t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-top-right"
+      class="placement top right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlay-style="{ width: '200px' }"
       placement="top-right"
@@ -21,16 +21,11 @@
     >
       <t-button variant="outline"> top-right </t-button>
     </t-tooltip>
-    <t-tooltip
-      class="placement-bottom"
-      content="文字提示仅展示文本内容文字提示仅展示文本内容"
-      placement="bottom"
-      show-arrow
-    >
+    <t-tooltip class="placement bottom center" content="文字提示仅展示文本内容" placement="bottom" show-arrow>
       <t-button variant="outline"> bottom </t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-bottom-left"
+      class="placement bottom left"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       placement="bottom-left"
       :overlay-style="{ width: '200px' }"
@@ -39,7 +34,7 @@
       <t-button variant="outline"> bottom-left </t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-bottom-right"
+      class="placement bottom right"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlay-style="{ width: '200px' }"
       placement="bottom-right"
@@ -48,7 +43,7 @@
       <t-button variant="outline"> bottom-right </t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-left"
+      class="placement align"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlay-style="{ width: '200px' }"
       placement="left"
@@ -57,7 +52,7 @@
       <t-button variant="outline"> left </t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-left-top"
+      class="placement top-align"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlay-style="{ width: '200px' }"
       placement="left-top"
@@ -66,7 +61,7 @@
       <t-button variant="outline"> left-top </t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-left-bottom"
+      class="placement bottom-align"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlay-style="{ width: '200px' }"
       placement="left-bottom"
@@ -75,7 +70,7 @@
       <t-button variant="outline"> left-bottom </t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-right"
+      class="placement right-full align"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlay-style="{ width: '200px' }"
       placement="right"
@@ -84,7 +79,7 @@
       <t-button variant="outline"> right </t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-right-top"
+      class="placement right-full top-align"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlay-style="{ width: '200px' }"
       placement="right-top"
@@ -93,7 +88,7 @@
       <t-button variant="outline"> right-top </t-button>
     </t-tooltip>
     <t-tooltip
-      class="placement-right-bottom"
+      class="placement right-full bottom-align"
       content="文字提示仅展示文本内容文字提示仅展示文本内容"
       :overlay-style="{ width: '200px' }"
       placement="right-bottom"
@@ -103,3 +98,42 @@
     </t-tooltip>
   </div>
 </template>
+<script></script>
+<style lang="less" scoped>
+.container {
+  margin: 0 auto;
+  width: 500px;
+  height: 260px;
+  position: relative;
+}
+.placement {
+  position: absolute;
+  &.top {
+    top: 0;
+  }
+  &.center {
+    left: 42%;
+  }
+  &.left {
+    left: 70px;
+  }
+  &.right {
+    right: 70px;
+  }
+  &.bottom {
+    bottom: 0;
+  }
+  &.align {
+    top: 42%;
+  }
+  &.top-align {
+    top: 50px;
+  }
+  &.bottom-align {
+    bottom: 50px;
+  }
+  &.right-full {
+    right: 0px;
+  }
+}
+</style>

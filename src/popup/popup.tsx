@@ -151,8 +151,6 @@ export default defineComponent({
     }
 
     if (this.hasTrigger.hover) {
-      const open = () => this.handleOpen({ trigger: 'trigger-element-hover' });
-      const close = () => this.handleClose({ trigger: 'trigger-element-hover' });
       offEvents.push(on(reference, 'mouseenter', () => this.handleOpen({ trigger: 'trigger-element-hover' })));
       offEvents.push(on(reference, 'mouseleave', () => this.handleClose({ trigger: 'trigger-element-hover' })));
       offEvents.push(on(popperElm, 'mouseenter', () => this.handleOpen({ trigger: 'trigger-element-hover' }, true)));

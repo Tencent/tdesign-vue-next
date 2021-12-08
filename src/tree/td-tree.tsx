@@ -1,5 +1,6 @@
 import { defineComponent, TransitionGroup } from 'vue';
 import upperFirst from 'lodash/upperFirst';
+import pick from 'lodash/pick';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { TreeConfig } from '../config-provider/config-receiver';
 import TreeStore from '../_common/js/tree/tree-store';
@@ -271,22 +272,28 @@ export default defineComponent({
       });
     },
 
-    // 树结构变化后，重新
-    rebuild(list: TdTreeProps['data']) {
-      this.getNodesMap().clear();
-      this.treeNodes.length = 0;
-      const { store, value, actived } = this;
-      store.reload(list);
-      // 初始化选中状态
-      if (Array.isArray(value)) {
-        store.setChecked(value);
-      }
-      this.updateExpanded();
-      // 初始化激活状态
-      if (Array.isArray(actived)) {
-        store.setActived(actived);
-      }
-      store.refreshState();
+    // 同步 Store 选项
+    updateStoreConfig() {
+      const { store } = this;
+      if (!store) return;
+      // 统一更新选项，然后在 store 统一识别属性更新
+      const storeProps = pick(this, [
+        'keys',
+        'expandAll',
+        'expandLevel',
+        'expandMutex',
+        'expandParent',
+        'activable',
+        'activeMultiple',
+        'disabled',
+        'checkable',
+        'checkStrictly',
+        'load',
+        'lazy',
+        'valueMode',
+        'filter',
+      ]);
+      store.setConfig(storeProps);
     },
 
     updateExpanded() {
@@ -312,42 +319,9 @@ export default defineComponent({
     // 初始化树结构
     build() {
       let list = this.data;
-      const {
-        activable,
-        activeMultiple,
-        checkable,
-        checkStrictly,
-        expanded,
-        expandAll,
-        expandLevel,
-        expandMutex,
-        expandParent,
-        actived,
-        disabled,
-        load,
-        lazy,
-        value,
-        valueMode,
-        filter,
-      } = this;
-
-      if (!Array.isArray(list)) {
-        list = [];
-      }
+      const { actived, value, valueMode, filter } = this;
 
       const store = new TreeStore({
-        keys: this.keys,
-        activable,
-        activeMultiple,
-        checkable,
-        checkStrictly,
-        expandAll,
-        expandLevel,
-        expandMutex,
-        expandParent,
-        disabled,
-        load,
-        lazy,
         valueMode: valueMode as TypeValueMode,
         filter,
         onLoad: (info: TypeEventState) => {
@@ -360,6 +334,11 @@ export default defineComponent({
 
       // 初始化数据
       this.store = store;
+      this.updateStoreConfig();
+
+      if (!Array.isArray(list)) {
+        list = [];
+      }
       store.append(list);
 
       // 刷新节点，必须在配置选中之前执行
@@ -371,7 +350,6 @@ export default defineComponent({
         store.setChecked(value);
       }
 
-      // 初始化展开状态
       this.updateExpanded();
 
       // 初始化激活状态
@@ -381,6 +359,23 @@ export default defineComponent({
 
       // 树的数据初始化之后，需要立即进行一次视图刷新
       this.refresh();
+    },
+    // 树结构变化后，重新
+    rebuild(list: TdTreeProps['data']) {
+      this.getNodesMap().clear();
+      this.treeNodes.length = 0;
+      const { store, value, actived } = this;
+      store.reload(list);
+      // 初始化选中状态
+      if (Array.isArray(value)) {
+        store.setChecked(value);
+      }
+      this.updateExpanded();
+      // 初始化激活状态
+      if (Array.isArray(actived)) {
+        store.setActived(actived);
+      }
+      store.refreshState();
     },
     toggleActived(item: TypeTargetNode): TreeNodeValue[] {
       const node = getNode(this.store, item);
