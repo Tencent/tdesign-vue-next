@@ -45,7 +45,7 @@ export default defineComponent({
   },
   computed: {
     containerClass(): ClassName {
-      return [`${name}-contianer`, { 'is-vertical': this.vertical }];
+      return [`${name}-container`, { 'is-vertical': this.vertical }];
     },
     sliderClass(): ClassName {
       return [
@@ -53,7 +53,7 @@ export default defineComponent({
         {
           'is-vertical': this.vertical,
           [`${name}--with-input`]: this.inputNumberProps,
-          [`${name}-vertical`]: this.vertical,
+          [`${name}--vertical`]: this.vertical,
           [`${prefix}-is-disabled`]: this.disabled,
         },
       ];
@@ -369,7 +369,7 @@ export default defineComponent({
       return (
         <div
           class={[
-            `${name}-input-container`,
+            `${name}__input-container`,
             {
               'is-vertical': this.vertical,
             },
@@ -394,7 +394,7 @@ export default defineComponent({
               theme={this.inputTheme}
             />
           }
-          {range && <div class="center-line" />}
+          {range && <div class={`${name}__center-liner`} />}
           {range && (
             <t-input-number
               class={this.sliderNumberClass}
