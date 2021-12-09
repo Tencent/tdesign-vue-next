@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-09 10:59:59
  * */
 
 import { TdSliderProps } from './type';
@@ -14,11 +14,12 @@ export default {
   /** 用于控制数字输入框组件，值为 false 表示不显示数字输入框；值为 true 表示呈现默认数字输入框；值类型为 Object 表示透传属性到数字输入框组件 */
   inputNumberProps: {
     type: [Boolean, Object] as PropType<TdSliderProps['inputNumberProps']>,
-    default: true,
+    default: false,
   },
   /** 滑块当前值文本。值为 true 显示默认文案，值为 false 不显示滑块当前值文本，值为 `\${value}%` 则表示组件会根据占位符渲染文案 */
   label: {
     type: [String, Boolean, Function] as PropType<TdSliderProps['label']>,
+    default: false,
   },
   /** 滑块布局方向 */
   layout: {
@@ -28,7 +29,7 @@ export default {
       return ['vertical', 'horizontal'].includes(val);
     },
   },
-  /** 刻度标记，示例：[0, 10, 40, 200] 或者 { 10: (val) => val + '%', 50: (h, val) => <button>{val}</button> } */
+  /** 刻度标记，示例：[0, 10, 40, 200] 或者 `{ 10: (val) => val + '%', 50: (h, val) => <button>{val}</button> }` */
   marks: {
     type: [Object, Array] as PropType<TdSliderProps['marks']>,
   },
