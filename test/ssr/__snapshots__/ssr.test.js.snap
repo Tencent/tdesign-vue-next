@@ -21106,7 +21106,7 @@ exports[`ssr snapshot test renders ./examples/grid/demos/flex.vue correctly 1`] 
 
 exports[`ssr snapshot test renders ./examples/grid/demos/gutter.vue correctly 1`] = `
 <div class="tdesign-demo-item--grid">
-  <!-- 只指定水平gutter，垂直默认为0 --><span>水平gutter为固定值</span>
+  <!-- 只指定水平 gutter，垂直默认为0 --><span>水平 gutter 为固定值</span>
   <div class="t-row t-row-start t-row-top" style="margin-left:-8px;margin-right:-8px;">
     <!--[-->
     <div class="t-col t-col-3" style="padding-left:8px;padding-right:8px;">
@@ -21130,7 +21130,7 @@ exports[`ssr snapshot test renders ./examples/grid/demos/gutter.vue correctly 1`
       <!--]-->
     </div>
     <!--]-->
-  </div><!-- 水平gutter为响应式 --><span>水平gutter为响应式</span>
+  </div><!-- 水平 gutter 为响应式 --><span>水平 gutter 为响应式</span>
   <div class="t-row t-row-start t-row-top" style="margin-left:-12px;margin-right:-12px;">
     <!--[-->
     <div class="t-col t-col-3" style="padding-left:12px;padding-right:12px;">
@@ -21154,7 +21154,7 @@ exports[`ssr snapshot test renders ./examples/grid/demos/gutter.vue correctly 1`
       <!--]-->
     </div>
     <!--]-->
-  </div><!-- 指定水平和垂直gutter，注：垂直gutter只在同一个row组件下面的col组件之间生效 --><span>水平和垂直gutter均为固定值</span>
+  </div><!-- 指定水平和垂直 gutter，注：垂直 gutter 只在同一个row组件下面的col组件之间生效 --><span>水平和垂直 gutter 均为固定值</span>
   <div class="t-row t-row-start t-row-top" style="margin-left:-8px;margin-right:-8px;row-gap:24px;">
     <!--[-->
     <!--[-->
@@ -21200,7 +21200,7 @@ exports[`ssr snapshot test renders ./examples/grid/demos/gutter.vue correctly 1`
     </div>
     <!--]-->
     <!--]-->
-  </div><!-- 水平gutter响应式，垂直gutter固定值--><span>水平gutter响应式，垂直gutter固定值</span>
+  </div><!-- 水平 gutter 响应式，垂直 gutter 固定值--><span>水平 gutter 响应式，垂直 gutter 固定值</span>
   <div class="t-row t-row-start t-row-top" style="row-gap:24px;margin-left:-12px;margin-right:-12px;">
     <!--[-->
     <!--[-->
@@ -21246,7 +21246,7 @@ exports[`ssr snapshot test renders ./examples/grid/demos/gutter.vue correctly 1`
     </div>
     <!--]-->
     <!--]-->
-  </div><!-- 水平和垂直gutter均为响应式 --><span>水平和垂直gutter均为响应式</span>
+  </div><!-- 水平和垂直 gutter 均为响应式 --><span>水平和垂直 gutter 均为响应式</span>
   <div class="t-row t-row-start t-row-top" style="margin-left:-12px;margin-right:-12px;row-gap:24px;">
     <!--[-->
     <!--[-->
@@ -36025,7 +36025,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
 <div>
   <!-- 第一列展开树结点，缩进为 24px -->
   <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
-  <div style="width:100%;">
+  <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading-parent__relative" style="">
