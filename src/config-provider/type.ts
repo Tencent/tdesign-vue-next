@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { CalendarController } from '../calendar';
@@ -285,7 +285,7 @@ export interface DatePickerConfig {
    */
   now?: string;
   /**
-   * 占位符文本提示，默认值：{ date: '请选择日期',  month: '请选择月份',  year: '请选择年份' }
+   * 占位符文本提示，默认值：`{ date: '请选择日期',  month: '请选择月份',  year: '请选择年份' }`
    */
   placeholder?: { date?: string; month?: string; year?: string };
   /**
@@ -299,7 +299,7 @@ export interface DatePickerConfig {
    */
   preMonth?: string;
   /**
-   * 【暂不支持，讨论确认中】预设快捷日期选择，示例：{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }
+   * 【暂不支持，讨论确认中】预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`
    */
   presets?: ConfigPresetDate;
   /**

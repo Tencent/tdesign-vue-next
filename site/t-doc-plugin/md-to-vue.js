@@ -142,7 +142,10 @@ function customRender({ source, file, md }) {
   const componentName = reg && reg[1];
 
   // split md
-  const [demoMd = '', apiMd = ''] = content.split(pageData.apiFlag);
+  let [demoMd = '', apiMd = ''] = content.split(pageData.apiFlag);
+
+  // fix table | render error
+  apiMd = apiMd.replace(/`[^`]+`/g, (str) => str.replace(/\|/g, '\\|'));
 
   const mdSegment = {
     ...pageData,

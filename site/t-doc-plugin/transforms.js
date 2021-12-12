@@ -33,13 +33,6 @@ export default {
       return `\n::: demo demos/${demoFileName} ${name}\n:::\n`;
     });
 
-    if (source.includes(':: BASE_PROPS ::')) {
-      let apiDoc = fs.readFileSync(path.resolve(resouceDir, './api.md'), 'utf-8');
-      // fix table | render error
-      apiDoc = apiDoc.replace(/`[^`]+`/g, (str) => str.replace(/\|/g, '\\|'));
-      source = source.replace(':: BASE_PROPS ::', apiDoc);
-    }
-
     source.replace(/:::\s*demo\s+([\\/.\w-]+)/g, (demoStr, relativeDemoPath) => {
       const demoPathOnlyLetters = relativeDemoPath.replace(/[^a-zA-Z\d]/g, '');
       const demoDefName = `Demo${demoPathOnlyLetters}`;

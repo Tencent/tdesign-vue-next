@@ -1,5 +1,9 @@
+:: BASE_DOC ::
+
+## API
 
 ### Rate Props
+
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 allowHalf | Boolean | false | 是否允许半选 | N
@@ -16,6 +20,7 @@ variant | String | outline | 形状类型，有描边类型和填充类型两种
 onChange | Function |  | 评分数改变时触发。`(value: number) => {}` | N
 
 ### Rate Events
+
 名称 | 参数 | 描述
 -- | -- | --
 change | `(value: number)` | 评分数改变时触发
