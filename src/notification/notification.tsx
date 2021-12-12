@@ -1,5 +1,6 @@
 import { defineComponent, h, VNodeChild } from 'vue';
 import { InfoCircleFilledIcon, CheckCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import props from './props';
 
@@ -28,7 +29,12 @@ export default defineComponent({
     },
     renderIcon() {
       let icon;
-      if (this.theme) {
+      if (this.icon === false) return null;
+      if (isFunction(this.icon)) {
+        icon = this.icon(h);
+      } else if (this.$slots.icon) {
+        icon = this.$slots.icon(null);
+      } else if (this.theme) {
         const iconType =
           this.theme === 'success' ? (
             <check-circle-filled-icon class={`t-is-${this.theme}`} />
@@ -36,10 +42,6 @@ export default defineComponent({
             <info-circle-filled-icon class={`t-is-${this.theme}`} />
           );
         icon = <div class="t-notification__icon">{iconType}</div>;
-      } else if (this.icon) {
-        icon = this.icon(h);
-      } else if (this.$slots.icon) {
-        icon = this.$slots.icon(null);
       }
       return icon;
     },

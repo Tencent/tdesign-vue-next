@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode } from '../common';
@@ -76,7 +76,7 @@ export interface TdCheckboxGroupProps {
    */
   name?: string;
   /**
-   * 以配置形式设置子元素。示例1：['北京', '上海'] ，示例2: [{ label: '全选', checkAll: true }, { label: '上海', value: 'shanghai' }]。checkAll 值为 true 表示当前选项为「全选选项」
+   * 以配置形式设置子元素。示例1：`['北京', '上海']` ，示例2: `[{ label: '全选', checkAll: true }, { label: '上海', value: 'shanghai' }]`。checkAll 值为 true 表示当前选项为「全选选项」
    * @default []
    */
   options?: Array<CheckboxOption>;

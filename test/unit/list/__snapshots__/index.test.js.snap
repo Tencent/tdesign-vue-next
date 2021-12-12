@@ -46,7 +46,7 @@ exports[`List :props :asyncLoading is a string 1`] = `
   >
     <div>
       <div
-        class="t-loading t-size-m t-loading-lock v-transfer-dom"
+        class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
       >
         <svg
           class="t-loading__gradient t-icon-loading"

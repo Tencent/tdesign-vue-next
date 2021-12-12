@@ -323,7 +323,7 @@ exports[`Message :props :theme info,success,warning,error,question,loading 6`] =
   class="t-message t-is-loading"
 >
   <div
-    class="t-loading t-size-m t-loading-lock v-transfer-dom"
+    class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
   >
     <svg
       class="t-loading__gradient t-icon-loading"

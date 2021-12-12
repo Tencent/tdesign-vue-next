@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TdNotificationProps } from './type';
@@ -31,9 +31,10 @@ export default {
   footer: {
     type: [String, Function] as PropType<TdNotificationProps['footer']>,
   },
-  /** 自定义图标 */
+  /** 用于自定义消息通知前面的图标，优先级大于 theme 设定的图标。值为 false 则不显示图标，值为 true 显示 theme 设定图标 */
   icon: {
-    type: Function as PropType<TdNotificationProps['icon']>,
+    type: [Boolean, Function] as PropType<TdNotificationProps['icon']>,
+    default: true,
   },
   /** 消息类型 */
   theme: {

@@ -1,5 +1,9 @@
+:: BASE_DOC ::
+
+## API
 
 ### Skeleton Props
+
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 animation | String | - | 动画效果，有「渐变加载动画」和「闪烁加载动画」两种。值为空则表示没有动画。可选项：gradient/flashed | N

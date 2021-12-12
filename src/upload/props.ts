@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TdUploadProps } from './type';
@@ -116,7 +116,10 @@ export default {
     type: [String, Function] as PropType<TdUploadProps['trigger']>,
   },
   /** 是否显示为模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传 */
-  useMockProgress: Boolean,
+  useMockProgress: {
+    type: Boolean,
+    default: true,
+  },
   /** 上传请求时是否携带 cookie */
   withCredentials: Boolean,
   /** 点击「取消上传」时触发 */

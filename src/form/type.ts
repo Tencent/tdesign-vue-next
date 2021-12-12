@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { IsEmailOptions } from 'validator/es/lib/isEmail';
@@ -76,11 +76,11 @@ export interface TdFormProps<FormData extends Data = Data> {
    */
   onReset?: (context: { e?: FormResetEvent }) => void;
   /**
-   * 表单提交时触发。其中 validateResult 表示校验结果，firstError 表示校验不通过的第一个规则提醒
+   * 表单提交时触发。其中 context.validateResult 表示校验结果，context .firstError 表示校验不通过的第一个规则提醒。context.validateResult 值为 true 表示校验通过；如果校验不通过，context.validateResult 值为校验结果列表
    */
   onSubmit?: (context: SubmitContext<FormData>) => void;
   /**
-   * 校验结束后触发
+   * 校验结束后触发，result 值为 true 表示校验通过；如果校验不通过，result 值为校验结果列表
    */
   onValidate?: (result:  ValidateResultContext<FormData>) => void;
 };
@@ -100,9 +100,9 @@ export interface FormInstanceFunctions<FormData extends Data = Data> {
    */
   submit?: () => void;
   /**
-   * 校验函数。fields 表示校验字段，如果设置了 fields ，本次校验将仅对这些字段进行校验。trigger 表示本次触发校验的范围，'blur' 表示只触发校验规则设定为 trigger='blur' 的字段，'change' 表示只触发校验规则设定为 trigger='change' 的字段，默认触发全范围校验
+   * 校验函数。关于参数：params.fields 表示校验字段，如果设置了 fields ，本次校验将仅对这些字段进行校验。params.trigger 表示本次触发校验的范围，'blur' 表示只触发校验规则设定为 trigger='blur' 的字段，'change' 表示只触发校验规则设定为 trigger='change' 的字段，默认触发全范围校验。关于返回值：返回值为 true 表示校验通过；如果校验不通过，返回值为校验结果列表
    */
-  validate?: (param?: FormValidateParams) => FormValidateResult<FormData>;
+  validate?: (params?: FormValidateParams) => FormValidateResult<FormData>;
 }
 
 export interface TdFormItemProps {

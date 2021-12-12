@@ -49,7 +49,7 @@ exports[`Loading base demo works fine 1`] = `
   class="t-loading-demo"
 >
   <div
-    class="t-loading t-size-m t-loading-lock v-transfer-dom"
+    class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
   >
     <svg
       class="t-loading__gradient t-icon-loading"
@@ -88,7 +88,7 @@ exports[`Loading delay demo works fine 1`] = `
 >
   <div>
     <div
-      class="t-loading t-size-s t-loading-lock v-transfer-dom"
+      class="t-loading t-size-s t-loading-mask t-loading-lock v-transfer-dom"
     >
       <!---->
       <!---->
@@ -147,7 +147,7 @@ exports[`Loading delay demo works fine 1`] = `
 exports[`Loading fullscreen demo works fine 1`] = `
 <div>
   <div
-    class="t-loading t-size-m t-loading-fullscreen t-loading-lock v-transfer-dom"
+    class="t-loading t-size-m t-loading-fullscreen t-loading-mask t-loading-lock v-transfer-dom"
   >
     <!---->
     <!---->
@@ -178,7 +178,7 @@ exports[`Loading fullscreen demo works fine 1`] = `
 
 exports[`Loading iconText demo works fine 1`] = `
 <div
-  class="t-loading t-size-s t-loading-lock v-transfer-dom"
+  class="t-loading t-size-s t-loading-mask t-loading-lock v-transfer-dom"
 >
   <svg
     class="t-loading__gradient t-icon-loading"
@@ -295,7 +295,7 @@ exports[`Loading size demo works fine 1`] = `
 >
   <div>
     <div
-      class="t-loading t-size-s t-loading-lock v-transfer-dom"
+      class="t-loading t-size-s t-loading-mask t-loading-lock v-transfer-dom"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
@@ -326,7 +326,7 @@ exports[`Loading size demo works fine 1`] = `
   </div>
   <div>
     <div
-      class="t-loading t-size-m t-loading-lock v-transfer-dom"
+      class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
@@ -357,7 +357,7 @@ exports[`Loading size demo works fine 1`] = `
   </div>
   <div>
     <div
-      class="t-loading t-size-l t-loading-lock v-transfer-dom"
+      class="t-loading t-size-l t-loading-mask t-loading-lock v-transfer-dom"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
@@ -395,7 +395,7 @@ exports[`Loading text demo works fine 1`] = `
 >
   <!-- 使用 props 实现自定义 -->
   <div
-    class="t-loading t-size-m t-loading-lock v-transfer-dom"
+    class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
   >
     <!---->
     <div
@@ -406,7 +406,7 @@ exports[`Loading text demo works fine 1`] = `
   </div>
   <!-- 使用 props 实现自定义 -->
   <div
-    class="t-loading t-size-m t-loading-lock v-transfer-dom"
+    class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
   >
     <!---->
     <div
@@ -418,7 +418,7 @@ exports[`Loading text demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-loading t-size-m t-loading-lock v-transfer-dom"
+    class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
   >
     <!---->
     <div
