@@ -147,11 +147,18 @@ function customRender({ source, file, md }) {
   const mdSegment = {
     ...pageData,
     componentName,
-    docMd: md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${content}`).html,
-    demoMd: md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${demoMd}`).html,
-    apiMd: md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${apiMd}`).html,
+    docMd: '<td-doc-empty></td-doc-empty>',
+    demoMd: '<td-doc-empty></td-doc-empty>',
+    apiMd: '<td-doc-empty></td-doc-empty>',
     designMd: '<td-doc-empty></td-doc-empty>',
   };
+
+  if (pageData.isComponent) {
+    mdSegment.demoMd = md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${demoMd.replace(/<!--[\s\S]+?-->/g, '')}`).html;
+    mdSegment.apiMd = md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${apiMd.replace(/<!--[\s\S]+?-->/g, '')}`).html;
+  } else {
+    mdSegment.docMd = md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${content.replace(/<!--[\s\S]+?-->/g, '')}`).html;
+  }
 
   // 设计指南内容 不展示 design Tab 则不解析
   if (pageData.isComponent && pageData.tdDocTabs.some((item) => item.tab === 'design')) {
