@@ -38,7 +38,7 @@
   "scripts": {
     "start": "cd site && npm run dev",
     "site": "cd site && npm run build --debug",
-    "site:preview": "cd site && npm run build --mode preview",
+    "site:preview": "cd site && npm run build:preview",
     "prebuild": "rimraf es/* esm/* lib/* dist/*",
     "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && npm run build:tsc",
     "build:tsc": "concurrently \"npm:build:tsc-*\"",
