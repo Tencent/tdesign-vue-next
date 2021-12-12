@@ -1,5 +1,5 @@
 <template>
-  <router-view />
+  <router-view></router-view>
   <reload-prompt />
 </template>
 <script>

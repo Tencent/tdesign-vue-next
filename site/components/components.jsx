@@ -1,8 +1,6 @@
 import { defineComponent } from 'vue';
 import siteConfig from '../site.config.js';
 import packageJson from '@/package.json';
-import 'tdesign-site-components/lib/styles/prism-theme.less';
-import 'tdesign-site-components/lib/styles/prism-theme-dark.less';
 
 const { docs: routerList } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 
@@ -11,7 +9,6 @@ const historyVersion = ['0.4.3'];
 export default defineComponent({
   data() {
     return {
-      docType: '',
       loaded: false,
       version: packageJson.version,
       options: [
@@ -28,16 +25,7 @@ export default defineComponent({
     },
   },
 
-  watch: {
-    $route(route) {
-      if (!route.meta.docType) return;
-      this.docType = route.meta.docType;
-    },
-  },
-
   mounted() {
-    document.querySelector('td-doc-header').docType = this.$route.meta.docType;
-
     this.$refs.tdHeader.framework = 'vue-next';
     this.$refs.tdDocAside.routerList = routerList;
     this.$refs.tdDocAside.onchange = ({ detail }) => {
@@ -87,7 +75,7 @@ export default defineComponent({
             ))}
           </t-select>
         </td-doc-aside>
-        <router-view style={this.contentStyle} doc-type="docType" onLoaded={this.contentLoaded} />
+        <router-view style={this.contentStyle} onLoaded={this.contentLoaded} />
       </td-doc-layout>
     );
   },

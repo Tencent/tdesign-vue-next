@@ -1,0 +1,25 @@
+{
+  "name": "tdesign-vue-next-site",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:preview": "vite build --mode preview"
+  },
+  "dependencies": {
+    "prismjs": "^1.25.0",
+    "tdesign-site-components": "^0.2.2",
+    "vue": "^3.2.4",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.10.2",
+    "@vitejs/plugin-vue-jsx": "^1.3.1",
+    "@vue/compiler-sfc": "^3.2.24",
+    "gray-matter": "^4.0.3",
+    "less": "^4.1.2",
+    "vite": "^2.7.1",
+    "vite-plugin-tdoc": "^2.0.0",
+    "vite-plugin-pwa": "^0.11.3"
+  }
+}

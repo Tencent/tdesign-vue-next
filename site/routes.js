@@ -70,7 +70,7 @@ const routes = [
     path: '/',
     redirect: '/vue-next/components/overview',
   },
-  ...demoRoutes,
+  // ...demoRoutes,
 ];
 
 if (process.env.NODE_ENV === 'development') {
