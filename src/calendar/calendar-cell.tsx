@@ -56,7 +56,7 @@ export default defineComponent({
         {
           't-is-disabled': this.disabled,
           't-is-checked': isCurrent,
-          't-is-now': isNow,
+          't-calendar__table-body-cell--now': isNow,
         },
       ];
     },
@@ -78,7 +78,7 @@ export default defineComponent({
 
     const defaultNode = () => (
       <>
-        <div class="t-calendar__table-body-cell-value">{valueDisplay}</div>
+        <div class="t-calendar__table-body-cell-display">{valueDisplay}</div>
         <div class="t-calendar__table-body-cell-content">
           {allowSlot &&
             renderTNodeJSX(this, 'cellAppend', {
