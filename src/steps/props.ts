@@ -20,7 +20,6 @@ export default {
   /** 已废弃。步骤条方向，有两种：横向和纵向 */
   direction: {
     type: String as PropType<TdStepsProps['direction']>,
-    default: 'horizontal' as TdStepsProps['direction'],
     validator(val: TdStepsProps['direction']): boolean {
       return ['horizontal', 'vertical'].includes(val);
     },
