@@ -4,8 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { VitePWA } from 'vite-plugin-pwa';
 
-import codeRaw from './t-doc-plugin/code-raw';
-import tdocPlugin from './t-doc-plugin';
+import tDocPlugin from './plugin-doc';
 import pwaConfig from './pwaConfig';
 
 export default defineConfig({
@@ -40,10 +39,7 @@ export default defineConfig({
     vueJsx({
       isCustomElement: (tag) => tag.startsWith('td-'),
     }),
-    codeRaw({
-      fileRegex: /\.code$/,
-    }),
-    tdocPlugin(),
+    tDocPlugin(),
     VitePWA(pwaConfig),
   ],
 });

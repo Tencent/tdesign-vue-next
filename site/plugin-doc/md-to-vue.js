@@ -25,14 +25,15 @@ export default function mdToVue(options) {
     <template>
       <td-doc-content ref="tdDocContent" page-status="hidden">
         ${
-          mdSegment.tdDocHeader ?
-          `
+          mdSegment.tdDocHeader
+            ? `
           <td-doc-header
             slot="doc-header"
             ref="tdDocHeader"
             spline="${mdSegment.spline}"
           >
-          </td-doc-header>` : ''
+          </td-doc-header>`
+            : ''
         }
         ${
           mdSegment.isComponent
@@ -157,10 +158,19 @@ function customRender({ source, file, md }) {
   };
 
   if (pageData.isComponent) {
-    mdSegment.demoMd = md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${demoMd.replace(/<!--[\s\S]+?-->/g, '')}`).html;
-    mdSegment.apiMd = md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${apiMd.replace(/<!--[\s\S]+?-->/g, '')}`).html;
+    mdSegment.demoMd = md.render.call(
+      md,
+      `${pageData.toc ? '[toc]\n' : ''}${demoMd.replace(/<!--[\s\S]+?-->/g, '')}`,
+    ).html;
+    mdSegment.apiMd = md.render.call(
+      md,
+      `${pageData.toc ? '[toc]\n' : ''}${apiMd.replace(/<!--[\s\S]+?-->/g, '')}`,
+    ).html;
   } else {
-    mdSegment.docMd = md.render.call(md, `${pageData.toc ? '[toc]\n' : ''}${content.replace(/<!--[\s\S]+?-->/g, '')}`).html;
+    mdSegment.docMd = md.render.call(
+      md,
+      `${pageData.toc ? '[toc]\n' : ''}${content.replace(/<!--[\s\S]+?-->/g, '')}`,
+    ).html;
   }
 
   // 设计指南内容 不展示 design Tab 则不解析

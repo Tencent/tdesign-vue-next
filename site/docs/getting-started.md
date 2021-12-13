@@ -3,6 +3,8 @@ title: Vue Next for Web
 description: TDesign 适配桌面端的组件库，适合在 vue-next 技术栈项目中使用。
 ---
 
+目前组件库处于 `alpha` 阶段，快速迭代中，请留意版本变化。
+
 ## 安装
 
 ```shell
@@ -29,7 +31,7 @@ npm package 中提供了多种构建产物，可以阅读 [这里](https://githu
 
 ## 快速体验
 
-可以访问官方提供的 [tdesign-starter](https://tdesign.tencent.com/starter/vue/) 项目体验使用 TDesign 组件快速搭建业务系统。
+可以访问官方提供的 [tdesign-starter](https://tdesign.tencent.com/starter/vue-next/) 项目体验使用 TDesign 组件快速搭建业务系统。
 
 ## 浏览器兼容性
 

@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
-import config from './site.config';
+import config from '../site.config';
 import TdesignComponents from './components/components.jsx';
 import TdesignDemoPage from './components/demo-page.vue';
-import TdesignPlayground from '../examples/playground/index.vue';
+import TdesignPlayground from '../../examples/playground/index.vue';
 
 const { docs } = config;
 
@@ -63,11 +63,11 @@ const routes = [
     children: getDocsRoutes(docs),
   },
   {
-    path: '/vue-next/',
+    path: '/',
     redirect: '/vue-next/components/overview',
   },
   {
-    path: '/',
+    path: '/:w+',
     redirect: '/vue-next/components/overview',
   },
   ...demoRoutes,

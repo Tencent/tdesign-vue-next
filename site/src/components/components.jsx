@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import siteConfig from '../site.config.js';
+import siteConfig from '../../site.config.js';
 import packageJson from '@/package.json';
 
 const { docs: routerList } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));

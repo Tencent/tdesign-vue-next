@@ -6,13 +6,15 @@ import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import props from './props';
+import { ClassName, Styles } from '../common';
 
 const name = `${prefix}-loading`;
-const fullscreenClass = `${prefix}-loading-fullscreen`;
+const centerClass = `${prefix}-loading--center`;
+const fullscreenClass = `${prefix}-loading__fullscreen`;
 const lockClass = `${prefix}-loading-lock`;
-const maskClass = `${prefix}-loading-mask`;
-const relativeClass = `${prefix}-loading-parent__relative`;
-const wrapperClass = `${prefix}-loading__wrapper`;
+const overlayClass = `${prefix}-loading__overlay`;
+const relativeClass = `${prefix}-loading__parent`;
+const fullClass = `${prefix}-loading--full`;
 const inheritColorClass = `${prefix}-loading--inherit-color`;
 
 export default defineComponent({
@@ -24,11 +26,6 @@ export default defineComponent({
 
   props: {
     ...props,
-    isService: {
-      type: Boolean,
-      default: false,
-    },
-    inheritColor: Boolean,
   },
 
   data() {
@@ -38,36 +35,42 @@ export default defineComponent({
   },
 
   computed: {
+    styles(): Styles {
+      const styles: Styles = {};
+      if (this.zIndex !== undefined) {
+        styles.zIndex = this.zIndex;
+      }
+      if (!['small', 'medium', 'large'].includes(this.size)) {
+        styles['font-size'] = this.size;
+      }
+      return styles;
+    },
     showText(): boolean {
       return Boolean(this.text || this.$slots.text);
     },
-    classes(): Array<string> {
-      const ret = [name, SIZE_CLASSNAMES[this.size]];
-      if (this.fullscreen) {
-        ret.push(...this.fullscreenClasses);
-      }
-      if (this.showOverlay) {
-        ret.push(maskClass);
-      }
-      if (this.preventScrollThrough) {
-        ret.push(lockClass);
-      }
-      if (this.attach) {
-        ret.push(wrapperClass);
-      }
-      if (this.inheritColor) {
-        ret.push(inheritColorClass);
-      }
-      return ret;
-    },
-    wrapMaskClasses(): Array<string> {
-      return this.showOverlay ? [name, wrapperClass, maskClass, SIZE_CLASSNAMES[this.size]] : [wrapperClass];
-    },
-    fullscreenClasses(): Array<string> {
-      return this.loading ? [fullscreenClass, wrapperClass, maskClass] : [fullscreenClass];
+    baseClasses(): ClassName {
+      return [centerClass, SIZE_CLASSNAMES[this.size], { [inheritColorClass]: this.inheritColor }];
     },
     hasContent(): boolean {
       return Boolean(this.default || this.$slots.default || this.content || this.$slots.content);
+    },
+    withContentClasses(): ClassName {
+      return this.baseClasses.concat([
+        name,
+        fullClass,
+        {
+          [overlayClass]: this.showOverlay,
+        },
+      ]);
+    },
+    fullScreenClasses(): ClassName {
+      return [name, fullscreenClass, centerClass, overlayClass];
+    },
+    attachClasses(): ClassName {
+      return this.baseClasses.concat([name, fullClass, { [overlayClass]: this.showOverlay }]);
+    },
+    normalClasses(): ClassName {
+      return this.baseClasses.concat([name]);
     },
     lockFullscreen(): boolean {
       return this.preventScrollThrough && this.fullscreen;
@@ -113,43 +116,53 @@ export default defineComponent({
   },
 
   render() {
-    const content = renderContent(this, 'default', 'content');
     const defaultIndicator = <GradientIcon size={this.size} />;
-    const indicator = renderTNodeJSX(this, 'indicator', defaultIndicator);
-    const text = this.showText && <div class={`${prefix}-loading-text`}>{renderTNodeJSX(this, 'text')}</div>;
-    const baseNode = (
-      <div
-        class={this.classes}
-        v-transfer-dom={this.attach}
-        style={this.zIndex !== undefined && { zIndex: this.zIndex }}
-      >
-        {this.showNormalLoading && indicator}
-        {this.showNormalLoading && text}
-      </div>
-    );
+    const indicator = this.loading && renderTNodeJSX(this, 'indicator', defaultIndicator);
+    const text = this.showText && <div class={`${prefix}-loading__text`}>{renderTNodeJSX(this, 'text')}</div>;
 
-    // 有包裹
+    if (this.fullscreen) {
+      if (!this.loading) return null;
+      return (
+        <div class={this.fullScreenClasses} style={this.styles} v-transfer-dom={this.attach}>
+          <div class={this.baseClasses}>
+            {indicator}
+            {text}
+          </div>
+        </div>
+      );
+    }
+
+    // Loading is wrapping a HTMLElement.
     if (this.hasContent) {
       return (
-        <div class={relativeClass} style={this.zIndex !== undefined && { zIndex: this.zIndex }}>
-          {content}
+        <div class={relativeClass}>
+          {renderContent(this, 'default', 'content')}
           {this.showWrapLoading && (
-            <div class={this.wrapMaskClasses}>
-              <div class={`${prefix}-loading-mask-text`}>
-                {indicator}
-                {text}
-              </div>
+            <div class={this.withContentClasses} style={this.styles}>
+              {indicator}
+              {text}
             </div>
           )}
         </div>
       );
     }
 
-    // 服务，加外层div作为父节点防止transfer-dom空指针
-    if (this.isService && this.attach) {
-      return <div>{baseNode}</div>;
+    // transfer parent node
+    if (this.attach) {
+      return (
+        <div class={this.attachClasses} style={this.styles} v-transfer-dom={this.attach}>
+          {indicator}
+          {text}
+        </div>
+      );
     }
 
-    return baseNode;
+    // Normal Loading without overlay or content
+    return (
+      <div class={this.normalClasses} style={this.styles}>
+        {indicator}
+        {text}
+      </div>
+    );
   },
 });
