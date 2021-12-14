@@ -39,6 +39,10 @@ const routes = [
     children: getDocsRoutes(docs),
   },
   {
+    path: '/',
+    redirect: '/vue-next/components/overview',
+  },
+  {
     path: '/:w+',
     redirect: '/vue-next/components/overview',
   },

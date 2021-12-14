@@ -3,6 +3,8 @@ import _Slider from './slider';
 import _SliderButton from './slider-button';
 import withInstall, { WithInstallType } from '../utils/withInstall';
 
+import './style';
+
 export * from './type';
 const LocalSlider = mapProps([
   {

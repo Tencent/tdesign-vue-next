@@ -1,20 +1,16 @@
 <template>
   <div class="demo-container">
-    <div class="item">
-      <div style="margin: 16px">排序方式：{{ JSON.stringify(sort) }}</div>
-
-      <!-- 受控用法，示例代码有效，勿删 -->
-      <t-table row-key="id" :columns="columns" :data="data" :sort="sort" @sort-change="sortChange">
-        <template #op-column>
-          <t-icon name="descending-order" />
-        </template>
-        <template #status="{ row }">
-          <p v-if="row.status === 0" class="status">健康</p>
-          <p v-if="row.status === 1" class="status warning">警告</p>
-          <p v-if="row.status === 2" class="status unhealth">异常</p>
-        </template>
-      </t-table>
-    </div>
+    <!-- 受控用法，示例代码有效，勿删 -->
+    <t-table bordered row-key="id" :columns="columns" :data="data" :sort="sort" @sort-change="sortChange">
+      <template #op-column>
+        <t-icon name="descending-order" />
+      </template>
+      <template #status="{ row }">
+        <p v-if="row.status === 0" class="status">健康</p>
+        <p v-if="row.status === 1" class="status warning">警告</p>
+        <p v-if="row.status === 2" class="status unhealth">异常</p>
+      </template>
+    </t-table>
   </div>
 </template>
 

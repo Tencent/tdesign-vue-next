@@ -187,7 +187,7 @@ export function handleRemoveTagEffect(
   const checked = node.setChecked(!node.isChecked());
   setValue(checked, 'unchecked', node.getModel());
   if (isFunction(onRemove)) {
-    onRemove({ value: checked, node });
+    onRemove({ value: checked, node: node as any });
   }
 }
 

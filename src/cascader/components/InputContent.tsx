@@ -117,8 +117,18 @@ export default defineComponent({
     InnerContent() {
       const { cascaderContext, placeholder, singleContent, multipleContent, listeners, collapsedItems } = this;
 
-      const { multiple, size, disabled, filterable, setFilterActive, visible, inputVal, setInputVal, minCollapsedNum } =
-        cascaderContext;
+      const {
+        multiple,
+        size,
+        disabled,
+        filterable,
+        setFilterActive,
+        visible,
+        inputVal,
+        setInputVal,
+        minCollapsedNum,
+        value,
+      } = cascaderContext;
 
       const { onFocus, onBlur, onRemove } = listeners as InputContentProps['listeners'];
 
@@ -188,11 +198,9 @@ export default defineComponent({
             setFilterActive(!!value);
           }}
           onFocus={(v: InputValue, context: { e: FocusEvent }) =>
-            isFunction(onFocus) && onFocus({ inputVal, e: context?.e })
+            isFunction(onFocus) && onFocus({ value, e: context?.e })
           }
-          onBlur={(v: InputValue, context: { e: FocusEvent }) =>
-            isFunction(onBlur) && onBlur({ inputVal, e: context?.e })
-          }
+          onBlur={(v: InputValue, context: { e: FocusEvent }) => isFunction(onBlur) && onBlur({ value, e: context?.e })}
           autofocus={visible}
         />
       );

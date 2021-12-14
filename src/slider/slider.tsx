@@ -45,7 +45,7 @@ export default defineComponent({
   },
   computed: {
     containerClass(): ClassName {
-      return [`${name}-container`, { 'is-vertical': this.vertical }];
+      return [`${name}__container`, { 'is-vertical': this.vertical }];
     },
     sliderClass(): ClassName {
       return [
@@ -63,7 +63,7 @@ export default defineComponent({
     },
     sliderNumberClass(): ClassName {
       return [
-        `${name}-input`,
+        `${name}__input`,
         {
           'is-vertical': this.vertical,
         },

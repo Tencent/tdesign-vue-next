@@ -1,6 +1,4 @@
-import config from '../config';
-
-const { prefix } = config;
+import { prefix } from '../config';
 
 export const SIZE_CLASSNAMES = {
   small: `${prefix}-size-s`,
@@ -14,6 +12,7 @@ export const SIZE_CLASSNAMES = {
 
 export const STATUS_CLASSNAMES = {
   loading: `${prefix}-is-loading`,
+  loadMore: `${prefix}-is-load-more`,
   disabled: `${prefix}-is-disabled`,
   focused: `${prefix}-is-focused`,
   success: `${prefix}-is-success`,
