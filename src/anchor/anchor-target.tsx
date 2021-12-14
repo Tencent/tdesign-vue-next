@@ -1,13 +1,13 @@
 import { defineComponent } from 'vue';
 import { FileCopyIcon } from 'tdesign-icons-vue-next';
-
 import { prefix } from '../config';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import props from './anchor-target-props';
 import TPopup from '../popup';
+import { COMPONENT_NAME } from './constant';
 
-const name = `${prefix}-anchor-target`;
+const name = `${COMPONENT_NAME}-target`;
 export default defineComponent({
   name,
 
@@ -37,7 +37,7 @@ export default defineComponent({
       $slots: { default: children },
       id,
     } = this;
-    const className = [name];
+    const className = [`${COMPONENT_NAME}__target`];
     const iconClassName = `${prefix}-copy`;
     return (
       <TAG id={id} class={className}>
