@@ -16,6 +16,7 @@ test-report.html
 .idea/
 package-lock.json
 yarn.lock
+package-lock.json
 *.zip
 .history
 script/test/cypress/screenshots

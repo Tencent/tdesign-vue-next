@@ -71,7 +71,7 @@
     "dayjs": "^1.9.7",
     "less": "^4.1.2",
     "lodash": "^4.17.15",
-    "tdesign-icons-vue-next": "0.0.2",
+    "tdesign-icons-vue-next": "0.0.3",
     "validator": "^13.5.1"
   },
   "peerDependencies": {

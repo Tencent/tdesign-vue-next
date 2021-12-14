@@ -14,7 +14,6 @@ export default function renderDemo(md, container) {
         const demoName = path.basename(demoPath);
         const demoDefName = `Demo${demoPathOnlyLetters}`;
         const demoCodeDefName = `Demo${demoPathOnlyLetters}Code`;
-
         const tpl = `
           <td-doc-demo component-name="${componentName.trim()}" :code=${demoCodeDefName} demo-name="${demoName}" language="markup">
             <div slot="action">
@@ -33,7 +32,6 @@ export default function renderDemo(md, container) {
       if (tokens.tttpl) {
         return `${tokens.tttpl || ''}</div>`;
       }
-
       return '';
     },
   });

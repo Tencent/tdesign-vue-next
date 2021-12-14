@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-07 23:40:01
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { PaginationProps, PageInfo } from '../pagination';
@@ -358,6 +358,59 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> {
    * 树形结构相关配置。`tree.indent` 表示树结点缩进距离，单位：px，默认为 24px。`tree.treeNodeColumnIndex` 表示树结点在第几列渲染，默认为 0 ，第一列。`tree.childrenKey` 表示树形结构子节点字段，默认为 children。`tree.checkStrictly` 表示树形结构的行选中（多选），父子行选中是否独立，默认独立，值为 true
    */
   tree?: TableTreeConfig;
+}
+
+/** 组件实例方法 */
+export interface EnhancedTableInstanceFunctions<T extends TableRowData = TableRowData> {
+  /**
+   * 树形结构中，用于获取行数据所有信息。泛型 `T` 表示行数据类型
+   */
+  getData: (key: TableRowValue) => TableRowState<T>;
+  /**
+   * 树形结构中，移除指定节点
+   */
+  remove: (key: TableRowValue) => void;
+  /**
+   * 树形结构中，用于更新行数据。泛型 `T` 表示行数据类型
+   */
+  setData: (key: TableRowValue, newRowData: T) => void;
+}
+
+export interface TableRowState<T extends TableRowData = TableRowData> {
+  /**
+   * 表格行是否禁用选中
+   * @default false
+   */
+  disabled?: boolean;
+  /**
+   * 当前节点展开的子节点数量
+   */
+  expandChildrenLength?: number;
+  /**
+   * 表格行是否展开
+   * @default false
+   */
+  expanded: boolean;
+  /**
+   * 当前节点层级
+   */
+  level?: number;
+  /**
+   * 父节点
+   */
+  parent?: TableRowState<T>;
+  /**
+   * 当前节点路径
+   */
+  path?: TableRowState<T>[];
+  /**
+   * 原始表格行数据
+   */
+  row: T;
+  /**
+   * 表格行下标
+   */
+  rowIndex: number;
 }
 
 /** 组件实例方法 */
