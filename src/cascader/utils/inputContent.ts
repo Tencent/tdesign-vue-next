@@ -64,7 +64,7 @@ export function getCascaderInnerClasses(prefix: string, CLASSNAMES: any, cascade
  * @returns
  */
 export function getCloseShow(isHover: boolean, cascaderContext: CascaderContextType) {
-  const { multiple, value, disabled, clearable, visible } = cascaderContext;
+  const { value, disabled, clearable, visible } = cascaderContext;
   return !!(!visible && clearable && isHover && !disabled && !isEmpty(value));
 }
 

@@ -292,7 +292,7 @@ exports[`TreeSelect base demo works fine 1`] = `
           />
         </svg>
         <div
-          class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
+          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
           name="loading"
           style="display: none;"
         >
@@ -731,7 +731,7 @@ exports[`TreeSelect collapsed demo works fine 1`] = `
           />
         </svg>
         <div
-          class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
+          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
           name="loading"
           style="display: none;"
         >
@@ -1164,7 +1164,7 @@ exports[`TreeSelect collapsed demo works fine 1`] = `
           />
         </svg>
         <div
-          class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
+          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
           name="loading"
           style="display: none;"
         >
@@ -1553,7 +1553,7 @@ exports[`TreeSelect filterable demo works fine 1`] = `
           />
         </svg>
         <div
-          class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
+          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
           name="loading"
           style="display: none;"
         >
@@ -1778,7 +1778,7 @@ exports[`TreeSelect lazy demo works fine 1`] = `
           />
         </svg>
         <div
-          class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
+          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
           name="loading"
           style="display: none;"
         >
@@ -2217,7 +2217,7 @@ exports[`TreeSelect multiple demo works fine 1`] = `
           />
         </svg>
         <div
-          class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
+          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
           name="loading"
           style="display: none;"
         >
@@ -2552,7 +2552,7 @@ exports[`TreeSelect prefix demo works fine 1`] = `
           />
         </svg>
         <div
-          class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
+          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
           name="loading"
           style="display: none;"
         >

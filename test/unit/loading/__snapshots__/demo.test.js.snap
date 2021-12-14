@@ -17,7 +17,7 @@ exports[`Loading attach demo works fine 1`] = `
     Hi, I'm Bob.
   </div>
   <div
-    class="t-loading t-size-m t-loading-mask t-loading-lock t-loading__wrapper v-transfer-dom"
+    class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay v-transfer-dom"
   >
     <svg
       class="t-loading__gradient t-icon-loading"
@@ -49,7 +49,7 @@ exports[`Loading base demo works fine 1`] = `
   class="t-loading-demo"
 >
   <div
-    class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
+    class="t-loading--center t-size-m t-loading"
   >
     <svg
       class="t-loading__gradient t-icon-loading"
@@ -73,12 +73,6 @@ exports[`Loading base demo works fine 1`] = `
     </svg>
     <!---->
   </div>
-  <!-- 自定义加载图标 -->
-  <!-- &lt;t-loading&gt;
-      &lt;template #indicator&gt;
-        &lt;img src="https://tdesign.gtimg.com/icon/loading.png" class="t-icon-loading" /&gt;
-      &lt;/template&gt;
-    &lt;/t-loading&gt; -->
 </div>
 `;
 
@@ -88,9 +82,28 @@ exports[`Loading delay demo works fine 1`] = `
 >
   <div>
     <div
-      class="t-loading t-size-s t-loading-mask t-loading-lock v-transfer-dom"
+      class="t-loading--center t-size-s t-loading"
     >
-      <!---->
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="small"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
       <!---->
     </div>
     <div
@@ -103,7 +116,7 @@ exports[`Loading delay demo works fine 1`] = `
     class="wrap"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div
@@ -146,12 +159,7 @@ exports[`Loading delay demo works fine 1`] = `
 
 exports[`Loading fullscreen demo works fine 1`] = `
 <div>
-  <div
-    class="t-loading t-size-m t-loading-fullscreen t-loading-mask t-loading-lock v-transfer-dom"
-  >
-    <!---->
-    <!---->
-  </div>
+  <!---->
   <div
     class="switch-demo"
   >
@@ -178,7 +186,7 @@ exports[`Loading fullscreen demo works fine 1`] = `
 
 exports[`Loading iconText demo works fine 1`] = `
 <div
-  class="t-loading t-size-s t-loading-mask t-loading-lock v-transfer-dom"
+  class="t-loading--center t-size-s t-loading"
 >
   <svg
     class="t-loading__gradient t-icon-loading"
@@ -201,7 +209,7 @@ exports[`Loading iconText demo works fine 1`] = `
     </foreignobject>
   </svg>
   <div
-    class="t-loading-text"
+    class="t-loading__text"
   >
     加载中...
   </div>
@@ -295,7 +303,7 @@ exports[`Loading size demo works fine 1`] = `
 >
   <div>
     <div
-      class="t-loading t-size-s t-loading-mask t-loading-lock v-transfer-dom"
+      class="t-loading--center t-size-s t-loading"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
@@ -318,7 +326,7 @@ exports[`Loading size demo works fine 1`] = `
         </foreignobject>
       </svg>
       <div
-        class="t-loading-text"
+        class="t-loading__text"
       >
         加载中（小）...
       </div>
@@ -326,7 +334,7 @@ exports[`Loading size demo works fine 1`] = `
   </div>
   <div>
     <div
-      class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
+      class="t-loading--center t-size-m t-loading"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
@@ -349,7 +357,7 @@ exports[`Loading size demo works fine 1`] = `
         </foreignobject>
       </svg>
       <div
-        class="t-loading-text"
+        class="t-loading__text"
       >
         加载中（中）...
       </div>
@@ -357,7 +365,7 @@ exports[`Loading size demo works fine 1`] = `
   </div>
   <div>
     <div
-      class="t-loading t-size-l t-loading-mask t-loading-lock v-transfer-dom"
+      class="t-loading--center t-size-l t-loading"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
@@ -380,7 +388,7 @@ exports[`Loading size demo works fine 1`] = `
         </foreignobject>
       </svg>
       <div
-        class="t-loading-text"
+        class="t-loading__text"
       >
         加载中（大）...
       </div>
@@ -395,22 +403,22 @@ exports[`Loading text demo works fine 1`] = `
 >
   <!-- 使用 props 实现自定义 -->
   <div
-    class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
+    class="t-loading--center t-size-m t-loading"
   >
     <!---->
     <div
-      class="t-loading-text"
+      class="t-loading__text"
     >
       静态文字加载中...
     </div>
   </div>
   <!-- 使用 props 实现自定义 -->
   <div
-    class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
+    class="t-loading--center t-size-m t-loading"
   >
     <!---->
     <div
-      class="t-loading-text"
+      class="t-loading__text"
     >
       <span>
         变量文字加载中...
@@ -418,11 +426,11 @@ exports[`Loading text demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
+    class="t-loading--center t-size-m t-loading"
   >
     <!---->
     <div
-      class="t-loading-text"
+      class="t-loading__text"
     >
       
        插槽文字加载中... 
@@ -437,7 +445,7 @@ exports[`Loading wrap demo works fine 1`] = `
   class="loading-wrap-demo"
 >
   <div
-    class="t-loading-parent__relative"
+    class="t-loading__parent"
   >
     
     <div>
@@ -457,33 +465,29 @@ exports[`Loading wrap demo works fine 1`] = `
     </div>
     
     <div
-      class="t-loading t-loading__wrapper t-loading-mask t-size-s"
+      class="t-loading--center t-size-s t-loading t-loading--full t-loading__overlay"
     >
-      <div
-        class="t-loading-mask-text"
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="small"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          class="t-loading__gradient t-icon-loading"
-          height="1em"
-          size="small"
-          version="1.1"
-          viewBox="0 0 14 14"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
         >
-          <foreignobject
-            height="12"
-            width="12"
-            x="1"
-            y="1"
-          >
-            <div
-              class="t-loading__gradient-conic"
-            />
-          </foreignobject>
-        </svg>
-        <!---->
-      </div>
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <!---->
     </div>
   </div>
   <br />
