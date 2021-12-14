@@ -1,12 +1,9 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
-import config from './site.config';
+import config from '../site.config';
 import TdesignComponents from './components/components.jsx';
-import TdesignDemoPage from './components/demo-page.vue';
-import TdesignPlayground from '../examples/playground/index.vue';
+import TdesignPlayground from '../../examples/playground/index.vue';
 
 const { docs } = config;
-
-export const demoFiles = import.meta.globEager('../examples/**/demos/*.vue');
 
 function getDocsRoutes(docs, type) {
   let docsRoutes = [];
@@ -27,33 +24,12 @@ function getDocsRoutes(docs, type) {
     if (children) {
       docsRoutes = docsRoutes.concat(getDocsRoutes(children, docType));
     } else {
-      docRoute = {
-        path: item.name,
-        meta: item.meta || {},
-        component: item.component,
-      };
+      docRoute = { ...item };
       docsRoutes.push(docRoute);
     }
   });
   return docsRoutes;
 }
-
-function getDemoRoutes() {
-  if (process.env.NODE_ENV === 'development') {
-    return Object.keys(demoFiles).map((key) => {
-      const match = key.match(/([\w-]+).demos.([\w-]+).vue/);
-      const [, componentName, demoName] = match;
-      return {
-        path: `/vue-next/demos/${componentName}/${demoName}`,
-        props: { componentName, demo: demoFiles[key].default },
-        component: TdesignDemoPage,
-      };
-    });
-  }
-  return [];
-}
-
-const demoRoutes = getDemoRoutes();
 
 const routes = [
   {
@@ -63,14 +39,13 @@ const routes = [
     children: getDocsRoutes(docs),
   },
   {
-    path: '/vue-next/',
+    path: '/:w+',
     redirect: '/vue-next/components/overview',
   },
   {
-    path: '/',
-    redirect: '/vue-next/components/overview',
+    path: '/vue-next/demos/:componentName/:demoName',
+    component: () => import('./components/demo-page.vue'),
   },
-  ...demoRoutes,
 ];
 
 if (process.env.NODE_ENV === 'development') {

@@ -18,7 +18,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     sortonrowdraggable="false"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div
@@ -197,7 +197,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     sortonrowdraggable="false"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div
@@ -261,7 +261,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     sortonrowdraggable="false"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div
@@ -325,7 +325,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     sortonrowdraggable="false"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div
@@ -483,7 +483,7 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
     sortonrowdraggable="false"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div
@@ -547,7 +547,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
     sortonrowdraggable="false"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div
@@ -711,7 +711,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
     sortonrowdraggable="false"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div
@@ -947,7 +947,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
     sortonrowdraggable="false"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div

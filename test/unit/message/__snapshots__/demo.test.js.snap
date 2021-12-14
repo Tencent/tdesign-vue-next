@@ -677,7 +677,7 @@ exports[`Message type demo works fine 1`] = `
     class="t-message t-is-loading"
   >
     <div
-      class="t-loading t-size-m t-loading-mask t-loading-lock v-transfer-dom"
+      class="t-loading--center t-size-m t-loading"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
