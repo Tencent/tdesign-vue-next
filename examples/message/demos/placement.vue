@@ -112,32 +112,11 @@ export default defineComponent({
   left: 0;
   top: 42%;
 }
-.placement-left-top {
-  position: absolute;
-  left: 0;
-  top: 50px;
-}
-.placement-left-bottom {
-  position: absolute;
-  left: 0;
-  bottom: 50px;
-}
 .placement-right {
   position: absolute;
   right: 0;
   top: 42%;
 }
-.placement-right-top {
-  position: absolute;
-  right: 0;
-  top: 50px;
-}
-.placement-right-bottom {
-  position: absolute;
-  right: 0;
-  bottom: 50px;
-}
-
 .placement-center {
   position: absolute;
   right: 42%;

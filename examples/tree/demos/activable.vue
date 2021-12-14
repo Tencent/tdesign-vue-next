@@ -19,6 +19,7 @@
       :activable="activable"
       :active-multiple="activeMultiple"
       :expand-on-click-node="expandOnClickNode"
+      hover
       @click="onClick"
       @active="onActive"
     />

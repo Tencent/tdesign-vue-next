@@ -26033,13 +26033,31 @@ exports[`ssr snapshot test renders ./examples/message/demos/base.vue correctly 1
   <div class="t-message t-is-info"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
     </svg>
-    <!--[--> 用于表示普通操作信息提示
+    <!--[-->用于表示普通操作信息提示
     <!--]--><span class="t-message-close"><!----></span>
   </div>
-  <div class="t-message t-is-info"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
-      <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
+  <div class="t-message t-is-success"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
+      <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
     </svg>
-    <!--[--> 用于表示普通操作信息提示, 可关闭, 通常信息较长
+    <!--[-->用于表示操作顺利达成
+    <!--]--><span class="t-message-close"><!----></span>
+  </div>
+  <div class="t-message t-is-warning"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
+      <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
+    </svg>
+    <!--[-->用于表示操作引起一定后果
+    <!--]--><span class="t-message-close"><!----></span>
+  </div>
+  <div class="t-message t-is-error"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
+      <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
+    </svg>
+    <!--[-->用于表示操作引起严重的后果
+    <!--]--><span class="t-message-close"><!----></span>
+  </div>
+  <div class="t-message t-is-question"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-help-circle-filled" style="">
+      <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.8 6.63a2.2 2.2 0 014.39 0c0 .97-.75 1.72-1.49 2.02a.34.34 0 00-.2.32v.8h-1v-.8c0-.56.33-1.04.82-1.24.5-.2.87-.66.87-1.1a1.2 1.2 0 00-2.39 0h-1zm1.67 4.54a.53.53 0 111.05 0 .53.53 0 01-1.05 0z" fillopacity="0.9"></path>
+    </svg>
+    <!--[-->用于帮助用户操作的信息提示
     <!--]--><span class="t-message-close"><!----></span>
   </div>
 </div>
@@ -26075,40 +26093,6 @@ exports[`ssr snapshot test renders ./examples/message/demos/close.vue correctly 
 `;
 
 exports[`ssr snapshot test renders ./examples/message/demos/close-all.vue correctly 1`] = `<div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 点击打开多个消息 <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button" id="t-demo-msg-close-all"><span class="t-button__text"><!--[--> 点击关闭所有消息 <!--]--></span></button></div>`;
-
-exports[`ssr snapshot test renders ./examples/message/demos/error.vue correctly 1`] = `
-<div class="t-demo-message">
-  <div class="t-message t-is-error"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-      <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
-    </svg>
-    <!--[--> 用于表示操作引起严重的后果
-    <!--]--><span class="t-message-close"><!----></span>
-  </div>
-  <div class="t-message t-is-error"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-      <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
-    </svg>
-    <!--[--> 用于表示操作引起严重的后果, 可关闭, 通常信息较长
-    <!--]--><span class="t-message-close"><!----></span>
-  </div>
-</div>
-`;
-
-exports[`ssr snapshot test renders ./examples/message/demos/help.vue correctly 1`] = `
-<div class="t-demo-message">
-  <div class="t-message t-is-question"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-help-circle-filled" style="">
-      <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.8 6.63a2.2 2.2 0 014.39 0c0 .97-.75 1.72-1.49 2.02a.34.34 0 00-.2.32v.8h-1v-.8c0-.56.33-1.04.82-1.24.5-.2.87-.66.87-1.1a1.2 1.2 0 00-2.39 0h-1zm1.67 4.54a.53.53 0 111.05 0 .53.53 0 01-1.05 0z" fillopacity="0.9"></path>
-    </svg>
-    <!--[--> 用于帮助用户操作的信息提示
-    <!--]--><span class="t-message-close"><!----></span>
-  </div>
-  <div class="t-message t-is-question"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-help-circle-filled" style="">
-      <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.8 6.63a2.2 2.2 0 014.39 0c0 .97-.75 1.72-1.49 2.02a.34.34 0 00-.2.32v.8h-1v-.8c0-.56.33-1.04.82-1.24.5-.2.87-.66.87-1.1a1.2 1.2 0 00-2.39 0h-1zm1.67 4.54a.53.53 0 111.05 0 .53.53 0 01-1.05 0z" fillopacity="0.9"></path>
-    </svg>
-    <!--[--> 用于帮助用户操作的信息提示, 可关闭, 通常信息较长
-    <!--]--><span class="t-message-close"><!----></span>
-  </div>
-</div>
-`;
 
 exports[`ssr snapshot test renders ./examples/message/demos/loading.vue correctly 1`] = `
 <div class="t-demo-message">
@@ -26179,23 +26163,6 @@ exports[`ssr snapshot test renders ./examples/message/demos/plugin.vue correctly
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/message/demos/success.vue correctly 1`] = `
-<div class="t-demo-message">
-  <div class="t-message t-is-success"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-      <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
-    </svg>
-    <!--[--> 用于表示操作顺利达成
-    <!--]--><span class="t-message-close"><!----></span>
-  </div>
-  <div class="t-message t-is-success"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-      <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
-    </svg>
-    <!--[--> 用于表示操作顺利达成, 可关闭, 通常信息较长
-    <!--]--><span class="t-message-close"><!----></span>
-  </div>
-</div>
-`;
-
 exports[`ssr snapshot test renders ./examples/message/demos/toggle.vue correctly 1`] = `<div id="t-demo-message-toggle"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 自由控制关闭时机（打开） <!--]--></span></button></div>`;
 
 exports[`ssr snapshot test renders ./examples/message/demos/type.vue correctly 1`] = `
@@ -26239,23 +26206,6 @@ exports[`ssr snapshot test renders ./examples/message/demos/type.vue correctly 1
       <!---->
     </div>
     <!--[--> 用于表示操作正在生效的过程中
-    <!--]--><span class="t-message-close"><!----></span>
-  </div>
-</div>
-`;
-
-exports[`ssr snapshot test renders ./examples/message/demos/warning.vue correctly 1`] = `
-<div class="t-demo-message">
-  <div class="t-message t-is-warning"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-      <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
-    </svg>
-    <!--[--> 用于表示操作引起一定后果
-    <!--]--><span class="t-message-close"><!----></span>
-  </div>
-  <div class="t-message t-is-warning"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-      <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
-    </svg>
-    <!--[--> 用于表示操作引起一定后果, 可关闭, 通常信息较长
     <!--]--><span class="t-message-close"><!----></span>
   </div>
 </div>
@@ -41376,7 +41326,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/activable.vue correctly
       <!--]-->
     </form>
   </div>
-  <div class="t-tree t-tree--fx">
+  <div class="t-tree t-tree--hoverable t-tree--fx">
     <div class="t-tree__list">
       <div class="t-tree__item t-tree__item--open" data-value="t3" data-level="0" style="--level: 0;">
         <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fillopacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>

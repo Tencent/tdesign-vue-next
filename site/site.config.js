@@ -25,6 +25,15 @@ export default {
           path: '/vue-next/components/changelog',
           component: () => import('@/CHANGELOG.md'),
         },
+        {
+          title: '组件概览',
+          name: 'overview',
+          meta: {
+            docType: 'explain',
+          },
+          path: '/vue-next/components/overview',
+          component: () => import('@common/docs/web/overview.md'),
+        },
       ],
     },
     {
@@ -48,12 +57,6 @@ export default {
           name: 'dark-mode',
           path: '/vue-next/components/dark-mode',
           component: () => import('@common/dark-mode.md'),
-        },
-        {
-          title: '组件概览',
-          name: 'overview',
-          path: '/vue-next/components/overview',
-          component: () => import('@common/docs/web/overview.md'),
         },
       ],
     },
