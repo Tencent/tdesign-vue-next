@@ -110,7 +110,7 @@ export default defineComponent({
       const content = !showPlaceholder ? (
         this.InnerContent()
       ) : (
-        <span className={`${prefix}-cascader__placeholder`}>{placeholder || this.t(this.global.placeholder)}</span>
+        <span class={`${prefix}-cascader__placeholder`}>{placeholder || this.t(this.global.placeholder)}</span>
       );
       return content;
     },
@@ -145,7 +145,7 @@ export default defineComponent({
       };
 
       const generalContent = !multiple ? (
-        <span className={`${prefix}-cascader__content`}>{singleContent}</span>
+        <span class={`${prefix}-cascader__content`}>{singleContent}</span>
       ) : (
         <span>
           {minCollapsedNum > 0 && multipleContent.length > minCollapsedNum ? (
