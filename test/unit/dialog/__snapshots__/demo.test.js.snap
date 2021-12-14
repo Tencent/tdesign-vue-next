@@ -2229,7 +2229,7 @@ exports[`Dialog warning demo works fine 1`] = `
           
           <div>
             <svg
-              class="t-icon t-icon-check-circle-filled t-size-m"
+              class="t-icon t-icon-check-circle-filled"
               color="orange"
             >
               <use
