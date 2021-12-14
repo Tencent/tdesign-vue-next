@@ -108,3 +108,12 @@ export function getCharacterLength(str: string, maxCharacter?: number) {
   }
   return len;
 }
+
+/**
+ * 兼容样式中支持number/string类型的传值 得出最后的结果。
+ * @param param number或string类型的可用于样式上的值
+ * @returns 可使用的样式值。
+ */
+export function pxCompat(param: string | number) {
+  return typeof param === 'number' ? `${param}px` : param;
+}

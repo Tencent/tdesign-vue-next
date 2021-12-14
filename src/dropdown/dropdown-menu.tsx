@@ -4,6 +4,7 @@ import { prefix } from '../config';
 import { DropdownOption } from './type';
 import { TNodeReturnValue } from '../common';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import { pxCompat } from '../utils/helper';
 
 const name = `${prefix}-dropdown__menu`;
 
@@ -58,13 +59,14 @@ export default defineComponent({
     },
     renderMenuColumn(children: Array<DropdownOption>, showSubmenu: boolean, pathPrefix: string): VNode {
       const menuClass = [`${name}__column`, 'narrow-scrollbar', { submenu__visible: showSubmenu }];
+      const { maxHeight, maxColumnWidth, minColumnWidth } = this.dropdown;
       return (
         <div
           class={menuClass}
           style={{
-            maxHeight: `${this.maxHeight}px`,
-            maxWidth: `${this.dropdown.maxColumnWidth}px`,
-            minWidth: `${this.dropdown.minColumnWidth}px`,
+            maxHeight: `${maxHeight}px`,
+            maxWidth: pxCompat(maxColumnWidth),
+            minWidth: pxCompat(minColumnWidth),
           }}
         >
           {children.map((item, idx) => (
