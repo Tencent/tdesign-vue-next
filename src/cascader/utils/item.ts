@@ -42,11 +42,11 @@ export function getCascaderItemClass(
 ) {
   const { size } = cascaderContext;
   return [
-    `${prefix}-cascader-item`,
+    `${prefix}-cascader__item`,
     ...getNodeStatusClass(node, CLASSNAMES, cascaderContext),
     {
-      [`${prefix}-cascader-item-have-icon`]: node.children,
-      [`${prefix}-cascader-item-is-leaf`]: node.isLeaf(),
+      [`${prefix}-cascader__item--with-icon`]: node.children,
+      [`${prefix}-cascader__item--leaf`]: node.isLeaf(),
       [CLASSNAMES.SIZE[size]]: size,
     },
   ];
@@ -58,5 +58,5 @@ export function getCascaderItemIconClass(
   CLASSNAMES: any,
   cascaderContext: CascaderContextType,
 ) {
-  return [`${prefix}-cascader-item-icon`, ...getNodeStatusClass(node, CLASSNAMES, cascaderContext)];
+  return [`${prefix}-cascader__item-icon`, ...getNodeStatusClass(node, CLASSNAMES, cascaderContext)];
 }

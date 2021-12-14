@@ -22,6 +22,7 @@ import { ContextType, CascaderContextType, CascaderItemPropsType } from '../inte
 import { TreeNodeValue } from '../../_common/js/tree/types';
 
 const name = `${prefix}-cascader-item`;
+const ComponentClassName = `${prefix}-cascader__item`;
 
 export default defineComponent({
   name,
@@ -79,7 +80,7 @@ export default defineComponent({
       this.$emit('mouseenter', ctx);
     };
 
-    function RenderLabelInner(name: string, node: TreeNode, cascaderContext: CascaderContextType) {
+    function RenderLabelInner(node: TreeNode, cascaderContext: CascaderContextType) {
       const { filterActive, inputVal } = cascaderContext;
       const labelText = filterActive ? getFullPathLabel(node) : node.label;
       if (filterActive) {
@@ -88,7 +89,7 @@ export default defineComponent({
         for (let index = 0; index < texts.length; index++) {
           doms.push(<span>{texts[index]}</span>);
           if (index === texts.length - 1) break;
-          doms.push(<span class={`${name}__label--filter`}>{inputVal}</span>);
+          doms.push(<span class={`${ComponentClassName}-label--filter`}>{inputVal}</span>);
         }
         return doms;
       }
@@ -96,20 +97,20 @@ export default defineComponent({
     }
 
     function RenderLabelContent(node: TreeNode, cascaderContext: CascaderContextType) {
-      const label = RenderLabelInner(name, node, cascaderContext);
+      const label = RenderLabelInner(node, cascaderContext);
       const isEllipsis = getLabelIsEllipsis(node, cascaderContext.size);
       if (isEllipsis) {
         return (
-          <span class={`${name}__label`} role="label">
+          <span class={`${ComponentClassName}-label`} role="label">
             {label}
-            <div class={`${name}__label--ellipsis`}>
+            <div class={`${ComponentClassName}-label--ellipsis`}>
               <Tooltip content={node.label} placement="top-left" />
             </div>
           </span>
         );
       }
       return (
-        <span class={[`${name}__label`]} role="label">
+        <span class={[`${ComponentClassName}-label`]} role="label">
           {label}
         </span>
       );
@@ -120,10 +121,8 @@ export default defineComponent({
       cascaderContext: CascaderContextType,
       handleChange: CheckboxProps['onChange'],
     ) {
-      const name = `${prefix}-cascader-item`;
-
       const { checkProps, value, max, size } = cascaderContext;
-      const label = RenderLabelInner(name, node, cascaderContext);
+      const label = RenderLabelInner(node, cascaderContext);
       return (
         <Checkbox
           checked={node.checked}

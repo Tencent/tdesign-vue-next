@@ -1,4 +1,5 @@
 import isFunction from 'lodash/isFunction';
+import isEmpty from 'lodash/isEmpty';
 import { TreeNode, CascaderContextType, TreeNodeValue, CascaderProps } from '../interface';
 
 /**
@@ -11,7 +12,7 @@ import { TreeNode, CascaderContextType, TreeNodeValue, CascaderProps } from '../
 export function getCloseIconClass(prefix: string, CLASSNAMES: any, cascaderContext: CascaderContextType) {
   const { visible, disabled } = cascaderContext;
   return [
-    `${prefix}-cascader-icon`,
+    `${prefix}-cascader__icon`,
     {
       [CLASSNAMES.STATUS.visible]: visible,
       [CLASSNAMES.STATUS.disabled]: disabled,
@@ -29,7 +30,7 @@ export function getCloseIconClass(prefix: string, CLASSNAMES: any, cascaderConte
 export function getFakeArrowIconClass(prefix: string, CLASSNAMES: any, cascaderContext: CascaderContextType) {
   const { disabled } = cascaderContext;
   return [
-    `${prefix}-cascader-icon`,
+    `${prefix}-cascader__icon`,
     {
       [CLASSNAMES.STATUS.disabled]: disabled,
     },
@@ -51,7 +52,7 @@ export function getCascaderInnerClasses(prefix: string, CLASSNAMES: any, cascade
       [CLASSNAMES.STATUS.disabled]: disabled,
       [CLASSNAMES.STATUS.active]: visible,
       [CLASSNAMES.SIZE[size]]: size,
-      [`${prefix}-cascader-is-multiple`]: multiple,
+      [`${prefix}-cascader--multiple`]: multiple,
     },
   ];
 }
@@ -64,13 +65,7 @@ export function getCascaderInnerClasses(prefix: string, CLASSNAMES: any, cascade
  */
 export function getCloseShow(isHover: boolean, cascaderContext: CascaderContextType) {
   const { multiple, value, disabled, clearable, visible } = cascaderContext;
-  return !!(
-    !visible &&
-    clearable &&
-    isHover &&
-    !disabled &&
-    ((!multiple && value) || (multiple && (value as TreeNodeValue[]).length))
-  );
+  return !!(!visible && clearable && isHover && !disabled && !isEmpty(value));
 }
 
 /**

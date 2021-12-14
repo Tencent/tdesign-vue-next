@@ -244,7 +244,7 @@ export default defineComponent({
       <div ref="cascader">
         <Popup
           ref="popup"
-          overlayClassName={`${name}-dropdown`}
+          overlayClassName={`${name}__dropdown`}
           placement="bottom-left"
           visible={visible}
           trigger={popupProps?.trigger || 'click'}

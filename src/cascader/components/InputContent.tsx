@@ -110,7 +110,7 @@ export default defineComponent({
       const content = !showPlaceholder ? (
         this.InnerContent()
       ) : (
-        <span className={`${prefix}-cascader-placeholder`}>{placeholder || this.t(this.global.placeholder)}</span>
+        <span className={`${prefix}-cascader__placeholder`}>{placeholder || this.t(this.global.placeholder)}</span>
       );
       return content;
     },
@@ -124,7 +124,7 @@ export default defineComponent({
 
       const renderSelfTag = (node: TreeNode, index: number) => (
         <Tag
-          closable
+          closable={!disabled}
           key={index}
           disabled={disabled}
           onClose={(ctx) => {
@@ -145,7 +145,7 @@ export default defineComponent({
       };
 
       const generalContent = !multiple ? (
-        <span className={`${prefix}-cascader-content`}>{singleContent}</span>
+        <span className={`${prefix}-cascader__content`}>{singleContent}</span>
       ) : (
         <span>
           {minCollapsedNum > 0 && multipleContent.length > minCollapsedNum ? (
@@ -215,7 +215,7 @@ export default defineComponent({
 
       if (loading) {
         return (
-          <span class={`${prefix}-cascader-icon`}>
+          <span class={`${prefix}-cascader__icon`}>
             <TLoading size="small" />
           </span>
         );
