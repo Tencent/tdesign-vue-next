@@ -138,7 +138,7 @@ exports[`Tree:demo activable demo works fine 1`] = `
     </form>
   </div>
   <div
-    class="t-tree t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--fx"
     modelvalue=""
   >
     <transition-group-stub>
