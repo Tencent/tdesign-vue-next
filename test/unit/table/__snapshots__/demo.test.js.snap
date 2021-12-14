@@ -81,7 +81,7 @@ exports[`Table base demo works fine 1`] = `
       sortonrowdraggable="false"
     >
       <div
-        class="t-loading-parent__relative"
+        class="t-loading__parent"
       >
         
         <div
@@ -491,7 +491,7 @@ exports[`Table base demo works fine 2`] = `
       sortonrowdraggable="false"
     >
       <div
-        class="t-loading-parent__relative"
+        class="t-loading__parent"
       >
         
         <div
@@ -858,7 +858,7 @@ exports[`Table customCell demo works fine 1`] = `
       sortonrowdraggable="false"
     >
       <div
-        class="t-loading-parent__relative"
+        class="t-loading__parent"
       >
         
         <div
@@ -1085,7 +1085,7 @@ exports[`Table empty demo works fine 1`] = `
       sortonrowdraggable="false"
     >
       <div
-        class="t-loading-parent__relative"
+        class="t-loading__parent"
       >
         
         <div
@@ -1196,7 +1196,7 @@ exports[`Table empty demo works fine 1`] = `
       sortonrowdraggable="false"
     >
       <div
-        class="t-loading-parent__relative"
+        class="t-loading__parent"
       >
         
         <div
@@ -1313,7 +1313,7 @@ exports[`Table empty demo works fine 1`] = `
       sortonrowdraggable="false"
     >
       <div
-        class="t-loading-parent__relative"
+        class="t-loading__parent"
       >
         
         <div
@@ -1534,7 +1534,7 @@ exports[`Table expandable demo works fine 1`] = `
       sortonrowdraggable="false"
     >
       <div
-        class="t-loading-parent__relative"
+        class="t-loading__parent"
       >
         
         <div
@@ -2347,7 +2347,7 @@ exports[`Table fixedColumn demo works fine 1`] = `
       sortonrowdraggable="false"
     >
       <div
-        class="t-loading-parent__relative"
+        class="t-loading__parent"
       >
         
         <div
@@ -2840,7 +2840,7 @@ exports[`Table fixedHeader demo works fine 1`] = `
     sortonrowdraggable="false"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div
@@ -4004,7 +4004,7 @@ exports[`Table multiHeader demo works fine 1`] = `
     sortonrowdraggable="false"
   >
     <div
-      class="t-loading-parent__relative"
+      class="t-loading__parent"
     >
       
       <div
@@ -4244,7 +4244,7 @@ exports[`Table selectMultiple demo works fine 1`] = `
       sortonrowdraggable="false"
     >
       <div
-        class="t-loading-parent__relative"
+        class="t-loading__parent"
       >
         
         <div
@@ -4730,7 +4730,7 @@ exports[`Table selectSingle demo works fine 1`] = `
       sortonrowdraggable="false"
     >
       <div
-        class="t-loading-parent__relative"
+        class="t-loading__parent"
       >
         
         <div

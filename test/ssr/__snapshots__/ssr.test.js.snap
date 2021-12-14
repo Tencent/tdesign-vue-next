@@ -1146,7 +1146,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/icon.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/button/demos/loading.vue correctly 1`] = `
 <div class="button-base"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading" type="button">
     <!--[-->
-    <div class="t-loading t-size-m t-loading-mask t-loading-lock t-loading--inherit-color" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading--inherit-color t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
@@ -1156,7 +1156,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/loading.vue correctly
     <!--]-->
   </button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled t-is-loading" type="button">
     <!--[-->
-    <div class="t-loading t-size-m t-loading-mask t-loading-lock t-loading--inherit-color" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading--inherit-color t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
@@ -1278,7 +1278,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/size.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/button/demos/status.vue correctly 1`] = `
 <div class="tdesign-demo-block-row"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[--> 填充按钮 <!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading" type="button">
     <!--[-->
-    <div class="t-loading t-size-m t-loading-mask t-loading-lock t-loading--inherit-color" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading--inherit-color t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
@@ -13991,7 +13991,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <!---->
         <!---->
         <!---->
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -14080,7 +14080,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -14128,7 +14128,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <!----><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -14196,7 +14196,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -14635,7 +14635,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
   <div style="width: 100%">
     <!---->
     <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -14696,7 +14696,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -18871,7 +18871,7 @@ exports[`ssr snapshot test renders ./examples/dialog/demos/async.vue correctly 1
       <div class="t-dialog__footer">
         <div><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel" type="button"><span class="t-button__text">取消</span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading t-dialog__confirm" type="button">
             <!--[-->
-            <div class="t-loading t-size-m t-loading-mask t-loading-lock t-loading--inherit-color" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+            <div class="t-loading--center t-size-m t-loading--inherit-color t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
                 <foreignObject x="1" y="1" width="12" height="12">
                   <div class="t-loading__gradient-conic"></div>
                 </foreignObject>
@@ -20808,7 +20808,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
             <!----><input autocomplete="false" placeholder="正在校验中，请稍等" type="text" value class="t-input__inner">
             <!---->
           </div>
-          <!--]--><span class="t-form__status"><!--[--><div style="width:25px;display:flex;justify-content:center;"><div class="t-loading t-size-s t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></div><!--]--></span>
+          <!--]--><span class="t-form__status"><!--[--><div style="width:25px;display:flex;justify-content:center;"><div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></div><!--]--></span>
         </div>
         <!---->
       </div>
@@ -24530,7 +24530,7 @@ exports[`ssr snapshot test renders ./examples/loading/demos/attach.vue correctly
 <div class="tdesign-demo-block-column">
   <div id="alice" class="loading-attach-demo__title">Hello, I&#39;m Alice.</div>
   <div id="bob" class="loading-attach-demo__title">Hi, I&#39;m Bob.</div>
-  <div class="t-loading t-size-m t-loading-mask t-loading-lock t-loading__wrapper" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+  <div class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
       <foreignObject x="1" y="1" width="12" height="12">
         <div class="t-loading__gradient-conic"></div>
       </foreignObject>
@@ -24542,26 +24542,24 @@ exports[`ssr snapshot test renders ./examples/loading/demos/attach.vue correctly
 
 exports[`ssr snapshot test renders ./examples/loading/demos/base.vue correctly 1`] = `
 <div class="t-loading-demo">
-  <div class="t-loading t-size-m t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+  <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
       <foreignObject x="1" y="1" width="12" height="12">
         <div class="t-loading__gradient-conic"></div>
       </foreignObject>
     </svg>
     <!---->
-  </div><!-- 自定义加载图标 -->
-  <!-- <t-loading>
-      <template #indicator>
-        <img src="https://tdesign.gtimg.com/icon/loading.png" class="t-icon-loading" />
-      </template>
-    </t-loading> -->
+  </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/loading/demos/delay.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
   <div>
-    <div class="t-loading t-size-s t-loading-mask t-loading-lock" style="">
-      <!---->
+    <div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <foreignObject x="1" y="1" width="12" height="12">
+          <div class="t-loading__gradient-conic"></div>
+        </foreignObject>
+      </svg>
       <!---->
     </div>
     <div class="switch-demo">
@@ -24569,7 +24567,7 @@ exports[`ssr snapshot test renders ./examples/loading/demos/delay.vue correctly 
     </div>
   </div>
   <div class="wrap">
-    <div class="t-loading-parent__relative" style="">
+    <div class="t-loading__parent">
       <!--[-->
       <div class="wrap"></div>
       <!--]-->
@@ -24582,10 +24580,7 @@ exports[`ssr snapshot test renders ./examples/loading/demos/delay.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/loading/demos/fullscreen.vue correctly 1`] = `
 <div>
-  <div class="t-loading t-size-m t-loading-fullscreen t-loading-mask t-loading-lock" style="">
-    <!---->
-    <!---->
-  </div>
+  <!---->
   <div class="switch-demo"> 全局加载开关（开启加载1秒后自动归位）： <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-m">
         <!---->
@@ -24596,18 +24591,18 @@ exports[`ssr snapshot test renders ./examples/loading/demos/fullscreen.vue corre
 `;
 
 exports[`ssr snapshot test renders ./examples/loading/demos/icon-text.vue correctly 1`] = `
-<div class="t-loading t-size-s t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+<div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
     <foreignObject x="1" y="1" width="12" height="12">
       <div class="t-loading__gradient-conic"></div>
     </foreignObject>
   </svg>
-  <div class="t-loading-text">加载中...</div>
+  <div class="t-loading__text">加载中...</div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/loading/demos/indicatorSlot.vue correctly 1`] = `
 <div>
-  <div class="t-loading t-size-m t-loading-mask t-loading-lock" style="">
+  <div class="t-loading--center t-size-m t-loading" style="">
     <!--[--><svg class="t-icon t-icon-loading t-size-m" style="">
       <use href="#t-icon-loading"></use>
     </svg>
@@ -24618,12 +24613,14 @@ exports[`ssr snapshot test renders ./examples/loading/demos/indicatorSlot.vue co
 `;
 
 exports[`ssr snapshot test renders ./examples/loading/demos/preventScrollThrough.vue correctly 1`] = `
-<div class="t-loading t-size-m t-loading-fullscreen t-loading__wrapper t-loading-mask t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
-    <foreignObject x="1" y="1" width="12" height="12">
-      <div class="t-loading__gradient-conic"></div>
-    </foreignObject>
-  </svg>
-  <!---->
+<div class="t-loading t-loading__fullscreen t-loading--center t-loading__overlay" style="">
+  <div class="t-loading--center t-size-m"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+      <foreignObject x="1" y="1" width="12" height="12">
+        <div class="t-loading__gradient-conic"></div>
+      </foreignObject>
+    </svg>
+    <!---->
+  </div>
 </div>
 `;
 
@@ -24642,30 +24639,30 @@ exports[`ssr snapshot test renders ./examples/loading/demos/service.vue correctl
 exports[`ssr snapshot test renders ./examples/loading/demos/size.vue correctly 1`] = `
 <div class="tdesign-demo-block-column-large">
   <div>
-    <div class="t-loading t-size-s t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+    <div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
       </svg>
-      <div class="t-loading-text">加载中（小）...</div>
+      <div class="t-loading__text">加载中（小）...</div>
     </div>
   </div>
   <div>
-    <div class="t-loading t-size-m t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
       </svg>
-      <div class="t-loading-text">加载中（中）...</div>
+      <div class="t-loading__text">加载中（中）...</div>
     </div>
   </div>
   <div>
-    <div class="t-loading t-size-l t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="large">
+    <div class="t-loading--center t-size-l t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="large">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
       </svg>
-      <div class="t-loading-text">加载中（大）...</div>
+      <div class="t-loading__text">加载中（大）...</div>
     </div>
   </div>
 </div>
@@ -24674,17 +24671,17 @@ exports[`ssr snapshot test renders ./examples/loading/demos/size.vue correctly 1
 exports[`ssr snapshot test renders ./examples/loading/demos/text.vue correctly 1`] = `
 <div class="t-loading-demo">
   <!-- 使用 props 实现自定义 -->
-  <div class="t-loading t-size-m t-loading-mask t-loading-lock" style="">
+  <div class="t-loading--center t-size-m t-loading" style="">
     <!---->
-    <div class="t-loading-text">静态文字加载中...</div>
+    <div class="t-loading__text">静态文字加载中...</div>
   </div><!-- 使用 props 实现自定义 -->
-  <div class="t-loading t-size-m t-loading-mask t-loading-lock" style="">
+  <div class="t-loading--center t-size-m t-loading" style="">
     <!---->
-    <div class="t-loading-text"><span>变量文字加载中...</span></div>
+    <div class="t-loading__text"><span>变量文字加载中...</span></div>
   </div>
-  <div class="t-loading t-size-m t-loading-mask t-loading-lock" style="">
+  <div class="t-loading--center t-size-m t-loading" style="">
     <!---->
-    <div class="t-loading-text">
+    <div class="t-loading__text">
       <!--[--> 插槽文字加载中...
       <!--]-->
     </div>
@@ -24694,7 +24691,7 @@ exports[`ssr snapshot test renders ./examples/loading/demos/text.vue correctly 1
 
 exports[`ssr snapshot test renders ./examples/loading/demos/wrap.vue correctly 1`] = `
 <div class="loading-wrap-demo">
-  <div class="t-loading-parent__relative" style="">
+  <div class="t-loading__parent">
     <!--[-->
     <div>this is loading component</div>
     <div>this is loading component</div>
@@ -24702,14 +24699,12 @@ exports[`ssr snapshot test renders ./examples/loading/demos/wrap.vue correctly 1
     <div>this is loading component</div>
     <div>this is loading component</div>
     <!--]-->
-    <div class="t-loading t-loading__wrapper t-loading-mask t-size-s">
-      <div class="t-loading-mask-text"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-          <foreignObject x="1" y="1" width="12" height="12">
-            <div class="t-loading__gradient-conic"></div>
-          </foreignObject>
-        </svg>
-        <!---->
-      </div>
+    <div class="t-loading--center t-size-s t-loading t-loading--full t-loading__overlay" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <foreignObject x="1" y="1" width="12" height="12">
+          <div class="t-loading__gradient-conic"></div>
+        </foreignObject>
+      </svg>
+      <!---->
     </div>
   </div><br>
   <div><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 加载中 <!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 加载完成 <!--]--></span></button></div>
@@ -26118,7 +26113,7 @@ exports[`ssr snapshot test renders ./examples/message/demos/help.vue correctly 1
 exports[`ssr snapshot test renders ./examples/message/demos/loading.vue correctly 1`] = `
 <div class="t-demo-message">
   <div class="t-message t-is-loading">
-    <div class="t-loading t-size-m t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
@@ -26129,7 +26124,7 @@ exports[`ssr snapshot test renders ./examples/message/demos/loading.vue correctl
     <!--]--><span class="t-message-close"><!----></span>
   </div>
   <div class="t-message t-is-loading">
-    <div class="t-loading t-size-m t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
@@ -26140,7 +26135,7 @@ exports[`ssr snapshot test renders ./examples/message/demos/loading.vue correctl
     <!--]--><span class="t-message-close"><!----></span>
   </div>
   <div class="t-message t-is-loading">
-    <div class="t-loading t-size-m t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
@@ -26236,7 +26231,7 @@ exports[`ssr snapshot test renders ./examples/message/demos/type.vue correctly 1
     <!--]--><span class="t-message-close"><!----></span>
   </div>
   <div class="t-message t-is-loading">
-    <div class="t-loading t-size-m t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
@@ -30615,7 +30610,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
         <!---->
         <!---->
         <!---->
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -32501,7 +32496,7 @@ exports[`ssr snapshot test renders ./examples/switch/demos/status.vue correctly 
       <!---->
     </div>
   </div>
-  <div class="t-switch t-size-l t-is-loading t-is-checked" modelvalue="true"><span class="t-switch__handle t-is-loading"><div class="t-loading t-size-s t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span>
+  <div class="t-switch t-size-l t-is-loading t-is-checked" modelvalue="true"><span class="t-switch__handle t-is-loading"><div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span>
     <div class="t-switch__content t-size-l">
       <!---->
     </div>
@@ -32523,7 +32518,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" asyncloading="loading" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -32617,7 +32612,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
   <div style="width: 100%">
     <!---->
     <div class="t-table t-table--bordered t-table--striped" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -32727,7 +32722,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correc
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -32819,7 +32814,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-header.vue corr
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -32887,7 +32882,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
     <div style="width: 100%">
       <!---->
       <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-        <div class="t-loading-parent__relative" style="">
+        <div class="t-loading__parent">
           <!--[-->
           <div class="t-table-content">
             <table style="table-layout:fixed;">
@@ -33024,7 +33019,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort.vue correctl
     <div style="width: 100%">
       <!---->
       <div class="t-table t-table__row--draggable" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="true">
-        <div class="t-loading-parent__relative" style="">
+        <div class="t-loading__parent">
           <!--[-->
           <div class="t-table-content">
             <table style="table-layout:fixed;">
@@ -33119,7 +33114,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -33167,7 +33162,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -33218,7 +33213,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -33285,7 +33280,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -33470,7 +33465,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -33823,7 +33818,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
   <div style="width: 100%">
     <!---->
     <div class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -33953,7 +33948,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header.vue corre
 <div style="width: 100%">
   <!---->
   <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-    <div class="t-loading-parent__relative" style="">
+    <div class="t-loading__parent">
       <!--[-->
       <div class="t-table-content">
         <table style="table-layout:fixed;">
@@ -34225,7 +34220,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue c
 <div style="width: 100%">
   <!---->
   <div class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-    <div class="t-loading-parent__relative" style="">
+    <div class="t-loading__parent">
       <!--[-->
       <div class="t-table-content">
         <!--[-->
@@ -34639,7 +34634,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
   <div style="width: 100%">
     <!---->
     <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <!--[-->
@@ -34695,15 +34690,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
         <!--[-->
         <!--]-->
         <!--]-->
-        <div class="t-loading t-loading__wrapper t-loading-mask t-size-m">
-          <div class="t-loading-mask-text"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
-              <foreignObject x="1" y="1" width="12" height="12">
-                <div class="t-loading__gradient-conic"></div>
-              </foreignObject>
-            </svg>
-            <div class="t-loading-text">
-              <div></div>
-            </div>
+        <div class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+            <foreignObject x="1" y="1" width="12" height="12">
+              <div class="t-loading__gradient-conic"></div>
+            </foreignObject>
+          </svg>
+          <div class="t-loading__text">
+            <div></div>
           </div>
         </div>
       </div>
@@ -34713,7 +34706,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
   <div style="width: 100%">
     <!---->
     <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <!--[-->
@@ -34769,17 +34762,15 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
         <!--[-->
         <!--]-->
         <!--]-->
-        <div class="t-loading t-loading__wrapper t-loading-mask t-size-m">
-          <div class="t-loading-mask-text"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
-              <foreignObject x="1" y="1" width="12" height="12">
-                <div class="t-loading__gradient-conic"></div>
-              </foreignObject>
-            </svg>
-            <div class="t-loading-text">
-              <!--[-->
-              <div class="t-table--loading-message">这里使用插槽自定义加载状态</div>
-              <!--]-->
-            </div>
+        <div class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+            <foreignObject x="1" y="1" width="12" height="12">
+              <div class="t-loading__gradient-conic"></div>
+            </foreignObject>
+          </svg>
+          <div class="t-loading__text">
+            <!--[-->
+            <div class="t-table--loading-message">这里使用插槽自定义加载状态</div>
+            <!--]-->
           </div>
         </div>
       </div>
@@ -34789,7 +34780,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
   <div style="width: 100%">
     <!---->
     <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <!--[-->
@@ -34845,15 +34836,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
         <!--[-->
         <!--]-->
         <!--]-->
-        <div class="t-loading t-loading__wrapper t-loading-mask t-size-m">
-          <div class="t-loading-mask-text"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
-              <foreignObject x="1" y="1" width="12" height="12">
-                <div class="t-loading__gradient-conic"></div>
-              </foreignObject>
-            </svg>
-            <div class="t-loading-text">
-              <div class="t-table--loading-message">这里使用渲染函数定义加载状态</div>
-            </div>
+        <div class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+            <foreignObject x="1" y="1" width="12" height="12">
+              <div class="t-loading__gradient-conic"></div>
+            </foreignObject>
+          </svg>
+          <div class="t-loading__text">
+            <div class="t-table--loading-message">这里使用渲染函数定义加载状态</div>
           </div>
         </div>
       </div>
@@ -34867,7 +34856,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/merge-cells.vue correc
   <div style="width: 100%">
     <!---->
     <div class="t-table t-table--bordered t-size-s" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -34963,7 +34952,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
 <div style="width: 100%">
   <!---->
   <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-    <div class="t-loading-parent__relative" style="">
+    <div class="t-loading__parent">
       <!--[-->
       <div class="t-table-content">
         <table style="table-layout:fixed;">
@@ -35043,7 +35032,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
     <div style="width: 100%">
       <!---->
       <div class="t-table" style="" multiplesort="true" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-        <div class="t-loading-parent__relative" style="">
+        <div class="t-loading__parent">
           <!--[-->
           <div class="t-table-content">
             <table style="table-layout:fixed;">
@@ -35186,7 +35175,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -35361,7 +35350,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
 <div style="width: 100%">
   <!---->
   <div class="t-table t-table--bordered t-table--striped t-table-valign__top" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-    <div class="t-loading-parent__relative" style="">
+    <div class="t-loading__parent">
       <!--[-->
       <div class="t-table-content">
         <table style="table-layout:fixed;">
@@ -35473,7 +35462,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-multiple.vue co
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -35603,7 +35592,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -35763,7 +35752,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue corre
       </div>
     </div>
     <div class="t-table" style="" multiplesort="false" showcolumns="true" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -35883,7 +35872,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
     <div style="width: 100%">
       <!---->
       <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-        <div class="t-loading-parent__relative" style="">
+        <div class="t-loading__parent">
           <!--[-->
           <div class="t-table-content">
             <table style="table-layout:fixed;">
@@ -36028,7 +36017,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
   <div style="width:100%;">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -36165,7 +36154,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
   <div style="width:100%;">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-      <div class="t-loading-parent__relative" style="">
+      <div class="t-loading__parent">
         <!--[-->
         <div class="t-table-content">
           <table style="table-layout:fixed;">
@@ -42663,11 +42652,11 @@ exports[`ssr snapshot test renders ./examples/tree/demos/load.vue correctly 1`] 
   <div class="t-tree t-tree--hoverable t-tree--fx">
     <div class="t-tree__list">
       <div class="t-tree__item t-tree__item--open" data-value="t91" data-level="0" style="--level: 0;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><div class="t-loading t-size-m t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
         <!--]-->
       </div>
       <div class="t-tree__item t-tree__item--open" data-value="t92" data-level="0" style="--level: 0;">
-        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><div class="t-loading t-size-m t-loading-mask t-loading-lock" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
+        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
         <!--]-->
       </div>
     </div>
@@ -42978,7 +42967,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/base.vue correct
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -43051,7 +43040,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue co
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -43121,7 +43110,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue co
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -43200,7 +43189,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/filterable.vue c
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -43257,7 +43246,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/lazy.vue correct
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -43330,7 +43319,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/multiple.vue cor
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -43402,7 +43391,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/prefix.vue corre
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -43474,7 +43463,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/props.vue correc
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -43546,7 +43535,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue co
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -43614,7 +43603,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue co
         </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear" style="font-size:medium;display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
-        <div class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
