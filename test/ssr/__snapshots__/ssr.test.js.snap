@@ -26723,7 +26723,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
 exports[`ssr snapshot test renders ./examples/slider/demos/base.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider-container" modelvalue="12">
+    <div class="t-slider__container" modelvalue="12">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="false">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -26747,7 +26747,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/base.vue correctly 1`
     </div>
   </div>
   <div class="block">
-    <div class="t-slider-container">
+    <div class="t-slider__container">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="false">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -26786,7 +26786,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/base.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/slider/demos/disabled.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider-container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
       <div class="t-slider t-is-disabled" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="true">
         <div class="t-slider__rail disabled" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -26810,7 +26810,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/disabled.vue correctl
     </div>
   </div>
   <div class="block">
-    <div class="t-slider-container" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider t-is-disabled" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="true">
         <div class="t-slider__rail disabled" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -26849,7 +26849,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/disabled.vue correctl
 exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider-container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
       <div class="t-slider t-slider--with-input" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="false">
         <div class="t-slider__rail show-input" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -26870,7 +26870,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
         </div>
       </div>
       <div class="t-slider__input-container">
-        <div class="t-input-number t-size-m t-is-controls-right t-slider-input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -26893,7 +26893,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
     </div>
   </div>
   <div class="block">
-    <div class="t-slider-container" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider t-slider--with-input" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="false">
         <div class="t-slider__rail show-input" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -26924,7 +26924,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
         </div>
       </div>
       <div class="t-slider__input-container">
-        <div class="t-input-number t-size-m t-is-controls-right t-slider-input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -26942,7 +26942,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
           </button>
         </div>
         <div class="t-slider__center-liner"></div>
-        <div class="t-input-number t-size-m t-is-controls-right t-slider-input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -26968,7 +26968,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
 exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="number-vertical-block">
-    <div class="t-slider-container is-vertical" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container is-vertical" modelvalue="12" show-tooltip="true">
       <div class="t-slider is-vertical t-slider--with-input t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical" aria-disabled="false">
         <div class="t-slider__rail show-input" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
@@ -26989,7 +26989,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
         </div>
       </div>
       <div class="t-slider__input-container is-vertical">
-        <div class="t-input-number t-size-m t-is-controls-right t-slider-input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -27012,7 +27012,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
     </div>
   </div>
   <div class="number-vertical-block">
-    <div class="t-slider-container is-vertical" show-tooltip="true">
+    <div class="t-slider__container is-vertical" show-tooltip="true">
       <div class="t-slider is-vertical t-slider--with-input t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical" aria-disabled="false">
         <div class="t-slider__rail show-input" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
@@ -27043,7 +27043,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
         </div>
       </div>
       <div class="t-slider__input-container is-vertical">
-        <div class="t-input-number t-size-m t-is-controls-right t-slider-input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -27061,7 +27061,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
           </button>
         </div>
         <div class="t-slider__center-liner"></div>
-        <div class="t-input-number t-size-m t-is-controls-right t-slider-input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -27087,7 +27087,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
 exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider-container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="false">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -27132,7 +27132,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1
     </div>
   </div>
   <div class="block">
-    <div class="t-slider-container" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="false">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -27192,7 +27192,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1
 exports[`ssr snapshot test renders ./examples/slider/demos/min-and-max.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider-container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="10" aria-valuemax="30" aria-orientation="horizontal" aria-disabled="false">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:-50%;left:0%;"></div>
@@ -27229,7 +27229,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/min-and-max.vue corre
     </div>
   </div>
   <div class="block">
-    <div class="t-slider-container" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="10" aria-valuemax="30" aria-orientation="horizontal" aria-disabled="false">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:-50%;"></div>
@@ -27281,7 +27281,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/min-and-max.vue corre
 exports[`ssr snapshot test renders ./examples/slider/demos/step.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider-container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="false">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -27305,7 +27305,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/step.vue correctly 1`
     </div>
   </div>
   <div class="block">
-    <div class="t-slider-container" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="false">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -27344,7 +27344,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/step.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/slider/demos/vertical.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="vertical-block">
-    <div class="t-slider-container is-vertical" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container is-vertical" modelvalue="12" show-tooltip="true">
       <div class="t-slider is-vertical t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical" aria-disabled="false">
         <div class="t-slider__rail" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
@@ -27368,7 +27368,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical.vue correctl
     </div>
   </div>
   <div class="vertical-block">
-    <div class="t-slider-container is-vertical" show-tooltip="true">
+    <div class="t-slider__container is-vertical" show-tooltip="true">
       <div class="t-slider is-vertical t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical" aria-disabled="false">
         <div class="t-slider__rail" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
@@ -27407,7 +27407,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical.vue correctl
 exports[`ssr snapshot test renders ./examples/slider/demos/vertical-marks.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="vertical-marks-block">
-    <div class="t-slider-container is-vertical" modelvalue="12" vertical show-tooltip="true">
+    <div class="t-slider__container is-vertical" modelvalue="12" vertical show-tooltip="true">
       <div class="t-slider is-vertical t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical" aria-disabled="false">
         <div class="t-slider__rail" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
@@ -27452,7 +27452,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical-marks.vue co
     </div>
   </div>
   <div class="vertical-marks-block">
-    <div class="t-slider-container is-vertical" vertical show-tooltip="true">
+    <div class="t-slider__container is-vertical" vertical show-tooltip="true">
       <div class="t-slider is-vertical t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical" aria-disabled="false">
         <div class="t-slider__rail" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
@@ -28607,8 +28607,9 @@ exports[`ssr snapshot test renders ./examples/switch/demos/status.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue correctly 1`] = `
 <div>
-  <div class="t-radio-group t-radio-group-medium t-radio-group-outline" modelvalue="loading">
-    <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="load-more" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 加载更多 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="loading" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 加载中 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="loading-custom" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 自定义加载更多 <!--]--><!--]--></span></label>
+  <div class="t-radio-group t-radio-group-medium t-radio-group-filled" modelvalue="loading">
+    <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="load-more" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->加载更多<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="loading" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->加载中<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="loading-custom" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->自定义加载更多<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->加载完成<!--]--><!--]--></span></label>
+    <div style="" class="t-radio-group-filled-bg-block"></div>
     <!--]-->
   </div>
   <div style="width: 100%">
@@ -28677,11 +28678,15 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
               <tr>
                 <!--[-->
                 <td colspan="3" class="" style="" length="1">
-                  <div class="t-table--loading-async t-table--loading-status-loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-                      <foreignObject x="1" y="1" width="12" height="12">
-                        <div class="t-loading__gradient-conic"></div>
-                      </foreignObject>
-                    </svg>正在加载中，请稍后</div>
+                  <div class="t-table__async-loading t-is-loading">
+                    <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+                        <foreignObject x="1" y="1" width="12" height="12">
+                          <div class="t-loading__gradient-conic"></div>
+                        </foreignObject>
+                      </svg>
+                      <div class="t-loading__text">正在加载中，请稍后</div>
+                    </div>
+                  </div>
                 </td>
                 <!--]-->
               </tr>
@@ -28825,7 +28830,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correc
             <!--[-->
             <colgroup>
               <!--[-->
-              <col style="width:80px;">
+              <col style="width:100px;">
               <col style="width:236px;">
               <col style="width:290px;">
               <col style="width:235px;">
@@ -31963,143 +31968,141 @@ exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue corre
 
 exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correctly 1`] = `
 <div class="demo-container">
-  <div class="item">
-    <div style="margin:16px;">排序方式：{&quot;sortBy&quot;:&quot;status&quot;,&quot;descending&quot;:true}</div><!-- 受控用法，示例代码有效，勿删 -->
-    <div style="width: 100%">
-      <!---->
-      <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
-        <div class="t-loading__parent">
-          <!--[-->
-          <div class="t-table-content">
-            <table style="table-layout:fixed;">
+  <!-- 受控用法，示例代码有效，勿删 -->
+  <div style="width: 100%">
+    <!---->
+    <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+      <div class="t-loading__parent">
+        <!--[-->
+        <div class="t-table-content">
+          <table style="table-layout:fixed;">
+            <!--[-->
+            <colgroup>
               <!--[-->
-              <colgroup>
-                <!--[-->
-                <col style="width:150px;">
-                <col style="width:100px;">
-                <col style="width:200px;">
-                <col style="width:100px;">
-                <!--]-->
-              </colgroup>
-              <thead>
-                <!--[-->
-                <tr>
-                  <!--[-->
-                  <td class="" style="overflow:hidden;" colspan="1" rowspan="1">集群名称</td>
-                  <td class="" style="overflow:hidden;" colspan="1" rowspan="1">
-                    <div class="t-table__cell--sortable">
-                      <div class="t-table__cell--title">
-                        <div>状态</div>
-                        <div class="t-table__cell--sort-trigger t-table-double-icons">
-                          <div class="t-popup-reference" duration="3000" theme="default" style="line-height:0px;position:relative;">
-                            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                              <div class="t-popup-content t-tooltip t-tooltip-default">点击升序
-                                <!---->
-                              </div>
-                            </div>
-                            <!--[-->
-                            <!--[--><span style="transform:rotate(-180deg);top:-1px;left:0px;" class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:16px;"><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path></svg></span><span style="left:0px;bottom:-1px;" class="t-table-sort-icon t-table-sort-icon-active t-table-sort-desc"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:16px;"><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path></svg></span>
-                            <!--]-->
-                            <!--]-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="" style="overflow:hidden;" colspan="1" rowspan="1">
-                    <div class="t-table__cell--sortable">
-                      <div class="t-table__cell--title">
-                        <div>存活时间(s)</div>
-                        <div class="t-table__cell--sort-trigger t-table-double-icons">
-                          <div class="t-popup-reference" duration="3000" theme="default" style="line-height:0px;position:relative;">
-                            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                              <div class="t-popup-content t-tooltip t-tooltip-default">点击降序
-                                <!---->
-                              </div>
-                            </div>
-                            <!--[-->
-                            <!--[--><span style="transform:rotate(-180deg);top:-1px;left:0px;" class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:16px;"><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path></svg></span><span style="left:0px;bottom:-1px;" class="t-table-sort-icon t-icon-sort-default t-table-sort-desc"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:16px;"><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path></svg></span>
-                            <!--]-->
-                            <!--]-->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="" style="overflow:hidden;" colspan="1" rowspan="1">管理员</td>
-                  <!--]-->
-                </tr>
-                <!--]-->
-              </thead>
-              <tbody class="table-body">
-                <!--[-->
-                <tr class="" draggable="false">
-                  <!--[-->
-                  <td class="" style="overflow:hidden;" length="4">JQTest1</td>
-                  <td class="" style="overflow:hidden;" length="4">
-                    <!--[-->
-                    <p class="status">健康</p>
-                    <!--v-if-->
-                    <!--v-if-->
-                    <!--]-->
-                  </td>
-                  <td class="" style="overflow:hidden;" length="4">1000</td>
-                  <td class="" style="overflow:hidden;" length="4">jenny;peter</td>
-                  <!--]-->
-                </tr>
-                <tr class="" draggable="false">
-                  <!--[-->
-                  <td class="" style="overflow:hidden;" length="4">JQTest2</td>
-                  <td class="" style="overflow:hidden;" length="4">
-                    <!--[-->
-                    <!--v-if-->
-                    <p class="status warning">警告</p>
-                    <!--v-if-->
-                    <!--]-->
-                  </td>
-                  <td class="" style="overflow:hidden;" length="4">1000</td>
-                  <td class="" style="overflow:hidden;" length="4">jenny</td>
-                  <!--]-->
-                </tr>
-                <tr class="" draggable="false">
-                  <!--[-->
-                  <td class="" style="overflow:hidden;" length="4">JQTest3</td>
-                  <td class="" style="overflow:hidden;" length="4">
-                    <!--[-->
-                    <!--v-if-->
-                    <!--v-if-->
-                    <p class="status unhealth">异常</p>
-                    <!--]-->
-                  </td>
-                  <td class="" style="overflow:hidden;" length="4">500</td>
-                  <td class="" style="overflow:hidden;" length="4">jenny</td>
-                  <!--]-->
-                </tr>
-                <tr class="" draggable="false">
-                  <!--[-->
-                  <td class="" style="overflow:hidden;" length="4">JQTest4</td>
-                  <td class="" style="overflow:hidden;" length="4">
-                    <!--[-->
-                    <!--v-if-->
-                    <p class="status warning">警告</p>
-                    <!--v-if-->
-                    <!--]-->
-                  </td>
-                  <td class="" style="overflow:hidden;" length="4">1500</td>
-                  <td class="" style="overflow:hidden;" length="4">peter</td>
-                  <!--]-->
-                </tr>
-                <!--]-->
-              </tbody>
-              <!---->
+              <col style="width:150px;">
+              <col style="width:100px;">
+              <col style="width:200px;">
+              <col style="width:100px;">
               <!--]-->
-            </table>
-          </div>
-          <!--[-->
-          <!--]-->
-          <!--]-->
-          <!---->
+            </colgroup>
+            <thead>
+              <!--[-->
+              <tr>
+                <!--[-->
+                <td class="" style="overflow:hidden;" colspan="1" rowspan="1">集群名称</td>
+                <td class="" style="overflow:hidden;" colspan="1" rowspan="1">
+                  <div class="t-table__cell--sortable">
+                    <div class="t-table__cell--title">
+                      <div>状态</div>
+                      <div class="t-table__cell--sort-trigger t-table-double-icons">
+                        <div class="t-popup-reference" duration="3000" theme="default" style="line-height:0px;position:relative;">
+                          <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                            <div class="t-popup-content t-tooltip t-tooltip-default">点击升序
+                              <!---->
+                            </div>
+                          </div>
+                          <!--[-->
+                          <!--[--><span style="transform:rotate(-180deg);top:-1px;left:0px;" class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:16px;"><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path></svg></span><span style="left:0px;bottom:-1px;" class="t-table-sort-icon t-table-sort-icon-active t-table-sort-desc"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:16px;"><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path></svg></span>
+                          <!--]-->
+                          <!--]-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="" style="overflow:hidden;" colspan="1" rowspan="1">
+                  <div class="t-table__cell--sortable">
+                    <div class="t-table__cell--title">
+                      <div>存活时间(s)</div>
+                      <div class="t-table__cell--sort-trigger t-table-double-icons">
+                        <div class="t-popup-reference" duration="3000" theme="default" style="line-height:0px;position:relative;">
+                          <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                            <div class="t-popup-content t-tooltip t-tooltip-default">点击降序
+                              <!---->
+                            </div>
+                          </div>
+                          <!--[-->
+                          <!--[--><span style="transform:rotate(-180deg);top:-1px;left:0px;" class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:16px;"><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path></svg></span><span style="left:0px;bottom:-1px;" class="t-table-sort-icon t-icon-sort-default t-table-sort-desc"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:16px;"><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path></svg></span>
+                          <!--]-->
+                          <!--]-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="" style="overflow:hidden;" colspan="1" rowspan="1">管理员</td>
+                <!--]-->
+              </tr>
+              <!--]-->
+            </thead>
+            <tbody class="table-body">
+              <!--[-->
+              <tr class="" draggable="false">
+                <!--[-->
+                <td class="" style="overflow:hidden;" length="4">JQTest1</td>
+                <td class="" style="overflow:hidden;" length="4">
+                  <!--[-->
+                  <p class="status">健康</p>
+                  <!--v-if-->
+                  <!--v-if-->
+                  <!--]-->
+                </td>
+                <td class="" style="overflow:hidden;" length="4">1000</td>
+                <td class="" style="overflow:hidden;" length="4">jenny;peter</td>
+                <!--]-->
+              </tr>
+              <tr class="" draggable="false">
+                <!--[-->
+                <td class="" style="overflow:hidden;" length="4">JQTest2</td>
+                <td class="" style="overflow:hidden;" length="4">
+                  <!--[-->
+                  <!--v-if-->
+                  <p class="status warning">警告</p>
+                  <!--v-if-->
+                  <!--]-->
+                </td>
+                <td class="" style="overflow:hidden;" length="4">1000</td>
+                <td class="" style="overflow:hidden;" length="4">jenny</td>
+                <!--]-->
+              </tr>
+              <tr class="" draggable="false">
+                <!--[-->
+                <td class="" style="overflow:hidden;" length="4">JQTest3</td>
+                <td class="" style="overflow:hidden;" length="4">
+                  <!--[-->
+                  <!--v-if-->
+                  <!--v-if-->
+                  <p class="status unhealth">异常</p>
+                  <!--]-->
+                </td>
+                <td class="" style="overflow:hidden;" length="4">500</td>
+                <td class="" style="overflow:hidden;" length="4">jenny</td>
+                <!--]-->
+              </tr>
+              <tr class="" draggable="false">
+                <!--[-->
+                <td class="" style="overflow:hidden;" length="4">JQTest4</td>
+                <td class="" style="overflow:hidden;" length="4">
+                  <!--[-->
+                  <!--v-if-->
+                  <p class="status warning">警告</p>
+                  <!--v-if-->
+                  <!--]-->
+                </td>
+                <td class="" style="overflow:hidden;" length="4">1500</td>
+                <td class="" style="overflow:hidden;" length="4">peter</td>
+                <!--]-->
+              </tr>
+              <!--]-->
+            </tbody>
+            <!---->
+            <!--]-->
+          </table>
         </div>
+        <!--[-->
+        <!--]-->
+        <!--]-->
+        <!---->
       </div>
     </div>
   </div>

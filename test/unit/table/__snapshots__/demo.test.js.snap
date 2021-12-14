@@ -871,7 +871,7 @@ exports[`Table customCell demo works fine 1`] = `
             <colgroup>
               
               <col
-                style="width: 80px;"
+                style="width: 100px;"
               />
               <col
                 style="width: 236px;"
