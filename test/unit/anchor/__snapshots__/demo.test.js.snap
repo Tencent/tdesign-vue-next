@@ -15,10 +15,10 @@ exports[`Anchor base demo works fine 1`] = `
       class="t-anchor t-size-m"
     >
       <div
-        class="t-anchor_line"
+        class="t-anchor__line"
       >
         <div
-          class="cursor-wrapper"
+          class="t-anchor__line-cursor-wrapper"
         >
           <div
             class="cursor"
@@ -27,10 +27,10 @@ exports[`Anchor base demo works fine 1`] = `
       </div>
       
       <div
-        class="t-anchor-item"
+        class="t-anchor__item"
       >
         <a
-          class="t-anchor-item_link"
+          class="t-anchor__item-link"
           href="#基础锚点"
           target="_self"
           title="基础锚点"
@@ -40,10 +40,10 @@ exports[`Anchor base demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-anchor-item"
+        class="t-anchor__item"
       >
         <a
-          class="t-anchor-item_link"
+          class="t-anchor__item-link"
           href="#多级锚点"
           target="_self"
           title="多级锚点"
@@ -53,10 +53,10 @@ exports[`Anchor base demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-anchor-item"
+        class="t-anchor__item"
       >
         <a
-          class="t-anchor-item_link"
+          class="t-anchor__item-link"
           href="#指定容器锚点"
           target="_self"
           title="指定容器锚点"
@@ -66,10 +66,10 @@ exports[`Anchor base demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-anchor-item"
+        class="t-anchor__item"
       >
         <a
-          class="t-anchor-item_link"
+          class="t-anchor__item-link"
           href="#特定交互锚点"
           target="_self"
           title="特定交互锚点"
@@ -79,10 +79,10 @@ exports[`Anchor base demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-anchor-item"
+        class="t-anchor__item"
       >
         <a
-          class="t-anchor-item_link"
+          class="t-anchor__item-link"
           href="#尺寸"
           target="_self"
           title="尺寸"
@@ -92,10 +92,10 @@ exports[`Anchor base demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-anchor-item"
+        class="t-anchor__item"
       >
         <a
-          class="t-anchor-item_link"
+          class="t-anchor__item-link"
           href="##anchor-target-6"
           target="_self"
           title="保密协议"
@@ -105,10 +105,10 @@ exports[`Anchor base demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-anchor-item"
+        class="t-anchor__item"
       >
         <a
-          class="t-anchor-item_link"
+          class="t-anchor__item-link"
           href="##anchor-target-7"
           target="_self"
           title="其他"
@@ -133,10 +133,10 @@ exports[`Anchor bounds demo works fine 1`] = `
     class="t-anchor t-size-m"
   >
     <div
-      class="t-anchor_line"
+      class="t-anchor__line"
     >
       <div
-        class="cursor-wrapper"
+        class="t-anchor__line-cursor-wrapper"
       >
         <div
           class="cursor"
@@ -145,10 +145,10 @@ exports[`Anchor bounds demo works fine 1`] = `
     </div>
     
     <div
-      class="t-anchor-item"
+      class="t-anchor__item"
     >
       <a
-        class="t-anchor-item_link"
+        class="t-anchor__item-link"
         href="##default"
         target="_self"
         title="定义"
@@ -158,10 +158,10 @@ exports[`Anchor bounds demo works fine 1`] = `
       <!---->
     </div>
     <div
-      class="t-anchor-item"
+      class="t-anchor__item"
     >
       <a
-        class="t-anchor-item_link"
+        class="t-anchor__item-link"
         href="##multiple"
         target="_self"
         title="服务功能"
@@ -171,10 +171,10 @@ exports[`Anchor bounds demo works fine 1`] = `
       <!---->
     </div>
     <div
-      class="t-anchor-item"
+      class="t-anchor__item"
     >
       <a
-        class="t-anchor-item_link"
+        class="t-anchor__item-link"
         href="##small"
         target="_self"
         title="使用指南"
@@ -183,10 +183,10 @@ exports[`Anchor bounds demo works fine 1`] = `
       </a>
       
       <div
-        class="t-anchor-item"
+        class="t-anchor__item"
       >
         <a
-          class="t-anchor-item_link"
+          class="t-anchor__item-link"
           href="##large"
           target="_self"
           title="创建签名"
@@ -196,10 +196,10 @@ exports[`Anchor bounds demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-anchor-item"
+        class="t-anchor__item"
       >
         <a
-          class="t-anchor-item_link"
+          class="t-anchor__item-link"
           href="##container"
           target="_self"
           title="创建内容"
@@ -211,10 +211,10 @@ exports[`Anchor bounds demo works fine 1`] = `
       
     </div>
     <div
-      class="t-anchor-item"
+      class="t-anchor__item"
     >
       <a
-        class="t-anchor-item_link"
+        class="t-anchor__item-link"
         href="##anchor-target-6"
         target="_self"
         title="保密协议"
@@ -224,10 +224,10 @@ exports[`Anchor bounds demo works fine 1`] = `
       <!---->
     </div>
     <div
-      class="t-anchor-item"
+      class="t-anchor__item"
     >
       <a
-        class="t-anchor-item_link"
+        class="t-anchor__item-link"
         href="##anchor-target-7"
         target="_self"
         title="其他"
@@ -247,7 +247,7 @@ exports[`Anchor target demo works fine 1`] = `
   id="#anchor-target"
 >
   <div
-    class="t-anchor-target"
+    class="t-anchor__target"
     id="#anchor-target-1"
   >
     
@@ -297,7 +297,7 @@ exports[`Anchor target demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-anchor-target"
+    class="t-anchor__target"
     id="#anchor-target-2"
   >
     
@@ -347,7 +347,7 @@ exports[`Anchor target demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-anchor-target"
+    class="t-anchor__target"
     id="#anchor-target-3"
   >
     
@@ -397,7 +397,7 @@ exports[`Anchor target demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-anchor-target"
+    class="t-anchor__target"
     id="#anchor-target-4"
   >
     
@@ -447,7 +447,7 @@ exports[`Anchor target demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-anchor-target"
+    class="t-anchor__target"
     id="#anchor-target-5"
   >
     
@@ -497,7 +497,7 @@ exports[`Anchor target demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-anchor-target"
+    class="t-anchor__target"
     id="#anchor-target-6"
   >
     
@@ -547,7 +547,7 @@ exports[`Anchor target demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-anchor-target"
+    class="t-anchor__target"
     id="#anchor-target-7"
   >
     
