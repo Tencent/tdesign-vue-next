@@ -14,6 +14,7 @@ temp*
 coverage
 test-report.html
 .idea/
+package-lock.json
 yarn.lock
 *.zip
 .history

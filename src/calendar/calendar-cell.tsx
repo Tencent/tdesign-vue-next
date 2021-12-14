@@ -1,7 +1,8 @@
+import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
+import { prefix } from '../config';
 
 // 通用库
-import { defineComponent } from 'vue';
 
 // 组件的一些常量
 import { COMPONENT_NAME } from './const';
@@ -52,11 +53,11 @@ export default defineComponent({
       const isNow =
         mode === 'year' ? new Date().getMonth() === date.getMonth() : formattedDate === dayjs().format('YYYY-MM-DD');
       return [
-        't-calendar__table-body-cell',
+        `${prefix}-calendar__table-body-cell`,
         {
-          't-is-disabled': this.disabled,
-          't-is-checked': isCurrent,
-          't-calendar__table-body-cell--now': isNow,
+          [`${prefix}-is-disabled`]: this.disabled,
+          [`${prefix}-is-checked`]: isCurrent,
+          [`${COMPONENT_NAME}__table-body-cell--now`]: isNow,
         },
       ];
     },
@@ -77,15 +78,15 @@ export default defineComponent({
     const { item, cellCls, clickCell, dblclick, contextmenuClick, valueDisplay, allowSlot } = this;
 
     const defaultNode = () => (
-      <>
-        <div class="t-calendar__table-body-cell-display">{valueDisplay}</div>
-        <div class="t-calendar__table-body-cell-content">
+      <span>
+        <div class={`${prefix}-calendar__table-body-cell-display`}>{valueDisplay}</div>
+        <div class={`${prefix}-calendar__table-body-cell-content`}>
           {allowSlot &&
             renderTNodeJSX(this, 'cellAppend', {
               params: item,
             })}
         </div>
-      </>
+      </span>
     );
 
     return (
