@@ -1,30 +1,38 @@
 <template>
-  <div :class="selfClass">
-    <component :is="demo" />
-  </div>
+  <component :is="demo" v-if="demo"></component>
+  <h1 v-else class="empty-demo">请输入正确的 demo 路径，例如：/vue/demos/:componentName/:demoName</h1>
 </template>
-<script>
-import { defineComponent, computed } from 'vue';
 
-export default defineComponent({
-  props: {
-    demo: {
-      type: Object,
-      default: () => {},
-    },
-    componentName: {
-      type: String,
-      default: '',
-    },
+<script>
+const demoReq = import.meta.globEager('../../../examples/**/demos/*.vue');
+
+const demoObject = {};
+Object.keys(demoReq).forEach((key) => {
+  const match = key.match(/([\w-]+).demos.([\w-]+).vue/);
+  const [, componentName, demoName] = match;
+
+  demoObject[`${componentName}-${demoName}`] = demoReq[key].default;
+});
+
+export default {
+  components: {
+    ...demoObject,
   },
-  setup(props) {
-    const selfClass = computed(() => {
-      const { componentName } = props;
-      return `demo-${componentName}`;
-    });
+
+  data() {
     return {
-      selfClass,
+      demo: null,
     };
   },
-});
+  mounted() {
+    const { componentName, demoName } = this.$route.params;
+    this.demo = `${componentName}-${demoName}`;
+  },
+};
 </script>
+
+<style>
+.empty-demo {
+  margin: 100px 48px;
+}
+</style>
