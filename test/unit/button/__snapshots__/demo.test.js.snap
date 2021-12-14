@@ -200,7 +200,7 @@ exports[`Button icon demo works fine 1`] = `
         
         
         <svg
-          class="t-icon t-icon-discount"
+          class="t-icon t-icon-discount t-size-m"
         >
           <use
             href="#t-icon-discount"

@@ -456,7 +456,7 @@ exports[`Tag delete demo works fine 1`] = `
       style="max-width: 100px;"
     >
       <svg
-        class="t-icon t-icon-discount"
+        class="t-icon t-icon-discount t-size-m"
       >
         <use
           href="#t-icon-discount"
@@ -547,7 +547,7 @@ exports[`Tag icon demo works fine 1`] = `
       class="t-tag t-tag--default t-size-m t-tag--dark"
     >
       <svg
-        class="t-icon t-icon-discount"
+        class="t-icon t-icon-discount t-size-m"
       >
         <use
           href="#t-icon-discount"
@@ -567,7 +567,7 @@ exports[`Tag icon demo works fine 1`] = `
     >
       
       <svg
-        class="t-icon t-icon-discount"
+        class="t-icon t-icon-discount t-size-m"
       >
         <use
           href="#t-icon-discount"
