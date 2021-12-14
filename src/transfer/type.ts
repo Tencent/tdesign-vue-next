@@ -2,13 +2,13 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { CheckboxProps } from '../checkbox';
 import { PaginationProps, PageInfo } from '../pagination';
 import { InputProps } from '../input';
-import { TNode } from '../common';
+import { TNode, KeysType } from '../common';
 
 export interface TdTransferProps<T extends DataOption = DataOption> {
   /**
@@ -44,13 +44,13 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    * 列表为空时呈现的内容。值类型为数组，则表示分别控制源列表和目标列表数据为空的呈现内容
    * @default ''
    */
-  empty?: EmptyType | Array<EmptyType> | TNode ;
+  empty?: EmptyType | Array<EmptyType> | TNode;
   /**
    * 穿梭框底部内容
    */
   footer?: Array<string | TNode> | TNode<{ type: TransferListType }>;
   /**
-   * 用来定义选项文本和选项值字段，示例：{ label: 'text', value: 'id' }，表示选项文本取 `text` 字段，选项值取 `id` 字段
+   * 用来定义选项文本和选项值字段，示例：`{ label: 'text', value: 'id' }`，表示选项文本取 `text` 字段，选项值取 `id` 字段
    */
   keys?: KeysType;
   /**
@@ -96,11 +96,11 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    */
   defaultValue?: Array<TransferValue>;
   /**
-   * 数据列表发生变化时触发
+   * 数据列表发生变化时触发，`type` 值为 `source`，表示源列表移动到目标列表，值为 `target` 表示目标列表移动到源列表，movedValue 则表示被移动的选项
    */
-  onChange?: (targetValue: Array<TransferValue>, params: TargetParams) => void;
+  onChange?: (targetValue: Array<TransferValue>, context: TargetParams) => void;
   /**
-   * 源数据列表或目标数据列表的选中项发生变化时触发
+   * 源数据列表或目标数据列表的选中项发生变化时触发，`context.type` 可以区分触发来源是目标列表，还是源列表
    */
   onCheckedChange?: (options: CheckedOptions) => void;
   /**
@@ -115,11 +115,9 @@ export interface TdTransferProps<T extends DataOption = DataOption> {
    * 搜索时触发，options.query 表示用户输入的内容
    */
   onSearch?: (options: SearchContext) => void;
-};
+}
 
 export type EmptyType = string | TNode;
-
-export interface KeysType { value?: string; label?: string };
 
 export type SearchOption = boolean | InputProps;
 
@@ -127,13 +125,30 @@ export type TitleType = string | TNode;
 
 export type TransferListType = 'source' | 'target';
 
-export interface TransferItem<T extends DataOption = DataOption> { data: T; index: number; type: TransferListType};
+export interface TransferItem<T extends DataOption = DataOption> {
+  data: T;
+  index: number;
+  type: TransferListType;
+}
 
-export interface TargetParams { type: TransferListType; movedValue: Array<TransferValue> };
+export interface TargetParams {
+  type: TransferListType;
+  movedValue: Array<TransferValue>;
+}
 
-export interface CheckedOptions { checked: Array<TransferValue>; sourceChecked: Array<TransferValue>; targetChecked: Array<TransferValue>; type: TransferListType };
+export interface CheckedOptions {
+  checked: Array<TransferValue>;
+  sourceChecked: Array<TransferValue>;
+  targetChecked: Array<TransferValue>;
+  type: TransferListType;
+}
 
-export interface SearchContext { query: string; type: TransferListType; trigger: 'input' | 'enter';  e: InputEvent | KeyboardEvent };
+export interface SearchContext {
+  query: string;
+  type: TransferListType;
+  trigger: 'input' | 'enter';
+  e: InputEvent | KeyboardEvent;
+}
 
 export type DataOption = { label?: string; value?: TransferValue; disabled?: boolean } & Record<string, any>;
 

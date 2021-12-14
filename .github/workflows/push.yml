@@ -20,7 +20,9 @@ jobs:
           git submodule init
           git submodule update
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm i npm@latest -g
+          npm install
         shell: bash
       - run: echo '${{ github.ref }} ...  ${{ github.sha }}'
       - name: Build site

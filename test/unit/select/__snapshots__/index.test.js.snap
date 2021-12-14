@@ -557,7 +557,7 @@ exports[`Select :props :loading 1`] = `
       <!---->
       <!---->
       <div
-        class="t-loading t-size-s t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
+        class="t-loading t-size-s t-loading-mask t-loading-lock t-select-right-icon t-select-active-icon v-transfer-dom"
       >
         <svg
           class="t-loading__gradient t-icon-loading"

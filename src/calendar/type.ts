@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { RadioGroupProps } from '../radio';
@@ -70,7 +70,7 @@ export interface TdCalendarProps {
    */
   value?: CalendarValue;
   /**
-   * 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：({ day }) => '周' + day
+   * 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：`({ day }) => '周' + day`
    */
   week?: Array<string> | TNode<CalendarWeek>;
   /**
@@ -89,7 +89,7 @@ export interface TdCalendarProps {
    * 右上角控件组选中值有变化的时候触发
    */
   onControllerChange?: (options: ControllerOptions) => void;
-};
+}
 
 export interface CalendarController {
   /**
@@ -117,7 +117,7 @@ export interface CalendarController {
    * 日历年份控制器
    */
   year?: { visible?: boolean; selectProps?: SelectProps };
-};
+}
 
 export interface CalendarCell extends ControllerOptions {
   /**
@@ -145,12 +145,19 @@ export interface CalendarCell extends ControllerOptions {
    * 日期在本月的第几周（日历展示维度是“月”时有值）
    */
   weekOrder?: number;
-};
+}
 
 export type CalendarValue = string | Date;
 
-export interface CalendarWeek { day: WeekDay };
+export interface CalendarWeek {
+  day: WeekDay;
+}
 
 export type WeekDay = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
-export interface ControllerOptions { filterDate: Date; formattedFilterDate: string; mode: string; isShowWeekend: boolean };
+export interface ControllerOptions {
+  filterDate: Date;
+  formattedFilterDate: string;
+  mode: string;
+  isShowWeekend: boolean;
+}

@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TdDropdownProps } from './type';
@@ -24,9 +24,9 @@ export default {
     type: Boolean,
     default: true,
   },
-  /** 选项最大宽度，内容超出时，显示为省略号，单位：px */
+  /** 选项最大宽度，内容超出时，显示为省略号。值为字符串时，值就是最大宽度；值为数字时，单位：px */
   maxColumnWidth: {
-    type: Number,
+    type: [String, Number] as PropType<TdDropdownProps['maxColumnWidth']>,
     default: 100,
   },
   /** 弹窗最大高度，单位：px 。统一控制每一列的高度 */
@@ -34,9 +34,9 @@ export default {
     type: Number,
     default: 300,
   },
-  /** 选项最小宽度，单位：px */
+  /** 选项最小宽度。值为字符串时，值就是最大宽度；值为数字时，单位：px */
   minColumnWidth: {
-    type: Number,
+    type: [String, Number] as PropType<TdDropdownProps['minColumnWidth']>,
     default: 10,
   },
   /** 下拉操作项 */
@@ -49,7 +49,20 @@ export default {
     type: String as PropType<TdDropdownProps['placement']>,
     default: 'bottom-left' as TdDropdownProps['placement'],
     validator(val: TdDropdownProps['placement']): boolean {
-      return ['top', 'left', 'right', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom', 'right-top', 'right-bottom'].includes(val);
+      return [
+        'top',
+        'left',
+        'right',
+        'bottom',
+        'top-left',
+        'top-right',
+        'bottom-left',
+        'bottom-right',
+        'left-top',
+        'left-bottom',
+        'right-top',
+        'right-bottom',
+      ].includes(val);
     },
   },
   /** 透传  Popup 组件属性，方便更加自由地控制。比如使用 popupProps.overlayStyle 设置浮层样式 */

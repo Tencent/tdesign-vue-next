@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { CalendarController } from '../calendar';
@@ -78,7 +78,7 @@ export interface GlobalConfigProvider {
    * 上传组件全局配置
    */
   upload?: UploadConfig;
-};
+}
 
 export interface PaginationConfig {
   /**
@@ -101,7 +101,7 @@ export interface PaginationConfig {
    * @default '共 {total} 项数据'
    */
   total?: string;
-};
+}
 
 export interface CalendarConfig {
   /**
@@ -168,7 +168,7 @@ export interface CalendarConfig {
    * @default '{year} 年'
    */
   yearSelection?: string;
-};
+}
 
 export interface CascaderConfig {
   /**
@@ -186,7 +186,7 @@ export interface CascaderConfig {
    * @default '请选择'
    */
   placeholder?: string;
-};
+}
 
 export interface TransferConfig {
   /**
@@ -204,7 +204,7 @@ export interface TransferConfig {
    * @default '{checked} / {total} 项'
    */
   title?: string;
-};
+}
 
 export interface TimePickerConfig {
   /**
@@ -232,7 +232,7 @@ export interface TimePickerConfig {
    * @default '下午'
    */
   postMeridiem?: string;
-};
+}
 
 export interface DatePickerConfig {
   /**
@@ -285,7 +285,7 @@ export interface DatePickerConfig {
    */
   now?: string;
   /**
-   * 占位符文本提示，默认值：{ date: '请选择日期',  month: '请选择月份',  year: '请选择年份' }
+   * 占位符文本提示，默认值：`{ date: '请选择日期',  month: '请选择月份',  year: '请选择年份' }`
    */
   placeholder?: { date?: string; month?: string; year?: string };
   /**
@@ -299,7 +299,7 @@ export interface DatePickerConfig {
    */
   preMonth?: string;
   /**
-   * 【暂不支持，讨论确认中】预设快捷日期选择，示例：{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }
+   * 【暂不支持，讨论确认中】预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`
    */
   presets?: ConfigPresetDate;
   /**
@@ -336,7 +336,7 @@ export interface DatePickerConfig {
    * @default '年'
    */
   yearAriaLabel?: string;
-};
+}
 
 export interface DialogConfig {
   /**
@@ -350,8 +350,8 @@ export interface DialogConfig {
   /**
    * 确认按钮主题色，即 Dialog 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }
    */
-  confirmBtnTheme?: { default: string; info: string; warning: string; danger: string; success: string; };
-};
+  confirmBtnTheme?: { default: string; info: string; warning: string; danger: string; success: string };
+}
 
 export interface DrawerConfig {
   /**
@@ -364,7 +364,7 @@ export interface DrawerConfig {
    * @default '确认'
    */
   confirm?: string | ButtonProps;
-};
+}
 
 export interface PopconfirmConfig {
   /**
@@ -380,8 +380,8 @@ export interface PopconfirmConfig {
   /**
    * 确认按钮主题色，即 Popconfirm 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }
    */
-  confirmBtnTheme?: { default: string; warning: string; danger: string; };
-};
+  confirmBtnTheme?: { default: string; warning: string; danger: string };
+}
 
 export interface TableConfig {
   /**
@@ -397,7 +397,7 @@ export interface TableConfig {
    * 排序图标（配置传入降序图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件
    */
   sortIcon?: TNode;
-};
+}
 
 export interface SelectConfig {
   /**
@@ -419,7 +419,7 @@ export interface SelectConfig {
    * @default '请选择'
    */
   placeholder?: string;
-};
+}
 
 export interface TreeConfig {
   /**
@@ -431,7 +431,7 @@ export interface TreeConfig {
    * 目录层级图标，传入收起状态图标即可。【注意】使用渲染函数输出图标组件
    */
   folderIcon?: TNode;
-};
+}
 
 export interface TreeSelectConfig {
   /**
@@ -444,7 +444,7 @@ export interface TreeSelectConfig {
    * @default '加载中'
    */
   loadingText?: string;
-};
+}
 
 export interface UploadConfig {
   /**
@@ -457,7 +457,7 @@ export interface UploadConfig {
    * @default '文件大小不能超过 {sizeLimit}'
    */
   sizeLimitMessage?: string;
-};
+}
 
 export interface FormConfig {
   /**
@@ -465,22 +465,24 @@ export interface FormConfig {
    * @default true
    */
   requiredMark?: boolean;
-};
+}
 
 export interface TagConfig {
   /**
    * 关闭图标，【注意】使用渲染函数输出图标组件
    */
   closeIcon?: TNode;
-};
+}
 
 export interface StepsConfig {
   /**
    * 错误步骤图标，【注意】使用渲染函数输出图标组件
    */
   errorIcon?: TNode;
-};
+}
 
-export interface ConfigPresetDate { [name: string]: DateConfigValue | (() => DateConfigValue) };
+export interface ConfigPresetDate {
+  [name: string]: DateConfigValue | (() => DateConfigValue);
+}
 
 export type DateConfigValue = string | Date | Array<DateConfigValue>;

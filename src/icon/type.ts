@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 export interface TdIconfontProps {
@@ -33,7 +33,7 @@ export interface TdIconfontProps {
    * 点击时触发
    */
   onClick?: (context: { e: MouseEvent }) => void;
-};
+}
 
 export interface TdIconSVGProps {
   /**
@@ -58,4 +58,4 @@ export interface TdIconSVGProps {
    * 点击时触发
    */
   onClick?: (context: { e: MouseEvent }) => void;
-};
+}

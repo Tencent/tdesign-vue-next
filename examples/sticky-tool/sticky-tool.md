@@ -1,5 +1,9 @@
+:: BASE_DOC ::
+
+## API
 
 ### StickyTool Props
+
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 collapsed | Boolean | false | 默认是否折叠 | N
@@ -13,13 +17,14 @@ onClick | Function |  | 点击某一项时触发。`(context: { e: MouseEvent; i
 onHover | Function |  | 悬浮到某一项时触发。`(context: { e: MouseEvent; item: TdStickyItemProps }) => {}` | N
 
 ### StickyTool Events
+
 名称 | 参数 | 描述
 -- | -- | --
 click | `(context: { e: MouseEvent; item: TdStickyItemProps })` | 点击某一项时触发
 hover | `(context: { e: MouseEvent; item: TdStickyItemProps })` | 悬浮到某一项时触发
 
-
 ### StickyItem Props
+
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 icon | String / Slot / Function | - | 图标。TS 类型：`string | TNode`。[通用类型定义](https://github.com/TDesignOteam/tdesign-vue/blob/develop/src/common.ts) | N

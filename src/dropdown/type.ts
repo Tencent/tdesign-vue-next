@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { PopupProps } from '../popup';
@@ -25,20 +25,20 @@ export interface TdDropdownProps {
    */
   hideAfterItemClick?: boolean;
   /**
-   * 选项最大宽度，内容超出时，显示为省略号，单位：px
+   * 选项最大宽度，内容超出时，显示为省略号。值为字符串时，值就是最大宽度；值为数字时，单位：px
    * @default 100
    */
-  maxColumnWidth?: number;
+  maxColumnWidth?: string | number;
   /**
    * 弹窗最大高度，单位：px 。统一控制每一列的高度
    * @default 300
    */
   maxHeight?: number;
   /**
-   * 选项最小宽度，单位：px
+   * 选项最小宽度。值为字符串时，值就是最大宽度；值为数字时，单位：px
    * @default 10
    */
-  minColumnWidth?: number;
+  minColumnWidth?: string | number;
   /**
    * 下拉操作项
    * @default []
@@ -48,7 +48,19 @@ export interface TdDropdownProps {
    * 弹窗定位方式，可选值同 Popup 组件
    * @default bottom-left
    */
-  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
+  placement?:
+    | 'top'
+    | 'left'
+    | 'right'
+    | 'bottom'
+    | 'top-left'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-right'
+    | 'left-top'
+    | 'left-bottom'
+    | 'right-top'
+    | 'right-bottom';
   /**
    * 透传  Popup 组件属性，方便更加自由地控制。比如使用 popupProps.overlayStyle 设置浮层样式
    */
@@ -62,7 +74,7 @@ export interface TdDropdownProps {
    * 下拉操作项点击时触发
    */
   onClick?: (dropdownItem: DropdownOption, context: { e: MouseEvent }) => void;
-};
+}
 
 export interface TdDropdownItemProps {
   /**
@@ -93,6 +105,6 @@ export interface TdDropdownItemProps {
    * 点击时触发
    */
   onClick?: (dropdownItem: DropdownOption, context: { e: MouseEvent }) => void;
-};
+}
 
 export type DropdownOption = { children?: Array<TdDropdownItemProps> } & TdDropdownItemProps & Record<string, any>;

@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TdCalendarProps } from './type';
@@ -74,7 +74,7 @@ export default {
   value: {
     type: [String, Date] as PropType<TdCalendarProps['value']>,
   },
-  /** 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：({ day }) => '周' + day */
+  /** 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：`({ day }) => '周' + day` */
   week: {
     type: [Array, Function] as PropType<TdCalendarProps['week']>,
   },

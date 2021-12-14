@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode, ClassName, Styles, AttachNode } from '../common';
@@ -32,7 +32,7 @@ export interface TdPopupProps {
    */
   disabled?: boolean;
   /**
-   * 浮层类名，示例：'name1 name2 name3' 或 ['name1', 'name2'] 或 [{ 'name1': true }]
+   * 浮层类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`
    */
   overlayClassName?: ClassName;
   /**
@@ -43,7 +43,19 @@ export interface TdPopupProps {
    * 浮层出现位置
    * @default top
    */
-  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
+  placement?:
+    | 'top'
+    | 'left'
+    | 'right'
+    | 'bottom'
+    | 'top-left'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-right'
+    | 'left-top'
+    | 'left-bottom'
+    | 'right-top'
+    | 'right-bottom';
   /**
    * 是否显示浮层箭头
    * @default false
@@ -76,10 +88,20 @@ export interface TdPopupProps {
    * 当浮层隐藏或显示时触发
    */
   onVisibleChange?: (visible: boolean, context: PopupVisibleChangeContext) => void;
-};
+}
 
-export interface PopupVisibleChangeContext { e?: PopupTriggerEvent; trigger?: PopupTriggerSource };
+export interface PopupVisibleChangeContext {
+  e?: PopupTriggerEvent;
+  trigger?: PopupTriggerSource;
+}
 
 export type PopupTriggerEvent = MouseEvent | FocusEvent | KeyboardEvent;
 
-export type PopupTriggerSource = 'document' | 'trigger-element-click' | 'trigger-element-hover' | 'trigger-element-blur' | 'trigger-element-focus' | 'context-menu' | 'keydown-esc';
+export type PopupTriggerSource =
+  | 'document'
+  | 'trigger-element-click'
+  | 'trigger-element-hover'
+  | 'trigger-element-blur'
+  | 'trigger-element-focus'
+  | 'context-menu'
+  | 'keydown-esc';

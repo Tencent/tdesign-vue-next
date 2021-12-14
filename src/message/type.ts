@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode, AttachNode } from '../common';
@@ -22,7 +22,7 @@ export interface TdMessageProps {
    */
   duration?: number;
   /**
-   * 消息提醒前面的图标，可以自定义
+   * 用于自定义消息前面的图标，优先级大于 theme 设定的图标。值为 false 则不显示图标，值为 true 显示 theme 设定图标
    * @default true
    */
   icon?: boolean | TNode;
@@ -39,7 +39,7 @@ export interface TdMessageProps {
    * 计时结束后触发
    */
   onDurationEnd?: () => void;
-};
+}
 
 export interface MessageOptions extends TdMessageProps {
   /**
@@ -61,15 +61,30 @@ export interface MessageOptions extends TdMessageProps {
    * @default 5000
    */
   zIndex?: number;
-};
+}
 
 export type MessageThemeList = 'info' | 'success' | 'warning' | 'error' | 'question' | 'loading';
 
-export type MessagePlacementList = 'center' | 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+export type MessagePlacementList =
+  | 'center'
+  | 'top'
+  | 'left'
+  | 'right'
+  | 'bottom'
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right';
 
-export interface MessageInstance { close: () => void };
+export interface MessageInstance {
+  close: () => void;
+}
 
-export type MessageMethod = (theme: MessageThemeList, message: string | MessageOptions, duration?: number) => Promise<MessageInstance>;
+export type MessageMethod = (
+  theme: MessageThemeList,
+  message: string | MessageOptions,
+  duration?: number,
+) => Promise<MessageInstance>;
 
 export type MessageInfoOptions = Omit<MessageOptions, 'theme'>;
 
@@ -77,13 +92,25 @@ export type MessageInfoMethod = (message: string | MessageInfoOptions, duration?
 
 export type MessageErrorMethod = (message: string | MessageInfoOptions, duration?: number) => Promise<MessageInstance>;
 
-export type MessageWarningMethod = (message: string | MessageInfoOptions, duration?: number) => Promise<MessageInstance>;
+export type MessageWarningMethod = (
+  message: string | MessageInfoOptions,
+  duration?: number,
+) => Promise<MessageInstance>;
 
-export type MessageSuccessMethod = (message: string | MessageInfoOptions, duration?: number) => Promise<MessageInstance>;
+export type MessageSuccessMethod = (
+  message: string | MessageInfoOptions,
+  duration?: number,
+) => Promise<MessageInstance>;
 
-export type MessageLoadingMethod = (message: string | MessageInfoOptions, duration?: number) => Promise<MessageInstance>;
+export type MessageLoadingMethod = (
+  message: string | MessageInfoOptions,
+  duration?: number,
+) => Promise<MessageInstance>;
 
-export type MessageQuestionMethod = (message: string | MessageInfoOptions, duration?: number) => Promise<MessageInstance>;
+export type MessageQuestionMethod = (
+  message: string | MessageInfoOptions,
+  duration?: number,
+) => Promise<MessageInstance>;
 
 export type MessageCloseMethod = (options: Promise<MessageInstance>) => void;
 

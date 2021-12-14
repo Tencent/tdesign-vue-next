@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { PopupProps } from '../popup';
@@ -122,7 +122,7 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    */
   valueDisplay?: TNode<{ value: T[]; onClose: () => void }>;
   /**
-   * 用于控制选中值的类型。假设数据选项为：[{ label: '姓名', value: 'name' }]，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
+   * 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
    * @default value
    */
   valueType?: 'value' | 'object';
@@ -162,7 +162,7 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    * 下拉框隐藏/显示时触发
    */
   onVisibleChange?: (visible: boolean) => void;
-};
+}
 
 export interface TdOptionProps {
   /**
@@ -187,7 +187,7 @@ export interface TdOptionProps {
    * 选项值
    */
   value?: string | number;
-};
+}
 
 export interface TdOptionGroupProps {
   /**
@@ -200,14 +200,24 @@ export interface TdOptionGroupProps {
    * @default ''
    */
   label?: string;
-};
+}
 
-export interface SelectKeysType { value?: string; label?: string };
+export interface SelectKeysType {
+  value?: string;
+  label?: string;
+}
 
 export type SelectValue<T extends SelectOption = SelectOption> = string | number | T | Array<SelectValue<T>>;
 
-export interface SelectRemoveContext<T> { value: string | number; data: T; e: MouseEvent | KeyboardEvent };
+export interface SelectRemoveContext<T> {
+  value: string | number;
+  data: T;
+  e: MouseEvent | KeyboardEvent;
+}
 
 export type SelectOption = TdOptionProps | SelectOptionGroup;
 
-export interface SelectOptionGroup extends TdOptionGroupProps { group: string; children: Array<TdOptionProps> };
+export interface SelectOptionGroup extends TdOptionGroupProps {
+  group: string;
+  children: Array<TdOptionProps>;
+}

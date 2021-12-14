@@ -4,6 +4,7 @@ import multiple from '@/examples/tree-select/demos/multiple.vue';
 import filterable from '@/examples/tree-select/demos/filterable.vue';
 import lazy from '@/examples/tree-select/demos/lazy.vue';
 import prefix from '@/examples/tree-select/demos/prefix.vue';
+import collapsed from '@/examples/tree-select/demos/collapsed.vue';
 
 // unit test for component in examples.
 describe('TreeSelect', () => {
@@ -25,6 +26,10 @@ describe('TreeSelect', () => {
   });
   it('prefix demo works fine', () => {
     const wrapper = mount(prefix);
+    expect(wrapper.element).toMatchSnapshot();
+  });
+  it('collapsed demo works fine', () => {
+    const wrapper = mount(collapsed);
     expect(wrapper.element).toMatchSnapshot();
   });
 });

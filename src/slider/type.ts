@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-09 10:59:59
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { InputNumberProps } from '../input-number';
@@ -70,8 +70,10 @@ export interface TdSliderProps {
    * 滑块值变化时触发
    */
   onChange?: (value: SliderValue) => void;
-};
+}
 
-export interface SliderMarks { [mark: number]: string | TNode<{ value: number }> };
+export interface SliderMarks {
+  [mark: number]: string | TNode<{ value: number }>;
+}
 
 export type SliderValue = number | Array<number>;

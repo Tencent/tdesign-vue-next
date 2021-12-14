@@ -2,12 +2,17 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode, SizeEnum } from '../common';
 
 export interface TdRadioProps {
+  /**
+   * 【开发中】是否允许取消选中
+   * @default false
+   */
+  allowUncheck?: boolean;
   /**
    * 是否选中
    */
@@ -17,7 +22,7 @@ export interface TdRadioProps {
    */
   defaultChecked?: boolean;
   /**
-   * 单选内容，同 label
+   * 单选按钮内容，同 label
    */
   default?: string | TNode;
   /**
@@ -41,7 +46,7 @@ export interface TdRadioProps {
    * 选中状态变化时触发
    */
   onChange?: (checked: boolean, context: { e: Event }) => void;
-};
+}
 
 export interface TdRadioGroupProps {
   /**
@@ -85,10 +90,14 @@ export interface TdRadioGroupProps {
    * 选中值发生变化时触发
    */
   onChange?: (value: RadioValue, context: { e: Event }) => void;
-};
+}
 
 export type RadioValue = string | number | boolean;
 
 export type RadioOption = string | number | RadioOptionObj;
 
-export interface RadioOptionObj { label?: string | TNode; value?: string | number; disabled?: boolean };
+export interface RadioOptionObj {
+  label?: string | TNode;
+  value?: string | number;
+  disabled?: boolean;
+}

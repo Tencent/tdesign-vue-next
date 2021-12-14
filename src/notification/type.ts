@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode, AttachNode } from '../common';
@@ -30,9 +30,10 @@ export interface TdNotificationProps {
    */
   footer?: string | TNode;
   /**
-   * 自定义图标
+   * 用于自定义消息通知前面的图标，优先级大于 theme 设定的图标。值为 false 则不显示图标，值为 true 显示 theme 设定图标
+   * @default true
    */
-  icon?: TNode;
+  icon?: boolean | TNode;
   /**
    * 消息类型
    * @default info
@@ -50,7 +51,7 @@ export interface TdNotificationProps {
    * 计时结束时触发
    */
   onDurationEnd?: () => void;
-};
+}
 
 export interface NotificationOptions extends TdNotificationProps {
   /**
@@ -72,15 +73,20 @@ export interface NotificationOptions extends TdNotificationProps {
    * @default 6000
    */
   zIndex?: number;
-};
+}
 
 export type NotificationThemeList = 'info' | 'success' | 'warning' | 'error';
 
 export type NotificationPlacementList = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
-export interface NotificationInstance { close: () => void };
+export interface NotificationInstance {
+  close: () => void;
+}
 
-export type NotificationMethod = (theme: NotificationThemeList, options: NotificationOptions) => Promise<NotificationInstance>;
+export type NotificationMethod = (
+  theme: NotificationThemeList,
+  options: NotificationOptions,
+) => Promise<NotificationInstance>;
 
 export type NotificationInfoOptions = Omit<NotificationOptions, 'theme'>;
 

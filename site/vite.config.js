@@ -5,7 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import { VitePWA } from 'vite-plugin-pwa';
 
 import codeRaw from './t-doc-plugin/code-raw';
-import { createTDesignPlugin } from './t-doc-plugin';
+import tdocPlugin from './t-doc-plugin';
 import pwaConfig from './pwaConfig';
 
 export default defineConfig({
@@ -43,7 +43,7 @@ export default defineConfig({
     codeRaw({
       fileRegex: /\.code$/,
     }),
-    createTDesignPlugin(),
+    tdocPlugin(),
     VitePWA(pwaConfig),
   ],
 });

@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { PopupProps } from '../popup';
@@ -49,7 +49,7 @@ export interface TdStickyToolProps {
    * 悬浮到某一项时触发
    */
   onHover?: (context: { e: MouseEvent; item: TdStickyItemProps }) => void;
-};
+}
 
 export interface TdStickyItemProps {
   /**
@@ -73,4 +73,4 @@ export interface TdStickyItemProps {
    * @default hover
    */
   trigger?: 'hover' | 'click';
-};
+}

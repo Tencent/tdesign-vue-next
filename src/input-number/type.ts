@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 export interface TdInputNumberProps {
@@ -85,8 +85,11 @@ export interface TdInputNumberProps {
    * 释放键盘时触发
    */
   onKeyup?: (value: number, context: { e: KeyboardEvent }) => void;
-};
+}
 
-export interface ChangeContext { type: ChangeSource; e: InputEvent | MouseEvent | FocusEvent };
+export interface ChangeContext {
+  type: ChangeSource;
+  e: InputEvent | MouseEvent | FocusEvent;
+}
 
 export type ChangeSource = 'add' | 'reduce' | 'input' | '';

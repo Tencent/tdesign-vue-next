@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TdTreeSelectProps } from './type';
@@ -91,7 +91,7 @@ export default {
   valueDisplay: {
     type: Function as PropType<TdTreeSelectProps['valueDisplay']>,
   },
-  /** 用于控制选中值的类型。假设数据选项为：[{ label: '姓名', value: 'name' }]，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据 */
+  /** 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据 */
   valueType: {
     type: String as PropType<TdTreeSelectProps['valueType']>,
     default: 'value' as TdTreeSelectProps['valueType'],

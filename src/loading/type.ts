@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-05 14:42:17
+ * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode, AttachNode } from '../common';
@@ -69,8 +69,10 @@ export interface TdLoadingProps {
    * 消息通知层级，样式默认为 3500
    */
   zIndex?: number;
-};
+}
 
-export interface LoadingInstance { hide: () => void };
+export interface LoadingInstance {
+  hide: () => void;
+}
 
 export type LoadingMethod = (options: boolean | TdLoadingProps) => LoadingInstance;
