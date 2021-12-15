@@ -1,3 +1,6 @@
+/**
+ * Thanks to https://github.com/ElemeFE/element/blob/dev/packages/input/src/calcTextareaHeight.js
+ */
 type RowsType = number | null;
 
 type ResultType = {

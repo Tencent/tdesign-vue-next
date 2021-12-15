@@ -1,3 +1,6 @@
+/**
+ * Thanks to https://spothero.com/static/main/uniform/docs-js/module-DOMUtils.html
+ */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-undef */
 import { ComponentPublicInstance, VNode } from 'vue';
