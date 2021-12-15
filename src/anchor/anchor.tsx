@@ -7,6 +7,10 @@ import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
+import { COMPONENT_NAME } from './constant';
+
+const ANCHOR_LINE_CLASSNAME = `${COMPONENT_NAME}__line`;
+const ANCHOR_LINE_CURSOR_CLASSNAME = `${COMPONENT_NAME}__line-cursor`;
 
 const name = `${prefix}-anchor`;
 
@@ -220,12 +224,12 @@ export default defineComponent({
       activeLineStyle,
       $attrs,
     } = this;
-    const innerClass = [name, CLASSNAMES.SIZE[size]];
+    const className = [COMPONENT_NAME, CLASSNAMES.SIZE[size]];
 
     const content = (
-      <div class={innerClass} {...$attrs}>
-        <div class={`${name}_line`}>
-          <div class="cursor-wrapper" style={activeLineStyle}>
+      <div class={className} {...$attrs}>
+        <div class={ANCHOR_LINE_CLASSNAME}>
+          <div class={`${ANCHOR_LINE_CURSOR_CLASSNAME}-wrapper`} style={activeLineStyle}>
             {this.renderCursor()}
           </div>
         </div>

@@ -69,6 +69,7 @@
     "@types/lodash": "^4.14.175",
     "@types/validator": "^13.6.3",
     "dayjs": "^1.9.7",
+    "less": "^4.1.2",
     "lodash": "^4.17.15",
     "tdesign-icons-vue-next": "0.0.3",
     "validator": "^13.5.1"
@@ -100,14 +101,14 @@
     "autoprefixer": "^10.4.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.0",
-    "camelcase": "^6.2.0",
+    "camelcase": "^6.2.1",
     "cli-color": "^2.0.1",
     "clipboard": "^2.0.6",
     "commitizen": "^4.0.3",
     "concurrently": "^6.4.0",
     "cross-env": "^7.0.2",
     "css-element-queries": "^1.2.3",
-    "cypress": "^9.1.0",
+    "cypress": "^9.1.1",
     "cz-conventional-changelog": "^3.0.2",
     "esbuild": "^0.12.19",
     "eslint": "^7.32.0",
@@ -124,7 +125,6 @@
     "jest-serializer-vue": "^2.0.2",
     "jest-transform-stub": "^2.0.0",
     "jest-watch-typeahead": "^0.6.0",
-    "less": "4.1.1",
     "lint-staged": "^12.1.2",
     "mockdate": "^3.0.5",
     "postcss": "^8.3.8",
@@ -158,7 +158,7 @@
     "*.{vue,js,jsx,ts,tsx}": [
       "prettier --write",
       "eslint --fix",
-      "git add"
+      "git add ."
     ]
   },
   "workspaces": [

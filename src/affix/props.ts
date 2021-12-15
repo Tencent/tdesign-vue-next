@@ -12,7 +12,7 @@ export default {
   /** 指定滚动的容器。数据类型为 String 时，会被当作选择器处理，进行节点查询。示例：'body' 或 () => document.body */
   container: {
     type: [String, Function] as PropType<TdAffixProps['container']>,
-    default: () => (() => window),
+    default: () => () => window,
   },
   /**  距离容器顶部达到指定距离后触发固定 */
   offsetBottom: {

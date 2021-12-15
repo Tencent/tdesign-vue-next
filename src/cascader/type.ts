@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
+ * updated at 2021-12-12 16:59:59
  * */
 
 import { CheckboxProps } from '../checkbox';
@@ -141,14 +141,24 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 多选模式下，选中数据被移除时触发
    */
   onRemove?: (context: RemoveContext<CascaderOption>) => void;
-};
+}
 
-export interface CascaderKeysType { value?: string; label?: string; children?: string };
+export interface CascaderKeysType {
+  value?: string;
+  label?: string;
+  children?: string;
+}
 
 export type CascaderValue<T extends TreeOptionData = TreeOptionData> = string | number | T | Array<CascaderValue<T>>;
 
-export interface CascaderChangeContext<CascaderOption> { node?: TreeNodeModel<CascaderOption>; source: CascaderChangeSource };
+export interface CascaderChangeContext<CascaderOption> {
+  node?: TreeNodeModel<CascaderOption>;
+  source: CascaderChangeSource;
+}
 
 export type CascaderChangeSource = 'invalid-value' | 'checked' | 'clear' | 'unchecked';
 
-export interface RemoveContext<T> { value: CascaderValue<T>; node: TreeNodeModel<T> };
+export interface RemoveContext<T> {
+  value: CascaderValue<T>;
+  node: TreeNodeModel<T>;
+}

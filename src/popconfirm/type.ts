@@ -41,7 +41,19 @@ export interface TdPopconfirmProps {
    * 浮层出现位置
    * @default top
    */
-  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
+  placement?:
+    | 'top'
+    | 'left'
+    | 'right'
+    | 'bottom'
+    | 'top-left'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-right'
+    | 'left-top'
+    | 'left-bottom'
+    | 'right-top'
+    | 'right-bottom';
   /**
    * 透传 Popup 组件属性
    */
@@ -80,8 +92,11 @@ export interface TdPopconfirmProps {
    * 确认框显示或隐藏时触发
    */
   onVisibleChange?: (visible: boolean, context?: PopconfirmVisibleChangeContext) => void;
-};
+}
 
-export interface PopconfirmVisibleChangeContext { trigger?: TriggerSource; e?: MouseEvent };
+export interface PopconfirmVisibleChangeContext {
+  trigger?: TriggerSource;
+  e?: MouseEvent;
+}
 
 export type TriggerSource = 'cancel' | 'confirm' | 'document' | 'trigger-element-click';

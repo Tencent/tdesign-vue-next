@@ -128,10 +128,13 @@ export interface TdDrawerProps {
    * 如果蒙层存在，点击蒙层时触发
    */
   onOverlayClick?: (context: { e: MouseEvent }) => void;
-};
+}
 
 export type FooterButton = string | ButtonProps | TNode;
 
 export type DrawerEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay';
 
-export interface DrawerCloseContext { trigger: DrawerEventSource; e: MouseEvent | KeyboardEvent };
+export interface DrawerCloseContext {
+  trigger: DrawerEventSource;
+  e: MouseEvent | KeyboardEvent;
+}

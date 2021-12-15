@@ -48,7 +48,7 @@ export interface TdListProps {
    * 列表滚动时触发，scrollTop 表示顶部滚动距离，scrollBottom 表示底部滚动距离
    */
   onScroll?: (options: { e: Event | WheelEvent; scrollTop: number; scrollBottom: number }) => void;
-};
+}
 
 export interface TdListItemProps {
   /**
@@ -63,7 +63,7 @@ export interface TdListItemProps {
    * 内容，同 content
    */
   default?: string | TNode;
-};
+}
 
 export interface TdListItemMetaProps {
   /**
@@ -83,4 +83,4 @@ export interface TdListItemMetaProps {
    * 列表项标题
    */
   title?: string | TNode;
-};
+}

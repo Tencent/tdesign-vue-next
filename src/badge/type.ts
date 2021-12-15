@@ -55,4 +55,4 @@ export interface TdBadgeProps {
    * @default medium
    */
   size?: 'small' | 'medium';
-};
+}

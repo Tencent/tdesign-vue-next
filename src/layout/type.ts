@@ -11,7 +11,7 @@ export interface TdHeaderProps {
    * @default ''
    */
   height?: string;
-};
+}
 
 export interface TdAsideProps {
   /**
@@ -19,7 +19,7 @@ export interface TdAsideProps {
    * @default ''
    */
   width?: string;
-};
+}
 
 export interface TdFooterProps {
   /**
@@ -27,4 +27,4 @@ export interface TdFooterProps {
    * @default ''
    */
   height?: string;
-};
+}

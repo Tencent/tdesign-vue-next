@@ -37,4 +37,4 @@ export interface TdCommentProps {
    * 回复
    */
   reply?: string | TNode;
-};
+}

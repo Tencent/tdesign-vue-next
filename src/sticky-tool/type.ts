@@ -49,7 +49,7 @@ export interface TdStickyToolProps {
    * 悬浮到某一项时触发
    */
   onHover?: (context: { e: MouseEvent; item: TdStickyItemProps }) => void;
-};
+}
 
 export interface TdStickyItemProps {
   /**
@@ -73,4 +73,4 @@ export interface TdStickyItemProps {
    * @default hover
    */
   trigger?: 'hover' | 'click';
-};
+}

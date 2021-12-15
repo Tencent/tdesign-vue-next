@@ -51,7 +51,7 @@ export interface TdNotificationProps {
    * 计时结束时触发
    */
   onDurationEnd?: () => void;
-};
+}
 
 export interface NotificationOptions extends TdNotificationProps {
   /**
@@ -73,15 +73,20 @@ export interface NotificationOptions extends TdNotificationProps {
    * @default 6000
    */
   zIndex?: number;
-};
+}
 
 export type NotificationThemeList = 'info' | 'success' | 'warning' | 'error';
 
 export type NotificationPlacementList = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
-export interface NotificationInstance { close: () => void };
+export interface NotificationInstance {
+  close: () => void;
+}
 
-export type NotificationMethod = (theme: NotificationThemeList, options: NotificationOptions) => Promise<NotificationInstance>;
+export type NotificationMethod = (
+  theme: NotificationThemeList,
+  options: NotificationOptions,
+) => Promise<NotificationInstance>;
 
 export type NotificationInfoOptions = Omit<NotificationOptions, 'theme'>;
 

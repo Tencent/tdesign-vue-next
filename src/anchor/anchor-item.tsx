@@ -3,11 +3,12 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
+import { COMPONENT_NAME } from './constant';
 
-const name = `${prefix}-anchor-item`;
+const CLASSNAME_PREFIX = `${COMPONENT_NAME}__item`;
 
 export default defineComponent({
-  name,
+  name: 'TAnchorItem',
   inject: {
     tAnchor: { default: undefined },
   },
@@ -77,11 +78,11 @@ export default defineComponent({
     const titleAttr = typeof title === 'string' ? title : null;
     const active = tAnchor.active === href;
     const wrapperClass = {
-      [name]: true,
+      [CLASSNAME_PREFIX]: true,
       [CLASSNAMES.STATUS.active]: active,
     };
     const titleClass = {
-      [`${name}_link`]: true,
+      [`${CLASSNAME_PREFIX}-link`]: true,
     };
     return (
       <div class={wrapperClass}>

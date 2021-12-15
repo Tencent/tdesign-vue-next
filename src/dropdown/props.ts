@@ -49,7 +49,20 @@ export default {
     type: String as PropType<TdDropdownProps['placement']>,
     default: 'bottom-left' as TdDropdownProps['placement'],
     validator(val: TdDropdownProps['placement']): boolean {
-      return ['top', 'left', 'right', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom', 'right-top', 'right-bottom'].includes(val);
+      return [
+        'top',
+        'left',
+        'right',
+        'bottom',
+        'top-left',
+        'top-right',
+        'bottom-left',
+        'bottom-right',
+        'left-top',
+        'left-bottom',
+        'right-top',
+        'right-bottom',
+      ].includes(val);
     },
   },
   /** 透传  Popup 组件属性，方便更加自由地控制。比如使用 popupProps.overlayStyle 设置浮层样式 */

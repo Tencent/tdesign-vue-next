@@ -71,7 +71,7 @@ export default defineComponent({
     },
     // 上传失败或者上传成功会显示
     showResultOperate(): boolean {
-      return ['success', 'fail'].includes(this.loadingFile?.status);
+      return Boolean(!this.loadingFile && this.file?.name) || ['success', 'fail'].includes(this.loadingFile?.status);
     },
   },
 

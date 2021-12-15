@@ -16,15 +16,15 @@ exports[`Cascader base demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-cascader-dropdown"
+            class="t-popup-content t-cascader__dropdown"
           >
             
             <div
-              class="t-cascader-panel"
+              class="t-cascader__panel"
               style="width: 0px;"
             >
               <div
-                class="t-cascader-panel__is-empty"
+                class="t-cascader__panel--empty"
               >
                 暂无数据
               </div>
@@ -40,12 +40,12 @@ exports[`Cascader base demo works fine 1`] = `
         modelvalue="1.1"
       >
         <span
-          class="t-cascader-placeholder"
+          class="t-cascader__placeholder"
         >
           请选择
         </span>
         <svg
-          class="t-fake-arrow t-cascader-icon"
+          class="t-fake-arrow t-cascader__icon"
           disabled="false"
           fill="none"
           height="16"

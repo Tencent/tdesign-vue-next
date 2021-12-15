@@ -32,7 +32,7 @@ export interface TdAvatarProps {
    * 形状
    * @default circle
    */
-  shape?: ShapeEnum ;
+  shape?: ShapeEnum;
   /**
    * 尺寸，示例值：small/medium/large/24px/38px 等，默认为 large
    * @default ''
@@ -42,7 +42,7 @@ export interface TdAvatarProps {
    * 图片加载失败时触发
    */
   onError?: () => void;
-};
+}
 
 export interface TdAvatarGroupProps {
   /**
@@ -71,7 +71,7 @@ export interface TdAvatarGroupProps {
    * @default medium
    */
   size?: string;
-};
+}
 
 export type ShapeEnum = 'circle' | 'round';
 

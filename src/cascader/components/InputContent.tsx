@@ -110,21 +110,31 @@ export default defineComponent({
       const content = !showPlaceholder ? (
         this.InnerContent()
       ) : (
-        <span className={`${prefix}-cascader-placeholder`}>{placeholder || this.t(this.global.placeholder)}</span>
+        <span class={`${prefix}-cascader__placeholder`}>{placeholder || this.t(this.global.placeholder)}</span>
       );
       return content;
     },
     InnerContent() {
       const { cascaderContext, placeholder, singleContent, multipleContent, listeners, collapsedItems } = this;
 
-      const { multiple, size, disabled, filterable, setFilterActive, visible, inputVal, setInputVal, minCollapsedNum } =
-        cascaderContext;
+      const {
+        multiple,
+        size,
+        disabled,
+        filterable,
+        setFilterActive,
+        visible,
+        inputVal,
+        setInputVal,
+        minCollapsedNum,
+        value,
+      } = cascaderContext;
 
       const { onFocus, onBlur, onRemove } = listeners as InputContentProps['listeners'];
 
       const renderSelfTag = (node: TreeNode, index: number) => (
         <Tag
-          closable
+          closable={!disabled}
           key={index}
           disabled={disabled}
           onClose={(ctx) => {
@@ -145,7 +155,7 @@ export default defineComponent({
       };
 
       const generalContent = !multiple ? (
-        <span className={`${prefix}-cascader-content`}>{singleContent}</span>
+        <span class={`${prefix}-cascader__content`}>{singleContent}</span>
       ) : (
         <span>
           {minCollapsedNum > 0 && multipleContent.length > minCollapsedNum ? (
@@ -188,11 +198,9 @@ export default defineComponent({
             setFilterActive(!!value);
           }}
           onFocus={(v: InputValue, context: { e: FocusEvent }) =>
-            isFunction(onFocus) && onFocus({ inputVal, e: context?.e })
+            isFunction(onFocus) && onFocus({ value, e: context?.e })
           }
-          onBlur={(v: InputValue, context: { e: FocusEvent }) =>
-            isFunction(onBlur) && onBlur({ inputVal, e: context?.e })
-          }
+          onBlur={(v: InputValue, context: { e: FocusEvent }) => isFunction(onBlur) && onBlur({ value, e: context?.e })}
           autofocus={visible}
         />
       );
@@ -215,7 +223,7 @@ export default defineComponent({
 
       if (loading) {
         return (
-          <span class={`${prefix}-cascader-icon`}>
+          <span class={`${prefix}-cascader__icon`}>
             <TLoading size="small" />
           </span>
         );

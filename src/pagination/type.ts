@@ -85,6 +85,10 @@ export interface TdPaginationProps {
    * 分页大小发生变化时触发
    */
   onPageSizeChange?: (pageSize: number, pageInfo: PageInfo) => void;
-};
+}
 
-export interface PageInfo { current: number; previous: number; pageSize: number };
+export interface PageInfo {
+  current: number;
+  previous: number;
+  pageSize: number;
+}

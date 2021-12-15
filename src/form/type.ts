@@ -82,8 +82,8 @@ export interface TdFormProps<FormData extends Data = Data> {
   /**
    * 校验结束后触发，result 值为 true 表示校验通过；如果校验不通过，result 值为校验结果列表
    */
-  onValidate?: (result:  ValidateResultContext<FormData>) => void;
-};
+  onValidate?: (result: ValidateResultContext<FormData>) => void;
+}
 
 /** 组件实例方法 */
 export interface FormInstanceFunctions<FormData extends Data = Data> {
@@ -152,7 +152,7 @@ export interface TdFormItemProps {
    * @default false
    */
   successBorder?: boolean;
-};
+}
 
 export interface FormRule {
   /**
@@ -226,9 +226,13 @@ export interface FormRule {
    * 自定义校验规则
    */
   validator?: CustomValidator;
-};
+}
 
-export interface SubmitContext<T extends Data = Data> { e?: FormSubmitEvent; validateResult: FormValidateResult<T>; firstError?: string };
+export interface SubmitContext<T extends Data = Data> {
+  e?: FormSubmitEvent;
+  validateResult: FormValidateResult<T>;
+  firstError?: string;
+}
 
 export type FormValidateResult<T> = boolean | ValidateResultObj<T>;
 
@@ -238,7 +242,9 @@ export type ValidateResultList = Array<AllValidateResult>;
 
 export type AllValidateResult = CustomValidateObj | ValidateResultType;
 
-export interface ValidateResultType extends FormRule { result: boolean };
+export interface ValidateResultType extends FormRule {
+  result: boolean;
+}
 
 export type ValidateResult<T> = { [key in keyof T]: boolean | ErrorList };
 
@@ -246,18 +252,29 @@ export type ErrorList = Array<FormRule>;
 
 export type ValidateResultContext<T> = Omit<SubmitContext<T>, 'e'>;
 
-export interface FormValidateParams { fields?: Array<string>; trigger?: ValidateTriggerType };
+export interface FormValidateParams {
+  fields?: Array<string>;
+  trigger?: ValidateTriggerType;
+}
 
 export type ValidateTriggerType = 'blur' | 'change' | 'all';
 
 export type Data = { [key: string]: any };
 
-export interface IsDateOptions { format: string; strictMode: boolean; delimiters: string[] };
+export interface IsDateOptions {
+  format: string;
+  strictMode: boolean;
+  delimiters: string[];
+}
 
 export type CustomValidator = (val: ValueType) => CustomValidateResolveType | Promise<CustomValidateResolveType>;
 
 export type CustomValidateResolveType = boolean | CustomValidateObj;
 
-export interface CustomValidateObj { result: boolean; message: string; type?: 'error' | 'warning' | 'success' };
+export interface CustomValidateObj {
+  result: boolean;
+  message: string;
+  type?: 'error' | 'warning' | 'success';
+}
 
 export type ValueType = any;

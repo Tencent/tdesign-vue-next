@@ -69,8 +69,10 @@ export interface TdLoadingProps {
    * 消息通知层级，样式默认为 3500
    */
   zIndex?: number;
-};
+}
 
-export interface LoadingInstance { hide: () => void };
+export interface LoadingInstance {
+  hide: () => void;
+}
 
 export type LoadingMethod = (options: boolean | TdLoadingProps) => LoadingInstance;

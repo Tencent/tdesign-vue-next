@@ -70,8 +70,10 @@ export interface TdSliderProps {
    * 滑块值变化时触发
    */
   onChange?: (value: SliderValue) => void;
-};
+}
 
-export interface SliderMarks { [mark: number]: string | TNode<{ value: number }> };
+export interface SliderMarks {
+  [mark: number]: string | TNode<{ value: number }>;
+}
 
 export type SliderValue = number | Array<number>;

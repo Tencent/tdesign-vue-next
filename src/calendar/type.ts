@@ -89,7 +89,7 @@ export interface TdCalendarProps {
    * 右上角控件组选中值有变化的时候触发
    */
   onControllerChange?: (options: ControllerOptions) => void;
-};
+}
 
 export interface CalendarController {
   /**
@@ -117,7 +117,7 @@ export interface CalendarController {
    * 日历年份控制器
    */
   year?: { visible?: boolean; selectProps?: SelectProps };
-};
+}
 
 export interface CalendarCell extends ControllerOptions {
   /**
@@ -145,12 +145,19 @@ export interface CalendarCell extends ControllerOptions {
    * 日期在本月的第几周（日历展示维度是“月”时有值）
    */
   weekOrder?: number;
-};
+}
 
 export type CalendarValue = string | Date;
 
-export interface CalendarWeek { day: WeekDay };
+export interface CalendarWeek {
+  day: WeekDay;
+}
 
 export type WeekDay = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
-export interface ControllerOptions { filterDate: Date; formattedFilterDate: string; mode: string; isShowWeekend: boolean };
+export interface ControllerOptions {
+  filterDate: Date;
+  formattedFilterDate: string;
+  mode: string;
+  isShowWeekend: boolean;
+}

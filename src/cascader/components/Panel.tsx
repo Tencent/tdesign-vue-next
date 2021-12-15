@@ -63,7 +63,7 @@ export default defineComponent({
     const renderEmpty = renderTNodeJSXDefault(
       this,
       'empty',
-      <div class={`${name}-panel__is-empty`}>{this.t(this.global.empty)}</div>,
+      <div class={`${name}__panel--empty`}>{this.t(this.global.empty)}</div>,
     );
 
     const renderItem = (node: TreeNode) => (
@@ -83,7 +83,7 @@ export default defineComponent({
 
     const panelsContainer = panels.map((panel: TreeNode[], index: number) => (
       <ul
-        class={[`${name}-menu`, 'narrow-scrollbar', { [`${name}-menu__seperator`]: index !== panels.length - 1 }]}
+        class={[`${name}__menu`, 'narrow-scrollbar', { [`${name}__menu--segment`]: index !== panels.length - 1 }]}
         key={index}
       >
         {panel.map((node: TreeNode) => renderItem(node))}
@@ -91,7 +91,7 @@ export default defineComponent({
     ));
 
     const filterPanelsContainer = (
-      <ul class={[`${name}-menu`, 'narrow-scrollbar', `${name}-menu__seperator`, `${name}-menu__filter`]}>
+      <ul class={[`${name}__menu`, 'narrow-scrollbar', `${name}__menu--segment`, `${name}__menu--filter`]}>
         {treeNodes.map((node: TreeNode) => renderItem(node))}
       </ul>
     );
@@ -101,7 +101,7 @@ export default defineComponent({
     return (
       <div
         class={[
-          `${name}-panel`,
+          `${name}__panel`,
           {
             [`${name}--normal`]: panels.length,
           },

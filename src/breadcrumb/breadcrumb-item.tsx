@@ -1,8 +1,10 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, ComponentPublicInstance, VNode } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import { prefix } from '../config';
 import props from './breadcrumb-item-props';
+import Tooltip from '../tooltip/index';
+import { isNodeOverflow } from '../utils/dom';
 
 const name = `${prefix}-breadcrumbItem`;
 const separatorClass = `${prefix}-breadcrumb__separator`;
@@ -34,6 +36,10 @@ const isEventProps = (propName: string): boolean => {
 export default defineComponent({
   name,
 
+  components: {
+    Tooltip,
+  },
+
   inject: ['tBreadcrumb'],
 
   props: {
@@ -45,6 +51,7 @@ export default defineComponent({
       localTBreadcrumb: localTBreadcrumbOrigin,
       themeClassName: '',
       $router: null,
+      isCutOff: false,
     };
   },
 
@@ -69,6 +76,13 @@ export default defineComponent({
   created() {
     const tBreadcrumb = this.localTBreadcrumb;
     this.themeClassName = tBreadcrumb.theme;
+  },
+
+  mounted() {
+    this.isCutOff = isNodeOverflow(this.$refs.breadcrumbText as ComponentPublicInstance);
+  },
+  beforeUpdate() {
+    this.isCutOff = isNodeOverflow(this.$refs.breadcrumbText as ComponentPublicInstance);
   },
 
   methods: {
@@ -109,7 +123,11 @@ export default defineComponent({
       textClass.push(gestureClass);
     }
 
-    const textContent = <span {...{ class: maxLengthClass, style: maxWithStyle }}>{this.$slots.default()}</span>;
+    const textContent = (
+      <span ref="breadcrumbText" {...{ class: maxLengthClass, style: maxWithStyle }}>
+        {this.$slots.default()}
+      </span>
+    );
     let itemContent = <span {...{ class: textClass, ...listeners }}>{textContent}</span>;
 
     if ((this.href || this.to) && !this.disabled) {
@@ -123,7 +141,7 @@ export default defineComponent({
 
     return (
       <div class={itemClass} {...this.$attrs}>
-        {itemContent}
+        {this.isCutOff ? <Tooltip content={() => this.$slots.default()}>{itemContent}</Tooltip> : itemContent}
         <span class={separatorClass}>
           {typeof separatorContent === 'function' ? separatorContent() : separatorContent}
         </span>

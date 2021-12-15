@@ -21,8 +21,9 @@ import InputContent from './components/InputContent';
 import TreeNode from '../_common/js/tree/tree-node';
 import { ListenersType, TreeNodeValue, EVENT_NAME_WITH_KEBAB, CascaderContextType, TdCascaderProps } from './interface';
 import props from './props';
-import { CascaderChangeSource, CascaderValue } from './type';
+import { CascaderChangeSource, CascaderValue, CascaderChangeContext } from './type';
 import { TreeNodeModel } from '../tree';
+import { TreeOptionData } from '../common';
 
 const name = `${prefix}-cascader`;
 
@@ -61,9 +62,12 @@ export default defineComponent({
         setTreeNodes: (nodes: TreeNode[]) => {
           this.treeNodes = nodes;
         },
-        setValue: (val: CascaderValue, source: CascaderChangeSource, node: TreeNodeModel) => {
+        setValue: (val: CascaderValue, source: CascaderChangeSource, node?: TreeNodeModel) => {
           if (isEqual(val, this.scopeVal)) return;
-          emitEvent<Parameters<TdCascaderProps['onChange']>>(this, 'change', val, { source, node });
+          emitEvent<Parameters<TdCascaderProps['onChange']>>(this, 'change', val, {
+            source,
+            node,
+          } as CascaderChangeContext<TreeOptionData>);
         },
         setVisible: (val: boolean) => {
           this.visible = val;
@@ -244,7 +248,7 @@ export default defineComponent({
       <div ref="cascader">
         <Popup
           ref="popup"
-          overlayClassName={`${name}-dropdown`}
+          overlayClassName={`${name}__dropdown`}
           placement="bottom-left"
           visible={visible}
           trigger={popupProps?.trigger || 'click'}

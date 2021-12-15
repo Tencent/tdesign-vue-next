@@ -63,7 +63,12 @@ export interface TdTimePickerProps {
   /**
    * 当输入框失去焦点时触发，参数 input 表示输入框内容，value 表示组件当前有效值，trigger 表示触发源头
    */
-  onBlur?: (context: { trigger: 'hour' | 'minute' | 'second'; input: string; value: TimePickerValue; e: FocusEvent }) => void;
+  onBlur?: (context: {
+    trigger: 'hour' | 'minute' | 'second';
+    input: string;
+    value: TimePickerValue;
+    e: FocusEvent;
+  }) => void;
   /**
    * 选中值发生变化时触发
    */
@@ -75,7 +80,12 @@ export interface TdTimePickerProps {
   /**
    * 输入框获得焦点时触发，参数 input 表示输入框内容，value 表示组件当前有效值，trigger 表示触发源头
    */
-  onFocus?: (context: { trigger: 'hour' | 'minute' | 'second'; input: string; value: TimePickerValue; e: FocusEvent }) => void;
+  onFocus?: (context: {
+    trigger: 'hour' | 'minute' | 'second';
+    input: string;
+    value: TimePickerValue;
+    e: FocusEvent;
+  }) => void;
   /**
    * 当输入框内容发生变化时触发，参数 input 表示输入框内容，value 表示组件当前有效值
    */
@@ -84,7 +94,7 @@ export interface TdTimePickerProps {
    * 面板打开时触发
    */
   onOpen?: (context: { e: MouseEvent }) => void;
-};
+}
 
 export interface TdTimeRangePickerProps {
   /**
@@ -154,7 +164,7 @@ export interface TdTimeRangePickerProps {
    * 当输入框内容发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
    */
   onInput?: (context: { input: string; value: TimeRangeValue; e: InputEvent }) => void;
-};
+}
 
 export type TimePickerValue = string;
 

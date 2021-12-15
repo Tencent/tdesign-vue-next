@@ -3,10 +3,11 @@ import primaryTableProps from '../../primary-table-props';
 import baseTableProps from '../../base-table-props';
 import TableRow from '../../base-table/table-row';
 import { prefix } from '../../../config';
-import GradientIcon from '../../../loading/icon/gradient';
+import TLoading from '../../../loading';
 import { emitEvent } from '../../../utils/event';
 import { TdPrimaryTableProps } from '../../type';
 import { ClassName } from '../../../common';
+import { STATUS_CLASSNAMES } from '../../../utils/classnames';
 
 type AsyncLoadingClickParams = Parameters<TdPrimaryTableProps['onAsyncLoadingClick']>;
 type CreateElement = typeof h;
@@ -28,9 +29,10 @@ export default defineComponent({
   computed: {
     classes(): ClassName {
       return [
-        `${prefix}-table--loading-async`,
+        `${prefix}-table__async-loading`,
         {
-          [`${prefix}-table--loading-status-${this.asyncLoading}`]: typeof this.asyncLoading === 'string',
+          [STATUS_CLASSNAMES.loading]: this.asyncLoading === 'loading',
+          [STATUS_CLASSNAMES.loadMore]: this.asyncLoading === 'load-more',
         },
       ];
     },
@@ -69,8 +71,7 @@ export default defineComponent({
             }
             return (
               <div class={this.classes} onClick={this.onLoadClick}>
-                {asyncLoading === 'loading' && <GradientIcon size="small" />}
-                {loadingText}
+                {<TLoading loading={asyncLoading === 'loading'} text={loadingText} />}
               </div>
             );
           },

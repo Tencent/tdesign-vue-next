@@ -46,7 +46,7 @@ export interface TdRadioProps {
    * 选中状态变化时触发
    */
   onChange?: (checked: boolean, context: { e: Event }) => void;
-};
+}
 
 export interface TdRadioGroupProps {
   /**
@@ -90,10 +90,14 @@ export interface TdRadioGroupProps {
    * 选中值发生变化时触发
    */
   onChange?: (value: RadioValue, context: { e: Event }) => void;
-};
+}
 
 export type RadioValue = string | number | boolean;
 
 export type RadioOption = string | number | RadioOptionObj;
 
-export interface RadioOptionObj { label?: string | TNode; value?: string | number; disabled?: boolean };
+export interface RadioOptionObj {
+  label?: string | TNode;
+  value?: string | number;
+  disabled?: boolean;
+}

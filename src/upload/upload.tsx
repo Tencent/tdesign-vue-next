@@ -22,7 +22,6 @@ import {
   InnerProgressContext,
   UploadRemoveOptions,
   FlowRemoveContext,
-  URL,
 } from './interface';
 import {
   TdUploadProps,
@@ -105,7 +104,6 @@ export default defineComponent({
       errorMsg: '',
       showImageViewDialog: false,
       showImageViewUrl: '',
-      URL: null as URL,
       xhrReq: null as XMLHttpRequest,
     };
   },
@@ -150,10 +148,6 @@ export default defineComponent({
     errorClasses(): ClassName {
       return this.tipsClasses.concat(`${name}__tips-error`);
     },
-  },
-  mounted() {
-    // webkitURL is for chrome/webkit, while URL is for mozilla/firefox
-    window && (this.URL = window.webkitURL || window.URL);
   },
 
   methods: {
@@ -294,10 +288,11 @@ export default defineComponent({
     /** 模拟进度条 Mock Progress */
     handleMockProgress(file: UploadFile) {
       const timer = setInterval(() => {
-        file.percent += 1;
-        if (file.percent >= 99) {
+        if (file.status === 'success' || file.percent >= 99) {
           clearInterval(timer);
+          return;
         }
+        file.percent += 1;
         this.handleProgress({
           file,
           percent: file.percent,
@@ -408,8 +403,6 @@ export default defineComponent({
         response: res,
       };
       emitEvent<Parameters<TdUploadProps['onSuccess']>>(this, 'success', sContext);
-      // https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL
-      this.URL && this.URL.revokeObjectURL(this.loadingFile.url);
       this.loadingFile = null;
     },
 
@@ -464,8 +457,6 @@ export default defineComponent({
 
     cancelUpload() {
       if (this.loadingFile) {
-        // https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL
-        this.URL && this.URL.revokeObjectURL(this.loadingFile.url);
         // 如果存在自定义上传方法，则只需要抛出事件，而后由父组件处理取消上传
         if (this.requestMethod) {
           emitEvent<Parameters<TdUploadProps['onCancelUpload']>>(this, 'cancel-upload');
@@ -498,10 +489,6 @@ export default defineComponent({
           {this.files?.length ? '重新上传' : '点击上传'}
         </TButton>
       );
-    },
-
-    getLocalFileURL(file: File) {
-      return this.URL && this.URL.createObjectURL(file);
     },
 
     renderInput() {

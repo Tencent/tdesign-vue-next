@@ -162,7 +162,7 @@ export interface TdSelectProps<T extends SelectOption = SelectOption> {
    * 下拉框隐藏/显示时触发
    */
   onVisibleChange?: (visible: boolean) => void;
-};
+}
 
 export interface TdOptionProps {
   /**
@@ -187,7 +187,7 @@ export interface TdOptionProps {
    * 选项值
    */
   value?: string | number;
-};
+}
 
 export interface TdOptionGroupProps {
   /**
@@ -200,14 +200,24 @@ export interface TdOptionGroupProps {
    * @default ''
    */
   label?: string;
-};
+}
 
-export interface SelectKeysType { value?: string; label?: string };
+export interface SelectKeysType {
+  value?: string;
+  label?: string;
+}
 
 export type SelectValue<T extends SelectOption = SelectOption> = string | number | T | Array<SelectValue<T>>;
 
-export interface SelectRemoveContext<T> { value: string | number; data: T; e: MouseEvent | KeyboardEvent };
+export interface SelectRemoveContext<T> {
+  value: string | number;
+  data: T;
+  e: MouseEvent | KeyboardEvent;
+}
 
 export type SelectOption = TdOptionProps | SelectOptionGroup;
 
-export interface SelectOptionGroup extends TdOptionGroupProps { group: string; children: Array<TdOptionProps> };
+export interface SelectOptionGroup extends TdOptionGroupProps {
+  group: string;
+  children: Array<TdOptionProps>;
+}

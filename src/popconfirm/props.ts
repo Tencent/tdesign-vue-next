@@ -41,7 +41,20 @@ export default {
     type: String as PropType<TdPopconfirmProps['placement']>,
     default: 'top' as TdPopconfirmProps['placement'],
     validator(val: TdPopconfirmProps['placement']): boolean {
-      return ['top', 'left', 'right', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom', 'right-top', 'right-bottom'].includes(val);
+      return [
+        'top',
+        'left',
+        'right',
+        'bottom',
+        'top-left',
+        'top-right',
+        'bottom-left',
+        'bottom-right',
+        'left-top',
+        'left-bottom',
+        'right-top',
+        'right-bottom',
+      ].includes(val);
     },
   },
   /** 透传 Popup 组件属性 */

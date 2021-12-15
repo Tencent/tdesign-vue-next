@@ -46,6 +46,6 @@ export interface TdSwitchProps {
    * 数据发生变化时触发
    */
   onChange?: (value: SwitchValue) => void;
-};
+}
 
 export type SwitchValue = string | number | boolean;

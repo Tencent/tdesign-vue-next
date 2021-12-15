@@ -58,7 +58,7 @@ export interface TdCheckboxProps {
    * 值变化时触发
    */
   onChange?: (checked: boolean, context: { e: Event }) => void;
-};
+}
 
 export interface TdCheckboxGroupProps {
   /**
@@ -94,10 +94,16 @@ export interface TdCheckboxGroupProps {
    * 值变化时触发
    */
   onChange?: (value: CheckboxGroupValue, context: { e: Event }) => void;
-};
+}
 
 export type CheckboxOption = string | number | CheckboxOptionObj;
 
-export interface CheckboxOptionObj { label?: string | TNode; value?: string | number; disabled?: boolean; name?: string; checkAll?: true };
+export interface CheckboxOptionObj {
+  label?: string | TNode;
+  value?: string | number;
+  disabled?: boolean;
+  name?: string;
+  checkAll?: true;
+}
 
 export type CheckboxGroupValue = Array<string | number>;

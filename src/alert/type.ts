@@ -51,4 +51,4 @@ export interface TdAlertProps {
    * 告警提示框关闭动画结束后触发
    */
   onClosed?: (context: { e: TransitionEvent }) => void;
-};
+}

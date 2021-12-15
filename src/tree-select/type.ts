@@ -136,8 +136,12 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
    * 输入值变化时，触发搜索事件。主要用于远程搜索新数据
    */
   onSearch?: (filterWords: string) => void;
-};
+}
 
 export type TreeSelectValue = string | number | object | Array<TreeSelectValue>;
 
-export interface RemoveOptions<T> { value: string | number | object; data: T; e: MouseEvent };
+export interface RemoveOptions<T> {
+  value: string | number | object;
+  data: T;
+  e: MouseEvent;
+}

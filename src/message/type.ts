@@ -39,7 +39,7 @@ export interface TdMessageProps {
    * 计时结束后触发
    */
   onDurationEnd?: () => void;
-};
+}
 
 export interface MessageOptions extends TdMessageProps {
   /**
@@ -61,15 +61,30 @@ export interface MessageOptions extends TdMessageProps {
    * @default 5000
    */
   zIndex?: number;
-};
+}
 
 export type MessageThemeList = 'info' | 'success' | 'warning' | 'error' | 'question' | 'loading';
 
-export type MessagePlacementList = 'center' | 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+export type MessagePlacementList =
+  | 'center'
+  | 'top'
+  | 'left'
+  | 'right'
+  | 'bottom'
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right';
 
-export interface MessageInstance { close: () => void };
+export interface MessageInstance {
+  close: () => void;
+}
 
-export type MessageMethod = (theme: MessageThemeList, message: string | MessageOptions, duration?: number) => Promise<MessageInstance>;
+export type MessageMethod = (
+  theme: MessageThemeList,
+  message: string | MessageOptions,
+  duration?: number,
+) => Promise<MessageInstance>;
 
 export type MessageInfoOptions = Omit<MessageOptions, 'theme'>;
 
@@ -77,13 +92,25 @@ export type MessageInfoMethod = (message: string | MessageInfoOptions, duration?
 
 export type MessageErrorMethod = (message: string | MessageInfoOptions, duration?: number) => Promise<MessageInstance>;
 
-export type MessageWarningMethod = (message: string | MessageInfoOptions, duration?: number) => Promise<MessageInstance>;
+export type MessageWarningMethod = (
+  message: string | MessageInfoOptions,
+  duration?: number,
+) => Promise<MessageInstance>;
 
-export type MessageSuccessMethod = (message: string | MessageInfoOptions, duration?: number) => Promise<MessageInstance>;
+export type MessageSuccessMethod = (
+  message: string | MessageInfoOptions,
+  duration?: number,
+) => Promise<MessageInstance>;
 
-export type MessageLoadingMethod = (message: string | MessageInfoOptions, duration?: number) => Promise<MessageInstance>;
+export type MessageLoadingMethod = (
+  message: string | MessageInfoOptions,
+  duration?: number,
+) => Promise<MessageInstance>;
 
-export type MessageQuestionMethod = (message: string | MessageInfoOptions, duration?: number) => Promise<MessageInstance>;
+export type MessageQuestionMethod = (
+  message: string | MessageInfoOptions,
+  duration?: number,
+) => Promise<MessageInstance>;
 
 export type MessageCloseMethod = (options: Promise<MessageInstance>) => void;
 

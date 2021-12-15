@@ -37,4 +37,4 @@ export interface TdDividerProps {
    * @deprecated
    */
   theme?: 'horizontal' | 'vertical';
-};
+}

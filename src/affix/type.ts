@@ -31,4 +31,4 @@ export interface TdAffixProps {
    * 固定状态发生变化时触发
    */
   onFixedChange?: (affixed: boolean, context: { top: number }) => void;
-};
+}

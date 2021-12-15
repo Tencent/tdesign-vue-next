@@ -46,7 +46,7 @@ export interface TdProgressProps {
    * @default ''
    */
   trackColor?: string;
-};
+}
 
 export type StatusEnum = 'success' | 'error' | 'warning' | 'active';
 

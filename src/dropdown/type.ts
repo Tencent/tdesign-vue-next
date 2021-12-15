@@ -48,7 +48,19 @@ export interface TdDropdownProps {
    * 弹窗定位方式，可选值同 Popup 组件
    * @default bottom-left
    */
-  placement?: 'top' | 'left' | 'right' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
+  placement?:
+    | 'top'
+    | 'left'
+    | 'right'
+    | 'bottom'
+    | 'top-left'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-right'
+    | 'left-top'
+    | 'left-bottom'
+    | 'right-top'
+    | 'right-bottom';
   /**
    * 透传  Popup 组件属性，方便更加自由地控制。比如使用 popupProps.overlayStyle 设置浮层样式
    */
@@ -62,7 +74,7 @@ export interface TdDropdownProps {
    * 下拉操作项点击时触发
    */
   onClick?: (dropdownItem: DropdownOption, context: { e: MouseEvent }) => void;
-};
+}
 
 export interface TdDropdownItemProps {
   /**
@@ -93,6 +105,6 @@ export interface TdDropdownItemProps {
    * 点击时触发
    */
   onClick?: (dropdownItem: DropdownOption, context: { e: MouseEvent }) => void;
-};
+}
 
 export type DropdownOption = { children?: Array<TdDropdownItemProps> } & TdDropdownItemProps & Record<string, any>;

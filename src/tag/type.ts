@@ -62,7 +62,7 @@ export interface TdTagProps {
    * 如果关闭按钮存在，点击关闭按钮时触发
    */
   onClose?: (context: { e: MouseEvent }) => void;
-};
+}
 
 export interface TdCheckTagProps {
   /**
@@ -96,4 +96,4 @@ export interface TdCheckTagProps {
    * 点击标签时触发
    */
   onClick?: (context: { e: MouseEvent }) => void;
-};
+}

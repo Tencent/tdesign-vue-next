@@ -55,17 +55,19 @@ export default defineComponent({
     const fetchData = async (paginationVal = pagination.value) => {
       try {
         isLoading.value = true;
-        const { current, pageSize } = pagination;
+        const { current, pageSize } = pagination.value;
         // 请求可能存在跨域问题
         const response = await fetch(`https://randomuser.me/api?page=${current}&results=${pageSize}`);
-        const { data: results } = await response.json();
+        const { results } = await response.json();
+        console.log(results);
         data.value = results;
         pagination.value = {
           ...paginationVal,
           total: 120,
         };
-        console.log('分页数据', response.data.results);
+        console.log('分页数据', results);
       } catch (err) {
+        console.log(err);
         data.value = [];
       }
       isLoading.value = false;
