@@ -35,8 +35,8 @@ export default defineComponent({
       return [
         name,
         {
-          [`${name}-${justify}`]: justify,
-          [`${name}-${align}`]: align,
+          [`${name}--${justify}`]: justify,
+          [`${name}--${align}`]: align,
         },
       ];
     },

@@ -25,20 +25,20 @@ describe('Progress', () => {
           expect(wrapper.element).toMatchSnapshot();
         });
       });
-      it(':theme line and plump progress have t-progress--inner class', () => {
+      it(':theme line and plump progress have t-progress__inner class', () => {
         const lineWrapper = mount({
           render() {
             return <Progress theme={'line'}></Progress>;
           },
         });
-        const lineClass = lineWrapper.element.querySelector('.t-progress--inner');
+        const lineClass = lineWrapper.element.querySelector('.t-progress__inner');
 
         const plumpWrapper = mount({
           render() {
             return <Progress theme={'plump'}></Progress>;
           },
         });
-        const plumpClass = plumpWrapper.element.querySelector('.t-progress--inner');
+        const plumpClass = plumpWrapper.element.querySelector('.t-progress__inner');
 
         expect(lineClass !== undefined && lineClass !== null).toBe(true);
         expect(lineWrapper.element).toMatchSnapshot();
@@ -46,14 +46,14 @@ describe('Progress', () => {
         expect(plumpClass !== undefined && plumpClass !== null).toBe(true);
         expect(plumpWrapper.element).toMatchSnapshot();
       });
-      it(':theme circle progress has t-circle--outer and t-circle--inner class', () => {
+      it(':theme circle progress has t-progress__circle-outer and t-progress__circle-inner class', () => {
         const wrapper = mount({
           render() {
             return <Progress theme={'circle'}></Progress>;
           },
         });
-        const outerClass = wrapper.element.querySelector('.t-circle--outer');
-        const innerClass = wrapper.element.querySelector('.t-circle--inner');
+        const outerClass = wrapper.element.querySelector('.t-progress__circle-outer');
+        const innerClass = wrapper.element.querySelector('.t-progress__circle-inner');
         expect(outerClass !== undefined && outerClass !== null).toBe(true);
         expect(innerClass !== undefined && innerClass !== null).toBe(true);
         expect(wrapper.element).toMatchSnapshot();
@@ -128,7 +128,7 @@ describe('Progress', () => {
           },
         });
 
-        const el = wrapper.element.querySelector('.t-progress--info');
+        const el = wrapper.element.querySelector('.t-progress__info');
         expect(el.textContent).toBe('tnode');
         expect(wrapper.element).toMatchSnapshot();
       });

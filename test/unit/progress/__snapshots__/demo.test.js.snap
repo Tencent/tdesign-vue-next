@@ -27,7 +27,7 @@ exports[`Progress circle demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             30%
           </div>
@@ -37,7 +37,7 @@ exports[`Progress circle demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -46,7 +46,7 @@ exports[`Progress circle demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -78,7 +78,7 @@ exports[`Progress circle demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             <!---->
           </div>
@@ -88,7 +88,7 @@ exports[`Progress circle demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -97,7 +97,7 @@ exports[`Progress circle demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -129,7 +129,7 @@ exports[`Progress circle demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             75day
           </div>
@@ -139,7 +139,7 @@ exports[`Progress circle demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -148,7 +148,7 @@ exports[`Progress circle demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -184,10 +184,10 @@ exports[`Progress circle demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             <svg
-              class="t-icon t-icon-check t-progress--icon t-progress--icon"
+              class="t-icon t-icon-check t-progress__icon t-progress__icon"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -206,7 +206,7 @@ exports[`Progress circle demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -215,7 +215,7 @@ exports[`Progress circle demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -247,10 +247,10 @@ exports[`Progress circle demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             <svg
-              class="t-icon t-icon-close t-progress--icon t-progress--icon"
+              class="t-icon t-icon-close t-progress__icon t-progress__icon"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -269,7 +269,7 @@ exports[`Progress circle demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -278,7 +278,7 @@ exports[`Progress circle demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -310,10 +310,10 @@ exports[`Progress circle demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             <svg
-              class="t-icon t-icon-error t-progress--icon t-progress--icon"
+              class="t-icon t-icon-error t-progress__icon t-progress__icon"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -332,7 +332,7 @@ exports[`Progress circle demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -341,7 +341,7 @@ exports[`Progress circle demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -380,7 +380,7 @@ exports[`Progress circle demo works fine 1`] = `
           style="width: 72px; height: 72px; font-size: 14px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             30%
           </div>
@@ -390,7 +390,7 @@ exports[`Progress circle demo works fine 1`] = `
             width="72"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="36"
               cy="36"
               fill="none"
@@ -399,7 +399,7 @@ exports[`Progress circle demo works fine 1`] = `
               stroke-width="4"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="36"
               cy="36"
               fill="none"
@@ -431,7 +431,7 @@ exports[`Progress circle demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             30%
           </div>
@@ -441,7 +441,7 @@ exports[`Progress circle demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -450,7 +450,7 @@ exports[`Progress circle demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -483,7 +483,7 @@ exports[`Progress circle demo works fine 1`] = `
           style="width: 160px; height: 160px; font-size: 36px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             75%
           </div>
@@ -493,7 +493,7 @@ exports[`Progress circle demo works fine 1`] = `
             width="160"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="80"
               cy="80"
               fill="none"
@@ -502,7 +502,7 @@ exports[`Progress circle demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="80"
               cy="80"
               fill="none"
@@ -536,7 +536,7 @@ exports[`Progress custom demo works fine 1`] = `
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <!---->
         </div>
@@ -546,7 +546,7 @@ exports[`Progress custom demo works fine 1`] = `
           width="112"
         >
           <circle
-            class="t-circle--outer"
+            class="t-progress__circle-outer"
             cx="56"
             cy="56"
             fill="none"
@@ -555,7 +555,7 @@ exports[`Progress custom demo works fine 1`] = `
             stroke-width="6"
           />
           <circle
-            class="t-circle--inner"
+            class="t-progress__circle-inner"
             cx="56"
             cy="56"
             fill="none"
@@ -575,16 +575,16 @@ exports[`Progress custom demo works fine 1`] = `
         class="t-progress--thin t-progress--status--undefined"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 84%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <!---->
         </div>
@@ -606,16 +606,16 @@ exports[`Progress custom demo works fine 1`] = `
         class="t-progress--thin t-progress--status--undefined"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="height: 30px; border-radius: 30px;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 30%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           30%
         </div>
@@ -636,7 +636,7 @@ exports[`Progress custom demo works fine 1`] = `
         style="width: 200px; height: 200px; font-size: 45px;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           30%
         </div>
@@ -646,7 +646,7 @@ exports[`Progress custom demo works fine 1`] = `
           width="200"
         >
           <circle
-            class="t-circle--outer"
+            class="t-progress__circle-outer"
             cx="100"
             cy="100"
             fill="none"
@@ -655,7 +655,7 @@ exports[`Progress custom demo works fine 1`] = `
             stroke-width="20"
           />
           <circle
-            class="t-circle--inner"
+            class="t-progress__circle-inner"
             cx="100"
             cy="100"
             fill="none"
@@ -680,15 +680,15 @@ exports[`Progress custom demo works fine 1`] = `
     >
       <!---->
       <div
-        class="t-progress--bar t-progress--plump t-progress--over-ten"
+        class="t-progress__bar t-progress--plump t-progress--over-ten"
         style="border-radius: undefinedpx;"
       >
         <div
-          class="t-progress--inner"
+          class="t-progress__inner"
           style="width: 30%;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             30%
           </div>
@@ -707,7 +707,7 @@ exports[`Progress custom demo works fine 1`] = `
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           44%
         </div>
@@ -717,7 +717,7 @@ exports[`Progress custom demo works fine 1`] = `
           width="112"
         >
           <circle
-            class="t-circle--outer"
+            class="t-progress__circle-outer"
             cx="56"
             cy="56"
             fill="none"
@@ -726,7 +726,7 @@ exports[`Progress custom demo works fine 1`] = `
             stroke-width="6"
           />
           <circle
-            class="t-circle--inner"
+            class="t-progress__circle-inner"
             cx="56"
             cy="56"
             fill="none"
@@ -754,16 +754,16 @@ exports[`Progress custom demo works fine 1`] = `
         class="t-progress--thin t-progress--status--undefined"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 30%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           &lt;div&gt;45days&lt;/div&gt;
         </div>
@@ -781,7 +781,7 @@ exports[`Progress custom demo works fine 1`] = `
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           &lt;div&gt;45days&lt;/div&gt;
         </div>
@@ -791,7 +791,7 @@ exports[`Progress custom demo works fine 1`] = `
           width="112"
         >
           <circle
-            class="t-circle--outer"
+            class="t-progress__circle-outer"
             cx="56"
             cy="56"
             fill="none"
@@ -800,7 +800,7 @@ exports[`Progress custom demo works fine 1`] = `
             stroke-width="6"
           />
           <circle
-            class="t-circle--inner"
+            class="t-progress__circle-inner"
             cx="56"
             cy="56"
             fill="none"
@@ -835,16 +835,16 @@ exports[`Progress line demo works fine 1`] = `
         class="t-progress--thin t-progress--status--undefined"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 30%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           30%
         </div>
@@ -864,16 +864,16 @@ exports[`Progress line demo works fine 1`] = `
         class="t-progress--thin t-progress--status--success"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 100%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           100%
         </div>
@@ -893,19 +893,19 @@ exports[`Progress line demo works fine 1`] = `
         class="t-progress--thin t-progress--status--success"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 60%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <svg
-            class="t-icon t-icon-check-circle-filled t-progress--icon t-progress--icon"
+            class="t-icon t-icon-check-circle-filled t-progress__icon t-progress__icon"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -934,19 +934,19 @@ exports[`Progress line demo works fine 1`] = `
         class="t-progress--thin t-progress--status--error"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 60%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <svg
-            class="t-icon t-icon-close-circle-filled t-progress--icon t-progress--icon"
+            class="t-icon t-icon-close-circle-filled t-progress__icon t-progress__icon"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -975,19 +975,19 @@ exports[`Progress line demo works fine 1`] = `
         class="t-progress--thin t-progress--status--warning"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 60%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <svg
-            class="t-icon t-icon-error-circle-filled t-progress--icon t-progress--icon"
+            class="t-icon t-icon-error-circle-filled t-progress__icon t-progress__icon"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1016,16 +1016,16 @@ exports[`Progress line demo works fine 1`] = `
         class="t-progress--thin t-progress--status--active"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 60%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           60%
         </div>
@@ -1048,15 +1048,15 @@ exports[`Progress line demo works fine 1`] = `
     >
       <!---->
       <div
-        class="t-progress--bar t-progress--plump t-progress--over-ten"
+        class="t-progress__bar t-progress--plump t-progress--over-ten"
         style="border-radius: undefinedpx;"
       >
         <div
-          class="t-progress--inner"
+          class="t-progress__inner"
           style="width: 30%;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             30%
           </div>
@@ -1075,17 +1075,17 @@ exports[`Progress line demo works fine 1`] = `
     >
       <!---->
       <div
-        class="t-progress--bar t-progress--plump t-progress--under-ten"
+        class="t-progress__bar t-progress--plump t-progress--under-ten"
         style="border-radius: undefinedpx;"
       >
         <div
-          class="t-progress--inner"
+          class="t-progress__inner"
           style="width: 5%;"
         >
           <!---->
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           5%
         </div>
@@ -1111,15 +1111,15 @@ exports[`Progress plump demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-progress--bar t-progress--plump t-progress--over-ten"
+      class="t-progress__bar t-progress--plump t-progress--over-ten"
       style="border-radius: undefinedpx;"
     >
       <div
-        class="t-progress--inner"
+        class="t-progress__inner"
         style="width: 30%;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           30%
         </div>
@@ -1138,17 +1138,17 @@ exports[`Progress plump demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-progress--bar t-progress--plump t-progress--under-ten"
+      class="t-progress__bar t-progress--plump t-progress--under-ten"
       style="border-radius: undefinedpx;"
     >
       <div
-        class="t-progress--inner"
+        class="t-progress__inner"
         style="width: 5%;"
       >
         <!---->
       </div>
       <div
-        class="t-progress--info"
+        class="t-progress__info"
       >
         5%
       </div>
@@ -1165,15 +1165,15 @@ exports[`Progress plump demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--success"
+      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
       style="border-radius: undefinedpx;"
     >
       <div
-        class="t-progress--inner"
+        class="t-progress__inner"
         style="width: 100%;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           100%
         </div>
@@ -1192,15 +1192,15 @@ exports[`Progress plump demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--success"
+      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
       style="border-radius: undefinedpx;"
     >
       <div
-        class="t-progress--inner"
+        class="t-progress__inner"
         style="width: 30%;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           30%
         </div>
@@ -1219,15 +1219,15 @@ exports[`Progress plump demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--error"
+      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--error"
       style="border-radius: undefinedpx;"
     >
       <div
-        class="t-progress--inner"
+        class="t-progress__inner"
         style="width: 30%;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           30%
         </div>
@@ -1246,15 +1246,15 @@ exports[`Progress plump demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--warning"
+      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--warning"
       style="border-radius: undefinedpx;"
     >
       <div
-        class="t-progress--inner"
+        class="t-progress__inner"
         style="width: 30%;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           30%
         </div>
@@ -1273,15 +1273,15 @@ exports[`Progress plump demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--active"
+      class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--active"
       style="border-radius: undefinedpx;"
     >
       <div
-        class="t-progress--inner"
+        class="t-progress__inner"
         style="width: 30%;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           30%
         </div>
@@ -1315,7 +1315,7 @@ exports[`Progress size demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             30%
           </div>
@@ -1325,7 +1325,7 @@ exports[`Progress size demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -1334,7 +1334,7 @@ exports[`Progress size demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -1361,10 +1361,10 @@ exports[`Progress size demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             <svg
-              class="t-icon t-icon-close t-progress--icon t-progress--icon"
+              class="t-icon t-icon-close t-progress__icon t-progress__icon"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -1383,7 +1383,7 @@ exports[`Progress size demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -1392,7 +1392,7 @@ exports[`Progress size demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -1419,10 +1419,10 @@ exports[`Progress size demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             <svg
-              class="t-icon t-icon-error t-progress--icon t-progress--icon"
+              class="t-icon t-icon-error t-progress__icon t-progress__icon"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -1441,7 +1441,7 @@ exports[`Progress size demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -1450,7 +1450,7 @@ exports[`Progress size demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -1477,10 +1477,10 @@ exports[`Progress size demo works fine 1`] = `
           style="width: 112px; height: 112px; font-size: 20px;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             <svg
-              class="t-icon t-icon-check t-progress--icon t-progress--icon"
+              class="t-icon t-icon-check t-progress__icon t-progress__icon"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -1499,7 +1499,7 @@ exports[`Progress size demo works fine 1`] = `
             width="112"
           >
             <circle
-              class="t-circle--outer"
+              class="t-progress__circle-outer"
               cx="56"
               cy="56"
               fill="none"
@@ -1508,7 +1508,7 @@ exports[`Progress size demo works fine 1`] = `
               stroke-width="6"
             />
             <circle
-              class="t-circle--inner"
+              class="t-progress__circle-inner"
               cx="56"
               cy="56"
               fill="none"
@@ -1542,7 +1542,7 @@ exports[`Progress size demo works fine 1`] = `
         style="width: 72px; height: 72px; font-size: 14px;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           30%
         </div>
@@ -1552,7 +1552,7 @@ exports[`Progress size demo works fine 1`] = `
           width="72"
         >
           <circle
-            class="t-circle--outer"
+            class="t-progress__circle-outer"
             cx="36"
             cy="36"
             fill="none"
@@ -1561,7 +1561,7 @@ exports[`Progress size demo works fine 1`] = `
             stroke-width="4"
           />
           <circle
-            class="t-circle--inner"
+            class="t-progress__circle-inner"
             cx="36"
             cy="36"
             fill="none"
@@ -1587,7 +1587,7 @@ exports[`Progress size demo works fine 1`] = `
         style="width: 160px; height: 160px; font-size: 36px;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           75%
         </div>
@@ -1597,7 +1597,7 @@ exports[`Progress size demo works fine 1`] = `
           width="160"
         >
           <circle
-            class="t-circle--outer"
+            class="t-progress__circle-outer"
             cx="80"
             cy="80"
             fill="none"
@@ -1606,7 +1606,7 @@ exports[`Progress size demo works fine 1`] = `
             stroke-width="6"
           />
           <circle
-            class="t-circle--inner"
+            class="t-progress__circle-inner"
             cx="80"
             cy="80"
             fill="none"
@@ -1636,19 +1636,19 @@ exports[`Progress status demo works fine 1`] = `
         class="t-progress--thin t-progress--status--success"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 80%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <svg
-            class="t-icon t-icon-check-circle-filled t-progress--icon t-progress--icon"
+            class="t-icon t-icon-check-circle-filled t-progress__icon t-progress__icon"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1670,15 +1670,15 @@ exports[`Progress status demo works fine 1`] = `
     >
       <!---->
       <div
-        class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--success"
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--success"
         style="border-radius: undefinedpx;"
       >
         <div
-          class="t-progress--inner"
+          class="t-progress__inner"
           style="width: 80%;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             80%
           </div>
@@ -1697,10 +1697,10 @@ exports[`Progress status demo works fine 1`] = `
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <svg
-            class="t-icon t-icon-error t-progress--icon t-progress--icon"
+            class="t-icon t-icon-error t-progress__icon t-progress__icon"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1719,7 +1719,7 @@ exports[`Progress status demo works fine 1`] = `
           width="112"
         >
           <circle
-            class="t-circle--outer"
+            class="t-progress__circle-outer"
             cx="56"
             cy="56"
             fill="none"
@@ -1728,7 +1728,7 @@ exports[`Progress status demo works fine 1`] = `
             stroke-width="6"
           />
           <circle
-            class="t-circle--inner"
+            class="t-progress__circle-inner"
             cx="56"
             cy="56"
             fill="none"
@@ -1753,19 +1753,19 @@ exports[`Progress status demo works fine 1`] = `
         class="t-progress--thin t-progress--status--error"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 80%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <svg
-            class="t-icon t-icon-close-circle-filled t-progress--icon t-progress--icon"
+            class="t-icon t-icon-close-circle-filled t-progress__icon t-progress__icon"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1787,15 +1787,15 @@ exports[`Progress status demo works fine 1`] = `
     >
       <!---->
       <div
-        class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--error"
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--error"
         style="border-radius: undefinedpx;"
       >
         <div
-          class="t-progress--inner"
+          class="t-progress__inner"
           style="width: 80%;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             80%
           </div>
@@ -1814,10 +1814,10 @@ exports[`Progress status demo works fine 1`] = `
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <svg
-            class="t-icon t-icon-close t-progress--icon t-progress--icon"
+            class="t-icon t-icon-close t-progress__icon t-progress__icon"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1836,7 +1836,7 @@ exports[`Progress status demo works fine 1`] = `
           width="112"
         >
           <circle
-            class="t-circle--outer"
+            class="t-progress__circle-outer"
             cx="56"
             cy="56"
             fill="none"
@@ -1845,7 +1845,7 @@ exports[`Progress status demo works fine 1`] = `
             stroke-width="6"
           />
           <circle
-            class="t-circle--inner"
+            class="t-progress__circle-inner"
             cx="56"
             cy="56"
             fill="none"
@@ -1870,19 +1870,19 @@ exports[`Progress status demo works fine 1`] = `
         class="t-progress--thin t-progress--status--warning"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 80%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <svg
-            class="t-icon t-icon-error-circle-filled t-progress--icon t-progress--icon"
+            class="t-icon t-icon-error-circle-filled t-progress__icon t-progress__icon"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1904,15 +1904,15 @@ exports[`Progress status demo works fine 1`] = `
     >
       <!---->
       <div
-        class="t-progress--bar t-progress--plump t-progress--over-ten t-progress--status--warning"
+        class="t-progress__bar t-progress--plump t-progress--over-ten t-progress--status--warning"
         style="border-radius: undefinedpx;"
       >
         <div
-          class="t-progress--inner"
+          class="t-progress__inner"
           style="width: 80%;"
         >
           <div
-            class="t-progress--info"
+            class="t-progress__info"
           >
             80%
           </div>
@@ -1928,19 +1928,19 @@ exports[`Progress status demo works fine 1`] = `
         class="t-progress--thin t-progress--status--warning"
       >
         <div
-          class="t-progress--bar"
+          class="t-progress__bar"
           style="border-radius: undefinedpx;"
         >
           <div
-            class="t-progress--inner"
+            class="t-progress__inner"
             style="width: 80%;"
           />
         </div>
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <svg
-            class="t-icon t-icon-error-circle-filled t-progress--icon t-progress--icon"
+            class="t-icon t-icon-error-circle-filled t-progress__icon t-progress__icon"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1967,10 +1967,10 @@ exports[`Progress status demo works fine 1`] = `
         style="width: 112px; height: 112px; font-size: 20px;"
       >
         <div
-          class="t-progress--info"
+          class="t-progress__info"
         >
           <svg
-            class="t-icon t-icon-error t-progress--icon t-progress--icon"
+            class="t-icon t-icon-error t-progress__icon t-progress__icon"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1989,7 +1989,7 @@ exports[`Progress status demo works fine 1`] = `
           width="112"
         >
           <circle
-            class="t-circle--outer"
+            class="t-progress__circle-outer"
             cx="56"
             cy="56"
             fill="none"
@@ -1998,7 +1998,7 @@ exports[`Progress status demo works fine 1`] = `
             stroke-width="6"
           />
           <circle
-            class="t-circle--inner"
+            class="t-progress__circle-inner"
             cx="56"
             cy="56"
             fill="none"

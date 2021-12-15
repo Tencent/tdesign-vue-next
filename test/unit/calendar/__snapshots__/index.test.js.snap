@@ -486,7 +486,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -537,7 +537,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -1843,7 +1843,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -1894,7 +1894,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -2724,7 +2724,7 @@ exports[`Calendar :props :mode 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="year"
         >
           
@@ -2775,7 +2775,7 @@ exports[`Calendar :props :mode 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -3444,7 +3444,7 @@ exports[`Calendar :props :range 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -3495,7 +3495,7 @@ exports[`Calendar :props :range 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -4683,7 +4683,7 @@ exports[`Calendar :props :theme 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -4734,7 +4734,7 @@ exports[`Calendar :props :theme 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -5895,7 +5895,7 @@ exports[`Calendar :props :value 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -5946,7 +5946,7 @@ exports[`Calendar :props :value 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>

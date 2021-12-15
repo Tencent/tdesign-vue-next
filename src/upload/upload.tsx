@@ -143,7 +143,7 @@ export default defineComponent({
       return !this.showUploadList && !!this.errorMsg;
     },
     tipsClasses(): ClassName {
-      return [`${name}__tips ${name}__small`];
+      return [`${name}__tips ${prefix}-size-s`];
     },
     errorClasses(): ClassName {
       return this.tipsClasses.concat(`${name}__tips-error`);
@@ -617,12 +617,12 @@ export default defineComponent({
             showOverlay
             width="auto"
             top="10%"
-            class={`${name}-dialog`}
+            class={`${name}__dialog`}
             footer={false}
             header={false}
             onClose={this.cancelPreviewImgDialog}
           >
-            <div class={`${prefix}-dialog__body-img-box`}>
+            <div class={`${prefix}__dialog-body-img-box`}>
               <img src={this.showImageViewUrl} alt="" />
             </div>
           </TDialog>

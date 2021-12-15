@@ -15,7 +15,7 @@ const getUniqueId = (() => {
 })();
 
 export const MessageList = defineComponent({
-  name: `${prefix}-message-list`,
+  name: `${prefix}-message__list`,
   components: { TMessage },
   props: {
     zIndex: {
@@ -84,7 +84,7 @@ export const MessageList = defineComponent({
   render() {
     if (!this.list.length) return;
     return (
-      <div class="t-message-list" style={this.styles}>
+      <div class="t-message__list" style={this.styles}>
         {this.list.map((item, index) => (
           <t-message
             key={item.key}

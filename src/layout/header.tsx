@@ -22,7 +22,7 @@ export default defineComponent({
   render() {
     const styles = this.height ? { height: this.height } : {};
     return (
-      <header class="t-layout--header" style={styles}>
+      <header class="t-layout__header" style={styles}>
         {this.renderContent()}
       </header>
     );

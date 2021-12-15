@@ -49,11 +49,11 @@ export default defineComponent({
     drawerClasses(): ClassName {
       return [
         't-drawer',
-        `t-drawer-${this.placement}`,
+        `t-drawer--${this.placement}`,
         {
-          't-drawer-open': this.visible,
-          't-drawer-attach': this.showInAttachedElement,
-          't-drawer-no-mask': !this.showOverlay,
+          't-drawer--open': this.visible,
+          't-drawer--attach': this.showInAttachedElement,
+          't-drawer--without-mask': !this.showOverlay,
         },
       ];
     },
@@ -67,7 +67,7 @@ export default defineComponent({
         }[this.size] || defaultSize
       );
     },
-    wraperStyles(): Styles {
+    wrapperStyles(): Styles {
       return {
         // 用于抵消动画效果：transform: translateX(100%); 等
         transform: this.visible ? 'translateX(0)' : undefined,
@@ -75,8 +75,8 @@ export default defineComponent({
         height: ['top', 'bottom'].includes(this.placement) ? this.sizeValue : '',
       };
     },
-    wraperClasses(): ClassName {
-      return ['t-drawer__content-wrapper', `t-drawer__content-wrapper-${this.placement}`];
+    wrapperClasses(): ClassName {
+      return ['t-drawer__content-wrapper', `t-drawer__content-wrapper--${this.placement}`];
     },
     parentNode(): HTMLElement {
       return this.$el && (this.$el.parentNode as HTMLElement);
@@ -209,7 +209,7 @@ export default defineComponent({
         {...this.$attrs}
       >
         {this.showOverlay && <div class={`${name}__mask`} onClick={this.handleWrapperClick} />}
-        <div class={this.wraperClasses} style={this.wraperStyles}>
+        <div class={this.wrapperClasses} style={this.wrapperStyles}>
           {this.header && <div class={`${name}__header`}>{renderTNodeJSX(this, 'header')}</div>}
           {this.closeBtn && (
             <div class={`${name}__close-btn`} onClick={this.handleCloseBtnClick}>

@@ -16,12 +16,12 @@ exports[`Dialog async demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -148,12 +148,12 @@ exports[`Dialog attach demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -237,12 +237,12 @@ exports[`Dialog attach demo works fine 1`] = `
     <!---->
   </transition-stub>
   <div
-    class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+    class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
     style="display: none;"
   >
     
     <div
-      class="t-dialog-mask"
+      class="t-dialog__mask"
     />
     <div
       class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -340,12 +340,12 @@ exports[`Dialog base demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -456,12 +456,12 @@ exports[`Dialog custom demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -527,12 +527,12 @@ exports[`Dialog custom demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -598,12 +598,12 @@ exports[`Dialog custom demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -714,12 +714,12 @@ exports[`Dialog drag demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -795,7 +795,7 @@ exports[`Dialog drag demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog-ctx v-transfer-dom"
+      class="t-dialog__ctx v-transfer-dom"
       style="display: none;"
     >
       
@@ -871,7 +871,7 @@ exports[`Dialog drag demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog-ctx v-transfer-dom"
+      class="t-dialog__ctx v-transfer-dom"
       style="display: none;"
     >
       
@@ -952,7 +952,7 @@ exports[`Dialog icon demo works fine 1`] = `
 <div>
   <transition-stub>
     <div
-      class="t-dialog-ctx v-transfer-dom"
+      class="t-dialog__ctx v-transfer-dom"
       style="display: none;"
     >
       
@@ -1034,7 +1034,7 @@ exports[`Dialog icon demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog-ctx v-transfer-dom"
+      class="t-dialog__ctx v-transfer-dom"
       style="display: none;"
     >
       
@@ -1116,7 +1116,7 @@ exports[`Dialog icon demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog-ctx v-transfer-dom"
+      class="t-dialog__ctx v-transfer-dom"
       style="display: none;"
     >
       
@@ -1198,7 +1198,7 @@ exports[`Dialog icon demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog-ctx v-transfer-dom"
+      class="t-dialog__ctx v-transfer-dom"
       style="display: none;"
     >
       
@@ -1357,12 +1357,12 @@ exports[`Dialog modal demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -1438,7 +1438,7 @@ exports[`Dialog modal demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog-ctx v-transfer-dom"
+      class="t-dialog__ctx v-transfer-dom"
       style="display: none;"
     >
       
@@ -1620,12 +1620,12 @@ exports[`Dialog position demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -1691,12 +1691,12 @@ exports[`Dialog position demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--center t-dialog__modal-default t-dialog--fixed"
@@ -1761,12 +1761,12 @@ exports[`Dialog position demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
@@ -1849,12 +1849,12 @@ exports[`Dialog warning demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-info t-dialog--fixed"
@@ -1944,12 +1944,12 @@ exports[`Dialog warning demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-success t-dialog--fixed"
@@ -2039,12 +2039,12 @@ exports[`Dialog warning demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-warning t-dialog--fixed"
@@ -2125,12 +2125,12 @@ exports[`Dialog warning demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-danger t-dialog--fixed"
@@ -2211,12 +2211,12 @@ exports[`Dialog warning demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog-ctx t-dialog-ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
       style="display: none;"
     >
       
       <div
-        class="t-dialog-mask"
+        class="t-dialog__mask"
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"

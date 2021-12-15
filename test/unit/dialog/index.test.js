@@ -10,7 +10,7 @@ describe('Dialog', () => {
       const wrapper = mount(Dialog, {
         propsData: { mode: 'modeless' },
       });
-      expect(wrapper.find('.t-dialog-mask').exists()).toBe(false);
+      expect(wrapper.find('.t-dialog__mask').exists()).toBe(false);
     });
 
     it('placement', () => {
@@ -77,9 +77,9 @@ describe('Dialog', () => {
           zIndex,
         },
       });
-      const mask = wrapper.find('.t-dialog-mask');
-      expect(mask.classes()).toContain('t-dialog-mask--hidden');
-      expect(wrapper.find('.t-dialog-ctx').attributes('style')).toMatch(/z-index: 1/);
+      const mask = wrapper.find('.t-dialog__mask');
+      expect(mask.classes()).toContain('t-is-hidden');
+      expect(wrapper.find('.t-dialog__ctx').attributes('style')).toMatch(/z-index: 1/);
     });
 
     it('destroyOnClose', async () => {

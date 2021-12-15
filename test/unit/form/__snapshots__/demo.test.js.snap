@@ -24,7 +24,7 @@ exports[`Form base demo works fine 1`] = `
         style="margin-left: 100px;"
       >
         <div
-          class="t-form__controls--content"
+          class="t-form__controls-content"
         >
           
           <div
@@ -64,7 +64,7 @@ exports[`Form base demo works fine 1`] = `
         style="margin-left: 100px;"
       >
         <div
-          class="t-form__controls--content"
+          class="t-form__controls-content"
         >
           
           <div
@@ -104,7 +104,7 @@ exports[`Form base demo works fine 1`] = `
         style="margin-left: 100px;"
       >
         <div
-          class="t-form__controls--content"
+          class="t-form__controls-content"
         >
           
           <div
@@ -147,11 +147,11 @@ exports[`Form base demo works fine 1`] = `
         style="margin-left: 100px;"
       >
         <div
-          class="t-form__controls--content"
+          class="t-form__controls-content"
         >
           
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-outline"
+            class="t-radio-group t-size-m t-radio-group__outline"
             modelvalue=""
           >
             
@@ -223,7 +223,7 @@ exports[`Form base demo works fine 1`] = `
         style="margin-left: 100px;"
       >
         <div
-          class="t-form__controls--content"
+          class="t-form__controls-content"
         >
           
           <div
@@ -318,7 +318,7 @@ exports[`Form base demo works fine 1`] = `
         style="margin-left: 100px;"
       >
         <div
-          class="t-form__controls--content"
+          class="t-form__controls-content"
         >
           
           <button

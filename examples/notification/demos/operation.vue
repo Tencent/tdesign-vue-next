@@ -9,8 +9,8 @@
       </template>
       <template #footer>
         <div class="t-notification__detail">
-          <t-button class="t-notification__detail--item" theme="default" variant="text"> 取消 </t-button>
-          <t-button class="t-notification__detail--item" theme="primary" variant="text" @click="remind">
+          <t-button class="t-notification__detail-item" theme="default" variant="text"> 取消 </t-button>
+          <t-button class="t-notification__detail-item" theme="primary" variant="text" @click="remind">
             稍后提醒我(10s)
           </t-button>
         </div>
@@ -39,7 +39,7 @@ export default defineComponent({
       footer() {
         return (
           <div slot="footer" class="t-notification__detail">
-            <t-button class="t-notification__detail--item" theme="primary" variant="text">
+            <t-button class="t-notification__detail-item" theme="primary" variant="text">
               查看详情
             </t-button>
           </div>

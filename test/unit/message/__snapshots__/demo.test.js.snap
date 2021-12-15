@@ -24,7 +24,7 @@ exports[`Message close demo works fine 1`] = `
      点击关闭按钮触发事件 click-close-btn 
     
     <span
-      class="t-message-close"
+      class="t-message__close"
     >
       <svg
         class="t-icon t-icon-close"
@@ -61,7 +61,7 @@ exports[`Message close demo works fine 1`] = `
      自定义关闭按钮（文字） 
     
     <span
-      class="t-message-close"
+      class="t-message__close"
     >
       关闭
     </span>
@@ -86,7 +86,7 @@ exports[`Message close demo works fine 1`] = `
      自定义关闭按钮（函数） 
     
     <span
-      class="t-message-close"
+      class="t-message__close"
     >
       <div
         class="t-message-close"
@@ -117,7 +117,7 @@ exports[`Message close demo works fine 1`] = `
      自定义关闭按钮（插槽） 
     
     <span
-      class="t-message-close"
+      class="t-message__close"
     >
       
       <div
@@ -568,7 +568,7 @@ exports[`Message type demo works fine 1`] = `
      用户表示普通操作信息提示 
     
     <span
-      class="t-message-close"
+      class="t-message__close"
     >
       <!---->
     </span>
@@ -593,7 +593,7 @@ exports[`Message type demo works fine 1`] = `
      用户表示操作顺利达成 
     
     <span
-      class="t-message-close"
+      class="t-message__close"
     >
       <!---->
     </span>
@@ -618,7 +618,7 @@ exports[`Message type demo works fine 1`] = `
      用户表示操作引起一定后果 
     
     <span
-      class="t-message-close"
+      class="t-message__close"
     >
       <!---->
     </span>
@@ -643,7 +643,7 @@ exports[`Message type demo works fine 1`] = `
      用户表示操作引起严重的后果 
     
     <span
-      class="t-message-close"
+      class="t-message__close"
     >
       <!---->
     </span>
@@ -668,7 +668,7 @@ exports[`Message type demo works fine 1`] = `
      用于帮助用户操作的信息提示 
     
     <span
-      class="t-message-close"
+      class="t-message__close"
     >
       <!---->
     </span>
@@ -705,7 +705,7 @@ exports[`Message type demo works fine 1`] = `
      用于表示操作正在生效的过程中 
     
     <span
-      class="t-message-close"
+      class="t-message__close"
     >
       <!---->
     </span>

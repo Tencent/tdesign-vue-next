@@ -150,7 +150,7 @@ export default defineComponent({
         const components = this.getIconMap();
         const component = components[status];
         if (component) {
-          labelContent = <component class={[`${name}--icon`]}></component>;
+          labelContent = <component class={[`${name}__icon`]}></component>;
         }
       }
       return labelContent;
@@ -159,7 +159,7 @@ export default defineComponent({
 
   render() {
     const labelContent = (
-      <div class={`${name}--info`}>{renderTNodeJSX(this, 'label', this.getLabelContent() as any)}</div>
+      <div class={`${name}__info`}>{renderTNodeJSX(this, 'label', this.getLabelContent() as any)}</div>
     );
     // 进度大于 10 ，进度百分比显示在内部；进度百分比小于 10 进度显示在外部
     const PLUMP_SEPERATE = 10;
@@ -168,8 +168,8 @@ export default defineComponent({
       <div class={name}>
         {this.theme === PRO_THEME.LINE && (
           <div class={`${name}--thin ${name}--status--${this.statusStyle}`}>
-            <div class={`${name}--bar`} style={this.trackBgStyle}>
-              <div class={`${name}--inner`} style={this.barStyle}></div>
+            <div class={`${name}__bar`} style={this.trackBgStyle}>
+              <div class={`${name}__inner`} style={this.barStyle}></div>
             </div>
             {labelContent}
           </div>
@@ -178,12 +178,12 @@ export default defineComponent({
         {this.theme === PRO_THEME.PLUMP && (
           <div
             class={[
-              `${name}--bar ${name}--plump ${seperateClasses}`,
+              `${name}__bar ${name}--plump ${seperateClasses}`,
               { [`${name}--status--${this.statusStyle}`]: this.statusStyle },
             ]}
             style={this.trackBgStyle}
           >
-            <div class={`${name}--inner`} style={this.barStyle}>
+            <div class={`${name}__inner`} style={this.barStyle}>
               {this.percentage > PLUMP_SEPERATE && labelContent}
             </div>
             {this.percentage < PLUMP_SEPERATE && labelContent}
@@ -201,7 +201,7 @@ export default defineComponent({
                 stroke-width={this.circleStrokeWidth}
                 stroke={this.trackColor}
                 fill="none"
-                class={['t-circle--outer']}
+                class={[`${name}__circle-outer`]}
               />
               <circle
                 cx={this.rPoints}
@@ -210,7 +210,7 @@ export default defineComponent({
                 stroke-width={this.circleStrokeWidth}
                 fill="none"
                 stroke-linecap="round"
-                class={['t-circle--inner']}
+                class={[`${name}__circle-inner`]}
                 transform={`matrix(0,-1,1,0,0,${this.diameter})`}
                 stroke-dasharray={this.strokeDashArr}
                 style={this.circlePathStyle}

@@ -486,7 +486,7 @@ exports[`Calendar base demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -537,7 +537,7 @@ exports[`Calendar base demo works fine 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -1875,7 +1875,7 @@ exports[`Calendar card demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-filled"
+            class="t-radio-group t-size-m t-radio-group--filled"
             modelvalue="month"
           >
             
@@ -1926,7 +1926,7 @@ exports[`Calendar card demo works fine 1`] = `
             </label>
             
             <div
-              class="t-radio-group-filled-bg-block"
+              class="t-radio-group__bg-block"
             />
             
           </div>
@@ -3206,7 +3206,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-filled"
+            class="t-radio-group t-size-m t-radio-group--filled"
             modelvalue="month"
           >
             
@@ -3257,7 +3257,7 @@ exports[`Calendar cardCell demo works fine 1`] = `
             </label>
             
             <div
-              class="t-radio-group-filled-bg-block"
+              class="t-radio-group__bg-block"
             />
             
           </div>
@@ -4384,7 +4384,7 @@ exports[`Calendar cell demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -4435,7 +4435,7 @@ exports[`Calendar cell demo works fine 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -5657,7 +5657,7 @@ exports[`Calendar cellAppend demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -5708,7 +5708,7 @@ exports[`Calendar cellAppend demo works fine 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -7275,7 +7275,7 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-filled"
+            class="t-radio-group t-size-m t-radio-group--filled"
             modelvalue="month"
           >
             
@@ -7326,7 +7326,7 @@ exports[`Calendar controllerConfig demo works fine 1`] = `
             </label>
             
             <div
-              class="t-radio-group-filled-bg-block"
+              class="t-radio-group__bg-block"
             />
             
           </div>
@@ -8517,7 +8517,7 @@ exports[`Calendar events demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-filled"
+            class="t-radio-group t-size-m t-radio-group--filled"
             modelvalue="month"
           >
             
@@ -8568,7 +8568,7 @@ exports[`Calendar events demo works fine 1`] = `
             </label>
             
             <div
-              class="t-radio-group-filled-bg-block"
+              class="t-radio-group__bg-block"
             />
             
           </div>
@@ -9781,7 +9781,7 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-filled"
+            class="t-radio-group t-size-m t-radio-group--filled"
             modelvalue="month"
           >
             
@@ -9832,7 +9832,7 @@ exports[`Calendar eventsPropsApi demo works fine 1`] = `
             </label>
             
             <div
-              class="t-radio-group-filled-bg-block"
+              class="t-radio-group__bg-block"
             />
             
           </div>
@@ -11060,7 +11060,7 @@ exports[`Calendar filter demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-filled"
+            class="t-radio-group t-size-m t-radio-group--filled"
             modelvalue="month"
           >
             
@@ -11111,7 +11111,7 @@ exports[`Calendar filter demo works fine 1`] = `
             </label>
             
             <div
-              class="t-radio-group-filled-bg-block"
+              class="t-radio-group__bg-block"
             />
             
           </div>
@@ -12285,7 +12285,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-filled"
+            class="t-radio-group t-size-m t-radio-group--filled"
             modelvalue="month"
           >
             
@@ -12336,7 +12336,7 @@ exports[`Calendar firstDayOfWeek demo works fine 1`] = `
             </label>
             
             <div
-              class="t-radio-group-filled-bg-block"
+              class="t-radio-group__bg-block"
             />
             
           </div>
@@ -13645,7 +13645,7 @@ exports[`Calendar head demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -13696,7 +13696,7 @@ exports[`Calendar head demo works fine 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -14805,7 +14805,7 @@ exports[`Calendar mode demo works fine 1`] = `
           style="height: auto;"
         >
           <div
-            class="t-radio-group t-radio-group-medium t-radio-group-filled"
+            class="t-radio-group t-size-m t-radio-group--filled"
             modelvalue="year"
           >
             
@@ -14856,7 +14856,7 @@ exports[`Calendar mode demo works fine 1`] = `
             </label>
             
             <div
-              class="t-radio-group-filled-bg-block"
+              class="t-radio-group__bg-block"
             />
             
           </div>
@@ -15526,7 +15526,7 @@ exports[`Calendar range demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -15577,7 +15577,7 @@ exports[`Calendar range demo works fine 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -16767,7 +16767,7 @@ exports[`Calendar slotPropsApi demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -16818,7 +16818,7 @@ exports[`Calendar slotPropsApi demo works fine 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -17970,7 +17970,7 @@ exports[`Calendar value demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-radio-group-medium t-radio-group-filled"
+          class="t-radio-group t-size-m t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -18021,7 +18021,7 @@ exports[`Calendar value demo works fine 1`] = `
           </label>
           
           <div
-            class="t-radio-group-filled-bg-block"
+            class="t-radio-group__bg-block"
           />
           
         </div>
@@ -19336,7 +19336,7 @@ exports[`Calendar week demo works fine 1`] = `
             style="height: auto;"
           >
             <div
-              class="t-radio-group t-radio-group-medium t-radio-group-filled"
+              class="t-radio-group t-size-m t-radio-group--filled"
               modelvalue="month"
             >
               
@@ -19387,7 +19387,7 @@ exports[`Calendar week demo works fine 1`] = `
               </label>
               
               <div
-                class="t-radio-group-filled-bg-block"
+                class="t-radio-group__bg-block"
               />
               
             </div>
@@ -20579,7 +20579,7 @@ exports[`Calendar week demo works fine 1`] = `
             style="height: auto;"
           >
             <div
-              class="t-radio-group t-radio-group-medium t-radio-group-filled"
+              class="t-radio-group t-size-m t-radio-group--filled"
               modelvalue="month"
             >
               
@@ -20630,7 +20630,7 @@ exports[`Calendar week demo works fine 1`] = `
               </label>
               
               <div
-                class="t-radio-group-filled-bg-block"
+                class="t-radio-group__bg-block"
               />
               
             </div>
@@ -21808,7 +21808,7 @@ exports[`Calendar week demo works fine 1`] = `
             style="height: auto;"
           >
             <div
-              class="t-radio-group t-radio-group-medium t-radio-group-filled"
+              class="t-radio-group t-size-m t-radio-group--filled"
               modelvalue="month"
             >
               
@@ -21859,7 +21859,7 @@ exports[`Calendar week demo works fine 1`] = `
               </label>
               
               <div
-                class="t-radio-group-filled-bg-block"
+                class="t-radio-group__bg-block"
               />
               
             </div>

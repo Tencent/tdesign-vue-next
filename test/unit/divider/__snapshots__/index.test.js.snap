@@ -5,7 +5,7 @@ exports[`Divider :props :align 1`] = `
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"
 >
   <span
-    class="t-divider-inner-text"
+    class="t-divider__inner-text"
   >
     
     TDesign
@@ -35,7 +35,7 @@ exports[`Divider <slot> default 1`] = `
   class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-center"
 >
   <span
-    class="t-divider-inner-text"
+    class="t-divider__inner-text"
   >
     
     TDesign

@@ -21,7 +21,7 @@ exports[`Dropdown Demo CustomUsageExample wroks fine 1`] = `
           >
             
             <div
-              class="t-dropdown__menu__column narrow-scrollbar"
+              class="t-dropdown__menu-column narrow-scrollbar"
               style="max-height: 300px; max-width: 100px; min-width: 100px;"
             >
               
@@ -30,10 +30,10 @@ exports[`Dropdown Demo CustomUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项一
                     </span>
@@ -44,19 +44,19 @@ exports[`Dropdown Demo CustomUsageExample wroks fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item has-suffix"
+                  class="t-dropdown__item t-dropdown__item--suffix"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项二
                     </span>
                   </div>
                   <svg
-                    class="t-icon t-icon-chevron-right children-suffix children-suffix"
+                    class="t-icon t-icon-chevron-right t-dropdown__item__item-icon t-dropdown__item__item-icon"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -76,10 +76,10 @@ exports[`Dropdown Demo CustomUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项三
                     </span>
@@ -93,10 +93,10 @@ exports[`Dropdown Demo CustomUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项四
                     </span>
@@ -157,7 +157,7 @@ exports[`Dropdown Demo DisableUsageExample wroks fine 1`] = `
           >
             
             <div
-              class="t-dropdown__menu__column narrow-scrollbar"
+              class="t-dropdown__menu-column narrow-scrollbar"
               style="max-height: 300px; max-width: 100px; min-width: 112px;"
             >
               
@@ -166,10 +166,10 @@ exports[`Dropdown Demo DisableUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项一
                     </span>
@@ -183,10 +183,10 @@ exports[`Dropdown Demo DisableUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项二
                     </span>
@@ -200,10 +200,10 @@ exports[`Dropdown Demo DisableUsageExample wroks fine 1`] = `
                   class="t-dropdown__item t-is-disabled"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项三
                     </span>
@@ -217,10 +217,10 @@ exports[`Dropdown Demo DisableUsageExample wroks fine 1`] = `
                   class="t-dropdown__item t-is-disabled"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项四
                     </span>
@@ -296,7 +296,7 @@ exports[`Dropdown Demo EventUsageExample wroks fine 1`] = `
           >
             
             <div
-              class="t-dropdown__menu__column narrow-scrollbar"
+              class="t-dropdown__menu-column narrow-scrollbar"
               style="max-height: 300px; max-width: 100px; min-width: 88px;"
             >
               
@@ -305,10 +305,10 @@ exports[`Dropdown Demo EventUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项一
                     </span>
@@ -322,10 +322,10 @@ exports[`Dropdown Demo EventUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项二
                     </span>
@@ -339,10 +339,10 @@ exports[`Dropdown Demo EventUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项三
                     </span>
@@ -356,10 +356,10 @@ exports[`Dropdown Demo EventUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项四
                     </span>
@@ -418,7 +418,7 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
           >
             
             <div
-              class="t-dropdown__menu__column narrow-scrollbar"
+              class="t-dropdown__menu-column narrow-scrollbar"
               style="max-height: 400px; max-width: 100px; min-width: 88px;"
             >
               
@@ -427,10 +427,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项1
                     </span>
@@ -444,10 +444,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项2
                     </span>
@@ -461,10 +461,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项3
                     </span>
@@ -478,10 +478,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项4
                     </span>
@@ -495,10 +495,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项5
                     </span>
@@ -512,10 +512,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项6
                     </span>
@@ -529,10 +529,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项7
                     </span>
@@ -546,10 +546,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项8
                     </span>
@@ -563,10 +563,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项9
                     </span>
@@ -580,10 +580,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项10
                     </span>
@@ -597,10 +597,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项11
                     </span>
@@ -614,10 +614,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项12
                     </span>
@@ -631,10 +631,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项13
                     </span>
@@ -648,10 +648,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项14
                     </span>
@@ -665,10 +665,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项15
                     </span>
@@ -682,10 +682,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项16
                     </span>
@@ -699,10 +699,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项17
                     </span>
@@ -716,10 +716,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项18
                     </span>
@@ -733,10 +733,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项19
                     </span>
@@ -750,10 +750,10 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项20
                     </span>
@@ -814,25 +814,25 @@ exports[`Dropdown Demo MultipleUsageExample wroks fine 1`] = `
           >
             
             <div
-              class="t-dropdown__menu__column narrow-scrollbar"
+              class="t-dropdown__menu-column narrow-scrollbar"
               style="max-height: 300px; max-width: 120px; min-width: 10px;"
             >
               
               <div>
                 <div
-                  class="t-dropdown__item has-suffix"
+                  class="t-dropdown__item t-dropdown__item--suffix"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项一
                     </span>
                   </div>
                   <svg
-                    class="t-icon t-icon-chevron-right children-suffix children-suffix"
+                    class="t-icon t-icon-chevron-right t-dropdown__item__item-icon t-dropdown__item__item-icon"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -849,19 +849,19 @@ exports[`Dropdown Demo MultipleUsageExample wroks fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item has-suffix"
+                  class="t-dropdown__item t-dropdown__item--suffix"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项二选项二选项二选项二
                     </span>
                   </div>
                   <svg
-                    class="t-icon t-icon-chevron-right children-suffix children-suffix"
+                    class="t-icon t-icon-chevron-right t-dropdown__item__item-icon t-dropdown__item__item-icon"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -878,19 +878,19 @@ exports[`Dropdown Demo MultipleUsageExample wroks fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item has-suffix"
+                  class="t-dropdown__item t-dropdown__item--suffix"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项三
                     </span>
                   </div>
                   <svg
-                    class="t-icon t-icon-chevron-right children-suffix children-suffix"
+                    class="t-icon t-icon-chevron-right t-dropdown__item__item-icon t-dropdown__item__item-icon"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -907,19 +907,19 @@ exports[`Dropdown Demo MultipleUsageExample wroks fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item has-suffix"
+                  class="t-dropdown__item t-dropdown__item--suffix"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       选项四
                     </span>
                   </div>
                   <svg
-                    class="t-icon t-icon-chevron-right children-suffix children-suffix"
+                    class="t-icon t-icon-chevron-right t-dropdown__item__item-icon t-dropdown__item__item-icon"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -1000,7 +1000,7 @@ exports[`Dropdown Demo SplitUsageExample wroks fine 1`] = `
         >
           
           <div
-            class="t-dropdown__menu__column narrow-scrollbar"
+            class="t-dropdown__menu-column narrow-scrollbar"
             style="max-height: 300px; max-width: 100px; min-width: 88px;"
           >
             
@@ -1009,10 +1009,10 @@ exports[`Dropdown Demo SplitUsageExample wroks fine 1`] = `
                 class="t-dropdown__item"
               >
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item-content"
                 >
                   <span
-                    class="t-dropdown__item__content__text"
+                    class="t-dropdown__item-text"
                   >
                     操作一
                   </span>
@@ -1026,10 +1026,10 @@ exports[`Dropdown Demo SplitUsageExample wroks fine 1`] = `
                 class="t-dropdown__item"
               >
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item-content"
                 >
                   <span
-                    class="t-dropdown__item__content__text"
+                    class="t-dropdown__item-text"
                   >
                     操作二
                   </span>
@@ -1040,13 +1040,13 @@ exports[`Dropdown Demo SplitUsageExample wroks fine 1`] = `
             </div>
             <div>
               <div
-                class="t-dropdown__item t-dropdown__item_is_divided"
+                class="t-dropdown__item"
               >
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item-content"
                 >
                   <span
-                    class="t-dropdown__item__content__text"
+                    class="t-dropdown__item-text"
                   >
                     操作三
                   </span>
@@ -1064,10 +1064,10 @@ exports[`Dropdown Demo SplitUsageExample wroks fine 1`] = `
                 class="t-dropdown__item"
               >
                 <div
-                  class="t-dropdown__item__content"
+                  class="t-dropdown__item-content"
                 >
                   <span
-                    class="t-dropdown__item__content__text"
+                    class="t-dropdown__item-text"
                   >
                     操作四
                   </span>
@@ -1125,7 +1125,7 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
           >
             
             <div
-              class="t-dropdown__menu__column narrow-scrollbar"
+              class="t-dropdown__menu-column narrow-scrollbar"
               style="max-height: 300px; max-width: 100px; min-width: 10px;"
             >
               
@@ -1134,10 +1134,10 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       操作一
                     </span>
@@ -1151,10 +1151,10 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       操作二
                     </span>
@@ -1168,10 +1168,10 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       操作三
                     </span>
@@ -1185,10 +1185,10 @@ exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       操作四
                     </span>
@@ -1249,7 +1249,7 @@ exports[`Dropdown base demo works fine 1`] = `
           >
             
             <div
-              class="t-dropdown__menu__column narrow-scrollbar"
+              class="t-dropdown__menu-column narrow-scrollbar"
               style="max-height: 300px; max-width: 100px; min-width: 112px;"
             >
               
@@ -1258,10 +1258,10 @@ exports[`Dropdown base demo works fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       操作一
                     </span>
@@ -1275,10 +1275,10 @@ exports[`Dropdown base demo works fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       操作二
                     </span>
@@ -1292,10 +1292,10 @@ exports[`Dropdown base demo works fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       操作三
                     </span>
@@ -1309,10 +1309,10 @@ exports[`Dropdown base demo works fine 1`] = `
                   class="t-dropdown__item"
                 >
                   <div
-                    class="t-dropdown__item__content"
+                    class="t-dropdown__item-content"
                   >
                     <span
-                      class="t-dropdown__item__content__text"
+                      class="t-dropdown__item-text"
                     >
                       操作四
                     </span>

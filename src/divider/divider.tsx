@@ -26,7 +26,7 @@ export default defineComponent({
 
     return (
       <div class={dividerClassNames} {...this.$attrs}>
-        {children && <span class={`${name}-inner-text`}>{children}</span>}
+        {children && <span class={`${name}__inner-text`}>{children}</span>}
       </div>
     );
   },

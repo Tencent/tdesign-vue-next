@@ -99,7 +99,7 @@ export default defineComponent({
     preBtnClass(): ClassName {
       return [
         `${name}__btn`,
-        `${name}__btn--prev`,
+        `${name}__btn-prev`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled || this.current === 1,
         },
@@ -108,7 +108,7 @@ export default defineComponent({
     nextBtnClass(): ClassName {
       return [
         `${name}__btn`,
-        `${name}__btn--next`,
+        `${name}__btn-next`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled || this.current === this.pageCount,
         },

@@ -363,7 +363,7 @@ export default defineComponent({
         trigger="click"
         disabled={disabled}
         visible={this.isShowPanel}
-        overlayClassName={`${COMPONENT_NAME}-panel__container`}
+        overlayClassName={`${COMPONENT_NAME}__panel-container`}
         onVisibleChange={this.panelVisibleChange}
         expandAnimation={true}
         v-slots={slots}

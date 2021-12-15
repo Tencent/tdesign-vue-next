@@ -27,7 +27,7 @@ exports[`Tree:demo activable demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -68,7 +68,7 @@ exports[`Tree:demo activable demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -109,7 +109,7 @@ exports[`Tree:demo activable demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -138,7 +138,7 @@ exports[`Tree:demo activable demo works fine 1`] = `
     </form>
   </div>
   <div
-    class="t-tree t-tree--hoverable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -329,7 +329,7 @@ exports[`Tree:demo base demo works fine 1`] = `
   class="tdesign-tree-base"
 >
   <div
-    class="t-tree t-tree--hoverable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -519,7 +519,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
           style="margin-left: 100px;"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -563,7 +563,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
           style="margin-left: 100px;"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -607,11 +607,11 @@ exports[`Tree:demo checkable demo works fine 1`] = `
           style="margin-left: 100px;"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
-              class="t-radio-group t-radio-group-medium t-radio-group-filled"
+              class="t-radio-group t-size-m t-radio-group--filled"
               modelvalue="onlyLeaf"
             >
               
@@ -684,7 +684,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
               </label>
               
               <div
-                class="t-radio-group-filled-bg-block"
+                class="t-radio-group__bg-block"
               />
               
             </div>
@@ -698,7 +698,7 @@ exports[`Tree:demo checkable demo works fine 1`] = `
     </form>
   </div>
   <div
-    class="t-tree t-tree--hoverable t-tree--checkable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -1540,7 +1540,7 @@ exports[`Tree:demo controlled demo works fine 1`] = `
     
   </div>
   <div
-    class="t-tree t-tree--checkable t-tree--fx"
+    class="t-tree t-tree--checkable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -2021,7 +2021,7 @@ exports[`Tree:demo disabled demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -2062,7 +2062,7 @@ exports[`Tree:demo disabled demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -2091,7 +2091,7 @@ exports[`Tree:demo disabled demo works fine 1`] = `
     </form>
   </div>
   <div
-    class="t-tree t-is-disabled t-tree--hoverable t-tree--checkable t-tree--fx"
+    class="t-tree t-is-disabled t-tree--hoverable t-tree--checkable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -2551,7 +2551,7 @@ exports[`Tree:demo disabled demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -2580,7 +2580,7 @@ exports[`Tree:demo disabled demo works fine 1`] = `
     </form>
   </div>
   <div
-    class="t-tree t-tree--hoverable t-tree--checkable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -3015,7 +3015,7 @@ exports[`Tree:demo empty demo works fine 1`] = `
   class="tdesign-tree-base"
 >
   <div
-    class="t-tree t-tree--fx"
+    class="t-tree t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -3030,7 +3030,7 @@ exports[`Tree:demo empty demo works fine 1`] = `
   </div>
   <br />
   <div
-    class="t-tree t-tree--fx"
+    class="t-tree t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -3045,7 +3045,7 @@ exports[`Tree:demo empty demo works fine 1`] = `
   </div>
   <br />
   <div
-    class="t-tree t-tree--fx"
+    class="t-tree t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -3062,7 +3062,7 @@ exports[`Tree:demo empty demo works fine 1`] = `
   </div>
   <br />
   <div
-    class="t-tree t-tree--fx"
+    class="t-tree t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -3109,7 +3109,7 @@ exports[`Tree:demo expand-all demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -3150,7 +3150,7 @@ exports[`Tree:demo expand-all demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -3179,7 +3179,7 @@ exports[`Tree:demo expand-all demo works fine 1`] = `
     </form>
   </div>
   <div
-    class="t-tree t-tree--fx"
+    class="t-tree t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -3494,7 +3494,7 @@ exports[`Tree:demo expand-level demo works fine 1`] = `
   class="tdesign-tree-base"
 >
   <div
-    class="t-tree t-tree--hoverable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -3731,7 +3731,7 @@ exports[`Tree:demo expand-mutex demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -3772,7 +3772,7 @@ exports[`Tree:demo expand-mutex demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -3801,7 +3801,7 @@ exports[`Tree:demo expand-mutex demo works fine 1`] = `
     </form>
   </div>
   <div
-    class="t-tree t-tree--hoverable t-tree--fx t-tree--block-node"
+    class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
     modelvalue=""
   >
     <transition-group-stub>
@@ -3914,7 +3914,7 @@ exports[`Tree:demo filter demo works fine 1`] = `
     
   </div>
   <div
-    class="t-tree t-tree--hoverable t-tree--fx t-tree--block-node"
+    class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
     modelvalue=""
   >
     <transition-group-stub>
@@ -4008,7 +4008,7 @@ exports[`Tree:demo icon demo works fine 1`] = `
     render:
   </h3>
   <div
-    class="t-tree t-tree--hoverable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -4083,7 +4083,7 @@ exports[`Tree:demo icon demo works fine 1`] = `
     scope slot:
   </h3>
   <div
-    class="t-tree t-tree--hoverable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -4169,7 +4169,7 @@ exports[`Tree:demo label demo works fine 1`] = `
     render:
   </h3>
   <div
-    class="t-tree t-tree--fx"
+    class="t-tree t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -4368,7 +4368,7 @@ exports[`Tree:demo label demo works fine 1`] = `
     scope slot:
   </h3>
   <div
-    class="t-tree t-tree--checkable t-tree--fx"
+    class="t-tree t-tree--checkable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -4709,7 +4709,7 @@ exports[`Tree:demo lazy demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -4750,7 +4750,7 @@ exports[`Tree:demo lazy demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -4779,7 +4779,7 @@ exports[`Tree:demo lazy demo works fine 1`] = `
     </form>
   </div>
   <div
-    class="t-tree t-tree--hoverable t-tree--checkable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -4916,7 +4916,7 @@ exports[`Tree:demo line demo works fine 1`] = `
         style="margin-left: 100px;"
       >
         <div
-          class="t-form__controls--content"
+          class="t-form__controls-content"
         >
           
           <div
@@ -4960,7 +4960,7 @@ exports[`Tree:demo line demo works fine 1`] = `
         style="margin-left: 100px;"
       >
         <div
-          class="t-form__controls--content"
+          class="t-form__controls-content"
         >
           
           <div
@@ -4991,7 +4991,7 @@ exports[`Tree:demo line demo works fine 1`] = `
     class="tdesign-demo-block-column"
   >
     <div
-      class="t-tree t-tree--fx"
+      class="t-tree t-tree--transition"
       modelvalue=""
     >
       <transition-group-stub>
@@ -5495,7 +5495,7 @@ exports[`Tree:demo line demo works fine 1`] = `
       render
     </h3>
     <div
-      class="t-tree t-tree--fx"
+      class="t-tree t-tree--transition"
       modelvalue=""
     >
       <transition-group-stub>
@@ -6233,7 +6233,7 @@ exports[`Tree:demo line demo works fine 1`] = `
       scope slot
     </h3>
     <div
-      class="t-tree t-tree--fx"
+      class="t-tree t-tree--transition"
       modelvalue=""
     >
       <transition-group-stub>
@@ -7046,7 +7046,7 @@ exports[`Tree:demo load demo works fine 1`] = `
   class="tdesign-tree-base"
 >
   <div
-    class="t-tree t-tree--hoverable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -7166,7 +7166,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
     Render:
   </h3>
   <div
-    class="t-tree t-tree--hoverable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -7265,7 +7265,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -7306,7 +7306,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -7361,7 +7361,7 @@ exports[`Tree:demo operations demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-tree t-tree--hoverable t-tree--checkable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -7725,7 +7725,7 @@ exports[`Tree:demo state demo works fine 1`] = `
     Render:
   </h3>
   <div
-    class="t-tree t-tree--hoverable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -7824,7 +7824,7 @@ exports[`Tree:demo state demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -7865,7 +7865,7 @@ exports[`Tree:demo state demo works fine 1`] = `
           class="t-form__controls"
         >
           <div
-            class="t-form__controls--content"
+            class="t-form__controls-content"
           >
             
             <div
@@ -7920,7 +7920,7 @@ exports[`Tree:demo state demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-tree t-tree--hoverable t-tree--checkable t-tree--fx"
+    class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>
@@ -8342,7 +8342,7 @@ exports[`Tree:demo sync demo works fine 1`] = `
     
   </div>
   <div
-    class="t-tree t-tree--checkable t-tree--fx"
+    class="t-tree t-tree--checkable t-tree--transition"
     modelvalue=""
   >
     <transition-group-stub>

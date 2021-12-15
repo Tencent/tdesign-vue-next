@@ -6,7 +6,7 @@ import { RadioOptionObj, RadioOption, RadioValue } from './type';
 import { prefix } from '../config';
 import Radio, { RADIO_BTN_NAME } from './radio';
 import { TNodeReturnValue } from '../common';
-import CLASSNAMES from '../utils/classnames';
+import CLASSNAMES, { SIZE_CLASSNAMES } from '../utils/classnames';
 
 const name = `${prefix}-radio-group`;
 
@@ -89,15 +89,15 @@ export default defineComponent({
     }
     const groupClass = [
       `${name}`,
-      `${name}-${this.size}`,
+      SIZE_CLASSNAMES[this.size],
       {
-        [`${name}-outline`]: this.variant === 'outline',
-        [`${name}-filled`]: this.buttonStyle === 'solid' || this.variant.includes('filled'),
-        [`${name}-primary-filled`]: this.variant === 'primary-filled',
+        [`${name}__outline`]: this.variant === 'outline',
+        [`${name}--filled`]: this.buttonStyle === 'solid' || this.variant.includes('filled'),
+        [`${name}--primary-filled`]: this.variant === 'primary-filled',
       },
     ];
     if (this.buttonStyle === 'solid' || this.variant.includes('filled')) {
-      children && children.push(<div style={this.barStyle} class={`${name}-filled-bg-block`}></div>);
+      children && children.push(<div style={this.barStyle} class={`${name}__bg-block`}></div>);
     }
     return <div class={groupClass}>{children}</div>;
   },

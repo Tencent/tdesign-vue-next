@@ -58,7 +58,7 @@ export default defineComponent({
       this.$emit('click', data, context);
     },
     renderMenuColumn(children: Array<DropdownOption>, showSubmenu: boolean, pathPrefix: string): VNode {
-      const menuClass = [`${name}__column`, 'narrow-scrollbar', { submenu__visible: showSubmenu }];
+      const menuClass = [`${name}-column`, 'narrow-scrollbar', { submenu__visible: showSubmenu }];
       const { maxHeight, maxColumnWidth, minColumnWidth } = this.dropdown;
       return (
         <div
@@ -97,7 +97,7 @@ export default defineComponent({
       return (
         <div class={name}>
           <div
-            class={[`${name}__column`, 'narrow-scrollbar']}
+            class={[`${name}-column`, 'narrow-scrollbar']}
             style={{
               maxHeight: `${this.dropdown.maxHeight}px`,
               maxWidth: `${this.dropdown.maxColumnWidth}px`,

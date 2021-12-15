@@ -26,7 +26,7 @@ export default defineComponent({
       return [
         name,
         {
-          [`${name}-has-sider`]: this.hasSider,
+          [`${name}--with-sider`]: this.hasSider,
         },
       ];
     },

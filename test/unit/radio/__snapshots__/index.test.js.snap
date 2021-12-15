@@ -87,7 +87,7 @@ exports[`Radio :props :name 1`] = `
 
 exports[`Radio RadioGroup :props :defaultValue 1`] = `
 <div
-  class="t-radio-group t-radio-group-medium t-radio-group-outline"
+  class="t-radio-group t-size-m t-radio-group__outline"
 >
   
   <label
@@ -139,7 +139,7 @@ exports[`Radio RadioGroup :props :defaultValue 1`] = `
 
 exports[`Radio RadioGroup :props :disabled 1`] = `
 <div
-  class="t-radio-group t-radio-group-medium t-radio-group-outline"
+  class="t-radio-group t-size-m t-radio-group__outline"
 >
   
   <label
@@ -213,7 +213,7 @@ exports[`Radio RadioGroup :props :disabled 1`] = `
 
 exports[`Radio RadioGroup :props :name 1`] = `
 <div
-  class="t-radio-group t-radio-group-medium t-radio-group-outline"
+  class="t-radio-group t-size-m t-radio-group__outline"
 >
   
   <label
@@ -265,7 +265,7 @@ exports[`Radio RadioGroup :props :name 1`] = `
 
 exports[`Radio RadioGroup :props :options 1`] = `
 <div
-  class="t-radio-group t-radio-group-medium t-radio-group-outline"
+  class="t-radio-group t-size-m t-radio-group__outline"
 >
   
   <label
@@ -315,7 +315,7 @@ exports[`Radio RadioGroup :props :options 1`] = `
 
 exports[`Radio RadioGroup :props :size 1`] = `
 <div
-  class="t-radio-group t-radio-group-small t-radio-group-outline"
+  class="t-radio-group t-size-s t-radio-group__outline"
 >
   
   <label
@@ -369,7 +369,7 @@ exports[`Radio RadioGroup :props :size 1`] = `
 
 exports[`Radio RadioGroup :props :value 1`] = `
 <div
-  class="t-radio-group t-radio-group-medium t-radio-group-outline"
+  class="t-radio-group t-size-m t-radio-group__outline"
 >
   
   <label
@@ -421,7 +421,7 @@ exports[`Radio RadioGroup :props :value 1`] = `
 
 exports[`Radio RadioGroup :props :variant 1`] = `
 <div
-  class="t-radio-group t-radio-group-medium t-radio-group-filled"
+  class="t-radio-group t-size-m t-radio-group--filled"
 >
   
   <label
@@ -470,7 +470,7 @@ exports[`Radio RadioGroup :props :variant 1`] = `
     </span>
   </label>
   <div
-    class="t-radio-group-filled-bg-block"
+    class="t-radio-group__bg-block"
   />
   
 </div>

@@ -61,7 +61,7 @@ export default {
   methods: {
     closeBtn(close) {
       return (
-        <b class="t-message-close" onClick={close}>
+        <b class="t-message__close" onClick={close}>
           x
         </b>
       );
@@ -76,7 +76,7 @@ export default {
     footer() {
       return (
         <div class="t-notification__detail">
-          <span class="t-notification__detail--item t-is-active">查看详情</span>
+          <span class="t-notification__detail-item t-is-active">查看详情</span>
         </div>
       );
     },

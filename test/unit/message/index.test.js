@@ -55,7 +55,7 @@ describe('Message', () => {
         },
       });
       const msg = wrapper.findComponent(Message);
-      expect(msg.find('.t-message-close').exists()).toBe(true);
+      expect(msg.find('.t-message__close').exists()).toBe(true);
       expect(msg.findComponent(CloseIcon).exists()).toBe(true);
       expect(wrapper.element).toMatchSnapshot();
     });
@@ -67,7 +67,7 @@ describe('Message', () => {
         },
       });
       const msg = wrapper.findComponent(Message);
-      const close = msg.find('.t-message-close');
+      const close = msg.find('.t-message__close');
       expect(close.exists()).toBe(true);
       expect(close.text()).toBe('关闭');
       expect(wrapper.element).toMatchSnapshot();

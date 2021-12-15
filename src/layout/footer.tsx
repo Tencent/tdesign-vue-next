@@ -22,7 +22,7 @@ export default defineComponent({
   render() {
     const styles = this.height ? { height: this.height } : {};
     return (
-      <footer class="t-layout--footer" style={styles}>
+      <footer class="t-layout__footer" style={styles}>
         {this.renderContent()}
       </footer>
     );

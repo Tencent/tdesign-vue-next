@@ -16,20 +16,20 @@ exports[`Time-picker base demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker-panel__container"
+          class="t-popup-content t-time-picker__panel-container"
         >
           
           <div
-            class="t-time-picker-panel"
+            class="t-time-picker__panel"
           >
             <div
-              class="t-time-picker-panel-section__body"
+              class="t-time-picker__panel-section-body"
             >
               <div
-                class="t-time-picker-panel__body"
+                class="t-time-picker__panel-body"
               >
                 <div
-                  class="t-time-picker-panel__body-active-mask"
+                  class="t-time-picker__panel-body-active-mask"
                 >
                   
                   <div />
@@ -39,738 +39,738 @@ exports[`Time-picker base demo works fine 1`] = `
                 </div>
                 
                 <ul
-                  class="t-time-picker-panel__body-scroll"
+                  class="t-time-picker__panel-body-scroll"
                 >
                   
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     00
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     01
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     02
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     03
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     04
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     05
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     06
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     07
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     08
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     09
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     10
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     11
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     12
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     13
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     14
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     15
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     16
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     17
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     18
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     19
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     20
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     21
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     22
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     23
                   </li>
                   
                 </ul>
                 <ul
-                  class="t-time-picker-panel__body-scroll"
+                  class="t-time-picker__panel-body-scroll"
                 >
                   
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     00
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     01
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     02
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     03
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     04
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     05
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     06
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     07
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     08
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     09
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     10
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     11
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     12
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     13
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     14
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     15
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     16
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     17
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     18
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     19
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     20
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     21
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     22
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     23
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     24
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     25
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     26
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     27
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     28
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     29
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     30
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     31
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     32
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     33
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     34
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     35
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     36
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     37
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     38
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     39
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     40
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     41
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     42
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     43
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     44
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     45
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     46
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     47
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     48
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     49
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     50
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     51
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     52
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     53
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     54
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     55
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     56
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     57
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     58
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     59
                   </li>
                   
                 </ul>
                 <ul
-                  class="t-time-picker-panel__body-scroll"
+                  class="t-time-picker__panel-body-scroll"
                 >
                   
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     00
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     01
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     02
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     03
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     04
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     05
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     06
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     07
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     08
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     09
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     10
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     11
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     12
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     13
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     14
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     15
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     16
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     17
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     18
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     19
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     20
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     21
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     22
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     23
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     24
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     25
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     26
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     27
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     28
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     29
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     30
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     31
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     32
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     33
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     34
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     35
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     36
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     37
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     38
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     39
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     40
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     41
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     42
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     43
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     44
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     45
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     46
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     47
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     48
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     49
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     50
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     51
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     52
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     53
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     54
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     55
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     56
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     57
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     58
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     59
                   </li>
@@ -781,7 +781,7 @@ exports[`Time-picker base demo works fine 1`] = `
               <!---->
             </div>
             <div
-              class="t-time-picker-panel-section__footer"
+              class="t-time-picker__panel-section-footer"
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -902,20 +902,20 @@ exports[`Time-picker base demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker-panel__container"
+          class="t-popup-content t-time-picker__panel-container"
         >
           
           <div
-            class="t-time-picker-panel"
+            class="t-time-picker__panel"
           >
             <div
-              class="t-time-picker-panel-section__body"
+              class="t-time-picker__panel-section-body"
             >
               <div
-                class="t-time-picker-panel__body"
+                class="t-time-picker__panel-body"
               >
                 <div
-                  class="t-time-picker-panel__body-active-mask"
+                  class="t-time-picker__panel-body-active-mask"
                 >
                   
                   <div />
@@ -925,738 +925,738 @@ exports[`Time-picker base demo works fine 1`] = `
                 </div>
                 
                 <ul
-                  class="t-time-picker-panel__body-scroll"
+                  class="t-time-picker__panel-body-scroll"
                 >
                   
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     00
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     01
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     02
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     03
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     04
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     05
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     06
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     07
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     08
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     09
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     10
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     11
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     12
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     13
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     14
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     15
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     16
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     17
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     18
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     19
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     20
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     21
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     22
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     23
                   </li>
                   
                 </ul>
                 <ul
-                  class="t-time-picker-panel__body-scroll"
+                  class="t-time-picker__panel-body-scroll"
                 >
                   
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     00
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     01
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     02
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     03
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     04
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     05
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     06
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     07
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     08
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     09
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     10
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     11
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     12
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     13
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     14
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     15
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     16
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     17
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     18
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     19
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     20
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     21
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     22
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     23
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     24
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     25
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     26
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     27
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     28
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     29
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     30
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     31
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     32
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     33
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     34
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     35
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     36
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     37
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     38
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     39
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     40
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     41
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     42
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     43
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     44
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     45
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     46
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     47
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     48
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     49
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     50
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     51
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     52
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     53
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     54
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     55
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     56
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     57
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     58
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     59
                   </li>
                   
                 </ul>
                 <ul
-                  class="t-time-picker-panel__body-scroll"
+                  class="t-time-picker__panel-body-scroll"
                 >
                   
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     00
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     01
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     02
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     03
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     04
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     05
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     06
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     07
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     08
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     09
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     10
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     11
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     12
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     13
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     14
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     15
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     16
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     17
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     18
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     19
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     20
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     21
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     22
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     23
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     24
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     25
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     26
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     27
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     28
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     29
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     30
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     31
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     32
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     33
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     34
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     35
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     36
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     37
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     38
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     39
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     40
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     41
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     42
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     43
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     44
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     45
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     46
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     47
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     48
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     49
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     50
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     51
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     52
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     53
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     54
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     55
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     56
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     57
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     58
                   </li>
                   <li
-                    class="t-time-picker-panel__body-scroll-item"
+                    class="t-time-picker__panel-body-scroll-item"
                   >
                     59
                   </li>
@@ -1667,7 +1667,7 @@ exports[`Time-picker base demo works fine 1`] = `
               <!---->
             </div>
             <div
-              class="t-time-picker-panel-section__footer"
+              class="t-time-picker__panel-section-footer"
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"

@@ -102,7 +102,7 @@ export default defineComponent({
     },
 
     maskClass(): ClassName {
-      return [`${name}-mask`, !this.showOverlay && `${name}-mask--hidden`];
+      return [`${name}__mask`, !this.showOverlay && `${prefix}-is-hidden`];
     },
 
     dialogClass(): ClassName {
@@ -295,7 +295,7 @@ export default defineComponent({
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle: any = { zIndex: this.zIndex };
-    const ctxClass = [`${name}-ctx`, { 't-dialog-ctx--fixed': this.mode === 'modal' }];
+    const ctxClass = [`${name}__ctx`, { 't-dialog__ctx--fixed': this.mode === 'modal' }];
     return (
       <transition
         duration={300}

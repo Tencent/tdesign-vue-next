@@ -69,7 +69,7 @@ export default defineComponent({
     renderClose() {
       const defaultClose = <CloseIcon />;
       return (
-        <span class={`${name}-close`} onClick={this.close}>
+        <span class={`${name}__close`} onClick={this.close}>
           {renderTNodeJSX(this as ComponentPublicInstance, 'closeBtn', defaultClose)}
         </span>
       );

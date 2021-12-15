@@ -1420,7 +1420,7 @@ exports[`Table expandable demo works fine 1`] = `
   <!-- default-expanded-row-keys 为非受控属性 -->
   <div>
     <div
-      class="t-radio-group t-radio-group-medium t-radio-group-filled"
+      class="t-radio-group t-size-m t-radio-group--filled"
       modelvalue="true"
     >
       
@@ -1491,7 +1491,7 @@ exports[`Table expandable demo works fine 1`] = `
         </span>
       </label>
       <div
-        class="t-radio-group-filled-bg-block"
+        class="t-radio-group__bg-block"
       />
       
     </div>
@@ -2220,7 +2220,7 @@ exports[`Table fixedColumn demo works fine 1`] = `
 >
   <div>
     <div
-      class="t-radio-group t-radio-group-medium t-radio-group-filled"
+      class="t-radio-group t-size-m t-radio-group--filled"
       modelvalue="1"
     >
       
@@ -2269,14 +2269,14 @@ exports[`Table fixedColumn demo works fine 1`] = `
         </span>
       </label>
       <div
-        class="t-radio-group-filled-bg-block"
+        class="t-radio-group__bg-block"
       />
       
     </div>
   </div>
   <div>
     <div
-      class="t-radio-group t-radio-group-medium t-radio-group-filled"
+      class="t-radio-group t-size-m t-radio-group--filled"
       modelvalue="2"
     >
       
@@ -2325,7 +2325,7 @@ exports[`Table fixedColumn demo works fine 1`] = `
         </span>
       </label>
       <div
-        class="t-radio-group-filled-bg-block"
+        class="t-radio-group__bg-block"
       />
       
     </div>

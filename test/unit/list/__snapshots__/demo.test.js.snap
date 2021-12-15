@@ -13,7 +13,7 @@ exports[`Button headerFooter demo works fine 1`] = `
       这里是 Header
     </div>
     <ul
-      class="t-list-items"
+      class="t-list__inner"
     >
       
       <li
@@ -161,7 +161,7 @@ exports[`Button headerFooter demo works fine 1`] = `
       
     </div>
     <ul
-      class="t-list-items"
+      class="t-list__inner"
     >
       
       <li
@@ -307,7 +307,7 @@ exports[`Button imageText demo works fine 1`] = `
     
     <!---->
     <ul
-      class="t-list-items"
+      class="t-list__inner"
     >
       
       <li
@@ -445,7 +445,7 @@ exports[`Button imageText demo works fine 1`] = `
     
     <!---->
     <ul
-      class="t-list-items"
+      class="t-list__inner"
     >
       
       <li
@@ -513,7 +513,7 @@ exports[`Button multiline demo works fine 1`] = `
     
     <!---->
     <ul
-      class="t-list-items"
+      class="t-list__inner"
     >
       
       <li
@@ -635,7 +635,7 @@ exports[`Button operation demo works fine 1`] = `
     
     <!---->
     <ul
-      class="t-list-items"
+      class="t-list__inner"
     >
       
       <li
@@ -821,7 +821,7 @@ exports[`Button operation demo works fine 1`] = `
     
     <!---->
     <ul
-      class="t-list-items"
+      class="t-list__inner"
     >
       
       <li
@@ -1039,7 +1039,7 @@ exports[`Button scroll demo works fine 1`] = `
   
   <!---->
   <ul
-    class="t-list-items"
+    class="t-list__inner"
   >
     
     <li
@@ -1256,7 +1256,7 @@ exports[`Button size demo works fine 1`] = `
     
     <!---->
     <ul
-      class="t-list-items"
+      class="t-list__inner"
     >
       
       <li
@@ -1316,7 +1316,7 @@ exports[`Button size demo works fine 1`] = `
     
     <!---->
     <ul
-      class="t-list-items"
+      class="t-list__inner"
     >
       
       <li
@@ -1376,7 +1376,7 @@ exports[`Button size demo works fine 1`] = `
     
     <!---->
     <ul
-      class="t-list-items"
+      class="t-list__inner"
     >
       
       <li

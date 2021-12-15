@@ -19,7 +19,7 @@ exports[`Message :props :closeBtn is a function, () => VNode. 1`] = `
   </svg>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <b
       class="t-message-close-content"
@@ -49,7 +49,7 @@ exports[`Message :props :closeBtn is a tring, equal "关闭". 1`] = `
   </svg>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     关闭
   </span>
@@ -75,7 +75,7 @@ exports[`Message :props :closeBtn is true, render default close button. 1`] = `
   </svg>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <svg
       class="t-icon t-icon-close"
@@ -115,7 +115,7 @@ exports[`Message :props :default is a funtion, () => <b>这是重要信息</b> 1
     这是重要信息
   </b>
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -141,7 +141,7 @@ exports[`Message :props :default is a string, 这是普通信息 1`] = `
   </svg>
   这是普通信息
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -167,7 +167,7 @@ exports[`Message :props :icon is a funtion, () => MoreIcon 1`] = `
   </svg>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -181,7 +181,7 @@ exports[`Message :props :icon is false 1`] = `
   <!---->
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -207,7 +207,7 @@ exports[`Message :props :theme info,success,warning,error,question,loading 1`] =
   </svg>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -233,7 +233,7 @@ exports[`Message :props :theme info,success,warning,error,question,loading 2`] =
   </svg>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -259,7 +259,7 @@ exports[`Message :props :theme info,success,warning,error,question,loading 3`] =
   </svg>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -285,7 +285,7 @@ exports[`Message :props :theme info,success,warning,error,question,loading 4`] =
   </svg>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -311,7 +311,7 @@ exports[`Message :props :theme info,success,warning,error,question,loading 5`] =
   </svg>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -349,7 +349,7 @@ exports[`Message :props :theme info,success,warning,error,question,loading 6`] =
   </div>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -375,7 +375,7 @@ exports[`Message :props pure message contains two classes 1`] = `
   </svg>
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>
@@ -403,7 +403,7 @@ exports[`Message <slot> <icon> 1`] = `
   
   <!---->
   <span
-    class="t-message-close"
+    class="t-message__close"
   >
     <!---->
   </span>

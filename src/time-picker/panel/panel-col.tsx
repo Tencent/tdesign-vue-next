@@ -37,7 +37,7 @@ export default defineComponent({
       return [Number(this.value.get('hour')), Number(this.value.get('minute')), Number(this.value.get('second'))];
     },
     timeItemMargin() {
-      const maskDom = this.$el?.querySelector?.(`.${COMPONENT_NAME}-panel__body-active-mask > div`);
+      const maskDom = this.$el?.querySelector?.(`.${COMPONENT_NAME}__panel-body-active-mask > div`);
       return maskDom && parseInt(getComputedStyle(maskDom).margin, 10);
     },
   },
@@ -146,7 +146,7 @@ export default defineComponent({
           this.splitValue[col] = el;
         }
         const classNames = [
-          `${COMPONENT_NAME}-panel__body-scroll-item`,
+          `${COMPONENT_NAME}__panel-body-scroll-item`,
           {
             [`${prefix}-is-disabled`]: !this.timeItemCanUsed(col, el),
             [`${prefix}-is-current`]: isCurrent,
@@ -197,7 +197,7 @@ export default defineComponent({
     renderScroller(col: EPickerCols) {
       return (
         <ul
-          class={`${COMPONENT_NAME}-panel__body-scroll`}
+          class={`${COMPONENT_NAME}__panel-body-scroll`}
           ref={`${col}_scroller`}
           onMousewheel={debounce(() => this.handleScroll(col), 50)}
         >
@@ -264,7 +264,7 @@ export default defineComponent({
     },
     renderActiveMask() {
       return (
-        <div class={`${COMPONENT_NAME}-panel__body-active-mask`}>
+        <div class={`${COMPONENT_NAME}__panel-body-active-mask`}>
           {this.cols.map((_col, idx) => (
             <div key={idx} />
           ))}
@@ -274,7 +274,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <div class={`${COMPONENT_NAME}-panel__body`}>
+      <div class={`${COMPONENT_NAME}__panel-body`}>
         {this.renderActiveMask()}
         {this.renderScrollers()}
       </div>

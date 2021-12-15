@@ -39,7 +39,7 @@ export default defineComponent({
   emits: ['click', 'item-hover', 'hover'],
   methods: {
     renderSuffix(): TNodeReturnValue {
-      return this.hasChildren ? <chevron-right-icon class="children-suffix" /> : null;
+      return this.hasChildren ? <chevron-right-icon class={`${name}__item-icon`} /> : null;
     },
     handleItemClick(e: MouseEvent): void {
       e.stopPropagation();
@@ -61,8 +61,7 @@ export default defineComponent({
     const classes = [
       name,
       {
-        'has-suffix': this.hasChildren,
-        [`${name}_is_divided`]: this.divider,
+        [`${name}--suffix`]: this.hasChildren,
         [STATUS_CLASSNAMES.disabled]: this.disabled,
         [STATUS_CLASSNAMES.active]: this.active,
       },
@@ -71,8 +70,8 @@ export default defineComponent({
     return (
       <div>
         <div v-ripple class={classes} onClick={this.handleItemClick} onMouseover={this.handleMouseover}>
-          <div class={`${name}__content`}>
-            <span class={`${name}__content__text`}>{renderContent(this, 'content', 'default')}</span>
+          <div class={`${name}-content`}>
+            <span class={`${name}-text`}>{renderContent(this, 'content', 'default')}</span>
           </div>
           {this.renderSuffix()}
         </div>
