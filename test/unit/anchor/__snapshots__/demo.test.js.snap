@@ -83,37 +83,11 @@ exports[`Anchor base demo works fine 1`] = `
       >
         <a
           class="t-anchor__item-link"
-          href="#尺寸"
+          href="#不同尺寸的锚点"
           target="_self"
-          title="尺寸"
+          title="不同尺寸的锚点"
         >
-          尺寸
-        </a>
-        <!---->
-      </div>
-      <div
-        class="t-anchor__item"
-      >
-        <a
-          class="t-anchor__item-link"
-          href="##anchor-target-6"
-          target="_self"
-          title="保密协议"
-        >
-          保密协议
-        </a>
-        <!---->
-      </div>
-      <div
-        class="t-anchor__item"
-      >
-        <a
-          class="t-anchor__item-link"
-          href="##anchor-target-7"
-          target="_self"
-          title="其他"
-        >
-          其他
+          不同尺寸的锚点
         </a>
         <!---->
       </div>

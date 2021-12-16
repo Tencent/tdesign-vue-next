@@ -346,13 +346,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/base.vue correctly 1`
       <div class="t-anchor__item"><a href="#特定交互锚点" title="特定交互锚点" class="t-anchor__item-link" target="_self">特定交互锚点</a>
         <!---->
       </div>
-      <div class="t-anchor__item"><a href="#尺寸" title="尺寸" class="t-anchor__item-link" target="_self">尺寸</a>
-        <!---->
-      </div>
-      <div class="t-anchor__item"><a href="##anchor-target-6" title="保密协议" class="t-anchor__item-link" target="_self">保密协议</a>
-        <!---->
-      </div>
-      <div class="t-anchor__item"><a href="##anchor-target-7" title="其他" class="t-anchor__item-link" target="_self">其他</a>
+      <div class="t-anchor__item"><a href="#不同尺寸的锚点" title="不同尺寸的锚点" class="t-anchor__item-link" target="_self">不同尺寸的锚点</a>
         <!---->
       </div>
       <!--]-->
@@ -17768,8 +17762,8 @@ exports[`ssr snapshot test renders ./examples/grid/demos/valign.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/icon/demos/all.vue correctly 1`] = `
 <!--[-->
 <!--
-    该文件由脚本 TDesignOteam/tdesign-vue/script/icon-generate/index.js 自动生成。
-    若需要编辑，请编辑源文件：TDesignOteam/tdesign-vue/script/icon-generate/demo.tpl 。
+    该文件由脚本 Tencent/tdesign-vue/script/icon-generate/index.js 自动生成。
+    若需要编辑，请编辑源文件：Tencent/tdesign-vue/script/icon-generate/demo.tpl 。
   -->
 <div class="t-demo-iconfont">
   <div class="t-demo-icon"><svg class="t-icon t-icon-add-circle" style="">

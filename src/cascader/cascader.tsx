@@ -18,12 +18,18 @@ import Popup, { PopupProps } from '../popup/index';
 import InputContent from './components/InputContent';
 
 // types
-import TreeNode from '../_common/js/tree/tree-node';
-import { ListenersType, TreeNodeValue, EVENT_NAME_WITH_KEBAB, CascaderContextType, TdCascaderProps } from './interface';
+import {
+  TreeNode,
+  ListenersType,
+  TreeNodeValue,
+  EVENT_NAME_WITH_KEBAB,
+  CascaderContextType,
+  TdCascaderProps,
+  TreeOptionData,
+  TreeNodeModel,
+} from './interface';
 import props from './props';
 import { CascaderChangeSource, CascaderValue, CascaderChangeContext } from './type';
-import { TreeNodeModel } from '../tree';
-import { TreeOptionData } from '../common';
 
 const name = `${prefix}-cascader`;
 

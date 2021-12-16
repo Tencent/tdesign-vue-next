@@ -29,10 +29,10 @@ import App from './app.vue';
 import 'tdesign-vue-next/es/style/index.css';
 
 const app = createApp(App);
-app.use(TDesign)
+app.use(TDesign);
 ```
 
-npm package 中提供了多种构建产物，可以阅读 [这里](https://github.com/TDesignOteam/tdesign-common/blob/develop/develop-install.md) 了解不同目录下产物的差别。
+npm package 中提供了多种构建产物，可以阅读 [这里](https://github.com/Tencent/tdesign-common/blob/develop/develop-install.md) 了解不同目录下产物的差别。
 
 ### 快速体验
 

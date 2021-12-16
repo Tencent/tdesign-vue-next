@@ -16,10 +16,8 @@ import Tooltip from '../../tooltip/index';
 import TLoading from '../../loading';
 
 // type
-import TreeNode from '../../_common/js/tree/tree-node';
 import { ClassName } from '../../common';
-import { ContextType, CascaderContextType, CascaderItemPropsType } from '../interface';
-import { TreeNodeValue } from '../../_common/js/tree/types';
+import { ContextType, CascaderContextType, CascaderItemPropsType, TreeNodeValue, TreeNode } from '../interface';
 
 const name = `${prefix}-cascader-item`;
 const ComponentClassName = `${prefix}-cascader__item`;
@@ -87,9 +85,13 @@ export default defineComponent({
         const texts = labelText.split(inputVal);
         const doms = [];
         for (let index = 0; index < texts.length; index++) {
-          doms.push(<span>{texts[index]}</span>);
+          doms.push(<span key={index}>{texts[index]}</span>);
           if (index === texts.length - 1) break;
-          doms.push(<span class={`${ComponentClassName}-label--filter`}>{inputVal}</span>);
+          doms.push(
+            <span key={`${index}filter`} className={`${name}-label--filter`}>
+              {inputVal}
+            </span>,
+          );
         }
         return doms;
       }

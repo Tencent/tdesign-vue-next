@@ -74,5 +74,6 @@ export type ContextType = { e?: Event; node?: TreeNode };
 export { TreeNode } from '../_common/js/tree/tree-node';
 export type { TreeNodeValue } from '../_common/js/tree/types';
 export type { TreeOptionData } from '../_common/js/common';
+export type { TreeNodeModel } from '../tree';
 
 export const EVENT_NAME_WITH_KEBAB = ['remove', 'blur', 'focus'];

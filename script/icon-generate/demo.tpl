@@ -1,7 +1,7 @@
 <template>
   <!--
-    该文件由脚本 TDesignOteam/tdesign-vue/script/icon-generate/index.js 自动生成。
-    若需要编辑，请编辑源文件：TDesignOteam/tdesign-vue/script/icon-generate/demo.tpl 。
+    该文件由脚本 Tencent/tdesign-vue/script/icon-generate/index.js 自动生成。
+    若需要编辑，请编辑源文件：Tencent/tdesign-vue/script/icon-generate/demo.tpl 。
   -->
   <div class="t-demo-iconfont">
     <%= icons %>

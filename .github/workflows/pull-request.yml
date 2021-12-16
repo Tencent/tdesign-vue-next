@@ -8,19 +8,14 @@ jobs:
   MAIN_PULL_REQUEST:
     runs-on: ubuntu-latest
     steps:
-      - name: Fix up git URLs
-        run: echo -e '[url "https://github.com/"]\n  insteadOf = "git@github.com:"' >> ~/.gitmodules
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.TEMP_REPO_TOKEN }}
           submodules: recursive
       - uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: '16'
       - name: Install dependencies
-        run: |
-          npm i npm@latest -g
-          npm install
+        run: npm install
         shell: bash
       - run: npm run lint
       - run: npm run test

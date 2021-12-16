@@ -6,23 +6,14 @@ jobs:
   All_ON_PUSH:
     runs-on: ubuntu-latest
     steps:
-      - name: Fix up git URLs
-        run: echo -e '[url "https://github.com/"]\n  insteadOf = "git@github.com:"' >> ~/.gitmodules
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.TEMP_REPO_TOKEN }}
+        with: 
           submodules: recursive
       - uses: actions/setup-node@v2
         with:
-          node-version: 14
-      - name: Init submodule
-        run: |
-          git submodule init
-          git submodule update
+          node-version: '16'
       - name: Install dependencies
-        run: |
-          npm i npm@latest -g
-          npm install
+        run: npm install
         shell: bash
       - run: echo '${{ github.ref }} ...  ${{ github.sha }}'
       - name: Build site
@@ -33,7 +24,7 @@ jobs:
           export GITHUB_SHA=${{ github.sha }}
           export GITHUB_SHA_SUB=${GITHUB_SHA: 0: 7 }
           export DEPLOY_DOMAIN=https://preview-$GITHUB_SHA_SUB-tdesign-vue-next.surge.sh
-          npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
           echo the preview URL is $DEPLOY_DOMAIN
         if: ${{ success() }}
       - run: echo "🚀 This job's status is ${{ job.status }}."

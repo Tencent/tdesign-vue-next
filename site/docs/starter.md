@@ -17,9 +17,9 @@ spline: explain
 <p>
   <a href="http://tdesign.tencent.com/starter/vue-next/">在线预览</a>
   .
-  <a href="https://github.com/TDesignOteam/tdesign-vue-next-starter">代码仓库</a>
+  <a href="https://github.com/Tencent/tdesign-vue-next-starter">代码仓库</a>
   ·
-  <a href="https://github.com/TDesignOteam/tdesign-vue-next-starter/issues/new">反馈问题</a>
+  <a href="https://github.com/Tencent/tdesign-vue-next-starter/issues/new">反馈问题</a>
 </p>
 <p>
   <img src="https://tdesign.gtimg.com/starter/starter.png" style="border-radius:6px;border:1px solid var(--component-border)"/>

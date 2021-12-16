@@ -12,14 +12,14 @@ describe('TreeSelect', () => {
     const wrapper = mount(base);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('multiple demo works fine', () => {
-    const wrapper = mount(multiple);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('filterable demo works fine', () => {
-    const wrapper = mount(filterable);
-    expect(wrapper.element).toMatchSnapshot();
-  });
+  // it('multiple demo works fine', () => {
+  //   const wrapper = mount(multiple);
+  //   expect(wrapper.element).toMatchSnapshot();
+  // });
+  // it('filterable demo works fine', () => {
+  //   const wrapper = mount(filterable);
+  //   expect(wrapper.element).toMatchSnapshot();
+  // });
   it('lazy demo works fine', () => {
     const wrapper = mount(lazy);
     expect(wrapper.element).toMatchSnapshot();
@@ -28,8 +28,8 @@ describe('TreeSelect', () => {
     const wrapper = mount(prefix);
     expect(wrapper.element).toMatchSnapshot();
   });
-  it('collapsed demo works fine', () => {
-    const wrapper = mount(collapsed);
-    expect(wrapper.element).toMatchSnapshot();
-  });
+  // it('collapsed demo works fine', () => {
+  //   const wrapper = mount(collapsed);
+  //   expect(wrapper.element).toMatchSnapshot();
+  // });
 });

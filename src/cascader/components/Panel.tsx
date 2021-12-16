@@ -100,12 +100,7 @@ export default defineComponent({
 
     return (
       <div
-        class={[
-          `${name}__panel`,
-          {
-            [`${name}--normal`]: panels.length,
-          },
-        ]}
+        class={[`${name}__panel`, { [`${name}--normal`]: panels.length }]}
         style={{
           width: panels.length === 0 ? `${inputWidth}px` : null,
         }}
