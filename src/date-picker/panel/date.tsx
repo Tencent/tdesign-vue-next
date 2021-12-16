@@ -153,7 +153,7 @@ export default defineComponent({
   render() {
     const { year, month, type, tableData, firstDayOfWeek } = this;
     return (
-      <div class={`${prefix}-date`}>
+      <div class={`${prefix}-date-picker__panel`}>
         <t-date-header
           year={year}
           month={month}

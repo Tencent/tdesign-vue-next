@@ -308,8 +308,8 @@ export default defineComponent({
       firstDayOfWeek,
     } = this;
     return (
-      <div class={`${prefix}-date-range`}>
-        <div class={`${prefix}-date`}>
+      <div class={`${prefix}-date-picker__panels`}>
+        <div class={`${prefix}-date-picker__panel`}>
           <t-date-header
             year={leftYear}
             month={leftMonth}
@@ -326,7 +326,7 @@ export default defineComponent({
             onCellMouseEnter={this.onMouseEnter}
           />
         </div>
-        <div class={`${prefix}-date`}>
+        <div class={`${prefix}-date-picker__panel`}>
           <t-date-header
             year={rightYear}
             month={rightMonth}

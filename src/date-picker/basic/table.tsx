@@ -41,7 +41,7 @@ export default defineComponent({
       wi = (wi + len + 1) % len;
     }
 
-    const panelClass = `t-date-picker-${type}`;
+    const panelClass = `t-date-picker--${type}`;
 
     return (
       <div class={panelClass}>

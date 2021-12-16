@@ -6,7 +6,7 @@ import mixins from '../../utils/mixins';
 import getConfigReceiverMixins, { DatePickerConfig } from '../../config-provider/config-receiver';
 import { prefix } from '../../config';
 
-const name = `${prefix}-date-picker-header`;
+const name = `${prefix}-date-picker__header`;
 export default defineComponent({
   name,
   ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
@@ -45,8 +45,8 @@ export default defineComponent({
       nextLabel = nextYear;
     }
     return (
-      <div class={`${prefix}-date-picker-header`}>
-        <span class={`${prefix}-date-picker-header-title`}>
+      <div class={`${prefix}-date-picker__header`}>
+        <span class={`${prefix}-date-picker__header-title`}>
           {type === 'year' && (
             <span>
               <span>{startYear}</span>
@@ -56,7 +56,7 @@ export default defineComponent({
           )}
           {type !== 'year' && (
             <t-button
-              class={`${prefix}-date-header__btn`}
+              class={`${prefix}-date-picker__header-btn`}
               variant="text"
               size="small"
               onClick={() => onTypeChange('year')}
@@ -66,7 +66,7 @@ export default defineComponent({
           )}
           {type === 'date' && (
             <t-button
-              class={`${prefix}-date-header__btn`}
+              class={`${prefix}-date-picker__header-btn`}
               variant="text"
               size="small"
               onClick={() => onTypeChange('month')}
@@ -76,9 +76,9 @@ export default defineComponent({
           )}
         </span>
 
-        <span class={`${prefix}-date-picker-header-controller`}>
+        <span class={`${prefix}-date-picker__header-controller`}>
           <t-button
-            class={`${prefix}-date-picker-header-controller__btn`}
+            class={`${prefix}-date-picker__header-controller__btn`}
             variant="text"
             onClick={() => onBtnClick(-1)}
             title={preLabel}
@@ -88,8 +88,8 @@ export default defineComponent({
           />
           <t-button
             class={[
-              `${prefix}-date-picker-header-controller__btn`,
-              `${prefix}-date-picker-header-controller__btn--now`,
+              `${prefix}-date-picker__header-controller__btn`,
+              `${prefix}-date-picker__header-controller__btn--now`,
             ]}
             variant="text"
             onClick={() => onBtnClick(0)}
@@ -99,7 +99,7 @@ export default defineComponent({
             }}
           />
           <t-button
-            class={`${prefix}-date-picker-header-controller__btn`}
+            class={`${prefix}-date-picker__header-controller__btn`}
             variant="text"
             onClick={() => onBtnClick(1)}
             title={nextLabel}
