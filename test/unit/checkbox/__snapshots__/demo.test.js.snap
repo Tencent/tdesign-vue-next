@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox base demo works fine 1`] = `
+exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
 <div>
   <label
     class="t-checkbox undefined"
@@ -102,7 +102,162 @@ exports[`Checkbox base demo works fine 1`] = `
 </div>
 `;
 
-exports[`Checkbox checkbox group demo works fine 1`] = `
+exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
+<div>
+  <!-- 单个 Checkbox 受控模式 -->
+  <label
+    class="t-checkbox undefined t-is-checked"
+    modelvalue="true"
+  >
+    <input
+      class="t-checkbox__former"
+      type="checkbox"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      语法糖（v-model）
+      
+    </span>
+  </label>
+  <label
+    class="t-checkbox undefined t-is-checked"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      type="checkbox"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      受控属性
+      
+    </span>
+  </label>
+  <label
+    class="t-checkbox undefined"
+    modelvalue="false"
+  >
+    <input
+      class="t-checkbox__former"
+      type="checkbox"
+    />
+    <span
+      class="t-checkbox__input"
+    />
+    <span
+      class="t-checkbox__label"
+    >
+      
+      非受控属性
+      
+    </span>
+  </label>
+  <br />
+  <br />
+  <br />
+  <!-- 复选框框组受控模式 -->
+  <div
+    class="t-checkbox-group"
+    modelvalue=""
+  >
+    
+    <label
+      class="t-checkbox undefined t-is-indeterminate"
+      data-name="TDESIGN_CHECK_ALL"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        全选
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined t-is-checked"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="1"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        受控模式选项一
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="2"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        受控模式选项二
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox undefined"
+    >
+      <input
+        class="t-checkbox__former"
+        name=""
+        type="checkbox"
+        value="3"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        受控模式选项三
+        
+      </span>
+    </label>
+    
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -480,162 +635,7 @@ exports[`Checkbox checkbox group demo works fine 1`] = `
 </div>
 `;
 
-exports[`Checkbox controlled demo works fine 1`] = `
-<div>
-  <!-- 单个 Checkbox 受控模式 -->
-  <label
-    class="t-checkbox undefined t-is-checked"
-    modelvalue="true"
-  >
-    <input
-      class="t-checkbox__former"
-      type="checkbox"
-    />
-    <span
-      class="t-checkbox__input"
-    />
-    <span
-      class="t-checkbox__label"
-    >
-      
-      语法糖（v-model）
-      
-    </span>
-  </label>
-  <label
-    class="t-checkbox undefined t-is-checked"
-    modelvalue="false"
-  >
-    <input
-      class="t-checkbox__former"
-      type="checkbox"
-    />
-    <span
-      class="t-checkbox__input"
-    />
-    <span
-      class="t-checkbox__label"
-    >
-      
-      受控属性
-      
-    </span>
-  </label>
-  <label
-    class="t-checkbox undefined"
-    modelvalue="false"
-  >
-    <input
-      class="t-checkbox__former"
-      type="checkbox"
-    />
-    <span
-      class="t-checkbox__input"
-    />
-    <span
-      class="t-checkbox__label"
-    >
-      
-      非受控属性
-      
-    </span>
-  </label>
-  <br />
-  <br />
-  <br />
-  <!-- 复选框框组受控模式 -->
-  <div
-    class="t-checkbox-group"
-    modelvalue=""
-  >
-    
-    <label
-      class="t-checkbox undefined t-is-indeterminate"
-      data-name="TDESIGN_CHECK_ALL"
-    >
-      <input
-        class="t-checkbox__former"
-        name=""
-        type="checkbox"
-      />
-      <span
-        class="t-checkbox__input"
-      />
-      <span
-        class="t-checkbox__label"
-      >
-        
-        全选
-        
-      </span>
-    </label>
-    <label
-      class="t-checkbox undefined t-is-checked"
-    >
-      <input
-        class="t-checkbox__former"
-        name=""
-        type="checkbox"
-        value="1"
-      />
-      <span
-        class="t-checkbox__input"
-      />
-      <span
-        class="t-checkbox__label"
-      >
-        
-        受控模式选项一
-        
-      </span>
-    </label>
-    <label
-      class="t-checkbox undefined"
-    >
-      <input
-        class="t-checkbox__former"
-        name=""
-        type="checkbox"
-        value="2"
-      />
-      <span
-        class="t-checkbox__input"
-      />
-      <span
-        class="t-checkbox__label"
-      >
-        
-        受控模式选项二
-        
-      </span>
-    </label>
-    <label
-      class="t-checkbox undefined"
-    >
-      <input
-        class="t-checkbox__former"
-        name=""
-        type="checkbox"
-        value="3"
-      />
-      <span
-        class="t-checkbox__input"
-      />
-      <span
-        class="t-checkbox__label"
-      >
-        
-        受控模式选项三
-        
-      </span>
-    </label>
-    
-    <!---->
-  </div>
-</div>
-`;
-
-exports[`Checkbox link demo works fine 1`] = `
+exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
 <div>
   <div
     class="demo-checkbox-row-desc"

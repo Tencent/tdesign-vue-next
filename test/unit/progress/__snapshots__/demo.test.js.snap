@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Progress circle demo works fine 1`] = `
+exports[`Progress Progress circleVue demo works fine 1`] = `
 <div>
   <div>
     默认
@@ -520,7 +520,7 @@ exports[`Progress circle demo works fine 1`] = `
 </div>
 `;
 
-exports[`Progress custom demo works fine 1`] = `
+exports[`Progress Progress customVue demo works fine 1`] = `
 <div>
   <div>
     <div>
@@ -817,7 +817,7 @@ exports[`Progress custom demo works fine 1`] = `
 </div>
 `;
 
-exports[`Progress line demo works fine 1`] = `
+exports[`Progress Progress lineVue demo works fine 1`] = `
 <div>
   <h3>
     默认在线形外展示进度和状态
@@ -1096,7 +1096,7 @@ exports[`Progress line demo works fine 1`] = `
 </div>
 `;
 
-exports[`Progress plump demo works fine 1`] = `
+exports[`Progress Progress plumpVue demo works fine 1`] = `
 <div
   data-v-app=""
 >
@@ -1294,7 +1294,7 @@ exports[`Progress plump demo works fine 1`] = `
 </div>
 `;
 
-exports[`Progress size demo works fine 1`] = `
+exports[`Progress Progress sizeVue demo works fine 1`] = `
 <div>
   <div>
     默认
@@ -1623,7 +1623,7 @@ exports[`Progress size demo works fine 1`] = `
 </div>
 `;
 
-exports[`Progress status demo works fine 1`] = `
+exports[`Progress Progress statusVue demo works fine 1`] = `
 <div>
   <div>
     <div>

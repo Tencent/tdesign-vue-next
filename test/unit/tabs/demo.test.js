@@ -1,45 +1,35 @@
-import { mount } from '@vue/test-utils';
-import base from '@/examples/tabs/demos/base.vue';
-import icon from '@/examples/tabs/demos/icon.vue';
-import ban from '@/examples/tabs/demos/ban.vue';
-import operation from '@/examples/tabs/demos/operation.vue';
-import position from '@/examples/tabs/demos/position.vue';
-import combination from '@/examples/tabs/demos/combination.vue';
-import size from '@/examples/tabs/demos/size.vue';
-import custom from '@/examples/tabs/demos/custom.vue';
+/**
+ * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
+ */
 
-// unit test for component in examples.
+import { mount } from '@vue/test-utils';
+import banVue from '@/examples/tabs/demos/ban.vue';
+import baseVue from '@/examples/tabs/demos/base.vue';
+import combinationVue from '@/examples/tabs/demos/combination.vue';
+import customVue from '@/examples/tabs/demos/custom.vue';
+import iconVue from '@/examples/tabs/demos/icon.vue';
+import operationVue from '@/examples/tabs/demos/operation.vue';
+import positionVue from '@/examples/tabs/demos/position.vue';
+import sizeVue from '@/examples/tabs/demos/size.vue';
+import themeVue from '@/examples/tabs/demos/theme.vue';
+
+const mapper = {
+  banVue,
+  baseVue,
+  combinationVue,
+  customVue,
+  iconVue,
+  operationVue,
+  positionVue,
+  sizeVue,
+  themeVue,
+};
+
 describe('Tabs', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(base);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('icon demo works fine', () => {
-    const wrapper = mount(icon);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('ban demo works fine', () => {
-    const wrapper = mount(ban);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('operation demo works fine', () => {
-    const wrapper = mount(operation);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('position demo works fine', () => {
-    const wrapper = mount(position);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('combination demo works fine', () => {
-    const wrapper = mount(combination);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('size demo works fine', () => {
-    const wrapper = mount(size);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('custom demo works fine', () => {
-    const wrapper = mount(custom);
-    expect(wrapper.element).toMatchSnapshot();
+  Object.keys(mapper).forEach((demoName) => {
+    it(`Tabs ${demoName} demo works fine`, () => {
+      const wrapper = mount(mapper[demoName]);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

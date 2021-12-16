@@ -1,25 +1,25 @@
-import { mount } from '@vue/test-utils';
-import base from '@/examples/checkbox/demos/base.vue';
-import link from '@/examples/checkbox/demos/link.vue';
-import controlled from '@/examples/checkbox/demos/controlled.vue';
-import group from '@/examples/checkbox/demos/group.vue';
+/**
+ * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
+ */
 
-// unit test for component in examples.
+import { mount } from '@vue/test-utils';
+import baseVue from '@/examples/checkbox/demos/base.vue';
+import controlledVue from '@/examples/checkbox/demos/controlled.vue';
+import groupVue from '@/examples/checkbox/demos/group.vue';
+import linkVue from '@/examples/checkbox/demos/link.vue';
+
+const mapper = {
+  baseVue,
+  controlledVue,
+  groupVue,
+  linkVue,
+};
+
 describe('Checkbox', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(base);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('link demo works fine', () => {
-    const wrapper = mount(link);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('checkbox group demo works fine', () => {
-    const wrapper = mount(group);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('controlled demo works fine', () => {
-    const wrapper = mount(controlled);
-    expect(wrapper.element).toMatchSnapshot();
+  Object.keys(mapper).forEach((demoName) => {
+    it(`Checkbox ${demoName} demo works fine`, () => {
+      const wrapper = mount(mapper[demoName]);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

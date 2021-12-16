@@ -1,94 +1,55 @@
-import { mount } from '@vue/test-utils';
-import base from '@/examples/tree/demos/base.vue';
-import expandAll from '@/examples/tree/demos/expand-all.vue';
-import expandLevel from '@/examples/tree/demos/expand-level.vue';
-import expandMutex from '@/examples/tree/demos/expand-mutex.vue';
-import activable from '@/examples/tree/demos/activable.vue';
-import checkable from '@/examples/tree/demos/checkable.vue';
-import disabled from '@/examples/tree/demos/disabled.vue';
-import load from '@/examples/tree/demos/load.vue';
-import lazy from '@/examples/tree/demos/lazy.vue';
-import controlled from '@/examples/tree/demos/controlled.vue';
-import sync from '@/examples/tree/demos/sync.vue';
-import filter from '@/examples/tree/demos/filter.vue';
-import empty from '@/examples/tree/demos/empty.vue';
-import label from '@/examples/tree/demos/label.vue';
-import icon from '@/examples/tree/demos/icon.vue';
-import line from '@/examples/tree/demos/line.vue';
-import operations from '@/examples/tree/demos/operations.vue';
+/**
+ * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
+ */
 
-// unit test for component in examples.
-describe('Tree:demo', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(base);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('expand-all demo works fine', () => {
-    const wrapper = mount(expandAll);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('expand-level demo works fine', () => {
-    const wrapper = mount(expandLevel);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('expand-mutex demo works fine', () => {
-    const wrapper = mount(expandMutex);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('activable demo works fine', () => {
-    const wrapper = mount(activable);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('checkable demo works fine', () => {
-    const wrapper = mount(checkable);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('disabled demo works fine', () => {
-    const wrapper = mount(disabled);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('load demo works fine', () => {
-    const wrapper = mount(load);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('lazy demo works fine', () => {
-    const wrapper = mount(lazy);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('controlled demo works fine', () => {
-    const wrapper = mount(controlled);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('sync demo works fine', () => {
-    const wrapper = mount(sync);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('filter demo works fine', () => {
-    const wrapper = mount(filter);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('empty demo works fine', () => {
-    const wrapper = mount(empty);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('label demo works fine', () => {
-    const wrapper = mount(label);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('icon demo works fine', () => {
-    const wrapper = mount(icon);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('line demo works fine', () => {
-    const wrapper = mount(line);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('operations demo works fine', () => {
-    const wrapper = mount(operations);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('state demo works fine', () => {
-    const wrapper = mount(operations);
-    expect(wrapper.element).toMatchSnapshot();
+import { mount } from '@vue/test-utils';
+import activableVue from '@/examples/tree/demos/activable.vue';
+import baseVue from '@/examples/tree/demos/base.vue';
+import checkableVue from '@/examples/tree/demos/checkable.vue';
+import controlledVue from '@/examples/tree/demos/controlled.vue';
+import disabledVue from '@/examples/tree/demos/disabled.vue';
+import emptyVue from '@/examples/tree/demos/empty.vue';
+import expandAllVue from '@/examples/tree/demos/expand-all.vue';
+import expandLevelVue from '@/examples/tree/demos/expand-level.vue';
+import expandMutexVue from '@/examples/tree/demos/expand-mutex.vue';
+import filterVue from '@/examples/tree/demos/filter.vue';
+import iconVue from '@/examples/tree/demos/icon.vue';
+import labelVue from '@/examples/tree/demos/label.vue';
+import lazyVue from '@/examples/tree/demos/lazy.vue';
+import lineVue from '@/examples/tree/demos/line.vue';
+import loadVue from '@/examples/tree/demos/load.vue';
+import operationsVue from '@/examples/tree/demos/operations.vue';
+import stateVue from '@/examples/tree/demos/state.vue';
+import syncVue from '@/examples/tree/demos/sync.vue';
+import vmodelVue from '@/examples/tree/demos/vmodel.vue';
+
+const mapper = {
+  activableVue,
+  baseVue,
+  checkableVue,
+  controlledVue,
+  disabledVue,
+  emptyVue,
+  expandAllVue,
+  expandLevelVue,
+  expandMutexVue,
+  filterVue,
+  iconVue,
+  labelVue,
+  lazyVue,
+  lineVue,
+  loadVue,
+  operationsVue,
+  stateVue,
+  syncVue,
+  vmodelVue,
+};
+
+describe('Tree', () => {
+  Object.keys(mapper).forEach((demoName) => {
+    it(`Tree ${demoName} demo works fine`, () => {
+      const wrapper = mount(mapper[demoName]);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

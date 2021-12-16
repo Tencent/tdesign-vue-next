@@ -1,6 +1,168 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Message close demo works fine 1`] = `
+exports[`Message Message baseVue demo works fine 1`] = `
+<div
+  class="t-demo-message"
+>
+  <div
+    class="t-message t-is-info"
+  >
+    <svg
+      class="t-icon t-icon-info-circle-filled"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+        fill="currentColor"
+        fillOpacity="0.9"
+      />
+    </svg>
+    
+    用于表示普通操作信息提示
+    
+    <span
+      class="t-message__close"
+    >
+      <!---->
+    </span>
+  </div>
+  <div
+    class="t-message t-is-success"
+  >
+    <svg
+      class="t-icon t-icon-check-circle-filled"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
+        fill="currentColor"
+        fillOpacity="0.9"
+      />
+    </svg>
+    
+    用于表示操作顺利达成
+    
+    <span
+      class="t-message__close"
+    >
+      <!---->
+    </span>
+  </div>
+  <div
+    class="t-message t-is-warning"
+  >
+    <svg
+      class="t-icon t-icon-error-circle-filled"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+        fill="currentColor"
+        fillOpacity="0.9"
+      />
+    </svg>
+    
+    用于表示操作引起一定后果
+    
+    <span
+      class="t-message__close"
+    >
+      <!---->
+    </span>
+  </div>
+  <div
+    class="t-message t-is-error"
+  >
+    <svg
+      class="t-icon t-icon-error-circle-filled"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+        fill="currentColor"
+        fillOpacity="0.9"
+      />
+    </svg>
+    
+    用于表示操作引起严重的后果
+    
+    <span
+      class="t-message__close"
+    >
+      <!---->
+    </span>
+  </div>
+  <div
+    class="t-message t-is-question"
+  >
+    <svg
+      class="t-icon t-icon-help-circle-filled"
+      fill="none"
+      height="1em"
+      viewBox="0 0 16 16"
+      width="1em"
+    >
+      <path
+        d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.8 6.63a2.2 2.2 0 014.39 0c0 .97-.75 1.72-1.49 2.02a.34.34 0 00-.2.32v.8h-1v-.8c0-.56.33-1.04.82-1.24.5-.2.87-.66.87-1.1a1.2 1.2 0 00-2.39 0h-1zm1.67 4.54a.53.53 0 111.05 0 .53.53 0 01-1.05 0z"
+        fill="currentColor"
+        fillOpacity="0.9"
+      />
+    </svg>
+    
+    用于帮助用户操作的信息提示
+    
+    <span
+      class="t-message__close"
+    >
+      <!---->
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Message Message closeAllVue demo works fine 1`] = `
+<div>
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       点击打开多个消息 
+      
+    </span>
+  </button>
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    id="t-demo-msg-close-all"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+       点击关闭所有消息 
+      
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Message Message closeVue demo works fine 1`] = `
 <div
   class="t-demo-message"
 >
@@ -133,37 +295,138 @@ exports[`Message close demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message closeAll demo works fine 1`] = `
-<div>
-  <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-    type="button"
+exports[`Message Message loadingVue demo works fine 1`] = `
+<div
+  class="t-demo-message"
+>
+  <div
+    class="t-message t-is-loading"
   >
-    <span
-      class="t-button__text"
+    <div
+      class="t-loading--center t-size-m t-loading"
     >
-      
-       点击打开多个消息 
-      
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <!---->
+    </div>
+    
+     用于表示操作正在生效的过程中 
+    
+    <span
+      class="t-message__close"
+    >
+      <!---->
     </span>
-  </button>
+  </div>
+  <div
+    class="t-message t-is-loading"
+  >
+    <div
+      class="t-loading--center t-size-m t-loading"
+    >
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <!---->
+    </div>
+    
+     用于表示操作顺利达成(10s) 
+    
+    <span
+      class="t-message__close"
+    >
+      <!---->
+    </span>
+  </div>
+  <div
+    class="t-message t-is-loading"
+  >
+    <div
+      class="t-loading--center t-size-m t-loading"
+    >
+      <svg
+        class="t-loading__gradient t-icon-loading"
+        height="1em"
+        size="medium"
+        version="1.1"
+        viewBox="0 0 14 14"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <foreignobject
+          height="12"
+          width="12"
+          x="1"
+          y="1"
+        >
+          <div
+            class="t-loading__gradient-conic"
+          />
+        </foreignobject>
+      </svg>
+      <!---->
+    </div>
+    
+     用于表示普通操作失败中断(10s) 
+    
+    <span
+      class="t-message__close"
+    >
+      <!---->
+    </span>
+  </div>
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-    id="t-demo-msg-close-all"
+    class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
+    disabled=""
     type="button"
   >
     <span
       class="t-button__text"
     >
       
-       点击关闭所有消息 
+       重置 
       
     </span>
   </button>
 </div>
 `;
 
-exports[`Message offset demo works fine 1`] = `
+exports[`Message Message offsetVue demo works fine 1`] = `
 <div>
   <p>
     偏移量 offset 是相对于 placement 的偏移量，默认值：空，参数示例：{left, top, bottom, right}。
@@ -184,7 +447,7 @@ exports[`Message offset demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message placement demo works fine 1`] = `
+exports[`Message Message placementVue demo works fine 1`] = `
 <div>
   <div
     class="t-message-offset"
@@ -331,7 +594,7 @@ exports[`Message placement demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message plugin demo works fine 1`] = `
+exports[`Message Message pluginVue demo works fine 1`] = `
 <div>
   <p>
     插件调用
@@ -525,7 +788,7 @@ exports[`Message plugin demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message toggle demo works fine 1`] = `
+exports[`Message Message toggleVue demo works fine 1`] = `
 <div
   id="t-demo-message-toggle"
 >
@@ -544,7 +807,7 @@ exports[`Message toggle demo works fine 1`] = `
 </div>
 `;
 
-exports[`Message type demo works fine 1`] = `
+exports[`Message Message typeVue demo works fine 1`] = `
 <div
   class="t-demo-message"
 >

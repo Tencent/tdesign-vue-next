@@ -1,40 +1,29 @@
+/**
+ * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
+ */
+
 import { mount } from '@vue/test-utils';
-import base from '@/examples/badge/demos/base.vue';
-import number from '@/examples/badge/demos/number.vue';
-import custom from '@/examples/badge/demos/custom.vue';
-import shape from '@/examples/badge/demos/shape.vue';
-import offset from '@/examples/badge/demos/offset.vue';
-import size from '@/examples/badge/demos/size.vue';
+import baseVue from '@/examples/badge/demos/base.vue';
+import customVue from '@/examples/badge/demos/custom.vue';
+import numberVue from '@/examples/badge/demos/number.vue';
+import offsetVue from '@/examples/badge/demos/offset.vue';
+import shapeVue from '@/examples/badge/demos/shape.vue';
+import sizeVue from '@/examples/badge/demos/size.vue';
 
-// unit test for component in examples.
+const mapper = {
+  baseVue,
+  customVue,
+  numberVue,
+  offsetVue,
+  shapeVue,
+  sizeVue,
+};
+
 describe('Badge', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(base);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('number demo works fine', () => {
-    const wrapper = mount(number);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('custom demo works fine', () => {
-    const wrapper = mount(custom);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('shape demo works fine', () => {
-    const wrapper = mount(shape);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('offset demo works fine', () => {
-    const wrapper = mount(offset);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('size demo works fine', () => {
-    const wrapper = mount(size);
-    expect(wrapper.element).toMatchSnapshot();
+  Object.keys(mapper).forEach((demoName) => {
+    it(`Badge ${demoName} demo works fine`, () => {
+      const wrapper = mount(mapper[demoName]);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dialog async demo works fine 1`] = `
+exports[`Dialog Dialog asyncVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -115,7 +115,7 @@ exports[`Dialog async demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog attach demo works fine 1`] = `
+exports[`Dialog Dialog attachVue demo works fine 1`] = `
 <div>
   <!-- attach挂载 -->
   <button
@@ -324,7 +324,7 @@ exports[`Dialog attach demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog base demo works fine 1`] = `
+exports[`Dialog Dialog baseVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -412,7 +412,7 @@ exports[`Dialog base demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog custom demo works fine 1`] = `
+exports[`Dialog Dialog customVue demo works fine 1`] = `
 <div>
   <p>
     底部按钮有两个控制属性：confirmBtn 和 cancelBtn。属性类型有多种：string | ButtonProps | TNode。
@@ -673,7 +673,7 @@ exports[`Dialog custom demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog drag demo works fine 1`] = `
+exports[`Dialog Dialog dragVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -948,7 +948,7 @@ exports[`Dialog drag demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog icon demo works fine 1`] = `
+exports[`Dialog Dialog iconVue demo works fine 1`] = `
 <div>
   <transition-stub>
     <div
@@ -1329,7 +1329,7 @@ exports[`Dialog icon demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog modal demo works fine 1`] = `
+exports[`Dialog Dialog modalVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -1515,7 +1515,7 @@ exports[`Dialog modal demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog plugin demo works fine 1`] = `
+exports[`Dialog Dialog pluginVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -1580,7 +1580,7 @@ exports[`Dialog plugin demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog position demo works fine 1`] = `
+exports[`Dialog Dialog positionVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -1833,7 +1833,7 @@ exports[`Dialog position demo works fine 1`] = `
 </div>
 `;
 
-exports[`Dialog warning demo works fine 1`] = `
+exports[`Dialog Dialog warningVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"

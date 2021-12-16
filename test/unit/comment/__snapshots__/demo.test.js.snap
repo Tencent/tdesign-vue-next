@@ -1,0 +1,791 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment Comment baseVue demo works fine 1`] = `
+<div
+  class="t-comment"
+>
+  <div
+    class="t-comment__inner"
+  >
+    <div
+      class="t-comment__avatar"
+    >
+      <img
+        alt=""
+        class="t-comment__avatar-image"
+        src="https://tdesign.gtimg.com/site/avatar.jpg"
+      />
+    </div>
+    <div
+      class="t-comment__content"
+    >
+      <div
+        class="t-comment__author"
+      >
+        <span
+          class="t-comment__name"
+        >
+          评论作者名
+        </span>
+        <span
+          class="t-comment__time"
+        >
+          今天16:38
+        </span>
+      </div>
+      <div
+        class="t-comment__detail"
+      >
+        这里是评论者写的评论内容。
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Comment Comment listVue demo works fine 1`] = `
+<div
+  class="t-list t-size-m t-list--split"
+>
+  
+  
+  <!---->
+  <ul
+    class="t-list__inner"
+  >
+    
+    
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        <div
+          class="t-comment"
+        >
+          <div
+            class="t-comment__inner"
+          >
+            <div
+              class="t-comment__avatar"
+            >
+              <img
+                alt=""
+                class="t-comment__avatar-image"
+                src="https://tdesign.gtimg.com/site/avatar.jpg"
+              />
+            </div>
+            <div
+              class="t-comment__content"
+            >
+              <div
+                class="t-comment__author"
+              >
+                <span
+                  class="t-comment__name"
+                >
+                  评论作者名A
+                </span>
+                <span
+                  class="t-comment__time"
+                >
+                  今天16:38
+                </span>
+              </div>
+              <div
+                class="t-comment__detail"
+              >
+                评论作者名A写的评论内容。
+              </div>
+              <!---->
+              <ul
+                class="t-comment__actions"
+              >
+                
+                <li>
+                  <span>
+                    <svg
+                      class="t-icon t-icon-thumb-up"
+                    >
+                      <use
+                        href="#t-icon-thumb-up"
+                      />
+                    </svg>
+                    <span
+                      class="action-text"
+                    >
+                      6
+                    </span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <svg
+                      class="t-icon t-icon-chat"
+                    >
+                      <use
+                        href="#t-icon-chat"
+                      />
+                    </svg>
+                    <span
+                      class="action-text"
+                    >
+                      回复
+                    </span>
+                  </span>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+          <!---->
+        </div>
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        <div
+          class="t-comment"
+        >
+          <div
+            class="t-comment__inner"
+          >
+            <div
+              class="t-comment__avatar"
+            >
+              <img
+                alt=""
+                class="t-comment__avatar-image"
+                src="https://tdesign.gtimg.com/site/avatar.jpg"
+              />
+            </div>
+            <div
+              class="t-comment__content"
+            >
+              <div
+                class="t-comment__author"
+              >
+                <span
+                  class="t-comment__name"
+                >
+                  评论作者名B
+                </span>
+                <span
+                  class="t-comment__time"
+                >
+                  今天16:38
+                </span>
+              </div>
+              <div
+                class="t-comment__detail"
+              >
+                评论作者名B写的评论内容。
+              </div>
+              <!---->
+              <ul
+                class="t-comment__actions"
+              >
+                
+                <li>
+                  <span>
+                    <svg
+                      class="t-icon t-icon-thumb-up"
+                    >
+                      <use
+                        href="#t-icon-thumb-up"
+                      />
+                    </svg>
+                    <span
+                      class="action-text"
+                    >
+                      6
+                    </span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <svg
+                      class="t-icon t-icon-chat"
+                    >
+                      <use
+                        href="#t-icon-chat"
+                      />
+                    </svg>
+                    <span
+                      class="action-text"
+                    >
+                      回复
+                    </span>
+                  </span>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+          <!---->
+        </div>
+        
+        <!---->
+      </div>
+    </li>
+    <li
+      class="t-list-item"
+    >
+      <div
+        class="t-list-item-main"
+      >
+        
+        <div
+          class="t-comment"
+        >
+          <div
+            class="t-comment__inner"
+          >
+            <div
+              class="t-comment__avatar"
+            >
+              <img
+                alt=""
+                class="t-comment__avatar-image"
+                src="https://tdesign.gtimg.com/site/avatar.jpg"
+              />
+            </div>
+            <div
+              class="t-comment__content"
+            >
+              <div
+                class="t-comment__author"
+              >
+                <span
+                  class="t-comment__name"
+                >
+                  评论作者名C
+                </span>
+                <span
+                  class="t-comment__time"
+                >
+                  今天16:38
+                </span>
+              </div>
+              <div
+                class="t-comment__detail"
+              >
+                评论作者名C写的评论内容。
+              </div>
+              <!---->
+              <ul
+                class="t-comment__actions"
+              >
+                
+                <li>
+                  <span>
+                    <svg
+                      class="t-icon t-icon-thumb-up"
+                    >
+                      <use
+                        href="#t-icon-thumb-up"
+                      />
+                    </svg>
+                    <span
+                      class="action-text"
+                    >
+                      6
+                    </span>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <svg
+                      class="t-icon t-icon-chat"
+                    >
+                      <use
+                        href="#t-icon-chat"
+                      />
+                    </svg>
+                    <span
+                      class="action-text"
+                    >
+                      回复
+                    </span>
+                  </span>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+          <!---->
+        </div>
+        
+        <!---->
+      </div>
+    </li>
+    
+    
+  </ul>
+  <!---->
+  
+  <div
+    class="t-list__load"
+  >
+    <!---->
+  </div>
+  
+</div>
+`;
+
+exports[`Comment Comment operationVue demo works fine 1`] = `
+<div
+  class="t-comment"
+>
+  <div
+    class="t-comment__inner"
+  >
+    <div
+      class="t-comment__avatar"
+    >
+      <img
+        alt=""
+        class="t-comment__avatar-image"
+        src="https://tdesign.gtimg.com/site/avatar.jpg"
+      />
+    </div>
+    <div
+      class="t-comment__content"
+    >
+      <div
+        class="t-comment__author"
+      >
+        <span
+          class="t-comment__name"
+        >
+          评论作者名
+        </span>
+        <span
+          class="t-comment__time"
+        >
+          今天16:38
+        </span>
+      </div>
+      <div
+        class="t-comment__detail"
+      >
+        这里是评论者写的评论内容。
+      </div>
+      <!---->
+      <ul
+        class="t-comment__actions"
+      >
+        
+        <li>
+          <span>
+            <svg
+              class="t-icon t-icon-thumb-up"
+            >
+              <use
+                href="#t-icon-thumb-up"
+              />
+            </svg>
+            <span
+              class="action-text"
+            >
+              6
+            </span>
+          </span>
+        </li>
+        <li>
+          <span>
+            <svg
+              class="t-icon t-icon-chat"
+            >
+              <use
+                href="#t-icon-chat"
+              />
+            </svg>
+            <span
+              class="action-text"
+            >
+              回复
+            </span>
+          </span>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Comment Comment quoteVue demo works fine 1`] = `
+<div
+  class="t-comment"
+>
+  <div
+    class="t-comment__inner"
+  >
+    <div
+      class="t-comment__avatar"
+    >
+      <img
+        alt=""
+        class="t-comment__avatar-image"
+        src="https://tdesign.gtimg.com/site/avatar.jpg"
+      />
+    </div>
+    <div
+      class="t-comment__content"
+    >
+      <div
+        class="t-comment__author"
+      >
+        <span
+          class="t-comment__name"
+        >
+          评论作者名
+        </span>
+        <span
+          class="t-comment__time"
+        >
+          今天16:38
+        </span>
+      </div>
+      <div
+        class="t-comment__detail"
+      >
+        这里是评论者写的评论内容。
+      </div>
+      <div
+        class="t-comment__quote"
+      >
+        
+        <div
+          class="t-comment"
+        >
+          <div
+            class="t-comment__inner"
+          >
+            <!---->
+            <div
+              class="t-comment__content"
+            >
+              <div
+                class="t-comment__author"
+              >
+                <span
+                  class="t-comment__name"
+                >
+                  引用内容标题
+                </span>
+                <!---->
+              </div>
+              <div
+                class="t-comment__detail"
+              >
+                引用评论内容。
+              </div>
+              <!---->
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        
+      </div>
+      <ul
+        class="t-comment__actions"
+      >
+        
+        <li>
+          <span>
+            <svg
+              class="t-icon t-icon-thumb-up"
+            >
+              <use
+                href="#t-icon-thumb-up"
+              />
+            </svg>
+            <span
+              class="action-text"
+            >
+              6
+            </span>
+          </span>
+        </li>
+        <li>
+          <span>
+            <svg
+              class="t-icon t-icon-chat"
+            >
+              <use
+                href="#t-icon-chat"
+              />
+            </svg>
+            <span
+              class="action-text"
+            >
+              回复
+            </span>
+          </span>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Comment Comment replyFormVue demo works fine 1`] = `
+<div
+  class="t-comment"
+>
+  <div
+    class="t-comment__inner"
+  >
+    <div
+      class="t-comment__avatar"
+    >
+      <img
+        alt=""
+        class="t-comment__avatar-image"
+        src="https://tdesign.gtimg.com/site/avatar.jpg"
+      />
+    </div>
+    <div
+      class="t-comment__content"
+    >
+      <!---->
+      <div
+        class="t-comment__detail"
+      >
+        
+        <div
+          class="form-container"
+        >
+          <div
+            class="t-textarea"
+          >
+            <textarea
+              class="t-textarea__inner"
+              modelvalue=""
+              placeholder="请输入内容"
+            />
+            <!---->
+            <!---->
+          </div>
+          <button
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+               回复 
+              
+            </span>
+          </button>
+        </div>
+        
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Comment Comment replyVue demo works fine 1`] = `
+<div
+  class="t-comment"
+>
+  <div
+    class="t-comment__inner"
+  >
+    <div
+      class="t-comment__avatar"
+    >
+      <img
+        alt=""
+        class="t-comment__avatar-image"
+        src="https://tdesign.gtimg.com/site/avatar.jpg"
+      />
+    </div>
+    <div
+      class="t-comment__content"
+    >
+      <div
+        class="t-comment__author"
+      >
+        <span
+          class="t-comment__name"
+        >
+          评论作者名
+        </span>
+        <span
+          class="t-comment__time"
+        >
+          今天16:38
+        </span>
+      </div>
+      <div
+        class="t-comment__detail"
+      >
+        这里是评论者写的评论内容。
+      </div>
+      <!---->
+      <ul
+        class="t-comment__actions"
+      >
+        
+        <li>
+          <span>
+            <svg
+              class="t-icon t-icon-thumb-up"
+            >
+              <use
+                href="#t-icon-thumb-up"
+              />
+            </svg>
+            <span
+              class="action-text"
+            >
+              6
+            </span>
+          </span>
+        </li>
+        <li>
+          <span>
+            <svg
+              class="t-icon t-icon-chat"
+            >
+              <use
+                href="#t-icon-chat"
+              />
+            </svg>
+            <span
+              class="action-text"
+            >
+              回复
+            </span>
+          </span>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  <div
+    class="t-comment__reply"
+  >
+    
+    <div
+      class="t-comment"
+    >
+      <div
+        class="t-comment__inner"
+      >
+        <div
+          class="t-comment__avatar"
+        >
+          <img
+            alt=""
+            class="t-comment__avatar-image"
+            src="https://tdesign.gtimg.com/site/avatar.jpg"
+          />
+        </div>
+        <div
+          class="t-comment__content"
+        >
+          <div
+            class="t-comment__author"
+          >
+            <span
+              class="t-comment__name"
+            >
+              
+              <span>
+                评论作者名B
+              </span>
+              <svg
+                class="t-icon t-icon-caret-right-small t-size-s author-icon author-icon"
+              >
+                <use
+                  href="#t-icon-caret-right-small"
+                />
+              </svg>
+              <span>
+                评论作者名A
+              </span>
+              
+            </span>
+            <span
+              class="t-comment__time"
+            >
+              今天16:38
+            </span>
+          </div>
+          <div
+            class="t-comment__detail"
+          >
+            这里是评论者写的评论内容。
+          </div>
+          <!---->
+          <ul
+            class="t-comment__actions"
+          >
+            
+            <li>
+              <span>
+                <svg
+                  class="t-icon t-icon-thumb-up"
+                >
+                  <use
+                    href="#t-icon-thumb-up"
+                  />
+                </svg>
+                <span
+                  class="action-text"
+                >
+                  6
+                </span>
+              </span>
+            </li>
+            <li>
+              <span>
+                <svg
+                  class="t-icon t-icon-chat"
+                >
+                  <use
+                    href="#t-icon-chat"
+                  />
+                </svg>
+                <span
+                  class="action-text"
+                >
+                  回复
+                </span>
+              </span>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;

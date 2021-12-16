@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Affix base demo works fine 1`] = `
+exports[`Affix Affix baseVue demo works fine 1`] = `
 <div
   class="affix-base"
 >
@@ -23,7 +23,7 @@ exports[`Affix base demo works fine 1`] = `
 </div>
 `;
 
-exports[`Affix container demo works fine 1`] = `
+exports[`Affix Affix containerVue demo works fine 1`] = `
 <div
   class="affix-container"
 >

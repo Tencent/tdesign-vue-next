@@ -1,14 +1,21 @@
+/**
+ * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
+ */
+
 import { mount } from '@vue/test-utils';
-import base from '@/examples/affix/demos/base.vue';
-import container from '@/examples/affix/demos/container.vue';
+import baseVue from '@/examples/affix/demos/base.vue';
+import containerVue from '@/examples/affix/demos/container.vue';
+
+const mapper = {
+  baseVue,
+  containerVue,
+};
 
 describe('Affix', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(base);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('container demo works fine', () => {
-    const wrapper = mount(container);
-    expect(wrapper.element).toMatchSnapshot();
+  Object.keys(mapper).forEach((demoName) => {
+    it(`Affix ${demoName} demo works fine`, () => {
+      const wrapper = mount(mapper[demoName]);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

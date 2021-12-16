@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TreeSelect base demo works fine 1`] = `
+exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
 <div
   class="tdesign-tree-select-base"
 >
@@ -325,7 +325,7 @@ exports[`TreeSelect base demo works fine 1`] = `
 </div>
 `;
 
-exports[`TreeSelect lazy demo works fine 1`] = `
+exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
 <div
   class="tdesign-tree-select-lazy"
 >
@@ -550,7 +550,7 @@ exports[`TreeSelect lazy demo works fine 1`] = `
 </div>
 `;
 
-exports[`TreeSelect prefix demo works fine 1`] = `
+exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
 <div
   class="tdesign-tree-select-prefix"
 >

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Badge base demo works fine 1`] = `
+exports[`Badge Badge baseVue demo works fine 1`] = `
 <div>
   <div
     class="demo-badge-block"
@@ -58,7 +58,7 @@ exports[`Badge base demo works fine 1`] = `
 </div>
 `;
 
-exports[`Badge custom demo works fine 1`] = `
+exports[`Badge Badge customVue demo works fine 1`] = `
 <div>
   <div
     class="t-badge"
@@ -121,7 +121,7 @@ exports[`Badge custom demo works fine 1`] = `
 </div>
 `;
 
-exports[`Badge number demo works fine 1`] = `
+exports[`Badge Badge numberVue demo works fine 1`] = `
 <div>
   <div
     class="t-badge"
@@ -168,7 +168,7 @@ exports[`Badge number demo works fine 1`] = `
 </div>
 `;
 
-exports[`Badge offset demo works fine 1`] = `
+exports[`Badge Badge offsetVue demo works fine 1`] = `
 <div>
   <div
     class="t-badge"
@@ -247,7 +247,7 @@ exports[`Badge offset demo works fine 1`] = `
 </div>
 `;
 
-exports[`Badge shape demo works fine 1`] = `
+exports[`Badge Badge shapeVue demo works fine 1`] = `
 <div>
   <div
     class="t-badge"
@@ -280,7 +280,7 @@ exports[`Badge shape demo works fine 1`] = `
 </div>
 `;
 
-exports[`Badge size demo works fine 1`] = `
+exports[`Badge Badge sizeVue demo works fine 1`] = `
 <div>
   <h3
     class="demo-t-badge-title"

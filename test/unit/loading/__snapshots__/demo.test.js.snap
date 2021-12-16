@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Loading attach demo works fine 1`] = `
+exports[`Loading Loading attachVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -44,7 +44,7 @@ exports[`Loading attach demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading base demo works fine 1`] = `
+exports[`Loading Loading baseVue demo works fine 1`] = `
 <div
   class="t-loading-demo"
 >
@@ -76,7 +76,7 @@ exports[`Loading base demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading delay demo works fine 1`] = `
+exports[`Loading Loading delayVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -157,7 +157,7 @@ exports[`Loading delay demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading fullscreen demo works fine 1`] = `
+exports[`Loading Loading fullscreenVue demo works fine 1`] = `
 <div>
   <!---->
   <div
@@ -184,7 +184,7 @@ exports[`Loading fullscreen demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading iconText demo works fine 1`] = `
+exports[`Loading Loading iconTextVue demo works fine 1`] = `
 <div
   class="t-loading--center t-size-s t-loading"
 >
@@ -216,7 +216,58 @@ exports[`Loading iconText demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading service demo works fine 1`] = `
+exports[`Loading Loading indicatorSlotVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-loading--center t-size-m t-loading"
+  >
+    
+    <svg
+      class="t-icon t-icon-loading"
+    >
+      <use
+        href="#t-icon-loading"
+      />
+    </svg>
+    
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Loading Loading preventScrollThroughVue demo works fine 1`] = `
+<div
+  class="t-loading t-loading__fullscreen t-loading--center t-loading__overlay v-transfer-dom"
+>
+  <div
+    class="t-loading--center t-size-m"
+  >
+    <svg
+      class="t-loading__gradient t-icon-loading"
+      height="1em"
+      size="medium"
+      version="1.1"
+      viewBox="0 0 14 14"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <foreignobject
+        height="12"
+        width="12"
+        x="1"
+        y="1"
+      >
+        <div
+          class="t-loading__gradient-conic"
+        />
+      </foreignobject>
+    </svg>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Loading Loading serviceVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
 >
@@ -297,7 +348,7 @@ exports[`Loading service demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading size demo works fine 1`] = `
+exports[`Loading Loading sizeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column-large"
 >
@@ -397,7 +448,7 @@ exports[`Loading size demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading text demo works fine 1`] = `
+exports[`Loading Loading textVue demo works fine 1`] = `
 <div
   class="t-loading-demo"
 >
@@ -440,7 +491,7 @@ exports[`Loading text demo works fine 1`] = `
 </div>
 `;
 
-exports[`Loading wrap demo works fine 1`] = `
+exports[`Loading Loading wrapVue demo works fine 1`] = `
 <div
   class="loading-wrap-demo"
 >

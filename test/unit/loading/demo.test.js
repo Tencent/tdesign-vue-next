@@ -1,50 +1,39 @@
-import { mount } from '@vue/test-utils';
-import base from '@/examples/loading/demos/base.vue';
-import delay from '@/examples/loading/demos/delay.vue';
-import fullscreen from '@/examples/loading/demos/fullscreen.vue';
-import iconText from '@/examples/loading/demos/icon-text.vue';
-import attach from '@/examples/loading/demos/attach.vue';
-import service from '@/examples/loading/demos/service.vue';
-import size from '@/examples/loading/demos/size.vue';
-import text from '@/examples/loading/demos/text.vue';
-import wrap from '@/examples/loading/demos/wrap.vue';
+/**
+ * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
+ */
 
-// unit test for component in examples.
+import { mount } from '@vue/test-utils';
+import attachVue from '@/examples/loading/demos/attach.vue';
+import baseVue from '@/examples/loading/demos/base.vue';
+import delayVue from '@/examples/loading/demos/delay.vue';
+import fullscreenVue from '@/examples/loading/demos/fullscreen.vue';
+import iconTextVue from '@/examples/loading/demos/icon-text.vue';
+import indicatorSlotVue from '@/examples/loading/demos/indicatorSlot.vue';
+import preventScrollThroughVue from '@/examples/loading/demos/preventScrollThrough.vue';
+import serviceVue from '@/examples/loading/demos/service.vue';
+import sizeVue from '@/examples/loading/demos/size.vue';
+import textVue from '@/examples/loading/demos/text.vue';
+import wrapVue from '@/examples/loading/demos/wrap.vue';
+
+const mapper = {
+  attachVue,
+  baseVue,
+  delayVue,
+  fullscreenVue,
+  iconTextVue,
+  indicatorSlotVue,
+  preventScrollThroughVue,
+  serviceVue,
+  sizeVue,
+  textVue,
+  wrapVue,
+};
+
 describe('Loading', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(base);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('delay demo works fine', () => {
-    const wrapper = mount(delay);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('fullscreen demo works fine', () => {
-    const wrapper = mount(fullscreen);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('iconText demo works fine', () => {
-    const wrapper = mount(iconText);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('attach demo works fine', () => {
-    const wrapper = mount(attach);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('service demo works fine', () => {
-    const wrapper = mount(service);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('size demo works fine', () => {
-    const wrapper = mount(size);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('text demo works fine', () => {
-    const wrapper = mount(text);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('wrap demo works fine', () => {
-    const wrapper = mount(wrap);
-    expect(wrapper.element).toMatchSnapshot();
+  Object.keys(mapper).forEach((demoName) => {
+    it(`Loading ${demoName} demo works fine`, () => {
+      const wrapper = mount(mapper[demoName]);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

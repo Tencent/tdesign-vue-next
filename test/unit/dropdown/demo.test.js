@@ -1,45 +1,35 @@
-import { mount } from '@vue/test-utils';
-import demo from '@/examples/dropdown/demos/base.vue';
-import buttonUsageExample from '@/examples/dropdown/demos/button.vue';
-import CustomUsageExample from '@/examples/dropdown/demos/custom.vue';
-import DisableUsageExample from '@/examples/dropdown/demos/disabled.vue';
-import EventUsageExample from '@/examples/dropdown/demos/event.vue';
-import LongUsageExample from '@/examples/dropdown/demos/long.vue';
-import MultipleUsageExample from '@/examples/dropdown/demos/multiple.vue';
-import SplitUsageExample from '@/examples/dropdown/demos/split.vue';
+/**
+ * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
+ */
 
-// unit test for component in examples.
+import { mount } from '@vue/test-utils';
+import baseVue from '@/examples/dropdown/demos/base.vue';
+import buttonVue from '@/examples/dropdown/demos/button.vue';
+import customVue from '@/examples/dropdown/demos/custom.vue';
+import disabledVue from '@/examples/dropdown/demos/disabled.vue';
+import eventVue from '@/examples/dropdown/demos/event.vue';
+import longVue from '@/examples/dropdown/demos/long.vue';
+import multipleVue from '@/examples/dropdown/demos/multiple.vue';
+import slotVue from '@/examples/dropdown/demos/slot.vue';
+import splitVue from '@/examples/dropdown/demos/split.vue';
+
+const mapper = {
+  baseVue,
+  buttonVue,
+  customVue,
+  disabledVue,
+  eventVue,
+  longVue,
+  multipleVue,
+  slotVue,
+  splitVue,
+};
+
 describe('Dropdown', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(demo);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo buttonUsageExample wroks fine', () => {
-    const wrapper = mount(buttonUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo CustomUsageExample wroks fine', () => {
-    const wrapper = mount(CustomUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo DisableUsageExample wroks fine', () => {
-    const wrapper = mount(DisableUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo EventUsageExample wroks fine', () => {
-    const wrapper = mount(EventUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo LongUsageExample wroks fine', () => {
-    const wrapper = mount(LongUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo MultipleUsageExample wroks fine', () => {
-    const wrapper = mount(MultipleUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo SplitUsageExample wroks fine', () => {
-    const wrapper = mount(SplitUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
+  Object.keys(mapper).forEach((demoName) => {
+    it(`Dropdown ${demoName} demo works fine`, () => {
+      const wrapper = mount(mapper[demoName]);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

@@ -1,6 +1,267 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dropdown Demo CustomUsageExample wroks fine 1`] = `
+exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-dropdown"
+>
+  <div
+    class="t-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-dropdown"
+        >
+          
+          <div
+            class="t-dropdown__menu"
+          >
+            
+            <div
+              class="t-dropdown__menu-column narrow-scrollbar"
+              style="max-height: 300px; max-width: 100px; min-width: 112px;"
+            >
+              
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item-content"
+                  >
+                    <span
+                      class="t-dropdown__item-text"
+                    >
+                      操作一
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item-content"
+                  >
+                    <span
+                      class="t-dropdown__item-text"
+                    >
+                      操作二
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item-content"
+                  >
+                    <span
+                      class="t-dropdown__item-text"
+                    >
+                      操作三
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item-content"
+                  >
+                    <span
+                      class="t-dropdown__item-text"
+                    >
+                      操作四
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              
+            </div>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    
+    <div
+      class="tdesign-demo-dropdown-trigger"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-text t-button--theme-default"
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          <span
+            class="tdesign-demo-dropdown__text"
+          >
+             下拉菜单 
+            <svg
+              class="t-icon t-icon-chevron-down"
+            >
+              <use
+                href="#t-icon-chevron-down"
+              />
+            </svg>
+          </span>
+          
+        </span>
+      </button>
+    </div>
+    
+    
+  </div>
+</div>
+`;
+
+exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-dropdown"
+        >
+          
+          <div
+            class="t-dropdown__menu"
+          >
+            
+            <div
+              class="t-dropdown__menu-column narrow-scrollbar"
+              style="max-height: 300px; max-width: 100px; min-width: 10px;"
+            >
+              
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item-content"
+                  >
+                    <span
+                      class="t-dropdown__item-text"
+                    >
+                      操作一
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item-content"
+                  >
+                    <span
+                      class="t-dropdown__item-text"
+                    >
+                      操作二
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item-content"
+                  >
+                    <span
+                      class="t-dropdown__item-text"
+                    >
+                      操作三
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item-content"
+                  >
+                    <span
+                      class="t-dropdown__item-text"
+                    >
+                      操作四
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              
+            </div>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+         下拉菜单 
+        
+      </span>
+    </button>
+    
+    
+  </div>
+</div>
+`;
+
+exports[`Dropdown Dropdown customVue demo works fine 1`] = `
 <div>
   <div
     class="t-popup-reference"
@@ -134,7 +395,7 @@ exports[`Dropdown Demo CustomUsageExample wroks fine 1`] = `
 </div>
 `;
 
-exports[`Dropdown Demo DisableUsageExample wroks fine 1`] = `
+exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
 <div
   class="tdesign-demo-dropdown"
 >
@@ -275,7 +536,7 @@ exports[`Dropdown Demo DisableUsageExample wroks fine 1`] = `
 </div>
 `;
 
-exports[`Dropdown Demo EventUsageExample wroks fine 1`] = `
+exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
 <div>
   <div
     class="t-popup-reference"
@@ -397,7 +658,7 @@ exports[`Dropdown Demo EventUsageExample wroks fine 1`] = `
 </div>
 `;
 
-exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
+exports[`Dropdown Dropdown longVue demo works fine 1`] = `
 <div>
   <div
     class="t-popup-reference"
@@ -791,7 +1052,7 @@ exports[`Dropdown Demo LongUsageExample wroks fine 1`] = `
 </div>
 `;
 
-exports[`Dropdown Demo MultipleUsageExample wroks fine 1`] = `
+exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
 <div
   class="tdesign-demo-dropdown"
 >
@@ -980,7 +1241,97 @@ exports[`Dropdown Demo MultipleUsageExample wroks fine 1`] = `
 </div>
 `;
 
-exports[`Dropdown Demo SplitUsageExample wroks fine 1`] = `
+exports[`Dropdown Dropdown slotVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-popup-reference"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup-content t-dropdown"
+        >
+          
+          <div
+            class="t-dropdown__menu"
+          >
+            <div
+              class="t-dropdown__menu-column narrow-scrollbar"
+              style="max-height: 300px; max-width: 100px; min-width: 88px;"
+            >
+              
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item-content"
+                  >
+                    <span
+                      class="t-dropdown__item-text"
+                    >
+                      
+                       操作一 
+                      
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              <div>
+                <div
+                  class="t-dropdown__item"
+                >
+                  <div
+                    class="t-dropdown__item-content"
+                  >
+                    <span
+                      class="t-dropdown__item-text"
+                    >
+                      
+                       操作二 
+                      
+                    </span>
+                  </div>
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    
+    <button
+      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+         下拉菜单 
+        
+      </span>
+    </button>
+    
+    
+  </div>
+</div>
+`;
+
+exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
 <div
   class="t-popup-reference"
 >
@@ -1101,266 +1452,5 @@ exports[`Dropdown Demo SplitUsageExample wroks fine 1`] = `
   </button>
   
   
-</div>
-`;
-
-exports[`Dropdown Demo buttonUsageExample wroks fine 1`] = `
-<div>
-  <div
-    class="t-popup-reference"
-  >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup-content t-dropdown"
-        >
-          
-          <div
-            class="t-dropdown__menu"
-          >
-            
-            <div
-              class="t-dropdown__menu-column narrow-scrollbar"
-              style="max-height: 300px; max-width: 100px; min-width: 10px;"
-            >
-              
-              <div>
-                <div
-                  class="t-dropdown__item"
-                >
-                  <div
-                    class="t-dropdown__item-content"
-                  >
-                    <span
-                      class="t-dropdown__item-text"
-                    >
-                      操作一
-                    </span>
-                  </div>
-                  <!---->
-                </div>
-                <!---->
-              </div>
-              <div>
-                <div
-                  class="t-dropdown__item"
-                >
-                  <div
-                    class="t-dropdown__item-content"
-                  >
-                    <span
-                      class="t-dropdown__item-text"
-                    >
-                      操作二
-                    </span>
-                  </div>
-                  <!---->
-                </div>
-                <!---->
-              </div>
-              <div>
-                <div
-                  class="t-dropdown__item"
-                >
-                  <div
-                    class="t-dropdown__item-content"
-                  >
-                    <span
-                      class="t-dropdown__item-text"
-                    >
-                      操作三
-                    </span>
-                  </div>
-                  <!---->
-                </div>
-                <!---->
-              </div>
-              <div>
-                <div
-                  class="t-dropdown__item"
-                >
-                  <div
-                    class="t-dropdown__item-content"
-                  >
-                    <span
-                      class="t-dropdown__item-text"
-                    >
-                      操作四
-                    </span>
-                  </div>
-                  <!---->
-                </div>
-                <!---->
-              </div>
-              
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-         下拉菜单 
-        
-      </span>
-    </button>
-    
-    
-  </div>
-</div>
-`;
-
-exports[`Dropdown base demo works fine 1`] = `
-<div
-  class="tdesign-demo-dropdown"
->
-  <div
-    class="t-popup-reference"
-  >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup-content t-dropdown"
-        >
-          
-          <div
-            class="t-dropdown__menu"
-          >
-            
-            <div
-              class="t-dropdown__menu-column narrow-scrollbar"
-              style="max-height: 300px; max-width: 100px; min-width: 112px;"
-            >
-              
-              <div>
-                <div
-                  class="t-dropdown__item"
-                >
-                  <div
-                    class="t-dropdown__item-content"
-                  >
-                    <span
-                      class="t-dropdown__item-text"
-                    >
-                      操作一
-                    </span>
-                  </div>
-                  <!---->
-                </div>
-                <!---->
-              </div>
-              <div>
-                <div
-                  class="t-dropdown__item"
-                >
-                  <div
-                    class="t-dropdown__item-content"
-                  >
-                    <span
-                      class="t-dropdown__item-text"
-                    >
-                      操作二
-                    </span>
-                  </div>
-                  <!---->
-                </div>
-                <!---->
-              </div>
-              <div>
-                <div
-                  class="t-dropdown__item"
-                >
-                  <div
-                    class="t-dropdown__item-content"
-                  >
-                    <span
-                      class="t-dropdown__item-text"
-                    >
-                      操作三
-                    </span>
-                  </div>
-                  <!---->
-                </div>
-                <!---->
-              </div>
-              <div>
-                <div
-                  class="t-dropdown__item"
-                >
-                  <div
-                    class="t-dropdown__item-content"
-                  >
-                    <span
-                      class="t-dropdown__item-text"
-                    >
-                      操作四
-                    </span>
-                  </div>
-                  <!---->
-                </div>
-                <!---->
-              </div>
-              
-            </div>
-            
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    
-    <div
-      class="tdesign-demo-dropdown-trigger"
-    >
-      <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default"
-        type="button"
-      >
-        <span
-          class="t-button__text"
-        >
-          
-          <span
-            class="tdesign-demo-dropdown__text"
-          >
-             下拉菜单 
-            <svg
-              class="t-icon t-icon-chevron-down"
-            >
-              <use
-                href="#t-icon-chevron-down"
-              />
-            </svg>
-          </span>
-          
-        </span>
-      </button>
-    </div>
-    
-    
-  </div>
 </div>
 `;

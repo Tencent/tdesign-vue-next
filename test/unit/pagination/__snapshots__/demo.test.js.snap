@@ -1,0 +1,2362 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination Pagination baseVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-pagination t-size-m"
+    modelvalue="1"
+  >
+    <div
+      class="t-pagination__total"
+    >
+      共 100 项数据
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-m t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <li
+                  class="t-select-empty t-size-m"
+                >
+                  暂无数据
+                </li>
+                <ul
+                  class="t-select__groups"
+                  style="display: none;"
+                >
+                  
+                  
+                  <li
+                    class="t-select-option t-is-selected t-size-m"
+                    title="5 条/页"
+                  >
+                    5 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="10 条/页"
+                  >
+                    10 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="20 条/页"
+                  >
+                    20 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="50 条/页"
+                  >
+                    50 条/页
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-m"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-m t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="5"
+          >
+            5
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+      disabled="true"
+    >
+      <svg
+        class="t-icon t-icon-chevron-left"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <ul
+      class="t-pagination__pager"
+    >
+      <li
+        class="t-pagination__number t-is-current"
+      >
+        1
+      </li>
+      <!---->
+      
+      <li
+        class="t-pagination__number"
+      >
+        2
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        3
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        4
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        5
+      </li>
+      
+      <li
+        class="t-pagination__number t-pagination__number--more"
+      >
+        <svg
+          class="t-icon t-icon-ellipsis"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        20
+      </li>
+    </ul>
+    <div
+      class="t-pagination__btn t-pagination__btn-next"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <!---->
+  </div>
+  <br />
+  <br />
+  <!-- :pageSizeOptions="[]" 表示隐藏分页器选项 -->
+  <!-- 非受控用法，代码有效，勿删。 -->
+  <div
+    class="t-pagination t-size-m"
+    modelvalue="1"
+  >
+    <div
+      class="t-pagination__total"
+    >
+      共 36 项数据
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-m t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <li
+                  class="t-select-empty t-size-m"
+                >
+                  暂无数据
+                </li>
+                <ul
+                  class="t-select__groups"
+                  style="display: none;"
+                >
+                  
+                  
+                  <li
+                    class="t-select-option t-size-m"
+                    title="5 条/页"
+                  >
+                    5 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-is-selected t-size-m"
+                    title="10 条/页"
+                  >
+                    10 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="20 条/页"
+                  >
+                    20 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="50 条/页"
+                  >
+                    50 条/页
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-m"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-m t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="10"
+          >
+            10
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-prev"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-left"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <ul
+      class="t-pagination__pager"
+    >
+      <!---->
+      <!---->
+      
+      <li
+        class="t-pagination__number"
+      >
+        1
+      </li>
+      <li
+        class="t-pagination__number t-is-current"
+      >
+        2
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        3
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        4
+      </li>
+      
+      <!---->
+      <!---->
+    </ul>
+    <div
+      class="t-pagination__btn t-pagination__btn-next"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination jumpVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-pagination t-size-m"
+    modelvalue="1"
+  >
+    <div
+      class="t-pagination__total"
+    >
+      共 101 项数据
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-m t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <li
+                  class="t-select-empty t-size-m"
+                >
+                  暂无数据
+                </li>
+                <ul
+                  class="t-select__groups"
+                  style="display: none;"
+                >
+                  
+                  
+                  <li
+                    class="t-select-option t-size-m"
+                    title="5 条/页"
+                  >
+                    5 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="10 条/页"
+                  >
+                    10 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-is-selected t-size-m"
+                    title="20 条/页"
+                  >
+                    20 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="50 条/页"
+                  >
+                    50 条/页
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-m"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-m t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="20"
+          >
+            20
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+      disabled="true"
+    >
+      <svg
+        class="t-icon t-icon-chevron-left"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <ul
+      class="t-pagination__pager"
+    >
+      <!---->
+      <!---->
+      
+      <li
+        class="t-pagination__number t-is-current"
+      >
+        1
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        2
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        3
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        4
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        5
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        6
+      </li>
+      
+      <!---->
+      <!---->
+    </ul>
+    <div
+      class="t-pagination__btn t-pagination__btn-next"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-pagination__jump"
+    >
+      跳至
+      <div
+        class="t-input t-size-m t-pagination__input"
+        modelvalue="1"
+      >
+        <!---->
+        <input
+          autocomplete="false"
+          class="t-input__inner"
+          type="text"
+        />
+        <!---->
+      </div>
+      页
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination miniVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-pagination t-size-s"
+    modelvalue="1"
+  >
+    <div
+      class="t-pagination__total"
+    >
+      共 100 项数据
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-s t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <li
+                  class="t-select-empty t-size-s"
+                >
+                  暂无数据
+                </li>
+                <ul
+                  class="t-select__groups"
+                  style="display: none;"
+                >
+                  
+                  
+                  <li
+                    class="t-select-option t-is-selected t-size-s"
+                    title="5 条/页"
+                  >
+                    5 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="10 条/页"
+                  >
+                    10 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="20 条/页"
+                  >
+                    20 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="50 条/页"
+                  >
+                    50 条/页
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-s"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-s t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="5"
+          >
+            5
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+      disabled="true"
+    >
+      <svg
+        class="t-icon t-icon-chevron-left"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <ul
+      class="t-pagination__pager"
+    >
+      <li
+        class="t-pagination__number t-is-current"
+      >
+        1
+      </li>
+      <!---->
+      
+      <li
+        class="t-pagination__number"
+      >
+        2
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        3
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        4
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        5
+      </li>
+      
+      <li
+        class="t-pagination__number t-pagination__number--more"
+      >
+        <svg
+          class="t-icon t-icon-ellipsis"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        20
+      </li>
+    </ul>
+    <div
+      class="t-pagination__btn t-pagination__btn-next"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination moreVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-pagination t-size-m"
+    modelvalue="12"
+  >
+    <div
+      class="t-pagination__total"
+    >
+      共 100 项数据
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-m t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <li
+                  class="t-select-empty t-size-m"
+                >
+                  暂无数据
+                </li>
+                <ul
+                  class="t-select__groups"
+                  style="display: none;"
+                >
+                  
+                  
+                  <li
+                    class="t-select-option t-is-selected t-size-m"
+                    title="5 条/页"
+                  >
+                    5 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="10 条/页"
+                  >
+                    10 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="20 条/页"
+                  >
+                    20 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="50 条/页"
+                  >
+                    50 条/页
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-m"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-m t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="5"
+          >
+            5
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-prev"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-left"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <ul
+      class="t-pagination__pager"
+    >
+      <li
+        class="t-pagination__number"
+      >
+        1
+      </li>
+      <li
+        class="t-pagination__number t-pagination__number--more"
+      >
+        <svg
+          class="t-icon t-icon-ellipsis"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+      </li>
+      
+      <li
+        class="t-pagination__number"
+      >
+        10
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        11
+      </li>
+      <li
+        class="t-pagination__number t-is-current"
+      >
+        12
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        13
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        14
+      </li>
+      
+      <li
+        class="t-pagination__number t-pagination__number--more"
+      >
+        <svg
+          class="t-icon t-icon-ellipsis"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        20
+      </li>
+    </ul>
+    <div
+      class="t-pagination__btn t-pagination__btn-next"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-pagination t-size-m"
+    modelvalue="1"
+    show-sizer=""
+  >
+    <div
+      class="t-pagination__total"
+    >
+      共 645 项数据
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-m t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <li
+                  class="t-select-empty t-size-m"
+                >
+                  暂无数据
+                </li>
+                <ul
+                  class="t-select__groups"
+                  style="display: none;"
+                >
+                  
+                  
+                  <li
+                    class="t-select-option t-size-m"
+                    title="每页 10 条"
+                  >
+                    每页 10 条
+                  </li>
+                  <li
+                    class="t-select-option t-is-selected t-size-m"
+                    title="每页 30 条"
+                  >
+                    每页 30 条
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="每页 50 条"
+                  >
+                    每页 50 条
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="每页 100 条"
+                  >
+                    每页 100 条
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-m"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-m t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="30"
+          >
+            30
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+      disabled="true"
+    >
+      <svg
+        class="t-icon t-icon-chevron-left"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <ul
+      class="t-pagination__pager"
+    >
+      <li
+        class="t-pagination__number t-is-current"
+      >
+        1
+      </li>
+      <!---->
+      
+      <li
+        class="t-pagination__number"
+      >
+        2
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        3
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        4
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        5
+      </li>
+      
+      <li
+        class="t-pagination__number t-pagination__number--more"
+      >
+        <svg
+          class="t-icon t-icon-ellipsis"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        22
+      </li>
+    </ul>
+    <div
+      class="t-pagination__btn t-pagination__btn-next"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-pagination t-size-s"
+    modelvalue="1"
+  >
+    <div
+      class="t-pagination__total"
+    >
+      共 100 项数据
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-s t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <li
+                  class="t-select-empty t-size-s"
+                >
+                  暂无数据
+                </li>
+                <ul
+                  class="t-select__groups"
+                  style="display: none;"
+                >
+                  
+                  
+                  <li
+                    class="t-select-option t-is-selected t-size-s"
+                    title="5 条/页"
+                  >
+                    5 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="10 条/页"
+                  >
+                    10 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="20 条/页"
+                  >
+                    20 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="50 条/页"
+                  >
+                    50 条/页
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-s"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-s t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="5"
+          >
+            5
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+      disabled="true"
+    >
+      <svg
+        class="t-icon t-icon-chevron-left"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-s t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <!---->
+                <ul>
+                  
+                  <li
+                    class="t-select-option t-is-selected t-size-s"
+                    title="1/20"
+                  >
+                    1/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="2/20"
+                  >
+                    2/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="3/20"
+                  >
+                    3/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="4/20"
+                  >
+                    4/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="5/20"
+                  >
+                    5/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="6/20"
+                  >
+                    6/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="7/20"
+                  >
+                    7/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="8/20"
+                  >
+                    8/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="9/20"
+                  >
+                    9/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="10/20"
+                  >
+                    10/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="11/20"
+                  >
+                    11/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="12/20"
+                  >
+                    12/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="13/20"
+                  >
+                    13/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="14/20"
+                  >
+                    14/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="15/20"
+                  >
+                    15/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="16/20"
+                  >
+                    16/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="17/20"
+                  >
+                    17/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="18/20"
+                  >
+                    18/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="19/20"
+                  >
+                    19/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-s"
+                    title="20/20"
+                  >
+                    20/20
+                  </li>
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-s"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-s t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="1/20"
+          >
+            1/20
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-next"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination simpleVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-pagination t-size-m"
+    modelvalue="1"
+  >
+    <div
+      class="t-pagination__total"
+    >
+      共 100 项数据
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-m t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <li
+                  class="t-select-empty t-size-m"
+                >
+                  暂无数据
+                </li>
+                <ul
+                  class="t-select__groups"
+                  style="display: none;"
+                >
+                  
+                  
+                  <li
+                    class="t-select-option t-is-selected t-size-m"
+                    title="5 条/页"
+                  >
+                    5 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="10 条/页"
+                  >
+                    10 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="20 条/页"
+                  >
+                    20 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="50 条/页"
+                  >
+                    50 条/页
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-m"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-m t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="5"
+          >
+            5
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+      disabled="true"
+    >
+      <svg
+        class="t-icon t-icon-chevron-left"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-m t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <!---->
+                <ul>
+                  
+                  <li
+                    class="t-select-option t-is-selected t-size-m"
+                    title="1/20"
+                  >
+                    1/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="2/20"
+                  >
+                    2/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="3/20"
+                  >
+                    3/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="4/20"
+                  >
+                    4/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="5/20"
+                  >
+                    5/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="6/20"
+                  >
+                    6/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="7/20"
+                  >
+                    7/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="8/20"
+                  >
+                    8/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="9/20"
+                  >
+                    9/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="10/20"
+                  >
+                    10/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="11/20"
+                  >
+                    11/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="12/20"
+                  >
+                    12/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="13/20"
+                  >
+                    13/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="14/20"
+                  >
+                    14/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="15/20"
+                  >
+                    15/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="16/20"
+                  >
+                    16/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="17/20"
+                  >
+                    17/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="18/20"
+                  >
+                    18/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="19/20"
+                  >
+                    19/20
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="20/20"
+                  >
+                    20/20
+                  </li>
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-m"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-m t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="1/20"
+          >
+            1/20
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-next"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Pagination Pagination totalVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-pagination t-size-m"
+    modelvalue="12"
+  >
+    <div
+      class="t-pagination__total"
+    >
+      共 undefined 项数据
+    </div>
+    <div
+      class="t-select-wrap t-pagination__select"
+    >
+      <div
+        class="t-popup-reference t-select-popup-reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup-content t-select-dropdown narrow-scrollbar"
+            >
+              
+              <div>
+                <ul
+                  class="t-select-create-option"
+                  style="display: none;"
+                >
+                  <li
+                    class="t-select-option t-size-m t-select-create-option-special"
+                    title=""
+                  >
+                    
+                  </li>
+                </ul>
+                <!---->
+                <li
+                  class="t-select-empty t-size-m"
+                >
+                  暂无数据
+                </li>
+                <ul
+                  class="t-select__groups"
+                  style="display: none;"
+                >
+                  
+                  
+                  <li
+                    class="t-select-option t-size-m"
+                    title="5 条/页"
+                  >
+                    5 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-is-selected t-size-m"
+                    title="10 条/页"
+                  >
+                    10 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="20 条/页"
+                  >
+                    20 条/页
+                  </li>
+                  <li
+                    class="t-select-option t-size-m"
+                    title="50 条/页"
+                  >
+                    50 条/页
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-select t-size-m"
+        >
+          <!---->
+          <!---->
+          
+          
+          <span
+            class="t-tag t-tag--default t-size-m t-tag--dark"
+            style="display: none;"
+          >
+            <!---->
+            
+            +0
+            
+            <!---->
+          </span>
+          <span
+            class="t-select-selectedSingle"
+            title="10"
+          >
+            10
+          </span>
+          <!---->
+          <svg
+            class="t-fake-arrow t-select-right-icon"
+            fill="none"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+              stroke="black"
+              stroke-opacity="0.9"
+              stroke-width="1.3"
+            />
+          </svg>
+          <!---->
+          <!---->
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="t-pagination__btn t-pagination__btn-prev"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-left"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <ul
+      class="t-pagination__pager"
+    >
+      <li
+        class="t-pagination__number"
+      >
+        1
+      </li>
+      <li
+        class="t-pagination__number t-pagination__number--more"
+      >
+        <svg
+          class="t-icon t-icon-ellipsis"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+      </li>
+      
+      <li
+        class="t-pagination__number"
+      >
+        10
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        11
+      </li>
+      <li
+        class="t-pagination__number t-is-current"
+      >
+        12
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        13
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        14
+      </li>
+      
+      <li
+        class="t-pagination__number t-pagination__number--more"
+      >
+        <svg
+          class="t-icon t-icon-ellipsis"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+      </li>
+      <li
+        class="t-pagination__number"
+      >
+        69
+      </li>
+    </ul>
+    <div
+      class="t-pagination__btn t-pagination__btn-next"
+      disabled="false"
+    >
+      <svg
+        class="t-icon t-icon-chevron-right"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+    </div>
+    <!---->
+  </div>
+</div>
+`;

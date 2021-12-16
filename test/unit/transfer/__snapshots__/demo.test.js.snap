@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Transfer base demo works fine 1`] = `
+exports[`Transfer Transfer baseVue demo works fine 1`] = `
 <div>
   <div
     class="t-transfer"
@@ -555,6 +555,5601 @@ exports[`Transfer base demo works fine 1`] = `
     >
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+    </div>
+    <div
+      class="t-transfer-list t-transfer-list-target"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 0 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-empty"
+        >
+          <span>
+            暂无数据
+          </span>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Transfer Transfer checkedVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-transfer"
+    modelvalue=""
+  >
+    <div
+      class="t-transfer-list t-transfer-list-source"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-indeterminate"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            5 / 20 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-list__content narrow-scrollbar"
+        >
+          <div
+            class="t-checkbox-group"
+            modelvalue=""
+          >
+            <!---->
+            
+            
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="0"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容1
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容2
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容3
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容4
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容5
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容6
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容7
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="7"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容8
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="8"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容9
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="9"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容10
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="10"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容11
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="11"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容12
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="12"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容13
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="13"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容14
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="14"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容15
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="15"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容16
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="16"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容17
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="17"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容18
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="18"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容19
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="19"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容20
+                </span>
+                
+              </span>
+            </label>
+            
+            
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="t-transfer-operations"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+    </div>
+    <div
+      class="t-transfer-list t-transfer-list-target"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 0 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-empty"
+        >
+          <span>
+            暂无数据
+          </span>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
+<div>
+  <div
+    checked-value=""
+    class="t-transfer"
+    modelvalue=""
+    theme="primary"
+  >
+    <div
+      class="t-transfer-list t-transfer-list-source"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 20 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-list__content narrow-scrollbar"
+        >
+          <div
+            class="t-checkbox-group"
+            modelvalue=""
+          >
+            <!---->
+            
+            
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="0"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容1
+                   - 
+                  第1段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容2
+                   - 
+                  第2段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容3
+                   - 
+                  第3段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容4
+                   - 
+                  第4段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容5
+                   - 
+                  第5段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容6
+                   - 
+                  第6段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容7
+                   - 
+                  第7段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="7"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容8
+                   - 
+                  第8段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="8"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容9
+                   - 
+                  第9段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="9"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容10
+                   - 
+                  第10段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="10"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容11
+                   - 
+                  第11段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="11"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容12
+                   - 
+                  第12段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="12"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容13
+                   - 
+                  第13段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="13"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容14
+                   - 
+                  第14段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="14"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容15
+                   - 
+                  第15段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="15"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容16
+                   - 
+                  第16段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="16"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容17
+                   - 
+                  第17段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="17"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容18
+                   - 
+                  第18段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="18"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容19
+                   - 
+                  第19段信息
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="19"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span
+                  class="transfer-item"
+                >
+                  内容20
+                   - 
+                  第20段信息
+                </span>
+                
+              </span>
+            </label>
+            
+            
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="t-transfer-operations"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+    </div>
+    <div
+      class="t-transfer-list t-transfer-list-target"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 0 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-empty"
+        >
+          <span>
+            暂无数据
+          </span>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Transfer Transfer customVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-transfer t-transfer-footer"
+    modelvalue=""
+  >
+    <div
+      class="t-transfer-list t-transfer-list-source"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 20 项
+          </span>
+        </div>
+        <span>
+          
+          <div>
+            来源
+          </div>
+          
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-list__content narrow-scrollbar"
+        >
+          <div
+            class="t-checkbox-group"
+            modelvalue=""
+          >
+            <!---->
+            
+            
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="0"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容1
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容2
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容3
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容4
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容5
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容6
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容7
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="7"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容8
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="8"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容9
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="9"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容10
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="10"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容11
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="11"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容12
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="12"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容13
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="13"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容14
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="14"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容15
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="15"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容16
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="16"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容17
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="17"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容18
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="18"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容19
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="19"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容20
+                </span>
+                
+              </span>
+            </label>
+            
+            
+          </div>
+        </div>
+      </div>
+      <!---->
+      
+      <div
+        style="padding: 10px; border-top: 1px solid #e7e7e7;"
+      >
+        <span>
+          选中并加入
+        </span>
+      </div>
+      
+    </div>
+    <div
+      class="t-transfer-operations"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          
+          加入
+          
+          
+        </span>
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="t-button__text"
+        >
+          
+          
+          移除
+          
+          
+        </span>
+      </button>
+    </div>
+    <div
+      class="t-transfer-list t-transfer-list-target"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 0 项
+          </span>
+        </div>
+        <span>
+          
+          <div>
+            目标
+          </div>
+          
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-empty"
+        >
+          <span>
+            暂无数据
+          </span>
+        </div>
+      </div>
+      <!---->
+      
+      <div
+        style="padding: 10px; border-top: 1px solid #e7e7e7;"
+      >
+        <span>
+          选中并移除
+        </span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Transfer Transfer disabledVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-transfer"
+    modelvalue=""
+  >
+    <div
+      class="t-transfer-list t-transfer-list-source"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 10 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-list__content narrow-scrollbar"
+        >
+          <div
+            class="t-checkbox-group"
+            modelvalue=""
+          >
+            <!---->
+            
+            
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容2
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容4
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容6
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="7"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容8
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="9"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容10
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="11"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容12
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="13"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容14
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="15"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容16
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="17"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容18
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="19"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容20
+                </span>
+                
+              </span>
+            </label>
+            
+            
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="t-transfer-operations"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+    </div>
+    <div
+      class="t-transfer-list t-transfer-list-target"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 10 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-list__content narrow-scrollbar"
+        >
+          <div
+            class="t-checkbox-group"
+            modelvalue=""
+          >
+            <!---->
+            
+            
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="0"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容1
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容3
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容5
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容7
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="8"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容9
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="10"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容11
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="12"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容13
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="14"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容15
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="16"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容17
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                disabled=""
+                name=""
+                type="checkbox"
+                value="18"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容19
+                </span>
+                
+              </span>
+            </label>
+            
+            
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Transfer Transfer emptyVue demo works fine 1`] = `
+<div>
+  <p
+    style="margin: 10px 0px;"
+  >
+    默认暂无数据
+  </p>
+  <div
+    class="t-transfer"
+    modelvalue=""
+  >
+    <div
+      class="t-transfer-list t-transfer-list-source"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 0 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-empty"
+        >
+          <span>
+            暂无数据
+          </span>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="t-transfer-operations"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+    </div>
+    <div
+      class="t-transfer-list t-transfer-list-target"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 0 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-empty"
+        >
+          <span>
+            暂无数据
+          </span>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+  </div>
+  <p
+    style="margin: 10px;"
+  >
+    自定义空状态
+  </p>
+  <div
+    class="t-transfer"
+    modelvalue=""
+  >
+    <div
+      class="t-transfer-list t-transfer-list-source"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 0 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-empty"
+        >
+          No Data
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="t-transfer-operations"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+    </div>
+    <div
+      class="t-transfer-list t-transfer-list-target"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 0 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-empty"
+        >
+          No Data
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Transfer Transfer paginationVue demo works fine 1`] = `
+<div>
+  <div
+    checked-value=""
+    class="t-transfer t-transfer-pagination"
+    modelvalue=""
+    theme="primary"
+  >
+    <div
+      class="t-transfer-list t-transfer-list-source"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 20 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-list__content narrow-scrollbar"
+        >
+          <div
+            class="t-checkbox-group"
+            modelvalue=""
+          >
+            <!---->
+            
+            
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="0"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容1
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容2
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容3
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容4
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容5
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容6
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容7
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="7"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容8
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="8"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容9
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="9"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容10
+                </span>
+                
+              </span>
+            </label>
+            
+            
+          </div>
+        </div>
+      </div>
+      <div
+        class="t-transfer-list__pagination"
+      >
+        <div
+          class="t-pagination t-size-s"
+          modelvalue="1"
+        >
+          <!---->
+          <!---->
+          <div
+            class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+            disabled="true"
+          >
+            <svg
+              class="t-icon t-icon-chevron-left"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+                fill="currentColor"
+                fillOpacity="0.9"
+              />
+            </svg>
+          </div>
+          <div
+            class="t-select-wrap t-pagination__select"
+          >
+            <div
+              class="t-popup-reference t-select-popup-reference"
+            >
+              <transition-stub>
+                <div
+                  aria-hidden="true"
+                  class="t-popup"
+                  role="tooltip"
+                  style="display: none;"
+                >
+                  <div
+                    class="t-popup-content t-select-dropdown narrow-scrollbar"
+                  >
+                    
+                    <div>
+                      <ul
+                        class="t-select-create-option"
+                        style="display: none;"
+                      >
+                        <li
+                          class="t-select-option t-size-s t-select-create-option-special"
+                          title=""
+                        >
+                          
+                        </li>
+                      </ul>
+                      <!---->
+                      <!---->
+                      <ul>
+                        
+                        <li
+                          class="t-select-option t-is-selected t-size-s"
+                          title="1/2"
+                        >
+                          1/2
+                        </li>
+                        <li
+                          class="t-select-option t-size-s"
+                          title="2/2"
+                        >
+                          2/2
+                        </li>
+                        
+                      </ul>
+                    </div>
+                    
+                    <!---->
+                  </div>
+                </div>
+              </transition-stub>
+              
+              <div
+                class="t-select t-size-s"
+              >
+                <!---->
+                <!---->
+                
+                
+                <span
+                  class="t-tag t-tag--default t-size-s t-tag--dark"
+                  style="display: none;"
+                >
+                  <!---->
+                  
+                  +0
+                  
+                  <!---->
+                </span>
+                <span
+                  class="t-select-selectedSingle"
+                  title="1/2"
+                >
+                  1/2
+                </span>
+                <!---->
+                <svg
+                  class="t-fake-arrow t-select-right-icon"
+                  fill="none"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                    stroke="black"
+                    stroke-opacity="0.9"
+                    stroke-width="1.3"
+                  />
+                </svg>
+                <!---->
+                <!---->
+              </div>
+              
+            </div>
+          </div>
+          <div
+            class="t-pagination__btn t-pagination__btn-next"
+            disabled="false"
+          >
+            <svg
+              class="t-icon t-icon-chevron-right"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                fill="currentColor"
+                fillOpacity="0.9"
+              />
+            </svg>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="t-transfer-operations"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+    </div>
+    <div
+      class="t-transfer-list t-transfer-list-target"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 0 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-empty"
+        >
+          <span>
+            暂无数据
+          </span>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Transfer Transfer searchVue demo works fine 1`] = `
+<div>
+  <div
+    checked-value=""
+    class="t-transfer t-transfer-search"
+    modelvalue=""
+    theme="primary"
+  >
+    <div
+      class="t-transfer-list t-transfer-list-source"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 20 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body t-transfer-list-with-search"
+      >
+        <div
+          class="t-transfer-list-search-wrapper"
+          disabled="false"
+          searchvalue=""
+        >
+          <div
+            class="t-input t-size-m"
+          >
+            <!---->
+            <input
+              autocomplete="false"
+              class="t-input__inner"
+              placeholder="请输入关键词搜索"
+              type="text"
+            />
+            <!---->
+          </div>
+        </div>
+        <div
+          class="t-transfer-list__content narrow-scrollbar"
+        >
+          <div
+            class="t-checkbox-group"
+            modelvalue=""
+          >
+            <!---->
+            
+            
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="0"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容1
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容2
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容3
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容4
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容5
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容6
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容7
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="7"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容8
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="8"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容9
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="9"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容10
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="10"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容11
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="11"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容12
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="12"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容13
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="13"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容14
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="14"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容15
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="15"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容16
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="16"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容17
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="17"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容18
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="18"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容19
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="19"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容20
+                </span>
+                
+              </span>
+            </label>
+            
+            
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="t-transfer-operations"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+    </div>
+    <div
+      class="t-transfer-list t-transfer-list-target"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined t-is-disabled"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              disabled=""
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 0 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body t-transfer-list-with-search"
+      >
+        <div
+          class="t-transfer-list-search-wrapper"
+          disabled="false"
+          searchvalue=""
+        >
+          <div
+            class="t-input t-size-m"
+          >
+            <!---->
+            <input
+              autocomplete="false"
+              class="t-input__inner"
+              placeholder="请输入关键词搜索"
+              type="text"
+            />
+            <!---->
+          </div>
+        </div>
+        <div
+          class="t-transfer-empty"
+        >
+          <span>
+            暂无数据
+          </span>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-transfer"
+    modelvalue="0,2,4,6,8,10,12,14,16,18"
+  >
+    <div
+      class="t-transfer-list t-transfer-list-source"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 10 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-list__content narrow-scrollbar"
+        >
+          <div
+            class="t-checkbox-group"
+            modelvalue=""
+          >
+            <!---->
+            
+            
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容2
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容4
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容6
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="7"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容8
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="9"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容10
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="11"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容12
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="13"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容14
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="15"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容16
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="17"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容18
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="19"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容20
+                </span>
+                
+              </span>
+            </label>
+            
+            
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="t-transfer-operations"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-right"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
+        type="button"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-left"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+        <span
+          class="t-button__text"
+        >
+          
+          
+          
+        </span>
+        
+      </button>
+    </div>
+    <div
+      class="t-transfer-list t-transfer-list-target"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 10 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-list__content narrow-scrollbar"
+        >
+          <div
+            class="t-checkbox-group"
+            modelvalue=""
+          >
+            <!---->
+            
+            
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="0"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容1
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容3
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容5
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容7
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="8"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容9
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="10"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容11
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="12"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容13
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="14"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容15
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="16"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容17
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="18"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  内容19
+                </span>
+                
+              </span>
+            </label>
+            
+            
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Transfer Transfer treeVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-transfer t-transfer-with-tree"
+    modelvalue=""
+  >
+    <div
+      class="t-transfer-list t-transfer-list-source"
+    >
+      <div
+        class="t-transfer-list__header"
+      >
+        <div>
+          <label
+            class="t-checkbox undefined"
+            modelvalue="false"
+          >
+            <input
+              class="t-checkbox__former"
+              name="t-transfer"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              <!---->
+            </span>
+          </label>
+          <span>
+            0 / 5 项
+          </span>
+        </div>
+        <span>
+          <!---->
+        </span>
+      </div>
+      <div
+        class="t-transfer-list__body"
+      >
+        <!---->
+        <div
+          class="t-transfer-list__content narrow-scrollbar"
+        >
+          
+          <div
+            class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
+            modelvalue=""
+          >
+            <transition-group-stub>
+              
+              <div
+                class="t-tree__item t-tree__item--open"
+                data-level="0"
+                data-value="1"
+                style="--level: 0;"
+              >
+                
+                <span
+                  class="t-tree__icon t-folder-icon t-tree__icon--default"
+                  ignore="active"
+                  trigger="expand"
+                >
+                  <svg
+                    class="t-icon t-icon-caret-right-small"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M6 5v6l4.5-3L6 5z"
+                      fill="currentColor"
+                      fillOpacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <label
+                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+                  ignore="expand,active"
+                  modelvalue="false"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name="1"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    1
+                    
+                  </span>
+                </label>
+                
+              </div>
+              <div
+                class="t-tree__item t-tree__item--open"
+                data-level="1"
+                data-value="1.1"
+                style="--level: 1;"
+              >
+                
+                <span
+                  class="t-tree__icon t-folder-icon"
+                  ignore="active"
+                  trigger="expand"
+                >
+                  
+                </span>
+                <label
+                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+                  ignore="expand,active"
+                  modelvalue="false"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name="1.1"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    1.1
+                    
+                  </span>
+                </label>
+                
+              </div>
+              <div
+                class="t-tree__item t-tree__item--open"
+                data-level="1"
+                data-value="1.2"
+                style="--level: 1;"
+              >
+                
+                <span
+                  class="t-tree__icon t-folder-icon t-tree__icon--default"
+                  ignore="active"
+                  trigger="expand"
+                >
+                  <svg
+                    class="t-icon t-icon-caret-right-small"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M6 5v6l4.5-3L6 5z"
+                      fill="currentColor"
+                      fillOpacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <label
+                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+                  ignore="expand,active"
+                  modelvalue="false"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name="1.2"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    1.2
+                    
+                  </span>
+                </label>
+                
+              </div>
+              <div
+                class="t-tree__item t-tree__item--open"
+                data-level="2"
+                data-value="1.2.1"
+                style="--level: 2;"
+              >
+                
+                <span
+                  class="t-tree__icon t-folder-icon t-tree__icon--default"
+                  ignore="active"
+                  trigger="expand"
+                >
+                  <svg
+                    class="t-icon t-icon-caret-right-small"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M6 5v6l4.5-3L6 5z"
+                      fill="currentColor"
+                      fillOpacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <label
+                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+                  ignore="expand,active"
+                  modelvalue="false"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name="1.2.1"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    1.2.1
+                    
+                  </span>
+                </label>
+                
+              </div>
+              <div
+                class="t-tree__item t-tree__item--open"
+                data-level="3"
+                data-value="1.2.1.1"
+                style="--level: 3;"
+              >
+                
+                <span
+                  class="t-tree__icon t-folder-icon"
+                  ignore="active"
+                  trigger="expand"
+                >
+                  
+                </span>
+                <label
+                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+                  ignore="expand,active"
+                  modelvalue="false"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name="1.2.1.1"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    1.2.1.1
+                    
+                  </span>
+                </label>
+                
+              </div>
+              <div
+                class="t-tree__item t-tree__item--open"
+                data-level="3"
+                data-value="1.2.1.2"
+                style="--level: 3;"
+              >
+                
+                <span
+                  class="t-tree__icon t-folder-icon"
+                  ignore="active"
+                  trigger="expand"
+                >
+                  
+                </span>
+                <label
+                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+                  ignore="expand,active"
+                  modelvalue="false"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name="1.2.1.2"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    1.2.1.2
+                    
+                  </span>
+                </label>
+                
+              </div>
+              <div
+                class="t-tree__item t-tree__item--open"
+                data-level="0"
+                data-value="2"
+                style="--level: 0;"
+              >
+                
+                <span
+                  class="t-tree__icon t-folder-icon t-tree__icon--default"
+                  ignore="active"
+                  trigger="expand"
+                >
+                  <svg
+                    class="t-icon t-icon-caret-right-small"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M6 5v6l4.5-3L6 5z"
+                      fill="currentColor"
+                      fillOpacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <label
+                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+                  ignore="expand,active"
+                  modelvalue="false"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name="2"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    2
+                    
+                  </span>
+                </label>
+                
+              </div>
+              <div
+                class="t-tree__item t-tree__item--open"
+                data-level="1"
+                data-value="2.1"
+                style="--level: 1;"
+              >
+                
+                <span
+                  class="t-tree__icon t-folder-icon"
+                  ignore="active"
+                  trigger="expand"
+                >
+                  
+                </span>
+                <label
+                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+                  ignore="expand,active"
+                  modelvalue="false"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name="2.1"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    2.1
+                    
+                  </span>
+                </label>
+                
+              </div>
+              <div
+                class="t-tree__item t-tree__item--open"
+                data-level="1"
+                data-value="2.2"
+                style="--level: 1;"
+              >
+                
+                <span
+                  class="t-tree__icon t-folder-icon"
+                  ignore="active"
+                  trigger="expand"
+                >
+                  
+                </span>
+                <label
+                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+                  ignore="expand,active"
+                  modelvalue="false"
+                >
+                  <input
+                    class="t-checkbox__former"
+                    name="2.2"
+                    type="checkbox"
+                  />
+                  <span
+                    class="t-checkbox__input"
+                  />
+                  <span
+                    class="t-checkbox__label"
+                  >
+                    
+                    2.2
+                    
+                  </span>
+                </label>
+                
+              </div>
+              
+            </transition-group-stub>
+            <!---->
+          </div>
+          
+        </div>
+      </div>
+      <!---->
+      <div
+        class="t-transfer-footer"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="t-transfer-operations"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+        disabled=""
         type="button"
       >
         

@@ -1,39 +1,29 @@
+/**
+ * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
+ */
+
 import { mount } from '@vue/test-utils';
-import base from '@/examples/alert/demos/base.vue';
-import icon from '@/examples/alert/demos/icon.vue';
-import close from '@/examples/alert/demos/close.vue';
-import operation from '@/examples/alert/demos/operation.vue';
-import title from '@/examples/alert/demos/title.vue';
-import collapse from '@/examples/alert/demos/collapse.vue';
+import baseVue from '@/examples/alert/demos/base.vue';
+import closeVue from '@/examples/alert/demos/close.vue';
+import collapseVue from '@/examples/alert/demos/collapse.vue';
+import iconVue from '@/examples/alert/demos/icon.vue';
+import operationVue from '@/examples/alert/demos/operation.vue';
+import titleVue from '@/examples/alert/demos/title.vue';
+
+const mapper = {
+  baseVue,
+  closeVue,
+  collapseVue,
+  iconVue,
+  operationVue,
+  titleVue,
+};
 
 describe('Alert', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(base);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('icon demo works fine', () => {
-    const wrapper = mount(icon);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('close demo works fine', () => {
-    const wrapper = mount(close);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('operation demo works fine', () => {
-    const wrapper = mount(operation);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('title demo works fine', () => {
-    const wrapper = mount(title);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('collapse demo works fine', () => {
-    const wrapper = mount(collapse);
-    expect(wrapper.element).toMatchSnapshot();
+  Object.keys(mapper).forEach((demoName) => {
+    it(`Alert ${demoName} demo works fine`, () => {
+      const wrapper = mount(mapper[demoName]);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputNumber center demo works fine 1`] = `
+exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m"
@@ -67,7 +67,7 @@ exports[`InputNumber center demo works fine 1`] = `
 </div>
 `;
 
-exports[`InputNumber defaultDemo demo works fine 1`] = `
+exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m"
@@ -133,7 +133,7 @@ exports[`InputNumber defaultDemo demo works fine 1`] = `
 </div>
 `;
 
-exports[`InputNumber disabled demo works fine 1`] = `
+exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m t-is-disabled"
@@ -201,7 +201,73 @@ exports[`InputNumber disabled demo works fine 1`] = `
 </div>
 `;
 
-exports[`InputNumber format demo works fine 1`] = `
+exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-m"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove"
+        fill="none"
+        height="1em"
+        style="font-size: medium;"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M3.5 7.35h9v1.3h-9v-1.3z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner t-input-number-text-align"
+        placeholder="输入"
+      />
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add"
+        fill="none"
+        height="1em"
+        style="font-size: medium;"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+          fill="currentColor"
+          fillOpacity="0.9"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+</div>
+`;
+
+exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m"
@@ -268,7 +334,7 @@ exports[`InputNumber format demo works fine 1`] = `
 </div>
 `;
 
-exports[`InputNumber left demo works fine 1`] = `
+exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m t-is-controls-right"
@@ -335,7 +401,28 @@ exports[`InputNumber left demo works fine 1`] = `
 </div>
 `;
 
-exports[`InputNumber size demo works fine 1`] = `
+exports[`InputNumber InputNumber normalVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-m t-input-number--normal"
+    modelvalue="3"
+  >
+    <!---->
+    <div
+      class="t-input"
+    >
+      <input
+        autocomplete="off"
+        class="t-input__inner"
+        placeholder=""
+      />
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-s"
@@ -523,7 +610,7 @@ exports[`InputNumber size demo works fine 1`] = `
 </div>
 `;
 
-exports[`InputNumber step demo works fine 1`] = `
+exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m"
@@ -560,72 +647,6 @@ exports[`InputNumber step demo works fine 1`] = `
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
         placeholder=""
-      />
-    </div>
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
-      type="button"
-    >
-      
-      
-      <svg
-        class="t-icon t-icon-add"
-        fill="none"
-        height="1em"
-        style="font-size: medium;"
-        viewBox="0 0 16 16"
-        width="1em"
-      >
-        <path
-          d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
-          fill="currentColor"
-          fillOpacity="0.9"
-        />
-      </svg>
-      
-      
-      
-    </button>
-  </div>
-</div>
-`;
-
-exports[`InputNumber undefined demo works fine 1`] = `
-<div>
-  <div
-    class="t-input-number t-size-m"
-  >
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
-      type="button"
-    >
-      
-      
-      <svg
-        class="t-icon t-icon-remove"
-        fill="none"
-        height="1em"
-        style="font-size: medium;"
-        viewBox="0 0 16 16"
-        width="1em"
-      >
-        <path
-          d="M3.5 7.35h9v1.3h-9v-1.3z"
-          fill="currentColor"
-          fillOpacity="0.9"
-        />
-      </svg>
-      
-      
-      
-    </button>
-    <div
-      class="t-input"
-    >
-      <input
-        autocomplete="off"
-        class="t-input__inner t-input-number-text-align"
-        placeholder="输入"
       />
     </div>
     <button

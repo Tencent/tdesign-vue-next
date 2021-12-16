@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select base demo works fine 1`] = `
+exports[`Select Select baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-select-base"
 >
@@ -261,6 +261,6268 @@ exports[`Select base demo works fine 1`] = `
         </svg>
         <!---->
         <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select collapsedVue demo works fine 1`] = `
+<div>
+  <!-- 选项过多时，可折叠 -->
+  <div
+    class="t-select-wrap"
+    modelvalue="1,3"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项一"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项一
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项二"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项二
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项三"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项三
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="选项一"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            选项一
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%; display: none;"
+          title="选项三"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            选项三
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+        >
+          <!---->
+          
+          +1
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <br />
+  <br />
+  <!-- 自定义折叠项内容，collapsedItems 为 function (value, count, size) -->
+  <div
+    class="t-select-wrap"
+    modelvalue="1,3"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项一"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项一
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项二"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项二
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项三"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项三
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="选项一"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            选项一
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%; display: none;"
+          title="选项三"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            选项三
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        <div
+          class="t-popup-reference"
+        >
+          <transition-stub>
+            <div
+              aria-hidden="true"
+              class="t-popup"
+              role="tooltip"
+              style="display: none;"
+            >
+              <div
+                class="t-popup-content"
+              >
+                
+                <!---->
+                
+                <!---->
+              </div>
+            </div>
+          </transition-stub>
+          
+          <span
+            style="color: rgb(237, 123, 47);"
+          >
+            +
+            1
+          </span>
+          
+        </div>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <br />
+  <br />
+  <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, size }-->
+  <div
+    class="t-select-wrap"
+    modelvalue="1,3"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项一"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项一
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项二"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项二
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项三"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项三
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="选项一"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            选项一
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%; display: none;"
+          title="选项三"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            选项三
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        
+        <div
+          class="t-popup-reference"
+        >
+          <transition-stub>
+            <div
+              aria-hidden="true"
+              class="t-popup"
+              role="tooltip"
+              style="display: none;"
+            >
+              <div
+                class="t-popup-content"
+              >
+                
+                
+                <p
+                  style="padding: 10px;"
+                >
+                  选项三
+                </p>
+                
+                
+                <!---->
+              </div>
+            </div>
+          </transition-stub>
+          
+          <span
+            style="color: rgb(0, 168, 112);"
+          >
+            +1
+          </span>
+          
+        </div>
+        
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select creatableVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 200px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项一"
+                >
+                  选项一
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项二"
+                >
+                  选项二
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项三"
+                >
+                  选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <div
+          class="t-input t-size-m t-select-input"
+          modelvalue=""
+        >
+          <!---->
+          <input
+            autocomplete="false"
+            class="t-input__inner"
+            placeholder="支持自定义创建"
+            type="text"
+          />
+          <!---->
+        </div>
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select customOptionsVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-select-options"
+>
+  <!-- 方式一：使用 options 自定义下拉选项内容 -->
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content tdesign-demo-select__overlay-option t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户一"
+                >
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户一
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户二"
+                >
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户二
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户三"
+                >
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户三
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户四"
+                >
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户四
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户五"
+                >
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户五
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户六"
+                >
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户六
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户七"
+                >
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户七
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户八"
+                >
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户八
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户九"
+                >
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户九
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          请选择
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <br />
+  <br />
+  <!-- 方式二：使用插槽自定义下拉选项内容 -->
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content tdesign-demo-select__overlay-option t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <li
+                class="t-select-empty t-size-m"
+              >
+                暂无数据
+              </li>
+              <ul
+                class="t-select__groups"
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户一"
+                >
+                  
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户一
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户二"
+                >
+                  
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户二
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户三"
+                >
+                  
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户三
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户四"
+                >
+                  
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户四
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户五"
+                >
+                  
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户五
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户六"
+                >
+                  
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户六
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户七"
+                >
+                  
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户七
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户八"
+                >
+                  
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户八
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="用户九"
+                >
+                  
+                  <div
+                    class="tdesign-demo__user-option"
+                  >
+                    <img
+                      src="https://tdesign.gtimg.com/site/avatar.jpg"
+                    />
+                    <div
+                      class="tdesign-demo__user-option-info"
+                    >
+                      <div>
+                        用户九
+                      </div>
+                      <div
+                        class="tdesign-demo__user-option-desc"
+                      >
+                        这是一段用户描述信息，可自定义内容
+                      </div>
+                    </div>
+                  </div>
+                  
+                </li>
+                
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          请选择
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select customSelectedVue demo works fine 1`] = `
+<div>
+  <!-- 自定义选中项内容，valueDisplay 为渲染函数（function） -->
+  <div
+    class="t-select-wrap"
+    modelvalue="1,2,3"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项一"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项一
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项二"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项二
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项三"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项三
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项四"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项四
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项五"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项五
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项六"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项六
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项七"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项七
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项八"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项八
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项九"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项九
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        >
+          <!---->
+          
+          选项一
+          (
+          1
+          )
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        >
+          <!---->
+          
+          选项二
+          (
+          2
+          )
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        >
+          <!---->
+          
+          选项三
+          (
+          3
+          )
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +3
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <br />
+  <br />
+  <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
+  <div
+    class="t-select-wrap"
+    modelvalue="4,5,6,7"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项一"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项一
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项二"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项二
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项三"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项三
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项四"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项四
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项五"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项五
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项六"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项六
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项七"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项七
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项八"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项八
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项九"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项九
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        >
+          <!---->
+          
+          选项四(4) 
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        >
+          <!---->
+          
+          选项五(5) 
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        >
+          <!---->
+          
+          选项七(6) 
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        >
+          <!---->
+          
+          选项八(7) 
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +4
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select disabledVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 200px; display: inline-block; margin-right: 20px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-is-disabled t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项一"
+                >
+                  选项一
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项二"
+                >
+                  选项二
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项三"
+                >
+                  选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-is-disabled t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          -请选择-
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-select-wrap"
+    modelvalue="shanghai,beijing"
+    style="width: 200px; display: inline-block;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-is-disabled t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项一"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项一
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项二"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项二
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项三"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项三
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-is-disabled t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-is-disabled t-tag--disabled"
+          style="max-width: 100%;"
+          title="shanghai"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            shanghai
+            
+          </span>
+          <!---->
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-is-disabled t-tag--disabled"
+          style="max-width: 100%;"
+          title="beijing"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            beijing
+            
+          </span>
+          <!---->
+        </span>
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +2
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select filterableVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 200px; display: inline-block; margin: 0px 20px 20px 0px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项一"
+                >
+                  选项一
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项二"
+                >
+                  选项二
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项三"
+                >
+                  选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <div
+          class="t-input t-size-m t-select-input"
+          modelvalue=""
+        >
+          <!---->
+          <input
+            autocomplete="false"
+            class="t-input__inner"
+            placeholder="-请选择-"
+            type="text"
+          />
+          <!---->
+        </div>
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 400px; display: inline-block;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项一"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项一
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项二"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项二
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项三"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项三
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <div
+          class="t-input t-size-m t-select-input"
+          modelvalue=""
+        >
+          <!---->
+          <input
+            autocomplete="false"
+            class="t-input__inner"
+            placeholder="-请选择-"
+            type="text"
+          />
+          <!---->
+        </div>
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select groupVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-select-base"
+>
+  <!-- 方式一：直接传 options 数据，比插槽的方式更简单 -->
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-option-group t-size-m"
+                >
+                  <ul
+                    class="t-option-group-header"
+                  >
+                    分组一
+                  </ul>
+                  <ul>
+                    
+                    <ul>
+                      
+                      
+                    </ul>
+                    
+                  </ul>
+                </li>
+                <li
+                  class="t-option-group t-size-m"
+                >
+                  <ul
+                    class="t-option-group-header"
+                  >
+                    分组二
+                  </ul>
+                  <ul>
+                    
+                    <ul>
+                      
+                      
+                    </ul>
+                    
+                  </ul>
+                </li>
+                <li
+                  class="t-option-group t-size-m"
+                >
+                  <ul
+                    class="t-option-group-header"
+                  >
+                    分组三
+                  </ul>
+                  <ul>
+                    
+                    <ul>
+                      
+                      
+                    </ul>
+                    
+                  </ul>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          请选择城市
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <!-- 方式二：使用插槽节点 -->
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <li
+                class="t-select-empty t-size-m"
+              >
+                暂无数据
+              </li>
+              <ul
+                class="t-select__groups"
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-option-group t-size-m"
+                >
+                  <ul
+                    class="t-option-group-header"
+                  >
+                    分组一
+                  </ul>
+                  <ul>
+                    
+                    
+                    <li
+                      class="t-select-option t-size-m"
+                      title="选项一"
+                    >
+                      
+                      选项一
+                      
+                    </li>
+                    <li
+                      class="t-select-option t-size-m"
+                      title="选项二"
+                    >
+                      
+                      选项二
+                      
+                    </li>
+                    
+                    
+                  </ul>
+                </li>
+                <li
+                  class="t-option-group t-size-m"
+                >
+                  <ul
+                    class="t-option-group-header"
+                  >
+                    分组二
+                  </ul>
+                  <ul>
+                    
+                    
+                    <li
+                      class="t-select-option t-size-m"
+                      title="选项三"
+                    >
+                      
+                      选项三
+                      
+                    </li>
+                    <li
+                      class="t-select-option t-size-m"
+                      title="选项四"
+                    >
+                      
+                      选项四
+                      
+                    </li>
+                    <li
+                      class="t-select-option t-size-m"
+                      title="选项五"
+                    >
+                      
+                      选项五
+                      
+                    </li>
+                    
+                    
+                  </ul>
+                </li>
+                <li
+                  class="t-option-group t-size-m"
+                >
+                  <ul
+                    class="t-option-group-header"
+                  >
+                    分组三
+                  </ul>
+                  <ul>
+                    
+                    
+                    <li
+                      class="t-select-option t-size-m"
+                      title="选项六"
+                    >
+                      
+                      选项六
+                      
+                    </li>
+                    <li
+                      class="t-select-option t-size-m"
+                      title="选项七"
+                    >
+                      
+                      选项七
+                      
+                    </li>
+                    <li
+                      class="t-select-option t-size-m"
+                      title="选项八"
+                    >
+                      
+                      选项八
+                      
+                    </li>
+                    
+                    
+                  </ul>
+                </li>
+                
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          请选择城市
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select labelInValueVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-select-wrap"
+    modelvalue="[object Object]"
+    style="width: 200px; display: inline-block; margin-right: 20px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected t-size-m"
+                  title="选项一"
+                >
+                  选项一
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项二"
+                >
+                  选项二
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项三"
+                >
+                  选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <span
+          class="t-select-selectedSingle"
+          title="选项一"
+        >
+          选项一
+        </span>
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-select-wrap"
+    modelvalue="[object Object]"
+    style="width: 200px; display: inline-block;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="选项一"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项一
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项二"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项二
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项三"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项三
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="选项一"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            选项一
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +1
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select maxVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 400px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项一"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项一
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项二"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项二
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="选项三"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      选项三
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          -请选择-
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select multipleVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-select-base"
+>
+  <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
+  <div
+    class="t-select-wrap"
+    modelvalue="1,3"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="架构云"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      架构云
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="大数据"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      大数据
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="区块链"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      区块链
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-disabled t-is-selected-multiple t-size-m"
+                  title="物联网"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-disabled"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      disabled=""
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      物联网
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="人工智能"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      人工智能
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="计算场景"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      <span>
+                        计算场景（高性能计算）
+                      </span>
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="架构云"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            架构云
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%; display: none;"
+          title="区块链"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            区块链
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+        >
+          <!---->
+          
+          +1
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <br />
+  <br />
+  <!-- 自定义选中项内容，valueDisplay 为 function -->
+  <div
+    class="t-select-wrap"
+    modelvalue="1,2,3,4,5,6"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <li
+                class="t-select-empty t-size-m"
+              >
+                暂无数据
+              </li>
+              <ul
+                class="t-select__groups"
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="云服务器"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      云服务器
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="云数据库"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      云数据库
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="域名注册"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      域名注册
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="网站备案"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      网站备案
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="对象存储"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      对象存储
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="低代码平台"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      低代码平台
+                      
+                    </span>
+                  </label>
+                </li>
+                
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="1"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            1
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="2"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            2
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="3"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            3
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="4"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            4
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="5"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            5
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="6"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            6
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +6
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <br />
+  <br />
+  <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
+  <div
+    class="t-select-wrap"
+    modelvalue="3,5,6,2"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m"
+                  title="架构云"
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      架构云
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="大数据"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      大数据
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="区块链"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      区块链
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-disabled t-is-selected-multiple t-size-m"
+                  title="物联网"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-disabled"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      disabled=""
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      物联网
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="人工智能"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      人工智能
+                      
+                    </span>
+                  </label>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-is-selected-multiple t-size-m"
+                  title="计算场景"
+                >
+                  <label
+                    class="t-checkbox undefined t-is-checked"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      <span>
+                        计算场景（高性能计算）
+                      </span>
+                      
+                    </span>
+                  </label>
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="区块链"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            区块链
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%;"
+          title="人工智能"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            人工智能
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%; display: none;"
+          title="计算场景"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            计算场景
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          style="max-width: 100%; display: none;"
+          title="大数据"
+        >
+          <!---->
+          <span
+            class="t-tag--text"
+            style="max-width: 100%px;"
+          >
+            
+            大数据
+            
+          </span>
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+        >
+          <!---->
+          
+          +2
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select noborderVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-select-wrap"
+    modelvalue="1"
+    style="width: 200px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected t-size-m"
+                  title="已选择的选项"
+                >
+                  已选择的选项
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="短的选项二"
+                >
+                  短的选项二
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="很长很长很长的选项三"
+                >
+                  很长很长很长的选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m t-no-border"
+      >
+        <!---->
+        <!---->
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <span
+          class="t-select-selectedSingle"
+          title="已选择的选项"
+        >
+          已选择的选项
+        </span>
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select popupPropsVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-select-wrap"
+    modelvalue="1"
+    style="width: 200px; display: inline-block;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected t-size-m"
+                  title="已选择的选项"
+                >
+                  已选择的选项
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="短的选项二"
+                >
+                  短的选项二
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="很长很长很很长很长很长的选项三"
+                >
+                  很长很长很很长很长很长的选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <span
+          class="t-select-selectedSingle"
+          title="已选择的选项"
+        >
+          已选择的选项
+        </span>
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-select-wrap"
+    modelvalue="1"
+    style="width: 200px; display: inline-block; margin-left: 20px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-is-selected t-size-m"
+                  title="已选择的选项"
+                >
+                  已选择的选项
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="短的选项二"
+                >
+                  短的选项二
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="很长很长很很长很长很长的选项三"
+                >
+                  很长很长很很长很长很长的选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <span
+          class="t-select-selectedSingle"
+          title="已选择的选项"
+        >
+          已选择的选项
+        </span>
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select prefixVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 200px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项一"
+                >
+                  选项一
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项二"
+                >
+                  选项二
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项三"
+                >
+                  选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m t-has-prefix"
+      >
+        <span
+          class="t-select-left-icon"
+        >
+          <svg
+            class="t-icon t-icon-browse"
+          >
+            <use
+              href="#t-icon-browse"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-select-placeholder"
+        >
+           
+          -请选择-
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select remoteSearchVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 200px; display: inline-block; margin: 0px 20px 20px 0px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项一"
+                >
+                  选项一
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项二"
+                >
+                  选项二
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项三"
+                >
+                  选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <div
+          class="t-input t-size-m t-select-input"
+          modelvalue=""
+        >
+          <!---->
+          <input
+            autocomplete="false"
+            class="t-input__inner"
+            placeholder="-请选择-"
+            type="text"
+          />
+          <!---->
+        </div>
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 400px; display: inline-block;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected-multiple t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  <label
+                    class="t-checkbox undefined"
+                    modelvalue="false"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      
+                      
+                    </span>
+                  </label>
+                </li>
+              </ul>
+              <!---->
+              <li
+                class="t-select-empty t-size-m"
+              >
+                暂无数据
+              </li>
+              <ul
+                class="t-select__groups"
+                style="display: none;"
+              >
+                <!---->
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <!---->
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <div
+          class="t-input t-size-m t-select-input"
+          modelvalue=""
+        >
+          <!---->
+          <input
+            autocomplete="false"
+            class="t-input__inner"
+            placeholder="-请输入搜索-"
+            type="text"
+          />
+          <!---->
+        </div>
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select sizeVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 200px; display: inline-block; margin-right: 20px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-s t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <li
+                class="t-select-empty t-size-s"
+              >
+                暂无数据
+              </li>
+              <ul
+                class="t-select__groups"
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-select-option t-size-s"
+                  title="选项一"
+                >
+                  
+                  选项一
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-s"
+                  title="选项二"
+                >
+                  
+                  选项二
+                  
+                </li>
+                <li
+                  class="t-select-option t-size-s"
+                  title="选项三"
+                >
+                  
+                  选项三
+                  
+                </li>
+                
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-s"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          -请选择-
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-s t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 200px; display: inline-block; margin-right: 20px;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项一"
+                >
+                  选项一
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项二"
+                >
+                  选项二
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项三"
+                >
+                  选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          -请选择-
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+    style="width: 200px; display: inline-block;"
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-l t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-l"
+                  title="选项一"
+                >
+                  选项一
+                </li>
+                <li
+                  class="t-select-option t-size-l"
+                  title="选项二"
+                >
+                  选项二
+                </li>
+                <li
+                  class="t-select-option t-size-l"
+                  title="选项三"
+                >
+                  选项三
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-l"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          -请选择-
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-l t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Select statusVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-select-base"
+>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="架构云"
+                >
+                  架构云
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="大数据"
+                >
+                  大数据
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="区块链"
+                >
+                  区块链
+                </li>
+                <li
+                  class="t-select-option t-is-disabled t-size-m"
+                  title="物联网"
+                >
+                  物联网
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="人工智能"
+                >
+                  人工智能
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          请选择云解决方案
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-is-disabled t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="架构云"
+                >
+                  架构云
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="大数据"
+                >
+                  大数据
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="区块链"
+                >
+                  区块链
+                </li>
+                <li
+                  class="t-select-option t-is-disabled t-size-m"
+                  title="物联网"
+                >
+                  物联网
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="人工智能"
+                >
+                  人工智能
+                </li>
+                
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-is-disabled t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          请选择云解决方案
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select-right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <div
+    class="t-select-wrap"
+    modelvalue=""
+  >
+    <div
+      class="t-popup-reference t-select-popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup-content t-select-dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <ul
+                class="t-select-create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select-create-option-special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <li
+                class="t-select-loading-tips t-size-m"
+              >
+                加载中
+              </li>
+              <!---->
+              <ul
+                class="t-select__groups"
+                style="display: none;"
+              >
+                <!---->
+              </ul>
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select-placeholder"
+        >
+           
+          请选择云解决方案
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div
+          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
+        >
+          <svg
+            class="t-loading__gradient t-icon-loading"
+            height="1em"
+            size="small"
+            version="1.1"
+            viewBox="0 0 14 14"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <foreignobject
+              height="12"
+              width="12"
+              x="1"
+              y="1"
+            >
+              <div
+                class="t-loading__gradient-conic"
+              />
+            </foreignobject>
+          </svg>
+          <!---->
+        </div>
       </div>
       
     </div>

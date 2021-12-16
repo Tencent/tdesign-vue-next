@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Anchor base demo works fine 1`] = `
+exports[`Anchor Anchor baseVue demo works fine 1`] = `
 <div
   class="anchor-demo"
   id="#default"
@@ -98,7 +98,352 @@ exports[`Anchor base demo works fine 1`] = `
 </div>
 `;
 
-exports[`Anchor bounds demo works fine 1`] = `
+exports[`Anchor Anchor containerVue demo works fine 1`] = `
+<div
+  class="anchor-demo anchor-container-demo"
+  id="#container"
+>
+  <div
+    class="t-anchor t-size-m"
+    id="#default"
+  >
+    <div
+      class="t-anchor__line"
+    >
+      <div
+        class="t-anchor__line-cursor-wrapper"
+      >
+        <div
+          class="cursor"
+        />
+      </div>
+    </div>
+    
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##content-1"
+        target="_self"
+        title="content-1"
+      >
+        content-1
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##content-2"
+        target="_self"
+        title="content-2"
+      >
+        content-2
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##content-3"
+        target="_self"
+        title="content-3"
+      >
+        content-3
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##content-4"
+        target="_self"
+        title="content-4"
+      >
+        content-4
+      </a>
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    id="anchor-container"
+  >
+    <div
+      class="anchor-content-1"
+      id="#content-1"
+    >
+      anchor-content-1
+    </div>
+    <div
+      class="anchor-content-2"
+      id="#content-2"
+    >
+      anchor-content-2
+    </div>
+    <div
+      class="anchor-content-3"
+      id="#content-3"
+    >
+      anchor-content-3
+    </div>
+    <div
+      class="anchor-content-4"
+      id="#content-4"
+    >
+      anchor-content-4
+    </div>
+    <div
+      class="anchor-content-5"
+      id="#content-5"
+    >
+      anchor-content-5
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Anchor Anchor cursorVue demo works fine 1`] = `
+<div
+  class="anchor-demo"
+>
+  <div
+    class="t-anchor t-size-m"
+  >
+    <div
+      class="t-anchor__line"
+    >
+      <div
+        class="t-anchor__line-cursor-wrapper"
+      >
+        
+        <div
+          class="test-cursor"
+        />
+        
+      </div>
+    </div>
+    
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##default"
+        target="_self"
+        title="定义"
+      >
+        定义
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##multiple"
+        target="_self"
+        title="服务功能"
+      >
+        服务功能
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##small"
+        target="_self"
+        title="使用指南"
+      >
+        使用指南
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##large"
+        target="_self"
+        title="创建签名"
+      >
+        创建签名
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##container"
+        target="_self"
+        title="创建内容"
+      >
+        创建内容
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##anchor-target-6"
+        target="_self"
+        title="保密协议"
+      >
+        保密协议
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##anchor-target-7"
+        target="_self"
+        title="其他"
+      >
+        其他
+      </a>
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Anchor Anchor largeVue demo works fine 1`] = `
+<div
+  class="anchor-demo"
+  id="#large"
+>
+  <div
+    class="t-anchor t-size-l"
+  >
+    <div
+      class="t-anchor__line"
+    >
+      <div
+        class="t-anchor__line-cursor-wrapper"
+      >
+        <div
+          class="cursor"
+        />
+      </div>
+    </div>
+    
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##default"
+        target="_self"
+        title="定义"
+      >
+        定义
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##multiple"
+        target="_self"
+        title="服务功能"
+      >
+        服务功能
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##small"
+        target="_self"
+        title="使用指南"
+      >
+        使用指南
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##large"
+        target="_self"
+        title="创建签名"
+      >
+        创建签名
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##container"
+        target="_self"
+        title="创建内容"
+      >
+        创建内容
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##anchor-target-6"
+        target="_self"
+        title="保密协议"
+      >
+        保密协议
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##anchor-target-7"
+        target="_self"
+        title="其他"
+      >
+        其他
+      </a>
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Anchor Anchor multipleVue demo works fine 1`] = `
 <div
   class="anchor-demo"
   id="#multiple"
@@ -215,7 +560,123 @@ exports[`Anchor bounds demo works fine 1`] = `
 </div>
 `;
 
-exports[`Anchor target demo works fine 1`] = `
+exports[`Anchor Anchor smallVue demo works fine 1`] = `
+<div
+  class="anchor-demo"
+  id="#small"
+>
+  <div
+    class="t-anchor t-size-s"
+  >
+    <div
+      class="t-anchor__line"
+    >
+      <div
+        class="t-anchor__line-cursor-wrapper"
+      >
+        <div
+          class="cursor"
+        />
+      </div>
+    </div>
+    
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##default"
+        target="_self"
+        title="定义"
+      >
+        定义
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##multiple"
+        target="_self"
+        title="服务功能"
+      >
+        服务功能
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##small"
+        target="_self"
+        title="使用指南"
+      >
+        使用指南
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##large"
+        target="_self"
+        title="创建签名"
+      >
+        创建签名
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##container"
+        target="_self"
+        title="创建内容"
+      >
+        创建内容
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##anchor-target-6"
+        target="_self"
+        title="保密协议"
+      >
+        保密协议
+      </a>
+      <!---->
+    </div>
+    <div
+      class="t-anchor__item"
+    >
+      <a
+        class="t-anchor__item-link"
+        href="##anchor-target-7"
+        target="_self"
+        title="其他"
+      >
+        其他
+      </a>
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Anchor Anchor targetVue demo works fine 1`] = `
 <div
   class="anchor-demo"
   id="#anchor-target"

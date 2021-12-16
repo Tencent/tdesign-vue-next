@@ -1,0 +1,1498 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid Grid baseVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--grid"
+>
+  
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        2
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        3
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    
+    <div
+      class="t-col t-col-4"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        4
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-4"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        4
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-4"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        4
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    
+    <div
+      class="t-col t-col-6"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        6
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-6"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        6
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    
+    <div
+      class="t-col t-col-12"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        12
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  
+</div>
+`;
+
+exports[`Grid Grid flexVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--grid"
+>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-12"
+      style="flex: 2 2 0px; padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        2 / 5
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-12"
+      style="flex: 3 3 0px; padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        3 / 5
+      </div>
+      
+    </div>
+    
+  </div>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-12"
+      style="flex: 0 0 100px; padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        100px
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-12"
+      style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        auto
+      </div>
+      
+    </div>
+    
+  </div>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-12"
+      style="flex: 1 1 200px; padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1 1 200px
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-12"
+      style="flex: 0 1 300px; padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        0 1 300px
+      </div>
+      
+    </div>
+    
+  </div>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-12"
+      style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div
+        style="padding: 0px 16px;"
+      >
+        none
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-12"
+      style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        auto with no-wrap
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Grid Grid gutterVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--grid"
+>
+  <!-- 只指定水平 gutter，垂直默认为0 -->
+  <span>
+    水平 gutter 为固定值
+  </span>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: -8px; margin-right: -8px;"
+  >
+    
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    
+  </div>
+  <!-- 水平 gutter 为响应式 -->
+  <span>
+    水平 gutter 为响应式
+  </span>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: -12px; margin-right: -12px;"
+  >
+    
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    
+  </div>
+  <!-- 指定水平和垂直 gutter，注：垂直 gutter 只在同一个row组件下面的col组件之间生效 -->
+  <span>
+    水平和垂直 gutter 均为固定值
+  </span>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 24px;"
+  >
+    
+    
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  <!-- 水平 gutter 响应式，垂直 gutter 固定值-->
+  <span>
+    水平 gutter 响应式，垂直 gutter 固定值
+  </span>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="row-gap: 24px; margin-left: -12px; margin-right: -12px;"
+  >
+    
+    
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  <!-- 水平和垂直 gutter 均为响应式 -->
+  <span>
+    水平和垂直 gutter 均为响应式
+  </span>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: -12px; margin-right: -12px; row-gap: 24px;"
+  >
+    
+    
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    
+    
+  </div>
+</div>
+`;
+
+exports[`Grid Grid halignVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--grid"
+>
+  <span>
+    align left
+  </span>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    
+  </div>
+  <span>
+    align center
+  </span>
+  <div
+    class="t-row t-row--center t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    
+  </div>
+  <span>
+    align right
+  </span>
+  <div
+    class="t-row t-row--end t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    
+  </div>
+  <span>
+    space-between
+  </span>
+  <div
+    class="t-row t-row--space-between t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    
+  </div>
+  <span>
+    space-around
+  </span>
+  <div
+    class="t-row t-row--space-around t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-2
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Grid Grid offsetVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--grid"
+>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-4"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-4
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-4 t-col-offset-4"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-4 col-offset-4
+      </div>
+      
+    </div>
+    
+  </div>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-3 t-col-offset-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-3 col-offset-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3 t-col-offset-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-3 col-offset-3
+      </div>
+      
+    </div>
+    
+  </div>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-6 t-col-offset-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-6 col-offset-3
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Grid Grid orderVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--grid"
+>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-3 t-col-order-4"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        1 col-3-order-4
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3 t-col-order-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        2 col-3-order-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3 t-col-order-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        3 col-3-order-2
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3 t-col-order-1"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        4 col-3-order-1
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Grid Grid responsiveVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--grid"
+>
+  <span>
+    宽度响应式
+  </span>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-12 t-col-xs-2 t-col-sm-4 t-col-md-6 t-col-lg-8 t-col-xl-10"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        Col
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-12 t-col-xs-10 t-col-sm-8 t-col-md-6 t-col-lg-4 t-col-xl-2"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        Col
+      </div>
+      
+    </div>
+    
+  </div>
+  <span>
+    其他属性响应式（支持span，offset，order，pull，push）
+  </span>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-12 t-col-xs-3 t-col-xs-offset-0 t-col-sm-3 t-col-sm-offset-2 t-col-md-3 t-col-md-offset-4 t-col-lg-3 t-col-lg-offset-6 t-col-xl-3 t-col-xl-offset-8"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        Col
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Grid Grid sortVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--grid"
+>
+  <div
+    class="t-row t-row--start t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-9 t-col-push-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-9 col-pull-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3 t-col-pull-9"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-3 col-pull-9
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Grid Grid valignVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-item--grid"
+>
+  <p>
+    align top
+  </p>
+  <div
+    class="t-row t-row--center t-row--top"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div
+        style="height: 100px;"
+      >
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div
+        style="height: 100px;"
+      >
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    
+  </div>
+  <p>
+    align middle
+  </p>
+  <div
+    class="t-row t-row--space-around t-row--middle"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div
+        style="height: 100px;"
+      >
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div
+        style="height: 100px;"
+      >
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    
+  </div>
+  <p>
+    align bottom
+  </p>
+  <div
+    class="t-row t-row--space-between t-row--bottom"
+    style="margin-left: 0px; margin-right: 0px;"
+  >
+    
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div
+        style="height: 100px;"
+      >
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div
+        style="height: 100px;"
+      >
+        col-3
+      </div>
+      
+    </div>
+    <div
+      class="t-col t-col-3"
+      style="padding-left: 0px; padding-right: 0px;"
+    >
+      
+      <div>
+        col-3
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;

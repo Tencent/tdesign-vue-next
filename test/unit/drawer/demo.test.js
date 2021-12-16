@@ -1,51 +1,35 @@
+/**
+ * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
+ */
+
 import { mount } from '@vue/test-utils';
-import demo from '@/examples/drawer/demos/base.vue';
-import CurrentDOMModeUsageExample from '@/examples/drawer/demos/attach-parent.vue';
-import destroy from '@/examples/drawer/demos/destroy.vue';
-import CustomUsageExample from '@/examples/drawer/demos/custom.vue';
-import PopupUsageExample from '@/examples/drawer/demos/popup.vue';
-import NoMaskUsageExample from '@/examples/drawer/demos/no-mask.vue';
-import operation from '@/examples/drawer/demos/operation.vue';
-import PlacementUsageExample from '@/examples/drawer/demos/placement.vue';
-import SizeUsageExample from '@/examples/drawer/demos/size.vue';
+import attachParentVue from '@/examples/drawer/demos/attach-parent.vue';
+import baseVue from '@/examples/drawer/demos/base.vue';
+import customVue from '@/examples/drawer/demos/custom.vue';
+import destroyVue from '@/examples/drawer/demos/destroy.vue';
+import noMaskVue from '@/examples/drawer/demos/no-mask.vue';
+import operationVue from '@/examples/drawer/demos/operation.vue';
+import placementVue from '@/examples/drawer/demos/placement.vue';
+import popupVue from '@/examples/drawer/demos/popup.vue';
+import sizeVue from '@/examples/drawer/demos/size.vue';
 
-// unit test for component in examples.
+const mapper = {
+  attachParentVue,
+  baseVue,
+  customVue,
+  destroyVue,
+  noMaskVue,
+  operationVue,
+  placementVue,
+  popupVue,
+  sizeVue,
+};
+
 describe('Drawer', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(demo);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo CurrentDOMModeUsageExample wroks fine', () => {
-    const wrapper = mount(CurrentDOMModeUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it('Demo destroy wroks fine', () => {
-    const wrapper = mount(destroy);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo CustomUsageExample wroks fine', () => {
-    const wrapper = mount(CustomUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo PopupUsageExample wroks fine', () => {
-    const wrapper = mount(PopupUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo NoMaskUsageExample wroks fine', () => {
-    const wrapper = mount(NoMaskUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo operation wroks fine', () => {
-    const wrapper = mount(operation);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo PlacementUsageExample wroks fine', () => {
-    const wrapper = mount(PlacementUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('Demo SizeUsageExample wroks fine', () => {
-    const wrapper = mount(SizeUsageExample);
-    expect(wrapper.element).toMatchSnapshot();
+  Object.keys(mapper).forEach((demoName) => {
+    it(`Drawer ${demoName} demo works fine`, () => {
+      const wrapper = mount(mapper[demoName]);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });

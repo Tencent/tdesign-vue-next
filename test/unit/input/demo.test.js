@@ -1,39 +1,37 @@
+/**
+ * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
+ */
+
 import { mount } from '@vue/test-utils';
-import base from '@/examples/input/demos/base.vue';
-import addon from '@/examples/input/demos/addon.vue';
-import group from '@/examples/input/demos/group.vue';
-import password from '@/examples/input/demos/password.vue';
-import disabled from '@/examples/input/demos/disabled.vue';
-import status from '@/examples/input/demos/status.vue';
-import size from '@/examples/input/demos/size.vue';
+import addonVue from '@/examples/input/demos/addon.vue';
+import baseVue from '@/examples/input/demos/base.vue';
+import clearableVue from '@/examples/input/demos/clearable.vue';
+import disabledVue from '@/examples/input/demos/disabled.vue';
+import focusVue from '@/examples/input/demos/focus.vue';
+import groupVue from '@/examples/input/demos/group.vue';
+import passwordVue from '@/examples/input/demos/password.vue';
+import sizeVue from '@/examples/input/demos/size.vue';
+import statusVue from '@/examples/input/demos/status.vue';
+import textareaVue from '@/examples/input/demos/textarea.vue';
+
+const mapper = {
+  addonVue,
+  baseVue,
+  clearableVue,
+  disabledVue,
+  focusVue,
+  groupVue,
+  passwordVue,
+  sizeVue,
+  statusVue,
+  textareaVue,
+};
 
 describe('Input', () => {
-  it('base demo works fine', () => {
-    const wrapper = mount(base);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('addon demo works fine', () => {
-    const wrapper = mount(addon);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('group demo works fine', () => {
-    const wrapper = mount(group);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('password demo works fine', () => {
-    const wrapper = mount(password);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('disabled demo works fine', () => {
-    const wrapper = mount(disabled);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('status demo works fine', () => {
-    const wrapper = mount(status);
-    expect(wrapper.element).toMatchSnapshot();
-  });
-  it('size demo works fine', () => {
-    const wrapper = mount(size);
-    expect(wrapper.element).toMatchSnapshot();
+  Object.keys(mapper).forEach((demoName) => {
+    it(`Input ${demoName} demo works fine`, () => {
+      const wrapper = mount(mapper[demoName]);
+      expect(wrapper.element).toMatchSnapshot();
+    });
   });
 });
