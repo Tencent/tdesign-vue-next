@@ -50,7 +50,7 @@ function InitDragEvent(dragBox: HTMLElement) {
 }
 export default defineComponent({
   ...mixins(ActionMixin, getConfigReceiverMixins<DialogConfig>('dialog')),
-  name,
+  name: 'TDialog',
   components: {
     CloseIcon,
     InfoCircleFilledIcon,

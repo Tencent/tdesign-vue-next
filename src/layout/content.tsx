@@ -4,7 +4,7 @@ import { prefix } from '../config';
 const name = `${prefix}-content`;
 
 export default defineComponent({
-  name,
+  name: 'TContent',
 
   props: {},
 

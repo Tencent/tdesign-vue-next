@@ -18,7 +18,7 @@ const fullClass = `${prefix}-loading--full`;
 const inheritColorClass = `${prefix}-loading--inherit-color`;
 
 export default defineComponent({
-  name,
+  name: 'TLoading',
 
   directives: {
     TransferDom,

@@ -35,7 +35,7 @@ const DEFAULT_MAX_OVERLAY_WIDTH = 500;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<SelectConfig>('select')),
-  name,
+  name: 'TSelect',
   components: {
     CloseCircleFilledIcon,
     TInput,

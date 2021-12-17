@@ -8,7 +8,7 @@ import { ClassName } from '../common';
 const name = `${prefix}-option-group`;
 
 export default defineComponent({
-  name,
+  name: 'TOptionGroup',
   inject: {
     tSelect: {
       default: undefined,

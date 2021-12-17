@@ -9,7 +9,7 @@ import { ClassName, TNodeReturnValue } from '../common';
 const name = `${prefix}-switch`;
 
 export default defineComponent({
-  name,
+  name: 'TSwitch',
   props: { ...props },
   emits: ['change'],
   computed: {

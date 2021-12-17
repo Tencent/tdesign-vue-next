@@ -1,5 +1,4 @@
 import { defineComponent, nextTick, ComponentPublicInstance } from 'vue';
-import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
 import { on, off, getScroll, scrollTo, getScrollContainer } from '../utils/dom';
@@ -12,8 +11,6 @@ import { COMPONENT_NAME } from './constant';
 const ANCHOR_LINE_CLASSNAME = `${COMPONENT_NAME}__line`;
 const ANCHOR_LINE_CURSOR_CLASSNAME = `${COMPONENT_NAME}__line-cursor`;
 
-const name = `${prefix}-anchor`;
-
 export interface Anchor extends ComponentPublicInstance {
   scrollContainer: ANCHOR_CONTAINER;
   // 执行scrollTo设置的flag, 用来禁止执行handleScroll
@@ -21,7 +18,7 @@ export interface Anchor extends ComponentPublicInstance {
 }
 
 export default defineComponent({
-  name,
+  name: 'TAnchor',
 
   provide(): any {
     return {

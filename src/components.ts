@@ -59,5 +59,4 @@ export * from './swiper';
 export * from './upload';
 
 // 全局配置
-export * from './locale';
 export * from './config-provider';

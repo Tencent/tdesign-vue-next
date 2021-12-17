@@ -17,7 +17,7 @@ type IconConstructor = typeof InfoCircleFilledIcon;
 
 export default defineComponent({
   ...mixins(ActionMixin, getConfigReceiverMixins<PopconfirmConfig>('popconfirm')),
-  name,
+  name: 'TPopconfirm',
   props,
   emits: ['close', 'cancel', 'confirm', 'visible-change'],
   data() {

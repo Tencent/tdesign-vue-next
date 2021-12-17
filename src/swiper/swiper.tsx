@@ -6,7 +6,7 @@ import { TVNode } from '../common';
 const name = `${prefix}-swiper`;
 
 export default defineComponent({
-  name,
+  name: 'TSwiper',
   components: {},
 
   props: { ...props },

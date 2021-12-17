@@ -25,7 +25,7 @@ import { getMark, getNode, emitEvent } from './util';
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TreeConfig>('tree')),
-  name: TREE_NAME,
+  name: 'TTree',
   components: { TransitionGroup },
   props,
   data() {

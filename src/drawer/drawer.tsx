@@ -18,8 +18,7 @@ const name = `${prefix}-drawer`;
 
 export default defineComponent({
   ...mixins(ActionMixin, getConfigReceiverMixins<DrawerConfig>('drawer')),
-
-  name,
+  name: 'TDrawer',
 
   components: {
     CloseIcon,

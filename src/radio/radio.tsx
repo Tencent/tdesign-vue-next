@@ -18,7 +18,7 @@ function getValidAttrs(obj: Record<string, any>): Record<string, any> {
 }
 
 export default defineComponent({
-  name,
+  name: 'TRadio',
   inject: {
     radioGroup: { default: undefined },
     radioButton: { default: undefined },

@@ -7,10 +7,8 @@ import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
 import { ClassName } from '../common';
 
-const name = `${prefix}-menu`;
-
 export default defineComponent({
-  name,
+  name: 'TMenu',
   props: { ...props },
   setup(props, ctx) {
     const mode = ref(props.expandType);

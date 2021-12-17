@@ -34,7 +34,7 @@ import { CascaderChangeSource, CascaderValue, CascaderChangeContext } from './ty
 const name = `${prefix}-cascader`;
 
 export default defineComponent({
-  name,
+  name: 'TCascader',
 
   components: {
     Popup,

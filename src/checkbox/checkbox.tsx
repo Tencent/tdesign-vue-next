@@ -7,7 +7,7 @@ import { ClassName } from '../common';
 const name = `${prefix}-checkbox`;
 
 export default defineComponent({
-  name,
+  name: 'TCheckbox',
   inheritAttrs: false,
   props: { ...checkboxProps },
   emits: ['change'],

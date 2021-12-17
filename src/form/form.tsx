@@ -14,7 +14,7 @@ type Result = FormValidateResult<TdFormProps['data']>;
 const name = `${prefix}-form`;
 
 export default defineComponent({
-  name,
+  name: 'TForm',
 
   provide(): { form: ComponentPublicInstance } {
     return {

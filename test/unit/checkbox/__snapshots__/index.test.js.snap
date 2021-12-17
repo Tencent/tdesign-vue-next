@@ -299,7 +299,6 @@ exports[`Checkbox CheckboxGroup :props :max 1`] = `
   >
     <input
       class="t-checkbox__former"
-      name=""
       type="checkbox"
       value="bj"
     />
@@ -319,7 +318,6 @@ exports[`Checkbox CheckboxGroup :props :max 1`] = `
   >
     <input
       class="t-checkbox__former"
-      name=""
       type="checkbox"
       value="gz"
     />
@@ -339,7 +337,6 @@ exports[`Checkbox CheckboxGroup :props :max 1`] = `
   >
     <input
       class="t-checkbox__former"
-      name=""
       type="checkbox"
       value="sz"
     />
@@ -425,7 +422,6 @@ exports[`Checkbox CheckboxGroup :props :options 1`] = `
     <input
       class="t-checkbox__former"
       disabled=""
-      name=""
       type="checkbox"
       value="gz"
     />
@@ -445,7 +441,6 @@ exports[`Checkbox CheckboxGroup :props :options 1`] = `
   >
     <input
       class="t-checkbox__former"
-      name=""
       type="checkbox"
       value="sz"
     />

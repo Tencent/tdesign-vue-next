@@ -9,7 +9,7 @@ import { COMPONENT_NAME } from './constant';
 
 const name = `${COMPONENT_NAME}-target`;
 export default defineComponent({
-  name,
+  name: 'TAnchorTarget',
 
   components: {
     TPopup,

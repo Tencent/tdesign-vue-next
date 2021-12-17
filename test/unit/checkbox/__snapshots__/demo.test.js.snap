@@ -177,7 +177,6 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
       />
       <span
@@ -196,7 +195,6 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="1"
       />
@@ -216,7 +214,6 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="2"
       />
@@ -236,7 +233,6 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="3"
       />
@@ -295,7 +291,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="选项一"
       />
@@ -317,7 +312,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="选项二"
       />
@@ -337,7 +331,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="选项三"
       />
@@ -384,7 +377,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox undefined"
       modelvalue="false"
     >
       <input
@@ -459,7 +452,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
       />
       <span
@@ -478,7 +470,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="选项一"
       />
@@ -498,7 +489,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="选项二"
       />
@@ -520,7 +510,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="选项三"
       />
@@ -553,7 +542,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
       />
       <span
@@ -572,7 +560,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="选项一"
       />
@@ -592,7 +579,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="选项二"
       />
@@ -614,7 +600,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     >
       <input
         class="t-checkbox__former"
-        name=""
         type="checkbox"
         value="选项三"
       />
@@ -658,7 +643,6 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
-          name="city"
           type="checkbox"
           value="选项一"
         />
@@ -678,7 +662,6 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
-          name="city"
           type="checkbox"
           value="选项二"
         />
@@ -698,7 +681,6 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
       >
         <input
           class="t-checkbox__former"
-          name="city"
           type="checkbox"
           value="选项三"
         />

@@ -18,7 +18,7 @@ interface SliderButtonType {
   setPosition: (param: number) => {};
 }
 export default defineComponent({
-  name,
+  name: 'TSlider',
   components: {
     TSliderMark,
     TInputNumber: InputNumber,

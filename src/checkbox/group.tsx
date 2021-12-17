@@ -8,7 +8,7 @@ import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 const name = `${prefix}-checkbox-group`;
 
 export default defineComponent({
-  name,
+  name: 'TCheckboxGroup',
   components: {
     Checkbox,
   },

@@ -8,7 +8,7 @@ const { prefix } = config;
 const name = `${prefix}-tag`;
 
 export default defineComponent({
-  name: `${prefix}-check-tag`,
+  name: 'TCheckTag',
   props: { ...props },
   emits: ['click', 'change'],
   computed: {

@@ -1,10 +1,9 @@
 import { defineComponent } from 'vue';
-import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { TextareaValue } from './type';
-import { getPropsApiByEvent, getCharacterLength } from '../utils/helper';
+import { getCharacterLength } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 
 const name = `${prefix}-textarea`;
@@ -22,7 +21,7 @@ function getValidAttrs(obj: object): object {
 }
 
 export default defineComponent({
-  name,
+  name: 'TTextarea',
   inheritAttrs: false,
   props: { ...props },
   emits: ['input', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],

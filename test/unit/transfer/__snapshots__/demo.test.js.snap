@@ -103,7 +103,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -769,7 +769,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -866,7 +866,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -963,7 +963,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1060,7 +1060,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1157,7 +1157,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5742,399 +5742,64 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
         <div
           class="t-transfer-list__content narrow-scrollbar"
         >
-          
           <div
-            class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition"
+            class="t-checkbox-group"
             modelvalue=""
           >
-            <transition-group-stub>
-              
-              <div
-                class="t-tree__item t-tree__item--open"
-                data-level="0"
-                data-value="1"
-                style="--level: 0;"
-              >
-                
-                <span
-                  class="t-tree__icon t-folder-icon t-tree__icon--default"
-                  ignore="active"
-                  trigger="expand"
-                >
-                  <svg
-                    class="t-icon t-icon-caret-right-small"
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 16 16"
-                    width="1em"
-                  >
-                    <path
-                      d="M6 5v6l4.5-3L6 5z"
-                      fill="currentColor"
-                      fillOpacity="0.9"
-                    />
-                  </svg>
-                </span>
-                <label
-                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-                  ignore="expand,active"
-                  modelvalue="false"
-                >
-                  <input
-                    class="t-checkbox__former"
-                    name="1"
-                    type="checkbox"
-                  />
-                  <span
-                    class="t-checkbox__input"
-                  />
-                  <span
-                    class="t-checkbox__label"
-                  >
-                    
-                    1
-                    
-                  </span>
-                </label>
-                
-              </div>
-              <div
-                class="t-tree__item t-tree__item--open"
-                data-level="1"
-                data-value="1.1"
-                style="--level: 1;"
-              >
-                
-                <span
-                  class="t-tree__icon t-folder-icon"
-                  ignore="active"
-                  trigger="expand"
-                >
-                  
-                </span>
-                <label
-                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-                  ignore="expand,active"
-                  modelvalue="false"
-                >
-                  <input
-                    class="t-checkbox__former"
-                    name="1.1"
-                    type="checkbox"
-                  />
-                  <span
-                    class="t-checkbox__input"
-                  />
-                  <span
-                    class="t-checkbox__label"
-                  >
-                    
-                    1.1
-                    
-                  </span>
-                </label>
-                
-              </div>
-              <div
-                class="t-tree__item t-tree__item--open"
-                data-level="1"
-                data-value="1.2"
-                style="--level: 1;"
-              >
-                
-                <span
-                  class="t-tree__icon t-folder-icon t-tree__icon--default"
-                  ignore="active"
-                  trigger="expand"
-                >
-                  <svg
-                    class="t-icon t-icon-caret-right-small"
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 16 16"
-                    width="1em"
-                  >
-                    <path
-                      d="M6 5v6l4.5-3L6 5z"
-                      fill="currentColor"
-                      fillOpacity="0.9"
-                    />
-                  </svg>
-                </span>
-                <label
-                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-                  ignore="expand,active"
-                  modelvalue="false"
-                >
-                  <input
-                    class="t-checkbox__former"
-                    name="1.2"
-                    type="checkbox"
-                  />
-                  <span
-                    class="t-checkbox__input"
-                  />
-                  <span
-                    class="t-checkbox__label"
-                  >
-                    
-                    1.2
-                    
-                  </span>
-                </label>
-                
-              </div>
-              <div
-                class="t-tree__item t-tree__item--open"
-                data-level="2"
-                data-value="1.2.1"
-                style="--level: 2;"
-              >
-                
-                <span
-                  class="t-tree__icon t-folder-icon t-tree__icon--default"
-                  ignore="active"
-                  trigger="expand"
-                >
-                  <svg
-                    class="t-icon t-icon-caret-right-small"
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 16 16"
-                    width="1em"
-                  >
-                    <path
-                      d="M6 5v6l4.5-3L6 5z"
-                      fill="currentColor"
-                      fillOpacity="0.9"
-                    />
-                  </svg>
-                </span>
-                <label
-                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-                  ignore="expand,active"
-                  modelvalue="false"
-                >
-                  <input
-                    class="t-checkbox__former"
-                    name="1.2.1"
-                    type="checkbox"
-                  />
-                  <span
-                    class="t-checkbox__input"
-                  />
-                  <span
-                    class="t-checkbox__label"
-                  >
-                    
-                    1.2.1
-                    
-                  </span>
-                </label>
-                
-              </div>
-              <div
-                class="t-tree__item t-tree__item--open"
-                data-level="3"
-                data-value="1.2.1.1"
-                style="--level: 3;"
-              >
-                
-                <span
-                  class="t-tree__icon t-folder-icon"
-                  ignore="active"
-                  trigger="expand"
-                >
-                  
-                </span>
-                <label
-                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-                  ignore="expand,active"
-                  modelvalue="false"
-                >
-                  <input
-                    class="t-checkbox__former"
-                    name="1.2.1.1"
-                    type="checkbox"
-                  />
-                  <span
-                    class="t-checkbox__input"
-                  />
-                  <span
-                    class="t-checkbox__label"
-                  >
-                    
-                    1.2.1.1
-                    
-                  </span>
-                </label>
-                
-              </div>
-              <div
-                class="t-tree__item t-tree__item--open"
-                data-level="3"
-                data-value="1.2.1.2"
-                style="--level: 3;"
-              >
-                
-                <span
-                  class="t-tree__icon t-folder-icon"
-                  ignore="active"
-                  trigger="expand"
-                >
-                  
-                </span>
-                <label
-                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-                  ignore="expand,active"
-                  modelvalue="false"
-                >
-                  <input
-                    class="t-checkbox__former"
-                    name="1.2.1.2"
-                    type="checkbox"
-                  />
-                  <span
-                    class="t-checkbox__input"
-                  />
-                  <span
-                    class="t-checkbox__label"
-                  >
-                    
-                    1.2.1.2
-                    
-                  </span>
-                </label>
-                
-              </div>
-              <div
-                class="t-tree__item t-tree__item--open"
-                data-level="0"
-                data-value="2"
-                style="--level: 0;"
-              >
-                
-                <span
-                  class="t-tree__icon t-folder-icon t-tree__icon--default"
-                  ignore="active"
-                  trigger="expand"
-                >
-                  <svg
-                    class="t-icon t-icon-caret-right-small"
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 16 16"
-                    width="1em"
-                  >
-                    <path
-                      d="M6 5v6l4.5-3L6 5z"
-                      fill="currentColor"
-                      fillOpacity="0.9"
-                    />
-                  </svg>
-                </span>
-                <label
-                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-                  ignore="expand,active"
-                  modelvalue="false"
-                >
-                  <input
-                    class="t-checkbox__former"
-                    name="2"
-                    type="checkbox"
-                  />
-                  <span
-                    class="t-checkbox__input"
-                  />
-                  <span
-                    class="t-checkbox__label"
-                  >
-                    
-                    2
-                    
-                  </span>
-                </label>
-                
-              </div>
-              <div
-                class="t-tree__item t-tree__item--open"
-                data-level="1"
-                data-value="2.1"
-                style="--level: 1;"
-              >
-                
-                <span
-                  class="t-tree__icon t-folder-icon"
-                  ignore="active"
-                  trigger="expand"
-                >
-                  
-                </span>
-                <label
-                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-                  ignore="expand,active"
-                  modelvalue="false"
-                >
-                  <input
-                    class="t-checkbox__former"
-                    name="2.1"
-                    type="checkbox"
-                  />
-                  <span
-                    class="t-checkbox__input"
-                  />
-                  <span
-                    class="t-checkbox__label"
-                  >
-                    
-                    2.1
-                    
-                  </span>
-                </label>
-                
-              </div>
-              <div
-                class="t-tree__item t-tree__item--open"
-                data-level="1"
-                data-value="2.2"
-                style="--level: 1;"
-              >
-                
-                <span
-                  class="t-tree__icon t-folder-icon"
-                  ignore="active"
-                  trigger="expand"
-                >
-                  
-                </span>
-                <label
-                  class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
-                  ignore="expand,active"
-                  modelvalue="false"
-                >
-                  <input
-                    class="t-checkbox__former"
-                    name="2.2"
-                    type="checkbox"
-                  />
-                  <span
-                    class="t-checkbox__input"
-                  />
-                  <span
-                    class="t-checkbox__label"
-                  >
-                    
-                    2.2
-                    
-                  </span>
-                </label>
-                
-              </div>
-              
-            </transition-group-stub>
             <!---->
+            
+            
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  1
+                </span>
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              modelvalue="false"
+              props="[object Object]"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                <span>
+                  2
+                </span>
+                
+              </span>
+            </label>
+            
+            
           </div>
-          
         </div>
       </div>
       <!---->

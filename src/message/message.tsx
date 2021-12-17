@@ -16,7 +16,7 @@ import props from './props';
 const name = `${prefix}-message`;
 
 export default defineComponent({
-  name,
+  name: 'TMessage',
 
   props: { ...props },
 

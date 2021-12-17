@@ -5,7 +5,7 @@ import props from './aside-props';
 const name = `${prefix}-aside`;
 
 export default defineComponent({
-  name,
+  name: 'TAside',
 
   inject: {
     layout: {

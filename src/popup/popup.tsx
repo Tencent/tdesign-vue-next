@@ -34,7 +34,7 @@ const hideTimeout = 150;
 const triggers = ['click', 'hover', 'focus', 'context-menu'] as const;
 
 export default defineComponent({
-  name,
+  name: 'TPopup',
 
   components: {
     Transition,

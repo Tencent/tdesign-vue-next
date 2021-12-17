@@ -5,7 +5,7 @@ import props from './header-props';
 const name = `${prefix}-header`;
 
 export default defineComponent({
-  name,
+  name: 'THeader',
 
   props,
 

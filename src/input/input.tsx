@@ -20,7 +20,7 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 }
 
 export default defineComponent({
-  name,
+  name: 'TInput',
   inheritAttrs: false,
   props: { ...props },
   emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'input', 'focus', 'blur'],

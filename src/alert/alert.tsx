@@ -10,7 +10,7 @@ import { SlotReturnValue } from '../common';
 const name = `${prefix}-alert`;
 
 export default defineComponent({
-  name,
+  name: 'TAlert',
   props: { ...props },
   emits: ['close', 'closed'],
   data() {
