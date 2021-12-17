@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-item--grid">
+  <div class="tdesign-demo-block-column">
     <p>align top</p>
     <t-row align="top" justify="center">
       <t-col :span="3">

@@ -52,6 +52,9 @@ export default function mdToVue(options) {
         `
             : `<div name="DOC">${mdSegment.docMd}</div>`
         }
+        <div style="margin-top: 48px;">
+          <td-doc-history time="${mdSegment.lastUpdated}"></td-doc-history>
+        </div>
         <td-doc-footer slot="doc-footer"></td-doc-footer>
       </td-doc-content>
     </template>
@@ -135,6 +138,7 @@ function customRender({ source, file, md }) {
     tdDocHeader: true,
     tdDocTabs: DEAULT_TABS,
     apiFlag: /#+\s*API/,
+    lastUpdated: Math.round(fs.statSync(file).mtimeMs),
     ...data,
   };
 
