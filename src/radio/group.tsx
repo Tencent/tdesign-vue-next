@@ -4,7 +4,7 @@ import isNumber from 'lodash/isNumber';
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption, RadioValue } from './type';
 import { prefix } from '../config';
-import Radio, { RADIO_BTN_NAME } from './radio';
+import Radio, { radioBtnName } from './radio';
 import { TNodeReturnValue } from '../common';
 import CLASSNAMES, { SIZE_CLASSNAMES } from '../utils/classnames';
 
@@ -28,8 +28,14 @@ export default defineComponent({
 
   data() {
     return {
-      barStyle: {},
+      barStyle: { width: '0px', left: '0px' },
+      observer: null,
     };
+  },
+  computed: {
+    checkedClassName() {
+      return `.${radioBtnName}.${CLASSNAMES.STATUS.checked}`;
+    },
   },
   watch: {
     value() {
@@ -47,16 +53,31 @@ export default defineComponent({
     handleRadioChange(value: RadioValue, context: { e: Event }) {
       this.$emit('change', value, context);
     },
+    calcDefaultBarStyle() {
+      const defaultNode = this.$el.cloneNode(true);
+      const div = document.createElement('div');
+      div.setAttribute('style', 'position: absolute; visibility: hidden;');
+      div.appendChild(defaultNode);
+      document.body.appendChild(div);
+
+      const defaultCheckedRadio: HTMLElement = div.querySelector(this.checkedClassName);
+      const { offsetWidth, offsetLeft } = defaultCheckedRadio;
+      this.barStyle = { width: `${offsetWidth}px`, left: `${offsetLeft}px` };
+      document.body.removeChild(div);
+    },
     calcBarStyle() {
       if (this.buttonStyle !== 'solid' && this.variant === 'outline') return;
 
-      const checkedRadio: HTMLElement = this.$el.querySelector(`.${RADIO_BTN_NAME}.${CLASSNAMES.STATUS.checked}`);
-      if (!checkedRadio) {
-        this.barStyle = { width: 0, left: 0 };
-        return;
-      }
+      const checkedRadio: HTMLElement = this.$el.querySelector(this.checkedClassName);
+      if (!checkedRadio) return;
+
       const { offsetWidth, offsetLeft } = checkedRadio;
-      this.barStyle = { width: `${offsetWidth}px`, left: `${offsetLeft}px` };
+      // current node is not rendered，fallback to default render
+      if (!offsetWidth) {
+        this.calcDefaultBarStyle();
+      } else {
+        this.barStyle = { width: `${offsetWidth}px`, left: `${offsetLeft}px` };
+      }
     },
   },
 
