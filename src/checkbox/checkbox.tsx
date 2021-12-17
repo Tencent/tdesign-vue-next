@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue';
+import { renderContent } from '../utils/render-tnode';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import checkboxProps from './props';
@@ -8,6 +9,9 @@ const name = `${prefix}-checkbox`;
 
 export default defineComponent({
   name: 'TCheckbox',
+  inject: {
+    checkboxGroup: { default: undefined },
+  },
   inheritAttrs: false,
   props: { ...checkboxProps },
   emits: ['change'],
@@ -24,24 +28,23 @@ export default defineComponent({
         },
       ];
     },
-    checkboxGroup(): any {
-      return this.getGroup();
-    },
-    isCheckAllOption(): boolean {
-      return this.$attrs['data-name'] === 'TDESIGN_CHECK_ALL';
-    },
     disabled$(): boolean {
+      if (!this.checkAll && !this.checked$ && this.checkboxGroup?.maxExceeded) {
+        return true;
+      }
       if (this.disabled !== undefined) return this.disabled;
-      return !!(this.checkboxGroup && this.checkboxGroup.disabled);
+      return !!this.checkboxGroup?.disabled;
     },
     name$(): string {
-      return this.name || (this.checkboxGroup && this.checkboxGroup.name);
+      return this.name || this.checkboxGroup?.name;
     },
     checked$(): boolean {
-      if (this.checkboxGroup && this.checkboxGroup.checkedMap && !this.isCheckAllOption) {
-        return this.checkboxGroup.checkedMap[this.value];
-      }
-      return this.checked;
+      if (this.checkAll) return this.checkboxGroup?.isCheckAll;
+      return this.checkboxGroup ? !!this.checkboxGroup.checkedMap[this.value] : this.checked;
+    },
+    indeterminate$(): boolean {
+      if (this.checkAll) return this.checkboxGroup?.indeterminate;
+      return this.indeterminate;
     },
   },
 
@@ -49,27 +52,10 @@ export default defineComponent({
     handleChange(e: Event) {
       const target = e.target as HTMLInputElement;
       this.$emit('change', target.checked, { e });
-      typeof this.onChange === 'function' && this.onChange(target.checked, { e });
       e.stopPropagation();
       if (this.checkboxGroup && this.checkboxGroup.handleCheckboxChange && !this.isCheckAllOption) {
         this.checkboxGroup.handleCheckboxChange({ checked: target.checked, e, option: this.$props });
       }
-    },
-    getGroup() {
-      const groupName = `${prefix}-checkbox-group`;
-      let parent = this.$parent;
-      let i = 0;
-      while (parent && parent.$options) {
-        if (parent.$options.name === groupName) {
-          break;
-        }
-        parent = parent.$parent;
-        i += 1;
-        if (i >= 2) {
-          break;
-        }
-      }
-      return parent;
     },
   },
 
@@ -88,7 +74,7 @@ export default defineComponent({
           onChange={this.handleChange}
         ></input>
         <span class={`${name}__input`}></span>
-        <span class={`${name}__label`}>{this.$slots.default ? this.$slots.default(null) : null}</span>
+        <span class={`${name}__label`}>{renderContent(this, 'default', 'label')}</span>
       </label>
     );
   },

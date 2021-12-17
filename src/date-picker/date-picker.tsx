@@ -21,6 +21,7 @@ import TTimePickerPanel from '../time-picker/panel';
 import { EPickerCols } from '../time-picker/constant';
 import { firstUpperCase, extractTimeFormat } from './utils';
 import { DateValue, PickContext } from './interface';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 dayjs.extend(isBetween);
 
@@ -34,8 +35,6 @@ export default defineComponent({
   ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
   name: 'TDatePicker',
   components: {
-    CalendarIcon,
-    TimeIcon,
     TPopup,
     TButton,
     TInput,
@@ -643,6 +642,17 @@ export default defineComponent({
         [CLASSNAMES.STATUS.active]: this.isOpen,
       },
     ];
+    const prefixIcon = renderTNodeJSX(this, 'prefixIcon');
+    const suffixIconSlot = renderTNodeJSX(this, 'suffixIcon');
+    const suffixIcon = () => {
+      if (suffixIconSlot) {
+        return suffixIconSlot;
+      }
+      if (enableTimePicker) {
+        return <TimeIcon />;
+      }
+      return <CalendarIcon />;
+    };
     return (
       <div class={this.classes}>
         <t-popup
@@ -683,7 +693,8 @@ export default defineComponent({
               focus={this.onNativeFocus}
               input={this.onNativeInput}
               click={this.onClick}
-              suffixIcon={() => (enableTimePicker ? <TimeIcon /> : <CalendarIcon />)}
+              suffixIcon={suffixIcon}
+              prefixIcon={prefixIcon}
             ></t-input>
           </div>
         </t-popup>
