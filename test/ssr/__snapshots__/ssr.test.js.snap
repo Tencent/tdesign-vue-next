@@ -8220,7 +8220,7 @@ exports[`ssr snapshot test renders ./examples/checkbox/demos/controlled.vue corr
 <div>
   <!-- 单个 Checkbox 受控模式 --><label class="t-checkbox undefined t-is-checked" modelvalue="true"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->语法糖（v-model）<!--]--></span></label><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->受控属性<!--]--></span></label><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->非受控属性<!--]--></span></label><br><br><br><!-- 复选框框组受控模式 -->
   <div class="t-checkbox-group">
-    <!--[--><label class="t-checkbox undefined t-is-indeterminate" data-name="TDESIGN_CHECK_ALL"><input type="checkbox" class="t-checkbox__former" indeterminate="true" name><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全选<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->受控模式选项一<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->受控模式选项二<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->受控模式选项三<!--]--></span></label>
+    <!--[--><label class="t-checkbox undefined t-is-indeterminate" data-name="TDESIGN_CHECK_ALL"><input type="checkbox" class="t-checkbox__former" indeterminate="true"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全选<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->受控模式选项一<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->受控模式选项二<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->受控模式选项三<!--]--></span></label>
     <!--]-->
     <!---->
   </div>
@@ -8232,25 +8232,25 @@ exports[`ssr snapshot test renders ./examples/checkbox/demos/group.vue correctly
   <div>方式一：业务侧自定义全选功能。选中值: 选项一</div>
   <div><label class="t-checkbox undefined t-is-indeterminate" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="true"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全选<!--]--></span></label></div>
   <div class="t-checkbox-group">
-    <!--[--><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项一" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><div>选项一</div><!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项二"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项三"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label>
+    <!--[--><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项一" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><div>选项一</div><!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项二"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项三"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label>
     <!--]-->
     <!---->
   </div><br>
   <div>方式二：组件内置全选功能，使用插槽定义选项。选中值: 选项一</div>
   <div class="t-checkbox-group">
     <!---->
-    <!--[--><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项一" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项二"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项三"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label>
+    <!--[--><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项一"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项二"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项三"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label>
     <!--]-->
   </div><br>
   <div>方式三：组件内置全选功能，使用 \`options\` 定义选项。选中值: 选项一, 选项二, 选项三</div>
   <div class="t-checkbox-group">
-    <!--[--><label class="t-checkbox undefined t-is-checked" data-name="TDESIGN_CHECK_ALL"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全选<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项一" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项二" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><div>选项二</div><!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项三" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label>
+    <!--[--><label class="t-checkbox undefined t-is-checked" data-name="TDESIGN_CHECK_ALL"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全选<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项一" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项二" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><div>选项二</div><!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项三" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label>
     <!--]-->
     <!---->
   </div><br>
   <div>方式四：组件内置全选功能，非受控用法</div>
   <div class="t-checkbox-group">
-    <!--[--><label class="t-checkbox undefined t-is-indeterminate" data-name="TDESIGN_CHECK_ALL"><input type="checkbox" class="t-checkbox__former" indeterminate="true" name><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全选<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项一" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项二"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><div>选项二</div><!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="选项三"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label>
+    <!--[--><label class="t-checkbox undefined t-is-indeterminate" data-name="TDESIGN_CHECK_ALL"><input type="checkbox" class="t-checkbox__former" indeterminate="true"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全选<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项一" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项二"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><div>选项二</div><!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项三"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label>
     <!--]-->
     <!---->
   </div>
@@ -8265,7 +8265,7 @@ exports[`ssr snapshot test renders ./examples/checkbox/demos/link.vue correctly 
   <div class="demo-checkbox-row">
     <!-- name 非必需 -->
     <div class="t-checkbox-group">
-      <!--[--><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="city" value="选项一"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="city" value="选项二" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="city" value="选项三"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label>
+      <!--[--><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项一"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项二" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="选项三"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label>
       <!--]-->
       <!---->
     </div>
@@ -16489,7 +16489,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
         <div class="t-form__controls-content">
           <!--[-->
           <div class="t-checkbox-group">
-            <!--[--><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->语文<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->数学<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->英语<!--]--></span></label>
+            <!--[--><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="course" value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->语文<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="course" value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->数学<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="course" value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->英语<!--]--></span></label>
             <!--]-->
             <!---->
           </div>
@@ -16739,7 +16739,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
         <div class="t-form__controls-content">
           <!--[-->
           <div class="t-checkbox-group">
-            <!--[--><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->语文<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->数学<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->英语<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->体育<!--]--></span></label>
+            <!--[--><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="course" value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->语文<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="course" value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->数学<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="course" value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->英语<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="course" value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->体育<!--]--></span></label>
             <!--]-->
             <!---->
           </div>
@@ -28213,185 +28213,25 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
 <div class="tdesign-demo-block--swiper">
   <div class="t-swiper">
     <div class="t-swiper__content">
-      <div class="t-swiper__swiper-wrap--horizontal" style="width:400%;transform:translate3d(0%,0,0);transition:transform 0.3s;">
+      <div class="t-swiper__swiper-wrap--horizontal" style="width:0%;transform:translate3d(NaN%,0,0);transition:transform 0.3s;">
         <!--[-->
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--info">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--warning">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--error">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
         <!--]-->
       </div>
     </div>
     <ul class="t-swiper__trigger-wrap">
       <!--[-->
-      <li class="t-swiper__trigger--active"></li>
-      <li class=""></li>
-      <li class=""></li>
-      <li class=""></li>
       <!--]-->
     </ul>
   </div>
   <div class="t-swiper">
     <div class="t-swiper__content">
-      <div class="t-swiper__swiper-wrap--horizontal" style="width:400%;transform:translate3d(0%,0,0);transition:transform 0.5s;">
+      <div class="t-swiper__swiper-wrap--horizontal" style="width:0%;transform:translate3d(NaN%,0,0);transition:transform 0.5s;">
         <!--[-->
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--info">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--warning">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--error">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
         <!--]-->
       </div>
     </div>
     <ul class="t-swiper__trigger-wrap">
       <!--[-->
-      <li class="t-swiper__trigger--active"></li>
-      <li class=""></li>
-      <li class=""></li>
-      <li class=""></li>
       <!--]-->
     </ul>
   </div>
@@ -28401,93 +28241,13 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
 exports[`ssr snapshot test renders ./examples/swiper/demos/vertical.vue correctly 1`] = `
 <div class="t-swiper">
   <div class="t-swiper__content">
-    <div class="t-swiper__swiper-wrap--vertical" style="height:400%;transform:translate3d(0,0%,0);transition:transform 0.3s;">
+    <div class="t-swiper__swiper-wrap--vertical" style="height:0%;transform:translate3d(0,NaN%,0);transition:transform 0.3s;">
       <!--[-->
-      <div>
-        <!--[-->
-        <div class="t-alert t-alert--success">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-              <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
-        </div>
-        <!--]-->
-      </div>
-      <div>
-        <!--[-->
-        <div class="t-alert t-alert--info">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
-              <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
-        </div>
-        <!--]-->
-      </div>
-      <div>
-        <!--[-->
-        <div class="t-alert t-alert--warning">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-              <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
-        </div>
-        <!--]-->
-      </div>
-      <div>
-        <!--[-->
-        <div class="t-alert t-alert--error">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-              <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
-        </div>
-        <!--]-->
-      </div>
       <!--]-->
     </div>
   </div>
   <ul class="t-swiper__trigger-wrap">
     <!--[-->
-    <li class="t-swiper__trigger--active"></li>
-    <li class=""></li>
-    <li class=""></li>
-    <li class=""></li>
     <!--]-->
   </ul>
 </div>
@@ -29616,7 +29376,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                             <div class="t-table-filter-pop-content">
                               <div class="t-table-filter-pop-content__inner">
                                 <div class="t-checkbox-group">
-                                  <!--[--><label class="t-checkbox undefined" data-name="TDESIGN_CHECK_ALL"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->All<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="Skures"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Skures<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="Purves"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Purves<!--]--></span></label>
+                                  <!--[--><label class="t-checkbox undefined" data-name="TDESIGN_CHECK_ALL"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->All<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="Skures"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Skures<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="Purves"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Purves<!--]--></span></label>
                                   <!--]-->
                                   <!---->
                                 </div>
@@ -31832,7 +31592,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue corre
             <div slot="body">
               <div><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全选<!--]--></span></label></div>
               <div class="t-checkbox-group">
-                <!--[--><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="instance"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->集群名称<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="status"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->状态<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="owner"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->管理员<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="description"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->描述<!--]--></span></label>
+                <!--[--><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="instance"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->集群名称<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="status"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->状态<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="owner"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->管理员<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" value="description"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->描述<!--]--></span></label>
                 <!--]-->
                 <!---->
               </div>
@@ -36516,7 +36276,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/base.vue correctly 
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
@@ -36604,7 +36364,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
@@ -36612,7 +36372,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
+            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
               <!--]--></span>
@@ -36620,7 +36380,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
+            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
               <!--]--></span>
@@ -36628,7 +36388,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
+            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
               <!--]--></span>
@@ -36636,7 +36396,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
+            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
               <!--]--></span>
@@ -37339,49 +37099,17 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/tree.vue correctly 
       <div class="t-transfer-list__body">
         <!---->
         <div class="t-transfer-list__content narrow-scrollbar">
-          <!--[-->
-          <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition">
-            <div class="t-tree__list">
-              <div class="t-tree__item t-tree__item--open" data-value="1" data-level="0" style="--level: 0;">
-                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fillopacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1<!--]--></span></label>
-                <!--]-->
-              </div>
-              <div class="t-tree__item t-tree__item--open" data-value="1.1" data-level="1" style="--level: 1;">
-                <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1<!--]--></span></label>
-                <!--]-->
-              </div>
-              <div class="t-tree__item t-tree__item--open" data-value="1.2" data-level="1" style="--level: 1;">
-                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fillopacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2<!--]--></span></label>
-                <!--]-->
-              </div>
-              <div class="t-tree__item t-tree__item--open" data-value="1.2.1" data-level="2" style="--level: 2;">
-                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fillopacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.2.1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.1<!--]--></span></label>
-                <!--]-->
-              </div>
-              <div class="t-tree__item t-tree__item--open" data-value="1.2.1.1" data-level="3" style="--level: 3;">
-                <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.2.1.1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.1.1<!--]--></span></label>
-                <!--]-->
-              </div>
-              <div class="t-tree__item t-tree__item--open" data-value="1.2.1.2" data-level="3" style="--level: 3;">
-                <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.2.1.2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.1.2<!--]--></span></label>
-                <!--]-->
-              </div>
-              <div class="t-tree__item t-tree__item--open" data-value="2" data-level="0" style="--level: 0;">
-                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fillopacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2<!--]--></span></label>
-                <!--]-->
-              </div>
-              <div class="t-tree__item t-tree__item--open" data-value="2.1" data-level="1" style="--level: 1;">
-                <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="2.1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.1<!--]--></span></label>
-                <!--]-->
-              </div>
-              <div class="t-tree__item t-tree__item--open" data-value="2.2" data-level="1" style="--level: 1;">
-                <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="2.2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.2<!--]--></span></label>
-                <!--]-->
-              </div>
-            </div>
+          <div class="t-checkbox-group">
             <!---->
+            <!--[-->
+            <!--[--><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>1</span>
+              <!--]--></span>
+            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>2</span>
+              <!--]--></span>
+            </label>
+            <!--]-->
+            <!--]-->
           </div>
-          <!--]-->
         </div>
       </div>
       <!---->

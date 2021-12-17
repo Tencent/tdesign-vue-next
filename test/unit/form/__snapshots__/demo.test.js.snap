@@ -466,7 +466,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name=""
+                name="course"
                 type="checkbox"
                 value="1"
               />
@@ -486,7 +486,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name=""
+                name="course"
                 type="checkbox"
                 value="2"
               />
@@ -506,7 +506,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name=""
+                name="course"
                 type="checkbox"
                 value="3"
               />
@@ -1847,7 +1847,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name=""
+                name="course"
                 type="checkbox"
                 value="1"
               />
@@ -1867,7 +1867,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name=""
+                name="course"
                 type="checkbox"
                 value="2"
               />
@@ -1887,7 +1887,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name=""
+                name="course"
                 type="checkbox"
                 value="3"
               />
@@ -1907,7 +1907,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name=""
+                name="course"
                 type="checkbox"
                 value="4"
               />

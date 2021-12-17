@@ -3330,7 +3330,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                     >
                                       <input
                                         class="t-checkbox__former"
-                                        name=""
                                         type="checkbox"
                                       />
                                       <span
@@ -3349,7 +3348,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                     >
                                       <input
                                         class="t-checkbox__former"
-                                        name=""
                                         type="checkbox"
                                         value="Skures"
                                       />
@@ -3369,7 +3367,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                     >
                                       <input
                                         class="t-checkbox__former"
-                                        name=""
                                         type="checkbox"
                                         value="Purves"
                                       />
@@ -11316,7 +11313,6 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
                   >
                     <input
                       class="t-checkbox__former"
-                      name=""
                       type="checkbox"
                       value="instance"
                     />
@@ -11336,7 +11332,6 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
                   >
                     <input
                       class="t-checkbox__former"
-                      name=""
                       type="checkbox"
                       value="status"
                     />
@@ -11356,7 +11351,6 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
                   >
                     <input
                       class="t-checkbox__former"
-                      name=""
                       type="checkbox"
                       value="owner"
                     />
@@ -11376,7 +11370,6 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
                   >
                     <input
                       class="t-checkbox__former"
-                      name=""
                       type="checkbox"
                       value="description"
                     />
