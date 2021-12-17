@@ -42,7 +42,7 @@ type DataType = {
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins('transfer')),
-  name: TRANSFER_NAME,
+  name: 'TTransfer',
   components: {
     TransferList,
     TransferOperations,

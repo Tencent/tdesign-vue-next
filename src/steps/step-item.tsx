@@ -13,7 +13,7 @@ const name = `${prefix}-steps-item`;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<StepsConfig>('steps')),
-  name: `${prefix}-step-item`,
+  name: 'TStepItem',
   components: {
     CheckIcon,
     CloseIcon,
