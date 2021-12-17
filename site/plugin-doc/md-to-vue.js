@@ -134,7 +134,7 @@ function customRender({ source, file, md }) {
     isComponent: false,
     tdDocHeader: true,
     tdDocTabs: DEAULT_TABS,
-    apiFlag: /#+\s*API\n/i,
+    apiFlag: /#+\s*API/,
     ...data,
   };
 
