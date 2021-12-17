@@ -14,7 +14,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
         modelvalue="false"
       >
         <div
-          class="t-popup-reference"
+          class="t-popup__reference"
         >
           <transition-stub>
             <div
@@ -24,7 +24,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-popup-content t-popup-content--arrow t-popconfirm"
+                class="t-popup__content t-popup__content--arrow t-popconfirm"
               >
                 
                 <div
@@ -111,7 +111,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
         modelvalue="false"
       >
         <div
-          class="t-popup-reference"
+          class="t-popup__reference"
         >
           <transition-stub>
             <div
@@ -121,7 +121,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-popup-content t-popup-content--arrow t-popconfirm"
+                class="t-popup__content t-popup__content--arrow t-popconfirm"
               >
                 
                 <div
@@ -217,7 +217,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
       modelvalue="false"
     >
       <div
-        class="t-popup-reference"
+        class="t-popup__reference"
       >
         <transition-stub>
           <div
@@ -227,7 +227,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-popup-content--arrow t-popconfirm"
+              class="t-popup__content t-popup__content--arrow t-popconfirm"
             >
               
               <div
@@ -310,7 +310,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
       modelvalue="false"
     >
       <div
-        class="t-popup-reference"
+        class="t-popup__reference"
       >
         <transition-stub>
           <div
@@ -320,7 +320,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-popup-content--arrow t-popconfirm"
+              class="t-popup__content t-popup__content--arrow t-popconfirm"
             >
               
               <div
@@ -403,7 +403,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
       modelvalue="false"
     >
       <div
-        class="t-popup-reference"
+        class="t-popup__reference"
       >
         <transition-stub>
           <div
@@ -413,7 +413,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-popup-content--arrow t-popconfirm"
+              class="t-popup__content t-popup__content--arrow t-popconfirm"
             >
               
               <div
@@ -518,7 +518,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
         modelvalue="false"
       >
         <div
-          class="t-popup-reference"
+          class="t-popup__reference"
         >
           <transition-stub>
             <div
@@ -528,7 +528,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-popup-content t-popup-content--arrow t-popconfirm"
+                class="t-popup__content t-popup__content--arrow t-popconfirm"
               >
                 
                 <div
@@ -625,7 +625,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
         modelvalue="false"
       >
         <div
-          class="t-popup-reference"
+          class="t-popup__reference"
         >
           <transition-stub>
             <div
@@ -635,7 +635,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-popup-content t-popup-content--arrow t-popconfirm"
+                class="t-popup__content t-popup__content--arrow t-popconfirm"
               >
                 
                 <div
@@ -743,7 +743,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
         modelvalue="false"
       >
         <div
-          class="t-popup-reference"
+          class="t-popup__reference"
         >
           <transition-stub>
             <div
@@ -753,7 +753,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-popup-content t-popup-content--arrow t-popconfirm"
+                class="t-popup__content t-popup__content--arrow t-popconfirm"
               >
                 
                 <div
@@ -839,7 +839,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
         modelvalue="false"
       >
         <div
-          class="t-popup-reference"
+          class="t-popup__reference"
         >
           <transition-stub>
             <div
@@ -849,7 +849,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-popup-content t-popup-content--arrow t-popconfirm"
+                class="t-popup__content t-popup__content--arrow t-popconfirm"
               >
                 
                 <div
@@ -935,7 +935,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
         modelvalue="false"
       >
         <div
-          class="t-popup-reference"
+          class="t-popup__reference"
         >
           <transition-stub>
             <div
@@ -945,7 +945,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-popup-content t-popup-content--arrow t-popconfirm"
+                class="t-popup__content t-popup__content--arrow t-popconfirm"
               >
                 
                 <div
@@ -1037,7 +1037,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
         modelvalue="false"
       >
         <div
-          class="t-popup-reference"
+          class="t-popup__reference"
         >
           <transition-stub>
             <div
@@ -1047,7 +1047,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-popup-content t-popup-content--arrow t-popconfirm"
+                class="t-popup__content t-popup__content--arrow t-popconfirm"
               >
                 
                 <div
@@ -1139,7 +1139,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
       modelvalue="false"
     >
       <div
-        class="t-popup-reference"
+        class="t-popup__reference"
       >
         <transition-stub>
           <div
@@ -1149,7 +1149,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-popup-content--arrow t-popconfirm"
+              class="t-popup__content t-popup__content--arrow t-popconfirm"
             >
               
               <div
@@ -1231,7 +1231,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
       modelvalue="false"
     >
       <div
-        class="t-popup-reference"
+        class="t-popup__reference"
       >
         <transition-stub>
           <div
@@ -1241,7 +1241,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-popup-content--arrow t-popconfirm"
+              class="t-popup__content t-popup__content--arrow t-popconfirm"
             >
               
               <div

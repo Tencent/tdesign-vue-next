@@ -1319,7 +1319,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           class="t-table__cell--sort-trigger t-table-double-icons"
                         >
                           <div
-                            class="t-popup-reference"
+                            class="t-popup__reference"
                             duration="3000"
                             style="line-height: 0px; position: relative;"
                             theme="default"
@@ -1332,7 +1332,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                                 style="display: none;"
                               >
                                 <div
-                                  class="t-popup-content t-tooltip t-tooltip-default"
+                                  class="t-popup__content t-tooltip t-tooltip--default"
                                 >
                                   点击降序
                                   <!---->
@@ -1405,7 +1405,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           class="t-table__cell--sort-trigger t-table-double-icons"
                         >
                           <div
-                            class="t-popup-reference"
+                            class="t-popup__reference"
                             duration="3000"
                             style="line-height: 0px; position: relative;"
                             theme="default"
@@ -1418,7 +1418,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                                 style="display: none;"
                               >
                                 <div
-                                  class="t-popup-content t-tooltip t-tooltip-default"
+                                  class="t-popup__content t-tooltip t-tooltip--default"
                                 >
                                   点击降序
                                   <!---->
@@ -3171,7 +3171,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                       class="t-table__cell--filter"
                     >
                       <div
-                        class="t-popup-reference"
+                        class="t-popup__reference"
                       >
                         <transition-stub>
                           <div
@@ -3181,7 +3181,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                             style="display: none;"
                           >
                             <div
-                              class="t-popup-content t-popup-content--arrow t-table-filter-pop"
+                              class="t-popup__content t-popup__content--arrow t-table-filter-pop"
                             >
                               
                               <div
@@ -3300,7 +3300,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                       class="t-table__cell--filter"
                     >
                       <div
-                        class="t-popup-reference"
+                        class="t-popup__reference"
                       >
                         <transition-stub>
                           <div
@@ -3310,7 +3310,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                             style="display: none;"
                           >
                             <div
-                              class="t-popup-content t-popup-content--arrow t-table-filter-pop"
+                              class="t-popup__content t-popup__content--arrow t-table-filter-pop"
                             >
                               
                               <div
@@ -3428,7 +3428,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                       class="t-table__cell--filter"
                     >
                       <div
-                        class="t-popup-reference"
+                        class="t-popup__reference"
                       >
                         <transition-stub>
                           <div
@@ -3438,7 +3438,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                             style="display: none;"
                           >
                             <div
-                              class="t-popup-content t-popup-content--arrow t-table-filter-pop"
+                              class="t-popup__content t-popup__content--arrow t-table-filter-pop"
                             >
                               
                               <div
@@ -3503,7 +3503,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                       class="t-table__cell--filter"
                     >
                       <div
-                        class="t-popup-reference"
+                        class="t-popup__reference"
                       >
                         <transition-stub>
                           <div
@@ -3513,7 +3513,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                             style="display: none;"
                           >
                             <div
-                              class="t-popup-content t-popup-content--arrow t-table-filter-pop"
+                              class="t-popup__content t-popup__content--arrow t-table-filter-pop"
                             >
                               
                               <div
@@ -3527,7 +3527,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                     theme="primary"
                                   >
                                     <div
-                                      class="t-popup-reference t-date-picker__popup-reference"
+                                      class="t-popup__reference t-date-picker__popup-reference"
                                     >
                                       <transition-stub>
                                         <div
@@ -3537,7 +3537,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                           style="display: none;"
                                         >
                                           <div
-                                            class="t-popup-content t-date-picker"
+                                            class="t-popup__content t-date-picker"
                                           >
                                             <div
                                               class="t-date-picker__container t-date-picker--range"
@@ -8980,7 +8980,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           class="t-table__cell--sort-trigger t-table-double-icons"
                         >
                           <div
-                            class="t-popup-reference"
+                            class="t-popup__reference"
                             duration="3000"
                             style="line-height: 0px; position: relative;"
                             theme="default"
@@ -8993,7 +8993,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                                 style="display: none;"
                               >
                                 <div
-                                  class="t-popup-content t-tooltip t-tooltip-default"
+                                  class="t-popup__content t-tooltip t-tooltip--default"
                                 >
                                   点击升序
                                   <!---->
@@ -9066,7 +9066,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           class="t-table__cell--sort-trigger t-table-double-icons"
                         >
                           <div
-                            class="t-popup-reference"
+                            class="t-popup__reference"
                             duration="3000"
                             style="line-height: 0px; position: relative;"
                             theme="default"
@@ -9079,7 +9079,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                                 style="display: none;"
                               >
                                 <div
-                                  class="t-popup-content t-tooltip t-tooltip-default"
+                                  class="t-popup__content t-tooltip t-tooltip--default"
                                 >
                                   点击取消排序
                                   <!---->
@@ -9451,7 +9451,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
             class="t-select-wrap t-pagination__select"
           >
             <div
-              class="t-popup-reference t-select-popup-reference"
+              class="t-popup__reference t-select-popup-reference"
             >
               <transition-stub>
                 <div
@@ -9461,7 +9461,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-select-dropdown narrow-scrollbar"
+                    class="t-popup__content t-select-dropdown narrow-scrollbar"
                   >
                     
                     <div>
@@ -10022,7 +10022,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               class="t-select-wrap t-pagination__select"
             >
               <div
-                class="t-popup-reference t-select-popup-reference"
+                class="t-popup__reference t-select-popup-reference"
               >
                 <transition-stub>
                   <div
@@ -10032,7 +10032,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                     style="display: none;"
                   >
                     <div
-                      class="t-popup-content t-select-dropdown narrow-scrollbar"
+                      class="t-popup__content t-select-dropdown narrow-scrollbar"
                     >
                       
                       <div>
@@ -11841,7 +11841,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         class="t-table__cell--sort-trigger t-table-double-icons"
                       >
                         <div
-                          class="t-popup-reference"
+                          class="t-popup__reference"
                           duration="3000"
                           style="line-height: 0px; position: relative;"
                           theme="default"
@@ -11854,7 +11854,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                               style="display: none;"
                             >
                               <div
-                                class="t-popup-content t-tooltip t-tooltip-default"
+                                class="t-popup__content t-tooltip t-tooltip--default"
                               >
                                 点击升序
                                 <!---->
@@ -11927,7 +11927,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         class="t-table__cell--sort-trigger t-table-double-icons"
                       >
                         <div
-                          class="t-popup-reference"
+                          class="t-popup__reference"
                           duration="3000"
                           style="line-height: 0px; position: relative;"
                           theme="default"
@@ -11940,7 +11940,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                               style="display: none;"
                             >
                               <div
-                                class="t-popup-content t-tooltip t-tooltip-default"
+                                class="t-popup__content t-tooltip t-tooltip--default"
                               >
                                 点击降序
                                 <!---->
@@ -12248,7 +12248,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
           
           
           <div
-            class="t-popup-reference"
+            class="t-popup__reference"
           >
             <transition-stub>
               <div
@@ -12258,7 +12258,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                 style="display: none;"
               >
                 <div
-                  class="t-popup-content"
+                  class="t-popup__content"
                   style="max-width: 480px;"
                 >
                   「父子行选中关联」由于表格数据的特殊性，父节点选中或者取消选中，会影响子节点；但子节点选中或取消不影响父元素

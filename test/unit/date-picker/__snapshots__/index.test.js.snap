@@ -5,7 +5,7 @@ exports[`DatePicker :mode 1`] = `
   class="t-date-picker t-input t-size-m t-date-picker--month-picker"
 >
   <div
-    class="t-popup-reference t-date-picker__popup-reference"
+    class="t-popup__reference t-date-picker__popup-reference"
   >
     <transition-stub>
       <div
@@ -15,7 +15,7 @@ exports[`DatePicker :mode 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-date-picker"
+          class="t-popup__content t-date-picker"
         >
           <div
             class="t-date-picker__container"
@@ -325,7 +325,7 @@ exports[`DatePicker :range 1`] = `
   class="t-date-picker t-input t-size-m t-date-picker--month-picker"
 >
   <div
-    class="t-popup-reference t-date-picker__popup-reference"
+    class="t-popup__reference t-date-picker__popup-reference"
   >
     <transition-stub>
       <div
@@ -335,7 +335,7 @@ exports[`DatePicker :range 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-date-picker"
+          class="t-popup__content t-date-picker"
         >
           <div
             class="t-date-picker__container t-date-picker--range"
@@ -959,7 +959,7 @@ exports[`DatePicker :value 1`] = `
   class="t-date-picker t-input t-size-m t-date-picker--month-picker"
 >
   <div
-    class="t-popup-reference t-date-picker__popup-reference"
+    class="t-popup__reference t-date-picker__popup-reference"
   >
     <transition-stub>
       <div
@@ -969,7 +969,7 @@ exports[`DatePicker :value 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-date-picker"
+          class="t-popup__content t-date-picker"
         >
           <div
             class="t-date-picker__container"
