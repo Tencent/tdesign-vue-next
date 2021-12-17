@@ -12,9 +12,13 @@ export default defineComponent({
   components: {
     Checkbox,
   },
+  provide(): { checkboxGroup: any } {
+    return {
+      checkboxGroup: this,
+    };
+  },
   props: { ...checkboxGroupProps },
   emits: ['change'],
-
   data() {
     return {
       checkedMap: {},
