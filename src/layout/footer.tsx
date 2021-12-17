@@ -5,7 +5,7 @@ import props from './footer-props';
 const name = `${prefix}-footer`;
 
 export default defineComponent({
-  name,
+  name: 'TFooter',
 
   props,
 

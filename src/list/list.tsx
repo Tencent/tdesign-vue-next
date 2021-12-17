@@ -10,7 +10,7 @@ import { ClassName } from '../common';
 const name = `${prefix}-list`;
 
 export default defineComponent({
-  name,
+  name: 'TList',
   props: {
     ...props,
   },

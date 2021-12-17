@@ -13,7 +13,7 @@ const name = `${prefix}-option`;
 const selectName = `${prefix}-select`;
 
 export default defineComponent({
-  name,
+  name: 'TOption',
   components: {
     TCheckbox: Checkbox,
   },

@@ -32,7 +32,7 @@ const name = `${prefix}-date-picker`;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
-  name,
+  name: 'TDatePicker',
   components: {
     CalendarIcon,
     TimeIcon,

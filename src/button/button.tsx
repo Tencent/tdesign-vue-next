@@ -9,7 +9,7 @@ import ripple from '../utils/ripple';
 const name = `${prefix}-button`;
 
 export default defineComponent({
-  name,
+  name: 'TButton',
   directives: { ripple },
   inheritAttrs: false,
   props,

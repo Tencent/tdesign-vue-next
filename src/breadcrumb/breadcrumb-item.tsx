@@ -34,7 +34,7 @@ const isEventProps = (propName: string): boolean => {
 };
 
 export default defineComponent({
-  name,
+  name: 'TBreadcrumbItem',
 
   components: {
     Tooltip,

@@ -37,7 +37,7 @@ const name = `${prefix}-form-item`;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<FormConfig>('form')),
-  name,
+  name: 'TFormItem',
 
   inject: {
     form: { default: undefined },

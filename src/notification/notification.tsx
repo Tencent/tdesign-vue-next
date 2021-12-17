@@ -7,7 +7,7 @@ import props from './props';
 const name = `${prefix}-notification`;
 
 export default defineComponent({
-  name,
+  name: 'TNotification',
   components: {
     InfoCircleFilledIcon,
     CheckCircleFilledIcon,

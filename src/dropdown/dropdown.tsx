@@ -9,7 +9,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 const name = `${prefix}-dropdown`;
 
 export default defineComponent({
-  name,
+  name: 'TDropdown',
   components: {
     DropdownMenu,
   },

@@ -22,7 +22,7 @@ type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TableConfig>('table')),
-  name: `${prefix}-base-table`,
+  name: 'TBaseTable',
   components: {
     TableBody,
     TableHeader,

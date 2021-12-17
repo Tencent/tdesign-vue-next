@@ -16,7 +16,14 @@ import {
   TdTransferProps,
 } from './interface';
 
-import { getTransferListOption, emitEvent, getDataValues, getTransferData, filterTransferData } from './utils';
+import {
+  getTransferListOption,
+  emitEvent,
+  getDataValues,
+  getTransferData,
+  filterTransferData,
+  TRANSFER_NAME,
+} from './utils';
 import { PageInfo, TdPaginationProps } from '../pagination/type';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins from '../config-provider/config-receiver';
@@ -35,7 +42,7 @@ type DataType = {
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins('transfer')),
-  name,
+  name: TRANSFER_NAME,
   components: {
     TransferList,
     TransferOperations,

@@ -9,7 +9,7 @@ import { pxCompat } from '../utils/helper';
 const name = `${prefix}-dropdown__menu`;
 
 export default defineComponent({
-  name: `${prefix}-dropdown-menu`,
+  name: 'TDropdownMenu',
   components: {
     DropdownItem,
   },

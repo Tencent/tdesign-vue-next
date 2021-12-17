@@ -10,7 +10,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 const name = `${prefix}-col`;
 
 export default defineComponent({
-  name,
+  name: 'TCol',
 
   inject: ['rowContext'],
 

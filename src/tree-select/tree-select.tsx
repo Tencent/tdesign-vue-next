@@ -31,7 +31,7 @@ const name = `${prefix}-tree-select`;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TreeSelectConfig>('treeSelect')),
-  name,
+  name: 'TTreeSelect',
   components: {
     Tree,
   },

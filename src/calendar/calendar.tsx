@@ -72,7 +72,7 @@ const getDefaultControllerConfigData = (visible = true): Record<string, any> => 
 // 组件逻辑
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<CalendarConfig>('calendar')),
-  name: COMPONENT_NAME,
+  name: 'TCalendar',
   components: {
     TCheckTag,
     TSelect,

@@ -81,7 +81,7 @@ function isOverSizeLimit(fileSize: number, sizeLimit: number, unit: SizeUnit) {
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<UploadConfig>('upload')),
-  name,
+  name: 'TUpload',
 
   components: {
     TButton,

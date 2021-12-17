@@ -29,7 +29,7 @@ enum KeyCode {
 const PaginationLocalReceiver = getConfigReceiverMixins<PaginationConfig>('pagination');
 
 export default defineComponent({
-  name,
+  name: 'TPagination',
   components: {
     ChevronLeftIcon,
     ChevronRightIcon,

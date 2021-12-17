@@ -14,7 +14,7 @@ export interface Affix extends ComponentInternalInstance {
 }
 
 export default defineComponent({
-  name,
+  name: 'TAffix',
 
   props,
 

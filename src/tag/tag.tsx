@@ -14,7 +14,7 @@ const name = `${prefix}-tag`;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TagConfig>('tag')),
-  name,
+  name: 'TTag',
   props: { ...props },
   emits: ['close', 'click'],
   computed: {

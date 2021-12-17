@@ -11,7 +11,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 const name = `${prefix}-row`;
 
 export default defineComponent({
-  name,
+  name: 'TRow',
 
   provide(): { rowContext: any } {
     return {

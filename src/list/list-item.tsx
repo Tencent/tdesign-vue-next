@@ -6,7 +6,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 const name = `${prefix}-list-item`;
 
 export default defineComponent({
-  name,
+  name: 'TListItem',
   props,
   render() {
     const propsDefaultContent = renderTNodeJSX(this, 'default');

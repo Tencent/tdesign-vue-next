@@ -11,7 +11,7 @@ import CLASSNAMES, { SIZE_CLASSNAMES } from '../utils/classnames';
 const name = `${prefix}-radio-group`;
 
 export default defineComponent({
-  name,
+  name: 'TRadioGroup',
 
   components: {
     Radio,

@@ -7,10 +7,8 @@ import FakeArrow from '../common-components/fake-arrow';
 import Ripple from '../utils/ripple';
 import { ClassName } from '../common';
 
-const name = `${prefix}-submenu`;
-
 export default defineComponent({
-  name,
+  name: 'TSubmenu',
   directives: {
     ripple: Ripple,
   },

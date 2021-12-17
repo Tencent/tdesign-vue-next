@@ -25,7 +25,7 @@ dayjs.extend(customParseFormat);
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TimePickerConfig>('timePicker')),
-  name,
+  name: 'TTimePicker',
 
   components: {
     PickerPanel,

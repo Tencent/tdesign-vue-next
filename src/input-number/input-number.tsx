@@ -30,7 +30,7 @@ type InputNumberAttr = {
 };
 
 export default defineComponent({
-  name,
+  name: 'TInputNumber',
   components: {
     AddIcon,
     RemoveIcon,
