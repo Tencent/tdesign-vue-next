@@ -9,7 +9,7 @@ import {
 import config from '../config';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { PaginationConfig } from '../config-provider/config-receiver';
-import TInput, { InputValue } from '../input';
+import TInput from '../input';
 import { Select, Option } from '../select';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
@@ -21,10 +21,6 @@ const { prefix } = config;
 
 const name = `${prefix}-pagination`;
 const min = 1;
-
-enum KeyCode {
-  ENTER = 'Enter',
-}
 
 const PaginationLocalReceiver = getConfigReceiverMixins<PaginationConfig>('pagination');
 
@@ -67,11 +63,12 @@ export default defineComponent({
   emits: ['change', 'update:current', 'update:pageSize', 'page-size-change', 'current-change'],
   data() {
     return {
-      jumpIndex: this.current,
       prevMore: false,
       nextMore: false,
+      jumpIndex: this.current,
     };
   },
+
   computed: {
     /**
      * 样式计算
@@ -89,12 +86,7 @@ export default defineComponent({
       return [`${name}__total`];
     },
     sizerClass(): ClassName {
-      return [
-        `${name}__select`,
-        // {
-        //   [CLASSNAMES.STATUS.disabled]: this.disabled,
-        // },
-      ];
+      return [`${name}__select`];
     },
     preBtnClass(): ClassName {
       return [
@@ -130,12 +122,7 @@ export default defineComponent({
       return [`${name}__jump`];
     },
     jumperInputClass(): ClassName {
-      return [
-        `${name}__input`,
-        // {
-        //   [CLASSNAMES.STATUS.disabled]: this.disabled,
-        // },
-      ];
+      return [`${name}__input`];
     },
     simpleClass(): ClassName {
       return [`${name}__select`];
@@ -211,7 +198,11 @@ export default defineComponent({
       return this.pageCount > this.maxPageBtn;
     },
   },
-
+  watch: {
+    current(val) {
+      this.jumpIndex = val;
+    },
+  },
   methods: {
     toPage(pageIndex: number, isTriggerChange?: boolean): void {
       if (this.disabled) {
@@ -225,7 +216,6 @@ export default defineComponent({
       }
       if (this.current !== current) {
         const prev = this.current;
-        this.jumpIndex = current;
         const pageInfo = {
           current,
           previous: prev,
@@ -249,9 +239,6 @@ export default defineComponent({
     },
     nextMorePage(): void {
       this.toPage(this.current + this.foldedMaxPageBtn);
-    },
-    jumpToPage(): void {
-      this.toPage(Number(this.jumpIndex));
     },
     getButtonClass(index: number): ClassName {
       return [
@@ -304,10 +291,11 @@ export default defineComponent({
       }
       return t(locale.total, { total });
     },
-    onKeydownJumpInput(_: InputValue, { e }: { e: KeyboardEvent }): void {
-      if (e.key === KeyCode.ENTER) {
-        this.jumpToPage();
-      }
+    // 自定义页码时，相当于 current 发生变化
+    onJumperChange(val: String) {
+      const currentIndex = Number(val);
+      if (isNaN(currentIndex)) return;
+      this.toPage(currentIndex);
     },
     renderPagination() {
       return (
@@ -403,8 +391,8 @@ export default defineComponent({
               <t-input
                 class={this.jumperInputClass}
                 v-model={this.jumpIndex}
-                onBlur={this.jumpToPage}
-                onKeyup={this.onKeydownJumpInput}
+                onBlur={this.onJumperChange}
+                onEnter={this.onJumperChange}
               />
               {this.t(this.global.page)}
             </div>
