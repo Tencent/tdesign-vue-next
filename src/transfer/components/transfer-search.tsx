@@ -4,10 +4,8 @@ import { prefix } from '../../config';
 import { SearchOption } from '../interface';
 import TInput from '../../input';
 
-const name = `${prefix}-transfer-search`;
-
 export default defineComponent({
-  name,
+  name: 'TTransferSearch',
   props: {
     value: {
       type: String,
@@ -41,7 +39,7 @@ export default defineComponent({
           };
 
     return (
-      <div class="t-transfer-list-search-wrapper">
+      <div class={`${prefix}-transfer__search-wrapper`}>
         <TInput {...inputProps} defaultValue={value} onChange={this.handleChange} placeholder={placeholder}>
           <SearchIcon slot="suffix-icon" />
         </TInput>
