@@ -6065,14 +6065,14 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   <br />
   <div
-    class="t-transfer t-transfer-search"
+    class="t-transfer t-transfer__search"
     modelvalue=""
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -6101,10 +6101,10 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body t-transfer-list-with-search"
+        class="t-transfer__list-body t-transfer__list--with-search"
       >
         <div
-          class="t-transfer-list-search-wrapper"
+          class="t-transfer__search-wrapper"
           disabled="false"
           searchvalue=""
         >
@@ -6122,7 +6122,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           </div>
         </div>
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -6132,7 +6132,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6157,7 +6157,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6181,7 +6181,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6205,7 +6205,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6229,7 +6229,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6254,7 +6254,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6278,7 +6278,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6302,7 +6302,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6326,7 +6326,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6351,7 +6351,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6375,7 +6375,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6399,7 +6399,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6423,7 +6423,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6448,7 +6448,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6472,7 +6472,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6496,7 +6496,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6520,7 +6520,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6545,7 +6545,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6569,7 +6569,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6593,7 +6593,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6623,13 +6623,13 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
@@ -6689,10 +6689,10 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -6722,10 +6722,10 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body t-transfer-list-with-search"
+        class="t-transfer__list-body t-transfer__list--with-search"
       >
         <div
-          class="t-transfer-list-search-wrapper"
+          class="t-transfer__search-wrapper"
           disabled="false"
           searchvalue=""
         >
@@ -6743,7 +6743,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           </div>
         </div>
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           <span>
             Empty Data
@@ -6752,7 +6752,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>

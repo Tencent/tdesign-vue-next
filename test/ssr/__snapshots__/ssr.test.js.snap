@@ -9938,61 +9938,61 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     </div>
     <!--]-->
   </form><br><br>
-  <div class="t-transfer t-transfer-search">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20</span></div><span><!----></span>
+  <div class="t-transfer t-transfer__search">
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body t-transfer-list-with-search">
-        <div class="t-transfer-list-search-wrapper" searchvalue>
+      <div class="t-transfer__list-body t-transfer__list--with-search">
+        <div class="t-transfer__search-wrapper" searchvalue>
           <div class="t-input t-size-m">
             <!----><input autocomplete="false" placeholder="type keyword to search" type="text" value class="t-input__inner">
             <!---->
           </div>
         </div>
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 1</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 1</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 2</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 3</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 3</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 4</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 4</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 5</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 5</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 6</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 6</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 7</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 7</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 8</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 8</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 9</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 9</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 10</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 10</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 11</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 11</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 12</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 12</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 13</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 13</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 14</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 14</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 15</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 15</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 16</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 16</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 17</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 17</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 18</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 18</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 19</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 19</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 20</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>content 20</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -10001,9 +10001,9 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         </div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -10014,21 +10014,21 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body t-transfer-list-with-search">
-        <div class="t-transfer-list-search-wrapper" searchvalue>
+      <div class="t-transfer__list-body t-transfer__list--with-search">
+        <div class="t-transfer__search-wrapper" searchvalue>
           <div class="t-input t-size-m">
             <!----><input autocomplete="false" placeholder="type keyword to search" type="text" value class="t-input__inner">
             <!---->
           </div>
         </div>
-        <div class="t-transfer-empty"><span>Empty Data</span></div>
+        <div class="t-transfer__empty"><span>Empty Data</span></div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div><br><br>
   <div class="t-select__wrap" style="width:400px;">
@@ -35308,55 +35308,55 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/trigger.vue correctl
 exports[`ssr snapshot test renders ./examples/transfer/demos/base.vue correctly 1`] = `
 <div>
   <div class="t-transfer">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-indeterminate" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="true"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>1 / 20 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-indeterminate" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="true" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>1 / 20 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -35365,9 +35365,9 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/base.vue correctly 
         </div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button">
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button">
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -35378,16 +35378,16 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/base.vue correctly 
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-empty"><span>暂无数据</span></div>
+        <div class="t-transfer__empty"><span>暂无数据</span></div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div>
 </div>
@@ -35396,55 +35396,55 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/base.vue correctly 
 exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correctly 1`] = `
 <div>
   <div class="t-transfer">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-indeterminate" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="true"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>5 / 20 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-indeterminate" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="true" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>5 / 20 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -35453,9 +35453,9 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
         </div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button">
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button">
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -35466,16 +35466,16 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-empty"><span>暂无数据</span></div>
+        <div class="t-transfer__empty"><span>暂无数据</span></div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div>
 </div>
@@ -35483,56 +35483,56 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
 
 exports[`ssr snapshot test renders ./examples/transfer/demos/custom.vue correctly 1`] = `
 <div>
-  <div class="t-transfer t-transfer-footer">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!--[--><div>来源</div><!--]--></span>
+  <div class="t-transfer t-transfer__footer">
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!--[--><div>来源</div><!--]--></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -35545,14 +35545,14 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/custom.vue correctl
       <div style="padding:10px;border-top:1px solid #e7e7e7;"><span>选中并加入</span></div>
       <!--]-->
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[--><!--[-->加入<!--]--><!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[--><!--[-->移除<!--]--><!--]--></span></button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!--[--><div>目标</div><!--]--></span>
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[--><!--[-->加入<!--]--><!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[--><!--[-->移除<!--]--><!--]--></span></button></div>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!--[--><div>目标</div><!--]--></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-empty"><span>暂无数据</span></div>
+        <div class="t-transfer__empty"><span>暂无数据</span></div>
       </div>
       <!---->
       <!--[-->
@@ -35566,55 +35566,55 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/custom.vue correctl
 exports[`ssr snapshot test renders ./examples/transfer/demos/custom-render.vue correctly 1`] = `
 <div>
   <div class="t-transfer" theme="primary">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容1 - 第1段信息</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容1 - 第1段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容2 - 第2段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容2 - 第2段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容3 - 第3段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容3 - 第3段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容4 - 第4段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容4 - 第4段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容5 - 第5段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容5 - 第5段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容6 - 第6段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容6 - 第6段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容7 - 第7段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容7 - 第7段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容8 - 第8段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容8 - 第8段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容9 - 第9段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容9 - 第9段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容10 - 第10段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容10 - 第10段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容11 - 第11段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容11 - 第11段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容12 - 第12段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容12 - 第12段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容13 - 第13段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容13 - 第13段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容14 - 第14段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容14 - 第14段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容15 - 第15段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容15 - 第15段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容16 - 第16段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容16 - 第16段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容17 - 第17段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容17 - 第17段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容18 - 第18段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容18 - 第18段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容19 - 第19段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容19 - 第19段信息</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容20 - 第20段信息</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span class="transfer-item">内容20 - 第20段信息</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -35623,9 +35623,9 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/custom-render.vue c
         </div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -35636,16 +35636,16 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/custom-render.vue c
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-empty"><span>暂无数据</span></div>
+        <div class="t-transfer__empty"><span>暂无数据</span></div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div>
 </div>
@@ -35654,35 +35654,35 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/custom-render.vue c
 exports[`ssr snapshot test renders ./examples/transfer/demos/disabled.vue correctly 1`] = `
 <div>
   <div class="t-transfer">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -35691,9 +35691,9 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/disabled.vue correc
         </div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -35704,35 +35704,35 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/disabled.vue correc
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -35741,7 +35741,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/disabled.vue correc
         </div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div>
 </div>
@@ -35751,18 +35751,18 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/empty.vue correctly
 <div>
   <p style="margin:10px 0px;">默认暂无数据</p>
   <div class="t-transfer">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-empty"><span>暂无数据</span></div>
+        <div class="t-transfer__empty"><span>暂无数据</span></div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -35773,32 +35773,32 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/empty.vue correctly
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-empty"><span>暂无数据</span></div>
+        <div class="t-transfer__empty"><span>暂无数据</span></div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div>
   <p style="margin:10px;">自定义空状态</p>
   <div class="t-transfer">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-empty">No Data</div>
+        <div class="t-transfer__empty">No Data</div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -35809,16 +35809,16 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/empty.vue correctly
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-empty">No Data</div>
+        <div class="t-transfer__empty">No Data</div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div>
 </div>
@@ -35826,36 +35826,36 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/empty.vue correctly
 
 exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue correctly 1`] = `
 <div>
-  <div class="t-transfer t-transfer-pagination" theme="primary">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
+  <div class="t-transfer t-transfer__pagination" theme="primary">
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -35863,7 +35863,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
           </div>
         </div>
       </div>
-      <div class="t-transfer-list__pagination">
+      <div class="t-transfer__list-pagination">
         <div class="t-pagination t-size-s" modelvalue="1">
           <!---->
           <!---->
@@ -35913,9 +35913,9 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
           <!---->
         </div>
       </div>
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -35926,16 +35926,16 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-empty"><span>暂无数据</span></div>
+        <div class="t-transfer__empty"><span>暂无数据</span></div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div>
 </div>
@@ -35943,61 +35943,61 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
 
 exports[`ssr snapshot test renders ./examples/transfer/demos/search.vue correctly 1`] = `
 <div>
-  <div class="t-transfer t-transfer-search" theme="primary">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
+  <div class="t-transfer t-transfer__search" theme="primary">
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body t-transfer-list-with-search">
-        <div class="t-transfer-list-search-wrapper" searchvalue>
+      <div class="t-transfer__list-body t-transfer__list--with-search">
+        <div class="t-transfer__search-wrapper" searchvalue>
           <div class="t-input t-size-m">
             <!----><input autocomplete="false" placeholder="请输入关键词搜索" type="text" value class="t-input__inner">
             <!---->
           </div>
         </div>
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -36006,9 +36006,9 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/search.vue correctl
         </div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -36019,21 +36019,21 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/search.vue correctl
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body t-transfer-list-with-search">
-        <div class="t-transfer-list-search-wrapper" searchvalue>
+      <div class="t-transfer__list-body t-transfer__list--with-search">
+        <div class="t-transfer__search-wrapper" searchvalue>
           <div class="t-input t-size-m">
             <!----><input autocomplete="false" placeholder="请输入关键词搜索" type="text" value class="t-input__inner">
             <!---->
           </div>
         </div>
-        <div class="t-transfer-empty"><span>暂无数据</span></div>
+        <div class="t-transfer__empty"><span>暂无数据</span></div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div>
 </div>
@@ -36042,35 +36042,35 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/search.vue correctl
 exports[`ssr snapshot test renders ./examples/transfer/demos/target-value.vue correctly 1`] = `
 <div>
   <div class="t-transfer">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -36079,9 +36079,9 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/target-value.vue co
         </div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -36092,35 +36092,35 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/target-value.vue co
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="0"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容1</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容5</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="8"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容9</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="12"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容13</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="16"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容17</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -36129,7 +36129,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/target-value.vue co
         </div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div>
 </div>
@@ -36137,20 +36137,20 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/target-value.vue co
 
 exports[`ssr snapshot test renders ./examples/transfer/demos/tree.vue correctly 1`] = `
 <div>
-  <div class="t-transfer t-transfer-with-tree">
-    <div class="t-transfer-list t-transfer-list-source">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 5 项</span></div><span><!----></span>
+  <div class="t-transfer t-transfer--with-tree">
+    <div class="t-transfer__list t-transfer__list-source">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 5 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-list__content narrow-scrollbar">
+        <div class="t-transfer__list-content narrow-scrollbar">
           <div class="t-checkbox-group">
             <!---->
             <!--[-->
-            <!--[--><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>1</span>
+            <!--[--><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>1</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer-list__item t-transfer-list__item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>2</span>
+            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>2</span>
               <!--]--></span>
             </label>
             <!--]-->
@@ -36159,9 +36159,9 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/tree.vue correctly 
         </div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
-    <div class="t-transfer-operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
+    <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled>
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
         </svg><span class="t-button__text"><!--[--><!--]--></span>
@@ -36172,16 +36172,16 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/tree.vue correctly 
         </svg><span class="t-button__text"><!--[--><!--]--></span>
         <!--]-->
       </button></div>
-    <div class="t-transfer-list t-transfer-list-target">
-      <div class="t-transfer-list__header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+    <div class="t-transfer__list t-transfer__list-target">
+      <div class="t-transfer__list-header">
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
-      <div class="t-transfer-list__body">
+      <div class="t-transfer__list-body">
         <!---->
-        <div class="t-transfer-empty"><span>暂无数据</span></div>
+        <div class="t-transfer__empty"><span>暂无数据</span></div>
       </div>
       <!---->
-      <div class="t-transfer-footer"></div>
+      <div class="t-transfer__footer"></div>
     </div>
   </div>
 </div>
