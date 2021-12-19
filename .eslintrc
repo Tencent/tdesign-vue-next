@@ -36,9 +36,10 @@
     ]
   },
   "rules": {
+    "no-console": 2,
+    
     // code style config
     "no-continue": "off",
-    "no-console": "off",
     "no-restricted-syntax": "off",
     "no-plusplus": "off",
     "no-param-reassign":  "off",

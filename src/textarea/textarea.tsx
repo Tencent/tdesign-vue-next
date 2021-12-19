@@ -101,7 +101,6 @@ export default defineComponent({
         const stringInfo = getCharacterLength(val, this.maxcharacter);
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
-      console.log(val);
       this.$emit('update:value', val);
       this.emitEvent('change', val, { e: InputEvent });
 
@@ -137,7 +136,6 @@ export default defineComponent({
     },
     emitBlur(e: FocusEvent) {
       this.focused = false;
-      console.log(this.value);
       this.emitEvent('blur', this.value, { e });
     },
   },
