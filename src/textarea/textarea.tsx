@@ -8,7 +8,7 @@ import calcTextareaHeight from './calcTextareaHeight';
 
 const name = `${prefix}-textarea`;
 
-type TextareaEmitEvent = 'input' | 'keydown' | 'keyup' | 'keypress' | 'focus' | 'blur' | 'change';
+type TextareaEmitEvent = 'keydown' | 'keyup' | 'keypress' | 'focus' | 'blur' | 'change';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};
@@ -24,7 +24,7 @@ export default defineComponent({
   name: 'TTextarea',
   inheritAttrs: false,
   props: { ...props },
-  emits: ['input', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
+  emits: ['keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
   data() {
     return {
       focused: false,
@@ -101,7 +101,8 @@ export default defineComponent({
         const stringInfo = getCharacterLength(val, this.maxcharacter);
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
-      this.$emit('input', val);
+      console.log(val);
+      this.$emit('update:value', val);
       this.emitEvent('change', val, { e: InputEvent });
 
       this.$nextTick(() => this.setInputValue(val));
@@ -136,6 +137,7 @@ export default defineComponent({
     },
     emitBlur(e: FocusEvent) {
       this.focused = false;
+      console.log(this.value);
       this.emitEvent('blur', this.value, { e });
     },
   },
@@ -155,6 +157,7 @@ export default defineComponent({
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-resize-none`]: this.maxlength,
       },
+      'narrow-scrollbar',
     ];
 
     return (
