@@ -695,7 +695,7 @@ export default defineComponent({
               click={this.onClick}
               suffixIcon={suffixIcon}
               prefixIcon={prefixIcon}
-            ></t-input>
+            />
           </div>
         </t-popup>
       </div>
