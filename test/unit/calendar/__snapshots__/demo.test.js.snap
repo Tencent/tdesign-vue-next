@@ -947,7 +947,7 @@ exports[`Calendar Calendar baseVue demo works fine 1`] = `
             </span>
           </div>
           <div
-            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+            class="t-calendar__table-body-cell"
           >
             <span>
               <div
@@ -963,7 +963,7 @@ exports[`Calendar Calendar baseVue demo works fine 1`] = `
             </span>
           </div>
           <div
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
           >
             <span>
               <div
@@ -2259,21 +2259,6 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               
             </div>
             <div
-              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
-            >
-              
-              <div
-                class="demo-cell"
-              >
-                <div
-                  class="cellAppend belongCurrent actived"
-                >
-                  17
-                </div>
-              </div>
-              
-            </div>
-            <div
               class="t-calendar__table-body-cell"
             >
               
@@ -2282,6 +2267,21 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               >
                 <div
                   class="cellAppend belongCurrent"
+                >
+                  17
+                </div>
+              </div>
+              
+            </div>
+            <div
+              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+            >
+              
+              <div
+                class="demo-cell"
+              >
+                <div
+                  class="cellAppend belongCurrent actived"
                 >
                   18
                 </div>
@@ -3605,7 +3605,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+              class="t-calendar__table-body-cell"
             >
               <span>
                 <div
@@ -3621,7 +3621,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell"
+              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
             >
               <span>
                 <div
@@ -4881,13 +4881,31 @@ exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
             </span>
           </div>
           <div
-            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+            class="t-calendar__table-body-cell"
           >
             <span>
               <div
                 class="t-calendar__table-body-cell-display"
               >
                 17
+              </div>
+              <div
+                class="t-calendar__table-body-cell-content"
+              >
+                
+                <!--v-if-->
+                
+              </div>
+            </span>
+          </div>
+          <div
+            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+          >
+            <span>
+              <div
+                class="t-calendar__table-body-cell-display"
+              >
+                18
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -4906,24 +4924,6 @@ exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
                     <!---->
                   </span>
                 </div>
-                
-              </div>
-            </span>
-          </div>
-          <div
-            class="t-calendar__table-body-cell"
-          >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                18
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                
-                <!--v-if-->
                 
               </div>
             </span>
@@ -6200,7 +6200,7 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
           </div>
           <div
-            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+            class="t-calendar__table-body-cell"
           >
             
             <div
@@ -6216,7 +6216,7 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             
           </div>
           <div
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
           >
             
             <div
@@ -7737,7 +7737,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+              class="t-calendar__table-body-cell"
             >
               <span>
                 <div
@@ -7753,7 +7753,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell"
+              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
             >
               <span>
                 <div
@@ -9001,7 +9001,7 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+              class="t-calendar__table-body-cell"
             >
               <span>
                 <div
@@ -9017,7 +9017,7 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell"
+              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
             >
               <span>
                 <div
@@ -10280,7 +10280,7 @@ exports[`Calendar Calendar eventsVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+              class="t-calendar__table-body-cell"
             >
               <span>
                 <div
@@ -10296,7 +10296,7 @@ exports[`Calendar Calendar eventsVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell"
+              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
             >
               <span>
                 <div
@@ -11449,7 +11449,7 @@ exports[`Calendar Calendar filterVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+              class="t-calendar__table-body-cell"
             >
               <span>
                 <div
@@ -12714,7 +12714,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+              class="t-calendar__table-body-cell"
             >
               <span>
                 <div
@@ -12730,7 +12730,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
               </span>
             </div>
             <div
-              class="t-calendar__table-body-cell"
+              class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
             >
               <span>
                 <div
@@ -13988,7 +13988,7 @@ exports[`Calendar Calendar headVue demo works fine 1`] = `
             </span>
           </div>
           <div
-            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+            class="t-calendar__table-body-cell"
           >
             <span>
               <div
@@ -14004,7 +14004,7 @@ exports[`Calendar Calendar headVue demo works fine 1`] = `
             </span>
           </div>
           <div
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
           >
             <span>
               <div
@@ -15869,7 +15869,7 @@ exports[`Calendar Calendar rangeVue demo works fine 1`] = `
             </span>
           </div>
           <div
-            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+            class="t-calendar__table-body-cell"
           >
             <span>
               <div
@@ -15885,7 +15885,7 @@ exports[`Calendar Calendar rangeVue demo works fine 1`] = `
             </span>
           </div>
           <div
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
           >
             <span>
               <div
@@ -17108,7 +17108,7 @@ exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
             </div>
           </div>
           <div
-            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+            class="t-calendar__table-body-cell"
           >
             <div
               class="calendar-slot-props-api-demo"
@@ -17122,7 +17122,7 @@ exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
             </div>
           </div>
           <div
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
           >
             <div
               class="calendar-slot-props-api-demo"
@@ -19679,7 +19679,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                 </span>
               </div>
               <div
-                class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+                class="t-calendar__table-body-cell"
               >
                 <span>
                   <div
@@ -19695,7 +19695,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                 </span>
               </div>
               <div
-                class="t-calendar__table-body-cell"
+                class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
               >
                 <span>
                   <div
@@ -20908,7 +20908,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                 </span>
               </div>
               <div
-                class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+                class="t-calendar__table-body-cell"
               >
                 <span>
                   <div
@@ -20924,7 +20924,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                 </span>
               </div>
               <div
-                class="t-calendar__table-body-cell"
+                class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
               >
                 <span>
                   <div
@@ -22165,7 +22165,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                 </span>
               </div>
               <div
-                class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
+                class="t-calendar__table-body-cell"
               >
                 <span>
                   <div
@@ -22181,7 +22181,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                 </span>
               </div>
               <div
-                class="t-calendar__table-body-cell"
+                class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
               >
                 <span>
                   <div
