@@ -37,11 +37,11 @@ export default defineComponent({
     'opened',
     'closed',
     'update:visible',
-    'click-overlay',
-    'click-close-btn',
-    'keydown-esc',
-    'click-confirm',
-    'click-cancel',
+    'overlay',
+    'close-btn',
+    'esc-keydown',
+    'confirm',
+    'cancel',
   ],
 
   computed: {
@@ -166,26 +166,26 @@ export default defineComponent({
       );
     },
     handleCloseBtnClick(e: MouseEvent) {
-      this.$emit('click-close-btn', e);
+      this.$emit('close-btn', e);
       this.closeDrawer({ trigger: 'close-btn', e });
     },
     handleWrapperClick(e: MouseEvent) {
-      this.$emit('click-overlay', e);
+      this.$emit('overlay', e);
       if (this.closeOnOverlayClick) {
         this.closeDrawer({ trigger: 'overlay', e });
       }
     },
     onKeyDown(e: KeyboardEvent) {
       if (this.closeOnKeydownEsc && e.key === 'Escape') {
-        this.$emit('keydown-esc', e);
+        this.$emit('esc-keydown', e);
         this.closeDrawer({ trigger: 'esc', e });
       }
     },
     confirmBtnAction(e: MouseEvent) {
-      this.$emit('click-confirm', e);
+      this.$emit('confirm', e);
     },
     cancelBtnAction(e: MouseEvent) {
-      this.$emit('click-cancel', e);
+      this.$emit('cancel', e);
       this.closeDrawer({ trigger: 'cancel', e });
     },
     closeDrawer(params: DrawerCloseContext) {
