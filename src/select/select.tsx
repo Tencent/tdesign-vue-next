@@ -584,7 +584,7 @@ export default defineComponent({
       return this.placeholder || this.t(this.global.placeholderText);
     },
     getCloseIcon() {
-      const closeIconClass = [`${name}-right-icon`, `${name}-right-icon__clear`];
+      const closeIconClass = [`${name}__right-icon`, `${name}__right-icon-clear`];
       if (isFunction(this.global.clearIcon)) {
         return (
           <span class={closeIconClass} onClick={this.clearSelect}>

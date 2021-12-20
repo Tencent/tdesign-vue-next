@@ -38,7 +38,6 @@ export default defineComponent({
     const value2 = ref([]);
 
     const filterMethod = (search, option) => {
-      console.log('search:', search, ', option:', option);
       return option.label.indexOf(search) !== -1;
     };
 

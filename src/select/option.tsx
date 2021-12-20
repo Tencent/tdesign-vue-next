@@ -32,12 +32,7 @@ export default defineComponent({
   computed: {
     // 键盘上下按键选中hover样式的选项
     hovering(): boolean {
-      return (
-        this.tSelect &&
-        this.tSelect.visible &&
-        this.tSelect.hoverOptions[this.tSelect.hoverIndex] &&
-        this.tSelect.hoverOptions[this.tSelect.hoverIndex][this.tSelect.realValue] === this.value
-      );
+      return get(this.tSelect, `hoverOptions[${this.tSelect.hoverIndex}][${this.tSelect.realValue}]`) === this.value;
     },
     multiLimitDisabled(): boolean {
       if (this.tSelect && this.tSelect.multiple && this.tSelect.max) {
@@ -118,9 +113,6 @@ export default defineComponent({
         }, this.tSelect.popupOpenTime); // 待popup弹出后再滚动到对应位置
       }
     },
-  },
-  unmounted() {
-    this.tSelect && this.tSelect.hasOptions && this.tSelect.destroyOptions(this);
   },
   mounted() {
     this.tSelect && this.tSelect.getOptions(this);
