@@ -20,7 +20,7 @@ import {
   TypeTreeNodeModel,
   TypeTargetNode,
 } from './interface';
-import { TREE_NAME, CLASS_NAMES, FX } from './constants';
+import { CLASS_NAMES, FX } from './constants';
 import { getMark, getNode, emitEvent } from './util';
 
 export default defineComponent({
@@ -62,7 +62,7 @@ export default defineComponent({
         list.push(CLASS_NAMES.treeCheckable);
       }
       if (transition) {
-        list.push(CLASS_NAMES.treeFx);
+        list.push(CLASS_NAMES.treeTransition);
       }
       if (expandOnClickNode) {
         list.push(CLASS_NAMES.treeBlockNode);
@@ -74,104 +74,14 @@ export default defineComponent({
     data(list) {
       this.rebuild(list);
     },
-    keys(nKeys) {
-      this.store.setConfig({
-        keys: nKeys,
-      });
-    },
     value(nVal) {
       this.store.replaceChecked(nVal);
     },
     expanded(nVal) {
       this.store.replaceExpanded(nVal);
     },
-    expandAll(isExpandAll) {
-      this.store.setConfig({
-        expandAll: isExpandAll,
-      });
-    },
-    expandLevel(nExpandLevel) {
-      this.store.setConfig({
-        expandLevel: nExpandLevel,
-      });
-    },
-    expandMutex(nExpandMutex) {
-      this.store.setConfig({
-        expandMutex: nExpandMutex,
-      });
-    },
-    expandParent(isExpandParent) {
-      this.store.setConfig({
-        expandParent: isExpandParent,
-      });
-    },
-    activable(isActivable) {
-      this.store.setConfig({
-        activable: isActivable,
-      });
-    },
-    activeMultiple(isActiveMultiple) {
-      this.store.setConfig({
-        activeMultiple: isActiveMultiple,
-      });
-    },
     actived(nVal) {
       this.store.replaceActived(nVal);
-    },
-    disabled(isDisabled) {
-      this.store.setConfig({
-        disabled: isDisabled,
-      });
-    },
-    checkable(isCheckAble) {
-      this.store.setConfig({
-        checkable: isCheckAble,
-      });
-    },
-    checkStrictly(isCheckStrictly) {
-      this.store.setConfig({
-        checkStrictly: isCheckStrictly,
-      });
-    },
-    load(fn) {
-      this.store.setConfig({
-        load: fn,
-      });
-    },
-    lazy(isLazy) {
-      this.store.setConfig({
-        lazy: isLazy,
-      });
-    },
-    valueMode(nMode) {
-      this.store.setConfig({
-        valueMode: nMode,
-      });
-    },
-    filter(fn) {
-      const { store } = this;
-      store.setConfig({
-        filter: fn,
-      });
-      store.updateAll();
-    },
-    checkProps(props) {
-      this.treeScope.checkProps = props;
-    },
-    empty(tnode) {
-      this.treeScope.empty = tnode;
-    },
-    icon(tnode) {
-      this.treeScope.icon = tnode;
-    },
-    label(tnode) {
-      this.treeScope.label = tnode;
-    },
-    line(tnode) {
-      this.treeScope.line = tnode;
-    },
-    operations(tnode) {
-      this.treeScope.operations = tnode;
     },
   },
   created() {
@@ -211,10 +121,14 @@ export default defineComponent({
         const nodeView = treeNodes[index];
         if (nodeView && nodeView.componentInstance) {
           const { node } = nodeView.componentInstance;
-          if (node && !store.getNode(node)) {
+          if (node && !store.getNode(node.value)) {
             // 视图列表中的节点，在树中不存在
             const nodeViewIndex = treeNodes.indexOf(nodeView);
+            // 则从视图中删除对应节点
             treeNodes.splice(nodeViewIndex, 1);
+            // 注意 $destroy 是一个耗时操作
+            nodeView.componentInstance.$destroy();
+            nodesMap.set(node.value, null);
             nodesMap.delete(node.value);
           } else {
             index += 1;
@@ -228,6 +142,12 @@ export default defineComponent({
     refresh() {
       const { store, treeNodes, treeScope } = this;
 
+      // 性能改进说明
+      // $destroy 方法极耗性能，因此不能频繁调用
+      // 但没有 $destroy 方法的调用，重复创建节点，会导致内存泄露
+      // 即使用缓存存储节点，如果反复插入节点，也会发现占用内存持续走高，而释放速度不足
+      // 因此不再对显示隐藏行为进行节点增删操作，仅改变样式
+
       treeScope.scopedSlots = this.$slots;
 
       const nodesMap = this.getNodesMap();
@@ -236,39 +156,22 @@ export default defineComponent({
       let index = 0;
       const allNodes = store.getNodes();
       allNodes.forEach((node: TreeNode) => {
-        if (node.visible) {
-          if (nodesMap.has(node.value)) {
-            const nodeView = nodesMap.get(node.value);
-            const nodeViewIndex = treeNodes.indexOf(nodeView);
-            if (nodeViewIndex !== index) {
-              // 节点存在，但位置与可视节点位置冲突，需要更新节点位置
-              treeNodes.splice(nodeViewIndex, 1);
-              treeNodes.splice(index, 0, nodeView);
-            }
-          } else {
-            // 节点可视，且不存在视图，创建该节点视图并插入到当前位置
-            const nodeView = this.renderItem(node);
-            treeNodes.splice(index, 0, nodeView);
-            nodesMap.set(node.value, nodeView);
-          }
-          index += 1;
-        } else if (nodesMap.has(node.value)) {
-          // 节点不可视，存在该视图，需要删除该节点视图
+        if (nodesMap.has(node.value)) {
           const nodeView = nodesMap.get(node.value);
           const nodeViewIndex = treeNodes.indexOf(nodeView);
-          treeNodes.splice(nodeViewIndex, 1);
-          nodesMap.delete(node.value);
+          if (nodeViewIndex !== index) {
+            // 节点存在，但位置与可视节点位置冲突，需要更新节点位置
+            treeNodes.splice(nodeViewIndex, 1);
+            treeNodes.splice(index, 0, nodeView);
+          }
+        } else if (node.visible) {
+          // 初次仅渲染可显示的节点
+          // 不存在节点视图，则创建该节点视图并插入到当前位置
+          const nodeView = this.renderItem(node);
+          treeNodes.splice(index, 0, nodeView);
+          nodesMap.set(node.value, nodeView);
         }
-      });
-      const { nodeMap } = store;
-      nodesMap.forEach((value: any, key: string) => {
-        if (!nodeMap.has(key)) {
-          // 这个节点可能被删掉了，视图也要同步删掉
-          const nodeView = nodesMap.get(key);
-          const nodeViewIndex = treeNodes.indexOf(nodeView);
-          treeNodes.splice(nodeViewIndex, 1);
-          nodesMap.delete(key);
-        }
+        index += 1;
       });
     },
 
@@ -421,12 +324,20 @@ export default defineComponent({
       return checked;
     },
     handleLoad(info: TypeEventState): void {
-      const { treeNodes } = this;
       const { node } = info;
       const ctx = {
         node: node.getModel(),
       };
-      this.treeNodes[treeNodes.indexOf(node)] = node; // update
+      const { value, expanded, actived, store } = this;
+      if (value && value.length > 0) {
+        store.replaceChecked(value);
+      }
+      if (expanded && expanded.length > 0) {
+        store.replaceExpanded(expanded);
+      }
+      if (actived && actived.length > 0) {
+        store.replaceActived(actived);
+      }
       emitEvent<Parameters<TypeTdTreeProps['onLoad']>>(this, 'load', ctx);
     },
     handleClick(state: TypeEventState): void {
@@ -506,7 +417,12 @@ export default defineComponent({
       return nodes.map((node: TreeNode) => node.getModel());
     },
     appendTo(para?: TreeNodeValue, item?: TreeOptionData | TreeOptionData[]): void {
-      const list = Array.isArray(item) ? item : [item];
+      let list = [];
+      if (Array.isArray(item)) {
+        list = item;
+      } else {
+        list = [item];
+      }
       list.forEach((item) => {
         const val = item?.value || '';
         const node = getNode(this.store, val);
@@ -560,7 +476,13 @@ export default defineComponent({
     // -------- 公共方法 end --------
   },
   render() {
-    const { classList, treeNodes } = this;
+    const { classList, treeNodes, treeScope, $slots } = this;
+
+    const scopeProps = pick(this, ['checkProps', 'disableCheck', 'icon', 'label', 'line', 'operations']);
+
+    this.updateStoreConfig();
+    Object.assign(treeScope, scopeProps);
+    treeScope.scopedSlots = $slots;
 
     let emptyNode: TNodeReturnValue = null;
     let treeNodeList = null;
@@ -571,8 +493,14 @@ export default defineComponent({
         <div class={CLASS_NAMES.treeEmpty}>{useLocale ? this.t(this.global.empty) : renderTNodeJSX(this, 'empty')}</div>
       );
     }
+
     treeNodeList = (
-      <transition-group name={FX.treeNode} tag="div" class={CLASS_NAMES.treeList}>
+      <transition-group
+        name={FX.treeNode}
+        tag="div"
+        enter-active-class={CLASS_NAMES.treeNodeEnter}
+        leave-active-class={CLASS_NAMES.treeNodeLeave}
+      >
         {treeNodes}
       </transition-group>
     );

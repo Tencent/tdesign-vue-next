@@ -1,7 +1,7 @@
 import { VNode, h } from 'vue';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
-import { TypeMark, TypeLineModel, TypeTNodeProp, TypeGetTNodeOption, TypeTargetNode } from './types';
+import { TypeMark, TypeLineModel, TypeTNodeProp, TypeGetTNodeOption, TypeTargetNode } from './interface';
 
 export { emitEvent } from '../utils/event';
 
