@@ -2,7 +2,7 @@
 
 exports[`HeadMenu props :active 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+  class="t-menu t-head-menu t-menu--light"
 >
   <div
     class="t-head-menu__inner"
@@ -21,7 +21,7 @@ exports[`HeadMenu props :active 1`] = `
 
 exports[`HeadMenu props :height 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+  class="t-menu t-head-menu t-menu--light"
   height="750px"
 >
   <div
@@ -41,7 +41,7 @@ exports[`HeadMenu props :height 1`] = `
 
 exports[`HeadMenu props :theme 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+  class="t-menu t-head-menu t-menu--light"
 >
   <div
     class="t-head-menu__inner"
@@ -60,7 +60,7 @@ exports[`HeadMenu props :theme 1`] = `
 
 exports[`HeadMenu slot <default> 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+  class="t-menu t-head-menu t-menu--light"
 >
   <div
     class="t-head-menu__inner"
@@ -81,7 +81,7 @@ exports[`HeadMenu slot <default> 1`] = `
 
 exports[`HeadMenu slot <logo> 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+  class="t-menu t-head-menu t-menu--light"
 >
   <div
     class="t-head-menu__inner"
@@ -106,7 +106,7 @@ exports[`HeadMenu slot <logo> 1`] = `
 
 exports[`HeadMenu slot <operations> 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+  class="t-menu t-head-menu t-menu--light"
 >
   <div
     class="t-head-menu__inner"

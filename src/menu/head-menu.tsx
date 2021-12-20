@@ -21,7 +21,6 @@ export default defineComponent({
     const menuClass = computed(() => [
       `${prefix}-menu`,
       `${prefix}-head-menu`,
-      `${prefix}-menu-mode__${props.expandType}`,
       `${prefix}-menu--${props.theme}`,
     ]);
     const mode = ref(props.expandType);
