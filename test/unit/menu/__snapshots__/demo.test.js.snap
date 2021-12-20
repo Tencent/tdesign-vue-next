@@ -2,7 +2,7 @@
 
 exports[`Menu Menu closableSideVue demo works fine 1`] = `
 <div
-  class="t-default-menu t-menu-mode__popup t-menu--light t-is-collapsed"
+  class="t-default-menu t-menu--light t-is-collapsed"
   height="550px"
   style="height: 100%; width: 64px;"
 >
@@ -94,7 +94,7 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
           >
             
             <li
-              class="t-menu__item t-is-active t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-is-active t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -106,7 +106,7 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -118,7 +118,7 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -195,7 +195,7 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
 
 exports[`Menu Menu customHeaderVue demo works fine 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--dark"
+  class="t-menu t-head-menu t-menu--dark"
 >
   <div
     class="t-head-menu__inner"
@@ -273,7 +273,7 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
 
 exports[`Menu Menu customSideVue demo works fine 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -354,7 +354,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
   class="box"
 >
   <div
-    class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+    class="t-menu t-head-menu t-menu--light"
   >
     <div
       class="t-head-menu__inner"
@@ -544,7 +544,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-menu t-head-menu t-menu-mode__normal t-menu--dark"
+    class="t-menu t-head-menu t-menu--dark"
     style="margin-top: 24px;"
   >
     <div
@@ -739,7 +739,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
 
 exports[`Menu Menu groupSideVue demo works fine 1`] = `
 <div
-  class="t-default-menu t-menu-mode__popup t-menu--light t-is-collapsed"
+  class="t-default-menu t-menu--light t-is-collapsed"
   height="550px"
   style="height: 100%; width: 64px;"
 >
@@ -765,7 +765,7 @@ exports[`Menu Menu groupSideVue demo works fine 1`] = `
         class="t-menu-group"
       >
         <div
-          class="t-menu-group-title"
+          class="t-menu-group__title"
         >
           Classification A
         </div>
@@ -796,7 +796,7 @@ exports[`Menu Menu groupSideVue demo works fine 1`] = `
         class="t-menu-group"
       >
         <div
-          class="t-menu-group-title"
+          class="t-menu-group__title"
         >
           Classification B
         </div>
@@ -831,7 +831,7 @@ exports[`Menu Menu groupSideVue demo works fine 1`] = `
         class="t-menu-group"
       >
         <div
-          class="t-menu-group-title"
+          class="t-menu-group__title"
         >
           Classification C
         </div>
@@ -871,7 +871,7 @@ exports[`Menu Menu groupSideVue demo works fine 1`] = `
 
 exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--dark"
+  class="t-menu t-head-menu t-menu--dark"
 >
   <div
     class="t-head-menu__inner"
@@ -999,7 +999,7 @@ exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
 
 exports[`Menu Menu headMenuEmptyVue demo works fine 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+  class="t-menu t-head-menu t-menu--light"
 >
   <div
     class="t-head-menu__inner"
@@ -1067,7 +1067,7 @@ exports[`Menu Menu headMenuEmptyVue demo works fine 1`] = `
 
 exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--dark"
+  class="t-menu t-head-menu t-menu--dark"
 >
   <div
     class="t-head-menu__inner"
@@ -1195,7 +1195,7 @@ exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
 
 exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
 <div
-  class="t-menu t-head-menu t-menu-mode__normal t-menu--dark"
+  class="t-menu t-head-menu t-menu--dark"
 >
   <div
     class="t-head-menu__inner"
@@ -1493,7 +1493,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
   class="box"
 >
   <div
-    class="t-default-menu t-menu-mode__normal t-menu--light"
+    class="t-default-menu t-menu--light"
     height="550px"
     style="height: 100%; width: 232px;"
   >
@@ -1703,7 +1703,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               
             </li>
             <li
-              class="t-menu__item t-is-active t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-is-active t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -1715,7 +1715,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -1727,7 +1727,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -1810,7 +1810,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           >
             
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -1822,7 +1822,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -1834,7 +1834,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -1887,7 +1887,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-default-menu t-menu-mode__normal t-menu--dark"
+    class="t-default-menu t-menu--dark"
     height="550px"
     style="height: 100%; width: 232px; margin-left: 50px;"
   >
@@ -2007,7 +2007,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           >
             
             <li
-              class="t-menu__item t-is-active t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-is-active t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -2019,7 +2019,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -2031,7 +2031,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -2114,7 +2114,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           >
             
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -2126,7 +2126,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -2138,7 +2138,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -2221,7 +2221,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           >
             
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -2233,7 +2233,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -2245,7 +2245,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+              class="t-menu__item t-menu__item--plain t-submenu__item"
             >
               <!---->
               <span
@@ -2305,7 +2305,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
   class="box"
 >
   <div
-    class="t-menu t-head-menu t-menu-mode__popup t-menu--light"
+    class="t-menu t-head-menu t-menu--light"
   >
     <div
       class="t-head-menu__inner"
@@ -2681,7 +2681,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-menu t-head-menu t-menu-mode__popup t-menu--dark"
+    class="t-menu t-head-menu t-menu--dark"
     style="margin-top: 24px;"
   >
     <div
@@ -2918,7 +2918,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
 
 exports[`Menu Menu popupSideVue demo works fine 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -3007,7 +3007,7 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
         >
           
           <li
-            class="t-menu__item t-is-active t-menu__item--plain t-submenu__item t-submenu__item--icon"
+            class="t-menu__item t-is-active t-menu__item--plain t-submenu__item"
           >
             <!---->
             <span
@@ -3019,7 +3019,7 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
             </span>
           </li>
           <li
-            class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+            class="t-menu__item t-menu__item--plain t-submenu__item"
           >
             <!---->
             <span
@@ -3031,7 +3031,7 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
             </span>
           </li>
           <li
-            class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+            class="t-menu__item t-menu__item--plain t-submenu__item"
           >
             <!---->
             <span
@@ -3094,7 +3094,7 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
         >
           
           <li
-            class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+            class="t-menu__item t-menu__item--plain t-submenu__item"
           >
             <!---->
             <span
@@ -3106,7 +3106,7 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
             </span>
           </li>
           <li
-            class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+            class="t-menu__item t-menu__item--plain t-submenu__item"
           >
             <!---->
             <span
@@ -3118,7 +3118,7 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
             </span>
           </li>
           <li
-            class="t-menu__item t-menu__item--plain t-submenu__item t-submenu__item--icon"
+            class="t-menu__item t-menu__item--plain t-submenu__item"
           >
             <!---->
             <span
@@ -3174,7 +3174,7 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
 
 exports[`Menu Menu sideMenuWidthVue demo works fine 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   height="550px"
   style="height: 100%; width: 200px;"
 >
@@ -3257,7 +3257,7 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
   class="box"
 >
   <div
-    class="t-default-menu t-menu-mode__normal t-menu--light"
+    class="t-default-menu t-menu--light"
     height="550px"
     style="height: 100%; width: 232px; margin-right: 40px;"
   >
@@ -3394,7 +3394,7 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-default-menu t-menu-mode__normal t-menu--light"
+    class="t-default-menu t-menu--light"
     height="550px"
     style="height: 100%; width: 232px; margin-right: 40px;"
   >
@@ -3603,7 +3603,7 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-default-menu t-menu-mode__normal t-menu--dark"
+    class="t-default-menu t-menu--dark"
     height="550px"
     style="height: 100%; width: 232px;"
   >
@@ -3817,7 +3817,7 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
 exports[`Menu Menu singleVue demo works fine 1`] = `
 <div>
   <div
-    class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+    class="t-menu t-head-menu t-menu--light"
     modelvalue="item2"
   >
     <div
@@ -3931,7 +3931,7 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
   </div>
   <br />
   <div
-    class="t-menu t-head-menu t-menu-mode__normal t-menu--dark"
+    class="t-menu t-head-menu t-menu--dark"
     height="120px"
     modelvalue="item1"
   >
