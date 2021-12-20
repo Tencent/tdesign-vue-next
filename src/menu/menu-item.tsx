@@ -23,7 +23,6 @@ export default defineComponent({
         [`${prefix}-is-disabled`]: props.disabled,
         [`${prefix}-menu__item--plain`]: !ctx.slots.icon,
         [`${prefix}-submenu__item`]: !!submenu && !menu.isHead,
-        [`${prefix}-submenu__item--icon`]: submenu && submenu.hasIcon,
       },
     ]);
 

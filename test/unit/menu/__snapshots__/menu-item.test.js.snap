@@ -2,7 +2,7 @@
 
 exports[`MenuItem props :disabled 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -32,7 +32,7 @@ exports[`MenuItem props :disabled 1`] = `
 
 exports[`MenuItem props :name 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -63,7 +63,7 @@ exports[`MenuItem props :name 1`] = `
 
 exports[`MenuItem props :route 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -94,7 +94,7 @@ exports[`MenuItem props :route 1`] = `
 
 exports[`MenuItem slot <default> 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -124,7 +124,7 @@ exports[`MenuItem slot <default> 1`] = `
 
 exports[`MenuItem slot <icon> 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
