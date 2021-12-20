@@ -12,10 +12,10 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
       共 100 项数据
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -25,16 +25,16 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-m t-select-create-option-special"
+                    class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
                     
@@ -42,7 +42,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <li
-                  class="t-select-empty t-size-m"
+                  class="t-select__empty t-size-m"
                 >
                   暂无数据
                 </li>
@@ -104,14 +104,14 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="5"
           >
             5
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -237,10 +237,10 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
       共 36 项数据
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -250,16 +250,16 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-m t-select-create-option-special"
+                    class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
                     
@@ -267,7 +267,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <li
-                  class="t-select-empty t-size-m"
+                  class="t-select__empty t-size-m"
                 >
                   暂无数据
                 </li>
@@ -329,14 +329,14 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="10"
           >
             10
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -439,10 +439,10 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
       共 101 项数据
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -452,16 +452,16 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-m t-select-create-option-special"
+                    class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
                     
@@ -469,7 +469,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <li
-                  class="t-select-empty t-size-m"
+                  class="t-select__empty t-size-m"
                 >
                   暂无数据
                 </li>
@@ -531,14 +531,14 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="20"
           >
             20
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -668,10 +668,10 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
       共 100 项数据
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -681,16 +681,16 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-s t-select-create-option-special"
+                    class="t-select-option t-size-s t-select__create-option--special"
                     title=""
                   >
                     
@@ -698,7 +698,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <li
-                  class="t-select-empty t-size-s"
+                  class="t-select__empty t-size-s"
                 >
                   暂无数据
                 </li>
@@ -760,14 +760,14 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="5"
           >
             5
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -894,10 +894,10 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
       共 100 项数据
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -907,16 +907,16 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-m t-select-create-option-special"
+                    class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
                     
@@ -924,7 +924,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <li
-                  class="t-select-empty t-size-m"
+                  class="t-select__empty t-size-m"
                 >
                   暂无数据
                 </li>
@@ -986,14 +986,14 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="5"
           >
             5
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1142,10 +1142,10 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
       共 645 项数据
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -1155,16 +1155,16 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-m t-select-create-option-special"
+                    class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
                     
@@ -1172,7 +1172,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <li
-                  class="t-select-empty t-size-m"
+                  class="t-select__empty t-size-m"
                 >
                   暂无数据
                 </li>
@@ -1234,14 +1234,14 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="30"
           >
             30
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1368,10 +1368,10 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
       共 100 项数据
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -1381,16 +1381,16 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-s t-select-create-option-special"
+                    class="t-select-option t-size-s t-select__create-option--special"
                     title=""
                   >
                     
@@ -1398,7 +1398,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <li
-                  class="t-select-empty t-size-s"
+                  class="t-select__empty t-size-s"
                 >
                   暂无数据
                 </li>
@@ -1460,14 +1460,14 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="5"
           >
             5
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1506,10 +1506,10 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
       </svg>
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -1519,16 +1519,16 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-s t-select-create-option-special"
+                    class="t-select-option t-size-s t-select__create-option--special"
                     title=""
                   >
                     
@@ -1685,14 +1685,14 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="1/20"
           >
             1/20
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1747,10 +1747,10 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
       共 100 项数据
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -1760,16 +1760,16 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-m t-select-create-option-special"
+                    class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
                     
@@ -1777,7 +1777,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <li
-                  class="t-select-empty t-size-m"
+                  class="t-select__empty t-size-m"
                 >
                   暂无数据
                 </li>
@@ -1839,14 +1839,14 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="5"
           >
             5
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1885,10 +1885,10 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
       </svg>
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -1898,16 +1898,16 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-m t-select-create-option-special"
+                    class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
                     
@@ -2064,14 +2064,14 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="1/20"
           >
             1/20
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -2126,10 +2126,10 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
       共 undefined 项数据
     </div>
     <div
-      class="t-select-wrap t-pagination__select"
+      class="t-select__wrap t-pagination__select"
     >
       <div
-        class="t-popup__reference t-select-popup-reference"
+        class="t-popup__reference t-select__popup-reference"
       >
         <transition-stub>
           <div
@@ -2139,16 +2139,16 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup__content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
               <div>
                 <ul
-                  class="t-select-create-option"
+                  class="t-select__create-option"
                   style="display: none;"
                 >
                   <li
-                    class="t-select-option t-size-m t-select-create-option-special"
+                    class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
                     
@@ -2156,7 +2156,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <li
-                  class="t-select-empty t-size-m"
+                  class="t-select__empty t-size-m"
                 >
                   暂无数据
                 </li>
@@ -2218,14 +2218,14 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-select-selectedSingle"
+            class="t-select__single"
             title="10"
           >
             10
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select-right-icon"
+            class="t-fake-arrow t-select__right-icon"
             fill="none"
             height="16"
             viewBox="0 0 16 16"

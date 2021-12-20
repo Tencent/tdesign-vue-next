@@ -11,11 +11,36 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
+      - name: check_email
+        run: |
+          log_emails=$(git log --pretty=format:"%ae" -1) && if [[ ${log_emails} =~ '@tencent.com' ]];then echo $log_emails && echo "邮箱校验非法" && exit 2;else echo "邮箱校验通过";fi
+        shell: bash
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: |
+          npm i npm@latest -g
+          npm install
+        shell: bash
+      - run: npm run lint
+      - run: npm run test
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
       - name: Install dependencies
         run: npm install
         shell: bash
-      - run: npm run lint
-      - run: npm run test
+      - run: echo '${{ github.ref }} ...  ${{ github.sha }}'
+      - name: Build site
+        run: npm run site:preview
+      - name: Upload surge service and generate preview URL
+        id: deploy
+        run: |
+          export GITHUB_SHA=${{ github.sha }}
+          export GITHUB_SHA_SUB=${GITHUB_SHA: 0: 7 }
+          export DEPLOY_DOMAIN=https://preview-$GITHUB_SHA_SUB-tdesign-vue-next.surge.sh
+          npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
+          echo the preview URL is $DEPLOY_DOMAIN
+        if: ${{ success() }}
+      - run: echo "🚀 This job's status is ${{ job.status }}."

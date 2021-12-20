@@ -31,10 +31,10 @@ const options = [
   { label: '选项三', value: '3' },
   { label: '选项四', value: '4' },
   { label: '选项五', value: '5' },
-  { label: '选项六', value: '10' },
-  { label: '选项七', value: '6' },
-  { label: '选项八', value: '7' },
-  { label: '选项九', value: '8' },
+  { label: '选项六', value: '6' },
+  { label: '选项七', value: '7' },
+  { label: '选项八', value: '8' },
+  { label: '选项九', value: '9' },
 ];
 
 export default defineComponent({

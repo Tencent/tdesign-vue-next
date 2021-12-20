@@ -18,6 +18,7 @@
       style="width: 400px; display: inline-block"
       @blur="handleBlur"
       @focus="handleFocus"
+      @enter="handleEnter"
     />
   </div>
 </template>
@@ -37,7 +38,6 @@ export default defineComponent({
     const value2 = ref([]);
 
     const filterMethod = (search, option) => {
-      console.log('search:', search, ', option:', option);
       return option.label.indexOf(search) !== -1;
     };
 
@@ -49,6 +49,10 @@ export default defineComponent({
       console.log('handleFocus: ', value, e);
     };
 
+    const handleEnter = ({ value, e, inputValue }) => {
+      console.log('handleEnter: ', value, e, inputValue);
+    };
+
     return {
       value,
       value2,
@@ -56,6 +60,7 @@ export default defineComponent({
       filterMethod,
       handleBlur,
       handleFocus,
+      handleEnter,
     };
   },
 });

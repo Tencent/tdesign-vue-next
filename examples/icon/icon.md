@@ -2,7 +2,7 @@
 
 ### 安装独立 Icon 包
 
-图标相对其他基础组件较为独立，所以作为一个独立的 npm 包做发布管理。如果项目中直接使用，请安装`tdesign-icons-vue`。
+图标相对其他基础组件较为独立，所以作为一个独立的 `npm` 包做发布管理。如果项目中直接使用，请安装 `tdesign-icons-vue-next`。 同时 `tdesign-vue-next` 也内置了 `icon`, 支持直接通过 `t-icon` 来使用
 
 ### SVG 全量引入
 
@@ -51,8 +51,7 @@
 
 ### 全部图标
 
-::: demo demos/all
-:::
+<tdesign-icons-view />
 
 ## API
 

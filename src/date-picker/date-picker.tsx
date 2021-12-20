@@ -35,8 +35,6 @@ export default defineComponent({
   ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
   name: 'TDatePicker',
   components: {
-    CalendarIcon,
-    TimeIcon,
     TPopup,
     TButton,
     TInput,
@@ -644,7 +642,6 @@ export default defineComponent({
         [CLASSNAMES.STATUS.active]: this.isOpen,
       },
     ];
-
     const prefixIcon = renderTNodeJSX(this, 'prefixIcon');
     const suffixIconSlot = renderTNodeJSX(this, 'suffixIcon');
     const suffixIcon = () => {
@@ -696,9 +693,9 @@ export default defineComponent({
               focus={this.onNativeFocus}
               input={this.onNativeInput}
               click={this.onClick}
-              prefixIcon={prefixIcon}
               suffixIcon={suffixIcon}
-            ></t-input>
+              prefixIcon={prefixIcon}
+            />
           </div>
         </t-popup>
       </div>

@@ -60,21 +60,7 @@ export default defineComponent({
         <td-header ref="tdHeader" slot="header">
           <td-doc-search slot="search" ref="tdDocSearch" />
         </td-header>
-        <td-doc-aside ref="tdDocAside" title="Vue Next for Web">
-          <t-select
-            id="historyVersion"
-            slot="extra"
-            value={this.version}
-            popupProps={{ zIndex: 500, attach: this.getAttach }}
-            onChange={this.changeVersion}
-          >
-            {this.options.map((item, index) => (
-              <t-option key={index} value={item.value} label={item.label}>
-                {item.label}
-              </t-option>
-            ))}
-          </t-select>
-        </td-doc-aside>
+        <td-doc-aside ref="tdDocAside" title="Vue Next for Web"></td-doc-aside>
         <router-view style={this.contentStyle} onLoaded={this.contentLoaded} />
       </td-doc-layout>
     );

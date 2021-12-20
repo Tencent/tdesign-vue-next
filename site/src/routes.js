@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
 import config from '../site.config';
 import TdesignComponents from './components/components.jsx';
-import TdesignPlayground from '../../examples/playground/index.vue';
 
 const { docs } = config;
 
@@ -51,13 +50,6 @@ const routes = [
     component: () => import('./components/demo-page.vue'),
   },
 ];
-
-if (process.env.NODE_ENV === 'development') {
-  routes.push({
-    path: '/vue-next/playground',
-    component: TdesignPlayground,
-  });
-}
 
 const routerConfig = {
   history: createWebHistory(),

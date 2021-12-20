@@ -8,7 +8,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-popup__reference t-select-popup-reference"
+      class="t-popup__reference t-select__popup-reference"
     >
       <transition-stub>
         <div
@@ -18,7 +18,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup__content t-select-dropdown narrow-scrollbar"
+            class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
             
@@ -27,7 +27,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-select-empty"
+                class="t-select__empty"
               >
                 加载中
               </div>
@@ -229,7 +229,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
       >
         <!---->
         <span
-          class="t-select-placeholder"
+          class="t-select__placeholder"
         >
           请选择
         </span>
@@ -247,7 +247,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select-input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -261,7 +261,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select-right-icon"
+          class="t-fake-arrow t-select__right-icon"
           fill="none"
           height="16"
           style="font-size: medium;"
@@ -277,7 +277,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -292,7 +292,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           />
         </svg>
         <div
-          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
+          class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon"
           name="loading"
           style="display: none;"
         >
@@ -333,7 +333,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-popup__reference t-select-popup-reference"
+      class="t-popup__reference t-select__popup-reference"
     >
       <transition-stub>
         <div
@@ -343,7 +343,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup__content t-select-dropdown narrow-scrollbar"
+            class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
             
@@ -352,7 +352,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-select-empty"
+                class="t-select__empty"
               >
                 加载中
               </div>
@@ -454,7 +454,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
       >
         <!---->
         <span
-          class="t-select-placeholder"
+          class="t-select__placeholder"
         >
           请选择
         </span>
@@ -472,7 +472,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select-input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -486,7 +486,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select-right-icon"
+          class="t-fake-arrow t-select__right-icon"
           fill="none"
           height="16"
           style="font-size: medium;"
@@ -502,7 +502,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -517,7 +517,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           />
         </svg>
         <div
-          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
+          class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon"
           name="loading"
           style="display: none;"
         >
@@ -558,7 +558,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-popup__reference t-select-popup-reference"
+      class="t-popup__reference t-select__popup-reference"
     >
       <transition-stub>
         <div
@@ -568,7 +568,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup__content t-select-dropdown narrow-scrollbar"
+            class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
             
@@ -577,7 +577,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
               style="display: none;"
             >
               <div
-                class="t-select-empty"
+                class="t-select__empty"
               >
                 加载中
               </div>
@@ -778,7 +778,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
         class="t-select t-size-m t-has-prefix"
       >
         <span
-          class="t-select-left-icon"
+          class="t-select__left-icon"
         >
           <svg
             class="t-icon t-icon-browse"
@@ -789,7 +789,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-select-placeholder"
+          class="t-select__placeholder"
         >
           请输入
         </span>
@@ -807,7 +807,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select-input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -821,7 +821,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select-right-icon"
+          class="t-fake-arrow t-select__right-icon"
           fill="none"
           height="16"
           style="font-size: medium;"
@@ -837,7 +837,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select-right-icon t-select-right-icon__clear t-select-right-icon t-select-right-icon__clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -852,7 +852,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           />
         </svg>
         <div
-          class="t-loading--center t-size-s t-loading t-select-right-icon t-select-active-icon"
+          class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon"
           name="loading"
           style="display: none;"
         >

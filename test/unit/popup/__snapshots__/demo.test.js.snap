@@ -733,38 +733,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Popup Popup resizeVue demo works fine 1`] = `
-<div>
-  <div
-    class="t-popup__reference"
-  >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <textarea
-      placeholder="拖动修改输入框尺寸"
-    />
-    
-  </div>
-</div>
-`;
-
 exports[`Popup Popup styleVue demo works fine 1`] = `
 <div>
   <div

@@ -824,6 +824,7 @@ exports[`List List loadingVue demo works fine 1`] = `
       </label>
       <div
         class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
       />
       
     </div>

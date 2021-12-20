@@ -16,11 +16,7 @@ export default defineComponent({
     const activeValues = ref([]);
     const expandValues = ref(props.defaultExpanded || props.expanded || []);
     const theme = computed(() => props.theme);
-    const menuClass = computed(() => [
-      `${prefix}-menu`,
-      `${prefix}-head-menu`,
-      `${prefix}-menu--${props.theme}`,
-    ]);
+    const menuClass = computed(() => [`${prefix}-menu`, `${prefix}-head-menu`, `${prefix}-menu--${props.theme}`]);
     const mode = ref(props.expandType);
     const submenu = reactive([]);
     const deliver = (evt: string) => {

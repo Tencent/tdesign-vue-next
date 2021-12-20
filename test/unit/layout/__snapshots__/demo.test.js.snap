@@ -13,7 +13,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
     >
       
       <div
-        class="t-default-menu t-menu-mode__normal t-menu--light"
+        class="t-default-menu t-menu--light"
         height="550px"
         style="height: 100%; width: 232px; margin-right: 50px;"
       >
@@ -425,7 +425,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
     >
       
       <div
-        class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+        class="t-menu t-head-menu t-menu--light"
         height="120px"
       >
         <div
@@ -550,7 +550,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
       >
         
         <div
-          class="t-default-menu t-menu-mode__normal t-menu--light"
+          class="t-default-menu t-menu--light"
           height="550px"
           style="height: 100%; width: 232px; margin-right: 50px;"
         >
@@ -791,7 +791,7 @@ exports[`Layout Layout topVue demo works fine 1`] = `
     >
       
       <div
-        class="t-menu t-head-menu t-menu-mode__normal t-menu--light"
+        class="t-menu t-head-menu t-menu--light"
         height="120px"
       >
         <div

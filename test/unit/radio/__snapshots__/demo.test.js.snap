@@ -292,6 +292,7 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
       </label>
       <div
         class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
       />
       
     </div>
@@ -1147,6 +1148,7 @@ exports[`Radio Radio typeVue demo works fine 1`] = `
         </label>
         <div
           class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
         />
         
       </div>
@@ -1268,6 +1270,7 @@ exports[`Radio Radio typeVue demo works fine 1`] = `
         </label>
         <div
           class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
         />
         
       </div>
@@ -1394,6 +1397,7 @@ exports[`Radio Radio typeVue demo works fine 1`] = `
         </label>
         <div
           class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
         />
         
       </div>
@@ -1520,6 +1524,7 @@ exports[`Radio Radio typeVue demo works fine 1`] = `
         </label>
         <div
           class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
         />
         
       </div>

@@ -13,12 +13,14 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TInput from '../input/index';
 import Tag from '../tag/index';
+import FakeArrow from '../common-components/fake-arrow';
 import Popup, { PopupProps } from '../popup/index';
 import Option from './option';
+
 import props from './props';
-import { SelectOption, TdOptionProps, SelectValue, SelectOptionGroup } from './type';
+import { SelectOption, TdOptionProps, SelectValue, TdSelectProps, SelectOptionGroup } from './type';
 import { ClassName } from '../common';
-import FakeArrow from '../common-components/fake-arrow';
+import { emitEvent } from '../utils/event';
 
 export type OptionInstance = InstanceType<typeof Option>;
 
@@ -27,11 +29,12 @@ interface KeysType {
   label?: string;
 }
 
-// import { SelectInstance } from './instance';
 const name = `${prefix}-select`;
 // trigger元素不超过此宽度时，下拉选项的最大宽度（用户未设置overStyle width时）
 // 用户设置overStyle width时，以设置的为准
 const DEFAULT_MAX_OVERLAY_WIDTH = 500;
+// 默认垂直滚动条宽度 .narrow-scrollbar 8px
+const DEFAULT_SCROLLY_WIDTH = 8;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<SelectConfig>('select')),
@@ -68,6 +71,9 @@ export default defineComponent({
       realValue: this.keys && (this.keys as KeysType).value ? (this.keys as KeysType).value : 'value',
       realLabel: this.keys && (this.keys as KeysType).label ? (this.keys as KeysType).label : 'label',
       realOptions: [] as Array<TdOptionProps>,
+      hoverIndex: -1,
+      popupOpenTime: 250, // popup打开弹出层的延迟时间
+      checkScroll: true, // 弹出层执行加宽事件（仅执行一次，且在有滚动条时执行）
     };
   },
   computed: {
@@ -85,21 +91,11 @@ export default defineComponent({
     },
     popClass(): string {
       const { popupObject } = this;
-      return `${popupObject.overlayClassName} ${name}-dropdown narrow-scrollbar`;
-    },
-    arrowClass(): ClassName {
-      const { visible } = this;
-      return [
-        `${name}-right-icon`,
-        `${prefix}-fake-arrow`,
-        {
-          [`${prefix}-fake-arrow--active`]: visible,
-        },
-      ];
+      return `${popupObject.overlayClassName} ${name}__dropdown narrow-scrollbar`;
     },
     tipsClass(): ClassName {
       return [
-        `${name}-loading-tips`,
+        `${name}__loading-tips`,
         {
           [CLASSNAMES.SIZE[this.size]]: this.size,
         },
@@ -107,7 +103,7 @@ export default defineComponent({
     },
     emptyClass(): ClassName {
       return [
-        `${name}-empty`,
+        `${name}__empty`,
         {
           [CLASSNAMES.SIZE[this.size]]: this.size,
         },
@@ -116,7 +112,7 @@ export default defineComponent({
     showPlaceholder(): boolean {
       if (
         !this.showFilter &&
-        ((typeof this.value === 'string' && this.value === '' && !this.selectedSingle) ||
+        ((!this.multiple && !this.selectedSingle) ||
           (!this.multiple && typeof this.value === 'object' && !this.selectedSingle) ||
           (Array.isArray(this.value) && !this.value.length) ||
           this.value === null ||
@@ -147,7 +143,7 @@ export default defineComponent({
           this.isHover &&
           !this.disabled &&
           ((!this.multiple && (this.value || this.value === 0)) ||
-            (this.multiple && this.value instanceof Array && this.value.length)),
+            (this.multiple && Array.isArray(this.value) && this.value.length)),
       );
     },
     showArrow(): boolean {
@@ -156,7 +152,7 @@ export default defineComponent({
         !this.isHover ||
         this.disabled ||
         (!this.multiple && !this.value && this.value !== 0) ||
-        (this.multiple && this.value instanceof Array && !this.value.length)
+        (this.multiple && (!Array.isArray(this.value) || (Array.isArray(this.value) && !this.value.length)))
       );
     },
     canFilter(): boolean {
@@ -179,10 +175,10 @@ export default defineComponent({
           target = this.realOptions.filter((item) => get(item, this.realValue) === this.value);
         }
         if (target.length) {
-          if (get(target[0], this.realLabel) === '') {
-            return get(target[0], this.realValue);
+          if (get(target[target.length - 1], this.realLabel) === '') {
+            return get(target[target.length - 1], this.realValue);
           }
-          return get(target[0], this.realLabel);
+          return get(target[target.length - 1], this.realLabel);
         }
         return this.value.toString();
       }
@@ -202,8 +198,8 @@ export default defineComponent({
           const tmp = this.realOptions.filter((op) => get(op, this.realValue) === item);
           const valueLabel = {};
           set(valueLabel, this.realValue, item);
-          set(valueLabel, this.realLabel, tmp.length ? get(tmp[0], this.realLabel) : item);
-          return tmp.length && tmp[0].disabled ? { ...valueLabel, disabled: true } : valueLabel;
+          set(valueLabel, this.realLabel, tmp.length ? get(tmp[tmp.length - 1], this.realLabel) : item);
+          return tmp.length && tmp[tmp.length - 1].disabled ? { ...valueLabel, disabled: true } : valueLabel;
         });
       }
       return [];
@@ -246,6 +242,19 @@ export default defineComponent({
       });
       return map;
     },
+    hoverOptions(): Array<TdOptionProps> {
+      if (!this.showCreateOption) {
+        if (isFunction(this.filter) || this.filterable) {
+          return this.filterOptions;
+        }
+        return this.realOptions;
+      }
+      const willCreateOption = [{ value: this.searchInput, label: this.searchInput }] as Array<TdOptionProps>;
+      if (isFunction(this.filter) || this.filterable) {
+        return willCreateOption.concat(this.filterOptions);
+      }
+      return willCreateOption.concat(this.realOptions);
+    },
   },
   watch: {
     showFilter(val) {
@@ -276,6 +285,11 @@ export default defineComponent({
           console.error('TDesign Select: options must be an array.');
         }
       },
+    },
+    visible() {
+      this.visible && document.addEventListener('keydown', this.keydownEvent);
+      !this.visible && document.removeEventListener('keydown', this.keydownEvent);
+      this.visible && Array.isArray(this.hoverOptions) && this.initHoverindex();
     },
   },
   mounted() {
@@ -316,14 +330,12 @@ export default defineComponent({
       }
       this.visible = val;
       if (!val) {
-        if (!this.multiple || !this.reserveKeyword || this.creatable) {
-          this.searchInput = '';
-        }
+        this.searchInput = '';
       }
       val && this.monitorWidth();
       val && this.canFilter && this.doFocus();
     },
-    onOptionClick(value: string | number, e: PointerEvent) {
+    onOptionClick(value: string | number, e: MouseEvent | KeyboardEvent) {
       if (this.value !== value) {
         if (this.multiple && this.value instanceof Array) {
           if (this.labelInValue) {
@@ -357,7 +369,7 @@ export default defineComponent({
         this.canFilter && this.doFocus();
       }
     },
-    removeTag(index: number, context?: { e?: MouseEvent }) {
+    removeTag(index: number, context?: { e?: MouseEvent | KeyboardEvent }) {
       const { e } = context || {};
       e && e.stopPropagation();
       if (this.disabled) {
@@ -386,7 +398,8 @@ export default defineComponent({
     },
     getOptions(option: OptionInstance) {
       // create option值不push到options里
-      if (option.$el && option.$el.className.indexOf(`${name}-create-option-special`) !== -1) return;
+      if (option.$el && option.$el.className && option.$el.className.indexOf(`${name}__create-option--special`) !== -1)
+        return;
       const tmp = this.realOptions.filter((item) => get(item, this.realValue) === option.value);
       if (!tmp.length) {
         this.hasOptions = true;
@@ -397,8 +410,12 @@ export default defineComponent({
         this.realOptions.push(valueLabelAble);
       }
     },
-    destroyOptions(index: number) {
-      this.realOptions.splice(index, 1);
+    destroyOptions(option: OptionInstance) {
+      this.realOptions.forEach((item, index) => {
+        if (item[this.realValue] === option.value && item[this.realLabel] === option.label) {
+          this.realOptions.splice(index, 1);
+        }
+      });
     },
     emitChange(val: SelectValue | Array<SelectValue>) {
       let value: SelectValue | Array<SelectValue> | Array<TdOptionProps> | TdOptionProps;
@@ -416,24 +433,102 @@ export default defineComponent({
       } else {
         value = val;
       }
-      this.$emit('change', value);
+      emitEvent<Parameters<TdSelectProps['onChange']>>(this, 'change', value);
     },
-    createOption(value: string | number) {
-      this.$emit('create', value);
+    createOption(value: string) {
+      emitEvent<Parameters<TdSelectProps['onCreate']>>(this, 'create', value);
     },
     debounceOnRemote: debounce(function (this: any) {
-      this.$emit('search', this.searchInput);
+      emitEvent<Parameters<TdSelectProps['onSearch']>>(this, 'search', this.searchInput);
     }, 300),
-    focus(e: FocusEvent) {
-      this.$emit('focus', { value: this.value, e });
+    focus(value: string, context: { e: FocusEvent }) {
       this.focusing = true;
+      emitEvent<Parameters<TdSelectProps['onFocus']>>(this, 'focus', { value: this.value, e: context?.e });
     },
-    blur(e: FocusEvent) {
-      this.$emit('blur', { value: this.value, e });
+    blur(value: string, context: { e: FocusEvent | KeyboardEvent }) {
       this.focusing = false;
+      emitEvent<Parameters<TdSelectProps['onBlur']>>(this, 'blur', { value: this.value, e: context?.e });
     },
-    enter(e: KeyboardEvent) {
-      this.$emit('blur', { inputValue: this.searchInput, value: this.value, e });
+    enter(value: string, context: { e: KeyboardEvent }) {
+      emitEvent<Parameters<TdSelectProps['onEnter']>>(this, 'enter', {
+        inputValue: this.searchInput,
+        value: this.value,
+        e: context?.e,
+      });
+    },
+    keydownEvent(e: KeyboardEvent) {
+      if (!this.hoverOptions.length) return;
+      const preventKeys = ['ArrowDown', 'ArrowUp', 'Enter', 'Escape', 'Tab'];
+      if (preventKeys.includes(e.code)) {
+        e.preventDefault();
+      }
+      switch (e.code) {
+        case 'ArrowDown':
+          if (this.hoverIndex < this.hoverOptions.length - 1) {
+            this.hoverIndex += 1;
+            this.arrowDownOption();
+          } else {
+            this.hoverIndex = 0;
+            this.arrowDownOption();
+          }
+          break;
+        case 'ArrowUp':
+          if (this.hoverIndex > 0) {
+            this.hoverIndex -= 1;
+            this.arrowUpOption();
+          } else {
+            this.hoverIndex = this.hoverOptions.length - 1;
+            this.arrowUpOption();
+          }
+          break;
+        case 'Enter':
+          if (this.hoverIndex === -1) return;
+          if (this.showCreateOption && this.hoverIndex === 0) {
+            this.createOption(this.searchInput);
+          }
+          this.hoverOptions[this.hoverIndex] &&
+            this.onOptionClick(this.hoverOptions[this.hoverIndex][this.realValue], e);
+          break;
+        case 'Escape':
+        case 'Tab':
+          this.visible = false;
+          emitEvent<Parameters<TdSelectProps['onVisibleChange']>>(this, 'visible-change', false);
+          this.searchInput = '';
+          if (this.focusing) {
+            this.blur(this.searchInput, { e });
+          }
+          break;
+      }
+    },
+    arrowDownOption() {
+      let count = 0;
+      while (this.hoverIndex < this.hoverOptions.length) {
+        if (!this.hoverOptions[this.hoverIndex] || !this.hoverOptions[this.hoverIndex].disabled) {
+          break;
+        }
+        if (this.hoverIndex === this.hoverOptions.length - 1) {
+          this.hoverIndex = 0;
+        } else {
+          this.hoverIndex += 1;
+        }
+        count += 1;
+        if (count >= this.hoverOptions.length) break;
+      }
+    },
+    arrowUpOption() {
+      let count = 0;
+      while (this.hoverIndex > -1) {
+        if (!this.hoverOptions[this.hoverIndex] || !this.hoverOptions[this.hoverIndex].disabled) {
+          break;
+        }
+        if (this.hoverIndex === 0) {
+          this.hoverIndex = this.hoverOptions.length - 1;
+        } else {
+          this.hoverIndex -= 1;
+        }
+        count += 1;
+        if (count >= this.hoverOptions.length) break;
+      }
     },
     hoverEvent(v: boolean) {
       this.isHover = v;
@@ -461,7 +556,17 @@ export default defineComponent({
             elWidth > DEFAULT_MAX_OVERLAY_WIDTH
               ? elWidth
               : Math.min(DEFAULT_MAX_OVERLAY_WIDTH, Math.max(elWidth, popupWidth));
-          (this.defaultProps.overlayStyle as any).width = `${Math.ceil(width)}px`;
+          this.defaultProps.overlayStyle = { width: `${Math.ceil(width)}px` };
+          if (this.checkScroll) {
+            const timer = setTimeout(() => {
+              const { scrollHeight, clientHeight } = this.getOverlayElm();
+              if (scrollHeight > clientHeight) {
+                this.defaultProps.overlayStyle = { width: `${Math.ceil(width) + DEFAULT_SCROLLY_WIDTH}px` };
+              }
+              this.checkScroll = false;
+              clearTimeout(timer);
+            }, this.popupOpenTime);
+          }
         }
       });
     },
@@ -479,7 +584,7 @@ export default defineComponent({
       return this.placeholder || this.t(this.global.placeholderText);
     },
     getCloseIcon() {
-      const closeIconClass = [`${name}-right-icon`, `${name}-right-icon__clear`];
+      const closeIconClass = [`${name}__right-icon`, `${name}__right-icon-clear`];
       if (isFunction(this.global.clearIcon)) {
         return (
           <span class={closeIconClass} onClick={this.clearSelect}>
@@ -530,6 +635,24 @@ export default defineComponent({
         ? this.renderGroupOptions(this.options as SelectOptionGroup[])
         : this.renderOptions(this.displayOptions);
     },
+    initHoverindex() {
+      if (!this.multiple && (typeof this.value === 'string' || typeof this.value === 'number')) {
+        const targetIndex = Object.keys(this.hoverOptions).filter(
+          (i) => get(this.hoverOptions[i], this.realValue) === this.value,
+        );
+        this.hoverIndex = targetIndex.length ? parseInt(targetIndex[targetIndex.length - 1], 10) : -1;
+      } else if (this.multiple && Array.isArray(this.value) && this.value.length) {
+        this.value.some((item: string | number | TdOptionProps) => {
+          const targetIndex = Object.keys(this.hoverOptions).filter(
+            (i) =>
+              (typeof item === 'object' && get(this.hoverOptions[i], this.realValue) === get(item, this.realValue)) ||
+              get(this.hoverOptions[i], this.realValue) === item,
+          );
+          this.hoverIndex = targetIndex.length ? parseInt(targetIndex[targetIndex.length - 1], 10) : -1;
+          return this.hoverIndex !== -1;
+        });
+      }
+    },
   },
   render(): VNode {
     const {
@@ -553,16 +676,16 @@ export default defineComponent({
       showCreateOption,
       displayOptions,
     } = this;
-    const children = renderTNodeJSX(this as ComponentPublicInstance, 'default');
-    const prefixIconSlot = renderTNodeJSX(this as ComponentPublicInstance, 'prefixIcon');
+    const children = renderTNodeJSX(this, 'default');
+    const prefixIconSlot = renderTNodeJSX(this, 'prefixIcon');
     const emptySlot = this.getEmpty();
     const loadingTextSlot = this.getLoadingText();
     const placeholderText = this.getPlaceholderText();
     const slots = {
       content: () => (
         <div>
-          <ul v-show={showCreateOption} class={`${name}-create-option`}>
-            <t-option value={this.searchInput} label={this.searchInput} class={`${name}-create-option-special`} />
+          <ul v-show={showCreateOption} class={`${name}__create-option`}>
+            <t-option value={this.searchInput} label={this.searchInput} class={`${name}__create-option--special`} />
           </ul>
           {loading && <li class={tipsClass}>{loadingTextSlot || loadingText}</li>}
           {!loading && !displayOptions.length && !showCreateOption && <li class={emptyClass}>{emptySlot}</li>}
@@ -578,10 +701,10 @@ export default defineComponent({
     };
 
     return (
-      <div ref="select" class={`${name}-wrap`}>
+      <div ref="select" class={`${name}__wrap`}>
         <Popup
           ref="popup"
-          class={`${name}-popup-reference`}
+          class={`${name}__popup-reference`}
           visible={this.visible}
           placement={popupObject.placement}
           trigger={popupObject.trigger}
@@ -597,8 +720,8 @@ export default defineComponent({
             onMouseenter={this.hoverEvent.bind(null, true)}
             onMouseleave={this.hoverEvent.bind(null, false)}
           >
-            {prefixIconSlot && <span class="t-select-left-icon">{prefixIconSlot[0]}</span>}
-            {showPlaceholder && <span class={`${name}-placeholder`}> {placeholderText}</span>}
+            {prefixIconSlot && <span class="t-select__left-icon">{prefixIconSlot[0]}</span>}
+            {showPlaceholder && <span class={`${name}__placeholder`}> {placeholderText}</span>}
             {this.valueDisplay || this.$slots.valueDisplay
               ? renderTNodeJSX(this, 'valueDisplay', {
                   params: { value: selectedMultiple, onClose: (index: number) => this.removeTag(index) },
@@ -632,7 +755,7 @@ export default defineComponent({
               </tag>
             )}
             {!multiple && !showPlaceholder && !showFilter && (
-              <span title={selectedSingle} class={`${name}-selectedSingle`}>
+              <span title={selectedSingle} class={`${name}__single`}>
                 {selectedSingle}
               </span>
             )}
@@ -643,17 +766,18 @@ export default defineComponent({
                 size={size}
                 placeholder={filterPlaceholder}
                 disabled={disabled}
-                class={`${name}-input`}
+                class={`${name}__input`}
+                readonly={!this.visible || !this.showFilter}
                 onFocus={this.focus}
                 onBlur={this.blur}
                 onEnter={this.enter}
               />
             )}
             {this.showArrow && !this.showLoading && (
-              <FakeArrow overlayClassName={`${name}-right-icon`} isActive={this.visible && !this.disabled} />
+              <FakeArrow overlayClassName={`${name}__right-icon`} isActive={this.visible && !this.disabled} />
             )}
             {this.showClose && !this.showLoading && this.getCloseIcon()}
-            {this.showLoading && <TLoading class={`${name}-right-icon ${name}-active-icon`} size="small" />}
+            {this.showLoading && <TLoading class={`${name}__right-icon ${name}__active-icon`} size="small" />}
           </div>
         </Popup>
       </div>
