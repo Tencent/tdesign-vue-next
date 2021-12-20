@@ -410,8 +410,12 @@ export default defineComponent({
         this.realOptions.push(valueLabelAble);
       }
     },
-    destroyOptions(index: number) {
-      this.realOptions.splice(index, 1);
+    destroyOptions(option: OptionInstance) {
+      this.realOptions.forEach((item, index) => {
+        if (item[this.realValue] === option.value && item[this.realLabel] === option.label) {
+          this.realOptions.splice(index, 1);
+        }
+      });
     },
     emitChange(val: SelectValue | Array<SelectValue>) {
       let value: SelectValue | Array<SelectValue> | Array<TdOptionProps> | TdOptionProps;
