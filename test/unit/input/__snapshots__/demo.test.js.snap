@@ -538,7 +538,7 @@ exports[`Input Input textareaVue demo works fine 1`] = `
     class="t-textarea"
   >
     <textarea
-      class="t-textarea__inner"
+      class="t-textarea__inner narrow-scrollbar"
       modelvalue=""
       placeholder="请输入内容"
     />
