@@ -8,7 +8,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-popup-reference t-select-popup-reference"
+      class="t-popup__reference t-select-popup-reference"
     >
       <transition-stub>
         <div
@@ -18,7 +18,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-select-dropdown narrow-scrollbar"
+            class="t-popup__content t-select-dropdown narrow-scrollbar"
           >
             
             
@@ -333,7 +333,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-popup-reference t-select-popup-reference"
+      class="t-popup__reference t-select-popup-reference"
     >
       <transition-stub>
         <div
@@ -343,7 +343,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-select-dropdown narrow-scrollbar"
+            class="t-popup__content t-select-dropdown narrow-scrollbar"
           >
             
             
@@ -558,7 +558,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-popup-reference t-select-popup-reference"
+      class="t-popup__reference t-select-popup-reference"
     >
       <transition-stub>
         <div
@@ -568,7 +568,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-select-dropdown narrow-scrollbar"
+            class="t-popup__content t-select-dropdown narrow-scrollbar"
           >
             
             

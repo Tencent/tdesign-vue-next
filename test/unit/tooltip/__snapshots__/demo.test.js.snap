@@ -3,7 +3,7 @@
 exports[`Tooltip Tooltip arrowVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="default"
   >
@@ -15,7 +15,7 @@ exports[`Tooltip Tooltip arrowVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容
           <div
@@ -47,7 +47,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   class="tdesign-tooltip-placement"
 >
   <div
-    class="t-popup-reference placement top center"
+    class="t-popup__reference placement top center"
     duration="3000"
     theme="default"
   >
@@ -59,7 +59,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容
           <div
@@ -84,7 +84,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement top left"
+    class="t-popup__reference placement top left"
     duration="3000"
     theme="default"
   >
@@ -96,7 +96,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容文字提示仅展示文本内容
           <div
@@ -121,7 +121,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement top right"
+    class="t-popup__reference placement top right"
     duration="3000"
     theme="default"
   >
@@ -133,7 +133,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容文字提示仅展示文本内容
           <div
@@ -158,7 +158,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement bottom center"
+    class="t-popup__reference placement bottom center"
     duration="3000"
     theme="default"
   >
@@ -170,7 +170,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容
           <div
@@ -195,7 +195,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement bottom left"
+    class="t-popup__reference placement bottom left"
     duration="3000"
     theme="default"
   >
@@ -207,7 +207,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容文字提示仅展示文本内容
           <div
@@ -232,7 +232,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement bottom right"
+    class="t-popup__reference placement bottom right"
     duration="3000"
     theme="default"
   >
@@ -244,7 +244,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容文字提示仅展示文本内容
           <div
@@ -269,7 +269,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement align"
+    class="t-popup__reference placement align"
     duration="3000"
     theme="default"
   >
@@ -281,7 +281,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容文字提示仅展示文本内容
           <div
@@ -306,7 +306,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement top-align"
+    class="t-popup__reference placement top-align"
     duration="3000"
     theme="default"
   >
@@ -318,7 +318,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容文字提示仅展示文本内容
           <div
@@ -343,7 +343,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement bottom-align"
+    class="t-popup__reference placement bottom-align"
     duration="3000"
     theme="default"
   >
@@ -355,7 +355,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容文字提示仅展示文本内容
           <div
@@ -380,7 +380,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement right-full align"
+    class="t-popup__reference placement right-full align"
     duration="3000"
     theme="default"
   >
@@ -392,7 +392,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容文字提示仅展示文本内容
           <div
@@ -417,7 +417,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement right-full top-align"
+    class="t-popup__reference placement right-full top-align"
     duration="3000"
     theme="default"
   >
@@ -429,7 +429,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容文字提示仅展示文本内容
           <div
@@ -454,7 +454,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement right-full bottom-align"
+    class="t-popup__reference placement right-full bottom-align"
     duration="3000"
     theme="default"
   >
@@ -466,7 +466,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容文字提示仅展示文本内容
           <div
@@ -496,7 +496,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
 exports[`Tooltip Tooltip durationVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="5000"
     style="position: relative;"
     theme="default"
@@ -547,7 +547,7 @@ exports[`Tooltip Tooltip durationVue demo works fine 1`] = `
 exports[`Tooltip Tooltip noArrowVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="default"
   >
@@ -559,7 +559,7 @@ exports[`Tooltip Tooltip noArrowVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-tooltip t-tooltip-default"
+          class="t-popup__content t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容
           <!---->
@@ -589,7 +589,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
   class="tdesign-tooltip-demo"
 >
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="default"
   >
@@ -601,7 +601,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容
           <div
@@ -619,14 +619,14 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
         class="t-button__text"
       >
         
-         default 
+        default
         
       </span>
     </button>
     
   </div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="primary"
   >
@@ -638,7 +638,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-primary"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--primary"
         >
           文字提示仅展示文本内容
           <div
@@ -656,14 +656,14 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
         class="t-button__text"
       >
         
-         primary 
+        primary
         
       </span>
     </button>
     
   </div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="success"
   >
@@ -675,7 +675,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-success"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--success"
         >
           文字提示仅展示文本内容
           <div
@@ -693,14 +693,14 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
         class="t-button__text"
       >
         
-         success 
+        success
         
       </span>
     </button>
     
   </div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="danger"
   >
@@ -712,7 +712,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-danger"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--danger"
         >
           文字提示仅展示文本内容
           <div
@@ -730,14 +730,14 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
         class="t-button__text"
       >
         
-         danger 
+        danger
         
       </span>
     </button>
     
   </div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="warning"
   >
@@ -749,7 +749,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-warning"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--warning"
         >
           文字提示仅展示文本内容
           <div
@@ -767,7 +767,44 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
         class="t-button__text"
       >
         
-         warning 
+        warning
+        
+      </span>
+    </button>
+    
+  </div>
+  <div
+    class="t-popup__reference"
+    duration="3000"
+    theme="light"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--light"
+        >
+          文字提示仅展示文本内容
+          <div
+            class="t-popup__arrow"
+          />
+        </div>
+      </div>
+    </transition-stub>
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        light
         
       </span>
     </button>
@@ -781,7 +818,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
   class="tdesign-tooltip-demo"
 >
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="default"
   >
@@ -793,7 +830,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容
           <div
@@ -818,7 +855,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="default"
   >
@@ -830,7 +867,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容
           <div
@@ -855,7 +892,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="default"
   >
@@ -867,7 +904,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容
           <div
@@ -892,7 +929,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     duration="3000"
     theme="default"
   >
@@ -904,7 +941,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow t-tooltip t-tooltip-default"
+          class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
           文字提示仅展示文本内容
           <div

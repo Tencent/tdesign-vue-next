@@ -8,7 +8,7 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
     class="t-popup-demo-base-item"
   >
     <div
-      class="t-popup-reference"
+      class="t-popup__reference"
     >
       <transition-stub>
         <div
@@ -18,7 +18,7 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content"
+            class="t-popup__content"
             style="max-width: 480px;"
           >
             可以在浮层内容中描述禁用原因
@@ -49,7 +49,7 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
     class="t-popup-demo-base-item"
   >
     <div
-      class="t-popup-reference"
+      class="t-popup__reference"
     >
       <transition-stub>
         <div
@@ -59,7 +59,7 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content"
+            class="t-popup__content"
           >
             
             <div>
@@ -91,7 +91,7 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
     class="t-popup-demo-base-item"
   >
     <div
-      class="t-popup-reference"
+      class="t-popup__reference"
     >
       <transition-stub>
         <div
@@ -101,7 +101,7 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content"
+            class="t-popup__content"
           >
             <div>
               浮层内容是指浮层里面显示的全部内容，这里的浮层内容使用渲染函数定义
@@ -135,7 +135,7 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
     class="t-popup-demo-block"
   >
     <div
-      class="t-popup-reference"
+      class="t-popup__reference"
       id="myPopup"
     >
       <transition-stub>
@@ -146,7 +146,7 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content"
+            class="t-popup__content"
             style="max-width: 480px;"
           >
             触发元素的父元素是组件根元素，通过 CSSSelector 定义
@@ -175,7 +175,7 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
     id="second-popup"
   >
     <div
-      class="t-popup-reference"
+      class="t-popup__reference"
     >
       <transition-stub>
         <div
@@ -185,7 +185,7 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content"
+            class="t-popup__content"
             style="max-width: 480px;"
           >
             触发元素的父元素是组件跟元素，通过 Funnction 定义
@@ -215,7 +215,7 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
 exports[`Popup Popup destroyVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
     destroy-on-hide=""
   >
     <transition-stub>
@@ -226,7 +226,7 @@ exports[`Popup Popup destroyVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content"
+          class="t-popup__content"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -255,7 +255,7 @@ exports[`Popup Popup destroyVue demo works fine 1`] = `
 exports[`Popup Popup disabledVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -265,7 +265,7 @@ exports[`Popup Popup disabledVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-is-disabled"
+          class="t-popup__content t-is-disabled"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -297,7 +297,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   class="container"
 >
   <div
-    class="t-popup-reference placement top center"
+    class="t-popup__reference placement top center"
   >
     <transition-stub>
       <div
@@ -307,7 +307,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -333,7 +333,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement top left"
+    class="t-popup__reference placement top left"
   >
     <transition-stub>
       <div
@@ -343,7 +343,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -369,7 +369,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement top right"
+    class="t-popup__reference placement top right"
   >
     <transition-stub>
       <div
@@ -379,7 +379,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -405,7 +405,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement bottom center"
+    class="t-popup__reference placement bottom center"
   >
     <transition-stub>
       <div
@@ -415,7 +415,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -441,7 +441,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement bottom left"
+    class="t-popup__reference placement bottom left"
   >
     <transition-stub>
       <div
@@ -451,7 +451,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -477,7 +477,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement bottom right"
+    class="t-popup__reference placement bottom right"
   >
     <transition-stub>
       <div
@@ -487,7 +487,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -513,7 +513,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement align"
+    class="t-popup__reference placement align"
   >
     <transition-stub>
       <div
@@ -523,7 +523,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -549,7 +549,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement top-align"
+    class="t-popup__reference placement top-align"
   >
     <transition-stub>
       <div
@@ -559,7 +559,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -585,7 +585,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement bottom-align"
+    class="t-popup__reference placement bottom-align"
   >
     <transition-stub>
       <div
@@ -595,7 +595,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -621,7 +621,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement right-full align"
+    class="t-popup__reference placement right-full align"
   >
     <transition-stub>
       <div
@@ -631,7 +631,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -657,7 +657,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement right-full top-align"
+    class="t-popup__reference placement right-full top-align"
     destroy-on-hide=""
   >
     <transition-stub>
@@ -668,7 +668,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -694,7 +694,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference placement right-full bottom-align"
+    class="t-popup__reference placement right-full bottom-align"
     destroy-on-hide=""
   >
     <transition-stub>
@@ -705,7 +705,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -736,7 +736,7 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
 exports[`Popup Popup resizeVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -746,7 +746,7 @@ exports[`Popup Popup resizeVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-popup-content--arrow"
+          class="t-popup__content t-popup__content--arrow"
           style="max-width: 480px;"
         >
           这是popup内容
@@ -771,7 +771,7 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
     class="t-popup-demo-base-item"
   >
     <div
-      class="t-popup-reference"
+      class="t-popup__reference"
     >
       <transition-stub>
         <div
@@ -781,7 +781,7 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content tdesign-demo__custom-popup"
+            class="t-popup__content tdesign-demo__custom-popup"
             style="max-width: 480px;"
           >
             浮层拥有自定义类名，可以自定义浮层样式
@@ -809,7 +809,7 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
     class="t-popup-demo-base-item"
   >
     <div
-      class="t-popup-reference"
+      class="t-popup__reference"
     >
       <transition-stub>
         <div
@@ -819,7 +819,7 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content"
+            class="t-popup__content"
             style="max-width: 480px;"
           >
             浮层宽度是固定的，不会随内容变化而变化
@@ -847,7 +847,7 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
     class="t-popup-demo-base-item"
   >
     <div
-      class="t-popup-reference"
+      class="t-popup__reference"
     >
       <transition-stub>
         <div
@@ -857,7 +857,7 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content"
+            class="t-popup__content"
             style="max-width: 480px;"
           >
             可以设置浮层最大宽度，当内容超出最大宽度时，文本内容才会换行
@@ -885,7 +885,7 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
     class="t-popup-demo-base-item"
   >
     <div
-      class="t-popup-reference"
+      class="t-popup__reference"
     >
       <transition-stub>
         <div
@@ -895,7 +895,7 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content"
+            class="t-popup__content"
             style="max-width: 480px;"
           >
             overlayStyle 作为函数使用，可以让浮层内容和触发元素同宽
@@ -930,7 +930,7 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
       class="t-popup-demo-base-item"
     >
       <div
-        class="t-popup-reference"
+        class="t-popup__reference"
       >
         <transition-stub>
           <div
@@ -940,7 +940,7 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content"
+              class="t-popup__content"
               style="max-width: 480px;"
             >
               我的触发元素通过默认插槽渲染
@@ -968,7 +968,7 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
       class="t-popup-demo-base-item"
     >
       <div
-        class="t-popup-reference"
+        class="t-popup__reference"
       >
         <transition-stub>
           <div
@@ -978,7 +978,7 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content"
+              class="t-popup__content"
               style="max-width: 480px;"
             >
               我的触发元素通过插槽(triggerElement)渲染
@@ -1009,7 +1009,7 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
       class="t-popup-demo-base-item"
     >
       <div
-        class="t-popup-reference"
+        class="t-popup__reference"
       >
         <transition-stub>
           <div
@@ -1019,7 +1019,7 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content"
+              class="t-popup__content"
               style="max-width: 480px;"
             >
               我的触发元素通过渲染函数 default 渲染
@@ -1045,7 +1045,7 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
       class="t-popup-demo-base-item"
     >
       <div
-        class="t-popup-reference"
+        class="t-popup__reference"
       >
         <transition-stub>
           <div
@@ -1055,7 +1055,7 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content"
+              class="t-popup__content"
               style="max-width: 480px;"
             >
               我的触发元素通过渲染函数 triggerElement 渲染
@@ -1086,7 +1086,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
   class="popup-demo-container"
 >
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -1096,7 +1096,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content"
+          class="t-popup__content"
           style="max-width: 480px;"
         >
           文字提示仅展示文本内容
@@ -1120,7 +1120,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -1130,7 +1130,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content"
+          class="t-popup__content"
           style="max-width: 480px;"
         >
           文字提示仅展示文本内容
@@ -1154,7 +1154,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -1164,7 +1164,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content"
+          class="t-popup__content"
           style="max-width: 480px;"
         >
           文字提示仅展示文本内容
@@ -1188,7 +1188,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -1198,7 +1198,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content"
+          class="t-popup__content"
           style="max-width: 480px;"
         >
           文字提示仅展示文本内容
@@ -1227,7 +1227,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
 exports[`Popup Popup visibleVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -1237,7 +1237,7 @@ exports[`Popup Popup visibleVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content"
+          class="t-popup__content"
         >
           
           <div>

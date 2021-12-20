@@ -10,7 +10,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
     theme="primary"
   >
     <div
-      class="t-popup-reference t-date-picker__popup-reference"
+      class="t-popup__reference t-date-picker__popup-reference"
     >
       <transition-stub>
         <div
@@ -20,7 +20,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-date-picker"
+            class="t-popup__content t-date-picker"
           >
             <div
               class="t-date-picker__container"
@@ -847,7 +847,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
       theme="primary"
     >
       <div
-        class="t-popup-reference t-date-picker__popup-reference"
+        class="t-popup__reference t-date-picker__popup-reference"
       >
         <transition-stub>
           <div
@@ -857,7 +857,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-date-picker"
+              class="t-popup__content t-date-picker"
             >
               <div
                 class="t-date-picker__container t-date-picker--range"
@@ -2473,7 +2473,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
       theme="primary"
     >
       <div
-        class="t-popup-reference t-date-picker__popup-reference"
+        class="t-popup__reference t-date-picker__popup-reference"
       >
         <transition-stub>
           <div
@@ -2483,7 +2483,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-date-picker"
+              class="t-popup__content t-date-picker"
             >
               <div
                 class="t-date-picker__container"
@@ -3331,7 +3331,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
     theme="primary"
   >
     <div
-      class="t-popup-reference t-date-picker__popup-reference"
+      class="t-popup__reference t-date-picker__popup-reference"
     >
       <transition-stub>
         <div
@@ -3341,7 +3341,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-date-picker"
+            class="t-popup__content t-date-picker"
           >
             <div
               class="t-date-picker__container t-date-picker--range"
@@ -4959,7 +4959,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
     theme="primary"
   >
     <div
-      class="t-popup-reference t-date-picker__popup-reference"
+      class="t-popup__reference t-date-picker__popup-reference"
     >
       <transition-stub>
         <div
@@ -4969,7 +4969,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-date-picker"
+            class="t-popup__content t-date-picker"
           >
             <div
               class="t-date-picker__container t-date-picker--range"
@@ -6581,7 +6581,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
       theme="primary"
     >
       <div
-        class="t-popup-reference t-date-picker__popup-reference"
+        class="t-popup__reference t-date-picker__popup-reference"
       >
         <transition-stub>
           <div
@@ -6591,7 +6591,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-date-picker"
+              class="t-popup__content t-date-picker"
             >
               <div
                 class="t-date-picker__container t-date-picker--range"
@@ -8179,7 +8179,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
       theme="primary"
     >
       <div
-        class="t-popup-reference t-date-picker__popup-reference"
+        class="t-popup__reference t-date-picker__popup-reference"
       >
         <transition-stub>
           <div
@@ -8189,7 +8189,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-date-picker"
+              class="t-popup__content t-date-picker"
             >
               <div
                 class="t-date-picker__container t-date-picker--range"
@@ -9825,7 +9825,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
     theme="primary"
   >
     <div
-      class="t-popup-reference t-date-picker__popup-reference"
+      class="t-popup__reference t-date-picker__popup-reference"
     >
       <transition-stub>
         <div
@@ -9835,7 +9835,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-date-picker"
+            class="t-popup__content t-date-picker"
           >
             <div
               class="t-date-picker__container"
@@ -10704,7 +10704,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
       theme="primary"
     >
       <div
-        class="t-popup-reference t-date-picker__popup-reference"
+        class="t-popup__reference t-date-picker__popup-reference"
       >
         <transition-stub>
           <div
@@ -10714,7 +10714,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-date-picker"
+              class="t-popup__content t-date-picker"
             >
               <div
                 class="t-date-picker__container"
@@ -11536,7 +11536,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
       theme="primary"
     >
       <div
-        class="t-popup-reference t-date-picker__popup-reference"
+        class="t-popup__reference t-date-picker__popup-reference"
       >
         <transition-stub>
           <div
@@ -11546,7 +11546,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-date-picker"
+              class="t-popup__content t-date-picker"
             >
               <div
                 class="t-date-picker__container"
@@ -12368,7 +12368,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
       theme="primary"
     >
       <div
-        class="t-popup-reference t-date-picker__popup-reference"
+        class="t-popup__reference t-date-picker__popup-reference"
       >
         <transition-stub>
           <div
@@ -12378,7 +12378,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-date-picker"
+              class="t-popup__content t-date-picker"
             >
               <div
                 class="t-date-picker__container"
@@ -13200,7 +13200,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
       theme="primary"
     >
       <div
-        class="t-popup-reference t-date-picker__popup-reference"
+        class="t-popup__reference t-date-picker__popup-reference"
       >
         <transition-stub>
           <div
@@ -13210,7 +13210,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-date-picker"
+              class="t-popup__content t-date-picker"
             >
               <div
                 class="t-date-picker__container t-date-picker--range"
@@ -14798,7 +14798,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
       theme="primary"
     >
       <div
-        class="t-popup-reference t-date-picker__popup-reference"
+        class="t-popup__reference t-date-picker__popup-reference"
       >
         <transition-stub>
           <div
@@ -14808,7 +14808,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-date-picker"
+              class="t-popup__content t-date-picker"
             >
               <div
                 class="t-date-picker__container"
@@ -15633,7 +15633,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
     class="t-date-picker t-input t-size-m"
   >
     <div
-      class="t-popup-reference t-date-picker__popup-reference"
+      class="t-popup__reference t-date-picker__popup-reference"
     >
       <transition-stub>
         <div
@@ -15643,7 +15643,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-date-picker"
+            class="t-popup__content t-date-picker"
           >
             <div
               class="t-date-picker__container"
@@ -16468,7 +16468,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
     theme="primary"
   >
     <div
-      class="t-popup-reference t-date-picker__popup-reference"
+      class="t-popup__reference t-date-picker__popup-reference"
     >
       <transition-stub>
         <div
@@ -16478,7 +16478,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-date-picker"
+            class="t-popup__content t-date-picker"
           >
             <div
               class="t-date-picker__container"
@@ -16822,7 +16822,7 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
     theme="primary"
   >
     <div
-      class="t-popup-reference t-date-picker__popup-reference"
+      class="t-popup__reference t-date-picker__popup-reference"
     >
       <transition-stub>
         <div
@@ -16832,7 +16832,7 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-date-picker"
+            class="t-popup__content t-date-picker"
           >
             <div
               class="t-date-picker__container"
