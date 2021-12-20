@@ -78,6 +78,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
       </label>
       <div
         class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
       />
       
     </div>
@@ -466,7 +467,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name="course"
+                name=""
                 type="checkbox"
                 value="1"
               />
@@ -486,7 +487,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name="course"
+                name=""
                 type="checkbox"
                 value="2"
               />
@@ -506,7 +507,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name="course"
+                name=""
                 type="checkbox"
                 value="3"
               />
@@ -866,6 +867,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
       </label>
       <div
         class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
       />
       
     </div>
@@ -1847,7 +1849,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name="course"
+                name=""
                 type="checkbox"
                 value="1"
               />
@@ -1867,7 +1869,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name="course"
+                name=""
                 type="checkbox"
                 value="2"
               />
@@ -1887,7 +1889,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name="course"
+                name=""
                 type="checkbox"
                 value="3"
               />
@@ -1907,7 +1909,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             >
               <input
                 class="t-checkbox__former"
-                name="course"
+                name=""
                 type="checkbox"
                 value="4"
               />
@@ -1953,10 +1955,10 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-select-wrap demo-select-base"
+            class="t-select__wrap demo-select-base"
           >
             <div
-              class="t-popup__reference t-select-popup-reference"
+              class="t-popup__reference t-select__popup-reference"
             >
               <transition-stub>
                 <div
@@ -1966,16 +1968,16 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup__content t-select-dropdown narrow-scrollbar"
+                    class="t-popup__content t-select__dropdown narrow-scrollbar"
                   >
                     
                     <div>
                       <ul
-                        class="t-select-create-option"
+                        class="t-select__create-option"
                         style="display: none;"
                       >
                         <li
-                          class="t-select-option t-size-m t-select-create-option-special"
+                          class="t-select-option t-size-m t-select__create-option--special"
                           title=""
                         >
                           
@@ -1983,7 +1985,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                       </ul>
                       <!---->
                       <li
-                        class="t-select-empty t-size-m"
+                        class="t-select__empty t-size-m"
                       >
                         暂无数据
                       </li>
@@ -2032,7 +2034,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
               >
                 <!---->
                 <span
-                  class="t-select-placeholder"
+                  class="t-select__placeholder"
                 >
                    
                   
@@ -2052,7 +2054,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                 <!---->
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select-right-icon"
+                  class="t-fake-arrow t-select__right-icon"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"

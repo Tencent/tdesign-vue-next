@@ -462,7 +462,7 @@ exports[`Grid Grid flexVue demo works fine 1`] = `
 
 exports[`Grid Grid gutterVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--grid"
+  class="tdesign-demo-block-column"
 >
   <!-- 只指定水平 gutter，垂直默认为0 -->
   <span>
@@ -850,7 +850,7 @@ exports[`Grid Grid gutterVue demo works fine 1`] = `
 
 exports[`Grid Grid halignVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--grid"
+  class="tdesign-demo-block-column"
 >
   <span>
     align left
@@ -1107,7 +1107,7 @@ exports[`Grid Grid halignVue demo works fine 1`] = `
 
 exports[`Grid Grid offsetVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--grid"
+  class="tdesign-demo-block-column"
 >
   <div
     class="t-row t-row--start t-row--top"
@@ -1185,7 +1185,7 @@ exports[`Grid Grid offsetVue demo works fine 1`] = `
 
 exports[`Grid Grid orderVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--grid"
+  class="tdesign-demo-block-column"
 >
   <div
     class="t-row t-row--start t-row--top"
@@ -1239,7 +1239,7 @@ exports[`Grid Grid orderVue demo works fine 1`] = `
 
 exports[`Grid Grid responsiveVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--grid"
+  class="tdesign-demo-block-column"
 >
   <span>
     宽度响应式
@@ -1296,7 +1296,7 @@ exports[`Grid Grid responsiveVue demo works fine 1`] = `
 
 exports[`Grid Grid sortVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--grid"
+  class="tdesign-demo-block-column"
 >
   <div
     class="t-row t-row--start t-row--top"
@@ -1330,7 +1330,7 @@ exports[`Grid Grid sortVue demo works fine 1`] = `
 
 exports[`Grid Grid valignVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--grid"
+  class="tdesign-demo-block-column"
 >
   <p>
     align top
