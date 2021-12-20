@@ -94,7 +94,7 @@ export interface TdRadioGroupProps {
 
 export type RadioValue = string | number | boolean;
 
-export type RadioOption = string | number | RadioOptionObj;
+export type RadioOption = string | number;
 
 export interface RadioOptionObj {
   label?: string | TNode;
