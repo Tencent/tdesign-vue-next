@@ -36,7 +36,7 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -47,7 +47,7 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -105,7 +105,7 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -116,7 +116,7 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -142,7 +142,7 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -153,7 +153,7 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -217,7 +217,7 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -228,7 +228,7 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -286,7 +286,7 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -297,7 +297,7 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -323,7 +323,7 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -334,7 +334,7 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -399,7 +399,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -410,7 +410,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -535,7 +535,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -546,7 +546,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -572,7 +572,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -583,7 +583,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -775,7 +775,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -786,7 +786,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -910,7 +910,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -921,7 +921,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -947,7 +947,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -958,7 +958,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -1150,7 +1150,7 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -1161,7 +1161,7 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -1298,7 +1298,7 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -1309,7 +1309,7 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -1335,7 +1335,7 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -1346,7 +1346,7 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -1485,7 +1485,7 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -1496,7 +1496,7 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -1585,7 +1585,7 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -1596,7 +1596,7 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -1622,7 +1622,7 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -1633,7 +1633,7 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -1728,7 +1728,7 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -1739,7 +1739,7 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -1797,7 +1797,7 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -1808,7 +1808,7 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -1834,7 +1834,7 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -1845,7 +1845,7 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -1911,7 +1911,7 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -1922,7 +1922,7 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -2061,7 +2061,7 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -2072,7 +2072,7 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -2098,7 +2098,7 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -2109,7 +2109,7 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -2253,7 +2253,7 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -2264,7 +2264,7 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -2323,7 +2323,7 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -2334,7 +2334,7 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0
@@ -2360,7 +2360,7 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
             tabindex="0"
           >
             <div
-              class="t-popup-reference"
+              class="t-popup__reference"
               popper-class=""
             >
               <transition-stub>
@@ -2371,7 +2371,7 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
                   style="display: none;"
                 >
                   <div
-                    class="t-popup-content t-popup-content--arrow"
+                    class="t-popup__content t-popup__content--arrow"
                     style="max-width: 480px;"
                   >
                     0

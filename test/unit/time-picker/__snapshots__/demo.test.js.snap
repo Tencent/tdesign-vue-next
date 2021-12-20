@@ -5,7 +5,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
   class="tdesign-demo-block"
 >
   <div
-    class="t-popup-reference t-time-picker t-size-m demos"
+    class="t-popup__reference t-time-picker t-size-m demos"
     modelvalue="20:22"
   >
     <transition-stub>
@@ -16,7 +16,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -891,7 +891,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
     
   </div>
   <div
-    class="t-popup-reference t-time-picker t-size-m demos"
+    class="t-popup__reference t-time-picker t-size-m demos"
     modelvalue="21:22"
   >
     <transition-stub>
@@ -902,7 +902,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -1787,7 +1787,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
     具备清空按钮
   </h3>
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue="11:12:10"
   >
     <transition-stub>
@@ -1798,7 +1798,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -2676,7 +2676,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
     禁止清空按钮
   </h3>
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue="11:12:10"
   >
     <transition-stub>
@@ -2687,7 +2687,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -3569,7 +3569,7 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
   class="tdesign-demo-block"
 >
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue="11:12:10"
   >
     <transition-stub>
@@ -3580,7 +3580,7 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-is-disabled t-time-picker__panel-container"
+          class="t-popup__content t-is-disabled t-time-picker__panel-container"
         >
           
           <div
@@ -4463,7 +4463,7 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
   class="tdesign-demo-block"
 >
   <div
-    class="t-popup-reference t-time-picker t-size-m demos"
+    class="t-popup__reference t-time-picker t-size-m demos"
     modelvalue="00:00:00 am"
   >
     <transition-stub>
@@ -4474,7 +4474,7 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -5325,7 +5325,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
     具备清空按钮
   </h3>
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue="11:12:10"
   >
     <transition-stub>
@@ -5336,7 +5336,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -6214,7 +6214,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
     禁止清空按钮
   </h3>
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue=""
   >
     <transition-stub>
@@ -6225,7 +6225,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -7084,7 +7084,7 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
   class="tdesign-demo-block"
 >
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue=""
   >
     <transition-stub>
@@ -7095,7 +7095,7 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -7647,7 +7647,7 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
   class="tdesign-demo-block"
 >
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue="12:20:30"
   >
     <transition-stub>
@@ -7658,7 +7658,7 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -8543,7 +8543,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
     允许输入
   </h3>
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue="20:22:33"
   >
     <transition-stub>
@@ -8554,7 +8554,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -9429,7 +9429,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
     禁止输入
   </h3>
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue="22:22:22"
   >
     <transition-stub>
@@ -9440,7 +9440,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -10322,7 +10322,7 @@ exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
   class="tdesign-demo-block"
 >
   <div
-    class="t-popup-reference t-time-picker t-size-m demos"
+    class="t-popup__reference t-time-picker t-size-m demos"
     modelvalue="00:00:00,23:59:59"
   >
     <transition-stub>
@@ -10333,7 +10333,7 @@ exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -11954,7 +11954,7 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
   class="tdesign-demo-block"
 >
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue=""
   >
     <transition-stub>
@@ -11965,7 +11965,7 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -12474,7 +12474,7 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
   class="tdesign-demo-block"
 >
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue="09:18:17"
   >
     <transition-stub>
@@ -12485,7 +12485,7 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -13017,7 +13017,7 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
   class="tdesign-demo-block"
 >
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue="PM 10:20:30"
   >
     <transition-stub>
@@ -13028,7 +13028,7 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div
@@ -13876,7 +13876,7 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
   class="tdesign-demo-block"
 >
   <div
-    class="t-popup-reference t-time-picker t-size-m"
+    class="t-popup__reference t-time-picker t-size-m"
     modelvalue="10:20:30 am"
   >
     <transition-stub>
@@ -13887,7 +13887,7 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-time-picker__panel-container"
+          class="t-popup__content t-time-picker__panel-container"
         >
           
           <div

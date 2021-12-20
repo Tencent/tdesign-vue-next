@@ -1,6 +1,7 @@
 /**
  * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
  */
+import MockDate from 'mockdate';
 
 import { mount } from '@vue/test-utils';
 import baseVue from '@/examples/calendar/demos/base.vue';
@@ -19,6 +20,8 @@ import rangeVue from '@/examples/calendar/demos/range.vue';
 import slotPropsApiVue from '@/examples/calendar/demos/slot-props-api.vue';
 import valueVue from '@/examples/calendar/demos/value.vue';
 import weekVue from '@/examples/calendar/demos/week.vue';
+
+MockDate.set('2020-12-28');
 
 const mapper = {
   baseVue,

@@ -15,7 +15,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -25,7 +25,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
@@ -240,7 +240,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -250,7 +250,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
@@ -442,7 +442,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -452,7 +452,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
@@ -671,7 +671,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -681,7 +681,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
@@ -897,7 +897,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -907,7 +907,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
@@ -1145,7 +1145,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -1155,7 +1155,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
@@ -1371,7 +1371,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -1381,7 +1381,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
@@ -1509,7 +1509,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -1519,7 +1519,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
@@ -1750,7 +1750,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -1760,7 +1760,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
@@ -1888,7 +1888,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -1898,7 +1898,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
@@ -2129,7 +2129,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
       class="t-select-wrap t-pagination__select"
     >
       <div
-        class="t-popup-reference t-select-popup-reference"
+        class="t-popup__reference t-select-popup-reference"
       >
         <transition-stub>
           <div
@@ -2139,7 +2139,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
             style="display: none;"
           >
             <div
-              class="t-popup-content t-select-dropdown narrow-scrollbar"
+              class="t-popup__content t-select-dropdown narrow-scrollbar"
             >
               
               <div>
