@@ -16,7 +16,6 @@ export default defineComponent({
     const isMutex = computed(() => props.expandMutex);
     const menuClass = computed(() => [
       `${prefix}-default-menu`,
-      `${prefix}-menu-mode__${mode.value}`,
       `${prefix}-menu--${props.theme}`,
       {
         [`${prefix}-is-collapsed`]: props.collapsed,

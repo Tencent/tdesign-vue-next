@@ -2,7 +2,7 @@
 
 exports[`Menu props :active 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -21,7 +21,7 @@ exports[`Menu props :active 1`] = `
 
 exports[`Menu props :collapsed 1`] = `
 <div
-  class="t-default-menu t-menu-mode__popup t-menu--light t-is-collapsed"
+  class="t-default-menu t-menu--light t-is-collapsed"
   style="height: 100%; width: 64px;"
 >
   <div
@@ -40,7 +40,7 @@ exports[`Menu props :collapsed 1`] = `
 
 exports[`Menu props :collapsedWidth 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   collapsedwidth="100px"
   style="height: 100%; width: 232px;"
 >
@@ -60,7 +60,7 @@ exports[`Menu props :collapsedWidth 1`] = `
 
 exports[`Menu props :height 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   height="750px"
   style="height: 100%; width: 232px;"
 >
@@ -80,7 +80,7 @@ exports[`Menu props :height 1`] = `
 
 exports[`Menu props :theme 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -99,7 +99,7 @@ exports[`Menu props :theme 1`] = `
 
 exports[`Menu props :theme 2`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -118,7 +118,7 @@ exports[`Menu props :theme 2`] = `
 
 exports[`Menu props :width 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 256px;"
 >
   <div
@@ -137,7 +137,7 @@ exports[`Menu props :width 1`] = `
 
 exports[`Menu slot <default> 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -158,7 +158,7 @@ exports[`Menu slot <default> 1`] = `
 
 exports[`Menu slot <logo> 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
@@ -183,7 +183,7 @@ exports[`Menu slot <logo> 1`] = `
 
 exports[`Menu slot <operations> 1`] = `
 <div
-  class="t-default-menu t-menu-mode__normal t-menu--light"
+  class="t-default-menu t-menu--light"
   style="height: 100%; width: 232px;"
 >
   <div
