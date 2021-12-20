@@ -1,6 +1,7 @@
 import { defineComponent, VNode } from 'vue';
 import get from 'lodash/get';
 import { renderContent } from '../utils/render-tnode';
+import { scrollSelectedIntoView } from '../utils/dom';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import ripple from '../utils/ripple';
@@ -9,7 +10,6 @@ import { SelectOption } from './type';
 import Checkbox from '../checkbox/index';
 import { ClassName } from '../common';
 
-const name = `${prefix}-option`;
 const selectName = `${prefix}-select`;
 
 export default defineComponent({
@@ -30,6 +30,15 @@ export default defineComponent({
     };
   },
   computed: {
+    // 键盘上下按键选中hover样式的选项
+    hovering(): boolean {
+      return (
+        this.tSelect &&
+        this.tSelect.visible &&
+        this.tSelect.hoverOptions[this.tSelect.hoverIndex] &&
+        this.tSelect.hoverOptions[this.tSelect.hoverIndex][this.tSelect.realValue] === this.value
+      );
+    },
     multiLimitDisabled(): boolean {
       if (this.tSelect && this.tSelect.multiple && this.tSelect.max) {
         if (
@@ -48,8 +57,8 @@ export default defineComponent({
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled || this.multiLimitDisabled,
           [CLASSNAMES.STATUS.selected]: this.selected,
-          [`${CLASSNAMES.STATUS.selected}-multiple`]: this.tSelect && this.tSelect.multiple,
           [CLASSNAMES.SIZE[this.tSelect && this.tSelect.size]]: this.tSelect && this.tSelect.size,
+          [`${prefix}-select-option__hover`]: this.hovering,
         },
       ];
     },
@@ -101,19 +110,30 @@ export default defineComponent({
     label() {
       this.tSelect && this.tSelect.getOptions(this);
     },
+    hovering() {
+      if (this.hovering) {
+        const timer = setTimeout(() => {
+          scrollSelectedIntoView(this.tSelect.getOverlayElm(), this.$el as HTMLElement);
+          clearTimeout(timer);
+        }, this.tSelect.popupOpenTime); // 待popup弹出后再滚动到对应位置
+      }
+    },
+  },
+  unmounted() {
+    this.tSelect && this.tSelect.hasOptions && this.tSelect.destroyOptions(this);
   },
   mounted() {
     this.tSelect && this.tSelect.getOptions(this);
   },
   methods: {
-    select(e: MouseEvent) {
+    select(e: MouseEvent | KeyboardEvent) {
       e.stopPropagation();
       if (this.disabled || this.multiLimitDisabled) {
         return false;
       }
       const parent = this.$el.parentNode as HTMLElement;
-      if (parent && parent.className.indexOf(`${selectName}-create-option`) !== -1) {
-        this.tSelect && this.tSelect.createOption(this.value);
+      if (parent && parent.className.indexOf(`${selectName}__create-option`) !== -1) {
+        this.tSelect && this.tSelect.createOption(this.value.toString());
       }
       this.tSelect && this.tSelect.onOptionClick(this.value, e);
     },

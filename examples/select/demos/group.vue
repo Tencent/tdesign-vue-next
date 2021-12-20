@@ -1,10 +1,10 @@
 <template>
   <div class="tdesign-demo-select-base">
     <!-- 方式一：直接传 options 数据，比插槽的方式更简单 -->
-    <t-select v-model="value1" :options="options" placeholder="请选择城市" />
+    <t-select v-model="value1" :options="options" placeholder="请选择" />
 
     <!-- 方式二：使用插槽节点 -->
-    <t-select v-model="value2" placeholder="请选择城市">
+    <t-select v-model="value2" placeholder="请选择">
       <t-option-group
         v-for="(list, index) in options"
         :key="index"
@@ -67,7 +67,7 @@ export default defineComponent({
   display: flex;
 }
 
-.tdesign-demo-select-base .t-select-wrap + .t-select-wrap {
+.tdesign-demo-select-base .t-select__wrap + .t-select__wrap {
   margin-left: 36px;
 }
 </style>

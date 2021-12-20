@@ -18,6 +18,7 @@
       style="width: 400px; display: inline-block"
       @blur="handleBlur"
       @focus="handleFocus"
+      @enter="handleEnter"
     />
   </div>
 </template>
@@ -49,6 +50,10 @@ export default defineComponent({
       console.log('handleFocus: ', value, e);
     };
 
+    const handleEnter = ({ value, e, inputValue }) => {
+      console.log('handleEnter: ', value, e, inputValue);
+    };
+
     return {
       value,
       value2,
@@ -56,6 +61,7 @@ export default defineComponent({
       filterMethod,
       handleBlur,
       handleFocus,
+      handleEnter,
     };
   },
 });

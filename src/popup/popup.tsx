@@ -336,7 +336,7 @@ export default defineComponent({
     // 需要使用popup的组件设置非对外暴露的expandAnimation开启 对不需要展开收起动画的其他组件无影响
     getContentElm(el: HTMLElement): HTMLElement {
       if (this.expandAnimation) {
-        const content = el.querySelector(`.${name}-content`) as HTMLElement;
+        const content = el.querySelector(`.${name}__content`) as HTMLElement;
         return content;
       }
       return null;

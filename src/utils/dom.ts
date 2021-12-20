@@ -242,3 +242,25 @@ export const isNodeOverflow = (
   }
   return false;
 };
+
+// 将子元素selected滚动到父元素parentEle的可视范围内
+export const scrollSelectedIntoView = (parentEle: HTMLElement, selected: HTMLElement) => {
+  // 服务端不处理
+  if (!window) return;
+  // selected不存在或selected父元素不为parentEle则不处理
+  if (!selected || selected.offsetParent !== parentEle) {
+    parentEle.scrollTop = 0;
+    return;
+  }
+  const selectedTop = selected.offsetTop;
+  const selectedBottom = selectedTop + selected.offsetHeight;
+  const parentScrollTop = parentEle.scrollTop;
+  const parentViewBottom = parentScrollTop + parentEle.clientHeight;
+  if (selectedTop < parentScrollTop) {
+    // selected元素滚动过了，则将其向下滚动到可视范围顶部
+    parentEle.scrollTop = selectedTop;
+  } else if (selectedBottom > parentViewBottom) {
+    // selected元素未滚动到，则将其向上滚动到可视范围底部
+    parentEle.scrollTop = selectedBottom - parentEle.clientHeight;
+  }
+};
