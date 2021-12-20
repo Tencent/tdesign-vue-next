@@ -36,8 +36,12 @@
     ]
   },
   "rules": {
-    "no-console": 2,
-    
+    "no-console": [
+      "error",
+      {
+        "allow": ["info", "warn", "error"]
+      }
+    ],
     // code style config
     "no-continue": "off",
     "no-restricted-syntax": "off",
