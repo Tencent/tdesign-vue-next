@@ -8,7 +8,6 @@ import containerVue from '@/examples/popup/demos/container.vue';
 import destroyVue from '@/examples/popup/demos/destroy.vue';
 import disabledVue from '@/examples/popup/demos/disabled.vue';
 import placementVue from '@/examples/popup/demos/placement.vue';
-import resizeVue from '@/examples/popup/demos/resize.vue';
 import styleVue from '@/examples/popup/demos/style.vue';
 import triggerElementVue from '@/examples/popup/demos/trigger-element.vue';
 import triggerVue from '@/examples/popup/demos/trigger.vue';
@@ -20,7 +19,6 @@ const mapper = {
   destroyVue,
   disabledVue,
   placementVue,
-  resizeVue,
   styleVue,
   triggerElementVue,
   triggerVue,

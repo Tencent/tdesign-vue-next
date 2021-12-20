@@ -23069,19 +23069,6 @@ exports[`ssr snapshot test renders ./examples/popup/demos/placement.vue correctl
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/popup/demos/resize.vue correctly 1`] = `
-<div>
-  <div class="t-popup__reference">
-    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-      <div class="t-popup__content t-popup__content--arrow">这是popup内容<div class="t-popup__arrow"></div>
-      </div>
-    </div>
-    <!--[--><textarea placeholder="拖动修改输入框尺寸"></textarea>
-    <!--]-->
-  </div>
-</div>
-`;
-
 exports[`ssr snapshot test renders ./examples/popup/demos/style.vue correctly 1`] = `
 <div>
   <div class="t-popup-demo-base-item">
