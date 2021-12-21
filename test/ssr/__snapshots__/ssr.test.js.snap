@@ -9941,7 +9941,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
   <div class="t-transfer t-transfer__search">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body t-transfer__list--with-search">
         <div class="t-transfer__search-wrapper" searchvalue>
@@ -10016,7 +10016,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body t-transfer__list--with-search">
         <div class="t-transfer__search-wrapper" searchvalue>
@@ -35310,7 +35310,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/base.vue correctly 
   <div class="t-transfer">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-indeterminate" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="true" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>1 / 20 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-indeterminate" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="true"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>1 / 20 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35322,7 +35322,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/base.vue correctly 
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
@@ -35380,7 +35380,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/base.vue correctly 
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35398,7 +35398,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
   <div class="t-transfer">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-indeterminate" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="true" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>5 / 20 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-indeterminate" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="true"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>5 / 20 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35410,7 +35410,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容2</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容3</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容4</span>
               <!--]--></span>
@@ -35418,7 +35418,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容6</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容7</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="7"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容8</span>
               <!--]--></span>
@@ -35426,7 +35426,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="9"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容10</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="10" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容11</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="11"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容12</span>
               <!--]--></span>
@@ -35434,7 +35434,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="13"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容14</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="14" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容15</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="15"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容16</span>
               <!--]--></span>
@@ -35442,7 +35442,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="17"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容18</span>
               <!--]--></span>
-            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
+            </label><label class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="18" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容19</span>
               <!--]--></span>
             </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="19"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>内容20</span>
               <!--]--></span>
@@ -35468,7 +35468,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/checked.vue correct
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35486,7 +35486,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/custom.vue correctl
   <div class="t-transfer t-transfer__footer">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!--[--><div>来源</div><!--]--></span>
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!--[--><div>来源</div><!--]--></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35548,7 +35548,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/custom.vue correctl
     <div class="t-transfer__operations"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[--><!--[-->加入<!--]--><!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[--><!--[-->移除<!--]--><!--]--></span></button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!--[--><div>目标</div><!--]--></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!--[--><div>目标</div><!--]--></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35568,7 +35568,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/custom-render.vue c
   <div class="t-transfer" theme="primary">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35638,7 +35638,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/custom-render.vue c
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35656,7 +35656,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/disabled.vue correc
   <div class="t-transfer">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35706,7 +35706,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/disabled.vue correc
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35753,7 +35753,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/empty.vue correctly
   <div class="t-transfer">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35775,7 +35775,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/empty.vue correctly
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35789,7 +35789,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/empty.vue correctly
   <div class="t-transfer">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35811,7 +35811,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/empty.vue correctly
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35829,7 +35829,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
   <div class="t-transfer t-transfer__pagination" theme="primary">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35928,7 +35928,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -35946,7 +35946,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/search.vue correctl
   <div class="t-transfer t-transfer__search" theme="primary">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 20 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body t-transfer__list--with-search">
         <div class="t-transfer__search-wrapper" searchvalue>
@@ -36021,7 +36021,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/search.vue correctl
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body t-transfer__list--with-search">
         <div class="t-transfer__search-wrapper" searchvalue>
@@ -36044,7 +36044,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/target-value.vue co
   <div class="t-transfer">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -36094,7 +36094,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/target-value.vue co
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 10 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -36140,7 +36140,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/tree.vue correctly 
   <div class="t-transfer t-transfer--with-tree">
     <div class="t-transfer__list t-transfer__list-source">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 5 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 5 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
@@ -36174,7 +36174,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/tree.vue correctly 
       </button></div>
     <div class="t-transfer__list t-transfer__list-target">
       <div class="t-transfer__list-header">
-        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false" name="t-transfer"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
+        <div><label class="t-checkbox undefined t-is-disabled" modelvalue="false"><input type="checkbox" class="t-checkbox__former" disabled indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!----></span></label><span>0 / 0 项</span></div><span><!----></span>
       </div>
       <div class="t-transfer__list-body">
         <!---->
