@@ -49,7 +49,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -713,7 +712,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -1379,7 +1377,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -2123,7 +2120,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -2769,7 +2765,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -3128,7 +3123,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -3797,7 +3791,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -4382,7 +4375,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -5059,7 +5051,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -5417,7 +5408,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -5725,7 +5715,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label

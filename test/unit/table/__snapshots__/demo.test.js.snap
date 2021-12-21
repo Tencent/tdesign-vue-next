@@ -123,7 +123,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -175,7 +175,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -318,7 +318,9 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
                 </td>
                 
               </tr>
-              <tr>
+              <tr
+                draggable="false"
+              >
                 
                 <td
                   class=""
@@ -378,7 +380,9 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
 `;
 
 exports[`Table Table baseVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-column-large"
+>
   <!-- 按钮操作区域 -->
   <div
     style="margin: 16px;"
@@ -446,7 +450,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-table t-table--bordered t-table--striped"
+      class="t-table t-table--bordered t-table--striped t-table__cell--fixed t-table--has-fixed"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
       expandicon="true"
@@ -462,7 +466,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -473,15 +477,11 @@ exports[`Table Table baseVue demo works fine 1`] = `
               <col
                 style="width: 100px;"
               />
-              <col
-                style="width: 100px;"
-              />
               <col />
               <col />
               <col />
-              <col
-                style="width: 200px;"
-              />
+              <col />
+              <col />
               
             </colgroup>
             <thead>
@@ -489,7 +489,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               <tr>
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -500,7 +500,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
                   class=""
                   colspan="1"
                   rowspan="1"
-                  style="overflow: hidden;"
                 >
                   平台
                 </td>
@@ -526,10 +525,10 @@ exports[`Table Table baseVue demo works fine 1`] = `
                   是否必传
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-table__cell--fixed-right t-text-ellipsis"
                   colspan="1"
                   rowspan="1"
-                  style="overflow: hidden;"
+                  style="position: sticky; right: 0px;"
                 >
                   详情信息
                 </td>
@@ -538,7 +537,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -547,7 +546,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -556,7 +555,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
                 <td
                   class=""
                   length="6"
-                  style="overflow: hidden;"
                 >
                   共有
                 </td>
@@ -579,9 +577,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
                   是
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-table__cell--fixed-right t-text-ellipsis"
                   length="6"
-                  style="overflow: hidden;"
+                  style="position: sticky; right: 0px;"
                 >
                   读取 0 个数据的嵌套信息值
                 </td>
@@ -593,7 +591,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -602,7 +600,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
                 <td
                   class=""
                   length="6"
-                  style="overflow: hidden;"
                 >
                   私有
                 </td>
@@ -625,9 +622,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
                   否
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-table__cell--fixed-right t-text-ellipsis"
                   length="6"
-                  style="overflow: hidden;"
+                  style="position: sticky; right: 0px;"
                 >
                   读取 1 个数据的嵌套信息值
                 </td>
@@ -639,7 +636,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -648,7 +645,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
                 <td
                   class=""
                   length="6"
-                  style="overflow: hidden;"
                 >
                   共有
                 </td>
@@ -671,9 +667,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
                   否
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-table__cell--fixed-right t-text-ellipsis"
                   length="6"
-                  style="overflow: hidden;"
+                  style="position: sticky; right: 0px;"
                 >
                   读取 2 个数据的嵌套信息值
                 </td>
@@ -685,7 +681,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -694,7 +690,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
                 <td
                   class=""
                   length="6"
-                  style="overflow: hidden;"
                 >
                   私有
                 </td>
@@ -717,9 +712,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
                   否
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-table__cell--fixed-right t-text-ellipsis"
                   length="6"
-                  style="overflow: hidden;"
+                  style="position: sticky; right: 0px;"
                 >
                   读取 3 个数据的嵌套信息值
                 </td>
@@ -731,7 +726,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -740,7 +735,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
                 <td
                   class=""
                   length="6"
-                  style="overflow: hidden;"
                 >
                   共有
                 </td>
@@ -763,9 +757,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
                   是
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-table__cell--fixed-right t-text-ellipsis"
                   length="6"
-                  style="overflow: hidden;"
+                  style="position: sticky; right: 0px;"
                 >
                   读取 4 个数据的嵌套信息值
                 </td>
@@ -829,7 +823,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -892,7 +886,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -1075,7 +1069,7 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -1137,7 +1131,7 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -1267,7 +1261,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
         >
           
           <div
-            class="t-table-content"
+            class="t-table__content"
           >
             <table
               style="table-layout: fixed;"
@@ -1317,7 +1311,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           状态
                         </div>
                         <div
-                          class="t-table__cell--sort-trigger t-table-double-icons"
+                          class="t-table__cell--sort-trigger t-table__double-icons"
                         >
                           <div
                             class="t-popup__reference"
@@ -1342,44 +1336,34 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                             </transition-stub>
                             
                             
-                            <span
-                              class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"
-                              style="transform: rotate(-180deg); top: -1px; left: 0px;"
+                            <svg
+                              class="t-icon t-icon-chevron-down t-table__sort-icon t-icon-sort--default t-table-sort-asc t-table__sort-icon t-icon-sort--default t-table-sort-asc"
+                              fill="none"
+                              height="1em"
+                              style="font-size: 16px; transform: rotate(-180deg); top: -1px; left: 0px;"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                style="font-size: 16px;"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fillOpacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-table-sort-icon t-icon-sort-default t-table-sort-desc"
-                              style="left: 0px; bottom: -1px;"
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fillOpacity="0.9"
+                              />
+                            </svg>
+                            <svg
+                              class="t-icon t-icon-chevron-down t-table__sort-icon t-icon-sort--default t-table-sort-desc t-table__sort-icon t-icon-sort--default t-table-sort-desc"
+                              fill="none"
+                              height="1em"
+                              style="font-size: 16px; left: 0px; bottom: -1px;"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                style="font-size: 16px;"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fillOpacity="0.9"
-                                />
-                              </svg>
-                            </span>
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fillOpacity="0.9"
+                              />
+                            </svg>
                             
                             
                           </div>
@@ -1403,7 +1387,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           存活时间(s)
                         </div>
                         <div
-                          class="t-table__cell--sort-trigger t-table-double-icons"
+                          class="t-table__cell--sort-trigger t-table__double-icons"
                         >
                           <div
                             class="t-popup__reference"
@@ -1428,44 +1412,34 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                             </transition-stub>
                             
                             
-                            <span
-                              class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"
-                              style="transform: rotate(-180deg); top: -1px; left: 0px;"
+                            <svg
+                              class="t-icon t-icon-chevron-down t-table__sort-icon t-icon-sort--default t-table-sort-asc t-table__sort-icon t-icon-sort--default t-table-sort-asc"
+                              fill="none"
+                              height="1em"
+                              style="font-size: 16px; transform: rotate(-180deg); top: -1px; left: 0px;"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                style="font-size: 16px;"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fillOpacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-table-sort-icon t-icon-sort-default t-table-sort-desc"
-                              style="left: 0px; bottom: -1px;"
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fillOpacity="0.9"
+                              />
+                            </svg>
+                            <svg
+                              class="t-icon t-icon-chevron-down t-table__sort-icon t-icon-sort--default t-table-sort-desc t-table__sort-icon t-icon-sort--default t-table-sort-desc"
+                              fill="none"
+                              height="1em"
+                              style="font-size: 16px; left: 0px; bottom: -1px;"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                style="font-size: 16px;"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fillOpacity="0.9"
-                                />
-                              </svg>
-                            </span>
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fillOpacity="0.9"
+                              />
+                            </svg>
                             
                             
                           </div>
@@ -1486,7 +1460,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                 
               </thead>
               <tbody
-                class="table-body"
+                class="t-table__body"
               >
                 
                 <tr
@@ -1699,7 +1673,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
         >
           
           <div
-            class="t-table-content"
+            class="t-table__content"
           >
             <table
               style="table-layout: fixed;"
@@ -1967,7 +1941,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -2034,7 +2008,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               
@@ -2045,7 +2019,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
         </div>
         
         <div
-          class="t-table--empty"
+          class="t-table__empty"
         >
           暂无数据
         </div>
@@ -2078,7 +2052,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -2145,7 +2119,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               
@@ -2156,7 +2130,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
         </div>
         
         <div
-          class="t-table--empty"
+          class="t-table__empty"
         >
           
           <span
@@ -2195,7 +2169,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -2262,7 +2236,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               
@@ -2273,7 +2247,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
         </div>
         
         <div
-          class="t-table--empty"
+          class="t-table__empty"
         >
           <span
             style="display: flex; align-items: center; justify-content: center; height: 100px; color: rgba(0, 0, 0, 0.26);"
@@ -2292,7 +2266,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
 
 exports[`Table Table expandableVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-block-column"
+  class="tdesign-demo-block-column tdesign-table-expandable-demo"
 >
   <!-- expanded-row-keys 为受控属性 -->
   <!-- default-expanded-row-keys 为非受控属性 -->
@@ -2417,7 +2391,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -2426,7 +2400,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
             <colgroup>
               
               <col
-                style="width: 25px;"
+                style="width: 48px;"
               />
               <col
                 style="width: 150px;"
@@ -2446,7 +2420,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               <tr>
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -2500,7 +2474,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -2509,15 +2483,15 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="6"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right-circle"
@@ -2594,11 +2568,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="6"
                   length="1"
                 >
@@ -2653,15 +2628,15 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="6"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center; transform: rotate(90deg);"
+                      style="transition: transform .2s; display: flex; align-items: center; transform: rotate(90deg);"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right-circle"
@@ -2737,10 +2712,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                 </td>
                 
               </tr>
-              <tr>
+              <tr
+                draggable="false"
+              >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="6"
                   length="1"
                 >
@@ -2795,15 +2772,15 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="6"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right-circle"
@@ -2880,11 +2857,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="6"
                   length="1"
                 >
@@ -2939,15 +2917,15 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="6"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right-circle"
@@ -3024,11 +3002,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="6"
                   length="1"
                 >
@@ -3074,6 +3053,718 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                       test
                     </p>
                   </div>
+                </td>
+                
+              </tr>
+              
+            </tbody>
+            <!---->
+            
+          </table>
+        </div>
+        
+        
+        
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    style="margin: 16px 0px;"
+  >
+    支持名为 expandedRow 的插槽写法
+  </div>
+  <div
+    style="width: 100%;"
+  >
+    <!---->
+    <div
+      class="t-table"
+      defaultexpandedrowkeys=""
+      expandedrowkeys="2"
+      expandicon="true"
+      expandonrowclick="true"
+      multiplesort="false"
+      showcolumncontroller="false"
+      showcolumns="false"
+      showdragcol="false"
+      sortonrowdraggable="false"
+    >
+      <div
+        class="t-loading__parent"
+      >
+        
+        <div
+          class="t-table__content"
+        >
+          <table
+            style="table-layout: fixed;"
+          >
+            
+            <colgroup>
+              
+              <col
+                style="width: 48px;"
+              />
+              <col
+                style="width: 150px;"
+              />
+              <col
+                style="width: 100px;"
+              />
+              <col />
+              <col />
+              <col
+                style="width: 200px;"
+              />
+              
+            </colgroup>
+            <thead>
+              
+              <tr>
+                
+                <td
+                  class="t-table__expandable-icon-cell"
+                  colspan="1"
+                  rowspan="1"
+                  style="overflow: hidden;"
+                >
+                  
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                  style="overflow: hidden;"
+                >
+                  集群名称
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                  style="overflow: hidden;"
+                >
+                  状态
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  管理员
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                >
+                  描述
+                </td>
+                <td
+                  class=""
+                  colspan="1"
+                  rowspan="1"
+                  style="overflow: hidden;"
+                >
+                  
+                  <p>
+                    操作
+                  </p>
+                  
+                </td>
+                
+              </tr>
+              
+            </thead>
+            <tbody
+              class="t-table__body"
+            >
+              
+              <tr
+                class=""
+                draggable="false"
+              >
+                
+                <td
+                  class="t-table__expandable-icon-cell"
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  <span
+                    class="t-table__expand-box"
+                  >
+                    <span
+                      style="transition: transform .2s; display: flex; align-items: center;"
+                    >
+                      <svg
+                        class="t-icon t-icon-chevron-right-circle"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                        <path
+                          d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  JQTest1
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  
+                  <p
+                    class="status"
+                  >
+                    健康
+                  </p>
+                  <!--v-if-->
+                  
+                </td>
+                <td
+                  class=""
+                  length="6"
+                >
+                  jenny;peter
+                </td>
+                <td
+                  class=""
+                  length="6"
+                >
+                  test
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  
+                  <a
+                    class="link"
+                  >
+                    管理
+                  </a>
+                  <a
+                    class="link"
+                  >
+                    删除
+                  </a>
+                  
+                </td>
+                
+              </tr>
+              <tr
+                draggable="false"
+                style="display: none;"
+              >
+                
+                <td
+                  class="t-table__expandable-cell"
+                  colspan="6"
+                  length="1"
+                >
+                  
+                  <div
+                    class="more-detail"
+                  >
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        集群名称:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      JQTest1
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        管理员:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      jenny;peter
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        描述:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      test
+                    </p>
+                  </div>
+                  
+                </td>
+                
+              </tr>
+              <tr
+                class=""
+                draggable="false"
+              >
+                
+                <td
+                  class="t-table__expandable-icon-cell"
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  <span
+                    class="t-table__expand-box"
+                  >
+                    <span
+                      style="transition: transform .2s; display: flex; align-items: center; transform: rotate(90deg);"
+                    >
+                      <svg
+                        class="t-icon t-icon-chevron-right-circle"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                        <path
+                          d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  JQTest2
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  
+                  <!--v-if-->
+                  <p
+                    class="status unhealth"
+                  >
+                    异常
+                  </p>
+                  
+                </td>
+                <td
+                  class=""
+                  length="6"
+                >
+                  jenny
+                </td>
+                <td
+                  class=""
+                  length="6"
+                >
+                  test
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  
+                  <a
+                    class="link"
+                  >
+                    管理
+                  </a>
+                  <a
+                    class="link"
+                  >
+                    删除
+                  </a>
+                  
+                </td>
+                
+              </tr>
+              <tr
+                draggable="false"
+              >
+                
+                <td
+                  class="t-table__expandable-cell"
+                  colspan="6"
+                  length="1"
+                >
+                  
+                  <div
+                    class="more-detail"
+                  >
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        集群名称:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      JQTest2
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        管理员:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      jenny
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        描述:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      test
+                    </p>
+                  </div>
+                  
+                </td>
+                
+              </tr>
+              <tr
+                class=""
+                draggable="false"
+              >
+                
+                <td
+                  class="t-table__expandable-icon-cell"
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  <span
+                    class="t-table__expand-box"
+                  >
+                    <span
+                      style="transition: transform .2s; display: flex; align-items: center;"
+                    >
+                      <svg
+                        class="t-icon t-icon-chevron-right-circle"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                        <path
+                          d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  JQTest3
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  
+                  <p
+                    class="status"
+                  >
+                    健康
+                  </p>
+                  <!--v-if-->
+                  
+                </td>
+                <td
+                  class=""
+                  length="6"
+                >
+                  jenny
+                </td>
+                <td
+                  class=""
+                  length="6"
+                >
+                  test
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  
+                  <a
+                    class="link"
+                  >
+                    管理
+                  </a>
+                  <a
+                    class="link"
+                  >
+                    删除
+                  </a>
+                  
+                </td>
+                
+              </tr>
+              <tr
+                draggable="false"
+                style="display: none;"
+              >
+                
+                <td
+                  class="t-table__expandable-cell"
+                  colspan="6"
+                  length="1"
+                >
+                  
+                  <div
+                    class="more-detail"
+                  >
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        集群名称:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      JQTest3
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        管理员:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      jenny
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        描述:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      test
+                    </p>
+                  </div>
+                  
+                </td>
+                
+              </tr>
+              <tr
+                class=""
+                draggable="false"
+              >
+                
+                <td
+                  class="t-table__expandable-icon-cell"
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  <span
+                    class="t-table__expand-box"
+                  >
+                    <span
+                      style="transition: transform .2s; display: flex; align-items: center;"
+                    >
+                      <svg
+                        class="t-icon t-icon-chevron-right-circle"
+                        fill="none"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                        <path
+                          d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  JQTest4
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  
+                  <!--v-if-->
+                  <p
+                    class="status unhealth"
+                  >
+                    异常
+                  </p>
+                  
+                </td>
+                <td
+                  class=""
+                  length="6"
+                >
+                  peter
+                </td>
+                <td
+                  class=""
+                  length="6"
+                >
+                  test
+                </td>
+                <td
+                  class=""
+                  length="6"
+                  style="overflow: hidden;"
+                >
+                  
+                  <a
+                    class="link"
+                  >
+                    管理
+                  </a>
+                  <a
+                    class="link"
+                  >
+                    删除
+                  </a>
+                  
+                </td>
+                
+              </tr>
+              <tr
+                draggable="false"
+                style="display: none;"
+              >
+                
+                <td
+                  class="t-table__expandable-cell"
+                  colspan="6"
+                  length="1"
+                >
+                  
+                  <div
+                    class="more-detail"
+                  >
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        集群名称:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      JQTest4
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        管理员:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      peter
+                    </p>
+                    <br />
+                    <p
+                      class="title"
+                    >
+                      <b>
+                        描述:
+                      </b>
+                    </p>
+                    <p
+                      class="content"
+                    >
+                      test
+                    </p>
+                  </div>
+                  
                 </td>
                 
               </tr>
@@ -3140,7 +3831,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -3183,14 +3874,14 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                             style="display: none;"
                           >
                             <div
-                              class="t-popup__content t-popup__content--arrow t-table-filter-pop"
+                              class="t-popup__content t-popup__content--arrow t-table__filter-pop"
                             >
                               
                               <div
-                                class="t-table-filter-pop-content"
+                                class="t-table__filter-pop-content"
                               >
                                 <div
-                                  class="t-table-filter-pop-content__inner"
+                                  class="t-table__filter-pop-content-inner"
                                 >
                                   <div
                                     class="t-radio-group t-size-m t-radio-group__outline"
@@ -3269,7 +3960,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                         </transition-stub>
                         
                         <svg
-                          class="t-icon t-icon-filter t-table-filter-icon t-table-filter-icon"
+                          class="t-icon t-icon-filter t-table__filter-icon t-table__filter-icon"
                           fill="none"
                           height="1em"
                           name="filter"
@@ -3312,14 +4003,14 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                             style="display: none;"
                           >
                             <div
-                              class="t-popup__content t-popup__content--arrow t-table-filter-pop"
+                              class="t-popup__content t-popup__content--arrow t-table__filter-pop"
                             >
                               
                               <div
-                                class="t-table-filter-pop-content"
+                                class="t-table__filter-pop-content"
                               >
                                 <div
-                                  class="t-table-filter-pop-content__inner"
+                                  class="t-table__filter-pop-content-inner"
                                 >
                                   <div
                                     class="t-checkbox-group"
@@ -3328,7 +4019,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                     
                                     <label
                                       class="t-checkbox undefined"
-                                      data-name="TDESIGN_CHECK_ALL"
                                     >
                                       <input
                                         class="t-checkbox__former"
@@ -3387,7 +4077,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                       </span>
                                     </label>
                                     
-                                    <!---->
                                   </div>
                                 </div>
                               </div>
@@ -3400,7 +4089,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                         </transition-stub>
                         
                         <svg
-                          class="t-icon t-icon-filter t-table-filter-icon t-table-filter-icon"
+                          class="t-icon t-icon-filter t-table__filter-icon t-table__filter-icon"
                           fill="none"
                           height="1em"
                           name="filter"
@@ -3443,14 +4132,14 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                             style="display: none;"
                           >
                             <div
-                              class="t-popup__content t-popup__content--arrow t-table-filter-pop"
+                              class="t-popup__content t-popup__content--arrow t-table__filter-pop"
                             >
                               
                               <div
-                                class="t-table-filter-pop-content"
+                                class="t-table__filter-pop-content"
                               >
                                 <div
-                                  class="t-table-filter-pop-content__inner"
+                                  class="t-table__filter-pop-content-inner"
                                 >
                                   <div
                                     class="t-input t-size-m"
@@ -3475,7 +4164,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                         </transition-stub>
                         
                         <svg
-                          class="t-icon t-icon-filter t-table-filter-icon t-table-filter-icon"
+                          class="t-icon t-icon-filter t-table__filter-icon t-table__filter-icon"
                           fill="none"
                           height="1em"
                           name="filter"
@@ -3518,14 +4207,14 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                             style="display: none;"
                           >
                             <div
-                              class="t-popup__content t-popup__content--arrow t-table-filter-pop"
+                              class="t-popup__content t-popup__content--arrow t-table__filter-pop"
                             >
                               
                               <div
-                                class="t-table-filter-pop-content"
+                                class="t-table__filter-pop-content"
                               >
                                 <div
-                                  class="t-table-filter-pop-content__inner"
+                                  class="t-table__filter-pop-content-inner"
                                 >
                                   <div
                                     class="t-date-picker t-input t-size-m t-date-picker--month-picker"
@@ -4170,7 +4859,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                         </transition-stub>
                         
                         <svg
-                          class="t-icon t-icon-filter t-table-filter-icon t-table-filter-icon"
+                          class="t-icon t-icon-filter t-table__filter-icon t-table__filter-icon"
                           fill="none"
                           height="1em"
                           name="filter"
@@ -4193,7 +4882,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -4506,7 +5195,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -4545,7 +5234,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               <tr>
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   colspan="1"
                   rowspan="1"
                   style="position: sticky; left: 0px;"
@@ -4613,7 +5302,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -4622,7 +5311,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -4691,7 +5380,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -4760,7 +5449,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -4829,7 +5518,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -4898,7 +5587,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -4999,7 +5688,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         
         <div
@@ -5042,7 +5731,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               <tr>
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   colspan="1"
                   rowspan="1"
                   style="position: sticky; left: 0px;"
@@ -5147,7 +5836,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               
             </colgroup>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -5156,7 +5845,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5225,7 +5914,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5294,7 +5983,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5363,7 +6052,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5432,7 +6121,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5501,7 +6190,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5570,7 +6259,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5639,7 +6328,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5708,7 +6397,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5777,7 +6466,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5846,7 +6535,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5915,7 +6604,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -5984,7 +6673,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -6053,7 +6742,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -6122,7 +6811,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -6191,7 +6880,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -6260,7 +6949,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -6329,7 +7018,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -6398,7 +7087,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -6467,7 +7156,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table__cell--fixed-left align-center"
+                  class="t-table__cell--fixed-left t-align-center"
                   length="8"
                   style="position: sticky; left: 0px;"
                 >
@@ -6568,7 +7257,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         <table
           style="table-layout: fixed;"
@@ -6596,7 +7285,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             <tr>
               
               <td
-                class="align-center"
+                class="t-align-center"
                 colspan="1"
                 rowspan="1"
                 style="overflow: hidden;"
@@ -6633,7 +7322,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 是否必传
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 colspan="1"
                 rowspan="1"
                 style="overflow: hidden;"
@@ -6652,7 +7341,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             
           </thead>
           <tbody
-            class="table-body"
+            class="t-table__body"
           >
             
             <tr
@@ -6661,7 +7350,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6693,7 +7382,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 是
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6713,7 +7402,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6745,7 +7434,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6765,7 +7454,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6797,7 +7486,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6817,7 +7506,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6849,7 +7538,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6869,7 +7558,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6901,7 +7590,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 是
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6921,7 +7610,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6953,7 +7642,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -6973,7 +7662,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7005,7 +7694,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7025,7 +7714,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7057,7 +7746,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7077,7 +7766,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7109,7 +7798,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 是
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7129,7 +7818,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7161,7 +7850,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7181,7 +7870,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7213,7 +7902,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7233,7 +7922,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7265,7 +7954,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7285,7 +7974,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7317,7 +8006,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 是
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7337,7 +8026,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7369,7 +8058,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7389,7 +8078,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7421,7 +8110,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7441,7 +8130,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7473,7 +8162,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7493,7 +8182,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7525,7 +8214,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 是
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7545,7 +8234,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7577,7 +8266,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7597,7 +8286,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7629,7 +8318,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7649,7 +8338,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-center"
+                class="t-align-center"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7681,7 +8370,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
                 否
               </td>
               <td
-                class="text-ellipsis"
+                class="t-text-ellipsis"
                 length="7"
                 style="overflow: hidden;"
               >
@@ -7738,7 +8427,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           
           <div
@@ -7775,7 +8464,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <tr>
                   
                   <td
-                    class="align-left text-ellipsis row"
+                    class="t-align-left t-text-ellipsis row"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -7783,7 +8472,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     类型
                   </td>
                   <td
-                    class="align-left text-ellipsis test"
+                    class="t-align-left t-text-ellipsis test"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -7791,7 +8480,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     平台
                   </td>
                   <td
-                    class="align-left text-ellipsis test2"
+                    class="t-align-left t-text-ellipsis test2"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -7799,7 +8488,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     属性
                   </td>
                   <td
-                    class="align-left text-ellipsis test4"
+                    class="t-align-left t-text-ellipsis test4"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -7807,7 +8496,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     默认值
                   </td>
                   <td
-                    class="align-left text-ellipsis test3"
+                    class="t-align-left t-text-ellipsis test3"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -7815,7 +8504,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     是否必传
                   </td>
                   <td
-                    class="align-left text-ellipsis row"
+                    class="t-align-left t-text-ellipsis row"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -7858,7 +8547,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 
               </colgroup>
               <tbody
-                class="table-body"
+                class="t-table__body"
               >
                 
                 
@@ -7929,7 +8618,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           
           <div
@@ -7966,7 +8655,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <tr>
                   
                   <td
-                    class="align-left text-ellipsis row"
+                    class="t-align-left t-text-ellipsis row"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -7974,7 +8663,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     类型
                   </td>
                   <td
-                    class="align-left text-ellipsis test"
+                    class="t-align-left t-text-ellipsis test"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -7982,7 +8671,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     平台
                   </td>
                   <td
-                    class="align-left text-ellipsis test2"
+                    class="t-align-left t-text-ellipsis test2"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -7990,7 +8679,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     属性
                   </td>
                   <td
-                    class="align-left text-ellipsis test4"
+                    class="t-align-left t-text-ellipsis test4"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -7998,7 +8687,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     默认值
                   </td>
                   <td
-                    class="align-left text-ellipsis test3"
+                    class="t-align-left t-text-ellipsis test3"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -8006,7 +8695,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     是否必传
                   </td>
                   <td
-                    class="align-left text-ellipsis row"
+                    class="t-align-left t-text-ellipsis row"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -8049,7 +8738,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 
               </colgroup>
               <tbody
-                class="table-body"
+                class="t-table__body"
               >
                 
                 
@@ -8126,7 +8815,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           
           <div
@@ -8163,7 +8852,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 <tr>
                   
                   <td
-                    class="align-left text-ellipsis row"
+                    class="t-align-left t-text-ellipsis row"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -8171,7 +8860,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     类型
                   </td>
                   <td
-                    class="align-left text-ellipsis test"
+                    class="t-align-left t-text-ellipsis test"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -8179,7 +8868,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     平台
                   </td>
                   <td
-                    class="align-left text-ellipsis test2"
+                    class="t-align-left t-text-ellipsis test2"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -8187,7 +8876,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     属性
                   </td>
                   <td
-                    class="align-left text-ellipsis test4"
+                    class="t-align-left t-text-ellipsis test4"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -8195,7 +8884,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     默认值
                   </td>
                   <td
-                    class="align-left text-ellipsis test3"
+                    class="t-align-left t-text-ellipsis test3"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -8203,7 +8892,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                     是否必传
                   </td>
                   <td
-                    class="align-left text-ellipsis row"
+                    class="t-align-left t-text-ellipsis row"
                     colspan="1"
                     rowspan="1"
                     style="overflow: hidden;"
@@ -8246,7 +8935,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
                 
               </colgroup>
               <tbody
-                class="table-body"
+                class="t-table__body"
               >
                 
                 
@@ -8321,7 +9010,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -8351,7 +9040,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               <tr>
                 
                 <td
-                  class="align-left text-ellipsis test"
+                  class="t-align-left t-text-ellipsis test"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -8359,7 +9048,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   平台
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -8367,7 +9056,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   类型
                 </td>
                 <td
-                  class="align-left text-ellipsis test4"
+                  class="t-align-left t-text-ellipsis test4"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -8375,7 +9064,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   默认值
                 </td>
                 <td
-                  class="align-left text-ellipsis test3"
+                  class="t-align-left t-text-ellipsis test3"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -8383,7 +9072,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   是否必传
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -8395,7 +9084,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -8404,7 +9093,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-left text-ellipsis test"
+                  class="t-align-left t-text-ellipsis test"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8413,7 +9102,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   公有
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8422,7 +9111,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   Array&lt;any&gt;
                 </td>
                 <td
-                  class="align-left text-ellipsis test4"
+                  class="t-align-left t-text-ellipsis test4"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8431,7 +9120,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   []
                 </td>
                 <td
-                  class="align-left text-ellipsis test3"
+                  class="t-align-left t-text-ellipsis test3"
                   colspan="2"
                   length="5"
                   rowspan="1"
@@ -8447,7 +9136,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-left text-ellipsis test"
+                  class="t-align-left t-text-ellipsis test"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8456,7 +9145,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   私有
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="2"
                   length="5"
                   rowspan="2"
@@ -8465,16 +9154,16 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   String/""
                 </td>
                 <td
-                  class="align-left text-ellipsis test3"
+                  class="t-align-left t-text-ellipsis test3"
                   colspan="1"
                   length="5"
                   rowspan="1"
-                  style="overflow: hidden;"
+                  style="overflow: hidden; border-left: 1px solid #E7E7E7;"
                 >
                   Y
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8490,7 +9179,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-left text-ellipsis test"
+                  class="t-align-left t-text-ellipsis test"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8499,16 +9188,16 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   私有
                 </td>
                 <td
-                  class="align-left text-ellipsis test3"
+                  class="t-align-left t-text-ellipsis test3"
                   colspan="1"
                   length="5"
                   rowspan="1"
-                  style="overflow: hidden;"
+                  style="overflow: hidden; border-left: 1px solid #E7E7E7;"
                 >
                   Y
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8524,7 +9213,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-left text-ellipsis test"
+                  class="t-align-left t-text-ellipsis test"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8533,7 +9222,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   公有
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8542,7 +9231,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   Boolean
                 </td>
                 <td
-                  class="align-left text-ellipsis test4"
+                  class="t-align-left t-text-ellipsis test4"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8551,7 +9240,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   false
                 </td>
                 <td
-                  class="align-left text-ellipsis test3"
+                  class="t-align-left t-text-ellipsis test3"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8560,7 +9249,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   N
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8576,7 +9265,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-left text-ellipsis test"
+                  class="t-align-left t-text-ellipsis test"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8585,7 +9274,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   公有
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8594,7 +9283,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   Number
                 </td>
                 <td
-                  class="align-left text-ellipsis test4"
+                  class="t-align-left t-text-ellipsis test4"
                   colspan="2"
                   length="5"
                   rowspan="2"
@@ -8603,11 +9292,11 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   -1 / N
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   length="5"
                   rowspan="1"
-                  style="overflow: hidden;"
+                  style="overflow: hidden; border-left: 1px solid #E7E7E7;"
                 >
                   位置
                 </td>
@@ -8619,7 +9308,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-left text-ellipsis test"
+                  class="t-align-left t-text-ellipsis test"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8628,7 +9317,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   私有
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   length="5"
                   rowspan="1"
@@ -8637,11 +9326,11 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
                   Number
                 </td>
                 <td
-                  class="align-left text-ellipsis row"
+                  class="t-align-left t-text-ellipsis row"
                   colspan="1"
                   length="5"
                   rowspan="1"
-                  style="overflow: hidden;"
+                  style="overflow: hidden; border-left: 1px solid #E7E7E7;"
                 >
                   Number 类型
                 </td>
@@ -8685,7 +9374,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         <table
           style="table-layout: fixed;"
@@ -8720,7 +9409,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
             <tr>
               
               <td
-                class="align-left text-ellipsis test"
+                class="t-align-left t-text-ellipsis test"
                 colspan="1"
                 rowspan="2"
                 style="overflow: hidden;"
@@ -8735,7 +9424,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                 类型及默认值
               </td>
               <td
-                class="align-left text-ellipsis test2"
+                class="t-align-left t-text-ellipsis test2"
                 colspan="1"
                 rowspan="2"
                 style="overflow: hidden;"
@@ -8743,7 +9432,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                 属性
               </td>
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 colspan="1"
                 rowspan="2"
                 style="overflow: hidden;"
@@ -8755,7 +9444,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
             <tr>
               
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 colspan="1"
                 rowspan="1"
                 style="overflow: hidden; border-left: 1px solid #E7E7E7;"
@@ -8763,7 +9452,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                 类型
               </td>
               <td
-                class="align-left text-ellipsis test4"
+                class="t-align-left t-text-ellipsis test4"
                 colspan="1"
                 rowspan="1"
                 style="overflow: hidden;"
@@ -8771,7 +9460,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                 默认值
               </td>
               <td
-                class="align-left text-ellipsis test3"
+                class="t-align-left t-text-ellipsis test3"
                 colspan="1"
                 rowspan="1"
                 style="overflow: hidden;"
@@ -8783,7 +9472,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
             
           </thead>
           <tbody
-            class="table-body"
+            class="t-table__body"
           >
             
             <tr
@@ -8792,42 +9481,42 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-left text-ellipsis test"
+                class="t-align-left t-text-ellipsis test"
                 length="6"
                 style="overflow: hidden;"
               >
                 公有
               </td>
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 length="6"
                 style="overflow: hidden;"
               >
                 any[]
               </td>
               <td
-                class="align-left text-ellipsis test4"
+                class="t-align-left t-text-ellipsis test4"
                 length="6"
                 style="overflow: hidden;"
               >
                 []
               </td>
               <td
-                class="align-left text-ellipsis test3"
+                class="t-align-left t-text-ellipsis test3"
                 length="6"
                 style="overflow: hidden;"
               >
                 Y
               </td>
               <td
-                class="align-left text-ellipsis test2"
+                class="t-align-left t-text-ellipsis test2"
                 length="6"
                 style="overflow: hidden;"
               >
                 data
               </td>
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 length="6"
                 style="overflow: hidden;"
               >
@@ -8841,42 +9530,42 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
             >
               
               <td
-                class="align-left text-ellipsis test"
+                class="t-align-left t-text-ellipsis test"
                 length="6"
                 style="overflow: hidden;"
               >
                 公有
               </td>
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 length="6"
                 style="overflow: hidden;"
               >
                 String
               </td>
               <td
-                class="align-left text-ellipsis test4"
+                class="t-align-left t-text-ellipsis test4"
                 length="6"
                 style="overflow: hidden;"
               >
                 -1
               </td>
               <td
-                class="align-left text-ellipsis test3"
+                class="t-align-left t-text-ellipsis test3"
                 length="6"
                 style="overflow: hidden;"
               >
                 Y
               </td>
               <td
-                class="align-left text-ellipsis test2"
+                class="t-align-left t-text-ellipsis test2"
                 length="6"
                 style="overflow: hidden;"
               >
                 rowkey
               </td>
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 length="6"
                 style="overflow: hidden;"
               >
@@ -8934,7 +9623,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
         >
           
           <div
-            class="t-table-content"
+            class="t-table__content"
           >
             <table
               style="table-layout: fixed;"
@@ -8984,7 +9673,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           状态
                         </div>
                         <div
-                          class="t-table__cell--sort-trigger t-table-double-icons"
+                          class="t-table__cell--sort-trigger t-table__double-icons"
                         >
                           <div
                             class="t-popup__reference"
@@ -9009,44 +9698,34 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                             </transition-stub>
                             
                             
-                            <span
-                              class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"
-                              style="transform: rotate(-180deg); top: -1px; left: 0px;"
+                            <svg
+                              class="t-icon t-icon-chevron-down t-table__sort-icon t-icon-sort--default t-table-sort-asc t-table__sort-icon t-icon-sort--default t-table-sort-asc"
+                              fill="none"
+                              height="1em"
+                              style="font-size: 16px; transform: rotate(-180deg); top: -1px; left: 0px;"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                style="font-size: 16px;"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fillOpacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-table-sort-icon t-table-sort-icon-active t-table-sort-desc"
-                              style="left: 0px; bottom: -1px;"
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fillOpacity="0.9"
+                              />
+                            </svg>
+                            <svg
+                              class="t-icon t-icon-chevron-down t-table__sort-icon t-table__sort-icon--active t-table-sort-desc t-table__sort-icon t-table__sort-icon--active t-table-sort-desc"
+                              fill="none"
+                              height="1em"
+                              style="font-size: 16px; left: 0px; bottom: -1px;"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                style="font-size: 16px;"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fillOpacity="0.9"
-                                />
-                              </svg>
-                            </span>
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fillOpacity="0.9"
+                              />
+                            </svg>
                             
                             
                           </div>
@@ -9070,7 +9749,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           存活时间(s)
                         </div>
                         <div
-                          class="t-table__cell--sort-trigger t-table-double-icons"
+                          class="t-table__cell--sort-trigger t-table__double-icons"
                         >
                           <div
                             class="t-popup__reference"
@@ -9095,44 +9774,34 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                             </transition-stub>
                             
                             
-                            <span
-                              class="t-table-sort-icon t-table-sort-icon-active t-table-sort-asc"
-                              style="transform: rotate(-180deg); top: -1px; left: 0px;"
+                            <svg
+                              class="t-icon t-icon-chevron-down t-table__sort-icon t-table__sort-icon--active t-table-sort-asc t-table__sort-icon t-table__sort-icon--active t-table-sort-asc"
+                              fill="none"
+                              height="1em"
+                              style="font-size: 16px; transform: rotate(-180deg); top: -1px; left: 0px;"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                style="font-size: 16px;"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fillOpacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-table-sort-icon t-icon-sort-default t-table-sort-desc"
-                              style="left: 0px; bottom: -1px;"
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fillOpacity="0.9"
+                              />
+                            </svg>
+                            <svg
+                              class="t-icon t-icon-chevron-down t-table__sort-icon t-icon-sort--default t-table-sort-desc t-table__sort-icon t-icon-sort--default t-table-sort-desc"
+                              fill="none"
+                              height="1em"
+                              style="font-size: 16px; left: 0px; bottom: -1px;"
+                              viewBox="0 0 16 16"
+                              width="1em"
                             >
-                              <svg
-                                class="t-icon t-icon-chevron-down"
-                                fill="none"
-                                height="1em"
-                                style="font-size: 16px;"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                  fill="currentColor"
-                                  fillOpacity="0.9"
-                                />
-                              </svg>
-                            </span>
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fillOpacity="0.9"
+                              />
+                            </svg>
                             
                             
                           </div>
@@ -9153,7 +9822,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                 
               </thead>
               <tbody
-                class="table-body"
+                class="t-table__body"
               >
                 
                 <tr
@@ -9351,7 +10020,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
 >
   <!---->
   <div
-    class="t-table t-table--bordered t-table--striped t-table-valign__top"
+    class="t-table t-table--bordered t-table--striped t-table-align-top"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
     expandicon="true"
@@ -9367,7 +10036,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         <table
           style="table-layout: fixed;"
@@ -9427,7 +10096,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
             
           </thead>
           <tbody
-            class="table-body"
+            class="t-table__body"
           >
             
             
@@ -9438,12 +10107,12 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
       </div>
       
       <div
-        class="t-table--empty"
+        class="t-table__empty"
       >
         暂无数据
       </div>
       <div
-        class="t-table-pagination"
+        class="t-table__pagination"
       >
         <div
           class="t-pagination t-size-m"
@@ -9659,7 +10328,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -9687,7 +10356,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               <tr>
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -9724,7 +10393,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   是否必传
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-text-ellipsis"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -9743,7 +10412,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -9752,7 +10421,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   length="7"
                   style="overflow: hidden;"
                 >
@@ -9784,7 +10453,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   否
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-text-ellipsis"
                   length="7"
                   style="overflow: hidden;"
                 >
@@ -9804,7 +10473,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   length="7"
                   style="overflow: hidden;"
                 >
@@ -9836,7 +10505,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   否
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-text-ellipsis"
                   length="7"
                   style="overflow: hidden;"
                 >
@@ -9856,7 +10525,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   length="7"
                   style="overflow: hidden;"
                 >
@@ -9888,7 +10557,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   否
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-text-ellipsis"
                   length="7"
                   style="overflow: hidden;"
                 >
@@ -9908,7 +10577,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   length="7"
                   style="overflow: hidden;"
                 >
@@ -9940,7 +10609,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   是
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-text-ellipsis"
                   length="7"
                   style="overflow: hidden;"
                 >
@@ -9960,7 +10629,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="align-center row"
+                  class="t-align-center row"
                   length="7"
                   style="overflow: hidden;"
                 >
@@ -9992,7 +10661,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   否
                 </td>
                 <td
-                  class="text-ellipsis"
+                  class="t-text-ellipsis"
                   length="7"
                   style="overflow: hidden;"
                 >
@@ -10014,7 +10683,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
         </div>
         
         <div
-          class="t-table-pagination"
+          class="t-table__pagination"
         >
           <div
             class="t-pagination t-size-m"
@@ -10273,7 +10942,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -10302,7 +10971,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               <tr>
                 
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -10372,7 +11041,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -10381,7 +11050,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               >
                 
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -10466,7 +11135,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               >
                 
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -10552,7 +11221,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               >
                 
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -10637,7 +11306,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               >
                 
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -10759,7 +11428,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -10788,7 +11457,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
               <tr>
                 
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -10842,7 +11511,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -10851,7 +11520,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
               >
                 
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -10938,7 +11607,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
               >
                 
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -11026,7 +11695,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
               >
                 
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -11113,7 +11782,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
               >
                 
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -11396,7 +12065,6 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
                     </span>
                   </label>
                   
-                  <!---->
                 </div>
               </div>
               
@@ -11453,7 +12121,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -11521,7 +12189,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -11799,7 +12467,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -11849,7 +12517,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         状态
                       </div>
                       <div
-                        class="t-table__cell--sort-trigger t-table-double-icons"
+                        class="t-table__cell--sort-trigger t-table__double-icons"
                       >
                         <div
                           class="t-popup__reference"
@@ -11874,44 +12542,34 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                           </transition-stub>
                           
                           
-                          <span
-                            class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"
-                            style="transform: rotate(-180deg); top: -1px; left: 0px;"
+                          <svg
+                            class="t-icon t-icon-chevron-down t-table__sort-icon t-icon-sort--default t-table-sort-asc t-table__sort-icon t-icon-sort--default t-table-sort-asc"
+                            fill="none"
+                            height="1em"
+                            style="font-size: 16px; transform: rotate(-180deg); top: -1px; left: 0px;"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              style="font-size: 16px;"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fillOpacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-table-sort-icon t-table-sort-icon-active t-table-sort-desc"
-                            style="left: 0px; bottom: -1px;"
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fillOpacity="0.9"
+                            />
+                          </svg>
+                          <svg
+                            class="t-icon t-icon-chevron-down t-table__sort-icon t-table__sort-icon--active t-table-sort-desc t-table__sort-icon t-table__sort-icon--active t-table-sort-desc"
+                            fill="none"
+                            height="1em"
+                            style="font-size: 16px; left: 0px; bottom: -1px;"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              style="font-size: 16px;"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fillOpacity="0.9"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fillOpacity="0.9"
+                            />
+                          </svg>
                           
                           
                         </div>
@@ -11935,7 +12593,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         存活时间(s)
                       </div>
                       <div
-                        class="t-table__cell--sort-trigger t-table-double-icons"
+                        class="t-table__cell--sort-trigger t-table__double-icons"
                       >
                         <div
                           class="t-popup__reference"
@@ -11960,44 +12618,34 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                           </transition-stub>
                           
                           
-                          <span
-                            class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"
-                            style="transform: rotate(-180deg); top: -1px; left: 0px;"
+                          <svg
+                            class="t-icon t-icon-chevron-down t-table__sort-icon t-icon-sort--default t-table-sort-asc t-table__sort-icon t-icon-sort--default t-table-sort-asc"
+                            fill="none"
+                            height="1em"
+                            style="font-size: 16px; transform: rotate(-180deg); top: -1px; left: 0px;"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              style="font-size: 16px;"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fillOpacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-table-sort-icon t-icon-sort-default t-table-sort-desc"
-                            style="left: 0px; bottom: -1px;"
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fillOpacity="0.9"
+                            />
+                          </svg>
+                          <svg
+                            class="t-icon t-icon-chevron-down t-table__sort-icon t-icon-sort--default t-table-sort-desc t-table__sort-icon t-icon-sort--default t-table-sort-desc"
+                            fill="none"
+                            height="1em"
+                            style="font-size: 16px; left: 0px; bottom: -1px;"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-chevron-down"
-                              fill="none"
-                              height="1em"
-                              style="font-size: 16px;"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-                                fill="currentColor"
-                                fillOpacity="0.9"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                              fill="currentColor"
+                              fillOpacity="0.9"
+                            />
+                          </svg>
                           
                           
                         </div>
@@ -12018,7 +12666,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -12319,7 +12967,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -12328,7 +12976,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             <colgroup>
               
               <col
-                style="width: 25px;"
+                style="width: 48px;"
               />
               <col
                 style="width: 50px;"
@@ -12348,7 +12996,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               <tr>
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -12356,7 +13004,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   
                 </td>
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -12414,7 +13062,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -12423,15 +13071,15 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="6"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right-circle"
@@ -12455,7 +13103,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   </span>
                 </td>
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -12535,17 +13183,18 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="6"
                   length="1"
                 >
                   <div>
                     这是展开项数据，
-                    我是 0 号
+                    0
                   </div>
                 </td>
                 
@@ -12556,15 +13205,15 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="6"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right-circle"
@@ -12588,7 +13237,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   </span>
                 </td>
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -12669,17 +13318,18 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="6"
                   length="1"
                 >
                   <div>
                     这是展开项数据，
-                    我是 1 号
+                    1
                   </div>
                 </td>
                 
@@ -12690,15 +13340,15 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="6"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right-circle"
@@ -12722,7 +13372,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   </span>
                 </td>
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -12802,17 +13452,18 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="6"
                   length="1"
                 >
                   <div>
                     这是展开项数据，
-                    我是 2 号
+                    2
                   </div>
                 </td>
                 
@@ -12823,15 +13474,15 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="6"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right-circle"
@@ -12855,7 +13506,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   </span>
                 </td>
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -12936,17 +13587,18 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="6"
                   length="1"
                 >
                   <div>
                     这是展开项数据，
-                    我是 3 号
+                    3
                   </div>
                 </td>
                 
@@ -12957,15 +13609,15 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="6"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right-circle"
@@ -12989,7 +13641,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   </span>
                 </td>
                 <td
-                  class=""
+                  class="t-table__cell--selectable"
                   length="6"
                   style="overflow: hidden;"
                 >
@@ -13069,17 +13721,18 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="6"
                   length="1"
                 >
                   <div>
                     这是展开项数据，
-                    我是 4 号
+                    4
                   </div>
                 </td>
                 
@@ -13106,6 +13759,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
   <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <div
     style="width: 100%;"
+    tree="[object Object]"
   >
     <!---->
     <div
@@ -13125,7 +13779,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -13136,12 +13790,11 @@ exports[`Table Table treeVue demo works fine 1`] = `
               <col
                 style="width: 200px;"
               />
+              <col />
+              <col />
               <col
-                style="width: 200px;"
+                style="width: 350px;"
               />
-              <col />
-              <col />
-              <col />
               
             </colgroup>
             <thead>
@@ -13160,7 +13813,6 @@ exports[`Table Table treeVue demo works fine 1`] = `
                   class=""
                   colspan="1"
                   rowspan="1"
-                  style="overflow: hidden;"
                 >
                   平台
                 </td>
@@ -13172,25 +13824,19 @@ exports[`Table Table treeVue demo works fine 1`] = `
                   类型
                 </td>
                 <td
-                  class=""
+                  class="t-align-center"
                   colspan="1"
                   rowspan="1"
+                  style="overflow: hidden;"
                 >
-                  默认值
-                </td>
-                <td
-                  class=""
-                  colspan="1"
-                  rowspan="1"
-                >
-                  是否必传
+                  操作
                 </td>
                 
               </tr>
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -13200,7 +13846,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 
                 <td
                   class="row"
-                  length="5"
+                  length="4"
                   style="overflow: hidden;"
                 >
                   <div>
@@ -13228,28 +13874,153 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 </td>
                 <td
                   class=""
-                  length="5"
-                  style="overflow: hidden;"
+                  length="4"
                 >
                   共有
                 </td>
                 <td
                   class=""
-                  length="5"
+                  length="4"
                 >
                   String
                 </td>
                 <td
-                  class=""
-                  length="5"
+                  class="t-align-center"
+                  length="4"
+                  style="overflow: hidden;"
                 >
-                  -
-                </td>
-                <td
-                  class=""
-                  length="5"
-                >
-                  是
+                  <div
+                    class="tdesign-table-demo__table-operations"
+                  >
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        插入
+                        
+                      </span>
+                    </button>
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        更新
+                        
+                      </span>
+                    </button>
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        查看
+                        
+                      </span>
+                    </button>
+                    <div
+                      modelvalue="false"
+                    >
+                      <div
+                        class="t-popup__reference"
+                      >
+                        <transition-stub>
+                          <div
+                            aria-hidden="true"
+                            class="t-popup"
+                            role="tooltip"
+                            style="display: none;"
+                          >
+                            <div
+                              class="t-popup__content t-popup__content--arrow t-popconfirm"
+                            >
+                              
+                              <div
+                                class="t-popconfirm__content"
+                              >
+                                <div
+                                  class="t-popconfirm__body"
+                                >
+                                  <svg
+                                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                                    fill="none"
+                                    height="1em"
+                                    viewBox="0 0 16 16"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                                      fill="currentColor"
+                                      fillOpacity="0.9"
+                                    />
+                                  </svg>
+                                  <div
+                                    class="t-popconfirm__inner"
+                                  >
+                                    确认删除吗
+                                  </div>
+                                </div>
+                                <div
+                                  class="t-popconfirm__buttons"
+                                >
+                                  <button
+                                    class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="t-button__text"
+                                    >
+                                      取消
+                                    </span>
+                                  </button>
+                                  <button
+                                    class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="t-button__text"
+                                    >
+                                      确定
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                              
+                              <div
+                                class="t-popup__arrow"
+                              />
+                            </div>
+                          </div>
+                        </transition-stub>
+                        
+                        
+                        <button
+                          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                          type="button"
+                        >
+                          <span
+                            class="t-button__text"
+                          >
+                            
+                            删除
+                            
+                          </span>
+                        </button>
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
                 </td>
                 
               </tr>
@@ -13260,7 +14031,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 
                 <td
                   class="row"
-                  length="5"
+                  length="4"
                   style="overflow: hidden;"
                 >
                   <div>
@@ -13288,28 +14059,153 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 </td>
                 <td
                   class=""
-                  length="5"
-                  style="overflow: hidden;"
+                  length="4"
                 >
                   私有
                 </td>
                 <td
                   class=""
-                  length="5"
+                  length="4"
                 >
                   Number
                 </td>
                 <td
-                  class=""
-                  length="5"
+                  class="t-align-center"
+                  length="4"
+                  style="overflow: hidden;"
                 >
-                  0
-                </td>
-                <td
-                  class=""
-                  length="5"
-                >
-                  否
+                  <div
+                    class="tdesign-table-demo__table-operations"
+                  >
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        插入
+                        
+                      </span>
+                    </button>
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        更新
+                        
+                      </span>
+                    </button>
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        查看
+                        
+                      </span>
+                    </button>
+                    <div
+                      modelvalue="false"
+                    >
+                      <div
+                        class="t-popup__reference"
+                      >
+                        <transition-stub>
+                          <div
+                            aria-hidden="true"
+                            class="t-popup"
+                            role="tooltip"
+                            style="display: none;"
+                          >
+                            <div
+                              class="t-popup__content t-popup__content--arrow t-popconfirm"
+                            >
+                              
+                              <div
+                                class="t-popconfirm__content"
+                              >
+                                <div
+                                  class="t-popconfirm__body"
+                                >
+                                  <svg
+                                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                                    fill="none"
+                                    height="1em"
+                                    viewBox="0 0 16 16"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                                      fill="currentColor"
+                                      fillOpacity="0.9"
+                                    />
+                                  </svg>
+                                  <div
+                                    class="t-popconfirm__inner"
+                                  >
+                                    确认删除吗
+                                  </div>
+                                </div>
+                                <div
+                                  class="t-popconfirm__buttons"
+                                >
+                                  <button
+                                    class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="t-button__text"
+                                    >
+                                      取消
+                                    </span>
+                                  </button>
+                                  <button
+                                    class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="t-button__text"
+                                    >
+                                      确定
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                              
+                              <div
+                                class="t-popup__arrow"
+                              />
+                            </div>
+                          </div>
+                        </transition-stub>
+                        
+                        
+                        <button
+                          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                          type="button"
+                        >
+                          <span
+                            class="t-button__text"
+                          >
+                            
+                            删除
+                            
+                          </span>
+                        </button>
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
                 </td>
                 
               </tr>
@@ -13320,7 +14216,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 
                 <td
                   class="row"
-                  length="5"
+                  length="4"
                   style="overflow: hidden;"
                 >
                   <div>
@@ -13348,28 +14244,153 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 </td>
                 <td
                   class=""
-                  length="5"
-                  style="overflow: hidden;"
+                  length="4"
                 >
                   共有
                 </td>
                 <td
                   class=""
-                  length="5"
+                  length="4"
                 >
                   Array
                 </td>
                 <td
-                  class=""
-                  length="5"
+                  class="t-align-center"
+                  length="4"
+                  style="overflow: hidden;"
                 >
-                  []
-                </td>
-                <td
-                  class=""
-                  length="5"
-                >
-                  否
+                  <div
+                    class="tdesign-table-demo__table-operations"
+                  >
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        插入
+                        
+                      </span>
+                    </button>
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        更新
+                        
+                      </span>
+                    </button>
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        查看
+                        
+                      </span>
+                    </button>
+                    <div
+                      modelvalue="false"
+                    >
+                      <div
+                        class="t-popup__reference"
+                      >
+                        <transition-stub>
+                          <div
+                            aria-hidden="true"
+                            class="t-popup"
+                            role="tooltip"
+                            style="display: none;"
+                          >
+                            <div
+                              class="t-popup__content t-popup__content--arrow t-popconfirm"
+                            >
+                              
+                              <div
+                                class="t-popconfirm__content"
+                              >
+                                <div
+                                  class="t-popconfirm__body"
+                                >
+                                  <svg
+                                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                                    fill="none"
+                                    height="1em"
+                                    viewBox="0 0 16 16"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                                      fill="currentColor"
+                                      fillOpacity="0.9"
+                                    />
+                                  </svg>
+                                  <div
+                                    class="t-popconfirm__inner"
+                                  >
+                                    确认删除吗
+                                  </div>
+                                </div>
+                                <div
+                                  class="t-popconfirm__buttons"
+                                >
+                                  <button
+                                    class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="t-button__text"
+                                    >
+                                      取消
+                                    </span>
+                                  </button>
+                                  <button
+                                    class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="t-button__text"
+                                    >
+                                      确定
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                              
+                              <div
+                                class="t-popup__arrow"
+                              />
+                            </div>
+                          </div>
+                        </transition-stub>
+                        
+                        
+                        <button
+                          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                          type="button"
+                        >
+                          <span
+                            class="t-button__text"
+                          >
+                            
+                            删除
+                            
+                          </span>
+                        </button>
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
                 </td>
                 
               </tr>
@@ -13380,7 +14401,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 
                 <td
                   class="row"
-                  length="5"
+                  length="4"
                   style="overflow: hidden;"
                 >
                   <div>
@@ -13408,28 +14429,153 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 </td>
                 <td
                   class=""
-                  length="5"
-                  style="overflow: hidden;"
+                  length="4"
                 >
                   私有
                 </td>
                 <td
                   class=""
-                  length="5"
+                  length="4"
                 >
                   Object
                 </td>
                 <td
-                  class=""
-                  length="5"
+                  class="t-align-center"
+                  length="4"
+                  style="overflow: hidden;"
                 >
-                  {}
-                </td>
-                <td
-                  class=""
-                  length="5"
-                >
-                  否
+                  <div
+                    class="tdesign-table-demo__table-operations"
+                  >
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        插入
+                        
+                      </span>
+                    </button>
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        更新
+                        
+                      </span>
+                    </button>
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        查看
+                        
+                      </span>
+                    </button>
+                    <div
+                      modelvalue="false"
+                    >
+                      <div
+                        class="t-popup__reference"
+                      >
+                        <transition-stub>
+                          <div
+                            aria-hidden="true"
+                            class="t-popup"
+                            role="tooltip"
+                            style="display: none;"
+                          >
+                            <div
+                              class="t-popup__content t-popup__content--arrow t-popconfirm"
+                            >
+                              
+                              <div
+                                class="t-popconfirm__content"
+                              >
+                                <div
+                                  class="t-popconfirm__body"
+                                >
+                                  <svg
+                                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                                    fill="none"
+                                    height="1em"
+                                    viewBox="0 0 16 16"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                                      fill="currentColor"
+                                      fillOpacity="0.9"
+                                    />
+                                  </svg>
+                                  <div
+                                    class="t-popconfirm__inner"
+                                  >
+                                    确认删除吗
+                                  </div>
+                                </div>
+                                <div
+                                  class="t-popconfirm__buttons"
+                                >
+                                  <button
+                                    class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="t-button__text"
+                                    >
+                                      取消
+                                    </span>
+                                  </button>
+                                  <button
+                                    class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="t-button__text"
+                                    >
+                                      确定
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                              
+                              <div
+                                class="t-popup__arrow"
+                              />
+                            </div>
+                          </div>
+                        </transition-stub>
+                        
+                        
+                        <button
+                          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                          type="button"
+                        >
+                          <span
+                            class="t-button__text"
+                          >
+                            
+                            删除
+                            
+                          </span>
+                        </button>
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
                 </td>
                 
               </tr>
@@ -13440,7 +14586,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 
                 <td
                   class="row"
-                  length="5"
+                  length="4"
                   style="overflow: hidden;"
                 >
                   <div>
@@ -13468,28 +14614,153 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 </td>
                 <td
                   class=""
-                  length="5"
-                  style="overflow: hidden;"
+                  length="4"
                 >
                   共有
                 </td>
                 <td
                   class=""
-                  length="5"
+                  length="4"
                 >
                   String
                 </td>
                 <td
-                  class=""
-                  length="5"
+                  class="t-align-center"
+                  length="4"
+                  style="overflow: hidden;"
                 >
-                  -
-                </td>
-                <td
-                  class=""
-                  length="5"
-                >
-                  是
+                  <div
+                    class="tdesign-table-demo__table-operations"
+                  >
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        插入
+                        
+                      </span>
+                    </button>
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        更新
+                        
+                      </span>
+                    </button>
+                    <button
+                      class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      type="button"
+                    >
+                      <span
+                        class="t-button__text"
+                      >
+                        
+                        查看
+                        
+                      </span>
+                    </button>
+                    <div
+                      modelvalue="false"
+                    >
+                      <div
+                        class="t-popup__reference"
+                      >
+                        <transition-stub>
+                          <div
+                            aria-hidden="true"
+                            class="t-popup"
+                            role="tooltip"
+                            style="display: none;"
+                          >
+                            <div
+                              class="t-popup__content t-popup__content--arrow t-popconfirm"
+                            >
+                              
+                              <div
+                                class="t-popconfirm__content"
+                              >
+                                <div
+                                  class="t-popconfirm__body"
+                                >
+                                  <svg
+                                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                                    fill="none"
+                                    height="1em"
+                                    viewBox="0 0 16 16"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                                      fill="currentColor"
+                                      fillOpacity="0.9"
+                                    />
+                                  </svg>
+                                  <div
+                                    class="t-popconfirm__inner"
+                                  >
+                                    确认删除吗
+                                  </div>
+                                </div>
+                                <div
+                                  class="t-popconfirm__buttons"
+                                >
+                                  <button
+                                    class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="t-button__text"
+                                    >
+                                      取消
+                                    </span>
+                                  </button>
+                                  <button
+                                    class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                                    type="button"
+                                  >
+                                    <span
+                                      class="t-button__text"
+                                    >
+                                      确定
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                              
+                              <div
+                                class="t-popup__arrow"
+                              />
+                            </div>
+                          </div>
+                        </transition-stub>
+                        
+                        
+                        <button
+                          class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                          type="button"
+                        >
+                          <span
+                            class="t-button__text"
+                          >
+                            
+                            删除
+                            
+                          </span>
+                        </button>
+                        
+                        
+                      </div>
+                    </div>
+                  </div>
                 </td>
                 
               </tr>
@@ -13505,6 +14776,34 @@ exports[`Table Table treeVue demo works fine 1`] = `
         <!---->
       </div>
     </div>
+  </div>
+  <br />
+  <div>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        设置为全新的数据
+        
+      </span>
+    </button>
+       
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        单独设置某行数据
+        
+      </span>
+    </button>
   </div>
   <!-- 第二列展开树结点，缩进为 12px，示例代码有效，勿删 -->
   <!-- indent 定义缩进距离；treeNodeColumnIndex 定义第几列作为树结点展开列 -->

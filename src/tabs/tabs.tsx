@@ -29,16 +29,6 @@ export default defineComponent({
     };
   },
 
-  watch: {
-    list: {
-      handler(value) {
-        if (!value) return;
-        this.listPanels = this.createListPanels();
-      },
-      deep: true,
-    },
-  },
-
   methods: {
     onAddTab(e: MouseEvent) {
       emitEvent<Parameters<TdTabsProps['onAdd']>>(this, 'add', { e });
@@ -60,6 +50,10 @@ export default defineComponent({
     },
     renderHeader() {
       const panels = this.list && this.list.length ? this.list : this.getSlotPanels();
+      if (!panels || !panels.length) {
+        console.warn('Tdesign error: list is empty');
+        return;
+      }
       const panelsData = panels.map((item: ComponentPublicInstance) => {
         const selfItem = item;
         for (const key in item.props) {

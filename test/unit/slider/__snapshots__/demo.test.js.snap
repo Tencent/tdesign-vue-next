@@ -669,7 +669,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           </button>
         </div>
         <div
-          class="t-slider__center-liner"
+          class="t-slider__center-line"
         />
         <div
           class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"
@@ -1044,7 +1044,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           </button>
         </div>
         <div
-          class="t-slider__center-liner"
+          class="t-slider__center-line"
         />
         <div
           class="t-input-number t-size-m t-is-controls-right t-slider__input"
@@ -1556,9 +1556,9 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
     class="block"
   >
     <div
-      aria-valuetext="30-30"
+      aria-valuetext="12-20"
       class="t-slider__container"
-      modelvalue="30,70"
+      modelvalue="12,20"
       show-tooltip="true"
     >
       <div

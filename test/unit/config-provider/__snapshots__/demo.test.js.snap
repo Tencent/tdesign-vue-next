@@ -6128,7 +6128,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-checkbox-group"
             modelvalue=""
           >
-            <!---->
             
             
             <label
@@ -8608,6 +8607,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -9281,6 +9281,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->
@@ -9685,7 +9686,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -9717,7 +9718,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         Type
                       </div>
                       <div
-                        class="t-table__cell--sort-trigger t-table-double-icons"
+                        class="t-table__cell--sort-trigger t-table__double-icons"
                       >
                         <div
                           class="t-popup__reference"
@@ -9742,44 +9743,34 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                           </transition-stub>
                           
                           
-                          <span
-                            class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"
-                            style="transform: rotate(-180deg); top: -1px; left: 0px;"
+                          <svg
+                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-asc t-table__sort-icon t-icon-sort--default t-table-sort-asc"
+                            fill="none"
+                            height="1em"
+                            style="font-size: 18px; transform: rotate(-180deg); top: -1px; left: 0px;"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-caret-down-small"
-                              fill="none"
-                              height="1em"
-                              style="font-size: 18px;"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M11 6H5l3 4.5L11 6z"
-                                fill="currentColor"
-                                fillOpacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-table-sort-icon t-icon-sort-default t-table-sort-desc"
-                            style="left: 0px; bottom: -1px;"
+                            <path
+                              d="M11 6H5l3 4.5L11 6z"
+                              fill="currentColor"
+                              fillOpacity="0.9"
+                            />
+                          </svg>
+                          <svg
+                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-desc t-table__sort-icon t-icon-sort--default t-table-sort-desc"
+                            fill="none"
+                            height="1em"
+                            style="font-size: 18px; left: 0px; bottom: -1px;"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-caret-down-small"
-                              fill="none"
-                              height="1em"
-                              style="font-size: 18px;"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M11 6H5l3 4.5L11 6z"
-                                fill="currentColor"
-                                fillOpacity="0.9"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M11 6H5l3 4.5L11 6z"
+                              fill="currentColor"
+                              fillOpacity="0.9"
+                            />
+                          </svg>
                           
                           
                         </div>
@@ -9806,7 +9797,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               
@@ -9817,7 +9808,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
         </div>
         
         <div
-          class="t-table--empty"
+          class="t-table__empty"
         >
           Empty Data
         </div>
@@ -9851,7 +9842,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
       >
         
         <div
-          class="t-table-content"
+          class="t-table__content"
         >
           <table
             style="table-layout: fixed;"
@@ -9860,7 +9851,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
             <colgroup>
               
               <col
-                style="width: 25px;"
+                style="width: 48px;"
               />
               <col />
               <col />
@@ -9872,7 +9863,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               <tr>
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   colspan="1"
                   rowspan="1"
                   style="overflow: hidden;"
@@ -9894,7 +9885,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         Type
                       </div>
                       <div
-                        class="t-table__cell--sort-trigger t-table-double-icons"
+                        class="t-table__cell--sort-trigger t-table__double-icons"
                       >
                         <div
                           class="t-popup__reference"
@@ -9919,44 +9910,34 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                           </transition-stub>
                           
                           
-                          <span
-                            class="t-table-sort-icon t-icon-sort-default t-table-sort-asc"
-                            style="transform: rotate(-180deg); top: -1px; left: 0px;"
+                          <svg
+                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-asc t-table__sort-icon t-icon-sort--default t-table-sort-asc"
+                            fill="none"
+                            height="1em"
+                            style="font-size: 18px; transform: rotate(-180deg); top: -1px; left: 0px;"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-caret-down-small"
-                              fill="none"
-                              height="1em"
-                              style="font-size: 18px;"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M11 6H5l3 4.5L11 6z"
-                                fill="currentColor"
-                                fillOpacity="0.9"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="t-table-sort-icon t-icon-sort-default t-table-sort-desc"
-                            style="left: 0px; bottom: -1px;"
+                            <path
+                              d="M11 6H5l3 4.5L11 6z"
+                              fill="currentColor"
+                              fillOpacity="0.9"
+                            />
+                          </svg>
+                          <svg
+                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-desc t-table__sort-icon t-icon-sort--default t-table-sort-desc"
+                            fill="none"
+                            height="1em"
+                            style="font-size: 18px; left: 0px; bottom: -1px;"
+                            viewBox="0 0 16 16"
+                            width="1em"
                           >
-                            <svg
-                              class="t-icon t-icon-caret-down-small"
-                              fill="none"
-                              height="1em"
-                              style="font-size: 18px;"
-                              viewBox="0 0 16 16"
-                              width="1em"
-                            >
-                              <path
-                                d="M11 6H5l3 4.5L11 6z"
-                                fill="currentColor"
-                                fillOpacity="0.9"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M11 6H5l3 4.5L11 6z"
+                              fill="currentColor"
+                              fillOpacity="0.9"
+                            />
+                          </svg>
                           
                           
                         </div>
@@ -9983,7 +9964,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               
             </thead>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -9992,15 +9973,15 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="4"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right"
@@ -10039,11 +10020,12 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="4"
                   length="1"
                 >
@@ -10059,15 +10041,15 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="4"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right"
@@ -10106,11 +10088,12 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="4"
                   length="1"
                 >
@@ -10126,15 +10109,15 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               >
                 
                 <td
-                  class="t-table-expandable-icon-cell"
+                  class="t-table__expandable-icon-cell"
                   length="4"
                   style="overflow: hidden;"
                 >
                   <span
-                    class="t-table-expand-box"
+                    class="t-table__expand-box"
                   >
                     <span
-                      style="transition: all .2s; display: flex; align-items: center;"
+                      style="transition: transform .2s; display: flex; align-items: center;"
                     >
                       <svg
                         class="t-icon t-icon-chevron-right"
@@ -10173,11 +10156,12 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                 
               </tr>
               <tr
+                draggable="false"
                 style="display: none;"
               >
                 
                 <td
-                  class="t-table-expanded-cell"
+                  class="t-table__expandable-cell"
                   colspan="4"
                   length="1"
                 >

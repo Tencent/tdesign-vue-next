@@ -825,6 +825,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -1711,6 +1712,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -2607,6 +2609,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -3496,6 +3499,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -4390,6 +4394,7 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
           autocomplete="false"
           class="t-input__inner"
           disabled=""
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -5240,6 +5245,7 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -6145,6 +6151,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -7034,6 +7041,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -7597,6 +7605,7 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -8467,6 +8476,7 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -9363,6 +9373,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -10249,6 +10260,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -11883,6 +11895,7 @@ exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder="请输入"
           readonly=""
           type="text"
         />
@@ -12424,6 +12437,7 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -12944,6 +12958,7 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -13794,6 +13809,7 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />
@@ -14653,6 +14669,7 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder=" "
           readonly=""
           type="text"
         />

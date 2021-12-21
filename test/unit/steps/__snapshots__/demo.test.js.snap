@@ -2,7 +2,7 @@
 
 exports[`Steps Steps extraVue demo works fine 1`] = `
 <div
-  class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive"
+  class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive steps-demos-extra"
   status="process"
 >
   

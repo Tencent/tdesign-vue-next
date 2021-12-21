@@ -15,10 +15,6 @@ import { emitEvent } from '../../../utils/event';
 type FilterChangeContext = Parameters<TdPrimaryTableProps['onFilterChange']>;
 type ChangeContext = Parameters<TdPrimaryTableProps['onChange']>;
 
-type Params = Parameters<typeof h>;
-type FirstParams = Params[0];
-type SecondParams = Params[1] | Params[2];
-
 export default defineComponent({
   name: `${prefix}-primary-table-filter`,
   props: {
@@ -44,31 +40,22 @@ export default defineComponent({
         console.error(`column.type must be the following: ${JSON.stringify(types)}`);
         return;
       }
-      const component = {
-        single: RadioGroup,
-        multiple: CheckboxGroup,
-        input: Input,
-      }[column.filter.type];
-      if (!component && !column?.filter?.component) return;
+      const component =
+        column?.filter?.component ||
+        {
+          single: RadioGroup,
+          multiple: CheckboxGroup,
+          input: Input,
+        }[column.filter.type];
+      if (!component) return;
       const props = {
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter.list : undefined,
         ...(column.filter.props || {}),
-        value: this.filterValue[column.colKey],
         onChange: (val: string | number) => this.onInnerFilterChange(val, column),
       };
       return (
         <div class={`${prefix}-table__filter-pop-content-inner`}>
-          {column?.filter?.component ? (
-            column?.filter?.component((v: FirstParams, b: SecondParams) => {
-              const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
-              return h(v, {
-                ...props,
-                ...tProps,
-              });
-            })
-          ) : (
-            <component value={this.filterValue[column.colKey]} {...props}></component>
-          )}
+          <component value={this.filterValue[column.colKey]} {...props}></component>
         </div>
       );
     },
