@@ -61,7 +61,7 @@ export default defineComponent({
     const classes = [
       name,
       {
-        [`${name}--suffix`]: this.hasChildren,
+        [`${prefix}-dropdown--suffix`]: this.hasChildren,
         [STATUS_CLASSNAMES.disabled]: this.disabled,
         [STATUS_CLASSNAMES.active]: this.active,
       },
