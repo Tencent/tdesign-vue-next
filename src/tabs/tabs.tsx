@@ -6,6 +6,7 @@ import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from './type';
 import props from './props';
 import { emitEvent } from '../utils/event';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-tabs`;
 
@@ -48,7 +49,7 @@ export default defineComponent({
       if (this.list) {
         this.listPanels = this.createListPanels();
       } else {
-        const slots = this.$slots.default?.();
+        const slots = renderTNodeJSX(this, 'default');
         this.listPanels = slots && slots.length === 1 ? (slots[0].children as VNode[]) : slots;
       }
       if (!this.listPanels) {
