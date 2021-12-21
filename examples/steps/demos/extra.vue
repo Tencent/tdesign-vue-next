@@ -1,5 +1,5 @@
 <template>
-  <t-steps layout="vertical" :current="current" status="process">
+  <t-steps layout="vertical" :current="current" status="process" class="steps-demos-extra">
     <t-step-item title="步骤1" content="这里是提示文字">
       <template v-if="current === 0" #extra>
         <t-button size="small" variant="base" @click="current++"> 下一步 </t-button>
@@ -36,3 +36,10 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="less" scoped>
+.steps-demos-extra {
+  .t-button + .t-button {
+    margin-left: 4px;
+  }
+}
+</style>
