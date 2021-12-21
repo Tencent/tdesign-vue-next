@@ -7,10 +7,10 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -39,11 +39,11 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -53,7 +53,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -78,7 +78,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -102,7 +102,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -126,7 +126,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -150,7 +150,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -175,7 +175,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -199,7 +199,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -223,7 +223,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -247,7 +247,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -272,7 +272,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -296,7 +296,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -320,7 +320,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -344,7 +344,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -369,7 +369,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -393,7 +393,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -417,7 +417,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -441,7 +441,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -466,7 +466,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -490,7 +490,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -514,7 +514,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -544,13 +544,13 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -609,10 +609,10 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -642,11 +642,11 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           <span>
             暂无数据
@@ -655,7 +655,7 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
@@ -671,10 +671,10 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -703,11 +703,11 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -717,7 +717,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -742,7 +742,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -766,7 +766,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -790,7 +790,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -814,7 +814,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -839,7 +839,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -863,7 +863,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -887,7 +887,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -911,7 +911,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -936,7 +936,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -960,7 +960,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -984,7 +984,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1008,7 +1008,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1033,7 +1033,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1057,7 +1057,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1081,7 +1081,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1105,7 +1105,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1130,7 +1130,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1154,7 +1154,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-checked t-is-checked t-transfer-list__item t-is-checked"
+              class="t-checkbox t-transfer__list-item t-is-checked t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1178,7 +1178,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1208,13 +1208,13 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
@@ -1273,10 +1273,10 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -1306,11 +1306,11 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           <span>
             暂无数据
@@ -1319,7 +1319,7 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
@@ -1337,10 +1337,10 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
     theme="primary"
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -1369,11 +1369,11 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -1383,7 +1383,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1411,7 +1411,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1439,7 +1439,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1467,7 +1467,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1495,7 +1495,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1523,7 +1523,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1551,7 +1551,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1579,7 +1579,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1607,7 +1607,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1635,7 +1635,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1663,7 +1663,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1691,7 +1691,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1719,7 +1719,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1747,7 +1747,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1775,7 +1775,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1803,7 +1803,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1831,7 +1831,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1859,7 +1859,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1887,7 +1887,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1915,7 +1915,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -1949,13 +1949,13 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
@@ -2015,10 +2015,10 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -2048,11 +2048,11 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           <span>
             暂无数据
@@ -2061,7 +2061,7 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
@@ -2073,14 +2073,14 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
 exports[`Transfer Transfer customVue demo works fine 1`] = `
 <div>
   <div
-    class="t-transfer t-transfer-footer"
+    class="t-transfer t-transfer__footer"
     modelvalue=""
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -2113,11 +2113,11 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -2127,7 +2127,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2151,7 +2151,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2175,7 +2175,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2199,7 +2199,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2223,7 +2223,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2247,7 +2247,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2271,7 +2271,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2295,7 +2295,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2319,7 +2319,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2343,7 +2343,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2367,7 +2367,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2391,7 +2391,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2415,7 +2415,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2439,7 +2439,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2463,7 +2463,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2487,7 +2487,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2511,7 +2511,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2535,7 +2535,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2559,7 +2559,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2583,7 +2583,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2623,7 +2623,7 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
       
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
@@ -2657,10 +2657,10 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -2694,11 +2694,11 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           <span>
             暂无数据
@@ -2727,10 +2727,10 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -2759,11 +2759,11 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -2773,7 +2773,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2797,7 +2797,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2821,7 +2821,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2845,7 +2845,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2869,7 +2869,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2893,7 +2893,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2917,7 +2917,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2941,7 +2941,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2965,7 +2965,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -2989,7 +2989,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3019,13 +3019,13 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
@@ -3085,10 +3085,10 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -3118,11 +3118,11 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -3132,7 +3132,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3157,7 +3157,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3182,7 +3182,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3207,7 +3207,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3232,7 +3232,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3257,7 +3257,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3282,7 +3282,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3307,7 +3307,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3332,7 +3332,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3357,7 +3357,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-is-disabled t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3388,7 +3388,7 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
@@ -3409,10 +3409,10 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -3442,11 +3442,11 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           <span>
             暂无数据
@@ -3455,13 +3455,13 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
@@ -3521,10 +3521,10 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -3554,11 +3554,11 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           <span>
             暂无数据
@@ -3567,7 +3567,7 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
@@ -3583,10 +3583,10 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
     modelvalue=""
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -3616,24 +3616,24 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           No Data
         </div>
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
@@ -3693,10 +3693,10 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -3726,18 +3726,18 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           No Data
         </div>
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
@@ -3750,15 +3750,15 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
 <div>
   <div
     checked-value=""
-    class="t-transfer t-transfer-pagination"
+    class="t-transfer t-transfer__pagination"
     modelvalue=""
     theme="primary"
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -3787,11 +3787,11 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -3801,7 +3801,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3825,7 +3825,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3849,7 +3849,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3873,7 +3873,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3897,7 +3897,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3921,7 +3921,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3945,7 +3945,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3969,7 +3969,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -3993,7 +3993,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4017,7 +4017,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4046,7 +4046,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-transfer-list__pagination"
+        class="t-transfer__list-pagination"
       >
         <div
           class="t-pagination t-size-s"
@@ -4193,13 +4193,13 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
@@ -4259,10 +4259,10 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -4292,11 +4292,11 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           <span>
             暂无数据
@@ -4305,7 +4305,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
@@ -4318,15 +4318,15 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
 <div>
   <div
     checked-value=""
-    class="t-transfer t-transfer-search"
+    class="t-transfer t-transfer__search"
     modelvalue=""
     theme="primary"
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -4355,10 +4355,10 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body t-transfer-list-with-search"
+        class="t-transfer__list-body t-transfer__list--with-search"
       >
         <div
-          class="t-transfer-list-search-wrapper"
+          class="t-transfer__search-wrapper"
           disabled="false"
           searchvalue=""
         >
@@ -4376,7 +4376,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
           </div>
         </div>
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -4386,7 +4386,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4410,7 +4410,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4434,7 +4434,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4458,7 +4458,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4482,7 +4482,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4506,7 +4506,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4530,7 +4530,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4554,7 +4554,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4578,7 +4578,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4602,7 +4602,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4626,7 +4626,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4650,7 +4650,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4674,7 +4674,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4698,7 +4698,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4722,7 +4722,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4746,7 +4746,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4770,7 +4770,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4794,7 +4794,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4818,7 +4818,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4842,7 +4842,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -4872,13 +4872,13 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
@@ -4938,10 +4938,10 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -4971,10 +4971,10 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body t-transfer-list-with-search"
+        class="t-transfer__list-body t-transfer__list--with-search"
       >
         <div
-          class="t-transfer-list-search-wrapper"
+          class="t-transfer__search-wrapper"
           disabled="false"
           searchvalue=""
         >
@@ -4992,7 +4992,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
           </div>
         </div>
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           <span>
             暂无数据
@@ -5001,7 +5001,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
@@ -5017,10 +5017,10 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
     modelvalue="0,2,4,6,8,10,12,14,16,18"
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -5049,11 +5049,11 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -5063,7 +5063,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5087,7 +5087,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5111,7 +5111,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5135,7 +5135,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5159,7 +5159,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5183,7 +5183,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5207,7 +5207,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5231,7 +5231,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5255,7 +5255,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5279,7 +5279,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5309,13 +5309,13 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
@@ -5375,10 +5375,10 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -5407,11 +5407,11 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -5421,7 +5421,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5445,7 +5445,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5469,7 +5469,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5493,7 +5493,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5517,7 +5517,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5541,7 +5541,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5565,7 +5565,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5589,7 +5589,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5613,7 +5613,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5637,7 +5637,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5667,7 +5667,7 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
@@ -5679,14 +5679,14 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
 exports[`Transfer Transfer treeVue demo works fine 1`] = `
 <div>
   <div
-    class="t-transfer t-transfer-with-tree"
+    class="t-transfer t-transfer--with-tree"
     modelvalue=""
   >
     <div
-      class="t-transfer-list t-transfer-list-source"
+      class="t-transfer__list t-transfer__list-source"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -5715,11 +5715,11 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-list__content narrow-scrollbar"
+          class="t-transfer__list-content narrow-scrollbar"
         >
           <div
             class="t-checkbox-group"
@@ -5729,7 +5729,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5753,7 +5753,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer-list__item t-transfer-list__item"
+              class="t-checkbox t-transfer__list-item t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -5783,13 +5783,13 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>
     </div>
     <div
-      class="t-transfer-operations"
+      class="t-transfer__operations"
     >
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
@@ -5849,10 +5849,10 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
       </button>
     </div>
     <div
-      class="t-transfer-list t-transfer-list-target"
+      class="t-transfer__list t-transfer__list-target"
     >
       <div
-        class="t-transfer-list__header"
+        class="t-transfer__list-header"
       >
         <div>
           <label
@@ -5882,11 +5882,11 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-transfer-list__body"
+        class="t-transfer__list-body"
       >
         <!---->
         <div
-          class="t-transfer-empty"
+          class="t-transfer__empty"
         >
           <span>
             暂无数据
@@ -5895,7 +5895,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-transfer-footer"
+        class="t-transfer__footer"
       >
         
       </div>

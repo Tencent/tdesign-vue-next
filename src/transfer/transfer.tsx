@@ -30,19 +30,17 @@ import getConfigReceiverMixins from '../config-provider/config-receiver';
 import props from './props';
 import { TNode } from '../common';
 
-const name = `${prefix}-transfer`;
 const SOURCE = 'source';
 const TARGET = 'target';
 
 type DataType = {
-  name: string;
   SOURCE: TransferListType;
   TARGET: TransferListType;
 };
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins('transfer')),
-  name: 'TTransfer',
+  name: TRANSFER_NAME,
   components: {
     TransferList,
     TransferOperations,
@@ -62,7 +60,6 @@ export default defineComponent({
   ],
   data(): DataType {
     return {
-      name,
       SOURCE,
       TARGET,
     };
@@ -246,11 +243,11 @@ export default defineComponent({
     return (
       <div
         class={[
-          't-transfer',
-          this.showSearch ? 't-transfer-search' : '',
-          this.hasFooter ? 't-transfer-footer' : '',
-          this.showPagination ? 't-transfer-pagination' : '',
-          this.isTreeMode ? 't-transfer-with-tree' : '',
+          `${prefix}-transfer`,
+          this.showSearch ? `${prefix}-transfer__search` : '',
+          this.hasFooter ? `${prefix}-transfer__footer` : '',
+          this.showPagination ? `${prefix}-transfer__pagination` : '',
+          this.isTreeMode ? `${prefix}-transfer--with-tree` : '',
         ]}
       >
         {this.renderTransferList(SOURCE)}

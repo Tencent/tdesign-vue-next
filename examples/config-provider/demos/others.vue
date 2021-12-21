@@ -204,7 +204,7 @@ export default defineComponent({
   margin: 24px -120px 0 0;
 }
 
-:deep() .tdesign-demo-item--locale-provider-base .t-transfer-list {
+:deep() .tdesign-demo-item--locale-provider-base .t-transfer__list {
   width: 280px;
 }
 
