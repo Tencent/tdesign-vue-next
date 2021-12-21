@@ -36,11 +36,12 @@
 <script lang="jsx">
 import { defineComponent, ref, watch } from 'vue';
 import { EnhancedTable } from 'tdesign-vue-next';
+import cloneDeep from 'lodash/cloneDeep';
 
-const data = [];
+const initData = [];
 for (let i = 0; i < 5; i++) {
   const obj = {
-    key: `我是 ${i} 号`,
+    key: i,
     instance: `JQTest${i}`,
     status: i % 2,
     owner: i % 2 === 0 ? 'jenny' : 'peter',
@@ -51,7 +52,7 @@ for (let i = 0; i < 5; i++) {
     const secondObj = {
       ...obj,
       status: secondIndex % 3,
-      key: `我是 ${secondIndex} 号`,
+      key: secondIndex,
       instance: `JQTest${secondIndex}`,
     };
     secondObj.childrenList = new Array(5).fill(null).map((m, n) => {
@@ -59,13 +60,13 @@ for (let i = 0; i < 5; i++) {
       return {
         ...obj,
         status: thirdIndex % 3,
-        key: `我是 ${thirdIndex} 号`,
+        key: thirdIndex,
         instance: `JQTest${thirdIndex}`,
       };
     });
     return secondObj;
   });
-  data.push(obj);
+  initData.push(obj);
 }
 const columns = [
   {
@@ -94,9 +95,11 @@ const columns = [
   { colKey: 'owner', title: '管理员' },
   { colKey: 'description', title: '描述' },
 ];
+
 export default defineComponent({
   components: { TEnhancedTable: EnhancedTable },
   setup() {
+    const data = ref(initData);
     const checkStrictly = ref('true');
     const selectedRowKeys = ref([]);
     const expandedRowKeys = ref([]);
@@ -105,6 +108,7 @@ export default defineComponent({
       () => checkStrictly.value,
       () => {
         selectedRowKeys.value = [];
+        data.value = cloneDeep(data);
       },
     );
 

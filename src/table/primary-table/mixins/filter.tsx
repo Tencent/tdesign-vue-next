@@ -15,6 +15,10 @@ import { emitEvent } from '../../../utils/event';
 type FilterChangeContext = Parameters<TdPrimaryTableProps['onFilterChange']>;
 type ChangeContext = Parameters<TdPrimaryTableProps['onChange']>;
 
+type Params = Parameters<typeof h>;
+type FirstParams = Params[0];
+type SecondParams = Params[1] | Params[2];
+
 export default defineComponent({
   name: `${prefix}-primary-table-filter`,
   props: {
@@ -40,22 +44,31 @@ export default defineComponent({
         console.error(`column.type must be the following: ${JSON.stringify(types)}`);
         return;
       }
-      const component =
-        column?.filter?.component ||
-        {
-          single: RadioGroup,
-          multiple: CheckboxGroup,
-          input: Input,
-        }[column.filter.type];
-      if (!component) return;
+      const component = {
+        single: RadioGroup,
+        multiple: CheckboxGroup,
+        input: Input,
+      }[column.filter.type];
+      if (!component && !column?.filter?.component) return;
       const props = {
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter.list : undefined,
         ...(column.filter.props || {}),
+        value: this.filterValue[column.colKey],
         onChange: (val: string | number) => this.onInnerFilterChange(val, column),
       };
       return (
-        <div class={`${prefix}-table-filter-pop-content__inner`}>
-          <component value={this.filterValue[column.colKey]} {...props}></component>
+        <div class={`${prefix}-table__filter-pop-content-inner`}>
+          {column?.filter?.component ? (
+            column?.filter?.component((v: FirstParams, b: SecondParams) => {
+              const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
+              return h(v, {
+                ...props,
+                ...tProps,
+              });
+            })
+          ) : (
+            <component value={this.filterValue[column.colKey]} {...props}></component>
+          )}
         </div>
       );
     },
@@ -73,17 +86,17 @@ export default defineComponent({
                   trigger="click"
                   placement="bottom"
                   showArrow
-                  overlayClassName={`${prefix}-table-filter-pop`}
+                  overlayClassName={`${prefix}-table__filter-pop`}
                   v-slots={{
                     content: () => (
-                      <div class={`${prefix}-table-filter-pop-content`}>{this.getFilterContent(column)}</div>
+                      <div class={`${prefix}-table__filter-pop-content`}>{this.getFilterContent(column)}</div>
                     ),
                   }}
                 >
                   {isFunction(this.filterIcon) ? (
                     this.filterIcon(h)
                   ) : (
-                    <FilterIcon name="filter" class={`${prefix}-table-filter-icon`} />
+                    <FilterIcon name="filter" class={`${prefix}-table__filter-icon`} />
                   )}
                 </Popup>
               </div>

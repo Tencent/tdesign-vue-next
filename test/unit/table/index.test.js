@@ -442,10 +442,10 @@ describe('Table', () => {
           return <Table rowKey="id" data={data} columns={columns} />;
         },
       });
-      expect(wrapper.findAll('.table-body tr').length).toBe(data.length);
+      expect(wrapper.findAll('.t-table__body tr').length).toBe(data.length);
       await wrapper.setData({ filteredInfo: { firstName: ['Jim'] } });
       await wrapper.setData({ filteredInfo: null });
-      expect(wrapper.findAll('.table-body tr').length).toBe(data.length);
+      expect(wrapper.findAll('.t-table__body tr').length).toBe(data.length);
     });
   });
 });
