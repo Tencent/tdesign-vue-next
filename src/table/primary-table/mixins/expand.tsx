@@ -76,7 +76,8 @@ export default defineComponent({
     renderExpandedRow({ rows, row, columns: defaultColumns, rowIndex }: RenderExpandRow): VNode {
       const columnCounts = defaultColumns.length;
 
-      if (!this.expandedRow && !this.$slots.expandedRow) return; // 若无展开渲染函数，则无需处理行数据
+      const expandRowHandler = this.getExpandRowHandler();
+      if (!expandRowHandler) return; //
 
       const { expandedRowKeys } = this;
 
@@ -94,7 +95,7 @@ export default defineComponent({
             colspan: columnCounts,
             class: [`${prefix}-table__expandable-cell`],
           },
-          render: (h: CreateElement): VNode => renderTNodeJSX(this, 'expandedRow', { params }),
+          render: (h: CreateElement) => expandRowHandler(h, params),
         },
       ];
 
