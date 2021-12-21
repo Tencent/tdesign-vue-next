@@ -108,7 +108,6 @@ exports[`Checkbox CheckboxGroup :props :checked 1`] = `
   class="t-checkbox-group"
   modelvalue=""
 >
-  <!---->
   
   <label
     class="t-checkbox undefined"
@@ -163,7 +162,6 @@ exports[`Checkbox CheckboxGroup :props :defaultChecked 1`] = `
   defaultchecked="sz"
   modelvalue=""
 >
-  <!---->
   
   <label
     class="t-checkbox undefined"
@@ -217,7 +215,6 @@ exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
   class="t-checkbox-group"
   modelvalue=""
 >
-  <!---->
   
   <label
     class="t-checkbox undefined t-is-disabled"
@@ -295,10 +292,11 @@ exports[`Checkbox CheckboxGroup :props :max 1`] = `
 >
   
   <label
-    class="t-checkbox undefined"
+    class="t-checkbox undefined t-is-disabled"
   >
     <input
       class="t-checkbox__former"
+      disabled=""
       name=""
       type="checkbox"
       value="bj"
@@ -355,7 +353,6 @@ exports[`Checkbox CheckboxGroup :props :max 1`] = `
     </span>
   </label>
   
-  <!---->
 </div>
 `;
 
@@ -364,7 +361,6 @@ exports[`Checkbox CheckboxGroup :props :name 1`] = `
   class="t-checkbox-group"
   modelvalue=""
 >
-  <!---->
   
   <label
     class="t-checkbox undefined"
@@ -461,6 +457,5 @@ exports[`Checkbox CheckboxGroup :props :options 1`] = `
     </span>
   </label>
   
-  <!---->
 </div>
 `;

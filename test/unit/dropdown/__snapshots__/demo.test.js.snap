@@ -305,7 +305,7 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item t-dropdown__item--suffix"
+                  class="t-dropdown__item t-dropdown--suffix"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1081,7 +1081,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               
               <div>
                 <div
-                  class="t-dropdown__item t-dropdown__item--suffix"
+                  class="t-dropdown__item t-dropdown--suffix"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1110,7 +1110,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item t-dropdown__item--suffix"
+                  class="t-dropdown__item t-dropdown--suffix"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1139,7 +1139,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item t-dropdown__item--suffix"
+                  class="t-dropdown__item t-dropdown--suffix"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1168,7 +1168,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item t-dropdown__item--suffix"
+                  class="t-dropdown__item t-dropdown--suffix"
                 >
                   <div
                     class="t-dropdown__item-content"

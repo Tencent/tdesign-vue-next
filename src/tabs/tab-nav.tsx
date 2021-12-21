@@ -160,6 +160,9 @@ export default defineComponent({
     navBarClass(): Array<string> {
       return [`${prefix}-tabs__bar`, `${prefix}-is-${this.placement}`];
     },
+    navsContainerStyle(): object {
+      return this.addable ? { 'min-height': '48px' } : null;
+    },
   },
   watch: {
     dataCanUpdateArrow() {
@@ -446,7 +449,7 @@ export default defineComponent({
 
   render() {
     return (
-      <div ref="navsContainer" class={[`${prefix}-tabs__nav`]}>
+      <div ref="navsContainer" class={[`${prefix}-tabs__nav`]} style={this.navsContainerStyle}>
         {this.renderArrows()}
         {this.renderNavs()}
       </div>

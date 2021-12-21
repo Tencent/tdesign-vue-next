@@ -57,7 +57,7 @@ exports[`Select :props :bordered 1`] = `
         class="t-select__placeholder"
       >
          
-        
+        请选择
       </span>
       
       
@@ -153,7 +153,7 @@ exports[`Select :props :clearable 1`] = `
         class="t-select__placeholder"
       >
          
-        
+        请选择
       </span>
       
       
@@ -249,7 +249,7 @@ exports[`Select :props :creatable 1`] = `
         class="t-select__placeholder"
       >
          
-        
+        请选择
       </span>
       
       
@@ -345,7 +345,7 @@ exports[`Select :props :disabled 1`] = `
         class="t-select__placeholder"
       >
          
-        
+        请选择
       </span>
       
       
@@ -442,7 +442,7 @@ exports[`Select :props :labelInValue 1`] = `
         class="t-select__placeholder"
       >
          
-        
+        请选择
       </span>
       
       
@@ -538,7 +538,7 @@ exports[`Select :props :loading 1`] = `
         class="t-select__placeholder"
       >
          
-        
+        请选择
       </span>
       
       
@@ -662,7 +662,7 @@ exports[`Select :props :multiple 1`] = `
         class="t-select__placeholder"
       >
          
-        
+        请选择
       </span>
       
       
@@ -855,7 +855,7 @@ exports[`Select :props :remote 1`] = `
         class="t-select__placeholder"
       >
          
-        
+        请选择
       </span>
       
       
@@ -951,7 +951,7 @@ exports[`Select :props :reserveKeyword 1`] = `
         class="t-select__placeholder"
       >
          
-        
+        请选择
       </span>
       
       
@@ -1047,7 +1047,7 @@ exports[`Select :props :size 1`] = `
         class="t-select__placeholder"
       >
          
-        
+        请选择
       </span>
       
       

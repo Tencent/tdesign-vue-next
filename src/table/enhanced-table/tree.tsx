@@ -1,58 +1,67 @@
 import { defineComponent } from 'vue';
-import get from 'lodash/get';
 import { AddRectangleIcon, MinusRectangleIcon } from 'tdesign-icons-vue-next';
+import get from 'lodash/get';
+import cloneDeep from 'lodash/cloneDeep';
 import baseTableProps from '../base-table-props';
 import primaryTableProps from '../primary-table-props';
 import enhancedTableProps from '../enhanced-table-props';
-import { TdPrimaryTableProps, TdEnhancedTableProps } from '../type';
-import { getCell, GetCellParams } from '../util/common';
-
-function updateRowExpandLength(row: Record<string, any>, childrenLength: number, type: 'add' | 'minus') {
-  let tmp = row;
-  while (tmp) {
-    tmp.__expand_children_length__ =
-      type === 'add'
-        ? (tmp.__expand_children_length__ || 0) + childrenLength
-        : (tmp.__expand_children_length__ || 0) - childrenLength;
-    tmp = tmp.__t_table_inner_data__?.parent;
-  }
-}
+import {
+  TdPrimaryTableProps,
+  TableRowState,
+  TableRowValue,
+  PrimaryTableCellParams,
+  TableRowData,
+  TableTreeConfig,
+} from '../type';
+import { getCell } from '../util/common';
+import TableTreeStore, { KeysType } from './tree-store';
 
 export default defineComponent({
   props: {
+    rowKey: baseTableProps.rowKey,
     data: baseTableProps.data,
     columns: primaryTableProps.columns,
     tree: enhancedTableProps.tree,
   },
   data() {
     return {
-      dataSource: this.data,
-      // 树形结构，当前变化行，用于节约 data 变化计算成本
-      currentChangeRow: { row: {}, rowIndex: undefined },
-      treeExpandMap: new Map(),
+      store: new TableTreeStore() as InstanceType<typeof TableTreeStore>,
+      dataSource: [],
     };
   },
   computed: {
+    rowDataKeys(): KeysType {
+      return {
+        rowKey: this.rowKey,
+        childrenKey: this.childrenKey,
+      };
+    },
     childrenKey(): string {
-      return (this.tree as TdEnhancedTableProps['tree'])?.childrenKey || 'children';
+      return (this.tree as TableTreeConfig)?.childrenKey || 'children';
     },
     columnsSource(): TdPrimaryTableProps['columns'] {
-      let treeNodeColumnIndex = (this.tree as TdEnhancedTableProps['tree'])?.treeNodeColumnIndex || 0;
+      let treeNodeColumnIndex = (this.tree as TableTreeConfig)?.treeNodeColumnIndex || 0;
       // type 存在，则表示表格内部渲染的特殊列，不能作为树结点列。因此树结点展开列向后顺移一位
       if (this.columns[treeNodeColumnIndex]?.type) {
         treeNodeColumnIndex += 1;
       }
       const cols = [...this.columns];
       const treeNodeCol = { ...this.columns[treeNodeColumnIndex] };
+      // 定义树节点列
       treeNodeCol.cell = (h, p) => {
         const cellInfo = getCell(this, { ...p, col: this.columns[treeNodeColumnIndex] });
-        const colStyle = this.getTreeNodeStyle(p.row.__t_table_inner_data__?.level);
+        const currentState = this.store.treeDataMap.get(get(p.row, this.rowKey));
+        const colStyle = this.getTreeNodeStyle(currentState?.level);
         const childrenNodes = get(p.row, this.childrenKey);
         if (childrenNodes && childrenNodes instanceof Array) {
-          const ICON_NODE = p.row.__tree_expand_children__ ? MinusRectangleIcon : AddRectangleIcon;
+          const IconNode = this.store.treeDataMap.get(get(p.row, this.rowKey))?.expanded
+            ? MinusRectangleIcon
+            : AddRectangleIcon;
           return (
             <div style={colStyle}>
-              <ICON_NODE style={{ marginRight: '8px' }} onClick={() => this.toggleExpandData(p)} />
+              {!!childrenNodes.length && (
+                <IconNode style={{ marginRight: '8px' }} onClick={() => this.toggleExpandData(p)} />
+              )}
               {cellInfo}
             </div>
           );
@@ -64,54 +73,65 @@ export default defineComponent({
     },
   },
   watch: {
-    // 展开状态变化时，更新节点信息
-    currentChangeRow(changeRow: { row: Record<string, any>; rowIndex: number }) {
-      const { row, rowIndex } = changeRow;
-      const childrenNodes = get(row, this.childrenKey);
-      if (!row || !childrenNodes) return;
-      const index = this.treeExpandMap.get(row);
-      if (index === undefined) {
-        const len = row.__expand_children_length__ || childrenNodes.length;
-        this.dataSource.splice(rowIndex + 1, len);
-        row.__tree_expand_children__ = false;
-        updateRowExpandLength(row, len, 'minus');
-      } else {
-        row.__tree_expand_children__ = true;
-        updateRowExpandLength(row, childrenNodes.length, 'add');
-        const children = childrenNodes.map((item: Record<string, any>) => {
-          const innerData = row.__t_table_inner_data__;
-          const path = innerData?.path ? innerData.path.concat(row) : [row];
-          return {
-            ...item,
-            __t_table_inner_data__: {
-              parent: row,
-              parentIndex: rowIndex,
-              level: (innerData?.level || 0) + 1,
-              path,
-            },
-          };
-        });
-        this.dataSource.splice.apply(this.dataSource, [index + 1, 0].concat(children));
-      }
+    data: {
+      immediate: true,
+      handler(val) {
+        this.dataSource = cloneDeep(val);
+        this.store.initialTreeStore(this.dataSource, this.columns, this.rowDataKeys);
+      },
     },
+  },
+  unmounted() {
+    this.store.treeDataMap?.clear();
+    this.store = null;
   },
   methods: {
     getTreeNodeStyle(level: number) {
       if (!level) return;
-      const indent = (this.tree as TdEnhancedTableProps['tree'])?.indent || 24;
+      const indent = (this.tree as TableTreeConfig)?.indent || 24;
       return { paddingLeft: `${level * indent}px` };
     },
-    toggleExpandData(p: GetCellParams) {
-      const r = this.treeExpandMap.get(p.row);
-      if (r !== undefined) {
-        this.treeExpandMap.delete(p.row);
-      } else {
-        this.treeExpandMap.set(p.row, p.rowIndex);
-      }
-      this.currentChangeRow = {
-        row: p.row,
-        rowIndex: p.rowIndex,
-      };
+
+    toggleExpandData(p: PrimaryTableCellParams<TableRowData>) {
+      this.store.toggleExpandData(p, this.dataSource, this.rowDataKeys);
+    },
+
+    /**
+     * 组件实例方法，设置行数据，自动刷新界面
+     * @param key 当前行唯一标识值
+     * @param newRowData 新行数据
+     */
+    setData<T>(key: TableRowValue, newRowData: T) {
+      const rowIndex = this.store.updateData(key, newRowData, this.dataSource, this.rowDataKeys);
+      this.dataSource[rowIndex] = newRowData;
+    },
+
+    /**
+     * 组件实例方法，获取当前行全部数据
+     * @param key 行唯一标识
+     * @returns {TableRowState} 当前行数据
+     */
+    getData(key: TableRowValue): TableRowState {
+      return this.store.getData(key);
+    },
+
+    /**
+     * 组件实例方法，移除指定节点
+     * @param key 行唯一标识
+     */
+    remove(key: TableRowValue) {
+      // 引用传值，可自动更新 this.dataSource
+      this.store.remove(key, this.dataSource, this.rowDataKeys);
+    },
+
+    /**
+     * 为当前节点添加子节点，默认添加到最后一个节点
+     * @param key 当前节点唯一标识
+     * @param newData 待添加的新节点
+     */
+    appendTo<T>(key: TableRowValue, newData: T) {
+      // 引用传值，可自动更新 this.dataSource
+      this.store.appendTo(key, newData, this.dataSource, this.rowDataKeys);
     },
   },
 });

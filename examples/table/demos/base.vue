@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tdesign-demo-block-column-large">
     <!-- 按钮操作区域 -->
     <div style="margin: 16px">
       <t-checkbox v-model="stripe"> 显示斑马纹 </t-checkbox>
@@ -45,7 +45,6 @@ const columns = [
     title: '序号',
   },
   {
-    width: 100,
     colKey: 'platform',
     title: '平台',
   },
@@ -64,10 +63,11 @@ const columns = [
   {
     colKey: 'detail.postion',
     title: '详情信息',
-    width: 200,
     ellipsis: true,
+    fixed: 'right',
   },
 ];
+
 export default defineComponent({
   setup() {
     const stripe = ref(true);

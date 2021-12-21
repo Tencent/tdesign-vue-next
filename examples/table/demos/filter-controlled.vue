@@ -144,7 +144,7 @@ export default defineComponent({
 
     return {
       filterValue,
-      data,
+      data: data.value,
       columns,
       onFilterChange,
       setFilters,

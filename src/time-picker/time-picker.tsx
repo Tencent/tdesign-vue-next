@@ -307,6 +307,7 @@ export default defineComponent({
             onClear={this.clear}
             clearable={this.clearable}
             readonly
+            placeholder=" "
             value={this.time ? ' ' : undefined}
             class={this.isShowPanel ? `${prefix}-is-focused` : ''}
             v-slots={slots}

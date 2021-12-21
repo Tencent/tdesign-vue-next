@@ -646,6 +646,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder="请输入"
           type="text"
         />
         <!---->

@@ -1,23 +1,17 @@
 <template>
-  <div class="t-demo-tabs">
-    <div class="t-demo-tabs__desc">
-      <p>可以动态增加选项卡，仅支持卡片型</p>
-    </div>
-
-    <t-tabs v-model="value" theme="card" :addable="true" @add="addTab" @remove="removeTab">
-      <t-tab-panel
-        v-for="data in panelData"
-        :key="data.value"
-        :value="data.value"
-        :label="data.label"
-        :removable="data.removable"
-      >
-        <p style="padding: 25px">
-          {{ data.content }}
-        </p>
-      </t-tab-panel>
-    </t-tabs>
-  </div>
+  <t-tabs v-model="value" theme="card" :addable="true" @add="addTab" @remove="removeTab">
+    <t-tab-panel
+      v-for="data in panelData"
+      :key="data.value"
+      :value="data.value"
+      :label="data.label"
+      :removable="data.removable"
+    >
+      <p style="padding: 25px">
+        {{ data.content }}
+      </p>
+    </t-tab-panel>
+  </t-tabs>
 </template>
 
 <script>
@@ -30,28 +24,25 @@ export default defineComponent({
     const panelData = ref([
       {
         value: 'first',
-        label: '原有选项卡',
-        removable: false,
-        content: '原有选项卡内容',
+        label: '原有选项卡1',
+        removable: true,
+        content: '原有选项卡1内容',
       },
       {
         value: 'second',
-        label: '原有选项卡',
+        label: '原有选项卡2',
         removable: true,
-        content: '原有选项卡内容',
+        content: '原有选项卡2内容',
       },
     ]);
 
     const addTab = () => {
-      panelData.value = [
-        ...panelData.value,
-        {
-          value: `${id}`,
-          label: '新选项卡',
-          removable: true,
-          content: '新选项卡内容',
-        },
-      ];
+      panelData.value.push({
+        value: `${id}`,
+        label: `新选项卡${id}`,
+        removable: true,
+        content: '新选项卡内容',
+      });
       value.value = `${id}`;
       id += 1;
     };
@@ -60,6 +51,7 @@ export default defineComponent({
       const index = panelData.value.findIndex((data) => data.value === val);
       if (index < 0) return false;
       panelData.value.splice(index, 1);
+      if (panelData.value.length === 0) return;
       if (value.value === val) {
         value.value = panelData.value[index - 1].value;
       }

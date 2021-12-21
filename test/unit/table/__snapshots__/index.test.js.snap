@@ -22,7 +22,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         
         <div
@@ -85,7 +85,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
               
             </colgroup>
             <tbody
-              class="table-body"
+              class="t-table__body"
             >
               
               <tr
@@ -185,7 +185,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 >
   <!---->
   <div
-    class="t-table t-size-l t-table-valign__top"
+    class="t-table t-size-l t-table-align-top"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
     expandicon="true"
@@ -201,7 +201,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         <table
           style="table-layout: fixed;"
@@ -220,7 +220,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             
           </thead>
           <tbody
-            class="table-body"
+            class="t-table__body"
           >
             
             
@@ -231,7 +231,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
       </div>
       
       <div
-        class="t-table--empty"
+        class="t-table__empty"
       >
         暂无数据
       </div>
@@ -249,7 +249,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 >
   <!---->
   <div
-    class="t-table t-table-valign__bottom"
+    class="t-table t-table-align-bottom"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
     expandicon="true"
@@ -265,7 +265,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         <table
           style="table-layout: fixed;"
@@ -284,7 +284,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             
           </thead>
           <tbody
-            class="table-body"
+            class="t-table__body"
           >
             
             
@@ -295,7 +295,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
       </div>
       
       <div
-        class="t-table--empty"
+        class="t-table__empty"
       >
         暂无数据
       </div>
@@ -329,7 +329,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         <table
           style="table-layout: fixed;"
@@ -372,7 +372,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             
           </thead>
           <tbody
-            class="table-body"
+            class="t-table__body"
           >
             
             <tr
@@ -487,7 +487,7 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         <table
           style="table-layout: fixed;"
@@ -506,7 +506,7 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
             
           </thead>
           <tbody
-            class="table-body"
+            class="t-table__body"
           >
             
             
@@ -517,7 +517,7 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
       </div>
       
       <div
-        class="t-table--empty"
+        class="t-table__empty"
       >
         暂无数据
       </div>
@@ -551,7 +551,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         <table
           style="table-layout: fixed;"
@@ -571,7 +571,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             <tr>
               
               <td
-                class="align-left text-ellipsis"
+                class="t-align-left t-text-ellipsis"
                 colspan="1"
                 rowspan="1"
                 style="overflow: hidden;"
@@ -597,7 +597,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             
           </thead>
           <tbody
-            class="table-body"
+            class="t-table__body"
           >
             
             <tr
@@ -606,7 +606,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             >
               
               <td
-                class="align-left text-ellipsis"
+                class="t-align-left t-text-ellipsis"
                 length="3"
                 style="overflow: hidden;"
               >
@@ -632,7 +632,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             >
               
               <td
-                class="align-left text-ellipsis"
+                class="t-align-left t-text-ellipsis"
                 length="3"
                 style="overflow: hidden;"
               >
@@ -658,7 +658,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             >
               
               <td
-                class="align-left text-ellipsis"
+                class="t-align-left t-text-ellipsis"
                 length="3"
                 style="overflow: hidden;"
               >
@@ -715,7 +715,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         <table
           style="table-layout: fixed;"
@@ -750,7 +750,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
             <tr>
               
               <td
-                class="align-left text-ellipsis test"
+                class="t-align-left t-text-ellipsis test"
                 colspan="1"
                 rowspan="2"
                 style="overflow: hidden;"
@@ -765,7 +765,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
                 类型及默认值
               </td>
               <td
-                class="align-left text-ellipsis test2"
+                class="t-align-left t-text-ellipsis test2"
                 colspan="1"
                 rowspan="2"
                 style="overflow: hidden;"
@@ -773,7 +773,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
                 属性
               </td>
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 colspan="1"
                 rowspan="2"
                 style="overflow: hidden;"
@@ -785,7 +785,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
             <tr>
               
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 colspan="1"
                 rowspan="1"
                 style="overflow: hidden;"
@@ -793,7 +793,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
                 类型
               </td>
               <td
-                class="align-left text-ellipsis test4"
+                class="t-align-left t-text-ellipsis test4"
                 colspan="1"
                 rowspan="1"
                 style="overflow: hidden;"
@@ -801,7 +801,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
                 默认值
               </td>
               <td
-                class="align-left text-ellipsis test3"
+                class="t-align-left t-text-ellipsis test3"
                 colspan="1"
                 rowspan="1"
                 style="overflow: hidden;"
@@ -813,7 +813,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
             
           </thead>
           <tbody
-            class="table-body"
+            class="t-table__body"
           >
             
             <tr
@@ -822,42 +822,42 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
             >
               
               <td
-                class="align-left text-ellipsis test"
+                class="t-align-left t-text-ellipsis test"
                 length="6"
                 style="overflow: hidden;"
               >
                 公有
               </td>
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 length="6"
                 style="overflow: hidden;"
               >
                 any[]
               </td>
               <td
-                class="align-left text-ellipsis test4"
+                class="t-align-left t-text-ellipsis test4"
                 length="6"
                 style="overflow: hidden;"
               >
                 []
               </td>
               <td
-                class="align-left text-ellipsis test3"
+                class="t-align-left t-text-ellipsis test3"
                 length="6"
                 style="overflow: hidden;"
               >
                 Y
               </td>
               <td
-                class="align-left text-ellipsis test2"
+                class="t-align-left t-text-ellipsis test2"
                 length="6"
                 style="overflow: hidden;"
               >
                 data
               </td>
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 length="6"
                 style="overflow: hidden;"
               >
@@ -871,42 +871,42 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
             >
               
               <td
-                class="align-left text-ellipsis test"
+                class="t-align-left t-text-ellipsis test"
                 length="6"
                 style="overflow: hidden;"
               >
                 公有
               </td>
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 length="6"
                 style="overflow: hidden;"
               >
                 String
               </td>
               <td
-                class="align-left text-ellipsis test4"
+                class="t-align-left t-text-ellipsis test4"
                 length="6"
                 style="overflow: hidden;"
               >
                 -1
               </td>
               <td
-                class="align-left text-ellipsis test3"
+                class="t-align-left t-text-ellipsis test3"
                 length="6"
                 style="overflow: hidden;"
               >
                 Y
               </td>
               <td
-                class="align-left text-ellipsis test2"
+                class="t-align-left t-text-ellipsis test2"
                 length="6"
                 style="overflow: hidden;"
               >
                 rowkey
               </td>
               <td
-                class="align-left text-ellipsis row"
+                class="t-align-left t-text-ellipsis row"
                 length="6"
                 style="overflow: hidden;"
               >
@@ -951,7 +951,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
     >
       
       <div
-        class="t-table-content"
+        class="t-table__content"
       >
         <table
           style="table-layout: fixed;"
@@ -995,7 +995,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
             
           </thead>
           <tbody
-            class="table-body"
+            class="t-table__body"
           >
             
             <tr

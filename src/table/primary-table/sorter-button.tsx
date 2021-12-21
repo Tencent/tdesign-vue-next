@@ -55,20 +55,19 @@ export default defineComponent({
       } else {
         style.bottom = '-1px';
       }
-      const sortClassName = [`${prefix}-table-sort-icon`, className, `${prefix}-table-sort-${direction}`];
-      return (
-        <span style={style} class={sortClassName}>
-          {icon}
-        </span>
-      );
+      const sortClassName = [`${prefix}-table__sort-icon`, className, `${prefix}-table-sort-${direction}`];
+      return h(icon, {
+        style,
+        class: sortClassName,
+      });
     },
   },
   render() {
     const { allowSortTypes, sortOrder, nextSortOrder } = this;
-    const buttonProps = { class: allowSortTypes.length > 1 ? `${prefix}-table-double-icons` : '' };
+    const buttonProps = { class: allowSortTypes.length > 1 ? `${prefix}-table__double-icons` : '' };
     const tips = tooltips[nextSortOrder];
     const sortButton = allowSortTypes.map((direction: string) => {
-      const className = direction === sortOrder ? `${prefix}-table-sort-icon-active` : `${prefix}-icon-sort-default`;
+      const className = direction === sortOrder ? `${prefix}-table__sort-icon--active` : `${prefix}-icon-sort--default`;
       return this.getSortIcon(direction, className);
     });
     return (

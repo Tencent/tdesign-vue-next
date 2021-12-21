@@ -581,7 +581,7 @@ export default defineComponent({
         : renderTNodeJSX(this as ComponentPublicInstance, 'loadingText');
     },
     getPlaceholderText() {
-      return this.placeholder || this.t(this.global.placeholderText);
+      return this.placeholder || this.t(this.global.placeholder);
     },
     getCloseIcon() {
       const closeIconClass = [`${name}__right-icon`, `${name}__right-icon-clear`];

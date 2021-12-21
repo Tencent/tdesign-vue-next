@@ -34,15 +34,15 @@ export default defineComponent({
       return isFunction(this.global.expandIcon) ? this.global.expandIcon(h) : <ChevronRightCircleIcon />;
     },
     getExpandIcon(expanded: boolean) {
+      const style: Styles = {
+        transition: 'transform .2s',
+        display: 'flex',
+        'align-items': 'center',
+      };
       const icon = renderTNodeJSX(this, 'expandIcon', {
         params: { row: this.row, index: this.rowIndex },
         defaultNode: this.getDefaultIcon(),
       });
-      const style: Styles = {
-        transition: 'all .2s',
-        display: 'flex',
-        'align-items': 'center',
-      };
       if (expanded) {
         style.transform = 'rotate(90deg)';
       }
@@ -58,7 +58,7 @@ export default defineComponent({
     const icon = this.getExpandIcon(expanded);
     if (!icon) return null;
     return (
-      <span class={`${prefix}-table-expand-box`} onClick={this.handleClick}>
+      <span class={`${prefix}-table__expand-box`} onClick={this.handleClick}>
         {icon}
       </span>
     );

@@ -54,7 +54,7 @@ export default defineComponent({
         onChange: (val: string | number) => this.onInnerFilterChange(val, column),
       };
       return (
-        <div class={`${prefix}-table-filter-pop-content__inner`}>
+        <div class={`${prefix}-table__filter-pop-content-inner`}>
           <component value={this.filterValue[column.colKey]} {...props}></component>
         </div>
       );
@@ -73,17 +73,17 @@ export default defineComponent({
                   trigger="click"
                   placement="bottom"
                   showArrow
-                  overlayClassName={`${prefix}-table-filter-pop`}
+                  overlayClassName={`${prefix}-table__filter-pop`}
                   v-slots={{
                     content: () => (
-                      <div class={`${prefix}-table-filter-pop-content`}>{this.getFilterContent(column)}</div>
+                      <div class={`${prefix}-table__filter-pop-content`}>{this.getFilterContent(column)}</div>
                     ),
                   }}
                 >
                   {isFunction(this.filterIcon) ? (
                     this.filterIcon(h)
                   ) : (
-                    <FilterIcon name="filter" class={`${prefix}-table-filter-icon`} />
+                    <FilterIcon name="filter" class={`${prefix}-table__filter-icon`} />
                   )}
                 </Popup>
               </div>

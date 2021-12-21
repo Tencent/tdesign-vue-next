@@ -202,6 +202,18 @@ export default defineComponent({
     current(val) {
       this.jumpIndex = val;
     },
+    jumpIndex(val) {
+      if (val < 1) {
+        this.$nextTick(() => {
+          this.jumpIndex = 1;
+        });
+      }
+      if (val > this.pageCount) {
+        this.$nextTick(() => {
+          this.jumpIndex = this.pageCount;
+        });
+      }
+    },
   },
   methods: {
     toPage(pageIndex: number, isTriggerChange?: boolean): void {

@@ -37,6 +37,8 @@ export interface CellData {
   rowIndex?: number;
   customData: CustomData;
   customRender: () => void;
+  withBorder?: boolean;
+  withoutBorder?: boolean;
 }
 
 export const EVENT_NAME_WITH_KEBAB = [

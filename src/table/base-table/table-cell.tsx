@@ -3,6 +3,7 @@ import { prefix } from '../../config';
 import Popup from '../../popup';
 import { isNodeOverflow } from '../../utils/dom';
 import { TdInstance } from '../util/interface';
+import { getRecord } from '../util/common';
 
 const overlayStyle = {
   width: '100%',
@@ -66,48 +67,59 @@ export default defineComponent({
     },
   },
   render() {
-    const { cellData, offsetLeft, isBoundary, isCutOff } = this;
-    const { col, colIndex, row, rowIndex, customData, customRender, withBorder } = cellData;
+    const { cellData } = this;
+    const { col, colIndex, row, rowIndex, customData, customRender, withoutBorder, withBorder } = cellData;
     const { colKey, attrs, align, ellipsis, width, className, title, fixed } = col;
 
     // 固定列 单元格属性
-    const style: Record<string, any> = {};
-    const attrClass = attrs?.class || {};
+    const style: Record<string, any> = {
+      ...col.attrs?.style,
+    };
+    const fixedClass = [];
+    // 普通样式
+    const attrClass = attrs?.class || [];
     if (fixed) {
       style.position = 'sticky';
-      style[fixed] = `${offsetLeft}px`;
-      attrClass[`${prefix}-table__cell--fixed-${fixed}`] = true;
-      if (isBoundary) {
-        attrClass[`${prefix}-table__cell--fixed-${fixed}-${fixed === 'left' ? 'last' : 'first'}`] = true;
+      style[fixed] = `${this.offsetLeft}px`;
+      fixedClass.push(`${prefix}-table__cell--fixed-${fixed}`);
+      if (this.isBoundary) {
+        fixedClass.push(`${prefix}-table__cell--fixed-${fixed}-${fixed === 'left' ? 'last' : 'first'}`);
       }
     }
     if (align) {
-      attrClass[`align-${align}`] = true;
+      attrClass.push(`${prefix}-align-${align}`);
     }
     if (width && !fixed) {
       style.overflow = 'hidden';
     }
+    if (withoutBorder === true) {
+      style.borderLeftWidth = '0px';
+    }
     if (withBorder) {
       style.borderLeft = '1px solid #E7E7E7';
     }
-    if (ellipsis === true) {
-      attrClass['text-ellipsis'] = true;
+    if (ellipsis === true || typeof ellipsis === 'function') {
+      attrClass.push(`${prefix}-text-ellipsis`);
     }
     if (className) {
       if (typeof className === 'function') {
-        attrClass[
+        attrClass.push(
           className({
             type: cellData.type,
             col,
             colIndex,
             row,
             rowIndex,
-          })
-        ] = true;
+          }),
+        );
       } else {
-        attrClass[className] = true;
+        attrClass.push(className);
       }
     }
+    if (['single', 'multiple'].indexOf(col.type) > -1) {
+      attrClass.push(`${prefix}-table__cell--selectable`);
+    }
+    const record = getRecord(row);
     // 自定义单元格渲染
     let cellContent: VNode;
     if (typeof customRender === 'function') {
@@ -117,6 +129,7 @@ export default defineComponent({
         colIndex,
         row,
         rowIndex,
+        record,
       };
       if (func === 'title') {
         cellContent = customRender(h, { col, colIndex, type });
@@ -130,16 +143,21 @@ export default defineComponent({
     }
     const tdAttrs = {
       ...attrs,
-      class: attrClass,
+      class: [...fixedClass, ...attrClass].filter((notEmpty) => notEmpty).join(' '),
       key: colKey,
       style,
     };
     // 如果被截断给加上 Tooltip 提示
-    if (ellipsis && isCutOff) {
-      const slots = {
-        default: () => cellContent,
-        content: () => cellContent,
-      };
+    if (ellipsis && this.isCutOff) {
+      let popupCellContent = cellContent;
+      if (typeof ellipsis === 'function') {
+        popupCellContent = ellipsis(h, {
+          row,
+          col,
+          rowIndex,
+          colIndex,
+        });
+      }
       return (
         <td {...tdAttrs}>
           <Popup
@@ -147,8 +165,11 @@ export default defineComponent({
             overlayStyle={overlayStyle}
             placement="bottom-left"
             showArrow={false}
-            v-slots={slots}
-          ></Popup>
+            v-slots={{
+              default: () => cellContent,
+              content: () => popupCellContent,
+            }}
+          />
         </td>
       );
     }
