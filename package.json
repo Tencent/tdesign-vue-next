@@ -37,6 +37,7 @@
   ],
   "scripts": {
     "start": "cd site && npm run dev",
+    "dev": "npm run start",
     "site": "cd site && npm run build --debug",
     "site:preview": "cd site && npm run build:preview",
     "prebuild": "rimraf es/* esm/* lib/* dist/*",

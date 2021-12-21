@@ -41,7 +41,7 @@ export default defineComponent({
         disabled: this.disabled,
         readonly: this.readonly,
         autocomplete: this.autocomplete,
-        placeholder: this.placeholder || undefined,
+        placeholder: this.placeholder || '请输入',
         maxlength: this.maxlength,
         name: this.name || undefined,
         type: this.renderType,
