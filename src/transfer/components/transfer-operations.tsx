@@ -4,10 +4,8 @@ import { prefix } from '../../config';
 import TButton from '../../button';
 import { TNode } from '../../common';
 
-const name = `${prefix}-transfer-operations`;
-
 export default defineComponent({
-  name,
+  name: 'TTransferOperations',
   components: {
     TButton,
   },
@@ -83,7 +81,7 @@ export default defineComponent({
   render(h: any) {
     const { leftDisabled, rightDisabled } = this.$props;
     return (
-      <div class={name}>
+      <div class={`${prefix}-transfer__operations`}>
         <t-button
           variant={rightDisabled ? 'outline' : 'base'}
           key={rightDisabled ? 'right-outline' : 'right-base'}
