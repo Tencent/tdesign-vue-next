@@ -50,7 +50,7 @@ export default function mdToVue(options) {
           <div v-show="tab === 'api'" name="API">${mdSegment.apiMd}</div>
           <div v-show="tab === 'design'" name="DESIGN">${mdSegment.designMd}</div>
         `
-            : `<div name="DOC">${mdSegment.docMd}</div>`
+            : `<div name="DOC" class="${mdSegment.docClass}">${mdSegment.docMd}</div>`
         }
         <div style="margin-top: 48px;">
           <td-doc-history time="${mdSegment.lastUpdated}"></td-doc-history>
@@ -138,6 +138,7 @@ function customRender({ source, file, md }) {
     tdDocHeader: true,
     tdDocTabs: DEAULT_TABS,
     apiFlag: /#+\s*API/,
+    docClass: '',
     lastUpdated: Math.round(fs.statSync(file).mtimeMs),
     ...data,
   };

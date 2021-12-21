@@ -58,7 +58,7 @@
     "test:coverage": "jest --config script/test/jest.unit.conf.js --coverage",
     "test:e2e": "cypress run --config-file script/test/cypress.json",
     "test:e2e-gui": "cypress open --config-file script/test/cypress.json",
-    "changelog": "publish-cli changelog",
+    "changelog": "node script/generate-changelog.js",
     "robot": "publish-cli robot-msg",
     "prepare": "husky install"
   },
