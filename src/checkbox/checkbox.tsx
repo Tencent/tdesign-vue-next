@@ -4,6 +4,8 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import checkboxProps from './props';
 import { ClassName } from '../common';
+import { emitEvent } from '../utils/event';
+import { TdCheckboxProps } from './type';
 
 const name = `${prefix}-checkbox`;
 
@@ -14,7 +16,7 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: { ...checkboxProps },
-  emits: ['change'],
+  emits: ['change', 'checked-change'],
   computed: {
     labelClasses(): ClassName {
       const { class: className } = this.$attrs;
@@ -24,7 +26,7 @@ export default defineComponent({
         {
           [CLASSNAMES.STATUS.checked]: this.checked$,
           [CLASSNAMES.STATUS.disabled]: this.disabled$,
-          [CLASSNAMES.STATUS.indeterminate]: this.indeterminate,
+          [CLASSNAMES.STATUS.indeterminate]: this.indeterminate$,
         },
       ];
     },
@@ -50,11 +52,11 @@ export default defineComponent({
 
   methods: {
     handleChange(e: Event) {
-      const target = e.target as HTMLInputElement;
-      this.$emit('change', target.checked, { e });
+      const value = !this.checked$;
+      emitEvent<Parameters<TdCheckboxProps['onChange']>>(this, 'change', value, { e });
       e.stopPropagation();
       if (this.checkboxGroup && this.checkboxGroup.handleCheckboxChange && !this.isCheckAllOption) {
-        this.checkboxGroup.handleCheckboxChange({ checked: target.checked, e, option: this.$props });
+        this.checkboxGroup.onCheckedChange({ checked: value, checkAll: this.checkAll, e, option: this.$props });
       }
     },
   },
