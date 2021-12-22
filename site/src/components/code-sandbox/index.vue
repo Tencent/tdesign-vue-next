@@ -28,7 +28,29 @@ pgk.dependencies['tdesign-icons-vue-next'] = orgPkg.dependencies['tdesign-icons-
 
 const pgkContent = JSON.stringify(pgk, null, 2);
 import orgJsContent from './main.js?raw';
-import styleContent from './index.css?raw';
+
+const styleContent = `
+/* 竖排展示 demo 行间距 16px */
+.tdesign-demo-block-column {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+/* 竖排展示 demo 行间距 32px */
+.tdesign-demo-block-column-large {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+
+/* 横排排展示 demo 列间距 16px */
+.tdesign-demo-block-row {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+}
+`;
 
 /**
  * 处理 demo 内容，目前是只处理某些外部依赖
@@ -110,11 +132,6 @@ export default defineComponent({
   &:hover {
     color: var(--text-primary);
     background-color: var(--bg-color-demo-hover, rgb(243, 243, 243));
-  }
-}
-.action-online + .t-loading {
-  svg {
-    margin-top: 4px;
   }
 }
 </style>
