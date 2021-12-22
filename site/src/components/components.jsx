@@ -65,10 +65,12 @@ export default defineComponent({
       });
     },
     changeVersion(version) {
-      this.version = version;
       if (version === packageJson.version) return;
       const historyUrl = `//preview-${version}-tdesign-vue-next.surge.sh`;
       window.open(historyUrl, '_blank');
+      this.$nextTick(() => {
+        this.version = packageJson.version;
+      });
     },
   },
 
