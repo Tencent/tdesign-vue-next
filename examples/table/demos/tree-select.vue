@@ -108,7 +108,7 @@ export default defineComponent({
       () => checkStrictly.value,
       () => {
         selectedRowKeys.value = [];
-        data.value = cloneDeep(data);
+        data.value = cloneDeep(data.value);
       },
     );
 

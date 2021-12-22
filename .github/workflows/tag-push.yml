@@ -12,7 +12,7 @@ jobs:
           submodules: recursive
       - uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: '16'
       - name: Install dependencies
         run: npm install
         shell: bash
@@ -22,9 +22,9 @@ jobs:
       - name: upload surge service
         id: deploy
         run: |
-          export DEPLOY_DOMAIN=https://preview-${{ github.ref_name }}-tdesign-vue-next.surge.sh
+          export DEPLOY_DOMAIN=https://${{ github.ref_name }}-tdesign-vue-next.surge.sh
           npx surge --project _site --domain $DEPLOY_DOMAIN --token ${{ secrets.TDESIGN_SURGE_TOKEN }}
-      - run: echo 'https://preview-${{ github.ref_name }}-tdesign-vue-next.surge.sh'
+      - run: echo 'https://${{ github.ref_name }}-tdesign-vue-next.surge.sh'
         if: ${{ success() }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: npm run build
@@ -37,4 +37,3 @@ jobs:
       - if: steps.publish.outputs.type != 'none'
         run: |
           echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
-      

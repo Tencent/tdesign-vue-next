@@ -10,7 +10,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   setup() {
     return {
-      current: 12,
+      current: 1,
       globalConfig: {
         pagination: {
           itemsPerPage: '{size} / page',
