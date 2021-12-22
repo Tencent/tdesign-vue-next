@@ -10599,7 +10599,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
 `;
 
 exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.vue correctly 1`] = `
-<div class="t-pagination t-size-m" modelvalue="12" style="padding:16px;">
+<div class="t-pagination t-size-m" modelvalue="1" style="padding:16px;">
   <div class="t-pagination__total">Total 36 items</div>
   <div class="t-select__wrap t-pagination__select">
     <div class="t-popup__reference t-select__popup-reference">
@@ -10642,14 +10642,14 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
       <!--]-->
     </div>
   </div>
-  <div class="t-pagination__btn t-pagination__btn-prev"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
+  <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
       <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fillopacity="0.9"></path>
     </svg></div>
   <ul class="t-pagination__pager">
     <!---->
     <!---->
     <!--[-->
-    <li class="t-pagination__number">1</li>
+    <li class="t-pagination__number t-is-current">1</li>
     <li class="t-pagination__number">2</li>
     <li class="t-pagination__number">3</li>
     <li class="t-pagination__number">4</li>
@@ -10660,8 +10660,8 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
   <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
       <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
     </svg></div>
-  <div class="t-pagination__jump">jump to<div class="t-input t-size-m t-pagination__input" modelvalue="12">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="12" class="t-input__inner">
+  <div class="t-pagination__jump">jump to<div class="t-input t-size-m t-pagination__input" modelvalue="1">
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1" class="t-input__inner">
       <!---->
     </div>
   </div>
@@ -28892,136 +28892,72 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                             <!--[-->
                             <div class="t-table__filter-pop-content">
                               <div class="t-table__filter-pop-content-inner">
-                                <div class="t-date-picker t-input t-size-m t-date-picker--month-picker" theme="primary">
+                                <div class="t-date-picker t-input t-size-m t-date-picker--month-picker">
                                   <div class="t-popup__reference t-date-picker__popup-reference">
                                     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                                       <div class="t-popup__content t-date-picker">
-                                        <div class="t-date-picker__container t-date-picker--range">
+                                        <div class="t-date-picker__container">
                                           <!---->
-                                          <div class="t-date-picker__panels">
-                                            <div class="t-date-picker__panel">
-                                              <div class="t-date-picker__header"><span class="t-date-picker__header-title"><!----><button class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn" type="button"><span class="t-button__text"><!--[-->2020 年<!--]--></span></button>
-                                                <!----></span><span class="t-date-picker__header-controller"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn" type="button" title="上一年"><!--[--><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style=""><path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fillopacity="0.9"></path></svg><!--]--><!--]--></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now" type="button" title="当前"><!--[--><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-round" style=""><path fill="currentColor" d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z" fillopacity="0.9"></path></svg><!--]--><!--]--></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn" type="button" title="下一年"><!--[--><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg><!--]--><!--]--></button></span>
-                                              </div>
-                                              <div class="t-date-picker--month">
-                                                <table>
-                                                  <!---->
-                                                  <tbody>
-                                                    <!--[-->
-                                                    <tr>
-                                                      <!--[-->
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">1 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">2 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">3 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">4 月</span></div>
-                                                      </td>
-                                                      <!--]-->
-                                                    </tr>
-                                                    <tr>
-                                                      <!--[-->
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">5 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">6 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">7 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">8 月</span></div>
-                                                      </td>
-                                                      <!--]-->
-                                                    </tr>
-                                                    <tr>
-                                                      <!--[-->
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">9 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">10 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">11 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active t-date-picker__cell--active-start t-date-picker__cell--active-end">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">12 月</span></div>
-                                                      </td>
-                                                      <!--]-->
-                                                    </tr>
-                                                    <!--]-->
-                                                  </tbody>
-                                                </table>
-                                              </div>
+                                          <div class="t-date-picker__panel">
+                                            <div class="t-date-picker__header"><span class="t-date-picker__header-title"><!----><button class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn" type="button"><span class="t-button__text"><!--[-->2020 年<!--]--></span></button>
+                                              <!----></span><span class="t-date-picker__header-controller"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn" type="button" title="上一年"><!--[--><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style=""><path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fillopacity="0.9"></path></svg><!--]--><!--]--></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now" type="button" title="当前"><!--[--><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-round" style=""><path fill="currentColor" d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z" fillopacity="0.9"></path></svg><!--]--><!--]--></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn" type="button" title="下一年"><!--[--><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg><!--]--><!--]--></button></span>
                                             </div>
-                                            <div class="t-date-picker__panel">
-                                              <div class="t-date-picker__header"><span class="t-date-picker__header-title"><!----><button class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn" type="button"><span class="t-button__text"><!--[-->2021 年<!--]--></span></button>
-                                                <!----></span><span class="t-date-picker__header-controller"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn" type="button" title="上一年"><!--[--><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style=""><path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fillopacity="0.9"></path></svg><!--]--><!--]--></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now" type="button" title="当前"><!--[--><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-round" style=""><path fill="currentColor" d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z" fillopacity="0.9"></path></svg><!--]--><!--]--></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn" type="button" title="下一年"><!--[--><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg><!--]--><!--]--></button></span>
-                                              </div>
-                                              <div class="t-date-picker--month">
-                                                <table>
-                                                  <!---->
-                                                  <tbody>
+                                            <div class="t-date-picker--month">
+                                              <table>
+                                                <!---->
+                                                <tbody>
+                                                  <!--[-->
+                                                  <tr>
                                                     <!--[-->
-                                                    <tr>
-                                                      <!--[-->
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">1 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">2 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">3 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">4 月</span></div>
-                                                      </td>
-                                                      <!--]-->
-                                                    </tr>
-                                                    <tr>
-                                                      <!--[-->
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">5 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">6 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">7 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">8 月</span></div>
-                                                      </td>
-                                                      <!--]-->
-                                                    </tr>
-                                                    <tr>
-                                                      <!--[-->
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">9 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">10 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">11 月</span></div>
-                                                      </td>
-                                                      <td class="t-date-picker-cell">
-                                                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">12 月</span></div>
-                                                      </td>
-                                                      <!--]-->
-                                                    </tr>
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">1 月</span></div>
+                                                    </td>
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">2 月</span></div>
+                                                    </td>
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">3 月</span></div>
+                                                    </td>
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">4 月</span></div>
+                                                    </td>
                                                     <!--]-->
-                                                  </tbody>
-                                                </table>
-                                              </div>
+                                                  </tr>
+                                                  <tr>
+                                                    <!--[-->
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">5 月</span></div>
+                                                    </td>
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">6 月</span></div>
+                                                    </td>
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">7 月</span></div>
+                                                    </td>
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">8 月</span></div>
+                                                    </td>
+                                                    <!--]-->
+                                                  </tr>
+                                                  <tr>
+                                                    <!--[-->
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">9 月</span></div>
+                                                    </td>
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">10 月</span></div>
+                                                    </td>
+                                                    <td class="t-date-picker-cell">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">11 月</span></div>
+                                                    </td>
+                                                    <td class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active">
+                                                      <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell">12 月</span></div>
+                                                    </td>
+                                                    <!--]-->
+                                                  </tr>
+                                                  <!--]-->
+                                                </tbody>
+                                              </table>
                                             </div>
                                           </div>
                                           <!---->
@@ -29063,7 +28999,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                 <td class="" style="" length="4">Eric</td>
                 <td class="" style="" length="4">Spinke</td>
                 <td class="" style="" length="4">espinke0@apache.org</td>
-                <td class="" style="" length="4">2021-10-27 17:19:12</td>
+                <td class="" style="" length="4">2021-11-01</td>
                 <!--]-->
               </tr>
               <tr class="" draggable="false">
@@ -29071,7 +29007,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                 <td class="" style="" length="4">Gilberta</td>
                 <td class="" style="" length="4">Purves</td>
                 <td class="" style="" length="4">gpurves1@issuu.com</td>
-                <td class="" style="" length="4">2021-10-22 17:19:12</td>
+                <td class="" style="" length="4">2021-12-01</td>
                 <!--]-->
               </tr>
               <tr class="" draggable="false">
@@ -29079,7 +29015,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                 <td class="" style="" length="4">Heriberto</td>
                 <td class="" style="" length="4">Kment</td>
                 <td class="" style="" length="4">hkment2@nsw.gov.au</td>
-                <td class="" style="" length="4">2021-10-12 17:19:12</td>
+                <td class="" style="" length="4">2022-01-01</td>
                 <!--]-->
               </tr>
               <tr class="" draggable="false">
@@ -29087,7 +29023,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                 <td class="" style="" length="4">Lazarus</td>
                 <td class="" style="" length="4">Skures</td>
                 <td class="" style="" length="4">lskures3@apache.org</td>
-                <td class="" style="" length="4">2021-01-27 17:19:12</td>
+                <td class="" style="" length="4">2022-02-01</td>
                 <!--]-->
               </tr>
               <tr class="" draggable="false">
@@ -29095,7 +29031,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                 <td class="" style="" length="4">Zandra</td>
                 <td class="" style="" length="4">Croson</td>
                 <td class="" style="" length="4">zcroson5@virginia.edu</td>
-                <td class="" style="" length="4">2021-01-27 15:19:12</td>
+                <td class="" style="" length="4">2022-03-01</td>
                 <!--]-->
               </tr>
               <!--]-->
