@@ -4,6 +4,7 @@ import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
 import ripple from '../utils/ripple';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
+import { emitEvent } from '../utils/event';
 
 export default defineComponent({
   name: 'TMenuItem',
@@ -27,13 +28,6 @@ export default defineComponent({
     // lifetimes
     onMounted(() => {
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value });
-
-      if (submenu) {
-        submenu.addMenuItem({
-          value: props.value,
-          label: ctx.slots.default(),
-        });
-      }
     });
 
     return {
@@ -46,7 +40,7 @@ export default defineComponent({
     handleClick() {
       if (this.disabled) return;
       this.menu.select(this.value);
-      this.$emit('click');
+      emitEvent(this, 'click');
       if (this.href) {
         window.open(this.href, this.target);
       } else if (this.to) {

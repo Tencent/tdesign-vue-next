@@ -8,6 +8,7 @@ import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import ActionMixin from '../dialog/actions';
+import { emitEvent } from '../utils/event';
 
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { DrawerConfig } from '../config-provider/config-receiver';
@@ -166,30 +167,30 @@ export default defineComponent({
       );
     },
     handleCloseBtnClick(e: MouseEvent) {
-      this.$emit('close-btn', e);
+      emitEvent(this, 'close-btn', e);
       this.closeDrawer({ trigger: 'close-btn', e });
     },
     handleWrapperClick(e: MouseEvent) {
-      this.$emit('overlay', e);
+      emitEvent(this, 'overlay', e);
       if (this.closeOnOverlayClick) {
         this.closeDrawer({ trigger: 'overlay', e });
       }
     },
     onKeyDown(e: KeyboardEvent) {
       if (this.closeOnKeydownEsc && e.key === 'Escape') {
-        this.$emit('esc-keydown', e);
+        emitEvent(this, 'esc-keydown', e);
         this.closeDrawer({ trigger: 'esc', e });
       }
     },
     confirmBtnAction(e: MouseEvent) {
-      this.$emit('confirm', e);
+      emitEvent(this, 'confirm', e);
     },
     cancelBtnAction(e: MouseEvent) {
-      this.$emit('cancel', e);
+      emitEvent(this, 'cancel', e);
       this.closeDrawer({ trigger: 'cancel', e });
     },
     closeDrawer(params: DrawerCloseContext) {
-      this.$emit('close', params);
+      emitEvent(this, 'close', params);
       this.$emit('update:visible', false);
     },
   },

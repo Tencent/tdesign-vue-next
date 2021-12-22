@@ -17,6 +17,7 @@ import Tag from '../tag';
 import Tree, { TreeNodeModel, TreeNodeValue } from '../tree';
 import Input, { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
+import { emitEvent } from '../utils/event';
 
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
@@ -250,8 +251,7 @@ export default defineComponent({
       this.change(this.value, null);
     },
     change(value: TreeSelectValue, node: TreeNodeModel<TreeOptionData>) {
-      this.$emit('change', value, { node });
-      isFunction(this.onChange) && this.onChange(value, { node });
+      emitEvent(this, 'change', value, { node });
       this.changeNodeInfo();
     },
     clear(e: MouseEvent) {
@@ -259,27 +259,22 @@ export default defineComponent({
       this.change(defaultValue, null);
       this.actived = [];
       this.filterText = '';
-      this.$emit('clear', { e });
-      isFunction(this.onClear) && this.onClear({ e });
+      emitEvent(this, 'clear', { e });
     },
     focus(e: FocusEvent) {
       this.focusing = true;
-      this.$emit('focus', { value: this.value, e });
-      isFunction(this.onFocus) && this.onFocus({ e });
+      emitEvent(this, 'focus', { value: this.value, e });
     },
     blur(e: FocusEvent) {
       this.focusing = false;
       this.filterText = '';
-      this.$emit('blur', { value: this.value, e });
-      isFunction(this.onBlur) && this.onBlur({ value: this.value, e });
+      emitEvent(this, 'blur', { value: this.value, e });
     },
     remove(options: RemoveOptions<TreeOptionData>) {
-      this.$emit('remove', options);
-      isFunction(this.onRemove) && this.onRemove(options);
+      emitEvent(this, 'remove', options);
     },
     search(filterWords: string) {
-      this.$emit('search', filterWords);
-      isFunction(this.onSearch) && this.onSearch(filterWords);
+      emitEvent(this, 'search', filterWords);
     },
     treeNodeChange(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent }) {
       let current: TreeSelectValue = value;

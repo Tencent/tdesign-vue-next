@@ -7,6 +7,7 @@ import { prefix } from '../config';
 import Radio, { radioBtnName } from './radio';
 import { TNodeReturnValue } from '../common';
 import CLASSNAMES, { SIZE_CLASSNAMES } from '../utils/classnames';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-radio-group`;
 
@@ -51,7 +52,7 @@ export default defineComponent({
 
   methods: {
     handleRadioChange(value: RadioValue, context: { e: Event }) {
-      this.$emit('change', value, context);
+      emitEvent(this, 'change', value, context);
     },
     calcDefaultBarStyle() {
       const defaultNode = this.$el.cloneNode(true);

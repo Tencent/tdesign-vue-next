@@ -6,6 +6,7 @@ import { getCharacterLength, omit } from '../utils/helper';
 import CLASSNAMES from '../utils/classnames';
 import { prefix } from '../config';
 import props from './props';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-input`;
 
@@ -105,18 +106,18 @@ export default defineComponent({
       if (this.disabled) return;
       const { code } = e;
       if (code === 'Enter' || code === 'NumpadEnter') {
-        this.$emit('enter', this.value, { e });
+        emitEvent(this, 'enter', this.value, { e });
       } else {
-        this.$emit('keydown', this.value, { e });
+        emitEvent(this, 'keydown', this.value, { e });
       }
     },
     handleKeyUp(e: KeyboardEvent) {
       if (this.disabled) return;
-      this.$emit('keyup', this.value, { e });
+      emitEvent(this, 'keyup', this.value, { e });
     },
     handleKeypress(e: KeyboardEvent) {
       if (this.disabled) return;
-      this.$emit('keypress', this.value, { e });
+      emitEvent(this, 'keypress', this.value, { e });
     },
     emitPassword() {
       const { renderType } = this;
@@ -124,18 +125,18 @@ export default defineComponent({
       this.renderType = toggleType;
     },
     emitClear({ e }: { e: MouseEvent }) {
-      this.$emit('clear', e);
-      this.$emit('change', '', e);
-      this.$emit('input', '', e);
+      emitEvent(this, 'clear', e);
+      emitEvent(this, 'change', '', e);
+      emitEvent(this, 'input', '', e);
     },
     emitFocus(e: FocusEvent) {
       if (this.disabled) return;
       this.focused = true;
-      this.$emit('focus', this.value, { e });
+      emitEvent(this, 'focus', this.value, { e });
     },
     emitBlur(e: FocusEvent) {
       this.focused = false;
-      this.$emit('blur', this.value, { e });
+      emitEvent(this, 'blur', this.value, { e });
     },
     onCompositionend(e: CompositionEvent) {
       this.inputValueChangeHandle(e);
@@ -147,8 +148,8 @@ export default defineComponent({
         const stringInfo = getCharacterLength(val, this.maxcharacter);
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
-      this.$emit('change', val, { e });
-      this.$emit('input', val, { e });
+      emitEvent(this, 'change', val, { e });
+      emitEvent(this, 'input', val, { e });
       // 受控
       nextTick(() => this.setInputValue(this.value));
     },

@@ -7,6 +7,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
 import { COMPONENT_NAME } from './constant';
+import { emitEvent } from '../utils/event';
 
 const ANCHOR_LINE_CLASSNAME = `${COMPONENT_NAME}__line`;
 const ANCHOR_LINE_CURSOR_CLASSNAME = `${COMPONENT_NAME}__line-cursor`;
@@ -150,14 +151,14 @@ export default defineComponent({
      * @param {string} prevLink
      */
     emitChange(currentLink: string, prevLink: string) {
-      this.$emit('change', currentLink, prevLink);
+      emitEvent(this, 'change', currentLink, prevLink);
     },
     /**
      * 监听AnchorLink点击事件
      * @param {{ href: string; title: string }} link
      */
     handleLinkClick(link: { href: string; title: string }): void {
-      this.$emit('click', link);
+      emitEvent(this, 'click', link);
     },
     /**
      * 滚动到指定锚点

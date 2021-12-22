@@ -9,6 +9,7 @@ import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { PopupVisibleChangeContext } from './type';
 import { ClassName, Styles } from '../common';
 import setStyle from '../utils/set-style';
+import { emitEvent } from '../utils/event';
 
 const { prefix } = config;
 
@@ -329,7 +330,7 @@ export default defineComponent({
     },
     emitPopVisible(val: boolean, context: PopupVisibleChangeContext) {
       this.$nextTick(() => {
-        this.$emit('visible-change', val, context);
+        emitEvent(this, 'visible-change', val, context);
       });
     },
     // 以下代码用于处理展开-收起动画相关,

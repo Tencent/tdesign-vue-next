@@ -1,6 +1,7 @@
 import { defineComponent, PropType } from 'vue';
 import { prefix } from '../config';
 import { TdSliderProps } from './type';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-slider-mark`;
 export default defineComponent({
@@ -17,7 +18,7 @@ export default defineComponent({
   methods: {
     changeValue(event: MouseEvent) {
       event.stopPropagation();
-      this.$emit('change-value', this.point);
+      emitEvent(this, 'change-value', this.point);
     },
   },
   render() {

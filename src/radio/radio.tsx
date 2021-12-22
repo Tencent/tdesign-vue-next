@@ -3,6 +3,7 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import props from './props';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-radio`;
 export const radioBtnName = `${prefix}-radio-button`;
@@ -32,7 +33,7 @@ export default defineComponent({
         this.radioGroup.handleRadioChange(this.value, { e });
       } else {
         const target = e.target as HTMLInputElement;
-        this.$emit('change', target.checked, { e });
+        emitEvent(this, 'change', target.checked, { e });
       }
     },
   },

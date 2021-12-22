@@ -32,6 +32,6 @@ const TPrimaryTable = mapProps([
 
 export const BaseTable: WithInstallType<typeof _BaseTable> = withInstall(_BaseTable);
 export const PrimaryTable: WithInstallType<typeof TPrimaryTable> = withInstall(TPrimaryTable);
-export const EnhancedTable = withInstall(_EnhancedTable);
+export const EnhancedTable: WithInstallType<typeof _EnhancedTable> = withInstall(_EnhancedTable);
 
 export default PrimaryTable;
