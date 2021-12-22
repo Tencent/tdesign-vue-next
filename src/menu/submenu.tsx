@@ -7,10 +7,8 @@ import FakeArrow from '../common-components/fake-arrow';
 import Ripple from '../utils/ripple';
 import { ClassName } from '../common';
 
-const name = `${prefix}-submenu`;
-
 export default defineComponent({
-  name,
+  name: 'TSubmenu',
   directives: {
     ripple: Ripple,
   },
@@ -91,7 +89,6 @@ export default defineComponent({
     // provide
     provide<TdSubMenuInterface>('TdSubmenu', {
       value: props.value,
-      hasIcon: !!ctx.slots.icon,
       addMenuItem: (item: TdMenuItem) => {
         menuItems.value.push(item);
         if (submenu) {

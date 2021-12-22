@@ -1,24 +1,11 @@
 import { defineComponent } from 'vue';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import { prefix } from '../config';
 
-const name = `${prefix}-content`;
-
 export default defineComponent({
-  name,
-
-  props: {},
-
-  data() {
-    return {};
-  },
-
-  methods: {
-    renderContent() {
-      return this.$slots.default() ? this.$slots.default(null) : '';
-    },
-  },
+  name: 'TContent',
 
   render() {
-    return <main class="t-layout__content">{this.renderContent()}</main>;
+    return <main class={`${prefix}-layout__content`}>{renderTNodeJSX(this, 'default')}</main>;
   },
 });

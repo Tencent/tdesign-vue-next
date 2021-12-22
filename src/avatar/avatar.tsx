@@ -4,6 +4,7 @@ import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { Styles } from '../common';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-avatar`;
 
@@ -67,7 +68,7 @@ export default defineComponent({
       const { onError, hideOnLoadFailed } = this.$props;
       this.isImgExist = !hideOnLoadFailed;
       onError && onError();
-      this.$emit('error');
+      emitEvent(this, 'error');
     },
     setScaleParams() {
       const avater = this.$refs.avatar as HTMLElement;

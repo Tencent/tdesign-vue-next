@@ -17,6 +17,7 @@ import Tag from '../tag';
 import Tree, { TreeNodeModel, TreeNodeValue } from '../tree';
 import Input, { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
+import { emitEvent } from '../utils/event';
 
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
@@ -31,7 +32,7 @@ const name = `${prefix}-tree-select`;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TreeSelectConfig>('treeSelect')),
-  name,
+  name: 'TTreeSelect',
   components: {
     Tree,
   },
@@ -75,7 +76,7 @@ export default defineComponent({
     },
     popupClass(): ClassName {
       const { popupObject } = this;
-      return `${popupObject.overlayClassName} ${prefix}-select-dropdown narrow-scrollbar`;
+      return `${popupObject.overlayClassName} ${prefix}-select__dropdown narrow-scrollbar`;
     },
     isObjectValue(): boolean {
       return this.valueType === 'object';
@@ -170,7 +171,7 @@ export default defineComponent({
     loadingTextSlot(): VNode {
       const useLocale = !this.loadingText && !this.$slots.loadingText;
       return useLocale ? (
-        <div class={`${prefix}-select-empty`}>{this.t(this.global.loadingText)}</div>
+        <div class={`${prefix}-select__empty`}>{this.t(this.global.loadingText)}</div>
       ) : (
         renderTNodeJSX(this, 'loadingText')
       );
@@ -178,7 +179,7 @@ export default defineComponent({
     emptySlot(): VNode {
       const useLocale = !this.empty && !this.$slots.empty;
       return useLocale ? (
-        <div class={`${prefix}-select-empty`}>{this.t(this.global.empty)}</div>
+        <div class={`${prefix}-select__empty`}>{this.t(this.global.empty)}</div>
       ) : (
         renderTNodeJSX(this, 'empty')
       );
@@ -250,8 +251,7 @@ export default defineComponent({
       this.change(this.value, null);
     },
     change(value: TreeSelectValue, node: TreeNodeModel<TreeOptionData>) {
-      this.$emit('change', value, { node });
-      isFunction(this.onChange) && this.onChange(value, { node });
+      emitEvent(this, 'change', value, { node });
       this.changeNodeInfo();
     },
     clear(e: MouseEvent) {
@@ -259,27 +259,22 @@ export default defineComponent({
       this.change(defaultValue, null);
       this.actived = [];
       this.filterText = '';
-      this.$emit('clear', { e });
-      isFunction(this.onClear) && this.onClear({ e });
+      emitEvent(this, 'clear', { e });
     },
     focus(e: FocusEvent) {
       this.focusing = true;
-      this.$emit('focus', { value: this.value, e });
-      isFunction(this.onFocus) && this.onFocus({ e });
+      emitEvent(this, 'focus', { value: this.value, e });
     },
     blur(e: FocusEvent) {
       this.focusing = false;
       this.filterText = '';
-      this.$emit('blur', { value: this.value, e });
-      isFunction(this.onBlur) && this.onBlur({ value: this.value, e });
+      emitEvent(this, 'blur', { value: this.value, e });
     },
     remove(options: RemoveOptions<TreeOptionData>) {
-      this.$emit('remove', options);
-      isFunction(this.onRemove) && this.onRemove(options);
+      emitEvent(this, 'remove', options);
     },
     search(filterWords: string) {
-      this.$emit('search', filterWords);
-      isFunction(this.onSearch) && this.onSearch(filterWords);
+      emitEvent(this, 'search', filterWords);
     },
     treeNodeChange(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent }) {
       let current: TreeSelectValue = value;
@@ -331,16 +326,23 @@ export default defineComponent({
       await this.value;
 
       if (tree && !this.multiple && this.value) {
-        const nodeValue = this.isObjectValue
-          ? (this.value as { label: string; value: string | number }).value
-          : this.value;
-        const node = (tree as any).getItem(nodeValue);
-        this.nodeInfo = { label: node.data[this.realLabel], value: node.data[this.realValue] };
+        const nodeValue = this.isObjectValue ? (this.value as NodeOptions).value : this.value;
+        // 数据源非空
+        if (!isEmpty(this.data)) {
+          const node = (tree as any).getItem(nodeValue);
+          this.nodeInfo = { label: node.data[this.realLabel], value: node.data[this.realValue] };
+        } else {
+          this.nodeInfo = { label: nodeValue, value: nodeValue };
+        }
       } else if (tree && this.multiple && isArray(this.value)) {
         this.nodeInfo = this.value.map((value) => {
-          const nodeValue = this.isObjectValue ? (value as { label: string; value: string | number }).value : value;
-          const node = (tree as any).getItem(nodeValue);
-          return { label: node.data[this.realLabel], value: node.data[this.realValue] };
+          const nodeValue = this.isObjectValue ? (value as NodeOptions).value : value;
+          // 数据源非空
+          if (!isEmpty(this.data)) {
+            const node = (tree as any).getItem(nodeValue);
+            return { label: node.data[this.realLabel], value: node.data[this.realValue] };
+          }
+          return { label: nodeValue, value: nodeValue };
         });
       } else {
         this.nodeInfo = null;
@@ -383,7 +385,7 @@ export default defineComponent({
         ref="input"
         v-show={this.showFilter}
         v-model={this.filterText}
-        class={`${prefix}-select-input`}
+        class={`${prefix}-select__input`}
         size={this.size}
         disabled={this.disabled}
         placeholder={this.filterPlaceholder}
@@ -433,7 +435,7 @@ export default defineComponent({
       <div ref="treeSelect">
         <Popup
           ref="popup"
-          class={`${prefix}-select-popup-reference`}
+          class={`${prefix}-select__popup-reference`}
           visible={this.visible}
           disabled={this.disabled}
           placement={popupObject.placement}
@@ -445,21 +447,21 @@ export default defineComponent({
           v-slots={slots}
         >
           <div class={classes} onmouseenter={() => (this.isHover = true)} onmouseleave={() => (this.isHover = false)}>
-            {this.prefixIconSlot && <span class={`${prefix}-select-left-icon`}>{this.prefixIconSlot[0]}</span>}
-            <span v-show={this.showPlaceholder} class={`${prefix}-select-placeholder`}>
+            {this.prefixIconSlot && <span class={`${prefix}-select__left-icon`}>{this.prefixIconSlot[0]}</span>}
+            <span v-show={this.showPlaceholder} class={`${prefix}-select__placeholder`}>
               {this.placeholder}
             </span>
             {tagItem}
             {collapsedItem}
             {!this.multiple && !this.showPlaceholder && !this.showFilter && (
-              <span title={this.selectedSingle} class={`${prefix}-select-selectedSingle`}>
+              <span title={this.selectedSingle} class={`${prefix}-select__single`}>
                 {this.selectedSingle}
               </span>
             )}
             {searchInput}
             {this.showArrow && !this.showLoading && (
               <FakeArrow
-                overlayClassName={`${prefix}-select-right-icon`}
+                overlayClassName={`${prefix}-select__right-icon`}
                 overlayStyle={iconStyle}
                 isActive={this.visible && !this.disabled}
               />
@@ -467,14 +469,14 @@ export default defineComponent({
             <CloseCircleFilledIcon
               v-show={this.showClose && !this.showLoading}
               name="close"
-              class={`${prefix}-select-right-icon ${prefix}-select-right-icon__clear`}
+              class={`${prefix}-select__right-icon ${prefix}-select__right-icon-clear`}
               size={this.size}
               onClick={({ e }) => this.clear(e)}
             />
             <TLoading
               v-show={this.showLoading}
               name="loading"
-              class={`${prefix}-select-right-icon ${prefix}-select-active-icon`}
+              class={`${prefix}-select__right-icon ${prefix}-select__active-icon`}
               size="small"
             />
           </div>

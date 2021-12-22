@@ -5,11 +5,10 @@ import popupProps from '../popup/props';
 import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup';
 import { ClassName } from '../common';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-
-const name = `${prefix}-tooltip`;
+import { emitEvent } from '../utils/event';
 
 export default defineComponent({
-  name,
+  name: 'TTooltip',
   components: { Popup },
   props: {
     ...popupProps,
@@ -24,7 +23,7 @@ export default defineComponent({
   },
   computed: {
     tooltipOverlayClassName(): ClassName {
-      return [`${prefix}-tooltip`, { [`${prefix}-tooltip-${this.theme}`]: this.theme }, this.overlayClassName];
+      return [`${prefix}-tooltip`, { [`${prefix}-tooltip--${this.theme}`]: this.theme }, this.overlayClassName];
     },
   },
   watch: {
@@ -38,7 +37,7 @@ export default defineComponent({
   created() {
     if (this.duration && this.visible) {
       this.timer = setTimeout(() => {
-        this.$emit('visible-change', false);
+        emitEvent(this, 'visible-change', false);
         clearTimeout(this.timer);
         this.timer = null;
       }, this.duration);
@@ -48,7 +47,7 @@ export default defineComponent({
     onTipVisibleChange(val: boolean, ctx?: PopupVisibleChangeContext) {
       // 因 props={this.getPopupProps()} 已经透传 onVisibleChange props，此处不再需要使用 emitEvent
       if (this.timer && ctx?.trigger !== 'document') return;
-      this.$emit('visible-change', val);
+      emitEvent(this, 'visible-change', val);
     },
 
     getPopupProps(): PopupProps {

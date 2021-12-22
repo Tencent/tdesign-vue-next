@@ -6,7 +6,7 @@ import { TVNode } from '../common';
 const name = `${prefix}-swiper`;
 
 export default defineComponent({
-  name,
+  name: 'TSwiper',
   components: {},
 
   props: { ...props },
@@ -27,7 +27,7 @@ export default defineComponent({
       const { default: defaultSlot } = this.$slots;
       return ((defaultSlot && defaultSlot()) || []).filter((child) => {
         const node = child as VNode;
-        return node.type && (node.type as TVNode).name === `${prefix}-swiper-item`;
+        return node.type && (node.type as TVNode).name === 'TSwiperItem';
       });
     },
   },

@@ -5,6 +5,7 @@ import config from '../config';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { ClassName, TNodeReturnValue } from '../common';
+import { emitEvent } from '../utils/event';
 
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { TagConfig } from '../config-provider/config-receiver';
@@ -14,7 +15,7 @@ const name = `${prefix}-tag`;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TagConfig>('tag')),
-  name,
+  name: 'TTag',
   props: { ...props },
   emits: ['close', 'click'],
   computed: {
@@ -40,10 +41,10 @@ export default defineComponent({
   },
   methods: {
     handleClose({ e }: { e: MouseEvent }): void {
-      this.$emit('close', { e });
+      emitEvent(this, 'close', { e });
     },
     handleClick(event: MouseEvent): void {
-      this.$emit('click', event);
+      emitEvent(this, 'click', event);
     },
     getCloseIcon() {
       if (!this.closable) return null;

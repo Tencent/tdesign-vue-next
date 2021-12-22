@@ -689,7 +689,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
      定义 
     
     <div
-      class="t-popup-reference t-copy"
+      class="t-popup__reference t-copy"
     >
       <transition-stub>
         <div
@@ -699,7 +699,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-popup-content--arrow"
+            class="t-popup__content t-popup__content--arrow"
             style="max-width: 480px;"
           >
             复制链接
@@ -739,7 +739,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
      服务功能 
     
     <div
-      class="t-popup-reference t-copy"
+      class="t-popup__reference t-copy"
     >
       <transition-stub>
         <div
@@ -749,7 +749,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-popup-content--arrow"
+            class="t-popup__content t-popup__content--arrow"
             style="max-width: 480px;"
           >
             复制链接
@@ -789,7 +789,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
      使用指南 
     
     <div
-      class="t-popup-reference t-copy"
+      class="t-popup__reference t-copy"
     >
       <transition-stub>
         <div
@@ -799,7 +799,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-popup-content--arrow"
+            class="t-popup__content t-popup__content--arrow"
             style="max-width: 480px;"
           >
             复制链接
@@ -839,7 +839,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
      创建签名 
     
     <div
-      class="t-popup-reference t-copy"
+      class="t-popup__reference t-copy"
     >
       <transition-stub>
         <div
@@ -849,7 +849,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-popup-content--arrow"
+            class="t-popup__content t-popup__content--arrow"
             style="max-width: 480px;"
           >
             复制链接
@@ -889,7 +889,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
      创建内容 
     
     <div
-      class="t-popup-reference t-copy"
+      class="t-popup__reference t-copy"
     >
       <transition-stub>
         <div
@@ -899,7 +899,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-popup-content--arrow"
+            class="t-popup__content t-popup__content--arrow"
             style="max-width: 480px;"
           >
             复制链接
@@ -939,7 +939,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
      保密协议 
     
     <div
-      class="t-popup-reference t-copy"
+      class="t-popup__reference t-copy"
     >
       <transition-stub>
         <div
@@ -949,7 +949,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-popup-content--arrow"
+            class="t-popup__content t-popup__content--arrow"
             style="max-width: 480px;"
           >
             复制链接
@@ -989,7 +989,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
      其他 
     
     <div
-      class="t-popup-reference t-copy"
+      class="t-popup__reference t-copy"
     >
       <transition-stub>
         <div
@@ -999,7 +999,7 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
           style="display: none;"
         >
           <div
-            class="t-popup-content t-popup-content--arrow"
+            class="t-popup__content t-popup__content--arrow"
             style="max-width: 480px;"
           >
             复制链接

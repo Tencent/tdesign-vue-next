@@ -8,6 +8,7 @@ import { ExpandProps, RenderExpandRow } from '../../util/interface';
 import { filterDataByIds, getRecord } from '../../util/common';
 import { prefix } from '../../../config';
 import { emitEvent } from '../../../utils/event';
+import { renderTNodeJSX } from '../../../utils/render-tnode';
 
 type CreateElement = typeof h;
 
@@ -28,13 +29,24 @@ export default defineComponent({
     },
   },
   methods: {
+    getExpandRowHandler(): TdPrimaryTableProps['expandedRow'] {
+      if (!this.expandedRow && !this.$slots.expandedRow) return;
+      return (h, params) => renderTNodeJSX(this, 'expandedRow', { params });
+    },
     getExpandColumns(columns: Columns): Columns {
-      if (!this.expandedRow || !this.expandIcon) return columns;
+      const expandRowHandler = this.getExpandRowHandler();
+      if (!expandRowHandler || !this.expandIcon) return columns;
+
       return [
         {
           colKey: expandedColKey,
-          width: 25,
-          attrs: { class: [`${prefix}-table-expandable-icon-cell`] },
+          width: 48,
+          attrs: {
+            class: [`${prefix}-table__expandable-icon-cell`],
+            style: {
+              overflow: 'auto',
+            },
+          },
           cell: (h, { row, rowIndex }) => this.renderExpandIconCell({ row, rowIndex }),
         },
         ...columns,
@@ -63,9 +75,12 @@ export default defineComponent({
     // 渲染被展开的TableRow内容
     renderExpandedRow({ rows, row, columns: defaultColumns, rowIndex }: RenderExpandRow): VNode {
       const columnCounts = defaultColumns.length;
-      if (!this.expandedRow) return; // 若无展开渲染函数，则无需处理行数据
 
-      const { expandedRowKeys, expandedRow } = this;
+      const expandRowHandler = this.getExpandRowHandler();
+      if (!expandRowHandler) return; //
+
+      const { expandedRowKeys } = this;
+
       const id = get(row, this.reRowKey);
       const isShowExpanded = expandedRowKeys.includes(id);
       const params = {
@@ -78,9 +93,9 @@ export default defineComponent({
           colKey: 'expanded-row',
           attrs: {
             colspan: columnCounts,
-            class: [`${prefix}-table-expanded-cell`],
+            class: [`${prefix}-table__expandable-cell`],
           },
-          render: (h: CreateElement): VNode => expandedRow(h, params) as VNode,
+          render: (h: CreateElement) => expandRowHandler(h, params),
         },
       ];
 

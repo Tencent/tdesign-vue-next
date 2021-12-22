@@ -6,6 +6,7 @@ import props from './props';
 import getConfigReceiverMixins, { CalendarConfig } from '../config-provider/config-receiver';
 import mixins from '../utils/mixins';
 import * as utils from './utils';
+import { emitEvent } from '../utils/event';
 
 // 组件的一些常量
 import { COMPONENT_NAME, MIN_YEAR, FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DEFAULT_YEAR_CELL_NUMINROW } from './const';
@@ -72,7 +73,7 @@ const getDefaultControllerConfigData = (visible = true): Record<string, any> => 
 // 组件逻辑
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<CalendarConfig>('calendar')),
-  name: COMPONENT_NAME,
+  name: 'TCalendar',
   components: {
     TCheckTag,
     TSelect,
@@ -382,11 +383,11 @@ export default defineComponent({
         cell: this.createCalendarCell(cellData),
         e,
       };
-      this.$emit(emitName, options);
+      emitEvent(this, emitName, options);
     },
     controllerChange(): void {
       const options = this.controllerOptions;
-      this.$emit('controller-change', options);
+      emitEvent(this, 'controller-change', options);
     },
     onWeekendToggleClick(): void {
       this.isShowWeekend = !this.isShowWeekend;

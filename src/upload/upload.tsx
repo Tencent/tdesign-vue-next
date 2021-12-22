@@ -8,7 +8,7 @@ import { prefix } from '../config';
 import Dragger from './dragger';
 import ImageCard from './image';
 import FlowList from './flow-list';
-import xhr from './xhr';
+import xhr from '../_common/js/upload/xhr';
 import TButton from '../button';
 import TDialog from '../dialog';
 import SingleFile from './single-file';
@@ -81,7 +81,7 @@ function isOverSizeLimit(fileSize: number, sizeLimit: number, unit: SizeUnit) {
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<UploadConfig>('upload')),
-  name,
+  name: 'TUpload',
 
   components: {
     TButton,
@@ -275,7 +275,6 @@ export default defineComponent({
           data: this.data,
           file,
           name: this.name,
-          method: this.method,
           headers: this.headers,
           withCredentials: this.withCredentials,
           onError: this.onError,

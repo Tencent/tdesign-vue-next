@@ -4,7 +4,8 @@ import packageJson from '@/package.json';
 
 const { docs: routerList } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 
-const historyVersion = ['0.4.3'];
+const historyVersion = [];
+const registryUrl = 'https://mirrors.tencent.com/npm/tdesign-vue-next';
 
 export default defineComponent({
   data() {
@@ -35,9 +36,25 @@ export default defineComponent({
       window.scrollTo(0, 0);
     };
     this.$refs.tdDocSearch.docsearchInfo = { indexName: 'tdesign_doc_vue_next' };
+    this.initHistoryVersions();
   },
 
   methods: {
+    initHistoryVersions() {
+      fetch(registryUrl)
+        .then((res) => res.json())
+        .then((res) => {
+          const options = [];
+          Object.keys(res.versions).forEach((v) => {
+            if (v === packageJson.version) return false;
+            const nums = v.split('.');
+            if (nums[0] === '0' && nums[1] < 5) return false;
+            options.push({ label: v, value: v });
+          });
+          this.options.push(...options);
+        });
+    },
+
     getAttach() {
       return document.querySelector('#historyVersion');
     },
@@ -50,7 +67,8 @@ export default defineComponent({
     changeVersion(version) {
       this.version = version;
       if (version === packageJson.version) return;
-      location.href = `https://tdesign.cdn-go.cn/tdesign-web-vue-next/${version}/`;
+      const historyUrl = `//preview-${version}-tdesign-vue-next.surge.sh`;
+      window.open(historyUrl, '_blank');
     },
   },
 
@@ -60,6 +78,7 @@ export default defineComponent({
         <td-header ref="tdHeader" slot="header">
           <td-doc-search slot="search" ref="tdDocSearch" />
         </td-header>
+
         <td-doc-aside ref="tdDocAside" title="Vue Next for Web">
           <t-select
             id="historyVersion"
@@ -67,13 +86,8 @@ export default defineComponent({
             value={this.version}
             popupProps={{ zIndex: 500, attach: this.getAttach }}
             onChange={this.changeVersion}
-          >
-            {this.options.map((item, index) => (
-              <t-option key={index} value={item.value} label={item.label}>
-                {item.label}
-              </t-option>
-            ))}
-          </t-select>
+            options={this.options}
+          />
         </td-doc-aside>
         <router-view style={this.contentStyle} onLoaded={this.contentLoaded} />
       </td-doc-layout>

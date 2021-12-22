@@ -8,6 +8,7 @@ import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import ActionMixin from '../dialog/actions';
+import { emitEvent } from '../utils/event';
 
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { DrawerConfig } from '../config-provider/config-receiver';
@@ -18,8 +19,7 @@ const name = `${prefix}-drawer`;
 
 export default defineComponent({
   ...mixins(ActionMixin, getConfigReceiverMixins<DrawerConfig>('drawer')),
-
-  name,
+  name: 'TDrawer',
 
   components: {
     CloseIcon,
@@ -38,11 +38,11 @@ export default defineComponent({
     'opened',
     'closed',
     'update:visible',
-    'click-overlay',
-    'click-close-btn',
-    'keydown-esc',
-    'click-confirm',
-    'click-cancel',
+    'overlay',
+    'close-btn',
+    'esc-keydown',
+    'confirm',
+    'cancel',
   ],
 
   computed: {
@@ -167,30 +167,30 @@ export default defineComponent({
       );
     },
     handleCloseBtnClick(e: MouseEvent) {
-      this.$emit('click-close-btn', e);
+      emitEvent(this, 'close-btn', e);
       this.closeDrawer({ trigger: 'close-btn', e });
     },
     handleWrapperClick(e: MouseEvent) {
-      this.$emit('click-overlay', e);
+      emitEvent(this, 'overlay', e);
       if (this.closeOnOverlayClick) {
         this.closeDrawer({ trigger: 'overlay', e });
       }
     },
     onKeyDown(e: KeyboardEvent) {
       if (this.closeOnKeydownEsc && e.key === 'Escape') {
-        this.$emit('keydown-esc', e);
+        emitEvent(this, 'esc-keydown', e);
         this.closeDrawer({ trigger: 'esc', e });
       }
     },
     confirmBtnAction(e: MouseEvent) {
-      this.$emit('click-confirm', e);
+      emitEvent(this, 'confirm', e);
     },
     cancelBtnAction(e: MouseEvent) {
-      this.$emit('click-cancel', e);
+      emitEvent(this, 'cancel', e);
       this.closeDrawer({ trigger: 'cancel', e });
     },
     closeDrawer(params: DrawerCloseContext) {
-      this.$emit('close', params);
+      emitEvent(this, 'close', params);
       this.$emit('update:visible', false);
     },
   },

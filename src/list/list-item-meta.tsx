@@ -6,7 +6,7 @@ import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 const name = `${prefix}-list-item__meta`;
 
 export default defineComponent({
-  name: `${prefix}-list-item-meta`,
+  name: 'TListItemMeta',
   props,
   methods: {
     renderAvatar() {

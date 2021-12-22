@@ -1,14 +1,11 @@
 import { defineComponent } from 'vue';
-import { prefix } from '../config';
 import props from './props';
 import BreadcrumbItem from './breadcrumb-item';
 import { TdBreadcrumbItemProps } from './type';
 import { TNodeReturnValue } from '../common';
 
-const name = `${prefix}-breadcrumb`;
-
 export default defineComponent({
-  name,
+  name: 'TBreadcrumb',
 
   components: {
     BreadcrumbItem,

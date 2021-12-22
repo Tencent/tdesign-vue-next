@@ -18,7 +18,7 @@ interface SliderButtonType {
   setPosition: (param: number) => {};
 }
 export default defineComponent({
-  name,
+  name: 'TSlider',
   components: {
     TSliderMark,
     TInputNumber: InputNumber,
@@ -394,7 +394,7 @@ export default defineComponent({
               theme={this.inputTheme}
             />
           }
-          {range && <div class={`${name}__center-liner`} />}
+          {range && <div class={`${name}__center-line`} />}
           {range && (
             <t-input-number
               class={this.sliderNumberClass}

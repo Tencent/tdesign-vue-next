@@ -1,9 +1,11 @@
 ---
 title: CHANGELOG
 spline: explain
+toc: false
+docClass: timeline
 ---
 
-## 0.5.0 (2021-12-08)
+## 0.5.0 `2021-12-08`
 
 ### BREAKING CHANGES
 
@@ -36,7 +38,7 @@ spline: explain
 - Cascader: 支持 `loading` 状态。
 - DatePicker: 支持 `firstDayOfWeek` API。
 
-## 0.4.4 (2021-11-29)
+## 0.4.4 `2021-11-29`
 
 ### Bug Fixes
 
@@ -63,7 +65,7 @@ spline: explain
   - `progress` 事件返回的进度不会超过 100
   - 上传成功后执行 `formatResponse`
 
-## 0.4.3 (2021-11-22)
+## 0.4.3 `2021-11-22`
 
 ### Bug Fixes
 
@@ -88,7 +90,7 @@ spline: explain
 - Avatar: 新增 `avatar` 组件。
 - Calendar：新增属性 `fillWithZero`，`ConfigProvider` 新增配置项 `fillWithZero`。
 
-## 0.4.2 (2021-11-15)
+## 0.4.2 `2021-11-15`
 
 ### Bug Fixes
 
@@ -115,7 +117,7 @@ spline: explain
 - TreeSelect: 新增 `collapsedItems API` 的参数。
 - Select: 新增 `collapsedItems API` 的参数。
 
-## 0.4.1 (2021-11-06)
+## 0.4.1 `2021-11-06`
 
 ### Bug Fixes
 
@@ -138,7 +140,7 @@ spline: explain
   - 增加表格过滤自定义。
 - 全局配置: 增加 `drawer` 和 `dialog` 的全局配置。
 
-## 0.4.0 (2021-10-29)
+## 0.4.0 `2021-10-29`
 
 ### BREAKING CHANGES
 
@@ -160,7 +162,7 @@ spline: explain
 - Form: 优化 `FormItem` 提示文案展示效果。
 - Textarea: 透传外层属性。
 
-## 0.3.5 (2021-10-25)
+## 0.3.5 `2021-10-25`
 
 ### Bug Fixes
 
@@ -175,7 +177,7 @@ spline: explain
 - Cascader: 增加 `collapsedItems` && `minCollapsedNum` `API`。
 - TreeSelect: 增加 `collapsedItems` && `minCollapsedNum` `API`。
 
-## 0.3.4 (2021-10-14)
+## 0.3.4 `2021-10-14`
 
 ### Bug Fixes
 
@@ -190,7 +192,7 @@ spline: explain
 
 - 增加 `cascader` 组件的 `load` 属性，`filterable` 属性。
 
-## 0.3.3 (2021-09-29)
+## 0.3.3 `2021-09-29`
 
 ### Bug Fixes
 
@@ -218,7 +220,7 @@ spline: explain
   - 新增 `sizeLimit` 属性，表示文件大小限制，支持 `1000` 和 `{ size: 3, unit: 'MB', message: '文件过大' }` 等方式，支持单位有 'B' | 'KB' | 'MB' | 'GB'。
 - `FormItem` 支持 `labelWidth、labelAlign` & 调整 `labelWidth` 默认值为 `100px`。
 
-## 0.3.2 (2021-09-22)
+## 0.3.2 `2021-09-22`
 
 ### Bug Fixes
 
@@ -231,7 +233,7 @@ spline: explain
 
 - Anchor: 增加自定义游标。
 
-## 0.3.1 (2021-09-17)
+## 0.3.1 `2021-09-17`
 
 ### BREAKING CHANGES
 
@@ -256,7 +258,7 @@ spline: explain
 - Dialog: 插槽支持透传 `style` 和 `className` 。
 - Table: 增加拖拽排序，增加固定列动态变化。
 
-## 0.2.0 (2021-09-10)
+## 0.2.0 `2021-09-10`
 
 ### BREAKING CHANGES
 
@@ -272,7 +274,7 @@ spline: explain
 
 - Dropdown: 新增 `Dropdown` 组件。
 
-## 0.1.18 (2021-09-08)
+## 0.1.18 `2021-09-08`
 
 ### Bug Fixes
 
@@ -284,7 +286,7 @@ spline: explain
 
 - Swiper: 新增 `Swiper` 组件。
 
-## 0.1.16 (2021-09-03)
+## 0.1.16 `2021-09-03`
 
 ### Bug Fixes
 
@@ -301,13 +303,13 @@ spline: explain
 
 - Select: 改进 `show` 规则，提高多 `options` 下的 `dom` 性能。
 
-## 0.1.14 (2021-09-01)
+## 0.1.14 `2021-09-01`
 
 ### Bug Fixes
 
 - `TypeScript` 修复引用路径问题。
 
-## 0.1.13 (2021-08-31)
+## 0.1.13 `2021-08-31`
 
 ### Bug Fixes
 
@@ -322,7 +324,7 @@ spline: explain
 - Pagination:  重构组件，`UI` 与 `API` 特性同步。
 - InputNumber:  重构组件，`UI` 与 `API` 特性同步。
 
-## 0.1.12 (2021-08-27)
+## 0.1.12 `2021-08-27`
 
 ### Bug Fixes
 
@@ -340,7 +342,7 @@ spline: explain
 - Select: 新增斜八度点击动画。
 - 子仓库 `common` 迁移到 `_common`。
 
-## 0.1.11 (2021-08-20)
+## 0.1.11 `2021-08-20`
 
 ### Bug Fixes
 
@@ -355,13 +357,13 @@ spline: explain
 - Breadcrumb: 重构组件，`UI` 与 `API` 特性同步。
 - Menu: 重构组件，`UI` 与 `API` 特性同步。
 
-## 0.1.10 (2021-08-13)
+## 0.1.10 `2021-08-13`
 
 ### Bug Fixes
 
 - 修复 `TypeScript` 引用路径问题，迁移 `props` 至 `src` 下。
 
-## 0.1.9 (2021-08-09)
+## 0.1.9 `2021-08-09`
 
 ### Bug Fixes
 
@@ -374,25 +376,25 @@ spline: explain
 - Calendar: 新增 `Calendar` 组件。
 - Table: 新增 `Table`组件。。
 
-## 0.1.8 (2021-07-01)
+## 0.1.8 `2021-07-01`
 
 ### Features
 
 - Menu: 新增 `Menu` 组件。
 
-## 0.1.3 (2021-06-08)
+## 0.1.3 `2021-06-08`
 
 ### Features
 
 - Transfer: 新增 `Transfer` 组件。
 
-## 0.1.2 (2021-05-20)
+## 0.1.2 `2021-05-20`
 
 ### Features
 
 - Pagination: 新增 `Pagination`组件。
 
-## 0.1.0 (2021-05-19)
+## 0.1.0 `2021-05-19`
 
 ### Features
 

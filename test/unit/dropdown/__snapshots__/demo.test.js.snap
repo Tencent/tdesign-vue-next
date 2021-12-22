@@ -5,7 +5,7 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
   class="tdesign-demo-dropdown"
 >
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -15,7 +15,7 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-dropdown"
+          class="t-popup__content t-dropdown"
         >
           
           <div
@@ -142,7 +142,7 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
 exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -152,7 +152,7 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-dropdown"
+          class="t-popup__content t-dropdown"
         >
           
           <div
@@ -264,7 +264,7 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
 exports[`Dropdown Dropdown customVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -274,7 +274,7 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-dropdown"
+          class="t-popup__content t-dropdown"
         >
           
           <div
@@ -305,7 +305,7 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item t-dropdown__item--suffix"
+                  class="t-dropdown__item t-dropdown--suffix"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -400,7 +400,7 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
   class="tdesign-demo-dropdown"
 >
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -410,7 +410,7 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-dropdown"
+          class="t-popup__content t-dropdown"
         >
           
           <div
@@ -539,7 +539,7 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
 exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -549,7 +549,7 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-dropdown"
+          class="t-popup__content t-dropdown"
         >
           
           <div
@@ -661,7 +661,7 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
 exports[`Dropdown Dropdown longVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -671,7 +671,7 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-dropdown"
+          class="t-popup__content t-dropdown"
         >
           
           <div
@@ -1057,7 +1057,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
   class="tdesign-demo-dropdown"
 >
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -1067,7 +1067,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-dropdown"
+          class="t-popup__content t-dropdown"
         >
           
           <div
@@ -1081,7 +1081,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               
               <div>
                 <div
-                  class="t-dropdown__item t-dropdown__item--suffix"
+                  class="t-dropdown__item t-dropdown--suffix"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1110,7 +1110,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item t-dropdown__item--suffix"
+                  class="t-dropdown__item t-dropdown--suffix"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1139,7 +1139,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item t-dropdown__item--suffix"
+                  class="t-dropdown__item t-dropdown--suffix"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1168,7 +1168,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               </div>
               <div>
                 <div
-                  class="t-dropdown__item t-dropdown__item--suffix"
+                  class="t-dropdown__item t-dropdown--suffix"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1244,7 +1244,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
 exports[`Dropdown Dropdown slotVue demo works fine 1`] = `
 <div>
   <div
-    class="t-popup-reference"
+    class="t-popup__reference"
   >
     <transition-stub>
       <div
@@ -1254,7 +1254,7 @@ exports[`Dropdown Dropdown slotVue demo works fine 1`] = `
         style="display: none;"
       >
         <div
-          class="t-popup-content t-dropdown"
+          class="t-popup__content t-dropdown"
         >
           
           <div
@@ -1333,7 +1333,7 @@ exports[`Dropdown Dropdown slotVue demo works fine 1`] = `
 
 exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
 <div
-  class="t-popup-reference"
+  class="t-popup__reference"
 >
   <transition-stub>
     <div
@@ -1343,7 +1343,7 @@ exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
       style="display: none;"
     >
       <div
-        class="t-popup-content t-dropdown"
+        class="t-popup__content t-dropdown"
       >
         
         <div

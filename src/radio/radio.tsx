@@ -3,9 +3,10 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import props from './props';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-radio`;
-export const RADIO_BTN_NAME = `${prefix}-radio-button`;
+export const radioBtnName = `${prefix}-radio-button`;
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};
@@ -18,7 +19,7 @@ function getValidAttrs(obj: Record<string, any>): Record<string, any> {
 }
 
 export default defineComponent({
-  name,
+  name: 'TRadio',
   inject: {
     radioGroup: { default: undefined },
     radioButton: { default: undefined },
@@ -32,7 +33,7 @@ export default defineComponent({
         this.radioGroup.handleRadioChange(this.value, { e });
       } else {
         const target = e.target as HTMLInputElement;
-        this.$emit('change', target.checked, { e });
+        emitEvent(this, 'change', target.checked, { e });
       }
     },
   },
@@ -66,7 +67,7 @@ export default defineComponent({
       inputProps.name = radioGroup.name;
     }
 
-    const prefixCls = radioButton ? RADIO_BTN_NAME : name;
+    const prefixCls = radioButton ? radioBtnName : name;
 
     const inputClass = [
       `${prefixCls}`,

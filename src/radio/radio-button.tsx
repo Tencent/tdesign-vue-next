@@ -1,10 +1,10 @@
 import { defineComponent, VNode } from 'vue';
 import props from './props';
-import Radio, { RADIO_BTN_NAME as name } from './radio';
+import Radio from './radio';
 import { omit } from '../utils/helper';
 
 export default defineComponent({
-  name,
+  name: 'TRadioButton',
   components: {
     Radio,
   },

@@ -173,7 +173,6 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
     
     <label
       class="t-checkbox undefined t-is-indeterminate"
-      data-name="TDESIGN_CHECK_ALL"
     >
       <input
         class="t-checkbox__former"
@@ -252,7 +251,6 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
       </span>
     </label>
     
-    <!---->
   </div>
 </div>
 `;
@@ -353,7 +351,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     
-    <!---->
   </div>
   <br />
   <div>
@@ -363,10 +360,9 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     class="t-checkbox-group"
     modelvalue="选项一"
   >
-    <!---->
     
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox undefined t-is-indeterminate"
       modelvalue="false"
     >
       <input
@@ -380,7 +376,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       <span
         class="t-checkbox__label"
       >
-        <!---->
+        全选
       </span>
     </label>
     <label
@@ -420,7 +416,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       <span
         class="t-checkbox__label"
       >
-        <!---->
+        选项二
       </span>
     </label>
     <label
@@ -439,7 +435,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       <span
         class="t-checkbox__label"
       >
-        <!---->
+        选项三
       </span>
     </label>
     
@@ -455,7 +451,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     
     <label
       class="t-checkbox undefined t-is-checked"
-      data-name="TDESIGN_CHECK_ALL"
     >
       <input
         class="t-checkbox__former"
@@ -536,7 +531,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     
-    <!---->
   </div>
   <br />
   <div>
@@ -549,7 +543,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     
     <label
       class="t-checkbox undefined t-is-indeterminate"
-      data-name="TDESIGN_CHECK_ALL"
     >
       <input
         class="t-checkbox__former"
@@ -630,7 +623,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     
-    <!---->
   </div>
 </div>
 `;
@@ -714,7 +706,6 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
         </span>
       </label>
       
-      <!---->
     </div>
   </div>
   <div

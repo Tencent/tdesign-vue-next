@@ -7,14 +7,14 @@ describe('Steps', () => {
   beforeEach(() => {
     cmp = mount(Steps, {
       propsData: {
-        direction: 'vertical',
+        layout: 'vertical',
         theme: 'dot',
       },
     });
   });
 
   it('equals direction to "vertical"', () => {
-    expect(cmp.vm.direction).toEqual('vertical');
+    expect(cmp.vm.layout).toEqual('vertical');
   });
   it('equals type to "dot"', () => {
     expect(cmp.vm.theme).toEqual('dot');

@@ -50,18 +50,13 @@ export default defineComponent({
       actived: cellData.isCurrent,
     });
 
-    const showCeelData = (cellData) => {
-      console.info(cellData);
-    };
-
     return {
       theme,
       themeOptions,
       getDateStr,
       getCellAppendCls,
-      showCeelData,
       handleClick() {
-        console.log(123);
+        console.log('handleClick');
       },
     };
   },

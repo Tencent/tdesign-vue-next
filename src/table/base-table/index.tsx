@@ -22,7 +22,7 @@ type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TableConfig>('table')),
-  name: `${prefix}-base-table`,
+  name: 'TBaseTable',
   components: {
     TableBody,
     TableHeader,
@@ -133,10 +133,10 @@ export default defineComponent({
       // table verticalAlign
       switch (verticalAlign) {
         case 'top':
-          commonClass.push(`${prefix}-table-valign__top`);
+          commonClass.push(`${prefix}-table-align-top`);
           break;
         case 'bottom':
-          commonClass.push(`${prefix}-table-valign__bottom`);
+          commonClass.push(`${prefix}-table-align-bottom`);
           break;
         default:
       }
@@ -181,6 +181,7 @@ export default defineComponent({
     // 检查是否还可以向左或者向右滚动
     checkScrollableToLeftOrRight() {
       const scrollContainer = this.$refs[this.fixedHeader ? 'scrollBody' : 'tableContent'] as HTMLElement;
+      if (!scrollContainer) return;
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
       this.scrollableToLeft = scrollLeft > 0;
       this.scrollableToRight = scrollLeft + clientWidth < scrollWidth;
@@ -191,11 +192,7 @@ export default defineComponent({
     },
     renderHeader(): VNode {
       const { columns, $slots, bordered } = this;
-      return (
-        <TableHeader columns={columns} bordered={bordered}>
-          {$slots}
-        </TableHeader>
-      );
+      return <TableHeader columns={columns} bordered={bordered} v-slots={$slots} />;
     },
     renderBody(): VNode {
       const { $slots } = this;
@@ -223,13 +220,13 @@ export default defineComponent({
     renderEmptyTable(): VNode {
       const useLocale = !this.empty && !this.$slots.empty;
       return (
-        <div class={`${prefix}-table--empty`}>{useLocale ? this.global.empty : renderTNodeJSX(this, 'empty')}</div>
+        <div class={`${prefix}-table__empty`}>{useLocale ? this.global.empty : renderTNodeJSX(this, 'empty')}</div>
       );
     },
     renderPagination(): VNode {
       const paginationProps = this.pagination;
       return (
-        <div class={`${prefix}-table-pagination`}>
+        <div class={`${prefix}-table__pagination`}>
           <Pagination
             {...paginationProps}
             {...{
@@ -370,10 +367,10 @@ export default defineComponent({
     }
     const handleScroll = throttle(this.handleScroll, 100);
     const tableContentClass = [
-      `${prefix}-table-content`,
+      `${prefix}-table__content`,
       {
-        [`${prefix}-table-content--scrollable-to-right`]: this.scrollableToRight,
-        [`${prefix}-table-content--scrollable-to-left`]: this.scrollableToLeft,
+        [`${prefix}-table__content--scrollable-to-right`]: this.scrollableToRight,
+        [`${prefix}-table__content--scrollable-to-left`]: this.scrollableToLeft,
       },
     ];
     let width;

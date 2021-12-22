@@ -3,10 +3,8 @@ import { prefix } from '../config';
 import props from './tab-panel-props';
 import { renderContent } from '../utils/render-tnode';
 
-const name = `${prefix}-tab-panel`;
-
 export default defineComponent({
-  name,
+  name: 'TTabPanel',
 
   props: { ...props },
 

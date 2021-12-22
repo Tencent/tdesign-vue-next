@@ -1,15 +1,13 @@
 import { defineComponent } from 'vue';
-import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { TextareaValue } from './type';
-import { getPropsApiByEvent, getCharacterLength } from '../utils/helper';
+import { getCharacterLength } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-textarea`;
-
-type TextareaEmitEvent = 'input' | 'keydown' | 'keyup' | 'keypress' | 'focus' | 'blur' | 'change';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};
@@ -22,10 +20,10 @@ function getValidAttrs(obj: object): object {
 }
 
 export default defineComponent({
-  name,
+  name: 'TTextarea',
   inheritAttrs: false,
   props: { ...props },
-  emits: ['input', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
+  emits: ['keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
   data() {
     return {
       focused: false,
@@ -75,10 +73,6 @@ export default defineComponent({
       }
     },
 
-    emitEvent(name: TextareaEmitEvent, value: string | number, context: object) {
-      this.$emit(name, value, context);
-    },
-
     focus(): void {
       const input = this.$refs.refInputElem as HTMLInputElement;
       input?.focus();
@@ -102,8 +96,8 @@ export default defineComponent({
         const stringInfo = getCharacterLength(val, this.maxcharacter);
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
-      this.$emit('input', val);
-      this.emitEvent('change', val, { e: InputEvent });
+      this.$emit('update:value', val);
+      emitEvent(this, 'change', val, { e: InputEvent });
 
       this.$nextTick(() => this.setInputValue(val));
       this.adjustTextareaHeight();
@@ -120,24 +114,24 @@ export default defineComponent({
     },
     emitKeyDown(e: KeyboardEvent) {
       if (this.disabled) return;
-      this.emitEvent('keydown', this.value, { e });
+      emitEvent(this, 'keydown', this.value, { e });
     },
     emitKeyUp(e: KeyboardEvent) {
       if (this.disabled) return;
-      this.emitEvent('keyup', this.value, { e });
+      emitEvent(this, 'keyup', this.value, { e });
     },
     emitKeypress(e: KeyboardEvent) {
       if (this.disabled) return;
-      this.emitEvent('keypress', this.value, { e });
+      emitEvent(this, 'keypress', this.value, { e });
     },
     emitFocus(e: FocusEvent) {
       if (this.disabled) return;
       this.focused = true;
-      this.emitEvent('focus', this.value, { e });
+      emitEvent(this, 'focus', this.value, { e });
     },
     emitBlur(e: FocusEvent) {
       this.focused = false;
-      this.emitEvent('blur', this.value, { e });
+      emitEvent(this, 'blur', this.value, { e });
     },
   },
 
@@ -156,6 +150,7 @@ export default defineComponent({
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-resize-none`]: this.maxlength,
       },
+      'narrow-scrollbar',
     ];
 
     return (

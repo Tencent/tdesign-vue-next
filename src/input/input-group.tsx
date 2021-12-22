@@ -4,7 +4,7 @@ import { ClassName } from '../common';
 
 const name = `${prefix}-input-group`;
 export default defineComponent({
-  name,
+  name: 'TInputGroup',
   props: {
     separate: {
       type: Boolean,

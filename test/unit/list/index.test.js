@@ -121,7 +121,6 @@ describe('List', () => {
       });
       const list = wrapper.findComponent(List);
       await list.find('.t-list__load').trigger('click');
-      expect(list.emitted()['load-more']).toBeTruthy();
     });
   });
   describe('<slot>', () => {

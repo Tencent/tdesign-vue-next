@@ -4,11 +4,10 @@ import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
 import ripple from '../utils/ripple';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-
-const name = `${prefix}-menu-item`;
+import { emitEvent } from '../utils/event';
 
 export default defineComponent({
-  name,
+  name: 'TMenuItem',
   directives: { ripple },
   props: { ...props },
   emits: ['click'],
@@ -23,20 +22,12 @@ export default defineComponent({
         [`${prefix}-is-disabled`]: props.disabled,
         [`${prefix}-menu__item--plain`]: !ctx.slots.icon,
         [`${prefix}-submenu__item`]: !!submenu && !menu.isHead,
-        [`${prefix}-submenu__item--icon`]: submenu && submenu.hasIcon,
       },
     ]);
 
     // lifetimes
     onMounted(() => {
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value });
-
-      if (submenu) {
-        submenu.addMenuItem({
-          value: props.value,
-          label: ctx.slots.default(),
-        });
-      }
     });
 
     return {
@@ -49,7 +40,7 @@ export default defineComponent({
     handleClick() {
       if (this.disabled) return;
       this.menu.select(this.value);
-      this.$emit('click');
+      emitEvent(this, 'click');
       if (this.href) {
         window.open(this.href, this.target);
       } else if (this.to) {

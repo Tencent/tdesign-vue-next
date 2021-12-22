@@ -9,6 +9,7 @@ import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { PopupVisibleChangeContext } from './type';
 import { ClassName, Styles } from '../common';
 import setStyle from '../utils/set-style';
+import { emitEvent } from '../utils/event';
 
 const { prefix } = config;
 
@@ -34,7 +35,7 @@ const hideTimeout = 150;
 const triggers = ['click', 'hover', 'focus', 'context-menu'] as const;
 
 export default defineComponent({
-  name,
+  name: 'TPopup',
 
   components: {
     Transition,
@@ -78,9 +79,9 @@ export default defineComponent({
   computed: {
     overlayClasses(): ClassName {
       const base = [
-        `${name}-content`,
+        `${name}__content`,
         {
-          [`${name}-content--arrow`]: this.showArrow,
+          [`${name}__content--arrow`]: this.showArrow,
           [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
       ] as ClassName;
@@ -329,14 +330,14 @@ export default defineComponent({
     },
     emitPopVisible(val: boolean, context: PopupVisibleChangeContext) {
       this.$nextTick(() => {
-        this.$emit('visible-change', val, context);
+        emitEvent(this, 'visible-change', val, context);
       });
     },
     // 以下代码用于处理展开-收起动画相关,
     // 需要使用popup的组件设置非对外暴露的expandAnimation开启 对不需要展开收起动画的其他组件无影响
     getContentElm(el: HTMLElement): HTMLElement {
       if (this.expandAnimation) {
-        const content = el.querySelector(`.${name}-content`) as HTMLElement;
+        const content = el.querySelector(`.${name}__content`) as HTMLElement;
         return content;
       }
       return null;
@@ -384,9 +385,9 @@ export default defineComponent({
 
   render() {
     return (
-      <div class={`${name}-reference`}>
+      <div class={`${name}__reference`}>
         <transition
-          name={`${name}_animation`}
+          name={`${name}--animation`}
           appear
           onBeforeEnter={this.beforeEnter}
           onEnter={this.enter}

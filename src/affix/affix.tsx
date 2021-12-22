@@ -4,6 +4,7 @@ import { prefix } from '../config';
 import { on, off, getScrollContainer } from '../utils/dom';
 import props from './props';
 import { ScrollContainerElement } from '../common';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-affix`;
 
@@ -14,7 +15,7 @@ export interface Affix extends ComponentInternalInstance {
 }
 
 export default defineComponent({
-  name,
+  name: 'TAffix',
 
   props,
 
@@ -70,7 +71,7 @@ export default defineComponent({
             this.fixedTop = false;
           }
           this.ticking = false;
-          this.$emit('fixedChange', this.fixedTop !== false, { top: this.fixedTop });
+          emitEvent(this, 'fixedChange', this.fixedTop !== false, { top: this.fixedTop });
           if (isFunction(this.onFixedChange)) this.onFixedChange(this.fixedTop !== false, { top: this.fixedTop });
         });
         this.ticking = true;

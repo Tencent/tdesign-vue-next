@@ -7,10 +7,8 @@ import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
 import { ClassName } from '../common';
 
-const name = `${prefix}-menu`;
-
 export default defineComponent({
-  name,
+  name: 'TMenu',
   props: { ...props },
   setup(props, ctx) {
     const mode = ref(props.expandType);
@@ -18,7 +16,6 @@ export default defineComponent({
     const isMutex = computed(() => props.expandMutex);
     const menuClass = computed(() => [
       `${prefix}-default-menu`,
-      `${prefix}-menu-mode__${mode.value}`,
       `${prefix}-menu--${props.theme}`,
       {
         [`${prefix}-is-collapsed`]: props.collapsed,

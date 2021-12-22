@@ -5,10 +5,10 @@ import CLASSNAMES from '../utils/classnames';
 import props from './option-group-props';
 import { ClassName } from '../common';
 
-const name = `${prefix}-option-group`;
+const name = `${prefix}-select-option-group`;
 
 export default defineComponent({
-  name,
+  name: 'TOptionGroup',
   inject: {
     tSelect: {
       default: undefined,
@@ -29,7 +29,7 @@ export default defineComponent({
     const children = renderTNodeJSX(this, 'default');
     return (
       <li class={this.classes}>
-        <ul class={`${name}-header`}>{this.label}</ul>
+        <div class={`${name}__header`}>{this.label}</div>
         <ul>{children}</ul>
       </li>
     );

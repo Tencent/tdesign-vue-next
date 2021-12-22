@@ -17,7 +17,7 @@ type IconConstructor = typeof InfoCircleFilledIcon;
 
 export default defineComponent({
   ...mixins(ActionMixin, getConfigReceiverMixins<PopconfirmConfig>('popconfirm')),
-  name,
+  name: 'TPopconfirm',
   props,
   emits: ['close', 'cancel', 'confirm', 'visible-change'],
   data() {
@@ -69,7 +69,7 @@ export default defineComponent({
       return renderTNodeJSXDefault(this, 'icon', <Icon class={this.iconCls} />);
     },
     onPopupVisibleChange(val: boolean, context: PopconfirmVisibleChangeContext) {
-      this.$emit('visible-change', val, context);
+      emitEvent(this, 'visible-change', val, context);
       this.onVisibleChange && this.onVisibleChange(val, context);
     },
   },
@@ -90,32 +90,30 @@ export default defineComponent({
       className: `${name}__confirm`,
     });
     return (
-      <div>
-        <Popup
-          ref="popup"
-          visible={this.visible}
-          {...this.innerPopupProps}
-          onVisibleChange={this.onPopupVisibleChange}
-          v-slots={{
-            content: () => (
-              <div class={`${name}__content`}>
-                <div class={`${name}__body`}>
-                  {this.renderIcon()}
-                  <div class={`${name}__inner`}>{renderTNodeJSX(this, 'content')}</div>
-                </div>
-                {Boolean(cancelBtn || confirmBtn) && (
-                  <div class={`${name}__buttons`}>
-                    {cancelBtn}
-                    {confirmBtn}
-                  </div>
-                )}
+      <Popup
+        ref="popup"
+        visible={this.visible}
+        {...this.innerPopupProps}
+        onVisibleChange={this.onPopupVisibleChange}
+        v-slots={{
+          content: () => (
+            <div class={`${name}__content`}>
+              <div class={`${name}__body`}>
+                {this.renderIcon()}
+                <div class={`${name}__inner`}>{renderTNodeJSX(this, 'content')}</div>
               </div>
-            ),
-          }}
-        >
-          {triggerElement}
-        </Popup>
-      </div>
+              {Boolean(cancelBtn || confirmBtn) && (
+                <div class={`${name}__buttons`}>
+                  {cancelBtn}
+                  {confirmBtn}
+                </div>
+              )}
+            </div>
+          ),
+        }}
+      >
+        {triggerElement}
+      </Popup>
     );
   },
 });

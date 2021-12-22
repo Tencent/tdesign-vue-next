@@ -6,7 +6,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 const name = `${prefix}-badge`;
 
 export default defineComponent({
-  name,
+  name: 'TBadge',
 
   props: { ...props },
 

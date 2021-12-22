@@ -52,7 +52,7 @@
       <t-form-item label="帮助" name="help" :status-icon="getStatusIcon" help="自定义帮助icon">
         <t-input v-model="formData.help" />
         <template #statusIcon>
-          <t-icon name="help-circle" size="25px" />
+          <t-icon name="help-circle" size="16px" />
         </template>
       </t-form-item>
       <t-form-item :status-icon="false" style="padding-top: 8px">
@@ -122,7 +122,7 @@ export default defineComponent({
       formValidatorStatus.value.validate();
     });
 
-    const getStatusIcon = () => <t-icon name="help-circle" size="25px" style="color: #0006" />;
+    const getStatusIcon = () => <t-icon name="help-circle" size="16px" style="color: #0006" />;
 
     return {
       formValidatorStatus,

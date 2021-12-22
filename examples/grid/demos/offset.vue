@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-item--grid">
+  <div class="tdesign-demo-block-column">
     <t-row>
       <t-col :span="4">
         <div>col-4</div>

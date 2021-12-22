@@ -5,11 +5,12 @@ import TLoading from '../loading';
 import { SwitchValue } from './type';
 import props from './props';
 import { ClassName, TNodeReturnValue } from '../common';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-switch`;
 
 export default defineComponent({
-  name,
+  name: 'TSwitch',
   props: { ...props },
   emits: ['change'],
   computed: {
@@ -90,7 +91,7 @@ export default defineComponent({
   methods: {
     handleToggle(): void {
       const checked = this.value === this.activeValue ? this.inactiveValue : this.activeValue;
-      this.$emit('change', checked);
+      emitEvent(this, 'change', checked);
     },
     toggle(): void {
       if (this.disabled || this.loading) {

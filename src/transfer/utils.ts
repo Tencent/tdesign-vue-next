@@ -5,6 +5,8 @@ import { TransferListOptionBase, TransferItemOption, TdTransferProps, TransferVa
 
 export { emitEvent } from '../utils/event';
 
+export const TRANSFER_NAME = 'TTransfer';
+
 interface TreeNode {
   children?: Array<TreeNode>;
 }

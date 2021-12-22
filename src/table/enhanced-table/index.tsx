@@ -17,7 +17,7 @@ export default defineComponent({
   },
   data() {
     return {
-      dataSource: this.data,
+      dataSource: [],
     };
   },
   computed: {

@@ -1,6 +1,7 @@
 import { defineComponent, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import TPopup from '../popup/index';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-slider-button`;
 
@@ -252,7 +253,7 @@ export default defineComponent({
       let value = steps * perStepLen * this.rangeDiff * 0.01;
       value += this.min;
       value = Number(parseFloat(`${value}`).toFixed(this.precision));
-      this.$emit('input', value);
+      emitEvent(this, 'input', value);
       this.$nextTick(() => {
         this.showPopup();
         this.$refs.popup && (this.$refs.popup as ComponentPublicInstance).updatePopper();

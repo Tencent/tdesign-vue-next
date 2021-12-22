@@ -7,10 +7,8 @@ import { Tabs, TabPanel } from '../tabs';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
 
-const name = `${prefix}-head-menu`;
-
 export default defineComponent({
-  name,
+  name: 'THeadMenu',
   components: { Tabs, TabPanel },
   props,
   setup(props, ctx) {
@@ -18,12 +16,7 @@ export default defineComponent({
     const activeValues = ref([]);
     const expandValues = ref(props.defaultExpanded || props.expanded || []);
     const theme = computed(() => props.theme);
-    const menuClass = computed(() => [
-      `${prefix}-menu`,
-      `${prefix}-head-menu`,
-      `${prefix}-menu-mode__${props.expandType}`,
-      `${prefix}-menu--${props.theme}`,
-    ]);
+    const menuClass = computed(() => [`${prefix}-menu`, `${prefix}-head-menu`, `${prefix}-menu--${props.theme}`]);
     const mode = ref(props.expandType);
     const submenu = reactive([]);
     const deliver = (evt: string) => {

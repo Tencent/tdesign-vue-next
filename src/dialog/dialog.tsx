@@ -8,7 +8,7 @@ import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
-import { ClassName, Styles, TNode } from '../common';
+import { ClassName, Styles } from '../common';
 import { emitEvent } from '../utils/event';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { DialogConfig } from '../config-provider/config-receiver';
@@ -50,7 +50,7 @@ function InitDragEvent(dragBox: HTMLElement) {
 }
 export default defineComponent({
   ...mixins(ActionMixin, getConfigReceiverMixins<DialogConfig>('dialog')),
-  name,
+  name: 'TDialog',
   components: {
     CloseIcon,
     InfoCircleFilledIcon,
@@ -226,7 +226,7 @@ export default defineComponent({
     emitCloseEvent(context: DialogCloseContext) {
       emitEvent<Parameters<TdDialogProps['onClose']>>(this, 'close', context);
       // 默认关闭弹窗
-      this.$emit('update:visible', false);
+      emitEvent(this, 'update:visible', false);
     },
 
     // Vue在引入阶段对事件的处理还做了哪些初始化操作。Vue在实例上用一个_events属性存贮管理事件的派发和更新，

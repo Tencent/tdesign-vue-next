@@ -1,19 +1,18 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import { ClassName } from '../common';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-layout`;
 
 export default defineComponent({
-  name,
+  name: 'TLayout',
 
   provide(): any {
     return {
       layout: this,
     };
   },
-
-  props: {},
 
   data() {
     return {
@@ -32,15 +31,7 @@ export default defineComponent({
     },
   },
 
-  watch: {},
-
-  methods: {
-    renderContent() {
-      return this.$slots.default() ? this.$slots.default(null) : '';
-    },
-  },
-
   render() {
-    return <section class={this.classes}>{this.renderContent()}</section>;
+    return <section class={this.classes}>{renderTNodeJSX(this, 'default')}</section>;
   },
 });

@@ -6,15 +6,14 @@ import props from './props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
 import FormItem from './form-item';
 import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
+import { emitEvent } from '../utils/event';
 
 export type FormItemInstance = InstanceType<typeof FormItem>;
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
-const name = `${prefix}-form`;
-
 export default defineComponent({
-  name,
+  name: 'TForm',
 
   provide(): { form: ComponentPublicInstance } {
     return {
@@ -80,7 +79,7 @@ export default defineComponent({
         }
       });
       const result = isEmpty(r) ? true : r;
-      this.$emit('validate', {
+      emitEvent(this, 'validate', {
         validateResult: result,
         firstError: this.getFirstError(result),
       });
@@ -92,7 +91,7 @@ export default defineComponent({
         e && e.stopPropagation();
       }
       this.validate().then((r) => {
-        this.$emit('submit', {
+        emitEvent(this, 'submit', {
           validateResult: r,
           firstError: this.getFirstError(r),
           e,
@@ -105,7 +104,7 @@ export default defineComponent({
         e && e.stopPropagation();
       }
       this.children.filter((child: any) => this.isFunction(child.resetField)).map((child: any) => child.resetField());
-      this.$emit('reset', { e });
+      emitEvent(this, 'reset', { e });
     },
     clearValidate(fields?: Array<string>) {
       this.children.forEach((child) => {

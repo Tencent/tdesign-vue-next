@@ -1,4 +1,5 @@
 import { ComponentPublicInstance } from 'vue';
+import { getPropsApiByEvent } from './helper';
 
 export type EmitEventName = { event: string; method: string } | string;
 
@@ -12,5 +13,14 @@ export type EmitEventName = { event: string; method: string } | string;
  * @example emitEvent<[SearchEvent[], TargetParams]>(this, { event: 'search', method: 'onChange' }, {query: ''});
  */
 export function emitEvent<T extends any[]>(vm: ComponentPublicInstance, eventName: string, ...args: T) {
-  vm.$emit(eventName, ...args);
+  let emitEventMethodName: string;
+  if (typeof eventName === 'string') {
+    emitEventMethodName = getPropsApiByEvent(eventName);
+  }
+
+  if (typeof vm.$props[emitEventMethodName] === 'function') {
+    vm.$props[emitEventMethodName](...args);
+  } else {
+    vm.$emit(eventName, ...args);
+  }
 }

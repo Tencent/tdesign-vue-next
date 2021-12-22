@@ -12,7 +12,7 @@ import mixins from '../utils/mixins';
 const name = `${prefix}-steps`;
 
 export default defineComponent({
-  name,
+  name: 'TSteps',
   components: {
     TStepItem,
   },

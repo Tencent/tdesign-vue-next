@@ -685,6 +685,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
               
               <div
                 class="t-radio-group__bg-block"
+                style="width: 0px; left: 0px;"
               />
               
             </div>
@@ -1491,6 +1492,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->
@@ -1512,6 +1514,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->
@@ -1533,6 +1536,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->
@@ -2661,12 +2665,13 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
           <input
             class="t-checkbox__former"
+            disabled=""
             name="t30"
             type="checkbox"
           />
@@ -2784,12 +2789,13 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
           <input
             class="t-checkbox__former"
+            disabled=""
             name="t33"
             type="checkbox"
           />
@@ -2944,12 +2950,13 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
           <input
             class="t-checkbox__former"
+            disabled=""
             name="t37"
             type="checkbox"
           />
@@ -3907,6 +3914,7 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->
@@ -7353,6 +7361,7 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
+          placeholder="请输入"
           type="text"
         />
         <!---->
@@ -7965,6 +7974,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->
@@ -7986,6 +7996,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->
@@ -8007,6 +8018,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->
@@ -8487,6 +8499,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->
@@ -8508,6 +8521,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->
@@ -8529,6 +8543,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       <input
         autocomplete="false"
         class="t-input__inner"
+        placeholder="请输入"
         type="text"
       />
       <!---->

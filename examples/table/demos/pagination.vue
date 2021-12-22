@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 const data = [];
 const TOTAL = 60;
@@ -61,11 +61,11 @@ const columns = [
 
 export default defineComponent({
   setup() {
-    const pagination = {
+    const pagination = ref({
       defaultCurrent: 2,
       defaultPageSize: 5,
       total: TOTAL,
-    };
+    });
 
     const onChange = (params, context) => {
       console.log(params, context);

@@ -1,11 +1,10 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import props from './aside-props';
-
-const name = `${prefix}-aside`;
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 export default defineComponent({
-  name,
+  name: 'TAside',
 
   inject: {
     layout: {
@@ -15,10 +14,6 @@ export default defineComponent({
 
   props,
 
-  data() {
-    return {};
-  },
-
   mounted() {
     this.layout.hasSider = true;
   },
@@ -27,17 +22,11 @@ export default defineComponent({
     this.layout.hasSider = false;
   },
 
-  methods: {
-    renderContent() {
-      return this.$slots.default() ? this.$slots.default(null) : '';
-    },
-  },
-
   render() {
     const styles = this.width ? { width: this.width } : {};
     return (
-      <aside class="t-layout__sider" style={styles}>
-        {this.renderContent()}
+      <aside class={`${prefix}-layout__sider`} style={styles}>
+        {renderTNodeJSX(this, 'default')}
       </aside>
     );
   },
