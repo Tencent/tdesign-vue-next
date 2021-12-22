@@ -51,7 +51,7 @@
 
 ### 全部图标
 
-<tdesign-icons-view />
+<td-icons-view />
 
 ## API
 
