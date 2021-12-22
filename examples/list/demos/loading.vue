@@ -25,7 +25,6 @@ export default defineComponent({
     const asyncLoadingRadio = ref('load-more');
 
     const loadMore = () => {
-      console.log(123);
       asyncLoadingRadio.value = 'loading';
     };
 
