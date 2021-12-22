@@ -1,17 +1,5 @@
 <template>
   <div>
-    <div style="margin: 16px">
-      <ul>
-        <li>单元格默认使用 row[colKey] 渲染数据内容，自定义单元格有以下 3 种方式</li>
-        <li>1) 使用 cell 作为渲染函数，函数参数为：cell(h, {col, colIndex, row, rowIndex})</li>
-        <li>2) 插槽，使用 cell 的值作为插槽名称；如果 cell 值为空，则默认取 colKey 作为插槽名称</li>
-        <li>
-          3)【不推荐使用】使用 render 渲染函数，函数参数为：render(h, {col, colIndex, row, rowIndex, type})，单元格的
-          type 值为 cell，标题的 type 值为 title
-        </li>
-      </ul>
-      <br />
-    </div>
     <t-table :data="data" :columns="columns" row-key="property">
       <!-- 插槽方式 自定义单元格：cell 的值为插槽名称，参数有：{col, colIndex, row, rowIndex}  -->
       <template #type-slot-name="{ col, row }">
