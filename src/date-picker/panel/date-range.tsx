@@ -185,7 +185,7 @@ export default defineComponent({
     },
     getClickHandler(direction: string, date: DateValue, e: MouseEvent) {
       const type = this[`${direction}Type`];
-      return this[`click${firstUpperCase(type)}`](date, e);
+      return this[`click${firstUpperCase(type)}`](date, e, direction);
     },
     clickHeader(flag: number, direction: string) {
       const year = this[`${direction}Year`];
