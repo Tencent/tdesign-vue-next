@@ -311,7 +311,7 @@ export default defineComponent({
     checkVal() {
       const { value, multiple } = this;
       if ((multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value))) {
-        this.$emit('change', this.multiple ? [] : '');
+        emitEvent(this, 'change', this.multiple ? [] : '');
         console.warn('TDesign Warn:', 'select props value invalid, v-model automatic calibration');
       }
     },
@@ -380,7 +380,7 @@ export default defineComponent({
       const tempValue = this.value instanceof Array ? [].concat(this.value) : [];
       tempValue.splice(index, 1);
       this.emitChange(tempValue);
-      this.$emit('remove', { value: val, data: removeOption[0], e });
+      emitEvent(this, 'remove', { value: val, data: removeOption[0], e });
     },
     hideMenu() {
       this.visible = false;
@@ -394,7 +394,7 @@ export default defineComponent({
       this.focusing = false;
       this.searchInput = '';
       this.visible = false;
-      this.$emit('clear', { e });
+      emitEvent(this, 'clear', { e });
     },
     getOptions(option: OptionInstance) {
       // create option值不push到options里

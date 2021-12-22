@@ -3,6 +3,7 @@ import { InfoCircleFilledIcon, CheckCircleFilledIcon, CloseIcon } from 'tdesign-
 import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import props from './props';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-notification`;
 
@@ -19,13 +20,13 @@ export default defineComponent({
     if (this.duration > 0) {
       const timer = setTimeout(() => {
         clearTimeout(timer);
-        this.$emit('duration-end', this);
+        emitEvent(this, 'duration-end', this);
       }, this.duration);
     }
   },
   methods: {
     close(e?: MouseEvent) {
-      this.$emit('click-close-btn', e, this);
+      emitEvent(this, 'click-close-btn', e, this);
     },
     renderIcon() {
       let icon;

@@ -226,7 +226,7 @@ export default defineComponent({
     emitCloseEvent(context: DialogCloseContext) {
       emitEvent<Parameters<TdDialogProps['onClose']>>(this, 'close', context);
       // 默认关闭弹窗
-      this.$emit('update:visible', false);
+      emitEvent(this, 'update:visible', false);
     },
 
     // Vue在引入阶段对事件的处理还做了哪些初始化操作。Vue在实例上用一个_events属性存贮管理事件的派发和更新，

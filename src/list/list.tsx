@@ -6,6 +6,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
 import { ClassName } from '../common';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-list`;
 
@@ -53,7 +54,7 @@ export default defineComponent({
     handleScroll(e: WheelEvent | Event) {
       const listElement = this.$el as HTMLElement;
       const { scrollTop, scrollHeight, clientHeight } = listElement;
-      this.$emit('scroll', {
+      emitEvent(this, 'scroll', {
         $event: e,
         scrollTop,
         scrollBottom: scrollHeight - clientHeight - scrollTop,
@@ -61,7 +62,7 @@ export default defineComponent({
     },
     handleLoadMore(e: MouseEvent) {
       if (typeof this.asyncLoading === 'string' && this.asyncLoading !== LOAD_MORE) return;
-      this.$emit('load-more', { e });
+      emitEvent(this, 'load-more', { e });
       if (this.onLoadMore) {
         this.onLoadMore({
           e,

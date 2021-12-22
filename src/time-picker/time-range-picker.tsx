@@ -15,6 +15,7 @@ import PickerPanel from './panel';
 import TInput from '../input';
 import InputItems from './input-items';
 import props from './time-range-picker-props';
+import { emitEvent } from '../utils/event';
 
 import { EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM } from './constant';
 
@@ -105,7 +106,7 @@ export default defineComponent({
       // 转化展示数据
       this.updateInputTime();
 
-      this.$emit('input', { input: value, value: this.time[index].format(this.format), e: event });
+      emitEvent(this, 'input', { input: value, value: this.time[index].format(this.format), e: event });
       const panelRef = this.$refs.panel as TimePickerPanelInstance;
       panelRef.panelColUpdate();
     },
@@ -121,22 +122,22 @@ export default defineComponent({
     // @blur
     onBlurDefault(e: Event) {
       const value = this.getFormatValues();
-      this.$emit('blur', { value, e });
+      emitEvent(this, 'blur', { value, e });
     },
     // @focus
     onFocusDefault(e: Event) {
       const value = this.getFormatValues();
-      this.$emit('focus', { value, e });
+      emitEvent(this, 'focus', { value, e });
     },
     // 面板展示隐藏
     panelVisibleChange(val: boolean, context?: PopupVisibleChangeContext) {
       if (context) {
         const isClickDoc = context.trigger === 'document';
         this.isShowPanel = !isClickDoc;
-        this.$emit(isClickDoc ? 'close' : 'open');
+        emitEvent(this, isClickDoc ? 'close' : 'open');
       } else {
         this.isShowPanel = val;
-        this.$emit(val ? 'open' : 'close');
+        emitEvent(this, val ? 'open' : 'close');
       }
     },
     // 切换上下午
@@ -246,7 +247,7 @@ export default defineComponent({
           values.push(time.format(this.format));
         }
       });
-      this.$emit('change', values);
+      emitEvent(this, 'change', values);
       isFunction(this.onChange) && this.onChange(values);
     },
     renderInput() {

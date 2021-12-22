@@ -16,6 +16,7 @@ import props from './props';
 import { TdPaginationProps } from './type';
 import { ClassName } from '../common';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import { emitEvent } from '../utils/event';
 
 const { prefix } = config;
 
@@ -234,10 +235,10 @@ export default defineComponent({
           pageSize: this.pageSize,
         };
         if (isTriggerChange !== false) {
-          this.$emit('change', pageInfo);
+          emitEvent(this, 'change', pageInfo);
         }
         this.$emit('update:current', current);
-        this.$emit('current-change', current, pageInfo);
+        emitEvent(this, 'current-change', current, pageInfo);
       }
     },
     prevPage(): void {
@@ -287,8 +288,8 @@ export default defineComponent({
         previous: this.current,
         pageSize,
       };
-      this.$emit('page-size-change', pageSize, pageInfo);
-      this.$emit('change', pageInfo);
+      emitEvent(this, 'page-size-change', pageSize, pageInfo);
+      emitEvent(this, 'change', pageInfo);
       if (isIndexChange) {
         this.toPage(pageCount, false);
       }

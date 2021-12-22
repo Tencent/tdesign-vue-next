@@ -6,6 +6,7 @@ import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { ChangeSource } from './type';
 import { ClassName } from '../common';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-input-number`;
 
@@ -233,29 +234,29 @@ export default defineComponent({
     },
     handleChange(value: number, ctx: { type: ChangeSource; e: ChangeContextEvent }) {
       this.updateValue(value);
-      this.$emit('change', value, { type: ctx.type, e: ctx.e });
+      emitEvent(this, 'change', value, { type: ctx.type, e: ctx.e });
     },
     async handleBlur(e: FocusEvent) {
       await this.handleEndInput(e);
-      this.$emit('blur', this.value, { e });
+      emitEvent(this, 'blur', this.value, { e });
     },
     handleFocus(e: FocusEvent) {
       this.handleStartInput();
-      this.$emit('focus', this.value, { e });
+      emitEvent(this, 'focus', this.value, { e });
     },
     handleKeydownEnter(e: KeyboardEvent) {
       if (e.key !== 'Enter') return;
-      this.$emit('keydown-enter', this.value, { e });
+      emitEvent(this, 'keydown-enter', this.value, { e });
     },
     handleKeydown(e: KeyboardEvent) {
-      this.$emit('keydown', this.value, { e });
+      emitEvent(this, 'keydown', this.value, { e });
       this.handleKeydownEnter(e);
     },
     handleKeyup(e: KeyboardEvent) {
-      this.$emit('keyup', this.value, { e });
+      emitEvent(this, 'keyup', this.value, { e });
     },
     handleKeypress(e: KeyboardEvent) {
-      this.$emit('keypress', this.value, { e });
+      emitEvent(this, 'keypress', this.value, { e });
     },
     handleStartInput() {
       this.inputing = true;
