@@ -14,8 +14,8 @@ maxlength | Number | - | 用户最多可以输入的字符个数 | N
 name | String | - | 名称 | N
 placeholder | String | - | 占位符 | N
 readonly | Boolean | false | 文本框是否只读 | N
-value | String / Number | - | 文本框值。支持语法糖。TS 类型：`TextareaValue`。[详细类型定义](https://github.com/TDesignOteam/tdesign-vue/tree/develop/src/textarea/type.ts) | N
-defaultValue | String / Number | - | 文本框值。非受控属性。TS 类型：`TextareaValue`。[详细类型定义](https://github.com/TDesignOteam/tdesign-vue/tree/develop/src/textarea/type.ts) | N
+value | String / Number | - | 文本框值。支持语法糖。TS 类型：`TextareaValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/textarea/type.ts) | N
+defaultValue | String / Number | - | 文本框值。非受控属性。TS 类型：`TextareaValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/textarea/type.ts) | N
 onBlur | Function |  | 失去焦点时触发。`(value: TextareaValue, context: { e: FocusEvent }) => {}` | N
 onChange | Function |  | 输入内容变化时触发。`(value: TextareaValue, context?: { e?: InputEvent }) => {}` | N
 onFocus | Function |  | 获得焦点时触发。`(value: TextareaValue, context: { e: FocusEvent }) => {}` | N
