@@ -9297,280 +9297,271 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
   style="padding: 16px;"
 >
   <div
+    class="t-popup__reference"
     modelvalue="false"
   >
-    <div
-      class="t-popup__reference"
-    >
-      <transition-stub>
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
         <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
+          class="t-popup__content t-popup__content--arrow t-popconfirm"
         >
+          
           <div
-            class="t-popup__content t-popup__content--arrow t-popconfirm"
+            class="t-popconfirm__content"
           >
-            
             <div
-              class="t-popconfirm__content"
+              class="t-popconfirm__body"
             >
-              <div
-                class="t-popconfirm__body"
+              <svg
+                class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                <svg
-                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
-                    fill="currentColor"
-                    fillOpacity="0.9"
-                  />
-                </svg>
-                <div
-                  class="t-popconfirm__inner"
-                >
-                  Do you want to delete
-                </div>
-              </div>
+                <path
+                  d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
+                  fill="currentColor"
+                  fillOpacity="0.9"
+                />
+              </svg>
               <div
-                class="t-popconfirm__buttons"
+                class="t-popconfirm__inner"
               >
-                <button
-                  class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
-                  type="button"
-                >
-                  <span
-                    class="t-button__text"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="t-button t-size-m t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
-                  type="button"
-                >
-                  <span
-                    class="t-button__text"
-                  >
-                    OK
-                  </span>
-                </button>
+                Do you want to delete
               </div>
             </div>
-            
             <div
-              class="t-popup__arrow"
-            />
+              class="t-popconfirm__buttons"
+            >
+              <button
+                class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="t-button t-size-m t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
+          
+          <div
+            class="t-popup__arrow"
+          />
         </div>
-      </transition-stub>
-      
-      
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-        type="button"
+      </div>
+    </transition-stub>
+    
+    
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
       >
-        <span
-          class="t-button__text"
-        >
-          
-          Default
-          
-        </span>
-      </button>
-      
-      
-    </div>
+        
+        Default
+        
+      </span>
+    </button>
+    
+    
   </div>
   <div
+    class="t-popup__reference"
     modelvalue="false"
   >
-    <div
-      class="t-popup__reference"
-    >
-      <transition-stub>
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
         <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
+          class="t-popup__content t-popup__content--arrow t-popconfirm"
         >
+          
           <div
-            class="t-popup__content t-popup__content--arrow t-popconfirm"
+            class="t-popconfirm__content"
           >
-            
             <div
-              class="t-popconfirm__content"
+              class="t-popconfirm__body"
             >
-              <div
-                class="t-popconfirm__body"
+              <svg
+                class="t-icon t-icon-error-circle-filled t-popconfirm__icon--warning t-popconfirm__icon--warning"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                <svg
-                  class="t-icon t-icon-error-circle-filled t-popconfirm__icon--warning t-popconfirm__icon--warning"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-                    fill="currentColor"
-                    fillOpacity="0.9"
-                  />
-                </svg>
-                <div
-                  class="t-popconfirm__inner"
-                >
-                  Do you want to delete
-                </div>
-              </div>
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fillOpacity="0.9"
+                />
+              </svg>
               <div
-                class="t-popconfirm__buttons"
+                class="t-popconfirm__inner"
               >
-                <button
-                  class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
-                  type="button"
-                >
-                  <span
-                    class="t-button__text"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="t-button t-size-m t-button--variant-base t-button--theme-warning t-popconfirm__confirm"
-                  type="button"
-                >
-                  <span
-                    class="t-button__text"
-                  >
-                    OK
-                  </span>
-                </button>
+                Do you want to delete
               </div>
             </div>
-            
             <div
-              class="t-popup__arrow"
-            />
+              class="t-popconfirm__buttons"
+            >
+              <button
+                class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="t-button t-size-m t-button--variant-base t-button--theme-warning t-popconfirm__confirm"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
+          
+          <div
+            class="t-popup__arrow"
+          />
         </div>
-      </transition-stub>
-      
-      
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-warning"
-        type="button"
+      </div>
+    </transition-stub>
+    
+    
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+      type="button"
+    >
+      <span
+        class="t-button__text"
       >
-        <span
-          class="t-button__text"
-        >
-          
-          Warning
-          
-        </span>
-      </button>
-      
-      
-    </div>
+        
+        Warning
+        
+      </span>
+    </button>
+    
+    
   </div>
   <div
+    class="t-popup__reference"
     modelvalue="false"
   >
-    <div
-      class="t-popup__reference"
-    >
-      <transition-stub>
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
         <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
+          class="t-popup__content t-popup__content--arrow t-popconfirm"
         >
+          
           <div
-            class="t-popup__content t-popup__content--arrow t-popconfirm"
+            class="t-popconfirm__content"
           >
-            
             <div
-              class="t-popconfirm__content"
+              class="t-popconfirm__body"
             >
-              <div
-                class="t-popconfirm__body"
+              <svg
+                class="t-icon t-icon-error-circle-filled t-popconfirm__icon--danger t-popconfirm__icon--danger"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
               >
-                <svg
-                  class="t-icon t-icon-error-circle-filled t-popconfirm__icon--danger t-popconfirm__icon--danger"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-                    fill="currentColor"
-                    fillOpacity="0.9"
-                  />
-                </svg>
-                <div
-                  class="t-popconfirm__inner"
-                >
-                  Do you want to delete
-                </div>
-              </div>
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
+                  fill="currentColor"
+                  fillOpacity="0.9"
+                />
+              </svg>
               <div
-                class="t-popconfirm__buttons"
+                class="t-popconfirm__inner"
               >
-                <button
-                  class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
-                  type="button"
-                >
-                  <span
-                    class="t-button__text"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="t-button t-size-m t-button--variant-base t-button--theme-danger t-popconfirm__confirm"
-                  type="button"
-                >
-                  <span
-                    class="t-button__text"
-                  >
-                    OK
-                  </span>
-                </button>
+                Do you want to delete
               </div>
             </div>
-            
             <div
-              class="t-popup__arrow"
-            />
+              class="t-popconfirm__buttons"
+            >
+              <button
+                class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="t-button t-size-m t-button--variant-base t-button--theme-danger t-popconfirm__confirm"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  OK
+                </span>
+              </button>
+            </div>
           </div>
+          
+          <div
+            class="t-popup__arrow"
+          />
         </div>
-      </transition-stub>
-      
-      
-      <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-danger"
-        type="button"
+      </div>
+    </transition-stub>
+    
+    
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+      type="button"
+    >
+      <span
+        class="t-button__text"
       >
-        <span
-          class="t-button__text"
-        >
-          
-          Danger
-          
-        </span>
-      </button>
-      
-      
-    </div>
+        
+        Danger
+        
+      </span>
+    </button>
+    
+    
   </div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"

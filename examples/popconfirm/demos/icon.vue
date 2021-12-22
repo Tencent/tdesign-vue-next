@@ -30,6 +30,16 @@
           <t-button variant="outline">自定义图标（插槽）</t-button>
         </t-popconfirm>
       </div>
+
+      <div class="demo-item">
+        <t-popconfirm
+          content="基础气泡确认框文案示意文字按钮"
+          :icon="customIcon"
+          :popup-props="{ placement: 'bottom' }"
+        >
+          <t-button variant="outline">自定义图标（属性）</t-button>
+        </t-popconfirm>
+      </div>
     </div>
   </div>
 </template>
@@ -47,7 +57,20 @@ export default defineComponent({
       visible1,
       visible2,
       visible3,
+      customIcon() {
+        return <BrowseIcon style={{ marginRight: 8, color: ' #0052d9' }} />;
+      },
     };
   },
 });
 </script>
+<style scoped>
+.popconfirm-demo .tdesign-demo-block {
+  display: flex;
+  justify-content: flex-start;
+}
+.popconfirm-demo .demo-item {
+  width: 240px;
+  text-align: left;
+}
+</style>

@@ -1,14 +1,15 @@
 <template>
   <div class="tdesign-demo-item--datepicker">
-    <t-date-picker theme="primary" mode="date" range />
-  </div>
-  <div class="tdesign-demo-item--datepicker">
-    <t-date-picker theme="primary" mode="date" enable-time-picker range />
+    <t-date-picker mode="date" range :placeholder="['开始时间', '结束时间']" />
+    <br />
+    <br />
+    <t-date-picker
+      theme="primary"
+      mode="date"
+      range
+      format="YYYY-MM-DD HH:mm:ss"
+      enable-time-picker
+      style="width: 350px"
+    />
   </div>
 </template>
-
-<style scoped>
-.tdesign-demo-item--datepicker {
-  margin-bottom: 12px;
-}
-</style>

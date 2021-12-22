@@ -90,32 +90,30 @@ export default defineComponent({
       className: `${name}__confirm`,
     });
     return (
-      <div>
-        <Popup
-          ref="popup"
-          visible={this.visible}
-          {...this.innerPopupProps}
-          onVisibleChange={this.onPopupVisibleChange}
-          v-slots={{
-            content: () => (
-              <div class={`${name}__content`}>
-                <div class={`${name}__body`}>
-                  {this.renderIcon()}
-                  <div class={`${name}__inner`}>{renderTNodeJSX(this, 'content')}</div>
-                </div>
-                {Boolean(cancelBtn || confirmBtn) && (
-                  <div class={`${name}__buttons`}>
-                    {cancelBtn}
-                    {confirmBtn}
-                  </div>
-                )}
+      <Popup
+        ref="popup"
+        visible={this.visible}
+        {...this.innerPopupProps}
+        onVisibleChange={this.onPopupVisibleChange}
+        v-slots={{
+          content: () => (
+            <div class={`${name}__content`}>
+              <div class={`${name}__body`}>
+                {this.renderIcon()}
+                <div class={`${name}__inner`}>{renderTNodeJSX(this, 'content')}</div>
               </div>
-            ),
-          }}
-        >
-          {triggerElement}
-        </Popup>
-      </div>
+              {Boolean(cancelBtn || confirmBtn) && (
+                <div class={`${name}__buttons`}>
+                  {cancelBtn}
+                  {confirmBtn}
+                </div>
+              )}
+            </div>
+          ),
+        }}
+      >
+        {triggerElement}
+      </Popup>
     );
   },
 });

@@ -1,29 +1,18 @@
 import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import props from './footer-props';
-
-const name = `${prefix}-footer`;
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 export default defineComponent({
   name: 'TFooter',
 
   props,
 
-  data() {
-    return {};
-  },
-
-  methods: {
-    renderContent() {
-      return this.$slots.default() ? this.$slots.default(null) : '';
-    },
-  },
-
   render() {
     const styles = this.height ? { height: this.height } : {};
     return (
-      <footer class="t-layout__footer" style={styles}>
-        {this.renderContent()}
+      <footer class={`${prefix}-layout__footer`} style={styles}>
+        {renderTNodeJSX(this, 'default')}
       </footer>
     );
   },
