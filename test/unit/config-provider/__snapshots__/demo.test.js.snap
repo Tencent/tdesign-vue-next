@@ -9075,7 +9075,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
 exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
 <div
   class="t-pagination t-size-m"
-  modelvalue="12"
+  modelvalue="1"
   style="padding: 16px;"
 >
   <div
@@ -9204,8 +9204,8 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-pagination__btn t-pagination__btn-prev"
-    disabled="false"
+    class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+    disabled="true"
   >
     <svg
       class="t-icon t-icon-chevron-left"
@@ -9228,7 +9228,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
     <!---->
     
     <li
-      class="t-pagination__number"
+      class="t-pagination__number t-is-current"
     >
       1
     </li>
@@ -9275,7 +9275,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
     jump to
     <div
       class="t-input t-size-m t-pagination__input"
-      modelvalue="12"
+      modelvalue="1"
     >
       <!---->
       <input
