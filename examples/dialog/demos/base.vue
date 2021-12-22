@@ -5,12 +5,12 @@
       v-model:visible="visible"
       header="对话框标题"
       body="对话框内容"
-      :on-confirm="onConfirmAnother"
       :on-cancel="onCancel"
       :on-esc-keydown="onEscKeydown"
       :on-close-btn-click="onCloseBtnClick"
       :on-overlay-click="onOverlayClick"
       :on-close="close"
+      :on-confirm="onConfirmAnother"
     />
   </div>
 </template>

@@ -8,7 +8,7 @@ import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
-import { ClassName, Styles, TNode } from '../common';
+import { ClassName, Styles } from '../common';
 import { emitEvent } from '../utils/event';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { DialogConfig } from '../config-provider/config-receiver';
