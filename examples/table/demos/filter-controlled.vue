@@ -113,7 +113,6 @@ export default defineComponent({
       const timer = setTimeout(() => {
         clearTimeout(timer);
         const newData = initData.filter((item) => {
-          console.log(item);
           let result = true;
           if (filters.firstName) {
             result = item.firstName === filters.firstName;
@@ -127,7 +126,6 @@ export default defineComponent({
           if (result && filters.createTime) {
             result = item.createTime === filters.createTime;
           }
-          console.log(result);
           return result;
         });
         console.log(newData);
