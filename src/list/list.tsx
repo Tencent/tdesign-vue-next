@@ -63,11 +63,6 @@ export default defineComponent({
     handleLoadMore(e: MouseEvent) {
       if (typeof this.asyncLoading === 'string' && this.asyncLoading !== LOAD_MORE) return;
       emitEvent(this, 'load-more', { e });
-      if (this.onLoadMore) {
-        this.onLoadMore({
-          e,
-        });
-      }
     },
     renderContent(): VNodeChild {
       const propsHeaderContent = renderTNodeJSX(this, 'header');
