@@ -97,8 +97,6 @@ export default defineComponent({
               value = [selectedFmtDates[0], selectedFmtDates[1]].join(global.rangeSeparator);
             }
             break;
-          default:
-            break;
         }
 
         return value;
@@ -601,17 +599,6 @@ export default defineComponent({
               isShowPanel={showTime}
               isFooterDisplay={false}
             />
-            {range && (
-              <TTimePickerPanel
-                format="HH:mm:ss"
-                cols={[EPickerCols.hour, EPickerCols.minute, EPickerCols.second]}
-                steps={[1, 1, 1]}
-                value={[endTimeValue]}
-                onTimePick={this.handleEndTimePick}
-                isShowPanel={showTime}
-                isFooterDisplay={false}
-              />
-            )}
           </div>
         )}
         {!showTime && panelComponent}
