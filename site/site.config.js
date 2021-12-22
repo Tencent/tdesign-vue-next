@@ -334,6 +334,12 @@ export default {
           component: () => import('@/examples/progress/progress.md'),
         },
         {
+          title: 'Swiper 轮播框',
+          name: 'swiper',
+          path: '/vue-next/components/swiper',
+          component: () => import('@/examples/swiper/swiper.md'),
+        },
+        {
           title: 'Table 表格',
           name: 'table',
           docType: 'data',
@@ -422,12 +428,6 @@ export default {
           docType: 'message',
           path: '/vue-next/components/popup',
           component: () => import('@/examples/popup/popup.md'),
-        },
-        {
-          title: 'Swiper 轮播框',
-          name: 'swiper',
-          path: '/vue-next/components/swiper',
-          component: () => import('@/examples/swiper/swiper.md'),
         },
       ],
     },
