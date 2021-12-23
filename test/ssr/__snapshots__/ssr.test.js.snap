@@ -30205,8 +30205,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
           <!--[-->
           <colgroup>
             <!--[-->
-            <col style="">
-            <col style="">
+            <col style="width:100px;min-width:100px;">
+            <col style="width:100px;min-width:100px;">
+            <col style="width:100px;min-width:100px;">
+            <col style="width:100px;min-width:100px;">
+            <col style="width:100px;min-width:100px;">
+            <col style="width:100px;min-width:100px;">
             <!--]-->
           </colgroup>
           <thead>
