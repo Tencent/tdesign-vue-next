@@ -7,20 +7,39 @@ docClass: timeline
 
 ## 0.6.0 `2021-12-22`
 
+### BREAKING CHANGES
+
+* `0.5.0` 升级至 `0.6.0` 版本 CSS BEM 规范改动列表 ([#32](https://github.com/Tencent/tdesign-vue-next/issues/32))
+
 ### Bug Fixes
 
-* Slider: 修复在 `inputNumber` 不展示的情况时，外部 `dom` 冗余 ([4c14567](https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6))
+* Slider: 清除在 `inputNumber` 不展示的情况时的冗余外部 `dom` ([4c14567](https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6))
 * DatePicker
   * 修复区间选择在多个 `panel` 渲染异常 ([31c0c04](https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6))
   * 修复区间选择选择年月时点击无效 ([31c0c04](https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6))
 * Input: 修复无 `placeholder` 默认值问题 ([1ff9ea0](https://github.com/Tencent/tdesign-vue-next/commit/1ff9ea0e59ee64eb8214355272d8caf3242e1068))
 * Loading 修复 `loadingPlugin` 隐藏报错 ([6922d97](https://github.com/Tencent/tdesign-vue-next/commit/6922d97647af431a755479f16951d8db6be8b38c))
-* Pagination: 增加跳转输入框输入边界判断 ([b0787ce](https://github.com/Tencent/tdesign-vue-next/commit/b0787ce0258aff1aacda3b7549400eff225c70f2))
+* Pagination:
+  * 增加跳转输入框输入边界判断 ([b0787ce](https://github.com/Tencent/tdesign-vue-next/commit/b0787ce0258aff1aacda3b7549400eff225c70f2))
+  * 参数受控修复([3e41844](https://github.com/Tencent/tdesign-vue-next/pull/12/commits/3e418447bea5166ef1f458c333129c7b72602153))
 * Table: 修复 `enhancedTable` 安装类型报错 ([98e564b](https://github.com/Tencent/tdesign-vue-next/commit/98e564be6f3f414ffa5ab89768223799a73b2f89))
+* TreeSelect:
+  * 修复在 `collapsedItems` 模式下的选项数量渲染错误 ([#36](https://github.com/Tencent/tdesign-vue-next/issues/36))([86a2d09](https://github.com/Tencent/tdesign-vue-next/pull/42/commits/86a2d09d0649b655b8ce9b8611f84bfc60a64b4a))
+  * 修复点击关闭触发了下拉框 ([3324aae](https://github.com/Tencent/tdesign-vue-next/commit/3324aaeb232eb31a7c41b1bf6adb4feb93c51442))
+* Pagination: 可跳转的分页组件中使用 `input-number` 组件替换 `input`([86a2d09](https://github.com/Tencent/tdesign-vue-next/pull/42/commits/86a2d09d0649b655b8ce9b8611f84bfc60a64b4a))
+* Textarea: 修复 `v-model` 无效，处理滚动条样式 ([3c3c915](https://github.com/Tencent/tdesign-vue-next/pull/14/commits/3c3c9153f02cd60788c40802b6b35799012b417a))
+* Drawer: 修复事件点击无效无效 ([#39](https://github.com/Tencent/tdesign-vue-next/issues/39)) ([3c3c915](https://github.com/Tencent/tdesign-vue-next/pull/14/commits/3c3c9153f02cd60788c40802b6b35799012b417a))
+* TimePicker: 修复在 `HH:mm:ss format` 下渲染报错
+* Radio: 修复边界条件下的滚动 `bug` ([#860adfc](https://github.com/Tencent/tdesign-vue-next/pull/12/commits/860adfc8d59f7ceaa4d55eeee7e6ab1922c0e71e))
+* Chore: 替换组件名称变量，支持 `webstorm` 代码提示。([#cdc2582](https://github.com/Tencent/tdesign-vue-next/pull/7/commits/cdc2582325b332d29d2e96c58c4ae0646c5a0a02))
 
 ### Features
 
-* checkbox: 新增 checkbox slot ([fe3171b](https://github.com/Tencent/tdesign-vue-next/commit/fe3171b306a66c43ab25c3c7b38c8ad124571c10))[@pengYYYYY](https://github.com/pengYYYYY)
+* Checkbox: 新增 `checkbox` 插槽使用 ([fe3171b](https://github.com/Tencent/tdesign-vue-next/commit/fe3171b306a66c43ab25c3c7b38c8ad124571c10))
+* Table: 新增 `expandedRow` 插槽使用  ([fe3171b](https://github.com/Tencent/tdesign-vue-next/commit/fe3171b306a66c43ab25c3c7b38c8ad124571c10))
+* Select: 增加键盘事件([#39](https://github.com/Tencent/tdesign-vue-next/pull/12/commits/18bb03240d6d7556c4e5d8e568f9d7fbf9a0cdc8))([18bb032](https://github.com/Tencent/tdesign-vue-next/pull/12/commits/18bb03240d6d7556c4e5d8e568f9d7fbf9a0cdc8))
+* Upload: 提取公共 `XHR` ([#82d1b0b](https://github.com/Tencent/tdesign-vue-next/pull/12/commits/82d1b0bd757d55d6723ae04b8649610cfa60b66b))
+* DatePicker: 支持 `prefixIcon` 和 `suffixIcon` 插槽 ([#1d534c6](https://github.com/Tencent/tdesign-vue-next/pull/11/commits/1d534c6f29cdb8fc565858909e02b239a0f4887e))
 
 ## 0.5.0 `2021-12-08`
 
