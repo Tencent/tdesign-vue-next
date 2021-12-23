@@ -9077,8 +9077,24 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
           
           <colgroup>
             
-            <col />
-            <col />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
+            <col
+              style="width: 100px; min-width: 100px;"
+            />
             
           </colgroup>
           <thead>
