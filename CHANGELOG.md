@@ -9,28 +9,18 @@ docClass: timeline
 
 ### Bug Fixes
 
-* date-picker panel fix ([31c0c04](https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6))
-* date-picker-range click error ([b87f8c0](https://github.com/Tencent/tdesign-vue-next/commit/b87f8c043df82d12e0aba3b15b53eab7309373c6))
-* **dropdown:** dropdown item bem class ([6c0920b](https://github.com/Tencent/tdesign-vue-next/commit/6c0920b01bf6df54793b3d04313072057dc18b97))
-* emit bug ([9bb1aeb](https://github.com/Tencent/tdesign-vue-next/commit/9bb1aebbafd5b3b9afe5ed9000735fceb4c9404e))
-* **evemt emit:** use ([b783d08](https://github.com/Tencent/tdesign-vue-next/commit/b783d0843590ef72e0157dc5255149b4754b1b50))
-* input default placeholder ([1ff9ea0](https://github.com/Tencent/tdesign-vue-next/commit/1ff9ea0e59ee64eb8214355272d8caf3242e1068))
-* **list:** remove onLoadMore method logic ([02d4a2d](https://github.com/Tencent/tdesign-vue-next/commit/02d4a2d4c4c3c7ee16f8a6edc5fb8a3583f67ea7))
-* **loading:** loading plugin hide error ([6922d97](https://github.com/Tencent/tdesign-vue-next/commit/6922d97647af431a755479f16951d8db6be8b38c))
-* **pagination:** pagination jump boundary fix ([b0787ce](https://github.com/Tencent/tdesign-vue-next/commit/b0787ce0258aff1aacda3b7549400eff225c70f2))
-* remove dead code ([3485bb1](https://github.com/Tencent/tdesign-vue-next/commit/3485bb12d933c6d6e1c79a40284605e230bb3d10))
-* **table:** enhancedTable install type ([98e564b](https://github.com/Tencent/tdesign-vue-next/commit/98e564be6f3f414ffa5ab89768223799a73b2f89))
+* Slider: 修复在 `inputNumber` 不展示的情况时，外部 `dom` 冗余 ([4c14567](https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6))
+* DatePicker
+  * 修复区间选择在多个 `panel` 渲染异常 ([31c0c04](https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6))
+  * 修复区间选择选择年月时点击无效 ([31c0c04](https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6))
+* Input: 修复无 `placeholder` 默认值问题 ([1ff9ea0](https://github.com/Tencent/tdesign-vue-next/commit/1ff9ea0e59ee64eb8214355272d8caf3242e1068))
+* Loading 修复 `loadingPlugin` 隐藏报错 ([6922d97](https://github.com/Tencent/tdesign-vue-next/commit/6922d97647af431a755479f16951d8db6be8b38c))
+* Pagination: 增加跳转输入框输入边界判断 ([b0787ce](https://github.com/Tencent/tdesign-vue-next/commit/b0787ce0258aff1aacda3b7549400eff225c70f2))
+* Table: 修复 `enhancedTable` 安装类型报错 ([98e564b](https://github.com/Tencent/tdesign-vue-next/commit/98e564be6f3f414ffa5ab89768223799a73b2f89))
 
 ### Features
 
-* add versions select ([8f08839](https://github.com/Tencent/tdesign-vue-next/commit/8f08839e04edbfa15b8af8472ec4bbb9e0b5ba35))
-* **checkbox:** add checkbox slot ([fe3171b](https://github.com/Tencent/tdesign-vue-next/commit/fe3171b306a66c43ab25c3c7b38c8ad124571c10))
-* refactor tabs ([537d191](https://github.com/Tencent/tdesign-vue-next/commit/537d1918b52a027d8b843eaee16656cb391a30f2))
-* remove useless table demo description ([7e59399](https://github.com/Tencent/tdesign-vue-next/commit/7e59399d213c86ccbc00e662eba5aa8844335260))
-* swiper bug fix ([37a39a2](https://github.com/Tencent/tdesign-vue-next/commit/37a39a22cba441da8434ca5745a467c858099b79))
-* swiper update ([e2c8ce1](https://github.com/Tencent/tdesign-vue-next/commit/e2c8ce12cf77f2110112401873e4a6c98f823219))
-* **table:** demo update ([b62ccfc](https://github.com/Tencent/tdesign-vue-next/commit/b62ccfc3b8bb64c6afd612e5b993f2dd5da4664d))
-* **table:** tree support ([38f77d5](https://github.com/Tencent/tdesign-vue-next/commit/38f77d52f0b3d0a31740aa5464ea81bdc77ed1cb))
+* checkbox: 新增 checkbox slot ([fe3171b](https://github.com/Tencent/tdesign-vue-next/commit/fe3171b306a66c43ab25c3c7b38c8ad124571c10))[@pengYYYYY](https://github.com/pengYYYYY)
 
 ## 0.5.0 `2021-12-08`
 
