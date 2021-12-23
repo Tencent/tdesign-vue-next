@@ -388,7 +388,7 @@ export default {
           component: () => import('@/examples/dialog/dialog.md'),
         },
         {
-          title: 'Drawer 模态抽屉',
+          title: 'Drawer 抽屉',
           name: 'drawer',
           docType: 'message',
           path: '/vue-next/components/drawer',
