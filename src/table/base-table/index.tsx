@@ -5,6 +5,7 @@ import getConfigReceiverMixins, { TableConfig } from '../../config-provider/conf
 import { prefix } from '../../config';
 import { flatColumns } from '../util/props-util';
 import baseTableProps from '../base-table-props';
+import { ClassName } from '../../common';
 import { DataType, BaseTableCol, TdBaseTableProps, RowEventContext } from '../type';
 import TableBody from './table-body';
 import TableHeader from './table-header';
@@ -17,6 +18,7 @@ import { renderTNodeJSX } from '../../utils/render-tnode';
 import { EVENT_NAME_WITH_KEBAB } from '../util/interface';
 import { emitEvent } from '../../utils/event';
 import { getPropsApiByEvent } from '../../utils/helper';
+import { SIZE_CLASSNAMES } from '../../utils/classnames';
 
 type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
 
@@ -105,49 +107,24 @@ export default defineComponent({
       return tableHeight !== 'auto';
     },
     // common class
-    commonClass(): Array<string> {
-      const { bordered, stripe, hover, size, verticalAlign, hasFixedColumns, fixedHeader } = this;
-      const commonClass: Array<string> = ['t-table'];
-      if (bordered) {
-        commonClass.push(`${prefix}-table--bordered`);
-      }
-      if (stripe) {
-        commonClass.push(`${prefix}-table--striped`);
-      }
-      if (hover) {
-        commonClass.push(`${prefix}-table--hoverable`);
-      }
-      if (this.provider.sortOnRowDraggable) {
-        commonClass.push(`${prefix}-table__row--draggable`);
-      }
-      // table size
-      switch (size) {
-        case 'small':
-          commonClass.push(`${prefix}-size-s`);
-          break;
-        case 'large':
-          commonClass.push(`${prefix}-size-l`);
-          break;
-        default:
-      }
-      // table verticalAlign
-      switch (verticalAlign) {
-        case 'top':
-          commonClass.push(`${prefix}-table-align-top`);
-          break;
-        case 'bottom':
-          commonClass.push(`${prefix}-table-align-bottom`);
-          break;
-        default:
-      }
-      // fixed table
-      if (hasFixedColumns) {
-        commonClass.push(`${prefix}-table__cell--fixed ${prefix}-table--has-fixed`);
-      }
-      if (fixedHeader) {
-        commonClass.push(`${prefix}-table__header--fixed`);
-      }
-      return commonClass;
+    commonClass(): ClassName {
+      const classes = [
+        `${prefix}-table`,
+        {
+          [SIZE_CLASSNAMES.small]: this.size === 'small',
+          [SIZE_CLASSNAMES.large]: this.size === 'large',
+          [`${prefix}-table--bordered`]: this.bordered,
+          [`${prefix}-table--striped`]: this.stripe,
+          [`${prefix}-table--hoverable`]: this.hover,
+          [`${prefix}-table__row--draggable`]: this.provider.sortOnRowDraggable,
+          [`${prefix}-table-table--align-top`]: this.verticalAlign === 'top',
+          [`${prefix}-table-table--align-bottom`]: this.verticalAlign === 'bottom',
+          [`${prefix}-table__cell--fixed`]: this.hasFixedColumns,
+          [`${prefix}-table--has-fixed`]: this.hasFixedColumns,
+          [`${prefix}-table__header--fixed`]: this.fixedHeader,
+        },
+      ];
+      return classes;
     },
   },
   mounted() {

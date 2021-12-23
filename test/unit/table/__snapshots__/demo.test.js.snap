@@ -8689,7 +8689,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-table t-table--bordered t-size-s"
+      class="t-table t-size-s t-table--bordered"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
       expandicon="true"
@@ -9715,7 +9715,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
 >
   <!---->
   <div
-    class="t-table t-table--bordered t-table--striped t-table-align-top"
+    class="t-table t-table--bordered t-table--striped t-table-table--align-top"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
     expandicon="true"
