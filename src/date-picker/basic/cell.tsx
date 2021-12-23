@@ -62,7 +62,7 @@ export default defineComponent({
           }}
           onMouseenter={() => onMouseEnter && onMouseEnter(value)}
         >
-          <span class={`${prefix}-date-picker__cell`}>{text}</span>
+          <span class={`${prefix}-date-picker__cell-text`}>{text}</span>
         </div>
       </td>
     );

@@ -19,15 +19,11 @@ export default defineComponent({
     presets: {
       type: Object as PropType<CalendarPresetsProps['presets']>,
     },
+    onClick: Function,
   },
-  emits: ['click-range'],
   methods: {
     clickPreset(value: DateValue | (() => DateValue)) {
-      if (isFunction(value)) {
-        emitEvent(this, 'click-range', value());
-      } else {
-        emitEvent(this, 'click-range', value);
-      }
+      this.onClick(value);
     },
   },
   render() {

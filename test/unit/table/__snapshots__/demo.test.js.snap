@@ -4334,7 +4334,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               1 月
                                                             </span>
@@ -4347,7 +4347,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               2 月
                                                             </span>
@@ -4360,7 +4360,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               3 月
                                                             </span>
@@ -4373,7 +4373,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               4 月
                                                             </span>
@@ -4390,7 +4390,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               5 月
                                                             </span>
@@ -4403,7 +4403,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               6 月
                                                             </span>
@@ -4416,7 +4416,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               7 月
                                                             </span>
@@ -4429,7 +4429,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               8 月
                                                             </span>
@@ -4446,7 +4446,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               9 月
                                                             </span>
@@ -4459,7 +4459,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               10 月
                                                             </span>
@@ -4472,7 +4472,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               11 月
                                                             </span>
@@ -4485,7 +4485,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                             class="t-date-picker__cell-wrapper"
                                                           >
                                                             <span
-                                                              class="t-date-picker__cell"
+                                                              class="t-date-picker__cell-text"
                                                             >
                                                               12 月
                                                             </span>
@@ -8689,7 +8689,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-table t-table--bordered t-size-s"
+      class="t-table t-size-s t-table--bordered"
       defaultexpandedrowkeys=""
       expandedrowkeys=""
       expandicon="true"
@@ -9715,7 +9715,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
 >
   <!---->
   <div
-    class="t-table t-table--bordered t-table--striped t-table-align-top"
+    class="t-table t-table--bordered t-table--striped t-table-table--align-top"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
     expandicon="true"

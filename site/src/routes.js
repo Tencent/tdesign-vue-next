@@ -67,4 +67,19 @@ if (process.env.NODE_ENV === 'preview') {
 
 const router = createRouter(routerConfig);
 
+router.beforeEach((to, from, next) => {
+  if (typeof NProgress !== 'undefined') {
+    // eslint-disable-next-line no-undef
+    NProgress.start();
+  }
+  next();
+});
+
+router.afterEach(() => {
+  if (typeof NProgress !== 'undefined') {
+    // eslint-disable-next-line no-undef
+    NProgress.done();
+  }
+});
+
 export default router;

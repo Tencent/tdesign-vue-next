@@ -185,7 +185,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 >
   <!---->
   <div
-    class="t-table t-size-l t-table-align-top"
+    class="t-table t-size-l t-table-table--align-top"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
     expandicon="true"
@@ -249,7 +249,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 >
   <!---->
   <div
-    class="t-table t-table-align-bottom"
+    class="t-table t-table-table--align-bottom"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
     expandicon="true"
@@ -313,7 +313,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 >
   <!---->
   <div
-    class="t-table t-table--bordered t-table--striped t-table--hoverable t-size-s"
+    class="t-table t-size-s t-table--bordered t-table--striped t-table--hoverable"
     defaultexpandedrowkeys=""
     expandedrowkeys=""
     expandicon="true"

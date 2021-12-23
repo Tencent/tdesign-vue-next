@@ -605,7 +605,7 @@ export default defineComponent({
         {!showTime && panelComponent}
         {(!!presets || enableTimePicker) && (
           <div class={`${prefix}-date-picker__footer`}>
-            <TCalendarPresets presets={presets} global={global} onClickRange={this.clickRange} />
+            <TCalendarPresets presets={presets} global={global} onClick={range ? this.clickRange : this.dateClick} />
             {enableTimePicker && (
               <div class={`${name}--apply`}>
                 {enableTimePicker && (
