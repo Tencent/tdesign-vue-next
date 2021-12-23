@@ -8876,13 +8876,13 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       class="t-steps-item t-steps-item--finish"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner t-steps-item--clickable"
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--finish"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
             <svg
               class="t-icon t-icon-check"
@@ -8900,20 +8900,20 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             Fisrt Step
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             You need to click the blue button
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -8924,13 +8924,13 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       class="t-steps-item t-steps-item--finish"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner t-steps-item--clickable"
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--finish"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
             <svg
               class="t-icon t-icon-check"
@@ -8948,20 +8948,20 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             Second Step
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             Fill your base information into the form
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -8972,13 +8972,13 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       class="t-steps-item t-steps-item--error"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner t-steps-item--clickable"
       >
         <div
-          class="t-steps-item-icon t-steps-item--error"
+          class="t-steps-item__icon t-steps-item--error"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
             <svg
               class="t-icon t-icon-error"
@@ -8996,20 +8996,20 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             Error Step
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             Something Wrong! Custom Error Icon!
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -9017,47 +9017,35 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       </div>
     </div>
     <div
-      class="t-steps-item t-steps-item--finish"
+      class="t-steps-item t-steps-item--default"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner t-steps-item--clickable"
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--default"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
-            <svg
-              class="t-icon t-icon-check"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fillOpacity="0.9"
-              />
-            </svg>
+            0
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             Last Step
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             You haven't finish this step.
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
