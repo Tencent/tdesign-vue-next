@@ -99,7 +99,7 @@ export default defineComponent({
       const arr: Array<CheckboxOptionObj> = [];
       nodes?.forEach((node) => {
         const option = node.props as CheckboxOptionObj;
-        if (option['check-all'] === '' || option['check-all'] === true) {
+        if (option?.['check-all'] === '' || option?.['check-all'] === true) {
           option.checkAll = true;
         }
         option && arr.push(option);
