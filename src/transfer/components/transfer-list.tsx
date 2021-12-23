@@ -184,7 +184,6 @@ export default defineComponent({
       return <span>{titleNode}</span>;
     },
     renderContent() {
-      const rootNode = findTopNode(this);
       const defaultNode = (
         <TCheckboxGroup value={this.checkedValue} onChange={this.handleCheckedChange}>
           {this.curPageData.map((item, index) => (
@@ -209,7 +208,14 @@ export default defineComponent({
       );
       return (
         <div class={`${prefix}-transfer__list-content narrow-scrollbar`} onScroll={this.scroll}>
-          {renderTNodeJSXDefault(rootNode, 'tree', {
+          {/* {this.$slots.tree
+            ? this.$slots.tree({
+                data: this.curPageData,
+                value: this.checkedValue,
+                onChange: this.handleCheckedChange,
+              })
+            : defaultNode} */}
+          {renderTNodeJSXDefault(this, 'tree', {
             defaultNode,
             params: {
               data: this.curPageData,

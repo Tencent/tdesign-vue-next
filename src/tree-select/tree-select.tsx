@@ -255,6 +255,7 @@ export default defineComponent({
       this.changeNodeInfo();
     },
     clear(e: MouseEvent) {
+      e.stopPropagation();
       const defaultValue: TreeSelectValue = this.multiple ? [] : '';
       this.change(defaultValue, null);
       this.actived = [];
