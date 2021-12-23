@@ -395,7 +395,7 @@ export default defineComponent({
                 onBlur={this.onJumperChange}
                 onEnter={this.onJumperChange}
                 max={this.pageCount}
-                min={1}
+                min={min}
                 theme="normal"
               />
               {this.t(this.global.page)}
