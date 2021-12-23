@@ -397,6 +397,7 @@ export default defineComponent({
     );
     const tagItem = this.tagList.map((label, index) => (
       <Tag
+        v-show={this.minCollapsedNum <= 0 || index < this.minCollapsedNum}
         key={index}
         size={this.size}
         closable={!this.disabled}
