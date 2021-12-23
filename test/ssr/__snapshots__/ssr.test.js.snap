@@ -10662,8 +10662,9 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
   <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
       <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
     </svg></div>
-  <div class="t-pagination__jump">jump to<div class="t-input t-size-m t-pagination__input" modelvalue="1">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1" class="t-input__inner">
+  <div class="t-pagination__jump">jump to<div class="t-input-number t-size-m t-input-number--normal t-pagination__input" modelvalue="1">
+      <!---->
+      <div class="t-input"><input value="1" class="t-input__inner" autocomplete="off" placeholder></div>
       <!---->
     </div>
   </div>
@@ -21971,8 +21972,9 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
     <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
       </svg></div>
-    <div class="t-pagination__jump">跳至<div class="t-input t-size-m t-pagination__input" modelvalue="1">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" value="1" class="t-input__inner">
+    <div class="t-pagination__jump">跳至<div class="t-input-number t-size-m t-input-number--normal t-pagination__input" modelvalue="1">
+        <!---->
+        <div class="t-input"><input value="1" class="t-input__inner" autocomplete="off" placeholder></div>
         <!---->
       </div>页</div>
   </div>
@@ -36858,16 +36860,49 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/tree.vue correctly 
       <div class="t-transfer__list-body">
         <!---->
         <div class="t-transfer__list-content narrow-scrollbar">
-          <div class="t-checkbox-group">
-            <!--[-->
-            <!--[--><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>1</span>
-              <!--]--></span>
-            </label><label class="t-checkbox t-transfer__list-item t-transfer__list-item" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><span>2</span>
-              <!--]--></span>
-            </label>
-            <!--]-->
-            <!--]-->
+          <!--[-->
+          <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition">
+            <div>
+              <div class="t-tree__item t-tree__item--open" data-value="1" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fillopacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1<!--]--></span></label>
+                <!--]-->
+              </div>
+              <div class="t-tree__item t-tree__item--open" data-value="1.1" data-level="1" style="--level: 1;">
+                <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.1<!--]--></span></label>
+                <!--]-->
+              </div>
+              <div class="t-tree__item t-tree__item--open" data-value="1.2" data-level="1" style="--level: 1;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fillopacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2<!--]--></span></label>
+                <!--]-->
+              </div>
+              <div class="t-tree__item t-tree__item--open" data-value="1.2.1" data-level="2" style="--level: 2;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fillopacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.2.1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.1<!--]--></span></label>
+                <!--]-->
+              </div>
+              <div class="t-tree__item t-tree__item--open" data-value="1.2.1.1" data-level="3" style="--level: 3;">
+                <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.2.1.1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.1.1<!--]--></span></label>
+                <!--]-->
+              </div>
+              <div class="t-tree__item t-tree__item--open" data-value="1.2.1.2" data-level="3" style="--level: 3;">
+                <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="1.2.1.2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->1.2.1.2<!--]--></span></label>
+                <!--]-->
+              </div>
+              <div class="t-tree__item t-tree__item--open" data-value="2" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fillopacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2<!--]--></span></label>
+                <!--]-->
+              </div>
+              <div class="t-tree__item t-tree__item--open" data-value="2.1" data-level="1" style="--level: 1;">
+                <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="2.1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.1<!--]--></span></label>
+                <!--]-->
+              </div>
+              <div class="t-tree__item t-tree__item--open" data-value="2.2" data-level="1" style="--level: 1;">
+                <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly" modelvalue="false" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="2.2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->2.2<!--]--></span></label>
+                <!--]-->
+              </div>
+            </div>
+            <!---->
           </div>
+          <!--]-->
         </div>
       </div>
       <!---->
@@ -38608,7 +38643,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue co
       <!--[-->
       <div class="t-select t-size-m t-select-selected">
         <!----><span class="t-select__placeholder" style="display:none;">请选择</span>
-        <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->guangzhou<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->shenzhen<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+        <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->guangzhou<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style="display:none;"><!----><!--[-->shenzhen<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->+1<!--]--><!----></span>
         <!---->
         <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
@@ -38676,7 +38711,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue co
       <!--[-->
       <div class="t-select t-size-m t-select-selected">
         <!----><span class="t-select__placeholder" style="display:none;">请选择</span>
-        <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->guangzhou<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->shenzhen<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+        <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->guangzhou<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style="display:none;"><!----><!--[-->shenzhen<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
         <!--]-->
         <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->更多...<!--]--><!----></span>
         <!--]-->

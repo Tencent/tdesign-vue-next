@@ -9,7 +9,7 @@ import {
 import config from '../config';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { PaginationConfig } from '../config-provider/config-receiver';
-import TInput from '../input';
+import TInputNumber from '../input-number';
 import { Select, Option } from '../select';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
@@ -33,7 +33,7 @@ export default defineComponent({
     ChevronLeftDoubleIcon,
     ChevronRightDoubleIcon,
     EllipsisIcon,
-    TInput,
+    TInputNumber,
     TSelect: Select,
     TOption: Option,
   },
@@ -203,18 +203,6 @@ export default defineComponent({
     current(val) {
       this.jumpIndex = val;
     },
-    jumpIndex(val) {
-      if (val < 1) {
-        this.$nextTick(() => {
-          this.jumpIndex = 1;
-        });
-      }
-      if (val > this.pageCount) {
-        this.$nextTick(() => {
-          this.jumpIndex = this.pageCount;
-        });
-      }
-    },
   },
   methods: {
     toPage(pageIndex: number, isTriggerChange?: boolean): void {
@@ -222,8 +210,8 @@ export default defineComponent({
         return;
       }
       let current = pageIndex;
-      if (pageIndex < 1) {
-        current = 1;
+      if (pageIndex < min) {
+        current = min;
       } else if (pageIndex > this.pageCount) {
         current = this.pageCount;
       }
@@ -401,11 +389,14 @@ export default defineComponent({
           {this.showJumper ? (
             <div class={this.jumperClass}>
               {this.t(this.global.jumpTo)}
-              <t-input
+              <t-input-number
                 class={this.jumperInputClass}
                 v-model={this.jumpIndex}
                 onBlur={this.onJumperChange}
                 onEnter={this.onJumperChange}
+                max={this.pageCount}
+                min={min}
+                theme="normal"
               />
               {this.t(this.global.page)}
             </div>

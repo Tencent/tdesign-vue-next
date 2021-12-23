@@ -639,16 +639,19 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
     >
       跳至
       <div
-        class="t-input t-size-m t-pagination__input"
+        class="t-input-number t-size-m t-input-number--normal t-pagination__input"
         modelvalue="1"
       >
         <!---->
-        <input
-          autocomplete="false"
-          class="t-input__inner"
-          placeholder="请输入"
-          type="text"
-        />
+        <div
+          class="t-input"
+        >
+          <input
+            autocomplete="off"
+            class="t-input__inner"
+            placeholder=""
+          />
+        </div>
         <!---->
       </div>
       页
