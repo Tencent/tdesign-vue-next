@@ -665,7 +665,7 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="请选择"
               type="text"
             />
             <!---->
@@ -684,7 +684,7 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="请选择"
               type="text"
             />
             <!---->
@@ -703,7 +703,7 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="请选择"
               type="text"
             />
             <!---->

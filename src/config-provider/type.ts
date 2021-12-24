@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
+ * updated at 2021-12-24 15:22:00
  * */
 
 import { CalendarController } from '../calendar';
@@ -34,6 +34,10 @@ export interface GlobalConfigProvider {
    * 表单组件全局配置
    */
   form?: FormConfig;
+  /**
+   * 输入框组件全局配置
+   */
+  input?: InputConfig;
   /**
    * 分页组件全局配置
    */
@@ -78,6 +82,14 @@ export interface GlobalConfigProvider {
    * 上传组件全局配置
    */
   upload?: UploadConfig;
+}
+
+export interface InputConfig {
+  /**
+   * 占位符文本
+   * @default 请输入
+   */
+  placeholder?: string;
 }
 
 export interface PaginationConfig {

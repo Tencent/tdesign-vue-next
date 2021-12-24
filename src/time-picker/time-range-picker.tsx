@@ -264,6 +264,7 @@ export default defineComponent({
             size={this.size}
             onClear={this.clear}
             clearable={this.clearable}
+            placeholder=" "
             readonly
             value={!isEqual(this.time, TIME_PICKER_EMPTY) ? ' ' : undefined}
           >
