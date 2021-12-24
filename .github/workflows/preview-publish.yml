@@ -40,7 +40,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            PR 预览产物在 https://preview-pr${{ steps.pr.outputs.id }}-tdesign-vue-next.surge.sh
+            surge preview url: https://preview-pr${{ steps.pr.outputs.id }}-tdesign-vue-next.surge.sh
           number: ${{ steps.pr.outputs.id }}
       - run: |
           rm -rf _site/
@@ -50,7 +50,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            PR 预览生成失败。
+            surge preview failed。
           number: ${{ steps.pr.outputs.id }}
 
   failed:

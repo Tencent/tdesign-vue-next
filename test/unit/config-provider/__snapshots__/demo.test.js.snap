@@ -9599,7 +9599,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
         </svg>
       </div>
       <div
-        class="t-drawer__body"
+        class="t-drawer__body narrow-scrollbar"
       >
         
         <p>

@@ -216,7 +216,7 @@ export default defineComponent({
               {renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}
             </div>
           )}
-          <div class={`${name}__body`}>{body}</div>
+          <div class={[`${name}__body`, 'narrow-scrollbar']}>{body}</div>
           {this.footer && <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div>}
         </div>
       </div>
