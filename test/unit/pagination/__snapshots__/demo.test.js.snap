@@ -2127,7 +2127,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
     <div
       class="t-pagination__total"
     >
-      共 undefined 项数据
+      共 685 项数据
     </div>
     <div
       class="t-select__wrap t-pagination__select"

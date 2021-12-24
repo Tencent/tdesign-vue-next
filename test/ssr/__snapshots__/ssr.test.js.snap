@@ -22419,7 +22419,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
 exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correctly 1`] = `
 <div>
   <div class="t-pagination t-size-m" modelvalue="12">
-    <div class="t-pagination__total">共 undefined 项数据</div>
+    <div class="t-pagination__total">共 685 项数据</div>
     <div class="t-select__wrap t-pagination__select">
       <div class="t-popup__reference t-select__popup-reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
