@@ -11,14 +11,6 @@ const CONFIG = {
     targetPath: path.resolve(__dirname, '../../test/unit'),
   },
 };
-const FRAMEWORKS = ['Vue(PC)', 'VueNext(PC)', 'React(PC)', 'Vue(Mobile)', 'Miniprogram'];
-
-if (!FRAMEWORKS.includes(framework)) {
-  console.error(`${framework} is not exist. framework must be one of ${FRAMEWORKS}.`);
-  return;
-}
-
-console.log(framework);
 
 function main() {
   fs.readdir(CONFIG[framework].sourcePath, (err, files) => {
