@@ -3,7 +3,7 @@ const path = require('path');
 const camelCase = require('lodash/camelCase');
 const upperFirst = require('lodash/upperFirst');
 
-const [framework] = process.argv.slice(2);
+const framework = 'VueNext(PC)';
 
 const CONFIG = {
   'VueNext(PC)': {

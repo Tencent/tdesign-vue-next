@@ -55,7 +55,7 @@
     "test:node": "jest --config script/test/jest.ssr.conf.js",
     "test:node-update": "jest --config script/test/jest.ssr.conf.js --updateSnapshot",
     "test:watch": "jest --config script/test/jest.unit.conf.js --watch",
-    "test:demo": "node ./script/test/generate-demo-test.js VueNext(PC)",
+    "test:demo": "node ./script/test/generate-demo-test.js",
     "test:coverage": "jest --config script/test/jest.unit.conf.js --coverage",
     "test:e2e": "cypress run --config-file script/test/cypress.json",
     "test:e2e-gui": "cypress open --config-file script/test/cypress.json",
