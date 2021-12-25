@@ -122,6 +122,9 @@ const GLOBAL_CONFIG_EN: GlobalConfigProvider = {
   form: {
     requiredMark: true,
   },
+  input: {
+    placeholder: '',
+  },
 };
 
 export default GLOBAL_CONFIG_EN;

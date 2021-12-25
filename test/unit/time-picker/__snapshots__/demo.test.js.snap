@@ -11895,7 +11895,7 @@ exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
         <input
           autocomplete="false"
           class="t-input__inner"
-          placeholder="请输入"
+          placeholder=" "
           readonly=""
           type="text"
         />

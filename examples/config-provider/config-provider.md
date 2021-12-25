@@ -12,6 +12,7 @@ datePicker | Object | - | 日期选择器全局配置。TS 类型：`DatePickerC
 dialog | Object | - | 对话框全局配置。TS 类型：`DialogConfig` | N
 drawer | Object | - | 抽屉全局配置。TS 类型：`DrawerConfig` | N
 form | Object | - | 表单组件全局配置。TS 类型：`FormConfig` | N
+input | Object | - | 输入框组件全局配置。TS 类型：`InputConfig` | N
 pagination | Object | - | 分页组件全局配置。TS 类型：`PaginationConfig` | N
 popconfirm | Object | - | 气泡确认框全局配置。TS 类型：`PopconfirmConfig` | N
 select | Object | - | 选择器组件全局配置。TS 类型：`SelectConfig` | N
@@ -23,6 +24,12 @@ transfer | Object | - | 穿梭框全局配置。TS 类型：`TransferConfig` | N
 tree | Object | - | 树组件全局配置。TS 类型：`TreeConfig` | N
 treeSelect | Object | - | 树选择器组件全局配置。TS 类型：`TreeSelectConfig` | N
 upload | Object | - | 上传组件全局配置。TS 类型：`UploadConfig` | N
+
+### InputConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+placeholder | String | 请输入 | 占位符文本 | N
 
 ### PaginationConfig
 
@@ -94,7 +101,7 @@ now | String | '此刻' | “now” 描述文本 | N
 placeholder | Object | - | 占位符文本提示，默认值：`{ date: '请选择日期',  month: '请选择月份',  year: '请选择年份' }`。TS 类型：`{ date?: string; month?: string; year?: string }` | N
 preDecade | String | '上个十年' | “上个十年” 描述文本 | N
 preMonth | String | '上个月' | “上个月” 描述文本 | N
-presets | Object | - | 【暂不支持，讨论确认中】预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`。TS 类型：`ConfigPresetDate`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+presets | Object | - | 【暂不支持，讨论确认中】预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`。TS 类型：`ConfigPresetDate`。[详细类型定义](https://github.com/Tencent/tdesign-vue/tree/develop/src/config-provider/type.ts) | N
 preYear | String | '上一年' | “上一年” 描述文本 | N
 rangeSeparator | String | ' 至 ' | 范围分隔符描述文本，示例：' ~ ' | N
 selectDate | String | '选择日期' | “选择日期” 描述文本 | N
@@ -107,7 +114,7 @@ yearAriaLabel | String | '年' | “年” 描述文本 | N
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-cancel | Object | - | 取消按钮风格。TS 类型：`string | ButtonProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+cancel | Object | - | 取消按钮风格。TS 类型：`string | ButtonProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue/tree/develop/src/config-provider/type.ts) | N
 confirm | Object | - | 确认按钮风格。TS 类型：`string | ButtonProps` | N
 confirmBtnTheme | Object | - | 确认按钮主题色，即 Dialog 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }。TS 类型：`{ default: string; info: string; warning: string; danger: string; success: string; }` | N
 
@@ -122,7 +129,7 @@ confirm | String | '确认' | “确认”描述文本。TS 类型：`string | B
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-cancel | String / Object | '取消' | “取消”描述文本。TS 类型：`string | ButtonProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+cancel | String / Object | '取消' | “取消”描述文本。TS 类型：`string | ButtonProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue/tree/develop/src/config-provider/type.ts) | N
 confirm | String / Object | '确定' | “确定”描述文本。TS 类型：`string | ButtonProps` | N
 confirmBtnTheme | Object | - | 确认按钮主题色，即 Popconfirm 的 `theme` 和 确认按钮的 `theme` 映射关系。示例：{ danger: 'danger' }。TS 类型：`{ default: string; warning: string; danger: string; }` | N
 
@@ -131,14 +138,14 @@ confirmBtnTheme | Object | - | 确认按钮主题色，即 Popconfirm 的 `theme
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 empty | String | '暂无数据' | “暂无数据”描述文本 | N
-expandIcon | Function | undefined | 展开和收起图标（配置传入收起图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-sortIcon | Function | undefined | 排序图标（配置传入降序图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+expandIcon | Function | undefined | 展开和收起图标（配置传入收起图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue/blob/develop/src/common.ts) | N
+sortIcon | Function | undefined | 排序图标（配置传入降序图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue/blob/develop/src/common.ts) | N
 
 ### SelectConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-clearIcon | Function | - | 清除图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+clearIcon | Function | - | 清除图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue/blob/develop/src/common.ts) | N
 empty | String | '暂无数据' | “暂无数据”描述文本 | N
 loadingText | String | '加载中' | “加载中”描述文本 | N
 placeholder | String | '请选择' | 占位符描述文本 | N
@@ -148,7 +155,7 @@ placeholder | String | '请选择' | 占位符描述文本 | N
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 empty | String | '暂无数据' | “暂无数据”描述文本 | N
-folderIcon | Function | - | 目录层级图标，传入收起状态图标即可。【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+folderIcon | Function | - | 目录层级图标，传入收起状态图标即可。【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue/blob/develop/src/common.ts) | N
 
 ### TreeSelectConfig
 
@@ -174,10 +181,10 @@ requiredMark | Boolean | true | 是否显示必填符号，默认显示 | N
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-closeIcon | Function | - | 关闭图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+closeIcon | Function | - | 关闭图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue/blob/develop/src/common.ts) | N
 
 ### StepsConfig
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-errorIcon | Slot / Function | - | 错误步骤图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+errorIcon | Slot / Function | - | 错误步骤图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue/blob/develop/src/common.ts) | N

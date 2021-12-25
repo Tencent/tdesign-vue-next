@@ -127,6 +127,9 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
   form: {
     requiredMark: true,
   },
+  input: {
+    placeholder: '请输入',
+  },
 };
 
 export default GLOBAL_CONFIG_ZH;

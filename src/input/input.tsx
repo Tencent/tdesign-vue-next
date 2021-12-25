@@ -2,6 +2,8 @@ import { defineComponent, h, VNodeChild, nextTick } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
+import getConfigReceiverMixins, { InputConfig } from '../config-provider/config-receiver';
+import mixins from '../utils/mixins';
 
 import CLASSNAMES from '../utils/classnames';
 import { prefix } from '../config';
@@ -21,6 +23,7 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 }
 
 export default defineComponent({
+  ...mixins(getConfigReceiverMixins<InputConfig>('input')),
   name: 'TInput',
   inheritAttrs: false,
   props: { ...props },
@@ -42,7 +45,7 @@ export default defineComponent({
         disabled: this.disabled,
         readonly: this.readonly,
         autocomplete: this.autocomplete,
-        placeholder: this.placeholder || '请输入',
+        placeholder: this.placeholder || this.t(this.global.placeholder),
         maxlength: this.maxlength,
         name: this.name || undefined,
         type: this.renderType,

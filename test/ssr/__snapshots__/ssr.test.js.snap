@@ -35146,7 +35146,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/range.vue correc
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input t-size-m">
-        <!----><input readonly autocomplete="false" placeholder="请输入" type="text" value=" " class="t-input__inner">
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner">
         <!---->
       </div>
       <div class="t-time-picker__input" size="medium">
