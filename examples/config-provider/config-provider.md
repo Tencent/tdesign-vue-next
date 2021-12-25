@@ -1,6 +1,7 @@
 :: BASE_DOC ::
 
 ## API
+
 ### GlobalConfigProvider
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -44,7 +45,7 @@ total | String | '共 {total} 项数据' | 数据总条数文本，示例：`'to
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 cellMonth | String | '一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月' | 月份描述文本 | N
-controllerConfig | Object | - | 日历右上角控制器按钮配置。TS 类型：`CalendarController`。[详细类型定义](https://github.com/Tencent/tdesign-vue/tree/develop/src/config-provider/type.ts) | N
+controllerConfig | Object | - | 日历右上角控制器按钮配置。TS 类型：`CalendarController`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 fillWithZero | Boolean | true | 当日期数字小于 10 时，是否使用 '0' 填充 | N
 firstDayOfWeek | Number | 1 | 第一天从星期几开始。可选项：1/2/3/4/5/6/7 | N
 hideWeekend | String | '隐藏周末' | “隐藏周末”描述文本 | N
