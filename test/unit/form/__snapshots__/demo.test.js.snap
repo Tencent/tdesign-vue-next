@@ -116,7 +116,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -156,7 +156,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="password"
             />
             <span
@@ -624,7 +624,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -664,7 +664,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="password"
             />
             <span
@@ -725,7 +725,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="password"
             />
             <span
@@ -908,7 +908,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -947,7 +947,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="password"
             />
             <span
@@ -1189,7 +1189,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -1233,7 +1233,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -1273,7 +1273,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -1355,7 +1355,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -1469,7 +1469,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -1535,7 +1535,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -1658,7 +1658,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -1702,7 +1702,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -1746,7 +1746,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -2123,7 +2123,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->
@@ -2163,7 +2163,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <!---->

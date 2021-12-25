@@ -46,7 +46,7 @@ exports[`Input :props :autocomplete 1`] = `
   <input
     autocomplete="true"
     class="t-input__inner"
-    placeholder="请选择"
+    placeholder="请输入"
     type="text"
   />
   <!---->
@@ -62,7 +62,7 @@ exports[`Input :props :disabled 1`] = `
     autocomplete="false"
     class="t-input__inner"
     disabled=""
-    placeholder="请选择"
+    placeholder="请输入"
     type="text"
   />
   <!---->
@@ -83,7 +83,7 @@ exports[`Input :props :prefix-icon 1`] = `
   <input
     autocomplete="false"
     class="t-input__inner"
-    placeholder="请选择"
+    placeholder="请输入"
     type="text"
   />
   <!---->
@@ -98,7 +98,7 @@ exports[`Input :props :readonly 1`] = `
   <input
     autocomplete="false"
     class="t-input__inner"
-    placeholder="请选择"
+    placeholder="请输入"
     readonly=""
     type="text"
   />
@@ -114,7 +114,7 @@ exports[`Input :props :size 1`] = `
   <input
     autocomplete="false"
     class="t-input__inner"
-    placeholder="请选择"
+    placeholder="请输入"
     type="text"
   />
   <!---->
@@ -129,7 +129,7 @@ exports[`Input :props :suffix-icon 1`] = `
   <input
     autocomplete="false"
     class="t-input__inner"
-    placeholder="请选择"
+    placeholder="请输入"
     type="text"
   />
   <span

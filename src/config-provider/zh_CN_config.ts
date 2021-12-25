@@ -128,7 +128,7 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
     requiredMark: true,
   },
   input: {
-    placeholder: '请选择',
+    placeholder: '请输入',
   },
 };
 
