@@ -47,7 +47,7 @@ export default defineComponent({
     getSlotPanels() {
       const slots = renderTNodeJSX(this, 'default');
       const returnSlot = slots && slots.length === 1 ? (slots[0].children as VNode[]) : slots;
-      return returnSlot.filter((item: ComponentPublicInstance) => item.type.name === 'TTabPanel');
+      return returnSlot?.filter((item: ComponentPublicInstance) => item.type.name === 'TTabPanel');
     },
     renderHeader() {
       const panels = this.list && this.list.length ? this.list : this.getSlotPanels();
