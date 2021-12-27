@@ -46,7 +46,8 @@ export default defineComponent({
     },
     getSlotPanels() {
       const slots = renderTNodeJSX(this, 'default');
-      return slots && slots.length === 1 ? (slots[0].children as VNode[]) : slots;
+      const returnSlot = slots && slots.length === 1 ? (slots[0].children as VNode[]) : slots;
+      return returnSlot?.filter((item: ComponentPublicInstance) => item.type.name === 'TTabPanel');
     },
     renderHeader() {
       const panels = this.list && this.list.length ? this.list : this.getSlotPanels();
@@ -91,11 +92,7 @@ export default defineComponent({
     renderContent() {
       const panels = this.getSlotPanels();
       if (panels && panels.length) {
-        return (
-          <div class={[`${prefix}-tabs__content`]}>
-            {panels.filter((item: ComponentPublicInstance) => item.type.name === 'TTabPanel')}
-          </div>
-        );
+        return <div class={[`${prefix}-tabs__content`]}>{panels}</div>;
       }
       return this.renderWidthLists();
     },
