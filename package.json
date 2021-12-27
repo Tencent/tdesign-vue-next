@@ -37,8 +37,8 @@
   ],
   "scripts": {
     "init": "git submodule init && git submodule update",
-    "start": "cd site && vite",
-    "dev": "npm run start",
+    "start": "npm run init && npm run dev",
+    "dev": "cd site && vite",
     "site": "cd site && vite build --debug",
     "site:preview": "cd site && vite build --mode preview",
     "prebuild": "rimraf es/* esm/* lib/* dist/*",
