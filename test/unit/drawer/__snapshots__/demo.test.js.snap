@@ -659,15 +659,16 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             标签 A
           </span>
           <div
-            class="t-input t-size-m"
+            class="t-input t-size-m t-input__inner"
           >
+            <!---->
             <!---->
             <input
               autocomplete="false"
-              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
           </div>
         </div>
@@ -678,15 +679,16 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             标签 B
           </span>
           <div
-            class="t-input t-size-m"
+            class="t-input t-size-m t-input__inner"
           >
+            <!---->
             <!---->
             <input
               autocomplete="false"
-              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
           </div>
         </div>
@@ -697,15 +699,16 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             标签 C
           </span>
           <div
-            class="t-input t-size-m"
+            class="t-input t-size-m t-input__inner"
           >
+            <!---->
             <!---->
             <input
               autocomplete="false"
-              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
           </div>
         </div>
