@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
+ * updated at 2021-12-28 14:17:00
  * */
 
 import { TdInputProps } from './type';
@@ -17,11 +17,15 @@ export default {
   clearable: Boolean,
   /** 是否禁用输入框 */
   disabled: Boolean,
-  /** 用户最多可以输入的字符个数，一个中文汉字表示两个字符长度 */
+  /** 左侧文本 */
+  label: {
+    type: [String, Function] as PropType<TdInputProps['label']>,
+  },
+  /** 用户最多可以输入的字符个数，一个中文汉字表示两个字符长度。`maxcharacter` 和 `maxlength` 二选一使用 */
   maxcharacter: {
     type: Number,
   },
-  /** 用户最多可以输入的文本长度。值小于等于 0 的时候，则不限制输入长度 */
+  /** 用户最多可以输入的文本长度。值小于等于 0 的时候，则不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 */
   maxlength: {
     type: Number,
   },
@@ -33,7 +37,7 @@ export default {
   /** 占位符 */
   placeholder: {
     type: String,
-    default: '',
+    default: undefined,
   },
   /** 组件前置图标 */
   prefixIcon: {
@@ -57,9 +61,13 @@ export default {
       return ['success', 'warning', 'error'].includes(val);
     },
   },
+  /** 后置图标前的后置内容 */
+  suffix: {
+    type: [String, Function] as PropType<TdInputProps['suffix']>,
+  },
   /** 组件后置图标 */
   suffixIcon: {
-    type: [String, Function] as PropType<TdInputProps['suffixIcon']>,
+    type: Function as PropType<TdInputProps['suffixIcon']>,
   },
   /** 输入框类型 */
   type: {
