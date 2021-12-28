@@ -28,8 +28,6 @@ jobs:
         if: ${{ success() }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: npm run build
-      - name: npm publish prepare
-        run: rm README.md CHANGELOG.md
       - name: publish
         uses: JS-DevTools/npm-publish@v1
         with:
