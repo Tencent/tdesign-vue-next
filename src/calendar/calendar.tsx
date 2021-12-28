@@ -473,7 +473,7 @@ export default defineComponent({
                   v-model={this.curSelectedMonth}
                   size={this.controlSize}
                   disabled={this.isMonthDisabled}
-                  {...this.controllerConfigData.year.selecteProps}
+                  {...this.controllerConfigData.month.selecteProps}
                   onChange={this.controllerChange}
                 >
                   {this.monthSelectOptionList.map((item) => (
