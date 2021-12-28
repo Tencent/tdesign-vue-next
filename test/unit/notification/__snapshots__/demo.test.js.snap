@@ -1106,29 +1106,31 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
     class="t-message-offset"
   >
     <div
-      class="t-input t-size-m"
+      class="t-input t-size-m t-input__inner"
       modelvalue=""
     >
       <!---->
+      <!---->
       <input
         autocomplete="false"
-        class="t-input__inner"
         placeholder="请输入横向偏移量"
         type="text"
       />
       <!---->
+      <!---->
     </div>
     <div
-      class="t-input t-size-m"
+      class="t-input t-size-m t-input__inner"
       modelvalue=""
     >
       <!---->
+      <!---->
       <input
         autocomplete="false"
-        class="t-input__inner"
         placeholder="请输入纵向偏移量"
         type="text"
       />
+      <!---->
       <!---->
     </div>
   </div>

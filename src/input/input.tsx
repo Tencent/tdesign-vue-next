@@ -9,6 +9,7 @@ import CLASSNAMES from '../utils/classnames';
 import { prefix } from '../config';
 import props from './props';
 import { emitEvent } from '../utils/event';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-input`;
 
@@ -45,7 +46,7 @@ export default defineComponent({
         disabled: this.disabled,
         readonly: this.readonly,
         autocomplete: this.autocomplete,
-        placeholder: this.placeholder || this.t(this.global.placeholder),
+        placeholder: this.placeholder ?? this.t(this.global.placeholder),
         maxlength: this.maxlength,
         name: this.name || undefined,
         type: this.renderType,
@@ -177,6 +178,12 @@ export default defineComponent({
     // @ts-ignore: TODO
     let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
 
+    const label = renderTNodeJSX(this, 'label');
+    const suffix = renderTNodeJSX(this, 'suffix');
+
+    const labelContent = label ? <div class={`${name}__prefix`}>{label}</div> : null;
+    const suffixContent = suffix ? <div class={`${name}__suffix`}>{suffix}</div> : null;
+
     if (this.showClear) {
       suffixIcon = <CloseCircleFilledIcon class={`${name}__suffix-clear`} onClick={this.emitClear} />;
     }
@@ -192,12 +199,14 @@ export default defineComponent({
     const classes = [
       name,
       CLASSNAMES.SIZE[this.size] || '',
+      `${name}__inner`,
       {
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-is-${this.status}`]: this.status,
-        [`${name}--prefix`]: prefixIcon,
-        [`${name}--suffix`]: suffixIcon,
+        [`${name}--prefix`]: prefixIcon || labelContent,
+        [`${name}--suffix`]: suffixIcon || suffixContent,
+        [`${name}__inner--focused`]: this.focused,
       },
     ];
     return (
@@ -207,18 +216,21 @@ export default defineComponent({
         onMouseleave={() => this.mouseEvent(false)}
         {...{ ...wrapperAttrs }}
       >
-        {prefixIcon ? <span class={`${name}__prefix`}>{prefixIcon}</span> : null}
+        {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
+        {labelContent}
         <input
           {...{ ...this.inputAttrs }}
           {...inputEvents}
           ref="refInputElem"
           value={this.value}
-          class={`${name}__inner`}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
           onCompositionend={this.onCompositionend}
         />
+        {suffixContent}
         {suffixIcon ? (
-          <span class={[`${name}__suffix`, { [`${name}__clear`]: this.showClear }]}>{suffixIcon}</span>
+          <span class={[`${name}__suffix`, `${name}__suffix-icon`, { [`${name}__clear`]: this.showClear }]}>
+            {suffixIcon}
+          </span>
         ) : null}
       </div>
     );

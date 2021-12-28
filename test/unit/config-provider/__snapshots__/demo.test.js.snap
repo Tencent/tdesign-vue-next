@@ -2040,19 +2040,20 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-size-m t-input__inner t-input--suffix"
           modelvalue=""
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
-            class="t-input__inner"
             placeholder="select date"
             readonly=""
             type="text"
           />
+          <!---->
           <span
-            class="t-input__suffix"
+            class="t-input__suffix t-input__suffix-icon"
           >
             <svg
               class="t-icon t-icon-calendar"
@@ -3635,19 +3636,20 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-size-m t-input__inner t-input--suffix"
           modelvalue=""
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
-            class="t-input__inner"
             placeholder="select date"
             readonly=""
             type="text"
           />
+          <!---->
           <span
-            class="t-input__suffix"
+            class="t-input__suffix t-input__suffix-icon"
           >
             <svg
               class="t-icon t-icon-calendar"
@@ -3983,19 +3985,20 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-size-m t-input__inner t-input--suffix"
           modelvalue=""
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
-            class="t-input__inner"
             placeholder="select month"
             readonly=""
             type="text"
           />
+          <!---->
           <span
-            class="t-input__suffix"
+            class="t-input__suffix t-input__suffix-icon"
           >
             <svg
               class="t-icon t-icon-calendar"
@@ -4616,19 +4619,20 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-size-m t-input__inner t-input--suffix"
           modelvalue=""
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
-            class="t-input__inner"
             placeholder="select month"
             readonly=""
             type="text"
           />
+          <!---->
           <span
-            class="t-input__suffix"
+            class="t-input__suffix t-input__suffix-icon"
           >
             <svg
               class="t-icon t-icon-calendar"
@@ -4935,19 +4939,20 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-size-m t-input__inner t-input--suffix"
           modelvalue=""
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
-            class="t-input__inner"
             placeholder="select year"
             readonly=""
             type="text"
           />
+          <!---->
           <span
-            class="t-input__suffix"
+            class="t-input__suffix t-input__suffix-icon"
           >
             <svg
               class="t-icon t-icon-calendar"
@@ -5510,19 +5515,20 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-size-m t-input__inner t-input--suffix"
           modelvalue=""
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
-            class="t-input__inner"
             placeholder="select year"
             readonly=""
             type="text"
           />
+          <!---->
           <span
-            class="t-input__suffix"
+            class="t-input__suffix t-input__suffix-icon"
           >
             <svg
               class="t-icon t-icon-calendar"
@@ -5979,17 +5985,18 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input t-size-m t-input__inner"
             modelvalue=""
             style="width: 400px;"
           >
             <!---->
+            <!---->
             <input
               autocomplete="false"
-              class="t-input__inner"
               placeholder="There is no required mark on the left of this input in Form"
               type="text"
             />
+            <!---->
             <!---->
           </div>
           
@@ -6020,19 +6027,20 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--suffix"
+            class="t-input t-size-m t-input__inner t-input--suffix"
             modelvalue=""
             style="width: 400px;"
           >
             <!---->
+            <!---->
             <input
               autocomplete="false"
-              class="t-input__inner"
               placeholder="There is required mark on the left of this input in Form"
               type="password"
             />
+            <!---->
             <span
-              class="t-input__suffix"
+              class="t-input__suffix t-input__suffix-icon"
             >
               <svg
                 class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
@@ -6109,15 +6117,16 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input t-size-m t-input__inner"
           >
+            <!---->
             <!---->
             <input
               autocomplete="false"
-              class="t-input__inner"
               placeholder="type keyword to search"
               type="text"
             />
+            <!---->
             <!---->
           </div>
         </div>
@@ -6729,15 +6738,16 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input t-size-m t-input__inner"
           >
+            <!---->
             <!---->
             <input
               autocomplete="false"
-              class="t-input__inner"
               placeholder="type keyword to search"
               type="text"
             />
+            <!---->
             <!---->
           </div>
         </div>
@@ -7287,17 +7297,18 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-input__inner t-select__input"
           modelvalue=""
           style="display: none;"
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
-            class="t-input__inner"
             placeholder="see empty data in TreeSelect"
             type="text"
           />
+          <!---->
           <!---->
         </div>
         <svg
@@ -7445,17 +7456,18 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-input__inner t-select__input"
           modelvalue=""
           style="display: none;"
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
-            class="t-input__inner"
             placeholder="see loading text in TreeSelect"
             type="text"
           />
+          <!---->
           <!---->
         </div>
         <!---->
@@ -7753,16 +7765,17 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-input__inner t-select__input"
           modelvalue=""
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
-            class="t-input__inner"
             placeholder="tree select"
             type="text"
           />
+          <!---->
           <!---->
         </div>
         <svg
@@ -8601,18 +8614,19 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input--suffix"
+        class="t-input t-size-m t-input__inner t-input--suffix"
       >
+        <!---->
         <!---->
         <input
           autocomplete="false"
-          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <span
-          class="t-input__suffix"
+          class="t-input__suffix t-input__suffix-icon"
         >
           
           <svg
