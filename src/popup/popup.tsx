@@ -69,7 +69,7 @@ export default defineComponent({
       popperElm: null,
       referenceElm: null,
       resizeSensor: null,
-      popperJS: null,
+      popper: null,
       timeout: null,
       refOverlayElm: null,
       hasDocumentEvent: false,
@@ -232,7 +232,7 @@ export default defineComponent({
         popperElm.style.display = 'none';
       }
 
-      this.popperJS = createPopper(this.referenceElm, popperElm, {
+      this.popper = createPopper(this.referenceElm, popperElm, {
         placement,
         onFirstUpdate: () => {
           this.$nextTick(this.updatePopper);
@@ -241,14 +241,14 @@ export default defineComponent({
       popperElm.addEventListener('click', stop);
       // 监听trigger元素尺寸变化
       this.resizeSensor = new ResizeSensor(this.referenceElm, () => {
-        this.popper && this.popperJS.update();
+        this.popper && this.popper.update();
         this.updateOverlayStyle();
       });
     },
 
     updatePopper() {
-      if (this.popperJS) {
-        this.popperJS.update();
+      if (this.popper) {
+        this.popper.update();
       } else {
         this.createPopper();
       }
@@ -276,9 +276,9 @@ export default defineComponent({
 
     destroyPopper(el: HTMLElement) {
       this.resetExpandStyles(el);
-      if (this.popperJS) {
-        this.popperJS.destroy();
-        this.popperJS = null;
+      if (this.popper) {
+        this.popper.destroy();
+        this.popper = null;
         if (this.destroyOnClose) {
           const popperElm = this.$refs.popper as HTMLElement;
           popperElm.parentNode.removeChild(popperElm);
