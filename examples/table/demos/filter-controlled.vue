@@ -128,7 +128,6 @@ export default defineComponent({
           }
           return result;
         });
-        console.log(newData);
         data.value = newData;
       }, 100);
     };
@@ -141,7 +140,7 @@ export default defineComponent({
 
     const setFilters = () => {
       filterValue.value = {};
-      data.value = ref([...initData]);
+      data.value = [...initData];
     };
 
     return {
