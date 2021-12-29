@@ -25654,9 +25654,13 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
-            <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups" style="display:none;">
-              <!---->
+            <!---->
+            <ul>
+              <!--[-->
+              <li class="t-select-option t-size-m" title="选项一"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
+              <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
+              <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
+              <!--]-->
             </ul>
           </div>
           <!--]-->
