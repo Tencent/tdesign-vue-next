@@ -1,9 +1,8 @@
 import { defineComponent } from 'vue';
 import baseTableProps from '../base-table-props';
-import { DataType, TdBaseTableProps, TdPrimaryTableProps, PrimaryTableCol } from '../type';
+import { DataType, TdBaseTableProps, TdPrimaryTableProps, PrimaryTableCol, RowEventContext } from '../type';
 import primaryTableProps from '../primary-table-props';
 import SimpleTable from '../base-table';
-import { prefix } from '../../config';
 import expand from './mixins/expand';
 import select from './mixins/select';
 import sort from './mixins/sort';
@@ -11,9 +10,10 @@ import rowDraggable from './mixins/row-draggable';
 import filter from './mixins/filter';
 import showColumns from './mixins/show-columns';
 import asyncLoadingMixin from './mixins/async-loading';
-import { RenderExpandRow } from '../util/interface';
+import { EVENT_NAME_WITH_KEBAB, RenderExpandRow } from '../util/interface';
 import { PageInfo } from '../../pagination/type';
 import { emitEvent } from '../../utils/event';
+import { getPropsApiByEvent } from '../../utils/helper';
 
 type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
 type ChangeContext = Parameters<TdPrimaryTableProps['onChange']>;
@@ -26,7 +26,7 @@ export default defineComponent({
     ...baseTableProps,
     ...primaryTableProps,
   },
-  emits: ['change', 'page-change'],
+  emits: ['change', 'page-change', ...EVENT_NAME_WITH_KEBAB],
   computed: {
     rehandleData(): Array<DataType> {
       return this.asyncLoadingHandler();
@@ -59,6 +59,14 @@ export default defineComponent({
   },
   render() {
     const { $props, $slots, rehandleColumns, showColumns } = this;
+
+    const rowEvents = {};
+    EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
+      rowEvents[getPropsApiByEvent(eventName)] = (params: RowEventContext<any>) => {
+        emitEvent(this, eventName, params);
+      };
+    });
+
     const listeners = {
       onPageChange: (pageInfo: PageInfo, newDataSource: Array<DataType>) => {
         emitEvent<PageChangeContext>(this, 'page-change', pageInfo, newDataSource);
@@ -69,9 +77,8 @@ export default defineComponent({
           { trigger: 'pagination', currentData: newDataSource },
         );
       },
-      onRowDragstart: this.onDragStart,
-      onRowDragover: this.onDragOver,
       onRowClick: this.onRowClick,
+      ...rowEvents,
     };
     if (this.expandOnRowClick) {
       listeners.onRowClick = (params: { row: Record<string, any>; index: number }) => {
