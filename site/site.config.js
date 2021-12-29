@@ -7,7 +7,7 @@ export default {
         {
           title: '快速开始',
           name: 'getting-started',
-          path: '/vue-next/components/getting-started',
+          path: '/vue-next/getting-started',
           component: () => import('@/site/docs/getting-started.md'),
         },
         {
@@ -16,13 +16,13 @@ export default {
           meta: {
             docType: 'explain',
           },
-          path: '/vue-next/components/quick-start',
+          path: '/vue-next/quick-start',
           component: () => import('@/site/docs/starter.md'),
         },
         {
           title: '更新日志',
           name: 'changelog',
-          path: '/vue-next/components/changelog',
+          path: '/vue-next/changelog',
           component: () => import('@/CHANGELOG.md'),
         },
         {
@@ -31,7 +31,7 @@ export default {
           meta: {
             docType: 'explain',
           },
-          path: '/vue-next/components/overview',
+          path: '/vue-next/overview',
           component: () => import('@common/docs/web/overview.md'),
         },
       ],
@@ -43,19 +43,19 @@ export default {
         {
           title: '全局特性配置',
           name: 'config',
-          path: '/vue-next/components/config',
+          path: '/vue-next/config',
           component: () => import('@/examples/config-provider/config-provider.md'),
         },
         {
           title: '自定义主题',
           name: 'custom-theme',
-          path: '/vue-next/components/custom-theme',
+          path: '/vue-next/custom-theme',
           component: () => import('@common/theme.md'),
         },
         {
           title: '暗黑模式',
           name: 'dark-mode',
-          path: '/vue-next/components/dark-mode',
+          path: '/vue-next/dark-mode',
           component: () => import('@common/dark-mode.md'),
         },
       ],

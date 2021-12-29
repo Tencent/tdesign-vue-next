@@ -32,18 +32,18 @@ function getDocsRoutes(docs, type) {
 
 const routes = [
   {
-    path: '/vue-next/components',
-    redirect: '/vue-next/components/overview',
+    path: '/vue-next/',
+    redirect: '/vue-next/overview',
     component: TdesignComponents,
     children: getDocsRoutes(docs),
   },
   {
     path: '/',
-    redirect: '/vue-next/components/overview',
+    redirect: '/vue-next/overview',
   },
   {
     path: '/:w+',
-    redirect: '/vue-next/components/overview',
+    redirect: '/vue-next/overview',
   },
   {
     path: '/vue-next/demos/:componentName/:demoName',
