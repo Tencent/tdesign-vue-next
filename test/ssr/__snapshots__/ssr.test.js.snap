@@ -36051,7 +36051,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
 <div class="tdesign-tooltip-placement">
   <div class="t-popup__reference placement top center" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-      <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
+      <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
     </div>
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top <!--]--></span></button>
@@ -36075,7 +36075,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
   </div>
   <div class="t-popup__reference placement bottom center" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-      <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
+      <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
     </div>
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom <!--]--></span></button>
