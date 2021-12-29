@@ -7,19 +7,17 @@ assignees: ''
 
 ---
 
-**Describe Framework**
-
-- [ ] tdesign-vue
-- [x] tdesign-vue-next
-- [ ] tdesign-react
-- [ ] tdesign-miniprogram
-
 **Describe Environment**
 
-Add browser version here
+browser version:
+tdesign-vue-next version:
 
 **Describe the bug**
+
 A clear and concise description of what the bug is.
 
+codesandbox online demo:
+
 **Additional context**
+
 Add any other context about the problem here.
