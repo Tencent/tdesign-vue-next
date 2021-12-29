@@ -274,17 +274,11 @@ export default defineComponent({
       }
     },
 
-    doDestroy(forceDestroy: boolean) {
-      if (!this.popperJS || (this.visible && !forceDestroy)) return;
-      this.popperJS.destroy();
-      this.popperJS = null;
-    },
-
     destroyPopper(el: HTMLElement) {
       this.resetExpandStyles(el);
-      if (this.popper) {
-        this.popper.destroy();
-        this.popper = null;
+      if (this.popperJS) {
+        this.popperJS.destroy();
+        this.popperJS = null;
         if (this.destroyOnClose) {
           const popperElm = this.$refs.popper as HTMLElement;
           popperElm.parentNode.removeChild(popperElm);

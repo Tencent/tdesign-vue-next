@@ -216,7 +216,6 @@ exports[`Popup Popup destroyVue demo works fine 1`] = `
 <div>
   <div
     class="t-popup__reference"
-    destroy-on-hide=""
   >
     <transition-stub>
       <div

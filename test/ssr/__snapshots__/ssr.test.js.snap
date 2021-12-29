@@ -23119,7 +23119,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/container.vue correctl
 
 exports[`ssr snapshot test renders ./examples/popup/demos/destroy.vue correctly 1`] = `
 <div>
-  <div class="t-popup__reference" destroy-on-hide>
+  <div class="t-popup__reference">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">这是popup内容
         <!---->
