@@ -8459,7 +8459,10 @@ exports[`ssr snapshot test renders ./examples/comment/demos/reply.vue correctly 
           <div class="t-comment__author"><span class="t-comment__name"><!--[--><span>评论作者名B</span><svg class="t-icon t-icon-caret-right-small t-size-s author-icon author-icon" style="">
               <use href="#t-icon-caret-right-small"></use>
             </svg><span>评论作者名A</span>
-            <!--]--></span><span class="t-comment__time">今天16:38</span>
+            <!--]--></span><span class="t-comment__time"><!--[--><span>评论作者名B</span><svg class="t-icon t-icon-caret-right-small t-size-s author-icon author-icon" style="">
+              <use href="#t-icon-caret-right-small"></use>
+            </svg><span>评论作者名A</span>
+            <!--]--></span>
           </div>
           <div class="t-comment__detail">这里是评论者写的评论内容。</div>
           <!---->
