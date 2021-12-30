@@ -79,12 +79,8 @@ export default defineComponent({
     },
     calcInitValue() {
       const { scrollContainer } = this;
-      let containerHeight = 0; // 获取当前可视的高度
-      if (scrollContainer instanceof Window) {
-        containerHeight = scrollContainer.innerHeight;
-      } else {
-        containerHeight = scrollContainer.clientHeight;
-      }
+      // 获取当前可视的高度
+      const containerHeight = scrollContainer[scrollContainer instanceof Window ? 'innerHeight' : 'clientHeight'];
       // 需要减掉当前节点的高度，对比的高度应该从 border-top 比对开始
       this.containerHeight = containerHeight - this.$el.clientHeight;
       // 被包裹的子节点宽高
