@@ -108,11 +108,17 @@ describe('Input', () => {
 
   describe('@event', () => {
     it('@input', () => {
-      const wrapper = mount(Input);
+      const fn = jest.fn();
+      const wrapper = mount({
+        render() {
+          return <Input onChange={fn} />;
+        },
+      });
+      const inputWrapper = wrapper.findComponent(Input);
       const inputElemWrapper = wrapper.find('input');
       inputElemWrapper.setValue('text');
-      expect(wrapper.emitted().input).toBeTruthy();
-      expect(wrapper.emitted().input[0][0]).toBe('text');
+      expect(inputWrapper.emitted().change).toBeTruthy();
+      expect(fn).toBeCalled();
     });
 
     it('@change', () => {
