@@ -3,6 +3,8 @@
     <t-input placeholder="请输入内容（无默认值）" />
     <br /><br />
     <t-input v-model="input" placeholder="请输入内容（有默认值）" @enter="onEnter" />
+    <br /><br />
+    <t-input label="价格：" suffix="元" />
   </div>
 </template>
 <script>

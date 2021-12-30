@@ -61,7 +61,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         <div
           class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
-          文字提示仅展示文本内容
+          文字提示仅展示文本内容文字提示仅展示文本内容
           <div
             class="t-popup__arrow"
           />
@@ -172,7 +172,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
         <div
           class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default"
         >
-          文字提示仅展示文本内容
+          文字提示仅展示文本内容文字提示仅展示文本内容
           <div
             class="t-popup__arrow"
           />
@@ -878,15 +878,16 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-size-m"
+      class="t-input t-size-m t-input__inner"
     >
+      <!---->
       <!---->
       <input
         autocomplete="false"
-        class="t-input__inner"
         placeholder="获得焦点时触发"
         type="text"
       />
+      <!---->
       <!---->
     </div>
     

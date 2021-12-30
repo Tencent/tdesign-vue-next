@@ -40,7 +40,7 @@ export default defineComponent({
       return [`${name}__icon`, { [`${name}--${this.status}`]: this.status }];
     },
     canClick(): boolean {
-      return this.status !== 'process';
+      return this.status !== 'process' && !this.steps?.readonly;
     },
   },
   mounted() {

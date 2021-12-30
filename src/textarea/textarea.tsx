@@ -97,7 +97,7 @@ export default defineComponent({
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
       this.$emit('update:value', val);
-      emitEvent(this, 'change', val, { e: InputEvent });
+      emitEvent(this, 'change', val, { e });
 
       this.$nextTick(() => this.setInputValue(val));
       this.adjustTextareaHeight();

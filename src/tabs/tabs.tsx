@@ -46,14 +46,19 @@ export default defineComponent({
     },
     getSlotPanels() {
       const slots = renderTNodeJSX(this, 'default');
-      return slots && slots.length === 1 ? (slots[0].children as VNode[]) : slots;
+      const realSlot = slots?.filter((item: ComponentPublicInstance) => item.type.name === 'TTabPanel');
+      if (realSlot && realSlot.length > 0) {
+        return realSlot;
+      }
+      // 处理循环渲染的slot
+      if (slots?.length === 1 && slots[0].children.length) {
+        return slots[0].children.filter((item: ComponentPublicInstance) => item.type.name === 'TTabPanel');
+      }
+      return [];
     },
     renderHeader() {
-      const panels = this.list && this.list.length ? this.list : this.getSlotPanels();
-      if (!panels || !panels.length) {
-        console.warn('Tdesign error: list is empty');
-        return;
-      }
+      const panels = this.list?.length ? this.list : this.getSlotPanels();
+      if (!panels || !panels.length) return;
       const panelsData = panels.map((item: ComponentPublicInstance) => {
         const selfItem = item;
         for (const key in item.props) {
@@ -81,23 +86,15 @@ export default defineComponent({
         </div>
       );
     },
-    renderWidthLists() {
-      if (!this.list) {
-        console.warn('Tdesign error: list is empty');
-        return;
-      }
-      return this.list.map((item) => <TTabPanel {...item} onRemove={this.onRemoveTab} />);
-    },
     renderContent() {
       const panels = this.getSlotPanels();
-      if (panels && panels.length) {
-        return (
-          <div class={[`${prefix}-tabs__content`]}>
-            {panels.filter((item: ComponentPublicInstance) => item.type.name === 'TTabPanel')}
-          </div>
-        );
+      if (this.list?.length) {
+        return this.list.map((item) => <TTabPanel {...item} onRemove={this.onRemoveTab} />);
       }
-      return this.renderWidthLists();
+      if (panels && panels.length) {
+        return <div class={[`${prefix}-tabs__content`]}>{panels}</div>;
+      }
+      console.warn('Tdesign error: list or slots is empty');
     },
   },
 

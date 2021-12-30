@@ -15,7 +15,7 @@ export const Input: WithInstallType<typeof _Input> = withInstall(
   mapProps([
     {
       name: 'value',
-      event: ['input', 'change'],
+      event: ['change'],
       alias: ['modelValue'],
     },
   ])(_Input),

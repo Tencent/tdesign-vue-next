@@ -69,7 +69,7 @@ export default defineComponent({
       popperElm: null,
       referenceElm: null,
       resizeSensor: null,
-      popperJS: null,
+      popper: null,
       timeout: null,
       refOverlayElm: null,
       hasDocumentEvent: false,
@@ -102,7 +102,7 @@ export default defineComponent({
       if (val) {
         this.updatePopper();
         if (!this.hasDocumentEvent && (this.hasTrigger['context-menu'] || this.hasTrigger.click)) {
-          on(document, 'click', this.handleDocumentClick);
+          on(document, 'mousedown', this.handleDocumentClick);
           this.hasDocumentEvent = true;
         }
         // focus trigger esc 隐藏浮层
@@ -114,7 +114,7 @@ export default defineComponent({
           });
         }
       } else {
-        off(document, 'click', this.handleDocumentClick);
+        off(document, 'mousedown', this.handleDocumentClick);
         this.hasDocumentEvent = false;
       }
     },
@@ -232,7 +232,7 @@ export default defineComponent({
         popperElm.style.display = 'none';
       }
 
-      this.popperJS = createPopper(this.referenceElm, popperElm, {
+      this.popper = createPopper(this.referenceElm, popperElm, {
         placement,
         onFirstUpdate: () => {
           this.$nextTick(this.updatePopper);
@@ -241,14 +241,14 @@ export default defineComponent({
       popperElm.addEventListener('click', stop);
       // 监听trigger元素尺寸变化
       this.resizeSensor = new ResizeSensor(this.referenceElm, () => {
-        this.popper && this.popperJS.update();
+        this.popper && this.popper.update();
         this.updateOverlayStyle();
       });
     },
 
     updatePopper() {
-      if (this.popperJS) {
-        this.popperJS.update();
+      if (this.popper) {
+        this.popper.update();
       } else {
         this.createPopper();
       }
@@ -272,12 +272,6 @@ export default defineComponent({
       if (typeof styles === 'object' && refOverlayElm) {
         setStyle(refOverlayElm, styles);
       }
-    },
-
-    doDestroy(forceDestroy: boolean) {
-      if (!this.popperJS || (this.visible && !forceDestroy)) return;
-      this.popperJS.destroy();
-      this.popperJS = null;
     },
 
     destroyPopper(el: HTMLElement) {

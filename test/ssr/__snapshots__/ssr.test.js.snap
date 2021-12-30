@@ -9001,8 +9001,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="select date" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="select date" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -9371,8 +9373,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="select date" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="select date" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -9453,8 +9457,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="select month" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="select month" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -9599,8 +9605,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="select month" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="select month" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -9676,8 +9684,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="select year" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="select year" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -9812,8 +9822,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="select year" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="select year" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -9908,8 +9920,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue style="width:400px;">
-            <!----><input autocomplete="false" placeholder="There is no required mark on the left of this input in Form" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue style="width:400px;">
+            <!---->
+            <!----><input autocomplete="false" placeholder="There is no required mark on the left of this input in Form" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -9923,8 +9937,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m t-input--suffix" modelvalue style="width:400px;">
-            <!----><input autocomplete="false" placeholder="There is required mark on the left of this input in Form" type="password" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue style="width:400px;">
+            <!---->
+            <!----><input autocomplete="false" placeholder="There is required mark on the left of this input in Form" type="password" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
           </div>
           <!--]-->
           <!---->
@@ -9941,8 +9957,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       </div>
       <div class="t-transfer__list-body t-transfer__list--with-search">
         <div class="t-transfer__search-wrapper" searchvalue>
-          <div class="t-input t-size-m">
-            <!----><input autocomplete="false" placeholder="type keyword to search" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner">
+            <!---->
+            <!----><input autocomplete="false" placeholder="type keyword to search" type="text" value>
+            <!---->
             <!---->
           </div>
         </div>
@@ -10015,8 +10033,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       </div>
       <div class="t-transfer__list-body t-transfer__list--with-search">
         <div class="t-transfer__search-wrapper" searchvalue>
-          <div class="t-input t-size-m">
-            <!----><input autocomplete="false" placeholder="type keyword to search" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner">
+            <!---->
+            <!----><input autocomplete="false" placeholder="type keyword to search" type="text" value>
+            <!---->
             <!---->
           </div>
         </div>
@@ -10207,8 +10227,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="see empty data in TreeSelect" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder="see empty data in TreeSelect" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -10256,8 +10278,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="see loading text in TreeSelect" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder="see loading text in TreeSelect" type="text" value>
+          <!---->
           <!---->
         </div>
         <!----><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
@@ -10323,8 +10347,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
-          <!----><input autocomplete="false" placeholder="tree select" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue>
+          <!---->
+          <!----><input autocomplete="false" placeholder="tree select" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -10520,8 +10546,10 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">select time</span></div>
     </div>
@@ -11131,8 +11159,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/base.vue correct
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue="2021-11-10" allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value="2021-11-10" class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue="2021-11-10" allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value="2021-11-10">
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -11330,7 +11360,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/custom-icon.vue 
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--prefix t-input--suffix" modelvalue allowinput="0"><span class="t-input__prefix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse" style=""><path fill="currentColor" d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z" fillopacity="0.9"></path><path fill="currentColor" d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z" fillopacity="0.9"></path></svg></span><input readonly autocomplete="false" placeholder="请选择日期" type="text" value class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fillopacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fillopacity="0.9"></path></svg><!--]--></span></div>
+        <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix" modelvalue allowinput="0"><span class="t-input__prefix t-input__prefix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse" style=""><path fill="currentColor" d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z" fillopacity="0.9"></path><path fill="currentColor" d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z" fillopacity="0.9"></path></svg></span>
+          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fillopacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fillopacity="0.9"></path></svg><!--]--></span>
+        </div>
       </div>
       <!--]-->
     </div>
@@ -11712,8 +11745,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets.vue
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -12099,8 +12134,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue="2020-12-28 至 2020-12-28" allowinput="0">
-            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value="2020-12-28 至 2020-12-28" class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue="2020-12-28 至 2020-12-28" allowinput="0">
+            <!---->
+            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value="2020-12-28 至 2020-12-28">
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
           </div>
         </div>
         <!--]-->
@@ -12305,8 +12342,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue="2020-12-28" allowinput="0">
-            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value="2020-12-28" class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue="2020-12-28" allowinput="0">
+            <!---->
+            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value="2020-12-28">
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
           </div>
         </div>
         <!--]-->
@@ -12692,8 +12731,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-tim
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -13067,8 +13108,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="开始时间 至 结束时间" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="开始时间 至 结束时间" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -13444,8 +13487,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -13650,8 +13695,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-time.vue co
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue="2021-05-01 11:30:20" allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value="2021-05-01 11:30:20" class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue="2021-05-01 11:30:20" allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value="2021-05-01 11:30:20">
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -13850,8 +13897,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+            <!---->
+            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
           </div>
         </div>
         <!--]-->
@@ -14046,8 +14095,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+            <!---->
+            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
           </div>
         </div>
         <!--]-->
@@ -14242,8 +14293,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+            <!---->
+            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
           </div>
         </div>
         <!--]-->
@@ -14614,8 +14667,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+            <!---->
+            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
           </div>
         </div>
         <!--]-->
@@ -14810,8 +14865,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+            <!---->
+            <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
           </div>
         </div>
         <!--]-->
@@ -15010,8 +15067,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/first-day-of-wee
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="请选择日期" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -15097,8 +15156,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/month.vue correc
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="请选择月份" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="请选择月份" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -15179,8 +15240,10 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/year.vue correct
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-          <!----><input readonly autocomplete="false" placeholder="请选择年份" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="请选择年份" type="text" value>
+          <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
         </div>
       </div>
       <!--]-->
@@ -15846,20 +15909,26 @@ exports[`ssr snapshot test renders ./examples/drawer/demos/operation.vue correct
       <div class="t-drawer__body narrow-scrollbar">
         <!--[-->
         <div class="t-drawer-demo-div"><span>标签 A</span>
-          <div class="t-input t-size-m">
-            <!----><input autocomplete="false" placeholder="请输入" type="text" class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner">
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text">
+            <!---->
             <!---->
           </div>
         </div>
         <div class="t-drawer-demo-div"><span>标签 B</span>
-          <div class="t-input t-size-m">
-            <!----><input autocomplete="false" placeholder="请输入" type="text" class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner">
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text">
+            <!---->
             <!---->
           </div>
         </div>
         <div class="t-drawer-demo-div"><span>标签 C</span>
-          <div class="t-input t-size-m">
-            <!----><input autocomplete="false" placeholder="请输入" type="text" class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner">
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text">
+            <!---->
             <!---->
           </div>
         </div>
@@ -16569,8 +16638,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/align.vue correctly 1`]
       <div class="t-form__controls" style="margin-left:60px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -16584,8 +16655,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/align.vue correctly 1`]
       <div class="t-form__controls" style="margin-left:60px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m t-input--suffix" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="password" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="password" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
           </div>
           <!--]-->
           <!---->
@@ -16618,8 +16691,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入内容" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入内容" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -16633,8 +16708,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入内容" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入内容" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -16714,8 +16791,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/custom-validator.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -16729,8 +16808,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/custom-validator.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m t-input--suffix" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="password" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="password" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
           </div>
           <!--]-->
           <!---->
@@ -16743,8 +16824,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/custom-validator.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m t-input--suffix" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="password" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="password" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
           </div>
           <!--]-->
           <!---->
@@ -16784,8 +16867,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/layout.vue correctly 1`
       <div class="t-form__controls" style="margin-left:calc(2em + 24px);">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -16799,8 +16884,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/layout.vue correctly 1`
       <div class="t-form__controls" style="margin-left:calc(2em + 24px);">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m t-input--suffix" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="password" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
+          <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="password" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
           </div>
           <!--]-->
           <!---->
@@ -16822,7 +16909,9 @@ exports[`ssr snapshot test renders ./examples/form/demos/login.vue correctly 1`]
       <div class="t-form__controls" style="">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m t-input--prefix" modelvalue><span class="t-input__prefix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-desktop" style=""><path fill="currentColor" d="M2.5 11h5v2H3v1h10v-1H8.5v-2h5a1 1 0 001-1V3a1 1 0 00-1-1h-11a1 1 0 00-1 1v7a1 1 0 001 1zm0-8h11v7h-11V3z" fillopacity="0.9"></path></svg><!--]--></span><input autocomplete="false" placeholder="请输入账户名" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner t-input--prefix" modelvalue><span class="t-input__prefix t-input__prefix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-desktop" style=""><path fill="currentColor" d="M2.5 11h5v2H3v1h10v-1H8.5v-2h5a1 1 0 001-1V3a1 1 0 00-1-1h-11a1 1 0 00-1 1v7a1 1 0 001 1zm0-8h11v7h-11V3z" fillopacity="0.9"></path></svg><!--]--></span>
+            <!----><input autocomplete="false" placeholder="请输入账户名" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -16836,7 +16925,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/login.vue correctly 1`]
       <div class="t-form__controls" style="">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m t-input--prefix t-input--suffix" modelvalue><span class="t-input__prefix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fillopacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fillopacity="0.9"></path></svg><!--]--></span><input autocomplete="false" placeholder="请输入密码" type="password" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span></div>
+          <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix" modelvalue><span class="t-input__prefix t-input__prefix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fillopacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fillopacity="0.9"></path></svg><!--]--></span>
+            <!----><input autocomplete="false" placeholder="请输入密码" type="password" value>
+            <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
+          </div>
           <!--]-->
           <!---->
         </div>
@@ -16868,8 +16960,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -16883,8 +16977,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -16898,8 +16994,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -17003,8 +17101,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -17018,8 +17118,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -17059,8 +17161,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -17074,8 +17178,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -17089,8 +17195,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -17104,8 +17212,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="隐藏状态icon" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="隐藏状态icon" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]--><span class="t-form__status t-form__status-without-icon"></span>
@@ -17118,8 +17228,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]-->
@@ -17133,8 +17245,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="正在校验中，请稍等" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="正在校验中，请稍等" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]--><span class="t-form__status"><!--[--><div style="width:25px;display:flex;justify-content:center;"><div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></div><!--]--></span>
@@ -17148,8 +17262,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m">
-            <!----><input autocomplete="false" placeholder="请输入" type="text" class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner">
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text">
+            <!---->
             <!---->
           </div>
           <!--]--><span class="t-form__status"><!--[--><button class="t-button t-size-m t-button--variant-dashed t-button--theme-default" type="button"><span class="t-button__text"><!--[--><svg class="t-icon t-icon-add" style="font-size:16px;color:#0004;"><use href="#t-icon-add"></use></svg><!--]--></span></button>
@@ -17165,8 +17281,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input t-size-m" modelvalue>
-            <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner" modelvalue>
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+            <!---->
             <!---->
           </div>
           <!--]--><span class="t-form__status"><!--[--><svg class="t-icon t-icon-help-circle" style="font-size:16px;"><use href="#t-icon-help-circle"></use></svg><!--]--></span>
@@ -18055,20 +18173,26 @@ exports[`ssr snapshot test renders ./examples/icon/demos/single.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/input/demos/addon.vue correctly 1`] = `
 <div class="tdesign-demo-item--input__input-box">
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">http://</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入内容" type="text" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入内容" type="text">
+      <!---->
       <!---->
     </div>
   </div>
   <div class="t-addon t-addon--append">
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入内容" type="text" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入内容" type="text">
+      <!---->
       <!---->
     </div><span class="t-addon__append">.com</span>
   </div>
   <div class="t-addon t-addon--prepend t-addon--append"><span class="t-addon__prepend">http://</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入内容" type="text" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入内容" type="text">
+      <!---->
       <!---->
     </div><span class="t-addon__append">.com</span>
   </div>
@@ -18077,12 +18201,22 @@ exports[`ssr snapshot test renders ./examples/input/demos/addon.vue correctly 1`
 
 exports[`ssr snapshot test renders ./examples/input/demos/base.vue correctly 1`] = `
 <div class="tdesign-demo-item--input__input-box">
-  <div class="t-input t-size-m">
-    <!----><input autocomplete="false" placeholder="请输入内容（无默认值）" type="text" class="t-input__inner">
+  <div class="t-input t-size-m t-input__inner">
+    <!---->
+    <!----><input autocomplete="false" placeholder="请输入内容（无默认值）" type="text">
+    <!---->
     <!---->
   </div><br><br>
-  <div class="t-input t-size-m" modelvalue="有默认值">
-    <!----><input autocomplete="false" placeholder="请输入内容（有默认值）" type="text" value="有默认值" class="t-input__inner">
+  <div class="t-input t-size-m t-input__inner" modelvalue="有默认值">
+    <!---->
+    <!----><input autocomplete="false" placeholder="请输入内容（有默认值）" type="text" value="有默认值">
+    <!---->
+    <!---->
+  </div><br><br>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix">
+    <!---->
+    <div class="t-input__prefix">价格：</div><input autocomplete="false" placeholder="请输入" type="text">
+    <div class="t-input__suffix">元</div>
     <!---->
   </div>
 </div>
@@ -18090,8 +18224,10 @@ exports[`ssr snapshot test renders ./examples/input/demos/base.vue correctly 1`]
 
 exports[`ssr snapshot test renders ./examples/input/demos/clearable.vue correctly 1`] = `
 <div class="tdesign-demo-item--input__input-box">
-  <div class="t-input t-size-m" modelvalue="Hello TDesign">
-    <!----><input autocomplete="false" placeholder="请输入" type="text" value="Hello TDesign" class="t-input__inner">
+  <div class="t-input t-size-m t-input__inner" modelvalue="Hello TDesign">
+    <!---->
+    <!----><input autocomplete="false" placeholder="请输入" type="text" value="Hello TDesign">
+    <!---->
     <!---->
   </div>
 </div>
@@ -18099,8 +18235,10 @@ exports[`ssr snapshot test renders ./examples/input/demos/clearable.vue correctl
 
 exports[`ssr snapshot test renders ./examples/input/demos/disabled.vue correctly 1`] = `
 <div class="tdesign-demo-item--input__input-box">
-  <div class="t-input t-size-m t-is-disabled">
-    <!----><input disabled autocomplete="false" placeholder="请输入" type="text" value="禁用状态" class="t-input__inner">
+  <div class="t-input t-size-m t-input__inner t-is-disabled">
+    <!---->
+    <!----><input disabled autocomplete="false" placeholder="请输入" type="text" value="禁用状态">
+    <!---->
     <!---->
   </div>
 </div>
@@ -18108,8 +18246,10 @@ exports[`ssr snapshot test renders ./examples/input/demos/disabled.vue correctly
 
 exports[`ssr snapshot test renders ./examples/input/demos/focus.vue correctly 1`] = `
 <div class="tdesign-demo-item--input__input-box">
-  <div class="t-input t-size-m">
-    <!----><input autocomplete="false" placeholder="请输入内容" type="text" class="t-input__inner">
+  <div class="t-input t-size-m t-input__inner">
+    <!---->
+    <!----><input autocomplete="false" placeholder="请输入内容" type="text">
+    <!---->
     <!---->
   </div>
 </div>
@@ -18120,12 +18260,16 @@ exports[`ssr snapshot test renders ./examples/input/demos/group.vue correctly 1`
   <div>
     <div class="t-input-group t-input-group--separate">
       <!--[-->
-      <div class="t-input t-size-m" style="width:100px;">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" value="0731" class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner" style="width:100px;">
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text" value="0731">
+        <!---->
         <!---->
       </div>
-      <div class="t-input t-size-m">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" value="12345677" class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner">
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text" value="12345677">
+        <!---->
         <!---->
       </div>
       <!--]-->
@@ -18134,12 +18278,16 @@ exports[`ssr snapshot test renders ./examples/input/demos/group.vue correctly 1`
   <div>
     <div class="t-input-group t-input-group--separate">
       <!--[-->
-      <div class="t-input t-size-m">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner">
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text">
+        <!---->
         <!---->
       </div>
-      <div class="t-input t-size-m">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner">
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text">
+        <!---->
         <!---->
       </div>
       <!--]-->
@@ -18148,12 +18296,16 @@ exports[`ssr snapshot test renders ./examples/input/demos/group.vue correctly 1`
   <div>
     <div class="t-input-group">
       <!--[-->
-      <div class="t-input t-size-m">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner">
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text">
+        <!---->
         <!---->
       </div>
-      <div class="t-input t-size-m">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner">
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text">
+        <!---->
         <!---->
       </div>
       <!--]-->
@@ -18162,20 +18314,28 @@ exports[`ssr snapshot test renders ./examples/input/demos/group.vue correctly 1`
   <div>
     <div class="t-input-group t-input-group--separate">
       <!--[-->
-      <div class="t-input t-size-m" style="width:100px;">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" value="0731" class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner" style="width:100px;">
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text" value="0731">
+        <!---->
         <!---->
       </div><span style="line-height:32px;"> - </span>
-      <div class="t-input t-size-m" style="width:100px;">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" value="12345" class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner" style="width:100px;">
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text" value="12345">
+        <!---->
         <!---->
       </div>
-      <div class="t-input t-size-m" style="width:100px;">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" value="678901" class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner" style="width:100px;">
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text" value="678901">
+        <!---->
         <!---->
       </div>
-      <div class="t-input t-size-m" style="width:100px;">
-        <!----><input autocomplete="false" placeholder="请输入" type="text" class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner" style="width:100px;">
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text">
+        <!---->
         <!---->
       </div>
       <!--]-->
@@ -18186,23 +18346,35 @@ exports[`ssr snapshot test renders ./examples/input/demos/group.vue correctly 1`
 
 exports[`ssr snapshot test renders ./examples/input/demos/password.vue correctly 1`] = `
 <div class="tdesign-demo-item--input__input-box">
-  <div class="t-input t-size-m t-input--prefix t-input--suffix"><span class="t-input__prefix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fillopacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fillopacity="0.9"></path></svg><!--]--></span><input autocomplete="false" placeholder="请输入" type="password" value="520 TDesign" class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span></div><!-- 使用 function 的形式定义 icon -->
-  <div class="t-input t-size-m t-input--prefix t-input--suffix"><span class="t-input__prefix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fillopacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fillopacity="0.9"></path></svg></span><input autocomplete="false" placeholder="请输入" type="password" value="520 TDesign" class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span></div>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix"><span class="t-input__prefix t-input__prefix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fillopacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fillopacity="0.9"></path></svg><!--]--></span>
+    <!----><input autocomplete="false" placeholder="请输入" type="password" value="520 TDesign">
+    <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
+  </div><!-- 使用 function 的形式定义 icon -->
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix"><span class="t-input__prefix t-input__prefix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fillopacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fillopacity="0.9"></path></svg></span>
+    <!----><input autocomplete="false" placeholder="请输入" type="password" value="520 TDesign">
+    <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fillopacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fillopacity="0.9"></path></svg></span>
+  </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/input/demos/size.vue correctly 1`] = `
 <div class="tdesign-demo-item--input__input-box">
-  <div class="t-input t-size-l">
-    <!----><input autocomplete="false" placeholder="请输入内容" type="text" class="t-input__inner">
+  <div class="t-input t-size-l t-input__inner">
+    <!---->
+    <!----><input autocomplete="false" placeholder="请输入内容" type="text">
+    <!---->
     <!---->
   </div>
-  <div class="t-input t-size-m">
-    <!----><input autocomplete="false" placeholder="请输入内容" type="text" class="t-input__inner">
+  <div class="t-input t-size-m t-input__inner">
+    <!---->
+    <!----><input autocomplete="false" placeholder="请输入内容" type="text">
+    <!---->
     <!---->
   </div>
-  <div class="t-input t-size-s">
-    <!----><input autocomplete="false" placeholder="请输入内容" type="text" class="t-input__inner">
+  <div class="t-input t-size-s t-input__inner">
+    <!---->
+    <!----><input autocomplete="false" placeholder="请输入内容" type="text">
+    <!---->
     <!---->
   </div>
 </div>
@@ -18210,16 +18382,22 @@ exports[`ssr snapshot test renders ./examples/input/demos/size.vue correctly 1`]
 
 exports[`ssr snapshot test renders ./examples/input/demos/status.vue correctly 1`] = `
 <div class="tdesign-demo-item--input__input-box">
-  <div class="t-input t-size-m t-is-success">
-    <!----><input autocomplete="false" placeholder="请输入" type="text" value="成功状态" class="t-input__inner">
+  <div class="t-input t-size-m t-input__inner t-is-success">
+    <!---->
+    <!----><input autocomplete="false" placeholder="请输入" type="text" value="成功状态">
+    <!---->
     <!---->
   </div>
-  <div class="t-input t-size-m t-is-warning">
-    <!----><input autocomplete="false" placeholder="请输入" type="text" value="警告状态" class="t-input__inner">
+  <div class="t-input t-size-m t-input__inner t-is-warning">
+    <!---->
+    <!----><input autocomplete="false" placeholder="请输入" type="text" value="警告状态">
+    <!---->
     <!---->
   </div>
-  <div class="t-input t-size-m t-is-error">
-    <!----><input autocomplete="false" placeholder="请输入" type="text" value="错误状态" class="t-input__inner">
+  <div class="t-input t-size-m t-input__inner t-is-error">
+    <!---->
+    <!----><input autocomplete="false" placeholder="请输入" type="text" value="错误状态">
+    <!---->
     <!---->
   </div>
 </div>
@@ -21324,12 +21502,16 @@ exports[`ssr snapshot test renders ./examples/message/demos/offset.vue correctly
 exports[`ssr snapshot test renders ./examples/message/demos/placement.vue correctly 1`] = `
 <div>
   <div class="t-message-offset">
-    <div class="t-input t-size-m" modelvalue>
-      <!----><input autocomplete="false" placeholder="请输入横向偏移量" type="text" value class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner" modelvalue>
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入横向偏移量" type="text" value>
+      <!---->
       <!---->
     </div>
-    <div class="t-input t-size-m" modelvalue>
-      <!----><input autocomplete="false" placeholder="请输入纵向偏移量" type="text" value class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner" modelvalue>
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入纵向偏移量" type="text" value>
+      <!---->
       <!---->
     </div>
   </div>
@@ -21675,12 +21857,16 @@ exports[`ssr snapshot test renders ./examples/notification/demos/operation.vue c
 exports[`ssr snapshot test renders ./examples/notification/demos/placement.vue correctly 1`] = `
 <div>
   <div class="t-message-offset">
-    <div class="t-input t-size-m" modelvalue>
-      <!----><input autocomplete="false" placeholder="请输入横向偏移量" type="text" value class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner" modelvalue>
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入横向偏移量" type="text" value>
+      <!---->
       <!---->
     </div>
-    <div class="t-input t-size-m" modelvalue>
-      <!----><input autocomplete="false" placeholder="请输入纵向偏移量" type="text" value class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner" modelvalue>
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入纵向偏移量" type="text" value>
+      <!---->
       <!---->
     </div>
   </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 左上角 <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 右上角 <!--]--></span></button><br><br><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 左下角 <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 右下角 <!--]--></span></button>
@@ -22933,7 +23119,7 @@ exports[`ssr snapshot test renders ./examples/popup/demos/container.vue correctl
 
 exports[`ssr snapshot test renders ./examples/popup/demos/destroy.vue correctly 1`] = `
 <div>
-  <div class="t-popup__reference" destroy-on-hide>
+  <div class="t-popup__reference">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">这是popup内容
         <!---->
@@ -23136,8 +23322,10 @@ exports[`ssr snapshot test renders ./examples/popup/demos/trigger.vue correctly 
       </div>
     </div>
     <!--[-->
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="获得焦点时触发" type="text" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="获得焦点时触发" type="text">
+      <!---->
       <!---->
     </div>
     <!--]-->
@@ -24253,8 +24441,10 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
-          <!----><input readonly autocomplete="false" placeholder="支持自定义创建" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue>
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="支持自定义创建" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -24722,8 +24912,10 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
-          <!----><input readonly autocomplete="false" placeholder="-请选择-" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue>
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="-请选择-" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -24764,8 +24956,10 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
-          <!----><input readonly autocomplete="false" placeholder="-请选择-" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue>
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="-请选择-" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -25436,8 +25630,10 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
-          <!----><input readonly autocomplete="false" placeholder="-请选择-" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue>
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="-请选择-" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -25458,9 +25654,13 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
-            <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups" style="display:none;">
-              <!---->
+            <!---->
+            <ul>
+              <!--[-->
+              <li class="t-select-option t-size-m" title="选项一"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
+              <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
+              <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
+              <!--]-->
             </ul>
           </div>
           <!--]-->
@@ -25474,8 +25674,10 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
-          <!----><input readonly autocomplete="false" placeholder="-请输入搜索-" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue>
+          <!---->
+          <!----><input readonly autocomplete="false" placeholder="-请输入搜索-" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -26591,7 +26793,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/icon.vue correctly 1`]
 <div class="t-steps t-steps--horizontal t-steps--default-anchor">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--finish"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-login icon-margin icon-margin" style="font-size:24;">
           <path fill="currentColor" d="M8.48 7.5L6.23 5.25l.7-.7 3.1 3.1c.2.2.2.5 0 .7l-3.1 3.1-.7-.7L8.48 8.5H1v-1h7.48z" fillopacity="0.9"></path>
           <path fill="currentColor" d="M4 5V3h8v10H4v-2H3v2.5c0 .28.22.5.5.5h9a.5.5 0 00.5-.5v-11a.5.5 0 00-.5-.5h-9a.5.5 0 00-.5.5V5h1z" fillopacity="0.9"></path>
@@ -26620,7 +26822,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/icon.vue correctly 1`]
     </div>
   </div>
   <div class="t-steps-item t-steps-item--default">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--default"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-wallet icon-margin icon-margin" style="font-size:24;">
           <path fill="currentColor" d="M11.5 4.5h2a1 1 0 011 1V12a1 1 0 01-1 1h-11a1 1 0 01-1-1V3a1 1 0 011-1h8a1 1 0 011 1v1.5zm-1-1.5h-8v1.5h8V3zm3 2.5h-11V12h11V5.5z" fillopacity="0.9"></path>
         </svg></div>
@@ -26634,7 +26836,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/icon.vue correctly 1`]
     </div>
   </div>
   <div class="t-steps-item t-steps-item--default">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--default"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle icon-margin icon-margin" style="font-size:24;">
           <path fill="currentColor" d="M4.5 8.2L7 10.7l4.5-4.5-.7-.7L7 9.3 5.2 7.5l-.7.7z" fillopacity="0.9"></path>
           <path fill="currentColor" d="M4.11 2.18a7 7 0 117.78 11.64A7 7 0 014.1 2.18zm.56 10.8a6 6 0 106.66-9.97A6 6 0 004.67 13z" fillopacity="0.9"></path>
@@ -26656,7 +26858,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/no-sequence.vue correc
 <div class="t-steps t-steps--horizontal t-steps--dot-anchor">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--finish">
         <!---->
       </div>
@@ -26684,7 +26886,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/no-sequence.vue correc
     </div>
   </div>
   <div class="t-steps-item t-steps-item--default">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--default">
         <!---->
       </div>
@@ -26698,7 +26900,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/no-sequence.vue correc
     </div>
   </div>
   <div class="t-steps-item t-steps-item--default">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--default">
         <!---->
       </div>
@@ -26893,7 +27095,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
   <div class="t-steps t-steps--horizontal t-steps--default-anchor">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">已完成的步骤</div>
@@ -26917,7 +27119,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
       </div>
     </div>
     <div class="t-steps-item t-steps-item--default">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
@@ -26929,7 +27131,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
       </div>
     </div>
     <div class="t-steps-item t-steps-item--default">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
@@ -26946,7 +27148,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
   <div class="t-steps t-steps--horizontal t-steps--default-anchor">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">已完成的步骤</div>
@@ -26958,7 +27160,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
       </div>
     </div>
     <div class="t-steps-item t-steps-item--finish">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">已完成的步骤</div>
@@ -26970,7 +27172,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
       </div>
     </div>
     <div class="t-steps-item t-steps-item--error">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--error"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">错误的步骤</div>
@@ -26982,7 +27184,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
       </div>
     </div>
     <div class="t-steps-item t-steps-item--default">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
@@ -27004,7 +27206,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
     <div class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--positive">
       <!--[-->
       <div class="t-steps-item t-steps-item--finish">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--finish">
             <!---->
           </div>
@@ -27032,7 +27234,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default">
             <!---->
           </div>
@@ -27046,7 +27248,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default">
             <!---->
           </div>
@@ -27064,7 +27266,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
     <div class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--reverse">
       <!--[-->
       <div class="t-steps-item t-steps-item--finish">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--finish">
             <!---->
           </div>
@@ -27092,7 +27294,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default">
             <!---->
           </div>
@@ -27106,7 +27308,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default">
             <!---->
           </div>
@@ -27131,7 +27333,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
     <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive">
       <!--[-->
       <div class="t-steps-item t-steps-item--finish">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">已完成的步骤</div>
@@ -27155,7 +27357,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">未进行的步骤</div>
@@ -27167,7 +27369,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">未进行的步骤</div>
@@ -27184,7 +27386,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
     <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--reverse">
       <!--[-->
       <div class="t-steps-item t-steps-item--finish">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">已完成的步骤</div>
@@ -27208,7 +27410,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">未进行的步骤</div>
@@ -27220,7 +27422,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">未进行的步骤</div>
@@ -28859,8 +29061,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                             <!--[-->
                             <div class="t-table__filter-pop-content">
                               <div class="t-table__filter-pop-content-inner">
-                                <div class="t-input t-size-m">
-                                  <!----><input autocomplete="false" placeholder="输入关键词过滤" type="text" class="t-input__inner">
+                                <div class="t-input t-size-m t-input__inner">
+                                  <!---->
+                                  <!----><input autocomplete="false" placeholder="输入关键词过滤" type="text">
+                                  <!---->
                                   <!---->
                                 </div>
                               </div>
@@ -28962,8 +29166,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                     </div>
                                     <!--[-->
                                     <div class="t-form-controls">
-                                      <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
-                                        <!----><input readonly autocomplete="false" placeholder="请选择月份" type="text" value class="t-input__inner"><span class="t-input__suffix"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
+                                      <div class="t-input t-size-m t-input__inner t-input--suffix" modelvalue allowinput="0">
+                                        <!---->
+                                        <!----><input readonly autocomplete="false" placeholder="请选择月份" type="text" value>
+                                        <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
                                       </div>
                                     </div>
                                     <!--]-->
@@ -32691,8 +32897,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/base.vue correct
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="NaN" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="NaN" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="NaN" disabled></span>
@@ -32884,8 +33092,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/base.vue correct
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="NaN" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="NaN" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="NaN" disabled></span>
@@ -33083,8 +33293,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/clearable.vue co
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="11" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="12" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="10" disabled></span>
@@ -33277,8 +33489,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/clearable.vue co
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="11" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="12" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="10" disabled></span>
@@ -33475,8 +33689,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/disabled.vue cor
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-is-disabled t-input--suffix">
-        <!----><input disabled readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-is-disabled t-input--suffix">
+        <!---->
+        <!----><input disabled readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item t-time-picker__input-item-disabled"><input class="t-time-picker__input-item-input" value="11" disabled></span><span class="t-time-picker__input-item t-time-picker__input-item-disabled">:<input class="t-time-picker__input-item-input" value="12" disabled></span><span class="t-time-picker__input-item t-time-picker__input-item-disabled">:<input class="t-time-picker__input-item-input" value="10" disabled></span>
@@ -33668,8 +33884,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/format.vue corre
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="0" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="0" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="0" disabled></span><span class="t-time-picker__input-item"><input readonly class="t-time-picker__input-item-input t-time-picker__input-item-input-meridiem" value="上午" disabled></span>
@@ -33867,8 +34085,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hide-clear-butto
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="11" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="12" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="10" disabled></span>
@@ -34061,8 +34281,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hide-clear-butto
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">请选择时间</span></div>
     </div>
@@ -34191,8 +34413,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hm.vue correctly
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">请选择时间</span></div>
     </div>
@@ -34386,8 +34610,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hms.vue correctl
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="12" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="20" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="30" disabled></span>
@@ -34585,8 +34811,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/keyboard.vue cor
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="20"></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="22"></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="33"></span>
@@ -34779,8 +35007,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/keyboard.vue cor
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="22" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="22" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="22" disabled></span>
@@ -35145,8 +35375,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/range.vue correc
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!---->
         <!---->
       </div>
       <div class="t-time-picker__input" size="medium">
@@ -35274,8 +35506,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/show-steps.vue c
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">请选择时间</span></div>
     </div>
@@ -35399,8 +35633,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/step.vue correct
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="09" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="18" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="17" disabled></span>
@@ -35592,8 +35828,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/twelve-hour.vue 
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="10" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="20" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="30" disabled></span><span class="t-time-picker__input-item"><input readonly class="t-time-picker__input-item-input t-time-picker__input-item-input-meridiem" value="上午" disabled></span>
@@ -35785,8 +36023,10 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/twelve-hour-meri
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
-        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" " class="t-input__inner"><span class="t-input__suffix"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
+      <div class="t-input t-size-m t-input__inner t-input--suffix">
+        <!---->
+        <!----><input readonly autocomplete="false" placeholder=" " type="text" value=" ">
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
       </div>
       <div class="t-time-picker__input" size="medium">
         <!--[--><span class="t-time-picker__input-item"><input readonly class="t-time-picker__input-item-input t-time-picker__input-item-input-meridiem" value="下午" disabled></span><span class="t-time-picker__input-item"><input class="t-time-picker__input-item-input" value="10" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="20" disabled></span><span class="t-time-picker__input-item">:<input class="t-time-picker__input-item-input" value="30" disabled></span>
@@ -35815,7 +36055,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
 <div class="tdesign-tooltip-placement">
   <div class="t-popup__reference placement top center" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-      <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
+      <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
     </div>
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top <!--]--></span></button>
@@ -35839,7 +36079,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
   </div>
   <div class="t-popup__reference placement bottom center" duration="3000" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-      <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
+      <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
     </div>
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom <!--]--></span></button>
@@ -36009,8 +36249,10 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/trigger.vue correctl
       </div>
     </div>
     <!--[-->
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="获得焦点时触发" type="text" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="获得焦点时触发" type="text">
+      <!---->
       <!---->
     </div>
     <!--]-->
@@ -36672,8 +36914,10 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/search.vue correctl
       </div>
       <div class="t-transfer__list-body t-transfer__list--with-search">
         <div class="t-transfer__search-wrapper" searchvalue>
-          <div class="t-input t-size-m">
-            <!----><input autocomplete="false" placeholder="请输入关键词搜索" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner">
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入关键词搜索" type="text" value>
+            <!---->
             <!---->
           </div>
         </div>
@@ -36746,8 +36990,10 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/search.vue correctl
       </div>
       <div class="t-transfer__list-body t-transfer__list--with-search">
         <div class="t-transfer__search-wrapper" searchvalue>
-          <div class="t-input t-size-m">
-            <!----><input autocomplete="false" placeholder="请输入关键词搜索" type="text" value class="t-input__inner">
+          <div class="t-input t-size-m t-input__inner">
+            <!---->
+            <!----><input autocomplete="false" placeholder="请输入关键词搜索" type="text" value>
+            <!---->
             <!---->
           </div>
         </div>
@@ -37193,20 +37439,26 @@ exports[`ssr snapshot test renders ./examples/tree/demos/checkable.vue correctly
 exports[`ssr snapshot test renders ./examples/tree/demos/controlled.vue correctly 1`] = `
 <div class="tdesign-tree-base">
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">checked:</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1.1.1.1, 1.1.1.2" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1.1.1.1, 1.1.1.2">
+      <!---->
       <!---->
     </div>
   </div>
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">expanded:</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1, 1.1, 1.1.1, 2" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1, 1.1, 1.1.1, 2">
+      <!---->
       <!---->
     </div>
   </div>
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">actived:</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="2" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value="2">
+      <!---->
       <!---->
     </div>
   </div>
@@ -37621,8 +37873,10 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-mutex.vue correc
 exports[`ssr snapshot test renders ./examples/tree/demos/filter.vue correctly 1`] = `
 <div class="tdesign-tree-base">
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">filter:</span>
-    <div class="t-input t-size-m" modelvalue>
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner" modelvalue>
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+      <!---->
       <!---->
     </div>
   </div>
@@ -38340,8 +38594,10 @@ exports[`ssr snapshot test renders ./examples/tree/demos/operations.vue correctl
   </div>
   <div class="operations">
     <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">filter:</span>
-      <div class="t-input t-size-m" modelvalue>
-        <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+      <div class="t-input t-size-m t-input__inner" modelvalue>
+        <!---->
+        <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+        <!---->
         <!---->
       </div>
     </div>
@@ -38393,20 +38649,26 @@ exports[`ssr snapshot test renders ./examples/tree/demos/state.vue correctly 1`]
 exports[`ssr snapshot test renders ./examples/tree/demos/sync.vue correctly 1`] = `
 <div class="tdesign-tree-base">
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">checked:</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1.1.1.1, 1.1.1.2" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1.1.1.1, 1.1.1.2">
+      <!---->
       <!---->
     </div>
   </div>
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">expanded:</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1, 1.1, 1.1.1, 2" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1, 1.1, 1.1.1, 2">
+      <!---->
       <!---->
     </div>
   </div>
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">actived:</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="2" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value="2">
+      <!---->
       <!---->
     </div>
   </div>
@@ -38461,20 +38723,26 @@ exports[`ssr snapshot test renders ./examples/tree/demos/sync.vue correctly 1`] 
 exports[`ssr snapshot test renders ./examples/tree/demos/vmodel.vue correctly 1`] = `
 <div class="tdesign-tree-base">
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">checked:</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1.1.1.1, 1.1.1.2" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1.1.1.1, 1.1.1.2">
+      <!---->
       <!---->
     </div>
   </div>
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">expanded:</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1, 1.1, 1.1.1, 2" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value="1, 1.1, 1.1.1, 2">
+      <!---->
       <!---->
     </div>
   </div>
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">actived:</span>
-    <div class="t-input t-size-m">
-      <!----><input autocomplete="false" placeholder="请输入" type="text" value="2" class="t-input__inner">
+    <div class="t-input t-size-m t-input__inner">
+      <!---->
+      <!----><input autocomplete="false" placeholder="请输入" type="text" value="2">
+      <!---->
       <!---->
     </div>
   </div>
@@ -38577,8 +38845,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/base.vue correct
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="请选择" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder="请选择" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -38650,8 +38920,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue co
         <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->guangzhou<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style="display:none;"><!----><!--[-->shenzhen<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->+1<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -38720,8 +38992,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue co
         <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->更多...<!--]--><!----></span>
         <!--]-->
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -38799,8 +39073,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/filterable.vue c
         <!----><span class="t-select__placeholder" style="display:none;">请选择</span>
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="shenzhen" class="t-select__single">shenzhen</span>
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="shenzhen" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder="shenzhen" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -38856,8 +39132,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/lazy.vue correct
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="请选择" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder="请选择" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -38929,8 +39207,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/multiple.vue cor
         <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->guangzhou<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->shenzhen<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+2<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -39001,8 +39281,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/prefix.vue corre
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder="请输入" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -39073,8 +39355,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/props.vue correc
         <!----><span class="t-select__placeholder" style="display:none;">请选择</span>
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="shenzhen" class="t-select__single">shenzhen</span>
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="shenzhen" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder="shenzhen" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -39145,8 +39429,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue co
         <!----><span class="t-select__placeholder" style="display:none;">请选择</span>
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="[object Object]" class="t-select__single">[object Object]</span>
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="[object Object]" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder="[object Object]" type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -39213,8 +39499,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue co
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-          <!----><input autocomplete="false" placeholder="请输入" type="text" value class="t-input__inner">
+        <div class="t-input t-size-m t-input__inner t-select__input" modelvalue style="display:none;">
+          <!---->
+          <!----><input autocomplete="false" placeholder type="text" value>
+          <!---->
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>

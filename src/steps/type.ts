@@ -32,6 +32,11 @@ export interface TdStepsProps {
    */
   options?: Array<TdStepItemProps>;
   /**
+   * 是否只读
+   * @default false
+   */
+  readonly?: boolean;
+  /**
    * 步骤条顺序，纵向步骤有效（direction = horizontal）
    * @default positive
    */
