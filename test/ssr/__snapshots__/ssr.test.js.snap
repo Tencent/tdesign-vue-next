@@ -26793,7 +26793,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/icon.vue correctly 1`]
 <div class="t-steps t-steps--horizontal t-steps--default-anchor">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--finish"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-login icon-margin icon-margin" style="font-size:24;">
           <path fill="currentColor" d="M8.48 7.5L6.23 5.25l.7-.7 3.1 3.1c.2.2.2.5 0 .7l-3.1 3.1-.7-.7L8.48 8.5H1v-1h7.48z" fillopacity="0.9"></path>
           <path fill="currentColor" d="M4 5V3h8v10H4v-2H3v2.5c0 .28.22.5.5.5h9a.5.5 0 00.5-.5v-11a.5.5 0 00-.5-.5h-9a.5.5 0 00-.5.5V5h1z" fillopacity="0.9"></path>
@@ -26822,7 +26822,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/icon.vue correctly 1`]
     </div>
   </div>
   <div class="t-steps-item t-steps-item--default">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--default"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-wallet icon-margin icon-margin" style="font-size:24;">
           <path fill="currentColor" d="M11.5 4.5h2a1 1 0 011 1V12a1 1 0 01-1 1h-11a1 1 0 01-1-1V3a1 1 0 011-1h8a1 1 0 011 1v1.5zm-1-1.5h-8v1.5h8V3zm3 2.5h-11V12h11V5.5z" fillopacity="0.9"></path>
         </svg></div>
@@ -26836,7 +26836,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/icon.vue correctly 1`]
     </div>
   </div>
   <div class="t-steps-item t-steps-item--default">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--default"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle icon-margin icon-margin" style="font-size:24;">
           <path fill="currentColor" d="M4.5 8.2L7 10.7l4.5-4.5-.7-.7L7 9.3 5.2 7.5l-.7.7z" fillopacity="0.9"></path>
           <path fill="currentColor" d="M4.11 2.18a7 7 0 117.78 11.64A7 7 0 014.1 2.18zm.56 10.8a6 6 0 106.66-9.97A6 6 0 004.67 13z" fillopacity="0.9"></path>
@@ -26858,7 +26858,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/no-sequence.vue correc
 <div class="t-steps t-steps--horizontal t-steps--dot-anchor">
   <!--[-->
   <div class="t-steps-item t-steps-item--finish">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--finish">
         <!---->
       </div>
@@ -26886,7 +26886,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/no-sequence.vue correc
     </div>
   </div>
   <div class="t-steps-item t-steps-item--default">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--default">
         <!---->
       </div>
@@ -26900,7 +26900,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/no-sequence.vue correc
     </div>
   </div>
   <div class="t-steps-item t-steps-item--default">
-    <div class="t-steps-item__inner t-steps-item--clickable">
+    <div class="t-steps-item__inner">
       <div class="t-steps-item__icon t-steps-item--default">
         <!---->
       </div>
@@ -27095,7 +27095,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
   <div class="t-steps t-steps--horizontal t-steps--default-anchor">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">已完成的步骤</div>
@@ -27119,7 +27119,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
       </div>
     </div>
     <div class="t-steps-item t-steps-item--default">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
@@ -27131,7 +27131,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
       </div>
     </div>
     <div class="t-steps-item t-steps-item--default">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
@@ -27148,7 +27148,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
   <div class="t-steps t-steps--horizontal t-steps--default-anchor">
     <!--[-->
     <div class="t-steps-item t-steps-item--finish">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">已完成的步骤</div>
@@ -27160,7 +27160,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
       </div>
     </div>
     <div class="t-steps-item t-steps-item--finish">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">已完成的步骤</div>
@@ -27172,7 +27172,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
       </div>
     </div>
     <div class="t-steps-item t-steps-item--error">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--error"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">错误的步骤</div>
@@ -27184,7 +27184,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/status.vue correctly 1
       </div>
     </div>
     <div class="t-steps-item t-steps-item--default">
-      <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__inner">
         <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
         <div class="t-steps-item__content">
           <div class="t-steps-item__title">未进行的步骤</div>
@@ -27206,7 +27206,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
     <div class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--positive">
       <!--[-->
       <div class="t-steps-item t-steps-item--finish">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--finish">
             <!---->
           </div>
@@ -27234,7 +27234,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default">
             <!---->
           </div>
@@ -27248,7 +27248,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default">
             <!---->
           </div>
@@ -27266,7 +27266,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
     <div class="t-steps t-steps--vertical t-steps--dot-anchor t-steps--reverse">
       <!--[-->
       <div class="t-steps-item t-steps-item--finish">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--finish">
             <!---->
           </div>
@@ -27294,7 +27294,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default">
             <!---->
           </div>
@@ -27308,7 +27308,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-no-sequence.v
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default">
             <!---->
           </div>
@@ -27333,7 +27333,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
     <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive">
       <!--[-->
       <div class="t-steps-item t-steps-item--finish">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">已完成的步骤</div>
@@ -27357,7 +27357,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">未进行的步骤</div>
@@ -27369,7 +27369,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">未进行的步骤</div>
@@ -27386,7 +27386,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
     <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--reverse">
       <!--[-->
       <div class="t-steps-item t-steps-item--finish">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">已完成的步骤</div>
@@ -27410,7 +27410,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">未进行的步骤</div>
@@ -27422,7 +27422,7 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
         </div>
       </div>
       <div class="t-steps-item t-steps-item--default">
-        <div class="t-steps-item__inner t-steps-item--clickable">
+        <div class="t-steps-item__inner">
           <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
           <div class="t-steps-item__content">
             <div class="t-steps-item__title">未进行的步骤</div>
