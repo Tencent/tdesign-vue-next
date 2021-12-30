@@ -28,7 +28,7 @@ export default defineComponent({
   name: 'TInput',
   inheritAttrs: false,
   props: { ...props },
-  emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'input', 'focus', 'blur'],
+  emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur'],
   data() {
     return {
       isHover: false,
@@ -131,7 +131,8 @@ export default defineComponent({
     emitClear({ e }: { e: MouseEvent }) {
       emitEvent(this, 'clear', e);
       emitEvent(this, 'change', '', e);
-      emitEvent(this, 'input', '', e);
+      this.focus();
+      this.emitFocus(e);
     },
     emitFocus(e: FocusEvent) {
       if (this.disabled) return;
@@ -153,7 +154,6 @@ export default defineComponent({
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
       emitEvent(this, 'change', val, { e });
-      emitEvent(this, 'input', val, { e });
       // 受控
       nextTick(() => this.setInputValue(this.value));
     },
@@ -170,7 +170,7 @@ export default defineComponent({
       onChange: () => {},
     });
 
-    const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
+    const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs)]);
 
     // @ts-ignore: TODO
     const prefixIcon = this.renderIcon(this.prefixIcon, 'prefix-icon');
