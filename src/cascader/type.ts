@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 16:59:59
+ * updated at 2021-12-30 19:43:19
  * */
 
 import { CheckboxProps } from '../checkbox';
@@ -88,7 +88,6 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
   options?: Array<CascaderOption>;
   /**
    * 占位符
-   * @default ''
    */
   placeholder?: string;
   /**
@@ -96,8 +95,8 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   popupProps?: PopupProps;
   /**
-   * 输入框中是否显示选中值的完整路径
-   * @default true
+   * 选中值使用完整路径，输入框也显示完整路径
+   * @default false
    */
   showAllLevels?: boolean;
   /**
@@ -125,6 +124,11 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * @default onlyLeaf
    */
   valueMode?: 'onlyLeaf' | 'parentFirst' | 'all';
+  /**
+   * 【开发中】用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
+   * @default value
+   */
+  valueType?: 'value' | 'object';
   /**
    * 当输入框失去焦点时触发
    */

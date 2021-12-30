@@ -1,15 +1,6 @@
 <template>
   <div>
-    <t-cascader v-model="value" class="t-demo-cascader" :options="options" show-all-levels placeholder="请选择" />
-
-    <t-cascader
-      v-model="value2"
-      class="t-demo-cascader"
-      multiple
-      :options="options"
-      show-all-levels
-      placeholder="请选择"
-    />
+    <t-cascader v-model="value" :options="options" clearable size="medium" placeholder="请选择" @change="onChange" />
   </div>
 </template>
 
@@ -27,11 +18,11 @@ const options = [
       },
       {
         label: '子选项二',
-        value: '1.2',
+        value: '',
       },
       {
         label: '子选项三',
-        value: '1.3',
+        value: '',
       },
     ],
   },
@@ -41,7 +32,7 @@ const options = [
     children: [
       {
         label: '子选项一',
-        value: '2.1',
+        value: '',
       },
       {
         label: '子选项二',
@@ -53,19 +44,16 @@ const options = [
 
 export default defineComponent({
   setup() {
-    const value = ref(['1', '1.1']);
-    const value2 = ref([]);
+    const value = ref('qweqwex');
 
     return {
       options,
       value,
-      value2,
+      onChange(e, context) {
+        console.log(e);
+        console.log(context);
+      },
     };
   },
 });
 </script>
-<style scoped>
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>

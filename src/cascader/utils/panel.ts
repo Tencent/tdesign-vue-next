@@ -1,5 +1,6 @@
 import isNumber from 'lodash/isNumber';
 import { TreeNode, CascaderContextType, CascaderProps, TreeNodeValue } from '../interface';
+import { getNodeValue } from './helper';
 
 /**
  * 面板数据计算方法
@@ -45,6 +46,7 @@ export function expendClickEffect(
     setExpend,
     value,
     max,
+    showAllLevels,
   } = cascaderContext;
 
   const isDisabled = node.disabled || (multiple && (value as TreeNodeValue[]).length >= max && max !== 0);
@@ -68,6 +70,8 @@ export function expendClickEffect(
     treeStore.resetChecked();
     const checked = node.setChecked(!node.isChecked());
     const [value] = checked;
+
+    // console.log(node.getPath().map((item) => item.value));
 
     // 过滤状态下，点击后清除过滤状态
     if (filterActive) {

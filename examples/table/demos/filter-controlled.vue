@@ -62,27 +62,27 @@ const columns = [
     title: 'FirstName',
     colKey: 'firstName',
     // 单选过滤配置
-    filter: {
-      type: 'single',
-      list: [
-        { label: 'anyone', value: '' },
-        { label: 'Heriberto', value: 'Heriberto' },
-        { label: 'Eric', value: 'Eric' },
-      ],
-    },
+    // filter: {
+    //   type: 'single',
+    //   list: [
+    //     { label: 'anyone', value: '' },
+    //     { label: 'Heriberto', value: 'Heriberto' },
+    //     { label: 'Eric', value: 'Eric' },
+    //   ],
+    // },
   },
   {
     title: 'LastName',
     colKey: 'lastName',
     // 多选过滤配置
-    filter: {
-      type: 'multiple',
-      list: [
-        { label: 'All', checkAll: true },
-        { label: 'Skures', value: 'Skures' },
-        { label: 'Purves', value: 'Purves' },
-      ],
-    },
+    // filter: {
+    //   type: 'multiple',
+    //   list: [
+    //     { label: 'All', checkAll: true },
+    //     { label: 'Skures', value: 'Skures' },
+    //     { label: 'Purves', value: 'Purves' },
+    //   ],
+    // },
   },
   {
     title: 'Email',
@@ -97,17 +97,17 @@ const columns = [
     title: 'Date',
     colKey: 'createTime',
     // 日期过滤配置
-    filter: {
-      type: 'custom',
-      component: () => <t-date-picker defaultValue={''} clearable />,
-    },
+    // filter: {
+    //   type: 'custom',
+    //   component: () => <t-date-picker defaultValue={''} clearable />,
+    // },
   },
 ];
 
 export default defineComponent({
   setup() {
     const filterValue = ref({});
-    const data = ref([...initData]);
+    const data = ref([]);
 
     const request = (filters) => {
       const timer = setTimeout(() => {

@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
+ * updated at 2021-12-30 19:43:19
  * */
 
 import { TdCascaderProps } from './type';
@@ -69,16 +69,16 @@ export default {
   /** 占位符 */
   placeholder: {
     type: String,
-    default: '',
+    default: undefined,
   },
   /** 参考 popup 组件 API */
   popupProps: {
     type: Object as PropType<TdCascaderProps['popupProps']>,
   },
-  /** 输入框中是否显示选中值的完整路径 */
+  /** 选中值使用完整路径，输入框也显示完整路径 */
   showAllLevels: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   /** 组件尺寸 */
   size: {
@@ -112,6 +112,14 @@ export default {
     default: 'onlyLeaf' as TdCascaderProps['valueMode'],
     validator(val: TdCascaderProps['valueMode']): boolean {
       return ['onlyLeaf', 'parentFirst', 'all'].includes(val);
+    },
+  },
+  /** 【开发中】用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。 */
+  valueType: {
+    type: String as PropType<TdCascaderProps['valueType']>,
+    default: 'value' as TdCascaderProps['valueType'],
+    validator(val: TdCascaderProps['valueType']): boolean {
+      return ['value', 'object'].includes(val);
     },
   },
   /** 当输入框失去焦点时触发 */

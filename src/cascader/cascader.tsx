@@ -169,9 +169,9 @@ export default defineComponent({
     const {
       value,
       multiple,
-      cascaderContext: { setValue },
+      cascaderContext: { setValue, showAllLevels },
     } = this;
-    if ((multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value))) {
+    if ((multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value) && !showAllLevels)) {
       const val: CascaderValue = multiple ? [] : '';
       setValue(val, 'invalid-value');
       console.warn('TDesign Cascader Warn:', 'cascader props value invalid, v-model automatic calibration');
