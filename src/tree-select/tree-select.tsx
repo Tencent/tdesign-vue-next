@@ -59,6 +59,7 @@ export default defineComponent({
       actived: [],
       expanded: [],
       nodeInfo: null,
+      treeKey: 0,
     };
   },
   computed: {
@@ -215,6 +216,10 @@ export default defineComponent({
         this.actived = this.nodeInfo ? [this.nodeInfo.value] : [];
       }
     },
+    async data() {
+      await this.changeNodeInfo();
+      this.treeRerender();
+    },
   },
   async mounted() {
     if (!this.value && this.defaultValue) {
@@ -349,9 +354,12 @@ export default defineComponent({
         this.nodeInfo = null;
       }
     },
+    treeRerender() {
+      this.treeKey += 1;
+    },
   },
   render(): VNode {
-    const { treeProps, popupObject, classes, popupClass } = this;
+    const { treeProps, popupObject, classes, popupClass, treeKey } = this;
     const iconStyle = { 'font-size': this.size };
     const treeSlots = {
       empty: () => <>{this.emptySlot}</>,
@@ -360,6 +368,7 @@ export default defineComponent({
       <tree
         ref="tree"
         v-show={this.showTree}
+        key={treeKey}
         value={this.checked}
         hover
         expandAll
