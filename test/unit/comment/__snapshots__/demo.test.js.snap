@@ -734,7 +734,21 @@ exports[`Comment Comment replyVue demo works fine 1`] = `
             <span
               class="t-comment__time"
             >
-              今天16:38
+              
+              <span>
+                评论作者名B
+              </span>
+              <svg
+                class="t-icon t-icon-caret-right-small t-size-s author-icon author-icon"
+              >
+                <use
+                  href="#t-icon-caret-right-small"
+                />
+              </svg>
+              <span>
+                评论作者名A
+              </span>
+              
             </span>
           </div>
           <div
