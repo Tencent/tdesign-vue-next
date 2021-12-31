@@ -23,13 +23,13 @@ multiple | Boolean | false | 是否允许多选 | N
 options | Array | [] | 可选项数据源。TS 类型：`Array<CascaderOption>` | N
 placeholder | String | undefined | 占位符 | N
 popupProps | Object | - | 参考 popup 组件 API。TS 类型：`PopupProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue/tree/develop/src/cascader/type.ts) | N
-showAllLevels | Boolean | true | 输入框中是否显示选中值的完整路径 | N
+showAllLevels | Boolean | true | 选中值使用完整路径，输入框在单选时也显示完整路径 | N
 size | String | medium | 组件尺寸。可选项：large/medium/small。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue/blob/develop/src/common.ts) | N
 trigger | String | click | 展开下一层级的方式。可选项：click/hover | N
 value | String / Number / Array | [] | 选中项的值。支持语法糖。TS 类型：`CascaderValue<CascaderOption>`。[通用类型定义](https://github.com/Tencent/tdesign-vue/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue/tree/develop/src/cascader/type.ts) | N
 defaultValue | String / Number / Array | [] | 选中项的值。非受控属性。TS 类型：`CascaderValue<CascaderOption>`。[通用类型定义](https://github.com/Tencent/tdesign-vue/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue/tree/develop/src/cascader/type.ts) | N
 valueMode | String | onlyLeaf | 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点。可选项：onlyLeaf/parentFirst/all | N
-valueType | String | value | 【开发中】用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。。可选项：value/object | N
+valueType | String | single | 用于控制选中值的类型。single 表示输入输出值为 叶子结点值， full 表示输入输出值为全路径。可选项：single/full | N
 onBlur | Function |  | 当输入框失去焦点时触发。`(context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => {}` | N
 onChange | Function |  | 选中值发生变化时触发。TreeNodeModel 从树组件中导出。`context.node` 表示触发事件的节点，`context.source` 表示触发事件的来源。[详细类型定义](https://github.com/Tencent/tdesign-vue/tree/develop/src/cascader/type.ts)。`(value: CascaderValue<CascaderOption>, context: CascaderChangeContext<CascaderOption>) => {}` | N
 onFocus | Function |  | 获得焦点时触发。`(context: { value: CascaderValue<CascaderOption>; e: FocusEvent }) => {}` | N

@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-30 19:43:19
+ * updated at 2021-12-31 13:31:20
  * */
 
 import { TdCascaderProps } from './type';
@@ -75,7 +75,7 @@ export default {
   popupProps: {
     type: Object as PropType<TdCascaderProps['popupProps']>,
   },
-  /** 选中值使用完整路径，输入框也显示完整路径 */
+  /** 选中值使用完整路径，输入框在单选时也显示完整路径 */
   showAllLevels: {
     type: Boolean,
     default: true,
@@ -114,7 +114,7 @@ export default {
       return ['onlyLeaf', 'parentFirst', 'all'].includes(val);
     },
   },
-  /** 用于控制选中值的类型。single 表示输入输出值为 叶子结点值， full 表示输入输出值为全路径。 */
+  /** 用于控制选中值的类型。single 表示输入输出值为 叶子结点值， full 表示输入输出值为全路径 */
   valueType: {
     type: String as PropType<TdCascaderProps['valueType']>,
     default: 'single' as TdCascaderProps['valueType'],

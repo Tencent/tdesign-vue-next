@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-30 19:43:19
+ * updated at 2021-12-31 13:31:20
  * */
 
 import { CheckboxProps } from '../checkbox';
@@ -95,8 +95,8 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   popupProps?: PopupProps;
   /**
-   * 选中值使用完整路径，输入框也显示完整路径
-   * @default false
+   * 选中值使用完整路径，输入框在单选时也显示完整路径
+   * @default true
    */
   showAllLevels?: boolean;
   /**
@@ -125,8 +125,8 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    */
   valueMode?: 'onlyLeaf' | 'parentFirst' | 'all';
   /**
-   * 【开发中】用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
-   * @default value
+   * 用于控制选中值的类型。single 表示输入输出值为 叶子结点值， full 表示输入输出值为全路径
+   * @default single
    */
   valueType?: 'single' | 'full';
   /**
