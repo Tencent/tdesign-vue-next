@@ -35,7 +35,6 @@ const isEventProps = (propName: string): boolean => {
 
 export default defineComponent({
   name: 'TBreadcrumbItem',
-
   components: {
     Tooltip,
   },
@@ -45,6 +44,8 @@ export default defineComponent({
   props: {
     ...props,
   },
+
+  emits: ['click'],
 
   data() {
     return {
@@ -140,7 +141,7 @@ export default defineComponent({
     }
 
     return (
-      <div class={itemClass} {...this.$attrs}>
+      <div class={itemClass} {...this.$attrs} onClick={(e) => this.$emit('click', e)}>
         {this.isCutOff ? <Tooltip content={() => this.$slots.default()}>{itemContent}</Tooltip> : itemContent}
         <span class={separatorClass}>
           {typeof separatorContent === 'function' ? separatorContent() : separatorContent}
