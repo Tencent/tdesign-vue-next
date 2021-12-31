@@ -39535,7 +39535,6 @@ exports[`ssr snapshot test renders ./examples/upload/demos/base.vue correctly 1`
     </div>
     <!--]-->
     <!---->
-    <!---->
   </div>
   <!---->
   <!---->
@@ -39893,7 +39892,6 @@ exports[`ssr snapshot test renders ./examples/upload/demos/listType.vue correctl
         </div>
         <!--]-->
         <!---->
-        <!---->
       </div>
       <!---->
       <!---->
@@ -39928,7 +39926,6 @@ exports[`ssr snapshot test renders ./examples/upload/demos/request-method.vue co
         <!---->
       </div>
       <!--]-->
-      <!---->
       <!---->
     </div>
     <!---->
@@ -39995,7 +39992,6 @@ exports[`ssr snapshot test renders ./examples/upload/demos/single-input.vue corr
         </div>
         <!--]-->
         <!---->
-        <!---->
       </div>
       <!---->
       <!---->
@@ -40030,7 +40026,6 @@ exports[`ssr snapshot test renders ./examples/upload/demos/table.vue correctly 1
           <!---->
         </div>
         <!--]-->
-        <!---->
         <!---->
       </div>
       <!---->

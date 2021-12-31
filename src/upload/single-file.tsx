@@ -130,11 +130,6 @@ export default defineComponent({
         {this.showInput && this.renderFilePreviewAsInput()}
         {this.$slots.default && this.$slots.default(null)}
         {this.showTextPreview && this.renderFilePreviewAsText()}
-        {this.showInput && this.showDelete && (
-          <span class={`${UPLOAD_NAME}__single-input-delete`} onClick={(e: MouseEvent) => this.remove(e)}>
-            删除
-          </span>
-        )}
       </div>
     );
   },
