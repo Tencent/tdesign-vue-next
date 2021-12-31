@@ -128,7 +128,7 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 【开发中】用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。
    * @default value
    */
-  valueType?: 'value' | 'object';
+  valueType?: 'single' | 'full';
   /**
    * 当输入框失去焦点时触发
    */

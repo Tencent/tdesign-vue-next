@@ -1,6 +1,5 @@
 import isNumber from 'lodash/isNumber';
 import { TreeNode, CascaderContextType, CascaderProps, TreeNodeValue } from '../interface';
-import { getNodeValue } from './helper';
 
 /**
  * 面板数据计算方法
@@ -46,7 +45,7 @@ export function expendClickEffect(
     setExpend,
     value,
     max,
-    showAllLevels,
+    valueType,
   } = cascaderContext;
 
   const isDisabled = node.disabled || (multiple && (value as TreeNodeValue[]).length >= max && max !== 0);
@@ -71,8 +70,6 @@ export function expendClickEffect(
     const checked = node.setChecked(!node.isChecked());
     const [value] = checked;
 
-    // console.log(node.getPath().map((item) => item.value));
-
     // 过滤状态下，点击后清除过滤状态
     if (filterActive) {
       setFilterActive(false);
@@ -84,7 +81,7 @@ export function expendClickEffect(
     }
 
     // 非受控状态下更新状态
-    setValue(value, 'checked', node.getModel());
+    setValue(valueType === 'single' ? value : node.getPath().map((item) => item.value), 'checked', node.getModel());
   }
 }
 
@@ -95,8 +92,18 @@ export function expendClickEffect(
  * @returns
  */
 export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderContextType) {
-  const { disabled, max, multiple, setVisible, setValue, filterActive, setFilterActive, treeNodes, treeStore } =
-    cascaderContext;
+  const {
+    disabled,
+    max,
+    multiple,
+    setVisible,
+    setValue,
+    filterActive,
+    setFilterActive,
+    treeNodes,
+    treeStore,
+    valueType,
+  } = cascaderContext;
 
   if (!node || disabled || node.disabled) {
     return;
@@ -130,5 +137,15 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
     setFilterActive(false);
   }
 
-  setValue(checked, 'checked', node.getModel());
+  // 处理不同数据类型
+  const resValue =
+    valueType === 'single'
+      ? checked
+      : checked.map((val) =>
+          treeStore
+            .getNode(val)
+            .getPath()
+            .map((item) => item.value),
+        );
+  setValue(resValue, 'checked', node.getModel());
 }

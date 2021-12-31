@@ -7,7 +7,7 @@ import { prefix } from '../config';
 import TreeStore from '../_common/js/tree/tree-store';
 import { emitEvent } from '../utils/event';
 import { getPropsApiByEvent } from '../utils/helper';
-import { getTreeValue } from './utils/helper';
+import { getTreeValue, getValue } from './utils/helper';
 
 // common logic
 import { treeNodesEffect, treeStoreExpendEffect } from './utils/cascader';
@@ -107,11 +107,13 @@ export default defineComponent({
         showAllLevels = true,
         minCollapsedNum = 0,
         loading,
+        valueType = 'single',
       } = this;
 
       const { visible, treeStore, treeNodes, filterActive, inputVal, inputWidth } = this;
 
       return {
+        valueType,
         loading,
         size,
         disabled,
@@ -140,8 +142,9 @@ export default defineComponent({
     // 处理外部传进来的value
     value: {
       handler(val) {
+        const { valueType, multiple } = this;
         if (isEqual(val, this.scopeVal)) return;
-        this.scopeVal = val;
+        this.scopeVal = getValue(val, valueType, multiple);
         this.updateExpend();
         this.updatedTreeNodes();
       },
@@ -170,14 +173,16 @@ export default defineComponent({
       value,
       multiple,
       cascaderContext: { setValue, showAllLevels },
+      valueType,
     } = this;
     if ((multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value) && !showAllLevels)) {
       const val: CascaderValue = multiple ? [] : '';
       setValue(val, 'invalid-value');
       console.warn('TDesign Cascader Warn:', 'cascader props value invalid, v-model automatic calibration');
     }
+
     if (!isEmpty(value)) {
-      this.scopeVal = value;
+      this.scopeVal = getValue(value, valueType, multiple);
     }
 
     this.init();

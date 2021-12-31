@@ -78,7 +78,7 @@ export default {
   /** 选中值使用完整路径，输入框也显示完整路径 */
   showAllLevels: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   /** 组件尺寸 */
   size: {
@@ -114,12 +114,12 @@ export default {
       return ['onlyLeaf', 'parentFirst', 'all'].includes(val);
     },
   },
-  /** 【开发中】用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。 */
+  /** 用于控制选中值的类型。single 表示输入输出值为 叶子结点值， full 表示输入输出值为全路径。 */
   valueType: {
     type: String as PropType<TdCascaderProps['valueType']>,
-    default: 'value' as TdCascaderProps['valueType'],
+    default: 'single' as TdCascaderProps['valueType'],
     validator(val: TdCascaderProps['valueType']): boolean {
-      return ['value', 'object'].includes(val);
+      return ['single', 'full'].includes(val);
     },
   },
   /** 当输入框失去焦点时触发 */

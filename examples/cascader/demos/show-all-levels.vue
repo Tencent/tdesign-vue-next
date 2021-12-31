@@ -1,13 +1,10 @@
 <template>
   <div>
-    <t-cascader v-model="value" class="t-demo-cascader" :options="options" show-all-levels placeholder="请选择" />
-
     <t-cascader
-      v-model="value2"
+      v-model="value"
       class="t-demo-cascader"
-      multiple
       :options="options"
-      show-all-levels
+      :show-all-levels="false"
       placeholder="请选择"
     />
   </div>
@@ -53,13 +50,10 @@ const options = [
 
 export default defineComponent({
   setup() {
-    const value = ref(['1', '1.1']);
-    const value2 = ref([]);
-
+    const value = ref('');
     return {
       options,
       value,
-      value2,
     };
   },
 });
