@@ -256,34 +256,32 @@ export default defineComponent({
     });
 
     return (
-      <div ref="cascader">
-        <Popup
-          ref="popup"
-          overlayClassName={`${name}__dropdown`}
-          placement="bottom-left"
-          visible={visible}
-          trigger={popupProps?.trigger || 'click'}
-          expandAnimation={true}
-          v-slots={{
-            content: () => (
-              <panel empty={empty} trigger={trigger} cascaderContext={cascaderContext}>
-                {{ empty: $slots.empty }}
-              </panel>
-            ),
-          }}
-          {...popupProps}
+      <Popup
+        class={`${name}__popup`}
+        overlayClassName={`${name}__dropdown`}
+        placement="bottom-left"
+        visible={visible}
+        trigger={popupProps?.trigger || 'click'}
+        expandAnimation={true}
+        v-slots={{
+          content: () => (
+            <panel empty={empty} trigger={trigger} cascaderContext={cascaderContext}>
+              {{ empty: $slots.empty }}
+            </panel>
+          ),
+        }}
+        {...popupProps}
+      >
+        <InputContent
+          {...$attrs}
+          cascaderContext={cascaderContext}
+          placeholder={placeholder}
+          collapsedItems={collapsedItems}
+          listeners={listeners}
         >
-          <InputContent
-            {...$attrs}
-            cascaderContext={cascaderContext}
-            placeholder={placeholder}
-            collapsedItems={collapsedItems}
-            listeners={listeners}
-          >
-            {{ collapsedItems: $slots.collapsedItems }}
-          </InputContent>
-        </Popup>
-      </div>
+          {{ collapsedItems: $slots.collapsedItems }}
+        </InputContent>
+      </Popup>
     );
   },
 });
