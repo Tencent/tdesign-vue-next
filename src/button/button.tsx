@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TLoading from '../loading';
@@ -13,28 +13,31 @@ export default defineComponent({
   directives: { ripple },
   inheritAttrs: false,
   props,
+  setup(props) {
+    const isDisabledRef = computed(() => props.disabled || props.loading);
+    const mergeThemeRef = computed(() => {
+      const { theme, variant } = props;
+      if (theme) return theme;
+      if (variant === 'base') return 'primary';
+      return 'default';
+    });
+    return {
+      isDisabled: isDisabledRef,
+      mergeTheme: mergeThemeRef,
+    };
+  },
   render() {
     let buttonContent = renderContent(this, 'default', 'content');
     const icon = this.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX(this, 'icon');
-    const disabled = this.disabled || this.loading;
     const iconOnly = icon && !buttonContent;
-
-    let { theme } = this;
-    if (!this.theme) {
-      if (this.variant === 'base') {
-        theme = 'primary';
-      } else {
-        theme = 'default';
-      }
-    }
 
     const buttonClass = [
       `${name}`,
       CLASSNAMES.SIZE[this.size],
       `${name}--variant-${this.variant}`,
-      `${name}--theme-${theme}`,
+      `${name}--theme-${this.mergeTheme}`,
       {
-        [CLASSNAMES.STATUS.disabled]: disabled,
+        [CLASSNAMES.STATUS.disabled]: this.isDisabled,
         [CLASSNAMES.STATUS.loading]: this.loading,
         [`${name}--icon-only`]: iconOnly,
         [`${name}--shape-${this.shape}`]: this.shape !== 'rectangle',
