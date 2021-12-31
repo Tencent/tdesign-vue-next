@@ -422,7 +422,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
       class="t-breadcrumb__item light"
     >
       <span
-        class="t-breadcrumb--text-oveflow t-gestureClass"
+        class="t-breadcrumb--text-oveflow"
       >
         <span
           class="t-breadcrumb__inner"
