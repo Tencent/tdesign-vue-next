@@ -22,6 +22,7 @@ export interface CascaderContextType
     | 'value'
     | 'minCollapsedNum'
     | 'loading'
+    | 'valueType'
   > {
   treeStore: TreeStore;
   inputWidth: number;

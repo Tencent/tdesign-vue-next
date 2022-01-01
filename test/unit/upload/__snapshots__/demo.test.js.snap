@@ -67,7 +67,6 @@ exports[`Upload Upload baseVue demo works fine 1`] = `
       </div>
       
       <!---->
-      <!---->
     </div>
     <!---->
     <!---->
@@ -1168,7 +1167,6 @@ exports[`Upload Upload listTypeVue demo works fine 1`] = `
         </div>
         
         <!---->
-        <!---->
       </div>
       <!---->
       <!---->
@@ -1292,7 +1290,6 @@ exports[`Upload Upload requestMethodVue demo works fine 1`] = `
         <!---->
       </div>
       
-      <!---->
       <!---->
     </div>
     <!---->
@@ -1474,7 +1471,6 @@ exports[`Upload Upload singleInputVue demo works fine 1`] = `
         </div>
         
         <!---->
-        <!---->
       </div>
       <!---->
       <!---->
@@ -1547,7 +1543,6 @@ exports[`Upload Upload tableVue demo works fine 1`] = `
           <!---->
         </div>
         
-        <!---->
         <!---->
       </div>
       <!---->
