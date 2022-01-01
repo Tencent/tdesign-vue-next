@@ -42,13 +42,13 @@ export default defineComponent({
     onClose(index: number) {
       const arr = [...this.value];
       arr.splice(index, 1);
-      this.onChange?.(arr, { trigger: 'tag-delete' });
+      this.onChange?.(arr, { trigger: 'tag-delete', index });
     },
 
     onInputEnter(value: InputValue, context: { e: KeyboardEvent }) {
       if (!value) return;
       const newValue: TagInputValue = this.value instanceof Array ? this.value.concat(String(value)) : [value];
-      this.onChange?.(newValue, { trigger: 'enter' });
+      this.onChange?.(newValue, { trigger: 'enter', index: newValue.length - 1 });
       this.onEnter?.(newValue, { ...context, inputValue: value });
       this.inputValue = '';
       this.$nextTick(() => {
@@ -59,7 +59,7 @@ export default defineComponent({
     onInputKeyUp(value: InputValue, context: { e: KeyboardEvent }) {
       // 回车键删除，TODO: 小键盘删除测试
       if (context.e.code === 'Backspace') {
-        this.onChange?.(this.value.slice(0, -1), { trigger: 'backspace' });
+        this.onChange?.(this.value.slice(0, -1), { trigger: 'backspace', index: this.value?.length });
       } else if (context.e.code === 'ArrowRight') {
         // TODO
       }

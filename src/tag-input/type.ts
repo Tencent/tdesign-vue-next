@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-01 22:10:04
+ * updated at 2022-01-01 23:06:59
  * */
 
 import { InputProps, InputValue } from '../input';
@@ -32,7 +32,7 @@ export interface TdTagInputProps {
   /**
    * 值变化时触发，参数 `trigger` 表示数据变化的触发来源
    */
-  onChange?: (value: TagInputValue, context: { trigger: TriggerSource }) => void;
+  onChange?: (value: TagInputValue, context: { trigger: TriggerSource; index: number }) => void;
   /**
    * 按键按下 Enter 时触发
    */
