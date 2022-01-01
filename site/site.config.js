@@ -247,6 +247,13 @@ export default {
           component: () => import('@/examples/switch/switch.md'),
         },
         {
+          title: 'TagInput 标签输入框',
+          name: 'tag-input',
+          docType: 'form',
+          path: '/vue-next/components/tag-input',
+          component: () => import('@/examples/tag-input/tag-input.md'),
+        },
+        {
           title: 'Textarea 多行文本框',
           name: 'textarea',
           docType: 'form',
