@@ -1,92 +1,80 @@
 import { defineComponent } from 'vue';
-import { TagInputValue } from '.';
+import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
+import TagList from './tag-list';
 import Tag from '../tag';
 import props from './props';
+import { renderTNodeJSX } from '../utils/render-tnode';
+import useTagScroll from './useTagScroll';
+import useTagList from './useTagList';
 
 export default defineComponent({
   name: 'TTagInput',
 
-  components: { TInput },
-
   props: { ...props },
+
+  setup(props) {
+    const scrollFunctions = useTagScroll(props);
+    const { onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll } = useTagList(props);
+    return {
+      ...scrollFunctions,
+      onClose,
+      onInnerEnter,
+      onInputBackspaceKeyUp,
+      clearAll,
+    };
+  },
 
   data() {
     return {
-      inputValue: undefined as string,
-      scrollDistance: 0,
-      timer: null,
+      inputValue: '',
     };
   },
 
   mounted() {
-    this.$el.addEventListener('mousewheel', this.onWeel);
+    const element = this.$el;
+    this.setScrollElement(element);
+    this.addListeners(element);
   },
 
   unmounted() {
-    this.$el.removeEventListener('mousewheel', this.onWeel);
+    this.removeListeners(this.$el);
   },
-
-  // setup(props) {},
 
   methods: {
     renderLabel() {
-      return this.value?.map((item, index) => (
-        <Tag onClose={(e) => this.onClose(index)} closable={!this.readonly}>
-          {item}
-        </Tag>
-      ));
-    },
-
-    onClose(index: number) {
-      const arr = [...this.value];
-      arr.splice(index, 1);
-      this.onChange?.(arr, { trigger: 'tag-delete', index });
+      const displayNode = renderTNodeJSX(this, 'valueDisplay');
+      const newList = this.minCollapsedNum ? this.value.slice(0, this.minCollapsedNum) : this.value;
+      const list = displayNode ?? [
+        <TagList list={newList} tagProps={this.tagProps} readonly={this.readonly} onClose={this.onClose} />,
+      ];
+      // 左侧文本
+      const label = renderTNodeJSX(this, 'label');
+      if (![null, undefined, ''].includes(label)) {
+        list.unshift(<div class={`${prefix}-tag-input__prefix`}>{label}</div>);
+      }
+      // 超出省略
+      if (newList.length !== this.value.length) {
+        const len = this.value.length - newList.length;
+        const more = renderTNodeJSX(this, 'collapsedItems', {
+          params: {
+            value: this.value,
+            count: this.value.length,
+            collapsedTags: this.value.slice(this.minCollapsedNum, this.value.length),
+          },
+        });
+        list.push(more ?? <Tag>+{len}</Tag>);
+      }
+      return list;
     },
 
     onInputEnter(value: InputValue, context: { e: KeyboardEvent }) {
-      if (!value) return;
-      const newValue: TagInputValue = this.value instanceof Array ? this.value.concat(String(value)) : [value];
-      this.onChange?.(newValue, { trigger: 'enter', index: newValue.length - 1 });
-      this.onEnter?.(newValue, { ...context, inputValue: value });
+      this.onInnerEnter(value, context);
       this.inputValue = '';
       this.$nextTick(() => {
         this.scrollToRight();
       });
-    },
-
-    onInputKeyUp(value: InputValue, context: { e: KeyboardEvent }) {
-      // 回车键删除，TODO: 小键盘删除测试
-      if (context.e.code === 'Backspace') {
-        this.onChange?.(this.value.slice(0, -1), { trigger: 'backspace', index: this.value?.length });
-      } else if (context.e.code === 'ArrowRight') {
-        // TODO
-      }
-    },
-
-    scrollToRight() {
-      this.scrollDistance = this.$el.scrollWidth - this.$el.clientWidth;
-      this.scrollTo(this.scrollDistance);
-    },
-
-    scrollTo(distance: number) {
-      this.$el.scroll({ left: distance, behavior: 'smooth' });
-    },
-
-    onWeel(e: WheelEvent) {
-      if (this.timer) return;
-      if (e.deltaX > 0) {
-        const distance = Math.min(this.$el.scrollLeft + 120, this.scrollDistance);
-        this.scrollTo(distance);
-      } else {
-        const distance = Math.max(this.$el.scrollLeft - 120, 0);
-        this.scrollTo(distance);
-      }
-      this.timer = setTimeout(() => {
-        clearTimeout(this.timer);
-        this.timer = null;
-      }, 500);
     },
   },
 
@@ -96,10 +84,16 @@ export default defineComponent({
         v-model={this.inputValue}
         readonly={this.readonly}
         label={this.renderLabel}
+        onBlur={this.scrollToLeft}
         onEnter={this.onInputEnter}
-        onKeyup={this.onInputKeyUp}
+        onKeyup={this.onInputBackspaceKeyUp}
         class={`${prefix}-tag-input`}
         placeholder={!this.value?.length ? this.placeholder : ''}
+        status={this.status}
+        suffixIcon={
+          this.readonly || !this.clearable ? undefined : () => <CloseCircleFilledIcon onClick={this.clearAll} />
+        }
+        {...this.inputProps}
       />
     );
   },

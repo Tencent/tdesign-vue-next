@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-28 14:17:00
+ * updated at 2022-01-03 14:02:31
  * */
 
 import { TdInputProps } from './type';
@@ -68,6 +68,10 @@ export default {
   /** 组件后置图标 */
   suffixIcon: {
     type: Function as PropType<TdInputProps['suffixIcon']>,
+  },
+  /** 【讨论中】输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
+  tips: {
+    type: [String, Function] as PropType<TdInputProps['tips']>,
   },
   /** 输入框类型 */
   type: {

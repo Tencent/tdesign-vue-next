@@ -2,16 +2,28 @@
   <div style="width: 50%">
     <t-tag-input
       placeholder="输入内容后按下 Enter 键添加新标签"
+      :tag-props="{ theme: 'primary' }"
       :value="tags"
-      clearable
       @change="onChange"
-      @enter="onTagInputEnter"
     />
     <br /><br />
     <t-tag-input
       placeholder="输入内容后按下 Enter 键添加新标签"
-      label="Framework："
-      clearable
+      :tag-props="{ theme: 'success' }"
+      :value="tags"
+      @change="onChange"
+    />
+    <br /><br />
+    <t-tag-input
+      placeholder="输入内容后按下 Enter 键添加新标签"
+      :tag-props="{ theme: 'warning' }"
+      :value="tags"
+      @change="onChange"
+    />
+    <br /><br />
+    <t-tag-input
+      placeholder="输入内容后按下 Enter 键添加新标签"
+      :tag-props="{ theme: 'danger' }"
       :value="tags"
       @change="onChange"
     />
@@ -22,20 +34,18 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'TTagInputBase',
+  name: 'TTagInputTheme',
   data() {
     return {
       tags: ['Vue', 'React', 'Miniprogram'],
     };
   },
   methods: {
-    onTagInputEnter(val, context) {
-      console.log(val, context);
-    },
-    onChange(val, context) {
-      console.log(val, context);
+    onChange(val) {
       this.tags = val;
     },
   },
 });
 </script>
+
+<style lang="less" scoped></style>

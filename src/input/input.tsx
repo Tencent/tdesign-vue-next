@@ -209,7 +209,7 @@ export default defineComponent({
         [`${name}__inner--focused`]: this.focused,
       },
     ];
-    return (
+    const inputNode = (
       <div
         class={classes}
         onMouseenter={() => this.mouseEvent(true)}
@@ -234,5 +234,15 @@ export default defineComponent({
         ) : null}
       </div>
     );
+    const tips = renderTNodeJSX(this, 'tips');
+    if (tips) {
+      return (
+        <div class={`${prefix}-input__wrap`}>
+          {inputNode}
+          <div class={`${prefix}-input__tips ${prefix}-input__tips--${this.status}`}>{tips}</div>
+        </div>
+      );
+    }
+    return inputNode;
   },
 });

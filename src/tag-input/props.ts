@@ -2,16 +2,35 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-01 22:10:04
+ * updated at 2022-01-03 22:54:42
  * */
 
 import { TdTagInputProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 透传 Input 组件全部属性 */
+  /** 是否可清空 */
+  clearable: Boolean,
+  /** 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示标签值，`collapsedTags` 表示折叠标签值，`count` 表示总标签数量 */
+  collapsedItems: {
+    type: Function as PropType<TdTagInputProps['collapsedItems']>,
+  },
+  /** 透传 Input 输入框组件全部属性 */
   inputProps: {
     type: Object as PropType<TdTagInputProps['inputProps']>,
+  },
+  /** 左侧文本 */
+  label: {
+    type: [String, Function] as PropType<TdTagInputProps['label']>,
+  },
+  /** 最大允许输入的标签数量 */
+  max: {
+    type: Number,
+  },
+  /** 最小折叠数量，用于标签数量过多的情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠 */
+  minCollapsedNum: {
+    type: Number,
+    default: 0,
   },
   /** 占位符 */
   placeholder: {
@@ -20,6 +39,17 @@ export default {
   },
   /** 是否只读，值为真会隐藏标签移除按钮和输入框 */
   readonly: Boolean,
+  /** 输入框状态 */
+  status: {
+    type: String as PropType<TdTagInputProps['status']>,
+    validator(val: TdTagInputProps['status']): boolean {
+      return ['success', 'warning', 'error'].includes(val);
+    },
+  },
+  /** 透传 Tag 组件全部属性 */
+  tagProps: {
+    type: Object as PropType<TdTagInputProps['tagProps']>,
+  },
   /** 值 */
   value: {
     type: Array as PropType<TdTagInputProps['value']>,
@@ -28,8 +58,14 @@ export default {
   defaultValue: {
     type: Array as PropType<TdTagInputProps['defaultValue']>,
   },
+  /** 自定义标签值呈现内容 */
+  valueDisplay: {
+    type: [String, Function] as PropType<TdTagInputProps['valueDisplay']>,
+  },
   /** 值变化时触发，参数 `trigger` 表示数据变化的触发来源 */
   onChange: Function as PropType<TdTagInputProps['onChange']>,
+  /** 清空按钮点击时触发 */
+  onClear: Function as PropType<TdTagInputProps['onClear']>,
   /** 按键按下 Enter 时触发 */
   onEnter: Function as PropType<TdTagInputProps['onEnter']>,
 };
