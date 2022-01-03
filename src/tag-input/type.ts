@@ -2,10 +2,10 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-03 22:54:42
+ * updated at 2022-01-04 00:07:33
  * */
 
-import { InputProps } from '../input';
+import { InputProps, InputValue } from '../input';
 import { TagProps } from '../tag';
 import { TNode } from '../common';
 
@@ -70,7 +70,7 @@ export interface TdTagInputProps {
    */
   onChange?: (
     value: TagInputValue,
-    context: { trigger: TriggerSource; index?: number; e: MouseEvent | KeyboardEvent },
+    context: { trigger: TagInputTriggerSource; index?: number; e: MouseEvent | KeyboardEvent },
   ) => void;
   /**
    * 清空按钮点击时触发
@@ -84,4 +84,4 @@ export interface TdTagInputProps {
 
 export type TagInputValue = Array<string | number>;
 
-export type TriggerSource = 'enter' | 'tag-delete' | 'backspace' | 'clear';
+export type TagInputTriggerSource = 'enter' | 'tag-delete' | 'backspace' | 'clear';

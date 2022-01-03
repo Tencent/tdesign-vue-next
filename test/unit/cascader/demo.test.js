@@ -17,6 +17,7 @@ import showAllLevelsVue from '@/examples/cascader/demos/show-all-levels.vue';
 import sizeVue from '@/examples/cascader/demos/size.vue';
 import triggerVue from '@/examples/cascader/demos/trigger.vue';
 import valueModeVue from '@/examples/cascader/demos/value-mode.vue';
+import valueTypeVue from '@/examples/cascader/demos/value-type.vue';
 
 const mapper = {
   baseVue,
@@ -33,6 +34,7 @@ const mapper = {
   sizeVue,
   triggerVue,
   valueModeVue,
+  valueTypeVue,
 };
 
 describe('Cascader', () => {

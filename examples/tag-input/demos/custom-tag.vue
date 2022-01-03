@@ -2,7 +2,13 @@
   <div style="width: 100%">
     <t-tag-input placeholder="type username" :value="tags" clearable @change="onChange">
       <template #valueDisplay>
-        <t-tag v-for="item in tags" :key="item" closable style="margin-right: 4px">
+        <t-tag
+          v-for="(item, index) in tags"
+          :key="item"
+          closable
+          style="margin-right: 4px"
+          @close="() => onTagDelete(index)"
+        >
           <img
             src="https://tdesign.gtimg.com/site/avatar.jpg"
             style="max-width: 20px; max-height: 20px; border-radius: 50%"
@@ -30,6 +36,9 @@ export default defineComponent({
         this.tags = val;
         clearTimeout(timer);
       }, 80);
+    },
+    onTagDelete(index) {
+      this.tags.splice(index, 1);
     },
   },
 });

@@ -18,7 +18,7 @@ tagProps | Object | - | 透传 Tag 组件全部属性。TS 类型：`TagProps`�
 value | Array | - | 值。支持语法糖。TS 类型：`TagInputValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts) | N
 defaultValue | Array | - | 值。非受控属性。TS 类型：`TagInputValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts) | N
 valueDisplay | String / Slot / Function | - | 自定义标签值呈现内容。TS 类型：`string | TNode<{ value: TagInputValue }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-onChange | Function |  | 值变化时触发，参数 `trigger` 表示数据变化的触发来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)。`(value: TagInputValue, context: { trigger: TriggerSource; index?: number; e: MouseEvent | KeyboardEvent }) => {}` | N
+onChange | Function |  | 值变化时触发，参数 `trigger` 表示数据变化的触发来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)。`(value: TagInputValue, context: { trigger: TagInputTriggerSource; index?: number; e: MouseEvent | KeyboardEvent }) => {}` | N
 onClear | Function |  | 清空按钮点击时触发。`(context: { e: MouseEvent }) => {}` | N
 onEnter | Function |  | 按键按下 Enter 时触发。`(value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue }) => {}` | N
 
@@ -26,6 +26,6 @@ onEnter | Function |  | 按键按下 Enter 时触发。`(value: TagInputValue, c
 
 名称 | 参数 | 描述
 -- | -- | --
-change | `(value: TagInputValue, context: { trigger: TriggerSource; index?: number; e: MouseEvent | KeyboardEvent })` | 值变化时触发，参数 `trigger` 表示数据变化的触发来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)
+change | `(value: TagInputValue, context: { trigger: TagInputTriggerSource; index?: number; e: MouseEvent | KeyboardEvent })` | 值变化时触发，参数 `trigger` 表示数据变化的触发来源。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)
 clear | `(context: { e: MouseEvent })` | 清空按钮点击时触发
 enter | `(value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue })` | 按键按下 Enter 时触发
