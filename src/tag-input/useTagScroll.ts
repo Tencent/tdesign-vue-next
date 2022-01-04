@@ -3,11 +3,11 @@
  * 如果标签过多时的处理方式，是标签省略，则不需要此功能
  */
 
-import { onUnmounted, ref, Ref } from 'vue';
+import { onMounted, onUnmounted, ref, Ref } from 'vue';
 import { TdTagInputProps } from './type';
 import { on, off } from '../utils/dom';
 
-export default function useTagScroll(props: TdTagInputProps) {
+export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
   // 允许向右滚动的最大距离
   const scrollDistance = ref(0);
   const scrollElement = ref<HTMLElement>(null);
@@ -89,9 +89,16 @@ export default function useTagScroll(props: TdTagInputProps) {
     off(element, 'mouseleave', onMouseLeave);
   };
 
+  onMounted(() => {
+    const element = root.value?.$el;
+    setScrollElement(element);
+    addListeners(element);
+  });
+
   onUnmounted(() => {
     clearTimer(wheelTimer);
     clearTimer(mouseEnterTimer);
+    removeListeners(root.value?.$el);
   });
 
   return {

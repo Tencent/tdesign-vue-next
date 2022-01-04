@@ -1,4 +1,4 @@
-import { defineComponent, ref, nextTick } from 'vue';
+import { defineComponent, ref, nextTick, onMounted } from 'vue';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
@@ -14,8 +14,9 @@ export default defineComponent({
   props: { ...props },
 
   setup(props) {
+    const root = ref(null);
     const inputValue = ref<InputValue>();
-    const scrollFunctions = useTagScroll(props);
+    const scrollFunctions = useTagScroll(props, root);
     const { onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll } = useTagList(props);
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
@@ -27,6 +28,7 @@ export default defineComponent({
     };
 
     return {
+      root,
       inputValue,
       ...scrollFunctions,
       onInputEnter,
@@ -35,16 +37,6 @@ export default defineComponent({
       onInputBackspaceKeyUp,
       clearAll,
     };
-  },
-
-  mounted() {
-    const element = this.$el;
-    this.setScrollElement(element);
-    this.addListeners(element);
-  },
-
-  unmounted() {
-    this.removeListeners(this.$el);
   },
 
   methods: {
@@ -85,6 +77,7 @@ export default defineComponent({
   render() {
     return (
       <TInput
+        ref="root"
         v-model={this.inputValue}
         readonly={this.readonly}
         label={this.renderLabel}
