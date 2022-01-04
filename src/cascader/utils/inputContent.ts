@@ -185,11 +185,22 @@ export function handleRemoveTagEffect(
   node: TreeNode,
   onRemove: CascaderProps['onRemove'],
 ) {
-  const { disabled, setValue } = cascaderContext;
+  const { disabled, setValue, valueType, treeStore } = cascaderContext;
 
   if (disabled) return;
   const checked = node.setChecked(!node.isChecked());
-  setValue(checked, 'unchecked', node.getModel());
+  // 处理不同数据类型
+  const resValue =
+    valueType === 'single'
+      ? checked
+      : checked.map((val) =>
+          treeStore
+            .getNode(val)
+            .getPath()
+            .map((item) => item.value),
+        );
+
+  setValue(resValue, 'unchecked', node.getModel());
   if (isFunction(onRemove)) {
     onRemove({ value: checked, node: node as any });
   }
