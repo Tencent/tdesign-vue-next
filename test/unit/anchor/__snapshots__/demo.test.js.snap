@@ -21,7 +21,7 @@ exports[`Anchor Anchor baseVue demo works fine 1`] = `
           class="t-anchor__line-cursor-wrapper"
         >
           <div
-            class="cursor"
+            class="t-anchor__line-cursor"
           />
         </div>
       </div>
@@ -114,7 +114,7 @@ exports[`Anchor Anchor containerVue demo works fine 1`] = `
         class="t-anchor__line-cursor-wrapper"
       >
         <div
-          class="cursor"
+          class="t-anchor__line-cursor"
         />
       </div>
     </div>
@@ -342,7 +342,7 @@ exports[`Anchor Anchor largeVue demo works fine 1`] = `
         class="t-anchor__line-cursor-wrapper"
       >
         <div
-          class="cursor"
+          class="t-anchor__line-cursor"
         />
       </div>
     </div>
@@ -458,7 +458,7 @@ exports[`Anchor Anchor multipleVue demo works fine 1`] = `
         class="t-anchor__line-cursor-wrapper"
       >
         <div
-          class="cursor"
+          class="t-anchor__line-cursor"
         />
       </div>
     </div>
@@ -575,7 +575,7 @@ exports[`Anchor Anchor smallVue demo works fine 1`] = `
         class="t-anchor__line-cursor-wrapper"
       >
         <div
-          class="cursor"
+          class="t-anchor__line-cursor"
         />
       </div>
     </div>

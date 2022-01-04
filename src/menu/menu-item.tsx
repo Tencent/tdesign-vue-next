@@ -20,7 +20,7 @@ export default defineComponent({
       {
         [`${prefix}-is-active`]: active.value,
         [`${prefix}-is-disabled`]: props.disabled,
-        [`${prefix}-menu__item--plain`]: !ctx.slots.icon,
+        [`${prefix}-menu__item--plain`]: !ctx.slots.icon && !props.icon,
         [`${prefix}-submenu__item`]: !!submenu && !menu.isHead,
       },
     ]);

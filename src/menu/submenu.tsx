@@ -79,6 +79,7 @@ export default defineComponent({
       selectSubMenu(isOpen ? menuItems.value : []);
     };
     const handleSubmenuItemClick = () => {
+      if (props.disabled) return;
       open(props.value);
     };
 

@@ -36,6 +36,8 @@ export default {
   options: {
     type: Array as PropType<TdStepsProps['options']>,
   },
+  /** 是否只读 */
+  readonly: Boolean,
   /** 步骤条顺序，纵向步骤有效（direction = horizontal） */
   sequence: {
     type: String as PropType<TdStepsProps['sequence']>,

@@ -1,4 +1,11 @@
-import { TreeNode, CascaderContextType, TreeNodeValue, TreeOptionData } from '../interface';
+import {
+  TreeNode,
+  CascaderContextType,
+  CascaderProps,
+  CascaderValue,
+  TreeNodeValue,
+  TreeOptionData,
+} from '../interface';
 
 /**
  * 获取node的全部路径
@@ -33,6 +40,23 @@ export const getTreeValue = (value: CascaderContextType['value']) => {
     }
   }
   return treeValue;
+};
+
+/**
+ * 计算数值
+ * @param value
+ * @param showAllLevels
+ * @param multiple
+ * @returns
+ */
+export const getValue = (value: CascaderValue, valueType: CascaderProps['valueType'], multiple: boolean) => {
+  if (valueType === 'single') {
+    return value;
+  }
+  if (multiple) {
+    return (value as Array<CascaderValue>).map((item: TreeNodeValue[]) => item[item.length - 1]);
+  }
+  return value[(value as Array<CascaderValue>).length - 1];
 };
 
 export default {
