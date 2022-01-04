@@ -28134,14 +28134,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correc
 
 exports[`ssr snapshot test renders ./examples/table/demos/custom-header.vue correctly 1`] = `
 <div>
-  <div style="margin:16px;">
-    <ul>
-      <li>标题默认使用 title 渲染，自定义标题则有以下几种方式</li>
-      <li>1) 使用 title 作为渲染函数，函数参数为：title({ col, colIndex })</li>
-      <li>2) 插槽，使用 title 的值作为插槽名称</li>
-      <li> 3)【不推荐使用】使用 render 作为渲染函数，函数参数为：render({col, colIndex, row, rowIndex, type})，单元格的 type 值为 cell，标题的 type 值为 title。使用排序、过滤等功能时不能使用该方法 </li>
-    </ul><br>
-  </div>
   <div style="width: 100%">
     <!---->
     <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
@@ -32678,25 +32670,21 @@ exports[`ssr snapshot test renders ./examples/tag/demos/theme.vue correctly 1`] 
 
 exports[`ssr snapshot test renders ./examples/tag-input/demos/base.vue correctly 1`] = `
 <div style="width:50%;">
-  <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix t-tag-input" modelvalue>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix t-tag-input">
     <!---->
     <div class="t-input__prefix">
-      <!--[-->
       <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
       <!--]-->
-      <!--]-->
-    </div><input autocomplete="false" placeholder type="text" value>
+    </div><input autocomplete="false" placeholder type="text">
     <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path></svg></span>
   </div><br><br>
-  <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix t-tag-input" modelvalue>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix t-tag-input">
     <!---->
     <div class="t-input__prefix">
       <!--[-->
-      <div class="t-tag-input__prefix">Framework：</div>
-      <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <div class="t-tag-input__prefix">Framework：</div><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
       <!--]-->
-      <!--]-->
-    </div><input autocomplete="false" placeholder type="text" value>
+    </div><input autocomplete="false" placeholder type="text">
     <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path></svg></span>
   </div>
 </div>
@@ -32704,23 +32692,19 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/base.vue correctly
 
 exports[`ssr snapshot test renders ./examples/tag-input/demos/collapsed.vue correctly 1`] = `
 <div style="width:100%;">
-  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input" modelvalue>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input">
     <!---->
     <div class="t-input__prefix">
-      <!--[-->
-      <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
-      <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->+4<!--]--><!----></span>
+      <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->+4<!--]--><!----></span>
       <!--]-->
-    </div><input autocomplete="false" placeholder type="text" value>
+    </div><input autocomplete="false" placeholder type="text">
     <!---->
     <!---->
   </div><br><br>
-  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input" modelvalue>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input">
     <!---->
     <div class="t-input__prefix">
-      <!--[-->
       <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
-      <!--]-->
       <!--[-->
       <div class="t-popup__reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
@@ -32737,7 +32721,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/collapsed.vue corr
       </div>
       <!--]-->
       <!--]-->
-    </div><input autocomplete="false" placeholder type="text" value>
+    </div><input autocomplete="false" placeholder type="text">
     <!---->
     <!---->
   </div>
@@ -32746,7 +32730,24 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/collapsed.vue corr
 
 exports[`ssr snapshot test renders ./examples/tag-input/demos/custom-tag.vue correctly 1`] = `
 <div style="width:100%;">
-  <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix t-tag-input" modelvalue>
+  <!-- 方式一：使用 tag 定义标签内部内容 -->
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[--><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentA</span>
+      <!--]-->
+      <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style="">
+        <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
+      </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[--><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentB</span>
+      <!--]-->
+      <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style="">
+        <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
+      </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->+1<!--]--><!----></span>
+      <!--]-->
+    </div><input autocomplete="false" placeholder type="text">
+    <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path></svg></span>
+  </div><br><br><!-- 方式二：使用 valueDisplay 定义全部内容 -->
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix t-tag-input">
     <!---->
     <div class="t-input__prefix">
       <!--[-->
@@ -32759,13 +32760,10 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/custom-tag.vue cor
       </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentC</span>
       <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style="">
         <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
-      </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentD</span>
-      <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style="">
-        <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
       </svg></span>
       <!--]-->
       <!--]-->
-    </div><input autocomplete="false" placeholder type="text" value>
+    </div><input autocomplete="false" placeholder type="text">
     <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path></svg></span>
   </div>
 </div>
@@ -32773,14 +32771,12 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/custom-tag.vue cor
 
 exports[`ssr snapshot test renders ./examples/tag-input/demos/max.vue correctly 1`] = `
 <div style="width:100%;">
-  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input" modelvalue>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input">
     <!---->
     <div class="t-input__prefix">
       <!--[-->
-      <!--[-->
       <!--]-->
-      <!--]-->
-    </div><input autocomplete="false" placeholder="最多只能输入 3 个标签" type="text" value>
+    </div><input autocomplete="false" placeholder="最多只能输入 3 个标签" type="text">
     <!---->
     <!---->
   </div>
@@ -32790,28 +32786,24 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/max.vue correctly 
 exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correctly 1`] = `
 <div>
   <div class="t-tdesign-demo__tag-input"><label>只读状态：</label>
-    <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input" modelvalue>
+    <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input">
       <!---->
       <div class="t-input__prefix">
-        <!--[-->
         <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->Vue<!--]--><!----></span><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->React<!--]--><!----></span><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->Miniprogram<!--]--><!----></span>
         <!--]-->
-        <!--]-->
-      </div><input readonly autocomplete="false" placeholder type="text" value>
+      </div><input readonly autocomplete="false" placeholder type="text">
       <!---->
       <!---->
     </div>
   </div><br><br>
   <div class="t-tdesign-demo__tag-input"><label>成功状态：</label>
     <div class="t-input__wrap">
-      <div class="t-input t-size-m t-input__inner t-is-success t-input--prefix t-input--suffix t-tag-input" modelvalue>
+      <div class="t-input t-size-m t-input__inner t-is-success t-input--prefix t-input--suffix t-tag-input">
         <!---->
         <div class="t-input__prefix">
-          <!--[-->
           <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
           <!--]-->
-          <!--]-->
-        </div><input autocomplete="false" placeholder type="text" value>
+        </div><input autocomplete="false" placeholder type="text">
         <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path></svg></span>
       </div>
       <div class="t-input__tips t-input__tips--success">校验通过文本提示</div>
@@ -32819,14 +32811,12 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
   </div><br>
   <div class="t-tdesign-demo__tag-input"><label>告警状态：</label>
     <div class="t-input__wrap">
-      <div class="t-input t-size-m t-input__inner t-is-warning t-input--prefix t-input--suffix t-tag-input" modelvalue>
+      <div class="t-input t-size-m t-input__inner t-is-warning t-input--prefix t-input--suffix t-tag-input">
         <!---->
         <div class="t-input__prefix">
-          <!--[-->
           <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
           <!--]-->
-          <!--]-->
-        </div><input autocomplete="false" placeholder type="text" value>
+        </div><input autocomplete="false" placeholder type="text">
         <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path></svg></span>
       </div>
       <div class="t-input__tips t-input__tips--warning">校验不通过文本提示</div>
@@ -32834,14 +32824,12 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
   </div><br>
   <div class="t-tdesign-demo__tag-input"><label>错误状态：</label>
     <div class="t-input__wrap">
-      <div class="t-input t-size-m t-input__inner t-is-error t-input--prefix t-input--suffix t-tag-input" modelvalue>
+      <div class="t-input t-size-m t-input__inner t-is-error t-input--prefix t-input--suffix t-tag-input">
         <!---->
         <div class="t-input__prefix">
-          <!--[-->
           <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
           <!--]-->
-          <!--]-->
-        </div><input autocomplete="false" placeholder type="text" value>
+        </div><input autocomplete="false" placeholder type="text">
         <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path></svg></span>
       </div>
       <div class="t-input__tips t-input__tips--error">校验存在严重问题文本提示</div>
@@ -32852,47 +32840,39 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
 
 exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctly 1`] = `
 <div style="width:50%;">
-  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input" modelvalue>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input">
     <!---->
     <div class="t-input__prefix">
-      <!--[-->
       <!--[--><span class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
       <!--]-->
-      <!--]-->
-    </div><input autocomplete="false" placeholder type="text" value>
+    </div><input autocomplete="false" placeholder type="text">
     <!---->
     <!---->
   </div><br><br>
-  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input" modelvalue>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input">
     <!---->
     <div class="t-input__prefix">
-      <!--[-->
       <!--[--><span class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
       <!--]-->
-      <!--]-->
-    </div><input autocomplete="false" placeholder type="text" value>
+    </div><input autocomplete="false" placeholder type="text">
     <!---->
     <!---->
   </div><br><br>
-  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input" modelvalue>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input">
     <!---->
     <div class="t-input__prefix">
-      <!--[-->
       <!--[--><span class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
       <!--]-->
-      <!--]-->
-    </div><input autocomplete="false" placeholder type="text" value>
+    </div><input autocomplete="false" placeholder type="text">
     <!---->
     <!---->
   </div><br><br>
-  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input" modelvalue>
+  <div class="t-input t-size-m t-input__inner t-input--prefix t-tag-input">
     <!---->
     <div class="t-input__prefix">
-      <!--[-->
       <!--[--><span class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
       <!--]-->
-      <!--]-->
-    </div><input autocomplete="false" placeholder type="text" value>
+    </div><input autocomplete="false" placeholder type="text">
     <!---->
     <!---->
   </div>

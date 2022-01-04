@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-04 00:07:33
+ * updated at 2022-01-04 10:10:27
  * */
 
 import { InputProps, InputValue } from '../input';
@@ -50,6 +50,10 @@ export interface TdTagInputProps {
    */
   status?: 'success' | 'warning' | 'error';
   /**
+   * 自定义标签的内部内容，每一个标签的当前值。注意和 `valueDisplay` 区分，`valueDisplay`  是用来定义全部标签内容，而非某一个标签
+   */
+  tag?: string | TNode<{ value: string | number }>;
+  /**
    * 透传 Tag 组件全部属性
    */
   tagProps?: TagProps;
@@ -62,7 +66,7 @@ export interface TdTagInputProps {
    */
   defaultValue?: TagInputValue;
   /**
-   * 自定义标签值呈现内容
+   * 自定义值呈现的全部内容，参数为所有标签的值
    */
   valueDisplay?: string | TNode<{ value: TagInputValue }>;
   /**

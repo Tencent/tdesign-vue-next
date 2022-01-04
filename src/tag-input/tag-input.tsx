@@ -1,8 +1,7 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ref, nextTick } from 'vue';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
-import TagList from './tag-list';
 import Tag from '../tag';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -15,20 +14,26 @@ export default defineComponent({
   props: { ...props },
 
   setup(props) {
+    const inputValue = ref<InputValue>();
     const scrollFunctions = useTagScroll(props);
     const { onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll } = useTagList(props);
+
+    const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
+      onInnerEnter(value, context);
+      inputValue.value = '';
+      nextTick(() => {
+        scrollFunctions.scrollToRight();
+      });
+    };
+
     return {
+      inputValue,
       ...scrollFunctions,
+      onInputEnter,
       onClose,
       onInnerEnter,
       onInputBackspaceKeyUp,
       clearAll,
-    };
-  },
-
-  data() {
-    return {
-      inputValue: '',
     };
   },
 
@@ -44,11 +49,18 @@ export default defineComponent({
 
   methods: {
     renderLabel() {
-      const displayNode = renderTNodeJSX(this, 'valueDisplay');
+      const displayNode = renderTNodeJSX(this, 'valueDisplay', { params: { value: this.value } });
       const newList = this.minCollapsedNum ? this.value.slice(0, this.minCollapsedNum) : this.value;
-      const list = displayNode ?? [
-        <TagList list={newList} tagProps={this.tagProps} readonly={this.readonly} onClose={this.onClose} />,
-      ];
+      const list =
+        displayNode ??
+        newList?.map((item, index) => {
+          const tagContent = renderTNodeJSX(this, 'tag', { params: { value: item } });
+          return (
+            <Tag onClose={(e) => this.onClose({ e, item, index })} closable={!this.readonly} {...this.tagProps}>
+              {tagContent ?? item}
+            </Tag>
+          );
+        });
       // 左侧文本
       const label = renderTNodeJSX(this, 'label');
       if (![null, undefined, ''].includes(label)) {
@@ -67,14 +79,6 @@ export default defineComponent({
         list.push(more ?? <Tag>+{len}</Tag>);
       }
       return list;
-    },
-
-    onInputEnter(value: InputValue, context: { e: KeyboardEvent }) {
-      this.onInnerEnter(value, context);
-      this.inputValue = '';
-      this.$nextTick(() => {
-        this.scrollToRight();
-      });
     },
   },
 

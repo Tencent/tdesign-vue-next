@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-03 22:54:42
+ * updated at 2022-01-04 10:10:27
  * */
 
 import { TdTagInputProps } from './type';
@@ -46,6 +46,10 @@ export default {
       return ['success', 'warning', 'error'].includes(val);
     },
   },
+  /** 自定义标签的内部内容，每一个标签的当前值。注意和 `valueDisplay` 区分，`valueDisplay`  是用来定义全部标签内容，而非某一个标签 */
+  tag: {
+    type: [String, Function] as PropType<TdTagInputProps['tag']>,
+  },
   /** 透传 Tag 组件全部属性 */
   tagProps: {
     type: Object as PropType<TdTagInputProps['tagProps']>,
@@ -58,7 +62,7 @@ export default {
   defaultValue: {
     type: Array as PropType<TdTagInputProps['defaultValue']>,
   },
-  /** 自定义标签值呈现内容 */
+  /** 自定义值呈现的全部内容，参数为所有标签的值 */
   valueDisplay: {
     type: [String, Function] as PropType<TdTagInputProps['valueDisplay']>,
   },
