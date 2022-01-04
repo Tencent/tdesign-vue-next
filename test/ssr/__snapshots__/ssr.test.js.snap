@@ -332,7 +332,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/base.vue correctly 1`
     <div class="t-anchor t-size-m">
       <div class="t-anchor__line">
         <div class="t-anchor__line-cursor-wrapper" style="">
-          <div class="cursor"></div>
+          <div class="t-anchor__line-cursor"></div>
         </div>
       </div>
       <!--[-->
@@ -363,7 +363,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/container.vue correct
   <div class="t-anchor t-size-m" id="#default">
     <div class="t-anchor__line">
       <div class="t-anchor__line-cursor-wrapper" style="">
-        <div class="cursor"></div>
+        <div class="t-anchor__line-cursor"></div>
       </div>
     </div>
     <!--[-->
@@ -433,7 +433,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/large.vue correctly 1
   <div class="t-anchor t-size-l">
     <div class="t-anchor__line">
       <div class="t-anchor__line-cursor-wrapper" style="">
-        <div class="cursor"></div>
+        <div class="t-anchor__line-cursor"></div>
       </div>
     </div>
     <!--[-->
@@ -468,7 +468,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/multiple.vue correctl
   <div class="t-anchor t-size-m">
     <div class="t-anchor__line">
       <div class="t-anchor__line-cursor-wrapper" style="">
-        <div class="cursor"></div>
+        <div class="t-anchor__line-cursor"></div>
       </div>
     </div>
     <!--[-->
@@ -504,7 +504,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/small.vue correctly 1
   <div class="t-anchor t-size-s">
     <div class="t-anchor__line">
       <div class="t-anchor__line-cursor-wrapper" style="">
-        <div class="cursor"></div>
+        <div class="t-anchor__line-cursor"></div>
       </div>
     </div>
     <!--[-->
