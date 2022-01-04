@@ -4,6 +4,7 @@ import { prefix } from '../config';
 import { on, off, getScrollContainer } from '../utils/dom';
 import props from './props';
 import { ScrollContainerElement } from '../common';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-affix`;
 
@@ -101,24 +102,19 @@ export default defineComponent({
     };
   },
   render() {
-    const {
-      $slots: { default: children },
-      oldWidthHeight,
-      fixedTop,
-      zIndex,
-    } = this;
+    const { oldWidthHeight, fixedTop, zIndex } = this;
 
     if (fixedTop !== false) {
       return (
         <div {...this.$attrs}>
           <div style={oldWidthHeight}></div>
           <div class={name} style={{ zIndex, top: `${fixedTop}px`, width: oldWidthHeight.width }}>
-            {children?.()}
+            {renderTNodeJSX(this, 'default')}
           </div>
         </div>
       );
     }
 
-    return <div>{children?.()}</div>;
+    return <div>{renderTNodeJSX(this, 'default')}</div>;
   },
 });
