@@ -210,7 +210,7 @@ export default defineComponent({
     },
     renderCursor() {
       const titleContent: SlotReturnValue = renderTNodeJSX(this, 'cursor');
-      return titleContent || <div class="cursor"></div>;
+      return titleContent || <div class={ANCHOR_LINE_CURSOR_CLASSNAME}></div>;
     },
   },
 

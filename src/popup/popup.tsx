@@ -102,7 +102,7 @@ export default defineComponent({
       if (val) {
         this.updatePopper();
         if (!this.hasDocumentEvent && (this.hasTrigger['context-menu'] || this.hasTrigger.click)) {
-          on(document, 'click', this.handleDocumentClick);
+          on(document, 'mousedown', this.handleDocumentClick);
           this.hasDocumentEvent = true;
         }
         // focus trigger esc 隐藏浮层
@@ -114,7 +114,7 @@ export default defineComponent({
           });
         }
       } else {
-        off(document, 'click', this.handleDocumentClick);
+        off(document, 'mousedown', this.handleDocumentClick);
         this.hasDocumentEvent = false;
       }
     },

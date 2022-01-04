@@ -26,12 +26,13 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
+    const current = ref(0);
     return {
-      current: 1,
+      current,
     };
   },
 });
