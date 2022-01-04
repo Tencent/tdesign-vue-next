@@ -26724,21 +26724,22 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical-marks.vue co
 exports[`ssr snapshot test renders ./examples/steps/demos/extra.vue correctly 1`] = `
 <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive steps-demos-extra" status="process">
   <!--[-->
-  <div class="t-steps-item t-steps-item--finish">
-    <div class="t-steps-item__inner t-steps-item--clickable">
-      <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
+  <div class="t-steps-item t-steps-item--process">
+    <div class="t-steps-item__inner">
+      <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤1</div>
         <div class="t-steps-item__description">这里是提示文字</div>
         <div class="t-steps-item__extra">
-          <!---->
+          <!--[--><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 下一步 <!--]--></span></button>
+          <!--]-->
         </div>
       </div>
     </div>
   </div>
-  <div class="t-steps-item t-steps-item--process">
-    <div class="t-steps-item__inner">
-      <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
+  <div class="t-steps-item t-steps-item--default">
+    <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤2</div>
         <div class="t-steps-item__description">这里是提示文字</div>
