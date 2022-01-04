@@ -36,7 +36,7 @@ export default defineComponent({
       return [
         CLASS_NAMES.form,
         {
-          't-form-inline': this.layout === 'inline',
+          [`${name}-inline`]: this.layout === 'inline',
         },
       ];
     },
