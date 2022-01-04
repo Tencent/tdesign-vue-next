@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-item--input__input-box">
+  <div class="tdesign-demo-block-column" style="max-width: 500px">
     <div>
       <t-input-group separate>
         <t-input :style="{ width: '100px' }" default-value="0731" />
@@ -29,9 +29,3 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-.t-input-group {
-  margin-bottom: 16px;
-}
-</style>

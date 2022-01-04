@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-item--input__input-box">
+  <div class="tdesign-demo-block-column" style="max-width: 500px">
     <t-input type="password" default-value="520 TDesign">
       <template #prefix-icon>
         <lock-on-icon />
