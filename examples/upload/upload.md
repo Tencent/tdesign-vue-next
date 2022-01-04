@@ -6,7 +6,6 @@
 :::
 
 ## API
-
 ### Upload Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -22,7 +21,7 @@ draggable | Boolean | false | 是否启用拖拽上传 | N
 files | Array | - | 已上传文件列表。支持语法糖。TS 类型：`Array<UploadFile>` | N
 defaultFiles | Array | - | 已上传文件列表。非受控属性。TS 类型：`Array<UploadFile>` | N
 format | Function | - | 文件上传前转换文件数据。TS 类型：`(file: File) => UploadFile` | N
-formatResponse | Function | - | 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址。。TS 类型：`(response: any, context: FormatResponseContext) => ResponseType`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
+formatResponse | Function | - | 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址。。TS 类型：`(response: any, context: FormatResponseContext) => ResponseType `。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 headers | Object | - | 设置上传的请求头部。TS 类型：`{[key: string]: string}` | N
 max | Number | 0 | 用于控制文件上传数量，值为 0 则不限制 | N
 method | String | POST | HTTP 请求类型。可选项：POST/GET/PUT/OPTION | N
@@ -65,13 +64,12 @@ success | `(context: SuccessContext)` | 上传成功后触发。[详细类型定
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-lastModified | Number | - | 必需。上一次变更的时间 | Y
-name | String | - | 必需。文件名称 | Y
+lastModified | Number | - | 上一次变更的时间 | N
+name | String | - | 文件名称 | N
 percent | Number | - | 下载进度 | N
 raw | Object | - | 原始文件对象。TS 类型：`File` | N
 response | Object | - | 上传接口返回的数据 | N
-size | Number | - | 必需。文件大小 | Y
-status | String | - | 文件上传状态：上传成功，上传失败，上传中，等待上传。TS 类型：`'success' | 'fail' | 'progress' | 'waiting'` | N
-type | String | - | 必需。文件类型 | Y
+size | Number | - | 文件大小 | N
+status | String | - | 文件上传状态：上传成功，上传失败，上传中，等待上传。TS 类型：` 'success' | 'fail' | 'progress' | 'waiting'` | N
+type | String | - | 文件类型 | N
 url | String | - | 文件上传成功后的下载/访问地址 | N
-File | - | - | 继承 `File` 中的全部 API | N
