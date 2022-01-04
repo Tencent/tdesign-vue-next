@@ -121,6 +121,12 @@
         "import/no-dynamic-require": "off",
         "global-require": "off"
       }
+    },
+    {
+      "files": "*",
+      "globals": {
+        "__IS_DEV__": "readonly"
+      }
     }
   ]
 }
