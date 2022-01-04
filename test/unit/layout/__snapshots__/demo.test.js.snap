@@ -240,7 +240,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
         class="t-layout__footer"
       >
         
-        Copyright @ 2019-2021 Tencent. All Rights Reserved
+        Copyright @ 2019-2022 Tencent. All Rights Reserved
         
       </footer>
       
@@ -766,7 +766,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
           class="t-layout__footer"
         >
           
-          Copyright @ 2019-2021 Tencent. All Rights Reserved
+          Copyright @ 2019-2022 Tencent. All Rights Reserved
           
         </footer>
         
@@ -920,7 +920,7 @@ exports[`Layout Layout topVue demo works fine 1`] = `
       class="t-layout__footer"
     >
       
-       Copyright @ 2019-2021 Tencent. All Rights Reserved 
+       Copyright @ 2019-2022 Tencent. All Rights Reserved 
       
     </footer>
     

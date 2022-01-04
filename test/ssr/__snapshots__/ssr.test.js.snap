@@ -332,7 +332,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/base.vue correctly 1`
     <div class="t-anchor t-size-m">
       <div class="t-anchor__line">
         <div class="t-anchor__line-cursor-wrapper" style="">
-          <div class="cursor"></div>
+          <div class="t-anchor__line-cursor"></div>
         </div>
       </div>
       <!--[-->
@@ -363,7 +363,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/container.vue correct
   <div class="t-anchor t-size-m" id="#default">
     <div class="t-anchor__line">
       <div class="t-anchor__line-cursor-wrapper" style="">
-        <div class="cursor"></div>
+        <div class="t-anchor__line-cursor"></div>
       </div>
     </div>
     <!--[-->
@@ -433,7 +433,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/large.vue correctly 1
   <div class="t-anchor t-size-l">
     <div class="t-anchor__line">
       <div class="t-anchor__line-cursor-wrapper" style="">
-        <div class="cursor"></div>
+        <div class="t-anchor__line-cursor"></div>
       </div>
     </div>
     <!--[-->
@@ -468,7 +468,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/multiple.vue correctl
   <div class="t-anchor t-size-m">
     <div class="t-anchor__line">
       <div class="t-anchor__line-cursor-wrapper" style="">
-        <div class="cursor"></div>
+        <div class="t-anchor__line-cursor"></div>
       </div>
     </div>
     <!--[-->
@@ -504,7 +504,7 @@ exports[`ssr snapshot test renders ./examples/anchor/demos/small.vue correctly 1
   <div class="t-anchor t-size-s">
     <div class="t-anchor__line">
       <div class="t-anchor__line-cursor-wrapper" style="">
-        <div class="cursor"></div>
+        <div class="t-anchor__line-cursor"></div>
       </div>
     </div>
     <!--[-->
@@ -1007,7 +1007,7 @@ exports[`ssr snapshot test renders ./examples/breadcrumb/demos/href.vue correctl
     <div class="t-breadcrumb__item light"><a class="t-breadcrumb--text-oveflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面1(覆盖路由) <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></div>
     <div class="t-breadcrumb__item light"><a class="t-breadcrumb--text-oveflow t-link" href="https://www.tencent.com" target="_blank"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面2 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></div>
     <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-oveflow t-disabled"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面3(disabled) <!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></div>
-    <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-oveflow t-gestureClass"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面4自定义点击 <!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></div>
+    <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-oveflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面4自定义点击 <!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></div>
     <!--]-->
   </div>
   <div style="margin-top:20px;">点击计数器：0</div>
@@ -26724,21 +26724,22 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical-marks.vue co
 exports[`ssr snapshot test renders ./examples/steps/demos/extra.vue correctly 1`] = `
 <div class="t-steps t-steps--vertical t-steps--default-anchor t-steps--positive steps-demos-extra" status="process">
   <!--[-->
-  <div class="t-steps-item t-steps-item--finish">
-    <div class="t-steps-item__inner t-steps-item--clickable">
-      <div class="t-steps-item__icon t-steps-item--finish"><span class="t-steps-item__icon--number"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style=""><path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fillopacity="0.9"></path></svg></span></div>
+  <div class="t-steps-item t-steps-item--process">
+    <div class="t-steps-item__inner">
+      <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤1</div>
         <div class="t-steps-item__description">这里是提示文字</div>
         <div class="t-steps-item__extra">
-          <!---->
+          <!--[--><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 下一步 <!--]--></span></button>
+          <!--]-->
         </div>
       </div>
     </div>
   </div>
-  <div class="t-steps-item t-steps-item--process">
-    <div class="t-steps-item__inner">
-      <div class="t-steps-item__icon t-steps-item--process"><span class="t-steps-item__icon--number">0</span></div>
+  <div class="t-steps-item t-steps-item--default">
+    <div class="t-steps-item__inner t-steps-item--clickable">
+      <div class="t-steps-item__icon t-steps-item--default"><span class="t-steps-item__icon--number">0</span></div>
       <div class="t-steps-item__content">
         <div class="t-steps-item__title">步骤2</div>
         <div class="t-steps-item__description">这里是提示文字</div>
