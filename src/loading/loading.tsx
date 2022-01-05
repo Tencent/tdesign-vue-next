@@ -11,7 +11,7 @@ import { ClassName, Styles } from '../common';
 const name = `${prefix}-loading`;
 const centerClass = `${prefix}-loading--center`;
 const fullscreenClass = `${prefix}-loading__fullscreen`;
-const lockClass = `${prefix}-loading-lock`;
+const lockClass = `${prefix}-loading--lock`;
 const overlayClass = `${prefix}-loading__overlay`;
 const relativeClass = `${prefix}-loading__parent`;
 const fullClass = `${prefix}-loading--full`;
