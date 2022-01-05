@@ -60,8 +60,7 @@ export default defineComponent({
       return content;
     },
     renderHeader() {
-      const panels = this.list?.length ? this.list : this.getSlotPanels();
-      if (!panels || !panels.length) return;
+      const panels = (this.list?.length ? this.list : this.getSlotPanels()) || [];
       const panelsData = panels.map((item: ComponentPublicInstance) => {
         const selfItem = item;
         for (const key in item.props) {
