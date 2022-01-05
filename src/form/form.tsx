@@ -12,6 +12,8 @@ export type FormItemInstance = InstanceType<typeof FormItem>;
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
+const name = `${prefix}-form`;
+
 export default defineComponent({
   name: 'TForm',
 

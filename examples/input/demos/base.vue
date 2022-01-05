@@ -15,10 +15,14 @@ export default defineComponent({
     const onEnter = () => {
       console.log('trigger enter');
     };
+    const onChange = (val) => {
+      console.log(val);
+    };
 
     return {
       input,
       onEnter,
+      onChange,
     };
   },
 });
