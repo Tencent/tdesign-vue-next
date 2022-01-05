@@ -285,13 +285,14 @@ exports[`DatePicker :mode 1`] = `
     >
       <div
         allowinput="0"
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
         modelvalue=""
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请选择年份"
           readonly=""
           type="text"
@@ -920,13 +921,14 @@ exports[`DatePicker :range 1`] = `
     >
       <div
         allowinput="0"
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
         modelvalue="2018-08-01 至 2028-04-01"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请选择月份"
           readonly=""
           type="text"
@@ -1270,13 +1272,14 @@ exports[`DatePicker :value 1`] = `
     >
       <div
         allowinput="0"
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
         modelvalue="1998-11-11"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请选择月份"
           readonly=""
           type="text"

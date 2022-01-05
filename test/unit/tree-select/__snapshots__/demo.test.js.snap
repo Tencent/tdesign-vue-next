@@ -247,7 +247,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-input__inner t-select__input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -255,6 +255,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
+            class="t-input__inner"
             placeholder="请选择"
             type="text"
           />
@@ -473,7 +474,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-input__inner t-select__input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -481,6 +482,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
+            class="t-input__inner"
             placeholder="请选择"
             type="text"
           />
@@ -809,7 +811,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-input__inner t-select__input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -817,6 +819,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           <!---->
           <input
             autocomplete="false"
+            class="t-input__inner"
             placeholder="请输入"
             type="text"
           />

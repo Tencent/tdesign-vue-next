@@ -819,12 +819,13 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -1707,12 +1708,13 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -2605,12 +2607,13 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -3496,12 +3499,13 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -4391,12 +4395,13 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-is-disabled t-input--suffix"
+        class="t-input t-size-m t-is-disabled t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           disabled=""
           placeholder=" "
           readonly=""
@@ -5244,12 +5249,13 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -6151,12 +6157,13 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -7042,12 +7049,13 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -7607,12 +7615,13 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -8479,12 +8488,13 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -9377,12 +9387,13 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -10265,12 +10276,13 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -11901,12 +11913,13 @@ exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -12444,12 +12457,13 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -12966,12 +12980,13 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -13818,12 +13833,13 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
@@ -14679,12 +14695,13 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input__inner t-input--suffix"
+        class="t-input t-size-m t-input--suffix"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
