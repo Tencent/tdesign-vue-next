@@ -158,7 +158,7 @@ export default defineComponent({
       event.preventDefault();
     },
 
-    onViewClick(event: MouseEvent, file: UploadFile) {
+    onViewClick(event: MouseEvent, file?: UploadFile) {
       this.$emit('imgPreview', event, file);
     },
 

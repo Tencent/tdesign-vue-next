@@ -199,7 +199,6 @@ export default defineComponent({
     const classes = [
       name,
       CLASSNAMES.SIZE[this.size] || '',
-      `${name}__inner`,
       {
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
@@ -219,6 +218,7 @@ export default defineComponent({
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
         {labelContent}
         <input
+          class={`${name}__inner`}
           {...{ ...this.inputAttrs }}
           {...inputEvents}
           ref="refInputElem"

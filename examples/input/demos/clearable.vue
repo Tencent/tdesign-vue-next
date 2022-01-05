@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-item--input__input-box">
+  <div class="tdesign-demo-block-column" style="max-width: 500px">
     <t-input v-model="value" clearable placeholder="请输入" @clear="onClear" />
   </div>
 </template>

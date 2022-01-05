@@ -158,8 +158,8 @@ export default defineComponent({
       emitEvent<Parameters<TdUploadProps['onRemove']>>(this, 'remove', ctx);
     },
     // handle event of preview img dialog event
-    handlePreviewImg(event: MouseEvent, file: UploadFile) {
-      if (!file.url) throw new Error('Error file');
+    handlePreviewImg(event: MouseEvent, file?: UploadFile) {
+      if (!file || !file.url) throw new Error('Error file');
       this.showImageViewUrl = file.url;
       this.showImageViewDialog = true;
       const previewCtx = { file, e: event };
@@ -359,6 +359,7 @@ export default defineComponent({
     },
 
     handleProgress({ event, file, percent, type = 'real' }: InnerProgressContext) {
+      if (!file) throw new Error('Error file');
       file.percent = Math.min(percent, 100);
       this.loadingFile = file;
       const progressCtx = {
@@ -371,6 +372,7 @@ export default defineComponent({
     },
 
     handleSuccess({ event, file, response }: SuccessContext) {
+      if (!file) throw new Error('Error file');
       file.status = 'success';
       let res = response;
       if (typeof this.formatResponse === 'function') {
@@ -405,7 +407,7 @@ export default defineComponent({
       this.loadingFile = null;
     },
 
-    handlePreview({ file, event }: { file: UploadFile; event: ProgressEvent }) {
+    handlePreview({ file, event }: { file?: UploadFile; event: ProgressEvent }) {
       return { file, event };
     },
 
@@ -444,6 +446,7 @@ export default defineComponent({
     handleSizeLimit(fileSize: number) {
       const sizeLimit: SizeLimitObj =
         typeof this.sizeLimit === 'number' ? { size: this.sizeLimit, unit: 'KB' } : this.sizeLimit;
+
       const rSize = isOverSizeLimit(fileSize, sizeLimit.size, sizeLimit.unit);
       if (!rSize) {
         // 有参数 message 则使用，没有就使用全局 locale 配置
