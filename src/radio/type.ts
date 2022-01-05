@@ -9,7 +9,7 @@ import { TNode, SizeEnum } from '../common';
 
 export interface TdRadioProps {
   /**
-   * 【开发中】是否允许取消选中
+   * 是否允许取消选中
    * @default false
    */
   allowUncheck?: boolean;
@@ -49,12 +49,6 @@ export interface TdRadioProps {
 }
 
 export interface TdRadioGroupProps {
-  /**
-   * 单选组件按钮形式（请使用 variant 代替）
-   * @default outline
-   * @deprecated
-   */
-  buttonStyle?: 'outline' | 'solid';
   /**
    * 是否禁用全部子单选框
    */
