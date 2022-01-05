@@ -20585,7 +20585,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
               </div>
-              <ul class="t-menu__sub" style="--padding-left:44px;">
+              <ul class="t-menu__sub" style="--padding-left:60px;">
                 <!--[-->
                 <li class="t-menu__item t-menu__item--plain t-submenu__item">
                   <!----><span class="t-menu__content"><!--[--> 三级菜单内容 <!--]--></span>
@@ -20607,7 +20607,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
               </div>
-              <ul class="t-menu__sub" style="--padding-left:44px;">
+              <ul class="t-menu__sub" style="--padding-left:60px;">
                 <!--[-->
                 <li class="t-menu__item t-menu__item--plain t-submenu__item">
                   <!----><span class="t-menu__content"><!--[--> 三级菜单内容 <!--]--></span>

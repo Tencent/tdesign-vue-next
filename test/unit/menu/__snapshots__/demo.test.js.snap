@@ -1584,7 +1584,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </div>
               <ul
                 class="t-menu__sub"
-                style="--padding-left: 44px;"
+                style="--padding-left: 60px;"
               >
                 
                 <li
@@ -1659,7 +1659,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               </div>
               <ul
                 class="t-menu__sub"
-                style="--padding-left: 44px;"
+                style="--padding-left: 60px;"
               >
                 
                 <li
