@@ -248,7 +248,7 @@ export default defineComponent({
     const setActiveChecked = () => {
       const node = getActivedNode();
       if (!node) return;
-      tree.value.valuesetItem(node?.value, {
+      tree.value.setItem(node?.value, {
         checked: true,
       });
     };
