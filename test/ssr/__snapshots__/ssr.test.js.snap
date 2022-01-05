@@ -32170,49 +32170,51 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/combination.vue correct
 `;
 
 exports[`ssr snapshot test renders ./examples/tabs/demos/custom.vue correctly 1`] = `
-<div class="t-tabs" modelvalue="first">
-  <!--[-->
-  <div class="t-tabs__header t-is-top">
-    <div class="t-tabs__nav" style="min-height:48px;">
-      <!--[-->
-      <div class="t-tabs__operations t-tabs__operations--left">
-        <!---->
-      </div>
-      <div class="t-tabs__operations t-tabs__operations--right">
-        <!---->
-        <div class="t-tabs__add-btn t-tabs__btn t-size-m"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="">
-            <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
-          </svg></div>
-      </div>
-      <!--]-->
-      <div class="t-tabs__nav-container t-tabs__nav--card t-is-top t-is-addable">
-        <div class="t-tabs__nav-scroll">
-          <div class="t-tabs__nav-wrap t-is-smooth" style="transform:translate3d(0px, 0, 0);">
-            <!---->
-            <!--[-->
-            <div class="t-tabs__nav-item t-tabs__nav--card t-is-active t-size-m"><span class="t-tabs__nav-item-text-wrapper">原有选项卡1</span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close remove-btn remove-btn" style="">
-                <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
-              </svg></div>
-            <div class="t-tabs__nav-item t-tabs__nav--card t-size-m"><span class="t-tabs__nav-item-text-wrapper">原有选项卡2</span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close remove-btn remove-btn" style="">
-                <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
-              </svg></div>
-            <!--]-->
+<div class="tdesign-demo-block-column-large" style="width:100%;">
+  <div class="t-tabs" modelvalue="first">
+    <!--[-->
+    <div class="t-tabs__header t-is-top">
+      <div class="t-tabs__nav" style="min-height:48px;">
+        <!--[-->
+        <div class="t-tabs__operations t-tabs__operations--left">
+          <!---->
+        </div>
+        <div class="t-tabs__operations t-tabs__operations--right">
+          <!---->
+          <div class="t-tabs__add-btn t-tabs__btn t-size-m"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="">
+              <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
+            </svg></div>
+        </div>
+        <!--]-->
+        <div class="t-tabs__nav-container t-tabs__nav--card t-is-top t-is-addable">
+          <div class="t-tabs__nav-scroll">
+            <div class="t-tabs__nav-wrap t-is-smooth" style="transform:translate3d(0px, 0, 0);">
+              <!---->
+              <!--[-->
+              <div class="t-tabs__nav-item t-tabs__nav--card t-is-active t-size-m"><span class="t-tabs__nav-item-text-wrapper">原有选项卡1</span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close remove-btn remove-btn" style="">
+                  <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
+                </svg></div>
+              <div class="t-tabs__nav-item t-tabs__nav--card t-size-m"><span class="t-tabs__nav-item-text-wrapper">原有选项卡2</span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close remove-btn remove-btn" style="">
+                  <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
+                </svg></div>
+              <!--]-->
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="t-tabs__content">
-    <!--[-->
-    <div class="t-tab-panel">
+    <div class="t-tabs__content">
       <!--[-->
-      <p style="padding:25px;">原有选项卡1内容</p>
+      <div class="t-tab-panel">
+        <!--[-->
+        <p style="padding:25px;">原有选项卡1内容</p>
+        <!--]-->
+      </div>
+      <!---->
       <!--]-->
     </div>
-    <!---->
     <!--]-->
   </div>
-  <!--]-->
 </div>
 `;
 

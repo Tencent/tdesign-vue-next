@@ -45,16 +45,19 @@ export default defineComponent({
       emitEvent<Parameters<TdTabsProps['onRemove']>>(this, 'remove', eventData);
     },
     getSlotPanels() {
-      const slots = renderTNodeJSX(this, 'default');
-      const realSlot = slots?.filter((item: ComponentPublicInstance) => item.type.name === 'TTabPanel');
-      if (realSlot && realSlot.length > 0) {
-        return realSlot;
-      }
-      // 处理循环渲染的slot
-      if (slots?.length === 1 && slots[0].children.length) {
-        return slots[0].children.filter((item: ComponentPublicInstance) => item.type.name === 'TTabPanel');
-      }
-      return [];
+      let content = renderTNodeJSX(this, 'default');
+      if (!content) return [];
+      content = content
+        .map((item: ComponentPublicInstance) => {
+          if (item.children && Array.isArray(item.children)) return item.children;
+          return item;
+        })
+        .flat()
+        .filter((item: ComponentPublicInstance) => {
+          return item.type.name === 'TTabPanel';
+        });
+
+      return content;
     },
     renderHeader() {
       const panels = this.list?.length ? this.list : this.getSlotPanels();
