@@ -4,7 +4,7 @@ import { prefix } from '../config';
 import { getAttach, removeClass } from '../utils/dom';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
 
-const lockClass = `${prefix}-loading-lock`;
+const lockClass = `${prefix}-loading--lock`;
 
 let fullScreenLoadingInstance: LoadingInstance = null;
 
