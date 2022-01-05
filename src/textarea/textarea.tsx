@@ -158,13 +158,13 @@ export default defineComponent({
         <textarea
           onInput={this.handleInput}
           onCompositionend={this.onCompositionend}
-          {...inputEvents}
-          {...this.$attrs}
-          {...this.inputAttrs}
           ref="refTextareaElem"
           value={this.value}
           style={this.textareaStyle}
           class={classes}
+          {...this.$attrs}
+          {...inputEvents}
+          {...this.inputAttrs}
         ></textarea>
         {this.maxcharacter && <span class={`${name}__limit`}>{`${this.characterNumber}/${this.maxcharacter}`}</span>}
         {!this.maxcharacter && this.maxlength ? (

@@ -40,6 +40,7 @@ export default defineComponent({
       return (val: any) => {
         if (typeof props[func] === 'function') {
           props[func](val);
+          return;
         }
         ctx.emit(evt, val);
       };
