@@ -1,17 +1,19 @@
 <template>
-  <t-tabs v-model="value" theme="card" :addable="true" @add="addTab" @remove="removeTab">
-    <t-tab-panel
-      v-for="data in panelData"
-      :key="data.value"
-      :value="data.value"
-      :label="data.label"
-      :removable="data.removable"
-    >
-      <p style="padding: 25px">
-        {{ data.content }}
-      </p>
-    </t-tab-panel>
-  </t-tabs>
+  <div class="tdesign-demo-block-column-large" style="width: 100%">
+    <t-tabs v-model="value" theme="card" :addable="true" @add="addTab" @remove="removeTab">
+      <t-tab-panel
+        v-for="data in panelData"
+        :key="data.value"
+        :value="data.value"
+        :label="data.label"
+        :removable="data.removable"
+      >
+        <p style="padding: 25px">
+          {{ data.content }}
+        </p>
+      </t-tab-panel>
+    </t-tabs>
+  </div>
 </template>
 
 <script>
