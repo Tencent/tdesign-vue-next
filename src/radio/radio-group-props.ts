@@ -9,14 +9,6 @@ import { TdRadioGroupProps } from '../radio/type';
 import { PropType } from 'vue';
 
 export default {
-  /** 已废弃。单选组件按钮形式（请使用 variant 代替） */
-  buttonStyle: {
-    type: String as PropType<TdRadioGroupProps['buttonStyle']>,
-    default: 'outline' as TdRadioGroupProps['buttonStyle'],
-    validator(val: TdRadioGroupProps['buttonStyle']): boolean {
-      return ['outline', 'solid'].includes(val);
-    },
-  },
   /** 是否禁用全部子单选框 */
   disabled: {
     type: Boolean,
