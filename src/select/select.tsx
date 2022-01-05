@@ -385,7 +385,8 @@ export default defineComponent({
     hideMenu() {
       this.visible = false;
     },
-    clearSelect(e: PointerEvent) {
+    clearSelect(e: MouseEvent) {
+      e.stopPropagation();
       if (this.multiple) {
         this.emitChange([]);
       } else {
@@ -592,7 +593,13 @@ export default defineComponent({
           </span>
         );
       }
-      return <close-circle-filled-icon class={closeIconClass} size={this.size} onClick={this.clearSelect} />;
+      return (
+        <close-circle-filled-icon
+          class={closeIconClass}
+          size={this.size}
+          onClick={({ e }: { e: MouseEvent }) => this.clearSelect(e)}
+        />
+      );
     },
     doFocus() {
       const input = this.$refs.input as HTMLElement;
