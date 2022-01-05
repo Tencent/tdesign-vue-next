@@ -27,7 +27,7 @@ export default defineComponent({
 
     // lifetimes
     onMounted(() => {
-      menu?.vMenu?.add({ value: props.value, parent: submenu?.value });
+      menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default && ctx.slots.default() });
     });
 
     return {

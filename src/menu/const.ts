@@ -19,7 +19,6 @@ export interface TdMenuInterface {
   vMenu?: VMenu;
   select: (val: MenuValue) => void;
   open?: (val: MenuValue, type?: TdOpenType) => boolean | void;
-  selectSubMenu?: (items: TdMenuItem[]) => void;
 }
 
 export interface TdSubMenuInterface {
