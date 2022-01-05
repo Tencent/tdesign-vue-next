@@ -11,9 +11,11 @@ import TransferDom from '../utils/transfer-dom';
 import { ClassName, Styles } from '../common';
 import { emitEvent } from '../utils/event';
 import mixins from '../utils/mixins';
+import { addClass, removeClass } from '../utils/dom';
 import getConfigReceiverMixins, { DialogConfig } from '../config-provider/config-receiver';
 
 const name = `${prefix}-dialog`;
+const lockClass = `${prefix}-dialog--lock`;
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -137,17 +139,17 @@ export default defineComponent({
 
   watch: {
     visible(value) {
-      const { scrollWidth } = this;
-      let bodyCssText = 'overflow: hidden;';
       if (value) {
+        const { scrollWidth } = this;
         if (scrollWidth > 0) {
-          bodyCssText += `position: relative;width: calc(100% - ${scrollWidth}px);`;
+          const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth}px);`;
+          document.body.style.cssText = bodyCssText;
         }
-        document.body.style.cssText = bodyCssText;
+        addClass(document.body, lockClass);
       } else {
         document.body.style.cssText = '';
+        removeClass(document.body, lockClass);
       }
-      this.disPreventScrollThrough(value);
       this.addKeyboardEvent(value);
     },
   },
@@ -156,17 +158,10 @@ export default defineComponent({
   },
 
   beforeUnmount() {
-    this.disPreventScrollThrough(false);
     this.addKeyboardEvent(false);
   },
 
   methods: {
-    disPreventScrollThrough(disabled: boolean) {
-      // 防止滚动穿透,modal形态才需要
-      if (this.preventScrollThrough && this.isModal) {
-        document.body.style.overflow = disabled ? 'hidden' : '';
-      }
-    },
     addKeyboardEvent(status: boolean) {
       if (status) {
         document.addEventListener('keydown', this.keyboardEvent);

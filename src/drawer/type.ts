@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
+ * updated at 2022-01-04 10:19:08
  * */
 
 import { ButtonProps } from '../button';
@@ -71,6 +71,11 @@ export interface TdDrawerProps {
    */
   placement?: 'left' | 'right' | 'top' | 'bottom';
   /**
+   * 防止滚动穿透
+   * @default true
+   */
+  preventScrollThrough?: boolean;
+  /**
    * 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative
    * @default false
    */
@@ -95,11 +100,6 @@ export interface TdDrawerProps {
    * @default false
    */
   visible?: boolean;
-  /**
-   * 组件是否可见，非受控属性
-   * @default false
-   */
-  defaultVisible?: boolean;
   /**
    * 抽屉层级，样式默认为 1500
    */

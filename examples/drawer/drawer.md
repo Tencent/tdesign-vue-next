@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Drawer Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -19,12 +18,12 @@ footer | Boolean / Slot / Function | true | 底部操作栏，默认会有“确
 header | String / Boolean / Slot / Function | undefined | 头部内容。值为 true 显示空白头部，值为 false 不显示头部，值类型为 string 则直接显示值，值类型为 TNode 表示自定义头部内容。TS 类型：`string | boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 mode | String | overlay | 展开方式，有两种：直接展示在内容上方 和 推开内容区域。可选项：overlay/push | N
 placement | String | right | 抽屉方向。可选项：left/right/top/bottom | N
+preventScrollThrough | Boolean | true | 防止滚动穿透 | N
 showInAttachedElement | Boolean | false | 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative | N
 showOverlay | Boolean | true | 是否显示遮罩层 | N
 size | String | small | 尺寸，支持 'small', 'medium', 'large'，'35px', '30%',  '3em' 等。纵向抽屉调整的是抽屉宽度，横向抽屉调整的是抽屉高度 | N
 sizeDraggable | Boolean | false | 抽屉大小可拖拽调整，横向抽屉调整宽度，纵向抽屉调整高度 | N
-visible | Boolean | false | 组件是否可见。支持语法糖 | N
-defaultVisible | Boolean | false | 组件是否可见。非受控属性 | N
+visible | Boolean | false | 组件是否可见 | N
 zIndex | Number | - | 抽屉层级，样式默认为 1500 | N
 onCancel | Function |  | 如果“取消”按钮存在，点击“取消”按钮时触发，同时触发关闭事件。`(context: { e: MouseEvent }) => {}` | N
 onClose | Function |  | 关闭事件，取消按钮点击时、关闭按钮点击时、ESC 按下时、点击蒙层时均会触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/drawer/type.ts)。`(context: DrawerCloseContext) => {}` | N
