@@ -16025,28 +16025,28 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/base.vue correctly 
           <!--[-->
           <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:112px;">
             <!--[-->
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="112">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="112">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="112">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="112">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
                 <!---->
@@ -16082,28 +16082,28 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/button.vue correctl
           <!--[-->
           <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:10px;">
             <!--[-->
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="10">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="10">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="10">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="10">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
                 <!---->
@@ -16136,14 +16136,14 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/custom.vue correctl
           <!--[-->
           <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:100px;">
             <!--[-->
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="100">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项一</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="100">
               <div class="t-dropdown__item t-dropdown--suffix">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项二</span></div><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right t-dropdown__item__item-icon t-dropdown__item__item-icon" style="">
                   <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
@@ -16151,14 +16151,14 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/custom.vue correctl
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="100">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项三</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="100">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项四</span></div>
                 <!---->
@@ -16191,28 +16191,28 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/disabled.vue correc
           <!--[-->
           <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:112px;">
             <!--[-->
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="112">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项一</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="112">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项二</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="112">
               <div class="t-dropdown__item t-is-disabled">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项三</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="112">
               <div class="t-dropdown__item t-is-disabled">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项四</span></div>
                 <!---->
@@ -16247,28 +16247,28 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/event.vue correctly
           <!--[-->
           <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:88px;">
             <!--[-->
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项一</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项二</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项三</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项四</span></div>
                 <!---->
@@ -16301,140 +16301,140 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/long.vue correctly 
           <!--[-->
           <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:400px;max-width:100px;min-width:88px;">
             <!--[-->
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项1</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项2</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项3</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项4</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项5</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项6</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项7</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项8</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项9</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项10</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项11</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项12</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项13</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项14</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项15</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项16</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项17</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项18</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项19</span></div>
                 <!---->
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="100" mincolumnwidth="88">
               <div class="t-dropdown__item">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项20</span></div>
                 <!---->
@@ -16467,7 +16467,7 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/multiple.vue correc
           <!--[-->
           <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:120px;min-width:10px;">
             <!--[-->
-            <div>
+            <div maxcolumnwidth="120" mincolumnwidth="10">
               <div class="t-dropdown__item t-dropdown--suffix">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项一</span></div><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right t-dropdown__item__item-icon t-dropdown__item__item-icon" style="">
                   <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
@@ -16475,7 +16475,7 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/multiple.vue correc
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="120" mincolumnwidth="10">
               <div class="t-dropdown__item t-dropdown--suffix">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项二选项二选项二选项二</span></div><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right t-dropdown__item__item-icon t-dropdown__item__item-icon" style="">
                   <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
@@ -16483,7 +16483,7 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/multiple.vue correc
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="120" mincolumnwidth="10">
               <div class="t-dropdown__item t-dropdown--suffix">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项三</span></div><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right t-dropdown__item__item-icon t-dropdown__item__item-icon" style="">
                   <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
@@ -16491,7 +16491,7 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/multiple.vue correc
               </div>
               <!---->
             </div>
-            <div>
+            <div maxcolumnwidth="120" mincolumnwidth="10">
               <div class="t-dropdown__item t-dropdown--suffix">
                 <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">选项四</span></div><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right t-dropdown__item__item-icon t-dropdown__item__item-icon" style="">
                   <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path>
@@ -16564,21 +16564,21 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/split.vue correctly
         <!--[-->
         <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:88px;">
           <!--[-->
-          <div>
+          <div maxcolumnwidth="100" mincolumnwidth="88">
             <div class="t-dropdown__item">
               <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
               <!---->
             </div>
             <!---->
           </div>
-          <div>
+          <div maxcolumnwidth="100" mincolumnwidth="88">
             <div class="t-dropdown__item">
               <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
               <!---->
             </div>
             <!---->
           </div>
-          <div>
+          <div maxcolumnwidth="100" mincolumnwidth="88">
             <div class="t-dropdown__item">
               <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
               <!---->
@@ -16587,7 +16587,7 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/split.vue correctly
               <!---->
             </div>
           </div>
-          <div>
+          <div maxcolumnwidth="100" mincolumnwidth="88">
             <div class="t-dropdown__item">
               <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
               <!---->

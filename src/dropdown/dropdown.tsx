@@ -61,7 +61,6 @@ export default defineComponent({
                 maxHeight={this.maxHeight}
                 maxColumnWidth={this.maxColumnWidth}
                 minColumnWidth={this.minColumnWidth}
-                onClick={this.handleMenuClick}
               />
             ),
         }}
