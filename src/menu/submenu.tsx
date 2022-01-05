@@ -167,9 +167,14 @@ export default defineComponent({
       const hasContent = this.$slots.content || this.$slots.default;
       const icon = renderTNodeJSX(this, 'icon');
       const child = renderContent(this, 'default', 'content');
+      let { parent } = getCurrentInstance();
       let paddingLeft = 44;
-      if (/submenu/i.test(this.$parent.$vnode?.tag)) {
-        paddingLeft += 16;
+
+      while (parent && parent.type.name !== 'TMenu') {
+        if (parent.type.name === 'TSubmenu') {
+          paddingLeft += 16;
+        }
+        parent = parent.parent;
       }
 
       const needRotate = this.mode === 'popup' && this.isNested;
