@@ -67,7 +67,7 @@ export default defineComponent({
       document.body.removeChild(div);
     },
     calcBarStyle() {
-      if (this.buttonStyle !== 'solid' && this.variant === 'outline') return;
+      if (this.variant === 'outline') return;
 
       const checkedRadio: HTMLElement = this.$el.querySelector(this.checkedClassName);
       if (!checkedRadio) return;
@@ -106,19 +106,16 @@ export default defineComponent({
       });
     }
 
-    if (this.buttonStyle === 'solid') {
-      console.warn('TDesign Radio Warn: buttonStyle will be deprecated, please use `variant` instead.');
-    }
     const groupClass = [
       `${name}`,
       SIZE_CLASSNAMES[this.size],
       {
         [`${name}__outline`]: this.variant === 'outline',
-        [`${name}--filled`]: this.buttonStyle === 'solid' || this.variant.includes('filled'),
+        [`${name}--filled`]: this.variant.includes('filled'),
         [`${name}--primary-filled`]: this.variant === 'primary-filled',
       },
     ];
-    if (this.buttonStyle === 'solid' || this.variant.includes('filled')) {
+    if (this.variant.includes('filled')) {
       children && children.push(<div style={this.barStyle} class={`${name}__bg-block`}></div>);
     }
     return <div class={groupClass}>{children}</div>;

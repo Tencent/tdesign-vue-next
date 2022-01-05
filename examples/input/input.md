@@ -25,6 +25,7 @@ size | String | medium | 输入框尺寸。可选项：small/medium/large。TS �
 status | String | undefined | 输入框状态。可选项：success/warning/error | N
 suffix | String / Slot / Function | - | 后置图标前的后置内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 suffixIcon | Slot / Function | - | 组件后置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+tips | String / Slot / Function | - | 【讨论中】输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 type | String | text | 输入框类型。可选项：text/number/url/tel/password/search/submit/hidden | N
 value | String / Number | - | 输入框的值。支持语法糖。TS 类型：`InputValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N
 defaultValue | String / Number | - | 输入框的值。非受控属性。TS 类型：`InputValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input/type.ts) | N

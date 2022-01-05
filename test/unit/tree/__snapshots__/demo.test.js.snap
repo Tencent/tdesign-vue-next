@@ -1486,12 +1486,13 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
@@ -1509,12 +1510,13 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
@@ -1532,12 +1534,13 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
@@ -3910,13 +3913,14 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
       filter:
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
       modelvalue=""
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
@@ -7358,13 +7362,14 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
         filter:
       </span>
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
         modelvalue=""
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -7973,12 +7978,13 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
@@ -7996,12 +8002,13 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
@@ -8019,12 +8026,13 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
@@ -8501,12 +8509,13 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
@@ -8524,12 +8533,13 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
@@ -8547,12 +8557,13 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入"
         type="text"
       />

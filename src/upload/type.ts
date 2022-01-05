@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
+ * updated at 2022-01-04 21:01:56
  * */
 
 import { TNode } from '../common';
@@ -165,16 +165,16 @@ export interface TdUploadProps {
   onSuccess?: (context: SuccessContext) => void;
 }
 
-export interface UploadFile extends File {
+export interface UploadFile {
   /**
    * 上一次变更的时间
    */
-  lastModified: number;
+  lastModified?: number;
   /**
    * 文件名称
    * @default ''
    */
-  name: string;
+  name?: string;
   /**
    * 下载进度
    */
@@ -190,7 +190,7 @@ export interface UploadFile extends File {
   /**
    * 文件大小
    */
-  size: number;
+  size?: number;
   /**
    * 文件上传状态：上传成功，上传失败，上传中，等待上传
    * @default ''
@@ -200,7 +200,7 @@ export interface UploadFile extends File {
    * 文件类型
    * @default ''
    */
-  type: string;
+  type?: string;
   /**
    * 文件上传成功后的下载/访问地址
    * @default ''
@@ -257,8 +257,8 @@ export interface UploadRemoveContext {
 }
 
 export interface SuccessContext {
-  e: ProgressEvent;
-  file: UploadFile;
-  fileList: UploadFile[];
+  e?: ProgressEvent;
+  file?: UploadFile;
+  fileList?: UploadFile[];
   response: any;
 }

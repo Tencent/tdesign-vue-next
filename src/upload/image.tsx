@@ -52,7 +52,7 @@ export default defineComponent({
     onMaskClick(e: MouseEvent) {
       !this.showTrigger && this.trigger(e);
     },
-    onViewClick(e: MouseEvent, file: UploadFile) {
+    onViewClick(e: MouseEvent, file?: UploadFile) {
       this.$emit('img-preview', e, file);
     },
   },
@@ -88,10 +88,10 @@ export default defineComponent({
             ]}
             onClick={this.trigger}
           >
-            {this.showUploadProgress && this.loadingFile && this.loadingFile.status === 'progress' ? (
+            {this.showUploadProgress && this.loadingFile && (this.loadingFile as UploadFile).status === 'progress' ? (
               <div class={`${UPLOAD_NAME}__card-container ${UPLOAD_NAME}__card-box`}>
                 <TLoading />
-                <p>上传中 {Math.min(this.loadingFile.percent, 99)}%</p>
+                <p>上传中 {Math.min((this.loadingFile as UploadFile).percent, 99)}%</p>
               </div>
             ) : (
               <div class={`${UPLOAD_NAME}__card-container ${UPLOAD_NAME}__card-box`}>

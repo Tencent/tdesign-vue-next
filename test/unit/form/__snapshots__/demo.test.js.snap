@@ -109,13 +109,14 @@ exports[`Form Form alignVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -150,13 +151,14 @@ exports[`Form Form alignVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner t-input--suffix"
+            class="t-input t-size-m t-input--suffix"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
@@ -263,13 +265,14 @@ exports[`Form Form baseVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入内容"
               type="text"
             />
@@ -304,13 +307,14 @@ exports[`Form Form baseVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入内容"
               type="text"
             />
@@ -621,13 +625,14 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -662,13 +667,14 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner t-input--suffix"
+            class="t-input t-size-m t-input--suffix"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
@@ -724,13 +730,14 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner t-input--suffix"
+            class="t-input t-size-m t-input--suffix"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
@@ -908,13 +915,14 @@ exports[`Form Form layoutVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -948,13 +956,14 @@ exports[`Form Form layoutVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner t-input--suffix"
+            class="t-input t-size-m t-input--suffix"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
@@ -1013,7 +1022,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner t-input--prefix"
+            class="t-input t-size-m t-input--prefix"
             modelvalue=""
           >
             <span
@@ -1038,6 +1047,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入账户名"
               type="text"
             />
@@ -1062,7 +1072,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix"
+            class="t-input t-size-m t-input--prefix t-input--suffix"
             modelvalue=""
           >
             <span
@@ -1092,6 +1102,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入密码"
               type="password"
             />
@@ -1193,13 +1204,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -1238,13 +1250,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -1279,13 +1292,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -1320,13 +1334,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="隐藏状态icon"
               type="text"
             />
@@ -1363,13 +1378,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -1404,13 +1420,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="正在校验中，请稍等"
               type="text"
             />
@@ -1480,12 +1497,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -1546,13 +1564,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -1670,13 +1689,14 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -1715,13 +1735,14 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -1760,13 +1781,14 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -2138,13 +2160,14 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
@@ -2179,13 +2202,14 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
