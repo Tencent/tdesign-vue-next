@@ -2,7 +2,8 @@
 
 exports[`Input Input addonVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--input__input-box"
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
 >
   <div
     class="t-addon t-addon--prepend"
@@ -13,12 +14,13 @@ exports[`Input Input addonVue demo works fine 1`] = `
       http://
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入内容"
         type="text"
       />
@@ -32,12 +34,13 @@ exports[`Input Input addonVue demo works fine 1`] = `
   >
     
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入内容"
         type="text"
       />
@@ -59,12 +62,13 @@ exports[`Input Input addonVue demo works fine 1`] = `
       http://
     </span>
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="请输入内容"
         type="text"
       />
@@ -82,41 +86,40 @@ exports[`Input Input addonVue demo works fine 1`] = `
 
 exports[`Input Input baseVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--input__input-box"
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
 >
   <div
-    class="t-input t-size-m t-input__inner"
+    class="t-input t-size-m"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
-      placeholder="请输入内容（无默认值）"
+      class="t-input__inner"
+      placeholder="请输入"
       type="text"
     />
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
-    class="t-input t-size-m t-input__inner"
+    class="t-input t-size-m"
     modelvalue="有默认值"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入内容（有默认值）"
       type="text"
     />
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
-    class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix"
+    class="t-input t-size-m t-input--prefix t-input--suffix"
   >
     <!---->
     <div
@@ -126,6 +129,7 @@ exports[`Input Input baseVue demo works fine 1`] = `
     </div>
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入"
       type="text"
     />
@@ -141,16 +145,18 @@ exports[`Input Input baseVue demo works fine 1`] = `
 
 exports[`Input Input clearableVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--input__input-box"
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
 >
   <div
-    class="t-input t-size-m t-input__inner"
+    class="t-input t-size-m"
     modelvalue="Hello TDesign"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入"
       type="text"
     />
@@ -162,15 +168,17 @@ exports[`Input Input clearableVue demo works fine 1`] = `
 
 exports[`Input Input disabledVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--input__input-box"
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
 >
   <div
-    class="t-input t-size-m t-input__inner t-is-disabled"
+    class="t-input t-size-m t-is-disabled"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       disabled=""
       placeholder="请输入"
       type="text"
@@ -183,15 +191,17 @@ exports[`Input Input disabledVue demo works fine 1`] = `
 
 exports[`Input Input focusVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--input__input-box"
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
 >
   <div
-    class="t-input t-size-m t-input__inner"
+    class="t-input t-size-m"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入内容"
       type="text"
     />
@@ -203,7 +213,8 @@ exports[`Input Input focusVue demo works fine 1`] = `
 
 exports[`Input Input groupVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--input__input-box"
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
 >
   <div>
     <div
@@ -211,13 +222,14 @@ exports[`Input Input groupVue demo works fine 1`] = `
     >
       
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -225,12 +237,13 @@ exports[`Input Input groupVue demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -246,12 +259,13 @@ exports[`Input Input groupVue demo works fine 1`] = `
     >
       
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -259,12 +273,13 @@ exports[`Input Input groupVue demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -280,12 +295,13 @@ exports[`Input Input groupVue demo works fine 1`] = `
     >
       
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -293,12 +309,13 @@ exports[`Input Input groupVue demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -314,13 +331,14 @@ exports[`Input Input groupVue demo works fine 1`] = `
     >
       
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -333,13 +351,14 @@ exports[`Input Input groupVue demo works fine 1`] = `
          - 
       </span>
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -347,13 +366,14 @@ exports[`Input Input groupVue demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -361,13 +381,14 @@ exports[`Input Input groupVue demo works fine 1`] = `
         <!---->
       </div>
       <div
-        class="t-input t-size-m t-input__inner"
+        class="t-input t-size-m"
         style="width: 100px;"
       >
         <!---->
         <!---->
         <input
           autocomplete="false"
+          class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
@@ -382,10 +403,11 @@ exports[`Input Input groupVue demo works fine 1`] = `
 
 exports[`Input Input passwordVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--input__input-box"
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
 >
   <div
-    class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix"
+    class="t-input t-size-m t-input--prefix t-input--suffix"
   >
     <span
       class="t-input__prefix t-input__prefix-icon"
@@ -414,6 +436,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入"
       type="password"
     />
@@ -443,7 +466,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
   </div>
   <!-- 使用 function 的形式定义 icon -->
   <div
-    class="t-input t-size-m t-input__inner t-input--prefix t-input--suffix"
+    class="t-input t-size-m t-input--prefix t-input--suffix"
   >
     <span
       class="t-input__prefix t-input__prefix-icon"
@@ -470,6 +493,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入"
       type="password"
     />
@@ -502,15 +526,16 @@ exports[`Input Input passwordVue demo works fine 1`] = `
 
 exports[`Input Input sizeVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--input__input-box"
+  class="tdesign-demo-block-column"
 >
   <div
-    class="t-input t-size-l t-input__inner"
+    class="t-input t-size-l"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入内容"
       type="text"
     />
@@ -518,12 +543,13 @@ exports[`Input Input sizeVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input t-size-m t-input__inner"
+    class="t-input t-size-m"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入内容"
       type="text"
     />
@@ -531,12 +557,13 @@ exports[`Input Input sizeVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input t-size-s t-input__inner"
+    class="t-input t-size-s"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入内容"
       type="text"
     />
@@ -548,15 +575,17 @@ exports[`Input Input sizeVue demo works fine 1`] = `
 
 exports[`Input Input statusVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--input__input-box"
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
 >
   <div
-    class="t-input t-size-m t-input__inner t-is-success"
+    class="t-input t-size-m t-is-success"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入"
       type="text"
     />
@@ -564,12 +593,13 @@ exports[`Input Input statusVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input t-size-m t-input__inner t-is-warning"
+    class="t-input t-size-m t-is-warning"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入"
       type="text"
     />
@@ -577,12 +607,13 @@ exports[`Input Input statusVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input t-size-m t-input__inner t-is-error"
+    class="t-input t-size-m t-is-error"
   >
     <!---->
     <!---->
     <input
       autocomplete="false"
+      class="t-input__inner"
       placeholder="请输入"
       type="text"
     />
@@ -594,7 +625,8 @@ exports[`Input Input statusVue demo works fine 1`] = `
 
 exports[`Input Input textareaVue demo works fine 1`] = `
 <div
-  class="tdesign-demo-item--input__input-box"
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
 >
   <h5>
     文本域输入框已抽离为单独组件，更多示例请参考 Textarea 组件

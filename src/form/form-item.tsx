@@ -150,7 +150,6 @@ export default defineComponent({
   },
 
   beforeUnmount() {
-    emitEvent(this.form, 'form-item-destroyed', this);
     const index = this.form.children.findIndex((item: FormItemInstance) => item === this);
     this.form.children.splice(index, 1);
   },

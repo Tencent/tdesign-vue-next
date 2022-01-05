@@ -1141,12 +1141,13 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-size-m t-input__inner"
+      class="t-input t-size-m"
     >
       <!---->
       <!---->
       <input
         autocomplete="false"
+        class="t-input__inner"
         placeholder="获得焦点时触发"
         type="text"
       />

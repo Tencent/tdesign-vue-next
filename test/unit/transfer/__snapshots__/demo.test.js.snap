@@ -4356,12 +4356,13 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入关键词搜索"
               type="text"
             />
@@ -4972,12 +4973,13 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m t-input__inner"
+            class="t-input t-size-m"
           >
             <!---->
             <!---->
             <input
               autocomplete="false"
+              class="t-input__inner"
               placeholder="请输入关键词搜索"
               type="text"
             />
