@@ -1,5 +1,4 @@
 import { ComponentPublicInstance, defineComponent, VNode } from 'vue';
-import content from '@src/layout/content';
 import { prefix } from '../config';
 import TTabPanel from './tab-panel';
 import TTabNav from './tab-nav';
