@@ -1,4 +1,5 @@
-import { defineComponent, computed, provide, ref, reactive, watch, onMounted } from 'vue';
+import { defineComponent, computed, provide, ref, reactive, watch, onMounted, watchEffect } from 'vue';
+import log from '../_common/js/log/log';
 import { prefix } from '../config';
 import props from './head-menu-props';
 import { MenuValue } from './type';
@@ -12,6 +13,13 @@ export default defineComponent({
   components: { Tabs, TabPanel },
   props,
   setup(props, ctx) {
+    if (__IS_DEV__) {
+      watchEffect(() => {
+        if (ctx.slots.options) {
+          log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
+        }
+      });
+    }
     const activeValue = ref(props.defaultValue || props.value);
     const activeValues = ref([]);
     const expandValues = ref(props.defaultExpanded || props.expanded || []);
@@ -134,9 +142,6 @@ export default defineComponent({
     },
   },
   render() {
-    if (this.$slots.options) {
-      console.warn('TDesign Warn: `options` slot is going to be deprecated, please use `operations` for slot instead.');
-    }
     const operations = renderContent(this, 'operations', 'options');
     const logo = renderTNodeJSX(this, 'logo');
     return (
