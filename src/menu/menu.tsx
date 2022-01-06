@@ -6,11 +6,19 @@ import { TdMenuInterface, TdOpenType } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
 import { ClassName } from '../common';
+import log from '../_common/js/log/log';
 
 export default defineComponent({
   name: 'TMenu',
   props: { ...props },
   setup(props, ctx) {
+    if (__IS_DEV__) {
+      watchEffect(() => {
+        if (ctx.slots.options) {
+          log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
+        }
+      });
+    }
     const mode = ref(props.expandType);
     const theme = computed(() => props.theme);
     const isMutex = computed(() => props.expandMutex);
@@ -113,9 +121,6 @@ export default defineComponent({
     };
   },
   render() {
-    if (this.$slots.options) {
-      console.warn('TDesign Warn: `options` slot is going to be deprecated, please use `operations` for slot instead.');
-    }
     const operations = renderContent(this, 'operations', 'options');
     const logo = renderTNodeJSX(this, 'logo');
     return (
