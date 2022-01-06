@@ -49,7 +49,7 @@ export default defineComponent({
             if (v === packageJson.version) return false;
             const nums = v.split('.');
             if ((nums[0] === '0' && nums[1] < 5) || v.indexOf('alpha') > -1) return false;
-            options.push({ label: v, value: v });
+            options.unshift({ label: v, value: v });
           });
           this.options.push(...options);
         });
