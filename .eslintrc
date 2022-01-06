@@ -123,10 +123,7 @@
       }
     },
     {
-      "files": "*",
-      "globals": {
-        "__IS_DEV__": "readonly"
-      }
+      "files": "*"
     }
   ]
 }

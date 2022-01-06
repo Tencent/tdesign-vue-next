@@ -13,13 +13,11 @@ export default defineComponent({
   components: { Tabs, TabPanel },
   props,
   setup(props, ctx) {
-    if (__IS_DEV__) {
-      watchEffect(() => {
-        if (ctx.slots.options) {
-          log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
-        }
-      });
-    }
+    watchEffect(() => {
+      if (ctx.slots.options) {
+        log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
+      }
+    });
     const activeValue = ref(props.defaultValue || props.value);
     const activeValues = ref([]);
     const expandValues = ref(props.defaultExpanded || props.expanded || []);

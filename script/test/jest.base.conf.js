@@ -29,7 +29,6 @@ module.exports = {
       tsconfig: '<rootDir>/tsconfig.json',
       babelConfig: true,
     },
-    __IS_DEV__: true,
   },
   reporters: [
     'default',

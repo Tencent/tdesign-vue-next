@@ -12,13 +12,11 @@ export default defineComponent({
   name: 'TMenu',
   props: { ...props },
   setup(props, ctx) {
-    if (__IS_DEV__) {
-      watchEffect(() => {
-        if (ctx.slots.options) {
-          log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
-        }
-      });
-    }
+    watchEffect(() => {
+      if (ctx.slots.options) {
+        log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
+      }
+    });
     const mode = ref(props.expandType);
     const theme = computed(() => props.theme);
     const isMutex = computed(() => props.expandMutex);

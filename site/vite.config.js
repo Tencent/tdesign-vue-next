@@ -16,9 +16,6 @@ export default defineConfig({
       'tdesign-vue-next': path.resolve(__dirname, '../src'),
     },
   },
-  define: {
-    __IS_DEV__: process.env.NODE_ENV !== 'production',
-  },
   server: {
     host: '127.0.0.1',
     port: 17000,

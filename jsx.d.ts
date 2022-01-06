@@ -7,8 +7,6 @@ declare global {
       [emit: string]: any;
     }
   }
-
-  const __IS_DEV__: boolean;
 }
 
 declare module '@vue/runtime-dom' {
