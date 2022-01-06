@@ -96,7 +96,7 @@ export default defineComponent({
     });
 
     onMounted(() => {
-      menu?.vMenu?.add({ value: props.value, parent: submenu?.value });
+      menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default });
       const instance = getCurrentInstance();
 
       isNested.value = /submenu/i.test(instance.parent?.type.name);

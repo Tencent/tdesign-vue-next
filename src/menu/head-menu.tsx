@@ -125,7 +125,7 @@ export default defineComponent({
           {
             <t-tabs value={this.activeValue} onChange={this.handleTabChange}>
               {this.submenu.map((item) => (
-                <t-tab-panel value={item.value} label={item.vnode[0]?.children} />
+                <t-tab-panel value={item.value} label={item.vnode()[0]?.children} />
               ))}
             </t-tabs>
           }

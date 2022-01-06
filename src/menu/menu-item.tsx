@@ -1,4 +1,4 @@
-import { defineComponent, computed, inject, onMounted } from 'vue';
+import { defineComponent, computed, inject, onMounted, getCurrentInstance } from 'vue';
 import { prefix } from '../config';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
@@ -27,7 +27,7 @@ export default defineComponent({
 
     // lifetimes
     onMounted(() => {
-      menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default && ctx.slots.default() });
+      menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default });
     });
 
     return {

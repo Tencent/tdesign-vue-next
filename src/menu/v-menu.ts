@@ -1,4 +1,4 @@
-import { VNode } from 'vue';
+import { VNode, Slot } from 'vue';
 
 type MenuValue = string | number;
 type MenuNode = MenuValue | VMenuData;
@@ -7,13 +7,13 @@ interface VMenuData {
   value: MenuValue;
   parent?: MenuNode;
   children: VMenuData[];
-  vnode?: VNode[];
+  vnode?: Slot;
 }
 
 interface VMenuItem {
   value?: MenuValue;
   parent: MenuValue;
-  vnode?: VNode[];
+  vnode?: Slot;
 }
 
 const getTreePaths = (node: VMenuData, val: MenuValue, ans: MenuValue[]): MenuValue[] => {
